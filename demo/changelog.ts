@@ -35,7 +35,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     groups: [
       {
         heading: 'New shops',
-        points: ['Gorgeous Shop and Beauty Flash prices compared'],
+        points: ['Gorgeous Shop, Beauty Flash and Scentsational'],
       },
     ],
   },

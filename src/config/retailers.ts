@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 74 retailers, 44 of them `enabled: true`. Every one of them is a legitimate
+ * 74 retailers, 45 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -6523,8 +6523,8 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'scentsational.com',
     homepage: 'https://www.scentsational.com',
     tiers: ['designer'],
-    // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
-    // file. Currency probe (run 32255905250, job 96077421762, 2026-08-19):
+    // Off CURRENCY_UNCONFIRMED since 2026-10-08 (see the dated section below
+    // and the note at the foot of this file). Currency probe (run 32255905250, job 96077421762, 2026-08-19):
     // robots.txt answers (2s crawl-delay, honoured), and the bare origin
     // answers 200 — quoting this US runner USD, not GBP, and every other way
     // of asking (?country=GB, both cookies, Accept-Language en-GB) agrees at
@@ -6576,7 +6576,13 @@ export const RETAILERS: readonly Retailer[] = [
     // Delivery read off https://www.scentsational.com/delivery-returns-i5 the
     // same day: standard UK delivery 2-5 working days, £2.95 under £80, free
     // over £80.
-    enabled: false,
+    //
+    // Proved from a GitHub runner the same day: harvest probe run
+    // 37719553362, job 113123821680 (dry run, this route, cookie sent). The
+    // product sitemaps gave 701 addresses, 80 product pages read, 80 priced
+    // listings, every one labelled GBP; it stopped only at the probe's 8
+    // minute ceiling. Switched on for that.
+    enabled: true,
     adapter: 'json-ld',
     currency: 'GBP',
     shipping: {
@@ -6594,7 +6600,9 @@ export const RETAILERS: readonly Retailer[] = [
         'Standard UK delivery, 2-5 working days. DPD next working day (£4.95) and Saturday (£6.95) ' +
         'are other services and are not modelled. The Caramel Dream 75ml product page (£25.00) ' +
         'labelled itself "FREE UK Delivery" the same day, which the delivery page does not say ' +
-        'for an order under £80; the delivery page is the figure used until a basket check settles it.',
+        'for an order under £80; the delivery page is the figure used until a basket check settles it. ' +
+        'Currency: sterling, read 2026-10-08 with the shop\'s own currency setting (VSCurrency=GBP); ' +
+        'removed from CURRENCY_UNCONFIRMED that day.',
     },
     sitemapRoute: {
       roots: ['https://www.scentsational.com/sitemap-index.xml'],
@@ -10232,15 +10240,15 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'asking published any currency at all, and /products.json 404s everywhere too. Now a ' +
       'genuinely silent storefront rather than an unopened one — still no basis for sterling.',
   ],
-  [
-    'scentsational',
-    'scentsational.com quotes this US runner USD by default and at every request shape tried ' +
-      '(currency probe, run 32255905250 job 96077421762, 2026-08-19): origin, ?country=GB, both ' +
-      'localisation cookies and Accept-Language en-GB all settle USD; /en-gb, /gb, /uk, /en-uk ' +
-      'all 404, so there is no market-prefix address to try instead. /products.json 404s ' +
-      'everywhere too, so this is not a confirmed Shopify storefront either. Unlike escentual, ' +
-      'no request this repo knows how to make has found a GBP reading anywhere on this shop.',
-  ],
+  // scentsational was removed from this list on 2026-10-08. Its own currency
+  // menu (/currency/GBP/) sets one cookie, VSCurrency=GBP, and with it the
+  // product pages label every offer priceCurrency GBP beside a visible £ price
+  // equal to the JSON-LD figure (Caramel Dream 75ml: £25.00; the same page in
+  // dollars shows $33.05 while its JSON-LD still says 25.00, so sterling is the
+  // price list and dollars the conversion). Its pinned route sends the cookie
+  // and sets requireGbp, so a price is stored only when its own offer says
+  // GBP, and probe run 37719553362 (job 113123821680) read all 80 of the
+  // listings it fetched that way from a runner. It is now `enabled: true`.
   // parfumdreams-uk was removed from this list on 2026-10-03, on the angle
   // its own note here named: product pages label every offer priceCurrency
   // GBP. Its pinned route sets requireGbp, so a price is stored only when its
