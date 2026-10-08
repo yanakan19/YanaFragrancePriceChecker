@@ -1,7 +1,7 @@
 {
   "retailerId": "beautybase",
-  "updatedAt": "2026-10-07T21:31:12.037Z",
-  "seenAt": "2026-10-07T21:31:12.037Z",
+  "updatedAt": "2026-10-08T01:23:01.700Z",
+  "seenAt": "2026-10-08T01:23:01.700Z",
   "source": "live",
   "listings": [
     {
@@ -67627,8 +67627,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-10-07T05:01:53.896Z",
       "lastSeenAt": "2026-10-07T12:53:23.133Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-10-08T01:23:01.700Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null

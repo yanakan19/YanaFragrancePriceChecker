@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-07T21:31:12.037Z",
-  "seenAt": "2026-10-07T21:31:12.037Z",
+  "updatedAt": "2026-10-08T01:23:01.700Z",
+  "seenAt": "2026-10-08T01:23:01.700Z",
   "source": "live",
   "listings": [
     {
@@ -71061,7 +71061,7 @@
       "priceGbp": 10.23,
       "wasPriceGbp": 23,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Joop! Homme Mild Deodorant Spray 75ml.",
       "productType": "Deodorant",

@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-07T21:31:12.037Z",
-  "seenAt": "2026-10-07T21:31:12.037Z",
+  "updatedAt": "2026-10-08T01:23:01.700Z",
+  "seenAt": "2026-10-08T01:23:01.700Z",
   "source": "live",
   "listings": [
     {
@@ -11353,7 +11353,7 @@
       "priceGbp": 230,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Patchouli, a classic perfumery ingredient also known as Nilam in Indonesia, is reinvented in this Haute Couture composition.. The fragrance opens with fresh and sophisticated notes of violet leaves. In its heart, the nobility of rose meets the impertinence of leather. Finally, the patchouli’s depth blends with intoxicating notes of tobacco, creating a sensual trail.. CUIR NILAM, a patchouli dressed in a leather perfecto with typically Parisian elegance.. Top Notes: Cardamon, Violet leaf Heart Notes: Rose, Leather Base Notes: Patchouli, Tobacco .",
       "productType": "Fragrance",
