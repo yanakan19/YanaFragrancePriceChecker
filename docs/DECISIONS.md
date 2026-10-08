@@ -2142,3 +2142,66 @@ What the owner must do: say "do the social images". An agent then builds the
 deploy step, changes `social/DESIGN-SYSTEM.md` and the routines' instructions;
 the owner updates the routine prompts if they are kept outside the repository.
 Posts already committed stay as they are.
+
+## D29 — Four shops retired from the registry (decided, 2026-10-08)
+
+**Decided by the owner, 2026-10-08.** Four entries in `src/config/retailers.ts`
+were deleted outright, not switched off, so nobody re-adds them by accident:
+
+| id | domain | why |
+| --- | --- | --- |
+| `paco-perfumerias` | pacoperfumerias.com | The Spanish storefront. No sterling price was ever read from it (2026-08-19 and 2026-10-03). The UK shop, `paco-perfumerias-uk` (pacoperfumerias.co.uk), is a separate entry, is live, and was not touched. |
+| `sabina` | sabina.com | A PrestaShop shop that picks the delivery country from the visitor's location. The pounds it can show are its own conversion of a euro price for a US delivery (about 0.8757, no UK VAT treatment); the only way to set the country to the UK is `/modules/mclocationselector/ajax.php`, which its robots.txt disallows. |
+| `bath-body-works-uk` | bathandbodyworks.co.uk | Per the owner, its pound prices are conversions for US delivery. Separately, its product pages answered HTTP 403 from the edge (2026-08-20, 2026-10-03), so no price was ever read. |
+| `fragrancedirect` | fragrancedirect.co.uk | A holding page that only links to allbeauty.com (evidence below). Allbeauty is already in the registry. |
+
+None of the four was ever enabled and none had a catalogue snapshot or a
+listing, so the site, the Shops list and the enabled count (48) did not change.
+The total went 80 to 76. The repository had no "retired" flag; it already
+removed shops it will not carry (very.co.uk and Wowcher, Khadlaj, Morrisons
+and B&M, the Bristol niche perfumery), so this follows that. Nothing new was
+added to the `Retailer` type.
+
+**Fragrancedirect, read again on 2026-10-08** before it was retired. One
+request each, `PriceSniffsBot/0.2 (UK fragrance price comparison;
++https://pricesniffs.space/about/bot)`, no cookies, robots.txt first:
+
+- `https://www.fragrancedirect.co.uk/robots.txt`: HTTP 404 (no restrictions
+  under RFC 9309), and the body is the same 5,063 byte holding page.
+- `https://www.fragrancedirect.co.uk/`: HTTP 200, 5,063 bytes, title "Fragrance
+  Direct | We're making some changes", `<meta name="robots" content="noindex,
+  nofollow">`. The text: "Fragrance Direct is making improvements behind the
+  scenes. Visit our sister site allbeauty.com for the best deals on your
+  fragrance favourites." Its only links are `https://www.allbeauty.com` and its
+  own favicon. No product, no price, no navigation.
+
+That matches the 2026-09-10 and 2026-10-03 readings in the old entry, so the
+retirement stands on three readings, not one. If a storefront ever returns at
+that domain, treat it as a new candidate (research, probe, then a fresh entry),
+not as a revival of this one.
+
+**What was left alone, on purpose.**
+
+- `data/product-slugs.json`, `data/id-aliases.json` and the price history
+  checkpoint are append only memories and were not touched. None of them names
+  a retailer id, so nothing in them points at a retired shop anyway.
+- `data/shipping-discover-state.json` and `data/shipping-discovery-report.json`
+  still name the old ids. They are written by the shipping discovery workflow,
+  and its next write drops ids that are not in the registry (`recordChecked`).
+  No test or script reads them for a retailer.
+- No `demo/*.generated.ts` or catalogue file changed: no retired shop was in
+  them. `npm run demo` builds as before.
+- No changelog line: nothing a visitor could notice.
+
+**Guards.** `tests/registry.test.ts` pins the total at 76 (with the dated
+history beside it, as for every earlier removal), and has a block that fails
+if any of the four ids or domains is back in `RETAILERS` or in
+`CURRENCY_UNCONFIRMED`, and checks the UK Paco shop is still live. The
+registry header says the same. Older comments in `src/config/retailers.ts`
+that say "the paco-perfumerias entry" mean the retired .com; they were left
+as the record of what was found.
+
+**What would change this.** For Paco, nothing: the UK shop is the one to
+carry. For Sabina and Bath & Body Works, a shop that prices a UK delivery in
+sterling on a page the robots.txt lets us read. For Fragrancedirect, a
+storefront coming back. Each would be a new entry written from fresh readings.

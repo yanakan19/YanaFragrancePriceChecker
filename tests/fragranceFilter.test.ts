@@ -286,13 +286,14 @@ describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
     expect(flagged).toEqual(['escentric-molecules', 'kayali', 'riiffs', 'sainte-cellier', 'zimaya']);
   });
 
-  // The trap this guards. LUSH and Bath & Body Works are also single-brand,
-  // and their tiers are indistinguishable from Escentric Molecules', so
-  // nothing about a registry entry's shape can be used to infer the flag.
-  // They sell bath and body products, where the concentration test is exactly
-  // what keeps soap out of the comparison.
+  // The trap this guards. LUSH is also single-brand (so was Bath & Body Works,
+  // until the owner retired it on 2026-10-08), and its tiers are
+  // indistinguishable from Escentric Molecules', so nothing about a registry
+  // entry's shape can be used to infer the flag. It sells bath and body
+  // products, where the concentration test is exactly what keeps soap out of
+  // the comparison.
   it('is not implied by singleBrandOnly', () => {
-    for (const id of ['lush', 'bath-body-works-uk']) {
+    for (const id of ['lush']) {
       const r = getRetailer(id);
       expect(r?.singleBrandOnly, `${id} should still be single-brand`).toBeTruthy();
       expect(r?.fragranceOnlyCatalogue, `${id} must not be exempt`).toBeFalsy();

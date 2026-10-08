@@ -412,3 +412,39 @@ What holds for all of them:
   2026-10-08. Joined, it needs no code: the Awin feed sync reads it.
 - **Recommendation:** off. Owner chases 5901 in Awin
   (`docs/outreach/perfume-shopping.md`).
+
+## Retired shops, 8 October 2026
+
+The owner retired four entries from the registry on 2026-10-08 (D29 in
+`docs/DECISIONS.md`): Paco Perfumerias (the Spanish .com; the UK shop stays
+live), Sabina Store, Bath & Body Works and Fragrancedirect. They are deleted,
+not switched off, and `tests/registry.test.ts` fails if one comes back. None
+had a listing, so no harvest, snapshot or page changed.
+
+### Fragrancedirect, read before it was retired
+
+One plain request per URL on 2026-10-08, robots.txt first, as
+`PriceSniffsBot/0.2 (UK fragrance price comparison;
++https://pricesniffs.space/about/bot)`, no cookies, no proxy worked round.
+
+- `https://www.fragrancedirect.co.uk/robots.txt`: HTTP 404, which RFC 9309
+  reads as no restrictions. The body was the holding page below.
+- `https://www.fragrancedirect.co.uk/`: HTTP 200, 5,063 bytes. Title
+  "Fragrance Direct | We're making some changes"; `<meta name="robots"
+  content="noindex, nofollow">`. Page text: "Fragrance Direct is making
+  improvements behind the scenes. Visit our sister site allbeauty.com for the
+  best deals on your fragrance favourites." The only links are
+  `https://www.allbeauty.com` and the shop's own favicon.
+
+So it is a holding page that only links to Allbeauty, as the earlier readings
+(2026-09-10, 2026-10-03) said. Nothing to harvest, no route to build.
+
+### The other three
+
+- **Paco Perfumerias (.com):** a Spanish storefront with no sterling reading.
+  The UK store, pacoperfumerias.co.uk (`paco-perfumerias-uk`), prices in GBP,
+  has its own route and delivery terms, and was not touched.
+- **Sabina Store:** pounds are the shop's conversion of a euro price for a US
+  delivery; the one way to set the UK is a path its robots.txt disallows.
+- **Bath & Body Works:** pound prices are conversions for US delivery; product
+  pages were refused at the edge in August and again on 2026-10-03.
