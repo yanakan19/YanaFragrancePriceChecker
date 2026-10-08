@@ -1,0 +1,269 @@
+{
+ "products": [
+  {
+   "id": 15568896622967,
+   "title": "LE CARROUSEL",
+   "handle": "le-carrousel",
+   "vendor": "ODETTE PARFUM CO.",
+   "product_type": "EAU DE PARFUM",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 57518194360695,
+     "sku": "SCODE22",
+     "title": "30ml | 1oz",
+     "option1": "30ml | 1oz",
+     "option2": null,
+     "option3": null,
+     "price": "80.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15561698836855,
+   "title": "NOSTOS DISCOVERY SET",
+   "handle": "nostos-discovery-set",
+   "vendor": "NOSTOS",
+   "product_type": "PERFUME SAMPLES",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 57489414062455,
+     "sku": "SCNOS4",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "25.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15074945696119,
+   "title": "SWARNA CHAMPA",
+   "handle": "swarna-champa",
+   "vendor": "MALAAN GAUDHOOP CO.",
+   "product_type": "INCENSE",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55544637784439,
+     "sku": "SCMAL3",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "6.95",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7983928541409,
+   "title": "£100 GIFT CARD",
+   "handle": "100-gift-card",
+   "vendor": "GIFTS & GOODS",
+   "product_type": "Gift Card",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Denominations"
+    }
+   ],
+   "variants": [
+    {
+     "id": 43758124892385,
+     "sku": "",
+     "title": "£100.00",
+     "option1": "£100.00",
+     "option2": null,
+     "option3": null,
+     "price": "100.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15566057242999,
+   "title": "Discovering DANLO | 等路",
+   "handle": "discovering-danlo",
+   "vendor": "DANLO",
+   "product_type": "PERFUME EVENT",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Time Slot"
+    }
+   ],
+   "variants": [
+    {
+     "id": 57510199886199,
+     "sku": null,
+     "title": "Saturday 17th October | 2:00 - 4:00 PM",
+     "option1": "Saturday 17th October | 2:00 - 4:00 PM",
+     "option2": null,
+     "option3": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 57510199918967,
+     "sku": null,
+     "title": "Saturday 17th October | 4:00 - 6:00 PM",
+     "option1": "Saturday 17th October | 4:00 - 6:00 PM",
+     "option2": null,
+     "option3": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7841396490465,
+   "title": "CUIR DE CHINE",
+   "handle": "cuir-de-chine",
+   "vendor": "LES INDÉMODABLES",
+   "product_type": "Perfume & Cologne",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 43321611354337,
+     "sku": "SCIND15",
+     "title": "Full Size 50ml | 1.7oz",
+     "option1": "Full Size 50ml | 1.7oz",
+     "option2": null,
+     "option3": null,
+     "price": "195.00",
+     "compare_at_price": null,
+     "available": false
+    },
+    {
+     "id": 43321611387105,
+     "sku": "SCIND16",
+     "title": "2ml Spray Sample",
+     "option1": "2ml Spray Sample",
+     "option2": null,
+     "option3": null,
+     "price": "12.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15114033496439,
+   "title": "PINE",
+   "handle": "pine",
+   "vendor": "STORA SKUGGAN",
+   "product_type": "",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55705831178615,
+     "sku": "SCSTO9",
+     "title": "Full Size 30ml | 1oz",
+     "option1": "Full Size 30ml | 1oz",
+     "option2": null,
+     "option3": null,
+     "price": "130.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15009515503991,
+   "title": "EDGE EFFECTS",
+   "handle": "edge-effects",
+   "vendor": "ST. CLAIR SCENTS",
+   "product_type": "",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55305830400375,
+     "sku": "",
+     "title": "30ml | 1oz",
+     "option1": "30ml | 1oz",
+     "option2": null,
+     "option3": null,
+     "price": "190.00",
+     "compare_at_price": null,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 15408047423863,
+   "title": "L'ENTROPISTE DISCOVERY SET",
+   "handle": "lentropiste-discovery-set",
+   "vendor": "L'ENTROPISTE",
+   "product_type": "EAU DE PARFUM",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 56838929482103,
+     "sku": "SCLEN29",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "68.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

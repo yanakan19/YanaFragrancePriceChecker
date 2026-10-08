@@ -5,6 +5,8 @@ import {
   resolveRobotsReadings,
   loadRobotsResilient,
   probeRobots,
+  isBotWallNotRobots,
+  ROBOTS_BOT_WALL,
 } from '../src/catalogue/robotsSource.js';
 import { isAllowed } from '../src/catalogue/robots.js';
 import type { HttpResponse } from '../src/catalogue/attempt.js';
@@ -218,5 +220,65 @@ describe('probeRobots asks as the bot, once per address', () => {
     const probe = await probeRobots({ domain: 'x.test', homepage: 'https://x.test' }, http, BOT);
     expect(probe.attempts.map((a) => a.status)).toEqual([503, 503]);
     expect(probe.rules.unavailable).toBe(true);
+  });
+});
+
+/**
+ * A captcha served with a 2xx in place of robots.txt is a refusal, not an empty
+ * file (2026-10-08). The SiteGround body below is Riiffs Perfumes' answer to
+ * /robots.txt as measured that day (docs/SHOP-PROBES-2026-10-08.md, section 7),
+ * with the egress address in it replaced by a documentation address.
+ */
+describe('a bot wall in place of robots.txt', () => {
+  const SITEGROUND_202 =
+    '<html><head><meta http-equiv="refresh" content="0;/.well-known/sgcaptcha/?r=%2Frobots.txt&y=ipr:192.0.2.1:1791425455.123"></meta></head></html>';
+  const CLOUDFLARE_200 =
+    '<!DOCTYPE html><html><head><title>Just a moment...</title></head><body>' +
+    '<script>window._cf_chl_opt={cvId: "3", cType: "managed"};</script>' +
+    '<script src="/cdn-cgi/challenge-platform/h/g/orchestrate/chl_page/v1"></script></body></html>';
+
+  it('reads a SiteGround captcha with HTTP 202 as refused', () => {
+    expect(isBotWallNotRobots(SITEGROUND_202)).toBe(true);
+    expect(readRobotsResponse({ ok: true, status: 202, body: SITEGROUND_202 })).toEqual({ kind: 'refused' });
+  });
+
+  it('reads a Cloudflare challenge served as a 200 as refused', () => {
+    expect(readRobotsResponse({ ok: true, status: 200, body: CLOUDFLARE_200 })).toEqual({ kind: 'refused' });
+  });
+
+  it('still parses a real file that merely mentions a challenge path', () => {
+    const body = '# /cdn-cgi/challenge-platform/ is Cloudflare\'s\nUser-agent: *\nDisallow: /cdn-cgi/\n';
+    expect(isBotWallNotRobots(body)).toBe(false);
+    const reading = readRobotsResponse({ ok: true, status: 200, body });
+    expect(reading.kind).toBe('rules');
+  });
+
+  it('still reads an ordinary HTML page with no challenge as a (rule-less) file, as before', () => {
+    expect(readRobotsResponse({ ok: true, status: 200, body: '<html><body>Home</body></html>' }).kind).toBe('rules');
+  });
+
+  it('lets a refusal hold the shop off whatever another address said', () => {
+    const file = readRobotsResponse({ ok: true, status: 200, body: 'User-agent: *\nAllow: /' });
+    expect(resolveRobotsReadings([{ kind: 'absent' }, { kind: 'refused' }]).unavailable).toBe(true);
+    expect(resolveRobotsReadings([file, { kind: 'refused' }]).unavailable).toBe(true);
+  });
+
+  it('stops at the first address that answers with one, and says why', async () => {
+    const asked: string[] = [];
+    const http = async (url: string) => {
+      asked.push(url);
+      return res({ ok: true, status: 202, body: SITEGROUND_202 });
+    };
+    const probe = await probeRobots(
+      { domain: 'uk.riiffsperfumes.com', homepage: 'https://uk.riiffsperfumes.com' },
+      http,
+      { 'user-agent': 'PriceSniffsBot/0.2 (test)' },
+    );
+    expect(asked).toEqual(['https://uk.riiffsperfumes.com/robots.txt']);
+    expect(probe.rules.unavailable).toBe(true);
+    expect(isAllowed(probe.rules, 'https://uk.riiffsperfumes.com/sitemap_index.xml')).toBe(false);
+    expect(probe.attempts).toEqual([
+      { url: 'https://uk.riiffsperfumes.com/robots.txt', status: 202, error: ROBOTS_BOT_WALL },
+    ]);
   });
 });

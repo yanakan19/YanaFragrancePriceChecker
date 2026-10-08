@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
+import { crawlViaShopifyProducts, SERVER_ERROR_RETRY_MS } from '../src/catalogue/shopifyProductsCrawl.js';
 import { NO_RESTRICTIONS } from '../src/catalogue/robots.js';
 import type { Retailer } from '../src/types/retailer.js';
 import type { Http } from '../src/catalogue/attempt.js';
@@ -81,5 +81,90 @@ describe('crawlViaShopifyProducts: the gap between requests', () => {
 
     expect(result.listings).toHaveLength(1);
     expect(sleeps).toEqual([1500]);
+  });
+});
+
+/**
+ * A storefront's bad minute. Fenwick (100 pages of 250) answered 3 of them with
+ * HTTP 503 on 2026-10-08, 1.5 to 2.5 seconds apart, and answered the same page
+ * with 200 fifteen seconds later. The walk used to end at the first one, which
+ * for a catalogue whose perfume sits on pages 47 and 64 to 70 meant most of it
+ * was missed on most runs.
+ */
+describe('crawlViaShopifyProducts: a server error is asked about once more', () => {
+  const pageOf = (url: string) => {
+    const m = /page=(\d+)/.exec(url);
+    return m ? Number.parseInt(m[1]!, 10) : 1;
+  };
+
+  it('waits, asks the same page again, and carries on when the second answer is good', async () => {
+    const sleeps: number[] = [];
+    const sleep = async (ms: number) => {
+      sleeps.push(ms);
+    };
+    const asked: number[] = [];
+    let failedOnce = false;
+    const http: Http = async (url) => {
+      const p = pageOf(url);
+      asked.push(p);
+      if (p === 2 && !failedOnce) {
+        failedOnce = true;
+        return { status: 503, ok: false, body: '' };
+      }
+      return { status: 200, ok: true, body: p <= 3 ? page([p]) : page([]) };
+    };
+
+    const result = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 10, gapMs: 1500, sleep, currency: STERLING,
+    });
+
+    expect(asked).toEqual([1, 2, 2, 3, 4]);
+    expect(result.listings.map((l) => l.retailerSku)).toEqual(['sku-1', 'sku-2', 'sku-3']);
+    expect(result.errors).toEqual([]);
+    expect(result.retriedPages).toBe(1);
+    // The retry is not a page of the catalogue: four pages were read (the fourth empty).
+    expect(result.pagesFetched).toBe(4);
+    expect(result.complete).toBe(true);
+    expect(sleeps).toContain(SERVER_ERROR_RETRY_MS);
+    expect(sleeps.filter((ms) => ms === SERVER_ERROR_RETRY_MS)).toHaveLength(1);
+  });
+
+  it('asks a failing page only once more, then ends the walk with the error and keeps what it read', async () => {
+    const asked: number[] = [];
+    const http: Http = async (url) => {
+      const p = pageOf(url);
+      asked.push(p);
+      if (p === 2) return { status: 503, ok: false, body: '' };
+      return { status: 200, ok: true, body: page([p]) };
+    };
+
+    const result = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 10, gapMs: 0, sleep: async () => {}, currency: STERLING,
+    });
+
+    expect(asked).toEqual([1, 2, 2]);
+    expect(result.listings).toHaveLength(1);
+    expect(result.errors).toHaveLength(1);
+    expect(result.errors[0]).toMatch(/page=2.*HTTP 503/);
+    expect(result.retriedPages).toBe(1);
+    expect(result.complete).toBe(false);
+  });
+
+  it.each([403, 429, 404])('never asks again after an HTTP %s', async (status) => {
+    const asked: number[] = [];
+    const http: Http = async (url) => {
+      const p = pageOf(url);
+      asked.push(p);
+      if (p === 2) return { status, ok: false, body: '' };
+      return { status: 200, ok: true, body: page([p]) };
+    };
+
+    const result = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 10, gapMs: 0, sleep: async () => {}, currency: STERLING,
+    });
+
+    expect(asked).toEqual([1, 2]);
+    expect(result.retriedPages).toBe(0);
+    expect(result.errors).toHaveLength(1);
   });
 });

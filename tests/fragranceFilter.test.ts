@@ -276,7 +276,14 @@ describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
     // with the flag only single bottles pass (sets, duos, "2 x 5ml", hair
     // mists, body sprays and the four-bottle "Wardrobe" are all still out).
     // See its entry in src/config/retailers.ts.
-    expect(flagged).toEqual(['escentric-molecules', 'kayali', 'riiffs', 'zimaya']);
+    //
+    // Sainte Cellier joined 2026-10-08 after its harvested catalogue was read
+    // title by title: 260 listings pass, every one a scent named alone ("LE
+    // CARROUSEL 30ml | 1oz"), with the strength only in the shop's product type,
+    // which the concentration test cannot see. Its sample sets, 2ml samples,
+    // soaps, incense, vouchers and tickets are kept out by the shop's variant
+    // rule, not by this flag. See its entry in src/config/retailers.ts.
+    expect(flagged).toEqual(['escentric-molecules', 'kayali', 'riiffs', 'sainte-cellier', 'zimaya']);
   });
 
   // The trap this guards. LUSH and Bath & Body Works are also single-brand,

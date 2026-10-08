@@ -73,17 +73,56 @@ export function robotsCandidateUrls(
  *                    fall back to "no restrictions" if nothing better turns up.
  *   - `unreachable`— 5xx, a network failure, a hostname that does not resolve.
  *                    Tells us nothing at all.
+ *   - `refused`    — a 2xx whose body is a bot wall (a captcha or challenge
+ *                    page), not a robots file. The shop has refused the bot
+ *                    at its front door. Stop asking, and ask nothing else.
  */
 export type RobotsReading =
   | { kind: 'rules'; rules: RobotsRules }
   | { kind: 'absent' }
-  | { kind: 'unreachable' };
+  | { kind: 'unreachable' }
+  | { kind: 'refused' };
+
+/**
+ * ── A captcha is not a robots file (2026-10-08) ─────────────────────────────
+ * Riiffs Perfumes answers /robots.txt with HTTP 202, an `sg-captcha:
+ * challenge` header and a body that is one meta refresh to
+ * /.well-known/sgcaptcha/ (docs/SHOP-PROBES-2026-10-08.md, section 7). A 202 is
+ * a 2xx, so this used to be parsed as a robots file; a page with no
+ * User-agent line parses to no rules at all, which reads as "nothing
+ * forbidden". The harvest then went on to ask that shop's Shopify and
+ * WooCommerce endpoints and its sitemap, each answering the same captcha,
+ * before stopping. By the owner's rule (docs/INGESTION.md, 4 October 2026) a
+ * bot wall is a refusal and the shop is left alone, so a robots.txt that comes
+ * back as a challenge page now stops the shop before anything else is asked.
+ *
+ * Recognised only by the challenge markers of the walls this registry has met
+ * (SiteGround, Cloudflare's challenge platform, Imperva/Incapsula, DataDome,
+ * PerimeterX), and only when the body carries no robots directive at all, so
+ * a real file that merely mentions one of these words in a comment still
+ * parses as a file. A 4xx keeps its RFC 9309 meaning (no file published); this
+ * changes nothing for a 403 challenge, which the next request records.
+ */
+const BOT_WALL_MARKER =
+  /\/\.well-known\/sgcaptcha\/|_cf_chl_opt|\/cdn-cgi\/challenge-platform\/|_Incapsula_Resource|captcha-delivery\.com|px-captcha/i;
+const ROBOTS_DIRECTIVE = /^\s*(user-agent|disallow|allow|sitemap|crawl-delay)\s*:/im;
+
+/** True when a 2xx "robots.txt" body is a bot wall rather than a robots file. */
+export function isBotWallNotRobots(body: string): boolean {
+  return BOT_WALL_MARKER.test(body) && !ROBOTS_DIRECTIVE.test(body);
+}
+
+/** What a run prints for an address that answered robots.txt with a bot wall. */
+export const ROBOTS_BOT_WALL = 'a captcha or challenge page instead of robots.txt (refused; nothing else asked)';
 
 /** Exported for tests: classifying a response needs no network. */
 export function readRobotsResponse(
   res: { ok: boolean; status: number; body: string },
 ): RobotsReading {
-  if (res.ok && res.body) return { kind: 'rules', rules: parseRobots(res.body, 'pricesniffsbot') };
+  if (res.ok && res.body) {
+    if (isBotWallNotRobots(res.body)) return { kind: 'refused' };
+    return { kind: 'rules', rules: parseRobots(res.body, 'pricesniffsbot') };
+  }
   if (res.status >= 400 && res.status < 500) return { kind: 'absent' };
   return { kind: 'unreachable' };
 }
@@ -91,7 +130,9 @@ export function readRobotsResponse(
 /**
  * Resolve a reading over several candidate addresses.
  *
- * A published file wins outright wherever it is found. Failing that, a 4xx
+ * A bot wall anywhere holds the shop off: it has refused the bot, and that
+ * is not overruled by what another of its addresses says. Otherwise a
+ * published file wins outright wherever it is found. Failing that, a 4xx
  * from any candidate is a real answer — "there is no such file" — and beats
  * silence. Only when every candidate was unreachable do we hold off, which is
  * the one case where refusing to crawl is the right call.
@@ -100,6 +141,7 @@ export function readRobotsResponse(
  * is testable on its own.
  */
 export function resolveRobotsReadings(readings: readonly RobotsReading[]): RobotsRules {
+  if (readings.some((r) => r.kind === 'refused')) return UNREACHABLE_ROBOTS;
   for (const r of readings) if (r.kind === 'rules') return r.rules;
   if (readings.some((r) => r.kind === 'absent')) return NO_RESTRICTIONS;
   return UNREACHABLE_ROBOTS;
@@ -149,14 +191,20 @@ export async function probeRobots(
     let reading: RobotsReading;
     try {
       const res = await http(url, headers);
-      attempts.push({ url, status: res.status, error: res.error ?? null });
       reading = readRobotsResponse(res);
+      attempts.push({
+        url,
+        status: res.status,
+        error: reading.kind === 'refused' ? ROBOTS_BOT_WALL : (res.error ?? null),
+      });
     } catch (err) {
       attempts.push({ url, status: 0, error: String(err).slice(0, 160) });
       reading = { kind: 'unreachable' };
     }
     readings.push(reading);
-    if (reading.kind === 'rules') break;
+    // A file ends the search; so does a bot wall, which is not asked again at
+    // the shop's other addresses.
+    if (reading.kind === 'rules' || reading.kind === 'refused') break;
   }
 
   return { rules: resolveRobotsReadings(readings), attempts };

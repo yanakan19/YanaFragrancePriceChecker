@@ -257,6 +257,162 @@ gating are unit tested against a fake transport
 (`tests/apifyActor.test.ts`, `tests/attempt.test.ts`), and the first real
 run with `APIFY_TOKEN` set is the verification step, not this document.
 
+## Switched-off shops: diagnosis, 8 October 2026
+
+Measured in `docs/SHOP-PROBES-2026-10-08.md` (exact error lines there), and
+diagnosed one shop at a time under the rules above: PriceSniffsBot only,
+robots.txt obeyed, no proxy, fingerprint, captcha or challenge worked round.
+What holds for all of them:
+
+- **The Apify tiers stay off** (D23). Where they once worked (the actor on
+  Selfridges and Zara in August) they worked by rendering as a visitor from a
+  residential address, which is the way round a refusal this project no
+  longer takes. `allow_metered` is accepted and does nothing.
+- **The free local render is never tried after a refusal**, so it cannot help
+  a shop that refuses robots.txt or its sitemap.
+- **Our side, fixed:** the one shop probe (`harvest-one-shop.yml`) did not
+  install Chromium, so it could not show the render tier the crawl has. It
+  now installs it as the crawl does. No refused shop changes because of it.
+- **Our side, open:** only an Awin feed reader exists. A shop whose programme
+  is on Rakuten Advertising (The Fragrance Shop, probably The Perfume Shop)
+  or Partnerize (Selfridges) needs a reader for that network's product feed
+  once a programme approves us. Build it against a real approved feed, not
+  before.
+- **One project wide honest route, not tried:** Cloudflare's Verified Bots
+  programme. A bot that identifies itself verifiably (a Web Bot Auth
+  signature, or a published IP list with a stable user agent) and obeys
+  robots.txt can be listed, and many Cloudflare zones let verified bots past
+  their bot rules. Four of the eight are on Cloudflare (The Fragrance Shop,
+  Selfridges, Notino UK, Perfume Shopping), and Notino's robots.txt already
+  allows us. Whether a given zone admits verified bots is the shop's setting,
+  and a WAF block or a region rule would still stand. An owner decision:
+  it needs a Cloudflare account, an application, and request signing in
+  `src/catalogue/botIdentity.ts`'s clients.
+
+### The Fragrance Shop
+
+- **Blocker:** Cloudflare managed challenge (HTTP 403, `cf-mitigated:
+  challenge`) on robots.txt, the three sections and the sitemap; HTTP 403 on
+  the sitemap from a GitHub runner. Zone wide, robots.txt included.
+- **Our side:** nothing that reaches past it. Identity, URLs and timeouts are
+  not the cause; no markup is served, so no parser or adapter can help.
+- **Lawful route:** Rakuten Advertising, The Fragrance Shop, advertiser ID
+  43488, with a daily product feed (the shop's own affiliates page, read
+  through a search engine extract). Awin closed, Webgains closing.
+- **Recommendation:** off. Owner applies on Rakuten
+  (`docs/outreach/the-fragrance-shop.md`); then build the Rakuten feed reader.
+
+### The Perfume Shop
+
+- **Blocker:** Akamai edge deny (AkamaiGHost "Access Denied", HTTP 403) on
+  robots.txt, the four sections, the sitemap and a known product page; HTTP
+  403 on the sitemap from a GitHub runner. The same group wide rule as
+  Superdrug (both AS Watson).
+- **Our side:** nothing. Identity, URLs and timeouts are not the cause; the
+  74 stored pages are rightly not re-read after the sitemap refusal.
+- **Lawful route:** the shop's affiliate programme (its own /affiliates
+  page). Network unconfirmed: Tradedoubler (exclusive from 2018) and Awin
+  are listed closed, Rakuten Advertising GB listed open by aggregators.
+- **Recommendation:** off. Owner reads the join link on the affiliates page
+  and applies, most likely on the same Rakuten account
+  (`docs/outreach/the-perfume-shop.md`).
+
+### Selfridges
+
+- **Blocker:** Cloudflare block page ("Attention Required!", "Sorry, you
+  have been blocked", HTTP 403) on robots.txt, the section, the sitemap and a
+  product page; HTTP 403 on the sitemap from a GitHub runner. A WAF block,
+  not a challenge.
+- **Our side:** nothing to fix. URL and parser (`selfridgesRsc.ts`) are
+  right. The last priced run (60 listings, 2026-10-04 15:38Z) was the free
+  local render, two hours before the PriceSniffsBot only rule; the render now
+  rightly stops at the refusal.
+- **Lawful route:** Partnerize (Selfridges moved there from Awin and Rakuten
+  in 2022); Partnerize lets a brand give its partners a product feed.
+- **Recommendation:** off. Owner signs up on Partnerize and applies, asking
+  for the feed and whether comparison sites are accepted
+  (`docs/outreach/selfridges.md`).
+
+### Harvey Nichols
+
+- **Blocker:** no HTTP response to robots.txt on either host: an HTTP/2
+  stream reset (INTERNAL_ERROR) or a stall with 0 bytes, from the sandbox and
+  a GitHub runner. DNS puts both hosts on Akamai (www via
+  sdpremium.edgekey.net), so it is a connection level refusal at the Akamai
+  edge. An unreachable robots.txt means nothing may be asked (RFC 9309).
+- **Our side:** nothing to fix; the robots rule is applied correctly and a
+  longer timeout would only wait on a stall. The probe's new Chromium step
+  matters here only if the shop ever answers (its grid is drawn by script).
+- **Lawful route:** Rakuten Advertising (affi.io: "Harvey Nichols & Co Ltd",
+  GB, open). Unconfirmed; no affiliates page found on the shop's domain.
+- **Recommendation:** off. Owner searches Rakuten for the programme and
+  applies (`docs/outreach/harvey-nichols.md`).
+
+### Zara
+
+- **Blocker:** Akamai edge deny ("Access Denied", HTTP 403) on robots.txt,
+  both sections, the sitemap and a product page; HTTP 403 on the sitemap from
+  a GitHub runner. Only the Apify actor on a residential address ever got the
+  page (August), and the free local render got 403.
+- **Our side:** nothing to fix; the parser already prices its render.
+- **Lawful route:** no affiliate programme or feed (an invitation only
+  creator scheme through LTK is not a feed). Permission from Zara (Inditex)
+  only.
+- **Recommendation:** off, lowest priority: a single brand shop is never
+  compared with another shop here (`docs/outreach/zara.md`).
+
+### Notino UK
+
+- **Blocker:** Cloudflare managed challenge (HTTP 403, `cf-mitigated:
+  challenge`) on the section; robots.txt answers 200 and allows the section,
+  product pages and the sitemap. The shop's crawl policy admits us; its
+  Cloudflare zone does not.
+- **Our side:** nothing broken. The harvest skips `owner-import` on purpose;
+  the URL, pagination, parser and saved page importer are in place. Missing:
+  a CJ feed reader, to build against a real feed (`docs/NOTINO-PLAN.md`).
+- **Lawful route:** CJ Affiliate, Notino UK programme run by VIVnetworks,
+  "XML feed: yes". Also the permission email, and the Verified Bots route
+  above, which fits best here because robots.txt already allows us.
+- **Recommendation:** off. Owner applies on CJ and sends the email the same
+  day (`docs/outreach/notino-uk.md`); weekly saved pages are an optional
+  bridge.
+
+### Riiffs Perfumes
+
+- **Blocker:** SiteGround bot captcha (HTTP 202, `sg-captcha: challenge`) on
+  robots.txt, the sitemap and product pages, from the sandbox and a GitHub
+  runner.
+- **Our side, fixed:** a 2xx captcha served in place of robots.txt used to
+  parse as an empty robots file ("nothing forbidden"), so the harvest asked
+  the shop's platform endpoints and sitemap after it had already refused.
+  `src/catalogue/robotsSource.ts` now reads a bot wall at robots.txt as a
+  refusal and asks nothing else, for every shop. More polite; prices nothing.
+- **Lawful route:** no affiliate programme or feed found. Permission from the
+  shop, which can have its host let PriceSniffsBot through.
+- **Intermittent, proved after the fix:** probe run #78 (03:11Z) was not
+  challenged: WooCommerce re-priced 141 of 141 stored listings in 3 requests,
+  13 new pages priced. The crawl had also read it cleanly on 2026-10-04,
+  two hours before the owner switched it off. So the route works whenever
+  SiteGround does not challenge.
+- **Recommendation:** off for now as the owner's choice, not a blocker; safe
+  to switch back on whenever the owner wants (a challenged run now costs one
+  request). The email (`docs/outreach/riiffs.md`) would make it reliable.
+
+### Perfume Shopping
+
+- **Blocker:** a Cloudflare region rule: HTTP 403, "We are sorry, this
+  service is not available in your region.", on robots.txt, both sections and
+  the sitemap, from the sandbox and a GitHub runner. A refusal by where we ask
+  from, not a bot challenge.
+- **Our side:** nothing in code. Where we ask from is ours: a UK self-hosted
+  runner would still be PriceSniffsBot, but changing network in answer to a
+  403 is the owner's call under D23. Not done.
+- **Lawful route:** Awin merchant 5901 (found on Awin's own profile page
+  today), applied 2026-08-11; not among the 5 accepted advertisers on
+  2026-10-08. Joined, it needs no code: the Awin feed sync reads it.
+- **Recommendation:** off. Owner chases 5901 in Awin
+  (`docs/outreach/perfume-shopping.md`).
+
 ## Four Awin shops measured again (8 October 2026)
 
 Gorgeous Shop, Beauty Flash, Scentsational and Beauty The Shop UK had sat

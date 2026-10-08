@@ -34,8 +34,12 @@ export const CHANGELOG: ChangelogEntry[] = [
     date: '8 Oct 2026',
     groups: [
       {
-        heading: 'New shops',
-        points: ['Gorgeous Shop, Beauty Flash and Scentsational'],
+        heading: 'New',
+        points: [
+          'Six new shops: Fenwick, Opulensi, Perfumoi',
+          'Also Saad, Sainte Cellier, The Perfume Closet',
+          'Plus Gorgeous Shop, Beauty Flash, Scentsational',
+        ],
       },
     ],
   },
