@@ -981,3 +981,33 @@ a refusal.
   directory for Harvey Nichols (same account as The Fragrance Shop), applies
   and asks for the product feed; permission email as the fallback
   (`docs/outreach/harvey-nichols.md`).
+
+### 5. Zara
+
+- **Why not:** Akamai edge deny. "Access Denied", HTTP 403, 375 to 476 bytes,
+  errors.edgesuite.net reference, `akamai-cache-status: Error from child`, on
+  robots.txt, both sections, /sitemap.xml and the known product page from
+  this machine; HTTP 403 on /sitemap.xml from the CI runner (run #70). A DNS
+  lookup today shows `www.zara.com` as a CNAME to `zara.com.edgekey.net` and
+  `e101087.dscx.akamaiedge.net`. The deny is served before robots.txt.
+- **Our side?** Nothing to fix:
+  - URL: both sections are real category pages; robots.txt is denied the
+    same way.
+  - Parser: the JSON-LD parser priced 8 of 8 listings on a render of the
+    women's section (2026-08-22), so there is no parser gap.
+  - Identity: PriceSniffsBot. Timeout: no.
+  - Render tier: the free local render got 403 at 325 to 331 bytes four times
+    on 2026-08-25/26 (`renderRefused: 'local'`), and is never tried after a
+    refusal anyway.
+  - Apify: the actor reached the page from a residential address (HTTP 200,
+    2.76 to 2.94 MB, 2026-08-20 to 2026-08-22). That is precisely a route
+    round the deny; off by D23.
+  - Workflow: the probe now installs Chromium (shop 1); not relevant here.
+- **Lawful route:** none with a feed. No open affiliate programme was found;
+  sources describe an invitation only creator "Ambassador" scheme, reported
+  to run through LTK, which pays creators and gives no product feed. The only
+  lawful route is permission from Zara (Inditex).
+- **Recommendation:** stays off, lowest priority. Zara sells only its own
+  perfumes (`singleBrandOnly`), so its listings are never compared with
+  another shop's. Permission email refreshed (`docs/outreach/zara.md`), to send
+  last if at all.

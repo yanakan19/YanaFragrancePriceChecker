@@ -5301,6 +5301,29 @@ export const RETAILERS: readonly Retailer[] = [
     // browser headers, no residential or rotating proxy (only this
     // sandbox's own fixed egress), nothing retried against a refusal. See
     // docs/outreach/ for the permission request drafted for the owner.
+    //
+    // ── Diagnosis, 2026-10-08 (docs/SHOP-PROBES-2026-10-08.md) ──────────────
+    // Blocker: an Akamai edge deny ("Access Denied", HTTP 403, 375 to 476
+    // bytes, errors.edgesuite.net reference) on robots.txt, both sections,
+    // /sitemap.xml and the known product page from the sandbox, and HTTP 403
+    // on /sitemap.xml from a GitHub runner (probe run #70, job 113118100955).
+    // DNS (2026-10-08): www.zara.com is a CNAME to zara.com.edgekey.net, on
+    // Akamai. The deny comes before robots.txt, so it is a rule about the
+    // requester.
+    // Our side, checked: the sections are real pages, the JSON-LD parser
+    // already prices this shop's render (8 priced, 2026-08-22), identity is
+    // PriceSniffsBot, answers come in under a second. The only route that
+    // ever reached the page was the Apify actor on a residential address
+    // (2.76 to 2.94 MB); the free local render got 403 four times
+    // (`renderRefused: 'local'`) and is never tried after a refusal anyway;
+    // the actor is off by D23 and would be a route round the deny. Nothing
+    // on our side to fix.
+    // Lawful route: none with a feed. Zara runs no open affiliate programme
+    // (only an invitation only creator "Ambassador" scheme, reported to run
+    // through LTK), so the only route is a permission request to Zara
+    // (Inditex). Recommendation: stays off, lowest priority of the eight:
+    // a single brand shop whose perfumes no other shop sells is never
+    // compared here. Email in docs/outreach/zara.md, to send last if at all.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {

@@ -337,3 +337,16 @@ What holds for all of them:
   GB, open). Unconfirmed; no affiliates page found on the shop's domain.
 - **Recommendation:** off. Owner searches Rakuten for the programme and
   applies (`docs/outreach/harvey-nichols.md`).
+
+### Zara
+
+- **Blocker:** Akamai edge deny ("Access Denied", HTTP 403) on robots.txt,
+  both sections, the sitemap and a product page; HTTP 403 on the sitemap from
+  a GitHub runner. Only the Apify actor on a residential address ever got the
+  page (August), and the free local render got 403.
+- **Our side:** nothing to fix; the parser already prices its render.
+- **Lawful route:** no affiliate programme or feed (an invitation only
+  creator scheme through LTK is not a feed). Permission from Zara (Inditex)
+  only.
+- **Recommendation:** off, lowest priority: a single brand shop is never
+  compared with another shop here (`docs/outreach/zara.md`).
