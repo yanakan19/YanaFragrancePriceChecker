@@ -40,6 +40,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'New UK shops: Rowlands, Lloyds, Beauté Boulevard',
           'Also Scent Warehouse, Roullier White, Scented',
           'More guides: shops, notes, matching and deals',
+          'New Notes page: groups, icons and search',
         ],
       },
       {

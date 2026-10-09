@@ -7120,10 +7120,12 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // one rise per block is the whole rule.
   $('#view').innerHTML = `<div${mode === 'enter' ? ' class="ps-rise"' : ''}>${body}</div>`;
 
+  // The Notes tab's sticky bar marks the group in view (no op elsewhere).
+  mountNoteGroupSpy();
+
   // Any list that emitted a sentinel now gets its observer. Done here rather
   // than inside each view so no view has to remember to do it.
   mountChunkedList();
-  mountNoteGroupSpy();
 
   // Ad slots this page drew, if ads are on (a no op otherwise).
   mountAds();
