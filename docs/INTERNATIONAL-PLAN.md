@@ -611,9 +611,39 @@ A dry run per region, nothing published: no page, no sitemap entry, no UK file t
 | Crawl minutes | 14.4 | 14.4 |
 
 Rebuilt from the same snapshots with the region name match (regionMatchName, Perfume Palace's vendor
-fix), the independent share is 8.7% in the US and 10.5% in India. Reruns with that code (US
-37887007762, India 37887989045) were running when this was written; their reports land in
-`data/regions/<us|in>/report.json`.
+fix), the independent share is 8.7% in the US and 10.5% in India.
+
+**Reruns, same day**, with the name match, Nykaa's header fix and AAR Fragrances' og:price reader:
+
+| | US, run 37887007762 (built 05:21 UTC) | India, run 37887989045 (built 05:33 UTC) |
+| --- | --- | --- |
+| Shops priced | 22 of 22 enabled | 13 of 14 enabled (Purplle read nothing) |
+| Products | 21,685 | 13,856 |
+| Two or more shops | 5,824 (26.9%); counting the one catalogue once: 1,948 (9.0%) | 1,587 (11.5%) |
+| Three or more shops | 2,112 | 286 |
+| Median gap, dearest to cheapest | 17.5% | 13.0% |
+| Listings with a barcode | 16.8% (1,490 products match a UK product by barcode) | 0.2% (19 match the UK) |
+| Crawl minutes | 14.5 | 14.3 |
+
+The name match (`regionMatchName`: "For Unisex", "For Man & Woman" and the like taken out before
+the same-bottle merge, region build only; the shared UK matcher is untouched) is in these numbers
+and is **the owner's call** to keep: without it India's share was 5.2% and the US's 7.9%.
+
+Why the three anchors read thin on the reruns, and what changed after them:
+
+- **Nykaa, 280 listings.** All seven product sitemaps were read (3,069 perfume addresses); the
+  limit was one product page per request, 295 pages in the 14 minute share. Now 40 minutes and up
+  to 1,000 new pages a run at the same 2 second gap; each run reads unseen pages first, so the
+  snapshot grows run by run. Its sku is its own id, not a barcode (32 of 260 read as one).
+- **Ulta, 178 priced, 0 kept.** One sitemap file (`/sitemap/p.xml`, 2,812 perfume addresses); 187
+  pages in 12 minutes (pages are about 1.4 MB). Its priced Product names no size: the size of the
+  selected sku is only in the page's ProductGroup (`hasVariant` sku and size), which is now read.
+  Now 40 minutes and up to 900 new pages.
+- **Purplle, 0.** From the GitHub runner its sitemap is answered with a 545 byte page that only
+  loads a bot-check script, on both India runs; from other networks the same request gets the
+  sitemap. That is a challenge, so a refusal under D23: switched off with that reason, not worked
+  around.
+
 
 Failures and why: **Nykaa** read nothing from the runner because its answer's headers pass Node's
 16 KB limit (undici HeadersOverflowError, not a refusal); the harvest now allows larger headers.
