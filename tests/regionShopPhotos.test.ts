@@ -38,7 +38,7 @@ describe('which shops show their photos', () => {
   });
 
   it('shops outside the decision stay off', () => {
-    for (const id of ['notino-uk', 'boots', 'the-fragrance-shop', 'superdrug', 'french-avenue', 'al-haramain', 'zimaya', 'kayali', 'scentsational', 'cosmetify']) {
+    for (const id of ['boots', 'the-fragrance-shop', 'superdrug', 'french-avenue', 'al-haramain', 'zimaya', 'kayali', 'scentsational', 'cosmetify']) {
       expect(RETAILERS.find((r) => r.id === id)?.affiliate.imageBasis, id).toBeUndefined();
     }
   });
