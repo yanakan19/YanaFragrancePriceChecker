@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-10-08T21:59:56.361Z",
-  "seenAt": "2026-10-08T21:59:56.361Z",
+  "updatedAt": "2026-10-09T01:52:35.625Z",
+  "seenAt": "2026-10-09T01:52:35.625Z",
   "source": "live",
   "listings": [
     {
@@ -658,7 +658,7 @@
       "priceGbp": 15,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Cardamom, Orris, Amber/15 ml. Bluest, a fragrant embodiment of serenity and stability. A confident blend crafted by perfumer Jean-Louis Sieuzac, balancing the crisp freshness of cardamom with the depth of orris, creating an aura of peace and dignity that surrounds your presence. . In a perfectly compact format to accompany you anywhere and anytime. . The story unfolds with the cool, bright notes of cardamom, offering a sense of purity and clarity that soon intertwines with the delicate, powdery embrace of orris, instilling a quiet serenity within the senses. In the end, the blend seamlessly settles over a luxurious amber base, This is more than a practically-sized fragrance; it’s a soothing olfactory emotion that is truly exceptional in its presence. . Fragrance Notes . Top Note: Cardamom . Heart Note: Orris . Base Note: Amber .",
       "productType": null,

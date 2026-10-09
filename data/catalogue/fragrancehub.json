@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-08T21:59:56.361Z",
-  "seenAt": "2026-10-08T21:59:56.361Z",
+  "updatedAt": "2026-10-09T01:52:35.625Z",
+  "seenAt": "2026-10-09T01:52:35.625Z",
   "source": "live",
   "listings": [
     {
@@ -60,7 +60,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rayhaan Vantage by Rayhaan is a 100ml Eau de Parfum celebrating aromatic wisdom. Frankincense-forward. Cedarwood grounded. The fragrance for the unisex wearer embracing spiritual depth through a sophisticated composition. Designed for those who appreciate clarity over complexity.. Top Notes: Cardamom, Bergamot and Pink Pepper Heart Notes: Frankincense, Myrrh and Juniper Berries Base Notes: Cedarwood and Patchouli.",
       "productType": null,
