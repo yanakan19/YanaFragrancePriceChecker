@@ -48,7 +48,7 @@ export const CHANGELOG: ChangelogEntry[] = [
       },
       {
         heading: 'Products and Matching',
-        points: ['Notes tidied: one name per ingredient', 'Ortigia oils back; Commodity listed once'],
+        points: ['Notes tidied: one name per ingredient', 'Ortigia oils back; Commodity listed once', 'Notino UK back with a few saved prices'],
       },
     ],
   },
