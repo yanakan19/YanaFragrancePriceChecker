@@ -781,6 +781,8 @@
     margin: 18px auto 0; width: 90%; font-size: 17px; font-weight: 600;
     color: var(--ink); text-align: center; letter-spacing: -.01em;
   }
+  /* A beta region's home: when its prices were last read (demo/app.ts regionHeroLines). */
+  .hero-fresh { margin: 8px auto 0; width: 90%; text-align: center; color: var(--ink-2); }
   /* ── marquee ───────────────────────────────────────────────────────────────
      The scrolling word banner under the hero (demo/marquee.ts), ported from
      the owner's other site. Every colour is one of this site's own tokens,
@@ -3590,6 +3592,29 @@
   .account-more > summary { cursor: pointer; font-weight: 600; padding: 12px 0; }
   .account-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-top: 8px; }
   .link-btn.danger { color: var(--accent-ink); }
+
+  /* The beta line and the country bar (public beta, 9 October 2026): one slim
+     line each under the top bar, full width, quiet, readable at 320 wide. */
+  .beta-line, .region-bar { border-bottom: 1px solid var(--line); background: var(--surface); }
+  .beta-line[hidden], .region-bar[hidden] { display: none; }
+  .beta-line-text, .region-bar-text {
+    margin: 0 auto; max-width: 1280px; padding: 8px 16px; font-size: 13px; line-height: 1.4; color: var(--ink-2);
+  }
+  .beta-pill {
+    display: inline-block; margin-right: 6px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--accent);
+    color: var(--accent-ink); font-size: 11px; font-weight: 700; letter-spacing: .02em; vertical-align: 1px;
+  }
+  .region-bar { display: flex; align-items: center; }
+  .region-bar-text { flex: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .region-bar-text .flag { flex: none; }
+  .region-bar-link { color: var(--accent-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+  .region-bar-link:focus-visible, .region-bar-close:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+  .region-bar-close {
+    flex: none; display: inline-grid; place-items: center; width: 44px; height: 40px; margin-right: 8px;
+    border: 0; background: none; color: var(--ink-2); cursor: pointer;
+  }
+  .region-bar-close .ico { width: 16px; height: 16px; }
+  .region-tax-note { margin: 10px 0 0; }
 </style>
 
 
@@ -3653,6 +3678,12 @@
     </div>
     <nav class="subnav" id="subnav" aria-label="Explore" hidden></nav>
   </div>
+  <!-- The US and Indian pages' beta line, and on a deep link the "You are seeing
+       UK prices. See US prices" bar (public beta, 9 October 2026; demo/app.ts
+       renderBetaLine and renderRegionBar, demo/regionSwitch.ts). Empty and
+       hidden on the UK site unless the bar has something to offer. -->
+  <div class="beta-line" id="beta-line" role="region" aria-label="Beta" hidden></div>
+  <div class="region-bar" id="region-bar" role="region" aria-label="Country" hidden></div>
 
   <!-- tabindex="-1" so the skip link can actually move focus here: without
        it the browser scrolls to the landmark but leaves focus on the link,

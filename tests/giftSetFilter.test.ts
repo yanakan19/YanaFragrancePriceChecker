@@ -36,7 +36,7 @@ describe('/gift-sets, kept as an alias for the Sets tab', () => {
   });
 
   it('is not itself in the sitemap, while /sets and /oils are', () => {
-    const xml = readFileSync(resolve(root, 'demo/sitemap.xml'), 'utf8');
+    const xml = readFileSync(resolve(root, 'demo/sitemap-gb.xml'), 'utf8');
     expect(xml).not.toContain('/gift-sets');
     expect(xml).toMatch(/<loc>[^<]*\/sets<\/loc>/);
     expect(xml).toMatch(/<loc>[^<]*\/oils<\/loc>/);

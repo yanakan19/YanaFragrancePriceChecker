@@ -89,7 +89,8 @@ describe('scripts/generated-files.txt', () => {
   it('every deploy path is gitignored and untracked, so a local build can never be committed by accident', () => {
     const deploy = entries.filter((x) => x.policy === 'deploy');
     expect(deploy.map((e) => e.pattern)).toEqual([
-      'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml',
+      'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
+      'demo/us/', 'demo/in/',
       'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/', 'demo/guides/', 'demo/note-icons/h/',
     ]);
     for (const e of deploy) {
@@ -155,7 +156,8 @@ describe('scripts/generated-files.txt', () => {
     // The crawl's page commit takes exactly this list: the built site is not on it.
     for (const p of ['demo/data', 'demo/index.html', 'demo/404.html', 'demo/sitemap.xml']) expect(paths).not.toContain(p);
     expect(bash(['paths', 'deploy']).split(' ')).toEqual([
-      'demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml',
+      'demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
+      'demo/us', 'demo/in',
       'demo/*.html', 'demo/about', 'demo/legal', 'demo/account', 'demo/guides', 'demo/note-icons/h',
     ]);
   });

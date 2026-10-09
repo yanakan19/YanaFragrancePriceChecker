@@ -14,10 +14,16 @@
  * the folders the manifest names is skipped with a warning rather than failing
  * the build, so a new route can never take the deployment down; the test in
  * tests/routePages.test.ts fails instead and says which line to add.
+ *
+ * The region pages too (public beta, 9 October 2026): for each live region
+ * but the UK, the same list inside its folder (demo/us/deals.html is
+ * /us/deals), each a copy of the region's own page (demo/us/index.html) with
+ * the region's tags, from the region's sitemap and counts
+ * (dist-demo/regions/<r>/site.json).
  */
 // First, before anything reads the catalogue (see scripts/siteApply.ts).
 import './siteApply.js';
-import { readFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { COUNTS } from '../demo/counts.js';
@@ -28,6 +34,8 @@ import {
   removeStaleRoutePages, renderRoutePage, routePageProblems, routePages, sitemapPaths,
   type HeadFacts, type RoutePage,
 } from './routePages.js';
+import { liveRegions } from '../src/config/regions.js';
+import type { RegionSiteFacts } from './build-region-data.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const demo = resolve(root, 'demo');
@@ -39,13 +47,31 @@ export const HEAD_FACTS: HeadFacts = {
   legalTitle: (id) => legalPage(id)?.title,
 };
 
+/** The UK's pages, from the UK sitemap (demo/sitemap-gb.xml; demo/sitemap.xml is the index). */
 export function pagesToWrite(): RoutePage[] {
-  const sitemap = readFileSync(resolve(demo, 'sitemap.xml'), 'utf8');
+  const sitemap = readFileSync(resolve(demo, 'sitemap-gb.xml'), 'utf8');
   return routePages(sitemapPaths(sitemap), HEAD_FACTS);
 }
 
+/** Every live region's pages but the UK's, from its sitemap and its counts. */
+export function regionPagesToWrite(): RoutePage[] {
+  const pages: RoutePage[] = [];
+  for (const region of liveRegions()) {
+    if (region.pathPrefix === '') continue;
+    const factsPath = resolve(root, 'dist-demo/regions', region.pathPrefix, 'site.json');
+    const sitemapPath = resolve(demo, `sitemap-${region.pathPrefix}.xml`);
+    if (!existsSync(factsPath) || !existsSync(sitemapPath)) {
+      throw new Error(`the ${region.pathPrefix} region is live but ${existsSync(factsPath) ? sitemapPath : factsPath} is missing: run npm run demo`);
+    }
+    const facts = JSON.parse(readFileSync(factsPath, 'utf8')) as RegionSiteFacts;
+    const head: HeadFacts = { productCount: facts.bottles, retailerCount: facts.shopCount, legalTitle: HEAD_FACTS.legalTitle };
+    pages.push(...routePages(sitemapPaths(readFileSync(sitemapPath, 'utf8'), region), head, region));
+  }
+  return pages;
+}
+
 function main(): void {
-  const pages = pagesToWrite();
+  const pages = [...pagesToWrite(), ...regionPagesToWrite()];
 
   if (process.argv.includes('--check')) {
     const problems = routePageProblems(demo, pages);
@@ -56,7 +82,15 @@ function main(): void {
     return;
   }
 
-  const index = readFileSync(resolve(demo, 'index.html'), 'utf8');
+  const shells = new Map<string, string>();
+  const shellOf = (file: string): string => {
+    let html = shells.get(file);
+    if (html === undefined) {
+      html = readFileSync(resolve(demo, file), 'utf8');
+      shells.set(file, html);
+    }
+    return html;
+  };
   const started = Date.now();
   const written: RoutePage[] = [];
   let bytes = 0;
@@ -68,7 +102,7 @@ function main(): void {
       );
       continue;
     }
-    const html = renderRoutePage(index, page.tags);
+    const html = renderRoutePage(shellOf(page.shell), page.tags);
     mkdirSync(dirname(resolve(demo, page.file)), { recursive: true });
     writeGenerated(root, `demo/${page.file}`, html);
     written.push(page);
@@ -82,9 +116,10 @@ function main(): void {
   );
   for (const r of removed) console.log(`demo/${r}  removed (no such route any more)`);
 
+  const uk = written.filter((p) => p.shell === 'index.html');
   console.log(
-    `demo/<route>.html  ${written.length} pages, ${(bytes / 1024 / 1024).toFixed(1)} MB in all, ` +
-      `${((Date.now() - started) / 1000).toFixed(1)} s (${written.map((p) => p.path).join(' ')})`,
+    `demo/<route>.html  ${written.length} pages (${uk.length} UK, ${written.length - uk.length} in the regions), ${(bytes / 1024 / 1024).toFixed(1)} MB in all, ` +
+      `${((Date.now() - started) / 1000).toFixed(1)} s (${uk.map((p) => p.path).join(' ')})`,
   );
 }
 

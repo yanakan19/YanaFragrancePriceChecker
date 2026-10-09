@@ -94,6 +94,10 @@ export const LAZY_CONTENT_MODULES: Record<string, { module: string; exports: rea
  */
 export const LAZY_BUILT_MODULES: Record<string, string> = {
   notes: 'scripts/noteData.ts',
+  // What a page knows of the other live regions (public beta, 9 October 2026):
+  // the country menu and the "You are seeing UK prices" bar open the same
+  // product or brand there (scripts/regionSite.ts RegionLinks).
+  regions: 'scripts/build-region-data.ts',
   // The product page's note icons (docs/NOTES-PAGE-PLAN.md section F): which
   // icon each note of a product shows. Fetched the first time a product page
   // with notes opens, so a product page never needs the Notes tab's file.

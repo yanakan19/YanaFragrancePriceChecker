@@ -14,8 +14,8 @@ const built = existsSync(resolve(root, 'demo/index.html'));
  * "Select your country" on the built page (docs/INTERNATIONAL-PLAN.md,
  * section 2, "Welcome"; owner request, 9 October 2026).
  *
- * Off today: the UK is the only live region, so the home page opens exactly
- * as before, with no pop-up, nothing stored and no profile request. The
+ * On since the public beta of 9 October 2026 (US and India live, the switch
+ * on): the bare home page asks a visitor who has not chosen. The
  * ?regionwelcome=preview address opens it with every region as a choice, which
  * is how the rest of this file drives it: a real <dialog>, focus in and back,
  * Escape, the close button and a tap outside, light and dark, 320, 390 and
@@ -44,7 +44,7 @@ describe.skipIf(!built)('Select your country', () => {
 
   beforeAll(async () => {
     ({ port, close } = await startDemoServer());
-    browser = await launchChromium();
+    browser = await launchChromium({ countryChosen: null });
   }, 60_000);
 
   afterAll(async () => {
@@ -79,15 +79,14 @@ describe.skipIf(!built)('Select your country', () => {
     return r.violations.map((v) => `[${v.impact}] ${v.id}: ${v.nodes.slice(0, 3).map((n) => n.target.join(' ')).join(' | ')}`);
   }
 
-  it('is off while the UK is the only live region: the home page opens as before', async () => {
-    const { context, page, requests } = await open('/', { account: READER });
+  it('asks on the bare home page since the US and India went live (9 Oct 2026), storing nothing until a choice', async () => {
+    const { context, page } = await open('/', { account: READER });
     try {
-      await page.waitForTimeout(1200);
-      expect(await dialogOpen(page)).toBe(false);
-      expect(await page.evaluate(`document.querySelectorAll('#region-welcome').length`)).toBe(0);
+      await page.waitForSelector('#region-welcome[open]', { timeout: 15_000 });
+      expect(await dialogOpen(page)).toBe(true);
       expect(await stored(page)).toBeNull();
-      expect(requests.filter((r) => /profiles\?select=region/.test(r)), 'no profile request for the region').toEqual([]);
-      expect(await page.evaluate(`document.querySelectorAll('link[rel="alternate"][hreflang]').length`), 'no hreflang').toBe(0);
+      // The home page exists in all three countries: en-GB, en-US, en-IN and x-default.
+      expect(await page.evaluate(`document.querySelectorAll('link[rel="alternate"][hreflang]').length`), 'hreflang').toBe(4);
     } finally {
       await context.close();
     }

@@ -47,7 +47,7 @@ describe.skipIf(!built)('the Country row and the remembered country', () => {
 
   beforeAll(async () => {
     ({ port, close } = await startDemoServer());
-    browser = await launchChromium();
+    browser = await launchChromium({ countryChosen: null });
   }, 60_000);
 
   afterAll(async () => {

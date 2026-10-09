@@ -59,7 +59,14 @@ deploy    demo/index.html                     npm run demo (scripts/build-demo.t
 deploy    demo/404.html                       npm run demo (scripts/build-demo.ts)
 deploy    demo/data/                          npm run demo (scripts/build-demo.ts), content-hashed, old files deleted
 deploy    demo/ads.txt                        npm run demo (scripts/build-demo.ts), from demo/ads.ts
-deploy    demo/sitemap.xml                    npm run demo (scripts/build-sitemap.ts)
+deploy    demo/sitemap.xml                    npm run demo (scripts/build-sitemap.ts): since the public beta (2026-10-09) the index of the three below
+deploy    demo/sitemap-*.xml                  npm run demo (scripts/build-sitemap.ts): one per live region, sitemap-gb.xml (every UK address), sitemap-us.xml, sitemap-in.xml
+# The region pages (public beta since 2026-10-09, docs/INTERNATIONAL-PLAN.md): each live
+# region's page, deep link fallback, content-hashed data files and route pages in its
+# own folder, built from data/regions/<r>/ by scripts/build-region-data.ts and
+# scripts/bundle-region.ts (scratch output in dist-demo/, never committed).
+deploy    demo/us/                            npm run demo (scripts/build-demo.ts, scripts/build-route-pages.ts): /us/, its data files and its route pages
+deploy    demo/in/                            npm run demo (scripts/build-demo.ts, scripts/build-route-pages.ts): /in/, its data files and its route pages
 # A page of its own for every fixed address (/about is demo/about.html), so the host
 # answers 200 and not the 404.html fallback: scripts/build-route-pages.ts, last step
 # of npm run demo; the addresses come from the router's list routes and the sitemap
@@ -130,11 +137,18 @@ incoming  data/price-verification-report.json npm run price:verify
 incoming  data/delivery-recheck-report.json   npm run delivery:recheck
 incoming  docs/DELIVERY-RECHECK.md            npm run delivery:recheck
 
-# ── catalogue-us.yml, catalogue-in.yml: the region dry runs (docs/INTERNATIONAL-PLAN.md, Phase 1) ──
+# ── catalogue-us.yml, catalogue-in.yml: the region crawls (docs/INTERNATIONAL-PLAN.md, Phase 1; daily since the beta) ──
 # Each region's crawl writes and commits only its own folder: its snapshots
-# (catalogue/<shop>.json), its harvest report, its catalogue, price history and
-# report. No UK path, no page. So the region crawls and the UK crawl never commit
-# the same path, which is what lets each run in its own concurrency group
-# (tests/workflowRules.test.ts). Nothing here is published until Phase 1b.
+# (catalogue/<shop>.json), its harvest report, its catalogue, price history,
+# report and product addresses. No UK path, no page. So the region crawls and the
+# UK crawl never commit the same path, which is what lets each run in its own
+# concurrency group (tests/workflowRules.test.ts). Since the public beta
+# (2026-10-09) the deploy builds /us/ and /in/ from these folders.
+# Each region's product addresses: an append only memory like data/product-slugs.json
+# (never delete or change an entry, never reassign a slug; scripts/regionSite.ts). A
+# bottle the UK also sells keeps its UK address. Read by the page build, written only
+# by the region's crawl.
+incoming  data/regions/us/product-slugs.json  scripts/build-region-catalogue.ts --region=us (catalogue-us.yml), append only, reads its own last copy
+incoming  data/regions/in/product-slugs.json  scripts/build-region-catalogue.ts --region=in (catalogue-in.yml), append only, reads its own last copy
 incoming  data/regions/us/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=us (catalogue-us.yml)
 incoming  data/regions/in/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=in (catalogue-in.yml)

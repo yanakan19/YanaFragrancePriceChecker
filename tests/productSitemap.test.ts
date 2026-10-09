@@ -15,7 +15,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
  * first when it is missing.
  */
 describe('the sitemap lists product addresses', () => {
-  const xml = readFileSync(resolve(root, 'demo/sitemap.xml'), 'utf8');
+  const xml = readFileSync(resolve(root, 'demo/sitemap-gb.xml'), 'utf8');
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
 
   beforeAll(() => setProductSlugLookup((id) => DEMO_FRAGRANCES.find((f) => f.id === id)?.slug ?? null));

@@ -41,7 +41,8 @@
  * be checked against the noindex rules in the same test run.
  */
 import { productPathInRegion, type Route } from './router.js';
-import { activeRegion, hreflangAlternates, regionPath, splitRegionPrefix } from '../src/config/regions.js';
+import { activeRegion, hreflangAlternates, regionHasFixedPage, regionPath, splitRegionPrefix, type RegionId } from '../src/config/regions.js';
+import { localWords } from '../src/services/regionText.js';
 import { ADS_ON } from './ads.js';
 import { GUIDES_INDEX, GUIDES_PATH, HOW_WE_CHECK, guideBySlug, guidePath } from './guideList.js';
 
@@ -186,7 +187,25 @@ export const shopsPhrase = (count: number): string =>
 
 const SITE_TAIL = 'Real prices read from the shops themselves, checked daily.';
 
+/**
+ * The tags a page declares. On the US and Indian pages (public beta, 9 October
+ * 2026) the same tags, with the region's words (US shops, shipping, MSRP:
+ * src/services/regionText.ts) and a home description of their own, and the
+ * Notes tab kept out of search engines while its shops publish no notes
+ * (regionHasFixedPage). The UK's tags are exactly what they were.
+ */
 export function headFor(input: HeadInput): HeadTags {
+  const tags = headTagsUk(input);
+  const region = activeRegion();
+  if (region.id === 'GB') return tags;
+  const description = input.route.name === 'home'
+    ? `${SHARE_TITLE}. Fragrance prices from ${region.shopsAdjective} shops, compared${region.beta ? ', in beta' : ''}.`
+    : localWords(tags.description, region);
+  const hidden = input.route.name === 'notes' && !regionHasFixedPage(region, '/notes');
+  return { ...tags, description, ...(hidden ? { noindex: true } : {}) };
+}
+
+function headTagsUk(input: HeadInput): HeadTags {
   const { route, leafName, leafDetail, productCount, retailerCount, leafEmpty, legacyAddress } = input;
   // Query strings are filter state, not separate documents: /brands?tier=niche
   // and /brands are the same page in a different mood, and giving them
@@ -559,13 +578,14 @@ export function headFor(input: HeadInput): HeadTags {
 
 /**
  * The hreflang alternates a page declares beside its canonical: one per live
- * region, and x-default for the UK page (src/config/regions.ts). None while
- * the UK is the only live region, and none on a page kept out of search
- * engines, so today no page declares any.
+ * region that has the page, and x-default for the UK page
+ * (src/config/regions.ts). None on a page kept out of search engines. `has`
+ * names the regions that sell a product or a brand (demo/app.ts reads it from
+ * the `regions` lazy file); left out, every live region that offers the page.
  */
-export function hreflangFor(tags: HeadTags): { hreflang: string; href: string }[] {
+export function hreflangFor(tags: HeadTags, has?: ReadonlySet<RegionId> | readonly RegionId[]): { hreflang: string; href: string }[] {
   if (tags.noindex || !tags.canonical.startsWith(SITE_URL)) return [];
-  return hreflangAlternates(SITE_URL, splitRegionPrefix(tags.canonical.slice(SITE_URL.length) || '/').rest);
+  return hreflangAlternates(SITE_URL, splitRegionPrefix(tags.canonical.slice(SITE_URL.length) || '/').rest, has);
 }
 
 /**

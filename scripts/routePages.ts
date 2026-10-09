@@ -43,8 +43,9 @@
  */
 import { existsSync, readFileSync, readdirSync, rmSync, statSync } from 'node:fs';
 import { join, posix } from 'node:path';
-import { SITE_URL, headFor, type HeadTags } from '../demo/head.js';
+import { SITE_URL, headFor, hreflangFor, type HeadTags } from '../demo/head.js';
 import { listRoutePaths, matchRoute, type Route, type RouteName } from '../demo/router.js';
+import { DEFAULT_REGION, regionPath, setActiveRegionForBuild, type RegionConfig } from '../src/config/regions.js';
 import { referencedDataFiles } from './dataFiles.js';
 import { readStampedHash } from './demoInputsHash.js';
 
@@ -67,29 +68,54 @@ export interface HeadFacts {
 }
 
 export interface RoutePage {
-  /** The address, with a leading slash: /about/legal. */
+  /** The address, with a leading slash: /about/legal, or /us/about/legal in a region. */
   path: string;
-  /** The file under demo/: about/legal.html. */
+  /** The file under demo/: about/legal.html, or us/about/legal.html in a region. */
   file: string;
+  /** The page it is a copy of, under demo/: index.html, or us/index.html in a region. */
+  shell: string;
   route: Route;
   tags: HeadTags;
 }
 
-/** The addresses a sitemap lists, as paths (`https://host/about` gives `/about`). */
-export function sitemapPaths(xml: string): string[] {
+/**
+ * The addresses a sitemap lists, as paths (`https://host/about` gives
+ * `/about`). For a region's sitemap, pass the region: its prefix is taken off
+ * (`https://host/us/about` gives `/about`), since the pages are worked out
+ * inside the region.
+ */
+export function sitemapPaths(xml: string, region: RegionConfig = DEFAULT_REGION): string[] {
   const paths: string[] = [];
+  const base = region.pathPrefix === '' ? SITE_URL : `${SITE_URL}/${region.pathPrefix}`;
   for (const m of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
     const loc = m[1]!;
-    if (!loc.startsWith(SITE_URL)) continue;
-    paths.push(loc.slice(SITE_URL.length) || '/');
+    if (!loc.startsWith(base)) continue;
+    const rest = loc.slice(base.length);
+    if (rest !== '' && !rest.startsWith('/')) continue;
+    paths.push(rest || '/');
   }
   return paths;
 }
 
-/** The pages to write, in address order, from the router's list routes and the sitemap's paths. */
-export function routePages(sitemap: readonly string[], facts: HeadFacts): RoutePage[] {
+/**
+ * The pages to write, in address order, from the router's list routes and the
+ * sitemap's paths. In a region (the US, India) the paths are the region's own
+ * (`/deals`), the tags are worked out inside it (canonical /us/deals) and the
+ * files land in its folder (us/deals.html).
+ */
+export function routePages(sitemap: readonly string[], facts: HeadFacts, region: RegionConfig = DEFAULT_REGION): RoutePage[] {
+  setActiveRegionForBuild(region === DEFAULT_REGION ? null : region);
+  try {
+    return routePagesIn(sitemap, facts, region);
+  } finally {
+    setActiveRegionForBuild(null);
+  }
+}
+
+function routePagesIn(sitemap: readonly string[], facts: HeadFacts, region: RegionConfig): RoutePage[] {
   const pages: RoutePage[] = [];
   const seen = new Set<string>();
+  const folder = region.pathPrefix === '' ? '' : `${region.pathPrefix}/`;
   for (const path of [...listRoutePaths(), ...sitemap]) {
     if (seen.has(path)) continue;
     seen.add(path);
@@ -109,9 +135,10 @@ export function routePages(sitemap: readonly string[], facts: HeadFacts): RouteP
     // An old way in (/explore, /gift-sets) matches a route but its page lives
     // at another address; its file would claim the other address as canonical.
     // It keeps working through 404.html.
-    if (tags.canonical !== `${SITE_URL}${path}`) continue;
+    const address = regionPath(region, path);
+    if (tags.canonical !== `${SITE_URL}${address}`) continue;
 
-    pages.push({ path, file: `${segments.join('/')}.html`, route, tags });
+    pages.push({ path: address, file: `${folder}${segments.join('/')}.html`, shell: `${folder}index.html`, route, tags });
   }
   return pages.sort((a, b) => (a.path < b.path ? -1 : 1));
 }
@@ -134,15 +161,24 @@ function swap(html: string, pattern: RegExp, replacement: string, what: string):
   return html.replace(pattern, () => replacement);
 }
 
+/** The hreflang lines a home page shell carries (scripts/build-demo.ts), each with its line break. */
+const ALTERNATE_LINES = /<link rel="alternate" hreflang="[^"]*" href="[^"]*" \/>\n/g;
+
+/** This address's own hreflang alternates, as head lines after the canonical (demo/head.ts hreflangFor). */
+function alternateLinks(tags: HeadTags): string {
+  return hreflangFor(tags).map((a) => `\n<link rel="alternate" hreflang="${escapeAttr(a.hreflang)}" href="${escapeAttr(a.href)}" />`).join('');
+}
+
 /** The page with one address's own <head> tags, and nothing else changed. */
 export function renderRoutePage(shell: string, tags: HeadTags): string {
   const shareTitle = escapeAttr(tags.shareTitle ?? tags.title);
   const description = escapeAttr(tags.description);
   const canonical = escapeAttr(tags.canonical);
-  let html = shell;
+  // The home page's alternates come off; this address's go in beside its canonical.
+  let html = shell.replace(ALTERNATE_LINES, '');
   html = swap(html, /<title>[^<]*<\/title>/, `<title>${escapeAttr(tags.title)}</title>`, '<title>');
   html = swap(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${description}" />`, 'meta description');
-  html = swap(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />`, 'canonical link');
+  html = swap(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />${alternateLinks(tags)}`, 'canonical link');
   html = swap(html, /<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${shareTitle}" />`, 'og:title');
   html = swap(html, /<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${description}" />`, 'og:description');
   html = swap(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${canonical}" />`, 'og:url');
@@ -175,7 +211,8 @@ export function removeStaleRoutePages(demoDir: string, keep: ReadonlySet<string>
   for (const folder of new Set(folders)) {
     const dir = join(demoDir, folder);
     if (!existsSync(dir)) continue;
-    for (const f of readdirSync(dir)) if (f.endsWith('.html')) drop(posix.join(folder, f));
+    // A region's folder (demo/us/) also holds its own page and fallback, never route pages.
+    for (const f of readdirSync(dir)) if (f.endsWith('.html') && !NOT_ROUTE_PAGES.has(f)) drop(posix.join(folder, f));
   }
   return removed;
 }
@@ -188,13 +225,16 @@ export function removeStaleRoutePages(demoDir: string, keep: ReadonlySet<string>
  */
 export function routePageProblems(demoDir: string, pages: readonly RoutePage[]): string[] {
   const problems: string[] = [];
-  const indexPath = join(demoDir, 'index.html');
-  if (!existsSync(indexPath)) return ['demo/index.html is not built'];
-  const index = readFileSync(indexPath, 'utf8');
-  const stamp = readStampedHash(index);
-  const dataFiles = referencedDataFiles(index).sort().join(',');
+  const shells = new Map<string, { index: string; stamp: string | null; dataFiles: string }>();
+  for (const shell of new Set(pages.map((p) => p.shell).concat('index.html'))) {
+    const indexPath = join(demoDir, shell);
+    if (!existsSync(indexPath)) return [`demo/${shell} is not built`];
+    const index = readFileSync(indexPath, 'utf8');
+    shells.set(shell, { index, stamp: readStampedHash(index), dataFiles: referencedDataFiles(index).sort().join(',') });
+  }
 
   for (const page of pages) {
+    const { index, stamp, dataFiles } = shells.get(page.shell)!;
     const path = join(demoDir, page.file);
     if (!existsSync(path)) {
       problems.push(`demo/${page.file} is missing, so ${page.path} would answer 404`);
@@ -204,11 +244,11 @@ export function routePageProblems(demoDir: string, pages: readonly RoutePage[]):
     if (html !== renderRoutePage(index, page.tags)) {
       problems.push(
         readStampedHash(html) !== stamp
-          ? `demo/${page.file} is from another build than demo/index.html`
+          ? `demo/${page.file} is from another build than demo/${page.shell}`
           : `demo/${page.file} does not carry the title, description and canonical of ${page.path}`,
       );
     } else if (referencedDataFiles(html).sort().join(',') !== dataFiles) {
-      problems.push(`demo/${page.file} names other data files than demo/index.html`);
+      problems.push(`demo/${page.file} names other data files than demo/${page.shell}`);
     }
   }
   return problems;

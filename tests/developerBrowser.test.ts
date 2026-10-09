@@ -188,7 +188,8 @@ describe.skipIf(!built)('the developer dashboard and the visitor counter', () =>
       for (const b of bodies) expect(b.cookie).toBeUndefined();
       expect(await page.evaluate('document.cookie')).toBe('');
       const stored = (await page.evaluate('Object.keys(localStorage).concat(Object.keys(sessionStorage))')) as string[];
-      expect(stored.filter((k) => !k.startsWith('pricesniffs.display'))).toEqual([]);
+      // The display choice, and the country the test browser starts with (launchChromium, scripts/a11y-audit.ts).
+      expect(stored.filter((k) => !k.startsWith('pricesniffs.display') && k !== 'pricesniffs.region')).toEqual([]);
     } finally {
       await context.close();
     }

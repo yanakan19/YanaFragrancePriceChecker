@@ -1,28 +1,31 @@
 import { describe, expect, it } from 'vitest';
-import { COMING_SOON, CURRENT_REGION, REGIONS, regionButtonLabel } from '../src/services/regions.js';
+import { BETA, COMING_SOON, CURRENT_REGION, REGIONS, regionButtonLabel } from '../src/services/regions.js';
 import { flagSvg } from '../demo/flags.js';
 
 /**
  * The country and currency selector's data (owner's request, 2026-10-05; the
  * list trimmed to three on 9 October 2026, owner decision 3 in
  * docs/INTERNATIONAL-PLAN.md): the order of the list, each region's currency,
- * and which of them can be chosen. The list comes from src/config/regions.ts.
+ * and which of them can be chosen (all three since the public beta of
+ * 9 October 2026, the US and India marked Beta). The list comes from
+ * src/config/regions.ts.
  * The browser half, the menu itself, is tests/regionSelectorBrowser.test.ts.
  */
 
 describe('the region list', () => {
-  it('is United Kingdom, United States, India, in that order', () => {
-    expect(REGIONS.map((r) => r.name)).toEqual(['United Kingdom', 'United States', 'India']);
+  it('is United Kingdom, United States (Beta), India (Beta), in that order', () => {
+    expect(REGIONS.map((r) => r.name)).toEqual(['United Kingdom', 'United States (Beta)', 'India (Beta)']);
+    expect(BETA).toBe('Beta');
     expect(REGIONS.map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
   });
 
   it('pairs each with its currency', () => {
-    expect(REGIONS.map((r) => `${r.name} ${r.currency}`)).toEqual(['United Kingdom GBP', 'United States USD', 'India INR']);
+    expect(REGIONS.map((r) => `${r.name} ${r.currency}`)).toEqual(['United Kingdom GBP', 'United States (Beta) USD', 'India (Beta) INR']);
   });
 
-  it('makes the United Kingdom the only region that can be chosen', () => {
-    expect(REGIONS.filter((r) => r.available).map((r) => r.id)).toEqual(['GB']);
-    expect(REGIONS.filter((r) => !r.available).map((r) => r.id)).toEqual(['US', 'IN']);
+  it('makes all three regions choosable, the UK first and current on a UK address', () => {
+    expect(REGIONS.filter((r) => r.available).map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
+    expect(REGIONS.filter((r) => !r.available).map((r) => r.id)).toEqual([]);
     expect(CURRENT_REGION).toBe(REGIONS[0]);
     expect(CURRENT_REGION.currency).toBe('GBP');
   });
@@ -46,7 +49,7 @@ describe('the region list', () => {
 
   it('names the region and its currency for a screen reader', () => {
     expect(regionButtonLabel()).toBe('Region and currency: United Kingdom, GBP');
-    expect(regionButtonLabel(REGIONS[1])).toBe('Region and currency: United States, USD');
+    expect(regionButtonLabel(REGIONS[1])).toBe('Region and currency: United States (Beta), USD');
   });
 });
 

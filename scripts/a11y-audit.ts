@@ -57,7 +57,12 @@ export async function startDemoServer(): Promise<{ port: number; close: () => vo
   const server = createServer((req, res) => {
     const path = (req.url ?? '/').split('?')[0]!;
     const file = resolve(demoDir, path === '/' ? 'index.html' : path.slice(1));
-    const target = file.startsWith(demoDir) && existsSync(file) && extname(file) !== '' ? file : resolve(demoDir, 'index.html');
+    // A region's address (/us/..., /in/...) gets that region's own page, as
+    // its folder's files and the root page's hand off give it on the host
+    // (scripts/regionPages.ts); every other address gets the UK page.
+    const region = /^\/([a-z]{2})(?:\/|$)/.exec(path)?.[1];
+    const shell = region && existsSync(resolve(demoDir, region, 'index.html')) ? resolve(demoDir, region, 'index.html') : resolve(demoDir, 'index.html');
+    const target = file.startsWith(demoDir) && existsSync(file) && extname(file) !== '' ? file : shell;
     res.writeHead(200, { 'Content-Type': MIME[extname(target)] ?? 'application/octet-stream' });
     res.end(readFileSync(target));
   });
@@ -75,8 +80,37 @@ export async function waitForApp(page: Page, timeout = 60_000): Promise<void> {
   await page.waitForSelector(`html[${APP_READY_ATTR}]`, { state: 'attached', timeout });
 }
 
-export async function launchChromium(): Promise<Browser> {
-  return chromium.launch(existsSync(PINNED_CHROMIUM) ? { executablePath: PINNED_CHROMIUM } : {});
+export interface LaunchOptions {
+  /**
+   * The country every page opened in this browser starts with as the
+   * visitor's saved choice (localStorage `pricesniffs.region`), or null for a
+   * visitor who has chosen none. Defaults to the UK: since the public beta of
+   * 9 October 2026 the bare home page asks a visitor who has not chosen with a
+   * modal "Select your country" pop-up (demo/regionWelcome.ts), which a test
+   * about something else would have to close first. The tests of the pop-up
+   * and of the saved country pass null. Only set where nothing is stored yet,
+   * so a choice a test makes stays.
+   */
+  countryChosen?: 'GB' | 'US' | 'IN' | null;
+}
+
+export async function launchChromium(options: LaunchOptions = {}): Promise<Browser> {
+  const browser = await chromium.launch(existsSync(PINNED_CHROMIUM) ? { executablePath: PINNED_CHROMIUM } : {});
+  const country = options.countryChosen === undefined ? 'GB' : options.countryChosen;
+  if (country === null) return browser;
+  const newContext = browser.newContext.bind(browser);
+  browser.newContext = async (...args: Parameters<Browser['newContext']>) => {
+    const context = await newContext(...args);
+    await context.addInitScript((id: string) => {
+      try {
+        if (localStorage.getItem('pricesniffs.region') === null) localStorage.setItem('pricesniffs.region', id);
+      } catch {
+        // Storage refused: the page asks, as it would for such a visitor.
+      }
+    }, country);
+    return context;
+  };
+  return browser;
 }
 
 export interface Violation {

@@ -25,6 +25,10 @@ import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { referencedDataFiles } from './dataFiles.js';
 import { computeDemoInputsHash, readStampedHash } from './demoInputsHash.js';
+import { liveRegions } from '../src/config/regions.js';
+
+/** The live regions' folders under demo/ (us, in). */
+const REGION_FOLDERS = liveRegions().map((r) => r.pathPrefix).filter((p) => p !== '');
 
 /** Why the page on disk needs a build, or null when it is current. */
 export function staleReason(root: string): string | null {
@@ -42,8 +46,17 @@ export function staleReason(root: string): string | null {
   // name, and tests/demoDataFiles.test.ts holds the folder to that.
   const extra = readdirSync(join(root, 'demo/data')).filter((f) => !named.includes(`data/${f}`));
   if (extra.length > 0) return `demo/data holds files the page does not name: ${extra.join(', ')}`;
-  for (const other of ['demo/404.html', 'demo/sitemap.xml', 'demo/about.html']) {
+  for (const other of ['demo/404.html', 'demo/sitemap.xml', 'demo/sitemap-gb.xml', 'demo/about.html']) {
     if (!existsSync(join(root, other))) return `${other} is not built`;
+  }
+  // The region pages (public beta): each live region's page, from the same build.
+  for (const prefix of REGION_FOLDERS) {
+    for (const file of [`demo/${prefix}/index.html`, `demo/${prefix}/about.html`, `demo/sitemap-${prefix}.xml`]) {
+      if (!existsSync(join(root, file))) return `${file} is not built`;
+    }
+    if (readStampedHash(readFileSync(join(root, `demo/${prefix}/index.html`), 'utf8')) !== stamped) {
+      return `demo/${prefix}/index.html was built from different source than demo/index.html`;
+    }
   }
   // The page of each fixed address (scripts/build-route-pages.ts) is written
   // last; one from an older build than the page means that step did not run.

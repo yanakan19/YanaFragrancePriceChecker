@@ -109,8 +109,8 @@ import {
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, legalPage, legalNoticeSections, isLegalNoticeId } from './legal.js';
 import { CHANGELOG } from './changelog.js';
-import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
-import { priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
+import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS, CRAWLED_AT } from './catalogue.generated.js';
+import { fetchLazyFile, priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
 import { dormant, dormantEntry, idForSlug, movedTo } from './dormantStore.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
 import type { PriceHistoryPoint } from './priceHistory.generated.js';
@@ -139,9 +139,11 @@ import {
   type WishlistSort,
 } from '../src/services/accountMenu.js';
 import { REGIONS, CURRENT_REGION, regionButtonLabel, type Region } from '../src/services/regions.js';
-import { activeRegion, liveRegions, type RegionConfig, type RegionId } from '../src/config/regions.js';
+import { activeRegion, liveRegions, regionById, regionHome, splitRegionPrefix, suggestRegionForTimeZone, type RegionConfig, type RegionId } from '../src/config/regions.js';
+import { BAR_DISMISSED_KEY, barRegion, barText, leafAlternates, switchNeedsLinks, switchTarget, type RegionLinks, type SwitchFrom } from './regionSwitch.js';
+import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxNote } from '../src/services/regionText.js';
 import {
-  WELCOME_PREVIEW_PARAM, openRegionWelcome, previewChoices, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
+  WELCOME_PREVIEW_PARAM, browserTimeZone, openRegionWelcome, previewChoices, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
 } from './regionWelcome.js';
 import { readProfileRegion, saveProfileRegion } from './regionProfile.js';
 import {
@@ -1123,7 +1125,7 @@ function sizeLabel(f: Pick<DemoFragrance, 'sizeMl' | 'giftSet'>): string {
   // where a single bottle states its size, and never "Size not confirmed",
   // which would read as a bottle whose size is in doubt.
   if (f.giftSet) return f.giftSet.bundle ? 'Bundle' : 'Gift Set';
-  return f.sizeMl === null ? 'Size not confirmed' : `${f.sizeMl}ml`;
+  return f.sizeMl === null ? 'Size not confirmed' : formatSize(f.sizeMl);
 }
 
 /**
@@ -1312,7 +1314,7 @@ function priceLine(f: DemoFragrance): string {
   // "from £45" beside every other tile's delivered price would read as the
   // same kind of figure when it is not.
   return `<span class="amt">${formatMoney(best.itemPriceGbp)} <span aria-hidden="true">→</span></span>
-    <span class="amt-note">Delivery Not Stated</span>`;
+    <span class="amt-note">${localWords('Delivery Not Stated')}</span>`;
 }
 
 /**
@@ -1559,7 +1561,36 @@ function railEagerCount(): number {
 const MEDALS = ['gold', 'silver', 'bronze'] as const;
 
 /** Built once: both inputs are fixed for the life of the bundle. */
-const MARQUEE = marqueeHtml(marqueePhrases(COUNTS.products, COVERAGE));
+const MARQUEE = marqueeHtml(marqueePhrases(COUNTS.products, COVERAGE).map((p) => localWords(p)));
+
+/**
+ * A beta region's home page (/us/, /in/): when its prices were last read, from
+ * its own build. Nothing on the UK home, whose trust lines the owner took off
+ * on 2026-10-04 (the banner says it).
+ */
+function regionHeroLines(): string {
+  if (!activeRegion().beta) return '';
+  return `\n      <p class="hero-fresh t-caption">${esc(freshnessLine(CRAWLED_AT))}</p>`;
+}
+
+/**
+ * Under a US or Indian price list: what the prices include (plan section 4).
+ * US: before sales tax, which depends on the state and ZIP code. India: GST
+ * included and what MRP is, and, where a listed shop charges for cash on
+ * delivery, that the fee is not in the price. Nothing on the UK site.
+ */
+function regionTaxNoteHtml(shopIds: readonly string[]): string {
+  const tax = priceTaxNote();
+  if (!tax || shopIds.length === 0) return '';
+  const cod = codFootnote();
+  return `<p class="region-tax-note t-caption">${esc(tax)}${cod ? ` ${esc(cod)}` : ''}</p>`;
+}
+
+/** The same note as a sentence after a paragraph (Today's Deals), or nothing on the UK site. */
+function regionTaxNoteText(): string {
+  const tax = priceTaxNote();
+  return tax ? ` ${esc(tax)}` : '';
+}
 
 function homeView(): string {
   return `
@@ -1578,7 +1609,7 @@ function homeView(): string {
            prices are checked, no promoted listings, the database count) are
            gone on the owner's request, 2026-10-04: the banner under the hero
            already says all of it, and says it once. -->
-      <p class="hero-mission">See what a fragrance really costs across ${COVERAGE} UK shops, delivery included.</p>
+      <p class="hero-mission">${esc(localWords(`See what a fragrance really costs across ${COVERAGE} UK shops, delivery included.`))}</p>${regionHeroLines()}
     </section>
 
     <!-- The scrolling word banner, full width, directly under the hero. Its
@@ -1916,15 +1947,15 @@ function offerRow(
   if (!marks.lastPrice) {
     if (row.delivery.costGbp === null) {
       // Listed under "Delivery not included", so the heading says the rest.
-      facts.push('+ delivery');
+      facts.push(localWords('+ delivery'));
     } else {
       // Marked "est." where the figure is not read off the shop's own delivery
       // page (shipping.confidence): about two thirds of live listings.
       const est = row.delivery.confirmed ? '' : 'est. ';
       facts.push(
         row.delivery.costGbp === 0
-          ? `${row.delivery.confirmed ? 'Free' : 'Est. free'} delivery`
-          : `Incl. ${est}${formatMoney(row.delivery.costGbp)} delivery`,
+          ? localWords(`${row.delivery.confirmed ? 'Free' : 'Est. free'} delivery`)
+          : localWords(`Incl. ${est}${formatMoney(row.delivery.costGbp)} delivery`),
       );
     }
     if (marks.fact) facts.push(marks.fact);
@@ -1966,7 +1997,7 @@ function offerRow(
         <span class="price">${
           // A row with an MSRP comparison never also shows the shop's own RRP:
           // two reference prices on one row is the thing that must not happen.
-          d ? `<span class="was">RRP ${formatMoney(d.wasPrice)}</span>` : ''
+          d ? `<span class="was">${localWords('RRP')} ${formatMoney(d.wasPrice)}</span>` : ''
         }<span class="now t-price ${
           // The saving ink only for a saving; a price above MSRP is not one.
           d || msrp?.direction === 'below' ? 'sale' : ''
@@ -2318,12 +2349,12 @@ function wishlistPriceFacts(frag: DemoFragrance): { html: string; sortGbp: numbe
   }
   if (best.deliveredPriceGbp === null) {
     return {
-      html: `<strong>${formatMoney(best.itemPriceGbp)}</strong> at ${esc(best.retailer.name)}, delivery not stated`,
+      html: `<strong>${formatMoney(best.itemPriceGbp)}</strong> at ${esc(best.retailer.name)}, ${localWords('delivery not stated')}`,
       sortGbp: null,
     };
   }
   return {
-    html: `<strong>${formatMoney(best.deliveredPriceGbp)}</strong> delivered at ${esc(best.retailer.name)}`,
+    html: `<strong>${formatMoney(best.deliveredPriceGbp)}</strong> ${localWords('delivered')} at ${esc(best.retailer.name)}`,
     sortGbp: best.deliveredPriceGbp,
   };
 }
@@ -2745,9 +2776,9 @@ function houseCeilingBox(frag: DemoFragrance): string {
  */
 function retailerRrpBox(amountGbp: number): string {
   return `<div class="price-box price-box--msrp">
-      <p class="price-box-label t-eyebrow">RRP</p>
+      <p class="price-box-label t-eyebrow">${localWords('RRP')}</p>
       <p class="price-box-amount t-price">${formatMoney(amountGbp)}</p>
-      <p class="price-box-from price-box-from--fit t-caption">Shop's Stated RRP</p>
+      <p class="price-box-from price-box-from--fit t-caption">${localWords("Shop's Stated RRP")}</p>
     </div>`;
 }
 
@@ -3102,7 +3133,7 @@ function detailView(): string {
 
         ${
           plusDelivery.length
-            ? `<p class="gone-head t-eyebrow">Delivery Not Included</p>
+            ? `<p class="gone-head t-eyebrow">${localWords('Delivery Not Included')}</p>
                <ul class="offers">${plusDelivery.map((r) => offerRow(r, r === best, bestTag, mayNameMsrp ? msrpFor(r, frag) : null, shopTitleOf(frag, r.retailer.id))).join('')}</ul>`
             : ''
         }
@@ -3132,6 +3163,8 @@ function detailView(): string {
             ? `<p class="report-wrong t-caption"><button type="button" class="link-btn" data-report-price aria-haspopup="dialog">Spotted a Wrong Price? Tell Us</button></p>`
             : ''
         }
+
+        ${regionTaxNoteHtml(rows.map((r) => r.retailer.id))}
 
         ${priceHistorySection(frag.id, best !== null)}
 
@@ -3297,12 +3330,12 @@ function dealsPanel(): string {
         <span class="was anchor">${formatMoney(d.wasPrice)} at ${esc(d.houseName!)}</span>`
           : `<span class="off">${d.percentOff}% Off</span>
         <span class="amt">${formatMoney(d.price)}</span>
-        <span class="was">RRP ${formatMoney(d.wasPrice)}</span>`) +
-        (d.delivered ? '' : `<span class="amt-note">Delivery Not Stated</span>`),
+        <span class="was">${localWords('RRP')} ${formatMoney(d.wasPrice)}</span>`) +
+        (d.delivered ? '' : `<span class="amt-note">${localWords('Delivery Not Stated')}</span>`),
     });
 
   return `${controls}
-    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it. Each perfume shows its best deal across its sizes.</p>
+    <p class="panel-note t-body">${esc(localWords("Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it. Each perfume shows its best deal across its sizes."))}${regionTaxNoteText()}</p>
     <ul class="tile-grid">${chunked(withGridAds(filtered, dealTile), (item, i) => item(i))}</ul>`;
 }
 
@@ -3636,7 +3669,9 @@ function brandView(): string {
   const facets = listFacets('brand');
   const { list: faceted, views } = runFacets(filtered, facets, state.filters);
   const list = sortFragrances(faceted, state.brandDetailSort);
-  const site = officialSiteFor(b);
+  // The brand's official site carries a UK or overseas label (demo/brandSites.ts),
+  // which says nothing true on the US or Indian pages, so it is left off there.
+  const site = activeRegion().id === 'GB' ? officialSiteFor(b) : null;
   // Products read straight from this house's own storefront, priced in
   // whatever currency it charges. Not part of the UK comparison (see the
   // houses comment above houseCard), so shown as their own group rather than
@@ -5037,8 +5072,9 @@ function regionItemHtml(r: Region): string {
   const text = `<span class="region-text"><span class="region-line"><span id="${nameId}">${esc(r.name)}</span> <span class="region-code" id="${codeId}">${esc(r.currency)}</span></span>${
     r.note ? `<span class="region-note" id="${noteId}">${esc(r.note)}</span>` : ''}</span>`;
   const current = r.id === CURRENT_REGION.id;
+  // One Tab stop in the menu, the current choice; the arrow keys reach the rest.
   const attrs = r.available
-    ? `tabindex="0" aria-checked="${current}"`
+    ? `tabindex="${current ? 0 : -1}" aria-checked="${current}"`
     : `tabindex="-1" aria-checked="false" aria-disabled="true" aria-describedby="${noteId}"`;
   return `<div role="menuitemradio" class="region-item" data-region="${r.id}" ${attrs} aria-labelledby="${nameId} ${codeId}">${flagSvg(r.id)}${text}${current ? `<span class="region-tick">${ICON_TICK}</span>` : ''}</div>`;
 }
@@ -5085,16 +5121,132 @@ function closeRegionMenu(returnFocus: boolean): void {
 }
 
 /**
- * A choice in the country menu (demo/regionPreference.ts, chooseRegion).
- * While the UK is the only live region there is nothing to choose: the menu
- * only closes, as it always has, and nothing is stored. Once a second region
- * is live, the choice is remembered in this browser and, signed in, on the
- * profile, and another region's home page is opened (a full page load: each
- * region has its own data files).
+ * A choice in the country menu (demo/regionPreference.ts, chooseRegion): the
+ * choice is remembered in this browser and, signed in, on the profile, and
+ * the same page opened in that country when it has one (demo/regionSwitch.ts:
+ * the product there when it is sold there, else its brand, else the same
+ * section, else that country's home). A full page load: each region has its
+ * own data files. The region the page is already in is only remembered.
  */
 function chooseRegionFromMenu(id: string | undefined): void {
   closeRegionMenu(true);
   void chooseRegion({ id, live: liveRegions(), active: activeRegion(), signedIn: state.authUser !== null }, regionChoiceDeps);
+}
+
+/* ── switching country, and the "You are seeing UK prices" bar ──────────────
+   demo/regionSwitch.ts decides where a switch goes and when the bar shows;
+   this draws it. The lookup of products and brands sold elsewhere is the
+   `regions` lazy data file, fetched only when a product or brand page needs
+   it, and never more than once. */
+
+let regionLinksLoad: Promise<RegionLinks | null> | null = null;
+function regionLinks(): Promise<RegionLinks | null> {
+  regionLinksLoad ??= fetchLazyFile('regions')
+    .then((raw) => ((raw as { REGION_LINKS?: RegionLinks } | null)?.REGION_LINKS ?? null))
+    .catch(() => null);
+  return regionLinksLoad;
+}
+
+/** The page on screen, as the switch needs it. */
+function switchFrom(): SwitchFrom {
+  const route = currentRoute();
+  const frag = state.view === 'detail' ? fragranceById(state.fragranceId) : undefined;
+  return {
+    route,
+    productId: state.view === 'detail' ? state.fragranceId : null,
+    brand: frag?.brand ?? (state.view === 'brand' ? state.brandProfile : null),
+  };
+}
+
+/** Where picking `to` takes the visitor from the page on screen. */
+async function regionSwitchHref(to: RegionConfig): Promise<string> {
+  const from = switchFrom();
+  return switchTarget(from, to, switchNeedsLinks(from.route) ? await regionLinks() : null);
+}
+
+/** The visitor's remembered country, once the profile has been read (noteRegionMismatch); null before. */
+let rememberedRegion: RegionId | null = null;
+
+function regionBarDismissed(): boolean {
+  try {
+    return window.sessionStorage.getItem(BAR_DISMISSED_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * The slim bar under the top bar: "You are seeing UK prices. See US prices",
+ * on a deep link only, when the saved country (or with none saved, the time
+ * zone's) is another live one. Never a redirect. Redrawn on every route
+ * change, so its link always opens the page on screen in the other country.
+ */
+function renderRegionBar(): void {
+  const host = document.getElementById('region-bar');
+  if (!host) return;
+  const pathname = window.location.pathname.slice(basePath().length - 1) || '/';
+  const offered = barRegion({
+    active: activeRegion(),
+    live: liveRegions(),
+    pathname,
+    stored: rememberedRegion ?? readStoredRegion(),
+    suggested: suggestRegionForTimeZone(browserTimeZone())?.id ?? null,
+    dismissed: regionBarDismissed(),
+  });
+  if (!offered) {
+    host.hidden = true;
+    host.innerHTML = '';
+    return;
+  }
+  const { lead, link } = barText(activeRegion(), offered);
+  host.hidden = false;
+  host.innerHTML = `<p class="region-bar-text">${flagSvg(offered.flag)}<span>${esc(lead)}</span> <a class="region-bar-link" href="${esc(regionHome(offered))}" hreflang="${offered.hreflang}" data-region-switch="${offered.id}">${esc(link)}</a></p><button type="button" class="region-bar-close" data-region-bar-close aria-label="Close">${ICON_CLOSE}</button>`;
+  // The link opens the same page there; the home address above is its no script fallback.
+  void regionSwitchHref(offered).then((href) => {
+    const a = host.querySelector<HTMLAnchorElement>('[data-region-switch]');
+    if (a) a.href = href;
+  });
+}
+
+/** Wires the bar's link and close button once (the bar itself is redrawn per route). */
+function initRegionBar(): void {
+  const host = document.getElementById('region-bar');
+  if (!host) return;
+  host.addEventListener('click', (e) => {
+    const t = e.target as HTMLElement;
+    if (t.closest('[data-region-bar-close]')) {
+      try {
+        window.sessionStorage.setItem(BAR_DISMISSED_KEY, '1');
+      } catch {
+        // Storage refused: the bar closes for this page only.
+      }
+      host.hidden = true;
+      host.innerHTML = '';
+      return;
+    }
+    const a = t.closest<HTMLAnchorElement>('[data-region-switch]');
+    if (!a || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || (e as MouseEvent).button !== 0) return;
+    const region = regionById(a.getAttribute('data-region-switch'));
+    if (!region) return;
+    e.preventDefault();
+    void chooseRegion({ id: region.id, live: liveRegions(), active: activeRegion(), signedIn: state.authUser !== null }, regionChoiceDeps);
+  });
+}
+
+/**
+ * The beta line a beta region's pages carry under the top bar ("US prices are
+ * in beta: fewer shops than the UK site for now"). Nothing on the UK site.
+ */
+function renderBetaLine(): void {
+  const host = document.getElementById('beta-line');
+  const line = betaLine();
+  if (!host) return;
+  if (!line) {
+    host.hidden = true;
+    return;
+  }
+  host.hidden = false;
+  host.innerHTML = `<p class="beta-line-text"><span class="beta-pill">Beta</span> ${esc(line)}</p>`;
 }
 
 /* ── "Select your country" and the remembered country ───────────────────────
@@ -5128,23 +5280,33 @@ const regionSyncDeps: RegionSyncDeps = {
   writeProfile: saveProfileRegion,
 };
 
+/**
+ * How a choice is remembered and opened. A choice opens the page on screen in
+ * that country when it has one (demo/regionSwitch.ts: the product there, else
+ * its brand, else the same section, else that country's home); chooseRegion
+ * hands over the other region's home address, and the region is read back
+ * from it. The account pages open the other country's home.
+ */
 const regionChoiceDeps = {
   writeLocal: (id: RegionId) => saveStoredRegion(id),
   writeProfile: saveProfileRegion,
-  navigate: (href: string) => window.location.assign(href),
+  navigate: (href: string) => {
+    const to = splitRegionPrefix(href).region;
+    void regionSwitchHref(to).then((target) => window.location.assign(target));
+  },
 };
 
 /**
  * A deep link opened outside the visitor's remembered country. It is never
  * redirected; the page notes the remembered country on the root element
- * (data-remembered-region) and nothing else yet.
- *
- * TODO (US and India beta): the slim "You are seeing UK prices. See US
- * prices" bar is drawn from here (docs/INTERNATIONAL-PLAN.md, section 2,
- * "The menu: switching and remembering").
+ * (data-remembered-region) and draws the slim "You are seeing UK prices. See
+ * US prices" bar offering it (docs/INTERNATIONAL-PLAN.md, section 2, "The
+ * menu: switching and remembering"; renderRegionBar).
  */
 function noteRegionMismatch(region: RegionConfig): void {
   document.documentElement.setAttribute('data-remembered-region', region.id);
+  rememberedRegion = region.id;
+  renderRegionBar();
 }
 
 function actOnArrival(action: ArrivalAction): void {
@@ -5973,7 +6135,35 @@ export function applyHead(tags: HeadTags): void {
   if (tags.noindex) setMeta('name', 'robots', 'noindex, follow');
   else document.head.querySelector('meta[name="robots"]')?.remove();
 
-  setHreflangLinks(hreflangFor(tags));
+  setHreflangLinks(pageAlternates(tags));
+}
+
+/** The `regions` lazy file once it has loaded (null when it failed), undefined before. */
+let regionLinksNow: RegionLinks | null | undefined;
+
+/**
+ * The hreflang alternates of the page on screen. A fixed page every region has
+ * declares them all (demo/head.ts hreflangFor); a product or a brand only the
+ * regions that sell it, once the `regions` lazy file says which (fetched for
+ * that, then the links are set again); a shop or a note page none, since
+ * those are one region's own.
+ */
+function pageAlternates(tags: HeadTags): { hreflang: string; href: string }[] {
+  const route = currentRoute();
+  if (route.name === 'retailer' || route.name === 'note') return [];
+  if (!switchNeedsLinks(route)) return hreflangFor(tags);
+  if (tags.noindex || liveRegions().length < 2) return [];
+  if (regionLinksNow === undefined) {
+    const canonical = tags.canonical;
+    void regionLinks().then((links) => {
+      regionLinksNow = links;
+      // Still the same page: set its alternates now that the file says who sells it.
+      if (document.head.querySelector('link[rel="canonical"]')?.getAttribute('href') === canonical) setHreflangLinks(pageAlternates(tags));
+    });
+    return [];
+  }
+  const ownPath = splitRegionPrefix(tags.canonical.slice(SITE_URL.length) || '/').rest;
+  return leafAlternates(SITE_URL, activeRegion(), liveRegions(), ownPath, switchFrom(), regionLinksNow);
 }
 
 /**
@@ -7239,6 +7429,9 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // Ad slots this page drew, if ads are on (a no op otherwise).
   mountAds();
 
+  // The "You are seeing UK prices" bar follows the page (demo/regionSwitch.ts).
+  renderRegionBar();
+
   // The design page's read-back values, which can only be read once its
   // markup is in the DOM. A no-op anywhere else.
   mountDesignSpecs();
@@ -7544,6 +7737,8 @@ function init(): void {
   };
   currentUser().then(handleAuthUser);
   startRegionWelcome();
+  renderBetaLine();
+  initRegionBar();
   // Fires on every sign in, sign out and token refresh, including the tab
   // that just followed a verification link back in — see its own comment in
   // auth.ts for why nothing here needs to poll for that.

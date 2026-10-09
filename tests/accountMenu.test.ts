@@ -113,7 +113,7 @@ describe('the account pages have addresses, titles and stay out of search', () =
   });
 
   it('leaves every account page and Settings out of the sitemap', () => {
-    const xml = readFileSync(new URL('../demo/sitemap.xml', import.meta.url), 'utf8');
+    const xml = readFileSync(new URL('../demo/sitemap-gb.xml', import.meta.url), 'utf8');
     expect(xml).not.toMatch(/<loc>[^<]*\/account[^<]*<\/loc>/);
     expect(xml).not.toMatch(/<loc>[^<]*\/settings<\/loc>/);
     expect(xml).toMatch(/<loc>[^<]*\/about<\/loc>/);

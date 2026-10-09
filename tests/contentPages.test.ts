@@ -228,7 +228,7 @@ describe('the head tags', () => {
 });
 
 describe.skipIf(!built)('the sitemap', () => {
-  const xml = readFileSync(resolve(root, 'demo/sitemap.xml'), 'utf8');
+  const xml = readFileSync(resolve(root, 'demo/sitemap-gb.xml'), 'utf8');
 
   it('lists every guide, the index and the price checking page, once, with the canonical address', () => {
     for (const path of CONTENT_PATHS) {

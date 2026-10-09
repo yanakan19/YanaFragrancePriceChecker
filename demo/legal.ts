@@ -63,8 +63,10 @@ import { SHOP_COUNT } from './catalogue.generated.js';
 import { shopsPhrase } from './head.js';
 import { ADS_ON, ADS_SWITCHED_ON } from './ads.js';
 import { formatMoneyShort } from '../src/services/money.js';
-import { REGION_STORAGE_KEY } from '../src/config/regions.js';
+import { REGION_STORAGE_KEY, activeRegion } from '../src/config/regions.js';
 import { regionChoiceOn } from './regionPreference.js';
+import { regionLegalPages } from './legalRegion.js';
+import { BAR_DISMISSED_KEY } from './regionSwitch.js';
 
 /** Shops we actually fetch from today, as opposed to entries in the registry. */
 const ENABLED = RETAILERS.filter((r) => r.enabled);
@@ -324,12 +326,15 @@ export const STORAGE_KEYS = [
   // Listed once a country can be chosen, so the key can be written (a second
   // live region, src/config/regions.ts): never before.
   ...(regionChoiceOn()
-    ? [{
-        key: REGION_STORAGE_KEY,
-        kind: 'local storage',
-        when: 'when you choose a country',
-        holds: 'that choice. When you are signed in it is also saved on your profile, so it follows you to another device',
-      } as const]
+    ? [
+        {
+          key: REGION_STORAGE_KEY,
+          kind: 'local storage',
+          when: 'when you choose a country',
+          holds: 'that choice. When you are signed in it is also saved on your profile, so it follows you to another device',
+        } as const,
+        { key: BAR_DISMISSED_KEY, kind: 'session storage', when: 'when you close the bar offering another country’s prices', holds: 'that you closed it' } as const,
+      ]
     : []),
 ] as const;
 
@@ -950,7 +955,25 @@ export const LEGAL_PAGES: LegalPage[] = [
   },
 ];
 
+/**
+ * A legal page by id, in the words of the region the page is in: the US and
+ * Indian pages replace the affiliate disclosure, the privacy notice, the
+ * terms, refunds and How it works with their own (demo/legalRegion.ts; public
+ * beta of 9 October 2026), and keep the UK's cookies and contact pages.
+ */
 export function legalPage(id: string): LegalPage | undefined {
+  const variant = activeRegion().legal;
+  if (variant !== 'uk') {
+    const own = regionLegalPages(variant, {
+      companyName: COMPANY.name,
+      legalName: COMPANY.legalName,
+      email: COMPANY.email,
+      businessDetails: businessDetails(),
+      shopCount: ENABLED.length,
+      coverage: COVERAGE,
+    }).find((p) => p.id === id);
+    if (own) return own;
+  }
   return LEGAL_PAGES.find((p) => p.id === id);
 }
 

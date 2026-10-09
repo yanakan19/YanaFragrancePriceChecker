@@ -157,7 +157,7 @@ describe('what may be indexed', () => {
  * and it is the kind of drift that only shows up in a dashboard weeks later.
  */
 describe('sitemap agrees with head.ts', () => {
-  const xml = readFileSync(new URL('../demo/sitemap.xml', import.meta.url), 'utf8');
+  const xml = readFileSync(new URL('../demo/sitemap-gb.xml', import.meta.url), 'utf8');
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
 
   it('lists no URL that head.ts marks noindex', () => {
@@ -284,7 +284,7 @@ describe('the Legal Notice route', () => {
   });
 
   it('is in the sitemap once, and the old /legal addresses of the moved pages are not', () => {
-    const xml = readFileSync(new URL('../demo/sitemap.xml', import.meta.url), 'utf8');
+    const xml = readFileSync(new URL('../demo/sitemap-gb.xml', import.meta.url), 'utf8');
     const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
     expect(locs.filter((l) => l === `${SITE_URL}/about/legal`)).toHaveLength(1);
     expect(locs).toContain(`${SITE_URL}/about`);
