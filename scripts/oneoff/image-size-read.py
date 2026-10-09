@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Reads the pixel size of already-downloaded image files — called once, as a
-batch, by scripts/image-size-backfill.ts.
+batch, by scripts/oneoff/image-size-backfill.ts.
 
 WHY A BATCH AND NOT ONE CALL PER FILE. There are 15,707 files in
 .image-box-cache. Spawning a Python interpreter for each would spend several

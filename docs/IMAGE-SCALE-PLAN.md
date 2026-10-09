@@ -244,7 +244,7 @@ than pixels so the box survives `upgradeImageResolution` unchanged (§3).
 - **`scripts/image-box-check.ts`** stores them on `VerdictEntry` exactly like
   `width`/`height` — present only when the classifier returns them.
 - **Backfill** for the 15,707 cached files by mirroring the existing
-  `scripts/image-size-backfill.ts` / `scripts/image-size-read.py` pair
+  `scripts/oneoff/image-size-backfill.ts` / `scripts/oneoff/image-size-read.py` pair
   (add-only, skip entries already carrying a box, sorted-key writer, no
   network). This is a proven, safe pattern already in the repo.
 
@@ -272,8 +272,8 @@ Each step is independently testable and leaves the site working (the fallback in
    *Test:* `npx tsx scripts/image-box-check.ts --shop=beautybase --limit=5`;
    confirm the five new entries carry the box, existing entries are untouched,
    the diff is sorted and clean.
-3. **Backfill from cache.** Add `scripts/silhouette-backfill.ts` mirroring
-   `scripts/image-size-backfill.ts` (add-only, skip already-boxed, no network).
+3. **Backfill from cache.** Add `scripts/oneoff/silhouette-backfill.ts` mirroring
+   `scripts/oneoff/image-size-backfill.ts` (add-only, skip already-boxed, no network).
    *Test:* `--dry-run` reports ~15,707 to fill; a real run writes ~6.9 MB and
    fetches nothing.
 4. **The pure transform function.** In a small new module (e.g.

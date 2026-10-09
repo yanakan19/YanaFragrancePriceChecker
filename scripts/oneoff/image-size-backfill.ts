@@ -14,8 +14,8 @@
  * of those files are still there. Their headers are readable in a couple of
  * minutes.
  *
- *   npx tsx scripts/image-size-backfill.ts             # measure and write
- *   npx tsx scripts/image-size-backfill.ts --dry-run   # measure and report only
+ *   npx tsx scripts/oneoff/image-size-backfill.ts             # measure and write
+ *   npx tsx scripts/oneoff/image-size-backfill.ts --dry-run   # measure and report only
  *
  * WHAT IT WILL NOT DO, and these are the properties that make it safe to run
  * on a 5.2MB file that is committed to the repo:
@@ -31,7 +31,7 @@
  *   - Output goes through the same sorted-key writer as the sweep itself, so
  *     the diff is one added pair of integers per entry and stays reviewable.
  *
- * The size is read with Pillow through scripts/image-size-read.py, in one
+ * The size is read with Pillow through scripts/oneoff/image-size-read.py, in one
  * batch, deliberately: that is the same library and the same field the live
  * classifier reports, so a size backfilled here is indistinguishable from one
  * a sweep would have written.
@@ -40,12 +40,12 @@ import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { imageBoxCacheFilename } from '../src/catalogue/imageBoxCache.js';
+import { imageBoxCacheFilename } from '../../src/catalogue/imageBoxCache.js';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const verdictsPath = resolve(root, 'data/image-box-verdicts.json');
 const cacheDir = resolve(root, '.image-box-cache');
-const readerPath = resolve(root, 'scripts/image-size-read.py');
+const readerPath = resolve(root, 'scripts/oneoff/image-size-read.py');
 
 const dryRun = process.argv.includes('--dry-run');
 

@@ -72,7 +72,7 @@ export const CONCENTRATION_SPECIFIC =
  * Zaafaran, Surrati, Orientica, Lattafa, Afnan and Ahsan among others, and
  * every one of them was filed as "Perfume".
  *
- *   npx tsx scripts/concentration-report.ts
+ *   npx tsx scripts/oneoff/concentration-report.ts
  *
  * Only the explicit phrases, never a bare "oil". 643 harvested titles carry
  * the bare word and they are body oil, face oil, lip oil, cleansing oil and
@@ -130,7 +130,7 @@ export const CONCENTRATION_NOT_STATED = 'Not stated';
  *
  * Four decisions are recorded in this table, each about a value the facet was
  * offering that a reader could not act on. Counts are products in the
- * catalogue at d1d7099, from `npx tsx scripts/concentration-report.ts`.
+ * catalogue at d1d7099, from `npx tsx scripts/oneoff/concentration-report.ts`.
  *
  * "Cologne" (46) and "Eau de Cologne" (136) are one value, not two. The
  * clearest evidence is inside a single shop's own list: Beautybase publishes
@@ -311,7 +311,7 @@ function precededByElidedArticle(text: string, index: number): boolean {
  * were — not applied to every generic word on the assumption that any of
  * them might:
  *
- *   npx tsx scripts/concentration-report.ts (adapted to search each generic
+ *   npx tsx scripts/oneoff/concentration-report.ts (adapted to search each generic
  *   word for an immediately preceding "le"/"la"/"l'")
  *
  * "parfum" is the only one that does: 225 titles across at least eight
@@ -2111,7 +2111,7 @@ export function stripShopTitleLabel(
  * bug than the one it fixes.
  *
  * So this is a closed list of words, and every word on it was read off the
- * measured data rather than imagined — `npx tsx scripts/name-noise-report.ts`
+ * measured data rather than imagined — `npx tsx scripts/oneoff/name-noise-report.ts`
  * prints the distinct trailing segments and their counts. At the build this
  * was written against, 196 of 15,173 CATALOGUE names carried a "|" and the
  * segments after the last one were, in full: 56 "UK", 44 "Brandy", 21 KAYALI

@@ -2,7 +2,7 @@
  * What rubbish is sitting inside product *names* in the live catalogue, and
  * how much duplication it causes.
  *
- *   npx tsx scripts/name-noise-report.ts
+ *   npx tsx scripts/oneoff/name-noise-report.ts
  *
  * Three separate kinds, counted separately because they have three separate
  * causes and three separate fixes (see displayName in
@@ -17,8 +17,8 @@
  * superset of the other's. That is one bottle showing as two rows, which is
  * the precise failure a price comparison exists to prevent.
  */
-import { CATALOGUE } from '../demo/catalogue.generated.js';
-import { brandKey } from '../src/catalogue/brandName.js';
+import { CATALOGUE } from '../../demo/catalogue.generated.js';
+import { brandKey } from '../../src/catalogue/brandName.js';
 
 const names = CATALOGUE.map((p) => ({ id: p.id, brand: p.brand, name: p.name, size: p.sizeMl, conc: p.concentration }));
 

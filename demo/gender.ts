@@ -69,7 +69,7 @@
  * shape did not move, which is the point of recording it rather than the
  * individual figures.
  *
- *   npx tsx scripts/gender-coverage.ts
+ *   npx tsx scripts/oneoff/gender-coverage.ts
  *
  *   Women's       657    5.19%
  *   Men's       1,040    8.21%

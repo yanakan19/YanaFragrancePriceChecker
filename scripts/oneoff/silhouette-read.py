@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
 Reads the silhouette bounding box of already-downloaded, already-classified
-image files — called once, as a batch, by scripts/silhouette-backfill.ts.
+image files — called once, as a batch, by scripts/oneoff/silhouette-backfill.ts.
 
-WHY A BATCH AND NOT ONE CALL PER FILE. Mirrors scripts/image-size-read.py's
+WHY A BATCH AND NOT ONE CALL PER FILE. Mirrors scripts/oneoff/image-size-read.py's
 own reasoning exactly: with 15,707 files in .image-box-cache, spawning a
 Python interpreter per file spends several minutes in process startup alone
 (measured: ~190ms/file of the ~256ms a fresh `python3 image-box-classify.py
@@ -16,7 +16,7 @@ The box has to be produced by the exact same thresholding code a live sweep
 already runs, or a backfilled box and a swept box could silently mean
 different things. `classify()` there already returns the four fractions
 (sxf/syf/swf/shf) as of docs/IMAGE-SCALE-PLAN.md — this module just calls it
-and forwards them, the same relationship scripts/image-size-read.py has to
+and forwards them, the same relationship scripts/oneoff/image-size-read.py has to
 Pillow's own `im.size`.
 
 Loaded via importlib rather than a normal `import`: the source file's name
@@ -28,7 +28,7 @@ Output, tab-separated, one line per input line, in the same order:
     <path>\tERR\t<reason>                anything else — no box, no guess
 
 A file whose silhouette cannot be bounded is reported, never guessed at —
-the caller's whole contract, like scripts/image-size-backfill.ts's, is that
+the caller's whole contract, like scripts/oneoff/image-size-backfill.ts's, is that
 it only ever ADDS a box it actually measured.
 """
 import importlib.util
@@ -36,7 +36,7 @@ import sys
 from pathlib import Path
 
 _here = Path(__file__).resolve().parent
-_spec = importlib.util.spec_from_file_location('image_box_classify', _here / 'image-box-classify.py')
+_spec = importlib.util.spec_from_file_location('image_box_classify', _here.parent / 'image-box-classify.py')
 assert _spec is not None and _spec.loader is not None
 _classify_module = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_classify_module)

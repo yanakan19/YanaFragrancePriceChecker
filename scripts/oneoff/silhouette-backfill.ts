@@ -12,11 +12,11 @@
  * in would re-download and re-classify tens of thousands of photos for a
  * number the cached file can already answer: scripts/image-box-check.ts
  * caches every byte it downloads, and 15,707 of those files are still on
- * disk. This mirrors scripts/image-size-backfill.ts's own shape and its own
+ * disk. This mirrors scripts/oneoff/image-size-backfill.ts's own shape and its own
  * three safety properties, one for one:
  *
- *   npx tsx scripts/silhouette-backfill.ts             # measure and write
- *   npx tsx scripts/silhouette-backfill.ts --dry-run   # measure and report only
+ *   npx tsx scripts/oneoff/silhouette-backfill.ts             # measure and write
+ *   npx tsx scripts/oneoff/silhouette-backfill.ts --dry-run   # measure and report only
  *
  * WHAT IT WILL NOT DO, and these are the properties that make it safe to run
  * on a file that is committed to the repo:
@@ -37,7 +37,7 @@
  *     reviewable.
  *
  * WHY THIS FILE IS NOT A THIRD COPY OF image-size-backfill.ts'S measureAll().
- * Reading a box is not reading a header: scripts/image-size-read.py opens a
+ * Reading a box is not reading a header: scripts/oneoff/image-size-read.py opens a
  * file and reads Pillow's lazy `im.size` without decoding a single pixel,
  * while a silhouette box needs the SAME per-pixel threshold walk
  * scripts/image-box-classify.py's classify() already does — decoding and
@@ -59,12 +59,12 @@ import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { imageBoxCacheFilename } from '../src/catalogue/imageBoxCache.js';
+import { imageBoxCacheFilename } from '../../src/catalogue/imageBoxCache.js';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const verdictsPath = resolve(root, 'data/image-box-verdicts.json');
 const cacheDir = resolve(root, '.image-box-cache');
-const readerPath = resolve(root, 'scripts/silhouette-read.py');
+const readerPath = resolve(root, 'scripts/oneoff/silhouette-read.py');
 
 const dryRun = process.argv.includes('--dry-run');
 function arg(name: string): string | null {
@@ -79,7 +79,7 @@ const workers = Math.max(1, Number.parseInt(arg('workers') ?? String(availablePa
  * importing anything from it would start a sweep. The one piece that actually
  * MUST NOT drift between the two — how a cache filename is derived from a
  * URL — is imported from src/catalogue/imageBoxCache.ts by both, exactly as
- * scripts/image-size-backfill.ts already does.
+ * scripts/oneoff/image-size-backfill.ts already does.
  */
 interface VerdictEntry {
   verdict: string;
@@ -114,7 +114,7 @@ function saveVerdicts(verdicts: Record<string, VerdictEntry>): void {
 /**
  * Feeds one shard of paths to one long-lived python3 process and collects
  * the boxes. Both streams are drained together rather than sequentially for
- * the same reason scripts/image-size-backfill.ts's measureAll() does: a
+ * the same reason scripts/oneoff/image-size-backfill.ts's measureAll() does: a
  * large stdin write blocks once the pipe buffer fills if stdout is not being
  * read.
  */
@@ -188,7 +188,7 @@ async function main(): Promise<void> {
 
   // Path -> URL rather than the other way round: two different URLs cannot
   // collide on one path (the name is a sha1 of the URL), so this stays
-  // one-to-one, exactly as scripts/image-size-backfill.ts's own map does.
+  // one-to-one, exactly as scripts/oneoff/image-size-backfill.ts's own map does.
   const urlByPath = new Map<string, string>();
   for (const url of needBox) {
     const path = cachePathFor(url);

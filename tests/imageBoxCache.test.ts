@@ -4,7 +4,7 @@ import { imageBoxCacheFilename } from '../src/catalogue/imageBoxCache.js';
 
 /**
  * This mapping is the only thing scripts/image-box-check.ts (which WRITES the
- * cache) and scripts/image-size-backfill.ts (which READS it) share, and it
+ * cache) and scripts/oneoff/image-size-backfill.ts (which READS it) share, and it
  * used to be a private function inside the first of those. If the two ever
  * disagreed by a character the failure would be silent — every lookup misses,
  * the cache looks empty, and the backfill reports that it found nothing to

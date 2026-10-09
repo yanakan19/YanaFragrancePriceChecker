@@ -192,7 +192,7 @@ function collectCandidateUrls(): Map<string, Set<string>> {
 
 function cachePathFor(url: string): string {
   // The naming rule itself lives in src/catalogue/imageBoxCache.ts, so that
-  // scripts/image-size-backfill.ts finds exactly the files this script wrote.
+  // scripts/oneoff/image-size-backfill.ts finds exactly the files this script wrote.
   // See that module for why it is not simply imported from here.
   return resolve(cacheDir, imageBoxCacheFilename(url));
 }

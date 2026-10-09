@@ -10,7 +10,7 @@
  * comment came out of a run of this script, and it is what to re-run before
  * changing any of them.
  *
- *   npx tsx scripts/concentration-report.ts
+ *   npx tsx scripts/oneoff/concentration-report.ts
  *
  * It reports the published values with their counts, then the two things a
  * count alone hides: which shops each value comes from, and which titles are
@@ -18,12 +18,12 @@
  * coming from twelve is the market's.
  */
 import { readdirSync, readFileSync } from 'node:fs';
-import { decodeSnapshot } from '../src/catalogue/store.js';
+import { decodeSnapshot } from '../../src/catalogue/store.js';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
+import { CATALOGUE, CRAWLED } from '../../demo/catalogue.generated.js';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 const SAMPLES = Number(process.env['SAMPLES'] ?? 4);
 
 const counts = new Map<string, number>();

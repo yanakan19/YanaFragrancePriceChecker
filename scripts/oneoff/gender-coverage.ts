@@ -12,7 +12,7 @@
  * Every figure in demo/gender.ts's header came out of a run of this file, and
  * running it again is how you find out whether they still hold.
  *
- *   npx tsx scripts/gender-coverage.ts
+ *   npx tsx scripts/oneoff/gender-coverage.ts
  *
  * Two populations are reported because they answer different questions.
  * Products are what a reader filters, one row per bottle after duplicate
@@ -21,13 +21,13 @@
  * shops stock only needs one of them to have written "Pour Homme".
  */
 import { readdirSync, readFileSync } from 'node:fs';
-import { decodeSnapshot } from '../src/catalogue/store.js';
+import { decodeSnapshot } from '../../src/catalogue/store.js';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CATALOGUE } from '../demo/catalogue.generated.js';
-import { GENDER_LABEL, GENDER_ORDER, readGenderEvidence, type GenderReading } from '../demo/gender.js';
+import { CATALOGUE } from '../../demo/catalogue.generated.js';
+import { GENDER_LABEL, GENDER_ORDER, readGenderEvidence, type GenderReading } from '../../demo/gender.js';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '../..');
 
 const pct = (n: number, total: number): string => `${((n / total) * 100).toFixed(2)}%`;
 
