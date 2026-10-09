@@ -138,13 +138,20 @@ describe.skipIf(!built)('the built region pages', () => {
     expect(read('notes.html')).not.toContain('hreflang="en-US"');
   });
 
-  it('shows no shop photo for a US or Indian product, and lists only that region\'s shops', () => {
+  it('shows no shop photo for a US or Indian product, only a UK listing\'s picture on a matching bottle, and lists only that region\'s shops', () => {
+    const ukFile = referencedDataFiles(read('index.html')).find((f) => f.startsWith('data/catalogue.'))!;
+    // Raw text, not parsed: the UK catalogue is far too large to hold twice.
+    const ukText = read(ukFile);
     for (const r of REGIONS) {
       const catalogueFile = referencedDataFiles(read(`${r.pathPrefix}/index.html`)).find((f) => f.startsWith('data/catalogue.'))!;
       const blobs = JSON.parse(read(`${r.pathPrefix}/${catalogueFile}`)) as unknown[];
-      const products = blobs.find((b): b is { id: string; image: unknown }[] => Array.isArray(b) && b.length > 100 && typeof (b[0] as { slug?: unknown })?.slug === 'string')!;
+      const products = blobs.find((b): b is { id: string; image: string | null }[] => Array.isArray(b) && b.length > 100 && typeof (b[0] as { slug?: unknown })?.slug === 'string')!;
       expect(products.length, r.id).toBeGreaterThan(1000);
-      expect(products.filter((p) => p.image !== null).length, `${r.id} products with a photo`).toBe(0);
+      const pictured = products.filter((p) => p.image !== null);
+      expect(pictured.length, `${r.id} products with a UK picture`).toBeGreaterThan(100);
+      expect(pictured.length, `${r.id} products with a UK picture`).toBeLessThan(products.length);
+      const strangers = [...new Set(pictured.map((p) => p.image!))].filter((i) => !ukText.includes(JSON.stringify(i)));
+      expect(strangers, `${r.id} pictures that are not a UK listing's`).toEqual([]);
       const crawled = blobs.find((b): b is Record<string, { imageUrl: unknown; retailerId: string }[]> => !!b && typeof b === 'object' && !Array.isArray(b) && Object.keys(b).length > 1000)!;
       const offers = Object.values(crawled).flat();
       expect(offers.filter((o) => o.imageUrl !== null).length, `${r.id} offers with a photo`).toBe(0);

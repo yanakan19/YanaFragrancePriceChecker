@@ -865,10 +865,39 @@ Built twice from the same data, the live tip before the beta (`e38eedba`) and th
   hand off, the menu switches a UK product to its US page, and the UK home asks "Select your
   country" for a visitor in a US time zone.
 
+### UK photos on matching region products (9 Oct 2026)
+
+Owner instruction, 9 Oct 2026: where a US or Indian product is the same bottle as a UK product,
+the UK listing's picture is shown on the US or India page. The UK site already shows that picture
+under D24's existing basis, so no new shop's photo is shown; a US or Indian shop's own picture is
+never read (the region snapshots carry none).
+
+- **Rule** (`src/catalogue/regionUkPhotos.ts`, `matchUkPhotos`). Both products must be plain bottles
+  (never a gift set, oil or attar), with the same size in ml and the same strength. Then either
+  (1) by barcode: the region product's `ean-` id is a UK product id, the match
+  `productsMatchingUkByBarcode` counts; a barcode that names another size, strength or kind is no
+  match, and no name match is tried after it. Or (2) by name, the only non barcode match, used
+  because it is the UK's own idea of one bottle: identical house, name, strength and size after
+  `regionMatchName`, strength stated on both, exactly one UK product with that key, and no two real
+  barcodes that disagree. When unsure, no match.
+- **Where it lives.** The page build (`scripts/build-region-data.ts` into `buildRegionSite`) gives
+  the matched product the UK entry's `image` and `imageTransform`, so every deploy, and so every
+  daily region crawl, keeps it. The region build (`scripts/build-region-catalogue.ts`) records
+  `ukPhoto: { id, by }` on each matched line of `data/regions/<r>/catalogue.json` (the UK id, never
+  the picture) and the counts in `report.json`. A crawl that cannot load the UK catalogue still
+  builds, with no UK pictures counted. The pages draw the picture exactly as the UK page does
+  (`productArt`); a product with no match keeps the "no image" tile. No UK file is written.
+- **Counts** (committed snapshots of 9 Oct 2026): US 3,820 of 22,390 products (17.1%), 1,280 by
+  barcode and 2,540 by name; India 1,551 of 14,594 (10.6%), 57 by barcode and 1,494 by name. Of the
+  1,596 US barcode matches, 298 failed the size, strength or kind check and are not used (a US
+  1.7 oz bottle on the barcode of a UK 50 ml, for instance). Name matches with two UK candidates (170 US, 162 India), a barcode that disagrees or no stated strength are not used.
+  Homepage Most Stocked 12: US 9 have a picture, India 3.
+- **D24 for US and Indian shops' own photos is still pending** (owner). This changes nothing for it.
+
 ### Left for later
 
 - Deals in the regions (read the shops' compare at prices in the region harvest).
-- D24 for US and Indian shops (owner): until answered, no photos.
+- D24 for US and Indian shops (owner): until answered, no shop photos (UK pictures on matching bottles, above).
 - The legal review (owner) before any affiliate programme or ad earns money there.
 - The Supabase wishlist region columns (plan section 6, "Accounts"): saved fragrances and alerts
   are still UK prices; a US product saved from `/us/` is a product id the UK page may not have.
