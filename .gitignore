@@ -31,6 +31,11 @@ dist-demo/
 # build (scripts/deploy-decision.mjs record), published, never committed.
 /demo/build-state.json
 coverage/
+# Tool scratch nothing here commits: TypeScript's incremental build info and
+# Playwright's default report folders (docs/REPO-TIDY-2026-10-09.md).
+*.tsbuildinfo
+test-results/
+playwright-report/
 # Pages the owner saves from notino.co.uk (docs/OWNER-STEPS.md). Raw pages can
 # hold account details, so they are never committed; scripts/import-notino-pages.ts
 # keeps product facts only.
@@ -52,6 +57,7 @@ __pycache__/
 .env.*
 !.env.example
 .DS_Store
+Thumbs.db
 
 # .claude holds per-agent worktrees, which are throwaway, alongside the session
 # hook, which has to be in the repo to reach a future session at all. Listed as
