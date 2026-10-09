@@ -826,8 +826,10 @@ still wants them:
   icon resolution is shared by both files (`ownIconOf` in
   `scripts/noteData.ts`) and now also follows `data/note-aliases.json`, so the
   two pages can never show different pictures. Nothing region specific was
-  built: product pages under `/us/` and `/in/` show the icons with no further
-  work as long as they draw their notes through `notesBlock()`.
+  built: the `/us/` and `/in/` product pages (public beta, same day) carry no
+  notes yet (`scripts/regionSite.ts`), so they say "Notes unavailable" and
+  fetch nothing; once they carry notes, `notesBlock()` draws the icons there
+  with no further work.
 - **Left out.** Product tiles (unchanged, as approved). The prose fix on product pages
   (decision 7's parser fix) is still not done: prose shows as a plain pill
   without an icon. A phone look by the owner (F4).
