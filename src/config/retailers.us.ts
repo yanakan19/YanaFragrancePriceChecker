@@ -281,6 +281,7 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://imaginaryauthors.com/',
     tiers: ['niche'],
     singleBrandOnly: 'Imaginary Authors',
+    // States no strength anywhere (title, tags, type, pages, FAQ; read 2026-10-09), so its listings are left out: docs/INTERNATIONAL-PLAN.md.
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
