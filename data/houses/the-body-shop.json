@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-09T07:06:24.508Z",
-  "seenAt": "2026-10-09T07:06:24.508Z",
+  "updatedAt": "2026-10-09T11:00:53.185Z",
+  "seenAt": "2026-10-09T11:00:53.185Z",
   "source": "live",
   "listings": [
     {
@@ -244,7 +244,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Melt away makeup in under 30 seconds with our Cranberry Cleansing Butter; rich, velvety and gentle. .",
       "productType": "New Product",
