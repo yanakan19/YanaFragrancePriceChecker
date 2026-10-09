@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-10-08T21:53:48.292Z",
-  "seenAt": "2026-10-08T21:53:48.292Z",
+  "updatedAt": "2026-10-09T06:00:44.680Z",
+  "seenAt": "2026-10-09T06:00:44.680Z",
   "source": "live",
   "listings": [
     {
@@ -11621,28 +11621,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "3439600056655",
-      "url": "https://www.awin1.com/pclick.php?p=45036973930&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/mugler-angel-refillable-100ml-eau-de-parfum.html",
-      "rawTitle": "Mugler Angel Refillable 100ml Eau de Parfum",
-      "rawBrand": "Mugler",
-      "ean": "3439600056655",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12737292-7745268591794907.jpg",
-      "priceGbp": 58.95,
-      "wasPriceGbp": 130,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "Mugler's take on a elegant fragrance delivers here. Mugler Angel Refillable blends floral notes with feminine undertones in this 100ml eau de parfum.From initial spray to dry down, this moves from Bergamot, Citrus through Jasmine, Rose, finally resting on Vanilla, Musk. The progression feels natural rather than abrupt.The eau de parfum concentration strikes a good balance between strength and subtlety. At 100ml, you're getting solid value, particularly if this fragrance clicks with your personal style.Fragrance Notes:Top Notes: Bergamot, Citrus, Fresh floralsMiddle Notes: Jasmine, Rose, Floral bouquetBase Notes: Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": "2026-10-08T13:52:35.358Z",
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "3614274292237",
       "url": "https://www.awin1.com/pclick.php?p=46119126346&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/mugler-angel-stellar-100ml-eau-de-parfum.html",
@@ -18856,6 +18834,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3439600056655",
+      "url": "https://www.awin1.com/pclick.php?p=45036973930&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/mugler-angel-refillable-100ml-eau-de-parfum.html",
+      "rawTitle": "Mugler Angel Refillable 100ml Eau de Parfum",
+      "rawBrand": "Mugler",
+      "ean": "3439600056655",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12737292-7745268591794907.jpg",
+      "priceGbp": 58.95,
+      "wasPriceGbp": 130,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "Mugler's take on a elegant fragrance delivers here. Mugler Angel Refillable blends floral notes with feminine undertones in this 100ml eau de parfum.From initial spray to dry down, this moves from Bergamot, Citrus through Jasmine, Rose, finally resting on Vanilla, Musk. The progression feels natural rather than abrupt.The eau de parfum concentration strikes a good balance between strength and subtlety. At 100ml, you're getting solid value, particularly if this fragrance clicks with your personal style.Fragrance Notes:Top Notes: Bergamot, Citrus, Fresh floralsMiddle Notes: Jasmine, Rose, Floral bouquetBase Notes: Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-10-08T21:53:48.292Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-09T06:00:44.680Z",
+      "relistedAt": "2026-10-08T13:52:35.358Z",
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
