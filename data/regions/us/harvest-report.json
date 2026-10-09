@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-10-09T06:27:43.741Z",
-  "minutes": 42.26,
+  "ranAt": "2026-10-09T19:03:36.224Z",
+  "minutes": 42.35,
   "dryRun": false,
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "listingsKept": 30534,
+  "listingsKept": 30633,
   "shops": [
     {
       "id": "perfumania",
@@ -46,12 +46,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 506,
-      "priced": 506,
-      "kept": 457,
-      "withBarcode": 156,
+      "listingsRead": 488,
+      "priced": 488,
+      "kept": 412,
+      "withBarcode": 136,
       "pagesFetched": 250,
-      "seconds": 501,
+      "seconds": 440,
       "currency": "JSON-LD offers named: USD",
       "errors": [],
       "diagnostics": [
@@ -69,7 +69,7 @@
       "kept": 705,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 15,
+      "seconds": 18,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -84,7 +84,7 @@
       "kept": 181,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 14,
+      "seconds": 16,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -109,12 +109,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 12004,
-      "priced": 12003,
-      "kept": 648,
+      "listingsRead": 12012,
+      "priced": 12011,
+      "kept": 646,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 51,
+      "seconds": 52,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -124,12 +124,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6825,
-      "priced": 6825,
+      "listingsRead": 6823,
+      "priced": 6823,
       "kept": 861,
       "withBarcode": 0,
       "pagesFetched": 29,
-      "seconds": 51,
+      "seconds": 68,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -159,7 +159,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -204,7 +204,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -234,7 +234,7 @@
       "kept": 5101,
       "withBarcode": 4488,
       "pagesFetched": 26,
-      "seconds": 51,
+      "seconds": 52,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -249,7 +249,7 @@
       "kept": 4606,
       "withBarcode": 0,
       "pagesFetched": 23,
-      "seconds": 42,
+      "seconds": 43,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -264,7 +264,7 @@
       "kept": 4721,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 41,
+      "seconds": 42,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -274,7 +274,7 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1702,
+      "listingsRead": 1703,
       "priced": 502,
       "kept": 502,
       "withBarcode": 0,
@@ -304,12 +304,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 3149,
-      "priced": 3062,
-      "kept": 1624,
+      "listingsRead": 3146,
+      "priced": 3060,
+      "kept": 1623,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 16,
+      "seconds": 18,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -321,10 +321,10 @@
       "status": "priced",
       "listingsRead": 5615,
       "priced": 5615,
-      "kept": 4669,
+      "kept": 4867,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 51,
+      "seconds": 50,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -334,20 +334,18 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1270,
-      "priced": 689,
-      "kept": 608,
-      "withBarcode": 607,
-      "pagesFetched": 699,
-      "seconds": 2401,
+      "listingsRead": 1701,
+      "priced": 700,
+      "kept": 572,
+      "withBarcode": 572,
+      "pagesFetched": 709,
+      "seconds": 2402,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
-        "https://www.ulta.com/p/khamrah-eau-de-parfum-mkt77007202?sku=77011172: HTTP 404",
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "https://www.ulta.com/p/khamrah-eau-de-parfum-mkt77007202?sku=77011172: HTTP 404",
-        "sitemap: 2812 product address(es) found, first read https://www.ulta.com/p/hugo-man-eau-de-toilette-2261?sku=2273379"
+        "sitemap: 2812 product address(es) found, first read https://www.ulta.com/p/red-door-eau-de-toilette-2629?sku=2012170"
       ]
     },
     {
@@ -358,14 +356,14 @@
       "status": "priced",
       "listingsRead": 248,
       "priced": 248,
-      "kept": 191,
-      "withBarcode": 154,
+      "kept": 176,
+      "withBarcode": 156,
       "pagesFetched": 250,
-      "seconds": 602,
+      "seconds": 604,
       "currency": "JSON-LD offers named: USD",
       "errors": [],
       "diagnostics": [
-        "sitemap: 7945 product address(es) found, first read https://theperfumespot.com/bod-man-dark-ice-by-parfums-de-coeur-8-oz-frgrance-body-spray-for-men/"
+        "sitemap: 7943 product address(es) found, first read https://theperfumespot.com/bod-man-dark-ice-by-parfums-de-coeur-8-oz-frgrance-body-spray-for-men/"
       ]
     },
     {

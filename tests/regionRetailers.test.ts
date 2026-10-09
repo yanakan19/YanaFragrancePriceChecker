@@ -123,4 +123,25 @@ describe('region registries', () => {
       expect(cfg.beta, r.id).toBe(true);
     }
   });
+  it('keep the five US dollar Shopify shops on the US site only, in dollars (9 Oct 2026)', () => {
+    // They show a converted pound figure to UK visitors, but their base price is US dollars and a UK
+    // buyer is charged pounds only if the checkout says so (a basket check, the owner's; the Nicchia
+    // precedent). Until then they are US only and nothing here is a pound figure.
+    const ids = ['beautyhabit', 'ds-and-durga', 'imaginary-authors', 'maison-louis-marie', 'ellis-brooklyn'];
+    const uk = JSON.stringify(RETAILERS.map((r) => [r.id, r.domain]));
+    for (const id of ids) {
+      const r = REGION_RETAILERS.US.find((x) => x.id === id)!;
+      expect(r, id).toBeDefined();
+      expect(r.enabled, id).toBe(true);
+      expect(r.currency, id).toBe('USD');
+      expect(r.taxNote, id).toBe(US_TAX_NOTE);
+      expect(r.route, id).toEqual({ kind: 'shopify' });
+      expect(r.delivery.confidence, id).toBe('confirmed');
+      expect(r.delivery.source?.readAt, id).toBe('2026-10-09');
+      expect(JSON.stringify(r), id).not.toMatch(/GBP|£/);
+      expect(uk, id).not.toContain(r.domain.replace(/^www\./, ''));
+    }
+    expect(REGION_RETAILERS.US.filter((r) => r.enabled).length).toBeGreaterThanOrEqual(ids.length);
+  });
+
 });
