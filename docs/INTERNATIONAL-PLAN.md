@@ -209,6 +209,37 @@ moving a region to its own domain later is a prefix swap with 301s, not a redesi
   Suggest only, never redirect automatically: an automatic redirect hides the UK pages from a
   US crawler and annoys a UK visitor abroad.
 
+### Welcome: "Select your country" (owner request, 9 Oct 2026)
+
+The owner wants addresses like `pricesniffs.space/in` and `/us`, and a visitor who opens the
+bare `pricesniffs.space` greeted by a pop-up that asks them to pick a country, with a line of
+link text underneath: "or log in, we'll remember your preference".
+
+- **When it shows:** only on the bare home page (`/`), only when no country has been chosen
+  (nothing in `localStorage` and, for a signed in visitor, nothing on the profile), and only
+  once a second country is live. Until then there is one choice, so it stays off (built in
+  Phase 0, switched on with the US beta). Never on a deep link (a product, brand, notes or
+  guides page): those keep the slim "You are seeing UK prices. See US prices" bar above.
+- **What it holds:** the title "Select your country", one large button per live country
+  (United Kingdom, United States, India, each with its flag and currency: £, $, ₹), the time
+  zone suggestion marked "Suggested" (section above), and underneath the link text "or log
+  in, we'll remember your preference", which opens the existing sign in.
+- **What the choice does:** United Kingdom stays on `/` (no UK address moves); United States
+  goes to `/us/`; India to `/in/`. The choice is saved in `localStorage` (`pricesniffs.region`)
+  and, for a signed in visitor, on the profile (a `region` column on `profiles`, one small
+  Supabase migration), so it follows them to another device. A saved choice skips the pop-up
+  next time; the country menu at the top changes it at any time.
+- **Closing it** (Escape, the close button or a tap outside) means "stay on the UK site" for
+  this visit only and saves nothing, so it asks again next visit until a choice is made.
+- **Search engines and the AdSense review:** a full screen pop-up on arrival can count as an
+  intrusive interstitial. So it is a small centred dialog that leaves the page readable behind
+  it, the home page's content is in the HTML underneath, and crawlers (no stored choice, no
+  JavaScript run in most cases) see the UK home as now. While the AdSense review is open, keep
+  it off (it is off anyway until the US beta).
+- **Accessibility:** a real dialog (`<dialog>`), focus moves into it and back, Escape closes
+  it, the buttons are links (`<a href="/us/">`) so they work without the script, light and
+  dark, 320 to 1280 wide.
+
 ### Search
 
 The UK product addresses already answer 404 with the app (one HTML file for the whole site). A
