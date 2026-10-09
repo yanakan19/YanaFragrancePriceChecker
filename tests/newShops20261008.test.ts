@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { parseShopifyProducts } from '../src/catalogue/shopifyJson.js';
 import { isCatalogueListing } from '../src/catalogue/fragranceId.js';
@@ -69,8 +69,13 @@ describe('every shop added on 2026-10-08', () => {
     }
   });
 
-  it.each(IDS)('%s shows no photos until the owner extends the photo decision (D24) to it', (id) => {
-    expect(getRetailer(id)!.affiliate.imageBasis).toBeUndefined();
+  it.each(IDS)('%s shows photos only on the basis the owner decided (D24), and commits no image files', (id) => {
+    // D24 was extended to these shops on 9 Oct 2026: photos are hot linked from the shop's own
+    // server. The rule: the basis is unset or exactly 'hotlink-unlicensed'; any other value fails.
+    expect([undefined, 'hotlink-unlicensed']).toContain(getRetailer(id)!.affiliate.imageBasis);
+    // And nothing is downloaded: no image files in this shop's fixture folder.
+    const dir = new URL('./fixtures/new-shops-2026-10-08/', import.meta.url);
+    expect(readdirSync(dir).filter((f) => /\.(?:jpe?g|png|webp|gif|avif|svg)$/i.test(f))).toEqual([]);
   });
 
   it('none of them takes an affiliate link before an application is approved', () => {

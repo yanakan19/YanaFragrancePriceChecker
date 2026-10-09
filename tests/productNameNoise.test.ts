@@ -24,6 +24,17 @@ import { isWithdrawnByShop } from '../src/catalogue/fragranceId.js';
  * name carries the shape again. See stripTrailingNoiseSegment and
  * NAME_NOISE_SEGMENT_WORDS in src/catalogue/productName.ts for the strips
  * themselves and for the measured evidence behind each.
+ *
+ * WHEN A NEW SHOP OR BRAND MAKES THE "|" TEST FAIL (it has, each time a shop is
+ * added): read each offender against the brand's own storefront first.
+ *  - Shop layout rubbish ("Name | Shop Brand", "Name | Eau de Parfum", a scent
+ *    family, stock or delivery copy): fix the cleaning in
+ *    src/catalogue/productName.ts (or the shop's adapter), add a unit test for
+ *    that pattern in tests/productName.test.ts, rebuild the generated files
+ *    (CLAUDE.md item 3). Do not touch this list.
+ *  - Part of the real name (the brand prints it so on its own page): add a
+ *    narrow, brand held entry below with the date and the source, like (1e).
+ *  Never loosen the test to a blanket pattern or skip it.
  */
 /**
  * (2) A shop's own status, never a name. MyBeauty.Boutique published "Burberry
@@ -137,6 +148,32 @@ describe('product names carry no shop descriptor rubbish', () => {
     /^[^|]*[^|\s]\s*\|\s*[^|\s][^|]*$/.test(name) && !/[^\p{Script=Latin}\p{N}\p{P}\p{S}\s]/u.test(name);
 
 
+  /**
+   * (1e) VERIFIED REAL, 2026-10-09. VALJUES numbers every scent with its number
+   * in words, and the brand's own storefront (valjues.com/products.json, read
+   * 2026-10-09) titles them "4 | FOUR", "21 | TWENTY-ONE", "2 | TWO", "12 | TWELVE".
+   * Parfumdreams' sample kits list them inside the set name: "Eau de Parfum
+   * Spray 4 | Four 2 ml + Eau de Parfum Spray 6 | Six 2 ml + ...". The pipe is
+   * the brand's own punctuation and the number tells the scents apart, so the
+   * set's name keeps it. Held to VALJUES and to the shape "<number> | <that
+   * number in letters>" for every pipe in the name, so any other pipe on this
+   * brand still fails.
+   */
+  const VALJUES_NUMBER_WORDS = new Set([
+    'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven',
+    'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen',
+    'twenty', 'twenty-one', 'twenty-two',
+  ]);
+  const isValjuesNumberPipe = (brand: string, name: string): boolean => {
+    if (brand.toLowerCase() !== 'valjues') return false;
+    // Every pipe must sit as "<digits> | <number word>"; the name has at least one.
+    const pipes = (name.match(/\|/g) ?? []).length;
+    const ok = [...name.matchAll(/\b(\d{1,2})\s\|\s([A-Za-z]+(?:-[A-Za-z]+)?)\b/g)].filter((m) =>
+      VALJUES_NUMBER_WORDS.has(m[2]!.toLowerCase()),
+    );
+    return pipes > 0 && ok.length === pipes;
+  };
+
   it('has no "|" in a name outside the verified allowlist', () => {
     const offenders = CATALOGUE.filter(
       (p) =>
@@ -144,6 +181,7 @@ describe('product names carry no shop descriptor rubbish', () => {
         !REAL_PIPE_NAMES.test(p.name) &&
         !(p.brand.toLowerCase() === 'kayali' && KAYALI_PIPE_NAMES.test(p.name)) &&
         !(p.brand.toLowerCase() === 'kayali' && p.giftSet && KAYALI_SET_PIPE_NAMES.test(p.name)) &&
+        !isValjuesNumberPipe(p.brand, p.name) &&
         !(TWO_PART_PIPE_HOUSES.has(houseKey(p.brand)) && isTwoPartLatinPipe(p.name)),
     ).map((p) => `${p.brand}: ${p.name}`);
     expect([...new Set(offenders)]).toEqual([]);
