@@ -34,8 +34,12 @@
  *     instruction of 9 Oct 2026), else the best of its shops' own pictures by
  *     the UK's `pickImage` rules; none at all and the page draws its
  *     placeholder. A gift set never takes a UK bottle's picture, only its own shops';
- *   - no notes: the region shops' listings carry none, and a UK shop's notes
- *     would name a shop the region page does not list.
+ *   - notes (owner instruction, 9 Oct 2026): the region shops' listings carry
+ *     none, so a product that is the same bottle as a UK product (the same
+ *     match as the picture, `matchUkNotes`) shows the UK product's notes, as
+ *     the UK page shows them (alias folded) with the UK shop's name and link
+ *     ("As published by <UK shop>", `source.retailerName`); no other product
+ *     has any.
  *
  * Product addresses: a product the UK also sells takes its UK address; a
  * product new to the region is given one by the UK's own rules
@@ -67,7 +71,7 @@ import { regionById } from '../src/config/regions.js';
 import type { StockState } from '../src/types/offer.js';
 import { shownPrice } from '../demo/msrpComparison.js';
 import { slugify } from '../demo/router.js';
-import { matchUkPhotos, type UkPhotoSource } from '../src/catalogue/regionUkPhotos.js';
+import { matchUkNotes, matchUkPhotos, type UkPhotoSource } from '../src/catalogue/regionUkPhotos.js';
 import { pickImage } from '../src/catalogue/pickImage.js';
 
 const DAY_MS = 86_400_000;
@@ -107,8 +111,17 @@ export interface RegionCatalogueEntry {
   image: string | null;
   /** The UK photo's own build time transform (docs/IMAGE-SCALE-PLAN.md), carried with it. */
   imageTransform?: string;
-  notes: null;
+  /** The matching UK product's notes and where the UK page says they were published; null for a product with no UK match. */
+  notes: RegionNotes | null;
   giftSet?: { contents: null; title: string };
+}
+
+/** Notes in the page's shape (`Notes` of demo/catalogue.generated.ts), the source named in full because the UK shop is not in the region's registry. */
+export interface RegionNotes {
+  top: string[];
+  middle: string[];
+  base: string[];
+  source: { retailerId: string; url: string; retailerName?: string } | null;
 }
 
 /** One deal in the page's shape (demo/deals.generated.ts `RawDeal`). */
@@ -298,6 +311,12 @@ export function cheapestSeries(byShop: Readonly<Record<string, readonly (readonl
 /** The deal rules' stock allowlist (scripts/build-deals.ts BUYABLE). */
 const BUYABLE: ReadonlySet<StockState> = new Set<StockState>(['inStock', 'lowStock']);
 
+function notesOf(m: ReturnType<typeof matchUkNotes> extends Map<string, infer V> ? V | undefined : never, ukShopName: (retailerId: string) => string | undefined): RegionNotes | null {
+  if (!m) return null;
+  const name = m.source ? ukShopName(m.source.retailerId) : undefined;
+  return { top: m.top, middle: m.middle, base: m.base, source: m.source ? { ...m.source, ...(name ? { retailerName: name } : {}) } : null };
+}
+
 /** Builds a region's page data from what its crawl committed. Pure apart from the clock it is given. */
 export function buildRegionSite(
   inputs: RegionInputs,
@@ -305,9 +324,12 @@ export function buildRegionSite(
   now: string,
   /** The UK catalogue, read only, for the pictures of matching bottles (`matchUkPhotos`); none given, none shown. */
   uk: readonly UkPhotoSource[] = [],
+  /** A UK shop's name, to credit the shop a UK product's notes were read from; unknown, the credit keeps no name. */
+  ukShopName: (retailerId: string) => string | undefined = () => undefined,
 ): RegionSite {
   const products = regionProducts(inputs, now).filter(isShowable);
   const ukPhotos = matchUkPhotos(products, uk);
+  const ukNotes = matchUkNotes(products, uk);
   const slugs = regionSlugs(products.map(regionSlugProduct), ukSlugs, inputs.slugMemory);
   const shopById = new Map(inputs.shops.map((s) => [s.id, s]));
   const retailerById = new Map(inputs.shops.map((s) => [s.id, regionShopAsRetailer(s)]));
@@ -374,7 +396,7 @@ export function buildRegionSite(
       shops: offers.length,
       image: (isSet ? undefined : ukPhotos.get(p.id)?.image) ?? pickImage(offers.map((o) => ({ retailerId: o.retailerId, imageUrl: o.imageUrl, fetchedAt: o.fetchedAt })), nowDate),
       ...(!isSet && ukPhotos.get(p.id)?.imageTransform ? { imageTransform: ukPhotos.get(p.id)!.imageTransform! } : {}),
-      notes: null,
+      notes: notesOf(isSet ? undefined : ukNotes.get(p.id), ukShopName),
       ...(isSet ? { giftSet: { contents: null, title: setTitle! } } : {}),
     });
     crawled[p.id] = offers;

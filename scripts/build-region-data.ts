@@ -35,6 +35,7 @@ import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
+import { getRetailer } from '../src/config/retailers.js';
 import { liveRegions } from '../src/config/regions.js';
 import type { RegionCode } from '../src/types/regionRetailer.js';
 import { slugify } from '../demo/router.js';
@@ -146,6 +147,8 @@ export interface RegionSiteFacts {
   /** Every id the page has, for the hreflang alternates of the other regions' sitemaps. */
   ids: Record<string, string>;
   deals: number;
+  /** Products showing a UK product's notes: the Notes tab is offered (and indexed) when there are any. */
+  withNotes: number;
 }
 
 function factsOf(site: RegionSite): RegionSiteFacts {
@@ -161,6 +164,7 @@ function factsOf(site: RegionSite): RegionSiteFacts {
     shops: [...new Set(Object.values(site.crawled).flatMap((o) => o.map((x) => x.retailerId)))].sort(),
     ids: Object.fromEntries(site.catalogue.map((c) => [c.id, c.slug])),
     deals: site.deals.length,
+    withNotes: site.catalogue.filter((c) => c.notes).length,
   };
 }
 
@@ -179,7 +183,7 @@ function main(): void {
     const region = regionCodeOf(config);
     const started = Date.now();
     // The UK picture of every product that is the same bottle as a UK product (src/catalogue/regionUkPhotos.ts).
-    const site = buildRegionSite(readRegionInputs(root, region), ukSlugs, now, CATALOGUE);
+    const site = buildRegionSite(readRegionInputs(root, region), ukSlugs, now, CATALOGUE, (id) => getRetailer(id)?.name);
     const dir = resolve(out, config.pathPrefix);
     mkdirSync(dir, { recursive: true });
     writeFileSync(resolve(dir, 'catalogue.generated.js'), catalogueModule(site));
@@ -194,7 +198,7 @@ function main(): void {
     console.log(
       `dist-demo/regions/${config.pathPrefix}  ${site.catalogue.length} products from ${site.shopCount} shops ` +
         `(${multi} at two or more, ${site.catalogue.length ? ((multi / site.catalogue.length) * 100).toFixed(1) : '0.0'}%), ` +
-        `${site.catalogue.filter((c) => c.image).length} with a UK picture, ${site.deals.length} deals, ${Object.keys(site.priceHistory).length} price lines, ` +
+        `${site.catalogue.filter((c) => c.image).length} with a UK picture, ${site.catalogue.filter((c) => c.notes).length} with UK notes, ${site.deals.length} deals, ${Object.keys(site.priceHistory).length} price lines, ` +
         `${Object.keys(site.slugs).length} addresses, prices read ${site.crawledAt}, ${((Date.now() - started) / 1000).toFixed(1)} s`,
     );
   }

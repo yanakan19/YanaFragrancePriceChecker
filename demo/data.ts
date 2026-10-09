@@ -7,7 +7,7 @@ import { slugify } from './router.js';
 import type { OilFacts } from '../src/catalogue/perfumeOil.js';
 import type { GiftSetRecord } from '../src/catalogue/giftSet.js';
 import { isTooOldToShow, showableListingCount } from '../src/services/priceService.js';
-import { CATALOGUE, CRAWLED, NOTE_ALIASES, type Notes } from './catalogue.generated.js';
+import { CATALOGUE, CRAWLED, NOTE_ALIASES, type Notes as CatalogueNotes } from './catalogue.generated.js';
 import { DEALS_RAW, DEALS_GENERATED_AT as DEALS_GENERATED_AT_RAW } from './deals.generated.js';
 
 /**
@@ -24,7 +24,12 @@ import { DEALS_RAW, DEALS_GENERATED_AT as DEALS_GENERATED_AT_RAW } from './deals
  * and a picture we made up are the same kind of dishonest.
  */
 
-export type { Notes };
+/**
+ * A product's notes. On a US or India page they are the matching UK product's
+ * notes (scripts/regionSite.ts), so the credit carries the UK shop's name: the
+ * region's shop registry does not list it. The UK's own are as generated.
+ */
+export type Notes = Omit<CatalogueNotes, 'source'> & { source: (NonNullable<CatalogueNotes['source']> & { retailerName?: string }) | null };
 
 export interface DemoFragrance {
   id: string;

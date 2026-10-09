@@ -23,6 +23,12 @@
  * attar), with the same size in ml and the same strength, so a gift set, a
  * tester-sized or different-size bottle never takes a plain bottle's picture.
  * When unsure, no match. Pure: no file is read or written here.
+ *
+ * The same match also lends a UK product's notes (`matchUkNotes`, owner
+ * instruction of 9 Oct 2026): the US and Indian shops publish none, so a
+ * matching region product shows the UK product's notes. One idea of "the same
+ * bottle" for both, so a bottle never has the UK picture of one product and the
+ * notes of another.
  */
 import { brandKey } from './brandName.js';
 import { normalizedEan } from './productMatch.js';
@@ -38,6 +44,8 @@ export interface UkPhotoSource {
   ean: string | null;
   image: string | null;
   imageTransform?: string;
+  /** The UK product's notes, already folded by the reviewed note aliases; lent to a matching region product (`matchUkNotes`). */
+  notes?: { top: string[]; middle: string[]; base: string[]; source: { retailerId: string; url: string } | null } | null;
   giftSet?: unknown;
   oil?: unknown;
 }
@@ -48,6 +56,16 @@ export interface UkPhoto {
   by: 'barcode' | 'name';
   image: string;
   imageTransform?: string;
+}
+
+/** The notes a region product takes from its UK match, with where the UK page says they were read. */
+export interface UkNotes {
+  ukId: string;
+  by: 'barcode' | 'name';
+  top: string[];
+  middle: string[];
+  base: string[];
+  source: { retailerId: string; url: string } | null;
 }
 
 const NOT_STATED = 'Not stated';
@@ -70,8 +88,8 @@ function nameKey(brand: string, name: string, concentration: string, sizeMl: num
   return `${brandKey(brand)}|${regionMatchName(name).toLowerCase()}|${concentration.toLowerCase()}|${sizeMl}`;
 }
 
-/** Region product id to the UK picture it takes. Products with no match, or whose UK match has no picture, are absent. */
-export function matchUkPhotos(products: readonly Pick<RegionProduct, 'id' | 'kind' | 'brand' | 'name' | 'concentration' | 'sizeMl' | 'ean'>[], uk: readonly UkPhotoSource[]): Map<string, UkPhoto> {
+/** The one match rule: region product id to the UK bottle it is, and by what. Nothing here reads a picture or notes. */
+function matchUkBottles(products: readonly Pick<RegionProduct, 'id' | 'kind' | 'brand' | 'name' | 'concentration' | 'sizeMl' | 'ean'>[], uk: readonly UkPhotoSource[]): Map<string, { u: UkPhotoSource; by: UkPhoto['by'] }> {
   const byId = new Map(uk.map((u) => [u.id, u]));
   // Plain bottles with a stated strength, by identical normalised house, name, strength and size. More than one: ambiguous, never used.
   const byName = new Map<string, UkPhotoSource[]>();
@@ -83,16 +101,13 @@ export function matchUkPhotos(products: readonly Pick<RegionProduct, 'id' | 'kin
     else byName.set(k, [u]);
   }
 
-  const out = new Map<string, UkPhoto>();
-  const take = (p: { id: string }, u: UkPhotoSource, by: UkPhoto['by']): void => {
-    if (u.image) out.set(p.id, { ukId: u.id, by, image: u.image, ...(u.imageTransform ? { imageTransform: u.imageTransform } : {}) });
-  };
+  const out = new Map<string, { u: UkPhotoSource; by: UkPhoto['by'] }>();
   for (const p of products) {
     if (p.kind !== 'bottle') continue;
     const sameId = byId.get(p.id);
     if (p.id.startsWith('ean-') && sameId) {
       // A barcode that points at a different kind, size or strength is not this bottle, and no name match is tried after it.
-      if (sameBottle(p, sameId)) take(p, sameId, 'barcode');
+      if (sameBottle(p, sameId)) out.set(p.id, { u: sameId, by: 'barcode' });
       continue;
     }
     const concentration = concentrationOf(p.concentration);
@@ -101,7 +116,29 @@ export function matchUkPhotos(products: readonly Pick<RegionProduct, 'id' | 'kin
     if (!hits || hits.length !== 1) continue;
     const u = hits[0]!;
     if (barcodesDisagree(p.ean, u.ean)) continue;
-    take(p, u, 'name');
+    out.set(p.id, { u, by: 'name' });
+  }
+  return out;
+}
+
+type MatchProduct = Pick<RegionProduct, 'id' | 'kind' | 'brand' | 'name' | 'concentration' | 'sizeMl' | 'ean'>;
+
+/** Region product id to the UK picture it takes. Products with no match, or whose UK match has no picture, are absent. */
+export function matchUkPhotos(products: readonly MatchProduct[], uk: readonly UkPhotoSource[]): Map<string, UkPhoto> {
+  const out = new Map<string, UkPhoto>();
+  for (const [id, { u, by }] of matchUkBottles(products, uk)) {
+    if (u.image) out.set(id, { ukId: u.id, by, image: u.image, ...(u.imageTransform ? { imageTransform: u.imageTransform } : {}) });
+  }
+  return out;
+}
+
+/** Region product id to the UK notes it takes (same match as the picture). A match whose UK product shows no notes is absent. */
+export function matchUkNotes(products: readonly MatchProduct[], uk: readonly UkPhotoSource[]): Map<string, UkNotes> {
+  const out = new Map<string, UkNotes>();
+  for (const [id, { u, by }] of matchUkBottles(products, uk)) {
+    const n = u.notes;
+    if (!n || n.top.length + n.middle.length + n.base.length === 0) continue;
+    out.set(id, { ukId: u.id, by, top: [...n.top], middle: [...n.middle], base: [...n.base], source: n.source ? { ...n.source } : null });
   }
   return out;
 }

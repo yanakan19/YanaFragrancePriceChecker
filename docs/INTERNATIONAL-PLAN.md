@@ -897,6 +897,44 @@ never read (the region snapshots carry none).
   Homepage Most Stocked 12: US 9 have a picture, India 3.
 - **D24 for US and Indian shops' own photos was answered yes on 9 Oct 2026.** The UK picture still comes first; a shop's own photo fills the products with no UK match.
 
+### UK notes on matching region products (9 Oct 2026)
+
+Owner decision, 9 Oct 2026: the US and Indian shops publish no fragrance notes, so a US or India
+product that is the same bottle as a UK product shows the UK product's notes, with the note icons.
+The same approach as the UK pictures above.
+
+- **Rule.** Exactly the rule of "UK photos on matching region products": the barcode match, then the
+  strict name match (`matchUkBottles` in `src/catalogue/regionUkPhotos.ts`, shared by
+  `matchUkPhotos` and the new `matchUkNotes`). A product with no UK match keeps no notes; a gift
+  set never takes any. The match does not need the UK listing to have a picture, only notes.
+- **What is copied.** The UK entry's `notes` as the UK page shows them (already folded by
+  `data/note-aliases.json`, then tidied by `demo/data.ts` like any page), and the credit: the UK
+  shop's id, the link to the page the notes were read from, and its name in `source.retailerName`
+  (the region's shop registry does not list the UK shop, so the page cannot look it up). The page
+  says "As published by <UK shop>" with the link, as the UK page does.
+- **Where it lives.** `buildRegionSite` (`scripts/regionSite.ts`) writes `notes` on each matched
+  entry of the region's catalogue module, at every deploy, so every daily crawl keeps it. The crawl
+  writes nothing for it. No UK file is written; the UK entries are only read.
+- **The Notes tab and the note icons.** `scripts/bundle-region.ts` now builds each region's `notes`
+  file (groups, icons, related notes, search spellings) and `noteIcons` lookup from the notes that
+  region's page really ships (it reads the region's own data module the way the page reads it),
+  where it used to write empty ones. The icons are the shared hashed copies under
+  `/note-icons/h/`; on `/us/` and `/in/` the page's base is `/`, so the pictures are requested from
+  there, never from a region copy (a test checks no `demo/us/note-icons` exists).
+- **Note pages and search engines.** `/us/notes/<slug>` and `/in/notes/<slug>` open as on the UK,
+  listing the region products with that note. As in the UK, individual note pages are not in the
+  sitemap; `/us/notes` and `/in/notes` are (and have route pages), with their canonical in the
+  region and no longer noindex (`demo/head.ts`). hreflang is not declared for Notes: it would
+  change the UK's own sitemap and `notes.html`, which this change leaves as they were
+  (`regionHasFixedPage` still says no for the beta regions' Notes, so the hreflang code is
+  unchanged; add it later if wanted).
+- **Counts** (page build of 9 Oct 2026): US 2,694 of 22,390 products show notes (12.0%), India 1,352
+  of 14,594 (9.3%). The US Notes tab lists 1,652 notes (1,694 with the prose entries it hides) and
+  the India tab 1,141 (1,166).
+- **UK unchanged.** Built before and after: every UK data file, `sitemap-gb.xml` and the hashed note
+  icons are byte for byte the same. The UK pages' HTML differs only by the bundled code (the credit
+  line now reads `retailerName` first, which no UK note has).
+
 ### Left for later
 
 - ~~Deals in the regions (read the shops' compare at prices in the region harvest).~~ Built 9 October 2026: see "Deals on the US and India sites" below; the numbers fill in with the next crawls.
@@ -905,7 +943,7 @@ never read (the region snapshots carry none).
 - The Supabase wishlist region columns (plan section 6, "Accounts"): saved fragrances and alerts
   are still UK prices; a US product saved from `/us/` is a product id the UK page may not have.
 - ~~An 18 or over confirmation at sign up for Indian visitors (DPDP).~~ Done 9 October 2026: see below.
-- Notes for region products, and the guides in US terms (they are written for the UK site).
+- ~~Notes for region products~~ (built 9 October 2026: see "UK notes on matching region products"); the guides in US terms (they are written for the UK site) are still to do.
 
 ### 18 or over at sign up in India (9 October 2026)
 

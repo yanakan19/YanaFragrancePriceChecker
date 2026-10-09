@@ -38,12 +38,12 @@ export const CHANGELOG: ChangelogEntry[] = [
         points: [
           'US and India beta sites, now with Deals',
           'Glossier UK, with its fragrances priced in pounds',
-          'New UK shops: Rowlands, Lloyds, Beauté Boulevard',
-          'Also Scent Warehouse, Roullier White, Scented',
+          'Six new UK shops, including Rowlands and Lloyds',
           'More guides: shops, notes, matching and deals',
           'New Notes page, and note icons on products',
           'Country choice saved to your account',
           'Bottle photos for US, India and new UK shops',
+          'Notes and icons on US and India products',
         ],
       },
       {

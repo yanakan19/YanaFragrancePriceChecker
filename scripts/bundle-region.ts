@@ -136,9 +136,10 @@ async function bundleRegion(region: RegionConfig): Promise<void> {
     await writeFile(resolve(dataDir, `${name}.json`), JSON.stringify(data));
     lazy.push(name);
   }
-  // Notes: the region shops publish none, so the Notes tab has no note to list
-  // and the product page's note icon lookup is empty (the same files as the UK's,
-  // so every lazy name the app may ask for exists on the region page too).
+  // Notes (owner instruction, 9 Oct 2026): the region shops publish none, so a product that is the
+  // same bottle as a UK product shows the UK product's notes (scripts/regionSite.ts). The Notes
+  // tab's file and the product page's icon lookup are built from the notes this region's page
+  // really ships: its own data module is read the way the page reads it (names tidied, counted).
   {
     const inputs = readNoteGroupInputs(root);
     const iconPaths = publishNoteIcons(root, inputs);
@@ -147,12 +148,34 @@ async function bundleRegion(region: RegionConfig): Promise<void> {
       if (!p) throw new Error(`note icon ${f} was not published`);
       return p;
     };
-    const file = buildNoteData([], [], inputs, iconPath);
+    const probe = resolve(outDir, 'data-probe.mjs');
+    await build({
+      entryPoints: [resolve(root, 'dist-demo/demo/data.js')],
+      bundle: true,
+      format: 'esm',
+      platform: 'node',
+      outfile: probe,
+      plugins: [{
+        name: 'region-data-probe',
+        setup(b) {
+          b.onResolve({ filter: /(?:^|\/)(?:catalogue|deals|dormant|priceHistory)\.generated\.js$/ }, (args) => ({
+            path: resolve(regionDir, `${args.path.split('/').pop()!}`),
+          }));
+          b.onResolve({ filter: /(?:^|\/)config\/retailers\.js$/ }, () => ({ path: resolve(regionDir, 'retailers.js') }));
+        },
+      }],
+      logLevel: 'warning',
+    });
+    const data = (await import(pathToFileURL(probe).href)) as typeof import('../demo/data.js');
+    await rm(probe, { force: true });
+    const pyramids = data.DEMO_FRAGRANCES.filter((f) => f.notes).map((f) => [...f.notes!.top, ...f.notes!.middle, ...f.notes!.base]);
+    const file = buildNoteData(data.NOTE_INDEX, pyramids, inputs, iconPath);
     await writeFile(resolve(dataDir, `${NOTE_DATA_FILE}.json`), JSON.stringify({ NOTE_DATA: file }));
     lazy.push(NOTE_DATA_FILE);
-    const icons = buildNoteIconLookup([], [], inputs, iconPath);
+    const icons = buildNoteIconLookup(data.NOTE_INDEX, pyramids.flat(), inputs, iconPath);
     await writeFile(resolve(dataDir, `${NOTE_ICON_FILE}.json`), JSON.stringify({ NOTE_ICONS: icons }));
     lazy.push(NOTE_ICON_FILE);
+    console.log(`dist-demo/${r}  ${pyramids.length} products show notes, ${data.NOTE_INDEX.length} notes in the Notes tab`);
   }
   // What this page knows of the other regions (scripts/build-region-data.ts).
   {

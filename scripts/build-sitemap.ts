@@ -224,8 +224,8 @@ const unique = entries.filter((e) => (seen.has(e.loc) ? false : (seen.add(e.loc)
 // ── The region pages (public beta) ────────────────────────────────────────
 // Each live region but the UK, from the facts its page build wrote. The fixed
 // pages are the UK's own list, under the region's prefix, except the ones a
-// beta region does not offer yet (regionHasFixedPage: Notes, whose shops
-// publish no notes, so the tab has nothing on it and is noindex there).
+// beta region does not offer (regionHasFixedPage: Notes), except Notes itself
+// once the region's products show the notes of the UK products they match.
 const regionSitemaps: { region: RegionConfig; facts: RegionSiteFacts; entries: Entry[] }[] = [];
 for (const region of liveRegions()) {
   if (region.pathPrefix === '') continue;
@@ -239,7 +239,8 @@ for (const region of liveRegions()) {
   const list: Entry[] = [];
   const fixed = unique.filter((e) => !e.loc.startsWith('/brands/') && !e.loc.startsWith('/retailers/') && !isProductSlug(e.loc.slice(1)));
   for (const e of fixed) {
-    if (!regionHasFixedPage(region, e.loc)) continue;
+    // Notes: offered once the region has products showing a matching UK product's notes.
+    if (!regionHasFixedPage(region, e.loc) && !(e.loc === '/notes' && facts.withNotes > 0)) continue;
     // A Deals page with nothing on it is not offered to a crawler (the region
     // harvest reads no shop's previous price yet, so a region has no deals).
     if (e.loc === '/deals' && facts.deals === 0) continue;
@@ -274,7 +275,8 @@ function holders(loc: string): Holder[] {
     return out;
   }
   if (GB && ukFixed.has(loc)) out.push({ id: 'GB', region: GB, path: loc });
-  for (const r of regionSitemaps) if (r.entries.some((e) => e.loc === loc)) out.push({ id: r.region.id, region: r.region, path: loc });
+  // Notes has no hreflang alternates yet: that would change the UK's own sitemap and page tags.
+  for (const r of regionSitemaps) if (regionHasFixedPage(r.region, loc) && r.entries.some((e) => e.loc === loc)) out.push({ id: r.region.id, region: r.region, path: loc });
   return out;
 }
 

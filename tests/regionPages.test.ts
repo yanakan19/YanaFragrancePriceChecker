@@ -133,8 +133,10 @@ describe.skipIf(!built)('the built region pages', () => {
     expect(read('deals.html')).toContain(`<link rel="alternate" hreflang="en-US" href="${SITE_URL}/us/deals" />`);
     expect(read('us/deals.html')).toContain(`<link rel="alternate" hreflang="en-GB" href="${SITE_URL}/deals" />`);
     expect(read('us/deals.html')).toContain(`<link rel="alternate" hreflang="x-default" href="${SITE_URL}/deals" />`);
-    // The beta regions' empty Notes tab: noindex, and the UK's declares no alternates.
-    expect(read('us/notes.html')).toContain('<meta name="robots" content="noindex, follow" />');
+    // The beta regions' Notes tab shows the matching UK products' notes, so it is indexed (canonical in the region);
+    // the UK's declares no alternates (its page and sitemap stay as they were).
+    expect(read('us/notes.html')).not.toContain('<meta name="robots" content="noindex');
+    expect(read('us/notes.html')).toContain(`<link rel="canonical" href="${SITE_URL}/us/notes" />`);
     expect(read('notes.html')).not.toContain('hreflang="en-US"');
   });
 
@@ -188,7 +190,7 @@ describe.skipIf(!built)('the sitemaps', () => {
       expect(locs.length, r.id).toBeLessThanOrEqual(50_000);
       expect(locs.every((l) => l.startsWith(`${SITE_URL}/${r.pathPrefix}/`)), r.id).toBe(true);
       expect(locs, r.id).toContain(`${SITE_URL}/${r.pathPrefix}/`);
-      expect(locs, r.id).not.toContain(`${SITE_URL}/${r.pathPrefix}/notes`);
+      expect(locs, r.id).toContain(`${SITE_URL}/${r.pathPrefix}/notes`);
     }
     expect([...gb.matchAll(/<loc>([^<]+)<\/loc>/g)].every((m) => !/^https:\/\/[^/]+\/(us|in)\//.test(m[1]!))).toBe(true);
   });

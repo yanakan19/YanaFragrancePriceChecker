@@ -41,7 +41,7 @@
  * be checked against the noindex rules in the same test run.
  */
 import { productPathInRegion, type Route } from './router.js';
-import { activeRegion, hreflangAlternates, regionHasFixedPage, regionPath, splitRegionPrefix, type RegionId } from '../src/config/regions.js';
+import { activeRegion, hreflangAlternates, regionPath, splitRegionPrefix, type RegionId } from '../src/config/regions.js';
 import { localWords } from '../src/services/regionText.js';
 import { ADS_ON } from './ads.js';
 import { GUIDES_INDEX, GUIDES_PATH, HOW_WE_CHECK, guideBySlug, guidePath } from './guideList.js';
@@ -190,9 +190,9 @@ const SITE_TAIL = 'Real prices read from the shops themselves, checked daily.';
 /**
  * The tags a page declares. On the US and Indian pages (public beta, 9 October
  * 2026) the same tags, with the region's words (US shops, shipping, MSRP:
- * src/services/regionText.ts) and a home description of their own, and the
- * Notes tab kept out of search engines while its shops publish no notes
- * (regionHasFixedPage). The UK's tags are exactly what they were.
+ * src/services/regionText.ts) and a home description of their own. The Notes
+ * tab is indexed like the UK's now that region products show the notes of the
+ * UK product they match (9 Oct 2026). The UK's tags are exactly what they were.
  */
 export function headFor(input: HeadInput): HeadTags {
   const tags = headTagsUk(input);
@@ -201,8 +201,7 @@ export function headFor(input: HeadInput): HeadTags {
   const description = input.route.name === 'home'
     ? `${SHARE_TITLE}. Fragrance prices from ${region.shopsAdjective} shops, compared${region.beta ? ', in beta' : ''}.`
     : localWords(tags.description, region);
-  const hidden = input.route.name === 'notes' && !regionHasFixedPage(region, '/notes');
-  return { ...tags, description, ...(hidden ? { noindex: true } : {}) };
+  return { ...tags, description };
 }
 
 function headTagsUk(input: HeadInput): HeadTags {

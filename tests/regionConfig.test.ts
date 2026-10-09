@@ -226,7 +226,7 @@ describe('canonical and hreflang', () => {
     // Sold in the US and India but not the UK: no x-default, which is the UK page.
     expect(hreflangAlternates(SITE_URL, '/brands/rasasi', ['US', 'IN']).map((l) => l.hreflang)).toEqual(['en-US', 'en-IN']);
     expect(hreflangAlternates(SITE_URL, '/x_y_100ml', ['US'])).toEqual([]);
-    // The beta regions' Notes tab is empty (their shops publish no notes), so the UK's declares none.
+    // The beta regions' Notes tab carries no hreflang alternates (it would change the UK's own tags); it is indexed in the region.
     expect(regionHasFixedPage(US, '/notes')).toBe(false);
     expect(regionHasFixedPage(GB, '/notes')).toBe(true);
     expect(hreflangAlternates(SITE_URL, '/notes')).toEqual([]);
@@ -244,14 +244,14 @@ describe('canonical and hreflang', () => {
     }
   });
 
-  it('describes a region\'s pages in its own words, and keeps its empty Notes tab out of search engines', () => {
+  it('describes a region\'s pages in its own words, and indexes its Notes tab (it shows UK notes)', () => {
     setActiveRegionForBuild(US);
     try {
       const fragrances = headFor({ route: { name: 'fragrances', param: '', query: {} } });
       expect(fragrances.description).toContain('US shops');
       expect(fragrances.description).not.toContain('UK shops');
       expect(headFor({ route: { name: 'home', param: '', query: {} } }).description).toContain('US shops');
-      expect(headFor({ route: { name: 'notes', param: '', query: {} } }).noindex).toBe(true);
+      expect(headFor({ route: { name: 'notes', param: '', query: {} } }).noindex).toBe(false);
     } finally {
       setActiveRegionForBuild(null);
     }

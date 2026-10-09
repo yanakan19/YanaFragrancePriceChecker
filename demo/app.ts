@@ -2321,10 +2321,11 @@ function notesBlock(f: DemoFragrance): string {
   // that no longer resolves — both fall back to the old, unlinked wording
   // rather than rendering a broken link or a made-up name.
   const source = f.notes.source;
-  const sourceRetailer = source ? getRetailer(source.retailerId) : undefined;
+  // A region product's notes are the matching UK product's: the UK shop is named on the notes (retailerName).
+  const sourceName = source ? (source.retailerName ?? getRetailer(source.retailerId)?.name) : undefined;
   const sourceLine =
-    source && sourceRetailer
-      ? `<a class="notes-source-link" href="${esc(source.url)}" target="_blank" rel="noopener nofollow">As published by ${esc(sourceRetailer.name)}<span class="notes-source-ico" aria-hidden="true">${ICON_EXTERNAL}</span></a>`
+    source && sourceName
+      ? `<a class="notes-source-link" href="${esc(source.url)}" target="_blank" rel="noopener nofollow">As published by ${esc(sourceName)}<span class="notes-source-ico" aria-hidden="true">${ICON_EXTERNAL}</span></a>`
       : 'As published by the retailer listing it.';
   return `<div class="notes-block">
     <p class="gone-head t-eyebrow">Notes</p>
