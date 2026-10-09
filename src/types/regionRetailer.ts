@@ -152,6 +152,13 @@ export interface RegionRetailer {
    */
   skuBarcodeFrom?: string;
   /**
+   * Shopify `vendor` values this shop uses for itself, not for a house
+   * (Perfume Palace files 926 of its listings under "Seema Mehra"). A listing
+   * with one of these stores no brand, and the build reads the house from the
+   * title against the houses the region's shops name.
+   */
+  vendorNotHouse?: readonly string[];
+  /**
    * The Shopify `vendor` is the shop, not the house (Parfums Raffy), so it is
    * not stored as the brand; the region build reads the house from the title
    * against the houses the region's other shops name.

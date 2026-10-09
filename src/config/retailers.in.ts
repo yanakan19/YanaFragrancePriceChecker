@@ -129,6 +129,9 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
+    // 926 of its listings carry the vendor "Seema Mehra", a person, not a house
+    // ("Lattafa 24 Carat White Gold Eau De Parfum 100ml", read 2026-10-09).
+    vendorNotHouse: ['Seema Mehra'],
     delivery: unverified('Its cart says "Shipping Charges Calculated on checkout"; no delivery page answered at the usual addresses.'),
     taxNote: IN_TAX_NOTE,
     checked: `${CHECKED}: robots.txt 200 (stock); home 200; /products.json 200; ${SHOPIFY_INR} (Shopify.country US to a US caller, still INR at rate 1.0).`,

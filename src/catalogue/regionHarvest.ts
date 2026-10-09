@@ -209,7 +209,8 @@ export function toRegionListings(
     if (seen.has(l.retailerSku)) continue;
     // A single house's own shop sells only that house; its vendor field is
     // sometimes a category ("Frag", "BnB") rather than the house.
-    const rawBrand = shop.singleBrandOnly ?? (shop.vendorIsShop ? null : l.rawBrand);
+    const notHouse = new Set((shop.vendorNotHouse ?? []).map((v) => v.toLowerCase()));
+    const rawBrand = shop.singleBrandOnly ?? (shop.vendorIsShop || (l.rawBrand && notHouse.has(l.rawBrand.trim().toLowerCase())) ? null : l.rawBrand);
     const ean = cleanBarcode(l.ean) ?? (shop.skuIsBarcode ? cleanBarcode(l.retailerSku) : null) ?? barcodeInSku(l.retailerSku, shop);
     const candidate: RegionListing = {
       retailerSku: l.retailerSku,

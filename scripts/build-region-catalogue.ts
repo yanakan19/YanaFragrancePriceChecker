@@ -58,6 +58,7 @@ const { products, measures } = buildRegionCatalogue(snapshots, {
   ukIds,
   groups: new Map(shops.filter((s) => s.catalogueGroup).map((s) => [s.id, s.catalogueGroup!])),
   formatWords: new Map(shops.filter((s) => s.titleMustMatch).map((s) => [s.id, s.titleMustMatch!])),
+  notHouse: new Map(shops.filter((s) => s.vendorNotHouse?.length).map((s) => [s.id, new Set(s.vendorNotHouse!.map((v) => v.toLowerCase()))])),
 });
 
 const historyPath = resolve(REPO_ROOT, folder, 'price-history.json');
