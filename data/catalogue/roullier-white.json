@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-10-09T09:54:07.346Z",
-  "seenAt": "2026-10-09T09:54:07.346Z",
+  "updatedAt": "2026-10-09T14:15:32.643Z",
+  "seenAt": "2026-10-09T14:15:32.643Z",
   "source": "live",
   "listings": [
     {
@@ -4545,7 +4545,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Vanille de Tahiti is an ode to exoticism, to the inquietude that makes us dream of heavenly places where happiness reigns. Powerful and heady, with creamy, subtly sweet notes, it is enriched with floral touches of Ylang Ylang and Champaca, hints of Amber and Musk and a Sandalwood base.. Fragrance Notes Top: Absolute of Ylang Ylang, Absolute of Champaca. Middle: Vanilla of Tahiti CO2 Base: Amber, Sandalwood, Musk. Fragrance House Perris Monte Carlo is a house with an unparalleled knowledge of luxury, style, and sophistication. Embodying the sense of rarefied glamour that has made Monte Carlo the capital of wealth, opulence, and prestige. Created in collaboration with nose Luca Maffei, the Perris collection is one of breadth and quality, with a dizzying array of precious ingredients and a keen sense of composition. Each fragrance aims to bring out the best qualities of its main ingredient, and each takes its name from the ingredient in question. Perris Monte Carlo exemplifies the kind of confident and assured style indicative of a house with a clear and distinctive vision. .",
       "productType": "Perfume",
@@ -5189,7 +5189,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A beautiful composition of green notes gathered in various iridescent shades: from the earthy power of delicate roots to the rich foliage of majestic trees. The heart beats for its protagonist, the fig, which with its characteristic fruity-green aroma tantalizes both nos and palate at the same time. New shades of green are brought by conifers and are flanked by herbaceous lavender. Above it all the fig sits enthroned with an almost minty appearing aureole. Cedar and sandalwood keep this explosion of life and thoughfully in check. The fragrance creation \"Fleur de Figuier\" pays homage to the warm season in the Mediterranean by responding to this with timeless elegance, freshness and softness.. Fragrance Notes Top: Green Notes Middle: Fig, Pine, Lavender Base: Cedawood, Sandalwood. Fragrance House Maison Chabaud celebrates the enchanting landscapes of the South Of France. The adventure began in Montpellier in 2002, when the Chabaud family developed a collection of bewitching scents inspired by Mediterranean gardens. Maison Chabaud has continued to develop, successfully forging an intimate connection between history and the natural world, all the while seeking to embody da Vinci's famous maxim: 'Simplicity is the ultimate sophistication'. .",
       "productType": "Perfume",

@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-09T11:00:50.052Z",
-  "seenAt": "2026-10-09T11:00:50.052Z",
+  "updatedAt": "2026-10-09T15:22:43.717Z",
+  "seenAt": "2026-10-09T15:22:43.717Z",
   "source": "live",
   "listings": [
     {
@@ -170,7 +170,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Every. Single. Obsession. . . Spritz our entire 90ml perfume mist collection with this super limited-edition bundle, featuring an exclusive Sol de Janeiro tote. Only available for limited time & extremely limited stock : Bag the ultimate cheirosa haul before it’s gone for good. . .",
       "productType": "bundle-dg",

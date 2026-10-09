@@ -1,35 +1,9 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-09T10:55:48.334Z",
-  "seenAt": "2026-10-09T10:55:48.334Z",
+  "updatedAt": "2026-10-09T15:17:55.469Z",
+  "seenAt": "2026-10-09T15:17:55.469Z",
   "source": "live",
   "listings": [
-    {
-      "retailerSku": "101044392",
-      "url": "https://surrati.ae/products/hajar-al-aswad",
-      "rawTitle": "Hajar Al Aswad",
-      "rawBrand": "Surrati Perfumes",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/SprayHajarAlAswad140Ml1.jpg?v=1790850713",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Surrati Hajar Al Aswad Eau De Parfum (140ml). Immerse yourself in timeless Arabian prestige. . Named after the revered Black Stone, Hajar Al Aswad by Surrati is a bold, deeply captivating fragrance that embodies power, luxury, and spiritual heritage . Encased in an opulent glossy black flacon finished with ornate antique-gold detailing and an engraved dome cap, it is crafted for those who command presence without uttering a word . .",
-      "productType": "Men's Perfume",
-      "nativePrice": {
-        "amount": 84,
-        "currency": "AED"
-      },
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-10-01T20:07:49.344Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
     {
       "retailerSku": "101044333",
       "url": "https://surrati.ae/products/jewel-140-ml-opulent-spray-heritage-collection",
@@ -2810,6 +2784,33 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "101044392",
+      "url": "https://surrati.ae/products/hajar-al-aswad",
+      "rawTitle": "Hajar Al Aswad",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/SprayHajarAlAswad140Ml1.jpg?v=1790850713",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Surrati Hajar Al Aswad Eau De Parfum (140ml). Immerse yourself in timeless Arabian prestige. . Named after the revered Black Stone, Hajar Al Aswad by Surrati is a bold, deeply captivating fragrance that embodies power, luxury, and spiritual heritage . Encased in an opulent glossy black flacon finished with ornate antique-gold detailing and an engraved dome cap, it is crafted for those who command presence without uttering a word . .",
+      "productType": "Men's Perfume",
+      "nativePrice": {
+        "amount": 84,
+        "currency": "AED"
+      },
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-10-01T20:07:49.344Z",
+      "lastSeenAt": "2026-10-09T10:55:48.334Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-09T15:17:55.469Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {

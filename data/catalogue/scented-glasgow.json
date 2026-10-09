@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-10-09T09:54:07.346Z",
-  "seenAt": "2026-10-09T09:54:07.346Z",
+  "updatedAt": "2026-10-09T14:15:32.643Z",
+  "seenAt": "2026-10-09T14:15:32.643Z",
   "source": "live",
   "listings": [
     {
@@ -2544,7 +2544,7 @@
       "priceGbp": 42,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A luminous ode to life. . Vixi is the latest addition to the Trudon fragrance collection, featuring a fresh, aromatic and woody note.. A journey towards lightness, Vixi reveals the spiritual strength of a Nepalese sandalwood, the sacred nature of sage, the freshness of bitter orange petit grain natural oil and the flowery perfume of jasmine essence.. Experienced nose Emilie Bouge imagined Vixi like a flow of life filled with clarity, an exploration of inner light.. Featuring precious Nepalese sandalwood, praised by oriental philosophies, and sage, used in purification rituals, Vixi welcomes a renaissance, a regenerative scent filled with wisdom.. . Top Notes Natural Italian petitgrain essence, Cardamom essence. Heart Notes Natural essence of Balkan sage, Nepalese organic sandalwood. Base Notes Virginian cedarwood, Indian jasmine.",
       "productType": "Perfume",
@@ -3487,7 +3487,7 @@
       "priceGbp": 86,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Radiant and joyful, natural bitter orange and natural sandalwood transport you to the Italian coast.. The bright juice of the orange is offset by the aromatic bitterness from its peel, rounded out with basil essential oil from Egypt.. French oak moss provides a chypre accord, while natural French cypress wood essential oil and Australian sandalwood anchor the luminous top notes. We use natural sandalwood oil harvested by Aboriginal communities in Western Australia, promoting a sustainable supply of the precious ingredient..",
       "productType": "Perfume",
@@ -4131,7 +4131,7 @@
       "priceGbp": 125,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "As a molecular perfume, this fragrance does not evolve over time, but blends consistently and linearly into its surroundings. Great as a stand-alone or in combination with other 27 87 perfumes..",
       "productType": "Perfume",
