@@ -1,7 +1,7 @@
 {
  "about": "Hand maintained, append only for shipped entries. One icon per note family; aliases are the note spellings (matched on letters and digits only, case and accents folded) that the icon also serves. An alias is a picture choice, not a note merge. See docs/NOTE-ICONS.md.",
  "status": "partial",
- "coveredTop": 114,
+ "coveredTop": 203,
  "groups": [],
  "icons": [
   {
@@ -603,6 +603,306 @@
    "name": "Lychee",
    "group": "fruits",
    "aliases": ["Litchi", "Lychee Accord"]
+  },
+  {
+   "file": "lotus.svg",
+   "name": "Lotus",
+   "group": "flowers",
+   "aliases": ["Blue Lotus", "Lotus Accord", "Lotus Blossom", "Lotus Flower", "Water Lily"]
+  },
+  {
+   "file": "ambrette.svg",
+   "name": "Ambrette",
+   "group": "musk-amber",
+   "aliases": ["Ambrette Absolute", "Ambrette Seed", "Ambrette Seeds", "Ambrettolide", "Musk Mallow"]
+  },
+  {
+   "file": "rhubarb.svg",
+   "name": "Rhubarb",
+   "group": "fruits",
+   "aliases": ["Rhubarb accord"]
+  },
+  {
+   "file": "galbanum.svg",
+   "name": "Galbanum",
+   "group": "herbs-greens",
+   "aliases": ["Galbanum Essence"]
+  },
+  {
+   "file": "artemisia.svg",
+   "name": "Artemisia",
+   "group": "herbs-greens",
+   "aliases": ["Mugwort", "Wormwood"]
+  },
+  {
+   "file": "red-berries.svg",
+   "name": "Red Berries",
+   "group": "fruits",
+   "aliases": ["Berries", "Berry", "Boysenberry", "Dewberry", "Pink Berries", "Red Currant", "Red Fruit", "Red Fruits", "Wild Berries"]
+  },
+  {
+   "file": "davana.svg",
+   "name": "Davana",
+   "group": "herbs-greens",
+   "aliases": ["Davana Oil"]
+  },
+  {
+   "file": "cherry.svg",
+   "name": "Cherry",
+   "group": "fruits",
+   "aliases": ["Black Cherry", "Cherry Accord", "Cherry Liqueur", "Sour Cherry"]
+  },
+  {
+   "file": "blackberry.svg",
+   "name": "Blackberry",
+   "group": "fruits",
+   "aliases": ["Blackberries", "Blackberry Accord"]
+  },
+  {
+   "file": "clove.svg",
+   "name": "Clove",
+   "group": "spices",
+   "aliases": ["Clove Bud", "Clove Oil", "Cloves"]
+  },
+  {
+   "file": "honeysuckle.svg",
+   "name": "Honeysuckle",
+   "group": "flowers",
+   "aliases": []
+  },
+  {
+   "file": "passionfruit.svg",
+   "name": "Passionfruit",
+   "group": "fruits",
+   "aliases": ["Passion Fruit Accord"]
+  },
+  {
+   "file": "cacao.svg",
+   "name": "Cacao",
+   "group": "sweet",
+   "aliases": ["Cacao Pod", "Cocoa", "Cocoa Absolute", "Cocoa Bean", "Cocoa Powder"]
+  },
+  {
+   "file": "cyclamen.svg",
+   "name": "Cyclamen",
+   "group": "flowers",
+   "aliases": []
+  },
+  {
+   "file": "narcissus.svg",
+   "name": "Narcissus",
+   "group": "white-flowers",
+   "aliases": ["Daffodil", "Jonquil", "Narcissus absolute"]
+  },
+  {
+   "file": "birch.svg",
+   "name": "Birch",
+   "group": "woods",
+   "aliases": ["Birch Leaf", "Birch wood", "Silver Birch"]
+  },
+  {
+   "file": "frangipani.svg",
+   "name": "Frangipani",
+   "group": "white-flowers",
+   "aliases": ["Frangipani Flower", "Plumeria", "Tiare", "Tiare Flower"]
+  },
+  {
+   "file": "fig.svg",
+   "name": "Fig",
+   "group": "fruits",
+   "aliases": ["Fig Accord", "Fig Milk", "Fig Nectar", "Fig Tree", "Figs"]
+  },
+  {
+   "file": "mimosa.svg",
+   "name": "Mimosa",
+   "group": "flowers",
+   "aliases": ["Acacia", "Broom", "Mimosa Absolute", "Mimosa Flower"]
+  },
+  {
+   "file": "tea.svg",
+   "name": "Tea",
+   "group": "drinks",
+   "aliases": ["Black Tea", "Chinese Black Tea", "Earl Grey", "Jasmine Tea", "Tea Accord", "Tea Leaves", "White Tea"]
+  },
+  {
+   "file": "floral-bouquet.svg",
+   "name": "Floral Bouquet",
+   "group": "flowers",
+   "aliases": ["Floral", "Floral Accord", "floral heart", "Florals", "Flowers", "Fresh florals", "Fresh Flowers", "Mignonette"]
+  },
+  {
+   "file": "star-anise.svg",
+   "name": "Star Anise",
+   "group": "spices",
+   "aliases": ["Anise", "Aniseed", "Fennel"]
+  },
+  {
+   "file": "yuzu.svg",
+   "name": "Yuzu",
+   "group": "citrus",
+   "aliases": ["Japanese yuzu"]
+  },
+  {
+   "file": "thyme.svg",
+   "name": "Thyme",
+   "group": "herbs-greens",
+   "aliases": ["Marjoram", "Oregano", "Thyme essence"]
+  },
+  {
+   "file": "cypriol.svg",
+   "name": "Cypriol",
+   "group": "earth-moss",
+   "aliases": ["Cypriol Oil", "Nagarmotha", "Nutgrass"]
+  },
+  {
+   "file": "rosewood.svg",
+   "name": "Rosewood",
+   "group": "woods",
+   "aliases": ["Brazilian Rosewood", "Palisander Rosewood"]
+  },
+  {
+   "file": "styrax.svg",
+   "name": "Styrax",
+   "group": "resins",
+   "aliases": ["Styrax Resin"]
+  },
+  {
+   "file": "sea-salt.svg",
+   "name": "Sea Salt",
+   "group": "air-water",
+   "aliases": ["Salt", "Salty", "Sea Salt Accord"]
+  },
+  {
+   "file": "coumarin.svg",
+   "name": "Coumarin",
+   "group": "modern",
+   "aliases": ["Hay absolute"]
+  },
+  {
+   "file": "cumin.svg",
+   "name": "Cumin",
+   "group": "spices",
+   "aliases": []
+  },
+  {
+   "file": "marshmallow.svg",
+   "name": "Marshmallow",
+   "group": "sweet",
+   "aliases": ["Marshmallow accord", "Meringue"]
+  },
+  {
+   "file": "green-tea.svg",
+   "name": "Green Tea",
+   "group": "drinks",
+   "aliases": ["Green Tea Accord", "Matcha"]
+  },
+  {
+   "file": "citron.svg",
+   "name": "Citron",
+   "group": "citrus",
+   "aliases": ["Cedrat"]
+  },
+  {
+   "file": "milk.svg",
+   "name": "Milk",
+   "group": "sweet",
+   "aliases": ["Almond Milk Accord", "Milk accord", "Milky", "Milky Accord", "Rice Milk"]
+  },
+  {
+   "file": "hazelnut.svg",
+   "name": "Hazelnut",
+   "group": "sweet",
+   "aliases": ["Hazelnut accord", "Hazelnuts", "Nuts", "Nutty", "Walnut"]
+  },
+  {
+   "file": "lilac.svg",
+   "name": "Lilac",
+   "group": "flowers",
+   "aliases": ["Lilac Accord", "Syringa"]
+  },
+  {
+   "file": "sichuan-pepper.svg",
+   "name": "Sichuan Pepper",
+   "group": "spices",
+   "aliases": ["Chinese Pepper", "Szechuan Pepper", "Timur", "Timut Pepper"]
+  },
+  {
+   "file": "chocolate.svg",
+   "name": "Chocolate",
+   "group": "sweet",
+   "aliases": ["Chocolate accord", "Dark Chocolate", "Milk Chocolate", "White Chocolate"]
+  },
+  {
+   "file": "pistachio.svg",
+   "name": "Pistachio",
+   "group": "sweet",
+   "aliases": ["Pistachio Accord", "Pistachio Cream"]
+  },
+  {
+   "file": "liquorice.svg",
+   "name": "Liquorice",
+   "group": "sweet",
+   "aliases": ["Licorice", "Liquorice Accord", "Liquorice Root"]
+  },
+  {
+   "file": "papyrus.svg",
+   "name": "Papyrus",
+   "group": "woods",
+   "aliases": []
+  },
+  {
+   "file": "pomegranate.svg",
+   "name": "Pomegranate",
+   "group": "fruits",
+   "aliases": ["Grenadine", "Pomegranate Accord", "Pomegranate seeds"]
+  },
+  {
+   "file": "watermelon.svg",
+   "name": "Watermelon",
+   "group": "fruits",
+   "aliases": []
+  },
+  {
+   "file": "white-woods.svg",
+   "name": "White Woods",
+   "group": "woods",
+   "aliases": ["Blond Wood", "Blond Woods", "Blonde Woods", "Clearwood", "light woods", "White Wood"]
+  },
+  {
+   "file": "opoponax.svg",
+   "name": "Opoponax",
+   "group": "resins",
+   "aliases": ["Opopanax", "Sweet Myrrh"]
+  },
+  {
+   "file": "cognac.svg",
+   "name": "Cognac",
+   "group": "drinks",
+   "aliases": ["Armagnac", "Brandy", "Cognac Accord"]
+  },
+  {
+   "file": "hyacinth.svg",
+   "name": "Hyacinth",
+   "group": "flowers",
+   "aliases": ["Hiacynth", "Water Hyacinth"]
+  },
+  {
+   "file": "pimento.svg",
+   "name": "Pimento",
+   "group": "spices",
+   "aliases": ["Allspice", "Jamaica pepper", "Pimento Berries", "Pimento Berry"]
+  },
+  {
+   "file": "whipped-cream.svg",
+   "name": "Whipped Cream",
+   "group": "sweet",
+   "aliases": ["Butter", "Cream", "Cream Accord", "Creamy", "Custard"]
+  },
+  {
+   "file": "caraway.svg",
+   "name": "Caraway",
+   "group": "spices",
+   "aliases": []
   }
  ]
 }
