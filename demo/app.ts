@@ -140,11 +140,11 @@ import {
 } from '../src/services/accountMenu.js';
 import { REGIONS, CURRENT_REGION, regionButtonLabel, type Region } from '../src/services/regions.js';
 import { ageConfirmHtml, needsAgeConfirmation, AGE_CONFIRM_ERROR_TITLE, AGE_CONFIRM_ERROR_MESSAGE } from './ageConfirm.js';
-import { activeRegion, liveRegions, regionById, regionHome, splitRegionPrefix, suggestRegionForTimeZone, type RegionConfig, type RegionId } from '../src/config/regions.js';
+import { activeRegion, liveRegions, regionById, regionHome, regionPath, splitRegionPrefix, suggestRegionForTimeZone, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import { BAR_DISMISSED_KEY, barRegion, barText, leafAlternates, switchNeedsLinks, switchTarget, type RegionLinks, type SwitchFrom } from './regionSwitch.js';
 import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxNote, sparseDealsLine } from '../src/services/regionText.js';
 import {
-  WELCOME_PREVIEW_PARAM, browserTimeZone, openRegionWelcome, previewChoices, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
+  WELCOME_PREVIEW_PARAM, browserTimeZone, closeRegionWelcome, hasStoredSession, openRegionWelcome, previewChoices, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
 } from './regionWelcome.js';
 import { readProfileRegion, saveProfileRegion } from './regionProfile.js';
 import {
@@ -1630,18 +1630,12 @@ function homeView(): string {
     <!-- The suggestion form that used to sit beside this moved to its own
          page, Suggestions in the account menu (owner request, 2026-10-04). -->
     <div class="bottom-split">
-      <!-- Guides and the price checking page: plain links to written pages (the
-           words of which are lazy files, demo/contentPages.ts), so they add a few
-           hundred bytes here and nothing else to the first load. -->
-      <section class="guides-section" aria-labelledby="home-guides-title">
-        <div class="section-head">
-          <h2 class="t-section" id="home-guides-title">Guides</h2>
-          <a class="link-btn see-top" href="${GUIDES_PATH}" data-goto="guides">See All <span aria-hidden="true">→</span></a>
-        </div>
-        <ul class="guide-cards guide-cards--home">
-          ${GUIDES.map((g) => `<li class="guide-card"><a href="${guidePath(g.slug)}" data-nav>${esc(g.title)}</a></li>`).join('')}
-          <li class="guide-card"><a href="${HOW_WE_CHECK.path}" data-goto="howWeCheck">${esc(HOW_WE_CHECK.title)}</a></li>
-        </ul>
+      <!-- Guides and methods: ONE slim button to the guides index (owner
+           request, 9 Oct 2026). The guides, and How We Check Prices, are
+           listed on that page and in the footer; the home page no longer
+           lists them. In a region the link keeps the region's prefix. -->
+      <section class="guides-section" aria-label="Guides and methods">
+        <a class="guides-btn" href="${regionPath(activeRegion(), GUIDES_PATH)}" data-goto="guides">Read our Guides and Methods <span aria-hidden="true">→</span></a>
       </section>
       <section class="updates-section">
         <h2 class="t-section">Update History</h2>
@@ -5335,8 +5329,12 @@ function startRegionWelcome(): void {
     actOnArrival(arrivalAction({ live: choices, pathname, chosen: local, active }));
     return;
   }
-  const ask = welcomeAction({ switchOn: preview || welcomeEnabled(), live: choices, pathname, stored: null, active }).kind === 'ask';
-  void currentUser().then(async (user) => {
+  // A saved session counts as signed in from the first moment, so nothing
+  // is asked before it resolves (owner request, 9 Oct 2026).
+  const sessionSaved = !preview && hasStoredSession();
+  void currentUser().catch(() => null).then(async (user) => {
+    const signedIn = !preview && (sessionSaved || user !== null);
+    const ask = welcomeAction({ switchOn: preview || welcomeEnabled(), live: choices, pathname, stored: null, active, signedIn }).kind === 'ask';
     // A signed in visitor may have chosen on another device: the profile's
     // choice is mirrored into this browser, so the next load needs no request.
     const fromProfile = user && isVerified(user) && !preview ? await syncRegionWithProfile(user.id, regionSyncDeps) : null;
@@ -5344,6 +5342,7 @@ function startRegionWelcome(): void {
       actOnArrival(arrivalAction({ live: choices, pathname, chosen: fromProfile, active }));
       return;
     }
+    // No region on the profile (or it could not be read): stay on the UK site, silently.
     if (!ask) return;
     await openRegionWelcome({
       choices,
@@ -7730,6 +7729,7 @@ function init(): void {
   const handleAuthUser = (user: User | null) => {
     state.authUser = user;
     state.authChecked = true;
+    if (user && !welcomePreview()) closeRegionWelcome();
     if (user) {
       // A real session has arrived — most often the tab that just followed a
       // verification link back in. Whatever the form was complaining about a

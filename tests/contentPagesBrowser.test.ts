@@ -121,9 +121,18 @@ describe.skipIf(!built)('guides and the price checking page on the built site', 
     expect(lazy('method')).toEqual([]);
     expect(requests.some((p) => /\/data\/catalogue\./.test(p))).toBe(true);
 
-    // The home page links to the guides and the method page.
-    expect(await page.$$eval('.guides-section .guide-card a', (els) => els.length)).toBe(GUIDES.length + 1);
-    await page.click(`.guides-section a[href="${guidePath(GUIDES[1]!.slug)}"]`);
+    // The home page has ONE guides button to the index and no list of guide cards
+    // (owner request, 9 Oct 2026). The guides and the method page are one step on.
+    expect(await page.$$eval('.guides-section .guide-card', (els) => els.length)).toBe(0);
+    expect(await page.$$eval('.guides-section a', (els) => els.map((e) => [e.getAttribute('href'), e.textContent?.replace(/\s+/g, ' ').trim()]))).toEqual([
+      [GUIDES_PATH, 'Read our Guides and Methods →'],
+    ]);
+    await page.click('.guides-section a.guides-btn');
+    await page.waitForFunction((p) => location.pathname === p, GUIDES_PATH);
+    await settled(page);
+    expect(await page.$$eval('#view .guide-card a', (els) => els.length)).toBe(GUIDES.length);
+    expect(await page.$$eval(`#view a[href="${HOW_WE_CHECK.path}"]`, (els) => els.length)).toBeGreaterThan(0);
+    await page.click(`#view .guide-card a[href="${guidePath(GUIDES[1]!.slug)}"]`);
     await page.waitForFunction((p) => location.pathname === p, guidePath(GUIDES[1]!.slug));
     await settled(page);
     expect(lazy('guides')).toHaveLength(1);

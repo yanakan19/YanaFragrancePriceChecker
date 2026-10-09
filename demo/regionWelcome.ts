@@ -9,9 +9,14 @@
  * the US beta.
  *
  * What it does once on:
- * - Shows only on the bare home page (/), only when no region has been
- *   chosen: nothing in local storage and, for a signed in visitor, nothing on
- *   the profile (demo/regionProfile.ts). Never on a deep link.
+ * - Shows only on the bare home page (/), only for a SIGNED OUT visitor who has
+ *   not chosen a region (nothing in local storage). Never on a deep link.
+ *   A signed in visitor is never asked (owner request, 9 October 2026): a
+ *   profile region is followed (bare home only); a profile with none stays on
+ *   the UK site silently and nothing is written. A Supabase session saved in
+ *   this browser counts as signed in at once (hasStoredSession), so the
+ *   pop-up cannot flash before the session resolves, and a dialog already
+ *   open when the session resolves is closed without saving (closeRegionWelcome).
  * - One large link per live region, with its flag and currency, the browser
  *   time zone's suggestion marked "Suggested", and underneath "or log in,
  *   we'll remember your preference", which opens the existing sign in.
@@ -102,6 +107,8 @@ export interface WelcomeInput {
   stored: RegionId | null;
   /** The region the page is in. */
   active: RegionConfig;
+  /** True for a signed in visitor, or one whose saved session is still resolving: never asked. */
+  signedIn?: boolean;
 }
 
 export type WelcomeAction = { kind: 'none' } | { kind: 'redirect'; to: string } | { kind: 'ask' };
@@ -119,7 +126,39 @@ export function welcomeAction(input: WelcomeInput): WelcomeAction {
   if (pathname !== '/') return { kind: 'none' };
   const chosen = live.find((r) => r.id === stored);
   if (chosen) return chosen.id === active.id ? { kind: 'none' } : { kind: 'redirect', to: regionHome(chosen) };
+  // A signed in visitor is never asked; the country menu and the profile's
+  // Country row stay the way to choose.
+  if (input.signedIn) return { kind: 'none' };
   return { kind: 'ask' };
+}
+
+/**
+ * True when this browser holds a Supabase session (the library's own
+ * `sb-<project>-auth-token` entry, possibly chunked as `.0`). Read
+ * synchronously, so the pop-up can tell "probably signed in" before the
+ * session resolves. Only whether it exists is used: the value is never kept,
+ * sent or logged.
+ */
+export function hasStoredSession(storage: Pick<Storage, 'length' | 'key' | 'getItem'> | null = safeLocalStorage()): boolean {
+  try {
+    if (!storage) return false;
+    for (let i = 0; i < storage.length; i++) {
+      const k = storage.key(i);
+      if (!k || !/^sb-.+-auth-token(\.\d+)?$/.test(k)) continue;
+      const v = storage.getItem(k) ?? '';
+      if (v.includes('access_token') || v.includes('refresh_token')) return true;
+    }
+  } catch {
+    // Blocked storage: treated as no saved session.
+  }
+  return false;
+}
+
+/** Closes the pop-up if it is open, saving nothing (the session resolved to signed in). */
+export function closeRegionWelcome(): void {
+  const dlg = document.getElementById('region-welcome');
+  if (dlg instanceof HTMLDialogElement && dlg.open) dlg.close('cancel');
+  else dlg?.remove();
 }
 
 /** True when the pop-up can show at all: the switch is on and a second region is live. */

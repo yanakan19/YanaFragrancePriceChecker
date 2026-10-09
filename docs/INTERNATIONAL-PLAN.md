@@ -219,11 +219,21 @@ The owner wants addresses like `pricesniffs.space/in` and `/us`, and a visitor w
 bare `pricesniffs.space` greeted by a pop-up that asks them to pick a country, with a line of
 link text underneath: "or log in, we'll remember your preference".
 
-- **When it shows:** only on the bare home page (`/`), only when no country has been chosen
-  (nothing in `localStorage` and, for a signed in visitor, nothing on the profile), and only
+- **When it shows:** only on the bare home page (`/`), only for a signed OUT visitor who has
+  not chosen a country (nothing in `localStorage`), and only
   once a second country is live. Until then there is one choice, so it stays off (built in
   Phase 0, switched on with the US beta). Never on a deep link (a product, brand, notes or
   guides page): those keep the slim "You are seeing UK prices. See US prices" bar above.
+- **Never for a signed in visitor (owner request, 9 Oct 2026).** The owner was logged in and
+  was still asked. Causes: the profile region was empty (never chosen), which fell through to
+  "ask", and the decision did not wait on, or know about, the saved session. Now a Supabase
+  session saved in the browser (`sb-...-auth-token`, read synchronously by `hasStoredSession`,
+  value never kept or logged) counts as signed in at once, so nothing flashes before the session
+  resolves. A signed in visitor whose profile has a country goes there (bare home only, never a
+  deep link); one whose profile has none stays on the UK site silently, with nothing written.
+  The country menu and the Country row on My Profile remain the way to choose. If the dialog is
+  open when the session resolves to signed in, it is closed without saving
+  (`closeRegionWelcome`). Signed out visitors see it exactly as before.
 - **What it holds:** the title "Select your country", one large button per live country
   (United Kingdom, United States, India, each with its flag and currency: £, $, ₹), the time
   zone suggestion marked "Suggested" (section above), and underneath the link text "or log
@@ -233,6 +243,10 @@ link text underneath: "or log in, we'll remember your preference".
   and, for a signed in visitor, on the profile (a `region` column on `profiles`, one small
   Supabase migration), so it follows them to another device. A saved choice skips the pop-up
   next time; the country menu at the top changes it at any time.
+- **Home guides (owner request, 9 Oct 2026):** the home page shows one slim button, "Read our
+  Guides and Methods", to the guides index (`/guides`; `/us/guides` and `/in/guides` in a region,
+  the same page code). The guides, How We Check Prices (linked from the guides page and the
+  footer) and the sitemap entries are unchanged; only the list on Home went.
 - **Closing it** (Escape, the close button or a tap outside) means "stay on the UK site" for
   this visit only and saves nothing, so it asks again next visit until a choice is made.
 - **Search engines and the AdSense review:** a full screen pop-up on arrival can count as an

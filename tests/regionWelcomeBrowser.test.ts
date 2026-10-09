@@ -79,14 +79,47 @@ describe.skipIf(!built)('Select your country', () => {
     return r.violations.map((v) => `[${v.impact}] ${v.id}: ${v.nodes.slice(0, 3).map((n) => n.target.join(' ')).join(' | ')}`);
   }
 
-  it('asks on the bare home page since the US and India went live (9 Oct 2026), storing nothing until a choice', async () => {
-    const { context, page } = await open('/', { account: READER });
+  it('asks a signed OUT visitor on the bare home page since the US and India went live (9 Oct 2026), storing nothing until a choice', async () => {
+    const { context, page } = await open('/', { account: null });
     try {
       await page.waitForSelector('#region-welcome[open]', { timeout: 15_000 });
       expect(await dialogOpen(page)).toBe(true);
       expect(await stored(page)).toBeNull();
       // The home page exists in all three countries: en-GB, en-US, en-IN and x-default.
       expect(await page.evaluate(`document.querySelectorAll('link[rel="alternate"][hreflang]').length`), 'hreflang').toBe(4);
+    } finally {
+      await context.close();
+    }
+  }, 60_000);
+
+  it('never asks a signed in visitor whose profile has no country: stays on the UK home, writes nothing (owner request, 9 Oct 2026)', async () => {
+    const account: FakeAccount = { ...READER, writes: [] };
+    const { context, page } = await open('/', { account });
+    try {
+      await page.waitForTimeout(2500);
+      expect(await dialogOpen(page)).toBe(false);
+      expect(await page.evaluate(`!!document.querySelector('#region-welcome')`)).toBe(false);
+      expect(await page.evaluate(`location.pathname`)).toBe('/');
+      expect(await stored(page)).toBeNull();
+      expect(account.writes).toEqual([]);
+    } finally {
+      await context.close();
+    }
+  }, 60_000);
+
+  it('never asks while a saved session is still resolving (the user request never answers)', async () => {
+    const context = await browser.newContext({ viewport: { width: 390, height: 844 }, timezoneId: 'America/New_York' });
+    await context.addInitScript(() => {
+      try { localStorage.setItem('sb-test-auth-token', JSON.stringify({ access_token: 'x', refresh_token: 'y' })); } catch { /* fine */ }
+    });
+    // Supabase never answers: the page must not ask while it waits.
+    await context.route(/supabase\.co/, () => new Promise(() => undefined));
+    const page = await context.newPage();
+    try {
+      await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'load' });
+      await waitForApp(page);
+      await page.waitForTimeout(2500);
+      expect(await page.evaluate(`!!document.querySelector('#region-welcome')`)).toBe(false);
     } finally {
       await context.close();
     }

@@ -1,4 +1,6 @@
 import { readFileSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { REGION_CONFIGS, REGION_STORAGE_KEY, regionById } from '../src/config/regions.js';
 import {
@@ -6,6 +8,8 @@ import {
   WELCOME_TITLE,
   readStoredRegion,
   saveStoredRegion,
+  closeRegionWelcome,
+  hasStoredSession,
   welcomeAction,
   welcomeDialogHtml,
   welcomeEnabled,
@@ -21,6 +25,7 @@ import { STORAGE_KEYS } from '../demo/legal.js';
  * tests/regionWelcomeBrowser.test.ts.
  */
 
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GB = regionById('GB')!;
 const US = regionById('US')!;
 const IN = regionById('IN')!;
@@ -39,6 +44,37 @@ describe('when the pop-up shows', () => {
 
   it('asks on the bare home page when nothing has been chosen', () => {
     expect(welcomeAction(base)).toEqual({ kind: 'ask' });
+  });
+
+  it('never asks a signed in visitor, with or without a profile country (owner request, 9 Oct 2026)', () => {
+    expect(welcomeAction({ ...base, signedIn: true })).toEqual({ kind: 'none' });
+    // A saved country still moves the bare home page, as before.
+    expect(welcomeAction({ ...base, signedIn: true, stored: 'US' })).toEqual({ kind: 'redirect', to: '/us/' });
+    // Signed out (or unknown) is unchanged.
+    expect(welcomeAction({ ...base, signedIn: false })).toEqual({ kind: 'ask' });
+  });
+
+  it('treats a Supabase session saved in the browser as signed in, read synchronously', () => {
+    const mem = (entries: Record<string, string>) => ({
+      get length() { return Object.keys(entries).length; },
+      key: (i: number) => Object.keys(entries)[i] ?? null,
+      getItem: (k: string) => entries[k] ?? null,
+    });
+    expect(hasStoredSession(mem({}))).toBe(false);
+    expect(hasStoredSession(mem({ 'pricesniffs.region': 'US' }))).toBe(false);
+    expect(hasStoredSession(mem({ 'sb-abc-auth-token': '{"access_token":"a","refresh_token":"b"}' }))).toBe(true);
+    expect(hasStoredSession(mem({ 'sb-abc-auth-token.0': '{"access_token":"a"' }))).toBe(true);
+    expect(hasStoredSession(mem({ 'sb-abc-auth-token': '' }))).toBe(false);
+    expect(hasStoredSession(null)).toBe(false);
+    expect(hasStoredSession({ length: 1, key: () => { throw new Error('blocked'); }, getItem: () => null })).toBe(false);
+    expect(typeof closeRegionWelcome).toBe('function');
+  });
+
+  it('the page decides after the signed in state is known and closes an open dialog on sign in', () => {
+    const app = readFileSync(resolve(root, 'demo/app.ts'), 'utf8');
+    expect(app).toMatch(/hasStoredSession\(\)/);
+    expect(app).toMatch(/signedIn\s*\}\)\.kind === 'ask'/);
+    expect(app).toMatch(/if \(user && !welcomePreview\(\)\) closeRegionWelcome\(\)/);
   });
 
   it('never on a deep link or on a region\'s own home', () => {
