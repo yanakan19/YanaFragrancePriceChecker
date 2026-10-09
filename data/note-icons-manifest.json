@@ -1,8 +1,35 @@
 {
  "about": "Hand maintained, append only for shipped entries. One icon per note family; aliases are the note spellings (matched on letters and digits only, case and accents folded) that the icon also serves. An alias is a picture choice, not a note merge. See docs/NOTE-ICONS.md.",
- "status": "partial",
- "coveredTop": 258,
- "groups": [],
+ "author": "Own work for PriceSniffs: original vector drawings made on 9 Oct 2026 (Claude Sonnet 5.5, from the owner approved sample set). No photograph, trace, stock icon or artwork from any other site was used or looked at (docs/DECISIONS.md D26).",
+ "decisions": [
+  "Spellings and misspellings of one material share an icon: Cedar and Cedarwood, Mandarin and Mandarin Orange, Cardamom and Cardamon, Oud and Oudh and Agarwood, Lily of the Valley and Lilly of the Valley, Ylang Ylang, Tonka Bean and Tonka, Frankincense and Olibanum, Blackcurrant and Cassis, Lychee and Litchi.",
+  "Origins and grades of a note (Calabrian Bergamot, Bulgarian Rose, Madagascar Vanilla, Virginia Cedar) share its icon. This is picture reuse only: the notes stay separate notes on the Notes tab (docs/NOTES-PAGE-PLAN.md, decision 4).",
+  "Suffix variants (Absolute, Essence, Oil, Accord, Resinoid, Butter, Concrete) share the base note icon.",
+  "Looks different, so own icon: White Musk, Orris, Neroli, Green Apple, Blood Orange, Tangerine, Bitter Orange, Green Tea, Birch Tar, Rosewood, Jasmine Sambac is served by Jasmine.",
+  "Aroma molecules: the musk and amber ones (Ambroxan, Ambrox, Cetalox, Ambrofix) share the Ambroxan icon; Hedione, Coumarin, Iso E Super and Calone have their own; every other named molecule shares the Molecule icon.",
+  "Family words get a generic icon: Woods, Spices, Citrus, White Flowers, Floral Bouquet, Resin, Tropical Fruits, Gourmand, Powdery, Green Leaves.",
+  "Not drawn: prose the parser read as a note (decision 7 of the plan) and notes used by only a handful of products. Add them with docs/NOTE-ICONS.md when they matter."
+ ],
+ "status": "complete",
+ "coveredTop": 529,
+ "groups": [
+  { "id": "air-water", "name": "Fresh Air and Water", "file": "groups/air-water.svg" },
+  { "id": "citrus", "name": "Citrus", "file": "groups/citrus.svg" },
+  { "id": "herbs-greens", "name": "Herbs and Greens", "file": "groups/herbs-greens.svg" },
+  { "id": "fruits", "name": "Fruits and Berries", "file": "groups/fruits.svg" },
+  { "id": "flowers", "name": "Flowers", "file": "groups/flowers.svg" },
+  { "id": "white-flowers", "name": "White Flowers", "file": "groups/white-flowers.svg" },
+  { "id": "spices", "name": "Spices", "file": "groups/spices.svg" },
+  { "id": "sweet", "name": "Sweet and Gourmand", "file": "groups/sweet.svg" },
+  { "id": "drinks", "name": "Drinks and Spirits", "file": "groups/drinks.svg" },
+  { "id": "woods", "name": "Woods", "file": "groups/woods.svg" },
+  { "id": "earth-moss", "name": "Earth and Moss", "file": "groups/earth-moss.svg" },
+  { "id": "resins", "name": "Resins and Incense", "file": "groups/resins.svg" },
+  { "id": "musk-amber", "name": "Musk and Amber", "file": "groups/musk-amber.svg" },
+  { "id": "leather-smoke", "name": "Leather and Smoke", "file": "groups/leather-smoke.svg" },
+  { "id": "modern", "name": "Modern Accords and Aldehydes", "file": "groups/modern.svg" },
+  { "id": "more", "name": "More Notes", "file": "groups/more.svg" }
+ ],
  "icons": [
   {
    "file": "musk.svg",
@@ -1197,6 +1224,252 @@
    "name": "Kumquat",
    "group": "citrus",
    "aliases": []
+  },
+  {
+   "file": "pine.svg",
+   "name": "Pine",
+   "group": "woods",
+   "aliases": ["Pine Tree", "pine wood", "Pinecone"]
+  },
+  {
+   "file": "immortelle.svg",
+   "name": "Immortelle",
+   "group": "flowers",
+   "aliases": ["Helichrysum", "Immortelle Absolute"]
+  },
+  {
+   "file": "kiwi.svg",
+   "name": "Kiwi",
+   "group": "fruits",
+   "aliases": ["Kiwi Accord", "Kiwi Fruit"]
+  },
+  {
+   "file": "sweet-gourmand.svg",
+   "name": "Gourmand",
+   "group": "sweet",
+   "aliases": ["Gourmand Accord"]
+  },
+  {
+   "file": "absinthe.svg",
+   "name": "Absinthe",
+   "group": "drinks",
+   "aliases": []
+  },
+  {
+   "file": "turmeric.svg",
+   "name": "Turmeric",
+   "group": "spices",
+   "aliases": []
+  },
+  {
+   "file": "cactus.svg",
+   "name": "Cactus",
+   "group": "herbs-greens",
+   "aliases": ["Cactus Flower", "Cactus Water", "Prickly Pear"]
+  },
+  {
+   "file": "sesame.svg",
+   "name": "Sesame",
+   "group": "sweet",
+   "aliases": ["Sesame Seed", "Tahini"]
+  },
+  {
+   "file": "ice-cream.svg",
+   "name": "Ice Cream",
+   "group": "sweet",
+   "aliases": ["Ice Cream Accord", "Sorbet"]
+  },
+  {
+   "file": "liquor.svg",
+   "name": "Liquor",
+   "group": "drinks",
+   "aliases": ["Alcohol", "Amaretto", "Limoncello", "Margarita", "Mojito", "Tequila", "Vodka"]
+  },
+  {
+   "file": "papaya.svg",
+   "name": "Papaya",
+   "group": "fruits",
+   "aliases": []
+  },
+  {
+   "file": "passion-flower.svg",
+   "name": "Passion Flower",
+   "group": "flowers",
+   "aliases": []
+  },
+  {
+   "file": "wisteria.svg",
+   "name": "Wisteria",
+   "group": "flowers",
+   "aliases": []
+  },
+  {
+   "file": "cotton-flower.svg",
+   "name": "Cotton Flower",
+   "group": "flowers",
+   "aliases": ["Cotton", "Fresh Linen", "Linen", "Soap"]
+  },
+  {
+   "file": "ebony.svg",
+   "name": "Ebony",
+   "group": "woods",
+   "aliases": ["Ebony Tree", "Ebony Wood"]
+  },
+  {
+   "file": "grass.svg",
+   "name": "Grass",
+   "group": "herbs-greens",
+   "aliases": ["Cut Grass", "fresh grass", "Green Grass"]
+  },
+  {
+   "file": "popcorn.svg",
+   "name": "Popcorn",
+   "group": "sweet",
+   "aliases": ["Caramel Popcorn", "Popcorn Accord"]
+  },
+  {
+   "file": "daisy.svg",
+   "name": "Daisy",
+   "group": "flowers",
+   "aliases": ["daisies"]
+  },
+  {
+   "file": "persimmon.svg",
+   "name": "Persimmon",
+   "group": "fruits",
+   "aliases": []
+  },
+  {
+   "file": "mastic.svg",
+   "name": "Mastic",
+   "group": "resins",
+   "aliases": []
+  },
+  {
+   "file": "solar-accord.svg",
+   "name": "Solar Accord",
+   "group": "modern",
+   "aliases": []
+  },
+  {
+   "file": "rice.svg",
+   "name": "Rice",
+   "group": "sweet",
+   "aliases": ["Barley", "Bran", "Oat", "Rice Powder", "Wheat"]
+  },
+  {
+   "file": "whiskey.svg",
+   "name": "Whiskey",
+   "group": "drinks",
+   "aliases": ["Bourbon Whiskey", "Whisky"]
+  },
+  {
+   "file": "pomelo.svg",
+   "name": "Pomelo",
+   "group": "citrus",
+   "aliases": []
+  },
+  {
+   "file": "sand.svg",
+   "name": "Sand",
+   "group": "earth-moss",
+   "aliases": ["sand accord", "Warm Sand"]
+  },
+  {
+   "file": "mushroom.svg",
+   "name": "Mushroom",
+   "group": "earth-moss",
+   "aliases": ["Truffle"]
+  },
+  {
+   "file": "bubble-gum.svg",
+   "name": "Bubble Gum",
+   "group": "sweet",
+   "aliases": []
+  },
+  {
+   "file": "gin.svg",
+   "name": "Gin",
+   "group": "drinks",
+   "aliases": []
+  },
+  {
+   "file": "banana.svg",
+   "name": "Banana",
+   "group": "fruits",
+   "aliases": []
+  },
+  {
+   "file": "birch-tar.svg",
+   "name": "Birch Tar",
+   "group": "leather-smoke",
+   "aliases": ["Cade", "Cade Oil", "Pine tar"]
+  },
+  {
+   "file": "poppy.svg",
+   "name": "Poppy",
+   "group": "flowers",
+   "aliases": ["Poppy Flower", "Red Poppy"]
+  },
+  {
+   "file": "linden.svg",
+   "name": "Linden",
+   "group": "flowers",
+   "aliases": ["Linden Blossom"]
+  },
+  {
+   "file": "champagne.svg",
+   "name": "Champagne",
+   "group": "drinks",
+   "aliases": ["Champagne accord"]
+  },
+  {
+   "file": "amaryllis.svg",
+   "name": "Amaryllis",
+   "group": "flowers",
+   "aliases": []
+  },
+  {
+   "file": "cookie.svg",
+   "name": "Cookie",
+   "group": "sweet",
+   "aliases": ["Biscuit", "Cake", "Cupcake", "Gingerbread"]
+  },
+  {
+   "file": "ice.svg",
+   "name": "Ice",
+   "group": "air-water",
+   "aliases": ["Crushed Ice", "Iced Accord", "Snow"]
+  },
+  {
+   "file": "chili.svg",
+   "name": "Chili",
+   "group": "spices",
+   "aliases": ["Chili Pepper", "Chilli", "Chilli Pepper", "Hot Pepper", "Paprika", "red chili"]
+  },
+  {
+   "file": "mineral.svg",
+   "name": "Mineral",
+   "group": "earth-moss",
+   "aliases": ["Clay", "Flint", "Metallic", "Mineral Accord", "Minerals"]
+  },
+  {
+   "file": "rain.svg",
+   "name": "Rain",
+   "group": "air-water",
+   "aliases": ["dew", "Rain Accord"]
+  },
+  {
+   "file": "earth.svg",
+   "name": "Earth",
+   "group": "earth-moss",
+   "aliases": ["Earthy", "Petrichor"]
+  },
+  {
+   "file": "wine.svg",
+   "name": "Wine",
+   "group": "drinks",
+   "aliases": ["Red Wine", "Sangria"]
   }
  ]
 }
