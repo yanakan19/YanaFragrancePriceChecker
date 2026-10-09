@@ -938,15 +938,31 @@ copying, so keep it small and occasional, and stop if Notino objects.
    and I will switch it on; it will not start crawling, its only source is
    these saved pages.
 
-## 10. The US and India (decided 9 October 2026; nothing to do yet)
+## 10. The US and India (public beta since 9 October 2026)
 
-Your decisions are D30 in `docs/DECISIONS.md`; the plan is
-`docs/INTERNATIONAL-PLAN.md`. Phase 0 is built and changes nothing a UK
-visitor sees except the country menu (United Kingdom, United States, India;
-the last two "Coming Soon").
+Your decisions are D30 in `docs/DECISIONS.md`; what shipped is
+`docs/INTERNATIONAL-PLAN.md`, "Public beta, 9 October 2026: what shipped".
+pricesniffs.space/us/ and pricesniffs.space/in/ are live as a public beta,
+the country menu lists "United States (Beta)" and "India (Beta)", and the
+"Select your country" pop-up is on. The US and Indian crawls run once a day
+by themselves (07:52 and 20:22 UTC); each finished run redeploys the site when
+it brought new prices.
 
-1. **Answer the photo question** (D24 for new countries): may a US shop's own
-   photo be shown beside a link to that shop, as for UK shops?
+0. **Add /us/ and /in/ to Google Search Console (10 minutes).** If the
+   property is the whole domain (a "Domain" property for pricesniffs.space),
+   they are already covered: open it, go to **Sitemaps**, and submit
+   `https://pricesniffs.space/sitemap.xml` again (it is now an index of three
+   sitemaps, one per country). If the property is the URL prefix
+   `https://pricesniffs.space/`, the folders are inside it too: submit the
+   sitemap the same way. Optionally add `https://pricesniffs.space/us/` and
+   `https://pricesniffs.space/in/` as URL prefix properties of their own, to
+   see each country's searches separately (verified at once through the
+   domain's existing verification). Under **Settings, International
+   Targeting** there is nothing to set: the pages declare their language and
+   country themselves (hreflang).
+1. **Answer the photo question** (D24 for new countries, still pending): may a
+   US or Indian shop's own photo be shown beside a link to that shop, as for UK
+   shops? Until you answer, no US or Indian product shows a photo.
 2. **Done 9 October 2026, and checked:** you ran
    `supabase/migrations/0009_profile_region.sql` in the Supabase SQL Editor
    (a nullable `region` column on `profiles`; safe to run twice). Checked the
@@ -961,6 +977,13 @@ the last two "Coming Soon").
    (`docs/INTERNATIONAL-PLAN.md`, "Remembered preference"). Nothing more to
    do.
 3. **Before any money is earned in the US or India**, have the US and India
-   privacy and disclosure text reviewed (decision 8).
+   legal pages reviewed (decision 8): pricesniffs.space/us/about/legal and
+   pricesniffs.space/in/about/legal (terms, privacy, affiliate disclosure,
+   refunds; the words are in `demo/legalRegion.ts`). They are plain and short
+   on purpose. Nothing earns money there today (no affiliate links, no
+   personalised ads), and nothing should until the review is done. For India,
+   also decide whether sign up should ask for an "I am 18 or over"
+   confirmation (the DPDP Act; the privacy notice already says accounts are for
+   18 or over).
 4. Affiliate sign ups (Awin US, CJ, Rakuten, Impact, Skimlinks, the Indian
    networks) are for later (decision 6).

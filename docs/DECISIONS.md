@@ -2282,3 +2282,19 @@ regions only (none yet); the "Select your country" welcome pop-up, built, tested
 
 **What would change this.** An owner decision; for 4, a marketplace that publishes a permitted
 route (an API or feed whose terms allow this use); for 6, the affiliate approvals.
+
+**Public beta, 9 October 2026 (owner decision, the same day).** The owner decided to run the US and
+India beta at once, on the data as it stood: the plan's go/no-go bar (a quarter of products with two
+or more independent shops) is waived, and the beta runs on the measured numbers, US 9.2%
+independent (26.5% counting the three shops on one catalogue separately), India 12.9%. Both went
+public together, skipping the hidden beta: `/us/` (20 shops with prices, 22,390 products) and
+`/in/` (10 shops, 14,594 products), built at deploy time from `data/regions/`; the country menu
+lists "United States (Beta)" and "India (Beta)"; the welcome pop-up is on (`REGION_WELCOME_ON`),
+also by owner decision, while the AdSense review is still open, as the small centred dialog on the
+bare UK home; every US and Indian page says it is a beta with fewer shops than the UK site.
+Decision 5 stands: no US or Indian shop photo is shown until the owner answers D24 for those shops.
+Decision 8 stands: plain US and Indian legal pages are live, and are reviewed before any money is
+earned there. The region name match (`regionMatchName`) the measured numbers include is kept, for
+the region builds only. The region crawls run daily (07:52 and 20:22 UTC). The UK build is
+unchanged: its 8 data files byte for byte and its 35,257 sitemap addresses identical before and
+after. What shipped: `docs/INTERNATIONAL-PLAN.md`, "Public beta, 9 October 2026: what shipped".

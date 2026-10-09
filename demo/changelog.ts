@@ -36,6 +36,7 @@ export const CHANGELOG: ChangelogEntry[] = [
       {
         heading: 'New',
         points: [
+          'US and India sites in beta: /us and /in',
           'Glossier UK, with its fragrances priced in pounds',
           'New UK shops: Rowlands, Lloyds, Beauté Boulevard',
           'Also Scent Warehouse, Roullier White, Scented',

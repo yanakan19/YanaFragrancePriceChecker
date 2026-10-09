@@ -1,7 +1,9 @@
 # PriceSniffs for the USA and India: plan
 
 Written 2026-10-09. **Phase 0 (the region foundation, UK only) is built** (9 Oct 2026, section
-"Phase 0: what was built" below); everything after it is still a plan. Owner request: native US and Indian
+"Phase 0: what was built" below). **The US and India are live as a public beta since 9 October
+2026** at `/us/` and `/in/`, by owner decision on the numbers measured that day (section "Public
+beta, 9 October 2026: what shipped", at the end); the rest is still a plan. Owner request: native US and Indian
 versions of PriceSniffs (prices in USD and INR from shops that sell in those countries on their
 own local delivery terms), a country menu at the top of the home screen that switches between
 UK, US and India, and possibly a different domain or address per country.
@@ -713,9 +715,163 @@ The anchors filled in: Ulta 178 priced to 689 (608 kept), Nykaa 280 to 850 (795 
 Fragrances 266 to 573 (559 kept). They keep filling in at up to 900 (Ulta) and 1,000 (Nykaa, AAR)
 new pages a run, unseen pages first.
 
-**Recommendation:** neither region meets the plan's bar (a quarter of products with two or more
-independent shops). After the third runs: US 9.2%, India 12.8%. Hold the beta. The US looks like a comparison only on the raw count, which is inflated by
+**Recommendation (overtaken the same day: the owner waived the bar and ran the public beta on these
+numbers, see "Public beta, 9 October 2026" below):** neither region meets the plan's bar (a quarter
+of products with two or more independent shops). After the third runs: US 9.2%, India 12.8%. Hold the beta. The US looks like a comparison only on the raw count, which is inflated by
 three shops running one catalogue; honestly it is under one in ten. Do not start the hidden beta
 yet. For the US, the gap is the big discounters, which need the affiliate feeds the owner deferred
 (decision 6), plus Ulta and Dillard's readers. For India, re-measure once Nykaa reads; without
 Nykaa it is three Arabian and niche multi brand shops and is a catalogue, not a comparison.
+
+## Public beta, 9 October 2026: what shipped
+
+**Owner decision, 9 October 2026: run the US and India beta now, on the data as it stands.** The
+plan's go/no-go bar (a quarter of products with two or more independent shops, section 7) is waived
+by the owner: the beta runs on the measured numbers (US 9.2% independent, India 12.9%), so it is a
+public beta with fewer shops than the UK site, and says so on every page. The hidden beta (1b) was
+skipped: 1b and 1c shipped together, for both countries, in one go. Recorded in D30 (`docs/DECISIONS.md`).
+
+### What is live
+
+| | United States, `/us/` | India, `/in/` |
+| --- | --- | --- |
+| Shops with prices on the page | 20 (of 22 enabled; Boy Smells and Imaginary Authors read nothing yet) | 10 (of 13 enabled; Bombay Perfumery, Gulab Singh Johrimal and Pilgrim read nothing yet) |
+| Products | 22,390 (433 sets, 121 oils) | 14,594 (655 sets, 905 oils and attars) |
+| Two or more shops | 5,928 (26.5%); counting the Perfumania, Fragrance Outlet and Fragrance Market catalogue once: 2,067 (9.2%) | 1,879 (12.9%) |
+| Sitemap | `sitemap-us.xml`, 23,681 addresses | `sitemap-in.xml`, 15,173 addresses |
+| Prices read | 9 Oct 2026, 06:27 UTC (the third dry run) | 9 Oct 2026, 06:27 UTC |
+
+Built from the committed region data (`data/regions/<us|in>/`) at deploy time, as the UK page is
+built from its generated modules. Products with no house named (122 US, 99 India) are left out:
+they have no brand page and no address.
+
+- **Pages.** `scripts/build-region-data.ts` turns each region's snapshots, price history and
+  product addresses into the same module shapes the UK page reads (`scripts/regionSite.ts`), and
+  `scripts/bundle-region.ts` bundles the same app once per region with five modules swapped: the
+  catalogue, the deals, the dormant products, the price history and the shop registry (the
+  region's shops as page `Retailer`s, `src/config/regionShops.ts`: no affiliate code, no photo
+  basis, no logo). `scripts/build-demo.ts` publishes `demo/us/index.html`, `demo/us/404.html` and
+  `demo/us/data/` (and the same for `/in/`); `scripts/build-route-pages.ts` writes a page of its
+  own for each fixed address inside each region (`/us/deals` is `demo/us/deals.html`), so they
+  answer 200. All deploy files: gitignored and in `scripts/generated-files.txt`.
+- **Deep links.** GitHub Pages answers every address that is not a file with the root
+  `404.html`, the UK page. Its first script (`scripts/regionPages.ts`) sees `/us/...` or `/in/...`,
+  stops the UK page fetching any data and hands the address to `/us/?ps_path=...`, whose first
+  script puts the address back before the app reads it. (Writing the region's document in place
+  was tried first; a stopped document ignores `document.write`, by the HTML standard.) `/uk/x`
+  goes to `/x`.
+- **Product addresses.** A bottle the UK also sells keeps its UK address (`/us/creed_aventus_100ml`);
+  a product new to the region gets one by the UK's rules, never a UK address. Each region has an
+  append only memory, `data/regions/<us|in>/product-slugs.json` (22,390 and 14,594 addresses
+  today), written by the region crawl (`scripts/build-region-catalogue.ts`) and read by the page
+  build; never delete or change an entry.
+- **Money, units and words** (`src/services/regionText.ts`, `src/services/money.ts`): `$1,299.00`
+  and `₹1,23,450`; US sizes as `3.4 fl oz (100 ml)` from the nominal bottle table; shipping,
+  shipped, MSRP, ZIP code and "before sales tax" in the US; GST included, MRP, PIN code and the
+  cash on delivery footnote in India; dates `Oct 9, 2026` in the US. Every UK string comes back
+  unchanged (the functions return the UK text untouched).
+- **Photos.** D24 is pending for US and Indian shops (owner decision 5), so no shop photo is
+  shown for a US or Indian product: `image` and every offer's `imageUrl` are null in the region
+  data, and the page draws its "No image available" marker. `tests/regionPages.test.ts` checks the
+  built data.
+- **Notes.** The region shops publish no notes, so the US and Indian Notes tabs are empty: kept
+  out of the region sitemaps, `noindex`, and the UK Notes page declares no alternate
+  (`regionHasFixedPage`, `src/config/regions.ts`).
+- **Deals.** None yet: the region harvest records no shop's previous price (every snapshot's
+  `wasPrice` is null), and a reference price is shown only where other shops corroborate it, as
+  in the UK (`src/catalogue/wasPriceCredibility.ts`). The Deals tab says so, and is left out of the
+  region sitemaps while it is empty. Reading Shopify's compare at price in the region harvest is
+  the next step for deals.
+- **The region name match** (`regionMatchName`, "For Unisex" and "For Man & Woman" taken out
+  before the same bottle merge) is kept exactly as it was: the owner ran the beta on numbers that
+  include it. It is used by the region builds only (the crawl's report and the page build); the
+  UK matcher is untouched.
+
+### The menu, the bar and the pop-up
+
+- The country menu lists United Kingdom, **United States (Beta)** and **India (Beta)**, all three
+  choosable (`menuName`, `src/services/regions.ts`). A choice goes through lane 2's `chooseRegion`
+  (`demo/regionPreference.ts`): saved in `localStorage` (`pricesniffs.region`) and, signed in, on the
+  profile, then the same page opens there (`demo/regionSwitch.ts`): a product sold there opens its
+  page there (found by id, through the `regions` lazy data file), else its brand's page there,
+  else the same section (Deals, Explore, About, the guides, the Legal Notice, filters kept), else
+  that country's home. A shop page opens that country's Shops; the account pages its home.
+- A deep link is never redirected. When the visitor's remembered country (or, with none, the
+  browser's time zone) is another live one, a slim bar under the top bar says "You are seeing UK
+  prices. See US prices" (the mirror on the US and Indian pages), drawn from lane 2's
+  `noteRegionMismatch` hook; its close button hides it for the visit (`sessionStorage`
+  `pricesniffs.regionBarClosed`, listed on the cookies page).
+- **The welcome pop-up is on** (`REGION_WELCOME_ON = true`), by owner decision, **while the
+  AdSense review is still open**: a small centred dialog on the bare UK home only, for a visitor
+  who has chosen no country, which leaves the page readable behind it (section 2, "Welcome").
+- The US and Indian pages carry a beta line under the top bar ("US prices are in beta: fewer shops
+  than the UK site for now", "Indian prices are in beta: ..."), and their home shows "Prices
+  checked daily. Last checked Oct 9, 2026." from the region's own build.
+
+### Legal pages
+
+`demo/legalRegion.ts` holds the US and Indian versions of the affiliate disclosure (no shop pays
+us; how a paid link would be marked under the FTC guides or the ASCI code), the privacy notice (US:
+CalOPPA, Do Not Track, Global Privacy Control, no sale or sharing, under 13s; India: the DPDP Act,
+consent and its withdrawal, a contact for requests, breach notice, accounts for 18 or over), the
+terms (prices before sales tax; GST included, MRP, cash on delivery fees not included; no shop
+photographs for now), refunds and How it works. The cookies and contact pages are the UK's. Plain
+and short on purpose: the owner has them reviewed before any money is earned in either country
+(`docs/OWNER-STEPS.md`, section 10). An 18 or over confirmation at sign up for Indian accounts is
+not built yet; the privacy notice states the rule.
+
+### Search engines
+
+- `demo/sitemap.xml` is a sitemap index naming `sitemap-gb.xml` (every UK address, the same 35,257
+  as the one sitemap before), `sitemap-us.xml` and `sitemap-in.xml`; `robots.txt` is unchanged (it
+  names the index). Each address that exists in more than one region carries its hreflang
+  alternates (`en-GB`, `en-US`, `en-IN`, `x-default` = the UK page) as `xhtml:link`: the fixed
+  pages in every region, a product where the same product id is sold (2,151 UK addresses, 2,112
+  US, 381 India), a brand where it is sold. A shop's page has none.
+- Every page's canonical is its own region's. The same alternates are in the head of the home
+  pages and every route page, and the app sets them on every page it draws (a product's and a
+  brand's once the `regions` file says which countries sell it).
+- Region pages are indexable (public beta, not `noindex`), except the empty Notes tab.
+
+### Crawls and deploys
+
+- `catalogue-us.yml` runs daily at 07:52 UTC and `catalogue-in.yml` at 20:22 UTC (03:52 in New
+  York, 01:52 in India), off the UK crawl's :15 and :45 ticks, each in its own concurrency group,
+  committing only its own folder through `scripts/commit-and-push.sh`; a scheduled run commits
+  (the dry runs needed the "commit" box). The schedule started with the beta.
+- A finished region crawl starts `deploy-pages.yml` (workflow_run), and `scripts/deploy-decision.mjs`
+  counts `data/regions/` as page changing, so a run that committed prices deploys and one that
+  committed nothing does not. A push under `data/regions/` deploys too.
+- The deploy checks the region pages before it uploads: each region's page and its deep link copy
+  identical, its sitemap a urlset, the index a sitemap index, every route page present
+  (`scripts/build-route-pages.ts --check`).
+
+### Proof: the UK build is unchanged
+
+Built twice from the same data, the live tip before the beta (`e38eedba`) and the beta (`c76c9554`):
+
+- **All 8 UK data files byte for byte identical** (`catalogue`, `deals`, `fragranceLinks`,
+  `priceHistory`, `dormant`, `guides`, `method`, `notes`: the same content hashes), plus one new
+  small lazy file, `data/regions.<hash>.json` (0.1 MB, the other regions' product and brand
+  lookup, fetched only on a product or brand page or by the menu).
+- **All 35,257 UK sitemap addresses identical** (the old `sitemap.xml` against the new
+  `sitemap-gb.xml`), and the same 31 UK route pages.
+- The UK page's head gains the hreflang links and the deep link hand off script; its body gains
+  two empty hidden hosts (the beta line and the bar). The rest of the change on a UK page is what
+  the beta needs: the menu rows, the bar on a deep link for a visitor whose country is another,
+  the welcome pop-up, and the cookies page listing the two keys the beta writes.
+- Checked in a browser the same day: `/us/` and `/in/` render the product grid in dollars and
+  rupees with no console error, a US deep link (`/us/creed_aventus_for_her_75ml`) opens through the
+  hand off, the menu switches a UK product to its US page, and the UK home asks "Select your
+  country" for a visitor in a US time zone.
+
+### Left for later
+
+- Deals in the regions (read the shops' compare at prices in the region harvest).
+- D24 for US and Indian shops (owner): until answered, no photos.
+- The legal review (owner) before any affiliate programme or ad earns money there.
+- The Supabase wishlist region columns (plan section 6, "Accounts"): saved fragrances and alerts
+  are still UK prices; a US product saved from `/us/` is a product id the UK page may not have.
+- An 18 or over confirmation at sign up for Indian visitors (DPDP).
+- Notes for region products, and the guides in US terms (they are written for the UK site).
+
