@@ -187,3 +187,5 @@ file is in hand.
 Sources: vivnetworks.com/en/affiliate-catalog/notinocom/ (read 2026-09-10),
 flexoffers.com/affiliate-programs/notino-co-uk-affiliate-program/,
 referly.so/affiliate-programs/notino (read 2026-10-06).
+
+**9 Oct 2026.** `isTooOldToShow` takes a third argument, `unreadableIsTooOld`. The catalogue build (`scripts/build-demo-catalogue.ts`) and the freshness report (`src/catalogue/freshness.ts`) pass it for an `owner-import` shop, so a Notino listing whose `lastSeenAt` is missing or unreadable is hidden like one past the 7 day rule, instead of showing for ever. Every other shop is unchanged (an unreadable date is still not too old). Tests: `tests/importedOfferAge.test.ts`. The UK build is byte for byte the same today (all `Notino` rows have a date).
