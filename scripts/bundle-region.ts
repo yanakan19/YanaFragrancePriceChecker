@@ -30,7 +30,7 @@ import { build, type Plugin } from 'esbuild';
 import { inlineShopTimes, moveLiteralsToJson } from './dataLiterals.js';
 import { BLOBS_GLOBAL, LAZY_CONTENT_MODULES, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
 import { applyNumbering, localMarker, numberGroups } from './dataNumbering.js';
-import { buildNoteData, NOTE_DATA_FILE, publishNoteIcons, readNoteGroupInputs } from './noteData.js';
+import { buildNoteData, buildNoteIconLookup, NOTE_DATA_FILE, NOTE_ICON_FILE, publishNoteIcons, readNoteGroupInputs } from './noteData.js';
 import { pruneContext, pruneMovedBlobs, readSiteBuild, removedSets } from './siteBuild.js';
 import { REGION_LINKS_FILE } from './regionPages.js';
 import { liveRegions, type RegionConfig } from '../src/config/regions.js';
@@ -136,17 +136,23 @@ async function bundleRegion(region: RegionConfig): Promise<void> {
     await writeFile(resolve(dataDir, `${name}.json`), JSON.stringify(data));
     lazy.push(name);
   }
-  // Notes: the region shops publish none, so the Notes tab has no note to list.
+  // Notes: the region shops publish none, so the Notes tab has no note to list
+  // and the product page's note icon lookup is empty (the same files as the UK's,
+  // so every lazy name the app may ask for exists on the region page too).
   {
     const inputs = readNoteGroupInputs(root);
     const iconPaths = publishNoteIcons(root, inputs);
-    const file = buildNoteData([], [], inputs, (f) => {
+    const iconPath = (f: string): string => {
       const p = iconPaths.get(f);
       if (!p) throw new Error(`note icon ${f} was not published`);
       return p;
-    });
+    };
+    const file = buildNoteData([], [], inputs, iconPath);
     await writeFile(resolve(dataDir, `${NOTE_DATA_FILE}.json`), JSON.stringify({ NOTE_DATA: file }));
     lazy.push(NOTE_DATA_FILE);
+    const icons = buildNoteIconLookup([], [], inputs, iconPath);
+    await writeFile(resolve(dataDir, `${NOTE_ICON_FILE}.json`), JSON.stringify({ NOTE_ICONS: icons }));
+    lazy.push(NOTE_ICON_FILE);
   }
   // What this page knows of the other regions (scripts/build-region-data.ts).
   {

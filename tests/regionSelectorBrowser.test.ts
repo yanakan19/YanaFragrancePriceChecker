@@ -337,6 +337,8 @@ describe.skipIf(!built)('the country and currency selector', () => {
       const prices = (await page.evaluate(`Array.from(document.querySelectorAll('.pop-rail .amt')).map((e) => e.textContent.trim()).slice(0, 20)`)) as string[];
       expect(prices.length).toBeGreaterThan(0);
       for (const p of prices) expect(p, 'a dollar price on the US page').toMatch(/^(from )?\$[0-9][0-9,]*\.[0-9]{2} →$/);
+      // After the view's rise has played (an element half faded in reads as low contrast).
+      await page.waitForTimeout(1000);
       expect(await axe(page), 'axe on the US home').toEqual([]);
     } finally {
       await context.close();
