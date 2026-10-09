@@ -30,6 +30,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.105.0',
+    date: '9 Oct 2026',
+    groups: [
+      {
+        heading: 'New',
+        points: ['Glossier UK, with its fragrances priced in pounds'],
+      },
+    ],
+  },
+  {
     version: 'v3.104.0',
     date: '8 Oct 2026',
     groups: [

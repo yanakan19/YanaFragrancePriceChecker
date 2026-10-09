@@ -1,0 +1,814 @@
+{
+ "products": [
+  {
+   "id": 16154949058938,
+   "title": "The Glossier Icons",
+   "handle": "the-glossier-icons",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 57083076477306,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "65.00",
+     "compare_at_price": "105.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 16106317611386,
+   "title": "Travel Spray + Balm",
+   "handle": "travel-spray-balm",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 56885685256570,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 16106317480314,
+   "title": "Fragrance Two Ways",
+   "handle": "fragrance-two-ways",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 56885685125498,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 16106317447546,
+   "title": "Fragrance Duo",
+   "handle": "fragrance-duo",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 56885685059962,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 16106317414778,
+   "title": "Fragrance Trio",
+   "handle": "fragrance-trio",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 56885685027194,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15621017796986,
+   "title": "Glossier You Soie",
+   "handle": "glossier-you-soie",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 56470847488378,
+     "sku": "EDP-530-00-00",
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "option3": null,
+     "price": "70.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 56470847521146,
+     "sku": "EDP-530-65-00",
+     "title": "8 ml",
+     "option1": "8 ml",
+     "option2": null,
+     "option3": null,
+     "price": "32.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15370724082042,
+   "title": "Glossier You Discovery Kit",
+   "handle": "glossier-you-mini-wardrobe",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55938061304186,
+     "sku": "WDR-520-10-00",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "15.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15158573859194,
+   "title": "Balm Dotcom",
+   "handle": "balm-dotcom",
+   "vendor": "Glossier",
+   "product_type": "Balms",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Flavor"
+    }
+   ],
+   "variants": [
+    {
+     "id": 57055000691066,
+     "sku": "BDC-568-00-00",
+     "title": "I Love NY",
+     "option1": "I Love NY",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520463978874,
+     "sku": "BDC-470-00-00",
+     "title": "Black Cherry",
+     "option1": "Black Cherry",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464011642,
+     "sku": "BDC-006-00-99",
+     "title": "Birthday",
+     "option1": "Birthday",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464044410,
+     "sku": "BDC-437-00-00",
+     "title": "Strawberry",
+     "option1": "Strawberry",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464208250,
+     "sku": "BDC-001-00-99",
+     "title": "Original",
+     "option1": "Original",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464241018,
+     "sku": "BDC-003-00-99",
+     "title": "Mint",
+     "option1": "Mint",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464273786,
+     "sku": "BDC-142-00-99",
+     "title": "Mango",
+     "option1": "Mango",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464109946,
+     "sku": "BDC-005-00-99",
+     "title": "Rose",
+     "option1": "Rose",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464142714,
+     "sku": "BDC-002-00-99",
+     "title": "Coconut",
+     "option1": "Coconut",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464077178,
+     "sku": "BDC-212-00-99",
+     "title": "Wild Fig",
+     "option1": "Wild Fig",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520464175482,
+     "sku": "BDC-254-00-99",
+     "title": "Lavender",
+     "option1": "Lavender",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55520463946106,
+     "sku": "BDC-467-00-00",
+     "title": "Espresso",
+     "option1": "Espresso",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55993770312058,
+     "sku": "BDC-499-00-00",
+     "title": "Peppermint Bark",
+     "option1": "Peppermint Bark",
+     "option2": null,
+     "option3": null,
+     "price": "12.00",
+     "compare_at_price": "16.00",
+     "available": true
+    },
+    {
+     "id": 55993770344826,
+     "sku": "BDC-500-00-00",
+     "title": "Gingersnap",
+     "option1": "Gingersnap",
+     "option2": null,
+     "option3": null,
+     "price": "12.00",
+     "compare_at_price": "16.00",
+     "available": true
+    },
+    {
+     "id": 56098324709754,
+     "sku": "BDC-230-00-00",
+     "title": "Cookie Butter",
+     "option1": "Cookie Butter",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 56098323988858,
+     "sku": "BDC-433-00-00",
+     "title": "Hot Cocoa",
+     "option1": "Hot Cocoa",
+     "option2": null,
+     "option3": null,
+     "price": "16.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15099904557434,
+   "title": "The Glossier You Routine",
+   "handle": "glossier-you-routine",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55381281341818,
+     "sku": "CDY-EDP",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "83.00",
+     "compare_at_price": "115.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15097799410042,
+   "title": "Body Spritz",
+   "handle": "body-spritz",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Scent"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55376250732922,
+     "sku": "BSZ-276-00-00",
+     "title": "Orange Blossom Neroli",
+     "option1": "Orange Blossom Neroli",
+     "option2": null,
+     "option3": null,
+     "price": "35.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55376250765690,
+     "sku": "BSZ-328-00-00",
+     "title": "Sandstone",
+     "option1": "Sandstone",
+     "option2": null,
+     "option3": null,
+     "price": "35.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55923247743354,
+     "sku": "BSZ-518-00-00",
+     "title": "Lilyhaze",
+     "option1": "Lilyhaze",
+     "option2": null,
+     "option3": null,
+     "price": "35.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 14991484780922,
+   "title": "Glossier You Fleur",
+   "handle": "glossier-you-fleur",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 55136286114170,
+     "sku": "EDP-484-00-00",
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "option3": null,
+     "price": "70.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55136286146938,
+     "sku": "EDP-484-65-00",
+     "title": "8 ml",
+     "option1": "8 ml",
+     "option2": null,
+     "option3": null,
+     "price": "32.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 14868767080826,
+   "title": "Glossier You Doux",
+   "handle": "glossier-you-doux",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 54858799841658,
+     "sku": "EDP-465-00-00",
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "option3": null,
+     "price": "70.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55778874524026,
+     "sku": "EDP-465-64-00",
+     "title": "100 ml",
+     "option1": "100 ml",
+     "option2": null,
+     "option3": null,
+     "price": "112.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 54858799874426,
+     "sku": "EDP-465-65-00",
+     "title": "8 ml",
+     "option1": "8 ml",
+     "option2": null,
+     "option3": null,
+     "price": "32.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 14868766458234,
+   "title": "Glossier You Rêve",
+   "handle": "glossier-you-reve",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 54858796401018,
+     "sku": "EDP-464-00-00",
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "option3": null,
+     "price": "70.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 54858796433786,
+     "sku": "EDP-464-65-00",
+     "title": "8 ml",
+     "option1": "8 ml",
+     "option2": null,
+     "option3": null,
+     "price": "32.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7834169114671,
+   "title": "Birthday Cake Candle",
+   "handle": "birthday-cake-candle",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 43247156920367,
+     "sku": "CAN-006-00-00",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "50.00",
+     "compare_at_price": null,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 7801527173167,
+   "title": "Crème de You",
+   "handle": "creme-de-you",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 43169955545135,
+     "sku": "CDY-080-00-00",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "45.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7362869035055,
+   "title": "Glossier Candles",
+   "handle": "glossier-candle",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Scent"
+    }
+   ],
+   "variants": [
+    {
+     "id": 41888430719023,
+     "sku": "CAN-080-00-00",
+     "title": "Glossier You",
+     "option1": "Glossier You",
+     "option2": null,
+     "option3": null,
+     "price": "45.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 41888430751791,
+     "sku": "CAN-276-00-00",
+     "title": "Orange Blossom Neroli",
+     "option1": "Orange Blossom Neroli",
+     "option2": null,
+     "option3": null,
+     "price": "45.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 41888434323503,
+     "sku": "CAN-328-00-00",
+     "title": "Sandstone",
+     "option1": "Sandstone",
+     "option2": null,
+     "option3": null,
+     "price": "45.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55923243057530,
+     "sku": "CAN-518-00-00",
+     "title": "Lilyhaze",
+     "option1": "Lilyhaze",
+     "option2": null,
+     "option3": null,
+     "price": "45.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7295843369007,
+   "title": "Glossier You",
+   "handle": "glossier-you",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size"
+    }
+   ],
+   "variants": [
+    {
+     "id": 41719194681391,
+     "sku": "EDP-080-00-00",
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "option3": null,
+     "price": "70.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 41719194714159,
+     "sku": "EDP-369-64-00",
+     "title": "100 ml",
+     "option1": "100 ml",
+     "option2": null,
+     "option3": null,
+     "price": "112.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 42600594112559,
+     "sku": "EDP-080-65-00",
+     "title": "8 ml",
+     "option1": "8 ml",
+     "option2": null,
+     "option3": null,
+     "price": "32.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7259255636015,
+   "title": "Glossier You Solid Refill",
+   "handle": "glossier-you-solid-refill",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 41611451465775,
+     "sku": "SPR-000-09-00",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "25.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7259254685743,
+   "title": "Glossier You Solid",
+   "handle": "glossier-you-solid",
+   "vendor": "Glossier",
+   "product_type": "Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title"
+    }
+   ],
+   "variants": [
+    {
+     "id": 41611450286127,
+     "sku": "SPR-080-00-00",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "35.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}
