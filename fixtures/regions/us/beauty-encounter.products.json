@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://beautyencounter.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 15414452289824,
+   "title": "Versace Dylan Blush Pink for Women 3.4 oz Eau de Parfum Spray",
+   "handle": "versace-dylan-blush-pink-for-women-3-4-oz-eau-de-parfum-spray",
+   "vendor": "Versace",
+   "product_type": "Fragrance|Women|Perfumes",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67683390062880,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "8011003890699",
+     "price": "98.00",
+     "compare_at_price": "158.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15403459051808,
+   "title": "MCM Crush for Women 1.7 oz Eau de Parfum Spray",
+   "handle": "mcm-crush-for-women-1-7-oz-eau-de-parfum-spray",
+   "vendor": "MCM",
+   "product_type": "Fragrance|Women|Perfumes",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67617215611168,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "085715000231",
+     "price": "38.90",
+     "compare_at_price": "115.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15403458986272,
+   "title": "Montblanc Legend Red for Men 1.0 oz Eau de Parfum Spray",
+   "handle": "montblanc-legend-red-for-men-1-0-oz-eau-de-parfum-spray",
+   "vendor": "Montblanc",
+   "product_type": "Fragrance|Men|Colognes",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67617215545632,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "3386460127981",
+     "price": "28.90",
+     "compare_at_price": "49.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

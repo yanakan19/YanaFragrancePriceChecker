@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.fridaycharm.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 10334820499702,
+   "title": "Prada Luna Rossa Ocean Le Parfum For Men",
+   "handle": "prada-luna-rossa-ocean-le-parfum-for-men",
+   "vendor": "Prada",
+   "product_type": "Designer Perfumes",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 51804975464694,
+     "title": "50ml",
+     "option1": "50ml",
+     "option2": null,
+     "sku": "Prada-Luna-Rossa-Ocean-Le-Parfum-M-50ml",
+     "price": "6500.00",
+     "compare_at_price": "9050.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10334766498038,
+   "title": "Lattafa Bade'e Al Oud Black Exposed Eau De Parfum For Unisex",
+   "handle": "lattafa-badee-al-oud-black-exposed-eau-de-parfum-for-unisex",
+   "vendor": "Lattafa",
+   "product_type": "G-CAT-Middle Eastern",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 51804874146038,
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "sku": "Lattafa-Bade'e-Al-Oud-Black-Exposed-EDP-U-100ml",
+     "price": "3250.00",
+     "compare_at_price": "5000.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10334750572790,
+   "title": "Arabiyat Prestige Mahd Al Dhahab Extrait De Parfum For Unisex",
+   "handle": "arabiyat-prestige-mahd-al-dhahab-extrait-de-parfum-for-unisex",
+   "vendor": "Arabiyat",
+   "product_type": "G-CAT-Middle Eastern",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 51804848226550,
+     "title": "60ml",
+     "option1": "60ml",
+     "option2": null,
+     "sku": "Arabiyat-Prestige-Mahd-Al-Dhahab-Extrait-De-Parfum-U-60ml",
+     "price": "4250.00",
+     "compare_at_price": "7500.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.perfumenetwork.in/products.json?limit=250",
+ "products": [
+  {
+   "id": 10323563118767,
+   "title": "Caneza Uomo Bold Eau de Parfum for Men",
+   "handle": "caneza-uomo-bold-eau-de-parfum-for-men",
+   "vendor": "Caneza",
+   "product_type": "Perfume & Cologne",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50566975455407,
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "sku": null,
+     "price": "4875.00",
+     "compare_at_price": "6500.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 10323563053231,
+   "title": "Caneza Uomo Eau de Parfum for Men",
+   "handle": "caneza-uomo-eau-de-parfum-for-men",
+   "vendor": "Caneza",
+   "product_type": "Perfume & Cologne",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50566975389871,
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "sku": null,
+     "price": "4875.00",
+     "compare_at_price": "6500.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 10323562922159,
+   "title": "Caneza Mezmar Cafe Vanilla Eau de Parfum for Women",
+   "handle": "caneza-mezmar-cafe-vanilla-eau-de-parfum-for-women",
+   "vendor": "Caneza",
+   "product_type": "Perfume & Cologne",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50566974505135,
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "sku": null,
+     "price": "4500.00",
+     "compare_at_price": "6000.00",
+     "available": false
+    }
+   ]
+  }
+ ]
+}

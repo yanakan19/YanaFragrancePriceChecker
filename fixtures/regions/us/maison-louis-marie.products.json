@@ -1,0 +1,91 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://maisonlouismarie.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 15381033418943,
+   "title": "Eau de Parfum Gift Set",
+   "handle": "eau-de-parfum-gift-set",
+   "vendor": "Maison Louis Marie® Official Site - Fragrances ",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Scent",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 46223998484671,
+     "title": "No.04 Bois de Balincourt",
+     "option1": "No.04 Bois de Balincourt",
+     "option2": "Default Title",
+     "sku": "EDP04GS26",
+     "price": "100.00",
+     "compare_at_price": "100.00",
+     "available": true
+    },
+    {
+     "id": 46223999336639,
+     "title": "No.15 Vanille Infinie",
+     "option1": "No.15 Vanille Infinie",
+     "option2": "Default Title",
+     "sku": "EDP15GS26",
+     "price": "100.00",
+     "compare_at_price": "100.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8624687087807,
+   "title": "Eau De Parfum Gift Set - No.04 Bois de Balincourt",
+   "handle": "edp-no-04-gift-set",
+   "vendor": "Maison Louis Marie",
+   "product_type": "Finished Goods",
+   "options": [
+    {
+     "name": "Scent",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 46223998484671,
+     "title": "No.04 Bois de Balincourt",
+     "option1": "No.04 Bois de Balincourt",
+     "option2": "Default Title",
+     "sku": "EDP04GS26",
+     "price": "100.00",
+     "compare_at_price": "100.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8624687710399,
+   "title": "Eau De Parfum Gift Set - No.15 Vanille Infinie",
+   "handle": "edp-no-15-gift-set",
+   "vendor": "Maison Louis Marie",
+   "product_type": "Finished Goods",
+   "options": [
+    {
+     "name": "Scent",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 46223999336639,
+     "title": "No.15 Vanille Infinie",
+     "option1": "No.15 Vanille Infinie",
+     "option2": "Default Title",
+     "sku": "EDP15GS26",
+     "price": "100.00",
+     "compare_at_price": "100.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

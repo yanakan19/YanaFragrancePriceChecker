@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://perfumepalace.in/products.json?limit=250",
+ "products": [
+  {
+   "id": 15401137242327,
+   "title": "Mykonos XOXO Rosy Eau De Parfum 50ml For Men & Women",
+   "handle": "mykonos-xoxo-rosy-eau-de-parfum-50ml-for-men-women",
+   "vendor": "Mykonos",
+   "product_type": "Eau De Parfum",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67617432174807,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "MxoxoRosy",
+     "price": "2860.00",
+     "compare_at_price": "3300.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15401156772055,
+   "title": "Mykonos Invade Extrait De Parfum 50ml For Men",
+   "handle": "mykonos-invade-extrait-de-parfum-50ml-for-men",
+   "vendor": "Mykonos",
+   "product_type": "Extrait De Parfum",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67617462649047,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "MykonosInvade",
+     "price": "2860.00",
+     "compare_at_price": "3300.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15401182920919,
+   "title": "Cacharel Anais Anais Eau de Toilette 100ml  For Women",
+   "handle": "cacharel-anais-anais-eau-de-toilette-100ml-for-women",
+   "vendor": "Cacharel",
+   "product_type": "EAU DE TOILETTE",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67617490665687,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "CAnaisAnais",
+     "price": "4356.00",
+     "compare_at_price": "5445.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

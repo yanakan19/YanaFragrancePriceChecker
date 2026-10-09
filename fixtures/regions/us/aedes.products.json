@@ -1,0 +1,111 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.aedes.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 10322966020175,
+   "title": "Overture 41 - Extrait de Parfum",
+   "handle": "overture-41-extrait-de-parfum",
+   "vendor": "Amouage",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Choose size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50545417158735,
+     "title": "3.4oz",
+     "option1": "3.4oz",
+     "option2": null,
+     "sku": null,
+     "price": "550.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 50545417191503,
+     "title": "Try a sample - 0.7ml vial",
+     "option1": "Try a sample - 0.7ml vial",
+     "option2": null,
+     "sku": null,
+     "price": "8.50",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10321217323087,
+   "title": "Descision 42 - Extrait de Parfum",
+   "handle": "descision-42-extrait-de-parfum",
+   "vendor": "Amouage",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Choose size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50536546074703,
+     "title": "3.4oz",
+     "option1": "3.4oz",
+     "option2": null,
+     "sku": null,
+     "price": "550.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 50536546107471,
+     "title": "Try a sample - 0.7ml vial",
+     "option1": "Try a sample - 0.7ml vial",
+     "option2": null,
+     "sku": null,
+     "price": "8.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10325848096847,
+   "title": "Morning Star - Eau de Parfum",
+   "handle": "morning-star-1",
+   "vendor": "Liquides Imaginaires",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Choose size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50548901249103,
+     "title": "3.4oz",
+     "option1": "3.4oz",
+     "option2": null,
+     "sku": null,
+     "price": "285.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 50548901281871,
+     "title": "Try a sample - 0.7ml vial",
+     "option1": "Try a sample - 0.7ml vial",
+     "option2": null,
+     "sku": null,
+     "price": "7.50",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

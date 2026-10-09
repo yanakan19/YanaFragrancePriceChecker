@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://boysmells.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 7516518711363,
+   "title": "VANILLA ERA 1.5ML",
+   "handle": "vanilla-era-voc",
+   "vendor": "Boy Smells",
+   "product_type": "VOC",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 42672849879107,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "HRFF02VRA",
+     "price": "6.00",
+     "compare_at_price": null,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 7636571848771,
+   "title": "VANILLA MACE REED DIFFUSER",
+   "handle": "vanilla-mace-reed-diffuser",
+   "vendor": "Boy Smells",
+   "product_type": "Reed Diffuser",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 43146078748739,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "LERD6VMC",
+     "price": "54.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 6959653486659,
+   "title": "VANILLA MACE MAGNUM",
+   "handle": "vanilla-mace-magnum-27oz",
+   "vendor": "Boy Smells",
+   "product_type": "Magnum",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 40881418174531,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "LECL27VMC",
+     "price": "94.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

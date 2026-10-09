@@ -1,0 +1,115 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://soldejaneiro.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 6945912094822,
+   "title": "Sol Passport - Cheirosa 68 Beija Flor™ Perfume Mist (30ml)",
+   "handle": "sp-30ml-cheirosa-68-beija-flor™-perfume-mist",
+   "vendor": "Sol de Janeiro",
+   "product_type": "Passport Reward-dg",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 40473907396710,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "SJ99102000",
+     "price": "12.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8214348234854,
+   "title": "Cheirosa 91 Intense Perfume Mist",
+   "handle": "cheirosa-91-intense-perfume-mist",
+   "vendor": "Sol de Janeiro",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 47183051161702,
+     "title": "90ml",
+     "option1": "90ml",
+     "option2": null,
+     "sku": "SJ99116300",
+     "price": "34.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8123915599974,
+   "title": "Choose Your Jelly Balm + Keychain Duo",
+   "handle": "choose-your-jelly-balm-keychain-duo",
+   "vendor": "Sol de Janeiro",
+   "product_type": "bundle-dg",
+   "options": [
+    {
+     "name": "Jelly Perfume Balm Keychain (Color)",
+     "position": 1
+    },
+    {
+     "name": "Jelly Perfume Balm: (Jelly Perfume Balm)",
+     "position": 2
+    }
+   ],
+   "variants": [
+    {
+     "id": 46437401460838,
+     "title": "Cheirosa 62 Yellow / Jelly Perfume Balm Cheirosa 62 - pistachio, salted caramel, vanilla",
+     "option1": "Cheirosa 62 Yellow",
+     "option2": "Jelly Perfume Balm Cheirosa 62 - pistachio, salted caramel, vanilla",
+     "sku": null,
+     "price": "40.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 46437401493606,
+     "title": "Cheirosa 62 Yellow / Jelly Perfume Balm Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
+     "option1": "Cheirosa 62 Yellow",
+     "option2": "Jelly Perfume Balm Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
+     "sku": null,
+     "price": "40.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 46437401526374,
+     "title": "Cheirosa 62 Yellow / Jelly Perfume Balm Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
+     "option1": "Cheirosa 62 Yellow",
+     "option2": "Jelly Perfume Balm Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
+     "sku": null,
+     "price": "40.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 46437401657446,
+     "title": "Cheirosa 40 Red / Jelly Perfume Balm Cheirosa 62 - pistachio, salted caramel, vanilla",
+     "option1": "Cheirosa 40 Red",
+     "option2": "Jelly Perfume Balm Cheirosa 62 - pistachio, salted caramel, vanilla",
+     "sku": null,
+     "price": "40.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

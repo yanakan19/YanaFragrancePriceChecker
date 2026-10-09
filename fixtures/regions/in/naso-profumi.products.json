@@ -1,0 +1,115 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.nasoprofumi.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 9721924747494,
+   "title": "Attar Bag Charm",
+   "handle": "attar-copy",
+   "vendor": "Naso Profumi",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Scent",
+     "position": 1
+    },
+    {
+     "name": "Size",
+     "position": 2
+    }
+   ],
+   "variants": [
+    {
+     "id": 47660270452966,
+     "title": "Oud Mud / 10ml",
+     "option1": "Oud Mud",
+     "option2": "10ml",
+     "sku": null,
+     "price": "5498.90",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 47660270485734,
+     "title": "Saffron Musk & Amber / 10ml",
+     "option1": "Saffron Musk & Amber",
+     "option2": "10ml",
+     "sku": null,
+     "price": "5498.90",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 47660270518502,
+     "title": "Basil Infused In Sambac / 10ml",
+     "option1": "Basil Infused In Sambac",
+     "option2": "10ml",
+     "sku": null,
+     "price": "5498.90",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 47660270551270,
+     "title": "Mint Infused In Rose & Lemon / 10ml",
+     "option1": "Mint Infused In Rose & Lemon",
+     "option2": "10ml",
+     "sku": null,
+     "price": "5498.90",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9575925743846,
+   "title": "OUD",
+   "handle": "reedoud",
+   "vendor": "Naso Profumi",
+   "product_type": "Green Perfumery",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 47004607480038,
+     "title": "100ML",
+     "option1": "100ML",
+     "option2": null,
+     "sku": "REEDOUD",
+     "price": "2198.90",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9434847445222,
+   "title": "Oud 47",
+   "handle": "oudh-47",
+   "vendor": "Naso Profumi",
+   "product_type": "Green Perfumery",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 46714629456102,
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "sku": null,
+     "price": "1648.90",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

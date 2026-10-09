@@ -1,0 +1,121 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://indigoperfumery.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 15423830982900,
+   "title": "Forest Sounds",
+   "handle": "forest-sounds",
+   "vendor": "Liis",
+   "product_type": "Fragrances",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67743249334516,
+     "title": "50 ml. EdP",
+     "option1": "50 ml. EdP",
+     "option2": null,
+     "sku": null,
+     "price": "178.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 67743249367284,
+     "title": "1 ml. spray sample",
+     "option1": "1 ml. spray sample",
+     "option2": null,
+     "sku": null,
+     "price": "7.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15418249576692,
+   "title": "Oud Immortelle",
+   "handle": "oud-immortelle",
+   "vendor": "Manos Gerakinis Parfums",
+   "product_type": "Fragrances",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67707774501108,
+     "title": "100 ml. EdP",
+     "option1": "100 ml. EdP",
+     "option2": null,
+     "sku": null,
+     "price": "270.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 67707774533876,
+     "title": "30 ml. EdP",
+     "option1": "30 ml. EdP",
+     "option2": null,
+     "sku": null,
+     "price": "135.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 67707774566644,
+     "title": "1 ml. spray sample",
+     "option1": "1 ml. spray sample",
+     "option2": null,
+     "sku": null,
+     "price": "7.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9669685477620,
+   "title": "Boswellia Scotia",
+   "handle": "boswellia-scotia",
+   "vendor": "Jorum Studio",
+   "product_type": "Fragrances",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 49435803615476,
+     "title": "30 ml. EdP",
+     "option1": "30 ml. EdP",
+     "option2": null,
+     "sku": null,
+     "price": "125.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 49435803648244,
+     "title": "1 ml. spray sample",
+     "option1": "1 ml. spray sample",
+     "option2": null,
+     "sku": null,
+     "price": "8.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

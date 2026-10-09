@@ -1,0 +1,111 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://ministryofscent.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 9992082981109,
+   "title": "Aspen | Founder's Reserve",
+   "handle": "aspen-founders-reserve",
+   "vendor": "Guy Fox",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 48840830943477,
+     "title": "50ml Eau de Parfum",
+     "option1": "50ml Eau de Parfum",
+     "option2": null,
+     "sku": "GUY-ASP-50",
+     "price": "124.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 48840830976245,
+     "title": "2ml Spray Sample",
+     "option1": "2ml Spray Sample",
+     "option2": null,
+     "sku": "GUY-ASP-S",
+     "price": "7.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15396073799925,
+   "title": "Forest Sounds",
+   "handle": "forest-sounds",
+   "vendor": "Liis",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67590998556917,
+     "title": "50ml Eau de Parfum",
+     "option1": "50ml Eau de Parfum",
+     "option2": null,
+     "sku": "LII-FOR-50",
+     "price": "178.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 67590998589685,
+     "title": "2ml Spray Sample",
+     "option1": "2ml Spray Sample",
+     "option2": null,
+     "sku": "LII-FOR-S",
+     "price": "7.00",
+     "compare_at_price": null,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 15396961485045,
+   "title": "Impassable Wilderness",
+   "handle": "impassable-wilderness",
+   "vendor": "Imaginary Authors",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67596531237109,
+     "title": "50ml Eau de Parfum",
+     "option1": "50ml Eau de Parfum",
+     "option2": null,
+     "sku": "IMA-IMP-50",
+     "price": "115.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 67596775653621,
+     "title": "2ml Spray Sample",
+     "option1": "2ml Spray Sample",
+     "option2": null,
+     "sku": "IMA-IMP-S",
+     "price": "7.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.bombayperfumery.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 8710854639812,
+   "title": "Partial Payment",
+   "handle": "partial-payment-1",
+   "vendor": "Bombay Perfumery",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Payment Type",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 46641956946116,
+     "title": "PartPayment",
+     "option1": "PartPayment",
+     "option2": null,
+     "sku": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7129803391172,
+   "title": "PONDICHERRY YELLOW",
+   "handle": "pondicherry-yellow",
+   "vendor": "Bombay Perfumes",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 41481842852036,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "PONDICHERRY YELLOW-165",
+     "price": "1500.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8684837535940,
+   "title": "Partial Payment",
+   "handle": "partial-payment",
+   "vendor": "Bombay Perfumery",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Payment Type",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 46533749997764,
+     "title": "PartPayment",
+     "option1": "PartPayment",
+     "option2": null,
+     "sku": null,
+     "price": "0.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

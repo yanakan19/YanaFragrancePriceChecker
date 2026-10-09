@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.beautyhabit.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 8320404783173,
+   "title": "Coco Tropic Eau de Parfum",
+   "handle": "perfumerica-coco-tropic-eau-de-parfum",
+   "vendor": "Perfumerica",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 45949315645509,
+     "title": "120 ml",
+     "option1": "120 ml",
+     "option2": null,
+     "sku": "54978",
+     "price": "100.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8316915023941,
+   "title": "Lilas (Lilac) Eau de Toilette",
+   "handle": "fragonard-parfumeur-lilas-lilac-eau-de-toilette",
+   "vendor": "Fragonard Parfumeur",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 45935481520197,
+     "title": "100 ml",
+     "option1": "100 ml",
+     "option2": null,
+     "sku": "54953",
+     "price": "70.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8316914991173,
+   "title": "Bois de Chene Eau de Toilette",
+   "handle": "fragonard-parfumeur-bois-de-chene-eau-de-toilette",
+   "vendor": "Fragonard Parfumeur",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 45935481487429,
+     "title": "100 ml",
+     "option1": "100 ml",
+     "option2": null,
+     "sku": "54952",
+     "price": "70.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

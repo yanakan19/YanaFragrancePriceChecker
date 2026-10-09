@@ -1,0 +1,31 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://discoverpilgrim.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 8655300329701,
+   "title": "Greek God Eau De Parfum 100 ml",
+   "handle": "greek-god-eau-de-parfum-100-ml",
+   "vendor": "Fragrances",
+   "product_type": "Eau De Parfum - Acquisition - GoogleAds",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 45250504917221,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "PGEDP-GKGOD1",
+     "price": "399.00",
+     "compare_at_price": "1195.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}
