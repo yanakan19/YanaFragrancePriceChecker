@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
-  canChangePage, COUNTS_ANYWAY, decide, NOT_PAGE_FOLDERS, overridesFingerprint, readLiveState, readOverrides, supabasePublic,
+  canChangePage, COUNTS_ANYWAY, decide, NOT_PAGE_FOLDERS, PAGE_DATA_FOLDERS, overridesFingerprint, readLiveState, readOverrides, supabasePublic,
 } from '../scripts/deploy-decision.mjs';
 import { OVERRIDES_ENDPOINT } from '../scripts/siteBuild.js';
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from '../demo/supabase.js';
@@ -23,7 +23,16 @@ describe('which paths can change the page', () => {
     const excluded = filter.filter((p) => p.startsWith('!')).map((p) => p.slice(1));
     const included = filter.slice(1).filter((p) => !p.startsWith('!'));
     expect(excluded.sort()).toEqual([...NOT_PAGE_FOLDERS.map((f) => `${f}**`), '**/*.md'].sort());
-    expect(included).toEqual([...COUNTS_ANYWAY]);
+    expect(included).toEqual([...COUNTS_ANYWAY, ...PAGE_DATA_FOLDERS.map((f) => `${f}**`)]);
+  });
+
+  it('counts the US and Indian crawls\' data, which the region pages are built from, and not the rest of data/', () => {
+    expect(PAGE_DATA_FOLDERS).toEqual(['data/regions/']);
+    for (const p of ['data/regions/us/catalogue/perfumania.json', 'data/regions/in/price-history.json', 'data/regions/us/product-slugs.json']) {
+      expect(canChangePage(p), p).toBe(true);
+    }
+    expect(canChangePage('data/regions.md')).toBe(false);
+    expect(canChangePage('data/catalogue/escentual.json')).toBe(false);
   });
 
   it('counts the generated modules, the source and the build, and not snapshots, reports or posts', () => {
@@ -48,6 +57,14 @@ describe('the decision', () => {
     for (const event of ['push', 'workflow_dispatch']) {
       expect(decide({ event, tip: LIVE, overrides: FP, live, changedPaths: paths([]) }).deploy).toBe(true);
     }
+  });
+
+  it('deploys after a region crawl that committed region data, and skips one that committed nothing', () => {
+    const region = paths(['data/regions/us/catalogue/perfumania.json', 'data/regions/us/report.json']);
+    const verdict = decide({ event: 'workflow_run', tip: TIP, overrides: FP, live, changedPaths: region });
+    expect(verdict.deploy).toBe(true);
+    expect(verdict.reason).toContain('data/regions/us/catalogue/perfumania.json');
+    expect(decide({ event: 'workflow_run', tip: LIVE, overrides: FP, live, changedPaths: paths([]) }).deploy).toBe(false);
   });
 
   it('skips a crawl run that committed nothing, or only snapshots and reports', () => {

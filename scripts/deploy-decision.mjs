@@ -25,8 +25,9 @@
  *   a push or a run by hand      always (the push's own path filter already
  *                                left out the pushes that cannot change it)
  *   after a crawl or links run,  when a file that can change the page changed
- *   and on the schedule          between the live commit and the branch tip
- *                                (the same folders the push filter counts), or
+ *   (UK or region) and on the    between the live commit and the branch tip
+ *   schedule                     (the same folders the push filter counts, the
+ *                                region data folders included), or
  *                                when the hidden and removed list is not the
  *                                one the live site was built with, or when the
  *                                live record cannot be read or its commit is
@@ -73,9 +74,19 @@ export const COUNTS_ANYWAY = [
   'data/note-icons-manifest.json',
 ];
 
+/**
+ * Data folders the page build reads, so a change under them counts although
+ * data/ as a whole does not: the US and Indian crawls' folders, from which the
+ * /us/ and /in/ pages are built at deploy time (public beta, 9 October 2026;
+ * scripts/build-region-data.ts). A finished region crawl run that committed
+ * new prices therefore deploys; one that committed nothing does not.
+ */
+export const PAGE_DATA_FOLDERS = ['data/regions/'];
+
 /** True when a change to this path can change what `npm run demo` builds. */
 export function canChangePage(path) {
   if (COUNTS_ANYWAY.includes(path)) return true;
+  if (PAGE_DATA_FOLDERS.some((folder) => path.startsWith(folder))) return true;
   if (path.endsWith('.md')) return false;
   return !NOT_PAGE_FOLDERS.some((folder) => path.startsWith(folder));
 }

@@ -49,7 +49,8 @@ name: Deploy site
 # ── Which pushes deploy ──────────────────────────────────────────────────────
 # Any push to the branch except the folders that cannot change the page (data,
 # docs, tests, social posts, the apps, the database migrations, Markdown and
-# other workflows). This used to be `demo/**` only, which was enough while a
+# other workflows). data/regions/ does count: the US and Indian pages are built
+# from it at deploy time (public beta, 9 October 2026). This used to be `demo/**` only, which was enough while a
 # change to src/ came with a rebuilt, committed demo/index.html; now a change
 # to src/ or to the build scripts must start a deploy by itself.
 on:
@@ -71,8 +72,11 @@ on:
       - 'data/note-not-a-note.json'
       - 'data/note-descriptions.json'
       - 'data/note-icons-manifest.json'
+      - 'data/regions/**'
   workflow_run:
-    workflows: ['Catalogue crawl', 'Fragrance links daily']
+    # The US and Indian crawls since the public beta (9 Oct 2026): their data is
+    # the /us/ and /in/ pages' (scripts/build-region-data.ts).
+    workflows: ['Catalogue crawl', 'Fragrance links daily', 'Catalogue crawl US', 'Catalogue crawl IN']
     types: [completed]
   # A second path for the dashboard's list and a retry of a failed deploy
   # (finished crawl runs are the first). Off the hour and half hour, when

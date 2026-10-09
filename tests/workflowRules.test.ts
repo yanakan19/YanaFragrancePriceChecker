@@ -274,8 +274,8 @@ describe('deploy-pages.yml', () => {
   });
 
   it('deploys after every crawl and links run, and on any push that can change the page, src/ included', () => {
-    expect(deploy).toContain("workflows: ['Catalogue crawl', 'Fragrance links daily']");
-    for (const f of ['catalogue-daily.yml', 'fragrance-links-daily.yml']) {
+    expect(deploy).toContain("workflows: ['Catalogue crawl', 'Fragrance links daily', 'Catalogue crawl US', 'Catalogue crawl IN']");
+    for (const f of ['catalogue-daily.yml', 'fragrance-links-daily.yml', 'catalogue-us.yml', 'catalogue-in.yml']) {
       const name = /^name: (.+)$/m.exec(text(f))![1]!;
       expect(deploy, f).toContain(`'${name}'`);
     }
@@ -293,6 +293,41 @@ describe('deploy-pages.yml', () => {
 
   it('caps every step', () => {
     for (const step of stepList) expect(step, step.split('\n')[0]).toMatch(/\n {8}timeout-minutes: \d+/);
+  });
+});
+
+describe('catalogue-us.yml and catalogue-in.yml, the region crawls (daily since the public beta of 9 Oct 2026)', () => {
+  const regions = [
+    { file: 'catalogue-us.yml', folder: 'us', group: 'catalogue-us' },
+    { file: 'catalogue-in.yml', folder: 'in', group: 'catalogue-in' },
+  ];
+  const cronOf = (f: string): string[] => [...text(f).matchAll(/\n {4}- cron: '([^']+)'/g)].map((m) => m[1]!);
+
+  it('each runs once a day, at its own hour, off the UK crawl\'s minutes and off the hour and half hour', () => {
+    const ukMinutes = new Set(cronOf('catalogue-daily.yml').map((c) => c.split(' ')[0]));
+    const hours: string[] = [];
+    for (const { file } of regions) {
+      const crons = cronOf(file);
+      expect(crons, file).toHaveLength(1);
+      const [minute, hour, dom, month, dow] = crons[0]!.split(' ');
+      expect([dom, month, dow], `${file} runs every day`).toEqual(['*', '*', '*']);
+      expect(hour, `${file} runs once a day`).toMatch(/^\d{1,2}$/);
+      expect(minute, file).toMatch(/^\d{1,2}$/);
+      expect(['0', '30'], `${file} is off the hour and half hour`).not.toContain(minute);
+      expect(ukMinutes.has(minute!), `${file} is off the UK crawl's minutes`).toBe(false);
+      hours.push(hour!);
+      expect(text(file), `${file} says when its schedule started`).toContain('since the beta of 9 October 2026');
+    }
+    expect(new Set(hours).size, 'the two regions at different hours').toBe(2);
+  });
+
+  it('each keeps its own concurrency group and commits only its own folder, through commit-and-push.sh, on a schedule too', () => {
+    for (const { file, folder, group } of regions) {
+      const t = text(file);
+      expect(t, file).toMatch(new RegExp(`\\nconcurrency:\\n {2}group: ${group}\\n`));
+      expect(t, file).toContain("if: ${{ github.event_name == 'schedule' || inputs.commit }}");
+      expect(t, file).toMatch(new RegExp(`\\./scripts/commit-and-push\\.sh \\\\\\n[^\\n]*\\n {12}data/regions/${folder}\\n`));
+    }
   });
 });
 

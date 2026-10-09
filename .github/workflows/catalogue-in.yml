@@ -1,20 +1,31 @@
-name: Catalogue crawl IN (dry run)
+name: Catalogue crawl IN
 
-# The India dry run (docs/INTERNATIONAL-PLAN.md, Phase 1, step one: a test run
-# with no publishing). It reads the IN shops in src/config/retailers.in.ts as
-# PriceSniffsBot, robots.txt first (D23), keeps prices in INR as each shop states
-# them, builds the region's catalogue, price history and report, and commits
-# data/regions/in/ and nothing else. It builds no page: nothing it writes is
-# read by the site, and data/** never triggers a deploy (deploy-pages.yml).
+# The India crawl (docs/INTERNATIONAL-PLAN.md, Phase 1). It reads the IN shops in
+# src/config/retailers.in.ts as PriceSniffsBot, robots.txt first (D23), keeps prices in
+# INR as each shop states them, builds the region's catalogue, price history,
+# report and product addresses, and commits data/regions/in/ and nothing else.
+#
+# Public beta since 9 October 2026: the deploy builds the /in/ pages from that
+# folder (scripts/build-region-data.ts), so a finished run of this workflow starts
+# the deploy check (deploy-pages.yml, workflow_run), which deploys when the run
+# committed region data (scripts/deploy-decision.mjs counts data/regions/).
+#
+# Schedule: once a day at 20:22 UTC (01:52 in India), since the beta of 9 October 2026. Off the
+# hour and the half hour, and away from the UK crawl's ticks (catalogue-daily.yml
+# fires at :15 and :45 of every hour) and from the other region's crawl, which
+# runs at the other end of the day. GitHub drops some scheduled ticks; a missed
+# day costs nothing a later run does not make up (listings count for 7 days,
+# src/catalogue/regionCatalogue.ts REGION_STALE_DAYS), and the run can be started
+# by hand or by the outside scheduler (workflow_dispatch, docs/OWNER-STEPS.md).
 #
 # Its own concurrency group, catalogue-in: it commits only data/regions/in/, a
 # path no other workflow commits, so it never races the UK crawl or the other
 # region (tests/workflowRules.test.ts). It pushes only through
-# scripts/commit-and-push.sh. Run by hand only (workflow_dispatch) while it is a
-# dry run: a schedule is added with the hidden beta (Phase 1b), so no region data
-# piles up in the repository before the go/no-go decision.
+# scripts/commit-and-push.sh.
 
 on:
+  schedule:
+    - cron: '22 20 * * *'
   workflow_dispatch:
     inputs:
       harvest_max:
@@ -64,7 +75,7 @@ jobs:
         timeout-minutes: 10
         run: npx vitest run tests/regionRetailers.test.ts tests/regionHarvest.test.ts tests/regionCatalogue.test.ts
 
-      - name: Harvest the IN shops (dry run, nothing published)
+      - name: Harvest the IN shops
         timeout-minutes: 52
         env:
           HARVEST_MAX: ${{ inputs.harvest_max || '250' }}
@@ -76,7 +87,7 @@ jobs:
           NODE_OPTIONS: --max-http-header-size=131072
         run: npx tsx scripts/region-harvest.ts --region=in --max="$HARVEST_MAX" --shop-minutes="$SHOP_MINUTES" --run-minutes=48 --concurrency=4
 
-      - name: Build the IN catalogue, price history and report
+      - name: Build the IN catalogue, price history, report and product addresses
         timeout-minutes: 10
         run: npx tsx scripts/build-region-catalogue.ts --region=in
 
@@ -84,7 +95,7 @@ jobs:
         timeout-minutes: 2
         run: |
           {
-            echo '## India dry run'
+            echo '## India crawl'
             echo '```json'
             node -e "const r=require('./data/regions/in/report.json'); delete r.shops; console.log(JSON.stringify(r,null,2))"
             echo '```'
@@ -92,8 +103,9 @@ jobs:
 
       - name: Commit the IN data
         timeout-minutes: 10
-        if: ${{ inputs.commit }}
+        # A scheduled run has no inputs, and always commits.
+        if: ${{ github.event_name == 'schedule' || inputs.commit }}
         run: |
           ./scripts/commit-and-push.sh \
-            "IN dry run: region data $(date -u +%Y-%m-%dT%H:%MZ)" \
+            "IN crawl: region data $(date -u +%Y-%m-%dT%H:%MZ)" \
             data/regions/in
