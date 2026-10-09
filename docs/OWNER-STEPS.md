@@ -650,7 +650,7 @@ deleted branch can be restored there, or recreated from the tip below.
 | `claude/wizardly-faraday-owdlz1` | `e98e4a25` | Delete. #2, superseded as above |
 | `claude/modest-euler-3hwly2` | `b444d261` | Keep until #3 is reapplied, then delete. It holds the old history up to 3 October |
 | `claude/perfume-chatbot-multi-agent-lvf17y` | `1dd47e83` | Your call. The chatbot it prototyped went into the live branch (`dd14870a`, 10 August) and came out again with Fly.io (`104056cd`, 6 September). Its own five commits never merged: your local setup notes (`YanaFreeAPIMerger/SETUP_LOG.md`), the Oracle VM scripts and the Fly.io files. Delete it if you do not want those notes |
-| `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94` | Keep: #5's branch, on the new history |
+| `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94` | Merged into the live branch on 9 October 2026 (content only; the PR itself is yours to close on GitHub). Delete the branch after that |
 | `backup/pre-rewrite-2026-10-06` | `2e54cdb5` | Yours to decide. It alone keeps the whole old history |
 | `claude/scentday-retailer-registry-h92tth` | | The live and default branch |
 
@@ -910,8 +910,8 @@ holds the secret and answers only you.
 
 ## 9. Notino: bring its prices back from pages you save (optional, 5 minutes a week)
 
-Notino blocks automatic readers, so its prices are off the site. Until the
-CJ affiliate route in `docs/NOTINO-PLAN.md` is approved, you can keep a few
+Notino blocks automatic readers, so the crawl cannot read its prices. Until
+the CJ affiliate route in `docs/NOTINO-PLAN.md` is approved, you can keep
 products visible by saving Notino pages yourself. Notino's terms may limit
 copying, so keep it small and occasional, and stop if Notino objects.
 
@@ -921,7 +921,17 @@ copying, so keep it small and occasional, and stop if Notino objects.
 2. Open a brand page, a search results page or a single product page. Scroll
    down once so the list has loaded, and click the size you want on a product
    page (each size is its own price).
-3. Save it: **Ctrl+S** (Cmd+S on a Mac), choose "Webpage, HTML only" or
+3. Save it. Quickest: the **Save for PriceSniffs** bookmark. Install it once:
+   run `npm run -s catalogue:bookmarklet` (or ask me for the line), make a new
+   bookmark and paste that line as its address. One click on a Notino page
+   downloads a small file holding only the page's product data (the JSON-LD
+   blocks of type Product, ProductGroup, ItemList or CollectionPage), its
+   address and the time. It leaves behind the rest of the page, including any
+   account or Person block, but still use the private window of steps 1 and 2:
+   that is the sure way to have no account data in the page at all.
+   Put the files in `data/notino-inbox/`, or send them to me.
+
+   Or save it yourself: **Ctrl+S** (Cmd+S on a Mac), choose "Webpage, HTML only" or
    "Webpage, Complete", and save it into the folder `data/notino-inbox/` in
    the project (make the folder if it is not there). One file per page. The
    file's saved time is taken as the day you read the prices.
@@ -933,10 +943,14 @@ copying, so keep it small and occasional, and stop if Notino objects.
    keeps only product facts (name, brand, size, barcode, price, stock, image,
    notes, delivery) and discards everything else. Delete the saved files when
    done.
-6. The shop is still switched off on the site (`enabled: false` in
-   `src/config/retailers.ts`). When you want Notino to appear again, tell me
-   and I will switch it on; it will not start crawling, its only source is
-   these saved pages.
+6. Notino is switched on on the site again (owner, 2026-10-07, D31). It does
+   not crawl and no weekly or monthly check asks it for anything: its only
+   source is these saved pages. A price leaves the site 7 days after the day it
+   was read. The 9 products saved on 7 October left on 14 October; save the
+   pages again (steps 1 to 4) to bring them back.
+7. After `npm run notino:import`, run `npm run rebuild` and commit
+   `data/catalogue/notino-uk.json` with the rebuilt files, as in CLAUDE.md (or
+   ask me to).
 
 ## 10. The US and India (public beta since 9 October 2026)
 

@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 87 retailers, 62 of them `enabled: true`. Every one of them is a legitimate
+ * 87 retailers, 63 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -362,8 +362,16 @@ export const RETAILERS: readonly Retailer[] = [
     trustpilotUrl: 'https://uk.trustpilot.com/review/notino.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer', 'niche', 'mideast'],
-    // Switched off by the owner on 2026-10-04: off the site for now.
-    enabled: false,
+    // Switched off by the owner on 2026-10-04, back on at the owner's request
+    // on 2026-10-07 (docs/DECISIONS.md D31). `enabled` only lets the saved
+    // prices show: the adapter is 'owner-import', so the harvest, the probe,
+    // the weekly price check, the monthly delivery recheck and the catalogue
+    // crawl all skip this shop and it gets no request from us (see
+    // `crawlsShop` below). Its only source is pages the owner opens in their
+    // own browser and saves (docs/OWNER-STEPS.md section 9,
+    // `npm run notino:import`). Each saved price shows for HIDE_OFFER_AFTER_DAYS
+    // from the day it was saved. The Cloudflare refusal stands (D23).
+    enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
@@ -665,8 +673,9 @@ export const RETAILERS: readonly Retailer[] = [
     // programme (signed or IP validated PriceSniffsBot) is the one honest
     // identity route that could change the challenge, if Notino's zone
     // admits verified bots; unproven, and an owner level project decision.
-    // Recommendation: stays off. Owner applies on CJ and sends the email
-    // (docs/outreach/notino-uk.md); optional weekly saved pages meanwhile.
+    // Recommendation (8 Oct): no crawl. Switched on 7 Oct for the saved pages only.
+    // Owner applies on CJ and sends the email (docs/outreach/notino-uk.md);
+    // saved pages meanwhile.
     affiliate: {
       network: 'cj',
       verified: true,
@@ -675,6 +684,12 @@ export const RETAILERS: readonly Retailer[] = [
       deeplinkTemplate: null,
       querySuffixTemplate: null,
       signupUrl: 'https://www.vivnetworks.com/en/affiliate-catalog/notinocom/',
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -11645,6 +11660,16 @@ export function getRetailer(id: string): Retailer | undefined {
 }
 
 /** Retailers the pipeline should currently fetch from. */
+/**
+ * True when a script that sends requests to shops may include this shop.
+ * An `owner-import` shop (Notino UK) is fed only by pages the owner saves by
+ * hand, so no sweep (harvest, probe, price check, delivery recheck, crawl)
+ * may ask it for anything, whether or not it is `enabled`.
+ */
+export function crawlsShop(r: Pick<Retailer, 'adapter'>): boolean {
+  return r.adapter !== 'owner-import';
+}
+
 export function enabledRetailers(): Retailer[] {
   return RETAILERS.filter((r) => r.enabled);
 }

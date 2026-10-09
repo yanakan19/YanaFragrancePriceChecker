@@ -1,6 +1,7 @@
 import type { Retailer } from '../src/types/retailer.js';
 import type { ShippingReading } from '../src/catalogue/shippingTerms.js';
 import { sanitiseQuote } from '../src/catalogue/shippingRegistryPatch.js';
+import { crawlsShop } from '../src/config/retailers.js';
 
 /**
  * The monthly delivery re-check: has what a shop's own delivery page says
@@ -165,7 +166,7 @@ export function recheckTargets(
   listingCount: (retailerId: string) => number,
 ): RecheckTarget[] {
   return retailers
-    .filter((r) => r.enabled && listingCount(r.id) > 0)
+    .filter((r) => r.enabled && crawlsShop(r) && listingCount(r.id) > 0)
     .map((r) => ({
       retailerId: r.id,
       name: r.name,

@@ -11,7 +11,7 @@
  */
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { RETAILERS } from '../src/config/retailers.js';
+import { RETAILERS, crawlsShop } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { crawlRetailer } from '../src/catalogue/crawl.js';
 import { liveFetcher, fixtureFetcher } from '../src/catalogue/fetcher.js';
@@ -74,7 +74,7 @@ let failed = 0;
 let totalNew = 0;
 
 for (const retailer of RETAILERS) {
-  if (!retailer.enabled || !retailer.catalogue) continue;
+  if (!retailer.enabled || !retailer.catalogue || !crawlsShop(retailer)) continue;
 
   const run = await crawlRetailer({
     retailer, fetchPage, store, now,

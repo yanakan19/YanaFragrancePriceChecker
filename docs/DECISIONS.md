@@ -2300,3 +2300,14 @@ unchanged: its 8 data files byte for byte and its 35,257 sitemap addresses ident
 after. What shipped: `docs/INTERNATIONAL-PLAN.md`, "Public beta, 9 October 2026: what shipped".
 
 **UK pictures on matching products (owner instruction, 9 October 2026).** Decision 5 stands, and a US or Indian product that is the same bottle as a UK product (barcode, or identical house, name, strength and size) shows the UK listing's picture, which D24 already allows on the UK site; no US or Indian shop's photo is shown. `docs/INTERNATIONAL-PLAN.md`, "UK photos on matching region products".
+
+## D31 — Notino UK is back on the site, fed only by saved pages (decided, 2026-10-07; merged 9 October 2026)
+
+**Decided by the owner, 7 October 2026**, merged with PR 5 on 9 October. `notino-uk` is
+`enabled: true`, with `adapter: 'owner-import'` kept. The only source is pages the owner saves in
+their own browser (the "Save for PriceSniffs" bookmark, `npm run notino:import`). Notino stays
+unscraped (D23): the harvest, the probe, the weekly price check, the monthly delivery recheck and the
+catalogue crawl all skip an `owner-import` shop (`crawlsShop` in `src/config/retailers.ts`), so
+turning it on sends Notino no request. Photos follow D24. A saved price shows for 7 days from the day
+it was read, so the 9 products saved on 7 October leave on 14 October unless the pages are saved
+again. The lasting routes are still the CJ feed and asking Notino.
