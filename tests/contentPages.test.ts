@@ -14,7 +14,9 @@ import { METHOD_BODY } from '../demo/content/methodBody.js';
 import { headFor, SITE_URL } from '../demo/head.js';
 import { matchRoute, rootWords, routeToPath } from '../demo/router.js';
 import { LAZY_CONTENT_MODULES, LAZY_DATA_MODULES } from '../scripts/dataFiles.js';
-import { DEMO_FRAGRANCES, fragrancesWithNote, noteForAddress } from '../demo/data.js';
+import { DEMO_FRAGRANCES, fragrancesWithNote, NOTE_INDEX, noteForAddress } from '../demo/data.js';
+import { noteMatches } from '../demo/notesData.js';
+import { grouperFor, readNoteGroupInputs } from '../scripts/noteData.js';
 import { slugOf } from '../demo/tabFacets.js';
 import { VOLUME_BANDS, volumeBandFor } from '../demo/volumeBands.js';
 import { DEAL_SORT_OPTIONS, OIL_SORT_OPTIONS, SET_SORT_OPTIONS } from '../demo/listSort.js';
@@ -744,6 +746,39 @@ describe('the guides about how the site works', () => {
       expect(noteForAddress('cedarwood')).toBe('Cedar');
       expect(noteForAddress('cedar')).toBe('Cedar');
       expect(linksOf(GUIDE_BODIES['how-we-tidy-perfume-notes']!)).toEqual(expect.arrayContaining(['/notes/cedar', '/notes/blackcurrant']));
+    });
+
+    it('lists the 16 groups of the Notes page by name, in its order, with examples that sit in that group', () => {
+      const inputs = readNoteGroupInputs(root);
+      const grouper = grouperFor(inputs);
+      const groups = [...inputs.rules.groups].sort((a, b) => a.order - b.order);
+      expect(groups).toHaveLength(16);
+      const items = GUIDE_BODIES['how-we-tidy-perfume-notes']!.flatMap((b) => (b.t === 'ul' ? b.x : [])).filter((i) => i.includes(': '));
+      expect(items.map((i) => i.split(': ')[0])).toEqual(groups.map((g) => g.name));
+      for (const [at, group] of groups.entries()) {
+        if (group.id === 'more') continue;
+        const examples = items[at]!.split(': ')[1]!.replace(/\.$/, '').split(', ');
+        expect(examples.length, group.name).toBeGreaterThanOrEqual(2);
+        for (const note of examples) {
+          expect(NOTE_INDEX.some((n) => n.name === note), `${note} is a note the shops publish`).toBe(true);
+          expect(grouper.hidden(note), `${note} is shown as a note`).toBe(false);
+          expect(grouper.classify(note).group, `${note} sits in ${group.name}`).toBe(group.id);
+        }
+      }
+    });
+
+    it('says only what the Notes page does: icons are our own drawings, a search reads other spellings, and no group has an anchor', () => {
+      const manifest = JSON.parse(readFileSync(resolve(root, 'data/note-icons-manifest.json'), 'utf8')) as { author: string };
+      expect(manifest.author).toMatch(/^Own work for PriceSniffs: original vector drawings/);
+      expect(manifest.author).toMatch(/No photograph, trace, stock icon or artwork from any other site/);
+      expect(text).toContain('our own drawing');
+      expect(readFileSync(resolve(root, 'demo/notesPage.ts'), 'utf8')).toContain('facts.groupIcon');
+      expect(noteMatches({ name: 'Cedar', aliases: ['Cedarwood'] }, 'cedarwood')).toBe(true);
+      // The chips scroll without touching the address and nothing reads a group's anchor on load,
+      // so the guide links the page, never a group heading.
+      const links = linksOf(GUIDE_BODIES['how-we-tidy-perfume-notes']!);
+      expect(links).toContain('/notes');
+      expect(links.filter((l) => l.includes('#') || l.includes('group='))).toEqual([]);
     });
   });
 

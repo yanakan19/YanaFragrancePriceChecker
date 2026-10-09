@@ -80,7 +80,7 @@ export const GUIDES: readonly GuideInfo[] = [
     slug: 'how-we-tidy-perfume-notes',
     title: 'How We Tidy Perfume Notes',
     description:
-      'Why Cedar and Cedarwood, or Cassis and Blackcurrant, show as one note here, what we merge, and which look alike notes we deliberately keep apart.',
+      'Why Cedar and Cedarwood show as one note, which look alike notes stay apart, and how the 16 groups, drawn icons, jump bar and search work.',
   },
   {
     slug: 'why-the-basket-price-can-differ',

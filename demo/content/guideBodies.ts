@@ -56,7 +56,15 @@
  *     (src/catalogue/noteAliases.ts, scripts/build-demo-catalogue.ts): six
  *     kinds of alias, a reviewed append only list, a keepApart list; an old
  *     address opens the note it became (NOTE_NAMES, demo/data.ts); notes are
- *     only those the shops publish (tidyNotes, demo/data.ts);
+ *     only those the shops publish (tidyNotes, demo/data.ts); the 16 groups,
+ *     in order, and the one group of each note (data/note-groups.json,
+ *     createNoteGrouper, src/catalogue/noteGroups.ts); the icons are original
+ *     drawings (the author line of data/note-icons-manifest.json) and a note
+ *     with none shows its group's (noteTile, demo/notesPage.ts); the sticky bar
+ *     of group chips with counts, "See all", and a search that also reads
+ *     other spellings (jumpBar, groupSection, noteMatches; demo/notesPage.ts,
+ *     demo/notesData.ts). The page has no anchor for a group, so the guide
+ *     links /notes only;
  *   - Why the Basket Price Can Differ: resolveDelivery and deliveredPrice,
  *     src/services/shipping.ts (a bottle on its own against the free delivery
  *     spend; a cheaper rate is never free); offerRow, rowStockMarks and
@@ -486,7 +494,7 @@ export const GUIDE_BODIES: Record<string, Block[]> = {
     },
     {
       t: 'p',
-      x: 'So we keep a reviewed list of spellings that mean the same ingredient, well over a thousand of them, and show each under one name everywhere: the product page, the Notes tab, the note pages, the filters and Today’s Deals. A fragrance that listed two spellings of one ingredient shows it once.',
+      x: 'So we keep a reviewed list of spellings that mean the same ingredient, well over a thousand of them, and show each under one name everywhere. A fragrance that listed two spellings of one ingredient shows it once.',
     },
     { t: 'h', x: 'What Counts as the Same' },
     {
@@ -494,24 +502,59 @@ export const GUIDE_BODIES: Record<string, Block[]> = {
       x: [
         'Plurals and word order. Musks is Musk, and Pepper Pink is Pink Pepper.',
         'Spellings. Cardamon is Cardamom, and Lavander is Lavender.',
-        'Forms. An absolute of an ingredient is that ingredient, so Rose Absolute is Rose.',
+        'Forms. Rose Absolute is Rose.',
         'Countries. Italy Lemon is Italian Lemon.',
         'Two names for one material. Cassis is Blackcurrant, and Oudh is Oud.',
       ],
     },
     {
       t: 'p',
-      x: 'Each pair was reviewed before it went on the list, and nothing is merged on a guess. The list only grows: an entry is never removed or pointed somewhere else, so a merged name stays put.',
+      x: 'Each pair was reviewed first, and nothing is merged on a guess. The list only grows: an entry is never removed or pointed somewhere else. A saved link to Cedarwood still opens Cedar.',
     },
     { t: 'h', x: 'What We Keep Apart' },
     {
       t: 'p',
-      x: 'Some notes look alike but are different materials, so they stay separate. Blackcurrant is the fruit and Blackcurrant Leaf is not. Musk and White Musk are different notes, and Orange is not Bitter Orange. Origins, parts of a plant and named accords keep their own pages too.',
+      x: 'Some notes look alike but are different materials, so they stay separate. Blackcurrant is the fruit and Blackcurrant Leaf is not. Musk and White Musk are different notes, and Orange is not Bitter Orange.',
     },
-    { t: 'h', x: 'Old Addresses Still Work' },
+    { t: 'h', x: 'Sixteen Groups' },
     {
       t: 'p',
-      x: 'If you saved or shared a link to a spelling that has been merged, it still opens. The page for Cedarwood opens Cedar, and the address bar then shows the note’s own address.',
+      x: 'On the [Notes page](/notes) every note sits in one group only, our own way of sorting what the shops publish. The 16 run roughly from the lightest scents to the heaviest:',
+    },
+    {
+      t: 'ul',
+      x: [
+        'Fresh Air and Water: Salt, Sea Water.',
+        'Citrus: Bergamot, Lemon.',
+        'Herbs and Greens: Lavender, Mint.',
+        'Fruits and Berries: Pear, Raspberry.',
+        'Flowers: Rose, Iris.',
+        'White Flowers: Jasmine, Tuberose.',
+        'Spices: Cardamom, Saffron.',
+        'Sweet and Gourmand: Vanilla, Coffee, Tea.',
+        'Drinks and Spirits: Rum, Cognac.',
+        'Woods: Sandalwood, Cedar.',
+        'Earth and Moss: Patchouli, Vetiver.',
+        'Resins and Incense: Benzoin, Frankincense.',
+        'Musk and Amber: Musk, Ambergris.',
+        'Leather and Smoke: Leather, Tobacco.',
+        'Modern Accords and Aldehydes: Aldehydes, Hedione.',
+        'More Notes: those we have not placed yet.',
+      ],
+    },
+    { t: 'h', x: 'Our Own Drawings' },
+    {
+      t: 'p',
+      x: 'Every icon is our own drawing, not a stock image or a picture from another site. A note without a drawing of its own shows its group’s icon.',
+    },
+    { t: 'h', x: 'Finding a Note' },
+    {
+      t: 'p',
+      x: 'A bar of group chips stays in view as you scroll, and each chip counts the notes in its group. Tap one to jump to that group, or choose See all to open the whole group.',
+    },
+    {
+      t: 'p',
+      x: 'Type in the search box to narrow the tiles. It also finds a note by another spelling, so Cedarwood finds Cedar, and the chips then count only the matches.',
     },
     { t: 'h', x: 'Using Notes to Shop' },
     {
