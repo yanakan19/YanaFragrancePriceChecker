@@ -1,4 +1,5 @@
 import { lowestPrice, type DemoFragrance } from './data.js';
+import { formatMoneyFine } from '../src/services/money.js';
 import type { Option } from './listFilters.js';
 
 /**
@@ -102,7 +103,7 @@ export function pricePerMl(f: Pick<DemoFragrance, 'id' | 'sizeMl'>): number | nu
 
 /** "£0.80 per ml": under ten pence a millilitre is given to three places so two oils do not read alike. */
 export function pricePerMlLabel(perMl: number): string {
-  return `£${perMl.toFixed(perMl < 0.1 ? 3 : 2)} per ml`;
+  return `${formatMoneyFine(perMl, perMl < 0.1 ? 3 : 2)} per ml`;
 }
 
 /* ── a list of anything by name: Brand, Shop ─────────────────────────────── */

@@ -1,5 +1,5 @@
 import type { Retailer } from '../src/types/retailer.js';
-import { formatGbp } from '../src/services/money.js';
+import { formatMoney, formatMoneyShort } from '../src/services/money.js';
 
 /**
  * Plain-English delivery facts for one retailer, in the order a shopper
@@ -36,7 +36,7 @@ export function longDate(iso: string): string {
 
 /** A charge under a pound as a shop writes it, 99p, and any other as sterling. */
 function formatPence(gbp: number): string {
-  return gbp < 1 ? `${Math.round(gbp * 100)}p` : formatGbp(gbp);
+  return gbp < 1 ? `${Math.round(gbp * 100)}p` : formatMoney(gbp);
 }
 
 export function deliveryLines(r: Retailer): string[] {
@@ -55,7 +55,7 @@ export function deliveryLines(r: Retailer): string[] {
         : 'Delivery not stated. We have not established this shop’s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
       : s.standardGbp === 0
         ? 'Free standard delivery on every order'
-        : `Standard delivery ${formatGbp(s.standardGbp)}`,
+        : `Standard delivery ${formatMoney(s.standardGbp)}`,
   );
   // Which of these figures has actually been read off the shop's own delivery
   // page, said once per shop rather than repeated against every number.
@@ -73,7 +73,7 @@ export function deliveryLines(r: Retailer): string[] {
       : 'Not yet confirmed with the shop. These delivery terms came from research, not from their own delivery page',
   );
   if (s.freeOverGbp !== null && s.freeOverGbp > 0) {
-    lines.push(`Free once you spend ${formatGbp(s.freeOverGbp)}`);
+    lines.push(`Free once you spend ${formatMoney(s.freeOverGbp)}`);
   } else if (s.freeOverGbp === null) {
     lines.push('No spend based free delivery');
   }
@@ -82,7 +82,7 @@ export function deliveryLines(r: Retailer): string[] {
   if (s.cheaperRateOver) {
     const c = s.cheaperRateOver;
     lines.push(
-      `Delivery drops to ${formatPence(c.costGbp)} on orders ${c.inclusive ? 'of' : 'over'} ${Number.isInteger(c.overGbp) ? `£${c.overGbp}` : formatGbp(c.overGbp)}${c.inclusive ? ' or more' : ''}, and is not free`,
+      `Delivery drops to ${formatPence(c.costGbp)} on orders ${c.inclusive ? 'of' : 'over'} ${formatMoneyShort(c.overGbp)}${c.inclusive ? ' or more' : ''}, and is not free`,
     );
   }
   const [lo, hi] = s.estimatedDays;
@@ -91,7 +91,7 @@ export function deliveryLines(r: Retailer): string[] {
     lines.push(`${s.membershipPerk.scheme}: ${s.membershipPerk.description}`);
   }
   if (s.minimumOrderGbp) {
-    lines.push(`Minimum order ${formatGbp(s.minimumOrderGbp)}, so a cheaper bottle cannot be ordered on its own`);
+    lines.push(`Minimum order ${formatMoney(s.minimumOrderGbp)}, so a cheaper bottle cannot be ordered on its own`);
   }
   return lines;
 }

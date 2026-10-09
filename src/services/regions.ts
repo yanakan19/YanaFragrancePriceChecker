@@ -1,15 +1,20 @@
 /**
  * The country and currency selector in the top bar.
  *
- * PriceSniffs is UK only and GBP only. The selector shows that fact and lists
- * the regions the owner has in mind, each greyed out with a plain "Coming
- * Soon" and no date. Choosing nothing changes nothing: no cookie, no storage,
- * no price converts. Kept free of the DOM so the order, the currencies and
- * the disabled flags are pinned by a unit test (tests/regions.test.ts); the
- * flags are drawn in demo/flags.ts and the menu in demo/app.ts.
+ * The list comes from the region config (src/config/regions.ts): the United
+ * Kingdom, the United States and India, in that order (owner decision 3,
+ * 9 October 2026; Germany, France and Italy left the menu until they are
+ * planned). A region that is not live yet is greyed out with a plain "Coming
+ * Soon" and no date, and cannot be chosen. Choosing the region the page is
+ * already in changes nothing: no cookie, no storage, no price moves. Kept free
+ * of the DOM so the order, the currencies and the disabled flags are pinned
+ * by a unit test (tests/regions.test.ts); the flags are drawn in
+ * demo/flags.ts and the menu in demo/app.ts.
  */
 
-export type RegionId = 'GB' | 'US' | 'DE' | 'IN' | 'FR' | 'IT';
+import { REGION_CONFIGS, activeRegion, type RegionConfig, type RegionId } from '../config/regions.js';
+
+export type { RegionId } from '../config/regions.js';
 
 export interface Region {
   id: RegionId;
@@ -17,27 +22,26 @@ export interface Region {
   name: string;
   /** The ISO 4217 currency code, as shown and as read out. */
   currency: string;
-  /** True for the one region the site works in today. */
+  /** True for a region that is live and so can be chosen. */
   available: boolean;
-  /** The short description under a disabled region, null for the active one. */
+  /** The short description under a disabled region, null for a live one. */
   note: string | null;
+  /** The region's full config. */
+  config: RegionConfig;
 }
 
 /** The one description a region that cannot be chosen yet carries. */
 export const COMING_SOON = 'Coming Soon';
 
-/** In the order the menu lists them. The first is the current choice. */
-export const REGIONS: readonly Region[] = [
-  { id: 'GB', name: 'United Kingdom', currency: 'GBP', available: true, note: null },
-  { id: 'US', name: 'USA', currency: 'USD', available: false, note: COMING_SOON },
-  { id: 'DE', name: 'Germany', currency: 'EUR', available: false, note: COMING_SOON },
-  { id: 'IN', name: 'India', currency: 'INR', available: false, note: COMING_SOON },
-  { id: 'FR', name: 'France', currency: 'EUR', available: false, note: COMING_SOON },
-  { id: 'IT', name: 'Italy', currency: 'EUR', available: false, note: COMING_SOON },
-];
+function toRegion(c: RegionConfig): Region {
+  return { id: c.id, name: c.name, currency: c.currency, available: c.live, note: c.live ? null : COMING_SOON, config: c };
+}
 
-/** The region the site is in, and the only one that can be chosen. */
-export const CURRENT_REGION: Region = REGIONS[0]!;
+/** In the order the menu lists them. */
+export const REGIONS: readonly Region[] = REGION_CONFIGS.map(toRegion);
+
+/** The region the page is in: the United Kingdom on every address today. */
+export const CURRENT_REGION: Region = REGIONS.find((r) => r.id === activeRegion().id) ?? REGIONS[0]!;
 
 /** What a screen reader says for the button: the region and its currency. */
 export function regionButtonLabel(region: Region = CURRENT_REGION): string {

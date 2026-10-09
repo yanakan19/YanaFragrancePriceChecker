@@ -24,24 +24,12 @@ const PANELS: Record<RegionId, string> = {
     '<g fill="#fff"><circle cx="3" cy="3" r=".8"/><circle cx="6.5" cy="3" r=".8"/><circle cx="10" cy="3" r=".8"/>' +
     '<circle cx="4.7" cy="5.7" r=".8"/><circle cx="8.2" cy="5.7" r=".8"/>' +
     '<circle cx="3" cy="8.4" r=".8"/><circle cx="6.5" cy="8.4" r=".8"/><circle cx="10" cy="8.4" r=".8"/></g>',
-  DE:
-    '<rect width="30" height="20" fill="#DD0000"/>' +
-    '<rect width="30" height="6.67" fill="#000"/>' +
-    '<rect y="13.33" width="30" height="6.67" fill="#FFCE00"/>',
   IN:
     '<rect width="30" height="20" fill="#fff"/>' +
     '<rect width="30" height="6.67" fill="#FF9933"/>' +
     '<rect y="13.33" width="30" height="6.67" fill="#138808"/>' +
     '<circle cx="15" cy="10" r="2.4" fill="none" stroke="#000080" stroke-width=".7"/>' +
     '<circle cx="15" cy="10" r=".6" fill="#000080"/>',
-  FR:
-    '<rect width="30" height="20" fill="#fff"/>' +
-    '<rect width="10" height="20" fill="#0055A4"/>' +
-    '<rect x="20" width="10" height="20" fill="#EF4135"/>',
-  IT:
-    '<rect width="30" height="20" fill="#fff"/>' +
-    '<rect width="10" height="20" fill="#009246"/>' +
-    '<rect x="20" width="10" height="20" fill="#CE2B37"/>',
 };
 
 /** The flag for a region, 20px wide, hidden from assistive technology. */

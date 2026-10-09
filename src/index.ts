@@ -47,4 +47,4 @@ export type {
   CheapestReason,
   DeliveredPriceRange,
 } from './services/deliveryConfidence.js';
-export { formatGbp, roundPence } from './services/money.js';
+export { formatGbp, formatMoney, formatMoneyShort, formatMoneyFine, currencySymbol, roundPence } from './services/money.js';

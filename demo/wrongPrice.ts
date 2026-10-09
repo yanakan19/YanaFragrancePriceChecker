@@ -13,7 +13,7 @@
  * applies: plain British English, no hyphens or dashes. The product URL is
  * the one exception, being an address rather than prose.
  */
-import { formatGbp } from '../src/index.js';
+import { formatMoney } from '../src/index.js';
 
 /** What can be wrong with a row, in the order the select offers them. */
 export const WRONG_PRICE_PROBLEMS = [
@@ -58,11 +58,11 @@ export interface WrongPriceReport {
 export function priceShown(o: ReportedOffer): string {
   let text: string;
   if (o.deliveredPriceGbp === null || o.deliveryCostGbp === null) {
-    text = `${formatGbp(o.itemPriceGbp)} plus delivery`;
+    text = `${formatMoney(o.itemPriceGbp)} plus delivery`;
   } else if (o.deliveryCostGbp === 0) {
-    text = `${formatGbp(o.deliveredPriceGbp)} including free delivery`;
+    text = `${formatMoney(o.deliveredPriceGbp)} including free delivery`;
   } else {
-    text = `${formatGbp(o.deliveredPriceGbp)} including ${formatGbp(o.deliveryCostGbp)} delivery`;
+    text = `${formatMoney(o.deliveredPriceGbp)} including ${formatMoney(o.deliveryCostGbp)} delivery`;
   }
   if (o.isPurchasable) return text;
   return o.isPreOrder ? `${text}, shown as preorder` : `${text}, shown as sold out`;

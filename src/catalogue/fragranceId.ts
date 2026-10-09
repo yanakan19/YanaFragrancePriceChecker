@@ -349,7 +349,7 @@ export function travelSizeIsASize(retailerId: string): boolean {
   return getRetailer(retailerId)?.travelSizeIsASize === true;
 }
 
-/** 1 fl oz in millilitres — the imperial fluid ounce, which is what every oz size in the catalogue means. */
+/** 1 fl oz in millilitres: the US fluid ounce (29.5735 ml; the imperial one is 28.4131 ml), which is what the oz sizes shops print mean. */
 export const OZ_TO_ML = 29.5735;
 
 /**

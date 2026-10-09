@@ -49,7 +49,7 @@
  * their own stored baseline, and the site prints no "lowest in N days" text,
  * so the graph and the alerts now both speak in delivered prices.
  */
-import { formatGbp } from '../src/services/money.js';
+import { formatMoney } from '../src/services/money.js';
 import { getRetailer } from '../src/config/retailers.js';
 import { resolveDelivery } from '../src/services/shipping.js';
 import { roundPence } from '../src/services/money.js';
@@ -178,7 +178,7 @@ export function plottedIncludesDelivery(retailerId: string, plottedGbp: number, 
 
 /** The tooltip's price line: says which kind of figure it is. */
 function priceLabel(priceGbp: number, deliveryStated: boolean): string {
-  return deliveryStated ? `${formatGbp(priceGbp)} with delivery` : `${formatGbp(priceGbp)}, delivery not stated`;
+  return deliveryStated ? `${formatMoney(priceGbp)} with delivery` : `${formatMoney(priceGbp)}, delivery not stated`;
 }
 
 /**
@@ -485,7 +485,7 @@ function priceHistoryBody(
     .map((p) => `<line x1="0" x2="${W}" y1="${((yPct(p) / 100) * H).toFixed(1)}" y2="${((yPct(p) / 100) * H).toFixed(1)}" class="history-guide" />`)
     .join('');
   const yLabels = yTicks
-    .map((p) => `<span class="history-ylabel" style="top:${yPct(p).toFixed(2)}%">${esc(formatGbp(p))}</span>`)
+    .map((p) => `<span class="history-ylabel" style="top:${yPct(p).toFixed(2)}%">${esc(formatMoney(p))}</span>`)
     .join('');
 
   return `<div class="history-chart" data-history-chart data-y-lo="${domain.lo.toFixed(2)}" data-y-hi="${domain.hi.toFixed(2)}">

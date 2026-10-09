@@ -10,7 +10,7 @@
  * Product names are printed as the catalogue holds them. They are data, not
  * copy, and rewriting a shop's product name is not this file's business.
  */
-import { formatGbp } from '../services/money.js';
+import { formatMoney } from '../services/money.js';
 import type { AlertReason } from './rules.js';
 
 export interface AlertLine {
@@ -47,21 +47,21 @@ const escapeHtml = (s: string): string =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 export function alertSubject(lines: readonly AlertLine[]): string {
-  if (lines.length === 1) return `Price drop: ${lines[0]!.name} is now ${formatGbp(lines[0]!.price)}`;
+  if (lines.length === 1) return `Price drop: ${lines[0]!.name} is now ${formatMoney(lines[0]!.price)}`;
   return `Price drop: ${lines.length} fragrances on your wishlist are cheaper today`;
 }
 
 /** The sentence under a product name. */
 export function alertDetail(line: AlertLine): string {
-  const now = `Now ${formatGbp(line.price)} delivered at ${line.shop}`;
+  const now = `Now ${formatMoney(line.price)} delivered at ${line.shop}`;
   const parts: string[] = [];
   if (line.from !== null && line.from > line.price) {
-    parts.push(`${now}, down from ${formatGbp(line.from)}. You save ${formatGbp(line.from - line.price)}.`);
+    parts.push(`${now}, down from ${formatMoney(line.from)}. You save ${formatMoney(line.from - line.price)}.`);
   } else {
     parts.push(`${now}.`);
   }
   if (line.reason === 'target' && line.target !== null) {
-    parts.push(`That is at or below your target of ${formatGbp(line.target)}.`);
+    parts.push(`That is at or below your target of ${formatMoney(line.target)}.`);
   }
   return parts.join(' ');
 }

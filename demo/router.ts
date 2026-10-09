@@ -30,6 +30,7 @@
 import { BRAND_MERGES } from '../src/catalogue/brandName.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
 import { GUIDES_PATH, HOW_WE_CHECK, guidePath } from './guideList.js';
+import { activeRegion, regionPath, splitRegionPrefix } from '../src/config/regions.js';
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
@@ -168,6 +169,15 @@ export function setProductSlugLookup(lookup: ProductSlugLookup): void {
  * a link that works, never one that does not.
  */
 export function productPath(id: string): string {
+  return regionPath(activeRegion(), productPathInRegion(id));
+}
+
+/**
+ * The same path without the region's prefix: what the path is inside any
+ * region (src/config/regions.ts). Identical to productPath on every UK
+ * address, since the UK has no prefix.
+ */
+export function productPathInRegion(id: string): string {
   const slug = slugOfId(id);
   return slug ? `/${slug}` : `/fragrance/${encodeURIComponent(id)}`;
 }
@@ -215,7 +225,10 @@ export function matchRoute(pathname: string, search = '', hash = ''): Route {
   const query: Record<string, string> = {};
   for (const [k, v] of new URLSearchParams(search)) query[k] = v;
 
-  const segments = pathname.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean);
+  // A live region's prefix (/us/, /in/; src/config/regions.ts) is taken off
+  // first and the rest matched as on the UK site. While only the UK is live
+  // nothing is taken off, so /us/anything is a page not found as before.
+  const segments = splitRegionPrefix(pathname).rest.replace(/^\/+|\/+$/g, '').split('/').filter(Boolean);
 
   if (segments.length === 0) return { name: 'home', param: '', query };
 
@@ -314,7 +327,7 @@ export function routeToPath(route: Route): string {
       case 'fragrances': return '/fragrances';
       case 'oils': return '/oils';
       case 'sets': return '/sets';
-      case 'fragrance': return productPath(param);
+      case 'fragrance': return productPathInRegion(param);
       case 'product': return `/${param}`;
       case 'about': return '/about';
       case 'legalNotice': return '/about/legal';
@@ -338,7 +351,8 @@ export function routeToPath(route: Route): string {
     }
   })();
 
-  return `${path}${suffix}${anchor}`;
+  // Inside the region the page is in: unchanged on the UK site (no prefix).
+  return `${regionPath(activeRegion(), path)}${suffix}${anchor}`;
 }
 
 /**
