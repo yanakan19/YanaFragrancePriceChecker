@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-10-09T09:54:07.346Z",
-  "seenAt": "2026-10-09T09:54:07.346Z",
+  "updatedAt": "2026-10-09T14:15:32.643Z",
+  "seenAt": "2026-10-09T14:15:32.643Z",
   "source": "live",
   "listings": [
     {
@@ -18069,7 +18069,7 @@
       "priceGbp": 61,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Le Male, as virile as it is sexy, pays tribute to the mythical figure that has forever inspired Jean Paul Gaultier: the sailor. This men's perfume has an unconventional vision of masculinity. Lavender, referencing the familiar and reassuring smell of shaving soap, is enhanced with the sensuality of vanilla.. A torso-bottle with assertive masculine attributes. The transparent glass reveals the form of the emblematic garment of the Jean Paul Gaultier man’s wardrobe: the sailor’s shirt, a symbol of freedom and seduction.. Fragrance Notes. Top Notes: Mint, Artemesia, Cardamom, Bergamot. Heart Notes: Lavender, Orange Blossom, Cinnamon, Cumin. Base Notes: Sandalwood, Vanilla, Cedar, Tonka bean, Amber.",
       "productType": null,
@@ -23175,7 +23175,7 @@
       "priceGbp": 16,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Fragrance Notes: Spicy Notes, Citrus, Cedar, Amber, Oriental, Woody Notes. .",
       "productType": null,

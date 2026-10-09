@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-10-09T09:54:07.346Z",
-  "seenAt": "2026-10-09T09:54:07.346Z",
+  "updatedAt": "2026-10-09T14:15:32.643Z",
+  "seenAt": "2026-10-09T14:15:32.643Z",
   "source": "live",
   "listings": [
     {
@@ -1828,8 +1828,8 @@
       "rawBrand": "Old Spice",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Old-Spice-Original-Aftershave-150ml-64849364582668.jpg?v=1781191539",
-      "priceGbp": 10.56,
-      "wasPriceGbp": null,
+      "priceGbp": 9.46,
+      "wasPriceGbp": 9.6,
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "shopify-products-json",
@@ -4568,7 +4568,7 @@
       "priceGbp": 30.6,
       "wasPriceGbp": 51,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Sensual, sophisticated fragrance. Designed by luxury brand Jimmy Choo. 40ml EDP bottle, perfect for travel. ##end-features##. Product description. Electrify your senses with the Jimmy Choo I Want Choo EDP 40ml. This elegant fragrance is a fusion of glamour and charm, making it a perfect fit for confident, modern women. . With rich, earthy undertones and delicate floral scents, the Jimmy Choo perfume provides a feminine, sophisticated scent that lasts all day. Packaged in a stylish 40ml bottle, it's the perfect size to slip into your purse for a refresh on-the-go.. Features of Jimmy Choo I Want Choo EDP 40ml. Delicate, long-lasting scent. Compact, travel-friendly size. Enriched with a blend of exquisite ingredients. Sophisticated packaging. ##accordion-start##. Specifications. Type: EDP. Volume: 40ml. Brand: Jimmy Choo. ##accordion-item-end##. Suitable for. Women seeking a sophisticated, lasting perfume. ##accordion-item-end##. Warnings and cautions. Avoid contact with eyes. Keep out of reach of children. Do not ingest. Not to be applied on broken or inflamed skin. ##accordion-item-end##. How to use. Spray the perfume on your pulse points, such as your wrists and the back of your neck.. Allow to dry without rubbing to maintain the integrity of the scent.. ##accordion-item-end##. Ingredients. An exquisite blend of floral and earthy notes for a long-lasting, feminine scent.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",

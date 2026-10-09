@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-09T09:54:07.346Z",
-  "seenAt": "2026-10-09T09:54:07.346Z",
+  "updatedAt": "2026-10-09T14:15:32.643Z",
+  "seenAt": "2026-10-09T14:15:32.643Z",
   "source": "live",
   "listings": [
     {
@@ -1233,7 +1233,7 @@
       "priceGbp": 17.99,
       "wasPriceGbp": 19.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Oud 24 Hours Majestic Gold by Ard Al Zaafaran is a Amber Floral fragrance for women and men. Top notes are Black Orchid and Ylang-Ylang; middle notes are Plum and Agarwood (Oud); base notes are Patchouli, Agarwood (Oud) and Citruses. .",
       "productType": null,

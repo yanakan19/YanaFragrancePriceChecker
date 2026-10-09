@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 152,
+ "folded": 154,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1184,6 +1184,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -3927,7 +3959,8 @@
   {
    "canonical": "set-ean-8411061101841",
    "absorbed": [
-    "set-carolina-herrera-212-men-nyc-gift-set-edt-100ml-aftershave-balm-100ml"
+    "set-carolina-herrera-212-men-nyc-gift-set-edt-100ml-aftershave-balm-100ml",
+    "set-carolina-herrera-212-nyc-100ml-eau-de-toilette-gift-set-10ml-eau-de-toilette-100ml-body-lotion-for-her"
    ],
    "members": [
     {
@@ -3952,6 +3985,18 @@
      "signature": "1x100body|1x100fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-carolina-herrera-212-nyc-100ml-eau-de-toilette-gift-set-10ml-eau-de-toilette-100ml-body-lotion-for-her",
+     "brand": "Carolina Herrera",
+     "name": "212 NYC 100ml Eau de Toilette Gift Set 10ml Eau de Toilette, 100ml Body Lotion for Her",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "212 nyc",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "scent-warehouse"
      ]
     }
    ]
@@ -5575,7 +5620,8 @@
      "scent": "cr7 origins",
      "signature": "1x150wash|1x30fragrance",
      "shops": [
-      "beautybase"
+      "beautybase",
+      "parfumdreams-uk"
      ]
     }
    ]
@@ -7371,7 +7417,8 @@
      "scent": "interdit l",
      "signature": "1x12.5fragrance|1x80fragrance",
      "shops": [
-      "fragrance-click"
+      "fragrance-click",
+      "paco-perfumerias-uk"
      ]
     },
     {
@@ -7968,6 +8015,39 @@
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3349668643141, 3349668656158",
+    "a shop lists more than one: perfume-direct"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668643141",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Lady Million Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3349668643141",
+     "scent": "lady million paco rabanne",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "perfume-click",
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3349668656158",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Lady Million Women's Gift Set 50ml EDP + 10ml EDP)",
+     "concentration": "Eau de Parfum",
+     "ean": "3349668656158",
+     "scent": "lady million paco rabanne",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "perfume-direct"
      ]
     }
    ]
@@ -8716,12 +8796,13 @@
     {
      "id": "set-ean-3423222121846",
      "brand": "Narciso Rodriguez",
-     "name": "Bleu Noir Eau de Parfum Men's Aftershave Gift Set (100ml EDP + 50ml Shower Gel + 10ml EDP)",
+     "name": "Bleu Noir For Him Eau de Parfum 100ml Spray Set",
      "concentration": "Eau de Parfum",
      "ean": "3423222121846",
      "scent": "bleu noir",
      "signature": "1x100fragrance|1x10fragrance|1x50wash",
      "shops": [
+      "paco-perfumerias-uk",
       "perfume-direct"
      ]
     }
@@ -9325,12 +9406,13 @@
     {
      "id": "set-ean-3616306131606",
      "brand": "Marc Jacobs",
-     "name": "Daisy Eau De Toilette 100ml & Travel Spray 10ml & Body Lotion 75ml Gift Set",
+     "name": "Daisy Eau de Toilette 100ml Gift Set",
      "concentration": "Eau de Toilette",
      "ean": "3616306131606",
      "scent": "daisy",
      "signature": "1x100fragrance|1x10travel|1x75body",
      "shops": [
+      "allbeauty",
       "beautybase",
       "perfume-click",
       "perfume-direct"
