@@ -103,6 +103,20 @@ const WITH_COMPANION =
   /(?:&|\+|\bwith\b|\band\b)\s*(?:an?\s+)?(?:\d{1,4}(?:\.\d)?\s*ml\s+)?(?:body ?wash|shower ?gel|shower cream|body lotion|lotion|deodorant|deo(?:dorant)? (?:spray|stick)|deo|body spray|body mist|aftershave balm|after shave balm|balm|body cream|socks?|sg)\b/i;
 
 /**
+ * A fragrance's size, then a companion product with a size of its own and no
+ * "+" or "&" between them: Direct Cosmetics' "Bella Baldessarini Eau de Parfum
+ * Spray 50ml Shower Cream 200ml Baldessarini" is the 50ml spray and a 200ml
+ * shower cream in one box, the set Perfume Click sells as "Bella Gift Set 50ml
+ * EDP + 200ml Shower Cream" under the same barcode; its "Narciso Rodriguez All
+ * of Me Eau de Parfum Spray 50ml Eau de Parfum Purse Spray 10ml" is the set
+ * Fragrance Click sells as "All of Me 50ml Eau de Parfum Gift Set" (one barcode,
+ * 2026-10-09). A companion word with no size before it ("Shower Gel 200ml" or
+ * "Purse Spray 10ml" alone) never matches.
+ */
+const SIZED_COMPANION =
+  /\b\d{1,4}(?:\.\d)?\s*ml\b[^+&]{0,40}?\b(?:body ?wash|shower ?gel|shower cream|body lotion|body cream|deodorant|deo(?:dorant)? (?:spray|stick)|body spray|body mist|aftershave balm|after shave balm|(?:purse|travel|pocket) spray|miniature)\s+\d{1,4}(?:\.\d)?\s*ml\b/i;
+
+/**
  * Two or more KAYALI scents joined by "+": Cult Beauty's duos and trios,
  * "Warm Apple Pie a la Mode 50ml (Eden Juicy Apple | 01 + Vanilla | 28)" and
  * "Fresh Fruit Tart 10ml ((Yum Boujee Marshmallow | 81 + Eden Juicy Apple | 01 +
@@ -228,7 +242,7 @@ function classify(l: SetListing, reviewedRules: boolean): boolean {
   const scentPair = SCENT_PAIR.test(t);
   const houseBundle = !SIZE_STATED.test(t) && namesTwoKnownProducts(l.rawTitle, l.rawBrand);
   const titleSaysSet =
-    SET_TITLE.test(t.replace(NOT_A_SET, ' ')) || WITH_COMPANION.test(t) || sizePlusSize(t) || scentPair || houseBundle;
+    SET_TITLE.test(t.replace(NOT_A_SET, ' ')) || WITH_COMPANION.test(t) || SIZED_COMPANION.test(t) || sizePlusSize(t) || scentPair || houseBundle;
   const shopSaysSet = Boolean(l.productType && SET_PRODUCT_TYPE.test(l.productType));
   const copySaysSet = Boolean(l.description && DESCRIBED_AS_WASH_GIFT_SET.test(l.description));
   if (!titleSaysSet && !shopSaysSet && !copySaysSet) return false;

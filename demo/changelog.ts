@@ -45,7 +45,7 @@ export const CHANGELOG: ChangelogEntry[] = [
       },
       {
         heading: 'Products and Matching',
-        points: ['Notes tidied: one name per ingredient'],
+        points: ['Notes tidied: one name per ingredient', 'Ortigia oils back; Commodity listed once'],
       },
     ],
   },

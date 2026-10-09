@@ -17,12 +17,14 @@ import {
   OZ_TO_ML,
   isSingleTravelSpray,
   productTypeStatesEauDeParfum,
+  sizeMl,
   statedMl,
   stripSizeLabel,
   withoutTravelSprayWords,
 } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
 import type { StoredListing } from './types.js';
+import { isReviewedOil } from './perfumeOil.js';
 import { evidencedStrength } from './unstatedStrengthEvidence.js';
 
 /**
@@ -1447,6 +1449,12 @@ export function concentrationOfStoredListing(
   // "Aftershave Spray" with no label before it is the product and stays.
   const title = stripShopTitleLabel(l.rawTitle, l.retailerId).title;
   const stated = concentrationOfListing(title, l.description ?? null);
+  // An oil the owner has ruled on (perfumeOil.ts) is a Perfume Oil in whatever
+  // language the shop writes the title: Nicchia's Italian "Olio corpo profumato
+  // roll-on 10 ml" names no strength the English words above would find.
+  if (stated !== 'Perfume Oil' && isReviewedOil({ ...l, rawBrand: l.rawBrand ?? null }, sizeMl(title, l.description ?? null))) {
+    return 'Perfume Oil';
+  }
   if (stated !== CONCENTRATION_NOT_STATED) return stated;
   // The title names none: the shop's own product type where the registry says
   // that settles it, else the brand's own page (unstatedStrengthEvidence.ts).
@@ -2434,6 +2442,16 @@ export function displayName(
     const trimmed = stripTrailingNoiseSegment(s);
     if (trimmed === null) break;
     s = trimmed;
+  }
+
+  // Commodity sells each scent in three variants, Bold, Expressive and
+  // Personal (Scentstore and Cult Beauty Global write "Commodity Gold
+  // Expressive", and carry the barcodes). Bloom Perfumery writes the middle one "Gold |
+  // Balanced & Expressive": the same bottle at the same size, listed a second time
+  // under a name nothing joined to the first (Gold, Juice and Milk, 2026-10-09).
+  // Only that exact phrase, and only for this house.
+  if ([displayedBrand, brand].some((b) => b !== null && brandKey(b) === 'commodity')) {
+    s = s.replace(/\bbalanced\s*(?:&|and)\s*expressive\b/i, 'Expressive');
   }
 
   const parenBrand = s.match(/^\(([^()]+)\)\s*/);

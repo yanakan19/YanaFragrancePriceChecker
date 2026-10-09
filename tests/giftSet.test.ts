@@ -166,3 +166,22 @@ describe('two numbered Kayali scents in one title are a set, whatever size it na
     }
   });
 });
+
+describe('a fragrance and a companion product, each with its own size and no "+" between them', () => {
+  it('is a set: Direct Cosmetics\' Bella Baldessarini spray and shower cream', () => {
+    const l = listing('direct-cosmetics', 'Bella Baldessarini pour Femme Eau de Parfum Spray 50ml Shower Cream 200ml Baldessarini', { rawBrand: 'Baldessarini', priceGbp: 24.99 });
+    expect(isGiftSet(l)).toBe(true);
+    expect(fragranceId(l).startsWith('set-')).toBe(true);
+  });
+
+  it('is a set: Direct Cosmetics\' Narciso Rodriguez spray and purse spray', () => {
+    const l = listing('direct-cosmetics', 'Narciso Rodriguez All of Me Narciso Rodriguez Eau de Parfum Spray 50ml Eau de Parfum Purse Spray 10ml Narciso Rodriguez', { rawBrand: 'Narciso Rodriguez', priceGbp: 79 });
+    expect(isGiftSet(l)).toBe(true);
+  });
+
+  it('leaves a bottle, and a companion with no fragrance size before it, as they were', () => {
+    for (const title of ['Baldessarini Bella Eau de Parfum Spray 50ml', 'Davidoff Cool Water Shower Gel 200ml', 'Baldessarini Bella Eau de Parfum 50ml', 'Narciso Rodriguez All of Me Eau de Parfum Purse Spray 10ml']) {
+      expect(isGiftSet(listing('direct-cosmetics', title, { rawBrand: 'Baldessarini' })), title).toBe(false);
+    }
+  });
+});

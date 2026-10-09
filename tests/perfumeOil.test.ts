@@ -71,23 +71,41 @@ describe('which listings are oils', () => {
   });
 
   it('counts the owner\'s reviewed oils: Ortigia\'s ten 10ml roll ons and Tauer\'s attar, and nothing else Nicchia files as body oil', () => {
-    const ortigia10 = ALL.filter((l) => l.retailerId === 'nicchia-luxury-uk' && l.rawBrand === 'Ortigia' && /Perfume Oil roll-on 10 ml/.test(l.rawTitle));
+    const ortigia10 = ALL.filter((l) => l.retailerId === 'nicchia-luxury-uk' && l.rawBrand === 'Ortigia' && /(?:Perfume Oil|Olio corpo profumato) roll-on 10 ml/i.test(l.rawTitle));
     expect(ortigia10.length).toBeGreaterThanOrEqual(10);
     for (const l of ortigia10) {
       expect(kept(l), l.rawTitle).toBe(true);
       expect(strength(l)).toBe('Perfume Oil');
       expect(sizeMl(l.rawTitle, l.description)).toBe(10);
     }
-    const tauer = find('nicchia-luxury-uk', 'Attar Perfume Oil 5 ml');
+    const tauer = find('nicchia-luxury-uk', /^Attar (?:Perfume Oil|Olio corpo profumato) 5 ml$/i);
     expect(tauer.length).toBe(1);
     expect(kept(tauer[0]!)).toBe(true);
     // The 100ml Ortigia and Casa Amalfi's "Scented Oil Roll On" stay body oils, and out.
-    for (const l of ALL.filter((x) => x.retailerId === 'nicchia-luxury-uk' && x.rawBrand === 'Ortigia' && / 100 ml$/.test(x.rawTitle) && /Perfume Oil/.test(x.rawTitle))) {
+    for (const l of ALL.filter((x) => x.retailerId === 'nicchia-luxury-uk' && x.rawBrand === 'Ortigia' && / 100 ml$/.test(x.rawTitle) && /Perfume Oil|Olio corpo profumato/i.test(x.rawTitle))) {
       expect(kept(l), l.rawTitle).toBe(false);
     }
-    const casa = ALL.filter((l) => l.retailerId === 'nicchia-luxury-uk' && l.rawBrand === 'Casa Amalfi' && /Scented Oil Roll On/.test(l.rawTitle));
+    const casa = ALL.filter((l) => l.retailerId === 'nicchia-luxury-uk' && l.rawBrand === 'Casa Amalfi' && /(?:Scented Oil|Olio Profumato) Roll On/i.test(l.rawTitle));
     expect(casa.length).toBeGreaterThanOrEqual(6);
     for (const l of casa) expect(kept(l), l.rawTitle).toBe(false);
+  });
+
+  it('reads the owner\'s reviewed oils in the shop\'s English and in its Italian, which it has served both ways', () => {
+    // Nicchia changed its titles from "Zagara Perfume Oil roll-on 10 ml" to "Zagara Olio corpo
+    // profumato roll-on 10 ml" on 2026-10-08, with the same product type and the same listing.
+    const listing = (rawTitle: string, rawBrand: string): StoredListing =>
+      ({ retailerId: 'nicchia-luxury-uk', retailerSku: 'x', url: 'https://nicchialuxury.com/x', rawTitle, rawBrand, ean: null, imageUrl: null,
+        priceGbp: 18, wasPriceGbp: null, promoEndsAt: null, inStock: true, sectionId: 'shopify-products-json', productType: 'Olio corpo profumato roll-on',
+        description: null }) as unknown as StoredListing;
+    for (const title of ['Zagara Perfume Oil roll-on 10 ml', 'Zagara Olio corpo profumato roll-on 10 ml']) {
+      const l = listing(title, 'Ortigia');
+      expect(kept(l), title).toBe(true);
+      expect(strength(l), title).toBe('Perfume Oil');
+    }
+    for (const title of ['Attar Perfume Oil 5 ml', 'Attar Olio corpo profumato 5 ml']) expect(kept(listing(title, 'Tauer')), title).toBe(true);
+    // Still out: the 100ml body oils, and a house the owner did not review, in either language.
+    for (const title of ['Zagara Perfume Oil 100 ml', 'Zagara Olio corpo profumato 100 ml']) expect(kept(listing(title, 'Ortigia')), title).toBe(false);
+    for (const title of ['Giardini di Ravello Olio Profumato Roll On 10 ml', 'Olio corpo profumato roll-on 10 ml']) expect(kept(listing(title, 'Casa Amalfi')), title).toBe(false);
   });
 
   it('leaves out, by name and with a reason, the oils whose size cannot be read', () => {

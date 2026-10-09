@@ -49,7 +49,7 @@ import {
   trustworthyEan,
   settleBarcodeSizes,
 } from '../src/catalogue/productMatch.js';
-import { listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
+import { barcodeLosers, listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
 import { contentsSignature, matchSets, scentKey, type SetCandidate, type SetMatchResult } from '../src/catalogue/setMatch.js';
 import { isOilStrength, oilFactsOfOffers } from '../src/catalogue/perfumeOil.js';
 import { headlineBottles, scentGroups, sprayVersions } from '../src/catalogue/setLinks.js';
@@ -2277,8 +2277,17 @@ const ordered = [...products.values()].sort(
 
 // A set or an oil never merges with a bottle: no stored listing feeds two
 // products (docs/GIFT-SETS-AND-OILS-PLAN.md, section 4.1; tests/setsOilsGuardrails.test.ts).
-// The barcode rule is data, not structure, so a test holds it and the build does not stop on it.
+// Two shops can print one barcode on what they call a bottle and a set; the barcode stays
+// on the bottle (see barcodeLosers) and the build does not stop on it.
 {
+  const losers = barcodeLosers(ordered);
+  for (const p of ordered) {
+    if (!losers.has(p.id)) continue;
+    // Said, so a classifier miss that lands here is seen rather than settled in silence.
+    console.warn(`kind guard: barcode ${p.ean} kept on the bottle (or oil), dropped from ${p.id}`);
+    p.ean = null;
+  }
+
   const violations = [...namespaceViolations(ordered), ...listingViolations(ordered)];
   if (violations.length > 0) {
     throw new Error(`The catalogue breaks a set and oil guard, so it is not written:\n  ${violations.slice(0, 20).join('\n  ')}`);

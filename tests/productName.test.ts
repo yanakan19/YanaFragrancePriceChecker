@@ -1669,3 +1669,16 @@ describe('a "Notes & Review" tag in a shop title is not part of the name', () =>
     expect(displayName('Quiet Notes | Review Edition', 'Brand', 'Brand')).toContain('Review');
   });
 });
+
+describe('displayName: Commodity\'s middle variant is "Expressive" at every shop', () => {
+  it('reads Bloom Perfumery\'s "Balanced & Expressive" as Expressive, so it is not a second bottle', () => {
+    expect(displayName('Gold | Balanced & Expressive 100 ml EdP', 'Commodity', 'Commodity')).toBe('Gold | Expressive');
+    expect(displayName('Commodity Gold Expressive 100ml', 'Commodity', 'Commodity')).toBe('Gold Expressive');
+  });
+
+  it('leaves the other variants, and every other house, alone', () => {
+    expect(displayName('Gold | Bold 100 ml EdP', 'Commodity', 'Commodity')).toBe('Gold | Bold');
+    expect(displayName('Velvet | Balanced 100 ml EdP', 'Commodity', 'Commodity')).toBe('Velvet | Balanced');
+    expect(displayName('Some Scent | Balanced & Expressive 100 ml EdP', 'Another House', 'Another House')).toContain('Balanced');
+  });
+});

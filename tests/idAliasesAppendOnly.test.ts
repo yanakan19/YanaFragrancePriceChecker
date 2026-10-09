@@ -1,7 +1,10 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { assertAppendOnly, resolveAlias, settleIdAliases, type IdAliases } from '../src/catalogue/idAliases.js';
+import { assertAppendOnly, listingIdForms, resolveAlias, settleIdAliases, type IdAliases } from '../src/catalogue/idAliases.js';
+import { fragranceId, isCatalogueListing } from '../src/catalogue/fragranceId.js';
+import { decodeSnapshot } from '../src/catalogue/store.js';
+import type { StoredListing } from '../src/catalogue/types.js';
 import { assertSlugsAppendOnly, assignSlugs } from '../src/catalogue/productSlug.js';
 import { DORMANT_PRODUCTS, ID_ALIASES } from '../demo/dormant.generated.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
@@ -28,9 +31,37 @@ describe('data/id-aliases.json against the reference keys', () => {
     expect(reference.keys.length).toBeGreaterThan(11000);
   });
 
+  /**
+   * Every id a shop's live listing answers to: the one its product carries and the
+   * other forms it has had (SKU, barcode, set title). A listing a shop has delisted is
+   * not live, and a product only delisted listings fed is "gone everywhere".
+   */
+  const liveIds = (): Set<string> => {
+    const dir = resolve(root, 'data/catalogue');
+    const ids = new Set<string>();
+    if (!existsSync(dir)) return ids;
+    for (const f of readdirSync(dir).filter((x) => x.endsWith('.json'))) {
+      const { listings } = decodeSnapshot(JSON.parse(readFileSync(resolve(dir, f), 'utf8')) as { listings: StoredListing[] });
+      for (const l of listings) {
+        if (l.status === 'delisted' || typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l)) continue;
+        ids.add(fragranceId(l));
+        for (const form of listingIdForms(l, NONE)) ids.add(form);
+      }
+    }
+    return ids;
+  };
+
   it('resolves every reference key to a page (it is a page itself, or is served), except the ones whose product is gone everywhere', () => {
+    // A rule, not a list: a shop delisting a product (or a whole range) leaves its
+    // old address with nothing to open, which is why the reference names some. The
+    // rule that must hold is that no key without a page is a product a shop still lists.
     const unresolved = reference.keys.filter((k) => !pages.has(k) && !(k in ID_ALIASES));
-    expect(unresolved.sort()).toEqual([...reference.unresolved].sort());
+    const named = new Set(reference.unresolved);
+    const stillListed = liveIds();
+    const lost = unresolved.filter((k) => !named.has(k) && stillListed.has(k));
+    expect(lost.sort()).toEqual([]);
+    // The reference list is only ever a list of keys that have no page.
+    for (const k of reference.unresolved) expect(Object.prototype.hasOwnProperty.call(record, k), k).toBe(true);
   });
 
   it('serves a recorded id to a page and never to another alias', () => {

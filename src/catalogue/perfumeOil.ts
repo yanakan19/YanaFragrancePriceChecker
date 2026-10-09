@@ -39,18 +39,26 @@ const NEVER_AN_OIL =
  * category. Their titles say Perfume Oil, and the owner counts the 10ml roll on
  * and Tauer's attar (5ml) as oils; the 100ml Ortigia ones and Casa Amalfi's
  * "Scented Oil Roll On" stay body oils and out. The rule is the shop, the two
- * houses, the words "Perfume Oil" and a size of 10ml or less: it can name
+ * houses, the words "Perfume Oil" (or the Italian "Olio corpo profumato") and a size of 10ml or less: it can name
  * nothing else.
  */
 const REVIEWED_OIL_SHOP = 'nicchia-luxury-uk';
 const REVIEWED_OIL_BRAND = /^(?:ortigia|tauer)\b/i;
 const REVIEWED_OIL_MAX_ML = 10;
+/**
+ * The two ways the shop has written the title: "Zagara Perfume Oil roll-on 10 ml"
+ * until 2026-10-08, then in the shop's own Italian, "Zagara Olio corpo profumato
+ * roll-on 10 ml" (the same words as its product type). The listing is the same;
+ * a rule that read only one spelling dropped all eleven oils the day the shop
+ * changed its language.
+ */
+const REVIEWED_OIL_TITLE = /\b(?:perfume oil|olio corpo profumato)\b/i;
 
 export function isReviewedOil(l: Pick<StoredListing, 'retailerId' | 'rawBrand' | 'rawTitle'>, ml: number | null): boolean {
   return (
     l.retailerId === REVIEWED_OIL_SHOP &&
     REVIEWED_OIL_BRAND.test(l.rawBrand ?? '') &&
-    /\bperfume oil\b/i.test(l.rawTitle) &&
+    REVIEWED_OIL_TITLE.test(l.rawTitle) &&
     ml !== null &&
     ml <= REVIEWED_OIL_MAX_ML
   );

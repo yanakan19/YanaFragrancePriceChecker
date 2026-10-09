@@ -7229,8 +7229,7 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
-    "two different barcodes: 3423222066185, 8054754400595, 8057971185498",
-    "a shop lists more than one: perfume-click"
+    "two different barcodes: 3423222066185, 8057971185498"
    ],
    "members": [
     {
@@ -7255,18 +7254,6 @@
      "signature": "1x100fragrance|1x50body|1x50wash",
      "shops": [
       "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-8054754400595",
-     "brand": "Dolce & Gabbana",
-     "name": "K Gift Set 100ml EDT + 50ml Aftershave Balm + 50ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "8054754400595",
-     "scent": "k",
-     "signature": "1x100fragrance|1x50body|1x50wash",
-     "shops": [
-      "perfume-click"
      ]
     },
     {
@@ -8216,62 +8203,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3423222047979, 3423222119676",
-    "a shop lists more than one: the-beauty-store-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222047979",
-     "brand": "Issey Miyake",
-     "name": "L'eau D'Issey Pour Homme Men's Gift Set (75ML EDT + 50ML Shower Gel)",
-     "concentration": "Eau de Toilette",
-     "ean": "3423222047979",
-     "scent": "d eau homme issey l pour",
-     "signature": "1x50wash|1x75fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3423222119676",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Pour Homme Gift Set 75ml EDT + 50ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3423222119676",
-     "scent": "d eau homme issey l pour",
-     "signature": "1x50wash|1x75fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-75ml-s-gel-50ml",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Pour Homme Gift Set EDT 75ml + S/Gel 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d eau homme issey l pour",
-     "signature": "1x50wash|1x75fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-spray-75ml-shower-gel-50ml",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Pour Homme Gift Set EDT Spray 75ml + Shower Gel 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d eau homme issey l pour",
-     "signature": "1x50wash|1x75fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.61 is over 1.5"
    ],
    "members": [
@@ -8486,6 +8417,49 @@
      "signature": "1x100fragrance|1x10?|1x50wash",
      "shops": [
       "perfume-direct"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "a shop lists more than one: the-beauty-store-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222119676",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set 75ml EDT + 50ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222119676",
+     "scent": "d eau homme issey l pour",
+     "signature": "1x50wash|1x75fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-75ml-s-gel-50ml",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set EDT 75ml + S/Gel 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau homme issey l pour",
+     "signature": "1x50wash|1x75fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-spray-75ml-shower-gel-50ml",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set EDT Spray 75ml + Shower Gel 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau homme issey l pour",
+     "signature": "1x50wash|1x75fragrance",
+     "shops": [
+      "the-beauty-store-uk"
      ]
     }
    ]

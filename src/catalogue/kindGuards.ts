@@ -66,6 +66,31 @@ export function barcodeViolations(products: readonly KindedProduct[]): string[] 
   return out;
 }
 
+/**
+ * Makes guard 2 hold by construction instead of by luck. Two shops can print
+ * one barcode on what they disagree is a bottle, a set or an oil (Perfume Click
+ * calls "Good Girl Gone Bad 50ml + Clutch Bag" a gift set, Scentsational sells
+ * the same barcode as "Refillable Spray + Case"), and a shop added tomorrow can
+ * do it again. Neither shop is a mistake the classifier can settle. The barcode
+ * stays with the highest ranked kind present (a bottle, then an oil, then a
+ * set): the ids of the products of any other kind that carry it are returned,
+ * so the build can drop the barcode from them. Their ids are untouched (a set
+ * keeps its `set-ean-` address) and nothing is merged.
+ */
+export function barcodeLosers(products: readonly KindedProduct[]): Set<string> {
+  const rank: Record<Kind, number> = { bottle: 0, oil: 1, set: 2 };
+  const best = new Map<string, number>();
+  for (const p of products) {
+    if (!p.ean) continue;
+    best.set(p.ean, Math.min(best.get(p.ean) ?? 9, rank[kindOf(p)]));
+  }
+  const losers = new Set<string>();
+  for (const p of products) {
+    if (p.ean && rank[kindOf(p)] > best.get(p.ean)!) losers.add(p.id);
+  }
+  return losers;
+}
+
 /** What the listing check needs: a product and the shop rows that feed it. */
 export interface OfferedProduct {
   id: string;

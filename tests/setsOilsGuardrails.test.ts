@@ -7,6 +7,7 @@ import { rankedInMostStocked } from '../demo/mostStocked.js';
 import { eligibleForBottlePosts, isOil, isSet, productKind } from '../demo/productKind.js';
 import { dealFor } from '../scripts/social-deal-of-day.js';
 import {
+  barcodeLosers,
   barcodeViolations,
   listingViolations,
   namespaceViolations,
@@ -92,6 +93,18 @@ describe('guard 2: barcodes', () => {
     expect(barcodeViolations([bottle, { ...aSet, ean: '111' }])).toHaveLength(1);
     expect(barcodeViolations([bottle, { ...anOil, ean: '111' }])).toHaveLength(1);
     expect(barcodeViolations([aSet, { ...anOil, ean: '222' }])).toHaveLength(1);
+  });
+
+  it('is held by construction: where two shops put one barcode on two kinds, the build drops it from the lower kind', () => {
+    // Perfume Click (a gift set) and Scentsational (a bottle) print one barcode on Kilian's
+    // Good Girl Gone Bad; neither is a mistake the classifier can settle, and another shop may do it again.
+    const kilian = { ...aSet, id: 'set-ean-111', ean: '111' };
+    const oilOnABottleCode = { ...anOil, id: 'ean-333', ean: '111' };
+    const products = [bottle, kilian, oilOnABottleCode, aSet];
+    const losers = barcodeLosers(products);
+    expect([...losers].sort()).toEqual(['ean-333', 'set-ean-111']);
+    const settled = products.map((p) => (losers.has(p.id) ? { ...p, ean: null } : p));
+    expect(barcodeViolations(settled)).toEqual([]);
   });
 
   it('lets two products of one kind share a barcode: that is the matcher business, not this rule', () => {
