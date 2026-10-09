@@ -39,6 +39,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Glossier UK, with its fragrances priced in pounds',
           'New UK shops: Rowlands, Lloyds, Beauté Boulevard',
           'Also Scent Warehouse, Roullier White, Scented',
+          'More guides: shops, notes, matching and deals',
         ],
       },
       {

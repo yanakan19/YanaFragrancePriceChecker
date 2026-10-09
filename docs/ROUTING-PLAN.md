@@ -423,6 +423,9 @@ Reasoning, weighed directly against the alternatives:
   `404.html`, as does any address the router does not know. Emitting them would add
   about 26 GB raw (7.7 GB gzipped) of copies of a 0.93 MB page, and about 15 minutes
   of build time; that waits for the bundle and data to leave the page (option (c)).
+  Update, 2026-10-09: with the guides index and thirteen guides (each a fixed address
+  in `demo/guideList.ts`, so each gets its file with no edit here) it is 31 files,
+  29.0 MB raw.
 
 - **Service worker interaction:** `demo/sw.js`'s navigate handler
   (`fetch(event.request).then(...).catch(() => caches.match('./index.html'))`)
