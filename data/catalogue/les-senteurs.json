@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-09T01:52:35.625Z",
-  "seenAt": "2026-10-09T01:52:35.625Z",
+  "updatedAt": "2026-10-09T06:04:09.500Z",
+  "seenAt": "2026-10-09T06:04:09.500Z",
   "source": "live",
   "listings": [
     {
@@ -26993,7 +26993,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A stunning rose perfume by Dominique Ropion created with Bulgarian rose essence and Turkish rose absolute. The rich floral accords are enveloped in apple, pink pepper and spicy clove on a lavish base of patchouli, sensual labdanum and cypriol. A promise of splendour!. Top Notes: Pink Pepper, Rosemary Oil, Apple Accord Heart Notes: Bulgarian Rose Oil, Turkish Rose Absolute, Clove Oil Base Notes: Patchouli Heart, Ambroxan, Labdanum, Cypriol Heart .",
       "productType": "Fragrance",

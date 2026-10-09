@@ -1,7 +1,7 @@
 {
   "retailerId": "paris-corner",
-  "updatedAt": "2026-10-09T02:52:27.910Z",
-  "seenAt": "2026-10-09T02:52:27.910Z",
+  "updatedAt": "2026-10-09T07:04:17.472Z",
+  "seenAt": "2026-10-09T07:04:17.472Z",
   "source": "live",
   "listings": [
     {
@@ -1513,32 +1513,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "57158",
-      "url": "https://pariscorner.ae/product/la-nuit-pendora-100ml/",
-      "rawTitle": "LA NUIT PENDORA 100ML",
-      "rawBrand": "PENDORA SCENTS",
-      "ean": null,
-      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2025/01/ffff.webp",
-      "description": "Top: Pear, Tangerine and Bergamot Middle: Vanilla orchid, Strawberry, Black Rose and Passionfruit Base: Praline, Caramel, Litchi, Patchouli, Vanilla, Incense, Coffee, Licorice, Coumarin and Papyrus La NUIT Pendora a sultry, smoldering perfume specially designed for women with notes of fresh raspberry, frankincense, and vanilla, with a bewitching heart of Black Rose essence. The bottle is shaped hexagonal with black flower mounted to represent grace and adorned with a black rose choker as a symbol of elegance. A deep and mysterious scent beginning with a burst of delicious raspberry, the notes of a Damascena rose have then been enhanced to give the unique touch of vibrant fragrance. Vanilla, grown on the petals of an orchid in Tahiti, gives the fragrance a solar and radiant note. This perfume is natural and synthetic ingredients to ensure that the smell can last longer and help you express yourself in a vibrant luxurious fragrance.",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 65,
-        "currency": "AED"
-      },
-      "retailerId": "paris-corner",
-      "firstSeenAt": "2026-10-02T16:51:14.958Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
       "retailerSku": "56655",
       "url": "https://pariscorner.ae/product/english-leather-100ml/",
       "rawTitle": "ENGLISH LEATHER 100ML",
@@ -1558,6 +1532,59 @@
       },
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-10-05T10:01:22.731Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "56659",
+      "url": "https://pariscorner.ae/product/charuto-mysterious-tobacco-100ml/",
+      "rawTitle": "CHARUTO MYSTERIOUS TOBACCO 100ML",
+      "rawBrand": "PENDORA SCENTS",
+      "ean": null,
+      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2024/12/pariscornerperfumes_20210811_194949_0.webp",
+      "description": "Top: Ginger, Osmanthus, Citruses, Artemisia Middle: Tobacco, Patchouli, Guaiac Wood, Vetiver Base: Tonka Bean Charuto Mysterious Tobacco EDP is one of the excellent sweet tobacco scents from Paris corner perfumes. The scent is really well-rounded &amp;amp; blended with perceptible tobacco. Mystery Tobacco puts the tobacco note right at the front and center of the composition. It's natural tobacco and smells like a combination of freshly harvested, golden tobacco leaves, and darker pipe tobacco, a hint smoky, with chocolate-like patchouli accents, and a wonderfully creamy Tonka base beneath it all. Overall, this is a mostly linear fragrance, with the creamy, roasted qualities of the tonka emerging more over time, along with some of the earthiness from the patchouli. The tobacco remains present from beginning to end. Paris corner perfumes present one of the finest Eau De Parfum designed for men &amp;amp; women, a perfect way to establish your presence.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 65,
+        "currency": "AED"
+      },
+      "retailerId": "paris-corner",
+      "firstSeenAt": "2026-10-09T07:04:17.472Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "57158",
+      "url": "https://pariscorner.ae/product/la-nuit-pendora-100ml/",
+      "rawTitle": "LA NUIT PENDORA 100ML",
+      "rawBrand": "PENDORA SCENTS",
+      "ean": null,
+      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2025/01/ffff.webp",
+      "description": "Top: Pear, Tangerine and Bergamot Middle: Vanilla orchid, Strawberry, Black Rose and Passionfruit Base: Praline, Caramel, Litchi, Patchouli, Vanilla, Incense, Coffee, Licorice, Coumarin and Papyrus La NUIT Pendora a sultry, smoldering perfume specially designed for women with notes of fresh raspberry, frankincense, and vanilla, with a bewitching heart of Black Rose essence. The bottle is shaped hexagonal with black flower mounted to represent grace and adorned with a black rose choker as a symbol of elegance. A deep and mysterious scent beginning with a burst of delicious raspberry, the notes of a Damascena rose have then been enhanced to give the unique touch of vibrant fragrance. Vanilla, grown on the petals of an orchid in Tahiti, gives the fragrance a solar and radiant note. This perfume is natural and synthetic ingredients to ensure that the smell can last longer and help you express yourself in a vibrant luxurious fragrance.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 65,
+        "currency": "AED"
+      },
+      "retailerId": "paris-corner",
+      "firstSeenAt": "2026-10-02T16:51:14.958Z",
+      "lastSeenAt": "2026-10-09T02:52:27.910Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
