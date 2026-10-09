@@ -923,15 +923,17 @@ The same approach as the UK pictures above.
   there, never from a region copy (a test checks no `demo/us/note-icons` exists).
 - **Note pages and search engines.** `/us/notes/<slug>` and `/in/notes/<slug>` open as on the UK,
   listing the region products with that note. As in the UK, individual note pages are not in the
-  sitemap; `/us/notes` and `/in/notes` are (and have route pages), with their canonical in the
-  region and no longer noindex (`demo/head.ts`). hreflang is not declared for Notes: it would
+  sitemap; `/us/notes`, `/in/notes` and the note group pages (`/us/notes/group/<id>`, the groups
+  that have a note in the region, 16 in each) are, with route pages and their canonical in the
+  region, and no longer noindex (`demo/head.ts`; `scripts/bundle-region.ts` writes
+  `dist-demo/regions/<r>/note-groups.json` for the sitemap). hreflang is not declared for Notes: it would
   change the UK's own sitemap and `notes.html`, which this change leaves as they were
   (`regionHasFixedPage` still says no for the beta regions' Notes, so the hreflang code is
   unchanged; add it later if wanted).
 - **Counts** (page build of 9 Oct 2026): US 2,694 of 22,390 products show notes (12.0%), India 1,352
   of 14,594 (9.3%). The US Notes tab lists 1,652 notes (1,694 with the prose entries it hides) and
   the India tab 1,141 (1,166).
-- **UK unchanged.** Built before and after: every UK data file, `sitemap-gb.xml` and the hashed note
+- **UK unchanged.** Built before and after (on the merged live branch tip): every UK data file, `sitemap-gb.xml` and the hashed note
   icons are byte for byte the same. The UK pages' HTML differs only by the bundled code (the credit
   line now reads `retailerName` first, which no UK note has).
 

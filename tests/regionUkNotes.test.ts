@@ -177,6 +177,13 @@ describe.skipIf(!built)('the built US and India pages', () => {
     it(`/${prefix}/notes has its page, a canonical in the region and a sitemap line; a note address is a note route`, () => {
       expect(read(`${prefix}/notes.html`)).toContain(`<link rel="canonical" href="https://pricesniffs.space/${prefix}/notes" />`);
       expect(read(`sitemap-${prefix}.xml`)).toContain(`<loc>https://pricesniffs.space/${prefix}/notes</loc>`);
+      // The note group pages, as the UK has them: a route page and a sitemap line each, canonical in the region.
+      const groups = (JSON.parse(readFileSync(resolve(REPO_ROOT, 'dist-demo/regions', prefix, 'note-groups.json'), 'utf8')) as string[]);
+      expect(groups.length).toBeGreaterThan(8);
+      for (const id of groups) {
+        expect(read(`${prefix}/notes/group/${id}.html`)).toContain(`<link rel="canonical" href="https://pricesniffs.space/${prefix}/notes/group/${id}" />`);
+        expect(read(`sitemap-${prefix}.xml`)).toContain(`<loc>https://pricesniffs.space/${prefix}/notes/group/${id}</loc>`);
+      }
       expect(matchRoute('/notes/rhubarb').name).toBe('note');
       expect(matchRoute(`/${prefix}/notes/rhubarb`).name).toBe('note');
       const notes = prepareNotesData(dataOf(prefix, 'notes'));
