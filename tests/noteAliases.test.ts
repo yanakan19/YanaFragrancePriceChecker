@@ -93,11 +93,17 @@ describe('the catalogue the build wrote', () => {
     }
   });
 
-  it('has fewer distinct notes than before the merge', () => {
+  it('has fewer distinct notes than before the merge, whatever the catalogue size that day', () => {
+    // Rules, not live counts: the crawl adds shops and notes daily, so no figure here may move with it.
     const before = new Set([...indexKeys.keys(), ...variantKeys]);
+    // Every folded spelling was one note before and is none now.
     expect(before.size - NOTE_INDEX.length).toBe(variantKeys.size);
-    expect(NOTE_INDEX.length).toBeLessThan(4800); // 5,746 on the Notes tab on 9 Oct 2026
-    expect(before.size).toBeGreaterThan(5500);
+    expect(variantKeys.size).toBeGreaterThan(0);
+    expect(NOTE_INDEX.length).toBeLessThan(before.size);
+    // After folding, no two listed notes share a merge key.
+    expect(indexKeys.size).toBe(NOTE_INDEX.length);
+    // No listed note is a folded spelling (the alias file really was applied).
+    expect(NOTE_INDEX.filter((n) => variantKeys.has(noteMergeKey(n.name))).map((n) => n.name)).toEqual([]);
   });
 });
 

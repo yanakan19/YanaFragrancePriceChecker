@@ -57,8 +57,12 @@ describe.each(['perfumeuk', 'liberty-london', 'rasasi-uk-store', 'direct-cosmeti
     expect(shop.shipping.source?.url.startsWith('https://')).toBe(true);
   });
 
-  it('shows no photos until the owner extends the photo decision (D24) to it', () => {
-    expect(getRetailer(id)!.affiliate.imageBasis).toBeUndefined();
+  it('shows photos only on a recorded basis: unset, or the owner\'s D24 hot-link answer', () => {
+    // D24 was answered on 9 Oct 2026 (after these shops were added), so photos now show.
+    // The rule: imageBasis is unset (placeholder) or the one value the owner allowed for a
+    // shop read only through its sitemap (no affiliate terms, not a brand storefront).
+    const basis = getRetailer(id)!.affiliate.imageBasis;
+    expect([undefined, 'hotlink-unlicensed']).toContain(basis);
   });
 });
 
