@@ -1014,3 +1014,5 @@ reference needs two others to check it) so expect tens, not thousands, in the fi
 
 **UK unchanged.** `npm run deals:build` before and after: 4,024 deals, 875,439 bytes, identical
 apart from the `DEALS_GENERATED_AT` line.
+
+**9 Oct 2026, converting shops.** D.S. & Durga, Imaginary Authors, Beautyhabit, Maison Louis Marie and Ellis Brooklyn are on the US site in their own US dollars (no conversion), read from `/products.json` at rate 1; robots.txt re-read the same day allows it. They are not on the UK site: a converted pound figure is not what a UK buyer pays unless the checkout charges pounds (the Nicchia standard), which needs the owner's basket check (`docs/OWNER-STEPS.md`). Imaginary Authors still keeps 0 listings (its titles end "- FRAGRANCE" with no strength), to be looked at separately.

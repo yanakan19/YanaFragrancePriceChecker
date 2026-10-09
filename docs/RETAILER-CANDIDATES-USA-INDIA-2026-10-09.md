@@ -77,11 +77,11 @@ says otherwise: none of these were applied to.
 | 16 | Twisted Lily | twistedlily.com | Niche perfume, Brooklyn | Shopify | USD; `?country=GB` stays USD. UPS $55, free over $500, 2 to 6 weeks (search snippet) | Policy says included at checkout, FAQ says paid on arrival; UK orders of £135 or less "currently restricted" (search snippet) | 200, 3,628 B | `/products.json` 200, 5,658 B | No (dollars, contradictory duties) |
 | 17 | Scentbird | scentbird.com | Perfume subscription | custom | Not reached | Not read | 200, 3,068 B | Home 403, 5,557 B | No (wall, subscription) |
 | 18 | Phlur | phlur.com | Fragrance house | Shopify | Not reached | Not read | 200, 3,604 B | Home 403, 5,527 B | No (wall) |
-| 19 | D.S. & Durga | dsanddurga.com | Niche house, own shop | Shopify | `?country=GB` gives GBP at rate 0.766851785: a conversion | Not read | 200, 3,632 B | `/products.json` 200, USD base | No (converted) |
-| 20 | Imaginary Authors | imaginaryauthors.com | Niche house, own shop | Shopify | GBP at 0.766851785; 115 USD shown as 89 | Not read | 200, 3,648 B | `/products.json` 200 | No (converted) |
-| 21 | Beautyhabit | beautyhabit.com | Niche beauty, multi brand | Shopify | GBP at 0.766851785; 30 USD shown as 23.01 | Not read | 200, 3,638 B | `/products.json` 200 | No (converted) |
-| 22 | Maison Louis Marie | maisonlouismarie.com | Niche house, own shop | Shopify | GBP at 0.766851785 | Not read | 200, 3,640 B | Home 200, USD at origin | No (converted) |
-| 23 | Ellis Brooklyn | ellisbrooklyn.com | Fragrance house, own shop | Shopify | GBP at 0.766851785 | Not read | 200, 3,644 B | Home 200, USD at origin | No (converted) |
+| 19 | D.S. & Durga | dsanddurga.com | Niche house, own shop | Shopify | `?country=GB` gives GBP at rate 0.766851785: a conversion | Not read | 200, 3,632 B | `/products.json` 200, USD base | US only: added to the US site in USD, 9 Oct 2026; not UK (converted) |
+| 20 | Imaginary Authors | imaginaryauthors.com | Niche house, own shop | Shopify | GBP at 0.766851785; 115 USD shown as 89 | Not read | 200, 3,648 B | `/products.json` 200 | US only: added to the US site in USD, 9 Oct 2026; not UK (converted) |
+| 21 | Beautyhabit | beautyhabit.com | Niche beauty, multi brand | Shopify | GBP at 0.766851785; 30 USD shown as 23.01 | Not read | 200, 3,638 B | `/products.json` 200 | US only: added to the US site in USD, 9 Oct 2026; not UK (converted) |
+| 22 | Maison Louis Marie | maisonlouismarie.com | Niche house, own shop | Shopify | GBP at 0.766851785 | Not read | 200, 3,640 B | Home 200, USD at origin | US only: added to the US site in USD, 9 Oct 2026; not UK (converted) |
+| 23 | Ellis Brooklyn | ellisbrooklyn.com | Fragrance house, own shop | Shopify | GBP at 0.766851785 | Not read | 200, 3,644 B | Home 200, USD at origin | US only: added to the US site in USD, 9 Oct 2026; not UK (converted) |
 | 24 | Indigo Perfumery | indigoperfumery.com | Niche perfume, Chicago | Shopify | USD; `?country=GB` stays USD | Not stated | 200, 3,636 B | `/products.json` 200, 28,464 B | No (dollars) |
 | 25 | Bluemercury | bluemercury.com | Beauty chain, Macy's group | Shopify | USD; `?country=GB` stays USD | Not stated | 200, 5,775 B | `/products.json` 200 | No (dollars) |
 | 26 | Boy Smells | boysmells.com | Fragrance and candles | Shopify | USD; `?country=GB` stays USD | Not stated | 200, 3,618 B | Home 200 | No (dollars) |
@@ -117,7 +117,7 @@ had no address that answered. Affiliate was not checked for any.
 | 47 | The Man Company | themancompany.com | Men's grooming and fragrance | custom | INR (USD appears 6 times, no GBP) | Not read | 200, 7,359 B | Home 200, 1,968,663 B | No (rupees) |
 | 48 | Ustraa | ustraa.com | Men's grooming and fragrance | custom | INR | Not read | 200, 1,603 B | Home 200, 651,981 B | No (rupees) |
 | 49 | Mirah Belle | mirahbelle.com | Indian perfume house | custom | INR | Not read | 200, 4,323 B | Home 200, 716,143 B | No (rupees) |
-| 50 | Rose Moore | rosemoore.com | Indian perfume house | custom (hosted store) | Default dollars; its multi currency list names GBP, a converted view | Not read | 200, 1,508 B | Home 200, 306,085 B | No (converted) |
+| 50 | Rose Moore | rosemoore.com | Indian perfume house | custom (hosted store) | Default dollars; its multi currency list names GBP, a converted view | Not read | 200, 1,508 B | Home 200, 306,085 B | US only: added to the US site in USD, 9 Oct 2026; not UK (converted) |
 | 51 | Ajmal | ajmal.com (from ajmalperfume.com) | Arabian house of Indian origin, Dubai based | custom | Gulf focused; no GBP in the 15 KB shell | Third party UK listings only | `/robots.txt` answered with the home page (15,064 B) | Home 200, 15,064 B | No (Gulf site, no sterling) |
 | 52 | Kimirica | kimirica.com | Indian soaps and fragrance | custom | No currency found in the home page | Not read | 200, 170 B | Home 200, 90,324 B | No (currency not established) |
 | 53 | Fogg | foggscent.com (guessed) | Mass market deodorants | unknown | Domain guessed; no answer | Not read | No answer | Stopped | No (no answer) |
@@ -178,7 +178,7 @@ concurrency group, so none was made; the next scheduled sweep reads the shop wit
 3. **Shopify Markets conversions.** Five US shops (D.S. & Durga, Imaginary Authors, Beautyhabit, Maison Louis
    Marie, Ellis Brooklyn) show a live converted pound figure and ship from the US. They are recorded as no, in
    line with D29. The owner accepted a live conversion for Nicchia Luxury on 2026-10-03, so if the same
-   standard is wanted here, say so and the five can be added; the open question is landed cost, because a
+   standard is wanted here, say so; the five are on the US site in USD (9 Oct 2026) and would reach the UK site only after a basket check shows pounds charged; the open question is landed cost, because a
    US dispatch to the UK attracts import charges that the site's delivered price would not show.
 4. **A landed cost note in the offer row.** The registry has `shipping.notes`, but no offer row displays it.
    If the owner wants US shops that charge duty on top, the site needs a field and a visible line first.

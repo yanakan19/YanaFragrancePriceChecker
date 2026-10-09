@@ -1058,3 +1058,5 @@ it brought new prices.
    Sign in is by email and password only, so no other path skips the form.
 4. Affiliate sign ups (Awin US, CJ, Rakuten, Impact, Skimlinks, the Indian
    networks) are for later (decision 6).
+
+- D.S. & Durga, Imaginary Authors, Beautyhabit, Maison Louis Marie and Ellis Brooklyn are US only (in dollars, 9 Oct 2026). If you want them on the UK site, a basket check must first confirm each checkout charges pounds (Nicchia precedent); until then they stay off the UK site.
