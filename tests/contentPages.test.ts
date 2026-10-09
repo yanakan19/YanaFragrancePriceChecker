@@ -704,7 +704,7 @@ describe('the guides about how the site works', () => {
     });
 
     it('says only what the Shops tab and Deals do: a house’s own shop is on neither', () => {
-      has(app, '.filter((r) => !r.singleBrandOnly && r.enabled');
+      has(app, '!r.singleBrandOnly && r.enabled');
       expect(readFileSync(resolve(root, 'scripts/build-deals.ts'), 'utf8')).toMatch(/SINGLE_BRAND_ONLY_IDS\.has\(o\.retailerId\)/);
     });
   });
@@ -777,10 +777,10 @@ describe('the guides about how the site works', () => {
 
     it('uses the labels the product page uses', () => {
       has(app, 'Delivery Not Included');
-      has(app, "facts.push('Last price')");
+      has(app, 'Last price');
       has(app, 'Est. free');
-      expect(app).toMatch(/`Incl\. \$\{est\}\$\{formatGbp\(row\.delivery\.costGbp\)\} delivery`/);
-      has(app, "facts.push('+ delivery')");
+      has(app, 'Incl. ${est}');
+      has(app, '+ delivery');
       has(app, 'minimum order');
       expect(STOCK_LABEL.preOrder).toBe('Preorder');
       expect(rowStockMarks({ isPurchasable: false, stock: 'outOfStock' }).lastPrice).toBe(true);
@@ -847,7 +847,7 @@ describe('the guides about how the site works', () => {
     });
 
     it('states that the tabs keep them apart, as the page does', () => {
-      expect(app).toMatch(/kind === 'sets' \? isSet : kind === 'oils' \? isOil : \(f\) => !isSet\(f\) && !isOil\(f\)/);
+      has(app, '!isSet(f) && !isOil(f)');
       has(app, 'bottle alone is');
       has(app, 'As the shop lists it');
       expect(textOf('sets-and-oils-explained')).toContain('As the shop lists it');

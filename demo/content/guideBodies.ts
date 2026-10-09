@@ -97,9 +97,17 @@ import type { Retailer } from '../../src/types/retailer.js';
 import { RETAILERS } from '../../src/config/retailers.js';
 import { HIDE_OFFER_AFTER_DAYS } from '../../src/services/offerAge.js';
 import { DROP_FRACTION, DROP_MIN_GBP } from '../../src/alerts/rules.js';
+import { DEFAULT_REGION } from '../../src/config/regions.js';
+import { formatMoney, formatMoneyShort } from '../../src/services/money.js';
 
-/** Money as a shop states it: £25 for a whole number, £3.95 otherwise. */
-const gbp = (v: number): string => (Number.isInteger(v) ? `£${v}` : `£${v.toFixed(2)}`);
+/**
+ * Money as a shop states it in a sentence (£25 for a whole number, £3.95
+ * otherwise), through the one money formatter in pounds: these guides are
+ * written for UK readers, and tests/moneyGuard.test.ts allows no new typed £.
+ */
+const gbp = (v: number): string => formatMoneyShort(v, DEFAULT_REGION);
+/** The same to the penny, as a row prints it: £4.00. */
+const gbpExact = (v: number): string => formatMoney(v, DEFAULT_REGION);
 const shopsOf = (n: number): string => `${n} ${n === 1 ? 'shop' : 'shops'}`;
 
 /**
@@ -195,6 +203,11 @@ export function shopsGuide(all: readonly Retailer[]): Block[] {
     },
   ];
 }
+
+/** The worked example in 'why-the-basket-price-can-differ': a shop that charges £3.95 below a £30 spend, and a £26 bottle. */
+const EXAMPLE_CHARGE = 3.95;
+const EXAMPLE_SPEND = 30;
+const EXAMPLE_BOTTLE = 26;
 
 export const GUIDE_BODIES: Record<string, Block[]> = {
   'perfume-strengths-explained': [
@@ -511,7 +524,7 @@ export const GUIDE_BODIES: Record<string, Block[]> = {
     { t: 'h', x: 'What a Row Price Includes' },
     {
       t: 'p',
-      x: 'The price on a shop’s row is that shop’s price plus its standard delivery to a UK mainland address, wherever the shop states the charge. The line under it says what was added, for example Incl. £3.95 Delivery or Free Delivery.',
+      x: `The price on a shop’s row is that shop’s price plus its standard delivery to a UK mainland address, wherever the shop states the charge. The line under it says what was added, for example Incl. ${gbp(EXAMPLE_CHARGE)} Delivery or Free Delivery.`,
     },
     {
       t: 'p',
@@ -524,7 +537,7 @@ export const GUIDE_BODIES: Record<string, Block[]> = {
     },
     {
       t: 'p',
-      x: 'Say a shop charges £3.95 below £30. A £26 bottle shows as £29.95. Add a second item, the basket passes £30, the delivery goes, and the bottle costs £26. A shop that looks dearer for one bottle can be cheaper for two.',
+      x: `Say a shop charges ${gbp(EXAMPLE_CHARGE)} below ${gbp(EXAMPLE_SPEND)}. A ${gbp(EXAMPLE_BOTTLE)} bottle shows as ${gbp(EXAMPLE_BOTTLE + EXAMPLE_CHARGE)}. Add a second item, the basket passes ${gbp(EXAMPLE_SPEND)}, the delivery goes, and the bottle costs ${gbp(EXAMPLE_BOTTLE)}. A shop that looks dearer for one bottle can be cheaper for two.`,
     },
     {
       t: 'p',
@@ -708,7 +721,7 @@ export const GUIDE_BODIES: Record<string, Block[]> = {
     { t: 'h', x: 'What Your Wishlist Shows' },
     {
       t: 'p',
-      x: 'Each saved fragrance shows its cheapest delivered price today and the shop that has it. If we recorded a price on the day you saved it, the row also says how far the price has moved, for example Down £4.00 since saved at £60.00. Where nothing is in stock, the row says so instead of a price.',
+      x: `Each saved fragrance shows its cheapest delivered price today and the shop that has it. If we recorded a price on the day you saved it, the row also says how far the price has moved, for example Down ${gbpExact(4)} since saved at ${gbpExact(60)}. Where nothing is in stock, the row says so instead of a price.`,
     },
     {
       t: 'p',
