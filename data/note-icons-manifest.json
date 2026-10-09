@@ -1,7 +1,7 @@
 {
  "about": "Hand maintained, append only for shipped entries. One icon per note family; aliases are the note spellings (matched on letters and digits only, case and accents folded) that the icon also serves. An alias is a picture choice, not a note merge. See docs/NOTE-ICONS.md.",
  "status": "partial",
- "coveredTop": 203,
+ "coveredTop": 258,
  "groups": [],
  "icons": [
   {
@@ -902,6 +902,300 @@
    "file": "caraway.svg",
    "name": "Caraway",
    "group": "spices",
+   "aliases": []
+  },
+  {
+   "file": "dates.svg",
+   "name": "Dates",
+   "group": "fruits",
+   "aliases": ["Date"]
+  },
+  {
+   "file": "oak.svg",
+   "name": "Oak",
+   "group": "woods",
+   "aliases": ["Oak Tree", "Oakwood"]
+  },
+  {
+   "file": "tarragon.svg",
+   "name": "Tarragon",
+   "group": "herbs-greens",
+   "aliases": []
+  },
+  {
+   "file": "chestnut.svg",
+   "name": "Chestnut",
+   "group": "sweet",
+   "aliases": ["Chestnut Accord"]
+  },
+  {
+   "file": "civet.svg",
+   "name": "Civet",
+   "group": "leather-smoke",
+   "aliases": ["Animalic", "Castoreum"]
+  },
+  {
+   "file": "angelica.svg",
+   "name": "Angelica",
+   "group": "herbs-greens",
+   "aliases": ["Angelica Root", "Angelica Seed", "Angelica Seeds"]
+  },
+  {
+   "file": "calone.svg",
+   "name": "Calone",
+   "group": "modern",
+   "aliases": []
+  },
+  {
+   "file": "driftwood.svg",
+   "name": "Driftwood",
+   "group": "woods",
+   "aliases": []
+  },
+  {
+   "file": "quince.svg",
+   "name": "Quince",
+   "group": "fruits",
+   "aliases": []
+  },
+  {
+   "file": "sweet-pea.svg",
+   "name": "Sweet Pea",
+   "group": "flowers",
+   "aliases": []
+  },
+  {
+   "file": "mahogany.svg",
+   "name": "Mahogany",
+   "group": "woods",
+   "aliases": ["Mahogany Wood"]
+  },
+  {
+   "file": "mate.svg",
+   "name": "Mate",
+   "group": "drinks",
+   "aliases": ["Mate Absolute", "Mate leaf", "Yerba Mate"]
+  },
+  {
+   "file": "tropical-fruits.svg",
+   "name": "Tropical Fruits",
+   "group": "fruits",
+   "aliases": ["Exotic Fruit", "Exotic Fruits", "Fruit", "Fruit Accord", "Fruits", "Fruity", "Fruity Accord", "Maninka Fruit", "Tropical Fruit"]
+  },
+  {
+   "file": "cucumber.svg",
+   "name": "Cucumber",
+   "group": "herbs-greens",
+   "aliases": []
+  },
+  {
+   "file": "fir.svg",
+   "name": "Fir",
+   "group": "woods",
+   "aliases": ["Balsam Fir", "Fir Balsam", "Fir Resin", "Pine Needles", "Spruce"]
+  },
+  {
+   "file": "peru-balsam.svg",
+   "name": "Peru Balsam",
+   "group": "resins",
+   "aliases": ["Balsam", "Balsam of Peru", "Balsamic", "Balsams", "Copaiba Balsam", "Tolu Balsam"]
+  },
+  {
+   "file": "iso-e-super.svg",
+   "name": "Iso E Super",
+   "group": "modern",
+   "aliases": []
+  },
+  {
+   "file": "blueberry.svg",
+   "name": "Blueberry",
+   "group": "fruits",
+   "aliases": ["blueberries"]
+  },
+  {
+   "file": "lemon-verbena.svg",
+   "name": "Lemon Verbena",
+   "group": "herbs-greens",
+   "aliases": ["Lemongrass", "Verbena", "Verbena Accord"]
+  },
+  {
+   "file": "cotton-candy.svg",
+   "name": "Cotton Candy",
+   "group": "sweet",
+   "aliases": ["Candy Floss", "Candyfloss Accord", "Spun Sugar"]
+  },
+  {
+   "file": "green-leaves.svg",
+   "name": "Green Leaves",
+   "group": "herbs-greens",
+   "aliases": ["Aromatic", "Green", "Green Accord", "Green Leaf", "Greens", "Shiso", "Tomato Leaf"]
+  },
+  {
+   "file": "hedione.svg",
+   "name": "Hedione",
+   "group": "modern",
+   "aliases": []
+  },
+  {
+   "file": "powdery.svg",
+   "name": "Powdery",
+   "group": "modern",
+   "aliases": ["Powder", "Powdery Accord"]
+  },
+  {
+   "file": "bay-leaf.svg",
+   "name": "Bay Leaf",
+   "group": "herbs-greens",
+   "aliases": ["Bay", "Bay Leaves", "Laurel", "Laurel Leaf"]
+  },
+  {
+   "file": "guava.svg",
+   "name": "Guava",
+   "group": "fruits",
+   "aliases": ["Pink Guava"]
+  },
+  {
+   "file": "marigold.svg",
+   "name": "Marigold",
+   "group": "flowers",
+   "aliases": ["Tagete", "Tagetes"]
+  },
+  {
+   "file": "marine.svg",
+   "name": "Marine",
+   "group": "air-water",
+   "aliases": ["Aquatic", "Aquatic Accord", "Aquozone", "Marine Accord", "Marine Breeze", "Sea", "Sea Accord", "Sea Breeze", "Sea spray", "Sea Water", "Water", "Water Accord"]
+  },
+  {
+   "file": "apple-blossom.svg",
+   "name": "Apple Blossom",
+   "group": "flowers",
+   "aliases": ["Blossom", "Blossoms", "Cherry Blossom", "Peach Blossom", "Pear Blossom", "Plum Blossom", "Sakura"]
+  },
+  {
+   "file": "cranberry.svg",
+   "name": "Cranberry",
+   "group": "fruits",
+   "aliases": ["Cranberry Accord"]
+  },
+  {
+   "file": "bamboo.svg",
+   "name": "Bamboo",
+   "group": "herbs-greens",
+   "aliases": ["Bamboo Accord", "Bamboo Leaf"]
+  },
+  {
+   "file": "smoke.svg",
+   "name": "Smoke",
+   "group": "leather-smoke",
+   "aliases": ["Charcoal", "Fire", "Smoked Wood", "Smoky"]
+  },
+  {
+   "file": "myrtle.svg",
+   "name": "Myrtle",
+   "group": "herbs-greens",
+   "aliases": ["Myrtle leaf"]
+  },
+  {
+   "file": "eucalyptus.svg",
+   "name": "Eucalyptus",
+   "group": "herbs-greens",
+   "aliases": []
+  },
+  {
+   "file": "palo-santo.svg",
+   "name": "Palo Santo",
+   "group": "woods",
+   "aliases": ["Palo Santo Wood"]
+  },
+  {
+   "file": "chamomile.svg",
+   "name": "Chamomile",
+   "group": "flowers",
+   "aliases": ["Blue Chamomile", "Camomile", "Roman chamomile"]
+  },
+  {
+   "file": "hawthorn.svg",
+   "name": "Hawthorn",
+   "group": "flowers",
+   "aliases": []
+  },
+  {
+   "file": "hibiscus.svg",
+   "name": "Hibiscus",
+   "group": "flowers",
+   "aliases": ["Hibiscus Flower"]
+  },
+  {
+   "file": "carrot.svg",
+   "name": "Carrot",
+   "group": "earth-moss",
+   "aliases": ["Carrot seed", "Carrot Seeds"]
+  },
+  {
+   "file": "dried-fruits.svg",
+   "name": "Dried Fruits",
+   "group": "fruits",
+   "aliases": ["Candied Fruit", "Candied Fruits", "Dried Fruit", "Prune"]
+  },
+  {
+   "file": "resin.svg",
+   "name": "Resin",
+   "group": "resins",
+   "aliases": ["Balsamic resin", "Resin Accord", "Resinous", "Resins"]
+  },
+  {
+   "file": "seaweed.svg",
+   "name": "Seaweed",
+   "group": "air-water",
+   "aliases": ["Algae"]
+  },
+  {
+   "file": "teak.svg",
+   "name": "Teak",
+   "group": "woods",
+   "aliases": ["Teak Wood"]
+  },
+  {
+   "file": "molecule.svg",
+   "name": "Molecule",
+   "group": "modern",
+   "aliases": ["Benzyl salicylate", "Citral", "Citronellol", "Dihydromyrcenol", "Ethyl-maltol", "Ethylvanillin", "Eugenol", "Geraniol", "Hexyl cinnamal", "Limonene", "Linalool", "Linalyl acetate", "Mahonial", "Mystikal", "Petalia", "Pomarose", "Vanillin"]
+  },
+  {
+   "file": "olive.svg",
+   "name": "Olive",
+   "group": "herbs-greens",
+   "aliases": ["Olive Blossom", "Olive Oil", "Olive Tree", "Olivewood"]
+  },
+  {
+   "file": "ozone.svg",
+   "name": "Ozone",
+   "group": "air-water",
+   "aliases": ["Air", "Fresh", "Mountain Air", "Ozone Accord", "Ozonic", "Ozonic Accord"]
+  },
+  {
+   "file": "fig-leaf.svg",
+   "name": "Fig Leaf",
+   "group": "herbs-greens",
+   "aliases": ["Fig Leaf Accord", "Fig Leaves"]
+  },
+  {
+   "file": "beeswax.svg",
+   "name": "Beeswax",
+   "group": "sweet",
+   "aliases": ["Beeswax absolute", "Candlewax"]
+  },
+  {
+   "file": "hay.svg",
+   "name": "Hay",
+   "group": "earth-moss",
+   "aliases": []
+  },
+  {
+   "file": "kumquat.svg",
+   "name": "Kumquat",
+   "group": "citrus",
    "aliases": []
   }
  ]
