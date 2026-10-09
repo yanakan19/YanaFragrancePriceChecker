@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-09T06:04:09.500Z",
-  "seenAt": "2026-10-09T06:04:09.500Z",
+  "updatedAt": "2026-10-09T09:54:07.346Z",
+  "seenAt": "2026-10-09T09:54:07.346Z",
   "source": "live",
   "listings": [
     {
@@ -1348,7 +1348,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Eternity Moment Eau de Parfum 30ml. Key Features. ##features##. Romantic, feminine EDP with luminous floral notes. Light and uplifting — perfect for daytime wear. ##end-features##. Product Details. Calvin Klein Eternity Moment Eau de Parfum provides a fragrance experience that embodies the essence of romance. Designed to evoke the feeling of falling in love, this scent is characterised by its fresh and floral aroma, making it suitable for various occasions. The perfume is housed in a sleek, transparent bottle with a minimalist design, reflecting Calvin Klein's signature style..",
       "productType": "Fragrance",

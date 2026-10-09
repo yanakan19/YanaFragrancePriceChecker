@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-09T06:04:09.500Z",
-  "seenAt": "2026-10-09T06:04:09.500Z",
+  "updatedAt": "2026-10-09T09:54:07.346Z",
+  "seenAt": "2026-10-09T09:54:07.346Z",
   "source": "live",
   "listings": [
     {
@@ -28373,7 +28373,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A dark rich glorious scent inspired by the splendour of the old Nawabs of the Oudh province of India: magnificently robed, coruscating with gems and luxuriously perfumed. Highly complex but superbly integrated and smoothly balanced with aldehydes, hedione, green accords, ambergris, orchid and a subtle touch of oud. Majestic and hypnotic.. Top Notes: Green Notes, Bergamot, Orange Absolute, Cardamom, Aldehyde Heart Notes: Rose, Magnolia, Orchid, Pimento, Bay, Cinnamon, Hedione Base Notes: Ambergris, Musk, Vetiver, Labdanum, Oudh .",
       "productType": "Fragrance",
