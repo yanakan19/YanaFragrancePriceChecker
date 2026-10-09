@@ -77,6 +77,23 @@ and Provision of Services Regulations 2009, the CAP Code, and consumer law
   IP address kept. PECR regulation 6 is about storing or reading on the
   device, which it does not do, so it needs no consent; the privacy notice
   describes it and rests it on legitimate interests.)
+- **Advertising and consent: built, invisible until ads are on.** Nothing
+  below is on the site today. The day the slot ids go into `demo/ads.ts`
+  (`ADS_ON`), the following turn on together and from that one switch
+  (`adsPolicy` in `demo/legal.ts`, each marked in the source as only shown
+  when ads are on): Google's ad cookies, set by Google and not by us; Google's
+  consent message (a cookie or local storage entry recording the choice and
+  its date); the cookies page sections "Advertising and Your Consent" (in
+  place of "Why There Is No Cookie Banner") and "What Turns On With Ads"; the
+  privacy notice lines on advertising, Google as an independent controller and
+  consent as the basis for ad cookies; and the footer link "Privacy and Cookie
+  Choices", which reopens the message. The site keeps no banner of its own.
+  Ad requests are non personalised until the message reports consent, in every
+  region (UK, `/us/`, `/in/`): one behaviour everywhere, because Google's
+  message decides by the visitor's location whether it appears at all. The
+  cookies page does not name Google's cookie keys because Google sets and
+  changes them; it describes them by purpose. Re-read these pages against
+  what Google's tag actually sets (browser storage panel) the day ads go on.
 - **Disclosure before the click: done.** Every offer row for a shop whose
   programme is live carries an "Affiliate link" marker beside the shop's
   name, decided from the same registry field the disclosure page computes
