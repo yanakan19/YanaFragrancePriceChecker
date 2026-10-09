@@ -1,0 +1,94 @@
+name: Catalogue crawl IN (dry run)
+
+# The India dry run (docs/INTERNATIONAL-PLAN.md, Phase 1, step one: a test run
+# with no publishing). It reads the IN shops in src/config/retailers.in.ts as
+# PriceSniffsBot, robots.txt first (D23), keeps prices in INR as each shop states
+# them, builds the region's catalogue, price history and report, and commits
+# data/regions/in/ and nothing else. It builds no page: nothing it writes is
+# read by the site, and data/** never triggers a deploy (deploy-pages.yml).
+#
+# Its own concurrency group, catalogue-in: it commits only data/regions/in/, a
+# path no other workflow commits, so it never races the UK crawl or the other
+# region (tests/workflowRules.test.ts). It pushes only through
+# scripts/commit-and-push.sh. Run by hand only (workflow_dispatch) while it is a
+# dry run: a schedule is added with the hidden beta (Phase 1b), so no region data
+# piles up in the repository before the go/no-go decision.
+
+on:
+  workflow_dispatch:
+    inputs:
+      harvest_max:
+        description: 'New product pages a sitemap shop may read this run (Shopify shops read their whole /products.json regardless).'
+        type: string
+        default: '250'
+      shop_minutes:
+        description: 'Wall clock minutes per shop.'
+        type: string
+        default: '12'
+      commit:
+        description: 'Commit data/regions/in/. Turn off to look only.'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogue-in
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+
+    steps:
+      - uses: actions/checkout@v4
+        timeout-minutes: 5
+
+      - uses: actions/setup-node@v4
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      - name: Test the region harvest before crawling
+        timeout-minutes: 10
+        run: npx vitest run tests/regionRetailers.test.ts tests/regionHarvest.test.ts tests/regionCatalogue.test.ts
+
+      - name: Harvest the IN shops (dry run, nothing published)
+        timeout-minutes: 52
+        env:
+          HARVEST_MAX: ${{ inputs.harvest_max || '250' }}
+          SHOP_MINUTES: ${{ inputs.shop_minutes || '12' }}
+        run: npx tsx scripts/region-harvest.ts --region=in --max="$HARVEST_MAX" --shop-minutes="$SHOP_MINUTES" --run-minutes=48 --concurrency=4
+
+      - name: Build the IN catalogue, price history and report
+        timeout-minutes: 10
+        run: npx tsx scripts/build-region-catalogue.ts --region=in
+
+      - name: Show the report
+        timeout-minutes: 2
+        run: |
+          {
+            echo '## India dry run'
+            echo '```json'
+            node -e "const r=require('./data/regions/in/report.json'); delete r.shops; console.log(JSON.stringify(r,null,2))"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit the IN data
+        timeout-minutes: 10
+        if: ${{ inputs.commit }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "IN dry run: region data $(date -u +%Y-%m-%dT%H:%MZ)" \
+            data/regions/in

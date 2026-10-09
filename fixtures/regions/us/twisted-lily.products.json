@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://twistedlily.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 7628811075642,
+   "title": "Cologne Cédrat Hand & Body Lotion",
+   "handle": "cologne-cedrat-hand-body-lotion-1",
+   "vendor": "Matiere Premiere",
+   "product_type": "Body Lotion",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 41714877300794,
+     "title": "300ml",
+     "option1": "300ml",
+     "option2": null,
+     "sku": "69-190 TFD2025BLCC",
+     "price": "80.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7628806946874,
+   "title": "Cologne Cédrat Hand & Body Wash",
+   "handle": "cologne-cedrat-hand-body-wash",
+   "vendor": "Matiere Premiere",
+   "product_type": "Body Wash",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 41714849710138,
+     "title": "300ml",
+     "option1": "300ml",
+     "option2": null,
+     "sku": "69-179 TFD2025BWCC",
+     "price": "70.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7615196561466,
+   "title": "Ain't That Sweet",
+   "handle": "aint-that-sweet",
+   "vendor": "D.S. & Durga",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 41666027421754,
+     "title": "50ml",
+     "option1": "50ml",
+     "option2": null,
+     "sku": "144DSD 561-WEP-050-A",
+     "price": "225.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

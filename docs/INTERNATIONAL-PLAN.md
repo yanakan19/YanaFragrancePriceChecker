@@ -569,3 +569,31 @@ The UK looks and behaves exactly as before, apart from the approved menu trim.
   dates, the region variants of the legal pages and the US disclosure wording.
 - Switch on: set the US `live` (beta), `REGION_WELCOME_ON`, run migration 0009, list `/us/` in
   Search Console.
+
+## Phase 1, step one: the US and India test crawl (9 Oct 2026)
+
+A dry run per region, nothing published: no page, no sitemap entry, no UK file touched.
+
+- **Registry, per region**: `src/config/retailers.us.ts` (26 shops) and `src/config/retailers.in.ts`
+  (16), shape `RegionRetailer` (`src/types/regionRetailer.ts`): neutral money names in the shop's own
+  currency, standard delivery read off a robots allowed page with the sentence quoted and the date (or
+  marked unread: Fragrance Outlet's and MicroPerfumes' `/policies/shipping-policy` is disallowed and
+  was not fetched), the tax note (US: before sales tax; India: GST included), no affiliate field, no
+  photo field (D24 pending). Shops that share one catalogue (Perfumania, Fragrance Outlet, Fragrance
+  Market) carry one `catalogueGroup` and count once in the overlap measure. MicroPerfumes keeps
+  retail bottles only. Purplle's price 0 is read as sold out (`zeroPriceMeansSoldOut`), never as a
+  price. Off, each with its reason in the entry: Jomashop (no price in the markup), Dillard's (sizes
+  only inside one AggregateOffer), eCosmetics (Store API only, for the owner to rule on), Nordstrom
+  (later), AAR Fragrances (price only in `og:price`), Mirah Belle (no perfume), Kannauj Attar.
+- **Crawl**: `scripts/region-harvest.ts` and `src/catalogue/regionHarvest.ts` reuse the UK adapters
+  (Shopify `products.json`, sitemap and JSON-LD, robots.txt first, PriceSniffsBot only). A price is
+  kept only in the region's currency as the shop states it (a Shopify storefront must publish it at
+  rate 1; a JSON-LD page must name it); pounds, an unnamed currency or a conversion are refused.
+- **Build**: `scripts/build-region-catalogue.ts` and `src/catalogue/regionCatalogue.ts` build the
+  catalogue, an append only price history and `report.json` (the go/no-go numbers of section 7) with
+  the UK's own identity, naming and merge rules; the UK slugs are read only, to count barcode matches.
+- **Files**: everything under `data/regions/us/` and `data/regions/in/` (listed in
+  `scripts/generated-files.txt`), never a UK path.
+- **Workflows**: `catalogue-us.yml` and `catalogue-in.yml`, run by hand only, each in its own
+  concurrency group (`catalogue-us`, `catalogue-in`; they commit paths no other workflow commits),
+  pushing only through `scripts/commit-and-push.sh`. A schedule waits for the hidden beta (1b).

@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://gulabsinghjohrimal.co.in/products.json?limit=250",
+ "products": [
+  {
+   "id": 15387051491519,
+   "title": "Musk",
+   "handle": "musk-1",
+   "vendor": "Gulabsingh Johrimal",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Pack Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67602768658623,
+     "title": "9g",
+     "option1": "9g",
+     "option2": null,
+     "sku": null,
+     "price": "160.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9597224648895,
+   "title": "Tabac Emirati",
+   "handle": "tabac-emirati",
+   "vendor": "Gulabsingh Johrimal",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Pack Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 47511902748863,
+     "title": "9g",
+     "option1": "9g",
+     "option2": null,
+     "sku": null,
+     "price": "600.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9597227958463,
+   "title": "Fresh Nag Champa",
+   "handle": "fresh-nag-champa",
+   "vendor": "Gulabsingh Johrimal",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Pack Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 47511907238079,
+     "title": "9g",
+     "option1": "9g",
+     "option2": null,
+     "sku": null,
+     "price": "100.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

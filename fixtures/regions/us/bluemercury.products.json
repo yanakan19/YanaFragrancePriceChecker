@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://bluemercury.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 15226904182859,
+   "title": "English Pear Fragrance Layering Cologne Trio Set (Limited Edition)",
+   "handle": "jo-malone-london-english-pear-fragrance-layering-cologne-trio-set",
+   "vendor": "Jo Malone London",
+   "product_type": "Fragrance Sets",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67170905227339,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "125952742",
+     "price": "135.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15226872070219,
+   "title": "Vanilla Scotch & Tangerine & Honey Mini Holiday Cologne Duo (Limited Edition)",
+   "handle": "jo-malone-london-vanilla-scotch-and-tangerine-and-honey-mini-holiday-cologne-duo",
+   "vendor": "Jo Malone London",
+   "product_type": "Fragrance Sets",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67170698756171,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "125952718",
+     "price": "50.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15226859028555,
+   "title": "Wood Sage & Sea Salt Fragrance Layering Cologne Trio Set (Limited Edition)",
+   "handle": "jo-malone-london-wood-sage-and-sea-salt-fragrance-layering-cologne-trio-set",
+   "vendor": "Jo Malone London",
+   "product_type": "Fragrance Sets",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67170651373643,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "125952751",
+     "price": "135.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

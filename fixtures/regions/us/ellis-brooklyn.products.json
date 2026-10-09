@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.ellisbrooklyn.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 9702210896115,
+   "title": "MISS AMBER Perfume Mist 240ml",
+   "handle": "miss-amber-perfume-mist-240ml",
+   "vendor": "Ellis Brooklyn",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50221009240307,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "850079719163",
+     "price": "39.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9702211551475,
+   "title": "MISS AMBER Perfume Mist 90ml",
+   "handle": "miss-amber-perfume-mist-90ml",
+   "vendor": "Ellis Brooklyn",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50221012418803,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "850079719156",
+     "price": "26.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9631290491123,
+   "title": "PLUM TONIC Eau de Parfum 1.5ml Vial",
+   "handle": "plum-tonic-eau-de-parfum-1-5ml-vial",
+   "vendor": "Ellis Brooklyn",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 49293169393907,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "850079719132",
+     "price": "5.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}
