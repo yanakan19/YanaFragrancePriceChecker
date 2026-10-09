@@ -132,7 +132,7 @@ so none is committed: the crawl's own rebuild already carries all ten shops.
 Sitemap shops fill in over several runs (about 42 never read pages a run, more where the route sets
 `discoveryPages`), so their counts on the site grow for a day or two.
 
-Photos stay off for all ten. Product photos show only for shops the owner's decision of 2026-10-05 (D24)
+Photos: owner said yes on 9 Oct 2026 (D24); all ten now show theirs (originally held off). Product photos show only for shops the owner's decision of 2026-10-05 (D24)
 covers, and `tests/imageBasisDecision.test.ts` fails if the basis is added without it. See the owner steps.
 
 Three fixes in shared code came out of reading these shops, each with tests:
@@ -252,7 +252,7 @@ with a `catalogue` block whose section is the shop's own `/collections/all`.
 | Roullier White | type `Perfume` of 852 products; `sizeOption` leaves out the 2ml samples | 252 | 217 (139 in stock) | £6.75 mainland, free over £175, 1 to 2 working days (`/pages/delivery-returns`) |
 | Scented | type `Perfume` of 377 products; `sizeOption` leaves out samples and refills; `excludeTitle` leaves out four "Brume" mists (one a pillow mist); `fragranceOnlyCatalogue` | 325 | 310 (266 in stock) | £5 under £50, free from £50, Royal Mail 48 tracked, 2 to 4 days (`/policies/shipping-policy`, allowed to the bot) |
 
-Photos stay off for all six (`imageBasis` unset until the owner extends D24). No trustpilotUrl is set: the
+Photos: owner said yes on 9 Oct 2026 (D24), so all six show theirs. No trustpilotUrl is set: the
 Trustpilot pages for these domains answer the bot with a "Verifying Connection" challenge (HTTP 403) and
 WebSearch found no page for any of the six domains (Rowlands' page is for its high street site). Trustpilot was
 not pressed further.

@@ -960,9 +960,10 @@ it brought new prices.
    domain's existing verification). Under **Settings, International
    Targeting** there is nothing to set: the pages declare their language and
    country themselves (hreflang).
-1. **Answer the photo question** (D24 for new countries, still pending): may a
-   US or Indian shop's own photo be shown beside a link to that shop, as for UK
-   shops? Until you answer, no US or Indian product shows a photo.
+1. **Done 9 October 2026:** you answered the photo question (D24) yes for the US
+   shops, the India shops, the 16 UK shops added on 8 and 9 October and Glossier
+   UK. Their photos are hot-linked from each shop's own page (docs/DECISIONS.md
+   D24); US and India tiles fill in as the daily crawls read each shop again.
 2. **Done 9 October 2026, and checked:** you ran
    `supabase/migrations/0009_profile_region.sql` in the Supabase SQL Editor
    (a nullable `region` column on `profiles`; safe to run twice). Checked the

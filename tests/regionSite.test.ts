@@ -77,7 +77,7 @@ describe('a region page built from snapshots', () => {
   };
   const site = buildRegionSite(inputs, { 'ean-x': 'creed_aventus_100ml' }, now);
 
-  it('lists each showable bottle once, both shops beside it, with no shop photo anywhere', () => {
+  it('lists each showable bottle once, both shops beside it, with no picture where no shop gave one', () => {
     const aventus = site.catalogue.find((c) => c.brand === 'Creed')!;
     expect(aventus.shops).toBe(2);
     expect(site.catalogue.some((c) => c.brand === '')).toBe(false);

@@ -10194,8 +10194,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...awinPending('123248'),
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10257,8 +10260,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10323,8 +10329,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10389,8 +10398,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10467,8 +10479,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10544,8 +10559,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10619,8 +10637,11 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10709,8 +10730,11 @@ export const RETAILERS: readonly Retailer[] = [
         'updated daily, a 30 day cookie, and membership of Partnerize needed before Liberty considers ' +
         'an application. An older copy of the UK page named Rakuten; the page now says Partnerize. ' +
         'Not applied to.',
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10786,8 +10810,11 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10866,8 +10893,11 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -10943,8 +10973,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -11007,8 +11040,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -11069,8 +11105,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -11128,8 +11167,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...awinPending('126643'),
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -11186,8 +11228,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -11252,8 +11297,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
   {
@@ -11323,8 +11371,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
-      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
-      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
     },
   },
 ] as const;

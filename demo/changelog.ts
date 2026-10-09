@@ -43,7 +43,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'More guides: shops, notes, matching and deals',
           'New Notes page, and note icons on products',
           'Country choice saved to your account',
-          'UK photos on matching US and India products',
+          'Bottle photos for US, India and new UK shops',
         ],
       },
       {

@@ -94,7 +94,7 @@ describe('the region page build', () => {
     uk({ id: 'ean-8412345678999', sizeMl: 30, ean: '8412345678999', image: 'https://uk-shop.example/30.jpg' }),
   ];
 
-  it('puts the UK picture on the matched product only, and never a shop photo on any offer', () => {
+  it('puts the UK picture on the matched product, and no picture on one no listing gave a photo for', () => {
     const site = buildRegionSite(inputs, {}, now, ukList);
     const hundred = site.catalogue.find((c) => c.sizeMl === 100)!;
     expect(hundred.image).toBe('https://uk-shop.example/aventus.jpg');

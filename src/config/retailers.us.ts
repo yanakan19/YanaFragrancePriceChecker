@@ -18,7 +18,7 @@
  * depends on the state and the locality, so the honest note is the plan's
  * label (`US_TAX_NOTE`).
  *
- * No affiliate field, no photo field: see src/types/regionRetailer.ts.
+ * No affiliate field. Every shop carries `imageBasis` (owner decision of 9 Oct 2026, D24): see src/types/regionRetailer.ts.
  */
 import { US_TAX_NOTE, type RegionRetailer } from '../types/regionRetailer.js';
 
@@ -54,6 +54,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['designer', 'mideast'],
     catalogueGroup: SAME_CATALOGUE_PERFUMANIA,
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -83,6 +85,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.jomashop.com/',
     tiers: ['designer', 'niche'],
     enabled: false,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     blockedReason:
       'Its product pages carry no price in their markup: a fragrance page read on 2026-10-09 (intenso-men-edp-spray-4-2-oz-3423473020820.html, 81 KB) has no JSON-LD, no microdata and no price meta; the price is drawn by its script. /products.json is 404. Its 38 sitemaps are about 18 MB each and mostly watches. Needs a route that reads a price the page states; the free local render tier is the candidate, after the dry run.',
     route: {
@@ -112,6 +116,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     // the size only ("Cherry Ink - 50ml", Lorenzo Pazzaglia).
     fragranceOnlyCatalogue: true,
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: {
       kind: 'sitemap',
       sitemapRoute: {
@@ -140,6 +146,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.aedes.com/',
     tiers: ['niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -156,6 +164,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://twistedlily.com/',
     tiers: ['niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -172,6 +182,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://indigoperfumery.com/',
     tiers: ['niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -188,6 +200,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://bluemercury.com/',
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -204,6 +218,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.beautyhabit.com/',
     tiers: ['niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -234,6 +250,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['niche'],
     singleBrandOnly: 'D.S. & Durga',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -264,6 +282,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['niche'],
     singleBrandOnly: 'Imaginary Authors',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -294,6 +314,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['niche'],
     singleBrandOnly: 'Maison Louis Marie',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -324,6 +346,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['niche'],
     singleBrandOnly: 'Ellis Brooklyn',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -354,6 +378,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['niche'],
     singleBrandOnly: 'Boy Smells',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -384,6 +410,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['designer'],
     singleBrandOnly: 'Sol de Janeiro',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -415,6 +443,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://beautyencounter.com/',
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -447,6 +477,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['designer', 'mideast'],
     catalogueGroup: SAME_CATALOGUE_PERFUMANIA,
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -464,6 +496,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['designer', 'mideast'],
     catalogueGroup: SAME_CATALOGUE_PERFUMANIA,
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -493,6 +527,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://microperfumes.com/',
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -523,6 +559,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://parfumsraffy.com/',
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -540,6 +578,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://ministryofscent.com/',
     tiers: ['niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: [...NOT_FOR_SALE_TYPES, 'Sample Set'],
@@ -569,6 +609,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://labelleperfumes.com/',
     tiers: ['designer', 'mideast'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -585,6 +627,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.ulta.com/',
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: {
       kind: 'sitemap',
       sitemapRoute: {
@@ -620,6 +664,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://theperfumespot.com/',
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: {
       kind: 'sitemap',
       sitemapRoute: {
@@ -663,6 +709,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.dillards.com/',
     tiers: ['designer'],
     enabled: false,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     blockedReason:
       'Readable (robots.txt allows /p/, sitemap_beauty_1.xml lists about 1,700 fragrance pages, JSON-LD in USD), but each page holds every size in one AggregateOffer and states the size only inside checkoutPageURLTemplate; the shared JSON-LD reader returns one unsized listing a page (Lacoste L.12.12 Bleu EDP $106, read 2026-10-09). Needs a reader of its offers[] before it can be priced per bottle.',
     route: {
@@ -689,6 +737,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.ecosmetics.com/',
     tiers: ['designer', 'niche'],
     enabled: false,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     blockedReason:
       "Its only route is WooCommerce's public Store API (robots.txt does not disallow /wp-json/), an application interface rather than a page, which round 2 flagged for the owner to rule on; and its variable products need one request per variation for a true price. Off until the owner rules.",
     route: null,
@@ -706,6 +756,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.nordstrom.com/',
     tiers: ['designer', 'niche'],
     enabled: false,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     blockedReason:
       'Later, as the plan says: /api/ is disallowed by its robots.txt, /products.json is 404 and its pages are heavy (256 KB home). No route chosen yet.',
     route: null,
