@@ -173,3 +173,114 @@ Decisions and checks:
    Rasasi does not stand behind it, set `enabled: false`.
 4. Perfumoi's "free next day delivery" is worded "currently". Worth re-reading on the next delivery
    recheck, as is Saad Fragrance's (a one person company formed in 2024).
+
+## Round 2, UK (2026-10-09)
+
+A second search for UK fragrance retailers that are not in the registry (86 entries now, 61 enabled; 80 and 55
+when this round began). Same method and same hard lines as above (docs/DECISIONS.md D23): WebSearch in standard
+mode to name each candidate and find its own domain, then `curl` as PriceSniffsBot over HTTP/1.1 with 1.5 s between
+requests: `/robots.txt` first, then the home page, then `/products.json?limit=250`. For every Shopify shop the
+whole `/products.json` feed was walked and run through the repo's own `parseShopifyProducts`, `isCatalogueListing`
+and `parseRobots`, and page 1 was read at the origin and with `?country=GB` (no price differed at any of the six
+shops added). Directories (scentverdict.com, affi.io, FlexOffers, TopCashback) and Awin merchant pages gave the
+names and the affiliate column; the directories disagree with each other, so "directory only" marks a claim no
+network page confirmed. A shop qualifies only with prices in sterling and its standard UK delivery terms read from
+its own page with the date checked; a shop whose terms sit only under `/policies/` (disallowed to the bot) is
+listed as not added, not added with a guess.
+
+### Added to the registry on 2026-10-09
+
+| # | Shop | Domain | Sells | Platform | Affiliate | robots.txt | Live check, 2026-10-09 |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | Rowlands Pharmacy | shop.rowlandspharmacy.co.uk | Pharmacy chain's online shop; 76 designer perfume and aftershave among 1,609 products | Shopify | None found | 200, 3,676 B, Shopify's newer stock file; products.json and the shipping policy allowed | `/products.json` 200, 7 pages; GBP, country GB; 76 Fragrance variants priced (69 pass the catalogue test, 64 in stock); delivery £3.50, free from £30 |
+| 2 | LloydsPharmacy | lloydspharmacy.com | Pharmacy chain's online shop; Tom Ford, Burberry, Dior, YSL, Armani among 5,997 products | Shopify | None found | 200, 3,640 B, newer stock file, allowed | `/products.json` 200, 24 pages; GBP; Fragrance 325, Aftershave 3, Perfume 5; 333 variants priced; delivery £2.99 Evri, free from £30 |
+| 3 | Beauté Boulevard | beaute-boulevard.co.uk | London luxury perfume and beauty; designer, Creed, Montale, Arabic | Shopify | Awin 126643 (read on the merchant profile; 30 day cookie, UK) | 200, 376 B, collections and products allowed, `/search` disallowed | `/products.json` 200, 11 pages, 2,624 products; GBP; 4,065 variants priced (2,280 pass); free delivery on every UK order |
+| 4 | Scent Warehouse | scentwarehouse.co.uk | Salford discount designer perfume (Calvin Klein, Burberry, Davidoff, Cacharel) | Shopify | None found | 200, 3,650 B, newer stock file, allowed | `/products.json` 200, 10 pages, 2,346 products; GBP; 2,345 variants priced (1,771 pass); £2.99 under £20, free over |
+| 5 | Roullier White | roullierwhite.com | East Dulwich homeware and lifestyle shop with a niche perfume shelf (Tocca, Wolf Brothers, Carthusia) | Shopify | None found | 200, 3,652 B, newer stock file, allowed | `/products.json` 200, 4 pages, 852 products; GBP; Perfume 247; 252 bottle variants priced after 2ml samples are left out (217 pass); £6.75, free over £175 |
+| 6 | Scented | scent-ed.com | Glasgow niche perfumery filed by scent family (Imaginary Authors, Trudon, Arquiste, Comme des Garçons) | Shopify | None found | 200, 3,632 B, newer stock file, allowed | `/products.json` 200, 2 pages, 377 products; GBP; Perfume 270; 329 bottle variants priced (314 pass); £5 under £50, free over |
+
+### Found and not added
+
+| # | Shop | Domain | Sells | Platform | Affiliate | robots.txt | Live check | Why not added |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 7 | Beevora | beevora.co.uk | Birmingham, Arabian houses (Lattafa, Maison Asrar, French Avenue, Riiffs) | Shopify | None found | 200, 2,059 B; the first group names `*` with an empty Disallow, a later group disallows `/policies/` | `/products.json` 200, 1,905 products, GBP, 1,814 pass the catalogue test | Delivery terms are only under `/policies/shipping-policy` (disallowed); the page says "Free UK delivery over £50" and nothing else. A company directory dates the business to 2026. Ready to add once a basket check gives the rate |
+| 8 | Aromique | aromique.co.uk | Birmingham, Arabian houses (Lattafa, Khadlaj, Reef, Fragrance World, Ahmed Al Maghribi) | Shopify | None found | 200, 3,626 B, stock file, `/policies/` disallowed | `/products.json` 200, 1,368 products, GBP, 1,097 pass | Same: delivery only under `/policies/`; banner "Free UK delivery on orders over £50" |
+| 9 | Aurique | aurique.co.uk | Birmingham, designer and Arabic perfume; 132 products | WooCommerce | None found | 200, 319 B, allowed | Product sitemap 132 URLs; product pages carry names with size and strength | Its delivery page prints no rate ("displayed at checkout") and no days; the JSON-LD names an unrelated company ("Kick Nutrition") |
+| 10 | 50 ml UK | 50-ml.co.uk | Milan group's UK niche store, 300+ houses | Magento | None found | 200, 639 B, `/catalog/` and checkout disallowed | `uksitemap_products.xml` 11,133 URLs; product JSON-LD says GBP | Prices look converted from euros (a Penhaligon's set at £90.30); a converted price is not accepted. Free delivery over £90 per its markup. Owner to confirm it prices in sterling |
+| 11 | Sultan Pasha Attars | sultanpashaattars.com | London perfumer's own attars | Shopify | None found | 200, 3,650 B, stock | 39 products, GBP | One maker's own house (belongs in `src/config/houses.ts`); titles carry no strength or bottle size, 0 of 149 variants pass |
+| 12 | Scent Salim | scentsalim.com | Leeds maker, own-brand oud oils and a workshop | Shopify | None found | 200, 3,624 B, stock | 229 products, GBP | Own brand, not other houses' bottles |
+| 13 | House of Fragrances | thehouseoffragrances.co.uk | Birmingham, Arabian houses and "inspired by" lines | Shopify | None found | 200, 3,672 B, stock | 75 products, GBP | Titles read "(Inspired by Dior Sauvage)"; 1 of 76 listings passes the catalogue test and the rest would mislead a match |
+| 14 | The Decant Den | thedecantden.co.uk | Birmingham, 3 ml and 8 ml decants | Shopify | None found | 200, 3,634 B, stock | 62 products, GBP | Samples only |
+| 15 | The Scent UK | thescent.uk | 1 ml to 10 ml decants | Shopify | None found | 200, 190 B | 36 products, GBP | Samples only |
+| 16 | Scentality | scentality.co.uk | Leatherhead, decants and travel atomisers | Shopify | None found | 200, 3,632 B, stock | 6 products, GBP | Too small, decants |
+| 17 | Sir Gordon Bennett | sirgordonbennett.com | Stratford-upon-Avon gift shop with some British houses (Wales Perfumery, Sarah Ireland) | Shopify | None found | 200, 3,648 B, stock | 1,392 products, GBP; 52 fragrance variants | Every fragrance variant is out of stock |
+| 18 | Aston & Fincher | astonandfincher.co.uk | Barber trade supplier | Shopify | None found | 200, 3,668 B, stock | 7,500 products, GBP | 17 barber colognes only, which the catalogue excludes |
+| 19 | The Body Shop UK | thebodyshop.com | Brand store; body mists, 9 eau de toilette in the first 250 products | Shopify | Not checked | 200, 3,644 B, stock | `/products.json` 200, GBP | A house storefront with little perfume |
+| 20 | Floral Street | floralstreet.com | One British house, own shop | Shopify | Not checked | 200, 3,626 B, stock | 137 products, GBP | A house storefront: belongs in `src/config/houses.ts` |
+| 21 | Cocooncenter UK | cocooncenter.co.uk | French online beauty group, UK site | custom | Not checked | 200, 3,925 B, a long list of blocked bots; category pages allowed | Category page 200, 457 KB, JSON-LD is a breadcrumb only; no sterling price in the markup | No price in a readable form |
+| 22 | Super Fragrances | superfragrances.co.uk | Fragrance seller (directory listing) | custom | Not checked | 200, 982 B | Home 200, 482 KB; no `/products.json` | Not examined beyond robots and the home page |
+| 23 | Zalando UK | zalando.co.uk | Fashion marketplace with a beauty shelf | custom (app) | Not checked | 200, 644 B | Home 200, 574 KB; no fragrance category found | A fashion platform, not a fragrance shop |
+| 24 | Poundland | poundland.co.uk | Discount variety store | Shopify | Not checked | 200, 3,646 B, stock | 250 products, GBP | No perfume bottles in the first 250 products |
+
+### Duplicate, blocked, unreachable or not UK
+
+| # | Shop | Domain | What the bot got | Verdict |
+| --- | --- | --- | --- | --- |
+| 25 | Perfume Price | perfumeprice.co.uk | 301 to pacoperfumerias.co.uk | The same business as Paco Perfumerias UK, already in the registry (`paco-perfumerias-uk`). Its Awin programme is 21605 (up to 5%, 30 days) |
+| 26 | Net-a-Porter | net-a-porter.com | HTTP 403 on robots.txt and the home page | Blocked |
+| 27 | Jarrold | jarrold.co.uk | HTTP 525 (TLS handshake failure at the edge) | Unreadable |
+| 28 | Planets Perfumery | planetsperfumery.com | Shopify, `/meta.json` USD, Sacramento | Not a UK shop |
+| 29 | Indigo Perfumery | indigoperfumery.com | Shopify, `/meta.json` USD, Ohio | Not a UK shop |
+| 30 | The Perfume Stylist | theperfumestylist.com | 200, 8 ml refillable sprays; no `/products.json` | Samples and refills only |
+| 31 | Arabian Oud UK | uk.arabianoud.com | 200; robots.txt 89 B; no `/products.json` | A house's own storefront, not other houses' bottles |
+| 32 | Swiss Arabian Perfumes UK | arabianperfumes.uk | HTTP 404 on every address | No live shop at the address a company directory gave |
+| 33 | The English Shaving Company | theenglishshavingcompany.com | 200, custom, no feed | Grooming; aftershave only |
+| 34 | Perfume Parlour, Dan's Decants, Angela Flanders, Brummells of London, Floris, Waitrose, Fragrance Zone, Grand Beauty Outlet, The Fragrance Vault | various | No connection from the sandbox on the domains tried (no robots.txt served), or a parked domain | Unreadable here; nothing was fetched. Perfume Parlour sells its own dupes as well (see round 1) |
+
+### What was added, and what each entry stands on
+
+Six shops, all `enabled: true` after a dry run from this sandbox (`npm run harvest -- --shop=<id> --dry-run`) read
+real priced listings in sterling. All six are on the Shopify route (`shopifyStorefront: true`, `adapter: 'unknown'`)
+with a `catalogue` block whose section is the shop's own `/collections/all`.
+
+| Shop | Rule | Priced listings (sandbox) | Pass the catalogue's fragrance test | Delivery, from the shop's own page, 2026-10-09 |
+| --- | --- | --- | --- | --- |
+| Rowlands Pharmacy | product type `Fragrance` of 1,609 products | 76 | 69 (57 in stock) | £3.50 standard, free from £30, 3 to 5 working days (`/policies/shipping-policy`, allowed to the bot) |
+| LloydsPharmacy | types `Fragrance`, `Aftershave`, `Perfume` of 5,997 products; gift sets left out | 333 | 303 (about 177 in stock) | £2.99 Evri standard, free from £30, 2 to 3 working days (`/pages/delivery-information`) |
+| Beauté Boulevard | none; the catalogue test sorts out skincare | 4,065 | 2,280 (1,797 in stock) | Free on every UK order, Royal Mail 48 tracked, 2 to 3 working days (`/pages/shipping-returns-policy`) |
+| Scent Warehouse | none; no product types | 2,345 | 1,771 (1,411 in stock) | £2.99 under £20, free from £20 (Evri standard), 2 to 5 working days (`/pages/delivery-information-shipping-policy`) |
+| Roullier White | type `Perfume` of 852 products; `sizeOption` leaves out the 2ml samples | 252 | 217 (139 in stock) | £6.75 mainland, free over £175, 1 to 2 working days (`/pages/delivery-returns`) |
+| Scented | type `Perfume` of 377 products; `sizeOption` leaves out samples and refills; `fragranceOnlyCatalogue` | 329 | 314 (270 in stock) | £5 under £50, free from £50, Royal Mail 48 tracked, 2 to 4 days (`/policies/shipping-policy`, allowed to the bot) |
+
+Photos stay off for all six (`imageBasis` unset until the owner extends D24). No trustpilotUrl is set: the
+Trustpilot pages for these domains answer the bot with a "Verifying Connection" challenge (HTTP 403) and
+WebSearch found no page for any of the six domains (Rowlands' page is for its high street site). Trustpilot was
+not pressed further.
+
+Two things worth knowing about the shared code, neither changed: a `fragranceOnlyCatalogue` shop drops a listing
+whose title already names a size and whose option adds it again ("Zagorsk Eau de Toilette 50ml 50ml": 15 of
+Scented's 329 variants), and Beauté Boulevard's variant titles repeat the size ("... 100ml Spray Eau de Parfum
+100ml Spray"), which the catalogue still reads.
+
+### Owner steps (Round 2)
+
+| Network | Shops |
+| --- | --- |
+| Awin | Beauté Boulevard (merchant 126643, UK, 30 day cookie; in the registry as `awinPending`). Perfume Price is Paco Perfumerias UK (21605), already tracked |
+| Rakuten, Impact | The Fragrance Shop (Rakuten 43488 on its own page; Impact per directory), blocked to the bot, so a feed would be the way in |
+| Tradedoubler, Rakuten | The Perfume Shop (Tradedoubler exclusive from 2018 per its blog; Rakuten per directory), blocked to the bot |
+| Webgains | Fragrance Direct (exclusive since 2024 per its page, retired from the registry as a holding page) |
+| TradeTracker | Perfume Plus Direct (open per directory), Perfumes of Arabia London (campaign 38612) |
+| No programme found | Rowlands Pharmacy, LloydsPharmacy, Scent Warehouse, Roullier White, Scented, Beevora, Aromique, Aurique |
+
+Checks only the owner can make:
+
+1. Beevora and Aromique are the two biggest shops found and not added: both read 1,000 or more catalogue listings
+   in sterling, but their delivery terms are under `/policies/`, which their robots.txt disallows. A basket check
+   of the standard rate and days for each would let both go in with one registry entry apiece (the Shopify route is
+   already proved). Beevora's shop is new (2026 per a directory).
+2. 50 ml UK: confirm whether the shop sets sterling prices of its own or converts euro prices (D23 does not accept
+   a conversion). If its pounds are its own, its 11,133 product pages can be read through the sitemap and JSON-LD.
+3. Photos: the six new shops need a D24 ruling like the ten before them.
+4. Roullier White does not accept returns of perfume (sold as comestibles) and sells 2ml decants instead; no
+   action, but worth a line if the site ever shows return terms.

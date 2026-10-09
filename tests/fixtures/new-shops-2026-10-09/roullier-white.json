@@ -1,0 +1,178 @@
+{
+ "products": [
+  {
+   "id": 10067120357703,
+   "title": "Tocca - Bianca (EdP)",
+   "handle": "tocca-bianca-edp-50ml",
+   "vendor": "KGA",
+   "product_type": "Perfume",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size",
+     "values": [
+      "50ml",
+      "Sample"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 51590838485319,
+     "sku": "",
+     "title": "50ml",
+     "option1": "50ml",
+     "option2": null,
+     "option3": null,
+     "price": "85.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 51590838518087,
+     "sku": "",
+     "title": "Sample",
+     "option1": "Sample",
+     "option2": null,
+     "option3": null,
+     "price": "4.00",
+     "compare_at_price": null,
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 11167713591623,
+   "title": "Wolf Brothers - GOAT (EdP)",
+   "handle": "wolf-brothers-goat-edp",
+   "vendor": "Wild Brothers",
+   "product_type": "Perfume",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size",
+     "values": [
+      "50ml",
+      "Sample"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 55041602289991,
+     "sku": null,
+     "title": "50ml",
+     "option1": "50ml",
+     "option2": null,
+     "option3": null,
+     "price": "120.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55041602322759,
+     "sku": null,
+     "title": "Sample",
+     "option1": "Sample",
+     "option2": null,
+     "option3": null,
+     "price": "5.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10438438486343,
+   "title": "Carthusia - Intenso Collection - Sample Kit",
+   "handle": "carthusia-intenso-collection-sample-kit",
+   "vendor": "Partecipazioni Commerciali",
+   "product_type": "Perfume",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "values": [
+      "Default Title"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 52603688386887,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "15.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10843728642375,
+   "title": "Cirerie de Gascogne - Reed Diffuser - Quince, Pepper & Chilli",
+   "handle": "cirerie-de-gascogne-reed-diffuser-quince-pepper-chilli",
+   "vendor": "Cirerie de Cascogne",
+   "product_type": "Home Fragrance",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "values": [
+      "Default Title"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 54105912901959,
+     "sku": "20",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "35.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10153902702919,
+   "title": "Lime Squeezer",
+   "handle": "lime-squeezer",
+   "vendor": "Lifetime Brands",
+   "product_type": "Cookware",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "values": [
+      "Default Title"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 51532718080327,
+     "sku": "KCHELIME",
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "8.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

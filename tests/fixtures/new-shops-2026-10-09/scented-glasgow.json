@@ -1,0 +1,148 @@
+{
+ "products": [
+  {
+   "id": 9888056279369,
+   "title": "Orange X Santal",
+   "handle": "orange-x-santal",
+   "vendor": "Essential Parfums",
+   "product_type": "Perfume",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size",
+     "values": [
+      "100ml",
+      "10ml",
+      "150ml Refill"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 53186893939017,
+     "sku": null,
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "option3": null,
+     "price": "86.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 53400604934473,
+     "sku": null,
+     "title": "10ml",
+     "option1": "10ml",
+     "option2": null,
+     "option3": null,
+     "price": "20.00",
+     "compare_at_price": null,
+     "available": false
+    },
+    {
+     "id": 53400603984201,
+     "sku": null,
+     "title": "150ml Refill",
+     "option1": "150ml Refill",
+     "option2": null,
+     "option3": null,
+     "price": "76.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10326990094665,
+   "title": "Scottish Odyssey Discovery Set",
+   "handle": "scottish-odyssey-discovery-set",
+   "vendor": "Jorum Studio",
+   "product_type": "Perfume",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size",
+     "values": [
+      "6x 2ml"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 54966542729545,
+     "sku": null,
+     "title": "6x 2ml",
+     "option1": "6x 2ml",
+     "option2": null,
+     "option3": null,
+     "price": "36.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10202363756873,
+   "title": "Tomato Scented Taper Candles (Pack of 6)",
+   "handle": "tomato-scented-taper-candles-pack-of-6",
+   "vendor": "Carrière Frères",
+   "product_type": "Candle",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Title",
+     "values": [
+      "Default Title"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 54422378611017,
+     "sku": null,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "option3": null,
+     "price": "36.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10362089013577,
+   "title": "KOT",
+   "handle": "kot",
+   "vendor": "Fischersund",
+   "product_type": "Perfume",
+   "body_html": "",
+   "images": [],
+   "options": [
+    {
+     "name": "Size",
+     "values": [
+      "30ml"
+     ]
+    }
+   ],
+   "variants": [
+    {
+     "id": 55143696433481,
+     "sku": null,
+     "title": "30ml",
+     "option1": "30ml",
+     "option2": null,
+     "option3": null,
+     "price": "115.00",
+     "compare_at_price": null,
+     "available": false
+    }
+   ]
+  }
+ ]
+}

@@ -30,6 +30,19 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.105.0',
+    date: '9 Oct 2026',
+    groups: [
+      {
+        heading: 'New',
+        points: [
+          'New UK shops: Rowlands, Lloyds, Beauté Boulevard',
+          'Also Scent Warehouse, Roullier White, Scented',
+        ],
+      },
+    ],
+  },
+  {
     version: 'v3.104.0',
     date: '8 Oct 2026',
     groups: [

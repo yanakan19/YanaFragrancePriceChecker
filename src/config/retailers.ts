@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 80 retailers, 55 of them `enabled: true`. Every one of them is a legitimate
+ * 86 retailers, 61 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -10864,6 +10864,379 @@ export const RETAILERS: readonly Retailer[] = [
         'modelled; Northern Ireland, Highlands and Islands are dearer. Nothing was added to a cart.',
     },
     catalogue: null,
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'rowlands-pharmacy',
+    name: 'Rowlands Pharmacy',
+    domain: 'shop.rowlandspharmacy.co.uk',
+    homepage: 'https://shop.rowlandspharmacy.co.uk',
+    tiers: ['designer'],
+    // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch: the
+    // online shop of Rowlands Pharmacy (L Rowland & Co (Retail) Ltd, Runcorn), a chain of high street
+    // pharmacies, whose fragrance aisle holds designer perfume and aftershave at pharmacy prices
+    // (Paco Rabanne 1 Million EDT 50ml, Montblanc Legend, Ted Baker, Joop!). Then read directly, as
+    // PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://shop.rowlandspharmacy.co.uk/robots.txt, HTTP 200) is Shopify's newer stock file:
+    // product pages, /products.json and /policies/shipping-policy are not disallowed, no crawl delay for the
+    // bot, a sitemap named. /meta.json: currency GBP, country GB, Runcorn. Page 1 of /products.json read at
+    // the origin and with ?country=GB: 255 variants, no price differs.
+    //
+    // Route: /products.json, 7 pages (1,609 products, a whole pharmacy: vitamins, cold remedies, baby care).
+    // The shop's own product type "Fragrance" (76 products) picks the perfume out; its "All Year Gifting"
+    // and "Toiletries" types hold Baylis & Harding hand care sets and similar, which are not bottles of
+    // perfume and are left out. 76 variants, all priced in GBP; the stock flag is kept as the shop states
+    // it. A small shelf, but a pharmacy price: Paco Rabanne EDT 100ml at £24.99.
+    //
+    // Sandbox proof, 2026-10-09: `npm run harvest -- --shop=rowlands-pharmacy --dry-run` read 76 priced listings, all in GBP; 69 of them pass the catalogue's own fragrance test and 57 of those are in stock (64 of the 76 in stock).
+    //
+    // Affiliate: none found for the online shop (WebSearch, 2026-10-09). Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      productTypes: ['Fragrance'],
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 3.5,
+      freeOverGbp: 30,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-10-09',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://shop.rowlandspharmacy.co.uk/policies/shipping-policy',
+        quote:
+          'Standard delivery is 3-5 working days, charged at £3.50 per order. Free standard delivery is available for any order of £30 or over.',
+        readAt: '2026-10-09',
+      },
+      notes:
+        'Read off the shop\'s own Shipping policy page on 2026-10-09 (allowed by its robots.txt). It also lists ' +
+        'an express service, not modelled, and says pharmacy exclusive and age restricted items go by ' +
+        'standard delivery only. Deliveries are by Royal Mail, tracked. The banner on every page says ' +
+        '"Free Standard Shipping On Orders £30+". Nothing was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://shop.rowlandspharmacy.co.uk/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://shop.rowlandspharmacy.co.uk/collections/all?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'lloyds-pharmacy',
+    name: 'LloydsPharmacy',
+    domain: 'lloydspharmacy.com',
+    homepage: 'https://lloydspharmacy.com',
+    tiers: ['designer'],
+    // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch: the
+    // online shop of LloydsPharmacy (Warwick), whose "Premium fragrance brands" collection sells Tom Ford,
+    // Burberry, Dior, Yves Saint Laurent, Ghost, Calvin Klein and Armani. Then read directly, as
+    // PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://lloydspharmacy.com/robots.txt, HTTP 200) is Shopify's newer stock file: product
+    // pages and /products.json are not disallowed, no crawl delay for the bot, a sitemap named. /meta.json:
+    // currency GBP, country GB, Warwick. Page 1 of /products.json read at the origin and with ?country=GB:
+    // 258 variants, no price differs.
+    //
+    // Route: /products.json, 24 pages (5,997 products, a whole pharmacy). The shop's own product types
+    // pick the perfume out: Fragrance 325, Aftershave 3, Perfume 5. Left out on purpose: "Gift Set" (268,
+    // fragrance and skincare sets together; fragrance sets can be added once a run shows what they price
+    // as). 330 variants, all priced in GBP; the stock flag is kept as the shop states it.
+    //
+    // Sandbox proof, 2026-10-09: `npm run harvest -- --shop=lloyds-pharmacy --dry-run` read 333 priced listings, all in GBP; 303 of them pass the catalogue's own fragrance test and 177 of those are in stock.
+    //
+    // Affiliate: none found for the shop (WebSearch, 2026-10-09). Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      productTypes: ['Fragrance', 'Aftershave', 'Perfume'],
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 2.99,
+      freeOverGbp: 30,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-10-09',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://lloydspharmacy.com/pages/delivery-information',
+        quote: 'EVRI UK Standard delivery £2.99 Delivered in 2-3 working days from dispatch of order Free when you spend £30',
+        readAt: '2026-10-09',
+      },
+      notes:
+        'Read off the shop\'s own Delivery Information page on 2026-10-09. Royal Mail Standard (tracked, ' +
+        '£3.79 under £30, free from £30, delivered within 2 working days of dispatch) is offered beside it and ' +
+        'is dearer, so the Evri rate is the standard one. Express services (Evri 24hr £5.09, Royal Mail ' +
+        '24hr £5.89) are upgrades, not modelled. The page says flammable products cannot go to Northern ' +
+        'Ireland or places needing a sea crossing. Nothing was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://lloydspharmacy.com/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://lloydspharmacy.com/collections/all?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'beaute-boulevard',
+    name: 'Beauté Boulevard',
+    domain: 'beaute-boulevard.co.uk',
+    homepage: 'https://beaute-boulevard.co.uk',
+    tiers: ['designer', 'niche', 'mideast'],
+    // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch: a London
+    // luxury perfume and beauty shop on Awin (merchant 126643, read on its Awin profile) that sells
+    // designer, niche (Creed, Montale) and Arabic perfume. Then read directly, as PriceSniffsBot only,
+    // robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://beaute-boulevard.co.uk/robots.txt, HTTP 200, 376 B) allows /collections and
+    // /products, disallows cart, checkout, orders, account and search, sets no crawl delay and names a
+    // sitemap. beauteboulevard.co.uk (no hyphen) redirects to the hyphenated domain. /meta.json: currency
+    // GBP, country GB, London, 2,624 published products. Page 1 of /products.json read at the origin and
+    // with ?country=GB: 377 variants, no price differs.
+    //
+    // Route: /products.json, 11 pages (2,624 products: 1,790 typed "Cosmetics", the rest untyped, mostly
+    // perfume with some skincare). No rule: the catalogue's own fragrance test sorts the skincare out.
+    // 4,065 priced variants, a title is the product name with the size and strength the variant adds.
+    //
+    // Sandbox proof, 2026-10-09: `npm run harvest -- --shop=beaute-boulevard --dry-run` read 4065 priced listings, all in GBP; 2280 of them pass the catalogue's own fragrance test and 1797 of those are in stock.
+    //
+    // Affiliate: Awin merchant 126643, 30 day attribution, region United Kingdom (read on the Awin
+    // merchant profile 2026-10-09; commission not stated there). Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 0,
+      freeOverGbp: 0,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-10-09',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://beaute-boulevard.co.uk/pages/shipping-returns-policy',
+        quote:
+          'we provide complimentary tracked shipping on all orders delivered within the United Kingdom. There is no minimum spend required to qualify for free delivery. ... Delivery Time: 2-3 Working Days from the date of dispatch.',
+        readAt: '2026-10-09',
+      },
+      notes:
+        'Read off the shop\'s own Shipping Policy page on 2026-10-09. Royal Mail 48-Hour Tracked for every ' +
+        'order, dispatched from a UK warehouse within 24 hours if ordered before 2pm on a weekday. The ' +
+        'banner on every page says "FREE 2-3 WORKING DAYS DELIVERY ON ALL ITEMS". Nothing was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://beaute-boulevard.co.uk/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://beaute-boulevard.co.uk/collections/all?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...awinPending('126643'),
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'scent-warehouse',
+    name: 'Scent Warehouse',
+    domain: 'scentwarehouse.co.uk',
+    homepage: 'https://scentwarehouse.co.uk',
+    tiers: ['designer'],
+    // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch (an eBay
+    // store of the same name, 20 years in the trade, led to its own site): a Salford discount perfume
+    // shop selling designer eau de toilette and parfum by brand (Calvin Klein, Burberry, Davidoff,
+    // Cacharel, Disney). Then read directly, as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://scentwarehouse.co.uk/robots.txt, HTTP 200) is Shopify's newer stock file: product
+    // pages and /products.json are not disallowed, no crawl delay for the bot, a sitemap named. /meta.json:
+    // currency GBP, country GB, Salford. Page 1 of /products.json read at the origin and with ?country=GB:
+    // 250 variants, no price differs.
+    //
+    // Route: /products.json, 10 pages (2,346 products, no product types; the vendor is the shop's own
+    // name, the brand is in the title). No rule: the catalogue's own fragrance test sorts the body
+    // products and gift sets out.
+    //
+    // Sandbox proof, 2026-10-09: `npm run harvest -- --shop=scent-warehouse --dry-run` read 2345 priced listings, all in GBP; 1771 of them pass the catalogue's own fragrance test and 1411 of those are in stock.
+    //
+    // Affiliate: none found (WebSearch, 2026-10-09). Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 2.99,
+      freeOverGbp: 20,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-10-09',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://scentwarehouse.co.uk/pages/delivery-information-shipping-policy',
+        quote:
+          'EVRI Standard Delivery ... Delivery takes 2 – 5 working days. This service is free for orders over £20.00. Orders under £20.00 will incur a delivery charge of £2.99',
+        readAt: '2026-10-09',
+      },
+      notes:
+        'Read off the shop\'s own Delivery Information page on 2026-10-09. The same page offers Evri Next Day ' +
+        '(£4.99), Royal Mail 48 Tracked (£3.99) and Royal Mail 24 Tracked (£4.99), upgrades not modelled. The ' +
+        'banner above every page says "Free Tracked Delivery Over £30.00", which is the tracked service; the ' +
+        'standard (Evri) threshold is the page\'s £20. Nothing was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://scentwarehouse.co.uk/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://scentwarehouse.co.uk/collections/all?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'roullier-white',
+    name: 'Roullier White',
+    domain: 'roullierwhite.com',
+    homepage: 'https://www.roullierwhite.com',
+    tiers: ['niche'],
+    // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch (UK
+    // fragrance forum lists of where to buy perfume online): the East Dulwich, London, homeware and
+    // lifestyle shop whose perfume shelf holds niche houses (Tocca, Wolf Brothers, Carthusia, Comme des
+    // Garçons). Then read directly, as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://www.roullierwhite.com/robots.txt, HTTP 200) is Shopify's newer stock file:
+    // product pages and /products.json are not disallowed, no crawl delay for the bot, a sitemap named.
+    // /meta.json: currency GBP, country GB, England. Page 1 of /products.json read at the origin and with
+    // ?country=GB: 409 variants, no price differs.
+    //
+    // Route: /products.json, 4 pages (852 products: glassware, kitchen, home fragrance and so on). The
+    // shop's own product type "Perfume" (247) picks the perfume out. Each has a "Size" option that is
+    // "50ml" or "Sample"; the 2ml decants (£4 to £5, "all our scents are available as 2 ml decants") are
+    // left out by `sizeOption` (a plain millilitre size of 5 or more), so 252 bottle variants remain.
+    // Home Fragrance (58) is left out.
+    //
+    // Sandbox proof, 2026-10-09: `npm run harvest -- --shop=roullier-white --dry-run` read 252 priced listings, all in GBP; 217 of them pass the catalogue's own fragrance test and 139 of those are in stock.
+    //
+    // Affiliate: none found (WebSearch, 2026-10-09). Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      productTypes: ['Perfume'],
+      sizeOption: { name: 'Size', minMl: 5 },
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 6.75,
+      freeOverGbp: 175,
+      estimatedDays: [1, 2],
+      verifiedAt: '2026-10-09',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.roullierwhite.com/pages/delivery-returns',
+        quote:
+          'our shipping charges are: £6.75 for mainland UK deliveries 1-2 Working Days ... We offer free standard mainland UK delivery on orders over £175.',
+        readAt: '2026-10-09',
+      },
+      notes:
+        'Read off the shop\'s own Delivery & Returns page on 2026-10-09 (the apex address redirects to www). ' +
+        'The charge is the same for any order up to 30 kilos. Northern Ireland, the Isle of Man, the Isles ' +
+        'of Scilly and the Highlands are £17 and are not modelled; same day delivery in London is by ' +
+        'phone. The page says perfumes cannot be returned (sold as comestibles); the shop sells 2ml decants ' +
+        'to try first. The banner above every page says "Free UK Delivery on Orders Over £175.00". Nothing ' +
+        'was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.roullierwhite.com/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://www.roullierwhite.com/collections/all?page={page}', tier: 'niche' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'scented-glasgow',
+    name: 'Scented',
+    domain: 'scent-ed.com',
+    homepage: 'https://www.scent-ed.com',
+    tiers: ['niche'],
+    // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch: a Glasgow
+    // niche perfume shop that files perfume by scent family and stocks small independent houses (Imaginary
+    // Authors, Trudon, Arquiste, Jorum Studio, Comme des Garçons, Paraphrase, Notes de Bas de Page). Then
+    // read directly, as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (https://www.scent-ed.com/robots.txt, HTTP 200) is Shopify's newer stock file: product
+    // pages, /products.json and /policies/shipping-policy are not disallowed, no crawl delay for the bot,
+    // a sitemap named. /meta.json: currency GBP, country GB, Glasgow. Page 1 of /products.json read at the
+    // origin and with ?country=GB: no price differs.
+    //
+    // Route: /products.json, 2 pages (377 products). The shop's own product type "Perfume" (270) picks the
+    // perfume out; candles, towels, body oil and hair care are other types. Each has a "Size" option; the
+    // 2ml samples, the "6x 2ml" sample packs and the "150ml Refill" variants are left out by `sizeOption`
+    // (a plain millilitre size of 5 or more). The titles are scent names with the size only in the option
+    // ("Zagorsk Eau de Toilette 50ml" for some, a bare name for most), so the catalogue's concentration
+    // test cannot read them: `fragranceOnlyCatalogue` is set, as for Sainte Cellier, which is safe here
+    // because the product type rule lets nothing but perfume through.
+    //
+    // Affiliate: none found (WebSearch, 2026-10-09). Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      productTypes: ['Perfume'],
+      sizeOption: { name: 'Size', minMl: 5 },
+    },
+    fragranceOnlyCatalogue: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 5,
+      freeOverGbp: 50,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-10-09',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.scent-ed.com/policies/shipping-policy',
+        quote:
+          'Free Shipping: Enjoy free shipping on UK orders over £50. Standard Shipping: Orders under £50 incur a £5.00 shipping fee. Delivery Service: We use Royal Mail 48H tracked service, with an estimated delivery time of 2–4 days from the date of order placement.',
+        readAt: '2026-10-09',
+      },
+      notes:
+        'Read off the shop\'s own Shipping policy page on 2026-10-09 (allowed by its robots.txt). The banner ' +
+        'above every page says "Free UK delivery with orders over £50" and "Complimentary samples with each ' +
+        'order". Nothing was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.scent-ed.com/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://www.scent-ed.com/collections/all?page={page}', tier: 'niche' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
     affiliate: {
       ...NO_AFFILIATE_YET,
       // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named

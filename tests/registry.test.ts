@@ -166,7 +166,13 @@ describe('retailer registry', () => {
     // Store, Bath & Body Works and Fragrancedirect retired at the owner's
     // decision and deleted outright (docs/DECISIONS.md D29). None was enabled,
     // so the enabled count is unchanged and nothing on the site changed.
-    expect(RETAILERS).toHaveLength(80);
+    //
+    // 2026-10-09: 80 becomes 86. Six UK shops found by the second UK search
+    // (docs/RETAILER-CANDIDATES-2026-10-08.md, "Round 2, UK") and read from their
+    // own Shopify /products.json: Rowlands Pharmacy, LloydsPharmacy, Beaute
+    // Boulevard, Scent Warehouse, Roullier White and Scented (Glasgow). All six
+    // are enabled, so the enabled count goes 55 to 61.
+    expect(RETAILERS).toHaveLength(86);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
