@@ -49,6 +49,9 @@ snapshots and reports, and the "deploy" files above).
    lives) are append only memories: the build only adds to them. Never delete or
    change an entry and never reassign a slug, or a published link breaks. See
    `docs/PRODUCT-URLS.md`.
+   `data/note-aliases.json` (which note spellings are one note, and so where an
+   old `/notes/<slug>` now opens) is the same kind of memory, written by people
+   and reviewed, not by the build: append only, see `docs/NOTES-PLAN.md`.
 4. **A new generated file needs a line in `scripts/generated-files.txt`** in
    the same commit (and in `.gitignore` if it is a "deploy" file). Builds write
    through `writeGenerated` (`scripts/generatedFiles.ts`), which refuses an

@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 222,
+ "folded": 224,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -62,6 +62,38 @@
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-back-to-the-roots-eau-de-parfum-3x10-ml",
+   "absorbed": [
+    "set-back-to-the-roots-eau-de-parfum-3x10ml"
+   ],
+   "members": [
+    {
+     "id": "set-back-to-the-roots-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Back to the Roots Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "back roots to",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
+     ]
+    },
+    {
+     "id": "set-back-to-the-roots-eau-de-parfum-3x10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Back to the Roots Eau de Parfum 3x10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "back roots to",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
      ]
     }
    ]
@@ -1806,6 +1838,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3346470148949",
    "absorbed": [
     "set-guerlain-shalimar-gift-set-50ml-edp-75ml-body-lotion-5ml-edp"
@@ -3164,7 +3228,8 @@
      "scent": "armani code",
      "signature": "1x50fragrance|1x75wash",
      "shops": [
-      "perfume-direct"
+      "perfume-direct",
+      "perfumeuk"
      ]
     },
     {
@@ -5951,38 +6016,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8411061092774",
-   "absorbed": [
-    "set-carolina-herrera-good-girl-gift-set-80ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8411061092774",
-     "brand": "Carolina Herrera",
-     "name": "Good Girl Eau de Parfum Women's Gift Set Spray (80ml) with 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8411061092774",
-     "scent": "girl good",
-     "signature": "1x10fragrance|1x80fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-good-girl-gift-set-80ml-edp-10ml-edp",
-     "brand": "Carolina Herrera",
-     "name": "Good Girl Gift Set 80ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "girl good",
-     "signature": "1x10fragrance|1x80fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8411061101841",
    "absorbed": [
     "set-carolina-herrera-212-men-nyc-gift-set-edt-100ml-aftershave-balm-100ml"
@@ -6651,6 +6684,38 @@
    ]
   },
   {
+   "canonical": "set-sparkling-jo-eau-de-parfum-3-x-10ml",
+   "absorbed": [
+    "set-sparkling-jo-eau-de-parfum-3x10-ml"
+   ],
+   "members": [
+    {
+     "id": "set-sparkling-jo-eau-de-parfum-3-x-10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Sparkling Jo Eau de Parfum 3 x 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "jo sparkling",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    },
+    {
+     "id": "set-sparkling-jo-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Sparkling Jo Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "jo sparkling",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-versace-bright-crystal-gift-set-50ml-edt-100ml-body-lotion",
    "absorbed": [
     "set-versace-bright-crystal-gift-set-edt-50ml-body-lotion-100ml"
@@ -6919,6 +6984,49 @@
      "ean": "3616305266125",
      "scent": "ck one",
      "signature": "1x100wash|1x50fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 8411061046081, 8411061092774"
+   ],
+   "members": [
+    {
+     "id": "set-carolina-herrera-good-girl-gift-set-80ml-edp-10ml-edp",
+     "brand": "Carolina Herrera",
+     "name": "Good Girl Gift Set 80ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "girl good",
+     "signature": "1x10fragrance|1x80fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-ean-8411061046081",
+     "brand": "Carolina Herrera",
+     "name": "Good Girl Eau de Parfum 80ml Spray + 10ml Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061046081",
+     "scent": "girl good",
+     "signature": "1x10fragrance|1x80fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-8411061092774",
+     "brand": "Carolina Herrera",
+     "name": "Good Girl Eau de Parfum Women's Gift Set Spray (80ml) with 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061092774",
+     "scent": "girl good",
+     "signature": "1x10fragrance|1x80fragrance",
      "shops": [
       "perfume-direct"
      ]
@@ -8505,6 +8613,63 @@
   },
   {
    "reasons": [
+    "strengths differ: Eau de Parfum, Eau de Toilette",
+    "two different barcodes: 3616303455125, 3616304104701, 3616304678202, 3616304966668",
+    "a shop lists more than one: perfume-direct"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616303455125",
+     "brand": "Calvin Klein",
+     "name": "Eternity For Men Eau de Parfum 100ml + 30ml EDP Spray Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3616303455125",
+     "scent": "eternity",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3616304104701",
+     "brand": "Calvin Klein",
+     "name": "Eternity Eau de Toilette Men's Aftershave Gift Set Spray (100ml & 30ml )",
+     "concentration": "Eau de Toilette",
+     "ean": "3616304104701",
+     "scent": "eternity",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3616304678202",
+     "brand": "Calvin Klein",
+     "name": "Eternity Men's Aftershave Gift Set (100ml EDP + 30ml EDP)",
+     "concentration": "Eau de Parfum",
+     "ean": "3616304678202",
+     "scent": "eternity",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3616304966668",
+     "brand": "Calvin Klein",
+     "name": "Eternity Men's Aftershave Gift Set (100ml EDP + 30ml EDP)",
+     "concentration": "Eau de Parfum",
+     "ean": "3616304966668",
+     "scent": "eternity",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3616303473020, 3616306131606",
     "a shop lists more than one: beautybase"
    ],
@@ -8576,51 +8741,6 @@
      "signature": "1x100fragrance|1x75body|1x75wash",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "strengths differ: Eau de Parfum, Eau de Toilette",
-    "two different barcodes: 3616304104701, 3616304678202, 3616304966668",
-    "a shop lists more than one: perfume-direct"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616304104701",
-     "brand": "Calvin Klein",
-     "name": "Eternity Eau de Toilette Men's Aftershave Gift Set Spray (100ml & 30ml )",
-     "concentration": "Eau de Toilette",
-     "ean": "3616304104701",
-     "scent": "eternity",
-     "signature": "1x100fragrance|1x30fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3616304678202",
-     "brand": "Calvin Klein",
-     "name": "Eternity Men's Aftershave Gift Set (100ml EDP + 30ml EDP)",
-     "concentration": "Eau de Parfum",
-     "ean": "3616304678202",
-     "scent": "eternity",
-     "signature": "1x100fragrance|1x30fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3616304966668",
-     "brand": "Calvin Klein",
-     "name": "Eternity Men's Aftershave Gift Set (100ml EDP + 30ml EDP)",
-     "concentration": "Eau de Parfum",
-     "ean": "3616304966668",
-     "scent": "eternity",
-     "signature": "1x100fragrance|1x30fragrance",
-     "shops": [
-      "perfume-direct"
      ]
     }
    ]
@@ -8998,7 +9118,8 @@
      "scent": "flora gorgeous orchid",
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
-      "fragrance-click"
+      "fragrance-click",
+      "parfumdreams-uk"
      ]
     },
     {
@@ -9345,6 +9466,70 @@
      "signature": "1x30fragrance|1x50body",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 8411061028438, 8411061046241",
+    "a shop lists more than one: paco-perfumerias-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8411061028438",
+     "brand": "Carolina Herrera",
+     "name": "CH Eau De Toilette 100ml Spray 3 Pcs Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8411061028438",
+     "scent": "ch",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-8411061046241",
+     "brand": "Carolina Herrera",
+     "name": "CH Men Eau De Toilette 100ml Spray 3 Pcs Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8411061046241",
+     "scent": "ch",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 8411061028445, 8411061978870",
+    "a shop lists more than one: paco-perfumerias-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8411061028445",
+     "brand": "Carolina Herrera",
+     "name": "212 Vip Black Eau de Parfum 100ml Spray 3 Pcs Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061028445",
+     "scent": "212 black vip",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-8411061978870",
+     "brand": "Carolina Herrera",
+     "name": "212 VIP Black Eau de Parfum 100ml Spray 3 pcs Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061978870",
+     "scent": "212 black vip",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
      ]
     }
    ]

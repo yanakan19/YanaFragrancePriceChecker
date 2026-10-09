@@ -41,6 +41,10 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Also Scent Warehouse, Roullier White, Scented',
         ],
       },
+      {
+        heading: 'Products and Matching',
+        points: ['Notes tidied: one name per ingredient'],
+      },
     ],
   },
   {

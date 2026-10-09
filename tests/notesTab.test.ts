@@ -72,7 +72,7 @@ describe('clean note names (owner request, 6 Oct 2026)', () => {
 
   it('keeps variants as separate notes', () => {
     const names = new Set(NOTE_INDEX.map((n) => n.name.toLowerCase()));
-    for (const pair of [['madagascan vanilla', 'vanilla'], ['sambac jasmine', 'jasmine']]) {
+    for (const pair of [['madagascar vanilla', 'vanilla'], ['jasmine sambac', 'jasmine'], ['blackcurrant leaves', 'blackcurrant'], ['white musk', 'musk']]) {
       for (const name of pair) expect(names.has(name), name).toBe(true);
     }
   });

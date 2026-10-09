@@ -1,0 +1,6736 @@
+{
+ "about": "Reviewed note aliases (owner request, 9 Oct 2026). Each entry says a spelling is the SAME ingredient as another note and is shown under the canonical name everywhere on the site. APPEND ONLY, like data/id-aliases.json: never delete an entry, never change a canonical (a published /notes/<slug> address of a merged spelling redirects to its canonical, so the entry is also that address memory). To add: append to aliases, run the tests, rebuild (npm run catalogue:demo). Origins, parts and accords stay their own notes (keepApart). See docs/NOTES-PAGE-PLAN.md section B.",
+ "version": 1,
+ "kinds": {
+  "plural": "Musks is Musk. A plural is the same ingredient.",
+  "order": "Pepper Pink is Pink Pepper. Word order.",
+  "form": "Absolute, essence, oil, extract, concrete, CO2, resinoid or a supplier label (Orpur, SFE) of X is X.",
+  "country": "Italy Lemon is Italian Lemon. The country and its nationality word.",
+  "spelling": "A misspelling or a variant spelling of one word.",
+  "synonym": "Two names for one material, or filler words around it. The reason says which."
+ },
+ "aliases": [
+  {
+   "variant": "Absinth",
+   "canonical": "Absinthe",
+   "kind": "spelling",
+   "reason": "\"absinth\" is a misspelling of \"absinthe\""
+  },
+  {
+   "variant": "absinthe essence",
+   "canonical": "Absinthe",
+   "kind": "form"
+  },
+  {
+   "variant": "African orange blossom",
+   "canonical": "African Orange Flower",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "African Orange Flowers",
+   "canonical": "African Orange Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "acigalawood",
+   "canonical": "Akigalawood",
+   "kind": "spelling",
+   "reason": "\"acigalawood\" is a misspelling of \"akigalawood\""
+  },
+  {
+   "variant": "Alaskan Cedar",
+   "canonical": "Alaskan Cedarwood",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Aldehydes Accord",
+   "canonical": "Aldehyde Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Aldehyde",
+   "canonical": "Aldehydes",
+   "kind": "plural"
+  },
+  {
+   "variant": "aldenhydes",
+   "canonical": "Aldehydes",
+   "kind": "synonym",
+   "reason": "\"aldenhydes\" is a misspelling of \"aldehydes\""
+  },
+  {
+   "variant": "Aledhydes",
+   "canonical": "Aldehydes",
+   "kind": "synonym",
+   "reason": "\"aledhydes\" is a misspelling of \"aldehydes\""
+  },
+  {
+   "variant": "Natural Aldehyde",
+   "canonical": "Aldehydes",
+   "kind": "form"
+  },
+  {
+   "variant": "Almonds",
+   "canonical": "Almond",
+   "kind": "plural"
+  },
+  {
+   "variant": "Almond Flower",
+   "canonical": "Almond Flowers",
+   "kind": "plural"
+  },
+  {
+   "variant": "Wood of Almond",
+   "canonical": "Almond Wood",
+   "kind": "order"
+  },
+  {
+   "variant": "Aamber",
+   "canonical": "Amber",
+   "kind": "spelling",
+   "reason": "\"aamber\" is a misspelling of \"amber\""
+  },
+  {
+   "variant": "amber accords",
+   "canonical": "Amber Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "amber musks",
+   "canonical": "Amber Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Musk Amber",
+   "canonical": "Amber Musk",
+   "kind": "order"
+  },
+  {
+   "variant": "Amber Resins",
+   "canonical": "Amber Resin",
+   "kind": "plural"
+  },
+  {
+   "variant": "Ambergis",
+   "canonical": "Ambergris",
+   "kind": "spelling",
+   "reason": "\"ambergis\" is a misspelling of \"ambergris\""
+  },
+  {
+   "variant": "Ambergri",
+   "canonical": "Ambergris",
+   "kind": "spelling",
+   "reason": "\"ambergri\" is a misspelling of \"ambergris\""
+  },
+  {
+   "variant": "ambre gris",
+   "canonical": "Ambergris",
+   "kind": "synonym",
+   "reason": "ambergris"
+  },
+  {
+   "variant": "Ambregis",
+   "canonical": "Ambergris",
+   "kind": "spelling",
+   "reason": "\"ambregis\" is a misspelling of \"ambergris\""
+  },
+  {
+   "variant": "Amergris",
+   "canonical": "Ambergris",
+   "kind": "spelling",
+   "reason": "\"amergris\" is a misspelling of \"ambergris\""
+  },
+  {
+   "variant": "Ambergris Accords",
+   "canonical": "Ambergris Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Amber Woods",
+   "canonical": "Amberwood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Ambary",
+   "canonical": "Ambery",
+   "kind": "spelling",
+   "reason": "\"ambary\" is a misspelling of \"ambery\""
+  },
+  {
+   "variant": "Ambery Wood",
+   "canonical": "Ambery Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Ambery Wood Accord",
+   "canonical": "Ambery Woods Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Ambrette Absolute",
+   "canonical": "Ambrette",
+   "kind": "form"
+  },
+  {
+   "variant": "Ambrette seed essence",
+   "canonical": "Ambrette Seed",
+   "kind": "form"
+  },
+  {
+   "variant": "Ambrette Seeds",
+   "canonical": "Ambrette Seed",
+   "kind": "plural"
+  },
+  {
+   "variant": "Amberfix",
+   "canonical": "Ambrofix",
+   "kind": "spelling",
+   "reason": "\"amberfix\" is a misspelling of \"ambrofix\""
+  },
+  {
+   "variant": "Amberofix",
+   "canonical": "Ambrofix",
+   "kind": "spelling",
+   "reason": "\"amberofix\" is a misspelling of \"ambrofix\""
+  },
+  {
+   "variant": "Amboxan",
+   "canonical": "Ambroxan",
+   "kind": "spelling",
+   "reason": "\"amboxan\" is a misspelling of \"ambroxan\""
+  },
+  {
+   "variant": "Ambrox",
+   "canonical": "Ambroxan",
+   "kind": "synonym",
+   "reason": "same molecule"
+  },
+  {
+   "variant": "Ambroxide",
+   "canonical": "Ambroxan",
+   "kind": "synonym",
+   "reason": "ambroxide is ambroxan"
+  },
+  {
+   "variant": "American Cedarwood",
+   "canonical": "American Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Amyris Essence",
+   "canonical": "Amyris",
+   "kind": "form"
+  },
+  {
+   "variant": "Amyris Naturals",
+   "canonical": "Amyris",
+   "kind": "form"
+  },
+  {
+   "variant": "Angelica Essence",
+   "canonical": "Angelica",
+   "kind": "form"
+  },
+  {
+   "variant": "Angelica root essence",
+   "canonical": "Angelica Root",
+   "kind": "form"
+  },
+  {
+   "variant": "Angelica seed oil",
+   "canonical": "Angelica Seed",
+   "kind": "form"
+  },
+  {
+   "variant": "Angelica Seeds",
+   "canonical": "Angelica Seed",
+   "kind": "plural"
+  },
+  {
+   "variant": "Apples",
+   "canonical": "Apple",
+   "kind": "plural"
+  },
+  {
+   "variant": "Apple Blossoms",
+   "canonical": "Apple Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Apricot Blossoms",
+   "canonical": "Apricot Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "AROMATIC ESSENCES",
+   "canonical": "Aromatic",
+   "kind": "form"
+  },
+  {
+   "variant": "Aromatics",
+   "canonical": "Aromatic",
+   "kind": "plural"
+  },
+  {
+   "variant": "Aromatic Accord",
+   "canonical": "Aromatic Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Artemesia",
+   "canonical": "Artemisia",
+   "kind": "spelling",
+   "reason": "\"artemesia\" is a misspelling of \"artemisia\""
+  },
+  {
+   "variant": "Artemisa",
+   "canonical": "Artemisia",
+   "kind": "spelling",
+   "reason": "\"artemisa\" is a misspelling of \"artemisia\""
+  },
+  {
+   "variant": "Artemisia Essence",
+   "canonical": "Artemisia",
+   "kind": "form"
+  },
+  {
+   "variant": "Artimesia",
+   "canonical": "Artemisia",
+   "kind": "spelling",
+   "reason": "\"artimesia\" is a misspelling of \"artemisia\""
+  },
+  {
+   "variant": "Atlas Cedarwood",
+   "canonical": "Atlas Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Atlas cedarwood absolute",
+   "canonical": "Atlas Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cedar Atlas",
+   "canonical": "Atlas Cedar",
+   "kind": "order"
+  },
+  {
+   "variant": "Cedar Atlas Essence",
+   "canonical": "Atlas Cedar",
+   "kind": "form"
+  },
+  {
+   "variant": "Cedarwood Atlas",
+   "canonical": "Atlas Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cedarwood Atlas Orpur",
+   "canonical": "Atlas Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Australian Sandalwood Essential Oil",
+   "canonical": "Australian Sandalwood",
+   "kind": "form"
+  },
+  {
+   "variant": "Organic Essence of Sandalwood Australia",
+   "canonical": "Australian Sandalwood",
+   "kind": "country",
+   "reason": "same wood"
+  },
+  {
+   "variant": "Balsam Absolute",
+   "canonical": "Balsam",
+   "kind": "form"
+  },
+  {
+   "variant": "Balsams",
+   "canonical": "Balsam",
+   "kind": "plural"
+  },
+  {
+   "variant": "Balsam Fir Absolute",
+   "canonical": "Balsam Fir",
+   "kind": "form"
+  },
+  {
+   "variant": "Fir Balsam",
+   "canonical": "Balsam Fir",
+   "kind": "order"
+  },
+  {
+   "variant": "Fir Balsam Absolute",
+   "canonical": "Balsam Fir",
+   "kind": "form"
+  },
+  {
+   "variant": "Belsamic",
+   "canonical": "Balsamic",
+   "kind": "spelling",
+   "reason": "\"belsamic\" is a misspelling of \"balsamic\""
+  },
+  {
+   "variant": "Balsamic Resins",
+   "canonical": "Balsamic resin",
+   "kind": "plural"
+  },
+  {
+   "variant": "Bamboo Leaf",
+   "canonical": "Bamboo leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Basil Oil",
+   "canonical": "Basil",
+   "kind": "form"
+  },
+  {
+   "variant": "Basil Verbena Oil",
+   "canonical": "Basil Verbena",
+   "kind": "form"
+  },
+  {
+   "variant": "Rice Basmati",
+   "canonical": "Basmati rice",
+   "kind": "order"
+  },
+  {
+   "variant": "Bay Leaves",
+   "canonical": "Bay Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Beeswax absolute",
+   "canonical": "Beeswax",
+   "kind": "form"
+  },
+  {
+   "variant": "Belflower",
+   "canonical": "Bellflower",
+   "kind": "spelling",
+   "reason": "\"belflower\" is a misspelling of \"bellflower\""
+  },
+  {
+   "variant": "Benjoin",
+   "canonical": "Benzoin",
+   "kind": "spelling",
+   "reason": "\"benjoin\" is a misspelling of \"benzoin\""
+  },
+  {
+   "variant": "Benzoin absolute",
+   "canonical": "Benzoin",
+   "kind": "form"
+  },
+  {
+   "variant": "Benzoin Resin",
+   "canonical": "Benzoin",
+   "kind": "synonym",
+   "reason": "resin of X is X"
+  },
+  {
+   "variant": "Benzoin Resinoid",
+   "canonical": "Benzoin",
+   "kind": "form"
+  },
+  {
+   "variant": "bezoin",
+   "canonical": "Benzoin",
+   "kind": "spelling",
+   "reason": "\"bezoin\" is a misspelling of \"benzoin\""
+  },
+  {
+   "variant": "Bezoin Absolute",
+   "canonical": "Benzoin",
+   "kind": "spelling",
+   "reason": "\"bezoin\" is a misspelling of \"benzoin\""
+  },
+  {
+   "variant": "Benzoin Laos Orpur",
+   "canonical": "Benzoin Laos",
+   "kind": "form"
+  },
+  {
+   "variant": "Benzoin Resinoid Laos Orpur",
+   "canonical": "Benzoin Laos",
+   "kind": "form"
+  },
+  {
+   "variant": "Resinoid Benzoin Tear",
+   "canonical": "Benzoin Tears",
+   "kind": "form"
+  },
+  {
+   "variant": "Bargamot",
+   "canonical": "Bergamot",
+   "kind": "spelling",
+   "reason": "\"bargamot\" is a misspelling of \"bergamot\""
+  },
+  {
+   "variant": "Begamot",
+   "canonical": "Bergamot",
+   "kind": "spelling",
+   "reason": "\"begamot\" is a misspelling of \"bergamot\""
+  },
+  {
+   "variant": "Bergamont",
+   "canonical": "Bergamot",
+   "kind": "spelling",
+   "reason": "\"bergamont\" is a misspelling of \"bergamot\""
+  },
+  {
+   "variant": "Bergamot Essence",
+   "canonical": "Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Bergamot Essence Oil",
+   "canonical": "Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Bergamot essential oil",
+   "canonical": "Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Bergamot Oil",
+   "canonical": "Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Bergamot Oils",
+   "canonical": "Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Bergamot Peel",
+   "canonical": "Bergamot",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Bergamot Zest",
+   "canonical": "Bergamot",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Bergamote",
+   "canonical": "Bergamot",
+   "kind": "spelling",
+   "reason": "\"bergamote\" is a misspelling of \"bergamot\""
+  },
+  {
+   "variant": "Bergmot",
+   "canonical": "Bergamot",
+   "kind": "spelling",
+   "reason": "\"bergmot\" is a misspelling of \"bergamot\""
+  },
+  {
+   "variant": "Calabrian Bergamot Heart",
+   "canonical": "Bergamot Calabria Heart",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Berry",
+   "canonical": "Berries",
+   "kind": "plural"
+  },
+  {
+   "variant": "Orange Bigarade",
+   "canonical": "Bigarade Orange",
+   "kind": "order"
+  },
+  {
+   "variant": "Birch essence",
+   "canonical": "Birch",
+   "kind": "form"
+  },
+  {
+   "variant": "oil of birch",
+   "canonical": "Birch",
+   "kind": "form"
+  },
+  {
+   "variant": "Birch Leaves",
+   "canonical": "Birch Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Birch tar Essence",
+   "canonical": "Birch tar",
+   "kind": "form"
+  },
+  {
+   "variant": "Birch Tar Essential Oil",
+   "canonical": "Birch tar",
+   "kind": "form"
+  },
+  {
+   "variant": "Birch Tar Oil",
+   "canonical": "Birch tar",
+   "kind": "form"
+  },
+  {
+   "variant": "Birch Woods",
+   "canonical": "Birch wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Biscuits",
+   "canonical": "Biscuit",
+   "kind": "plural"
+  },
+  {
+   "variant": "Bitter Almond Essence",
+   "canonical": "Bitter Almond",
+   "kind": "form"
+  },
+  {
+   "variant": "Bitter Almond Extract",
+   "canonical": "Bitter Almond",
+   "kind": "form"
+  },
+  {
+   "variant": "Bitter Almonds",
+   "canonical": "Bitter Almond",
+   "kind": "plural"
+  },
+  {
+   "variant": "Bitter Orange Oil",
+   "canonical": "Bitter Orange",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Bitter",
+   "canonical": "Bitter Orange",
+   "kind": "order"
+  },
+  {
+   "variant": "Orange Bitter essence",
+   "canonical": "Bitter Orange",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Bitter Orpur",
+   "canonical": "Bitter Orange",
+   "kind": "form"
+  },
+  {
+   "variant": "Bitter Orange Blossoms",
+   "canonical": "Bitter Orange Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Bitter Orange Leaf",
+   "canonical": "Bitter Orange Leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Black Cedarwood",
+   "canonical": "Black Cedars",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Black Cherries",
+   "canonical": "Black Cherry",
+   "kind": "plural"
+  },
+  {
+   "variant": "Blackcurrant blossoms",
+   "canonical": "Black Currant Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Black Musks",
+   "canonical": "Black Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Black Pepper Essence",
+   "canonical": "Black Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Black Pepper Oil",
+   "canonical": "Black Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Black Peppercorn",
+   "canonical": "Black Pepper",
+   "kind": "synonym",
+   "reason": "peppercorn is pepper"
+  },
+  {
+   "variant": "Black Peppercorns",
+   "canonical": "Black Pepper",
+   "kind": "synonym",
+   "reason": "peppercorn is pepper"
+  },
+  {
+   "variant": "Black Peppers",
+   "canonical": "Black Pepper",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pepper oil black",
+   "canonical": "Black Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Black Tea Absolute",
+   "canonical": "Black Tea",
+   "kind": "form"
+  },
+  {
+   "variant": "Black Tea Extract",
+   "canonical": "Black Tea",
+   "kind": "form"
+  },
+  {
+   "variant": "Black Vanilla Extract",
+   "canonical": "Black Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Black Vanilla Pods",
+   "canonical": "Black Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Blackberries",
+   "canonical": "Blackberry",
+   "kind": "plural"
+  },
+  {
+   "variant": "Blackcurrant absolute",
+   "canonical": "Blackcurrant",
+   "kind": "form"
+  },
+  {
+   "variant": "Blackcurrants",
+   "canonical": "Blackcurrant",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cassis",
+   "canonical": "Blackcurrant",
+   "kind": "synonym",
+   "reason": "cassis is blackcurrant"
+  },
+  {
+   "variant": "Blackcurrant Bud Absolute",
+   "canonical": "Blackcurrant Bud",
+   "kind": "form"
+  },
+  {
+   "variant": "Blackcurrant Buds",
+   "canonical": "Blackcurrant Bud",
+   "kind": "plural"
+  },
+  {
+   "variant": "Blackcurrant Buds Absolute",
+   "canonical": "Blackcurrant Bud",
+   "kind": "form"
+  },
+  {
+   "variant": "Cassis Bud",
+   "canonical": "Blackcurrant Bud",
+   "kind": "synonym",
+   "reason": "cassis is blackcurrant"
+  },
+  {
+   "variant": "Cassis Buds",
+   "canonical": "Blackcurrant Bud",
+   "kind": "synonym",
+   "reason": "cassis is blackcurrant"
+  },
+  {
+   "variant": "Black currant flowers",
+   "canonical": "Blackcurrant Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Blackcurrant leaf",
+   "canonical": "Blackcurrant Leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cassis Leaves",
+   "canonical": "Blackcurrant Leaves",
+   "kind": "synonym",
+   "reason": "cassis is blackcurrant"
+  },
+  {
+   "variant": "Blonde tobacco",
+   "canonical": "Blond Tobacco",
+   "kind": "spelling",
+   "reason": "\"blonde\" is a misspelling of \"blond\""
+  },
+  {
+   "variant": "Blond Wood",
+   "canonical": "Blond Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Blonde Wood",
+   "canonical": "Blond Woods",
+   "kind": "spelling",
+   "reason": "\"blonde\" is a misspelling of \"blond\""
+  },
+  {
+   "variant": "Blonde Woods",
+   "canonical": "Blond Woods",
+   "kind": "spelling",
+   "reason": "\"blonde\" is a misspelling of \"blond\""
+  },
+  {
+   "variant": "Blood Oranges",
+   "canonical": "Blood Orange",
+   "kind": "plural"
+  },
+  {
+   "variant": "Blossoms",
+   "canonical": "Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "blueberries",
+   "canonical": "Blueberry",
+   "kind": "plural"
+  },
+  {
+   "variant": "Bois de Gaiac",
+   "canonical": "Bois de Guaïac",
+   "kind": "synonym",
+   "reason": "gaiac typo; guaiac is guaiac wood"
+  },
+  {
+   "variant": "Boronia Absolute",
+   "canonical": "Boronia",
+   "kind": "form"
+  },
+  {
+   "variant": "Bougainvillaea",
+   "canonical": "Bougainvillea",
+   "kind": "spelling",
+   "reason": "\"bougainvillaea\" is a misspelling of \"bougainvillea\""
+  },
+  {
+   "variant": "Geranium Bourbon",
+   "canonical": "Bourbon Geranium",
+   "kind": "order"
+  },
+  {
+   "variant": "Geranium bourbon essence",
+   "canonical": "Bourbon Geranium",
+   "kind": "form"
+  },
+  {
+   "variant": "Bourbon Vanilla Absolute",
+   "canonical": "Bourbon Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla Bourbon",
+   "canonical": "Bourbon Vanilla",
+   "kind": "order"
+  },
+  {
+   "variant": "Vanilla Bourbon Absolute",
+   "canonical": "Bourbon Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla Bourbon extract",
+   "canonical": "Bourbon Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Madagascar Bourbon Vanilla",
+   "canonical": "Bourbon Vanilla Madagascar",
+   "kind": "order"
+  },
+  {
+   "variant": "Vanilla Bourbon Madagascar Extract",
+   "canonical": "Bourbon Vanilla Madagascar",
+   "kind": "form"
+  },
+  {
+   "variant": "Boubon Vetiver",
+   "canonical": "Bourbon Vetiver",
+   "kind": "spelling",
+   "reason": "\"boubon\" is a misspelling of \"bourbon\""
+  },
+  {
+   "variant": "Absolutes of Bran",
+   "canonical": "Bran",
+   "kind": "form"
+  },
+  {
+   "variant": "Brazilian sweet orange",
+   "canonical": "Brazilian Orange",
+   "kind": "synonym",
+   "reason": "sweet orange is orange"
+  },
+  {
+   "variant": "Brazilian Tonka",
+   "canonical": "Brazilian Tonka Beans",
+   "kind": "synonym",
+   "reason": "tonka is the tonka bean"
+  },
+  {
+   "variant": "Brazilian Tonka Bean",
+   "canonical": "Brazilian Tonka Beans",
+   "kind": "plural"
+  },
+  {
+   "variant": "Broom absolute",
+   "canonical": "Broom",
+   "kind": "form"
+  },
+  {
+   "variant": "Absolute Brown Musk",
+   "canonical": "Brown Musk",
+   "kind": "form"
+  },
+  {
+   "variant": "Bulgarian Rose Absolute",
+   "canonical": "Bulgarian Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Bulgarian Rose Essence",
+   "canonical": "Bulgarian Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Bulgarian Rose Oil",
+   "canonical": "Bulgarian Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Bulgarian Roses",
+   "canonical": "Bulgarian Rose",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rose Bulgaria Orpur",
+   "canonical": "Bulgarian Rose",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Rose Oil Bulgaria Orpur",
+   "canonical": "Bulgarian Rose",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Burgundy Blackcurrant Bud Absolute",
+   "canonical": "Burgundy Blackcurrant Buds Absolute",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cocao",
+   "canonical": "Cacao",
+   "kind": "spelling",
+   "reason": "\"cocao\" is a misspelling of \"cacao\""
+  },
+  {
+   "variant": "Cocoa",
+   "canonical": "Cacao",
+   "kind": "synonym",
+   "reason": "cocoa is cacao"
+  },
+  {
+   "variant": "Cocoa Absolute",
+   "canonical": "Cacao",
+   "kind": "synonym",
+   "reason": "cocoa is cacao"
+  },
+  {
+   "variant": "Cocoa Extract",
+   "canonical": "Cacao",
+   "kind": "synonym",
+   "reason": "cocoa is cacao"
+  },
+  {
+   "variant": "Cocoa Nature Print",
+   "canonical": "Cacao Nature Print",
+   "kind": "synonym",
+   "reason": "cocoa is cacao"
+  },
+  {
+   "variant": "Cocao pod",
+   "canonical": "Cacao Pod",
+   "kind": "spelling",
+   "reason": "\"cocao\" is a misspelling of \"cacao\""
+  },
+  {
+   "variant": "cocoa pod",
+   "canonical": "Cacao Pod",
+   "kind": "synonym",
+   "reason": "cocoa is cacao"
+  },
+  {
+   "variant": "Cade essence",
+   "canonical": "Cade",
+   "kind": "form"
+  },
+  {
+   "variant": "Cade Oil",
+   "canonical": "Cade",
+   "kind": "form"
+  },
+  {
+   "variant": "Calabrian Bergamot Essence",
+   "canonical": "Calabrian Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Calabrian Lemon Essence",
+   "canonical": "Calabrian Lemon",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange oil California",
+   "canonical": "California Orange",
+   "kind": "form"
+  },
+  {
+   "variant": "Cambodian Agar wood",
+   "canonical": "Cambodian Oud",
+   "kind": "synonym",
+   "reason": "oud is agarwood"
+  },
+  {
+   "variant": "Cambodian Oudh",
+   "canonical": "Cambodian Oud",
+   "kind": "synonym",
+   "reason": "oud is agarwood"
+  },
+  {
+   "variant": "Camelia",
+   "canonical": "Camellia",
+   "kind": "spelling",
+   "reason": "\"camelia\" is a misspelling of \"camellia\""
+  },
+  {
+   "variant": "Candied Fruit",
+   "canonical": "Candied Fruits",
+   "kind": "plural"
+  },
+  {
+   "variant": "Candied Lemon Zest",
+   "canonical": "Candied Lemon",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Candies",
+   "canonical": "Candy",
+   "kind": "plural"
+  },
+  {
+   "variant": "Caramels",
+   "canonical": "Caramel",
+   "kind": "plural"
+  },
+  {
+   "variant": "Carraway",
+   "canonical": "Caraway",
+   "kind": "spelling",
+   "reason": "\"carraway\" is a misspelling of \"caraway\""
+  },
+  {
+   "variant": "Cardamom absolute",
+   "canonical": "Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Cardamom Co2",
+   "canonical": "Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Cardamom Essence",
+   "canonical": "Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Cardamom essential oil",
+   "canonical": "Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Cardamom Essential Oil Orpur",
+   "canonical": "Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Cardamom Oil",
+   "canonical": "Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Cardamom Orpur",
+   "canonical": "Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Cardamome",
+   "canonical": "Cardamom",
+   "kind": "spelling",
+   "reason": "\"cardamome\" is a misspelling of \"cardamom\""
+  },
+  {
+   "variant": "Cardamon",
+   "canonical": "Cardamom",
+   "kind": "spelling",
+   "reason": "\"cardamon\" is a misspelling of \"cardamom\""
+  },
+  {
+   "variant": "Cardamon Essence",
+   "canonical": "Cardamom",
+   "kind": "spelling",
+   "reason": "\"cardamon\" is a misspelling of \"cardamom\""
+  },
+  {
+   "variant": "Essence of Cardamom",
+   "canonical": "Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Carrot seed",
+   "canonical": "Carrot Seeds",
+   "kind": "plural"
+  },
+  {
+   "variant": "Carrot seed essence",
+   "canonical": "Carrot Seeds",
+   "kind": "form"
+  },
+  {
+   "variant": "Carrot seed oil",
+   "canonical": "Carrot Seeds",
+   "kind": "form"
+  },
+  {
+   "variant": "Cashmere Musks",
+   "canonical": "Cashmere Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cashmere Woods",
+   "canonical": "Cashmere Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cassia oil",
+   "canonical": "Cassia",
+   "kind": "form"
+  },
+  {
+   "variant": "Black Currant Berries",
+   "canonical": "Cassis Berries",
+   "kind": "synonym",
+   "reason": "blackcurrant; cassis is blackcurrant"
+  },
+  {
+   "variant": "Catleya Orchid",
+   "canonical": "Cattleya Orchid",
+   "kind": "spelling",
+   "reason": "\"catleya\" is a misspelling of \"cattleya\""
+  },
+  {
+   "variant": "Cavair",
+   "canonical": "Caviar",
+   "kind": "spelling",
+   "reason": "\"cavair\" is a misspelling of \"caviar\""
+  },
+  {
+   "variant": "Cedar Essence",
+   "canonical": "Cedar",
+   "kind": "form"
+  },
+  {
+   "variant": "Cedarwood",
+   "canonical": "Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cedarwood Essence",
+   "canonical": "Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cedarwood Oil",
+   "canonical": "Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cedarwood Orpur",
+   "canonical": "Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cedar leaf oil",
+   "canonical": "Cedar Leaf",
+   "kind": "form"
+  },
+  {
+   "variant": "Cedar Leaves",
+   "canonical": "Cedar Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cedar wood leaves",
+   "canonical": "Cedar Leaf",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Strong cedarwood",
+   "canonical": "Cedar-Strong",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cedarwood Alaska Essence",
+   "canonical": "Cedarwood Alaska",
+   "kind": "form"
+  },
+  {
+   "variant": "cedar heart",
+   "canonical": "Cedarwood Heart",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Tea Ceylon",
+   "canonical": "Ceylon Tea",
+   "kind": "order"
+  },
+  {
+   "variant": "Camomile",
+   "canonical": "Chamomile",
+   "kind": "synonym",
+   "reason": "camomile is a spelling of chamomile"
+  },
+  {
+   "variant": "Chili",
+   "canonical": "Chilli",
+   "kind": "spelling",
+   "reason": "\"chili\" is a misspelling of \"chilli\""
+  },
+  {
+   "variant": "Chili Pepper",
+   "canonical": "Chilli Pepper",
+   "kind": "spelling",
+   "reason": "\"chili\" is a misspelling of \"chilli\""
+  },
+  {
+   "variant": "Chinese Cedar",
+   "canonical": "Chinese Cedarwood",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cinnamom",
+   "canonical": "Cinnamon",
+   "kind": "spelling",
+   "reason": "\"cinnamom\" is a misspelling of \"cinnamon\""
+  },
+  {
+   "variant": "Cinnamon Essence",
+   "canonical": "Cinnamon",
+   "kind": "form"
+  },
+  {
+   "variant": "Cinnamon Bark essence",
+   "canonical": "Cinnamon Bark",
+   "kind": "form"
+  },
+  {
+   "variant": "Cinnamon Bark Oil",
+   "canonical": "Cinnamon Bark",
+   "kind": "form"
+  },
+  {
+   "variant": "Cinamon leaves",
+   "canonical": "Cinnamon Leaf",
+   "kind": "spelling",
+   "reason": "\"cinamon\" is a misspelling of \"cinnamon\""
+  },
+  {
+   "variant": "Cinnamon Leaves",
+   "canonical": "Cinnamon Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Ciste",
+   "canonical": "Cistus",
+   "kind": "synonym",
+   "reason": "ciste is the French name of cistus"
+  },
+  {
+   "variant": "Ciste Absolute",
+   "canonical": "Cistus",
+   "kind": "synonym",
+   "reason": "ciste is the French name of cistus"
+  },
+  {
+   "variant": "Ciste Oil",
+   "canonical": "Cistus",
+   "kind": "synonym",
+   "reason": "ciste is the French name of cistus"
+  },
+  {
+   "variant": "Cistus Absolute",
+   "canonical": "Cistus",
+   "kind": "form"
+  },
+  {
+   "variant": "Cistus Essence",
+   "canonical": "Cistus",
+   "kind": "form"
+  },
+  {
+   "variant": "Cistus oil",
+   "canonical": "Cistus",
+   "kind": "form"
+  },
+  {
+   "variant": "Cistus Rock Rose",
+   "canonical": "Cistus",
+   "kind": "synonym",
+   "reason": "rock rose is cistus"
+  },
+  {
+   "variant": "Rock Rose",
+   "canonical": "Cistus",
+   "kind": "synonym",
+   "reason": "rock rose is cistus"
+  },
+  {
+   "variant": "rockrose oil",
+   "canonical": "Cistus",
+   "kind": "synonym",
+   "reason": "rock rose is cistus"
+  },
+  {
+   "variant": "Ciste Labdanum",
+   "canonical": "Cistus Labdanum",
+   "kind": "synonym",
+   "reason": "ciste is the French name of cistus"
+  },
+  {
+   "variant": "Cistus labdanum absolute",
+   "canonical": "Cistus Labdanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Cistus labdanum essence",
+   "canonical": "Cistus Labdanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Cistus labdanum resin",
+   "canonical": "Cistus Labdanum",
+   "kind": "synonym",
+   "reason": "resin of X is X"
+  },
+  {
+   "variant": "Labdanum Ciste",
+   "canonical": "Cistus Labdanum",
+   "kind": "synonym",
+   "reason": "ciste is the French name of cistus"
+  },
+  {
+   "variant": "Labdanum Cistus",
+   "canonical": "Cistus Labdanum",
+   "kind": "order"
+  },
+  {
+   "variant": "Cedrat",
+   "canonical": "Citron",
+   "kind": "synonym",
+   "reason": "cedrat is the French name of citron"
+  },
+  {
+   "variant": "Cedrat Essence",
+   "canonical": "Citron",
+   "kind": "synonym",
+   "reason": "cedrat is the French name of citron"
+  },
+  {
+   "variant": "Cedrat oil",
+   "canonical": "Citron",
+   "kind": "synonym",
+   "reason": "cedrat is the French name of citron"
+  },
+  {
+   "variant": "Citron Essence",
+   "canonical": "Citron",
+   "kind": "form"
+  },
+  {
+   "variant": "Citrus essence",
+   "canonical": "Citrus",
+   "kind": "form"
+  },
+  {
+   "variant": "Citruses",
+   "canonical": "Citrus",
+   "kind": "plural"
+  },
+  {
+   "variant": "Citrus Accord",
+   "canonical": "Citrus Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Citrus Fruit",
+   "canonical": "Citrus Fruits",
+   "kind": "plural"
+  },
+  {
+   "variant": "Clary Sage Absolute",
+   "canonical": "Clary Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Clary Sage Essence",
+   "canonical": "Clary Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Clary Sage Essential Oil",
+   "canonical": "Clary Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Clary Sage Oil",
+   "canonical": "Clary Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Essence of Clary Sage",
+   "canonical": "Clary Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Sage Clary",
+   "canonical": "Clary Sage",
+   "kind": "order"
+  },
+  {
+   "variant": "Clean Musks",
+   "canonical": "Clean Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Clove Essence",
+   "canonical": "Clove",
+   "kind": "form"
+  },
+  {
+   "variant": "Clove Oil",
+   "canonical": "Clove",
+   "kind": "form"
+  },
+  {
+   "variant": "Cloves",
+   "canonical": "Clove",
+   "kind": "plural"
+  },
+  {
+   "variant": "Clove Buds",
+   "canonical": "Clove Bud",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cocoa Beans",
+   "canonical": "Cocoa Bean",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cacao Butter",
+   "canonical": "Cocoa Butter",
+   "kind": "synonym",
+   "reason": "cocoa is cacao"
+  },
+  {
+   "variant": "Cocoa Butter Absolute",
+   "canonical": "Cocoa Butter",
+   "kind": "form"
+  },
+  {
+   "variant": "Coconut CO2",
+   "canonical": "Coconut",
+   "kind": "form"
+  },
+  {
+   "variant": "coconut essence",
+   "canonical": "Coconut",
+   "kind": "form"
+  },
+  {
+   "variant": "Coconut Extract",
+   "canonical": "Coconut",
+   "kind": "form"
+  },
+  {
+   "variant": "Coffee Absolute",
+   "canonical": "Coffee",
+   "kind": "form"
+  },
+  {
+   "variant": "Coffee CO2 Extract",
+   "canonical": "Coffee",
+   "kind": "form"
+  },
+  {
+   "variant": "coffee oil essence",
+   "canonical": "Coffee",
+   "kind": "form"
+  },
+  {
+   "variant": "Coffee Flowers",
+   "canonical": "Coffee Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cognac Oil",
+   "canonical": "Cognac",
+   "kind": "form"
+  },
+  {
+   "variant": "Cognac Accords",
+   "canonical": "Cognac Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Coriander Essence",
+   "canonical": "Coriander",
+   "kind": "form"
+  },
+  {
+   "variant": "Corriander",
+   "canonical": "Coriander",
+   "kind": "spelling",
+   "reason": "\"corriander\" is a misspelling of \"coriander\""
+  },
+  {
+   "variant": "Essence of Coriander",
+   "canonical": "Coriander",
+   "kind": "form"
+  },
+  {
+   "variant": "Coriander Leaves",
+   "canonical": "Coriander Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Coriander seed oil",
+   "canonical": "Coriander Seed",
+   "kind": "form"
+  },
+  {
+   "variant": "Coriander Seeds",
+   "canonical": "Coriander Seed",
+   "kind": "plural"
+  },
+  {
+   "variant": "Coriander seeds oil",
+   "canonical": "Coriander Seed",
+   "kind": "form"
+  },
+  {
+   "variant": "Cream Accords",
+   "canonical": "Cream Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Creamy Musks",
+   "canonical": "Creamy Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "creamy woods",
+   "canonical": "Creamy Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Amber Crystal",
+   "canonical": "Crystal Amber",
+   "kind": "order"
+  },
+  {
+   "variant": "Amber Crystals",
+   "canonical": "Crystal Amber",
+   "kind": "order"
+  },
+  {
+   "variant": "Crystal Musks",
+   "canonical": "Crystal Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cumin essence",
+   "canonical": "Cumin",
+   "kind": "form"
+  },
+  {
+   "variant": "Cumin Essential Oil",
+   "canonical": "Cumin",
+   "kind": "form"
+  },
+  {
+   "variant": "currants",
+   "canonical": "Currant",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cylamen",
+   "canonical": "Cyclamen",
+   "kind": "spelling",
+   "reason": "\"cylamen\" is a misspelling of \"cyclamen\""
+  },
+  {
+   "variant": "Cypress Essence",
+   "canonical": "Cypress",
+   "kind": "form"
+  },
+  {
+   "variant": "Cypress Oil",
+   "canonical": "Cypress",
+   "kind": "form"
+  },
+  {
+   "variant": "Cypriol Absolute",
+   "canonical": "Cypriol",
+   "kind": "form"
+  },
+  {
+   "variant": "Cypriol essence",
+   "canonical": "Cypriol",
+   "kind": "form"
+  },
+  {
+   "variant": "Cypriol Oil",
+   "canonical": "Cypriol",
+   "kind": "form"
+  },
+  {
+   "variant": "Nagarmotha",
+   "canonical": "Cypriol",
+   "kind": "synonym",
+   "reason": "nagarmotha is cypriol"
+  },
+  {
+   "variant": "Nagarmotha Oil",
+   "canonical": "Cypriol",
+   "kind": "synonym",
+   "reason": "nagarmotha is cypriol"
+  },
+  {
+   "variant": "Daffodil Absolute",
+   "canonical": "Daffodil",
+   "kind": "form"
+  },
+  {
+   "variant": "daisies",
+   "canonical": "Daisy",
+   "kind": "plural"
+  },
+  {
+   "variant": "Damascena",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Damascena Rose",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Damascena Rose Absolute",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Damascena Rose Absolute THE",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Damascena rose oil",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Damask Rose Absolute",
+   "canonical": "Damask Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "damask rose essence",
+   "canonical": "Damask Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Damask Roses",
+   "canonical": "Damask Rose",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rosa Damascena",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Rosa Damascena Essence",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Rose Damascena",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Rose Damascena Absolute",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Rose Damascena Essence",
+   "canonical": "Damask Rose",
+   "kind": "synonym",
+   "reason": "Damask, Damascena and Rosa damascena are one rose"
+  },
+  {
+   "variant": "Dark wood",
+   "canonical": "Dark Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Dates Accord",
+   "canonical": "Date Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Date",
+   "canonical": "Dates",
+   "kind": "plural"
+  },
+  {
+   "variant": "Date Oil",
+   "canonical": "Dates",
+   "kind": "form"
+  },
+  {
+   "variant": "Davana Essence",
+   "canonical": "Davana",
+   "kind": "form"
+  },
+  {
+   "variant": "Davana Oil",
+   "canonical": "Davana",
+   "kind": "form"
+  },
+  {
+   "variant": "Dey Green Accord",
+   "canonical": "Dewy Green Accord",
+   "kind": "spelling",
+   "reason": "\"dey\" is a misspelling of \"dewy\""
+  },
+  {
+   "variant": "citron of Diamante",
+   "canonical": "Diamante Citron",
+   "kind": "order"
+  },
+  {
+   "variant": "Lavender Diva",
+   "canonical": "Diva Lavender",
+   "kind": "order"
+  },
+  {
+   "variant": "Diva Heart Lavender",
+   "canonical": "Diva Lavender Heart",
+   "kind": "order"
+  },
+  {
+   "variant": "Dried fruits accord",
+   "canonical": "Dried Fruit Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Dried Fruit",
+   "canonical": "Dried Fruits",
+   "kind": "plural"
+  },
+  {
+   "variant": "Amber Dry",
+   "canonical": "Dry Amber",
+   "kind": "order"
+  },
+  {
+   "variant": "Dry Fruit",
+   "canonical": "Dry Fruits",
+   "kind": "plural"
+  },
+  {
+   "variant": "Dry Woods",
+   "canonical": "Dry Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Earthy cedar wood",
+   "canonical": "Earthy Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Earthy Tones",
+   "canonical": "Earthy Tone",
+   "kind": "plural"
+  },
+  {
+   "variant": "ebony woods",
+   "canonical": "Ebony Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Geranium Oil Egypt Orpur",
+   "canonical": "Egyptian Geranium",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Egyptian Jasmin",
+   "canonical": "Egyptian Jasmine",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Egyptian Jasmine Absolute",
+   "canonical": "Egyptian Jasmine",
+   "kind": "form"
+  },
+  {
+   "variant": "Egyptien Jasmine",
+   "canonical": "Egyptian Jasmine",
+   "kind": "spelling",
+   "reason": "\"egyptien\" is a misspelling of \"egyptian\""
+  },
+  {
+   "variant": "Jasmin Egyptian",
+   "canonical": "Egyptian Jasmine",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Jasmine Absolute Egypt Orpur",
+   "canonical": "Egyptian Jasmine",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Jasmine Egypt",
+   "canonical": "Egyptian Jasmine",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Eygptian Pelargonium",
+   "canonical": "Egyptian pelargonium",
+   "kind": "spelling",
+   "reason": "\"eygptian\" is a misspelling of \"egyptian\""
+  },
+  {
+   "variant": "Elemi Essence",
+   "canonical": "Elemi",
+   "kind": "form"
+  },
+  {
+   "variant": "Elemi Oil",
+   "canonical": "Elemi",
+   "kind": "form"
+  },
+  {
+   "variant": "Elemi Resin",
+   "canonical": "Elemi",
+   "kind": "synonym",
+   "reason": "resin of X is X"
+  },
+  {
+   "variant": "Elemi Reson",
+   "canonical": "Elemi",
+   "kind": "synonym",
+   "reason": "\"reson\" is a misspelling of \"resin\"; resin of X is X"
+  },
+  {
+   "variant": "Espresso Bean",
+   "canonical": "Espresso Beans",
+   "kind": "plural"
+  },
+  {
+   "variant": "Eucalyptus Essence",
+   "canonical": "Eucalyptus",
+   "kind": "form"
+  },
+  {
+   "variant": "Exotic Fruit",
+   "canonical": "Exotic Fruits",
+   "kind": "plural"
+  },
+  {
+   "variant": "Fava Tonka Bean Absolute",
+   "canonical": "Fava Tonka",
+   "kind": "synonym",
+   "reason": "tonka is the tonka bean"
+  },
+  {
+   "variant": "Figs",
+   "canonical": "Fig",
+   "kind": "plural"
+  },
+  {
+   "variant": "Fig Leaves",
+   "canonical": "Fig Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Fir Absolute",
+   "canonical": "Fir",
+   "kind": "form"
+  },
+  {
+   "variant": "floral essence",
+   "canonical": "Floral",
+   "kind": "form"
+  },
+  {
+   "variant": "Florals",
+   "canonical": "Floral",
+   "kind": "plural"
+  },
+  {
+   "variant": "Floral Accord",
+   "canonical": "Floral Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Floral Petals",
+   "canonical": "Floral Petal",
+   "kind": "plural"
+  },
+  {
+   "variant": "flower",
+   "canonical": "Flowers",
+   "kind": "plural"
+  },
+  {
+   "variant": "Frangipani Flowers",
+   "canonical": "Frangipani Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Frankincense Absolute",
+   "canonical": "Frankincense",
+   "kind": "form"
+  },
+  {
+   "variant": "frankincense essence",
+   "canonical": "Frankincense",
+   "kind": "form"
+  },
+  {
+   "variant": "Frankincense Oil",
+   "canonical": "Frankincense",
+   "kind": "form"
+  },
+  {
+   "variant": "Frankincense Resinoid",
+   "canonical": "Frankincense",
+   "kind": "form"
+  },
+  {
+   "variant": "Oilbanum",
+   "canonical": "Frankincense",
+   "kind": "synonym",
+   "reason": "olibanum is frankincense"
+  },
+  {
+   "variant": "Olibanum",
+   "canonical": "Frankincense",
+   "kind": "synonym",
+   "reason": "olibanum is frankincense"
+  },
+  {
+   "variant": "Olibanum Essence",
+   "canonical": "Frankincense",
+   "kind": "synonym",
+   "reason": "olibanum is frankincense"
+  },
+  {
+   "variant": "Olibanum Oil",
+   "canonical": "Frankincense",
+   "kind": "synonym",
+   "reason": "olibanum is frankincense"
+  },
+  {
+   "variant": "Olibanum Resin",
+   "canonical": "Frankincense",
+   "kind": "synonym",
+   "reason": "olibanum is frankincense"
+  },
+  {
+   "variant": "Olibanum Resinoid",
+   "canonical": "Frankincense",
+   "kind": "synonym",
+   "reason": "olibanum is frankincense"
+  },
+  {
+   "variant": "Olibanum The",
+   "canonical": "Frankincense",
+   "kind": "synonym",
+   "reason": "olibanum is frankincense"
+  },
+  {
+   "variant": "Fresia",
+   "canonical": "Freesia",
+   "kind": "spelling",
+   "reason": "\"fresia\" is a misspelling of \"freesia\""
+  },
+  {
+   "variant": "Fressia",
+   "canonical": "Freesia",
+   "kind": "spelling",
+   "reason": "\"fressia\" is a misspelling of \"freesia\""
+  },
+  {
+   "variant": "Clary sage French",
+   "canonical": "French Clary Sage",
+   "kind": "order"
+  },
+  {
+   "variant": "Essence of Clary Sage France",
+   "canonical": "French Clary Sage",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "French lavender essence",
+   "canonical": "French lavender",
+   "kind": "form"
+  },
+  {
+   "variant": "French lavender oil",
+   "canonical": "French lavender",
+   "kind": "form"
+  },
+  {
+   "variant": "Lavender France",
+   "canonical": "French lavender",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Absolute of Narcissus France",
+   "canonical": "French Narcissus",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Fresh Accord",
+   "canonical": "Fresh Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Fresh Bergamot Oil",
+   "canonical": "Fresh Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "fresh green accords",
+   "canonical": "Fresh Green Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Fresh Peonies",
+   "canonical": "Fresh Peony",
+   "kind": "plural"
+  },
+  {
+   "variant": "Fresh Woods",
+   "canonical": "Fresh Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Frozen Grapefruit Peel",
+   "canonical": "Frozen Grapefruit",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Fruit",
+   "canonical": "Fruits",
+   "kind": "plural"
+  },
+  {
+   "variant": "Fruity Accords",
+   "canonical": "Fruity Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Galbanum Essence",
+   "canonical": "Galbanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Galbanum Extract",
+   "canonical": "Galbanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Galbanum oil",
+   "canonical": "Galbanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Galbanum Resinoide",
+   "canonical": "Galbanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Gardenia Essence",
+   "canonical": "Gardenia",
+   "kind": "form"
+  },
+  {
+   "variant": "Gardenias",
+   "canonical": "Gardenia",
+   "kind": "plural"
+  },
+  {
+   "variant": "Georgy Woods",
+   "canonical": "Georgywood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Ceranium",
+   "canonical": "Geranium",
+   "kind": "spelling",
+   "reason": "\"ceranium\" is a misspelling of \"geranium\""
+  },
+  {
+   "variant": "Geranium Absolute",
+   "canonical": "Geranium",
+   "kind": "form"
+  },
+  {
+   "variant": "Geranium Essence",
+   "canonical": "Geranium",
+   "kind": "form"
+  },
+  {
+   "variant": "Geranium Essential Oil",
+   "canonical": "Geranium",
+   "kind": "form"
+  },
+  {
+   "variant": "Geranium Oil",
+   "canonical": "Geranium",
+   "kind": "form"
+  },
+  {
+   "variant": "Gernium",
+   "canonical": "Geranium",
+   "kind": "spelling",
+   "reason": "\"gernium\" is a misspelling of \"geranium\""
+  },
+  {
+   "variant": "geranium blossoms",
+   "canonical": "Geranium Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Geranium Leaf",
+   "canonical": "Geranium Leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Geranium Oil Madagascar",
+   "canonical": "Geranium Madagascar",
+   "kind": "form"
+  },
+  {
+   "variant": "Madagascan Geranium",
+   "canonical": "Geranium Madagascar",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Ginger Essence",
+   "canonical": "Ginger",
+   "kind": "form"
+  },
+  {
+   "variant": "Ginger Extract",
+   "canonical": "Ginger",
+   "kind": "form"
+  },
+  {
+   "variant": "Ginger Oil",
+   "canonical": "Ginger",
+   "kind": "form"
+  },
+  {
+   "variant": "Organic Ginger",
+   "canonical": "Ginger",
+   "kind": "form"
+  },
+  {
+   "variant": "Organic Ginger Essence",
+   "canonical": "Ginger",
+   "kind": "form"
+  },
+  {
+   "variant": "SFE ginger extract",
+   "canonical": "Ginger",
+   "kind": "form"
+  },
+  {
+   "variant": "Goji Berry",
+   "canonical": "Goji Berries",
+   "kind": "plural"
+  },
+  {
+   "variant": "Golden Musks",
+   "canonical": "Golden Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Gooseberries",
+   "canonical": "Gooseberry",
+   "kind": "plural"
+  },
+  {
+   "variant": "Gourmand Accords",
+   "canonical": "Gourmand Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Grapefruit Essence",
+   "canonical": "Grapefruit",
+   "kind": "form"
+  },
+  {
+   "variant": "Grapefruit Oil",
+   "canonical": "Grapefruit",
+   "kind": "form"
+  },
+  {
+   "variant": "Grapefruit Peel",
+   "canonical": "Grapefruit",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Grapefruit Zest",
+   "canonical": "Grapefruit",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Grapfruit",
+   "canonical": "Grapefruit",
+   "kind": "spelling",
+   "reason": "\"grapfruit\" is a misspelling of \"grapefruit\""
+  },
+  {
+   "variant": "Graprefruit",
+   "canonical": "Grapefruit",
+   "kind": "spelling",
+   "reason": "\"graprefruit\" is a misspelling of \"grapefruit\""
+  },
+  {
+   "variant": "Grape",
+   "canonical": "Grapes",
+   "kind": "plural"
+  },
+  {
+   "variant": "Grass Oil",
+   "canonical": "Grass",
+   "kind": "form"
+  },
+  {
+   "variant": "Grasse Rose Absolute",
+   "canonical": "Grasse Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Greens",
+   "canonical": "Green",
+   "kind": "plural"
+  },
+  {
+   "variant": "Green accords",
+   "canonical": "Green Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Green Almonds",
+   "canonical": "Green Almond",
+   "kind": "plural"
+  },
+  {
+   "variant": "Bergamot Green Essence",
+   "canonical": "Green Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Green Leaf",
+   "canonical": "Green Leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Green Madarin Essence",
+   "canonical": "Green Mandarin",
+   "kind": "spelling",
+   "reason": "\"madarin\" is a misspelling of \"mandarin\""
+  },
+  {
+   "variant": "Green Mandarin Essence",
+   "canonical": "Green Mandarin",
+   "kind": "form"
+  },
+  {
+   "variant": "Green Peppercorns",
+   "canonical": "Green Pepper",
+   "kind": "synonym",
+   "reason": "peppercorn is pepper"
+  },
+  {
+   "variant": "Green Tea Absolute",
+   "canonical": "Green Tea",
+   "kind": "form"
+  },
+  {
+   "variant": "Green Tea Extract",
+   "canonical": "Green Tea",
+   "kind": "form"
+  },
+  {
+   "variant": "Amber Grey",
+   "canonical": "Grey Amber",
+   "kind": "order"
+  },
+  {
+   "variant": "Gaiac",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "gaiac typo; guaiac wood"
+  },
+  {
+   "variant": "Gaiacwood Essence",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac wood"
+  },
+  {
+   "variant": "Gaiaic wood",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac wood"
+  },
+  {
+   "variant": "Gaïac Wood",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac wood; gaiac typo"
+  },
+  {
+   "variant": "Guaiac",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac is guaiac wood; guaiac wood"
+  },
+  {
+   "variant": "Guaiac Essence",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac is guaiac wood; guaiac wood"
+  },
+  {
+   "variant": "Guaiac oil",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac is guaiac wood; guaiac wood"
+  },
+  {
+   "variant": "Guaiac Woods",
+   "canonical": "Guaiac Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Guaiacwood Essence",
+   "canonical": "Guaiac Wood",
+   "kind": "form"
+  },
+  {
+   "variant": "Guaic wood",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac wood"
+  },
+  {
+   "variant": "Guaicawood",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac wood"
+  },
+  {
+   "variant": "Guaïac Wood Oil",
+   "canonical": "Guaiac Wood",
+   "kind": "form"
+  },
+  {
+   "variant": "Guiacwood",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac wood"
+  },
+  {
+   "variant": "Guiaic wood",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac wood"
+  },
+  {
+   "variant": "gujac wood",
+   "canonical": "Guaiac Wood",
+   "kind": "synonym",
+   "reason": "guaiac wood"
+  },
+  {
+   "variant": "Cardamom Guatemala",
+   "canonical": "Guatemalan Cardamom",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Guatemalan Cardamom Essence",
+   "canonical": "Guatemalan Cardamom",
+   "kind": "form"
+  },
+  {
+   "variant": "Gurjum Balsam",
+   "canonical": "Gurjan Balsam",
+   "kind": "spelling",
+   "reason": "\"gurjum\" is a misspelling of \"gurjan\""
+  },
+  {
+   "variant": "Gurjun Balsam",
+   "canonical": "Gurjan Balsam",
+   "kind": "spelling",
+   "reason": "\"gurjun\" is a misspelling of \"gurjan\""
+  },
+  {
+   "variant": "GUURJAN BALSAM",
+   "canonical": "Gurjan Balsam",
+   "kind": "spelling",
+   "reason": "\"guurjan\" is a misspelling of \"gurjan\""
+  },
+  {
+   "variant": "Haitian Amyris Oil",
+   "canonical": "Haitian amyris",
+   "kind": "form"
+  },
+  {
+   "variant": "Haitian Vertiver",
+   "canonical": "Haitian Vetiver",
+   "kind": "spelling",
+   "reason": "\"vertiver\" is a misspelling of \"vetiver\""
+  },
+  {
+   "variant": "Haitian Vetiver Essence",
+   "canonical": "Haitian Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Haitian vetiver oil",
+   "canonical": "Haitian Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Haitian vetivert",
+   "canonical": "Haitian Vetiver",
+   "kind": "spelling",
+   "reason": "\"vetivert\" is a misspelling of \"vetiver\""
+  },
+  {
+   "variant": "Vetiver essence Haiti",
+   "canonical": "Haitian Vetiver",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Vetiver Haiti",
+   "canonical": "Haitian Vetiver",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Vetiver Oil Haiti",
+   "canonical": "Haitian Vetiver",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Vetiver Oil Haiti Orpur",
+   "canonical": "Haitian Vetiver",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Hawthorne",
+   "canonical": "Hawthorn",
+   "kind": "spelling",
+   "reason": "\"hawthorne\" is a misspelling of \"hawthorn\""
+  },
+  {
+   "variant": "Absolute of Hay",
+   "canonical": "Hay",
+   "kind": "form"
+  },
+  {
+   "variant": "Hay absolute",
+   "canonical": "Hay",
+   "kind": "form"
+  },
+  {
+   "variant": "Hazelnuts",
+   "canonical": "Hazelnut",
+   "kind": "plural"
+  },
+  {
+   "variant": "heart of musk",
+   "canonical": "Heart of Musc",
+   "kind": "synonym",
+   "reason": "musc is French for musk"
+  },
+  {
+   "variant": "Hedion",
+   "canonical": "Hedione",
+   "kind": "spelling",
+   "reason": "\"hedion\" is a misspelling of \"hedione\""
+  },
+  {
+   "variant": "Heliotrop",
+   "canonical": "Heliotrope",
+   "kind": "spelling",
+   "reason": "\"heliotrop\" is a misspelling of \"heliotrope\""
+  },
+  {
+   "variant": "Heliotropem",
+   "canonical": "Heliotrope",
+   "kind": "spelling",
+   "reason": "\"heliotropem\" is a misspelling of \"heliotrope\""
+  },
+  {
+   "variant": "Helioytop",
+   "canonical": "Heliotrope",
+   "kind": "spelling",
+   "reason": "\"helioytop\" is a misspelling of \"heliotrope\""
+  },
+  {
+   "variant": "Heliptrope",
+   "canonical": "Heliotrope",
+   "kind": "spelling",
+   "reason": "\"heliptrope\" is a misspelling of \"heliotrope\""
+  },
+  {
+   "variant": "Helitrope",
+   "canonical": "Heliotrope",
+   "kind": "spelling",
+   "reason": "\"helitrope\" is a misspelling of \"heliotrope\""
+  },
+  {
+   "variant": "Heliotrope Blossoms",
+   "canonical": "Heliotrope Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Heliotrope Flowers",
+   "canonical": "Heliotrope Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "heliotropin",
+   "canonical": "Heliotropine",
+   "kind": "spelling",
+   "reason": "\"heliotropin\" is a misspelling of \"heliotropine\""
+  },
+  {
+   "variant": "Himalayan cedar wood",
+   "canonical": "Himalayan Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "hinoki wood oil",
+   "canonical": "Hinoki Wood",
+   "kind": "form"
+  },
+  {
+   "variant": "Hinoki Woods",
+   "canonical": "Hinoki Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Inoki Wood",
+   "canonical": "Hinoki Wood",
+   "kind": "spelling",
+   "reason": "\"inoki\" is a misspelling of \"hinoki\""
+  },
+  {
+   "variant": "Everlasting Flower",
+   "canonical": "Immortelle",
+   "kind": "synonym",
+   "reason": "same plant"
+  },
+  {
+   "variant": "Everlasting Flower Absolute",
+   "canonical": "Immortelle",
+   "kind": "synonym",
+   "reason": "same plant"
+  },
+  {
+   "variant": "Helichrysum",
+   "canonical": "Immortelle",
+   "kind": "synonym",
+   "reason": "same plant"
+  },
+  {
+   "variant": "Helichrysum Italicum",
+   "canonical": "Immortelle",
+   "kind": "synonym",
+   "reason": "same plant"
+  },
+  {
+   "variant": "Immortelle Absolute",
+   "canonical": "Immortelle",
+   "kind": "form"
+  },
+  {
+   "variant": "Immortelle essence",
+   "canonical": "Immortelle",
+   "kind": "form"
+  },
+  {
+   "variant": "Incense Absolute",
+   "canonical": "Incense",
+   "kind": "form"
+  },
+  {
+   "variant": "Incense Essence",
+   "canonical": "Incense",
+   "kind": "form"
+  },
+  {
+   "variant": "Incense Extract",
+   "canonical": "Incense",
+   "kind": "form"
+  },
+  {
+   "variant": "Incense Resinoid",
+   "canonical": "Incense",
+   "kind": "form"
+  },
+  {
+   "variant": "Resinoid Incense",
+   "canonical": "Incense",
+   "kind": "form"
+  },
+  {
+   "variant": "Cardamom India",
+   "canonical": "Indian Cardamom",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Cardamom Oil India Orpur",
+   "canonical": "Indian Cardamom",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Indian Davana Oil",
+   "canonical": "Indian Davana",
+   "kind": "form"
+  },
+  {
+   "variant": "Indian Sandalwood Essence",
+   "canonical": "Indian Sandalwood",
+   "kind": "form"
+  },
+  {
+   "variant": "Indian Sandalwood Oil",
+   "canonical": "Indian Sandalwood",
+   "kind": "form"
+  },
+  {
+   "variant": "Essence of Nutmeg Indonesia",
+   "canonical": "Indonesian Nutmeg",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Indonesia Patchouli Essence",
+   "canonical": "Indonesian Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Indonesian Patchouli Essence",
+   "canonical": "Indonesian Patchouli",
+   "kind": "form"
+  },
+  {
+   "variant": "Indonesian Patchouli Oil",
+   "canonical": "Indonesian Patchouli",
+   "kind": "form"
+  },
+  {
+   "variant": "Indonesian Patchouli Orpur",
+   "canonical": "Indonesian Patchouli",
+   "kind": "form"
+  },
+  {
+   "variant": "Patchouli Essence Indonesia",
+   "canonical": "Indonesian Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Patchouli Indonesia",
+   "canonical": "Indonesian Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Patchouli Indonesia Essence",
+   "canonical": "Indonesian Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Patchouli Indonesia Oil Orpur",
+   "canonical": "Indonesian Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Patchouli Indonesia Orpur",
+   "canonical": "Indonesian Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Patchouli Oil Indonesia Orpur",
+   "canonical": "Indonesian Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Essence Vetiver Indonesia",
+   "canonical": "Indonesian Vetiver Oil",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Iris Absolute",
+   "canonical": "Iris",
+   "kind": "form"
+  },
+  {
+   "variant": "Iris Concrete",
+   "canonical": "Iris",
+   "kind": "form"
+  },
+  {
+   "variant": "Iris Essence",
+   "canonical": "Iris",
+   "kind": "form"
+  },
+  {
+   "variant": "Iris Natural",
+   "canonical": "Iris",
+   "kind": "form"
+  },
+  {
+   "variant": "Iris flowers",
+   "canonical": "Iris flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pallida Iris concrete",
+   "canonical": "Iris Pallida",
+   "kind": "form"
+  },
+  {
+   "variant": "Bergamot Essence Italy",
+   "canonical": "Italian Bergamot",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Bergamot Italy",
+   "canonical": "Italian Bergamot",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Bergamot Italy Essence",
+   "canonical": "Italian Bergamot",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Bergamot Oil Italy",
+   "canonical": "Italian Bergamot",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Italian Bergamot essence",
+   "canonical": "Italian Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Italian Bergamot Oil",
+   "canonical": "Italian Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Italian Citron",
+   "canonical": "Italian Cedrat",
+   "kind": "synonym",
+   "reason": "cedrat is the French name of citron"
+  },
+  {
+   "variant": "Green Italian Mandarin",
+   "canonical": "Italian green mandarin",
+   "kind": "order"
+  },
+  {
+   "variant": "Italian Lemon Zest",
+   "canonical": "Italian Lemon",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Italy lemon",
+   "canonical": "Italian Lemon",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Lemon Essence Italy",
+   "canonical": "Italian Lemon",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Lemon Italy Essence",
+   "canonical": "Italian Lemon",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Lemon Italy Orpur",
+   "canonical": "Italian Lemon",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Lemon Oil Italy",
+   "canonical": "Italian Lemon",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Italian Mandarin Essence",
+   "canonical": "Italian Mandarin",
+   "kind": "form"
+  },
+  {
+   "variant": "Italian Mandarin Orpur",
+   "canonical": "Italian Mandarin",
+   "kind": "form"
+  },
+  {
+   "variant": "Mandarin Italy Essence",
+   "canonical": "Italian Mandarin",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Italian Sweet Orange",
+   "canonical": "Italian Orange",
+   "kind": "synonym",
+   "reason": "sweet orange is orange"
+  },
+  {
+   "variant": "Italy orange",
+   "canonical": "Italian Orange",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Absolute Jasmine",
+   "canonical": "Jasmine",
+   "kind": "form"
+  },
+  {
+   "variant": "Asmine",
+   "canonical": "Jasmine",
+   "kind": "spelling",
+   "reason": "\"asmine\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Jamine",
+   "canonical": "Jasmine",
+   "kind": "spelling",
+   "reason": "\"jamine\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Jasmin Absolute",
+   "canonical": "Jasmine",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Jasmine Absolute",
+   "canonical": "Jasmine",
+   "kind": "form"
+  },
+  {
+   "variant": "Jasmine Extract",
+   "canonical": "Jasmine",
+   "kind": "form"
+  },
+  {
+   "variant": "Jasmine Blooms",
+   "canonical": "Jasmine Bloom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Grandiflorum Jasmine",
+   "canonical": "Jasmine Grandiflorum",
+   "kind": "order"
+  },
+  {
+   "variant": "Jasmine Grandiflorum Absolute",
+   "canonical": "Jasmine Grandiflorum",
+   "kind": "form"
+  },
+  {
+   "variant": "Superinfusion of Jasmine Grandiflorum",
+   "canonical": "Jasmine Grandiflorum Superinfusion",
+   "kind": "order"
+  },
+  {
+   "variant": "Jasmin Petals",
+   "canonical": "Jasmine Petals",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Jasmine Petal",
+   "canonical": "Jasmine Petals",
+   "kind": "plural"
+  },
+  {
+   "variant": "Jasmin Absolute Sambac",
+   "canonical": "Jasmine Sambac",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\"; sambac is jasmine sambac"
+  },
+  {
+   "variant": "Jasmin Sambac",
+   "canonical": "Jasmine Sambac",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Jasmin Sambac Absolute",
+   "canonical": "Jasmine Sambac",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Jasmine Absolute Sambac",
+   "canonical": "Jasmine Sambac",
+   "kind": "form"
+  },
+  {
+   "variant": "Jasmine Samba",
+   "canonical": "Jasmine Sambac",
+   "kind": "spelling",
+   "reason": "\"samba\" is a misspelling of \"sambac\""
+  },
+  {
+   "variant": "Jasmine Sambac Absolute",
+   "canonical": "Jasmine Sambac",
+   "kind": "form"
+  },
+  {
+   "variant": "Jasmine Sambac Absolutes",
+   "canonical": "Jasmine Sambac",
+   "kind": "form"
+  },
+  {
+   "variant": "Jasmine sambac oil",
+   "canonical": "Jasmine Sambac",
+   "kind": "form"
+  },
+  {
+   "variant": "Jasmine Sambacs",
+   "canonical": "Jasmine Sambac",
+   "kind": "plural"
+  },
+  {
+   "variant": "Natural Jasmine Absolute Sambac",
+   "canonical": "Jasmine Sambac",
+   "kind": "form"
+  },
+  {
+   "variant": "Natural Jasmine Sambac",
+   "canonical": "Jasmine Sambac",
+   "kind": "form"
+  },
+  {
+   "variant": "Sambac",
+   "canonical": "Jasmine Sambac",
+   "kind": "synonym",
+   "reason": "sambac is jasmine sambac"
+  },
+  {
+   "variant": "Sambac Jasmin",
+   "canonical": "Jasmine Sambac",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Sambac Jasmine",
+   "canonical": "Jasmine Sambac",
+   "kind": "order"
+  },
+  {
+   "variant": "Sambac Jasmine Absolute",
+   "canonical": "Jasmine Sambac",
+   "kind": "form"
+  },
+  {
+   "variant": "Sambac Jasmine Essence",
+   "canonical": "Jasmine Sambac",
+   "kind": "form"
+  },
+  {
+   "variant": "Sambac Oil",
+   "canonical": "Jasmine Sambac",
+   "kind": "synonym",
+   "reason": "sambac is jasmine sambac"
+  },
+  {
+   "variant": "Jasmin Superinfusion",
+   "canonical": "Jasmine Superinfusion",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Juniper Essence",
+   "canonical": "Juniper",
+   "kind": "form"
+  },
+  {
+   "variant": "Juniper oil",
+   "canonical": "Juniper",
+   "kind": "form"
+  },
+  {
+   "variant": "Juniper Berries essence",
+   "canonical": "Juniper Berries",
+   "kind": "form"
+  },
+  {
+   "variant": "Juniper Berry",
+   "canonical": "Juniper Berries",
+   "kind": "plural"
+  },
+  {
+   "variant": "Juniper berry essence",
+   "canonical": "Juniper Berries",
+   "kind": "form"
+  },
+  {
+   "variant": "Juniper Berry Oil",
+   "canonical": "Juniper Berries",
+   "kind": "form"
+  },
+  {
+   "variant": "Labdanum Absolute",
+   "canonical": "Labdanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Labdanum resinoid",
+   "canonical": "Labdanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Labdanum Resinoide",
+   "canonical": "Labdanum",
+   "kind": "form"
+  },
+  {
+   "variant": "Ladbdanum",
+   "canonical": "Labdanum",
+   "kind": "spelling",
+   "reason": "\"ladbdanum\" is a misspelling of \"labdanum\""
+  },
+  {
+   "variant": "Laotian Ouds",
+   "canonical": "Laotian Oud",
+   "kind": "plural"
+  },
+  {
+   "variant": "Laurels",
+   "canonical": "Laurel",
+   "kind": "plural"
+  },
+  {
+   "variant": "Lavandin Essence",
+   "canonical": "Lavandin",
+   "kind": "form"
+  },
+  {
+   "variant": "Lavendin",
+   "canonical": "Lavandin",
+   "kind": "synonym",
+   "reason": "typo"
+  },
+  {
+   "variant": "LAVENDIN ESSENCE",
+   "canonical": "Lavandin",
+   "kind": "synonym",
+   "reason": "typo"
+  },
+  {
+   "variant": "Lavander",
+   "canonical": "Lavender",
+   "kind": "spelling",
+   "reason": "\"lavander\" is a misspelling of \"lavender\""
+  },
+  {
+   "variant": "Lavendar",
+   "canonical": "Lavender",
+   "kind": "spelling",
+   "reason": "\"lavendar\" is a misspelling of \"lavender\""
+  },
+  {
+   "variant": "Lavender Absolute",
+   "canonical": "Lavender",
+   "kind": "form"
+  },
+  {
+   "variant": "Lavender Essence",
+   "canonical": "Lavender",
+   "kind": "form"
+  },
+  {
+   "variant": "Lavender Extract",
+   "canonical": "Lavender",
+   "kind": "form"
+  },
+  {
+   "variant": "Lavender Oil",
+   "canonical": "Lavender",
+   "kind": "form"
+  },
+  {
+   "variant": "Organic Lavender",
+   "canonical": "Lavender",
+   "kind": "form"
+  },
+  {
+   "variant": "Lavender Accord",
+   "canonical": "Lavender Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Leather Accords",
+   "canonical": "Leather Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Suede Leather",
+   "canonical": "Leather Suede",
+   "kind": "order"
+  },
+  {
+   "variant": "Vetiver Leather",
+   "canonical": "Leather Vetiver",
+   "kind": "order"
+  },
+  {
+   "variant": "Lebanese White Cedarwood",
+   "canonical": "Lebanese White Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Lemon Essence",
+   "canonical": "Lemon",
+   "kind": "form"
+  },
+  {
+   "variant": "Lemon Oil",
+   "canonical": "Lemon",
+   "kind": "form"
+  },
+  {
+   "variant": "Lemon Oils",
+   "canonical": "Lemon",
+   "kind": "form"
+  },
+  {
+   "variant": "Lemon Orpur",
+   "canonical": "Lemon",
+   "kind": "form"
+  },
+  {
+   "variant": "Lemon Peel",
+   "canonical": "Lemon",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Lemon peel oil",
+   "canonical": "Lemon",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Lemon Zest",
+   "canonical": "Lemon",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Lemons",
+   "canonical": "Lemon",
+   "kind": "plural"
+  },
+  {
+   "variant": "Lemon Leaves",
+   "canonical": "Lemon Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Lemon Primofiore Essence",
+   "canonical": "Lemon Primofiore",
+   "kind": "form"
+  },
+  {
+   "variant": "Primofiore Lemon",
+   "canonical": "Lemon Primofiore",
+   "kind": "order"
+  },
+  {
+   "variant": "Primofiore Lemon Oil",
+   "canonical": "Lemon Primofiore",
+   "kind": "form"
+  },
+  {
+   "variant": "Primofiori Lemon",
+   "canonical": "Lemon Primofiore",
+   "kind": "spelling",
+   "reason": "\"primofiori\" is a misspelling of \"primofiore\""
+  },
+  {
+   "variant": "Lentisc Absolute",
+   "canonical": "Lentisk",
+   "kind": "spelling",
+   "reason": "\"lentisc\" is a misspelling of \"lentisk\""
+  },
+  {
+   "variant": "Lentisk Absolute",
+   "canonical": "Lentisk",
+   "kind": "form"
+  },
+  {
+   "variant": "Lentisque",
+   "canonical": "Lentisk",
+   "kind": "spelling",
+   "reason": "\"lentisque\" is a misspelling of \"lentisk\""
+  },
+  {
+   "variant": "Lentisque Resinoid",
+   "canonical": "Lentisk",
+   "kind": "spelling",
+   "reason": "\"lentisque\" is a misspelling of \"lentisk\""
+  },
+  {
+   "variant": "Absolute Lily",
+   "canonical": "Lily",
+   "kind": "form"
+  },
+  {
+   "variant": "Lilies",
+   "canonical": "Lily",
+   "kind": "plural"
+  },
+  {
+   "variant": "Lilly",
+   "canonical": "Lily",
+   "kind": "synonym",
+   "reason": "typo"
+  },
+  {
+   "variant": "Lilly of the Valley",
+   "canonical": "Lily of the Valley",
+   "kind": "synonym",
+   "reason": "typo"
+  },
+  {
+   "variant": "Lily of Valley",
+   "canonical": "Lily of the Valley",
+   "kind": "plural"
+  },
+  {
+   "variant": "Lime essence",
+   "canonical": "Lime",
+   "kind": "form"
+  },
+  {
+   "variant": "Lime Oil",
+   "canonical": "Lime",
+   "kind": "form"
+  },
+  {
+   "variant": "Blackcurrant Liqueur",
+   "canonical": "Liqueur de Cassis",
+   "kind": "synonym",
+   "reason": "cassis is blackcurrant"
+  },
+  {
+   "variant": "Liquer de Cassis",
+   "canonical": "Liqueur de Cassis",
+   "kind": "spelling",
+   "reason": "\"liquer\" is a misspelling of \"liqueur\"; cassis is blackcurrant"
+  },
+  {
+   "variant": "Licorice",
+   "canonical": "Liquorice",
+   "kind": "synonym",
+   "reason": "licorice is the US spelling of liquorice"
+  },
+  {
+   "variant": "liquorice absolute",
+   "canonical": "Liquorice",
+   "kind": "form"
+  },
+  {
+   "variant": "Living Jasmin",
+   "canonical": "Living jasmine",
+   "kind": "spelling",
+   "reason": "\"jasmin\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Lotus Blossoms",
+   "canonical": "Lotus Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Lotus Flowers",
+   "canonical": "Lotus Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Lush Green Accords",
+   "canonical": "Lush Green Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Lush Green",
+   "canonical": "Lush Greens",
+   "kind": "plural"
+  },
+  {
+   "variant": "Litchi",
+   "canonical": "Lychee",
+   "kind": "synonym",
+   "reason": "litchi is a spelling of lychee"
+  },
+  {
+   "variant": "Macarons",
+   "canonical": "Macaron",
+   "kind": "plural"
+  },
+  {
+   "variant": "Madagascan Black Pepper Essence",
+   "canonical": "Madagascan Black Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Madagascar Cinnamon",
+   "canonical": "Madagascan Cinnamon",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Patchouli Madagascar Oil",
+   "canonical": "Madagascan Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Patchouli Oil Madagascar",
+   "canonical": "Madagascan Patchouli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Madagascar Pink Pepper Essence",
+   "canonical": "Madagascan Pink Pepper",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Madagascar ylang-ylang",
+   "canonical": "Madagascan Ylang Ylang",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Organic Madagascan Ylang-Ylang",
+   "canonical": "Madagascan Ylang Ylang",
+   "kind": "form"
+  },
+  {
+   "variant": "Ylang Ylang Oil Madagascar",
+   "canonical": "Madagascan Ylang Ylang",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Madagascan Vanilla",
+   "canonical": "Madagascar Vanilla",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Madagascan Vanilla Absolute",
+   "canonical": "Madagascar Vanilla",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Madagascan Vanilla Bean",
+   "canonical": "Madagascar Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Madagascan Vanilla Extract",
+   "canonical": "Madagascar Vanilla",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Madagascan Vanilla Pod",
+   "canonical": "Madagascar Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Madagascar Vanilla Absolute",
+   "canonical": "Madagascar Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Madagascar Vanilla Beans",
+   "canonical": "Madagascar Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Madagascar Vanilla Orpur",
+   "canonical": "Madagascar Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla Beans of Madagascar",
+   "canonical": "Madagascar Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Vanilla Extract Madagascar",
+   "canonical": "Madagascar Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla Madagascar",
+   "canonical": "Madagascar Vanilla",
+   "kind": "order"
+  },
+  {
+   "variant": "Vanilla Madasgascar",
+   "canonical": "Madagascar Vanilla",
+   "kind": "spelling",
+   "reason": "\"madasgascar\" is a misspelling of \"madagascar\""
+  },
+  {
+   "variant": "Vanilla Magagascar",
+   "canonical": "Madagascar Vanilla",
+   "kind": "spelling",
+   "reason": "\"magagascar\" is a misspelling of \"madagascar\""
+  },
+  {
+   "variant": "Vetiver Oil Madagascar",
+   "canonical": "Madagascar Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Magnolan",
+   "canonical": "Magnolia",
+   "kind": "spelling",
+   "reason": "\"magnolan\" is a misspelling of \"magnolia\""
+  },
+  {
+   "variant": "Magnolia essence",
+   "canonical": "Magnolia",
+   "kind": "form"
+  },
+  {
+   "variant": "Magnolia Oil",
+   "canonical": "Magnolia",
+   "kind": "form"
+  },
+  {
+   "variant": "Magnolia Flower Absolute",
+   "canonical": "Magnolia Flower",
+   "kind": "form"
+  },
+  {
+   "variant": "Magnolia Flower Essence",
+   "canonical": "Magnolia Flower",
+   "kind": "form"
+  },
+  {
+   "variant": "Magnolia Flowers",
+   "canonical": "Magnolia Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Magnolia Leaf",
+   "canonical": "Magnolia Leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Madarin Orange",
+   "canonical": "Mandarin",
+   "kind": "synonym",
+   "reason": "\"madarin\" is a misspelling of \"mandarin\"; mandarin orange is mandarin"
+  },
+  {
+   "variant": "Mandardin",
+   "canonical": "Mandarin",
+   "kind": "spelling",
+   "reason": "\"mandardin\" is a misspelling of \"mandarin\""
+  },
+  {
+   "variant": "Mandarin Essence",
+   "canonical": "Mandarin",
+   "kind": "form"
+  },
+  {
+   "variant": "Mandarin Oil",
+   "canonical": "Mandarin",
+   "kind": "form"
+  },
+  {
+   "variant": "Mandarin Orange",
+   "canonical": "Mandarin",
+   "kind": "synonym",
+   "reason": "mandarin orange is mandarin"
+  },
+  {
+   "variant": "Mandarin orange oil",
+   "canonical": "Mandarin",
+   "kind": "synonym",
+   "reason": "mandarin orange is mandarin"
+  },
+  {
+   "variant": "Mandarin Oranges",
+   "canonical": "Mandarin",
+   "kind": "synonym",
+   "reason": "mandarin orange is mandarin"
+  },
+  {
+   "variant": "Mandarin Zest",
+   "canonical": "Mandarin",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Mandarine",
+   "canonical": "Mandarin",
+   "kind": "spelling",
+   "reason": "\"mandarine\" is a misspelling of \"mandarin\""
+  },
+  {
+   "variant": "Mandarine Essence",
+   "canonical": "Mandarin",
+   "kind": "spelling",
+   "reason": "\"mandarine\" is a misspelling of \"mandarin\""
+  },
+  {
+   "variant": "Mandarins",
+   "canonical": "Mandarin",
+   "kind": "plural"
+  },
+  {
+   "variant": "Mardarin Orange",
+   "canonical": "Mandarin",
+   "kind": "synonym",
+   "reason": "\"mardarin\" is a misspelling of \"mandarin\"; mandarin orange is mandarin"
+  },
+  {
+   "variant": "Mandarin Leaves",
+   "canonical": "Mandarin Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Mango Accords",
+   "canonical": "Mango Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Marin Accord",
+   "canonical": "Marine Accord",
+   "kind": "spelling",
+   "reason": "\"marin\" is a misspelling of \"marine\""
+  },
+  {
+   "variant": "Marine Accod",
+   "canonical": "Marine Accord",
+   "kind": "spelling",
+   "reason": "\"accod\" is a misspelling of \"accord\""
+  },
+  {
+   "variant": "Marine Accords",
+   "canonical": "Marine Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Mate Absolute",
+   "canonical": "Mate",
+   "kind": "form"
+  },
+  {
+   "variant": "Mate Oil",
+   "canonical": "Mate",
+   "kind": "form"
+  },
+  {
+   "variant": "Maté tea absolute",
+   "canonical": "Mate Tea",
+   "kind": "form"
+  },
+  {
+   "variant": "Centifolia Rose",
+   "canonical": "May Rose",
+   "kind": "synonym",
+   "reason": "May Rose, Rose de Mai and Centifolia are one rose (Rosa centifolia)"
+  },
+  {
+   "variant": "Centifolia Rose Absolute",
+   "canonical": "May Rose",
+   "kind": "synonym",
+   "reason": "May Rose, Rose de Mai and Centifolia are one rose (Rosa centifolia)"
+  },
+  {
+   "variant": "Rosa Centifolia Absolute",
+   "canonical": "May Rose",
+   "kind": "synonym",
+   "reason": "May Rose, Rose de Mai and Centifolia are one rose (Rosa centifolia)"
+  },
+  {
+   "variant": "Rose Centifolia",
+   "canonical": "May Rose",
+   "kind": "synonym",
+   "reason": "May Rose, Rose de Mai and Centifolia are one rose (Rosa centifolia)"
+  },
+  {
+   "variant": "Rose Centifolia Absolute",
+   "canonical": "May Rose",
+   "kind": "synonym",
+   "reason": "May Rose, Rose de Mai and Centifolia are one rose (Rosa centifolia)"
+  },
+  {
+   "variant": "Rose de Mai",
+   "canonical": "May Rose",
+   "kind": "synonym",
+   "reason": "May Rose, Rose de Mai and Centifolia are one rose (Rosa centifolia)"
+  },
+  {
+   "variant": "Rose de Mai Absolute",
+   "canonical": "May Rose",
+   "kind": "synonym",
+   "reason": "May Rose, Rose de Mai and Centifolia are one rose (Rosa centifolia)"
+  },
+  {
+   "variant": "Mexican Lime Essence",
+   "canonical": "Mexican Lime",
+   "kind": "form"
+  },
+  {
+   "variant": "Mimosa Absolute",
+   "canonical": "Mimosa",
+   "kind": "form"
+  },
+  {
+   "variant": "Mimose",
+   "canonical": "Mimosa",
+   "kind": "spelling",
+   "reason": "\"mimose\" is a misspelling of \"mimosa\""
+  },
+  {
+   "variant": "Mimosa Flower",
+   "canonical": "Mimosa Flowers",
+   "kind": "plural"
+  },
+  {
+   "variant": "Mineral",
+   "canonical": "Minerals",
+   "kind": "plural"
+  },
+  {
+   "variant": "Mint Absolute",
+   "canonical": "Mint",
+   "kind": "form"
+  },
+  {
+   "variant": "Mint Essence",
+   "canonical": "Mint",
+   "kind": "form"
+  },
+  {
+   "variant": "Mint Oil",
+   "canonical": "Mint",
+   "kind": "form"
+  },
+  {
+   "variant": "Mint leaf",
+   "canonical": "Mint Leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Plum Mirabelle",
+   "canonical": "Mirabelle Plum",
+   "kind": "order"
+  },
+  {
+   "variant": "Monoi Oil",
+   "canonical": "Monoi",
+   "kind": "form"
+  },
+  {
+   "variant": "Moroccan Jasmine Absolute",
+   "canonical": "Moroccan Jasmine",
+   "kind": "form"
+  },
+  {
+   "variant": "Morrocan Jasmine",
+   "canonical": "Moroccan Jasmine",
+   "kind": "spelling",
+   "reason": "\"morrocan\" is a misspelling of \"moroccan\""
+  },
+  {
+   "variant": "Moroccan Orange Blossom Absolute",
+   "canonical": "Moroccan Orange Flower",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Moroccan Orange Flower Absolute",
+   "canonical": "Moroccan Orange Flower",
+   "kind": "form"
+  },
+  {
+   "variant": "Moroccan Orange Flowers",
+   "canonical": "Moroccan Orange Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Orange Flower Absolute Morocco",
+   "canonical": "Moroccan Orange Flower",
+   "kind": "country",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Morrocan rose absolute",
+   "canonical": "Moroccan Rose",
+   "kind": "spelling",
+   "reason": "\"morrocan\" is a misspelling of \"moroccan\""
+  },
+  {
+   "variant": "Mosses",
+   "canonical": "Moss",
+   "kind": "plural"
+  },
+  {
+   "variant": "Crystal Moss",
+   "canonical": "Moss Crystal",
+   "kind": "order"
+  },
+  {
+   "variant": "Musc",
+   "canonical": "Musk",
+   "kind": "synonym",
+   "reason": "musc is French for musk"
+  },
+  {
+   "variant": "Musks",
+   "canonical": "Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Musks Accord",
+   "canonical": "Musk Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Musc Ambrette",
+   "canonical": "Musk Ambrette",
+   "kind": "synonym",
+   "reason": "musc is French for musk"
+  },
+  {
+   "variant": "Myrrh Absolute",
+   "canonical": "Myrrh",
+   "kind": "form"
+  },
+  {
+   "variant": "Myrrh essence",
+   "canonical": "Myrrh",
+   "kind": "form"
+  },
+  {
+   "variant": "Myrrh Oil",
+   "canonical": "Myrrh",
+   "kind": "form"
+  },
+  {
+   "variant": "Myrrh Orpur",
+   "canonical": "Myrrh",
+   "kind": "form"
+  },
+  {
+   "variant": "Myrrh Resinoid",
+   "canonical": "Myrrh",
+   "kind": "form"
+  },
+  {
+   "variant": "Myrrh Resinoid Orpur",
+   "canonical": "Myrrh",
+   "kind": "form"
+  },
+  {
+   "variant": "Myrtle Oil",
+   "canonical": "Myrtle",
+   "kind": "form"
+  },
+  {
+   "variant": "Sandalwood Mysore",
+   "canonical": "Mysore Sandalwood",
+   "kind": "order"
+  },
+  {
+   "variant": "Narcissis",
+   "canonical": "Narcissus",
+   "kind": "spelling",
+   "reason": "\"narcissis\" is a misspelling of \"narcissus\""
+  },
+  {
+   "variant": "Narcissus absolute",
+   "canonical": "Narcissus",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Natsource Upcycled Orpur",
+   "canonical": "Natsource Upcycled Rose Orpur",
+   "kind": "order"
+  },
+  {
+   "variant": "Neroli Essence",
+   "canonical": "Neroli",
+   "kind": "form"
+  },
+  {
+   "variant": "Neroli Oil",
+   "canonical": "Neroli",
+   "kind": "form"
+  },
+  {
+   "variant": "Neroli Blossom",
+   "canonical": "Neroli Blossoms",
+   "kind": "plural"
+  },
+  {
+   "variant": "Neroli Bud Essence",
+   "canonical": "Neroli Bud",
+   "kind": "form"
+  },
+  {
+   "variant": "Neroli buds",
+   "canonical": "Neroli Bud",
+   "kind": "plural"
+  },
+  {
+   "variant": "Night Blooming Jamine",
+   "canonical": "Night Blooming Jasmine",
+   "kind": "spelling",
+   "reason": "\"jamine\" is a misspelling of \"jasmine\""
+  },
+  {
+   "variant": "Nuts",
+   "canonical": "Nut",
+   "kind": "plural"
+  },
+  {
+   "variant": "Nugmeg",
+   "canonical": "Nutmeg",
+   "kind": "spelling",
+   "reason": "\"nugmeg\" is a misspelling of \"nutmeg\""
+  },
+  {
+   "variant": "Nutmeg Essence",
+   "canonical": "Nutmeg",
+   "kind": "form"
+  },
+  {
+   "variant": "Nutmeg Oil",
+   "canonical": "Nutmeg",
+   "kind": "form"
+  },
+  {
+   "variant": "Oak Absolute",
+   "canonical": "Oak",
+   "kind": "form"
+  },
+  {
+   "variant": "Oakmoss Absolute",
+   "canonical": "Oakmoss",
+   "kind": "form"
+  },
+  {
+   "variant": "Oakmoss Extract",
+   "canonical": "Oakmoss",
+   "kind": "form"
+  },
+  {
+   "variant": "Oak wood extract",
+   "canonical": "Oakwood",
+   "kind": "form"
+  },
+  {
+   "variant": "Oakwood CO2",
+   "canonical": "Oakwood",
+   "kind": "form"
+  },
+  {
+   "variant": "Olive Blossoms",
+   "canonical": "Olive Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Opononax",
+   "canonical": "Opoponax",
+   "kind": "spelling",
+   "reason": "\"opononax\" is a misspelling of \"opoponax\""
+  },
+  {
+   "variant": "Opopanax",
+   "canonical": "Opoponax",
+   "kind": "spelling",
+   "reason": "\"opopanax\" is a misspelling of \"opoponax\""
+  },
+  {
+   "variant": "Opopanax Resinoid",
+   "canonical": "Opoponax",
+   "kind": "spelling",
+   "reason": "\"opopanax\" is a misspelling of \"opoponax\""
+  },
+  {
+   "variant": "Orange Absolute",
+   "canonical": "Orange",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Essence",
+   "canonical": "Orange",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Oil",
+   "canonical": "Orange",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Peel",
+   "canonical": "Orange",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Orange Zest",
+   "canonical": "Orange",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "oranges",
+   "canonical": "Orange",
+   "kind": "plural"
+  },
+  {
+   "variant": "Sweet Orange",
+   "canonical": "Orange",
+   "kind": "synonym",
+   "reason": "sweet orange is orange"
+  },
+  {
+   "variant": "Blossom orange",
+   "canonical": "Orange Blossom",
+   "kind": "order"
+  },
+  {
+   "variant": "Orange Blossom Absolute",
+   "canonical": "Orange Blossom",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Blossom Essence",
+   "canonical": "Orange Blossom",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Blossoms",
+   "canonical": "Orange Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Orange Blosson",
+   "canonical": "Orange Blossom",
+   "kind": "spelling",
+   "reason": "\"blosson\" is a misspelling of \"blossom\"; orange flower is orange blossom"
+  },
+  {
+   "variant": "Orange Flower",
+   "canonical": "Orange Blossom",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Orange Flower Absolute",
+   "canonical": "Orange Blossom",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Orange Flowers",
+   "canonical": "Orange Blossom",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Orange Tree Blossom",
+   "canonical": "Orange Blossom",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Orange Tree Blossom Extract",
+   "canonical": "Orange Blossom",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Sweet Orange Blossom",
+   "canonical": "Orange Blossom",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom; sweet orange is orange"
+  },
+  {
+   "variant": "Orange Blossom Absolute Accord",
+   "canonical": "Orange Blossom Accord",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Flower Accord",
+   "canonical": "Orange Blossom Accord",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Orange blossom flower",
+   "canonical": "Orange Blossom Flowers",
+   "kind": "plural"
+  },
+  {
+   "variant": "Orange Blossom Water Absolute",
+   "canonical": "Orange Blossom Water",
+   "kind": "form"
+  },
+  {
+   "variant": "Orange Flower Water",
+   "canonical": "Orange Blossom Water",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Orange Blossom Petals",
+   "canonical": "Orange Flower Petals",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Orange Leaves",
+   "canonical": "Orange Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Orange Leaves Absolute",
+   "canonical": "Orange Leaf",
+   "kind": "form"
+  },
+  {
+   "variant": "Orchid Absolute",
+   "canonical": "Orchid",
+   "kind": "form"
+  },
+  {
+   "variant": "Orchid Oil",
+   "canonical": "Orchid",
+   "kind": "form"
+  },
+  {
+   "variant": "Orchids",
+   "canonical": "Orchid",
+   "kind": "plural"
+  },
+  {
+   "variant": "Oriental Accords",
+   "canonical": "Oriental Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Iris Root",
+   "canonical": "Orris",
+   "kind": "synonym",
+   "reason": "iris root is orris"
+  },
+  {
+   "variant": "Orris Absolute",
+   "canonical": "Orris",
+   "kind": "form"
+  },
+  {
+   "variant": "Orris Concrete",
+   "canonical": "Orris",
+   "kind": "form"
+  },
+  {
+   "variant": "Orris Root",
+   "canonical": "Orris",
+   "kind": "synonym",
+   "reason": "orris is the root"
+  },
+  {
+   "variant": "Iris butter",
+   "canonical": "Orris Butter",
+   "kind": "synonym",
+   "reason": "iris butter is orris butter"
+  },
+  {
+   "variant": "Osmanthus Absolute",
+   "canonical": "Osmanthus",
+   "kind": "form"
+  },
+  {
+   "variant": "Osmanthus extract",
+   "canonical": "Osmanthus",
+   "kind": "form"
+  },
+  {
+   "variant": "Agarwood",
+   "canonical": "Oud",
+   "kind": "synonym",
+   "reason": "oud is agarwood"
+  },
+  {
+   "variant": "Agarwood Oil",
+   "canonical": "Oud",
+   "kind": "synonym",
+   "reason": "oud is agarwood"
+  },
+  {
+   "variant": "Agarwood Oud",
+   "canonical": "Oud",
+   "kind": "synonym",
+   "reason": "oud is agarwood"
+  },
+  {
+   "variant": "Natural Agarwood",
+   "canonical": "Oud",
+   "kind": "synonym",
+   "reason": "oud is agarwood"
+  },
+  {
+   "variant": "Natural Oud",
+   "canonical": "Oud",
+   "kind": "form"
+  },
+  {
+   "variant": "Oud essence",
+   "canonical": "Oud",
+   "kind": "form"
+  },
+  {
+   "variant": "Oud oil",
+   "canonical": "Oud",
+   "kind": "form"
+  },
+  {
+   "variant": "Oudh",
+   "canonical": "Oud",
+   "kind": "synonym",
+   "reason": "oud is agarwood"
+  },
+  {
+   "variant": "Oud Assafi Essence",
+   "canonical": "Oud Assafi",
+   "kind": "form"
+  },
+  {
+   "variant": "Palm Leaves",
+   "canonical": "Palm Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Salo Santo",
+   "canonical": "Palo Santo",
+   "kind": "spelling",
+   "reason": "\"salo\" is a misspelling of \"palo\""
+  },
+  {
+   "variant": "Panacotta",
+   "canonical": "Pannacotta",
+   "kind": "spelling",
+   "reason": "\"panacotta\" is a misspelling of \"pannacotta\""
+  },
+  {
+   "variant": "Papyrus Wood Essence",
+   "canonical": "Papyrus Wood",
+   "kind": "form"
+  },
+  {
+   "variant": "Absolute Patchouli",
+   "canonical": "Patchouli",
+   "kind": "form"
+  },
+  {
+   "variant": "Parchouli",
+   "canonical": "Patchouli",
+   "kind": "spelling",
+   "reason": "\"parchouli\" is a misspelling of \"patchouli\""
+  },
+  {
+   "variant": "Patchoul",
+   "canonical": "Patchouli",
+   "kind": "spelling",
+   "reason": "\"patchoul\" is a misspelling of \"patchouli\""
+  },
+  {
+   "variant": "Patchouli Essence",
+   "canonical": "Patchouli",
+   "kind": "form"
+  },
+  {
+   "variant": "Patchouli Essential Oil",
+   "canonical": "Patchouli",
+   "kind": "form"
+  },
+  {
+   "variant": "Patchouli Oil",
+   "canonical": "Patchouli",
+   "kind": "form"
+  },
+  {
+   "variant": "Patchoulli",
+   "canonical": "Patchouli",
+   "kind": "spelling",
+   "reason": "\"patchoulli\" is a misspelling of \"patchouli\""
+  },
+  {
+   "variant": "Patchouly",
+   "canonical": "Patchouli",
+   "kind": "spelling",
+   "reason": "\"patchouly\" is a misspelling of \"patchouli\""
+  },
+  {
+   "variant": "Patchouly Essence",
+   "canonical": "Patchouli",
+   "kind": "spelling",
+   "reason": "\"patchouly\" is a misspelling of \"patchouli\""
+  },
+  {
+   "variant": "Patcouly",
+   "canonical": "Patchouli",
+   "kind": "spelling",
+   "reason": "\"patcouly\" is a misspelling of \"patchouli\""
+  },
+  {
+   "variant": "Pathcouli",
+   "canonical": "Patchouli",
+   "kind": "spelling",
+   "reason": "\"pathcouli\" is a misspelling of \"patchouli\""
+  },
+  {
+   "variant": "Patchouli Coeur Orpur Essence",
+   "canonical": "Patchouli Coeur",
+   "kind": "form"
+  },
+  {
+   "variant": "Heart of Patchouli Essence",
+   "canonical": "Patchouli Heart",
+   "kind": "form"
+  },
+  {
+   "variant": "Patchouli Heart Essence",
+   "canonical": "Patchouli Heart",
+   "kind": "form"
+  },
+  {
+   "variant": "Leaves of Patchouli",
+   "canonical": "Patchouli Leaves",
+   "kind": "order"
+  },
+  {
+   "variant": "Patchouli Leaf",
+   "canonical": "Patchouli Leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Patchouli Leaves Essence",
+   "canonical": "Patchouli Leaves",
+   "kind": "form"
+  },
+  {
+   "variant": "Peach Extract",
+   "canonical": "Peach",
+   "kind": "form"
+  },
+  {
+   "variant": "Peach Orpur",
+   "canonical": "Peach",
+   "kind": "form"
+  },
+  {
+   "variant": "Peaches",
+   "canonical": "Peach",
+   "kind": "plural"
+  },
+  {
+   "variant": "Peach Flowers",
+   "canonical": "Peach Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Peach Tree Flowers",
+   "canonical": "Peach Tree Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pears",
+   "canonical": "Pear",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pepper essence",
+   "canonical": "Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Peppers",
+   "canonical": "Pepper",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pepper leaves",
+   "canonical": "Pepper Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Peruvian Balm",
+   "canonical": "Peru Balm",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Balsam of Peru",
+   "canonical": "Peru Balsam",
+   "kind": "order"
+  },
+  {
+   "variant": "Peru Balsam Resinoïd",
+   "canonical": "Peru Balsam",
+   "kind": "form"
+  },
+  {
+   "variant": "Peruvian Balsam",
+   "canonical": "Peru Balsam",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Peruvian Balsam Essence",
+   "canonical": "Peru Balsam",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Peruvian Pepper Absolute",
+   "canonical": "Peruvian Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Petals",
+   "canonical": "Petal",
+   "kind": "plural"
+  },
+  {
+   "variant": "Petitgrain Oil",
+   "canonical": "Petitgrain",
+   "kind": "form"
+  },
+  {
+   "variant": "Pettitgrain",
+   "canonical": "Petitgrain",
+   "kind": "spelling",
+   "reason": "\"pettitgrain\" is a misspelling of \"petitgrain\""
+  },
+  {
+   "variant": "Petitgrain Bigarade Orpur",
+   "canonical": "Petitgrain Bigarade",
+   "kind": "form"
+  },
+  {
+   "variant": "Pimento Berry",
+   "canonical": "Pimento Berries",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pine needle",
+   "canonical": "Pine Needles",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pine Needle Oil",
+   "canonical": "Pine Needles",
+   "kind": "form"
+  },
+  {
+   "variant": "Pine Trees",
+   "canonical": "Pine Tree",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pink Berry",
+   "canonical": "Pink Berries",
+   "kind": "plural"
+  },
+  {
+   "variant": "pink grapefruit peel",
+   "canonical": "Pink Grapefruit",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Pepper Pink",
+   "canonical": "Pink Pepper",
+   "kind": "order"
+  },
+  {
+   "variant": "Pink pepper CO2",
+   "canonical": "Pink Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Pink Pepper Essence",
+   "canonical": "Pink Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Pink Pepper Oil",
+   "canonical": "Pink Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Pink Pepper SFE",
+   "canonical": "Pink Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Pink Peppercorn",
+   "canonical": "Pink Pepper",
+   "kind": "synonym",
+   "reason": "peppercorn is pepper"
+  },
+  {
+   "variant": "Pink Peppercorn Orpur",
+   "canonical": "Pink Pepper",
+   "kind": "synonym",
+   "reason": "peppercorn is pepper"
+  },
+  {
+   "variant": "Pink Peppercorns",
+   "canonical": "Pink Pepper",
+   "kind": "synonym",
+   "reason": "peppercorn is pepper"
+  },
+  {
+   "variant": "Pink Peppers",
+   "canonical": "Pink Pepper",
+   "kind": "plural"
+  },
+  {
+   "variant": "SFE Pink Pepper Essence",
+   "canonical": "Pink Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "pink roses",
+   "canonical": "Pink Rose",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pink Tulips",
+   "canonical": "Pink Tulip",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pastachio",
+   "canonical": "Pistachio",
+   "kind": "spelling",
+   "reason": "\"pastachio\" is a misspelling of \"pistachio\""
+  },
+  {
+   "variant": "Pistachios",
+   "canonical": "Pistachio",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pitosporum",
+   "canonical": "Pittosporum",
+   "kind": "spelling",
+   "reason": "\"pitosporum\" is a misspelling of \"pittosporum\""
+  },
+  {
+   "variant": "Plums",
+   "canonical": "Plum",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pomelo Oils",
+   "canonical": "Pomelo",
+   "kind": "form"
+  },
+  {
+   "variant": "Powderry",
+   "canonical": "Powdery",
+   "kind": "spelling",
+   "reason": "\"powderry\" is a misspelling of \"powdery\""
+  },
+  {
+   "variant": "Powdery Accords",
+   "canonical": "Powdery Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Powdery Musks",
+   "canonical": "Powdery Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Powery Musks",
+   "canonical": "Powdery Musk",
+   "kind": "spelling",
+   "reason": "\"powery\" is a misspelling of \"powdery\""
+  },
+  {
+   "variant": "Pralines",
+   "canonical": "Praline",
+   "kind": "plural"
+  },
+  {
+   "variant": "Precious Wood",
+   "canonical": "Precious Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rasberry",
+   "canonical": "Raspberry",
+   "kind": "spelling",
+   "reason": "\"rasberry\" is a misspelling of \"raspberry\""
+  },
+  {
+   "variant": "Raspberries",
+   "canonical": "Raspberry",
+   "kind": "plural"
+  },
+  {
+   "variant": "Raspberry SFE",
+   "canonical": "Raspberry",
+   "kind": "form"
+  },
+  {
+   "variant": "Rapsberry bloom",
+   "canonical": "Raspberry Bloom",
+   "kind": "spelling",
+   "reason": "\"rapsberry\" is a misspelling of \"raspberry\""
+  },
+  {
+   "variant": "Raspberry Leaves",
+   "canonical": "Raspberry Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Red Cedarwood",
+   "canonical": "Red Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Red Chilli Peppers",
+   "canonical": "Red Chilli Pepper",
+   "kind": "plural"
+  },
+  {
+   "variant": "Redcurrants",
+   "canonical": "Red Currant",
+   "kind": "plural"
+  },
+  {
+   "variant": "Red Fruit",
+   "canonical": "Red Fruits",
+   "kind": "plural"
+  },
+  {
+   "variant": "Red Grapefruit Oil",
+   "canonical": "Red Grapefruit",
+   "kind": "form"
+  },
+  {
+   "variant": "Himalayan Red Grass",
+   "canonical": "Red Himalayan Grass",
+   "kind": "order"
+  },
+  {
+   "variant": "Red Litchi",
+   "canonical": "Red Lychee",
+   "kind": "synonym",
+   "reason": "litchi is a spelling of lychee"
+  },
+  {
+   "variant": "Red Peppercorn",
+   "canonical": "Red Pepper",
+   "kind": "synonym",
+   "reason": "peppercorn is pepper"
+  },
+  {
+   "variant": "Red Seaweed Essence",
+   "canonical": "Red Seaweed",
+   "kind": "form"
+  },
+  {
+   "variant": "Red Currant Leaf",
+   "canonical": "Redcurrant Leaves",
+   "kind": "plural"
+  },
+  {
+   "variant": "Resin",
+   "canonical": "Resins",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rhuburb",
+   "canonical": "Rhubarb",
+   "kind": "spelling",
+   "reason": "\"rhuburb\" is a misspelling of \"rhubarb\""
+  },
+  {
+   "variant": "Rhubarb Leaves",
+   "canonical": "Rhubarb Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rich Florals",
+   "canonical": "Rich floral",
+   "kind": "plural"
+  },
+  {
+   "variant": "Roasted Almond",
+   "canonical": "Roasted Almonds",
+   "kind": "plural"
+  },
+  {
+   "variant": "Roasted Tonka",
+   "canonical": "Roasted Tonka Bean",
+   "kind": "synonym",
+   "reason": "tonka is the tonka bean"
+  },
+  {
+   "variant": "Roasted Tonka Beans",
+   "canonical": "Roasted Tonka Bean",
+   "kind": "plural"
+  },
+  {
+   "variant": "Absolute of Rose",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Organic Rose",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Organic Rose Essence",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Absolute",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Concrete",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Essence",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Essential",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Essential Oil",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Oil",
+   "canonical": "Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Roses",
+   "canonical": "Rose",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rose Accords",
+   "canonical": "Rose Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rose Bud",
+   "canonical": "Rose Buds",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rose Petal",
+   "canonical": "Rose Petals",
+   "kind": "plural"
+  },
+  {
+   "variant": "Rosewater Essence",
+   "canonical": "Rose Water",
+   "kind": "form"
+  },
+  {
+   "variant": "Rosewater Extract",
+   "canonical": "Rose Water",
+   "kind": "form"
+  },
+  {
+   "variant": "Rosemary Essence",
+   "canonical": "Rosemary",
+   "kind": "form"
+  },
+  {
+   "variant": "Rosemary Oil",
+   "canonical": "Rosemary",
+   "kind": "form"
+  },
+  {
+   "variant": "Absolute Rum",
+   "canonical": "Rum",
+   "kind": "form"
+  },
+  {
+   "variant": "Rum Absolute",
+   "canonical": "Rum",
+   "kind": "form"
+  },
+  {
+   "variant": "Rum Extract",
+   "canonical": "Rum",
+   "kind": "form"
+  },
+  {
+   "variant": "Russian Coriander Essence",
+   "canonical": "Russian Coriander",
+   "kind": "form"
+  },
+  {
+   "variant": "Leather of Russia",
+   "canonical": "Russian leather",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Leather Saffiano",
+   "canonical": "Saffiano Leather",
+   "kind": "order"
+  },
+  {
+   "variant": "saffon",
+   "canonical": "Saffron",
+   "kind": "spelling",
+   "reason": "\"saffon\" is a misspelling of \"saffron\""
+  },
+  {
+   "variant": "Saffron Absolute",
+   "canonical": "Saffron",
+   "kind": "form"
+  },
+  {
+   "variant": "Saffron essence",
+   "canonical": "Saffron",
+   "kind": "form"
+  },
+  {
+   "variant": "Saffron Extract",
+   "canonical": "Saffron",
+   "kind": "form"
+  },
+  {
+   "variant": "Saffron Oil",
+   "canonical": "Saffron",
+   "kind": "form"
+  },
+  {
+   "variant": "Sage absolute",
+   "canonical": "Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Sage Essence",
+   "canonical": "Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Sage essential oils",
+   "canonical": "Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Sage Oil",
+   "canonical": "Sage",
+   "kind": "form"
+  },
+  {
+   "variant": "Salicylates",
+   "canonical": "Salicylate",
+   "kind": "plural"
+  },
+  {
+   "variant": "Indian Sambac Jasmine Absolute",
+   "canonical": "Sambac India",
+   "kind": "synonym",
+   "reason": "sambac is jasmine sambac"
+  },
+  {
+   "variant": "Jasmine Sambac India Absolute",
+   "canonical": "Sambac India",
+   "kind": "synonym",
+   "reason": "sambac is jasmine sambac"
+  },
+  {
+   "variant": "Sandal",
+   "canonical": "Sandalwood",
+   "kind": "synonym",
+   "reason": "sandal and santal are sandalwood; same wood"
+  },
+  {
+   "variant": "Sandal Essence",
+   "canonical": "Sandalwood",
+   "kind": "synonym",
+   "reason": "sandal and santal are sandalwood; same wood"
+  },
+  {
+   "variant": "Sandalwood Absolute",
+   "canonical": "Sandalwood",
+   "kind": "form"
+  },
+  {
+   "variant": "Sandalwood Essence",
+   "canonical": "Sandalwood",
+   "kind": "form"
+  },
+  {
+   "variant": "Sandalwood Oil",
+   "canonical": "Sandalwood",
+   "kind": "form"
+  },
+  {
+   "variant": "Sandalwood The",
+   "canonical": "Sandalwood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Sandelwood",
+   "canonical": "Sandalwood",
+   "kind": "synonym",
+   "reason": "same wood"
+  },
+  {
+   "variant": "Santal",
+   "canonical": "Sandalwood",
+   "kind": "synonym",
+   "reason": "sandal and santal are sandalwood; same wood"
+  },
+  {
+   "variant": "Santal Wood",
+   "canonical": "Sandalwood",
+   "kind": "synonym",
+   "reason": "same wood"
+  },
+  {
+   "variant": "santal accord",
+   "canonical": "Sandalwood Accord",
+   "kind": "synonym",
+   "reason": "sandal and santal are sandalwood; same wood"
+  },
+  {
+   "variant": "Sandalwood Cedar wood",
+   "canonical": "Sandalwood Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar; same wood"
+  },
+  {
+   "variant": "Sea Accord",
+   "canonical": "Sea Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Seat Salt",
+   "canonical": "Sea Salt",
+   "kind": "spelling",
+   "reason": "\"seat\" is a misspelling of \"sea\""
+  },
+  {
+   "variant": "Sea Sprays",
+   "canonical": "Sea spray",
+   "kind": "plural"
+  },
+  {
+   "variant": "Sensual musks",
+   "canonical": "Sensual Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Sesame Absolute",
+   "canonical": "Sesame",
+   "kind": "form"
+  },
+  {
+   "variant": "Sesame Oil",
+   "canonical": "Sesame",
+   "kind": "form"
+  },
+  {
+   "variant": "Sheer Musks",
+   "canonical": "Sheer Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Benjoin resinoid Siam",
+   "canonical": "Siam Benzoin",
+   "kind": "spelling",
+   "reason": "\"benjoin\" is a misspelling of \"benzoin\""
+  },
+  {
+   "variant": "Benjoin Siam",
+   "canonical": "Siam Benzoin",
+   "kind": "spelling",
+   "reason": "\"benjoin\" is a misspelling of \"benzoin\""
+  },
+  {
+   "variant": "Benzoin Resinoid Siam",
+   "canonical": "Siam Benzoin",
+   "kind": "form"
+  },
+  {
+   "variant": "Benzoin Siam",
+   "canonical": "Siam Benzoin",
+   "kind": "order"
+  },
+  {
+   "variant": "Siam Benzoin Absolute",
+   "canonical": "Siam Benzoin",
+   "kind": "form"
+  },
+  {
+   "variant": "Siam Benzoin Resin",
+   "canonical": "Siam Benzoin",
+   "kind": "synonym",
+   "reason": "resin of X is X"
+  },
+  {
+   "variant": "Siam Benzoin Resinoide",
+   "canonical": "Siam Benzoin",
+   "kind": "form"
+  },
+  {
+   "variant": "Pepper Sichuan",
+   "canonical": "Sichuan Pepper",
+   "kind": "order"
+  },
+  {
+   "variant": "Sichuan Pepper Essence",
+   "canonical": "Sichuan Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Sishuan Pepper",
+   "canonical": "Sichuan Pepper",
+   "kind": "spelling",
+   "reason": "\"sishuan\" is a misspelling of \"sichuan\""
+  },
+  {
+   "variant": "Szechuan Pepper",
+   "canonical": "Sichuan Pepper",
+   "kind": "synonym",
+   "reason": "Szechuan is an older spelling of Sichuan"
+  },
+  {
+   "variant": "Sicilian Bergamot Zest",
+   "canonical": "Sicilian Bergamot",
+   "kind": "synonym",
+   "reason": "citrus peel is the fruit note"
+  },
+  {
+   "variant": "Sicilian lemon oil",
+   "canonical": "Sicilian Lemon",
+   "kind": "form"
+  },
+  {
+   "variant": "Sicillian Lemon",
+   "canonical": "Sicilian Lemon",
+   "kind": "spelling",
+   "reason": "\"sicillian\" is a misspelling of \"sicilian\""
+  },
+  {
+   "variant": "Sicilian Mandarin Essence",
+   "canonical": "Sicilian Mandarin",
+   "kind": "form"
+  },
+  {
+   "variant": "Sicilian Mandarin Oil",
+   "canonical": "Sicilian Mandarin",
+   "kind": "form"
+  },
+  {
+   "variant": "Smoked Leathers",
+   "canonical": "Smoked Leather",
+   "kind": "plural"
+  },
+  {
+   "variant": "Smoked Woods",
+   "canonical": "Smoked Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Smoky Accord",
+   "canonical": "Smoky Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Smoky Woods",
+   "canonical": "Smoky Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Soft Musks",
+   "canonical": "Soft Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Soft Wood",
+   "canonical": "Soft Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Solar Woods",
+   "canonical": "Solarwood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Incense Somalia Orpur",
+   "canonical": "Somalia Incense",
+   "kind": "form"
+  },
+  {
+   "variant": "Somalian incense extract",
+   "canonical": "Somalian incense",
+   "kind": "form"
+  },
+  {
+   "variant": "Cistus Absolute Spain",
+   "canonical": "Spanish Cistus",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Cistus Absolute Spain Orpur",
+   "canonical": "Spanish Cistus",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Cistus Spain",
+   "canonical": "Spanish Cistus",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Spanish cistus concrete",
+   "canonical": "Spanish Cistus",
+   "kind": "form"
+  },
+  {
+   "variant": "Labdanum Spain Orpur",
+   "canonical": "Spanish Labdanum",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Sparkling Bergamot Oil",
+   "canonical": "Sparkling Bergamot",
+   "kind": "form"
+  },
+  {
+   "variant": "Spearmint Essence",
+   "canonical": "Spearmint",
+   "kind": "form"
+  },
+  {
+   "variant": "Spearmint Oil",
+   "canonical": "Spearmint",
+   "kind": "form"
+  },
+  {
+   "variant": "blend spice",
+   "canonical": "Spice Blends",
+   "kind": "order"
+  },
+  {
+   "variant": "Spice",
+   "canonical": "Spices",
+   "kind": "plural"
+  },
+  {
+   "variant": "Spicy Accord",
+   "canonical": "Spicy Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Floral Spicy",
+   "canonical": "Spicy Floral",
+   "kind": "order"
+  },
+  {
+   "variant": "Anis Star",
+   "canonical": "Star Anis",
+   "kind": "order"
+  },
+  {
+   "variant": "Strawberries",
+   "canonical": "Strawberry",
+   "kind": "plural"
+  },
+  {
+   "variant": "Strawberry Leaves",
+   "canonical": "Strawberry Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Styrax essence",
+   "canonical": "Styrax",
+   "kind": "form"
+  },
+  {
+   "variant": "Styrax Resin",
+   "canonical": "Styrax",
+   "kind": "synonym",
+   "reason": "resin of X is X"
+  },
+  {
+   "variant": "Styrax Resinoid",
+   "canonical": "Styrax",
+   "kind": "form"
+  },
+  {
+   "variant": "Subtle Spice",
+   "canonical": "Subtle Spices",
+   "kind": "plural"
+  },
+  {
+   "variant": "Suede Accords",
+   "canonical": "Suede Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Suede Musks",
+   "canonical": "Suede musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Sweet Almonds",
+   "canonical": "Sweet Almond",
+   "kind": "plural"
+  },
+  {
+   "variant": "Sweet Fennel Oil",
+   "canonical": "Sweet Fennel",
+   "kind": "form"
+  },
+  {
+   "variant": "Woody - Sweet",
+   "canonical": "Sweet Woody",
+   "kind": "order"
+  },
+  {
+   "variant": "Ragete",
+   "canonical": "Tagetes",
+   "kind": "spelling",
+   "reason": "\"ragete\" is a misspelling of \"tagetes\""
+  },
+  {
+   "variant": "Tagete",
+   "canonical": "Tagetes",
+   "kind": "plural"
+  },
+  {
+   "variant": "Tagete oil",
+   "canonical": "Tagetes",
+   "kind": "form"
+  },
+  {
+   "variant": "Tagette",
+   "canonical": "Tagetes",
+   "kind": "spelling",
+   "reason": "\"tagette\" is a misspelling of \"tagetes\""
+  },
+  {
+   "variant": "Tahiti Vetiver",
+   "canonical": "Tahitian Vetiver",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Tangerine Essence",
+   "canonical": "Tangerine",
+   "kind": "form"
+  },
+  {
+   "variant": "Tarragon oil",
+   "canonical": "Tarragon",
+   "kind": "form"
+  },
+  {
+   "variant": "Terragon",
+   "canonical": "Tarragon",
+   "kind": "spelling",
+   "reason": "\"terragon\" is a misspelling of \"tarragon\""
+  },
+  {
+   "variant": "Tea Leaves",
+   "canonical": "Tea Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cedar Texas",
+   "canonical": "Texas Cedar",
+   "kind": "order"
+  },
+  {
+   "variant": "Texas cedarwood",
+   "canonical": "Texas Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Thyme essence",
+   "canonical": "Thyme",
+   "kind": "form"
+  },
+  {
+   "variant": "Thyme Oil",
+   "canonical": "Thyme",
+   "kind": "form"
+  },
+  {
+   "variant": "Tiare",
+   "canonical": "Tiare Flower",
+   "kind": "synonym",
+   "reason": "tiare is the tiare flower"
+  },
+  {
+   "variant": "Tiare Flowers",
+   "canonical": "Tiare Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Tyger lily",
+   "canonical": "Tiger Lily",
+   "kind": "spelling",
+   "reason": "\"tyger\" is a misspelling of \"tiger\""
+  },
+  {
+   "variant": "Pepper Timut absolute",
+   "canonical": "Timut Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "Timur pepper",
+   "canonical": "Timut Pepper",
+   "kind": "spelling",
+   "reason": "\"timur\" is a misspelling of \"timut\""
+  },
+  {
+   "variant": "amber Tincture",
+   "canonical": "Tincture of Amber",
+   "kind": "order"
+  },
+  {
+   "variant": "Tobacco Absolute",
+   "canonical": "Tobacco",
+   "kind": "form"
+  },
+  {
+   "variant": "Tobaco",
+   "canonical": "Tobacco",
+   "kind": "spelling",
+   "reason": "\"tobaco\" is a misspelling of \"tobacco\""
+  },
+  {
+   "variant": "Tobacco Flowers",
+   "canonical": "Tobacco Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Tobacco Leaf Absolute",
+   "canonical": "Tobacco Leaf",
+   "kind": "form"
+  },
+  {
+   "variant": "Tobacco Leaves",
+   "canonical": "Tobacco Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Tomato Leaves",
+   "canonical": "Tomato Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Tonga Bean",
+   "canonical": "Tonka Bean",
+   "kind": "spelling",
+   "reason": "\"tonga\" is a misspelling of \"tonka\""
+  },
+  {
+   "variant": "Tonk Bean",
+   "canonical": "Tonka Bean",
+   "kind": "spelling",
+   "reason": "\"tonk\" is a misspelling of \"tonka\""
+  },
+  {
+   "variant": "Tonka",
+   "canonical": "Tonka Bean",
+   "kind": "synonym",
+   "reason": "tonka is the tonka bean"
+  },
+  {
+   "variant": "tonka absolute",
+   "canonical": "Tonka Bean",
+   "kind": "synonym",
+   "reason": "tonka is the tonka bean"
+  },
+  {
+   "variant": "Tonka Bean Absolute",
+   "canonical": "Tonka Bean",
+   "kind": "form"
+  },
+  {
+   "variant": "Tonka Bean resinoid",
+   "canonical": "Tonka Bean",
+   "kind": "form"
+  },
+  {
+   "variant": "Tonka Beans",
+   "canonical": "Tonka Bean",
+   "kind": "plural"
+  },
+  {
+   "variant": "Tonka Beans Absolute Orpur",
+   "canonical": "Tonka Bean",
+   "kind": "form"
+  },
+  {
+   "variant": "Tonks Bean",
+   "canonical": "Tonka Bean",
+   "kind": "spelling",
+   "reason": "tonka typo"
+  },
+  {
+   "variant": "Tonka Beans Absolute Venezuela",
+   "canonical": "Tonka Bean Venezuela",
+   "kind": "form"
+  },
+  {
+   "variant": "Tonka Beans Venezuela Orpur",
+   "canonical": "Tonka Bean Venezuela",
+   "kind": "form"
+  },
+  {
+   "variant": "Tropical Fruit",
+   "canonical": "Tropical Fruits",
+   "kind": "plural"
+  },
+  {
+   "variant": "Natural Tuberose",
+   "canonical": "Tuberose",
+   "kind": "form"
+  },
+  {
+   "variant": "Tubercose",
+   "canonical": "Tuberose",
+   "kind": "spelling",
+   "reason": "\"tubercose\" is a misspelling of \"tuberose\""
+  },
+  {
+   "variant": "Tuberose absolute",
+   "canonical": "Tuberose",
+   "kind": "form"
+  },
+  {
+   "variant": "Tuberose Extract",
+   "canonical": "Tuberose",
+   "kind": "form"
+  },
+  {
+   "variant": "Tuberrose",
+   "canonical": "Tuberose",
+   "kind": "spelling",
+   "reason": "\"tuberrose\" is a misspelling of \"tuberose\""
+  },
+  {
+   "variant": "Tunisia Neroli Essence",
+   "canonical": "Tunisian Neroli",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Orange Flower Tunisia",
+   "canonical": "Tunisian Orange Blossom",
+   "kind": "synonym",
+   "reason": "orange flower is orange blossom"
+  },
+  {
+   "variant": "Tunisian Orange Blossom Absolute",
+   "canonical": "Tunisian Orange Blossom",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Essential Turkey",
+   "canonical": "Turkish Rose",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Rose Turkey",
+   "canonical": "Turkish Rose",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Turkey rose",
+   "canonical": "Turkish Rose",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Turkish Rose Absolute",
+   "canonical": "Turkish Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Turkish Rose Essence",
+   "canonical": "Turkish Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Turkish Rose Oil",
+   "canonical": "Turkish Rose",
+   "kind": "form"
+  },
+  {
+   "variant": "Turkish Roses",
+   "canonical": "Turkish Rose",
+   "kind": "plural"
+  },
+  {
+   "variant": "Tumeric",
+   "canonical": "Turmeric",
+   "kind": "spelling",
+   "reason": "\"tumeric\" is a misspelling of \"turmeric\""
+  },
+  {
+   "variant": "Natural Vanilla",
+   "canonical": "Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Natural Vanilla Absolute",
+   "canonical": "Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanila",
+   "canonical": "Vanilla",
+   "kind": "spelling",
+   "reason": "\"vanila\" is a misspelling of \"vanilla\""
+  },
+  {
+   "variant": "Vanilla Absolute",
+   "canonical": "Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla Bean",
+   "canonical": "Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Vanilla Bean Absolute",
+   "canonical": "Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Vanilla Bean CO2",
+   "canonical": "Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Vanilla Bean Extract",
+   "canonical": "Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Vanilla Beans",
+   "canonical": "Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Vanilla Co2",
+   "canonical": "Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla CO2 extract",
+   "canonical": "Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla essence",
+   "canonical": "Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla Extract",
+   "canonical": "Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanilla Pod",
+   "canonical": "Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Vanilla Pods",
+   "canonical": "Vanilla",
+   "kind": "synonym",
+   "reason": "vanilla bean is vanilla"
+  },
+  {
+   "variant": "Vanilla resinoid",
+   "canonical": "Vanilla",
+   "kind": "form"
+  },
+  {
+   "variant": "Vanille",
+   "canonical": "Vanilla",
+   "kind": "synonym",
+   "reason": "vanille is French for vanilla"
+  },
+  {
+   "variant": "Amber - Vanilla",
+   "canonical": "Vanilla Amber",
+   "kind": "order"
+  },
+  {
+   "variant": "Vanilla Blossoms",
+   "canonical": "Vanilla Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "Vanille Caviar",
+   "canonical": "Vanilla Caviar",
+   "kind": "synonym",
+   "reason": "vanille is French for vanilla"
+  },
+  {
+   "variant": "Vanilla Flowers",
+   "canonical": "Vanilla Flower",
+   "kind": "plural"
+  },
+  {
+   "variant": "Vanilla milks",
+   "canonical": "Vanilla Milk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Orchid Vanilla",
+   "canonical": "Vanilla Orchid",
+   "kind": "order"
+  },
+  {
+   "variant": "Tahitensis Vanilla",
+   "canonical": "Vanilla Tahitensis",
+   "kind": "order"
+  },
+  {
+   "variant": "Vanilla Woods",
+   "canonical": "Vanilla Wood",
+   "kind": "plural"
+  },
+  {
+   "variant": "Vanillin Extract",
+   "canonical": "Vanillin",
+   "kind": "form"
+  },
+  {
+   "variant": "Rose Velvet",
+   "canonical": "Velvet Rose",
+   "kind": "order"
+  },
+  {
+   "variant": "Velvety Musk",
+   "canonical": "Velvety Musks",
+   "kind": "plural"
+  },
+  {
+   "variant": "Vert de Bergamote",
+   "canonical": "Vert De Bergamot",
+   "kind": "spelling",
+   "reason": "\"bergamote\" is a misspelling of \"bergamot\""
+  },
+  {
+   "variant": "Vert De Mandarin Orpur",
+   "canonical": "Vert de Mandarine",
+   "kind": "spelling",
+   "reason": "\"mandarine\" is a misspelling of \"mandarin\""
+  },
+  {
+   "variant": "Essence Vetiver",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Natural Vetiver",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Vetitver",
+   "canonical": "Vetiver",
+   "kind": "spelling",
+   "reason": "\"vetitver\" is a misspelling of \"vetiver\""
+  },
+  {
+   "variant": "Vetive",
+   "canonical": "Vetiver",
+   "kind": "spelling",
+   "reason": "\"vetive\" is a misspelling of \"vetiver\""
+  },
+  {
+   "variant": "Vetiver Absolute",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Vetiver CO2",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Vetiver Essence",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Vetiver Essential Oil",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Vetiver Oil",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Vetiver Orpur",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Vetiver Orpur Essence",
+   "canonical": "Vetiver",
+   "kind": "form"
+  },
+  {
+   "variant": "Vetivert",
+   "canonical": "Vetiver",
+   "kind": "spelling",
+   "reason": "\"vetivert\" is a misspelling of \"vetiver\""
+  },
+  {
+   "variant": "Vetiver Roots",
+   "canonical": "Vetiver Root",
+   "kind": "plural"
+  },
+  {
+   "variant": "Vetyver smoke",
+   "canonical": "Vetiver smoke",
+   "kind": "spelling",
+   "reason": "\"vetyver\" is a misspelling of \"vetiver\""
+  },
+  {
+   "variant": "Vibrant Wood",
+   "canonical": "Vibrant Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Violet Absolute",
+   "canonical": "Violet",
+   "kind": "form"
+  },
+  {
+   "variant": "Violete",
+   "canonical": "Violet",
+   "kind": "spelling",
+   "reason": "\"violete\" is a misspelling of \"violet\""
+  },
+  {
+   "variant": "Violets",
+   "canonical": "Violet",
+   "kind": "plural"
+  },
+  {
+   "variant": "Violette",
+   "canonical": "Violet",
+   "kind": "spelling",
+   "reason": "\"violette\" is a misspelling of \"violet\""
+  },
+  {
+   "variant": "Voilet",
+   "canonical": "Violet",
+   "kind": "spelling",
+   "reason": "\"voilet\" is a misspelling of \"violet\""
+  },
+  {
+   "variant": "Violet Blossom",
+   "canonical": "Violet Blossoms",
+   "kind": "plural"
+  },
+  {
+   "variant": "Violet Leaf Absolute",
+   "canonical": "Violet Leaf",
+   "kind": "form"
+  },
+  {
+   "variant": "Violet Leaves",
+   "canonical": "Violet Leaf",
+   "kind": "plural"
+  },
+  {
+   "variant": "Violet Leaves Absolute",
+   "canonical": "Violet Leaf",
+   "kind": "form"
+  },
+  {
+   "variant": "Voilet Leaf",
+   "canonical": "Violet Leaf",
+   "kind": "spelling",
+   "reason": "\"voilet\" is a misspelling of \"violet\""
+  },
+  {
+   "variant": "Violet Leaf Accord",
+   "canonical": "Violet Leaves Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Violet Petals",
+   "canonical": "Violet Petal",
+   "kind": "plural"
+  },
+  {
+   "variant": "Cedar Virginia",
+   "canonical": "Virginia Cedar",
+   "kind": "order"
+  },
+  {
+   "variant": "Cedarwood Virginia",
+   "canonical": "Virginia Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Cedarwood Virginia Orpur",
+   "canonical": "Virginia Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Virginia Cedar Essence",
+   "canonical": "Virginia Cedar",
+   "kind": "form"
+  },
+  {
+   "variant": "Virginia Cedarwood",
+   "canonical": "Virginia Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Virginian Cedar",
+   "canonical": "Virginia Cedar",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Virginian Cedarwood",
+   "canonical": "Virginia Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "Warm Amber Accords",
+   "canonical": "Warm amber accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Warm Musks",
+   "canonical": "Warm Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Warm wood",
+   "canonical": "Warm Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Water Lilies",
+   "canonical": "Water Lily",
+   "kind": "plural"
+  },
+  {
+   "variant": "Water Lilly",
+   "canonical": "Water Lily",
+   "kind": "synonym",
+   "reason": "typo"
+  },
+  {
+   "variant": "Watery accords",
+   "canonical": "Watery Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Watery Fruits Accord",
+   "canonical": "Watery Fruit Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "Whisky",
+   "canonical": "Whiskey",
+   "kind": "synonym",
+   "reason": "whisky and whiskey are one spelling"
+  },
+  {
+   "variant": "White Blossoms",
+   "canonical": "White Blossom",
+   "kind": "plural"
+  },
+  {
+   "variant": "White Cedar Extract",
+   "canonical": "White Cedar",
+   "kind": "form"
+  },
+  {
+   "variant": "White Cedarwood",
+   "canonical": "White Cedar",
+   "kind": "synonym",
+   "reason": "cedarwood is cedar"
+  },
+  {
+   "variant": "white floral accords",
+   "canonical": "White Floral Accord",
+   "kind": "plural"
+  },
+  {
+   "variant": "White Floral",
+   "canonical": "White Florals",
+   "kind": "plural"
+  },
+  {
+   "variant": "White Flower",
+   "canonical": "White Flowers",
+   "kind": "plural"
+  },
+  {
+   "variant": "White Flower Bouquet",
+   "canonical": "White Flowers Bouquet",
+   "kind": "plural"
+  },
+  {
+   "variant": "White Lilies",
+   "canonical": "White Lily",
+   "kind": "plural"
+  },
+  {
+   "variant": "Whie Musk",
+   "canonical": "White Musk",
+   "kind": "spelling",
+   "reason": "\"whie\" is a misspelling of \"white\""
+  },
+  {
+   "variant": "White Musc",
+   "canonical": "White Musk",
+   "kind": "synonym",
+   "reason": "musc is French for musk"
+  },
+  {
+   "variant": "White Musks",
+   "canonical": "White Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "White Musk Ambregris",
+   "canonical": "White Musk Ambergris",
+   "kind": "spelling",
+   "reason": "\"ambregris\" is a misspelling of \"ambergris\""
+  },
+  {
+   "variant": "White Oudh",
+   "canonical": "White Oud",
+   "kind": "synonym",
+   "reason": "oud is agarwood"
+  },
+  {
+   "variant": "White Peaches",
+   "canonical": "White Peach",
+   "kind": "plural"
+  },
+  {
+   "variant": "White pepper essence",
+   "canonical": "White Pepper",
+   "kind": "form"
+  },
+  {
+   "variant": "White Peppercorn",
+   "canonical": "White Pepper",
+   "kind": "synonym",
+   "reason": "peppercorn is pepper"
+  },
+  {
+   "variant": "White Roses",
+   "canonical": "White Rose",
+   "kind": "plural"
+  },
+  {
+   "variant": "White Sandalwood Essence",
+   "canonical": "White Sandalwood",
+   "kind": "form"
+  },
+  {
+   "variant": "White Tea Extract",
+   "canonical": "White Tea",
+   "kind": "form"
+  },
+  {
+   "variant": "White Wood",
+   "canonical": "White Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Wild Berry",
+   "canonical": "Wild Berries",
+   "kind": "plural"
+  },
+  {
+   "variant": "Wild Strawberries",
+   "canonical": "Wild Strawberry",
+   "kind": "plural"
+  },
+  {
+   "variant": "Pear William",
+   "canonical": "Williams Pear",
+   "kind": "order"
+  },
+  {
+   "variant": "Wood",
+   "canonical": "Woods",
+   "kind": "plural"
+  },
+  {
+   "variant": "Woody Accord",
+   "canonical": "Woody Accords",
+   "kind": "plural"
+  },
+  {
+   "variant": "Amber-Woody accord",
+   "canonical": "Woody Amber Accord",
+   "kind": "order"
+  },
+  {
+   "variant": "woody cedars",
+   "canonical": "Woody Cedar",
+   "kind": "plural"
+  },
+  {
+   "variant": "Musk Woody",
+   "canonical": "Woody Musk",
+   "kind": "order"
+  },
+  {
+   "variant": "Woody Musks",
+   "canonical": "Woody Musk",
+   "kind": "plural"
+  },
+  {
+   "variant": "Yellow Mandarin Orpur",
+   "canonical": "Yellow Mandarin",
+   "kind": "form"
+  },
+  {
+   "variant": "Yellow Mandarine Orpur",
+   "canonical": "Yellow Mandarin",
+   "kind": "spelling",
+   "reason": "\"mandarine\" is a misspelling of \"mandarin\""
+  },
+  {
+   "variant": "Yellow Mandarine Italy Orpur",
+   "canonical": "Yellow Mandarin Italy Orpur",
+   "kind": "spelling",
+   "reason": "\"mandarine\" is a misspelling of \"mandarin\""
+  },
+  {
+   "variant": "ylang ylang heart",
+   "canonical": "Ylang Heart",
+   "kind": "country",
+   "reason": "country and nationality word for the same place"
+  },
+  {
+   "variant": "Ylang",
+   "canonical": "Ylang-Ylang",
+   "kind": "country",
+   "reason": "ylang is short for ylang ylang"
+  },
+  {
+   "variant": "Ylang Ylang Essence",
+   "canonical": "Ylang-Ylang",
+   "kind": "form"
+  },
+  {
+   "variant": "Ylang ylang extract",
+   "canonical": "Ylang-Ylang",
+   "kind": "form"
+  },
+  {
+   "variant": "Ylang Ylang Oil",
+   "canonical": "Ylang-Ylang",
+   "kind": "form"
+  },
+  {
+   "variant": "Ylang Ylang Orpur",
+   "canonical": "Ylang-Ylang",
+   "kind": "form"
+  }
+ ],
+ "keepApart": [
+  {
+   "notes": [
+    "Blackcurrant",
+    "Blackcurrant Leaf"
+   ],
+   "reason": "a leaf is not the fruit"
+  },
+  {
+   "notes": [
+    "Blackcurrant",
+    "Blackcurrant Bud"
+   ],
+   "reason": "a bud absolute is not the fruit"
+  },
+  {
+   "notes": [
+    "Blackcurrant Leaf",
+    "Blackcurrant Bud"
+   ],
+   "reason": "leaf and bud are different materials"
+  },
+  {
+   "notes": [
+    "Musk",
+    "White Musk"
+   ],
+   "reason": "white musk is a different, cleaner note"
+  },
+  {
+   "notes": [
+    "Orange",
+    "Bitter Orange"
+   ],
+   "reason": "bitter orange is another fruit and smells different"
+  },
+  {
+   "notes": [
+    "Orange",
+    "Blood Orange"
+   ],
+   "reason": "blood orange is its own fruit"
+  },
+  {
+   "notes": [
+    "Orange",
+    "Orange Blossom"
+   ],
+   "reason": "a flower, not the fruit"
+  },
+  {
+   "notes": [
+    "Pepper",
+    "Pink Pepper"
+   ],
+   "reason": "pink pepper is a berry, not pepper"
+  },
+  {
+   "notes": [
+    "Pepper",
+    "Black Pepper"
+   ],
+   "reason": "black pepper is one kind of pepper"
+  },
+  {
+   "notes": [
+    "Pink Pepper",
+    "Black Pepper"
+   ],
+   "reason": "different spices"
+  },
+  {
+   "notes": [
+    "Apple",
+    "Green Apple"
+   ],
+   "reason": "green apple smells different from apple"
+  },
+  {
+   "notes": [
+    "Apple",
+    "Apple Blossom"
+   ],
+   "reason": "a flower, not the fruit"
+  },
+  {
+   "notes": [
+    "Peach",
+    "Peach Blossom"
+   ],
+   "reason": "a flower, not the fruit"
+  },
+  {
+   "notes": [
+    "Rose",
+    "Rose Water"
+   ],
+   "reason": "rose water is a distillate with its own note"
+  },
+  {
+   "notes": [
+    "Rose",
+    "Rosewood"
+   ],
+   "reason": "rosewood is a wood, not a rose"
+  },
+  {
+   "notes": [
+    "Rose",
+    "Rose Petals"
+   ],
+   "reason": "petals are a part, kept apart"
+  },
+  {
+   "notes": [
+    "Rose",
+    "Tea Rose"
+   ],
+   "reason": "tea rose is a variety"
+  },
+  {
+   "notes": [
+    "Tea Rose",
+    "Rose Tea"
+   ],
+   "reason": "a rose variety and a tea are different things"
+  },
+  {
+   "notes": [
+    "Rose Musk",
+    "Musk Rose"
+   ],
+   "reason": "a rose musk accord and the musk rose flower"
+  },
+  {
+   "notes": [
+    "Damask Rose",
+    "Turkish Rose"
+   ],
+   "reason": "an origin of damask rose, kept as its own note"
+  },
+  {
+   "notes": [
+    "Damask Rose",
+    "Bulgarian Rose"
+   ],
+   "reason": "an origin of damask rose, kept as its own note"
+  },
+  {
+   "notes": [
+    "Damask Rose",
+    "May Rose"
+   ],
+   "reason": "two different rose species"
+  },
+  {
+   "notes": [
+    "Mandarin",
+    "Green Mandarin"
+   ],
+   "reason": "green mandarin is unripe fruit with its own note"
+  },
+  {
+   "notes": [
+    "Mandarin",
+    "Tangerine"
+   ],
+   "reason": "tangerine is a different fruit"
+  },
+  {
+   "notes": [
+    "Mandarin",
+    "Yellow Mandarin"
+   ],
+   "reason": "a grade of mandarin, kept apart"
+  },
+  {
+   "notes": [
+    "Bergamot",
+    "Italian Bergamot"
+   ],
+   "reason": "an origin, kept as its own note"
+  },
+  {
+   "notes": [
+    "Bergamot",
+    "Calabrian Bergamot"
+   ],
+   "reason": "an origin, kept as its own note"
+  },
+  {
+   "notes": [
+    "Jasmine",
+    "Jasmine Sambac"
+   ],
+   "reason": "sambac is a different species of jasmine"
+  },
+  {
+   "notes": [
+    "Jasmine",
+    "Jasmine Petals"
+   ],
+   "reason": "petals are a part, kept apart"
+  },
+  {
+   "notes": [
+    "Jasmine",
+    "Jasmine Grandiflorum"
+   ],
+   "reason": "grandiflorum is a different species of jasmine"
+  },
+  {
+   "notes": [
+    "Vanilla",
+    "Black Vanilla"
+   ],
+   "reason": "black vanilla is a style of vanilla note"
+  },
+  {
+   "notes": [
+    "Vanilla",
+    "Vanillin"
+   ],
+   "reason": "vanillin is a molecule"
+  },
+  {
+   "notes": [
+    "Vanilla",
+    "Bourbon Vanilla"
+   ],
+   "reason": "an origin, kept as its own note"
+  },
+  {
+   "notes": [
+    "Bourbon Vanilla",
+    "Madagascar Vanilla"
+   ],
+   "reason": "two origins, kept apart"
+  },
+  {
+   "notes": [
+    "Vanilla",
+    "Vanilla Orchid"
+   ],
+   "reason": "an orchid accord, not the pod"
+  },
+  {
+   "notes": [
+    "Vanilla",
+    "Vanilla Flower"
+   ],
+   "reason": "a flower, not the pod"
+  },
+  {
+   "notes": [
+    "Iris",
+    "Orris"
+   ],
+   "reason": "orris is the root, iris the flower"
+  },
+  {
+   "notes": [
+    "Iris",
+    "Iris Pallida"
+   ],
+   "reason": "a species, kept apart"
+  },
+  {
+   "notes": [
+    "Neroli",
+    "Orange Blossom"
+   ],
+   "reason": "neroli is the bitter orange flower oil"
+  },
+  {
+   "notes": [
+    "Cedar",
+    "Cedar Leaf"
+   ],
+   "reason": "a leaf, not the wood"
+  },
+  {
+   "notes": [
+    "Cedar",
+    "Atlas Cedar"
+   ],
+   "reason": "an origin, kept as its own note"
+  },
+  {
+   "notes": [
+    "Cedar",
+    "Virginia Cedar"
+   ],
+   "reason": "an origin, kept as its own note"
+  },
+  {
+   "notes": [
+    "Sandalwood",
+    "Sandalwood Accord"
+   ],
+   "reason": "an accord is not the ingredient"
+  },
+  {
+   "notes": [
+    "Sandalwood",
+    "Australian Sandalwood"
+   ],
+   "reason": "a different tree"
+  },
+  {
+   "notes": [
+    "Oud",
+    "Oud Accord"
+   ],
+   "reason": "an accord is not the ingredient"
+  },
+  {
+   "notes": [
+    "Leather",
+    "Leather Accord"
+   ],
+   "reason": "an accord is not the ingredient"
+  },
+  {
+   "notes": [
+    "Amber",
+    "Amber Accord"
+   ],
+   "reason": "an accord is not the ingredient"
+  },
+  {
+   "notes": [
+    "Amber",
+    "Ambergris"
+   ],
+   "reason": "ambergris is a different material"
+  },
+  {
+   "notes": [
+    "Lemon",
+    "Lemon Verbena"
+   ],
+   "reason": "a herb, not the fruit"
+  },
+  {
+   "notes": [
+    "Lemon",
+    "Citron"
+   ],
+   "reason": "citron is a different fruit"
+  },
+  {
+   "notes": [
+    "Lime",
+    "Lime Blossom"
+   ],
+   "reason": "a flower, not the fruit"
+  },
+  {
+   "notes": [
+    "Juniper",
+    "Juniper Berries"
+   ],
+   "reason": "berries are a part, kept apart"
+  },
+  {
+   "notes": [
+    "Patchouli",
+    "Patchouli Heart"
+   ],
+   "reason": "the heart cut is its own material"
+  },
+  {
+   "notes": [
+    "Patchouli",
+    "Patchouli Leaves"
+   ],
+   "reason": "leaves are a part, kept apart"
+  },
+  {
+   "notes": [
+    "Ginger",
+    "Ginger Flower"
+   ],
+   "reason": "a flower, not the root"
+  },
+  {
+   "notes": [
+    "Lavender",
+    "Lavandin"
+   ],
+   "reason": "lavandin is a different plant"
+  },
+  {
+   "notes": [
+    "Mint",
+    "Peppermint"
+   ],
+   "reason": "peppermint is one kind of mint"
+  },
+  {
+   "notes": [
+    "Mint",
+    "Spearmint"
+   ],
+   "reason": "spearmint is one kind of mint"
+  },
+  {
+   "notes": [
+    "Coffee",
+    "Coffee Flower"
+   ],
+   "reason": "a flower, not the bean"
+  },
+  {
+   "notes": [
+    "Vetiver",
+    "Vetiver Root"
+   ],
+   "reason": "a part, kept apart"
+  },
+  {
+   "notes": [
+    "Vetiver",
+    "Haitian Vetiver"
+   ],
+   "reason": "an origin, kept as its own note"
+  },
+  {
+   "notes": [
+    "Tonka Bean",
+    "Roasted Tonka Bean"
+   ],
+   "reason": "roasted is a different note"
+  },
+  {
+   "notes": [
+    "Frankincense",
+    "Incense"
+   ],
+   "reason": "incense is a family, frankincense a resin"
+  },
+  {
+   "notes": [
+    "Frankincense",
+    "Myrrh"
+   ],
+   "reason": "different resins"
+  },
+  {
+   "notes": [
+    "Benzoin",
+    "Siam Benzoin"
+   ],
+   "reason": "an origin, kept as its own note"
+  },
+  {
+   "notes": [
+    "Cashmeran",
+    "Cashmere Wood"
+   ],
+   "reason": "a molecule and an accord"
+  },
+  {
+   "notes": [
+    "Ambroxan",
+    "Ambrofix"
+   ],
+   "reason": "a different brand molecule"
+  },
+  {
+   "notes": [
+    "Ambroxan",
+    "Cetalox"
+   ],
+   "reason": "a different brand molecule"
+  },
+  {
+   "notes": [
+    "Grapefruit",
+    "Pink Grapefruit"
+   ],
+   "reason": "pink grapefruit is a variety"
+  },
+  {
+   "notes": [
+    "Oakmoss",
+    "Oak"
+   ],
+   "reason": "moss and wood are different"
+  },
+  {
+   "notes": [
+    "Oak",
+    "Oakwood"
+   ],
+   "reason": "kept apart, wood of X stays its own note"
+  },
+  {
+   "notes": [
+    "Sea Salt",
+    "Salt"
+   ],
+   "reason": "sea salt is an accord, salt an ingredient"
+  },
+  {
+   "notes": [
+    "Coconut",
+    "Coconut Milk"
+   ],
+   "reason": "milk is a different note"
+  },
+  {
+   "notes": [
+    "Black Tea",
+    "Green Tea"
+   ],
+   "reason": "different teas"
+  },
+  {
+   "notes": [
+    "Lily",
+    "Lily of the Valley"
+   ],
+   "reason": "different flowers"
+  },
+  {
+   "notes": [
+    "Lily",
+    "Water Lily"
+   ],
+   "reason": "different flowers"
+  },
+  {
+   "notes": [
+    "Sugar Cane",
+    "Cane Sugar"
+   ],
+   "reason": "a plant and a sugar"
+  },
+  {
+   "notes": [
+    "Redwood",
+    "Red Woods"
+   ],
+   "reason": "a tree and a wood accord"
+  },
+  {
+   "notes": [
+    "Olive",
+    "Olive Oil"
+   ],
+   "reason": "a fruit and a cooking oil"
+  },
+  {
+   "notes": [
+    "Candy Sugar",
+    "Sugar Candy"
+   ],
+   "reason": "different sweets"
+  },
+  {
+   "notes": [
+    "Baies Rose",
+    "Bay Rose"
+   ],
+   "reason": "a French pink berry and a rose"
+  },
+  {
+   "notes": [
+    "Virginia",
+    "Virginian"
+   ],
+   "reason": "kept apart, too vague to merge"
+  },
+  {
+   "notes": [
+    "Pimento Berries",
+    "Pepper"
+   ],
+   "reason": "a different spice"
+  }
+ ]
+}

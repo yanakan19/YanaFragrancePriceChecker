@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-08T21:59:56.361Z",
-  "seenAt": "2026-10-08T21:59:56.361Z",
+  "updatedAt": "2026-10-09T01:52:35.625Z",
+  "seenAt": "2026-10-09T01:52:35.625Z",
   "source": "live",
   "listings": [
     {
@@ -7742,7 +7742,7 @@
       "priceGbp": 3.75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Is it time to hit that internal pause button? Feel oh-so soothed with our Senses Simply Luxurious Bubble Bath: White Peach & Vanilla Orchid. Infused with natural extracts, this relaxing bubble bath will wrap you in a calming scent as you sink into clouds of blissful bubbly foam. Pure luxury! Product specification: • Bubble bath infused with the scent of white peach and vanilla orchid. • Enriched with natural extracts. • Recyclable packaging. • Part of the Senses Simply Luxurious collection. • Size: 1 litre, also available in 500ml. How to use me: Pour 1-2 capfuls under warm running water and watch clouds of blissful bubbles appear..",
       "productType": "TOILETRIES",
