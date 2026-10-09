@@ -88,6 +88,29 @@ function wellFormed(svg: string): boolean {
   return stack.length === 0;
 }
 
+/**
+ * The only group changes a shipped icon may have had (file to its new group). The owner approved the 16
+ * groups on 9 Oct 2026 with tea and coffee in Sweet and Gourmand, not in Drinks
+ * and Spirits (docs/NOTES-PAGE-PLAN.md section B). Add a line here only for an
+ * owner decision, with its date.
+ */
+const APPROVED_GROUP_MOVES: Record<string, string> = {
+  'coffee.svg': 'sweet',
+  'tea.svg': 'sweet',
+  'green-tea.svg': 'sweet',
+  'mate.svg': 'sweet',
+};
+
+/**
+ * The only icon aliases that moved from one icon to another, so that the icon
+ * manifest agrees with data/note-aliases.json (a merged spelling must show its
+ * canonical note's icon). Key: the spelling; value: the icon file that serves it now.
+ */
+const APPROVED_ALIAS_MOVES: Record<string, string> = {
+  'Hay absolute': 'hay.svg',
+  'Iris butter': 'orris.svg',
+};
+
 describe('note icon manifest', () => {
   it('has a file on disk for every entry, and every file is listed', () => {
     for (const { rel } of everySvg()) expect(existsSync(resolve(iconDir, rel)), rel).toBe(true);
@@ -142,9 +165,17 @@ describe('note icon manifest', () => {
       const now = manifest.icons.find((i) => i.file === old.file);
       expect(now, `${old.file} was removed`).toBeDefined();
       expect(now!.name, old.file).toBe(old.name);
-      expect(now!.group, old.file).toBe(old.group);
+      expect(now!.group, old.file).toBe(APPROVED_GROUP_MOVES[old.file] ?? old.group);
       const kept = new Set(now!.aliases.map(noteMergeKey));
-      for (const a of old.aliases) expect(kept.has(noteMergeKey(a)), `${old.file} lost alias ${a}`).toBe(true);
+      for (const a of old.aliases) {
+        const movedTo = APPROVED_ALIAS_MOVES[a];
+        if (movedTo !== undefined) {
+          const target = manifest.icons.find((i) => i.file === movedTo);
+          expect(target?.aliases.map(noteMergeKey).includes(noteMergeKey(a)), `${a} should now be served by ${movedTo}`).toBe(true);
+          continue;
+        }
+        expect(kept.has(noteMergeKey(a)), `${old.file} lost alias ${a}`).toBe(true);
+      }
     }
     for (const g of before.groups) expect(manifest.groups.some((n) => n.id === g.id), g.id).toBe(true);
   });

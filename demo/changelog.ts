@@ -37,6 +37,10 @@ export const CHANGELOG: ChangelogEntry[] = [
         heading: 'New',
         points: ['Glossier UK, with its fragrances priced in pounds'],
       },
+      {
+        heading: 'Products and Matching',
+        points: ['Notes tidied: one name per ingredient'],
+      },
     ],
   },
   {

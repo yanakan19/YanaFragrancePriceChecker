@@ -99,6 +99,7 @@ import {
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 import { pickBestNotes, type NoteCandidate } from '../src/catalogue/notesPick.js';
+import { applyNoteAliases, noteAliasMap, type NoteAliasFile } from '../src/catalogue/noteAliases.js';
 import { pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
 import { betterPhotoFor, type BetterPhoto } from '../src/catalogue/betterPhotos.js';
 import { bottleScaleStyle, type SilhouetteBox } from '../src/catalogue/bottleScale.js';
@@ -456,6 +457,16 @@ export interface Notes {
  * a shop publishing notes, how many had two or more to choose between, and how
  * many took a fuller pyramid than the most recently fetched shop's.
  */
+/**
+ * The reviewed note aliases (data/note-aliases.json, src/catalogue/noteAliases.ts):
+ * every product's notes are written with one name per ingredient, so the page,
+ * the Notes tab, filters and deals all agree, and so does any future region that
+ * reads this catalogue. NOTE_ALIASES (below, written into the catalogue file)
+ * lists every spelling that was folded away, to redirect its old note address.
+ */
+const noteAliasFile = JSON.parse(readFileSync(resolve(root, 'data/note-aliases.json'), 'utf8')) as NoteAliasFile;
+const noteAliases = noteAliasMap(noteAliasFile);
+const noteRewrites = new Map<string, string>(noteAliasFile.aliases.map((a) => [a.variant, a.canonical]));
 const noteStats = { withNotes: 0, contested: 0, fuller: 0, withBase: 0, bySource: new Map<string, number>() };
 
 /**
@@ -487,7 +498,13 @@ function pickNotes(offers: Offer[]): Notes | null {
   if (best !== newest && JSON.stringify(best.notes) !== JSON.stringify(newest!.notes)) noteStats.fuller++;
   if (best.notes.base.length > 0) noteStats.withBase++;
   noteStats.bySource.set(best.retailerId, (noteStats.bySource.get(best.retailerId) ?? 0) + 1);
-  return { ...best.notes, source: { retailerId: best.retailerId, url: best.url } };
+  const onRewrite = (from: string, to: string): void => void noteRewrites.set(from, to);
+  const folded = {
+    top: applyNoteAliases(best.notes.top, noteAliases, onRewrite),
+    middle: applyNoteAliases(best.notes.middle, noteAliases, onRewrite),
+    base: applyNoteAliases(best.notes.base, noteAliases, onRewrite),
+  };
+  return { ...best.notes, ...folded, source: { retailerId: best.retailerId, url: best.url } };
 }
 
 /**
@@ -2888,6 +2905,15 @@ export const OLDER_OFFERS: Record<string, OlderOffer[]> = ${JSON.stringify(older
  * are listed.
  */
 export const HISTORY_ALIASES: Record<string, string[]> = ${JSON.stringify(historyAliases)};
+
+/**
+ * Every note spelling folded into another note by data/note-aliases.json (and
+ * every case or spacing variant of one that a shop wrote), as [spelling, note].
+ * demo/data.ts turns each into a redirect from the spelling's old note address
+ * (/notes/<slug>) to the note now showing. Never shrinks in practice: the alias
+ * file is append only.
+ */
+export const NOTE_ALIASES: [string, string][] = ${JSON.stringify([...noteRewrites].sort((a, b) => (a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0)))};
 
 /**
  * Houses read direct from their own storefronts.

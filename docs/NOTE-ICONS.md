@@ -71,8 +71,15 @@ compares with `HEAD`.
 
 - An alias is a note spelling that the icon also serves. It is a **picture
   choice, not a merge**: it does not make two notes one, and it changes no
-  count, name or address. (Merging notes is the reviewed alias file of the
-  notes plan, section B.)
+  count, name or address. (Merging notes is the reviewed alias file
+  `data/note-aliases.json`, built 9 Oct 2026; docs/NOTES-PAGE-PLAN.md section B.)
+- **The two lists must agree** (`tests/noteAliases.test.ts` fails otherwise):
+  a spelling the note aliases fold into a canonical note must be drawn with
+  the canonical's icon, and if a folded spelling has an icon the canonical
+  must have one too. When you add a note alias whose variant already has an
+  icon, add the canonical as an alias of that icon (adding is allowed). Moving
+  an existing alias between icons needs a line in `APPROVED_ALIAS_MOVES` in
+  `tests/noteIcons.test.ts`.
 - Matching uses the same key as the Notes tab (`noteMergeKey`: letters and
   digits only, case and accents folded). So "Oak Moss" and "Oakmoss", or
   "Ylang-Ylang" and "Ylang Ylang", are one spelling; list one.

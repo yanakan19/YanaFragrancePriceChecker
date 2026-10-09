@@ -53,7 +53,7 @@
    "file": "patchouli.svg",
    "name": "Patchouli",
    "group": "earth-moss",
-   "aliases": ["Indian Patchouli", "Indonesian Patchouli", "Indonesian Patchouli Leaf", "Indonesian Patchouli Oil", "Patchouli Coeur", "Patchouli Essence", "Patchouli Heart", "Patchouli Leaf", "Patchouli Oil"]
+   "aliases": ["Indian Patchouli", "Indonesian Patchouli", "Indonesian Patchouli Leaf", "Indonesian Patchouli Oil", "Patchouli Coeur", "Patchouli Essence", "Patchouli Heart", "Patchouli Leaf", "Patchouli Oil", "Patchouli Leaves"]
   },
   {
    "file": "amber.svg",
@@ -143,7 +143,7 @@
    "file": "geranium.svg",
    "name": "Geranium",
    "group": "flowers",
-   "aliases": ["Bourbon Geranium", "Geranium Absolute", "Geranium Leaf", "Pelargonium", "Rose Geranium"]
+   "aliases": ["Bourbon Geranium", "Geranium Absolute", "Geranium Leaf", "Pelargonium", "Rose Geranium", "Geranium Leaves"]
   },
   {
    "file": "mandarin.svg",
@@ -155,7 +155,7 @@
    "file": "blackcurrant.svg",
    "name": "Blackcurrant",
    "group": "fruits",
-   "aliases": ["Black Current", "Blackcurrant Accord", "Blackcurrant Bud", "Blackcurrant Buds", "Blackcurrant leaf", "Cassis"]
+   "aliases": ["Black Current", "Blackcurrant Accord", "Blackcurrant Bud", "Blackcurrant Buds", "Blackcurrant leaf", "Cassis", "Blackcurrant Leaves"]
   },
   {
    "file": "ginger.svg",
@@ -221,7 +221,7 @@
    "file": "iris.svg",
    "name": "Iris",
    "group": "flowers",
-   "aliases": ["Florentine Iris", "Iris Absolute", "Iris Accord", "Iris butter", "Iris Concrete", "Iris flower", "Iris Pallida", "White Iris"]
+   "aliases": ["Florentine Iris", "Iris Absolute", "Iris Accord", "Iris Concrete", "Iris flower", "Iris Pallida", "White Iris"]
   },
   {
    "file": "apple.svg",
@@ -257,7 +257,7 @@
    "file": "neroli.svg",
    "name": "Neroli",
    "group": "citrus",
-   "aliases": ["Neroli Blossom", "Neroli Essence", "Neroli Oil", "Tunisian Neroli"]
+   "aliases": ["Neroli Blossom", "Neroli Essence", "Neroli Oil", "Tunisian Neroli", "Neroli Blossoms"]
   },
   {
    "file": "peach.svg",
@@ -395,7 +395,7 @@
    "file": "heliotrope.svg",
    "name": "Heliotrope",
    "group": "flowers",
-   "aliases": ["Heliotrope Accord", "heliotropin"]
+   "aliases": ["Heliotrope Accord", "heliotropin", "Heliotropine"]
   },
   {
    "file": "rosemary.svg",
@@ -407,7 +407,7 @@
    "file": "citrus.svg",
    "name": "Citrus",
    "group": "citrus",
-   "aliases": ["Citrus Accord", "Citrus Fruits", "Citrus Peel", "Citrus Zest", "Citruses"]
+   "aliases": ["Citrus Accord", "Citrus Fruits", "Citrus Peel", "Citrus Zest", "Citruses", "Citrus Accords"]
   },
   {
    "file": "honey.svg",
@@ -437,7 +437,7 @@
    "file": "orris.svg",
    "name": "Orris",
    "group": "flowers",
-   "aliases": ["Orris Absolute", "Orris Butter", "Orris Concrete", "Orris Root"]
+   "aliases": ["Orris Absolute", "Orris Butter", "Orris Concrete", "Orris Root", "Iris butter"]
   },
   {
    "file": "basil.svg",
@@ -496,7 +496,7 @@
   {
    "file": "coffee.svg",
    "name": "Coffee",
-   "group": "drinks",
+   "group": "sweet",
    "aliases": ["Black Coffee", "Black Coffee Accord", "Cappuccino", "Coffee Absolute", "Coffee Accord", "Coffee Beans", "Espresso", "Roasted Coffee"]
   },
   {
@@ -527,7 +527,7 @@
    "file": "woods.svg",
    "name": "Woods",
    "group": "woods",
-   "aliases": ["Amyris", "creamy woods", "Dark Woods", "Dry Wood", "Dry Woods", "Exotic Woods", "Precious Woods", "Soft Woods", "Warm Woods", "Wood", "Woody Accord", "Woody Accords"]
+   "aliases": ["Amyris", "creamy woods", "Dark Woods", "Dry Wood", "Dry Woods", "Exotic Woods", "Precious Woods", "Soft Woods", "Warm Woods", "Wood", "Woody Accord", "Woody Accords", "Creamy Wood"]
   },
   {
    "file": "myrrh.svg",
@@ -743,19 +743,19 @@
    "file": "mimosa.svg",
    "name": "Mimosa",
    "group": "flowers",
-   "aliases": ["Acacia", "Broom", "Mimosa Absolute", "Mimosa Flower"]
+   "aliases": ["Acacia", "Broom", "Mimosa Absolute", "Mimosa Flower", "Mimosa Flowers"]
   },
   {
    "file": "tea.svg",
    "name": "Tea",
-   "group": "drinks",
-   "aliases": ["Black Tea", "Chinese Black Tea", "Earl Grey", "Jasmine Tea", "Tea Accord", "Tea Leaves", "White Tea"]
+   "group": "sweet",
+   "aliases": ["Black Tea", "Chinese Black Tea", "Earl Grey", "Jasmine Tea", "Tea Accord", "Tea Leaves", "White Tea", "Tea Leaf"]
   },
   {
    "file": "floral-bouquet.svg",
    "name": "Floral Bouquet",
    "group": "flowers",
-   "aliases": ["Floral", "Floral Accord", "floral heart", "Florals", "Flowers", "Fresh florals", "Fresh Flowers", "Mignonette"]
+   "aliases": ["Floral", "Floral Accord", "floral heart", "Florals", "Flowers", "Fresh florals", "Fresh Flowers", "Mignonette", "Floral Accords"]
   },
   {
    "file": "star-anise.svg",
@@ -803,7 +803,7 @@
    "file": "coumarin.svg",
    "name": "Coumarin",
    "group": "modern",
-   "aliases": ["Hay absolute"]
+   "aliases": []
   },
   {
    "file": "cumin.svg",
@@ -820,7 +820,7 @@
   {
    "file": "green-tea.svg",
    "name": "Green Tea",
-   "group": "drinks",
+   "group": "sweet",
    "aliases": ["Green Tea Accord", "Matcha"]
   },
   {
@@ -839,7 +839,7 @@
    "file": "hazelnut.svg",
    "name": "Hazelnut",
    "group": "sweet",
-   "aliases": ["Hazelnut accord", "Hazelnuts", "Nuts", "Nutty", "Walnut"]
+   "aliases": ["Hazelnut accord", "Hazelnuts", "Nuts", "Nutty", "Walnut", "Nut"]
   },
   {
    "file": "lilac.svg",
@@ -1000,7 +1000,7 @@
   {
    "file": "mate.svg",
    "name": "Mate",
-   "group": "drinks",
+   "group": "sweet",
    "aliases": ["Mate Absolute", "Mate leaf", "Yerba Mate"]
   },
   {
@@ -1091,7 +1091,7 @@
    "file": "marine.svg",
    "name": "Marine",
    "group": "air-water",
-   "aliases": ["Aquatic", "Aquatic Accord", "Aquozone", "Marine Accord", "Marine Breeze", "Sea", "Sea Accord", "Sea Breeze", "Sea spray", "Sea Water", "Water", "Water Accord"]
+   "aliases": ["Aquatic", "Aquatic Accord", "Aquozone", "Marine Accord", "Marine Breeze", "Sea", "Sea Accord", "Sea Breeze", "Sea spray", "Sea Water", "Water", "Water Accord", "Sea Accords"]
   },
   {
    "file": "apple-blossom.svg",
@@ -1109,7 +1109,7 @@
    "file": "bamboo.svg",
    "name": "Bamboo",
    "group": "herbs-greens",
-   "aliases": ["Bamboo Accord", "Bamboo Leaf"]
+   "aliases": ["Bamboo Accord", "Bamboo Leaf", "Bamboo leaves"]
   },
   {
    "file": "smoke.svg",
@@ -1217,7 +1217,7 @@
    "file": "hay.svg",
    "name": "Hay",
    "group": "earth-moss",
-   "aliases": []
+   "aliases": ["Hay absolute"]
   },
   {
    "file": "kumquat.svg",

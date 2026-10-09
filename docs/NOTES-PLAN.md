@@ -174,3 +174,21 @@ notes already confirmed from labelled lists.
 - When the fuller pyramid replaces a thinner one, a note that only the thinner
   one carried (and no other product has) disappears from the Notes tab, and its
   old page address no longer opens (409 addresses on 6 Oct 2026).
+
+## Reviewed aliases (9 Oct 2026)
+
+The mechanical merge above never joined a plural, a word order, a synonym or a
+typo. `data/note-aliases.json` (`src/catalogue/noteAliases.ts`) now does, from a
+reviewed, append only list: 1,143 spellings folded into their notes, so the
+Notes tab went from 5,746 notes to 4,603. The build writes every product's notes
+with the aliases applied (`pickNotes` in `scripts/build-demo-catalogue.ts`), so
+the page, the Notes tab, note pages, filters and deals agree, and any region
+that reads the catalogue gets the same names. The "never merged" examples in
+Part 1 above (Tonka Bean and Tonka Beans, Jasmine Sambac and Sambac Jasmine)
+are superseded by that file; `noteMergeKey` itself is unchanged and its tests
+stand. Distinct notes stay distinct: origins, parts (leaf, bud, blossom, wood,
+flower) and accords, listed as `keepApart` pairs the tests protect. An old
+`/notes/<slug>` of a folded spelling opens the canonical note (the build's
+`NOTE_ALIASES`, read by `noteForAddress`). Adding a pair: append to the file,
+run `tests/noteAliases.test.ts`, then `npm run catalogue:demo` and commit the
+rebuilt `demo/catalogue.generated.ts`.

@@ -183,6 +183,20 @@ Three layers, each keeping today's rules intact:
    hidden from the tab and the product page, with a parser fix for the shape
    that produced it.
 
+**Built 9 Oct 2026 (the merge half).** `data/note-aliases.json` exists and is
+applied in `scripts/build-demo-catalogue.ts`, so every product carries one name
+per ingredient and the Notes tab went from 5,746 notes to 4,603. It differs
+from the draft above in two ways: the kinds are `plural`, `order`, `form`
+(absolute, essence, oil, extract, concrete, CO2, resinoid, supplier labels),
+`country` (Italy Lemon, Italian Lemon), `spelling` and `synonym`; and
+`kindOf` is not a kind. Origins, parts and accords simply stay their own notes
+and the file's `keepApart` list names the pairs most likely to be mistaken for
+one (Blackcurrant Leaf, Blackcurrant Bud, White Musk, Bitter Orange, Pink
+Pepper, Green Apple). A merged spelling's address (`/notes/<slug>`) opens the
+canonical note, from the build's `NOTE_ALIASES` list. The icon manifest and the
+alias file are checked against each other by `tests/noteAliases.test.ts`.
+Grouping (the rest of this section) is not built.
+
 ### How every note gets its group
 
 Rules run in this order; the first that answers wins:
@@ -529,3 +543,174 @@ first.
 What the owner must provide: the approval of section B, decisions 2 to 10, a
 look at the art style before the 200 are drawn, and, only if decision 3 goes to
 an illustrator, a quote and a written assignment of copyright to PriceSniffs.
+
+---
+
+## F. Note icons on each product's own notes (plan only, 9 Oct 2026)
+
+Owner request: the note icons (`demo/note-icons/`, built 9 Oct 2026, see
+`docs/NOTE-ICONS.md`) should appear on each product listing, under that
+product's own notes: the Top, Middle and Base notes on the product page and
+possibly on product tiles. **Nothing here is built.**
+
+### What the page has today, and what the data now allows
+
+- `notesBlock()` in `demo/app.ts` draws three labelled tiers, each a centred,
+  wrapping row of `button.note-chip` pills (12.5px text, `--surface-2`, 1px
+  `--line` border). A pill opens the note's page. Nothing else.
+- Product tiles (`fragranceTile()`) show no notes at all.
+- After the alias merge (`data/note-aliases.json`) a product carries one name
+  per ingredient, so the icon lookup is a plain match on the note's merge key.
+  Measured on 9 Oct 2026 (4,603 notes after the merge, 102,652 note uses):
+  831 notes have their own icon (name or alias), and they cover **92.1% of all
+  note uses**. The top 20 notes are 43% of uses, the top 40 are 56%, the top
+  100 are 74%, the top 200 are 83%. A product with notes shows 8 notes at the
+  median, 13 at the 90th percentile, 20 at the 99th, 36 at most.
+
+### Layout
+
+An icon **above** the name, in the same button, so the whole thing stays one
+tap target and one accessible name.
+
+| | 320 px | 390 px | 1280 px |
+|---|---|---|---|
+| Item (button) | 66 wide, icon 36, name 12px, 2 lines max | 76 wide, icon 44, name 12.5px | 84 wide, icon 52, name 13px |
+| Gap | 6 | 8 | 10 |
+| Per row (content width = screen minus two 16px gutters; 288, 358, up to 560 in the notes block) | 4 (4 x 66 + 3 x 6 = 282) | 4 (4 x 76 + 3 x 8 = 328) | 6 to 7, centred |
+| Row alignment | centred per row, as the chips are today, so a short last row sits under the middle | same | same |
+
+- The item is a rounded 12px tile on `--surface-2` with the existing 1px line,
+  accent border on hover and focus, `.on` state unchanged. A tile (not bare
+  icons on the page ground) is what lets one icon set read on both themes:
+  the icons were drawn for a dark tile (`#1B1B1F`) and a light one, and
+  `--surface-2` is `#1A1A1D` dark and `#F2F2F4` light.
+- The name wraps to two lines, then clips with an ellipsis; the full name is the
+  button text so nothing is lost for a reader or a screen reader. Long names
+  ("Burgundy Blackcurrant Buds Absolute") rely on this.
+- Item height is fixed per breakpoint (icon box plus two text lines), so a row
+  never jumps when an icon loads or fails.
+- Fallback to the plain pill (icon beside the name, 24px) is kept as the
+  narrowest layout only if a 4 up row at 320 fails the visual check; the first
+  build uses the stacked item at every width.
+
+### Notes without an icon
+
+Fallback chain, first hit wins:
+
+1. The note's own icon (name or alias, matched on the merge key, after the
+   alias merge so a merged spelling can never miss its canonical's icon).
+2. The note's **group icon** (`demo/note-icons/groups/<id>.svg`, 16 of them),
+   from the approved group of the note (section B; Phase 1 and 2 of section E
+   give every note a group by rule).
+3. The `more` group icon, for a note the rules cannot place.
+
+Until the group map exists the chain stops at step 3 for the long tail, which
+is 8% of uses. A group icon is shown at 70% opacity with no extra mark, so a
+reader can tell "this family" from "this exact note"; the name is always the
+text. Prose the parser read as a note (decision 7) gets no icon and, once
+hidden by the not-a-note list, no pill either.
+
+### Loading cost
+
+The home page's first load must not grow, so nothing icon related is imported
+by the first bundle.
+
+- **Icons are files, requested lazily.** `<img src="/note-icons/…svg" alt=""
+  width height loading="lazy" decoding="async">`. A product page has its notes
+  block well below the price table, so nothing is requested until it nears the
+  viewport. Typical cost: 8 icons of about 1.5 KB (12 KB); the 99th percentile
+  product 20 icons (about 30 KB); never more than the 36 of the busiest
+  product. Every icon is under 2.5 KB; the whole set is about 270 KB and is
+  never downloaded as a set.
+- **Lookup table is a lazy data file**, not code in the bundle:
+  `noteIcons.<hash>.json` (name key to icon file, plus note to group id once
+  section E lands), registered in `LAZY_DATA_MODULES` (`scripts/dataFiles.ts`)
+  the way the dormant products are, fetched the first time a product page with
+  notes opens. About 831 notes plus their aliases: roughly 40 KB, 10 KB gzipped.
+- **Cache.** GitHub Pages sends a short `Cache-Control` and we cannot change
+  headers, so `demo/sw.js` gets a cache-first rule for `/note-icons/` into its
+  own cache (`pricesniffs-icons-v1`): filled on first use, never precached at
+  install, so the install cost is unchanged. To make cache-first safe, the
+  build writes the icons under **content-hashed names**
+  (`musk.3f9a1c2b.svg`, like the data files) and the lookup file names the
+  hashed file; a redrawn icon is a new URL. That makes the hashed copies a
+  `deploy` generated file: a line in `scripts/generated-files.txt` and
+  `.gitignore` in the same commit as the build script
+  (`scripts/build-note-icons.ts`, run by `npm run demo`).
+- **Inline sprite: not in the first version.** A sprite of the top 40 notes
+  would cover 56% of uses but costs about 60 KB uncompressed (about 20 KB
+  gzipped) in whichever file carries it, and HTTP/2 on Pages makes a dozen
+  1.5 KB files cheap. If measurement (section E, Phase 7) shows request count
+  hurting the product page, ship the sprite **inside the lazy lookup file**, so
+  the cost is paid with the notes and never at home page load; do not put it in
+  the main bundle or `template.html`.
+- **Budget to hold** (checked in tests below): home page first load requests no
+  icon and its byte count is unchanged; product page with the median 8 notes
+  makes at most 8 icon requests plus the one lookup file, total under 20 KB.
+
+### Accessibility
+
+- The icon is **decorative**: `alt=""`, no `title`, no `aria-label`. The
+  button's accessible name is the note's name, exactly as today. The SVG's own
+  `<title>` is not exposed when the file is used through `<img>`.
+- Nothing is told by the picture alone: the tier label (Top, Middle, Base) and
+  the note name stay as text, in the same document order.
+- Tap target: the item is at least 66 x 76 px, over the 44 px minimum.
+- Focus ring on the whole item (`:focus-visible`, the existing 2px accent
+  outline). No animation, so nothing to reduce.
+- If an icon fails to load, `onerror` hides the image and the tile keeps its
+  size, name and border; offline, the cached icons still show.
+- Text on the tile keeps the contrast the pill has now (ink on `--surface-2`);
+  the icon colours were checked on both tiles when drawn.
+
+### Product tiles
+
+**Nothing changes on tiles in the first version.** A grid page has 24 to 60
+tiles; three icons on each would add 70 to 180 image requests to the pages
+visitors use most, and make the tile taller in a grid that is tuned for price
+first. If the owner still wants them:
+
+- Only on the larger tile density (`demo/tileDensity.ts`), never on the compact
+  one, and only for products that have notes (41% of them).
+- A single line of the product's **top three notes by tier order** as 20 px
+  icons, `alt=""`, the names in the tile's visually hidden "Notes:" text so
+  the accessible name gains them, lazy and from the same cache.
+- Hidden below 360 px wide, and measured first (Phase 4 below) against the
+  tile image budget.
+- No new data: `DEMO_FRAGRANCES[i].notes` is already in memory.
+
+### Tests
+
+- `tests/noteIconLookup.test.ts` (unit): the lookup returns the icon of the
+  canonical for every alias variant; every file it names exists; every note in
+  the top 200 resolves to its own icon; a note with none gets its group icon,
+  never nothing; hashed names match the file contents.
+- `tests/noteIconsBlock.test.ts` (render): the markup of `notesBlock()` has one
+  `img` with `alt=""` and `loading="lazy"` per note, the name as button text,
+  the tiers in order, no icon for "Notes unavailable".
+- Playwright at 320, 390 and 1280, light and dark: no horizontal page scroll,
+  items per row as the table says, no item wider than its row, the row height
+  fixed before and after the images load (layout shift under 0.01), axe clean
+  in both themes.
+- Network: the home page requests no `/note-icons/` file and its first-load
+  bytes are unchanged (`perf:load` budget); the median product page requests at
+  most 8 icons and 1 lookup file; a second visit is served from the icon cache;
+  with `/note-icons/*` blocked the names, borders and sizes are intact.
+- `tests/workflowRules` and `tests/generatedFiles` stay green with the new
+  deploy file listed.
+
+### Phases and estimate
+
+| Phase | Work | Effort | Agent | Depends on |
+|---|---|---|---|---|
+| F0 | Owner: confirm icon above the name, tiles yes or no | minutes | owner | |
+| F1 | `build-note-icons.ts` (hashed copies, lookup file, generated-files and `.gitignore` lines), `LAZY_DATA_MODULES` entry, `sw.js` icon cache rule | 0.5 to 1 day | Sonnet | merged aliases (done) |
+| F2 | `notesBlock()` markup and CSS, fallback chain, lazy lookup load, `onerror` | 0.5 day | Sonnet | F1; the group map for step 2 of the fallback (section E, Phases 1 and 2), else step 3 only |
+| F3 | Tests above, three widths and two themes | 0.5 day | Sonnet | F2 |
+| F4 | Measure (`perf:load`, `a11y`), look at the page on a phone, decide on the sprite and on tiles | 0.5 day | Sonnet, owner look | F3 |
+| F5 (optional) | Tile strip of three icons, only if asked | 0.5 day | Sonnet | F4 |
+
+About 2 to 2.5 days of agent work for the product page, owner look at F4. The
+risk to watch is conflicts: `demo/app.ts` and `demo/template.html` are edited
+by other work (international formatting), so F2 should land in one short
+commit after a fresh merge.

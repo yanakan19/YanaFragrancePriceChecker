@@ -7,7 +7,7 @@ import { slugify } from './router.js';
 import type { OilFacts } from '../src/catalogue/perfumeOil.js';
 import type { GiftSetRecord } from '../src/catalogue/giftSet.js';
 import { isTooOldToShow, showableListingCount } from '../src/services/priceService.js';
-import { CATALOGUE, CRAWLED, type Notes } from './catalogue.generated.js';
+import { CATALOGUE, CRAWLED, NOTE_ALIASES, type Notes } from './catalogue.generated.js';
 import { DEALS_RAW, DEALS_GENERATED_AT as DEALS_GENERATED_AT_RAW } from './deals.generated.js';
 
 /**
@@ -220,6 +220,7 @@ const NOTE_NAMES = (() => {
   const shown = new Map<string, string>();
   const own = new Map<string, string>();
   const old = new Map<string, { name: string; products: number }>();
+  const shownByKey = new Map<string, string>();
   for (const g of groups) {
     // A note shouted in capitals ("SWEET") is shown as a word.
     const name =
@@ -227,6 +228,7 @@ const NOTE_NAMES = (() => {
         ? g.display.charAt(0) + g.display.slice(1).toLowerCase()
         : g.display;
     own.set(noteSlug(name), name);
+    shownByKey.set(g.key, name);
     for (const r of g.raw) {
       shown.set(r, name);
       for (const a of [slugify(r), slugify(cleanNoteName(r)), noteSlug(r)]) {
@@ -234,6 +236,16 @@ const NOTE_NAMES = (() => {
         const had = old.get(a);
         if (!had || g.products > had.products) old.set(a, { name, products: g.products });
       }
+    }
+  }
+  // A spelling the reviewed aliases folded into another note (data/note-aliases.json)
+  // is no longer in the data, so its old address comes from the build's list:
+  // it opens the note it became, like a merged product id. It only fills gaps.
+  for (const [from, to] of NOTE_ALIASES) {
+    const name = shownByKey.get(noteMergeKey(to));
+    if (name === undefined) continue;
+    for (const a of [slugify(from), slugify(cleanNoteName(from)), noteSlug(from)]) {
+      if (a !== '' && !old.has(a)) old.set(a, { name, products: 0 });
     }
   }
   // A note's own address always means that note; an old one fills the gaps.
