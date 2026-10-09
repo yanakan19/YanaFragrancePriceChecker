@@ -995,9 +995,14 @@ it brought new prices.
    pricesniffs.space/in/about/legal (terms, privacy, affiliate disclosure,
    refunds; the words are in `demo/legalRegion.ts`). They are plain and short
    on purpose. Nothing earns money there today (no affiliate links, no
-   personalised ads), and nothing should until the review is done. For India,
-   also decide whether sign up should ask for an "I am 18 or over"
-   confirmation (the DPDP Act; the privacy notice already says accounts are for
-   18 or over).
+   personalised ads), and nothing should until the review is done.
+   **Decided 9 October 2026 and built:** Indian sign ups must tick "I am 18 or
+   over" (the DPDP Act; the form blocks sign up with a pop-up until it is
+   ticked, and the Indian privacy notice says so). Nothing is stored: no
+   column, no migration, so there is no record of the tick beyond the account
+   itself. Still yours to decide, with the legal review: whether the law
+   needs a stored record (a date and the notice version on the profile). If it
+   does, ask for it and it is one nullable column plus a write at sign up.
+   Sign in is by email and password only, so no other path skips the form.
 4. Affiliate sign ups (Awin US, CJ, Rakuten, Impact, Skimlinks, the Indian
    networks) are for later (decision 6).

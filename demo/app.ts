@@ -139,6 +139,7 @@ import {
   type WishlistSort,
 } from '../src/services/accountMenu.js';
 import { REGIONS, CURRENT_REGION, regionButtonLabel, type Region } from '../src/services/regions.js';
+import { ageConfirmHtml, needsAgeConfirmation, AGE_CONFIRM_ERROR_TITLE, AGE_CONFIRM_ERROR_MESSAGE } from './ageConfirm.js';
 import { activeRegion, liveRegions, regionById, regionHome, splitRegionPrefix, suggestRegionForTimeZone, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import { BAR_DISMISSED_KEY, barRegion, barText, leafAlternates, switchNeedsLinks, switchTarget, type RegionLinks, type SwitchFrom } from './regionSwitch.js';
 import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxNote } from '../src/services/regionText.js';
@@ -4649,6 +4650,7 @@ function accountGate(signedOut: { heading: string; note: string }): string | nul
                     aria-pressed="false" aria-controls="auth-password">Show</button>
           </span>
         </label>
+        ${signUpTab && needsAgeConfirmation(activeRegion().id, readStoredRegion()) ? ageConfirmHtml() : ''}
         <button type="submit" class="contact-send" ${state.authBusy ? 'disabled' : ''}>
           ${signUpTab ? 'Create Account' : 'Sign In'}
         </button>
@@ -8662,6 +8664,14 @@ function init(): void {
       e.preventDefault();
       const email = ($('#auth-email') as HTMLInputElement).value.trim();
       const password = ($('#auth-password') as HTMLInputElement).value;
+      // Indian sign ups: the box is in the form only there, so a missing box
+      // means no confirmation is asked for.
+      const age = form.querySelector('#auth-age') as HTMLInputElement | null;
+      if (form.id === 'auth-signup-form' && age && !age.checked) {
+        void showDialog({ title: AGE_CONFIRM_ERROR_TITLE, message: AGE_CONFIRM_ERROR_MESSAGE });
+        age.focus();
+        return;
+      }
       // The button is disabled in place rather than by re-rendering, so the
       // typed email and password are still there if the attempt fails.
       const submit = form.querySelector('button[type="submit"]') as HTMLButtonElement;
