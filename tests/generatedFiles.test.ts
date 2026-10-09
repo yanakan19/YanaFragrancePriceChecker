@@ -90,7 +90,7 @@ describe('scripts/generated-files.txt', () => {
     const deploy = entries.filter((x) => x.policy === 'deploy');
     expect(deploy.map((e) => e.pattern)).toEqual([
       'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml',
-      'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/', 'demo/guides/',
+      'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/', 'demo/guides/', 'demo/note-icons/h/',
     ]);
     for (const e of deploy) {
       const probe = e.pattern.endsWith('/')
@@ -134,7 +134,7 @@ describe('scripts/generated-files.txt', () => {
     const deployWorkflow = readFileSync(join(WORKFLOWS, 'deploy-pages.yml'), 'utf8');
     expect(deployWorkflow).toContain('run: npm run demo');
     for (const e of entries.filter((x) => x.policy === 'deploy')) {
-      expect(e.writtenBy, e.pattern).toMatch(/^npm run demo \(scripts\/build-(demo|sitemap|route-pages)\.ts\)/);
+      expect(e.writtenBy, e.pattern).toMatch(/^npm run demo \(scripts\/(build-demo|build-sitemap|build-route-pages|bundle-demo)\.ts[),]/);
     }
   });
 
@@ -156,7 +156,7 @@ describe('scripts/generated-files.txt', () => {
     for (const p of ['demo/data', 'demo/index.html', 'demo/404.html', 'demo/sitemap.xml']) expect(paths).not.toContain(p);
     expect(bash(['paths', 'deploy']).split(' ')).toEqual([
       'demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml',
-      'demo/*.html', 'demo/about', 'demo/legal', 'demo/account', 'demo/guides',
+      'demo/*.html', 'demo/about', 'demo/legal', 'demo/account', 'demo/guides', 'demo/note-icons/h',
     ]);
   });
 

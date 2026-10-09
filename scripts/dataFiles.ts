@@ -84,8 +84,24 @@ export const LAZY_CONTENT_MODULES: Record<string, { module: string; exports: rea
   method: { module: 'content/methodBody', exports: ['METHOD_BODY'] },
 };
 
-/** Every lazy data file's name: the generated modules' and the written pages'. */
-export const LAZY_NAMES: readonly string[] = [...Object.keys(LAZY_DATA_MODULES), ...Object.keys(LAZY_CONTENT_MODULES)];
+/**
+ * Lazy data files a build step computes rather than reads from one module, by
+ * name, with the script that makes them. `notes` (scripts/noteData.ts): the
+ * Notes tab's groups, icons, related notes and search spellings, worked out
+ * from the committed rules and the catalogue the page ships
+ * (docs/NOTES-PAGE-PLAN.md). Measured when added (2026-10-09): about 200 kB,
+ * 50 kB gzipped, fetched the first time Notes or a note page opens.
+ */
+export const LAZY_BUILT_MODULES: Record<string, string> = {
+  notes: 'scripts/noteData.ts',
+};
+
+/** Every lazy data file's name: the generated modules', the written pages' and the built ones. */
+export const LAZY_NAMES: readonly string[] = [
+  ...Object.keys(LAZY_DATA_MODULES),
+  ...Object.keys(LAZY_CONTENT_MODULES),
+  ...Object.keys(LAZY_BUILT_MODULES),
+];
 
 /** A lazy data file: its module name and its path relative to the site root. */
 export interface LazyDataFile {

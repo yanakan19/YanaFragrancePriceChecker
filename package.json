@@ -60,6 +60,7 @@
     "perf:images": "tsx scripts/measure-images.ts",
     "perf:filters": "tsx scripts/measure-filters.ts",
     "changelog:suggest": "tsx scripts/changelog-suggest.ts",
+    "notes:groups": "tsx scripts/note-groups-report.ts",
     "quarantine:prices": "tsx scripts/quarantine-prices.ts",
     "sitemap": "tsx scripts/build-sitemap.ts",
     "social:render": "tsx scripts/render-social.ts",

@@ -71,6 +71,7 @@ deploy    demo/about/                         npm run demo (scripts/build-route-
 deploy    demo/legal/                         npm run demo (scripts/build-route-pages.ts): /legal/how-it-works
 deploy    demo/account/                       npm run demo (scripts/build-route-pages.ts): /account/wishlist and the like
 deploy    demo/guides/                        npm run demo (scripts/build-route-pages.ts): /guides/<slug>, one per guide
+deploy    demo/note-icons/h/                  npm run demo (scripts/bundle-demo.ts, through scripts/noteData.ts): the note icons under content-hashed names, old files deleted; the drawn sources beside them in demo/note-icons/ are committed
 
 # ── social media: the pictures and videos of the posts (D28, owner's go ahead 2026-10-08) ──
 # Committed by the social routines until then: 26.5 MB in the tip tree and 2 to

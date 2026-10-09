@@ -56,6 +56,7 @@ import { build, type Plugin } from 'esbuild';
 import { inlineShopTimes, moveLiteralsToJson } from './dataLiterals.js';
 import { BLOBS_GLOBAL, LAZY_CONTENT_MODULES, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
 import { applyNumbering, localMarker, numberGroups } from './dataNumbering.js';
+import { buildNoteData, NOTE_DATA_FILE, publishNoteIcons, readNoteGroupInputs } from './noteData.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -166,6 +167,22 @@ for (const [name, { module, exports }] of Object.entries(LAZY_CONTENT_MODULES)) 
   await writeFile(resolve(root, `dist-demo/data/${name}.json`), JSON.stringify(data));
   lazy.push(name);
   report.push(`${module}.js: loaded on demand, not bundled`);
+}
+// Built lazy files (LAZY_BUILT_MODULES): the Notes tab's data, worked out from
+// the committed rules and the same catalogue the page ships (scripts/noteData.ts).
+{
+  const data = (await import(pathToFileURL(resolve(root, 'dist-demo/demo/data.js')).href)) as typeof import('../demo/data.js');
+  const inputs = readNoteGroupInputs(root);
+  const iconPaths = publishNoteIcons(root, inputs);
+  const pyramids = data.DEMO_FRAGRANCES.filter((f) => f.notes).map((f) => [...f.notes!.top, ...f.notes!.middle, ...f.notes!.base]);
+  const file = buildNoteData(data.NOTE_INDEX, pyramids, inputs, (f) => {
+    const p = iconPaths.get(f);
+    if (!p) throw new Error(`note icon ${f} was not published`);
+    return p;
+  });
+  await writeFile(resolve(root, `dist-demo/data/${NOTE_DATA_FILE}.json`), JSON.stringify({ NOTE_DATA: file }));
+  lazy.push(NOTE_DATA_FILE);
+  report.push(`${NOTE_DATA_FILE}: built by scripts/noteData.ts, ${file.names.length} notes, ${iconPaths.size} hashed icons, loaded on demand`);
 }
 const manifest: DataManifest = { groups, lazy };
 await writeFile(resolve(root, 'dist-demo/data-files.json'), JSON.stringify(manifest, null, 2));

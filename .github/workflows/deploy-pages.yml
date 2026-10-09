@@ -66,6 +66,11 @@ on:
       - '!**/*.md'
       - '!.github/**'
       - '.github/workflows/deploy-pages.yml'
+      - 'data/note-groups.json'
+      - 'data/note-group-overrides.json'
+      - 'data/note-not-a-note.json'
+      - 'data/note-descriptions.json'
+      - 'data/note-icons-manifest.json'
   workflow_run:
     workflows: ['Catalogue crawl', 'Fragrance links daily']
     types: [completed]

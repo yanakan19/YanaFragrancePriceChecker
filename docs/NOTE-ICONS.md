@@ -14,8 +14,11 @@ JavaScript bundle includes them.
 - `tests/noteIcons.test.ts`: keeps all of the above honest.
 
 The folder is published as it stands (the deploy uploads `demo/`), at
-`/note-icons/<slug>.svg`, about 270 KB in all. Nothing links to it. The rest
-of the plan (tiles, tinting, the service worker rule) is not built.
+`/note-icons/<slug>.svg`, about 270 KB in all. Since 9 Oct 2026 the Notes tab
+and the note pages use the icons: the build copies each to
+`demo/note-icons/h/<slug>.<hash>.svg` (gitignored, scripts/noteData.ts), and the
+page and the service worker's icon cache use those copies. Product pages do not
+show icons yet (docs/NOTES-PAGE-PLAN.md section F).
 
 **Origin.** Own work. Drawn as original SVG source for PriceSniffs, starting
 from the 12 sample icons the owner approved (Pineapple, Blackcurrant, Apple,

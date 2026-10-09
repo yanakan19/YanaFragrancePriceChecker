@@ -23,6 +23,12 @@
 // './index.html'); renaming the cache is what gets activate to drop them.
 const CACHE = 'pricesniffs-shell-v2';
 const DATA_CACHE = 'pricesniffs-data-v1';
+// The note icons under content-hashed names (scripts/noteData.ts): a redrawn
+// icon is a new address, so a stored one never goes stale. Filled on first
+// use, never at install, so installing costs what it did; scripts/noteData.ts
+// carries the same pattern (HASHED_ICON_PATTERN).
+const ICON_CACHE = 'pricesniffs-icons-v1';
+const NOTE_ICON = /\/note-icons\/h\/[a-z0-9-]+\.[0-9a-f]{10}\.svg$/;
 const SHELL = [
   './index.html',
   './manifest.webmanifest',
@@ -74,7 +80,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE && key !== DATA_CACHE).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE && key !== DATA_CACHE && key !== ICON_CACHE).map((key) => caches.delete(key))))
       .then(() => self.clients.claim()),
   );
 });
@@ -106,6 +112,22 @@ self.addEventListener('fetch', (event) => {
   if (url.origin === self.location.origin && /\/data\/[A-Za-z]+\.[0-9a-f]{16}\.json$/.test(url.pathname)) {
     event.respondWith(
       caches.open(DATA_CACHE).then((cache) =>
+        cache.match(event.request).then(
+          (cached) =>
+            cached ??
+            fetch(event.request).then((response) => {
+              if (response.ok) event.waitUntil(cache.put(event.request, response.clone()));
+              return response;
+            }),
+        ),
+      ),
+    );
+    return;
+  }
+
+  if (url.origin === self.location.origin && NOTE_ICON.test(url.pathname)) {
+    event.respondWith(
+      caches.open(ICON_CACHE).then((cache) =>
         cache.match(event.request).then(
           (cached) =>
             cached ??

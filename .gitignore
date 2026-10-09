@@ -10,6 +10,9 @@ dist-demo/
 /demo/data/
 /demo/sitemap.xml
 /demo/ads.txt
+# The note icons under content-hashed names (scripts/noteData.ts); the drawn
+# sources beside them in demo/note-icons/ are committed.
+/demo/note-icons/h/
 # A page of its own for each fixed address (scripts/build-route-pages.ts): /about is
 # demo/about.html, /about/legal is demo/about/legal.html. The template is source.
 /demo/*.html

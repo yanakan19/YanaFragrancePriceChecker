@@ -65,6 +65,10 @@ import {
   brandTierFor, fragranceById, fragranceBySlug, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants, shopIdsOf, shopNameOf,
   type Deal, type DemoFragrance, type NoteLayer,
 } from './data.js';
+import { factsFor, notesData, type NotesData } from './notesData.js';
+import {
+  LAYER_LABEL, noteHeroHtml, notesResults, notesTabHtml, relatedNotesHtml, tierLabel, type NotesTabEnv, type NotesTabState,
+} from './notesPage.js';
 import { productArt, photoSrcAttrs, HOUSE_IMG_SIZES, RETRY_ORIGINAL, type ArtSize } from './photo.js';
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
@@ -207,6 +211,9 @@ const state = {
   dealSort: 'discount' as DealSort,
   noteSort: 'common' as NoteSort,
   noteLayer: 'any' as NoteLayerFilter,
+  /** The Notes tab's search (/notes?q=rose) and the group whose own view is open (/notes?group=citrus). */
+  noteQuery: '',
+  noteGroup: '',
   noteDetailSort: 'az' as ListSort,
   // Browse and search. Defaults to the order this list already arrived in, so
   // the control's existence changes nothing until a reader uses it.
@@ -1371,7 +1378,7 @@ function setContentsArt(g: NonNullable<DemoFragrance['giftSet']>): string {
  */
 function fragranceTile(
   f: DemoFragrance,
-  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean; soldBy?: string | undefined },
+  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean; soldBy?: string | undefined; tier?: string },
 ): string {
   const rows = rowsFor(f);
   const best = bestOffer(rows);
@@ -1408,8 +1415,9 @@ function fragranceTile(
   return `<li${opts?.rail ? ' class="pop-item"' : ''}>
     <div class="tile">
       ${brandButton(f.brand)}
-      <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}">
+      <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}${opts?.tier ? `, ${esc(opts.tier)}` : ''}">
         ${productHead(f)}
+        ${opts?.tier ? `<span class="tile-tier t-eyebrow">${esc(opts.tier)}</span>` : ''}
         ${setTileLine(f)}${oilTileLine(f)}
         <span class="tile-art">
           ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular"><span class="medal-disc">${opts!.rank! + 1}</span></span>` : ''}
@@ -1488,11 +1496,11 @@ function syncPerRowControl(): void {
  * list is of — the Most Stocked list once rendered a shop count on each of its
  * tiles that no other list carried, and it no longer does (see fragranceTile).
  */
-function fragranceList(list: DemoFragrance[], empty: string): string {
+function fragranceList(list: DemoFragrance[], empty: string, extra?: (f: DemoFragrance) => { tier?: string }): string {
   if (list.length === 0) return `<p class="empty-note t-body">${esc(empty)}</p>`;
   const eager = gridEagerCount();
   return `<ul class="tile-grid">${chunked(
-    withGridAds(list, (f, i) => fragranceTile(f, { eager: i !== undefined && i < eager })),
+    withGridAds(list, (f, i) => fragranceTile(f, { eager: i !== undefined && i < eager, ...extra?.(f) })),
     (item, i) => item(i),
   )}</ul>`;
 }
@@ -3659,123 +3667,143 @@ function brandView(): string {
 
 /* ── explore: notes ──────────────────────────────────────────────────────── */
 
-const ALPHABET = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-
 /**
- * The vertical A-to-Z index strip, iOS Contacts-style. Mobile only — hidden
- * on desktop by CSS (`:root[data-layout="desktop"]`), where a mouse can
- * already reach any point in a shorter list without one. `aria-hidden`
- * unconditionally, on both layouts: this is a supplementary rapid-jump
- * gesture over content that already exists as an ordinary, keyboard-reachable
- * list right next to it, not a second copy of that content, so nothing here
- * needs its own accessible path — the letters underneath do.
- *
- * A letter with nothing under it still renders, just dimmed and inert
- * (`data-empty`, no `data-letter`), rather than being left out: removing it
- * would shift every letter below it sideways under the finger mid-drag,
- * which is the one thing an index strip must never do.
+ * The Notes tab (docs/NOTES-PAGE-PLAN.md, section D, and the owner's layout of
+ * 9 Oct 2026): groups of landscape tiles, a sticky bar of group chips, a search
+ * that narrows the tiles, one sort and one layer control. The drawing is in
+ * demo/notesPage.ts; the groups, icons and related notes are a lazy data file
+ * (demo/notesData.ts), fetched the first time Notes or a note page opens, so
+ * the home page's first load carries none of it. Until it arrives the tab says
+ * so, and it is drawn again in place when it does.
  */
-function alphaScrubber(activeLetters: Set<string>): string {
-  const letters = ALPHABET.map((l) =>
-    activeLetters.has(l)
-      ? `<span class="alpha-scrubber-letter" data-letter="${l}">${l}</span>`
-      : `<span class="alpha-scrubber-letter" data-empty>${l}</span>`,
-  ).join('');
-  return `<div class="alpha-scrubber" data-alpha-scrubber aria-hidden="true">${letters}</div>`;
-}
-
-function notesPanel(): string {
-  const filtered = NOTE_INDEX.filter(
-    (n) => state.noteLayer === 'any' || n.layers.has(state.noteLayer),
-  );
-  const list = sortNotes(filtered, state.noteSort);
-
+function notesTabEnv(): NotesTabEnv {
+  const layered = NOTE_INDEX.filter((n) => state.noteLayer === 'any' || n.layers.has(state.noteLayer));
   const controls = `<div class="controls">
     ${sortControl('note-sort', 'Notes', ICON_SORT, NOTE_SORT_OPTIONS, state.noteSort)}
     ${control('note-layer', 'Filter notes', ICON_FILTER, [
       { value: 'any', label: 'Any Layer' },
       { value: 'top', label: 'Top Notes' },
-      { value: 'middle', label: 'Middle Notes' },
+      { value: 'middle', label: 'Heart Notes' },
       { value: 'base', label: 'Base Notes' },
     ], state.noteLayer)}
   </div>`;
-
-  // The three layers the sourced note data genuinely carries (top, middle,
-  // base), rather than a scent family taxonomy (floral, woody, gourmand...)
-  // this dataset has no real source for, drawn as the same chips a note's own
-  // page uses for its layers. Tapping one filters the list below exactly like
-  // the dropdown above does; tapping the active one again clears it. "All" is
-  // the same clear, offered as its own chip rather than only reachable by
-  // deselecting: the combined view every note actually starts on. No heading
-  // sits over them, because each chip says what it is.
-  const layerChip = (id: NoteLayerFilter, label: string) => {
-    const count = id === 'any' ? NOTE_INDEX.length : NOTE_INDEX.filter((n) => n.layers.has(id)).length;
-    const on = state.noteLayer === id;
-    return `<button class="note-chip${on ? ' on' : ''}" data-note-layer="${id}" aria-pressed="${on}">${label} Notes &middot; ${count}</button>`;
+  return {
+    esc,
+    titleCase,
+    base: basePath(),
+    controls,
+    sorted: sortNotes(layered, state.noteSort),
+    withNotes: DEMO_FRAGRANCES.filter((f) => f.notes).length,
+    products: COUNTS.products,
+    chunked: (items, render) => chunked(items, render),
   };
-  const chips = `<div class="note-chips note-chips-layers" role="group" aria-label="Note layers">
-    ${layerChip('any', 'All')}
-    ${layerChip('top', 'Top')}
-    ${layerChip('middle', 'Middle')}
-    ${layerChip('base', 'Base')}
-  </div>`;
+}
 
-  if (list.length === 0) {
-    return `<div class="page-head"><h1 class="t-page">Notes</h1><span class="count t-count">0</span></div>
-    ${controls}${chips}<p class="empty-note t-body">No notes recorded for that layer yet.</p>`;
-  }
+function notesTabState(): NotesTabState {
+  return { query: state.noteQuery, group: state.noteGroup, layer: state.noteLayer, desktop: state.layout === 'desktop' };
+}
 
-  // The same row-list shape as Brands, including the alphabetical dividers,
-  // but only under the two alphabetical sorts. Under "most used" the list is
-  // ranked by count, not by letter, so a divider between two counts would land
-  // on whichever letter their names happen to start with and break up entries
-  // that belong together in the ranking. The scrubber is stricter still: its
-  // letters run A down to Z, so it only matches a list that runs the same way.
-  // Under Z to A the list runs the other way and the strip is left out.
-  const alphabetical = state.noteSort === 'az' || state.noteSort === 'za';
-  let out = '';
-  let current = '';
-  const seenLetters = new Set<string>();
-  for (const n of list) {
-    if (alphabetical) {
-      const initial = ((n.sort || n.name)[0] ?? '').toUpperCase();
-      if (initial !== current) {
-        current = initial;
-        seenLetters.add(initial);
-        out += `<li class="alpha-break" data-alpha="${esc(initial)}" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
-      }
-    }
-    out += `<li><button class="brand-row note-row t-title" data-note="${esc(n.name)}">
-      <span>${esc(titleCase(n.name))}</span><span class="note-row-count t-count">(${n.count})</span>
-    </button></li>`;
-  }
+/** Starts the lazy notes file once, and draws the page again in place when it lands if the reader is still on Notes. */
+function wantNotesData(stillHere: () => boolean): NotesData | null {
+  if (notesData.status() === 'idle') settleContent(notesData.load(), stillHere);
+  return notesData.current();
+}
 
-  return `<div class="page-head"><h1 class="t-page">Notes</h1><span class="count t-count">${list.length}</span></div>
-    ${controls}
-    ${chips}
-    <p class="panel-note t-body">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${COUNTS.products} products list them.</p>
-    <div class="notes-browse">
-      <div class="notes-browse-scroll" data-notes-scroll>
-        <ul class="brand-list">${out}</ul>
-      </div>
-      ${state.noteSort === 'az' ? alphaScrubber(seenLetters) : ''}
-    </div>`;
+function notesPanel(): string {
+  const data = wantNotesData(() => state.view === 'explore' && state.tab === 'notes');
+  return notesTabHtml(data, notesData.status() === 'failed', notesTabState(), notesTabEnv());
 }
 
 /**
- * A note's own profile: this page already is that, and has been since Notes
- * shipped — a real URL (survives Back, is directly linkable), every
- * fragrance that carries it. What was missing is the note's own layer
- * breakdown, added below as tappable chips that filter the list under
- * them exactly the way the group cards on notesPanel do. Real counts read
- * straight from NOTE_INDEX, not a written description: this codebase has no
- * source for what a note "smells like" beyond what a retailer's own listing
- * says, and inventing one here would be exactly the kind of fabricated fact
- * this app exists to avoid.
+ * The search box narrows the tiles as the reader types, from the first letter
+ * after a 100 ms pause: only the chips, the groups and the count are drawn
+ * again, so the box keeps its focus and caret. The words go in the address
+ * (/notes?q=rose) with replaceState, like the sort.
+ */
+let noteSearchTimer: ReturnType<typeof setTimeout> | null = null;
+function onNoteSearch(value: string, now = false): void {
+  if (noteSearchTimer) clearTimeout(noteSearchTimer);
+  const apply = () => {
+    state.noteQuery = value.trim();
+    const data = notesData.current();
+    const results = document.getElementById('nt-results');
+    if (!data || !results) return;
+    const res = notesResults(data, notesTabState(), notesTabEnv());
+    results.innerHTML = res.body;
+    const jump = document.querySelector('[data-nt-jump]');
+    if (jump) jump.innerHTML = res.jump;
+    const total = document.querySelector('[data-nt-total]');
+    if (total) total.textContent = res.total.toLocaleString('en-GB');
+    const status = document.getElementById('note-search-status');
+    if (status) status.textContent = res.status;
+    mountChunkedList();
+    mountNoteGroupSpy();
+    syncUrl('replace');
+  };
+  if (now) apply();
+  else noteSearchTimer = setTimeout(apply, 100);
+}
+
+/**
+ * Marks the chip of the group in view (aria-current) as the reader scrolls the
+ * overview, and keeps that chip in sight in the bar, which scrolls sideways on
+ * a phone. Only in the overview: a group's own view marks its chip as the page.
+ */
+let noteGroupSpy: IntersectionObserver | null = null;
+function mountNoteGroupSpy(): void {
+  noteGroupSpy?.disconnect();
+  noteGroupSpy = null;
+  if (state.view !== 'explore' || state.tab !== 'notes') return;
+  // The bar sticks just under the top bar, whose height depends on what it holds
+  // (on Explore it carries the tabs), so it is measured rather than assumed.
+  const topBar = document.querySelector<HTMLElement>('.bar');
+  if (topBar) document.documentElement.style.setProperty('--nt-stick', `${topBar.offsetHeight}px`);
+  if (state.noteGroup) return;
+  const sections = Array.from(document.querySelectorAll<HTMLElement>('#nt-results [data-group]'));
+  if (sections.length === 0 || typeof IntersectionObserver === 'undefined') return;
+  const mark = (id: string) => {
+    for (const chip of document.querySelectorAll<HTMLElement>('.nt-jump [data-jump]')) {
+      const on = chip.getAttribute('data-jump') === id;
+      if (on) {
+        chip.setAttribute('aria-current', 'true');
+        const bar = chip.closest('ul');
+        if (bar && (chip.offsetLeft < bar.scrollLeft || chip.offsetLeft + chip.offsetWidth > bar.scrollLeft + bar.clientWidth)) {
+          bar.scrollLeft = chip.offsetLeft - 16;
+        }
+      } else chip.removeAttribute('aria-current');
+    }
+  };
+  noteGroupSpy = new IntersectionObserver(
+    (entries) => {
+      // Above the first group nothing is marked, and the bar goes back to its start.
+      if (sections[0]!.getBoundingClientRect().top > window.innerHeight * 0.45) {
+        mark('');
+        const bar = document.querySelector('.nt-jump ul');
+        if (bar) bar.scrollLeft = 0;
+        return;
+      }
+      const top = entries.filter((e) => e.isIntersecting).sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+      if (top) mark(top.target.getAttribute('data-group') ?? '');
+    },
+    { rootMargin: '-35% 0px -55% 0px' },
+  );
+  for (const s of sections) noteGroupSpy.observe(s);
+}
+
+/**
+ * A note's own page: breadcrumb, large picture, group, a one line description
+ * where one is written (the group's line otherwise, named as the group's), the
+ * layer chips that filter the list, the notes most often found with it, and
+ * every fragrance that lists it, each tile saying where in the pyramid the
+ * note sits (Top, Heart, Base). Its old addresses still open it
+ * (noteForAddress, with the merged spellings of data/note-aliases.json).
  */
 function noteView(): string {
+  const data = wantNotesData(() => state.view === 'note');
+  const facts = data ? factsFor(data, state.noteName) : null;
   const entry = NOTE_INDEX.find((n) => n.name === state.noteName);
-  const filtered = fragrancesWithNote(state.noteName, state.noteLayer);
+  const all = fragrancesWithNote(state.noteName, 'any');
+  const filtered = state.noteLayer === 'any' ? all : fragrancesWithNote(state.noteName, state.noteLayer);
   const facets = listFacets('note');
   const { list: faceted, views } = runFacets(filtered, facets, state.filters);
   const list = sortFragrances(faceted, state.noteDetailSort);
@@ -3790,18 +3818,20 @@ function noteView(): string {
         .filter((l) => entry.layers.has(l))
         .map((l) => {
           const count = fragrancesWithNote(state.noteName, l).length;
-          return `<button class="note-chip${state.noteLayer === l ? ' on' : ''}" data-note-layer="${l}">${titleCase(l)} &middot; ${count}</button>`;
+          const on = state.noteLayer === l;
+          return `<button class="note-chip${on ? ' on' : ''}" data-note-layer="${l}" aria-pressed="${on}">${LAYER_LABEL[l]} &middot; ${count}</button>`;
         })
         .join('')
     : '';
+  const counts = new Map(NOTE_INDEX.map((n) => [n.name, n.count] as const));
+  const env = { esc, titleCase, base: basePath() };
 
   return `
-    <button class="back" data-back-explore>Back</button>
-    <div class="page-head"><h1 class="t-page">${esc(titleCase(state.noteName))}</h1><span class="count t-count">${list.length}</span></div>
-    ${layerChips ? `<p class="note-chips note-chips-profile">${layerChips}</p>` : ''}
-    <p class="panel-note t-body">Fragrances listing ${esc(titleCase(state.noteName))}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
+    ${noteHeroHtml(state.noteName, facts, all.length, layerChips, env)}
+    ${relatedNotesHtml(facts, data, counts, env)}
+    <p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'}${state.noteLayer === 'any' ? '' : ` with ${esc(titleCase(state.noteName))} as a ${LAYER_LABEL[state.noteLayer].toLowerCase()} note`}</p>
     ${controls}
-    ${fragranceList(list, 'Nothing matches that filter.')}`;
+    ${fragranceList(list, 'Nothing matches that filter.', (f) => ({ tier: tierLabel(f.notes, state.noteName) }))}`;
 }
 
 /* ── explore shell ───────────────────────────────────────────────────────── */
@@ -5706,61 +5736,6 @@ function hideHistoryTip(): void {
   pinnedHistoryDot = null;
 }
 
-/* ── A-to-Z scrubber ─────────────────────────────────────────────────────────
-   Touch-drag and tap both resolve to the same question — which letter is the
-   finger over — asked continuously on touchstart and every touchmove, so a
-   tap is simply a drag with zero movement rather than a separate code path. */
-
-/**
- * Divides the strip's own height into 26 even bands and reads off which one
- * a Y coordinate falls in, rather than hit-testing via elementFromPoint: the
- * letters are laid out in one straight column with nothing else overlapping
- * them, so the geometry is simpler and does not care whether the coordinate
- * is technically still over a `<span>` once a fast drag has outrun layout.
- * A band with nothing in it (no notes for that letter) resolves to the
- * nearest real one instead of going dead, so dragging through a gap in the
- * alphabet still tracks continuously — the same feel as iOS's own strip.
- */
-function letterAtY(scrubber: HTMLElement, clientY: number): string | null {
-  const rect = scrubber.getBoundingClientRect();
-  if (rect.height === 0) return null;
-  const ratio = Math.min(Math.max((clientY - rect.top) / rect.height, 0), 0.999);
-  const index = Math.floor(ratio * ALPHABET.length);
-  const isActive = (i: number) => !!scrubber.querySelector(`.alpha-scrubber-letter[data-letter="${ALPHABET[i]}"]`);
-  if (isActive(index)) return ALPHABET[index]!;
-  for (let d = 1; d < ALPHABET.length; d++) {
-    if (index - d >= 0 && isActive(index - d)) return ALPHABET[index - d]!;
-    if (index + d < ALPHABET.length && isActive(index + d)) return ALPHABET[index + d]!;
-  }
-  return null;
-}
-
-/** Instant, not smooth: an animated scroll lags a fast-moving finger, and the
- *  point of a scrubber is that the list keeps pace with the drag exactly. */
-function jumpToLetter(letter: string): void {
-  document.querySelector(`[data-notes-scroll] [data-alpha="${letter}"]`)?.scrollIntoView({ block: 'start' });
-}
-
-let scrubberBubble: HTMLElement | null = null;
-
-function showScrubberBubble(letter: string, x: number, y: number): void {
-  if (!scrubberBubble) {
-    scrubberBubble = document.createElement('div');
-    scrubberBubble.className = 'alpha-scrubber-bubble';
-    document.body.appendChild(scrubberBubble);
-  }
-  scrubberBubble.textContent = letter;
-  // Left of the finger and vertically centred on it, so the strip along the
-  // right edge and the bubble it spawns never sit on top of each other.
-  scrubberBubble.style.left = `${x - 90}px`;
-  scrubberBubble.style.top = `${y - 32}px`;
-}
-
-function hideScrubberBubble(): void {
-  scrubberBubble?.remove();
-  scrubberBubble = null;
-}
-
 /* ── routing ─────────────────────────────────────────────────────────────────
    The view functions and render() know nothing about URLs. Everything here is
    a translation between `state` and the address bar, so routing stays
@@ -5998,6 +5973,12 @@ function currentRoute(): Route {
     case 'explore':
       // The Oils and Sets tabs keep their search, sort and filters in the
       // address, so a filtered list can be shared.
+      if (state.tab === 'notes') {
+        const query: Record<string, string> = {};
+        if (state.noteGroup) query.group = state.noteGroup;
+        if (state.noteQuery) query.q = state.noteQuery;
+        return { name: 'notes', param: '', query };
+      }
       return { name: state.tab as RouteName, param: '', query: isTabKind(state.tab) ? tabs.query(state.tab) : {} };
   }
 }
@@ -6012,7 +5993,7 @@ function currentRoute(): Route {
 function applyRoute(route: Route): boolean {
   // The Oils and Sets tabs have a search box of their own, whose words are in
   // the address as `q` too; they are not the bar's search.
-  state.query = isTabKind(route.name) ? '' : (route.query.q ?? '');
+  state.query = isTabKind(route.name) || route.name === 'notes' ? '' : (route.query.q ?? '');
 
   switch (route.name) {
     case 'home': state.view = 'home'; return true;
@@ -6072,9 +6053,17 @@ function applyRoute(route: Route): boolean {
       takeListQuery(route);
       return true;
 
-    case 'brands': case 'retailers': case 'notes':
+    case 'brands': case 'retailers':
       state.view = 'explore';
       state.tab = route.name as ExploreTab;
+      return true;
+
+    // The Notes tab: its search and the group whose own view is open come with the address.
+    case 'notes':
+      state.view = 'explore';
+      state.tab = 'notes';
+      state.noteQuery = (route.query.q ?? '').slice(0, 80);
+      state.noteGroup = /^[a-z-]{2,20}$/.test(route.query.group ?? '') ? route.query.group! : '';
       return true;
 
     // The Oils and Sets tabs, whose search, sort and filters come with the address.
@@ -6127,6 +6116,8 @@ function applyRoute(route: Route): boolean {
       if (!note) return false;
       state.noteName = note;
       state.view = 'note';
+      // A note page sits under All Notes, so the Explore bar marks that tab.
+      state.tab = 'notes';
       takeListQuery(route);
       return true;
     }
@@ -7016,6 +7007,7 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // Any list that emitted a sentinel now gets its observer. Done here rather
   // than inside each view so no view has to remember to do it.
   mountChunkedList();
+  mountNoteGroupSpy();
 
   // Ad slots this page drew, if ads are on (a no op otherwise).
   mountAds();
@@ -7210,6 +7202,10 @@ function openExplore(tab: ExploreTab): void {
   // A tab opened from the bar starts clean, like every list: what was chosen
   // before comes back only with Back (rememberListState) or a shared link.
   if (isTabKind(tab)) tabs.reset(tab);
+  if (tab === 'notes') {
+    state.noteQuery = '';
+    state.noteGroup = '';
+  }
   go('explore');
 }
 
@@ -7429,6 +7425,14 @@ function init(): void {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state.accountMenuOpen) closeAccountMenu(true);
   });
+  // Escape clears the Notes tab's search (the plan, section D).
+  document.addEventListener('keydown', (e) => {
+    const box = e.target as HTMLInputElement;
+    if (e.key !== 'Escape' || box.id !== 'note-search' || box.value === '') return;
+    e.preventDefault();
+    box.value = '';
+    onNoteSearch('', true);
+  });
   document.addEventListener('pointerdown', (e) => {
     if (!state.accountMenuOpen) return;
     const t = e.target as HTMLElement;
@@ -7537,31 +7541,6 @@ function init(): void {
     }
   }, true);
 
-  // The A-to-Z scrubber. `{ passive: false }` is what lets preventDefault
-  // actually stop the page behind it scrolling during the drag — scoped to
-  // only fire when the touch itself is on the strip, so nothing about
-  // scrolling anywhere else in the app is affected. touchmove's `target`
-  // stays whatever touchstart hit, not whatever is under the finger now (per
-  // the Touch Events spec), so `closest` here keeps resolving correctly for
-  // the rest of a drag that has moved off the strip's own bounds.
-  const scrubberTouch = (e: TouchEvent): void => {
-    const scrubber = (e.target as HTMLElement).closest('.alpha-scrubber') as HTMLElement | null;
-    if (!scrubber) return;
-    e.preventDefault();
-    const touch = e.touches[0];
-    if (!touch) return;
-    const letter = letterAtY(scrubber, touch.clientY);
-    if (letter) {
-      jumpToLetter(letter);
-      showScrubberBubble(letter, touch.clientX, touch.clientY);
-    }
-  };
-  document.addEventListener('touchstart', scrubberTouch, { passive: false });
-  document.addEventListener('touchmove', scrubberTouch, { passive: false });
-  document.addEventListener('touchend', (e) => {
-    if ((e.target as HTMLElement).closest('.alpha-scrubber')) hideScrubberBubble();
-  });
-  document.addEventListener('touchcancel', hideScrubberBubble);
 
   document.addEventListener('click', (e) => {
     const t = e.target as HTMLElement;
@@ -7660,6 +7639,27 @@ function init(): void {
       return;
     }
 
+    // A chip of the Notes tab's sticky bar: scrolls to its group (smoothly unless
+    // the reader asked for less motion) and moves the focus there, without
+    // touching the address.
+    const jumpChip = t.closest<HTMLAnchorElement>('a[data-jump]');
+    if (jumpChip && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      if (jumpChip.getAttribute('aria-disabled') === 'true') return;
+      const target = document.getElementById(`g-${jumpChip.getAttribute('data-jump')}`);
+      if (target) {
+        if (target instanceof HTMLDetailsElement) target.open = true;
+        const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'start' });
+        const heading = target.querySelector<HTMLElement>('h2');
+        if (heading) {
+          heading.tabIndex = -1;
+          heading.focus({ preventScroll: true });
+        }
+      }
+      return;
+    }
+
     // An internal link that carries a real href, so it can be copied and
     // opened in a new tab, but navigates through the router when clicked
     // normally. Modified clicks (new tab, new window, download) and any
@@ -7741,6 +7741,7 @@ function init(): void {
     const note = t.closest('[data-note]');
     if (note) {
       state.noteName = note.getAttribute('data-note')!;
+      state.tab = 'notes';
       go('note');
       return;
     }
@@ -8137,6 +8138,11 @@ function init(): void {
     const box = e.target as HTMLInputElement;
     if (box.hasAttribute('data-fs-find')) {
       findInFilter(box);
+      return;
+    }
+    // The Notes tab's search: narrows the tiles in place (onNoteSearch).
+    if (box.id === 'note-search') {
+      onNoteSearch(box.value);
       return;
     }
     if (box.id !== TAB_SEARCH_ID || !isTabKind(state.tab)) return;

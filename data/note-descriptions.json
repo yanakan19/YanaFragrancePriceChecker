@@ -1,0 +1,654 @@
+{
+ "about": "One line descriptions for the notes used most (decision 8 of docs/NOTES-PAGE-PLAN.md): what the material is and where it comes from, factual, in our own words, at most 90 characters, no hyphens or dashes, British English. Written for PriceSniffs from general knowledge; no text was taken from any other site (docs/DECISIONS.md D26). Shown on the note page; a note without one shows its group's line, named as the group's. Checked by tests/noteGroups.test.ts.",
+ "author": "Claude Opus 5.5, 9 Oct 2026, for the owner to spot check (decision 8)",
+ "descriptions": [
+  {
+   "note": "Musk",
+   "text": "A soft, clean skin scent, today almost always made from lab molecules.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Vanilla",
+   "text": "The cured seed pod of a climbing orchid, warm, creamy and sweet.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Bergamot",
+   "text": "The peel oil of a small, sour citrus grown mostly in southern Italy.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Patchouli",
+   "text": "The dried leaves of an Asian mint family shrub: earthy, dark and a little sweet.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Amber",
+   "text": "A warm, golden accord, usually built from labdanum, vanilla and resins.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Sandalwood",
+   "text": "The heartwood of a slow growing tree from India and Australia, soft and creamy.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Jasmine",
+   "text": "A night scented white flower picked by hand at dawn, rich and heady.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cedar",
+   "text": "The wood of several conifers, dry and pencil like.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rose",
+   "text": "The queen of flowers, distilled or extracted from the petals.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tonka Bean",
+   "text": "The seed of a South American tree, smelling of almond, hay and vanilla.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Vetiver",
+   "text": "The roots of a tall tropical grass, smoky, earthy and green.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mandarin",
+   "text": "The peel oil of a small, sweet orange, softer than lemon or bergamot.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lavender",
+   "text": "The flowering tops of a Mediterranean herb, fresh, floral and clean.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Orange Blossom",
+   "text": "The white flowers of the bitter orange tree, honeyed and bright.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lemon",
+   "text": "The peel oil of the lemon: sharp, sparkling and fresh.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pink Pepper",
+   "text": "The dried berries of the Peruvian pepper tree, rosy and fizzy rather than hot.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cardamom",
+   "text": "The seed pods of a ginger family plant, cool, spicy and aromatic.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Grapefruit",
+   "text": "The peel oil of grapefruit, bitter, juicy and bright.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Blackcurrant",
+   "text": "The small dark berry, juicy and tart; often called cassis.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Geranium",
+   "text": "The leaves of a scented pelargonium, rosy with a minty green edge.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Leather",
+   "text": "An accord of tanned hide: smoky, dry and a little animal.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ginger",
+   "text": "The root of a tropical plant, fresh, zesty and warm at once.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cinnamon",
+   "text": "The dried bark of a laurel family tree, sweet and warm.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Saffron",
+   "text": "The dried stigmas of a crocus, leathery, honeyed and warm.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Oakmoss",
+   "text": "A lichen that grows on oak trees, damp, woody and green.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lily of the Valley",
+   "text": "A small spring bell flower whose scent is recreated, as it gives no oil.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "White Musk",
+   "text": "A clean, laundry fresh musk accord, lighter than plain musk.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Benzoin",
+   "text": "A resin from Asian trees, smelling of vanilla and warm balsam.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ylang-Ylang",
+   "text": "A tropical tree flower, creamy, sweet and slightly fruity.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pear",
+   "text": "The juicy orchard fruit, fresh and green when used in perfume.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Orange",
+   "text": "The peel oil of the sweet orange, bright and juicy.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Iris",
+   "text": "The flower of the iris; perfumers usually mean its powdery root, orris.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Violet",
+   "text": "The small purple flower, powdery and sweet, recreated with ionones.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambroxan",
+   "text": "A lab molecule modelled on ambergris, woody, salty and long lasting.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tuberose",
+   "text": "A waxy white flower that blooms at night, creamy and intense.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Apple",
+   "text": "The orchard fruit, crisp, juicy and fresh.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Raspberry",
+   "text": "The red berry, sweet, jammy and a little tart.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Incense",
+   "text": "Smoke from burning resins such as frankincense, dry and solemn.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Neroli",
+   "text": "An oil distilled from bitter orange blossom, fresh, green and floral.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Peach",
+   "text": "The soft stone fruit, velvety and juicy.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Oud",
+   "text": "A dark resinous wood formed when agar trees are infected, deep and smoky.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Nutmeg",
+   "text": "The seed of a tropical evergreen, warm, spicy and a little woody.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambergris",
+   "text": "A rare material from the sperm whale, now mostly recreated: salty and warm.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Freesia",
+   "text": "A delicate flower with a fresh, peppery, slightly fruity scent.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Peony",
+   "text": "A large, frilly spring flower, fresh, rosy and light.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Caramel",
+   "text": "Cooked sugar: buttery, toasty and sweet.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Black Pepper",
+   "text": "The dried peppercorn, dry, woody and lightly hot.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Labdanum",
+   "text": "A sticky resin from the rockrose shrub, the warm heart of most ambers.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Clary Sage",
+   "text": "A herb with a musky, tea like and slightly fruity scent.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Jasmine Sambac",
+   "text": "An Arabian jasmine, fruitier and greener than the common kind.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Sage",
+   "text": "The garden herb, dry, herbal and slightly camphor like.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Orris",
+   "text": "The dried root of the iris, aged for years: powdery, buttery and violet like.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mint",
+   "text": "The garden herb, cool and fresh.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Guaiac Wood",
+   "text": "The wood of a South American tree, smoky, soft and a little sweet.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Citrus",
+   "text": "A mix of citrus peels, bright and sparkling.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pineapple",
+   "text": "The tropical fruit, juicy, sweet and sharp.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tobacco",
+   "text": "Dried tobacco leaf, sweet, hay like and warm, not the smell of smoke.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Magnolia",
+   "text": "A large tree flower, fresh, lemony and creamy.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Coriander",
+   "text": "The seeds of a herb, spicy, woody and slightly citrus.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Frankincense",
+   "text": "A resin from Boswellia trees, lemony, piney and smoky; also called olibanum.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Moss",
+   "text": "Green, damp and woody, like a forest floor after rain.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cashmeran",
+   "text": "A lab molecule with a soft, musky, woody feel like warm cashmere.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Plum",
+   "text": "The dark stone fruit, juicy and jammy.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Gardenia",
+   "text": "A white flower with a creamy, green and slightly mushroomy scent.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Heliotrope",
+   "text": "A small purple flower smelling of almond, vanilla and powder.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rosemary",
+   "text": "The Mediterranean herb, fresh, woody and camphor like.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Violet Leaf",
+   "text": "The leaves of the violet, green, watery and cucumber like.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Amberwood",
+   "text": "A woody amber accord, dry, warm and long lasting.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Honey",
+   "text": "Sweet, waxy and warm, sometimes with an animal edge.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Coconut",
+   "text": "The tropical nut, creamy, milky and sunny.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Praline",
+   "text": "Nuts cooked in sugar, toasty and sweet.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Basil",
+   "text": "The kitchen herb, green, sweet and slightly aniseed like.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lychee",
+   "text": "The tropical fruit, juicy with a rosy sweetness.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lily",
+   "text": "A large white flower, fresh, spicy and sweet.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Orchid",
+   "text": "A tropical flower whose scent is usually built as a creamy floral accord.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lime",
+   "text": "The small green citrus, sharp, zesty and bitter.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tangerine",
+   "text": "A sweet, juicy relative of the mandarin.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cypress",
+   "text": "The Mediterranean conifer, resinous, green and dry.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Osmanthus",
+   "text": "A small Asian flower smelling of apricot and suede.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Elemi",
+   "text": "A resin from a Philippine tree, lemony and peppery.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Juniper Berries",
+   "text": "The berries that flavour gin, fresh, piney and resinous.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Clove",
+   "text": "The dried flower bud of a tropical tree, warm, spicy and medicinal.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cacao",
+   "text": "The roasted bean behind chocolate, bitter and dark.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Aldehydes",
+   "text": "Lab molecules that give a sparkling, soapy, champagne like lift.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Coffee",
+   "text": "Roasted coffee beans, dark, bitter and warm.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Myrrh",
+   "text": "A resin from desert shrubs, bitter, medicinal and warm.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Strawberry",
+   "text": "The summer berry, sweet and juicy.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Bitter Orange",
+   "text": "The peel of the sour Seville orange, sharper than sweet orange.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Carnation",
+   "text": "A frilly flower with a spicy, clove like scent.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Suede",
+   "text": "Soft brushed leather, smoother and lighter than plain leather.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Almond",
+   "text": "Sweet almond and marzipan, often from the molecule benzaldehyde.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Petitgrain",
+   "text": "An oil from the leaves and twigs of the bitter orange tree, green and woody.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rum",
+   "text": "The sugar cane spirit, sweet, boozy and warm.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Apricot",
+   "text": "The soft stone fruit, juicy and velvety.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Green Apple",
+   "text": "A tart, crisp, unripe apple.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Sugar",
+   "text": "Plain sweetness, sometimes slightly caramelised.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Melon",
+   "text": "Watery, sweet and fresh, like a ripe cantaloupe.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Artemisia",
+   "text": "Wormwood and its cousins, bitter, green and aromatic.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambrette",
+   "text": "The seeds of a hibiscus, a plant source of soft musk.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Galbanum",
+   "text": "A resin from a Persian plant, intensely green and bitter.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mango",
+   "text": "The tropical fruit, juicy, sweet and slightly resinous.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rhubarb",
+   "text": "The tart pink stalks, green and sour.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cypriol",
+   "text": "The root of a sedge, also called nagarmotha: smoky and woody.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lotus",
+   "text": "The sacred water flower, fresh, watery and powdery.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Davana",
+   "text": "An Indian herb with a boozy, fruity scent.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cherry",
+   "text": "The red stone fruit, sweet with a hint of almond.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Honeysuckle",
+   "text": "A climbing flower with a sweet, honeyed scent.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cyclamen",
+   "text": "A small flower whose scent is fresh, green and watery.",
+   "basis": "own words, general botany and perfumery knowledge",
+   "date": "2026-10-09"
+  }
+ ]
+}

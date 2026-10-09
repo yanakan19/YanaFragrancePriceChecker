@@ -8,8 +8,11 @@ stored here, and it must not be): a **grid of landscape tiles**, picture on top
 and the note name centred under it, under group headings, 4 across on desktop
 and 2 on a phone.
 
-**Status: plan only, nothing is built.** Section B (the group list) is
-**APPROVED by the owner on 9 Oct 2026**, with tea and coffee placed in Sweet and Gourmand and patchouli and vetiver in Earth and Moss.
+**Status: sections B and D are built (9 Oct 2026); C (bespoke art beyond the
+icon set) and F (icons on product pages) are not.** Section B (the group list)
+was **APPROVED by the owner on 9 Oct 2026**, with tea and coffee placed in Sweet
+and Gourmand and patchouli and vetiver in Earth and Moss. What was built, and
+where it differs from the plan, is in "Built 9 Oct 2026" at the end of section E.
 
 Numbers were measured on 9 Oct 2026 from the committed catalogue (`demo/data.ts`
 `NOTE_INDEX`, 30,931 products) unless a section says otherwise.
@@ -545,6 +548,53 @@ look at the art style before the 200 are drawn, and, only if decision 3 goes to
 an illustrator, a quote and a written assignment of copyright to PriceSniffs.
 
 ---
+
+### Built 9 Oct 2026
+
+- **Taxonomy (phase 1).** `src/catalogue/noteGroups.ts` (pure) with the rules
+  as data: `data/note-groups.json` (the 16 groups with author and date, head
+  words, phrases, molecules, suffix and origin words), the reviewed
+  `data/note-group-overrides.json` (209 decisions, each with a basis and date;
+  the owner's placements first), `data/note-not-a-note.json` (reviewed prose:
+  exact names, and marker words that only hide a name the rules cannot place)
+  and `data/note-descriptions.json` (one line, in our words, for the 108 notes
+  used most). The icon manifest's families count as the alias rule. The review
+  queue is `npm run notes:groups`. Measured on the catalogue of 9 Oct: 4,320
+  notes shown (297 hidden as prose), **98.2% of notes and 99.9% of note uses
+  placed outside More Notes** (78 notes, 143 uses left), no top 500 note in More
+  Notes. Tests: `tests/noteGroups.test.ts`.
+- **Data (phase 2).** A lazy data file built at deploy time (`notes`,
+  `LAZY_BUILT_MODULES` in `scripts/dataFiles.ts`, `scripts/noteData.ts`): group,
+  icon, related notes (lift, with a floor of 2% of the note's own products so a
+  big note is not paired with one shop's rare notes), search spellings, prose
+  flags and descriptions; about 200 kB, 50 kB gzipped, fetched when Notes or a
+  note page opens. Nothing is committed: no address memory file was needed,
+  since the merged spellings' addresses already come from the build's
+  `NOTE_ALIASES` list. The parser fix for prose shapes is not done (the hidden
+  list covers the tab; product pages still show what the shop published).
+- **Notes tab (phase 3).** `demo/notesPage.ts`: whole tiles about 3:2 on the
+  group's ground (the monogram tokens), icon on top and the name centred under
+  it, 2 across on a phone and 4 on desktop, rows centred by flex; group
+  headings with counts and our lines; a sticky bar of group chips (sticky under
+  the measured top bar); a labelled search that narrows the tiles in place
+  (`/notes?q=`); one sort and one layer control; 12 tiles a group on desktop, 8
+  on a phone; More Notes last and closed. The letter strip and the layer chips
+  are gone. The tab drew 18,509 elements before and draws about 1,000 (phone)
+  to 1,400 (desktop) now.
+- **Group view and note page (phase 4).** "See all" opens a group's own view at
+  `/notes?group=<id>` rather than `/notes/group/<id>`: it is served by the
+  existing `/notes` page (200, no new route pages, no folder beside
+  `notes.html`), every note in chunks, then the groups most often worn with it.
+  Note pages: breadcrumb, large picture, group chip, the description (or the
+  group's line, named as the group's), counts by layer (Top, Heart, Base),
+  other published spellings (misspellings left out), "Often found with" tiles,
+  and a Top / Heart / Base tag on every fragrance tile. Group addresses are not
+  in the sitemap.
+- **Icons.** Copied at build time under content hashed names to
+  `demo/note-icons/h/` (a deploy folder), cache first in their own service
+  worker cache (`pricesniffs-icons-v1`), never precached, `loading="lazy"`.
+  28 drawn icons had a broken stroke attribute that no browser drew; they were
+  repaired and `tests/noteIcons.test.ts` now rejects the shape.
 
 ## F. Note icons on each product's own notes (plan only, 9 Oct 2026)
 

@@ -77,6 +77,12 @@ function everySvg(): { rel: string; title: string }[] {
 
 /** Balanced tags and nothing but elements, attributes and the one title: a cheap well-formedness check. */
 function wellFormed(svg: string): boolean {
+  // An attribute name must start with a letter: 28 icons once carried a stroke
+  // colour spread into one attribute per character (0="#" 1="6" ...), which
+  // no browser will draw (found 9 Oct 2026 when the Notes tab first showed them).
+  for (const tag of svg.matchAll(/<[a-zA-Z][\w-]*((?:[^>"']|"[^"]*"|'[^']*')*?)\/?>/g)) {
+    for (const attr of tag[1]!.matchAll(/\s([^\s=]+)=/g)) if (!/^[a-zA-Z][\w:-]*$/.test(attr[1]!)) return false;
+  }
   const stack: string[] = [];
   for (const m of svg.matchAll(/<(\/?)([a-zA-Z][\w-]*)((?:[^>"']|"[^"]*"|'[^']*')*?)(\/?)>/g)) {
     const [, close, tag, , selfClose] = m;
@@ -119,7 +125,8 @@ describe('note icon manifest', () => {
     const listedGroups = new Set(manifest.groups.map((g) => g.file.replace(/^groups\//, '')));
     expect(svgFiles(groupDir).filter((f) => !listedGroups.has(f))).toEqual([]);
     // Nothing else lives in the folder.
-    const other = readdirSync(iconDir).filter((f) => !f.endsWith('.svg') && f !== 'groups');
+    // `h` is the build's content hashed copies (scripts/noteData.ts), gitignored.
+    const other = readdirSync(iconDir).filter((f) => !f.endsWith('.svg') && f !== 'groups' && f !== 'h');
     expect(other).toEqual([]);
   });
 

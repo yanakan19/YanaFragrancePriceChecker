@@ -1,0 +1,494 @@
+{
+ "about": "Prose that a shop's description left in its notes list (decision 7 of docs/NOTES-PAGE-PLAN.md): hidden from the Notes tab and its search, never shown as a tile. Two reviewed parts. `notes`: exact names (matched on the merge key). `markers`: words that never name a material; a name holding one is hidden only when the group rules (src/catalogue/noteGroups.ts) cannot place it, so a real note is never hidden by a marker. The product's own page still shows what the shop published, and the note's address still opens. Add to the end; no note used by 15 or more products may be listed (tests/noteGroups.test.ts).",
+ "reviewer": "Claude Opus 5.5, 9 Oct 2026",
+ "date": "2026-10-09",
+ "markers": [
+  "finish",
+  "lasting",
+  "senses",
+  "sense",
+  "refreshing",
+  "inviting",
+  "ideal",
+  "depth",
+  "your",
+  "sensual",
+  "elegance",
+  "elegant",
+  "trail",
+  "leaving",
+  "this",
+  "romantic",
+  "provide",
+  "provides",
+  "invigorating",
+  "ensuring",
+  "ensure",
+  "ensures",
+  "comforting",
+  "captivating",
+  "captivate",
+  "captivates",
+  "versatile",
+  "strength",
+  "sophisticated",
+  "sophistication",
+  "soothing",
+  "setting",
+  "sets",
+  "seductive",
+  "luxurious",
+  "lingering",
+  "introduction",
+  "foundation",
+  "feminine",
+  "masculine",
+  "experience",
+  "evoking",
+  "embodying",
+  "crafted",
+  "crafting",
+  "behind",
+  "uplifting",
+  "unveiling",
+  "undertones",
+  "sensuality",
+  "profound",
+  "presenting",
+  "powerful",
+  "packaging",
+  "opulence",
+  "offering",
+  "luxury",
+  "intrigue",
+  "impression",
+  "igniting",
+  "ignite",
+  "exuding",
+  "exude",
+  "enticing",
+  "enhance",
+  "enduring",
+  "easy",
+  "designed",
+  "delivering",
+  "create",
+  "creates",
+  "confidence",
+  "complexity",
+  "charm",
+  "beautifully",
+  "balancing",
+  "awakening",
+  "allure",
+  "allowing",
+  "consists",
+  "conclusion",
+  "finale",
+  "longevity",
+  "intensity",
+  "suitable",
+  "whatsoever",
+  "renowned",
+  "gradually",
+  "eloquently",
+  "establishing",
+  "tantalizing",
+  "stimulating",
+  "deepening",
+  "weaves",
+  "groundwork",
+  "aura",
+  "presence",
+  "character",
+  "refinement",
+  "splendour",
+  "radiating",
+  "multi",
+  "layered",
+  "unforgettable",
+  "memorable",
+  "moments",
+  "unique",
+  "removed",
+  "left",
+  "enough",
+  "appears",
+  "background",
+  "edt",
+  "edp",
+  "fragrance",
+  "parfum",
+  "perfume"
+ ],
+ "notes": [
+  {
+   "note": "setting the stage",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "sophistication",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Parfum",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Fragrance",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Eau",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "warm up",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Here",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "neck",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Bright",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Smooth",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Elegant",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "trade",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "unconstrained",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Moderate intensity",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "St",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Yves Saint Laurent",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Gabbana The One",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Victoria Beckham",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "This I love",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "joy",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "cheer",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "energy",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "mood",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "mind",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "past",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "present",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "known",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "value",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "define",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "delicate",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "raw",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "gt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "lt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "br",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "eacute",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "now",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "he",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "start",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "zesty start",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Volcanic eruptions",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "coastal landscapes",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Dipropylene Glycol",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ci 15985",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Body Lotion 50ml",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Showergel",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Gabbana Shower Gel",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Gabbana Stick Deodorant",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Gabbana",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Armaf",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Kenzo Amour",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mon Guerlain",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rochas Girl",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Chloé now",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "CK Free",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Eternity Now",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Police Potion",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "United Colors of Benetton",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Floris London",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Floris JF",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Dominique Ropion",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Alberto Morillas",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Caron",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "WoodsShop Gisada Ambassador Intense",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Offers excellent quality",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ideally suited",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Both functional",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Defies authority",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Dead Serious",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Nowadays",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Night use",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Summer occasions",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Head",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Middle",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Min",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ce",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Fran",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tob",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Whit",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambe",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Aleilnj",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Odyssey",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cologne",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Flavour",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "sewn together to",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "refined scent tailored",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "pleasing scent",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "nuanced sides",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "evocative tone",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "characterised by intense",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "begin to rise",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "alluring finishing touch",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "subtle sweetness",
+   "date": "2026-10-09"
+  }
+ ]
+}

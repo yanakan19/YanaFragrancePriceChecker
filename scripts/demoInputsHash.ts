@@ -77,7 +77,17 @@ import { join } from 'node:path';
  * writes the data loader and boot script into it, which is as much the
  * page's source as the template is.
  */
-const EXTRA_INPUTS = ['demo/template.html', 'scripts/dataFiles.ts'];
+const EXTRA_INPUTS = [
+  'demo/template.html',
+  'scripts/dataFiles.ts',
+  // The Notes tab's lazy file is built from these (scripts/noteData.ts).
+  'scripts/noteData.ts',
+  'data/note-groups.json',
+  'data/note-group-overrides.json',
+  'data/note-not-a-note.json',
+  'data/note-descriptions.json',
+  'data/note-icons-manifest.json',
+];
 
 /**
  * Bundled inputs deliberately left OUT of the fingerprint.

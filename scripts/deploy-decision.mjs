@@ -62,7 +62,16 @@ export const STATE_FILE = 'build-state.json';
  * count.
  */
 export const NOT_PAGE_FOLDERS = ['data/', 'docs/', 'tests/', 'social/', 'apps/', 'supabase/', '.github/'];
-export const COUNTS_ANYWAY = ['.github/workflows/deploy-pages.yml'];
+// The Notes tab's rules, read by the page build itself (scripts/noteData.ts),
+// so a reviewed change to one of them changes the page.
+export const COUNTS_ANYWAY = [
+  '.github/workflows/deploy-pages.yml',
+  'data/note-groups.json',
+  'data/note-group-overrides.json',
+  'data/note-not-a-note.json',
+  'data/note-descriptions.json',
+  'data/note-icons-manifest.json',
+];
 
 /** True when a change to this path can change what `npm run demo` builds. */
 export function canChangePage(path) {

@@ -72,6 +72,20 @@ describe.skipIf(!built)('the built page has no axe violations', () => {
     }
   }
 
+  // The Notes tab, a group's own view and a note page (docs/NOTES-PAGE-PLAN.md,
+  // owner's layout of 9 Oct 2026), at a small phone, a phone and a desktop.
+  for (const mode of ['dark', 'light'] as const) {
+    for (const [route, widths] of [['/notes', [320, 390, 1280]], ['/notes?group=citrus', [390, 1280]], ['/notes/bergamot', [390, 1280]]] as const) {
+      for (const width of widths) {
+        it(`${route} at ${width}px wide (${mode})`, async () => {
+          const violations = await auditRoute(browser, port, route, mode, width);
+          const summary = violations.map((v) => `[${v.impact}] ${v.id}: ${v.nodes.slice(0, 3).join(' | ')}`).join('\n');
+          expect(violations, summary).toEqual([]);
+        }, 45_000);
+      }
+    }
+  }
+
   for (const mode of ['dark', 'light'] as const) {
     for (const route of ROUTES) {
       it(`${route} (${mode})`, async () => {

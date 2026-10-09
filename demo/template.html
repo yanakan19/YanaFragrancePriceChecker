@@ -1840,11 +1840,6 @@
   .trustpilot-widget a:hover { text-decoration: underline; }
 
   /* ── notes ─────────────────────────────────────────────────────────────── */
-  /* Same row as .brand-row (block, one column, alphabetical dividers) — this
-     just adds the count on the right, so it needs flex instead of block. */
-  .note-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .note-row-count { flex: none; color: var(--faint); }
-
   /* Top, middle and base, centred (owner's instruction, 2026-08-26).
      Everything in this block shares one centre line: the "Notes" eyebrow, the
      three tier names, the chips under each, and the source credit at the
@@ -1876,54 +1871,129 @@
      four rows. */
   .notes-block .note-chips { justify-content: center; }
 
-  /* The layer chips above the Notes list: the note page's own chips, in a row
-     with room under it before the list. */
-  .note-chips.note-chips-layers { margin: 0 0 14px; }
-
-  /* The list: a bounded, independently scrolling region rather than the
-     page's ordinary flow, because the scrubber's whole mechanic (map a
-     finger's Y position to a scroll position) only makes sense against a
-     viewport with a stable, known height, not a list that keeps growing the
-     page underneath it. */
-  .notes-browse { position: relative; }
-  .notes-browse-scroll {
-    max-height: 50vh; overflow-y: auto; overscroll-behavior: contain;
-    scrollbar-width: thin; scrollbar-color: var(--line-firm) transparent;
-    /* Room for the scrubber strip sitting over this same right edge (see
-       .alpha-scrubber below) so a row's own count does not sit underneath
-       its letters. Harmless dead space on desktop, where the strip is
-       hidden — not worth a second, layout-scoped rule just to reclaim it. */
-    padding-right: 26px;
+  /* The Notes tab (docs/NOTES-PAGE-PLAN.md, section D; the owner's layout of
+     9 Oct 2026): landscape tiles, the icon on top and the name centred under
+     it, 2 across on a phone and 4 on desktop. Flex rather than grid so a short
+     last row sits centred under the row above it, like every full row. The
+     picture's ground is the group's hue through the monogram tokens
+     (--mono-sat, --mono-bg-l), whose contrast is already measured in both
+     palettes; the name and count sit on --surface, so they keep the ink
+     tokens' contrast. */
+  .nt-wrap { max-width: 1200px; margin: 0 auto; }
+  .nt-search { display: flex; flex-direction: column; gap: 6px; margin: 2px 0 14px; }
+  :root[data-layout="desktop"] .nt-search { max-width: 520px; }
+  .nt-search-label { color: var(--ink-2); }
+  .nt-search-input {
+    width: 100%; box-sizing: border-box; min-height: 44px; padding: 10px 14px;
+    border: 1px solid var(--line-firm); border-radius: 12px;
+    background: var(--surface); color: var(--ink); font: 400 15px/1.3 var(--font-sans);
   }
-  .notes-browse-scroll::-webkit-scrollbar { width: 6px; }
-  .notes-browse-scroll::-webkit-scrollbar-track { background: transparent; }
-  .notes-browse-scroll::-webkit-scrollbar-thumb { background: var(--line-firm); border-radius: 3px; }
-
-  /* iOS Contacts-style index strip, mobile only. Absolutely positioned over
-     the scroll region's own right edge rather than beside it, so it costs no
-     layout width from the list itself. */
-  .alpha-scrubber {
-    position: absolute; top: 0; right: -4px; bottom: 0;
+  .nt-search-input:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  /* Sticky on its wrapper, whose parent is the whole tab: a sticky box only
+     sticks within its own parent. */
+  .nt-jump-wrap {
+    position: sticky; top: var(--nt-stick, var(--bar-h)); z-index: 6;
+    background: var(--bg); padding: 8px 0; margin: 4px 0 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .nt-jump ul {
+    display: flex; gap: 6px; list-style: none; margin: 0; padding: 2px;
+    overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 14px, #000 calc(100% - 14px), transparent 100%);
+  }
+  .nt-jump ul::-webkit-scrollbar { display: none; }
+  :root[data-layout="desktop"] .nt-jump ul { flex-wrap: wrap; overflow: visible; -webkit-mask-image: none; mask-image: none; }
+  .nt-chip, .nt-group-chip {
+    display: inline-flex; align-items: center; gap: 6px; flex: none; white-space: nowrap;
+    min-height: 36px; box-sizing: border-box; padding: 6px 12px; border-radius: 999px;
+    background: var(--surface-2); border: 1px solid var(--line);
+    color: var(--ink); font: 500 13px/1 var(--font-sans); text-decoration: none;
+  }
+  .nt-chip-n { font: 600 12px/1 var(--font-num); font-variant-numeric: tabular-nums; color: var(--ink-2); }
+  .nt-chip[aria-current] { background: var(--accent-sf); border-color: var(--accent); }
+  .nt-chip.is-empty { opacity: .45; pointer-events: none; }
+  .nt-chip:focus-visible, .nt-group-chip:focus-visible, .note-tile:focus-visible, .nt-all a:focus-visible, .crumbs a:focus-visible {
+    outline: 2px solid var(--focus); outline-offset: 2px;
+  }
+  .nt-sec { margin: 22px 0 6px; scroll-margin-top: calc(var(--nt-stick, var(--bar-h)) + 72px); }
+  .nt-head { display: flex; align-items: center; gap: 4px 10px; flex-wrap: wrap; }
+  .nt-title { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 18px; }
+  .nt-title:focus { outline: none; }
+  .nt-title-ico { width: 32px; height: 32px; flex: none; }
+  .nt-page-title { display: flex; align-items: center; gap: 10px; }
+  .nt-page-title .nt-title-ico { width: 40px; height: 40px; }
+  .nt-line { margin: 4px 0 12px; }
+  .nt-more > summary { cursor: pointer; list-style: none; padding: 6px 0; }
+  .nt-more > summary::-webkit-details-marker { display: none; }
+  .nt-more > summary::after { content: 'Show'; margin-left: auto; font: 600 13px/1 var(--font-sans); color: var(--accent-ink); }
+  .nt-more[open] > summary::after { content: 'Hide'; }
+  .nt-grid {
+    list-style: none; margin: 0; padding: 0;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+  }
+  .nt-item { flex: 0 0 calc((100% - 12px) / 2); min-width: 0; }
+  :root[data-layout="desktop"] .nt-item { flex-basis: calc((100% - 36px) / 4); }
+  .nt-grid .grid-more { flex: 0 0 100%; }
+  .nt-grid-sm .nt-item, :root[data-layout="desktop"] .nt-grid-sm .nt-item { flex: 0 0 calc((100% - 24px) / 3); max-width: 160px; }
+  .note-tile-sm { aspect-ratio: 1 / 1; padding: 8px 6px; }
+  .note-tile-sm .note-tile-art img { max-height: 64px; }
+  /* The whole tile is the landscape card (about 3:2, taller only when a long
+     name needs a second line): the group's ground, the icon on top, the name
+     and count centred under it. Ink on the monogram ground clears AA in both
+     palettes (ground lightness 20% dark, 93% light). */
+  .note-tile {
     display: flex; flex-direction: column; align-items: center; justify-content: center;
-    padding: 4px 8px; touch-action: none;
+    aspect-ratio: 3 / 2; height: 100%; box-sizing: border-box; padding: 10px 8px;
+    background: hsl(var(--mh, 0) var(--ms, var(--mono-sat)) var(--mono-bg-l));
+    border: 1px solid var(--line); border-radius: 14px;
+    overflow: hidden; color: var(--ink); text-decoration: none;
+    transition: border-color var(--dur-2) var(--ease-standard);
   }
-  .alpha-scrubber-letter {
-    font-size: 9.5px; font-weight: 700; line-height: 1.55; color: var(--faint);
-    width: 14px; text-align: center;
+  .note-tile-art { flex: 1 1 auto; min-height: 0; width: 100%; display: flex; align-items: center; justify-content: center; }
+  .note-tile-art img { height: 100%; max-height: 112px; min-height: 40px; width: auto; aspect-ratio: 1; transition: transform var(--dur-2) var(--ease-standard); }
+  .note-tile-art img.is-group, .note-hero-art img.is-group { opacity: .7; }
+  .note-tile-name {
+    flex: none; max-width: 100%; margin-top: 6px; text-align: center; font: 600 14px/1.25 var(--font-sans);
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere;
   }
-  .alpha-scrubber-letter[data-empty] { opacity: .28; }
-  :root[data-layout="desktop"] .alpha-scrubber { display: none; }
+  .note-tile-count { flex: none; margin-top: 2px; text-align: center; font: 500 11.5px/1.3 var(--font-num); color: var(--ink-2); }
+  :root[data-layout="desktop"] .note-tile { padding: 14px 10px 12px; }
+  :root[data-layout="desktop"] .note-tile-name { font-size: 15px; }
+  :root[data-layout="desktop"] .note-tile-count { font-size: 12px; }
+  .note-tile-sm .note-tile-name { font-size: 13px; }
+  .note-tile-plain { aspect-ratio: auto; background: var(--surface); }
+  @media (hover: hover) and (pointer: fine) {
+    .note-tile:hover, .nt-chip:hover, .nt-group-chip:hover { border-color: var(--ink-2); }
+    .note-tile:hover .note-tile-art img { transform: scale(1.03); }
+  }
+  .nt-all { text-align: center; margin: 10px 0 0; }
+  .nt-all a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: var(--accent-ink); font-weight: 600; text-decoration: none; }
+  .nt-worn { margin: 26px 0 10px; }
+  .nt-worn-list { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 10px 0 0; padding: 0; }
+  .crumbs { margin: 2px 0 12px; }
+  .crumbs a { color: var(--ink-2); text-decoration: none; display: inline-block; padding: 6px 0; }
+  .crumbs a:hover { text-decoration: underline; }
 
-  /* The magnified letter bubble that tracks the finger while dragging the
-     scrubber, mirroring iOS. Only ever inserted/removed by JS, never part
-     of the server-rendered markup — see mountAlphaScrubber in app.ts. */
-  .alpha-scrubber-bubble {
-    position: fixed; z-index: 20; pointer-events: none;
-    width: 64px; height: 64px; border-radius: 50%;
-    background: var(--accent); color: var(--accent-on);
+  /* A note's own page: the picture large, the facts beside it on desktop. */
+  .note-hero { display: grid; gap: 16px; margin: 0 0 18px; }
+  :root[data-layout="desktop"] .note-hero { grid-template-columns: minmax(0, 480px) minmax(0, 1fr); gap: 28px; align-items: start; }
+  .note-hero-art {
+    aspect-ratio: 3 / 2; border-radius: 16px; border: 1px solid var(--line);
     display: flex; align-items: center; justify-content: center;
-    font-size: 28px; font-weight: 800;
+    background: hsl(var(--mh, 0) var(--ms, var(--mono-sat)) var(--mono-bg-l));
   }
+  .note-hero-art img { width: 44%; height: auto; aspect-ratio: 1; }
+  .note-hero-text h1 { margin: 0 0 10px; }
+  .nt-group-chip { padding-left: 6px; }
+  .nt-group-chip img { width: 24px; height: 24px; }
+  .note-desc { margin: 12px 0 6px; }
+  .note-in { margin: 0 0 10px; color: var(--ink); font-weight: 600; }
+  .note-aka { margin: 4px 0 0; }
+  .note-related { margin: 4px 0 22px; }
+  .note-related h2 { margin: 0 0 10px; }
+  .tile-tier { display: block; color: var(--ink-2); }
+
   .note-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
   .note-chip {
     background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;

@@ -136,42 +136,119 @@ describe.skipIf(!built)('the Notes tab on the built page', () => {
     close();
   });
 
-  it('shows neither text, sorts Z to A, keeps the choice on Back, and opens a note page', async () => {
+  const names = (page: import('playwright').Page, group: string): Promise<string[]> =>
+    page.evaluate(
+      `[...document.querySelectorAll('#g-${group} .note-tile-name')].map((n) => n.textContent.trim())`,
+    ) as Promise<string[]>;
+
+  it('shows neither text, sorts within each group, searches, opens a note page, and keeps the sort on Back', async () => {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     try {
       await page.goto(`http://127.0.0.1:${port}/notes`, { waitUntil: 'load' });
       await waitForApp(page);
-      await page.waitForSelector('#note-sort', { timeout: 120_000 });
-
-      const rows = async (): Promise<string[]> =>
-        (await page.evaluate(`[...document.querySelectorAll('#view .note-row')].map((b) => b.getAttribute('data-note'))`)) as string[];
+      await page.waitForSelector('#g-citrus .note-tile', { timeout: 120_000 });
       const shown = async (): Promise<string> => (await page.evaluate(`document.querySelector('#view').innerText`)) as string;
 
       for (const re of REMOVED) expect(await shown()).not.toMatch(re);
       expect(await page.textContent('.control-lead')).toBe('Sort By:');
       const options = (await page.evaluate(`[...document.querySelector('#note-sort').options].map((o) => o.textContent)`)) as string[];
       expect(options).toEqual(['Most to Least Used', 'A to Z', 'Z to A']);
+      // One layer control, no letter strip.
+      expect(await page.locator('#note-layer').count()).toBe(1);
+      expect(await page.locator('[data-note-layer], .alpha-scrubber').count()).toBe(0);
 
       await page.selectOption('#note-sort', 'az');
-      const az = await rows();
+      await page.waitForSelector('#g-citrus .note-tile');
+      const az = await names(page, 'citrus');
+      expect([...az].sort((x, y) => x.localeCompare(y, 'en-GB'))).toEqual(az);
       await page.selectOption('#note-sort', 'za');
-      const za = await rows();
-      for (const re of REMOVED) expect(await shown()).not.toMatch(re);
-      expect(za.length).toBe(az.length);
-      expect(za[0]).toBe(az[az.length - 1]);
-      expect(za[za.length - 1]).toBe(az[0]);
-      // No scrubber strip under Z to A: its letters run the other way.
-      expect(await page.locator('.alpha-scrubber').count()).toBe(0);
+      await page.waitForSelector('#g-citrus .note-tile');
+      const za = await names(page, 'citrus');
+      expect([...za].sort((x, y) => y.localeCompare(x, 'en-GB'))).toEqual(za);
 
-      // Open the first note, then Back: the list is still Z to A.
-      const first = za[0]!;
-      await page.click(`#view .note-row[data-note="${first.replace(/"/g, '\\"')}"]`);
-      await page.waitForSelector('[data-back-explore]', { timeout: 30_000 });
-      expect(await page.locator('#view h1').count()).toBe(1);
+      // The search narrows the tiles, says how many match, and goes in the address.
+      await page.fill('#note-search', 'bergam');
+      await page.waitForFunction(() => location.search.includes('q=bergam'));
+      const found = (await page.evaluate(`[...document.querySelectorAll('#view .note-tile-name')].map((n) => n.textContent.trim())`)) as string[];
+      expect(found.length).toBeGreaterThan(0);
+      expect(found.length).toBeLessThan(60);
+      expect(found.filter((n) => /bergam/i.test(n)).length).toBeGreaterThan(found.length / 2);
+      expect(await page.textContent('#note-search-status')).toMatch(/match/);
+      await page.press('#note-search', 'Escape');
+      await page.waitForFunction(() => !location.search.includes('q='));
+      expect(await page.inputValue('#note-search')).toBe('');
+
+      // Open the first Citrus note: its page has a breadcrumb, its group, and tiles that say where the note sits.
+      const first = page.locator('#g-citrus a.note-tile').first();
+      const href = (await first.getAttribute('href'))!;
+      const name = (await first.locator('.note-tile-name').textContent())!.trim();
+      await first.click();
+      await page.waitForFunction((h) => location.pathname === h, href);
+      await page.waitForSelector('.note-hero img', { timeout: 30_000 });
+      expect((await page.textContent('#view h1'))?.trim()).toBe(name);
+      expect(await page.locator('#view nav[aria-label="Breadcrumb"] a[href="/notes"]').count()).toBe(1);
+      expect(await page.locator('#view .nt-group-chip').textContent()).toContain('Citrus');
       expect(await page.locator('#view [data-frag]').count()).toBeGreaterThan(0);
+      expect(await page.locator('#view .tile-tier').first().textContent()).toMatch(/^(Top|Heart|Base)/);
       await page.goBack();
       await page.waitForSelector('#note-sort');
       expect(await page.inputValue('#note-sort')).toBe('za');
+    } finally {
+      await page.close();
+    }
+  }, 240_000);
+
+  it('lays the tiles out 2 across on a phone and 4 on desktop, rows centred, with no sideways scroll', async () => {
+    for (const [width, across] of [[320, 2], [390, 2], [1280, 4]] as const) {
+      const page = await browser.newPage({ viewport: { width, height: 900 } });
+      try {
+        await page.addInitScript((desk) => {
+          try {
+            localStorage.setItem('pricesniffs.layout', desk ? 'desktop' : 'mobile');
+          } catch {
+            // no storage: the layout is detected
+          }
+        }, width >= 900);
+        await page.goto(`http://127.0.0.1:${port}/notes`, { waitUntil: 'load' });
+        await waitForApp(page);
+        await page.waitForSelector('#g-citrus .note-tile', { timeout: 120_000 });
+        const tops = (await page.evaluate(`[...document.querySelectorAll('#g-citrus .note-tile')].map((t) => Math.round(t.getBoundingClientRect().top))`)) as number[];
+        expect(tops.filter((t) => t === tops[0]).length, `${width}px`).toBe(across);
+        const box = (await page.evaluate(`(() => { const r = document.querySelector('#g-citrus .note-tile').getBoundingClientRect(); return [r.width, r.height]; })()`)) as [number, number];
+        expect(box[0] / box[1], `${width}px tile is landscape`).toBeGreaterThan(1.2);
+        expect(await page.evaluate(`document.documentElement.scrollWidth <= document.documentElement.clientWidth`), `${width}px`).toBe(true);
+        // A short last row sits in the middle: its tiles' centre is the grid's centre.
+        await page.fill('#note-search', 'ber');
+        await page.waitForFunction(() => location.search.includes('q=ber'));
+        const offsets = (await page.evaluate(`[...document.querySelectorAll('#nt-results .nt-grid')].flatMap((grid) => {
+          const items = [...grid.querySelectorAll('.note-tile')];
+          if (items.length === 0) return [];
+          const lastTop = Math.round(items[items.length - 1].getBoundingClientRect().top);
+          const row = items.filter((t) => Math.round(t.getBoundingClientRect().top) === lastTop);
+          if (row.length === ${across}) return [];
+          const g = grid.getBoundingClientRect();
+          const l = row[0].getBoundingClientRect().left, r = row[row.length - 1].getBoundingClientRect().right;
+          return [Math.abs((l + r) / 2 - (g.left + g.right) / 2)];
+        })`)) as number[];
+        expect(offsets.length, `${width}px has a short row to check`).toBeGreaterThan(0);
+        for (const o of offsets) expect(o, `${width}px`).toBeLessThan(2);
+      } finally {
+        await page.close();
+      }
+    }
+  }, 240_000);
+
+  it('jumps to a group from the sticky bar, which stays in view', async () => {
+    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+    try {
+      await page.goto(`http://127.0.0.1:${port}/notes`, { waitUntil: 'load' });
+      await waitForApp(page);
+      await page.waitForSelector('.nt-jump a[data-jump="woods"]', { timeout: 120_000 });
+      await page.click('.nt-jump a[data-jump="woods"]');
+      await page.waitForFunction(() => Math.abs(document.getElementById('g-woods')!.getBoundingClientRect().top) < 400);
+      const bar = (await page.evaluate(`document.querySelector('.nt-jump').getBoundingClientRect().top`)) as number;
+      expect(bar).toBeGreaterThanOrEqual(0);
+      expect(bar).toBeLessThan(200);
     } finally {
       await page.close();
     }

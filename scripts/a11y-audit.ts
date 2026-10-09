@@ -42,6 +42,8 @@ export const DEFAULT_ROUTES = [
   '/deals',
   '/retailers',
   '/retailers/fragrance-click',
+  '/notes',
+  '/notes/bergamot',
   '/legal/privacy',
   '/settings',
   '/suggestions',
@@ -117,6 +119,9 @@ export async function auditRoute(
     }
     await page.goto(`http://127.0.0.1:${port}${route}`, { waitUntil: 'load' });
     await waitForApp(page);
+    // The Notes tab and a note page draw their tiles once the lazy notes file
+    // is in (demo/notesData.ts): audit what the reader then sees.
+    if (/^\/notes(\/|\?|$)/.test(route)) await page.waitForSelector('.note-tile, .note-hero img', { timeout: 30_000 }).catch(() => undefined);
     await page.waitForTimeout(500);
     // The view fades in (.ps-rise). axe reads the blended colour of anything
     // mid-fade, which fails marginal pairs such as an initials tile on a slow

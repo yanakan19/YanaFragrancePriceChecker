@@ -1,0 +1,1260 @@
+{
+ "about": "Reviewed group decisions for single notes, the first rule src/catalogue/noteGroups.ts applies (docs/NOTES-PAGE-PLAN.md, section B). Each entry names a note (matched on its merge key: letters and digits, case and accents folded), one of the 16 group ids, the basis of the decision and its date. Basis: owner (a placement the owner set), head noun, lexicon, keyword (reviewed: a suggestion of the review script, checked by the reviewer), or a short reason. Add entries at the end; change one only with a reason in its basis. Nothing here comes from any fragrance database site (docs/DECISIONS.md D26).",
+ "reviewer": "Claude Opus 5.5, 9 Oct 2026, reviewing the notes by number of products from the top down, with no other site's notes pages open",
+ "overrides": [
+  {
+   "note": "Patchouli",
+   "group": "earth-moss",
+   "basis": "owner: patchouli in Earth and Moss (approval of section B, 9 Oct 2026)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Vetiver",
+   "group": "earth-moss",
+   "basis": "owner: vetiver in Earth and Moss (approval of section B, 9 Oct 2026)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tea",
+   "group": "sweet",
+   "basis": "owner: tea in Sweet and Gourmand (approval of section B, 9 Oct 2026)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Coffee",
+   "group": "sweet",
+   "basis": "owner: coffee in Sweet and Gourmand (approval of section B, 9 Oct 2026)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Calone",
+   "group": "air-water",
+   "basis": "owner: the approved section B table lists Calone under Fresh Air and Water",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Orcanoxâ",
+   "group": "modern",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Resinoid",
+   "group": "resins",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Quince Chutney",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Espresso Beans",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Benzyl Benzoate",
+   "group": "modern",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Shisolia",
+   "group": "herbs-greens",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Patchouli oil Youthful",
+   "group": "earth-moss",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Oud Assafi",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Floral Transparent",
+   "group": "flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Chestnut Glace",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cederwood",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "limone primo flore",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Sicilian lemon meet",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rum Succan Absolute",
+   "group": "drinks",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Roseberry",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Muscenone Delta",
+   "group": "musk-amber",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mediterranean Fruity Basket",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mandarin Petit Grain",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lemon Calypso",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Jasmine Samac Absolut India",
+   "group": "white-flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Icing Pink",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Fruity Basket",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Eucalyptus Acorns",
+   "group": "herbs-greens",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Dark Chocolate Bean",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Coconut Suntan Lotion",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cassis Celeste",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Black Cherry Jubilee",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambre 84 DL",
+   "group": "musk-amber",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "tonkin beans",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "patchouli to",
+   "group": "earth-moss",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "patchouli palette",
+   "group": "earth-moss",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "lemon beebrush",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "jazmin yucateco",
+   "group": "white-flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "cuir velour",
+   "group": "leather-smoke",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "animalistic aromas",
+   "group": "musk-amber",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "White Wood Perfect",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tonka Beran",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Schinus Mole",
+   "group": "spices",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Santal Blonde",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rose Comunelle Orpur",
+   "group": "flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rosa Moceniga Essence",
+   "group": "flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Prune Nat Neo",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pink Peppercon Orpur",
+   "group": "spices",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pineapple Lead",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Petitgrain citronner",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Patchouli a deep",
+   "group": "earth-moss",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Patchouli Modern",
+   "group": "earth-moss",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Patchouli LeafPerfect",
+   "group": "earth-moss",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Oud Palao",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Neroli Cinnnamon",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Moka Bean",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mandarin OilItaly",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Liquorous",
+   "group": "drinks",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lentiscus",
+   "group": "resins",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lemon Zest Bitter",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lemon Petit Grain",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lavandine France Oil",
+   "group": "herbs-greens",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Kashmirwood fusion",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Jasminum sSambac",
+   "group": "white-flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Jasmine to",
+   "group": "white-flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Green Mat",
+   "group": "herbs-greens",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ginerlily",
+   "group": "white-flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "FrangipaniAccord",
+   "group": "white-flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Flowerpool",
+   "group": "flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Flower Prism",
+   "group": "flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Flower Field",
+   "group": "flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Fleuriste Fusion",
+   "group": "flowers",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Firsantol",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Crème Brulé",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Citruswood fusion",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Citrus up front",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cherry Cosmo",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Casmere-Cederwood",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Caramel Beans",
+   "group": "sweet",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "BergamotH",
+   "group": "citrus",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Benzyl Cinnamate",
+   "group": "modern",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Aromatic Shot Osmasylk Natsublim",
+   "group": "herbs-greens",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Applem",
+   "group": "fruits",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambrofix YSL MYSLF",
+   "group": "musk-amber",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambret",
+   "group": "musk-amber",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambergris to",
+   "group": "musk-amber",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Akigawood",
+   "group": "woods",
+   "basis": "keyword (reviewed)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Musky Louro Amarelo",
+   "group": "woods",
+   "basis": "reviewer: louro amarelo is a Brazilian timber",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ginger Fresh Oil Shimoga",
+   "group": "spices",
+   "basis": "reviewer: ginger oil from Shimoga, a spice",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cassis Bourgeon Absolute",
+   "group": "herbs-greens",
+   "basis": "reviewer: bourgeon is the bud: blackcurrant bud is green, like the phrase list",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Yellow Waterlillies",
+   "group": "flowers",
+   "basis": "reviewer: a water lily is a flower",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Warm MuskSuitable",
+   "group": "musk-amber",
+   "basis": "reviewer: musk with prose glued on",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Violet Leave",
+   "group": "herbs-greens",
+   "basis": "reviewer: violet leaf, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pink Honey Suckle",
+   "group": "flowers",
+   "basis": "reviewer: honeysuckle is a flower",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Orange Blosso",
+   "group": "white-flowers",
+   "basis": "reviewer: orange blossom, cut short",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Muscat",
+   "group": "fruits",
+   "basis": "reviewer: muscat is a grape",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "African Orange Glower",
+   "group": "white-flowers",
+   "basis": "reviewer: orange flower, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tilia",
+   "group": "flowers",
+   "basis": "reviewer: tilia is linden blossom",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Symphonide",
+   "group": "modern",
+   "basis": "reviewer: a named aroma molecule (decision 6)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Sylkoide",
+   "group": "musk-amber",
+   "basis": "reviewer: sylkolide, a musk molecule, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Sycamore",
+   "group": "woods",
+   "basis": "reviewer: a tree",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Strelitzia",
+   "group": "flowers",
+   "basis": "reviewer: bird of paradise flower",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Soft Citral",
+   "group": "modern",
+   "basis": "reviewer: citral is an aroma molecule (decision 6)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Shisho",
+   "group": "herbs-greens",
+   "basis": "reviewer: shiso leaf",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Seringa",
+   "group": "white-flowers",
+   "basis": "reviewer: mock orange blossom",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Sargassum",
+   "group": "air-water",
+   "basis": "reviewer: a seaweed",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Safraleine",
+   "group": "modern",
+   "basis": "reviewer: a named aroma molecule (decision 6)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rosy",
+   "group": "flowers",
+   "basis": "reviewer: rose",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Rondeletia",
+   "group": "flowers",
+   "basis": "reviewer: a flowering shrub",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Roasted barley extract",
+   "group": "sweet",
+   "basis": "reviewer: roasted cereal, gourmand",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pumpkin",
+   "group": "sweet",
+   "basis": "reviewer: pumpkin as a gourmand note",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Prunol",
+   "group": "fruits",
+   "basis": "reviewer: a plum base",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pomello",
+   "group": "citrus",
+   "basis": "reviewer: pomelo, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pink pralin",
+   "group": "sweet",
+   "basis": "reviewer: praline",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pink Jacinth",
+   "group": "flowers",
+   "basis": "reviewer: jacinth is hyacinth",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pimenot oil",
+   "group": "spices",
+   "basis": "reviewer: pimento oil, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Petit Grain EO",
+   "group": "citrus",
+   "basis": "reviewer: petitgrain oil",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Oudi",
+   "group": "woods",
+   "basis": "reviewer: oud",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Opopnax",
+   "group": "resins",
+   "basis": "reviewer: opoponax, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Oakmos",
+   "group": "earth-moss",
+   "basis": "reviewer: oakmoss, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Night Blooming Cereus",
+   "group": "white-flowers",
+   "basis": "reviewer: a night flowering cactus bloom, white",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "New Zealand flax",
+   "group": "herbs-greens",
+   "basis": "reviewer: a leafy plant",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Naswar",
+   "group": "leather-smoke",
+   "basis": "reviewer: a tobacco preparation",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Nastirtium",
+   "group": "flowers",
+   "basis": "reviewer: nasturtium, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Narcisse absolute",
+   "group": "white-flowers",
+   "basis": "reviewer: narcissus",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Living narcisse",
+   "group": "white-flowers",
+   "basis": "reviewer: narcissus",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Methyl Anthranilate",
+   "group": "modern",
+   "basis": "reviewer: an aroma molecule (decision 6)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mascarpone",
+   "group": "sweet",
+   "basis": "reviewer: a dessert cheese",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Manzana Verde",
+   "group": "fruits",
+   "basis": "reviewer: green apple in Spanish",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Loukhoum",
+   "group": "sweet",
+   "basis": "reviewer: Turkish delight",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Limbanol",
+   "group": "woods",
+   "basis": "reviewer: a woody amber molecule, placed like norlimbanol",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Liatrix Absolute",
+   "group": "herbs-greens",
+   "basis": "reviewer: liatris (deer's tongue) leaf",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Liatris",
+   "group": "herbs-greens",
+   "basis": "reviewer: deer's tongue leaf",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Deer's Tongue",
+   "group": "herbs-greens",
+   "basis": "reviewer: liatris leaf",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Laurier",
+   "group": "herbs-greens",
+   "basis": "reviewer: bay laurel",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Landanum",
+   "group": "resins",
+   "basis": "reviewer: labdanum, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Indian Ajowan",
+   "group": "spices",
+   "basis": "reviewer: ajwain seed",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ise E Super",
+   "group": "modern",
+   "basis": "reviewer: Iso E Super, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Iodine",
+   "group": "air-water",
+   "basis": "reviewer: the smell of the sea",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Helicrysum",
+   "group": "flowers",
+   "basis": "reviewer: helichrysum (immortelle)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Hashish",
+   "group": "resins",
+   "basis": "reviewer: cannabis resin",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Gyokuro",
+   "group": "sweet",
+   "basis": "reviewer: a green tea (tea is in Sweet and Gourmand)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Guimauve",
+   "group": "sweet",
+   "basis": "reviewer: marshmallow in French",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Golden Pollen",
+   "group": "flowers",
+   "basis": "reviewer: pollen of flowers",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ginge",
+   "group": "spices",
+   "basis": "reviewer: ginger, cut short",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Georgywoood",
+   "group": "woods",
+   "basis": "reviewer: Georgywood, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Galanga",
+   "group": "spices",
+   "basis": "reviewer: galangal",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Frankincese",
+   "group": "resins",
+   "basis": "reviewer: frankincense, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ethiopian Myurhh",
+   "group": "resins",
+   "basis": "reviewer: myrrh, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Eroli",
+   "group": "citrus",
+   "basis": "reviewer: neroli, cut short",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Davan",
+   "group": "herbs-greens",
+   "basis": "reviewer: davana, cut short",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Danava",
+   "group": "herbs-greens",
+   "basis": "reviewer: davana, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cypres",
+   "group": "herbs-greens",
+   "basis": "reviewer: cypress (its icon family)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cybet",
+   "group": "leather-smoke",
+   "basis": "reviewer: civet, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cuirissima LXR",
+   "group": "leather-smoke",
+   "basis": "reviewer: cuir is leather",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Copper",
+   "group": "modern",
+   "basis": "reviewer: a metallic accord",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cinnamal",
+   "group": "modern",
+   "basis": "reviewer: an aroma molecule (decision 6)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cinammon",
+   "group": "spices",
+   "basis": "reviewer: cinnamon, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Centiflora",
+   "group": "flowers",
+   "basis": "reviewer: rose centifolia",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Celosia",
+   "group": "flowers",
+   "basis": "reviewer: a flower",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cedra",
+   "group": "citrus",
+   "basis": "reviewer: cedrat",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ceder",
+   "group": "woods",
+   "basis": "reviewer: cedar, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cattleye",
+   "group": "flowers",
+   "basis": "reviewer: cattleya orchid",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Casmeran",
+   "group": "woods",
+   "basis": "reviewer: cashmeran, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cashalox",
+   "group": "musk-amber",
+   "basis": "reviewer: cachalox, an amber molecule",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Carnatio",
+   "group": "flowers",
+   "basis": "reviewer: carnation, cut short",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Cardamum essential oil",
+   "group": "spices",
+   "basis": "reviewer: cardamom, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Black Orch",
+   "group": "flowers",
+   "basis": "reviewer: black orchid, cut short",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Biscoff",
+   "group": "sweet",
+   "basis": "reviewer: a caramelised biscuit",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Bha citral",
+   "group": "modern",
+   "basis": "reviewer: citral molecule",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Bergamia",
+   "group": "citrus",
+   "basis": "reviewer: bergamot (Citrus bergamia)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Benz l benzoate",
+   "group": "modern",
+   "basis": "reviewer: benzyl benzoate, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Belle de Nuit Trek",
+   "group": "flowers",
+   "basis": "reviewer: belle de nuit is a flower",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Beewax Absolute",
+   "group": "sweet",
+   "basis": "reviewer: beeswax, misspelt (its icon family)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Beech",
+   "group": "woods",
+   "basis": "reviewer: a tree",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Aperol",
+   "group": "drinks",
+   "basis": "reviewer: an aperitif",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambronova",
+   "group": "musk-amber",
+   "basis": "reviewer: an amber molecule (decision 6)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ambox Super",
+   "group": "musk-amber",
+   "basis": "reviewer: Ambrox, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Almdudler",
+   "group": "drinks",
+   "basis": "reviewer: a herbal soft drink",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Aglaia Odorata",
+   "group": "flowers",
+   "basis": "reviewer: Chinese perfume plant flowers",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Aglaia",
+   "group": "flowers",
+   "basis": "reviewer: Chinese perfume plant flowers",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Agathosma",
+   "group": "herbs-greens",
+   "basis": "reviewer: buchu leaf",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Ultravanil",
+   "group": "modern",
+   "basis": "reviewer: a vanillin type molecule (decision 6)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Veviter",
+   "group": "earth-moss",
+   "basis": "reviewer: vetiver, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Dihydrimyrcenol",
+   "group": "modern",
+   "basis": "reviewer: dihydromyrcenol, misspelt",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Fjords",
+   "group": "air-water",
+   "basis": "reviewer: sea air",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Karo Karounde",
+   "group": "white-flowers",
+   "basis": "reviewer: a white flowering West African shrub",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Benzyl alcohol",
+   "group": "modern",
+   "basis": "reviewer: an aroma chemical, not a drink (decision 6)",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Moss Crystal",
+   "group": "earth-moss",
+   "basis": "reviewer: a moss accord",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Black Truffle",
+   "group": "earth-moss",
+   "basis": "reviewer: the fungus, as Truffle",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Blackcurrant Syrup",
+   "group": "fruits",
+   "basis": "reviewer: the fruit, sweetened",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Baie Rose",
+   "group": "spices",
+   "basis": "reviewer: baie rose is pink pepper",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Baies Rose",
+   "group": "spices",
+   "basis": "reviewer: baies roses are pink pepper",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Davana Blossoms",
+   "group": "herbs-greens",
+   "basis": "reviewer: davana is a herb",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Orange Flower Petals",
+   "group": "white-flowers",
+   "basis": "reviewer: orange blossom",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Lemon Flower",
+   "group": "white-flowers",
+   "basis": "reviewer: citrus blossom, like Lemon Blossom",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Maninka",
+   "group": "fruits",
+   "basis": "reviewer: our own data lists it as Maninka Fruit",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mandarin Juice",
+   "group": "citrus",
+   "basis": "reviewer: the citrus fruit's juice",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Violet Root",
+   "group": "flowers",
+   "basis": "reviewer: an orris like root of the violet family, read with the flowers like Orris",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Fresh Fennel",
+   "group": "spices",
+   "basis": "reviewer: placed with Fennel",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Prickly Pear",
+   "group": "fruits",
+   "basis": "reviewer: the cactus fruit",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Tonic Water",
+   "group": "drinks",
+   "basis": "reviewer: a mixer",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mandarin Spray",
+   "group": "citrus",
+   "basis": "reviewer: mandarin",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "silky musk cocktail",
+   "group": "musk-amber",
+   "basis": "reviewer: a musk blend",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Living Orange Flower Ourika",
+   "group": "white-flowers",
+   "basis": "reviewer: an orange flower material",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Mandarin Pulp",
+   "group": "citrus",
+   "basis": "reviewer: the citrus fruit",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Pimento Leaf",
+   "group": "spices",
+   "basis": "reviewer: the leaf of the allspice tree, a spice oil",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Bergamot Leaf",
+   "group": "citrus",
+   "basis": "reviewer: citrus leaves are placed with citrus, like Lemon Leaf",
+   "date": "2026-10-09"
+  },
+  {
+   "note": "Grapefruit Leaves",
+   "group": "citrus",
+   "basis": "reviewer: citrus leaves are placed with citrus, like Lemon Leaf",
+   "date": "2026-10-09"
+  }
+ ]
+}
