@@ -7512,6 +7512,38 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3349668554157, 3349668642496",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668554157",
+     "brand": "Rabanne",
+     "name": "1 Million Gift Set Eau de Toilette Spray 50 ml + Shower Gel 100 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668554157",
+     "scent": "1 million stk",
+     "signature": "1x100wash|1x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3349668642496",
+     "brand": "Rabanne",
+     "name": "1 Million Eau de Toilette Spray Eau de Toilette Spray 50 ml + Shower Gel 100 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668642496",
+     "scent": "1 million stk",
+     "signature": "1x100wash|1x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3349668571819, 3349668626861, 3349668628681"
    ],
    "members": [
@@ -9984,6 +10016,37 @@
      "signature": "1x75body|1x75fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.68 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3660732601400",
+     "brand": "Ralph Lauren",
+     "name": "Polo Green Eau de Toilette 118ml Spray + 15ml Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3660732601400",
+     "scent": "green polo",
+     "signature": "1x118fragrance|1x15fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-polo-green-2-pcs-set-for-men-4-oz-eau-de-toilette-spray-0-5-oz-eau-de-toilette",
+     "brand": "Ralph Lauren",
+     "name": "Polo Green 2 Pcs Set For Men: 4 Oz Eau De Toilette Spray + 0.5 Oz Eau De Toilette",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "green polo",
+     "signature": "1x118fragrance|1x15fragrance",
+     "shops": [
+      "the-beauty-store-uk"
      ]
     }
    ]
