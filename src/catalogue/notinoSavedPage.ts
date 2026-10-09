@@ -28,6 +28,7 @@
  */
 import { extractJsonLdBlocks, parseAvailability, isPreOrderAvailability, parsePrice } from './jsonld.js';
 import { readBarcode } from './barcode.js';
+import { CONCENTRATION } from './fragranceId.js';
 import type { RawListing } from './types.js';
 
 export const NOTINO_HOST = 'notino.co.uk';
@@ -208,16 +209,22 @@ const CONCENTRATIONS = [
   'Eau de Parfum', 'Eau de Toilette', 'Eau de Cologne', 'Parfum', 'Extrait de Parfum', 'Eau Fraiche', 'Perfume Oil',
 ];
 
+/** The page's own category, "eau de parfum for men" on a Notino product page. */
+function categoryOf(n: Json, parent: Json | null): string | null {
+  return safe(n['category']) ?? (parent ? safe(parent['category']) : null);
+}
+
 function concentrationOf(n: Json, parent: Json | null, name: string): string | null {
   const prop = safe(property(n, parent, 'concentration', 'type', 'fragrance type'));
-  const hay = `${prop ?? ''} ${name}`;
+  // Notino names the strength only in its category ("eau de parfum for men").
+  const hay = `${prop ?? ''} ${categoryOf(n, parent) ?? ''} ${name}`;
   for (const c of CONCENTRATIONS) if (new RegExp(`\\b${c}\\b`, 'i').test(hay)) return c;
   return null;
 }
 
 function genderOf(n: Json, parent: Json | null, name: string): string | null {
   const aud = isObj(n['audience']) ? n['audience'] : isObj(parent?.['audience']) ? (parent!['audience'] as Json) : null;
-  const hay = `${safe(aud?.['suggestedGender']) ?? ''} ${safe(property(n, parent, 'gender', 'for')) ?? ''} ${name}`.toLowerCase();
+  const hay = `${safe(aud?.['suggestedGender']) ?? ''} ${safe(property(n, parent, 'gender', 'for')) ?? ''} ${categoryOf(n, parent) ?? ''} ${name}`.toLowerCase();
   if (/\bunisex\b/.test(hay)) return 'unisex';
   if (/\b(women|woman|female|ladies|her)\b/.test(hay)) return 'women';
   if (/\b(men|man|male|him)\b/.test(hay)) return 'men';
@@ -253,6 +260,38 @@ function offersOf(n: Json): Json[] {
     else out.push(o);
   }
   return out;
+}
+
+/**
+ * A product page's offers with each size once, at its shelf price. Notino lists
+ * a size twice when a discount code applies: once at the code's price with a
+ * `priceValidUntil` ("Armani Emporio Stronger With You Intensely 100 ml" at
+ * £65.36 until 11 Oct), once at the price a shopper pays without it (£76.90).
+ * The code's price comes first, so reading the first offer per size published
+ * a price nobody pays unless they find the code.
+ */
+function shelfOffers(offers: Json[]): Json[] {
+  const kept = new Map<string, Json>();
+  offers.forEach((o, i) => {
+    const key = text(o['sku']) ?? text(o['url']) ?? `#${i}`;
+    const held = kept.get(key);
+    if (!held || (held['priceValidUntil'] != null && o['priceValidUntil'] == null)) kept.set(key, o);
+  });
+  return [...kept.values()];
+}
+
+/**
+ * One size's barcode from that size's own photo address, which Notino names by
+ * it: the 100 ml above is pictured at
+ * cdn.notinoimg.com/order_2k/armani/3614272225718_01-o/..., and 3614272225718 is
+ * the barcode the same page's own data gives that size (all nine sizes of the
+ * three pages the owner saved on 2026-10-07 match). Only a code that passes
+ * readBarcode's checks.
+ */
+export function barcodeFromVariantImage(image: unknown): string | null {
+  const url = text(isObj(image) ? image['url'] ?? image['contentUrl'] : arr(image)[0]);
+  const m = url ? /^https:\/\/cdn\.notinoimg\.com\/[^?#]*\/(\d{12,14})_\d{2}(?:-o)?\//.exec(url) : null;
+  return m ? readBarcode(m[1]).ean : null;
 }
 
 function offerPrice(o: Json): { price: number | null; currency: string | null } {
@@ -344,7 +383,7 @@ export function parseNotinoSavedPage(html: string, options: ParseSavedPageOption
   for (const { node, parent } of found) {
     const name = safe(node['name']) ?? (parent ? safe(parent['name']) : null);
     const pageUrl = cleanUrl(node['url'], base) ?? (parent ? cleanUrl(parent['url'], base) : null);
-    const offers = offersOf(node);
+    const offers = shelfOffers(offersOf(node));
     // One variant per own sku, so a Product carrying several sized offers is
     // read as several listings, each with its own barcode.
     const units = offers.length > 1 && offers.every((o) => text(o['sku']) || text(o['gtin13']))
@@ -361,16 +400,26 @@ export function parseNotinoSavedPage(html: string, options: ParseSavedPageOption
       const { price, currency } = offerPrice(offer);
       if (price === null || price <= 0 || currency !== 'GBP') { skipped++; continue; }
 
-      const gtinRaw = own?.['gtin13'] ?? own?.['gtin'] ?? node['gtin13'] ?? node['gtin'] ?? node['gtin14']
-        ?? node['gtin12'] ?? node['gtin8'] ?? node['ean'] ?? offer['gtin13'] ?? offer['gtin'];
-      const ean = readBarcode(gtinRaw).ean;
+      // One size of several takes only its own barcode, never the product's:
+      // on Notino the product's gtin13 is one size's (the 150 ml on the Armani
+      // page, whose sku is the 100 ml's), and giving it to every size put all
+      // five onto the 150 ml's product.
+      const ean = own
+        ? readBarcode(own['gtin13'] ?? own['gtin']).ean ?? barcodeFromVariantImage(own['image'])
+        : readBarcode(node['gtin13'] ?? node['gtin'] ?? node['gtin14'] ?? node['gtin12'] ?? node['gtin8'] ?? node['ean']
+          ?? offer['gtin13'] ?? offer['gtin']).ean;
       const label = own ? safe(own['name']) : null;
       const size = sizeLabel(own ? { ...node, ...own } : node, parent, label ?? title);
       const sku = safe(own?.['sku'] ?? node['sku'] ?? offer['sku']);
 
       const sizeCompact = size ? size.replace(' ', '') : null;
       const sizeInTitle = size !== null && new RegExp(`\\b${size.split(' ')[0]!.replace('.', '\\.')}\\s*${size.split(' ')[1]!}\\b`, 'i').test(title);
-      const rawTitle = size && !sizeInTitle ? `${title} ${sizeCompact}` : title;
+      // The strength goes in the title where it is missing: the catalogue only
+      // takes a bottle whose title names one (isFragrance in fragranceId.ts),
+      // and Notino's never do.
+      const strength = concentrationOf(node, parent, title);
+      const named = strength && !CONCENTRATION.test(title) ? `${title} ${strength}` : title;
+      const rawTitle = size && !sizeInTitle ? `${named} ${sizeCompact}` : named;
       if (looksSecret(rawTitle)) { skipped++; continue; }
 
       const retailerSku = sku ?? ean ?? `${slugOf(url)}${sizeCompact ? `-${sizeCompact}` : ''}`;
@@ -391,7 +440,7 @@ export function parseNotinoSavedPage(html: string, options: ParseSavedPageOption
         rawTitle,
         rawBrand: brandName(node, parent),
         ean,
-        imageUrl: imageOf(node, parent),
+        imageUrl: (own && imageOf(own, null)) || imageOf(node, parent),
         priceGbp: price,
         // An RRP, "was" or "Converted" price is never read: not a price Notino charged.
         wasPriceGbp: null,

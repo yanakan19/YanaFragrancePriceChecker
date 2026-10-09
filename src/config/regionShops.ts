@@ -19,8 +19,9 @@
  *     which demo/deliveryFacts.ts reads as "not stated" (no UK shop has it);
  *   - no affiliate programme (owner decision 6: none joined for now), so every
  *     link is the shop's own address with no tracking;
- *   - no `imageBasis`, no logo, no Trustpilot: D24 is pending for these
- *     countries (owner decision 5), so no shop photo is shown;
+ *   - `imageBasis` is carried over (owner decision of 9 Oct 2026, D24): a shop
+ *     that has it shows its own photo, hot-linked; a shop without it shows
+ *     none. No logo, no Trustpilot;
  *   - `catalogue: null`: the region crawl reads the region entry itself.
  */
 import type { Retailer, ShippingRule } from '../types/retailer.js';
@@ -64,6 +65,7 @@ export function regionShopAsRetailer(shop: RegionRetailer): Retailer {
       deeplinkTemplate: null,
       querySuffixTemplate: null,
       signupUrl: null,
+      ...(shop.imageBasis ? { imageBasis: shop.imageBasis } : {}),
     },
     catalogue: null,
     // The UK type's literal. The amounts on this page are the region's own

@@ -25,6 +25,7 @@
     "demo": "tsc -p tsconfig.demo.json && tsx scripts/build-region-data.ts && tsx scripts/bundle-demo.ts && tsx scripts/bundle-region.ts && tsx scripts/build-demo.ts && tsx scripts/build-sitemap.ts && tsx scripts/build-route-pages.ts",
     "catalogue": "tsx scripts/catalogue-run.ts",
     "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
+    "catalogue:bookmarklet": "tsx scripts/catalogue-bookmarklet.ts",
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
     "catalogue:history": "tsx scripts/build-price-history.ts",
     "deals:build": "tsx scripts/build-deals.ts",
@@ -66,6 +67,7 @@
     "social:render": "tsx scripts/render-social.ts",
     "links:resolve": "tsx scripts/resolve-fragrance-links.ts",
     "social:deal": "tsx scripts/social-deal-of-day.ts",
+    "social:guess": "tsx scripts/social-guess-fragrance.ts",
     "social:savings": "tsx scripts/social-savings.ts",
     "social:video": "tsx scripts/social-video-deal.ts",
     "social:video:explainers": "tsx scripts/social-video-explainers.ts"

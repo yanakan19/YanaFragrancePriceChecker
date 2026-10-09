@@ -16,8 +16,11 @@
  *   - no `affiliate` block: the owner decided on 9 Oct 2026 that no affiliate
  *     programme is joined for now; only shops our crawler can read under
  *     docs/DECISIONS.md D23 are listed;
- *   - no `imageBasis`, `logo` or photo field: photos for new countries wait on
- *     the owner's D24 decision, so they stay off;
+ *   - no `logo`. `imageBasis` is the one photo field, and it is the same switch
+ *     as the UK's (src/types/retailer.ts): the owner answered D24 for the US and
+ *     India on 9 Oct 2026, so each shop carries `hotlink-unlicensed` and its
+ *     photos show, hot-linked from the shop's own page and never copied. Delete
+ *     a shop's line to hide its photos on the next build;
  *   - no Trustpilot fields.
  * tests/regionRetailers.test.ts holds every one of those lines.
  */
@@ -113,6 +116,11 @@ export interface RegionRetailer {
    * statement a human makes after looking at the shop; never inferred.
    */
   fragranceOnlyCatalogue?: boolean;
+  /**
+   * The grounds on which this shop's own product photos are shown (D24, the
+   * owner's answer of 9 Oct 2026). Unset means no photo of this shop is shown.
+   */
+  imageBasis?: 'hotlink-unlicensed';
   /** Whether the region crawl reads this shop. */
   enabled: boolean;
   /** Why an entry is off, in a sentence, when it is. */

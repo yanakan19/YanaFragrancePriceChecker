@@ -158,3 +158,43 @@ If the fixes are too much to do on the PR branch, the alternative is to close
 it and re-apply the importer fixes, the bookmark and the flag as a fresh
 commit on the live branch. The code merges clean, so the PR branch is the
 cheaper path.
+
+## Fixed and merged 9 Oct 2026
+
+The owner decided to fix and merge PR 5 (D31). The branch
+`claude/wonderful-brahmagupta-8edg4h` (head `dff4ab94`) was merged into the
+live line and the fixes below were made on top. The branch content is on the
+live branch; the PR itself on GitHub is left for the owner to close.
+
+1. **Merge.** Seven conflicts, as predicted. Generated files and the
+   changelog: live's side taken, then rebuilt. Header count set to 63 enabled of
+   87 (live had 62; Notino adds one). OWNER-STEPS section 9: live's section 10 kept,
+   PR's steps 6 and 7 kept in place of live's "still switched off" line.
+2. **Cloudflare requests (fix 3).** `enabled: true` kept, adapter kept as
+   `owner-import`. New `crawlsShop()` in `src/config/retailers.ts`; the weekly
+   `price:verify` sweep, the monthly `recheckTargets` and the `catalogue-run`
+   crawl now skip an `owner-import` shop. (An explicit `price:verify --shop` still
+   works, as it is the owner's own act.) The registry comment now says what the
+   code does (the PR's "stops at the refusal" line was wrong). Tests in
+   `tests/registry.test.ts` and `tests/deliveryRecheck.test.ts`.
+3. **Bookmark (fix 5).** `docs/save-page-bookmarklet.js` now keeps only JSON-LD
+   blocks whose `@type` is Product, ProductGroup, ItemList or CollectionPage
+   (also inside `@graph` or a type list); unreadable blocks are dropped; a page with
+   none saves nothing. Tests added (Person, Organization, bad JSON, graph, and the
+   account only page). OWNER-STEPS section 9 keeps the private window advice
+   and the "even when you are logged in" claim is gone.
+4. **The 28 `lastSeenAt` values (fix 4).** Not lost. The store writes the date
+   most listings share once as `seenAt` and restores it on read
+   (`src/catalogue/store.ts`); the 28 older rows all carry 2026-09-09 and read back
+   correctly. `data/catalogue/notino-uk.json` is live's 95 rows plus exactly the
+   9 saved page rows, so it was kept as is. `tests/notinoSnapshot.test.ts` pins that
+   every listing reads back with a date and that the old rows are hidden. Left for
+   a separate change: making `isTooOldToShow` treat an unreadable date as too old.
+5. **The 9 products (fix 7).** The owner has chosen Notino on. They were read on
+   7 October and leave the site on 14 October unless the pages are saved again;
+   OWNER-STEPS section 9 and `docs/NOTINO-PLAN.md` now say so.
+6. **Docs and changelog (fixes 2 and 6).** The PR's duplicate 7 Oct changelog entry
+   was dropped; one line, "Notino UK back with a few saved prices", is in today's
+   entry (9 Oct, `v3.105.0`). D31 added to `docs/DECISIONS.md`; NOTINO-PLAN "Where
+   things stand" and the registry's "stays off" comment updated; the OWNER-STEPS
+   branch table no longer says to keep the branch.

@@ -46,6 +46,7 @@ import { crawlViaSitemap } from './sitemapCrawl.js';
 import { cleanBarcode } from './barcode.js';
 import { parsePrice } from './jsonld.js';
 import { isCatalogueListing } from './fragranceId.js';
+import { rejectPlaceholderImage } from './placeholderImage.js';
 
 /** A conversion this close to 1 is the theme's own rounding (shopCurrency.ts uses the same). */
 const RATE_EPSILON = 0.005;
@@ -65,6 +66,12 @@ export interface RegionListing {
   inStock: boolean | null;
   availability?: 'preOrder' | null;
   productType?: string | null;
+  /**
+   * The shop's own picture of this listing, as a URL on the shop's side (D24,
+   * answered for the US and India on 9 Oct 2026). Only the address is kept,
+   * never the file. Shown only for a shop with `imageBasis`.
+   */
+  imageUrl?: string;
   sectionId: string;
   firstSeenAt: string;
   lastSeenAt: string;
@@ -197,6 +204,12 @@ export function asGateListing(l: Pick<RegionListing, 'retailerSku' | 'url' | 'ra
   };
 }
 
+/** A listing's picture address as kept: an https address, and not a feed's "no image" graphic. Never a file. */
+export function shopImageUrl(url: string | null | undefined): string | null {
+  if (!url || !/^https:\/\//i.test(url)) return null;
+  return rejectPlaceholderImage(url);
+}
+
 /** What the adapters return, priced in the region's currency and cut to what the catalogue keeps. */
 export function toRegionListings(
   raw: readonly RawListing[],
@@ -233,6 +246,7 @@ export function toRegionListings(
       inStock: l.inStock,
       ...(l.availability ? { availability: l.availability } : {}),
       productType: l.productType ?? null,
+      ...(shopImageUrl(l.imageUrl) ? { imageUrl: shopImageUrl(l.imageUrl)! } : {}),
       sectionId: l.sectionId,
       firstSeenAt: now,
       lastSeenAt: now,
@@ -317,7 +331,7 @@ export function reconcileRegion(
   for (const l of current) {
     seenNow.add(l.retailerSku);
     const old = before.get(l.retailerSku);
-    out.push(old ? { ...l, firstSeenAt: old.firstSeenAt } : l);
+    out.push(old ? { ...l, firstSeenAt: old.firstSeenAt, ...(!l.imageUrl && old.imageUrl ? { imageUrl: old.imageUrl } : {}) } : l);
   }
   for (const old of before.values()) {
     if (seenNow.has(old.retailerSku)) continue;

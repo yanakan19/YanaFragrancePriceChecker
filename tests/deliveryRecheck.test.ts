@@ -243,6 +243,12 @@ describe('targets', () => {
     expect(ids).toEqual(['a']);
   });
 
+  it('never asks an owner-import shop (Notino UK) for its delivery page', () => {
+    const notino = { ...shop('n', true, {}), adapter: 'owner-import' as const };
+    expect(recheckTargets([notino, shop('a', true, {})], () => 5).map((t) => t.retailerId)).toEqual(['a']);
+    expect(recheckTargets(RETAILERS, () => 5).map((t) => t.retailerId)).not.toContain('notino-uk');
+  });
+
   it('reads the quoted source first, then the unquoted-page list, else nothing', () => {
     const source = { url: 'https://a.example/delivery', quote: 'q', readAt: TODAY };
     const pages = { a: 'https://a.example/other' };

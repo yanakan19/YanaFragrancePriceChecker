@@ -1,7 +1,9 @@
 # Guess the Fragrance: plan
 
-Written 2026-10-09. **Plan only: no code, nothing posted.** The owner lifted
-the social pause for this planning task alone.
+Written 2026-10-09. **Built 2026-10-09** (section 6 records what the owner's
+approved design changed from this plan; where section 6 and an earlier section
+disagree, section 6 is what the code does). Nothing is posted: the social
+pause stands except for the owner's go ahead on this build.
 
 The idea: an engagement post. A picture titled "Guess the Fragrance" hides a
 perfume house and name as a word puzzle (first letter of each word, one blank
@@ -510,3 +512,98 @@ that the fix list in section 4 would correct to "Caraway".
 8. **Famous exceptions.** A starting list for `guess-fragrance-famous.json`
    (Baccarat Rouge 540, Chanel No 5, and so on) or leave it empty.
 9. **Start.** Approve phase A first; nothing is posted until you say so.
+
+---
+
+## 6. As built (2026-10-09, owner's approved design)
+
+The owner approved a mock (`social/_today/guess-the-fragrance-aventus-mock-3x4-v5.png`
+in the owner's working copy, not committed) and these changes to sections 1 to 4.
+The code is `scripts/social-guess-fragrance.ts` (CLI, pick, pictures),
+`scripts/social-guess-mask.ts` (the dash rule and the blank planner) and
+`scripts/social-guess-captions.ts` (captions, pure); run it with
+`npm run social:guess`.
+
+**Pictures.** Black theme, the PriceSniffs name and mark flush **top right**,
+the title "Guess the Fragrance" always on one line, a small red "Today's puzzle"
+line above it, and the footer "Comment your guess." with `pricesniffs.space`
+(the mock shows both, which replaces the plan's "no web address on the picture").
+**No "answer tomorrow" text anywhere**, on the pictures, the alt text or the
+caption. Posts are always **4:3 vertical, 1080 x 1440** (`guess-3x4`,
+`reveal-3x4`); the 1:1 and the video of sections 1.1 and 1.9 are not built.
+A **9:16 version** (1080 x 1920, `guess-9x16`, `reveal-9x16`) is the same
+layout scaled to 0.86 and placed from y 300, which keeps it inside the Stories
+safe zone (y 250 to 1670); the lowest line sits near y 1540, below TikTok's
+y 1460, so on TikTok the footer line can sit under its caption (decided: the
+footer is the least important line, and a smaller picture would drop the notes
+under 22 px).
+
+**Labels and blanks.** "House" and "Fragrance" labels sit left of the words in
+a two column grid, right aligned, and are centred vertically on the capital
+letters of the first line. The first letter of each word is text; every other
+letter is an empty cell drawn as a rounded bar on the baseline (a cell is 0.5 em
+wide, the bar 70% of it, thickness the larger of 6 px and 0.09 em), so no dash
+or hyphen character is ever in the HTML text. Sizes run 88 down to 48 px, one
+line for each block when it fits, otherwise wrapped between words (house at most
+2 lines, name 3); a puzzle that does not fit at 48 px is refused, never cut.
+The strength is the red pill above the **right corner of the Top box**.
+
+**Notes.** Three boxes, tier names **Top, Heart, Base** (the mock says HEART;
+the owner's brief said middle; the mock wins and matches the site). Each note
+has a tile with its own icon from `demo/note-icons/` (matched exactly as the
+product page does: `ownIconOf`, `data/note-icons-manifest.json`), else its
+group's icon from `src/catalogue/noteGroups.ts` at 70% opacity. Icons are
+centred in their tiles, rows are centred in the box. **At most 12 notes, at most
+4 a tier**, chosen as the most recognisable: ranked by how many products list
+the note (`NOTE_INDEX`), plus a bonus for having an icon of its own, shown in
+the shop's own order. Names are the shop's own spelling, never invented. A note
+that holds a word of the answer is left out of the clues.
+
+**Pick.** A product (brand, name, strength, all sizes) must pass: a single
+bottle; strength one of the five (Eau de Parfum, Eau de Toilette, Extrait de
+Parfum, Parfum, Eau de Cologne); a name the mask accepts; no hidden answer word
+that is also a word of the picture's fixed copy ("Guess"); at least 6 shops (or
+on `social/guess-fragrance-famous.json`); a real brand (not Commodity, 5 or more
+products); notes that pass `cleanNotes`, sizes agreeing on 60% of them, **5 or
+more notes shown across at least two tiers** (the owner's rule replaces the plan's
+6 notes with 2 in every tier); a photo and a decided, purchasable cheapest offer
+fetched within 24 hours; **never posted before** (any size, no expiry; the
+plan's 60 days is now forever); the brand rested 14 days; not the Deal of the Day
+brand of the same or previous day. Ranking is plan 2.2. `--dry-run` shows it all
+and writes nothing; no candidate writes nothing and exits 3.
+
+**History** is `social/guess-fragrance-history.json`, entries as plan 2.3 (the
+puzzle's `no` is its series number and names the folder). A real run adds it;
+this file lists the answers, so **commit it only with the puzzle folder, when
+posting**. The reveal run sets `revealed`.
+
+**Folders.** `YYYY-MM-DD-guess-fragrance-NN/` holds `guess-3x4` and `guess-9x16`
+(HTML and PNG), `caption.txt`, `alt.txt`, `check.json` (the answer, what is shown,
+the notes and their source and icon, the scores, every rule's result),
+`pictures.json` and `source.md`. `YYYY-MM-DD-guess-fragrance-NN-reveal/` holds
+`reveal-3x4` and `reveal-9x16`, `caption.txt`, `check.json` and `pictures.json`.
+`--out-root <dir>` and `--history <file>` write elsewhere (the samples live in
+`social/_today/guess/`, which is ignored by git).
+
+**Captions** are one `caption.txt` of at most 280 characters, as section 3.3.
+The puzzle caption is the owner's fixed text (231 characters). The reveal
+caption is "Did you get it? The answer: <house> <name> <strength> <size>. Cheapest
+price today: <price> delivered from <shop>, checked <date>. Prices change, so
+check before you buy. Affiliate links. pricesniffs.space/<slug> #guessthefragrance
+#perfume #pricesniffs", shortened in this order to stay under 280: "Did you get
+it?" goes, then the address becomes the bare `pricesniffs.space`, then it
+refuses and asks for `--name`. The price is the product's own cheapest offer
+today, at the most stocked size that has one; `--no-price` and `--no-photo` are
+the owner's explicit fallbacks (the plan's 2.4).
+
+**Not built.** The 1:1 pictures, the video (`social-video-guess.ts`, the
+`guess-video` make), the "PUZZLE n" pill, and the `social:guess:video` script. The
+Social pictures workflow draws the folders as they are (every picture is `html`).
+
+**Tests.** `tests/guessFragranceMask.test.ts` (every row of the table in 1.6 and
+the invariants), `guessFragrancePick.test.ts` (each rule, rests, variety,
+determinism, no candidate), `guessFragranceLayout.test.ts` (the worst cases in
+Chromium: safe box, logo flush right, one line title, no overlap, minimum size,
+contrast), `guessFragranceCaptions.test.ts` (finds `*-guess-fragrance-*` folders
+by name; answer words never leak into the puzzle caption, alt text or HTML).
+

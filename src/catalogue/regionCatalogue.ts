@@ -55,6 +55,8 @@ export interface RegionOfferDetail {
   lastSeenAt: string;
   /** The shop's own page says the bottle is a pre-order. */
   preOrder?: true;
+  /** The shop's own picture of the listing, an address on the shop's side (`RegionListing.imageUrl`). */
+  imageUrl?: string;
 }
 
 export interface RegionProduct extends MatchableProduct {
@@ -168,7 +170,7 @@ export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], optio
     const title = ownSizeTitle(format ? l.rawTitle.replace(new RegExp(`\\s*-?\\s*${format}`, 'gi'), ' ').replace(/\s+/g, ' ').trim() : l.rawTitle);
     const brand = brandOf(l, confirmed, options.shopNames.get(shopId) ?? shopId, options.notHouse?.get(shopId));
     const offer: RegionOffer = options.withListingDetail
-      ? { shopId, price: l.price, inStock: l.inStock, detail: { url: l.url, title: l.rawTitle, wasPrice: l.wasPrice, firstSeenAt: l.firstSeenAt, lastSeenAt: l.lastSeenAt, ...(l.availability === 'preOrder' ? { preOrder: true as const } : {}) } }
+      ? { shopId, price: l.price, inStock: l.inStock, detail: { url: l.url, title: l.rawTitle, wasPrice: l.wasPrice, firstSeenAt: l.firstSeenAt, lastSeenAt: l.lastSeenAt, ...(l.availability === 'preOrder' ? { preOrder: true as const } : {}), ...(l.imageUrl ? { imageUrl: l.imageUrl } : {}) } }
       : { shopId, price: l.price, inStock: l.inStock };
     const existing = byId.get(id);
     if (existing) {

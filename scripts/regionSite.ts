@@ -23,12 +23,14 @@
  *     never a house's own shop;
  *   - the NEW badge only for a listing that arrived after the shop's first
  *     crawl (src/catalogue/newBadge.ts);
- *   - no US or Indian shop's photo: D24 is pending for these countries (owner
- *     decision 5), so every offer's `imageUrl` is null. A product that is the
- *     same bottle as a UK product takes the UK listing's picture and its
- *     per photo transform instead (`entry.image`, src/catalogue/regionUkPhotos.ts,
- *     owner instruction of 9 Oct 2026); any other product's `image` is null and
- *     the page draws its placeholder;
+ *   - photos (D24, answered by the owner on 9 Oct 2026 for the US and India): a
+ *     shop with `imageBasis` shows its own picture, hot-linked from its page
+ *     (the offer's `imageUrl`; never downloaded); a shop without it shows none.
+ *     A product's picture is the matching UK product's first (`entry.image`
+ *     and its per photo transform, src/catalogue/regionUkPhotos.ts, owner
+ *     instruction of 9 Oct 2026), else the best of its shops' own pictures by
+ *     the UK's `pickImage` rules; none at all and the page draws its
+ *     placeholder. A gift set never takes a UK bottle's picture, only its own shops';
  *   - no notes: the region shops' listings carry none, and a UK shop's notes
  *     would name a shop the region page does not list.
  *
@@ -61,6 +63,7 @@ import type { StockState } from '../src/types/offer.js';
 import { shownPrice } from '../demo/msrpComparison.js';
 import { slugify } from '../demo/router.js';
 import { matchUkPhotos, type UkPhotoSource } from '../src/catalogue/regionUkPhotos.js';
+import { pickImage } from '../src/catalogue/pickImage.js';
 
 const DAY_MS = 86_400_000;
 
@@ -75,8 +78,8 @@ export interface RegionCrawledOffer {
   fetchedAt: string;
   firstSeenAt: string;
   isNew: boolean;
-  /** Always null: D24 is pending for US and Indian shops. */
-  imageUrl: null;
+  /** The shop's own picture, a URL on the shop's side, for a shop with `imageBasis` (D24); else null. */
+  imageUrl: string | null;
   rating: null;
   /** On a set sold by two shops or more: this shop's own title, where it differs from the set's. */
   title?: string;
@@ -94,7 +97,7 @@ export interface RegionCatalogueEntry {
   shops: number;
   /**
    * The matching UK product's picture (src/catalogue/regionUkPhotos.ts), else
-   * null. Never a US or Indian shop's own photo (D24 pending).
+   * the best of the region shops' own pictures (`pickImage`), else null.
    */
   image: string | null;
   /** The UK photo's own build time transform (docs/IMAGE-SCALE-PLAN.md), carried with it. */
@@ -348,7 +351,7 @@ export function buildRegionSite(
         fetchedAt,
         firstSeenAt: d?.firstSeenAt ?? fetchedAt,
         isNew,
-        imageUrl: null,
+        imageUrl: shopById.get(o.shopId)?.imageBasis && d?.imageUrl ? d.imageUrl : null,
         rating: null,
         ...(isSet && d?.title && d.title !== setTitle ? { title: d.title } : {}),
       };
@@ -364,7 +367,7 @@ export function buildRegionSite(
       sizeMl: isSet ? null : p.sizeMl,
       ean: p.ean,
       shops: offers.length,
-      image: isSet ? null : (ukPhotos.get(p.id)?.image ?? null),
+      image: (isSet ? undefined : ukPhotos.get(p.id)?.image) ?? pickImage(offers.map((o) => ({ retailerId: o.retailerId, imageUrl: o.imageUrl, fetchedAt: o.fetchedAt })), nowDate),
       ...(!isSet && ukPhotos.get(p.id)?.imageTransform ? { imageTransform: ukPhotos.get(p.id)!.imageTransform! } : {}),
       notes: null,
       ...(isSet ? { giftSet: { contents: null, title: setTitle! } } : {}),

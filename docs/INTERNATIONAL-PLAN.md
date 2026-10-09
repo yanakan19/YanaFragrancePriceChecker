@@ -533,8 +533,9 @@ Taken by the owner on 9 October 2026 (recorded as D30 in `docs/DECISIONS.md`):
    permitted route exists under D23: no scraping a site that forbids it in robots.txt or its terms,
    and no getting past a block. This may rule them out in practice (both are large, bot guarded
    sites whose terms restrict automated access); check robots.txt and the terms before any work.
-5. **Photo rule (D24) for new countries: pending.** The owner is being asked. Until answered, no US
-   or Indian shop's photo is shown.
+5. **Photo rule (D24) for new countries: resolved, yes (owner, 9 Oct 2026).** Each US and Indian
+   shop shows its own photo, hot-linked from its page and never copied, as the UK does; the 16 UK
+   shops added on 8 and 9 Oct 2026 and Glossier UK are covered too (docs/DECISIONS.md D24).
 6. **Affiliate programmes: not now.** For now only shops our crawler can read under D23 (scraped
    shops). Affiliate sign ups (Awin US, CJ, Rakuten, Impact, Skimlinks, the Indian networks) are
    planned for later, so the US beta is built from the shops that answered the bot (section 4's
@@ -622,8 +623,8 @@ A dry run per region, nothing published: no page, no sitemap entry, no UK file t
   (16), shape `RegionRetailer` (`src/types/regionRetailer.ts`): neutral money names in the shop's own
   currency, standard delivery read off a robots allowed page with the sentence quoted and the date (or
   marked unread: Fragrance Outlet's and MicroPerfumes' `/policies/shipping-policy` is disallowed and
-  was not fetched), the tax note (US: before sales tax; India: GST included), no affiliate field, no
-  photo field (D24 pending). Shops that share one catalogue (Perfumania, Fragrance Outlet, Fragrance
+  was not fetched), the tax note (US: before sales tax; India: GST included), no affiliate field, and
+  `imageBasis` on every shop (D24, answered yes 9 Oct 2026). Shops that share one catalogue (Perfumania, Fragrance Outlet, Fragrance
   Market) carry one `catalogueGroup` and count once in the overlap measure. MicroPerfumes keeps
   retail bottles only. Purplle's price 0 is read as sold out (`zeroPriceMeansSoldOut`), never as a
   price. Off, each with its reason in the entry: Jomashop (no price in the markup), Dillard's (sizes
@@ -749,8 +750,8 @@ they have no brand page and no address.
   product addresses into the same module shapes the UK page reads (`scripts/regionSite.ts`), and
   `scripts/bundle-region.ts` bundles the same app once per region with five modules swapped: the
   catalogue, the deals, the dormant products, the price history and the shop registry (the
-  region's shops as page `Retailer`s, `src/config/regionShops.ts`: no affiliate code, no photo
-  basis, no logo). `scripts/build-demo.ts` publishes `demo/us/index.html`, `demo/us/404.html` and
+  region's shops as page `Retailer`s, `src/config/regionShops.ts`: no affiliate code, the hot-link
+  photo basis, no logo). `scripts/build-demo.ts` publishes `demo/us/index.html`, `demo/us/404.html` and
   `demo/us/data/` (and the same for `/in/`); `scripts/build-route-pages.ts` writes a page of its
   own for each fixed address inside each region (`/us/deals` is `demo/us/deals.html`), so they
   answer 200. All deploy files: gitignored and in `scripts/generated-files.txt`.
@@ -770,10 +771,12 @@ they have no brand page and no address.
   shipped, MSRP, ZIP code and "before sales tax" in the US; GST included, MRP, PIN code and the
   cash on delivery footnote in India; dates `Oct 9, 2026` in the US. Every UK string comes back
   unchanged (the functions return the UK text untouched).
-- **Photos.** D24 is pending for US and Indian shops (owner decision 5), so no shop photo is
-  shown for a US or Indian product: `image` and every offer's `imageUrl` are null in the region
-  data, and the page draws its "No image available" marker. `tests/regionPages.test.ts` checks the
-  built data.
+- **Photos.** Owner decision 5 is resolved: the owner answered D24 yes on 9 Oct 2026 for the US and
+  Indian shops. A product shows the matching UK product's picture first (below), else the best of
+  its shops' own photos by `pickImage`, hot-linked from the shop's page; the offer's `imageUrl` is
+  that address (`RegionListing.imageUrl`, kept by the region harvest from the next crawl on), and
+  a product with no picture draws the "No image available" marker. `tests/regionPages.test.ts` and
+  `tests/regionShopPhotos.test.ts` check it.
 - **Notes.** The region shops publish no notes, so the US and Indian Notes tabs are empty: kept
   out of the region sitemaps, `noindex`, and the UK Notes page declares no alternate
   (`regionHasFixedPage`, `src/config/regions.ts`).
@@ -892,12 +895,12 @@ never read (the region snapshots carry none).
   1,596 US barcode matches, 298 failed the size, strength or kind check and are not used (a US
   1.7 oz bottle on the barcode of a UK 50 ml, for instance). Name matches with two UK candidates (170 US, 162 India), a barcode that disagrees or no stated strength are not used.
   Homepage Most Stocked 12: US 9 have a picture, India 3.
-- **D24 for US and Indian shops' own photos is still pending** (owner). This changes nothing for it.
+- **D24 for US and Indian shops' own photos was answered yes on 9 Oct 2026.** The UK picture still comes first; a shop's own photo fills the products with no UK match.
 
 ### Left for later
 
 - Deals in the regions (read the shops' compare at prices in the region harvest).
-- D24 for US and Indian shops (owner): until answered, no shop photos (UK pictures on matching bottles, above).
+- D24 for US and Indian shops: answered yes on 9 Oct 2026 (resolved, see Owner decision 5).
 - The legal review (owner) before any affiliate programme or ad earns money there.
 - The Supabase wishlist region columns (plan section 6, "Accounts"): saved fragrances and alerts
   are still UK prices; a US product saved from `/us/` is a product id the UK page may not have.

@@ -1912,6 +1912,23 @@ sends none, `referrerpolicy="no-referrer"` in `demo/photo.ts`):
   ones (Oud Arabian 180, The Fragrance Counter 145, Justmylook's `_x100` files that the
   existing upgrade already replaces).
 
+**Answer for the new shops (owner, 9 October 2026): yes.** D24 now covers the US shops (26 in the
+registry), the India shops (16), the 16 UK shops added on 8 and 9 October 2026 and Glossier UK. Same
+basis, same limits, same one line switch: each shop has `imageBasis: 'hotlink-unlicensed'`
+(`src/config/retailers.ts`, `src/config/retailers.us.ts`, `src/config/retailers.in.ts`), and a
+photo is the shop's own address, never a downloaded file. The 16 UK shops (the owner's message said
+13; the registry's dated notes name 16): Opulensi, The Perfume Closet, Perfumoi, Saad Fragrance,
+Sainte Cellier, Fenwick, PerfumeUK, Liberty London, Rasasi UK Store, Direct Cosmetics (8 October),
+Rowlands Pharmacy, Lloyds Pharmacy, Beauté Boulevard, Scent Warehouse, Roullier White and Scented
+Glasgow (9 October). No shop's robots.txt or terms, as recorded in the registry, forbids showing its
+photo beside a link to it, so none was left off. A US or Indian product shows the matching UK
+product's picture first, else the best of its shops' own photos by the same `pickImage` rules as the
+UK. The region snapshots held no image addresses (the harvest dropped them), so it keeps them from
+the next daily crawl on (`RegionListing.imageUrl`); until each shop is read again its tiles show no
+shop photo. UK catalogue rebuilt from the committed snapshots: 28,301 to 33,206 of 34,180 products
+with a picture, 4,905 gained one, 1,540 took a new shop's photo instead; nothing else in the UK data
+files changed.
+
 ## D25 — Perfume Click's photos are the last resort, and the shop's own page gives a bigger one
 
 Owner decision, 2026-10-05, after Dolce & Gabbana The One for Men
@@ -2260,8 +2277,9 @@ country menu, trimmed as decision 3 says.
    permitted route exists under D23**: no scraping a site that forbids it in robots.txt or its
    terms, no getting past a block. This may well rule them out in practice; check robots.txt and
    the terms before any work on them.
-5. **Photos (D24) for new countries: pending.** The owner is being asked. Until answered, no US or
-   Indian shop's photo is shown.
+5. **Photos (D24) for new countries: resolved, yes (9 October 2026).** The owner answered D24 for the
+   US shops, the India shops, the 16 UK shops added on 8 and 9 October and Glossier UK: each shop's
+   own photo is shown, hot-linked, never copied (D24).
 6. **Affiliate programmes: not now.** For now, only shops our crawler can read under D23 (scraped
    shops). Affiliate sign ups are planned for later; until then the US beta is built from the
    shops that answered the bot and quote dollars.
@@ -2292,11 +2310,22 @@ public together, skipping the hidden beta: `/us/` (20 shops with prices, 22,390 
 lists "United States (Beta)" and "India (Beta)"; the welcome pop-up is on (`REGION_WELCOME_ON`),
 also by owner decision, while the AdSense review is still open, as the small centred dialog on the
 bare UK home; every US and Indian page says it is a beta with fewer shops than the UK site.
-Decision 5 stands: no US or Indian shop photo is shown until the owner answers D24 for those shops.
+Decision 5 was open on that day and is resolved (D24, owner, 9 October 2026, later the same day).
 Decision 8 stands: plain US and Indian legal pages are live, and are reviewed before any money is
 earned there. The region name match (`regionMatchName`) the measured numbers include is kept, for
 the region builds only. The region crawls run daily (07:52 and 20:22 UTC). The UK build is
 unchanged: its 8 data files byte for byte and its 35,257 sitemap addresses identical before and
 after. What shipped: `docs/INTERNATIONAL-PLAN.md`, "Public beta, 9 October 2026: what shipped".
 
-**UK pictures on matching products (owner instruction, 9 October 2026).** Decision 5 stands, and a US or Indian product that is the same bottle as a UK product (barcode, or identical house, name, strength and size) shows the UK listing's picture, which D24 already allows on the UK site; no US or Indian shop's photo is shown. `docs/INTERNATIONAL-PLAN.md`, "UK photos on matching region products".
+**UK pictures on matching products (owner instruction, 9 October 2026).** A US or Indian product that is the same bottle as a UK product (barcode, or identical house, name, strength and size) shows the UK listing's picture, which D24 already allows on the UK site; decision 5 was answered later the same day (D24), so a shop's own photo now fills the products with no UK match. `docs/INTERNATIONAL-PLAN.md`, "UK photos on matching region products".
+
+## D31 — Notino UK is back on the site, fed only by saved pages (decided, 2026-10-07; merged 9 October 2026)
+
+**Decided by the owner, 7 October 2026**, merged with PR 5 on 9 October. `notino-uk` is
+`enabled: true`, with `adapter: 'owner-import'` kept. The only source is pages the owner saves in
+their own browser (the "Save for PriceSniffs" bookmark, `npm run notino:import`). Notino stays
+unscraped (D23): the harvest, the probe, the weekly price check, the monthly delivery recheck and the
+catalogue crawl all skip an `owner-import` shop (`crawlsShop` in `src/config/retailers.ts`), so
+turning it on sends Notino no request. Photos follow D24. A saved price shows for 7 days from the day
+it was read, so the 9 products saved on 7 October leave on 14 October unless the pages are saved
+again. The lasting routes are still the CJ feed and asking Notino.
