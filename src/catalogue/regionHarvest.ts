@@ -122,11 +122,19 @@ export interface RegionShopReport {
   diagnostics?: string[];
 }
 
-/** Wraps the bot's fetch to remember, for the report, the first few requests that failed. */
+/**
+ * Wraps the bot's fetch to remember, for the report, the first few requests
+ * that failed, and a sitemap that came back 200 with no address in it (what
+ * was served instead: its size and first characters).
+ */
 export function recordingHttp(http: Http, sink: string[], max = 6): Http {
   return async (url, headers) => {
     const res = await http(url, headers);
-    if (!res.ok && sink.length < max) sink.push(`${url}: HTTP ${res.status}${res.error ? ` (${res.error.slice(0, 160)})` : ''}`);
+    if (sink.length >= max) return res;
+    if (!res.ok) sink.push(`${url}: HTTP ${res.status}${res.error ? ` (${res.error.slice(0, 160)})` : ''}`);
+    else if (/\.xml(?:$|\?)/i.test(url) && !/<loc[\s>]/i.test(res.body)) {
+      sink.push(`${url}: HTTP 200 but no <loc> in ${res.body.length} bytes, starting ${JSON.stringify(res.body.slice(0, 100).replace(/\s+/g, ' '))}`);
+    }
     return res;
   };
 }

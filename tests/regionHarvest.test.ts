@@ -243,4 +243,13 @@ describe('the request diagnostics', () => {
     await http('https://a/p/3', {});
     expect(sink).toEqual(['https://a/p/1: HTTP 0 (ECONNRESET)', 'https://a/p/2: HTTP 0 (ECONNRESET)']);
   });
+
+  it('notes a sitemap served 200 with no address in it', async () => {
+    const sink: string[] = [];
+    const http = recordingHttp(async (url: string): Promise<HttpResponse> =>
+      ({ status: 200, ok: true, body: url.includes('good') ? '<urlset><url><loc>https://a/p</loc></url></urlset>' : '<html><title>Access Denied</title></html>' }), sink);
+    await http('https://a/good.xml', {});
+    await http('https://a/bad.xml', {});
+    expect(sink).toEqual(['https://a/bad.xml: HTTP 200 but no <loc> in 41 bytes, starting "<html><title>Access Denied</title></html>"']);
+  });
 });

@@ -69,6 +69,11 @@ jobs:
         env:
           HARVEST_MAX: ${{ inputs.harvest_max || '250' }}
           SHOP_MINUTES: ${{ inputs.shop_minutes || '12' }}
+          # Nykaa answers with response headers larger than Node's 16 KB default
+          # (undici HeadersOverflowError on the first India run, 2026-10-09). This
+          # only lets our client read the answer the shop sends; nothing it is
+          # sent changes.
+          NODE_OPTIONS: --max-http-header-size=131072
         run: npx tsx scripts/region-harvest.ts --region=us --max="$HARVEST_MAX" --shop-minutes="$SHOP_MINUTES" --run-minutes=48 --concurrency=4
 
       - name: Build the US catalogue, price history and report
