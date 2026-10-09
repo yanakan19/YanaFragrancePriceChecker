@@ -1,7 +1,7 @@
 {
   "retailerId": "beautybase",
-  "updatedAt": "2026-10-09T06:04:09.500Z",
-  "seenAt": "2026-10-09T06:04:09.500Z",
+  "updatedAt": "2026-10-09T09:54:07.346Z",
+  "seenAt": "2026-10-09T09:54:07.346Z",
   "source": "live",
   "listings": [
     {
@@ -25642,7 +25642,7 @@
       "ean": "3607342522619",
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731491667-61897600.jpg?v=1763392250&width=1920",
       "description": "Top Notes: Red Berries, Dragon Fruit and Honeysuckle. Heart Notes: Jasmine Coconut Water, Orange Blossom. Base Notes: Vanilla, Driftwood, Musk.",
-      "priceGbp": 24,
+      "priceGbp": 28,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -52001,7 +52001,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "beautybase",

@@ -1,0 +1,24 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-09-select-your-country . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "slide-1-3x4.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 129287,
+      "sha256": "fd0f28b8e6016304e47c18dbc6914b79411ddaa3318563b09952a979ea6eec08"
+    },
+    {
+      "file": "slide-1-9x16.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 150632,
+      "sha256": "aa524f61e34888969e657f36e8e89f8a68796ec2aec69a84f372bab5622613d4"
+    }
+  ]
+}

@@ -242,6 +242,48 @@ link text underneath: "or log in, we'll remember your preference".
   it, the buttons are links (`<a href="/us/">`) so they work without the script, light and
   dark, 320 to 1280 wide.
 
+#### Remembered preference: built 9 Oct 2026
+
+What makes "or log in, we'll remember your preference" true (`demo/regionPreference.ts`,
+`demo/regionProfile.ts`, wired in `demo/app.ts`). All of it waits for a second live region
+(`liveRegions().length >= 2`): until then nothing is read, written or drawn, and the page makes
+no request for it. It does not wait for `REGION_WELCOME_ON`, which only switches the pop-up.
+
+- **What is saved where.** In this browser, `localStorage` `pricesniffs.region` ('GB', 'US' or
+  'IN'), so a later visit needs no request. For a signed in visitor, also `profiles.region`
+  (migration 0009, run on the live project on 9 October 2026 and checked the same day:
+  `GET /rest/v1/profiles?select=region&limit=0` with the public key answers 200 and `[]`,
+  where a missing column answers 400). Nothing else is stored; no cookie.
+- **Who writes it.** Every choice, from the pop-up, the country menu (`chooseRegionFromMenu`)
+  or the Country row, is written to this browser and, when signed in, to the profile, waiting
+  at most 1.5 seconds for the profile before going on. Choosing the region the page is in is
+  remembered too once a second region is live (it was a no op while the UK was alone).
+- **The rule on sign in, and on each page load for a signed in visitor** (`reconcileRegion`):
+  the profile wins. A profile country is mirrored into this browser, even over a different
+  local one, because the account is what the visitor asked to be remembered by. A choice made
+  in this browser before signing in is copied to a profile that has none. With neither,
+  nothing is chosen and the pop-up asks. When the profile cannot be read, the local choice
+  stands and nothing is written. The profile is read once per page load, shared by the sign
+  in handler and the arrival check. A change made on another device shows from the next page
+  load on this one.
+- **Where it moves the visitor** (`arrivalAction`): only the bare home page (`/`), and only to a
+  live region's home. A deep link (a product, brand, notes or guides page, `/account`, a
+  region's own home) is never redirected; the page notes the remembered country on the root
+  element (`data-remembered-region`) where the slim "You are seeing UK prices. See US prices"
+  bar takes over (see "The menu: switching and remembering"). A signed in visitor with nothing
+  in this browser and US or India on the profile is taken from `/` to `/us/` or `/in/` once the
+  profile answers.
+- **The Country row** on the profile page (`/account`, after Your Plan): United Kingdom, United
+  States and India drawn as the pop-up draws them (flag, name, currency), the current one
+  pressed and ticked (the remembered country, else the region the page is in). Pressing one
+  saves it here and on the profile and opens that region's home; pressing the current one
+  saves it and stays. Hidden while only the UK is live; `/account?regionwelcome=preview`
+  shows it with every region, for the browser test and a look.
+- **Also:** Download My Data includes the saved country; the privacy notice and the cookies
+  page say where the country is kept once it can be chosen. Tests:
+  `tests/regionPreference.test.ts` (the rules, the menu's profile write, the row, the legal
+  text with the beta flags set) and `tests/regionPreferenceBrowser.test.ts` (the built page).
+
 ### Search
 
 The UK product addresses already answer 404 with the app (one HTML file for the whole site). A

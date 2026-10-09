@@ -52,6 +52,9 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | 2026-10-08 | `posts/2026-10-08-deal-video-french-avenue-nectare-extradose-100ml/` | Deal of the Day video: French Avenue Nectare Extradose 100ml, £28.98 at Emirates Oud against £45.00 (exactly 10 seconds, 9:16 MP4, video template) |
 | 2026-10-08 | `posts/2026-10-08-explainer-video-perfume-strengths/` | Informative video: Perfume strengths explained (EDC, EDT, EDP, Parfum; about 26 seconds, 9:16 MP4, red theme) |
 | 2026-10-08 | `posts/2026-10-08-explainer-video-perfume-notes/` | Informative video: What are perfume notes? (top, middle, base and how a scent unfolds; about 26 seconds, 9:16 MP4, red theme) |
+| 2026-10-09 | `posts/2026-10-09-launch-us/` | Launch: "PriceSniffs is now in the US (beta)" (four black slides, 3:4, and a 9:16 cover; one caption) |
+| 2026-10-09 | `posts/2026-10-09-launch-india/` | Launch: "PriceSniffs is now in India (beta)" (four black slides, 3:4, and a 9:16 cover; one caption) |
+| 2026-10-09 | `posts/2026-10-09-select-your-country/` | "One site, three countries": the three country choices (one black picture, 3:4 and 9:16; one caption) |
 | 2026-10-05 | `posts/2026-10-05-hurry-deal-video/` | Hurry deal video: Dolce & Gabbana The One for Men 150ml, £59.95 against RRP £153 (10 second 9:16 MP4, real site UI) |
 | 2026-10-02 | `posts/2026-10-02-what-is-pricesniffs/` | Intro carousel: "What is PriceSniffs?" (4 slides, 3:4 post). Remake with `npx tsx scripts/social-intro-slides.ts` |
 | 2026-10-02 | `posts/2026-10-02-savings-example/` | Savings example carousel: Miss Dior, Selfridges vs Justmylook (6 slides, 3:4 post). Remake with `npx tsx scripts/social-savings-example.ts` (inverted theme, hand picked figures, reel safe) |

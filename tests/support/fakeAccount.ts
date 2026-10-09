@@ -38,6 +38,12 @@ export interface FakeAccount {
   /** Filled by the stub, in order: each write the page made, for tests that check order. */
   writes?: string[];
   /**
+   * profiles.region (migration 0009): the country saved on the profile.
+   * Left out reads as null. The stub keeps it as the page writes it, so a
+   * test can read back what was saved.
+   */
+  region?: 'GB' | 'US' | 'IN' | null;
+  /**
    * The developer dashboard's database (migration 0007). Left out is a project
    * where the owner has not run it: its functions and table answer as missing.
    * `isAdmin` is this account's owner flag; `stats` is what site_stats answers
@@ -144,10 +150,20 @@ export async function stubSupabase(
     if (url.pathname === '/rest/v1/profiles') {
       if (req.method() === 'GET') {
         const accept = req.headers()['accept'] ?? '';
-        const row = { price_alerts: account?.priceAlerts ?? false, avatar_path: account?.photo?.file ? AVATAR_PATH : null };
+        const row = {
+          price_alerts: account?.priceAlerts ?? false,
+          avatar_path: account?.photo?.file ? AVATAR_PATH : null,
+          region: account?.region ?? null,
+        };
         return json(200, accept.includes('vnd.pgrst.object') ? row : [row]);
       }
       account?.writes?.push(`profiles ${req.postData() ?? ''}`);
+      try {
+        const body = JSON.parse(req.postData() ?? '{}') as { region?: 'GB' | 'US' | 'IN' | null };
+        if (account && 'region' in body) account.region = body.region ?? null;
+      } catch {
+        /* not JSON: nothing to keep */
+      }
       return route.fulfill({ status: 204, body: '' });
     }
     if (url.pathname === '/rest/v1/rpc/delete_own_account') {
