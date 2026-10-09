@@ -1,21 +1,21 @@
 {
-  "repricedAt": "2026-10-09T13:53:58.575Z",
+  "repricedAt": "2026-10-09T22:53:52.534Z",
   "dryRun": false,
   "outcomes": [
     {
       "retailerId": "mybeauty-boutique",
-      "ok": false,
-      "reason": "storefront read failed: page 8: HTTP 503 — snapshot left untouched",
-      "products": 1750,
+      "ok": true,
+      "reason": "repriced from the storefront",
+      "products": 9346,
       "storefrontCurrency": "GBP",
       "active": 8898,
-      "keyed": 0,
-      "agreed": 0,
-      "corrected": 0,
-      "wasOverstated": 0,
-      "wasUnderstated": 0,
-      "overstatementRemovedGbp": 0,
-      "cleared": 0
+      "keyed": 8894,
+      "agreed": 2752,
+      "corrected": 6142,
+      "wasOverstated": 6121,
+      "wasUnderstated": 21,
+      "overstatementRemovedGbp": 204845.55,
+      "cleared": 4
     }
   ]
 }
