@@ -597,3 +597,36 @@ A dry run per region, nothing published: no page, no sitemap entry, no UK file t
 - **Workflows**: `catalogue-us.yml` and `catalogue-in.yml`, run by hand only, each in its own
   concurrency group (`catalogue-us`, `catalogue-in`; they commit paths no other workflow commits),
   pushing only through `scripts/commit-and-push.sh`. A schedule waits for the hidden beta (1b).
+
+### Build record, 9 October 2026 (dry runs, nothing published)
+
+| | US, run 37885633420 | India, run 37886577840 |
+| --- | --- | --- |
+| Shops priced | 22 of 22 enabled (26 wired) | 12 of 14 enabled (16 wired) |
+| Products | 21,594 | 14,568 |
+| Two or more shops | 5,593 (25.9%); counting the Perfumania, Fragrance Outlet and Fragrance Market catalogue once: 1,700 (7.9%) | 751 (5.2%) |
+| Three or more shops | 2,059 | 108 |
+| Median gap, dearest to cheapest | 17.2% | 14.4% |
+| Listings with a barcode | 16.2% (1,442 products match a UK product by barcode) | 0% |
+| Crawl minutes | 14.4 | 14.4 |
+
+Rebuilt from the same snapshots with the region name match (regionMatchName, Perfume Palace's vendor
+fix), the independent share is 8.7% in the US and 10.5% in India. Reruns with that code (US
+37887007762, India 37887989045) were running when this was written; their reports land in
+`data/regions/<us|in>/report.json`.
+
+Failures and why: **Nykaa** read nothing from the runner because its answer's headers pass Node's
+16 KB limit (undici HeadersOverflowError, not a refusal); the harvest now allows larger headers.
+**Purplle**'s sitemap came back with no product address from the runner and no failed request
+(it reads fine from elsewhere); the report now records what that sitemap held. Purplle marks sold
+out pages with price 0 (most of its old fragrance pages), read as sold out. **AAR Fragrances**:
+274 pages priced through the new og:price reader before its time budget. **Ulta**: only 195 pages
+in 12 minutes (1.4 MB pages), 31 kept. Off: Jomashop, Dillard's, eCosmetics, Nordstrom, Kannauj
+Attar (Store API per variation, single house, left off), Mirah Belle.
+
+**Recommendation:** neither region meets the plan's bar (a quarter of products with two or more
+independent shops). The US looks like a comparison only on the raw count, which is inflated by
+three shops running one catalogue; honestly it is under one in ten. Do not start the hidden beta
+yet. For the US, the gap is the big discounters, which need the affiliate feeds the owner deferred
+(decision 6), plus Ulta and Dillard's readers. For India, re-measure once Nykaa reads; without
+Nykaa it is three Arabian and niche multi brand shops and is a catalogue, not a comparison.
