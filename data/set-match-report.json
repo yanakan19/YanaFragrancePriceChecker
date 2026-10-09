@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 231,
+ "folded": 228,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -947,33 +947,33 @@
    ]
   },
   {
-   "canonical": "set-ean-0849017009411",
+   "canonical": "set-ean-0849017009398",
    "absorbed": [
-    "set-izod-blue-2-piece-gift-set-eau-de-toilette-15ml-body-spray-200ml"
+    "set-izod-red-gift-set-15ml-edt-200ml-body-spray"
    ],
    "members": [
     {
-     "id": "set-ean-0849017009411",
+     "id": "set-ean-0849017009398",
      "brand": "Izod",
-     "name": "Blue Gift Set 15ml EDT + 200ml Body Spray",
+     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
      "concentration": "Eau de Toilette",
-     "ean": "0849017009411",
-     "scent": "blue",
+     "ean": "0849017009398",
+     "scent": "red",
      "signature": "1x15fragrance|1x200body",
      "shops": [
       "perfume-click"
      ]
     },
     {
-     "id": "set-izod-blue-2-piece-gift-set-eau-de-toilette-15ml-body-spray-200ml",
+     "id": "set-izod-red-gift-set-15ml-edt-200ml-body-spray",
      "brand": "Izod",
-     "name": "Blue 2 Piece Gift Set: Eau de Toilette 15ml - Body Spray 200ml",
+     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
      "concentration": "Eau de Toilette",
      "ean": null,
-     "scent": "blue",
+     "scent": "red",
      "signature": "1x15fragrance|1x200body",
      "shops": [
-      "the-beauty-store-uk"
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -1741,38 +1741,6 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3346130438243",
-   "absorbed": [
-    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3346130438243",
-     "brand": "Hermès",
-     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
-     "concentration": "Eau de Toilette",
-     "ean": "3346130438243",
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
-     "brand": "Hermès",
-     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -5167,38 +5135,6 @@
    ]
   },
   {
-   "canonical": "set-ean-7640171199092",
-   "absorbed": [
-    "set-lalique-soleil-vibrant-3-piece-gift-set-eau-de-parfum-15ml-necklace-bag"
-   ],
-   "members": [
-    {
-     "id": "set-ean-7640171199092",
-     "brand": "Lalique",
-     "name": "Soleil Vibrant Gift Set 15ml EDP + Necklace + Bag",
-     "concentration": "Eau de Parfum",
-     "ean": "7640171199092",
-     "scent": "necklace soleil vibrant",
-     "signature": "1x15fragrance|1x?other",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-lalique-soleil-vibrant-3-piece-gift-set-eau-de-parfum-15ml-necklace-bag",
-     "brand": "Lalique",
-     "name": "Soleil Vibrant 3 Piece Gift Set: Eau De Parfum 15ml - Necklace - Bag",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "necklace soleil vibrant",
-     "signature": "1x15fragrance|1x?other",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-7640171199214",
    "absorbed": [
     "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-150ml",
@@ -6255,39 +6191,6 @@
      "ean": null,
      "scent": "in le male navy",
      "signature": "1x10fragrance|1x200fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8435415092067",
-   "absorbed": [
-    "set-jean-paul-gaultier-divine-gift-set-eau-de-parfum-100ml-eau-de-parfum-10ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415092067",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine 100ml Eau de Parfum Travel Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415092067",
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "fragrance-click",
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-divine-gift-set-eau-de-parfum-100ml-eau-de-parfum-10ml",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine Gift Set Eau de Parfum 100ml + Eau de Parfum 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "the-beauty-store-uk"
      ]
@@ -7587,18 +7490,6 @@
      ]
     },
     {
-     "id": "set-dkny-be-delicious-women-30ml-edp-spray-100ml-body-lotion",
-     "brand": "Dkny",
-     "name": "Be Delicious Women 30ml EDP Spray + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "be delicious",
-     "signature": "1x100body|1x30fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
      "id": "set-dkny-be-delicious-women-s-perfume-gift-set-30ml-edp-100ml-body-lotion",
      "brand": "Dkny",
      "name": "Be Delicious Women's Perfume Gift Set (30ml EDP + 100ml Body Lotion)",
@@ -8366,49 +8257,6 @@
      "signature": "1x125fragrance|1x15fragrance|1x200body",
      "shops": [
       "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.57 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017009398",
-     "brand": "Izod",
-     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "0849017009398",
-     "scent": "red",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-izod-red-2-piece-gift-set-eau-de-toilette-15ml-body-spray-200ml",
-     "brand": "Izod",
-     "name": "Red 2 Piece Gift Set: Eau de Toilette 15ml - Body Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "red",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-izod-red-gift-set-15ml-edt-200ml-body-spray",
-     "brand": "Izod",
-     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "red",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -9728,18 +9576,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-le-sel-d-issey-gift-set-eau-de-toilette-50ml-shower-gel-50ml",
-     "brand": "Issey Miyake",
-     "name": "Le Sel d'Issey Gift Set Eau de Toilette 50ml + Shower Gel 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d issey le sel",
-     "signature": "1x50fragrance|1x50wash",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
