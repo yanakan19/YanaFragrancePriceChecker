@@ -823,6 +823,28 @@ images" and an agent will build that and change the routines' instructions
 section, with one change: the pictures are a private download from the
 workflow, not a page on pricesniffs.space.
 
+*Checked again, 9 October (repository tidy, `docs/REPO-TIDY-2026-10-09.md`):*
+nothing for you to do unless you want the repository smaller still. The
+local copy of the history is about 920 MB. Two things are left, both yours:
+
+- **The old page files** (about 170 MB) are still reached only by the backup
+  branch, the old branches and the closed pull requests in the table above.
+  Deleting those and sending the Support request above removes them, with no
+  rewrite.
+- **The catalogue module** (`demo/catalogue.generated.ts`, 45 MB, committed
+  by the crawl several times a day) is now a third of the history (about
+  210 MB). Stopping that growth means building it at deploy time like the
+  page; removing its past versions would take another history rewrite. Say
+  "plan the catalogue module" if you want an agent to work out the first;
+  nobody should do the second without you.
+
+**Optional: the "Verified" badge on commits.** Moved here from the README
+on 9 October; nothing is broken without it. GitHub → **Settings** → **SSH and
+GPG keys** → **New SSH key** → **Key type: Signing Key** → paste the key in
+`docs/DECISIONS.md` D16 → **Add SSH key**. It only marks commits made as
+`urkoppan@gmail.com`. The workflows' own signed commits can be switched off
+with a repository variable `SIGNED_COMMITS` = `off` (D19).
+
 ---
 
 ## 8. Developer dashboard (10 minutes)
