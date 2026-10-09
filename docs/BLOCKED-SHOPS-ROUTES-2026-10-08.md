@@ -493,6 +493,36 @@ No. Each candidate for a route that needs no owner and works now:
 So no dispatch was made, no registry entry changed, nothing was rebuilt and no
 changelog line was added.
 
+## Boots relaunch, findings of 2026-10-09
+
+Owner asked for Boots to be relaunched. Result: **no lawful route works today; nothing added to the site.**
+
+One polite request each, PriceSniffsBot/0.2 identity, 2 second gaps, nothing retried:
+
+| Request | Answer |
+| --- | --- |
+| `https://www.boots.com/robots.txt` | 200. Only search, checkout, account, CMS and tracking paths are disallowed; fragrance and product pages are allowed. One `Sitemap:` line (`sitemap_11352.xml`). |
+| `https://www.boots.com/sitemap_11352.xml` | 200 (gzip index, lists `uk-product-sitemap.xml`, lastmod 2026-09-22). |
+| `https://www.boots.com/` | 403, Imperva (Incapsula) challenge page. |
+| `.../uk-product-sitemap.xml` | 403, the same Imperva challenge. |
+
+So robots.txt allows the pages but Imperva refuses the bot on the pages and the product
+sitemap. Under D23 that is a refusal, not worked around (no browser headers, proxy, headless
+render or challenge solving), and no product page was asked for after it.
+
+Awin (merchant 2041): `data/awin-feed-sync-state.json` lists only Fragrance Click, MyBeauty
+Boutique, Nicchia Luxury UK and Perfume Click. The registry entry still reads
+`awinRequested('2041')` (applied 2026-08-11), no Awin feed key is available in this sandbox,
+and no evidence of acceptance exists in the repo. I did not dispatch the `awin_memberships`
+run of `catalogue-daily.yml` because a crawl was in progress and it shares that concurrency
+group. Even if accepted, the programme excludes Chanel, Dior and Jo Malone.
+
+Next, owner only: dispatch `catalogue-daily.yml` with `awin_memberships: true` (reads only)
+and read the `2041  boots` line. If joined, set `adapter: 'affiliate-feed'` and
+`affiliate: awinActive('2041', <publisherId>)`; `scripts/awin-feed-sync.ts` then picks the feed
+up. If not joined, chase the application or send the Boots press office permission request
+(draft in `docs/outreach/`). Delivery terms stay unset until a Boots page is readable.
+
 ## Sources
 
 Read 2026-10-08.
