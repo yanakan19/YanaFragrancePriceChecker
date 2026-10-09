@@ -37,10 +37,15 @@ const HIDE_OFFER_AFTER_MS = HIDE_OFFER_AFTER_DAYS * 24 * 60 * 60 * 1000;
 
 /**
  * Whether a captured price is too old to show at all, see
- * `HIDE_OFFER_AFTER_DAYS`. An unparseable timestamp is not treated as old.
+ * `HIDE_OFFER_AFTER_DAYS`. An unparseable or missing timestamp is not treated
+ * as old, except where the caller says `unreadableIsTooOld`: a shop fed only
+ * by pages the owner saves by hand (`adapter: 'owner-import'`, Notino UK) has
+ * no sweep that would ever refresh a price, so a price whose date cannot be
+ * read cannot be shown to be current and is hidden (2026-10-09). Every other
+ * shop keeps the old behaviour.
  */
-export function isTooOldToShow(fetchedAt: string, now: Date = new Date()): boolean {
-  const fetchedMs = Date.parse(fetchedAt);
-  if (!Number.isFinite(fetchedMs)) return false;
+export function isTooOldToShow(fetchedAt: string, now: Date = new Date(), unreadableIsTooOld = false): boolean {
+  const fetchedMs = typeof fetchedAt === 'string' ? Date.parse(fetchedAt) : NaN;
+  if (!Number.isFinite(fetchedMs)) return unreadableIsTooOld;
   return now.getTime() - fetchedMs > HIDE_OFFER_AFTER_MS;
 }

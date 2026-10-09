@@ -1,5 +1,6 @@
 import type { StoredListing } from './types.js';
 import { isTooOldToShow } from '../services/offerAge.js';
+import { getRetailer } from '../config/retailers.js';
 
 /**
  * How old the prices are that a shop's stored listings would put on the site.
@@ -33,7 +34,7 @@ export function shopFreshness(listings: readonly StoredListing[], now: Date): Sh
   let oldest: string | null = null;
   for (const l of listings) {
     if (l.status !== 'active' || l.priceGbp === null) continue;
-    if (isTooOldToShow(l.lastSeenAt, now)) continue;
+    if (isTooOldToShow(l.lastSeenAt, now, getRetailer(l.retailerId)?.adapter === 'owner-import')) continue;
     shown++;
     const age = now.getTime() - Date.parse(l.lastSeenAt);
     if (age > 24 * HOUR_MS) over24h++;

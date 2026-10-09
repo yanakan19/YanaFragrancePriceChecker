@@ -786,7 +786,8 @@ if (existsSync(dir)) {
     // the live product.
     for (const stored of snapshot.listings) if (stored.status !== 'active') formerListings.push(stored);
     const allActive = snapshot.listings.filter((l) => l.status === 'active');
-    const active = allActive.filter((l) => !isTooOldToShow(l.lastSeenAt, now));
+    const importedOnly = retailer.adapter === 'owner-import';
+    const active = allActive.filter((l) => !isTooOldToShow(l.lastSeenAt, now, importedOnly));
     if (active.length < allActive.length) {
       tooOldByShop.set(retailer.id, { hidden: allActive.length - active.length, of: allActive.length });
       // Not listed anywhere, but not thrown away either: each is still a real
@@ -794,7 +795,7 @@ if (existsSync(dir)) {
       // (2026-10-03) is that every observed price belongs on the product's
       // price graph. See OLDER_OFFERS below.
       for (const stored of allActive) {
-        if (!isTooOldToShow(stored.lastSeenAt, now)) continue;
+        if (!isTooOldToShow(stored.lastSeenAt, now, importedOnly)) continue;
         tooOldListings.push({
           ...stored,
           rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
