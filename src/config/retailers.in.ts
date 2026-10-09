@@ -106,6 +106,9 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     // stored listing is marked out of stock at its last price; a new one is
     // not stored (zeroPriceMeansSoldOut, src/catalogue/regionHarvest.ts).
     zeroPriceMeansSoldOut: true,
+    // Its sku is "PPLB" and the bottle's EAN-13 ("PPLB8906111693723", La French
+    // Luxure Oudh 100 ml, read 2026-10-09); kept only when the check digit holds.
+    skuBarcodeFrom: '^PPLB(\\d{13})$',
     delivery: unverified('Its /shippingpolicy page answered 200 but states no figure in its markup.'),
     taxNote: IN_TAX_NOTE,
     checked:
@@ -167,17 +170,28 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     name: 'AAR Fragrances',
     region: 'IN',
     currency: 'INR',
-    domain: 'aarfragrances.com',
-    homepage: 'https://aarfragrances.com/',
-    tiers: ['mideast'],
-    enabled: false,
-    blockedReason:
-      'Readable (robots.txt allows everything; /sitemap.xml lists 4,386 product pages) but its pages carry no JSON-LD: the price is only in og:price:amount ("₹2,389.00") with product:price:currency "Rupee", which the shared reader does not take as a price, and stock is only in the visible button text. Needs a small reader of those tags first.',
-    route: null,
+    domain: 'www.aarfragrances.com',
+    homepage: 'https://www.aarfragrances.com/',
+    tiers: ['mideast', 'designer'],
+    enabled: true,
+    // Its pages carry no JSON-LD: the name is the page's <h1>, the price is in
+    // og:price:amount ("₹5,000.00") with product:price:currency "Rupee", read
+    // as INR by readOgProductPage (src/catalogue/regionHarvest.ts). Stock is
+    // set by its script after load, so it is unknown. Decants and samples are
+    // left out by the route: they are not the bottle other shops sell.
+    route: {
+      kind: 'og-price',
+      sitemap: 'https://www.aarfragrances.com/sitemap.xml',
+      product: '^https://www\\.aarfragrances\\.com/product/[^/?#]+$',
+      exclude: '(?:decant|sample|gift-card)',
+    },
     minRequestGapMs: 2000,
     delivery: unverified('Not read.'),
     taxNote: IN_TAX_NOTE,
-    checked: '2026-10-09 (round 2): robots.txt 200 (78 B, Disallow empty); home 200; a product page 200 with og:price tags and no JSON-LD.',
+    checked:
+      '2026-10-09 (round 2): robots.txt 200 (78 B, Disallow empty); home 200; a product page 200 with og:price tags and no JSON-LD. ' +
+      '2026-10-09 (Phase 1): www.aarfragrances.com/robots.txt 200 (Disallow empty); /sitemap.xml 200, 4,577 addresses; three product pages ' +
+      'read as PriceSniffsBot (Lattafa Dynasty EDP 100ml ₹5,000.00, YSL Kouros EDT 50ml ₹3,499.00), each og:price:amount with product:price:currency "Rupee".',
   },
   {
     id: 'bombay-perfumery',

@@ -98,6 +98,7 @@ async function lane(): Promise<void> {
     );
     if (r.currency) console.log(`  currency: ${r.currency}`);
     for (const e of r.errors.slice(0, 3)) console.log(`  ! ${e.slice(0, 200)}`);
+    for (const d of r.diagnostics ?? []) console.log(`  ~ ${d.slice(0, 240)}`);
     if (result.snapshot && !dryRun) {
       mkdirSync(resolve(REPO_ROOT, folder, 'catalogue'), { recursive: true });
       writeGenerated(REPO_ROOT, `${folder}/catalogue/${shop.id}.json`, encodeRegionSnapshot(result.snapshot));

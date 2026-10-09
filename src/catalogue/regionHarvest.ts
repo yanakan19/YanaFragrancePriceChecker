@@ -44,6 +44,7 @@ import { fetchStorefrontCurrency, type StorefrontCurrency } from './shopCurrency
 import { crawlViaShopifyProducts } from './shopifyProductsCrawl.js';
 import { crawlViaSitemap } from './sitemapCrawl.js';
 import { cleanBarcode } from './barcode.js';
+import { parsePrice } from './jsonld.js';
 import { isCatalogueListing } from './fragranceId.js';
 
 /** A conversion this close to 1 is the theme's own rounding (shopCurrency.ts uses the same). */
@@ -93,7 +94,7 @@ export type RegionShopStatus =
 export interface RegionShopReport {
   id: string;
   name: string;
-  route: 'shopify' | 'sitemap' | null;
+  route: NonNullable<RegionRetailer['route']>['kind'] | null;
   singleBrand: boolean;
   status: RegionShopStatus;
   /** Listings the adapter returned, priced or not. */
@@ -110,6 +111,24 @@ export interface RegionShopReport {
   currency: string;
   errors: string[];
   note?: string;
+  /**
+   * What the network said when it said no: the first few requests that did
+   * not come back 200, with the status and the transport's own error text
+   * (a status of 0 is a request that never got an answer: a reset, a refused
+   * connection, a timeout), and for a sitemap walk how many product
+   * addresses it found. A shop that reads nothing from the runner but reads
+   * fine elsewhere is diagnosed from this, never by asking again differently.
+   */
+  diagnostics?: string[];
+}
+
+/** Wraps the bot's fetch to remember, for the report, the first few requests that failed. */
+export function recordingHttp(http: Http, sink: string[], max = 6): Http {
+  return async (url, headers) => {
+    const res = await http(url, headers);
+    if (!res.ok && sink.length < max) sink.push(`${url}: HTTP ${res.status}${res.error ? ` (${res.error.slice(0, 160)})` : ''}`);
+    return res;
+  };
 }
 
 /**
@@ -191,7 +210,7 @@ export function toRegionListings(
     // A single house's own shop sells only that house; its vendor field is
     // sometimes a category ("Frag", "BnB") rather than the house.
     const rawBrand = shop.singleBrandOnly ?? (shop.vendorIsShop ? null : l.rawBrand);
-    const ean = cleanBarcode(l.ean) ?? (shop.skuIsBarcode ? cleanBarcode(l.retailerSku) : null);
+    const ean = cleanBarcode(l.ean) ?? (shop.skuIsBarcode ? cleanBarcode(l.retailerSku) : null) ?? barcodeInSku(l.retailerSku, shop);
     const candidate: RegionListing = {
       retailerSku: l.retailerSku,
       url: l.url,
@@ -215,6 +234,13 @@ export function toRegionListings(
     listings.push(candidate);
   }
   return { listings, priced };
+}
+
+/** The barcode inside the shop's own id (`skuBarcodeFrom`), when it passes the checks. */
+export function barcodeInSku(sku: string, shop: Pick<RegionRetailer, 'skuBarcodeFrom'>): string | null {
+  if (!shop.skuBarcodeFrom) return null;
+  const m = new RegExp(shop.skuBarcodeFrom).exec(sku);
+  return m?.[1] ? cleanBarcode(m[1]) : null;
 }
 
 /**
@@ -258,6 +284,99 @@ export function reconcileRegion(
     out.push(complete ? { ...old, status: 'delisted' } : old);
   }
   return out.sort((a, b) => a.retailerSku.localeCompare(b.retailerSku));
+}
+
+const OG_CURRENCY: Record<string, string> = { inr: 'INR', rupee: 'INR', rupees: 'INR', rs: 'INR', '₹': 'INR', usd: 'USD', '$': 'USD', gbp: 'GBP', '£': 'GBP' };
+
+function metaContent(html: string, property: string): string | null {
+  const esc = property.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const a = new RegExp(`<meta[^>]+(?:property|name)=["']${esc}["'][^>]*content=["']([^"']*)["']`, 'i').exec(html);
+  if (a) return a[1]!;
+  const b = new RegExp(`<meta[^>]+content=["']([^"']*)["'][^>]*(?:property|name)=["']${esc}["']`, 'i').exec(html);
+  return b ? b[1]! : null;
+}
+
+const decodeEntities = (s: string): string =>
+  s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ');
+
+/**
+ * One product page that states its price only in Open Graph product tags
+ * (`og:price:amount` "₹5,000.00", `product:price:currency` "Rupee") and its
+ * name in its one <h1> (AAR Fragrances). The currency word is mapped to its
+ * code ("Rupee" is INR); a page that names no currency, or one this reader
+ * does not know, is unpriced. Stock is not stated in the served page (it is
+ * filled in by the shop's script), so it is unknown, never guessed.
+ */
+export function readOgProductPage(html: string, url: string, sectionId: string): RawListing | null {
+  const h1 = /<h1[^>]*>([\s\S]*?)<\/h1>/i.exec(html)?.[1];
+  const title = decodeEntities((h1 ?? metaContent(html, 'og:title') ?? '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
+  if (!title) return null;
+  const amountText = metaContent(html, 'og:price:amount') ?? metaContent(html, 'product:price:amount');
+  const currencyText = (metaContent(html, 'product:price:currency') ?? metaContent(html, 'og:price:currency') ?? '').trim();
+  const code = OG_CURRENCY[currencyText.toLowerCase()] ?? (/^[A-Z]{3}$/.test(currencyText) ? currencyText : null);
+  const amount = amountText ? parsePrice(decodeEntities(amountText)) : null;
+  let slug = url;
+  try { slug = new URL(url).pathname.replace(/\/+$/, '').split('/').pop() || url; } catch { /* keep the address */ }
+  return {
+    retailerSku: slug,
+    url,
+    rawTitle: title,
+    rawBrand: null,
+    ean: null,
+    imageUrl: null,
+    priceGbp: null,
+    wasPriceGbp: null,
+    promoEndsAt: null,
+    inStock: null,
+    sectionId,
+    ...(amount !== null && code ? { nativePrice: { amount, currency: code } } : {}),
+  } as RawListing;
+}
+
+/**
+ * The walk for an `og-price` shop: its sitemap, then product pages, never
+ * seen ones first and then the oldest stored ones, each allowed by
+ * robots.txt, at the shop's gap, within the page budget and the clock.
+ */
+async function crawlOgShop(
+  shop: RegionRetailer,
+  route: Extract<NonNullable<RegionRetailer['route']>, { kind: 'og-price' }>,
+  o: { http: Http; robots: RobotsRules; headers: Record<string, string>; gapMs: number; sleep: (ms: number) => Promise<void>;
+    deadlineAt: number; maxPages: number; previous: RegionSnapshot | null; now: string; refreshAfterHours: number },
+): Promise<{ listings: RawListing[]; pagesFetched: number; complete: boolean; errors: string[]; discovered: number }> {
+  const errors: string[] = [];
+  if (!isAllowed(o.robots, route.sitemap)) return { listings: [], pagesFetched: 0, complete: false, errors: [`${route.sitemap}: not asked, robots.txt does not permit it`], discovered: 0 };
+  const sm = await o.http(route.sitemap, o.headers);
+  if (!sm.ok) return { listings: [], pagesFetched: 1, complete: false, errors: [`${route.sitemap}: HTTP ${sm.status}`], discovered: 0 };
+  const product = new RegExp(route.product, 'i');
+  const exclude = route.exclude ? new RegExp(route.exclude, 'i') : null;
+  const urls = [...new Set([...sm.body.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map((m) => decodeEntities(m[1]!)))]
+    .filter((u) => product.test(u) && !(exclude && exclude.test(u)));
+  const stored = new Map((o.previous?.listings ?? []).filter((l) => l.status === 'active').map((l) => [l.url, l.lastSeenAt]));
+  const cutoff = Date.parse(o.now) - o.refreshAfterHours * 3_600_000;
+  const fresh = urls.filter((u) => !stored.has(u));
+  const due = urls.filter((u) => stored.has(u) && Date.parse(stored.get(u)!) < cutoff).sort((a, b) => stored.get(a)!.localeCompare(stored.get(b)!));
+  const plan = [...fresh.slice(0, o.maxPages), ...due];
+  const listings: RawListing[] = [];
+  let fetched = 1;
+  let failedInARow = 0;
+  for (const u of plan) {
+    if (Date.now() > o.deadlineAt) { errors.push('stopped early: exceeded this shop\'s time budget'); break; }
+    if (!isAllowed(o.robots, u)) continue;
+    await o.sleep(o.gapMs);
+    const res = await o.http(u, o.headers);
+    fetched++;
+    if (!res.ok) {
+      errors.push(`${u}: HTTP ${res.status}`);
+      if (res.status === 403 || res.status === 429) { errors.push('stopped early: the shop began refusing requests'); break; }
+      if (++failedInARow >= 5) { errors.push('stopped early: 5 pages in a row failed'); break; }
+      continue;
+    }
+    failedInARow = 0;
+    const l = readOgProductPage(res.body, u, `${shop.id}-og`);
+    if (l) listings.push(l);
+  }
+  return { listings, pagesFetched: fetched, complete: plan.length === urls.length && errors.length === 0, errors, discovered: urls.length };
 }
 
 /**
@@ -329,7 +448,9 @@ function emptyReport(shop: RegionRetailer, status: RegionShopStatus): RegionShop
 }
 
 export async function harvestRegionShop(options: RegionHarvestOptions): Promise<RegionHarvestResult> {
-  const { shop, http, now } = options;
+  const { shop, now } = options;
+  const failures: string[] = [];
+  const http = recordingHttp(options.http, failures);
   const log = options.log ?? (() => {});
   const sleep = options.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
   const report = emptyReport(shop, 'off');
@@ -397,6 +518,18 @@ export async function harvestRegionShop(options: RegionHarvestOptions): Promise<
     // shop "complete" is: Shopify, no error, and the last page came back short.
     complete = walk.isShopify && errors.length === 0 && walk.pagesFetched < 100;
     if (!walk.isShopify) report.errors.push('/products.json did not answer as a Shopify catalogue');
+  } else if (shop.route.kind === 'og-price') {
+    const walk = await crawlOgShop(shop, shop.route, {
+      http, robots, headers, gapMs, sleep, deadlineAt, maxPages: options.maxPages, previous: options.previous, now,
+      refreshAfterHours: options.refreshAfterHours,
+    });
+    raw = walk.listings;
+    report.pagesFetched += walk.pagesFetched;
+    report.errors.push(...walk.errors.slice(0, 5));
+    complete = walk.complete;
+    const named = new Set(raw.map((l) => l.nativePrice?.currency ?? 'none'));
+    report.currency = `og:price tags named: ${[...named].sort().join(', ') || 'nothing read'}`;
+    failures.push(`sitemap: ${walk.discovered} product address(es)`);
   } else {
     const known = new Map<string, string>();
     for (const l of options.previous?.listings ?? []) if (l.status === 'active') known.set(l.url, l.lastSeenAt);
@@ -419,10 +552,12 @@ export async function harvestRegionShop(options: RegionHarvestOptions): Promise<
     report.pagesFetched += walk.pagesFetched + (walk.categoryPagesFetched ?? 0);
     report.errors.push(...walk.errors.slice(0, 5));
     complete = walk.fetchedEveryDiscovered === true;
+    failures.push(`sitemap: ${walk.urlsDiscovered} product address(es) found${walk.sampledUrls.length ? `, first read ${walk.sampledUrls[0]}` : ''}`);
     const named = new Set(raw.map((l) => l.nativePrice?.currency ?? (l.priceGbp !== null ? 'GBP' : 'none')));
     report.currency = `JSON-LD offers named: ${[...named].sort().join(', ') || 'nothing read'}`;
   }
 
+  if (failures.length > 0) report.diagnostics = failures;
   report.listingsRead = raw.length;
   const { listings, priced } = toRegionListings(raw, shop, now);
   report.priced = priced;
