@@ -1,27 +1,32 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-09T04:50:59.263Z",
+  "builtAt": "2026-10-09T05:16:00.182Z",
   "published": false,
   "note": "Dry run (docs/INTERNATIONAL-PLAN.md, Phase 1 step one): nothing here is shown on the site.",
   "shopsWired": 16,
-  "shopsEnabled": 13,
-  "shopsPriced": 11,
-  "crawlMinutes": 1.54,
-  "harvestRanAt": "2026-10-09T04:49:26.402Z",
-  "listingsPriced": 21345,
-  "listingsKept": 15266,
+  "shopsEnabled": 14,
+  "shopsPriced": 12,
+  "crawlMinutes": 14.4,
+  "harvestRanAt": "2026-10-09T05:01:35.371Z",
+  "listingsPriced": 21619,
+  "listingsKept": 15538,
   "staleAfterDays": 7,
-  "products": 14394,
-  "productsWithTwoOrMoreShops": 685,
-  "shareWithTwoOrMoreShops": 0.048,
-  "productsWithTwoOrMoreIndependentShops": 685,
-  "shareWithTwoOrMoreIndependentShops": 0.048,
-  "productsWithThreeOrMoreShops": 84,
-  "medianPriceGap": 0.136,
+  "products": 14568,
+  "productsWithTwoOrMoreShops": 751,
+  "shareWithTwoOrMoreShops": 0.052,
+  "productsWithTwoOrMoreIndependentShops": 751,
+  "shareWithTwoOrMoreIndependentShops": 0.052,
+  "productsWithThreeOrMoreShops": 108,
+  "medianPriceGap": 0.144,
   "listingBarcodeShare": 0,
   "productsMatchingUkByBarcode": 0,
   "shops": [
+    {
+      "id": "aar-fragrances",
+      "products": 272,
+      "shared": 98
+    },
     {
       "id": "bellavita-india",
       "products": 295,
@@ -30,7 +35,7 @@
     {
       "id": "fridaycharm",
       "products": 6270,
-      "shared": 602
+      "shared": 630
     },
     {
       "id": "naso-profumi",
@@ -40,12 +45,12 @@
     {
       "id": "perfume-network",
       "products": 1891,
-      "shared": 493
+      "shared": 508
     },
     {
       "id": "perfume-palace",
       "products": 6492,
-      "shared": 359
+      "shared": 382
     },
     {
       "id": "the-man-company",
