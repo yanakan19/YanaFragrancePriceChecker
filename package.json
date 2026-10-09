@@ -66,6 +66,7 @@
     "social:render": "tsx scripts/render-social.ts",
     "links:resolve": "tsx scripts/resolve-fragrance-links.ts",
     "social:deal": "tsx scripts/social-deal-of-day.ts",
+    "social:guess": "tsx scripts/social-guess-fragrance.ts",
     "social:savings": "tsx scripts/social-savings.ts",
     "social:video": "tsx scripts/social-video-deal.ts",
     "social:video:explainers": "tsx scripts/social-video-explainers.ts"

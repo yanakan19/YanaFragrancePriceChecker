@@ -25,6 +25,13 @@ starts the **Social pictures** workflow, which draws them and keeps them as a
 private artifact for 90 days (Actions, Social pictures, the run named after
 the commit, Artifacts). DESIGN-SYSTEM.md section 10 has the details.
 
+Guess the Fragrance puzzles and their reveals are made by `npm run social:guess`
+(`-- --dry-run` to look first, `-- --reveal` for the answer post; plan:
+`docs/GUESS-THE-FRAGRANCE-PLAN.md` section 6). A puzzle folder's `check.json`
+holds the answer and the repository is public, so commit and push the folder
+(and `guess-fragrance-history.json`) only when posting, with a commit message
+that names no fragrance.
+
 Videos come from one template (`scripts/social-video-template.ts`): `npm run social:video -- --id <id>` for a
 Deal of the Day video and `npm run social:video:explainers` for the informative ones. Rules: `docs/SOCIAL-MEDIA-PLAN.md`
 section 9.
@@ -59,3 +66,4 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | 2026-10-02 | `posts/2026-10-02-what-is-pricesniffs/` | Intro carousel: "What is PriceSniffs?" (4 slides, 3:4 post). Remake with `npx tsx scripts/social-intro-slides.ts` |
 | 2026-10-02 | `posts/2026-10-02-savings-example/` | Savings example carousel: Miss Dior, Selfridges vs Justmylook (6 slides, 3:4 post). Remake with `npx tsx scripts/social-savings-example.ts` (inverted theme, hand picked figures, reel safe) |
 | 2026-10-02 | `posts/2026-10-02-savings/` | How much could you save?: Creed Acqua Fiorentina, Allbeauty vs MyBeauty.Boutique (6 slides, 3:4 post) |
+| 2026-10-09 | `posts/YYYY-MM-DD-guess-fragrance-NN/` and `posts/YYYY-MM-DD-guess-fragrance-NN-reveal/` | Guess the Fragrance: a puzzle (black picture, house and name as blanks, notes and strength as clues, 3:4 and 9:16) and its reveal (answer, bottle, today's cheapest price); one caption each. Made by `npm run social:guess`; folders are added only when posting |
