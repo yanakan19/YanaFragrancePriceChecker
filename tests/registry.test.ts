@@ -167,12 +167,16 @@ describe('retailer registry', () => {
     // decision and deleted outright (docs/DECISIONS.md D29). None was enabled,
     // so the enabled count is unchanged and nothing on the site changed.
     //
-    // 2026-10-09: 80 becomes 86. Six UK shops found by the second UK search
+    // 2026-10-09: 80 becomes 81. Glossier UK (uk.glossier.com), the one shop of the USA and India
+    // search (docs/RETAILER-CANDIDATES-USA-INDIA-2026-10-09.md) that quotes sterling itself, from its
+    // own UK storefront. Enabled, so the enabled count goes 55 to 56.
+    //
+    // 2026-10-09: 81 becomes 87. Six UK shops found by the second UK search
     // (docs/RETAILER-CANDIDATES-2026-10-08.md, "Round 2, UK") and read from their
     // own Shopify /products.json: Rowlands Pharmacy, LloydsPharmacy, Beaute
     // Boulevard, Scent Warehouse, Roullier White and Scented (Glasgow). All six
-    // are enabled, so the enabled count goes 55 to 61.
-    expect(RETAILERS).toHaveLength(86);
+    // are enabled, so the enabled count goes 56 to 62.
+    expect(RETAILERS).toHaveLength(87);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was

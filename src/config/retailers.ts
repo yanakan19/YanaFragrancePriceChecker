@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 86 retailers, 61 of them `enabled: true`. Every one of them is a legitimate
+ * 87 retailers, 62 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -10864,6 +10864,83 @@ export const RETAILERS: readonly Retailer[] = [
         'modelled; Northern Ireland, Highlands and Islands are dearer. Nothing was added to a cart.',
     },
     catalogue: null,
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named
+      // the shops then in the registry. Add the line only if the owner extends it to this shop.
+    },
+  },
+  {
+    id: 'glossier-uk',
+    name: 'Glossier UK',
+    domain: 'uk.glossier.com',
+    homepage: 'https://uk.glossier.com',
+    tiers: ['designer'],
+    // Added 2026-10-09 (docs/RETAILER-CANDIDATES-USA-INDIA-2026-10-09.md). Glossier is a US beauty brand, so
+    // it was found by the USA search, but this is its own UK storefront, not the US one reached from here:
+    // /meta.json (HTTP 200) names the shop "Glossier", city London, country GB, currency GBP, and
+    // ships_to_countries GB, IE, FR, DK, SE, GG, JE. The US shop (glossier.com) quotes dollars; this one has a
+    // sterling list of its own (Glossier You 50 ml is £70 here, and 82 US dollars on the US shop, which is not
+    // the 0.7669 conversion every Shopify Markets shop in the same search applied).
+    // Read as PriceSniffsBot only, robots.txt first, 1.5 s apart.
+    //
+    // robots.txt (HTTP 200, 3,628 B) is Shopify's stock file: /products/, /collections/ and /products.json
+    // are not disallowed. Home page: `Shopify.currency = {"active":"GBP","rate":"1.0"}`. /products.json:
+    // 135 products, 391 variants; page 1 at the origin and with ?country=GB: no price differs. Five product
+    // pages (Glossier You, Doux, Soie, Rêve, Fleur) carry JSON-LD offers with priceCurrency GBP.
+    //
+    // Route: /products.json, fragrance product type only (shopifyVariantRule). The type is the shop's own
+    // "Fragrance" and holds the perfumes with candles, body mists, balms and sets; the catalogue's size rule
+    // keeps the bottles (50 ml, 100 ml, 8 ml, all priced). Titles name no strength, but each scent's page
+    // says Eau de Parfum (all five read 2026-10-09), so `fragranceTypeIsEauDeParfum` reads the type as the
+    // strength, as for Beauty Pie. It is not `fragranceOnlyCatalogue`: the shop sells skincare and make-up.
+    //
+    // Delivery, from the shop's own help centre (helpuk.glossier.com, robots.txt allows it), 2026-10-09:
+    // "Standard: (£4 or free for orders over £30, after promotions) 3-5 business days", "UK Expedited: (£7)
+    // 1-2 business days". The UK parcel goes by Royal Mail ("liquid fragrances ... will ship via Standard
+    // Shipping (Royal Mail)"); UK islands (Guernsey, Jersey) are not served.
+    //
+    // LANDED COST. The same page, "Will I be charged VAT & Duties?": "If your order is subject to duties, taxes,
+    // or related fees, you'll be charged at checkout (you won't need to pay anything extra when your package
+    // is delivered)." So nothing is collected from the buyer at the door. What the pages do not say is whether
+    // the £ price includes VAT, and the cart only says "Tax calculated in checkout" (a stock theme string).
+    // This is a UK shop on a sterling list with UK delivery by Royal Mail, so import VAT and duty do not
+    // arise for a UK order, but no basket has been checked. An owner basket check (docs/RETAILER-CANDIDATES-
+    // USA-INDIA-2026-10-09.md, owner steps) would settle it; if the checkout adds a charge, set enabled: false.
+    //
+    // Affiliate: directories disagree (Impact, FlexOffers, Shopify Collabs); none found on a network's own page.
+    enabled: true,
+    adapter: 'unknown',
+    singleBrandOnly: 'Glossier',
+    fragranceTypeIsEauDeParfum: true,
+    shopifyStorefront: true,
+    shopifyVariantRule: { productTypes: ['Fragrance'] },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 4,
+      freeOverGbp: 30,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-10-09',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://helpuk.glossier.com/en-US',
+        quote: 'Standard: (£4 or free for orders over £30, after promotions) 3-5 business days',
+        readAt: '2026-10-09',
+      },
+      notes:
+        "The shop's own UK help centre, read 2026-10-09; the store banner says \"Free shipping on orders over " +
+        "£30\" too. The free threshold is after promotions. UK Expedited is £7 (1 to 2 business days) and is " +
+        'not priced in. On duties and taxes the help centre says any are charged at checkout and nothing is ' +
+        'due on delivery; it does not say whether the sterling price includes VAT, and no basket has been ' +
+        'checked (see the entry comment).',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://uk.glossier.com/search?q={q}',
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://uk.glossier.com/collections/fragrance?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 3, minRequestGapMs: 1500,
+    },
     affiliate: {
       ...NO_AFFILIATE_YET,
       // No imageBasis: a shop's photos show only on the owner's decision (D24, 2026-10-05), which named

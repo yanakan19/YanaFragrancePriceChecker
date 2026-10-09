@@ -176,8 +176,8 @@ Decisions and checks:
 
 ## Round 2, UK (2026-10-09)
 
-A second search for UK fragrance retailers that are not in the registry (86 entries now, 61 enabled; 80 and 55
-when this round began). Same method and same hard lines as above (docs/DECISIONS.md D23): WebSearch in standard
+A second search for UK fragrance retailers that are not in the registry (87 entries now, 62 enabled; 81 and 56
+when this round began, Glossier UK having been added the same day by the USA and India search). Same method and same hard lines as above (docs/DECISIONS.md D23): WebSearch in standard
 mode to name each candidate and find its own domain, then `curl` as PriceSniffsBot over HTTP/1.1 with 1.5 s between
 requests: `/robots.txt` first, then the home page, then `/products.json?limit=250`. For every Shopify shop the
 whole `/products.json` feed was walked and run through the repo's own `parseShopifyProducts`, `isCatalogueListing`
