@@ -698,7 +698,9 @@ describe('the guides about how the site works', () => {
       const noFree = RETAILERS.map((r) => (r.shipping.standardGbp === 0 ? { ...r, enabled: false } : r));
       expect(blocksText(shopsGuide(noFree))).not.toContain('Free on every order');
       // One shop on its own reads as one shop.
-      const alone: Retailer[] = [{ ...first, singleBrandOnly: undefined }];
+      // Drop the key rather than set it to undefined: the registry type is exact about optional fields.
+      const { singleBrandOnly: _ownHouse, ...oneShop } = first;
+      const alone: Retailer[] = [oneShop];
       expect(blocksText(shopsGuide(alone))).toContain('shop list has 1 UK shop switched on');
       expect(shopFacts([]).days).toBeNull();
     });
