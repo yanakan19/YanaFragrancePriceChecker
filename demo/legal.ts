@@ -64,7 +64,7 @@ import { shopsPhrase } from './head.js';
 import { ADS_ON, ADS_SWITCHED_ON } from './ads.js';
 import { formatMoneyShort } from '../src/services/money.js';
 import { REGION_STORAGE_KEY } from '../src/config/regions.js';
-import { welcomeEnabled } from './regionWelcome.js';
+import { regionChoiceOn } from './regionPreference.js';
 
 /** Shops we actually fetch from today, as opposed to entries in the registry. */
 const ENABLED = RETAILERS.filter((r) => r.enabled);
@@ -321,9 +321,15 @@ export const STORAGE_KEYS = [
   { key: 'pricesniffs.layout', kind: 'local storage', when: 'when you choose the mobile or desktop layout in Settings', holds: 'that choice' },
   { key: 'pricesniffs.perrow', kind: 'local storage', when: 'when you change how many tiles show per row', holds: 'that number' },
   { key: 'a key beginning sb', kind: 'local storage', when: 'when you sign in to an account', holds: 'your sign in token, written by the Supabase library so you stay signed in' },
-  // Listed once the country pop-up can write it (src/config/regions.ts): never before.
-  ...(welcomeEnabled()
-    ? [{ key: REGION_STORAGE_KEY, kind: 'local storage', when: 'when you choose a country', holds: 'that choice' } as const]
+  // Listed once a country can be chosen, so the key can be written (a second
+  // live region, src/config/regions.ts): never before.
+  ...(regionChoiceOn()
+    ? [{
+        key: REGION_STORAGE_KEY,
+        kind: 'local storage',
+        when: 'when you choose a country',
+        holds: 'that choice. When you are signed in it is also saved on your profile, so it follows you to another device',
+      } as const]
     : []),
 ] as const;
 
@@ -636,7 +642,10 @@ export const LEGAL_PAGES: LegalPage[] = [
         storage only your own signed in account can read, so we can show it on
         your account button and profile on any device you sign in on. Nobody
         else is shown it. Press Remove Photo on your profile to delete it at
-        any time; deleting your account deletes it too.</li>
+        any time; deleting your account deletes it too.</li>${regionChoiceOn() ? `
+        <li><strong>Your country, if you choose one.</strong> When you are
+        signed in, your chosen country is saved on your profile, so it follows
+        you to another device. You can change it on your profile.</li>` : ''}
         <li><strong>Price drop emails.</strong> Off unless you tick "Email me
         when a saved fragrance gets cheaper" on the Account page. Once a
         morning we compare your saved fragrances with that day's prices and, if

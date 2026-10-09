@@ -3431,6 +3431,22 @@
   .acct-card-label { color: var(--faint); }
   .doc .acct-card .acct-card-value { margin-top: 4px; font-size: 16px; font-weight: 650; color: var(--ink); overflow-wrap: anywhere; }
   .doc .acct-card .acct-card-note { margin-top: 4px; color: var(--ink-2); }
+  /* The Country row (demo/regionPreference.ts): the welcome pop-up's country
+     buttons inside an account card, the current one pressed like the
+     country menu's (an --accent edge on --surface-2) and ticked. Hidden
+     while the UK is the only live region. */
+  .acct-country-list { display: grid; gap: 8px; margin-top: 8px; }
+  .acct-country-choice {
+    width: 100%; font: inherit; text-align: left; cursor: pointer;
+  }
+  .acct-country-choice[aria-pressed="true"] {
+    border-color: var(--ink); background: var(--surface-2); box-shadow: inset 3px 0 0 var(--accent);
+  }
+  .acct-country-choice:disabled { cursor: progress; opacity: .7; }
+  .acct-country-choice:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .acct-country-tick { display: inline-flex; flex: none; color: var(--accent-ink); }
+  .acct-country-tick .ico { width: 18px; height: 18px; }
+  .doc .acct-card .acct-country-list + .acct-card-note { margin-top: 8px; }
   /* The top of the profile: the photo (or the initial), with its controls. */
   .profile-photo { display: flex; align-items: center; gap: 16px; margin: 0 0 14px; }
   .profile-photo-face {
