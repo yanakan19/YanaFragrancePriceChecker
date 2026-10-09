@@ -15,7 +15,12 @@
  * ── Adding a guide ───────────────────────────────────────────────────────────
  * One entry here and one in GUIDE_BODIES (same slug). tests/contentPages.test.ts
  * holds the two together, and the length, the links and the wording rules.
- * The router, the head tags and the sitemap read this list and need no edit.
+ * The router, the head tags, the sitemap and the page of each guide's own
+ * address (scripts/build-route-pages.ts) read this list and need no edit.
+ *
+ * The first five guides are about perfume in general. The eight after them are
+ * about how this site works and are written from the code and the shop list
+ * (the claims and where each is true are in demo/content/guideBodies.ts).
  *
  * House style, as for the Legal Notice: plain British English, no hyphens or
  * dashes in reader facing text, titles in Title Case. Each title is under 60
@@ -65,6 +70,54 @@ export const GUIDES: readonly GuideInfo[] = [
     description:
       'What a tester, a miniature and a decant really are, what each one saves and risks, and the safer ways to try a scent before buying a full bottle.',
   },
+  {
+    slug: 'which-shops-we-compare',
+    title: 'Which Shops We Compare',
+    description:
+      'How many shops PriceSniffs reads today, how they differ, and what their delivery rules look like. The figures are counted from our shop list, not typed in.',
+  },
+  {
+    slug: 'how-we-tidy-perfume-notes',
+    title: 'How We Tidy Perfume Notes',
+    description:
+      'Why Cedar and Cedarwood, or Cassis and Blackcurrant, show as one note here, what we merge, and which look alike notes we deliberately keep apart.',
+  },
+  {
+    slug: 'why-the-basket-price-can-differ',
+    title: 'Why the Basket Price Can Differ',
+    description:
+      'Why a shop’s basket can show a different total from the price here: delivery, free delivery spends, sold out rows and how old a price can be.',
+  },
+  {
+    slug: 'how-we-match-the-same-bottle',
+    title: 'How We Match the Same Bottle',
+    description:
+      'How listings from different shops become one product: barcodes, names, sizes, what happens when shops disagree, and why 100ml and 105ml stay apart.',
+  },
+  {
+    slug: 'sets-and-oils-explained',
+    title: 'Sets and Oils Explained',
+    description:
+      'What counts as a set and what counts as an oil, why neither appears among the bottles, and how a set’s page compares it with the bottle alone.',
+  },
+  {
+    slug: 'how-deals-are-chosen',
+    title: 'How Deals Are Chosen',
+    description:
+      'What makes a fragrance a deal on PriceSniffs: the reference price a saving is measured against, which offer wins, and what is always left out.',
+  },
+  {
+    slug: 'wishlists-and-price-alerts',
+    title: 'Wishlists and Price Alerts',
+    description:
+      'What an account does here: saving fragrances, setting a target price, the price drop emails and when they are sent, and what the account does not do.',
+  },
+  {
+    slug: 'reading-the-price-history-chart',
+    title: 'Reading the Price History Chart',
+    description:
+      'How to read the graph on a product page: what the line and the points mean, the date ranges, and why a flat line or a lone point is not a trend.',
+  },
 ];
 
 export const GUIDES_PATH = '/guides';
@@ -79,7 +132,7 @@ export function guideBySlug(slug: string): GuideInfo | undefined {
 export const GUIDES_INDEX = {
   title: 'Perfume Guides',
   description:
-    'Short, plain guides to buying fragrance in the UK: strengths, notes, price per ml, spotting fakes, and trying a scent before you commit to a bottle.',
+    'Short, plain guides to buying fragrance in the UK, and to how PriceSniffs works: shops, matching, delivery, deals, sets, oils, alerts and price history.',
 };
 
 /** The page that says how prices are collected: /about/how-we-check-prices. */
