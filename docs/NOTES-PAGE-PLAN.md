@@ -9,7 +9,7 @@ and the note name centred under it, under group headings, 4 across on desktop
 and 2 on a phone.
 
 **Status: plan only, nothing is built.** Section B (the group list) is
-**PROPOSED, awaiting owner approval**. No build phase starts before that.
+**APPROVED by the owner on 9 Oct 2026**, with tea and coffee placed in Sweet and Gourmand and patchouli and vetiver in Earth and Moss.
 
 Numbers were measured on 9 Oct 2026 from the committed catalogue (`demo/data.ts`
 `NOTE_INDEX`, 30,931 products) unless a section says otherwise.
@@ -129,7 +129,7 @@ screenshot of their site in the repo; any request to their servers.
 
 ---
 
-## B. Taxonomy: PROPOSED, awaiting owner approval
+## B. Taxonomy: APPROVED (owner, 9 Oct 2026)
 
 ### The 16 groups (owner baseline, light to heavy)
 
@@ -142,8 +142,8 @@ screenshot of their site in the repo; any request to their servers.
 | 5 | `flowers` | Flowers | Rose, violet, iris and the rest of the flower garden. | Rose, Geranium, Violet, Iris, Peony |
 | 6 | `white-flowers` | White Flowers | Jasmine, tuberose, orange blossom and other rich, heady blooms. | Jasmine, Orange Blossom, Tuberose, Gardenia, Ylang Ylang |
 | 7 | `spices` | Spices | Warmth and bite from the spice rack. | Pink Pepper, Cardamom, Ginger, Cinnamon, Saffron |
-| 8 | `sweet` | Sweet and Gourmand | Vanilla, tonka, caramel, honey and nuts: good enough to eat. | Vanilla, Tonka Bean, Caramel, Honey, Praline |
-| 9 | `drinks` | Drinks and Spirits | Tea, coffee, rum, whisky and cocktails. | Coffee, Rum, Green Tea, Cognac, Mate |
+| 8 | `sweet` | Sweet and Gourmand | Vanilla, tonka, caramel, honey, nuts, coffee and tea: good enough to eat and drink. | Vanilla, Tonka Bean, Caramel, Coffee, Tea |
+| 9 | `drinks` | Drinks and Spirits | Rum, whisky, cognac, wine, champagne and cocktails. | Rum, Cognac, Whisky, Champagne, Gin |
 | 10 | `woods` | Woods | Sandalwood, cedar, oud and other dry or creamy woods. | Sandalwood, Cedar, Oud, Guaiac Wood, Cashmeran |
 | 11 | `earth-moss` | Earth and Moss | Patchouli, vetiver, oakmoss and the forest floor. | Patchouli, Vetiver, Oakmoss, Moss |
 | 12 | `resins` | Resins and Incense | Benzoin, labdanum, myrrh and frankincense: warm and slow. | Benzoin, Incense, Labdanum, Myrrh, Styrax |
