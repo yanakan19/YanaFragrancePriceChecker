@@ -95,8 +95,15 @@ describe('the catalogue the build wrote', () => {
 
   it('has fewer distinct notes than before the merge', () => {
     const before = new Set([...indexKeys.keys(), ...variantKeys]);
-    expect(before.size - NOTE_INDEX.length).toBe(variantKeys.size);
-    expect(NOTE_INDEX.length).toBeLessThan(4800); // 5,746 on the Notes tab on 9 Oct 2026
+    const removed = before.size - NOTE_INDEX.length;
+    expect(removed).toBe(variantKeys.size);
+    // Not a cap on the count: the Notes tab grows with every harvest that brings
+    // products with notes (4,603 notes when the file was written on 9 Oct 2026,
+    // 4,967 after that day's harvest), so a fixed number held for a day. The
+    // share the merge takes off holds: 5,746 spellings became 4,603, about one
+    // in five, and it only falls if shops publish new spellings faster than
+    // people review them into the file.
+    expect(removed / before.size).toBeGreaterThan(0.1);
     expect(before.size).toBeGreaterThan(5500);
   });
 });
