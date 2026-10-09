@@ -58,6 +58,7 @@ import { LEGAL_PAGES, isLegalNoticeId } from '../demo/legal.js';
 import { SITE_URL } from '../demo/head.js';
 import { CONTENT_PATHS, GUIDES_PATH, HOW_WE_CHECK } from '../demo/guideList.js';
 import { existsSync, readFileSync } from 'node:fs';
+import { NOTE_GROUP_IDS } from '../src/catalogue/noteGroups.js';
 import { liveRegions, regionHasFixedPage, regionPath, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import type { RegionSiteFacts } from './build-region-data.js';
 
@@ -111,6 +112,10 @@ entries.push({ loc: '/', lastmod: appMod, changefreq: 'daily' });
 entries.push({ loc: '/brands', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/retailers', lastmod: gitLastModified('src/config/retailers.ts'), changefreq: 'weekly' });
 entries.push({ loc: '/notes', lastmod: appMod, changefreq: 'weekly' });
+// The 16 note group pages (docs/NOTES-PAGE-PLAN.md D). Fixed addresses with a
+// route page each; single note pages stay out while they answer 404.
+const groupsMod = gitLastModified('data/note-groups.json');
+for (const id of NOTE_GROUP_IDS) entries.push({ loc: `/notes/group/${id}`, lastmod: groupsMod, changefreq: 'weekly' });
 // The Oils and Sets tabs under Explore (docs/GIFT-SETS-AND-OILS-PLAN.md). /gift-sets
 // is only the old way in to /sets and is never listed.
 entries.push({ loc: '/fragrances', lastmod: appMod, changefreq: 'weekly' });
@@ -236,11 +241,18 @@ for (const region of liveRegions()) {
   }
   const facts = JSON.parse(readFileSync(path, 'utf8')) as RegionSiteFacts;
   const day = facts.crawledAt.slice(0, 10);
+  const groupsPath = resolve(root, 'dist-demo/regions', region.pathPrefix, 'note-groups.json');
+  const regionNoteGroups: string[] = existsSync(groupsPath) ? (JSON.parse(readFileSync(groupsPath, 'utf8')) as string[]) : [];
   const list: Entry[] = [];
   const fixed = unique.filter((e) => !e.loc.startsWith('/brands/') && !e.loc.startsWith('/retailers/') && !isProductSlug(e.loc.slice(1)));
   for (const e of fixed) {
-    // Notes: offered once the region has products showing a matching UK product's notes.
-    if (!regionHasFixedPage(region, e.loc) && !(e.loc === '/notes' && facts.withNotes > 0)) continue;
+    // Notes and the note group pages: offered once the region has products showing a matching UK
+    // product's notes, a group page only if the region has a note in that group.
+    if (!regionHasFixedPage(region, e.loc)) {
+      const isGroup = e.loc.startsWith('/notes/group/');
+      if (!((e.loc === '/notes' || isGroup) && facts.withNotes > 0)) continue;
+      if (isGroup && !regionNoteGroups.includes(e.loc.slice('/notes/group/'.length))) continue;
+    }
     // A Deals page with nothing on it is not offered to a crawler (the region
     // harvest reads no shop's previous price yet, so a region has no deals).
     if (e.loc === '/deals' && facts.deals === 0) continue;

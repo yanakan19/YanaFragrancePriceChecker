@@ -91,9 +91,12 @@ describe('the Notes tab', () => {
 
   it('never shows prose as a tile', () => {
     const hidden = file.hidden.map((i) => file.names[i]!);
-    expect(hidden.length).toBeGreaterThan(20);
+    // The parser and the picker take the reviewed prose out of the catalogue
+    // (tests/notesProse.test.ts), so the tab's own hiding is a second line of
+    // defence that has little left to do.
+    expect(hidden.length).toBeLessThan(20);
     for (const h of ['setting the stage', 'sophistication', 'Parfum', 'Fragrance']) {
-      if (NOTE_INDEX.some((n) => n.name === h)) expect(hidden, h).toContain(h);
+      expect(NOTE_INDEX.map((n) => n.name), h).not.toContain(h);
     }
     const all = notesTabHtml(data, false, st({ group: 'more' }), env({ chunked: (items, render) => items.map(render).join('') }));
     for (const h of hidden) expect(all).not.toContain(`>${esc(titleCase(h))}</span>`);

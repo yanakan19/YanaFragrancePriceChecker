@@ -570,8 +570,8 @@ an illustrator, a quote and a written assignment of copyright to PriceSniffs.
   flags and descriptions; about 200 kB, 50 kB gzipped, fetched when Notes or a
   note page opens. Nothing is committed: no address memory file was needed,
   since the merged spellings' addresses already come from the build's
-  `NOTE_ALIASES` list. The parser fix for prose shapes is not done (the hidden
-  list covers the tab; product pages still show what the shop published).
+  `NOTE_ALIASES` list. The parser fix for prose shapes was done later the same day, see
+  "group addresses and the prose fix" below.
 - **Notes tab (phase 3).** `demo/notesPage.ts`: whole tiles about 3:2 on the
   group's ground (the monogram tokens), icon on top and the name centred under
   it, 2 across on a phone and 4 on desktop, rows centred by flex; group
@@ -590,11 +590,50 @@ an illustrator, a quote and a written assignment of copyright to PriceSniffs.
   other published spellings (misspellings left out), "Often found with" tiles,
   and a Top / Heart / Base tag on every fragrance tile. Group addresses are not
   in the sitemap.
+  **Changed 9 Oct 2026 (later):** group pages now have the planned fixed
+  addresses, see "Built 9 Oct 2026 (group addresses and the prose fix)" below.
 - **Icons.** Copied at build time under content hashed names to
   `demo/note-icons/h/` (a deploy folder), cache first in their own service
   worker cache (`pricesniffs-icons-v1`), never precached, `loading="lazy"`.
   28 drawn icons had a broken stroke attribute that no browser drew; they were
   repaired and `tests/noteIcons.test.ts` now rejects the shape.
+
+### Built 9 Oct 2026 (group addresses and the prose fix)
+
+- **Group addresses (D, last bullet), 9 Oct 2026.** `/notes/group/<id>` is a
+  router route (`notesGroup`, matched before `/notes/<slug>`; a miss under
+  `group` is not found, `/notes/group` alone is still the note "group"). The
+  Notes tab's "See all" and chips link to it; the old `/notes?group=citrus`
+  still opens the same view and the page rewrites the address. The 16 group
+  pages are in `sitemap-gb.xml` (lastmod from `data/note-groups.json`), each
+  with a route page `demo/notes/group/<id>.html` (HTTP 200; `demo/notes/` is a
+  new deploy folder in `scripts/generated-files.txt` and `.gitignore`; about
+  15 MB more in the deploy, as estimated), a title "Citrus notes in perfume" and
+  its own canonical. An id that is not a group gets no page and is noindex.
+  Single note pages stay out of the sitemap and on 404.html, as before. The
+  beta regions have no notes, so their sitemaps and hreflang carry none
+  (`regionHasFixedPage`). Tests: `tests/notesGroupAddresses.test.ts`,
+  `tests/routePages.test.ts`.
+- **Prose fix (decision 7), 9 Oct 2026.** Measured on `demo/catalogue.generated.ts`:
+  124,182 note uses, 467 (0.38%) hidden on the Notes tab as prose. Fixed at the
+  source, in three layers, none touching a section's list or prose reading
+  (`bodyIsAList`), so one stray word cannot turn a lower case list of real notes
+  into prose:
+  1. `notesParse.ts`: a closed list of words only a sentence uses (this, your,
+     provide, setting, awakening, finish, senses, packaging, "is", "by", "to"...),
+     a stray lower case "a"/"an", an opening verb, sizes and percentages, other
+     products in the box (shower gel, deodorant), solvents and colourant codes,
+     and the bare words "Eau", "Parfum", "Fragrance". "consists of jasmine"
+     now gives "jasmine". Adjectives that can precede a material ("Sensual
+     Musk", "refreshing mint", "Sparkling Bergamot") are kept: the material is
+     the note.
+  2. `notesPick.ts` (`withoutProse`): the reviewed exact names of
+     `data/note-not-a-note.json` are removed from each shop's pyramid before the
+     shops are compared, so a sentence no longer counts toward "fuller pyramid".
+     94 names the Notes tab hid by marker were appended to that file.
+  3. The marker words stay a Notes tab rule (they need the group rules).
+  Tests: `tests/notesProse.test.ts` (25 real notes kept, 20 prose strings
+  dropped). Effect on the 9 Oct catalogue is in the commit message.
 
 ## F. Note icons on each product's own notes (built 9 Oct 2026)
 
@@ -831,5 +870,4 @@ still wants them:
   fetch nothing; once they carry notes, `notesBlock()` draws the icons there
   with no further work.
 - **Left out.** Product tiles (unchanged, as approved). The prose fix on product pages
-  (decision 7's parser fix) is still not done: prose shows as a plain pill
-  without an icon. A phone look by the owner (F4).
+  (decision 7's parser fix) was done later on 9 Oct 2026 (section E). A phone look by the owner (F4).

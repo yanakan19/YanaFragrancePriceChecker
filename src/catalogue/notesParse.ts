@@ -101,6 +101,45 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
     /\b(take|takes|taken|over|through|leading|with|into|from|that|which|while|before|after|creating|providing|making|giving|adding|fairly|quickly|slowly|gently|softly|deeply|subtly|really|quite|very|soon|later|eventually|immediately|composed|consisting|comprising|comprised|featuring|including|blended|blending|infused|enriched|enhanced|combined|combining|accented|balanced|opens|opening)\b/i;
 
   /**
+   * Prose a shop's copy left in the notes list that the rules above cannot see
+   * (decision 7 of docs/NOTES-PAGE-PLAN.md, 9 Oct 2026). Two closed, hand
+   * checked parts, both tested against every note string in the catalogue of
+   * that day (5,669 distinct) with the real notes counted as the cost:
+   *
+   *   - Words only a sentence uses: verbs and pronouns ("this fragrance",
+   *     "provide lasting warmth", "setting a fresh", "awakening the spirit",
+   *     "energizing your spirit") and nouns about the wearing rather than the
+   *     material ("finish", "packaging", "senses", "longevity", "behind the
+   *     ears"). None occurs in any note the catalogue holds that a perfumer
+   *     would recognise. Adjectives that can sit in front of a real material
+   *     ("Sensual Musk", "refreshing mint", "Romantic Geranium", "spicy
+   *     undertones") are left out on purpose: the material is still the note.
+   *   - Things that are not fragrance at all: a size or a percentage
+   *     ("Body Lotion 50ml", "20%"), another product in the box ("Shower Gel",
+   *     "Deodorant"), a solvent or a colourant code ("Dipropylene Glycol",
+   *     "CI 15985").
+   *
+   * The reviewed list data/note-not-a-note.json then catches what is left by
+   * name (src/catalogue/notesPick.ts, withoutProse).
+   */
+  const PROSE_CUE =
+    /(?<![\w-])(?:this|these|your|you|our|provide|provides|offering|setting|sets|delivering|embodying|evoking|awakening|leaving|ensuring|ensure|ensures|consists|experience|energizing|uplift|captivate|captivates|igniting|ignite|exuding|exude|enhance|allowing|balancing|deepening|weaves|establishing|unveiling|presenting|crafted|crafting|designed|radiating|gradually|eloquently|renowned|finish|finishing|senses|sense|packaging|longevity|intensity|impression|introduction|conclusion|finale|foundation|groundwork|ears|neck|wrists?|occasions?|evenings?|daytime|nighttime|is|are|by|to|about|imparting|deliver|delivers|bringing|merging|exhibiting|cede|create|creates|conveys|revel|enjoy|feel|balances|characterised|dominated|complemented|illuminated)(?![\w-])/i;
+  // A lower case "a" or "an" in the middle of a phrase ("Sandalwood a warm") is a sentence's article; no
+  // note name carries one, and the connectives real names do carry (of, de, du) are not these.
+  const STRAY_ARTICLE = /\s(?:a|an)\s/;  // hyphenated words never have spaces, so "Skin-to-Skin" is safe
+  // A verb opening the phrase ("blend Jasmine").
+  const OPENING_VERB = /^(?:blend|blends|blending)\s/i;
+  const NOT_FRAGRANCE =
+    /(?:\d\s?(?:ml|g|oz|cl)\b|%|\b(?:shower\s*gel|body\s+(?:lotion|spray|wash|cream)|deodorant|hair\s+mist|after\s*shave|aftershave|glycol)\b|^ci\s*\d+$)/i;
+
+  /**
+   * Applied to the items a section has already kept, never inside the shape
+   * check: a section is a list or prose as a whole (bodyIsAList), and one
+   * stray "finish" must not turn a lowercase list of real notes into prose.
+   */
+  const isProseItem = (s: string): boolean => PROSE_CUE.test(s) || STRAY_ARTICLE.test(s) || OPENING_VERB.test(s) || NOT_FRAGRANCE.test(s) || PRODUCT_WORDS.has(s.toLowerCase());
+
+  /**
    * Trims a real note back out of a sentence describing how it behaves —
    * "Amber  emerge", "Musk provide depth", "Vetiver come forth" all name a
    * genuine note in their first word or two and then run straight into the
@@ -145,6 +184,8 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
   const cleanCandidate = (s: string): string =>
     s
       .replace(LEADING_FURNITURE, '')
+      // "consists of jasmine": the note is what follows.
+      .replace(/^(?:consists?|comprises?)\s+of\s+/i, '')
       .split(/\s{2,}/)[0]!
       .replace(TRAILING_CLAUSE, '')
       .replace(/[|*•·™®—–-]+$/, '')
@@ -199,6 +240,12 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
     'linger',
     'lingers',
   ]);
+
+  /**
+   * What a product is, not what is in it: the bare form words that rode in
+   * from a name or a heading ("Eau", "Parfum", "Fragrance").
+   */
+  const PRODUCT_WORDS = new Set(['eau', 'parfum', 'fragrance', 'perfume', 'edt', 'edp', 'eau de parfum', 'eau de toilette']);
 
   /**
    * Real note names that run past the three-word, 24-character shape below —
@@ -504,7 +551,7 @@ export function parseNotes(descriptionRaw: string | null | undefined): ParsedNot
         const keep = bodyIsAList(candidates)
           ? looksLikeNoteIgnoringCase
           : (s: string) => looksLikeNoteIgnoringCase(s) && /^[A-Z]/.test(s);
-        const items = candidates.filter(keep).map(canonicalNoteName).slice(0, 14);
+        const items = candidates.filter(keep).filter((s) => !isProseItem(s)).map(canonicalNoteName).slice(0, 14);
         if (items.length > 0) return items;
       }
       // A zero-width overall match (label sits directly against the next

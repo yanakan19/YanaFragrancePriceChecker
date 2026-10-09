@@ -175,6 +175,10 @@ async function bundleRegion(region: RegionConfig): Promise<void> {
     const icons = buildNoteIconLookup(data.NOTE_INDEX, pyramids.flat(), inputs, iconPath);
     await writeFile(resolve(dataDir, `${NOTE_ICON_FILE}.json`), JSON.stringify({ NOTE_ICONS: icons }));
     lazy.push(NOTE_ICON_FILE);
+    // Which note groups have a note here: the sitemap offers a group page only when it has one (scripts/build-sitemap.ts).
+    const hidden = new Set(file.hidden);
+    const groupIds = file.groups.filter((_g, gi) => file.group.some((g, i) => g === gi && !hidden.has(i))).map((g) => g.id);
+    await writeFile(resolve(regionDir, 'note-groups.json'), JSON.stringify(groupIds));
     console.log(`dist-demo/${r}  ${pyramids.length} products show notes, ${data.NOTE_INDEX.length} notes in the Notes tab`);
   }
   // What this page knows of the other regions (scripts/build-region-data.ts).

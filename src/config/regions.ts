@@ -235,12 +235,13 @@ export function suggestRegionForTimeZone(timeZone: string | null | undefined): R
 
 /**
  * Whether a region offers one of the fixed pages (home, Deals, Brands and the
- * rest) to search engines. Every region does, except that a beta region has
- * no Notes page worth the name yet: its shops publish no notes, so the tab is
- * empty, kept out of its sitemap and marked noindex (demo/head.ts).
+ * rest) to search engines. Every region does, except that a beta region's
+ * Notes page and note group pages carry no hreflang alternates (they would
+ * change the UK's own tags). A region's own sitemap does list them once its
+ * products show UK notes (scripts/build-sitemap.ts).
  */
 export function regionHasFixedPage(region: RegionConfig, path: string): boolean {
-  return !(region.beta && path === '/notes');
+  return !(region.beta && (path === '/notes' || path.startsWith('/notes/group/')));
 }
 
 /**

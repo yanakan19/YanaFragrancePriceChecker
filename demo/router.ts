@@ -34,7 +34,7 @@ import { activeRegion, regionPath, splitRegionPrefix } from '../src/config/regio
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'fragrances' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'botPage' | 'howWeCheck' | 'guides' | 'guide' | 'settings' | 'suggestions' | 'legal' | 'account'
+  | 'notes' | 'notesGroup' | 'note' | 'fragrances' | 'oils' | 'sets' | 'fragrance' | 'product' | 'about' | 'legalNotice' | 'botPage' | 'howWeCheck' | 'guides' | 'guide' | 'settings' | 'suggestions' | 'legal' | 'account'
   | 'accountWishlist' | 'accountNotifications'
   | 'design' | 'developer' | 'notFound';
 
@@ -270,6 +270,15 @@ export function matchRoute(pathname: string, search = '', hash = ''): Route {
     return { name: 'notFound', param: pathname, query };
   }
 
+  // A note group's own page, /notes/group/citrus (docs/NOTES-PAGE-PLAN.md D).
+  // Matched before /notes/<slug>; the shape only, since the router has no data:
+  // the page checks the id against the groups it loaded.
+  if (head === 'notes' && tail === 'group' && segments.length >= 3) {
+    const id = segments[2]!.toLowerCase();
+    if (segments.length === 3 && /^[a-z-]{2,20}$/.test(id)) return { name: 'notesGroup', param: id, query };
+    return { name: 'notFound', param: pathname, query };
+  }
+
   const leaf = LEAF_ROUTES[head!];
   if (leaf && tail) {
     const param = decodeURIComponent(tail);
@@ -323,6 +332,7 @@ export function routeToPath(route: Route): string {
       case 'retailers': return '/retailers';
       case 'retailer': return `/retailers/${encodeURIComponent(param)}`;
       case 'notes': return '/notes';
+      case 'notesGroup': return `/notes/group/${encodeURIComponent(param)}`;
       case 'note': return `/notes/${encodeURIComponent(param)}`;
       case 'fragrances': return '/fragrances';
       case 'oils': return '/oils';

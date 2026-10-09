@@ -6298,6 +6298,12 @@ function headInputForState(): HeadInput {
     case 'legal':
       return { route, leafName: legalPage(state.legalId)?.title };
 
+    // A group page of the Notes tab: the group's name once the lazy notes file is here.
+    case 'explore':
+      return route.name === 'notesGroup'
+        ? groupHeadInput(route)
+        : { route, productCount: COUNTS.bottles, retailerCount: SHOP_COUNT };
+
     // 'Developer' only once the signed in account is the owner's; until then
     // the tab says Page not found, the same as the page (demo/developer.ts).
     case 'developer':
@@ -6318,6 +6324,14 @@ function headInputForState(): HeadInput {
         retailerCount: SHOP_COUNT,
       };
   }
+}
+
+/** A group page's head input: its name, or "not a page" once the notes file is here and has no such group. */
+function groupHeadInput(route: Route): HeadInput {
+  const data = notesData.current();
+  if (!data) return { route };
+  const group = data.groups.find((g) => g.id === state.noteGroup);
+  return group ? { route, leafName: group.name } : { route, leafEmpty: true };
 }
 
 /** A fragrance list's sort as its address carries it: where it is kept, what it may be, and the order the list opens in. */
@@ -6399,8 +6413,8 @@ function currentRoute(): Route {
       // address, so a filtered list can be shared.
       if (state.tab === 'notes') {
         const query: Record<string, string> = {};
-        if (state.noteGroup) query.group = state.noteGroup;
         if (state.noteQuery) query.q = state.noteQuery;
+        if (state.noteGroup) return { name: 'notesGroup', param: state.noteGroup, query };
         return { name: 'notes', param: '', query };
       }
       return { name: state.tab as RouteName, param: '', query: isTabKind(state.tab) ? tabs.query(state.tab) : {} };
@@ -6417,7 +6431,7 @@ function currentRoute(): Route {
 function applyRoute(route: Route): boolean {
   // The Oils and Sets tabs have a search box of their own, whose words are in
   // the address as `q` too; they are not the bar's search.
-  state.query = isTabKind(route.name) || route.name === 'notes' ? '' : (route.query.q ?? '');
+  state.query = isTabKind(route.name) || route.name === 'notes' || route.name === 'notesGroup' ? '' : (route.query.q ?? '');
 
   switch (route.name) {
     case 'home': state.view = 'home'; return true;
@@ -6488,6 +6502,15 @@ function applyRoute(route: Route): boolean {
       state.tab = 'notes';
       state.noteQuery = (route.query.q ?? '').slice(0, 80);
       state.noteGroup = /^[a-z-]{2,20}$/.test(route.query.group ?? '') ? route.query.group! : '';
+      return true;
+
+    // A group's own page: the Notes tab with that group's view open. The old
+    // /notes?group=citrus (case 'notes' above) lands here and syncUrl rewrites it.
+    case 'notesGroup':
+      state.view = 'explore';
+      state.tab = 'notes';
+      state.noteQuery = (route.query.q ?? '').slice(0, 80);
+      state.noteGroup = route.param;
       return true;
 
     // The Oils and Sets tabs, whose search, sort and filters come with the address.

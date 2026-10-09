@@ -8,7 +8,7 @@
  *
  * The first draw shows 12 tiles a group on desktop and 8 on a phone (about
  * 180 tiles, not 4,600 rows); "See all" opens the group's own view
- * (/notes?group=citrus), whose grid the page draws in chunks. Every tile is a
+ * (/notes/group/citrus), whose grid the page draws in chunks. Every tile is a
  * real link. No DOM here: tests/notesPage.test.ts draws it under Node.
  */
 import { noteSlug } from '../src/catalogue/noteName.js';
@@ -60,9 +60,8 @@ const plural = (x: number, one: string, many: string): string => `${n(x)} ${x ==
 
 /** The address of a group's own view, with a search if there is one. */
 export function groupHref(id: string, query = ''): string {
-  const q = new URLSearchParams({ group: id });
-  if (query) q.set('q', query);
-  return `/notes?${q.toString()}`;
+  const q = query ? `?${new URLSearchParams({ q: query }).toString()}` : '';
+  return `/notes/group/${encodeURIComponent(id)}${q}`;
 }
 
 /** One tile: a link, the picture on a ground of the group's colour, the name centred under it. */
