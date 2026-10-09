@@ -654,8 +654,25 @@ out pages with price 0 (most of its old fragrance pages), read as sold out. **AA
 in 12 minutes (1.4 MB pages), 31 kept. Off: Jomashop, Dillard's, eCosmetics, Nordstrom, Kannauj
 Attar (Store API per variation, single house, left off), Mirah Belle.
 
+**Third runs, same day**, with the larger page budgets for Nykaa, Ulta and AAR Fragrances, Ulta's
+sizes read from its ProductGroup, and Purplle switched off (bot check page, D23):
+
+| | US, run 37893601806 (built 07:09 UTC) | India, run 37893603657 (built 07:08 UTC) |
+| --- | --- | --- |
+| Shops priced | 22 of 22 enabled | 13 of 13 enabled (Purplle off) |
+| Products | 22,512 | 14,693 |
+| Two or more shops | 5,928 (26.3%); counting the one catalogue once: 2,067 (9.2%) | 1,879 (12.8%) |
+| Three or more shops | 2,144 | 383 |
+| Median gap, dearest to cheapest | 17.7% | 13.9% |
+| Listings with a barcode | 18.8% (1,628 products match a UK product by barcode) | 0.7% (58 match the UK) |
+| Crawl minutes | 42.3 | 40.3 |
+
+The anchors filled in: Ulta 178 priced to 689 (608 kept), Nykaa 280 to 850 (795 kept), AAR
+Fragrances 266 to 573 (559 kept). They keep filling in at up to 900 (Ulta) and 1,000 (Nykaa, AAR)
+new pages a run, unseen pages first.
+
 **Recommendation:** neither region meets the plan's bar (a quarter of products with two or more
-independent shops). The US looks like a comparison only on the raw count, which is inflated by
+independent shops). After the third runs: US 9.2%, India 12.8%. Hold the beta. The US looks like a comparison only on the raw count, which is inflated by
 three shops running one catalogue; honestly it is under one in ten. Do not start the hidden beta
 yet. For the US, the gap is the big discounters, which need the affiliate feeds the owner deferred
 (decision 6), plus Ulta and Dillard's readers. For India, re-measure once Nykaa reads; without
