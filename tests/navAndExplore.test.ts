@@ -53,7 +53,7 @@ describe.skipIf(!built)('top bar, Explore and the home page bottom', () => {
     await page.close();
   }, 90_000);
 
-  it('has no search box under Brands, Retailers or Notes, only the Quick Search in the top bar; Fragrances, Oils and Sets have their own', async () => {
+  it('has no search box under Brands or Retailers, only the Quick Search in the top bar; Fragrances, Oils, Sets and Notes have their own', async () => {
     const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
     await page.goto(`http://localhost:${port}/brands`, { waitUntil: 'load' });
     await waitForApp(page);
@@ -69,8 +69,9 @@ describe.skipIf(!built)('top bar, Explore and the home page bottom', () => {
     for (const [route, f] of Object.entries(found)) {
       expect(f.tabs, route).toEqual(['All Fragrances', 'All Oils', 'All Sets', 'All Brands', 'All Retailers', 'All Notes']);
       // All Fragrances, Oils and Sets each have a search box of their own, searching only within
-      // that tab (owner's decision, 2026-10-05); the other three have none.
-      const own = route === '/oils' || route === '/sets' || route === '/fragrances' ? 1 : 0;
+      // that tab (owner's decision, 2026-10-05); so does All Notes since the owner's Notes page
+      // layout of 2026-10-09 (a search box that narrows the tiles). Brands and Retailers have none.
+      const own = route === '/oils' || route === '/sets' || route === '/fragrances' || route === '/notes' ? 1 : 0;
       expect(f.fields, route).toBe(own);
       expect(f.searchInputs, `${route}: the top bar search${own ? ' and the tab\'s own' : ' only'}`).toBe(1 + own);
     }

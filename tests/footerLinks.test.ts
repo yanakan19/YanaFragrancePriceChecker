@@ -152,8 +152,16 @@ describe('the page without JavaScript', () => {
   });
 
   it('adds well under 5 kB to the page', () => {
-    const baseline = 203364; // demo/template.html on 2026-10-07, before this change
-    const grown = withFooterLinks(template).length - baseline;
-    expect(grown, `the template grew by ${grown} bytes`).toBeLessThan(5000);
+    // What this feature itself adds: the intro inside <main>, its styles, the
+    // script line that hides it, and the footer links the build inserts.
+    // Measured from its own parts rather than against the whole template on
+    // 2026-10-07 (203,364 bytes then), which every later change to the page's
+    // styles counted against this budget (the Notes page, 9 Oct 2026).
+    const intro = mainBlock().length;
+    const styles = template.split('\n').filter((l) => l.includes('.static-intro')).join('\n').length;
+    const flag = template.split('\n').find((l) => l.includes("document.documentElement.classList.add('js')"))?.length ?? 0;
+    const footer = withFooterLinks(template).length - template.length;
+    const grown = intro + styles + flag + footer;
+    expect(grown, `the intro and the footer links add ${grown} bytes`).toBeLessThan(5000);
   });
 });
