@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-09T05:19:27.134Z",
-  "minutes": 14.31,
+  "ranAt": "2026-10-09T06:27:52.021Z",
+  "minutes": 40.34,
   "dryRun": false,
   "shopsWired": 16,
-  "shopsEnabled": 14,
+  "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 15783,
+  "listingsKept": 16624,
   "shops": [
     {
       "id": "nykaa",
@@ -15,28 +15,18 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 283,
-      "priced": 280,
-      "kept": 260,
-      "withBarcode": 32,
-      "pagesFetched": 295,
-      "seconds": 840,
+      "listingsRead": 854,
+      "priced": 850,
+      "kept": 795,
+      "withBarcode": 103,
+      "pagesFetched": 854,
+      "seconds": 2401,
       "currency": "JSON-LD offers named: INR",
       "errors": [
-        "https://www.nykaa.com/etat-libre-d-orange-eau-de-protection-edp/p/12387140: HTTP 500",
-        "https://www.nykaa.com/gisada-luxury-collection-iris-eau-de-parfum/p/15100009: HTTP 500",
-        "https://www.nykaa.com/yves-saint-laurent-libre-l-eau-nue-parfum-de-peau/p/20778154: HTTP 502",
-        "https://www.nykaa.com/park-avenue-poise-luxury-perfume-eau-de-parfum/p/22204946: HTTP 500",
-        "https://www.nykaa.com/memo-paris-inle-eau-de-parfum/p/24956137: HTTP 500"
+        "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "https://www.nykaa.com/etat-libre-d-orange-eau-de-protection-edp/p/12387140: HTTP 500",
-        "https://www.nykaa.com/gisada-luxury-collection-iris-eau-de-parfum/p/15100009: HTTP 500",
-        "https://www.nykaa.com/yves-saint-laurent-libre-l-eau-nue-parfum-de-peau/p/20778154: HTTP 502",
-        "https://www.nykaa.com/park-avenue-poise-luxury-perfume-eau-de-parfum/p/22204946: HTTP 500",
-        "https://www.nykaa.com/memo-paris-inle-eau-de-parfum/p/24956137: HTTP 500",
-        "https://www.nykaa.com/la-french-fonce-eau-de-parfume/p/25954279: HTTP 500",
-        "sitemap: 3069 product address(es) found, first read https://www.nykaa.com/hugo-boss-intense-eau-de-parfum-for-men/p/15125799"
+        "sitemap: 3067 product address(es) found, first read https://www.nykaa.com/etat-libre-d-orange-eau-de-protection-edp/p/12387140"
       ]
     },
     {
@@ -44,19 +34,16 @@
       "name": "Purplle",
       "route": "sitemap",
       "singleBrand": false,
-      "status": "no-prices",
+      "status": "off",
       "listingsRead": 0,
       "priced": 0,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 0,
-      "seconds": 1,
-      "currency": "JSON-LD offers named: nothing read",
+      "seconds": 0,
+      "currency": "",
       "errors": [],
-      "diagnostics": [
-        "https://www.purplle.com/sitemap/products/all-subcategories.xml: HTTP 200 but no <loc> in 545 bytes, starting \"<!DOCTYPE html><html><head><meta charset=\\\"utf-8\\\"><script type=\\\"text/javascript\\\" src=\\\"/kramericaindus\"",
-        "sitemap: 0 product address(es) found"
-      ]
+      "note": "Refused to the crawl runner: from GitHub Actions its sitemap (/sitemap/products/all-subcategories.xml) is answered with a 545 byte page that only loads a bot-check script, instead of the sitemap, on two runs (2026-10-09, runs 37886577840 and 37887989045). From other networks the same request as PriceSniffsBot gets the sitemap. A challenge is a refusal (D23): not worked around. Readable again only if the shop lets the bot through."
     },
     {
       "id": "perfume-palace",
@@ -69,7 +56,7 @@
       "kept": 6530,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 61,
+      "seconds": 91,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -79,12 +66,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7523,
-      "priced": 7523,
-      "kept": 6294,
+      "listingsRead": 7524,
+      "priced": 7524,
+      "kept": 6298,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 71,
+      "seconds": 76,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -99,7 +86,7 @@
       "kept": 1894,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 18,
+      "seconds": 20,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -109,12 +96,12 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 266,
-      "priced": 266,
-      "kept": 257,
+      "listingsRead": 573,
+      "priced": 573,
+      "kept": 559,
       "withBarcode": 0,
-      "pagesFetched": 267,
-      "seconds": 840,
+      "pagesFetched": 574,
+      "seconds": 2400,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -134,7 +121,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -209,7 +196,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 10,
+      "seconds": 11,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -224,7 +211,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 30,
+      "seconds": 29,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
@@ -258,7 +245,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 11,
+      "seconds": 12,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },

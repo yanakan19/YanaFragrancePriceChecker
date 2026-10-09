@@ -245,6 +245,41 @@ export function toRegionListings(
   return { listings, priced };
 }
 
+/**
+ * The size of each variant a page's schema.org ProductGroup names, by sku
+ * (`hasVariant[].sku` and `.size`, Ulta). Read from the page's own JSON-LD;
+ * a block that does not parse is skipped.
+ */
+export function productGroupSizes(html: string): Map<string, string> {
+  const out = new Map<string, string>();
+  for (const m of html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    let data: unknown;
+    try { data = JSON.parse(m[1]!); } catch { continue; }
+    const visit = (node: unknown): void => {
+      if (Array.isArray(node)) { node.forEach(visit); return; }
+      if (!node || typeof node !== 'object') return;
+      const o = node as Record<string, unknown>;
+      if (Array.isArray(o['hasVariant'])) {
+        for (const v of o['hasVariant'] as Record<string, unknown>[]) {
+          const sku = typeof v?.['sku'] === 'string' ? v['sku'] : null;
+          const size = typeof v?.['size'] === 'string' ? v['size'].trim() : null;
+          if (sku && size) out.set(sku, size);
+        }
+      }
+      if (o['@graph']) visit(o['@graph']);
+    };
+    visit(data);
+  }
+  return out;
+}
+
+/** A title with the size the page gives its sku added, where the title states none. */
+export function withVariantSize(title: string, size: string | undefined): string {
+  if (!size) return title;
+  if (/\d\s*(?:ml|oz|fl\.?\s?oz)\b/i.test(title)) return title;
+  return `${title} ${size}`;
+}
+
 /** The barcode inside the shop's own id (`skuBarcodeFrom`), when it passes the checks. */
 export function barcodeInSku(sku: string, shop: Pick<RegionRetailer, 'skuBarcodeFrom'>): string | null {
   if (!shop.skuBarcodeFrom) return null;
@@ -542,11 +577,20 @@ export async function harvestRegionShop(options: RegionHarvestOptions): Promise<
   } else {
     const known = new Map<string, string>();
     for (const l of options.previous?.listings ?? []) if (l.status === 'active') known.set(l.url, l.lastSeenAt);
+    // Ulta: the size of each sku, read off every page as it is fetched.
+    const sizes = new Map<string, string>();
+    const pageHttp: Http = shop.sizeFromProductGroup
+      ? async (url, h) => {
+        const res = await http(url, h);
+        if (res.ok && !/\.xml(?:$|\?)/i.test(url)) for (const [k, v] of productGroupSizes(res.body)) sizes.set(k, v);
+        return res;
+      }
+      : http;
     const cutoff = Date.parse(now) - options.refreshAfterHours * 3_600_000;
     const due = [...known.entries()].filter(([, at]) => Date.parse(at) < cutoff).sort((a, b) => a[1].localeCompare(b[1])).map(([u]) => u);
     const walk = await crawlViaSitemap({
       retailer: crawlerRetailer(shop),
-      http,
+      http: pageHttp,
       robots,
       maxPages: options.maxPages,
       gapMs,
@@ -557,7 +601,7 @@ export async function harvestRegionShop(options: RegionHarvestOptions): Promise<
       refreshUrls: due,
       onProgress: (pages, found) => { if (pages % 25 === 0) log(`${shop.id}: ${pages} request(s), ${found} listing(s)`); },
     });
-    raw = walk.listings;
+    raw = shop.sizeFromProductGroup ? walk.listings.map((l) => ({ ...l, rawTitle: withVariantSize(l.rawTitle, sizes.get(l.retailerSku)) })) : walk.listings;
     report.pagesFetched += walk.pagesFetched + (walk.categoryPagesFetched ?? 0);
     report.errors.push(...walk.errors.slice(0, 5));
     complete = walk.fetchedEveryDiscovered === true;

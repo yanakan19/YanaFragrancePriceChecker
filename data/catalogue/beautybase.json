@@ -1,7 +1,7 @@
 {
   "retailerId": "beautybase",
-  "updatedAt": "2026-10-09T01:52:35.625Z",
-  "seenAt": "2026-10-09T01:52:35.625Z",
+  "updatedAt": "2026-10-09T06:04:09.500Z",
+  "seenAt": "2026-10-09T06:04:09.500Z",
   "source": "live",
   "listings": [
     {
@@ -48415,7 +48415,7 @@
       "priceGbp": 93,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "beautybase",

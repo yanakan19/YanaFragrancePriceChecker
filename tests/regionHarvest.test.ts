@@ -12,6 +12,7 @@ import { parseListings } from '../src/catalogue/jsonld.js';
 import { withTitleParts } from '../src/catalogue/sitemapCrawl.js';
 import {
   encodeRegionSnapshot, harvestRegionShop, reconcileRegion, regionPriceOf, regionStorefrontCurrency, toRegionListings, zeroPricedSkus,
+  productGroupSizes, withVariantSize,
   barcodeInSku, readOgProductPage, recordingHttp,
   type RegionListing,
 } from '../src/catalogue/regionHarvest.js';
@@ -76,7 +77,7 @@ describe('one redacted fixture per enabled region shop', () => {
       return toRegionListings(readFixture(shop), shop, NOW).listings;
     };
     for (const id of ['perfumania', 'beauty-encounter', 'fragrance-outlet', 'la-belle-perfumes', 'luckyscent', 'the-perfume-spot', 'ulta',
-      'nykaa', 'purplle', 'perfume-palace', 'fridaycharm', 'perfume-network']) {
+      'nykaa', 'perfume-palace', 'fridaycharm', 'perfume-network']) {
       expect(kept(id).length, id).toBeGreaterThan(0);
     }
     expect(kept('ulta')[0]!.rawTitle).toMatch(/oz/);
@@ -253,3 +254,37 @@ describe('the request diagnostics', () => {
     expect(sink).toEqual(['https://a/bad.xml: HTTP 200 but no <loc> in 41 bytes, starting "<html><title>Access Denied</title></html>"']);
   });
 });
+
+describe('the size an Ulta page gives its selected sku', () => {
+  const html = '<script type="application/ld+json">{"@type":"Product","name":"HUGO Man Eau de Toilette","sku":"2273379","offers":{"price":104,"priceCurrency":"USD"}}</script>' +
+    '<script type="application/ld+json">{"@context":"https://schema.org/","@type":"ProductGroup","hasVariant":[' +
+    '{"@type":"Product","name":"2.5 oz  HUGO Man Eau de Toilette","sku":"2267681","size":"2.5 oz"},' +
+    '{"@type":"Product","name":"4.2 oz  HUGO Man Eau de Toilette","sku":"2273379","size":"4.2 oz"}]}</script>' +
+    '<script type="application/ld+json">{not json</script>';
+
+  it('reads each variant\'s size by sku from the ProductGroup, and adds it to an unsized title only', () => {
+    const sizes = productGroupSizes(html);
+    expect([...sizes]).toEqual([['2267681', '2.5 oz'], ['2273379', '4.2 oz']]);
+    expect(withVariantSize('HUGO Man Eau de Toilette', sizes.get('2273379'))).toBe('HUGO Man Eau de Toilette 4.2 oz');
+    expect(withVariantSize('Eternity Eau de Parfum 3.3 oz', '1 oz')).toBe('Eternity Eau de Parfum 3.3 oz');
+    expect(withVariantSize('Plain', undefined)).toBe('Plain');
+    const ulta = REGION_RETAILERS.US.find((r) => r.id === 'ulta')!;
+    expect(ulta.sizeFromProductGroup).toBe(true);
+  });
+
+  it('gives the slow one page per request shops more time, never a shorter gap', () => {
+    for (const id of ['ulta', 'nykaa', 'aar-fragrances']) {
+      const shop = [...REGION_RETAILERS.US, ...REGION_RETAILERS.IN].find((r) => r.id === id)!;
+      expect(shop.pageBudget, id).toBeDefined();
+      expect(shop.pageBudget!.minutes, id).toBeLessThanOrEqual(45);
+      expect(shop.minRequestGapMs, id).toBeGreaterThanOrEqual(1500);
+    }
+  });
+
+  it('records Purplle as refused to the runner, not worked around', () => {
+    const purplle = REGION_RETAILERS.IN.find((r) => r.id === 'purplle')!;
+    expect(purplle.enabled).toBe(false);
+    expect(purplle.blockedReason).toMatch(/bot-check script/);
+  });
+});
+
