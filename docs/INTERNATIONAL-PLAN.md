@@ -899,7 +899,7 @@ never read (the region snapshots carry none).
 
 ### Left for later
 
-- Deals in the regions (read the shops' compare at prices in the region harvest).
+- ~~Deals in the regions (read the shops' compare at prices in the region harvest).~~ Built 9 October 2026: see "Deals on the US and India sites" below; the numbers fill in with the next crawls.
 - D24 for US and Indian shops: answered yes on 9 Oct 2026 (resolved, see Owner decision 5).
 - The legal review (owner) before any affiliate programme or ad earns money there.
 - The Supabase wishlist region columns (plan section 6, "Accounts"): saved fragrances and alerts
@@ -917,3 +917,60 @@ and the sign in form never has it. Sign up and sign in are by email and password
 magic link path), so no other first sign in skips the form. Nothing is stored: no column, no
 migration. Whether the DPDP Rules need a stored record is left to the owner and the legal review
 (`docs/OWNER-STEPS.md`, section 10, step 3). Tests: `tests/ageConfirm.test.ts`.
+
+### Deals on the US and India sites (9 October 2026)
+
+Owner decision: make the US and India Deals tabs work. They were empty because the region crawl
+dropped every shop's "was" price (`wasPrice: null` in `toRegionListings`). Not a live crawl: built
+and tested on the committed snapshots.
+
+**What the crawl keeps now.** The shop's own stated reference price, as published, in the
+region's currency, on the listing as `wasPrice` (the neutral field the snapshot already had):
+Shopify `compare_at_price` per variant, and on a JSON-LD page `listPrice`, a `highPrice` on a
+single offer, or a `priceSpecification` typed ListPrice, strikethrough or MRP (India). The
+adapters carry it as `RawListing.nativeWasPrice` beside `nativePrice`, only when the currency is
+named, never converted, never guessed, never for a sterling shop (the UK keeps `wasPriceGbp` and
+its output is unchanged). `regionWasPriceOf` stores it only above the price: a reference equal to
+or below the price is no reference. An AggregateOffer's `highPrice` (the dearest size of a range)
+is never read as a reference. `reconcileRegion` replaces it each read, so a shop that drops its
+compare at price loses it at the next read.
+
+**The rule is the UK's** (`docs/` guide "How deals are chosen", `scripts/build-deals.ts`),
+run by the same code with the region's currency and formatter, not a copy:
+`dealCandidateForOffer` and `buildDiscount` for the saving (worked from the price the page prints,
+floored, under 1% no deal), `judgeWasPrice` for the shop's reference (only a reference the other
+shops corroborate survives; a lone shop's word, or one far above what the others charge, is
+withheld, so it can never make a deal), bottles only (no sets or oils), buyable offers only, never
+a single house's own shop, cheapest qualifying offer per product. There is no house price to
+anchor on in the regions, so every deal is against the shop's own MSRP (US) or MRP (India), named
+by `localWords`. **One addition, region only, and it can only remove a deal:** where the shop's own
+recorded prices for the bottle moved in the last 30 days, the price now must be below the highest
+of them (`historyAllowsDeal`, `src/catalogue/regionDeals.ts`); a price that has just gone up is
+not a deal. With no recorded movement (the history started on 9 Oct 2026) it has no say. Note the
+UK has no history check and its code says it never infers a reference from history; none is
+inferred here either.
+
+**Files.** `data/regions/<us|in>/deals.json`, written by the same crawl step
+(`scripts/build-region-catalogue.ts`, through `regionDealsFile`): the deals, the region's
+currency and reference name, and the counts of listings with a reference price and of references
+that survived the market check; `report.json` carries the same counts. Listed in
+`scripts/generated-files.txt` (policy `incoming`, committed by `catalogue-us.yml` and
+`catalogue-in.yml`). The pages' deals are built from the snapshots at deploy time by the one
+function (`buildRegionSite`), so the file and the page cannot differ.
+
+**The tabs.** Deals in the US shows `$1,299.00` and "MSRP"; in India whole rupees (`₹1,23,450`)
+and "MRP"; the Beta line stays. A beta region with fewer than six deals (`REGION_MIN_DEALS`)
+shows "Not many deals yet in the beta." above the real ones, or alone when there are none; nothing
+is padded. The product has no Deals rail on the home page in any region (the home page has Most
+Stocked only), so none was added.
+
+**Counts as built (committed snapshots, 9 Oct 2026): US 0 deals, India 0 deals.** No listing in
+either region's snapshots carries a reference price (0 of 22,390 US and 0 of 14,594 Indian
+products), because the harvest dropped them; the tabs show the empty line. **What fills in:** the
+next daily crawls (US 07:52 UTC, India 20:22 UTC) read the reference prices. Shopify shops fill in
+at once; the sitemap shops (Ulta, Nykaa, AAR Fragrances) fill in as their pages are re-read
+(unseen pages first, then the oldest). A deal also needs the bottle in three shops or more (a
+reference needs two others to check it) so expect tens, not thousands, in the first days.
+
+**UK unchanged.** `npm run deals:build` before and after: 4,024 deals, 875,439 bytes, identical
+apart from the `DEALS_GENERATED_AT` line.

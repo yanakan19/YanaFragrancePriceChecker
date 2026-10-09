@@ -17,6 +17,8 @@
  *   data/regions/<us|in>/catalogue.json      the products, one per line
  *   data/regions/<us|in>/price-history.json  appended from its own last copy
  *   data/regions/<us|in>/report.json         the plan's go/no-go numbers
+ *   data/regions/<us|in>/deals.json          Today's Deals as the page will show
+ *                                            them (the UK rules, src/catalogue/regionDeals.ts)
  *   data/regions/<us|in>/product-slugs.json  the region's product addresses,
  *                                            append only (scripts/regionSite.ts)
  * No page, no alias, no UK file. src/catalogue/regionCatalogue.ts holds the
@@ -32,7 +34,7 @@ import {
 } from '../src/catalogue/regionCatalogue.js';
 import { matchUkPhotos, type UkPhotoSource } from '../src/catalogue/regionUkPhotos.js';
 import { REPO_ROOT, writeGenerated } from './generatedFiles.js';
-import { isShowable, regionSlugPath, regionSlugProduct, regionSlugs } from './regionSite.js';
+import { buildRegionSite, isShowable, readRegionInputs, regionDealsFile, regionSlugPath, regionSlugProduct, regionSlugs } from './regionSite.js';
 
 function arg(name: string): string | null {
   const hit = process.argv.find((a) => a.startsWith(`--${name}=`));
@@ -96,6 +98,14 @@ const lines = products.map((p) => (ukPhotos.has(p.id) ? { ...p, ukPhoto: { id: u
 const historyPath = resolve(REPO_ROOT, folder, 'price-history.json');
 const history = appendRegionHistory(readJson<RegionPriceHistory>(historyPath), products, region.currency, now);
 
+// The region's product addresses: append only, a UK address kept for a bottle the UK also sells.
+const regionAddresses = regionSlugs(products.filter(isShowable).map(regionSlugProduct), slugs?.slugs ?? {}, slugMemory);
+
+// Today's Deals, by the same function the page build runs (scripts/regionSite.ts), from this crawl's snapshots and history.
+const readRegionInputsFor = { ...readRegionInputs(REPO_ROOT, region.id), history, slugMemory: regionAddresses };
+const site = buildRegionSite(readRegionInputsFor, slugs?.slugs ?? {}, now, ukCatalogue);
+const dealsFile = regionDealsFile(readRegionInputsFor, site, now);
+
 const harvest = readJson<Record<string, unknown> & { minutes?: number; shopsPriced?: number; shops?: { id: string; status: string; priced: number; kept: number }[] }>(
   resolve(REPO_ROOT, folder, 'harvest-report.json'),
 );
@@ -116,6 +126,9 @@ const report = {
   staleAfterDays: REGION_STALE_DAYS,
   ...measures,
   ...photoCounts,
+  listingsWithReference: dealsFile.listingsWithReference,
+  offersWithCorroboratedReference: dealsFile.offersWithCorroboratedReference,
+  deals: dealsFile.deals.length,
   shareWithUkPhoto: photoCounts.productsShown ? Math.round((photoCounts.productsWithUkPhoto / photoCounts.productsShown) * 1000) / 1000 : 0,
   goNoGo: {
     bar: 'Proceed if at least a quarter of products have two or more shops (plan section 7).',
@@ -127,8 +140,7 @@ const report = {
 writeGenerated(REPO_ROOT, `${folder}/catalogue.json`, encodeLines({ region: region.id, currency: region.currency, builtAt: now }, 'products', lines));
 writeGenerated(REPO_ROOT, `${folder}/price-history.json`, encodeHistory(history));
 writeGenerated(REPO_ROOT, `${folder}/report.json`, `${JSON.stringify(report, null, 2)}\n`);
-// The region's product addresses: append only, a UK address kept for a bottle the UK also sells.
-const regionAddresses = regionSlugs(products.filter(isShowable).map(regionSlugProduct), slugs?.slugs ?? {}, slugMemory);
+writeGenerated(REPO_ROOT, `${folder}/deals.json`, `${JSON.stringify(dealsFile, null, 1)}\n`);
 writeGenerated(REPO_ROOT, slugMemoryPath, `${JSON.stringify({ slugs: regionAddresses }, null, 1)}\n`);
 
 console.log(`${region.id}: ${snapshots.length} snapshot(s), ${measures.products} product(s), ${measures.productsWithTwoOrMoreShops} with two or more shops ` +

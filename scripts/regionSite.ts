@@ -20,7 +20,10 @@
  *     it (src/catalogue/wasPriceCredibility.ts, the UK's withholding rule);
  *   - Today's Deals: the UK's candidate rule (src/services/dealCandidates.ts)
  *     on the price the product page prints, bottles only, buyable offers only,
- *     never a house's own shop;
+ *     never a house's own shop, on the shop's own stated reference price kept
+ *     by the crawl (compare at, list price, MRP) once the other shops corroborate
+ *     it, and not against the shop's own recorded prices
+ *     (src/catalogue/regionDeals.ts);
  *   - the NEW badge only for a listing that arrived after the shop's first
  *     crawl (src/catalogue/newBadge.ts);
  *   - photos (D24, answered by the owner on 9 Oct 2026 for the US and India): a
@@ -59,6 +62,8 @@ import { brandKey } from '../src/catalogue/brandName.js';
 import { regionShopAsRetailer } from '../src/config/regionShops.js';
 import { presentOffer } from '../src/services/priceService.js';
 import { dealCandidateForOffer } from '../src/services/dealCandidates.js';
+import { historyAllowsDeal, REGION_MIN_DEALS } from '../src/catalogue/regionDeals.js';
+import { regionById } from '../src/config/regions.js';
 import type { StockState } from '../src/types/offer.js';
 import { shownPrice } from '../demo/msrpComparison.js';
 import { slugify } from '../demo/router.js';
@@ -380,6 +385,8 @@ export function buildRegionSite(
     for (const o of offers) {
       const retailer = retailerById.get(o.retailerId);
       if (!retailer?.enabled || retailer.singleBrandOnly || !BUYABLE.has(o.stock)) continue;
+      // Region only, and it only takes a deal away: the shop's own recorded prices must not contradict it (src/catalogue/regionDeals.ts).
+      if (!historyAllowsDeal(inputs.history?.points[p.id]?.[o.retailerId], o.price, nowMs)) continue;
       const shown = shownPrice(presentOffer({ ...o, variantId: p.id, currency: 'GBP' }, retailer, nowDate));
       const c = dealCandidateForOffer({ brand: p.brand, houseCeiling: null }, {
         price: o.price,
@@ -428,6 +435,29 @@ export function buildRegionSite(
     slugs,
     crawledAt: newest || inputs.harvestRanAt || now,
     shopCount,
+  };
+}
+
+/**
+ * data/regions/<r>/deals.json: Today's Deals as the page shows them, with the
+ * counts that say where they come from (the crawl writes it beside the
+ * report; the page build computes the same deals from the same snapshots).
+ */
+export function regionDealsFile(inputs: Pick<RegionInputs, 'region' | 'snapshots'>, site: Pick<RegionSite, 'crawled' | 'deals'>, builtAt: string) {
+  const cfg = regionById(inputs.region)!;
+  const active = inputs.snapshots.flatMap((s) => s.listings.filter((l) => l.status === 'active'));
+  return {
+    region: inputs.region,
+    currency: REGION_CRAWL[inputs.region].currency,
+    referencePriceName: cfg.referencePriceName,
+    builtAt,
+    rule: "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
+    /** Active listings carrying the shop's own reference price, before any check. */
+    listingsWithReference: active.filter((l) => l.wasPrice !== null).length,
+    /** Offers on the page whose reference survived the market check. */
+    offersWithCorroboratedReference: Object.values(site.crawled).reduce((n, offers) => n + offers.filter((o) => o.wasPrice !== null).length, 0),
+    deals: site.deals,
+    minDealsForFullList: REGION_MIN_DEALS,
   };
 }
 

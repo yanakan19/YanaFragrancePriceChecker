@@ -1,0 +1,11 @@
+{
+ "region": "US",
+ "currency": "USD",
+ "referencePriceName": "MSRP",
+ "builtAt": "2026-10-09T18:57:46.515Z",
+ "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
+ "listingsWithReference": 0,
+ "offersWithCorroboratedReference": 0,
+ "deals": [],
+ "minDealsForFullList": 6
+}

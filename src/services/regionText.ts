@@ -16,6 +16,7 @@
  * Free of the DOM and the catalogue, so the page, the build scripts and the
  * tests read the same words (tests/regionPages.test.ts).
  */
+import { REGION_MIN_DEALS } from '../catalogue/regionDeals.js';
 import { activeRegion, type RegionConfig } from '../config/regions.js';
 
 /**
@@ -119,6 +120,15 @@ export function codFootnote(region: RegionConfig = activeRegion()): string | nul
 /** The line a beta region's pages carry under the header. Null for a region that is not in beta. */
 export function betaLine(region: RegionConfig = activeRegion()): string | null {
   return region.beta ? `${region.shopsAdjective} prices are in beta: fewer shops than the UK site for now.` : null;
+}
+
+/**
+ * The line over a beta region's Deals tab when fewer than REGION_MIN_DEALS
+ * real deals stand: the few that exist are still listed, none is added to fill
+ * the page. Null for the UK and for a region with enough deals.
+ */
+export function sparseDealsLine(count: number, region: RegionConfig = activeRegion()): string | null {
+  return region.beta && count < REGION_MIN_DEALS ? 'Not many deals yet in the beta.' : null;
 }
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];

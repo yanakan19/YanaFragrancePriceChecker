@@ -150,5 +150,10 @@ incoming  docs/DELIVERY-RECHECK.md            npm run delivery:recheck
 # by the region's crawl.
 incoming  data/regions/us/product-slugs.json  scripts/build-region-catalogue.ts --region=us (catalogue-us.yml), append only, reads its own last copy
 incoming  data/regions/in/product-slugs.json  scripts/build-region-catalogue.ts --region=in (catalogue-in.yml), append only, reads its own last copy
+# Each region's Today's Deals as the page shows them (the UK's deal rules on the shops' own
+# stated reference prices, src/catalogue/regionDeals.ts): written by the same crawl, with the
+# counts of listings carrying a reference price, corroborated references and deals.
+incoming  data/regions/us/deals.json          scripts/build-region-catalogue.ts --region=us (catalogue-us.yml)
+incoming  data/regions/in/deals.json          scripts/build-region-catalogue.ts --region=in (catalogue-in.yml)
 incoming  data/regions/us/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=us (catalogue-us.yml)
 incoming  data/regions/in/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=in (catalogue-in.yml)

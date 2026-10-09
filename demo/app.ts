@@ -142,7 +142,7 @@ import { REGIONS, CURRENT_REGION, regionButtonLabel, type Region } from '../src/
 import { ageConfirmHtml, needsAgeConfirmation, AGE_CONFIRM_ERROR_TITLE, AGE_CONFIRM_ERROR_MESSAGE } from './ageConfirm.js';
 import { activeRegion, liveRegions, regionById, regionHome, splitRegionPrefix, suggestRegionForTimeZone, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import { BAR_DISMISSED_KEY, barRegion, barText, leafAlternates, switchNeedsLinks, switchTarget, type RegionLinks, type SwitchFrom } from './regionSwitch.js';
-import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxNote } from '../src/services/regionText.js';
+import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxNote, sparseDealsLine } from '../src/services/regionText.js';
 import {
   WELCOME_PREVIEW_PARAM, browserTimeZone, openRegionWelcome, previewChoices, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
 } from './regionWelcome.js';
@@ -3287,6 +3287,12 @@ function dealsPanel(): string {
     filterControls(sharedFilterContext(DEAL_FACETS, views, filtered.length, ['Deal', 'Deals'])),
   );
 
+  // A beta region with fewer than six real deals says so, plainly: the few that
+  // exist are listed below it, and nothing is added to fill the page.
+  const sparse = sparseDealsLine(sorted.length);
+  if (sparse && sorted.length === 0) {
+    return `${controls}<p class="empty-note t-body">${esc(sparse)}</p>`;
+  }
   if (DEALS.length === 0) {
     return `${controls}<p class="empty-note t-body">No shop is publishing a reference price right now.</p>`;
   }
@@ -3335,7 +3341,7 @@ function dealsPanel(): string {
         (d.delivered ? '' : `<span class="amt-note">${localWords('Delivery Not Stated')}</span>`),
     });
 
-  return `${controls}
+  return `${controls}${sparse ? `<p class="empty-note t-body">${esc(sparse)}</p>` : ''}
     <p class="panel-note t-body">${esc(localWords("Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it. Each perfume shows its best deal across its sizes."))}${regionTaxNoteText()}</p>
     <ul class="tile-grid">${chunked(withGridAds(filtered, dealTile), (item, i) => item(i))}</ul>`;
 }
