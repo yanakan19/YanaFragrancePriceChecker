@@ -453,6 +453,9 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
         nativePrice: isGbp
           ? null
           : { amount: variant.price, currency: options.currency ?? 'unknown' },
+        // The same shop's compare at price in the same (non sterling) currency,
+        // kept as published for the region crawl; absent for a sterling shop.
+        ...(!isGbp && wasPrice !== null ? { nativeWasPrice: wasPrice } : {}),
       });
     }
   }

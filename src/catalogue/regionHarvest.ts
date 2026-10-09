@@ -46,6 +46,7 @@ import { crawlViaSitemap } from './sitemapCrawl.js';
 import { cleanBarcode } from './barcode.js';
 import { parsePrice } from './jsonld.js';
 import { isCatalogueListing } from './fragranceId.js';
+import { rejectPlaceholderImage } from './placeholderImage.js';
 
 /** A conversion this close to 1 is the theme's own rounding (shopCurrency.ts uses the same). */
 const RATE_EPSILON = 0.005;
@@ -65,6 +66,12 @@ export interface RegionListing {
   inStock: boolean | null;
   availability?: 'preOrder' | null;
   productType?: string | null;
+  /**
+   * The shop's own picture of this listing, as a URL on the shop's side (D24,
+   * answered for the US and India on 9 Oct 2026). Only the address is kept,
+   * never the file. Shown only for a shop with `imageBasis`.
+   */
+  imageUrl?: string;
   sectionId: string;
   firstSeenAt: string;
   lastSeenAt: string;
@@ -168,6 +175,22 @@ export function regionPriceOf(l: RawListing, expected: RegionCurrency): number |
 }
 
 /**
+ * The shop's own stated reference price on this listing (Shopify
+ * `compare_at_price`, a JSON-LD list price, an Indian MRP) in the region's
+ * currency, or null. Kept only when the adapter read it beside a price in that
+ * same currency, and only when it sits above the price: a reference equal to
+ * or below the price is no reference (an unchanged or stale one). It is the
+ * shop's figure exactly as published, never converted and never guessed.
+ */
+export function regionWasPriceOf(l: Pick<RawListing, 'nativePrice' | 'nativeWasPrice' | 'priceGbp'>, price: number, expected: RegionCurrency): number | null {
+  if (l.priceGbp !== null || l.nativePrice?.currency !== expected) return null;
+  const w = l.nativeWasPrice;
+  if (typeof w !== 'number' || !Number.isFinite(w) || w <= 0) return null;
+  const was = Math.round(w * 100) / 100;
+  return was > price ? was : null;
+}
+
+/**
  * The shape the UK's catalogue gate reads. `priceGbp` holds the region price
  * here only because `isCatalogueListing` asks one thing of it, that it is a
  * positive number; nothing is stored or shown from this object.
@@ -195,6 +218,12 @@ export function asGateListing(l: Pick<RegionListing, 'retailerSku' | 'url' | 'ra
     eligibleForNewBadge: false,
     variantId: null,
   };
+}
+
+/** A listing's picture address as kept: an https address, and not a feed's "no image" graphic. Never a file. */
+export function shopImageUrl(url: string | null | undefined): string | null {
+  if (!url || !/^https:\/\//i.test(url)) return null;
+  return rejectPlaceholderImage(url);
 }
 
 /** What the adapters return, priced in the region's currency and cut to what the catalogue keeps. */
@@ -227,12 +256,12 @@ export function toRegionListings(
       rawBrand,
       ean,
       price,
-      // Neither adapter carries a non sterling reference price yet (shopifyJson.ts
-      // keeps compare_at_price for GBP only), so none is claimed.
-      wasPrice: null,
+      // The shop's own stated reference price, as published (regionWasPriceOf).
+      wasPrice: regionWasPriceOf(l, price, shop.currency),
       inStock: l.inStock,
       ...(l.availability ? { availability: l.availability } : {}),
       productType: l.productType ?? null,
+      ...(shopImageUrl(l.imageUrl) ? { imageUrl: shopImageUrl(l.imageUrl)! } : {}),
       sectionId: l.sectionId,
       firstSeenAt: now,
       lastSeenAt: now,
@@ -317,7 +346,7 @@ export function reconcileRegion(
   for (const l of current) {
     seenNow.add(l.retailerSku);
     const old = before.get(l.retailerSku);
-    out.push(old ? { ...l, firstSeenAt: old.firstSeenAt } : l);
+    out.push(old ? { ...l, firstSeenAt: old.firstSeenAt, ...(!l.imageUrl && old.imageUrl ? { imageUrl: old.imageUrl } : {}) } : l);
   }
   for (const old of before.values()) {
     if (seenNow.has(old.retailerSku)) continue;

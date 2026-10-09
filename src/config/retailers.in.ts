@@ -15,7 +15,7 @@
  * the shop's own page; a cash on delivery fee is recorded as `codFee`, a
  * footnote, never priced in.
  *
- * No affiliate field, no photo field: see src/types/regionRetailer.ts.
+ * No affiliate field. Every shop carries `imageBasis` (owner decision of 9 Oct 2026, D24): see src/types/regionRetailer.ts.
  */
 import { IN_TAX_NOTE, type RegionRetailer } from '../types/regionRetailer.js';
 
@@ -40,6 +40,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.nykaa.com/',
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: {
       kind: 'sitemap',
       sitemapRoute: {
@@ -92,6 +94,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.purplle.com/',
     tiers: ['designer', 'mideast'],
     enabled: false,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     blockedReason:
       'Refused to the crawl runner: from GitHub Actions its sitemap (/sitemap/products/all-subcategories.xml) is answered with a 545 byte page that only loads a bot-check script, instead of the sitemap, on two runs (2026-10-09, runs 37886577840 and 37887989045). From other networks the same request as PriceSniffsBot gets the sitemap. A challenge is a refusal (D23): not worked around. Readable again only if the shop lets the bot through.',
     route: {
@@ -131,6 +135,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://perfumepalace.in/',
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -150,6 +156,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.fridaycharm.com/',
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -166,6 +174,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.perfumenetwork.in/',
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -182,6 +192,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.aarfragrances.com/',
     tiers: ['mideast', 'designer'],
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     // Its pages carry no JSON-LD: the name is the page's <h1>, the price is in
     // og:price:amount ("₹5,000.00") with product:price:currency "Rupee", read
     // as INR by readOgProductPage (src/catalogue/regionHarvest.ts). Stock is
@@ -213,6 +225,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['niche'],
     singleBrandOnly: 'Bombay Perfumery',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -242,6 +256,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     // The UK registry's bellavita-luxury entry names the house the same way.
     singleBrandOnly: 'BellaVita',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -271,6 +287,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['designer'],
     singleBrandOnly: 'Wild Stone',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -301,6 +319,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['niche'],
     singleBrandOnly: 'Naso Profumi',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -318,6 +338,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['designer'],
     singleBrandOnly: 'Pilgrim',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -335,6 +357,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['designer'],
     singleBrandOnly: 'The Man Company',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -352,6 +376,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['designer'],
     singleBrandOnly: 'Ustraa',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: {
       kind: 'sitemap',
       sitemapRoute: {
@@ -389,6 +415,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['niche'],
     singleBrandOnly: 'Mirah Belle',
     enabled: false,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     blockedReason:
       'No perfume range found: its sitemap (643 addresses, read 2026-10-09) lists skincare, hair care, soaps and floor cleaner; the only "fragrance" addresses are articles and a lemon floor cleaner. /products.json is disallowed by its robots.txt.',
     route: null,
@@ -407,6 +435,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['mideast'],
     singleBrandOnly: 'Gulabsingh Johrimal',
     enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -436,6 +466,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     tiers: ['mideast'],
     singleBrandOnly: 'Kannauj Attar',
     enabled: false,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
     blockedReason:
       'WooCommerce. Its public Store API (/wp-json/wc/store/v1/products, robots.txt allows everything) answers in INR (currency_code INR, minor unit 2) and the page also shows dollars, which are never read. But its attars and sprays are variable products whose list entry gives only a "from" price and no size; reading each size needs one request per variation. Off until that read is built.',
     route: null,

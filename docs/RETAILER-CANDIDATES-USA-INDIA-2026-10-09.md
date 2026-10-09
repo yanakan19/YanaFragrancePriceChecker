@@ -147,7 +147,7 @@ Enabled after a dry run read real priced listings. It meets each condition the b
 The strength: the titles name none ("Glossier You Doux 50 ml"), but all five scent pages say Eau de Parfum
 and the SKUs begin `EDP-`, so the entry carries `fragranceTypeIsEauDeParfum` (as Beauty Pie does) and not
 `fragranceOnlyCatalogue` (the shop sells skincare). `singleBrandOnly: 'Glossier'` makes the page say it is one
-house's own shop. The photos stay off (D24 does not cover it) and the affiliate stays unapplied.
+house's own shop. The photos were held off (D24 did not cover it) until the owner said yes on 9 Oct 2026 and the affiliate stays unapplied.
 
 Directories disagree on its programme (Impact, FlexOffers, Shopify Collabs, Skimlinks); none was found on a
 network's own page.

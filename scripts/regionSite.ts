@@ -20,12 +20,20 @@
  *     it (src/catalogue/wasPriceCredibility.ts, the UK's withholding rule);
  *   - Today's Deals: the UK's candidate rule (src/services/dealCandidates.ts)
  *     on the price the product page prints, bottles only, buyable offers only,
- *     never a house's own shop;
+ *     never a house's own shop, on the shop's own stated reference price kept
+ *     by the crawl (compare at, list price, MRP) once the other shops corroborate
+ *     it, and not against the shop's own recorded prices
+ *     (src/catalogue/regionDeals.ts);
  *   - the NEW badge only for a listing that arrived after the shop's first
  *     crawl (src/catalogue/newBadge.ts);
- *   - no photo at all: D24 is pending for these countries (owner decision 5),
- *     so `image` and every `imageUrl` are null and the page draws its
- *     placeholder;
+ *   - photos (D24, answered by the owner on 9 Oct 2026 for the US and India): a
+ *     shop with `imageBasis` shows its own picture, hot-linked from its page
+ *     (the offer's `imageUrl`; never downloaded); a shop without it shows none.
+ *     A product's picture is the matching UK product's first (`entry.image`
+ *     and its per photo transform, src/catalogue/regionUkPhotos.ts, owner
+ *     instruction of 9 Oct 2026), else the best of its shops' own pictures by
+ *     the UK's `pickImage` rules; none at all and the page draws its
+ *     placeholder. A gift set never takes a UK bottle's picture, only its own shops';
  *   - no notes: the region shops' listings carry none, and a UK shop's notes
  *     would name a shop the region page does not list.
  *
@@ -54,9 +62,13 @@ import { brandKey } from '../src/catalogue/brandName.js';
 import { regionShopAsRetailer } from '../src/config/regionShops.js';
 import { presentOffer } from '../src/services/priceService.js';
 import { dealCandidateForOffer } from '../src/services/dealCandidates.js';
+import { historyAllowsDeal, REGION_MIN_DEALS } from '../src/catalogue/regionDeals.js';
+import { regionById } from '../src/config/regions.js';
 import type { StockState } from '../src/types/offer.js';
 import { shownPrice } from '../demo/msrpComparison.js';
 import { slugify } from '../demo/router.js';
+import { matchUkPhotos, type UkPhotoSource } from '../src/catalogue/regionUkPhotos.js';
+import { pickImage } from '../src/catalogue/pickImage.js';
 
 const DAY_MS = 86_400_000;
 
@@ -71,8 +83,8 @@ export interface RegionCrawledOffer {
   fetchedAt: string;
   firstSeenAt: string;
   isNew: boolean;
-  /** Always null: D24 is pending for US and Indian shops. */
-  imageUrl: null;
+  /** The shop's own picture, a URL on the shop's side, for a shop with `imageBasis` (D24); else null. */
+  imageUrl: string | null;
   rating: null;
   /** On a set sold by two shops or more: this shop's own title, where it differs from the set's. */
   title?: string;
@@ -88,8 +100,13 @@ export interface RegionCatalogueEntry {
   sizeMl: number | null;
   ean: string | null;
   shops: number;
-  /** Always null: no shop photo is shown for a US or Indian product (D24 pending). */
-  image: null;
+  /**
+   * The matching UK product's picture (src/catalogue/regionUkPhotos.ts), else
+   * the best of the region shops' own pictures (`pickImage`), else null.
+   */
+  image: string | null;
+  /** The UK photo's own build time transform (docs/IMAGE-SCALE-PLAN.md), carried with it. */
+  imageTransform?: string;
   notes: null;
   giftSet?: { contents: null; title: string };
 }
@@ -282,8 +299,15 @@ export function cheapestSeries(byShop: Readonly<Record<string, readonly (readonl
 const BUYABLE: ReadonlySet<StockState> = new Set<StockState>(['inStock', 'lowStock']);
 
 /** Builds a region's page data from what its crawl committed. Pure apart from the clock it is given. */
-export function buildRegionSite(inputs: RegionInputs, ukSlugs: Readonly<Record<string, string>>, now: string): RegionSite {
+export function buildRegionSite(
+  inputs: RegionInputs,
+  ukSlugs: Readonly<Record<string, string>>,
+  now: string,
+  /** The UK catalogue, read only, for the pictures of matching bottles (`matchUkPhotos`); none given, none shown. */
+  uk: readonly UkPhotoSource[] = [],
+): RegionSite {
   const products = regionProducts(inputs, now).filter(isShowable);
+  const ukPhotos = matchUkPhotos(products, uk);
   const slugs = regionSlugs(products.map(regionSlugProduct), ukSlugs, inputs.slugMemory);
   const shopById = new Map(inputs.shops.map((s) => [s.id, s]));
   const retailerById = new Map(inputs.shops.map((s) => [s.id, regionShopAsRetailer(s)]));
@@ -332,7 +356,7 @@ export function buildRegionSite(inputs: RegionInputs, ukSlugs: Readonly<Record<s
         fetchedAt,
         firstSeenAt: d?.firstSeenAt ?? fetchedAt,
         isNew,
-        imageUrl: null,
+        imageUrl: shopById.get(o.shopId)?.imageBasis && d?.imageUrl ? d.imageUrl : null,
         rating: null,
         ...(isSet && d?.title && d.title !== setTitle ? { title: d.title } : {}),
       };
@@ -348,7 +372,8 @@ export function buildRegionSite(inputs: RegionInputs, ukSlugs: Readonly<Record<s
       sizeMl: isSet ? null : p.sizeMl,
       ean: p.ean,
       shops: offers.length,
-      image: null,
+      image: (isSet ? undefined : ukPhotos.get(p.id)?.image) ?? pickImage(offers.map((o) => ({ retailerId: o.retailerId, imageUrl: o.imageUrl, fetchedAt: o.fetchedAt })), nowDate),
+      ...(!isSet && ukPhotos.get(p.id)?.imageTransform ? { imageTransform: ukPhotos.get(p.id)!.imageTransform! } : {}),
       notes: null,
       ...(isSet ? { giftSet: { contents: null, title: setTitle! } } : {}),
     });
@@ -360,6 +385,8 @@ export function buildRegionSite(inputs: RegionInputs, ukSlugs: Readonly<Record<s
     for (const o of offers) {
       const retailer = retailerById.get(o.retailerId);
       if (!retailer?.enabled || retailer.singleBrandOnly || !BUYABLE.has(o.stock)) continue;
+      // Region only, and it only takes a deal away: the shop's own recorded prices must not contradict it (src/catalogue/regionDeals.ts).
+      if (!historyAllowsDeal(inputs.history?.points[p.id]?.[o.retailerId], o.price, nowMs)) continue;
       const shown = shownPrice(presentOffer({ ...o, variantId: p.id, currency: 'GBP' }, retailer, nowDate));
       const c = dealCandidateForOffer({ brand: p.brand, houseCeiling: null }, {
         price: o.price,
@@ -408,6 +435,29 @@ export function buildRegionSite(inputs: RegionInputs, ukSlugs: Readonly<Record<s
     slugs,
     crawledAt: newest || inputs.harvestRanAt || now,
     shopCount,
+  };
+}
+
+/**
+ * data/regions/<r>/deals.json: Today's Deals as the page shows them, with the
+ * counts that say where they come from (the crawl writes it beside the
+ * report; the page build computes the same deals from the same snapshots).
+ */
+export function regionDealsFile(inputs: Pick<RegionInputs, 'region' | 'snapshots'>, site: Pick<RegionSite, 'crawled' | 'deals'>, builtAt: string) {
+  const cfg = regionById(inputs.region)!;
+  const active = inputs.snapshots.flatMap((s) => s.listings.filter((l) => l.status === 'active'));
+  return {
+    region: inputs.region,
+    currency: REGION_CRAWL[inputs.region].currency,
+    referencePriceName: cfg.referencePriceName,
+    builtAt,
+    rule: "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
+    /** Active listings carrying the shop's own reference price, before any check. */
+    listingsWithReference: active.filter((l) => l.wasPrice !== null).length,
+    /** Offers on the page whose reference survived the market check. */
+    offersWithCorroboratedReference: Object.values(site.crawled).reduce((n, offers) => n + offers.filter((o) => o.wasPrice !== null).length, 0),
+    deals: site.deals,
+    minDealsForFullList: REGION_MIN_DEALS,
   };
 }
 

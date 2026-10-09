@@ -493,6 +493,63 @@ No. Each candidate for a route that needs no owner and works now:
 So no dispatch was made, no registry entry changed, nothing was rebuilt and no
 changelog line was added.
 
+## Boots relaunch, findings of 2026-10-09
+
+Owner asked for Boots to be relaunched. Result: **no lawful route works today; nothing added to the site.**
+
+One polite request each, PriceSniffsBot/0.2 identity, 2 second gaps, nothing retried:
+
+| Request | Answer |
+| --- | --- |
+| `https://www.boots.com/robots.txt` | 200. Only search, checkout, account, CMS and tracking paths are disallowed; fragrance and product pages are allowed. One `Sitemap:` line (`sitemap_11352.xml`). |
+| `https://www.boots.com/sitemap_11352.xml` | 200 (gzip index, lists `uk-product-sitemap.xml`, lastmod 2026-09-22). |
+| `https://www.boots.com/` | 403, Imperva (Incapsula) challenge page. |
+| `.../uk-product-sitemap.xml` | 403, the same Imperva challenge. |
+
+So robots.txt allows the pages but Imperva refuses the bot on the pages and the product
+sitemap. Under D23 that is a refusal, not worked around (no browser headers, proxy, headless
+render or challenge solving), and no product page was asked for after it.
+
+Awin (merchant 2041): `data/awin-feed-sync-state.json` lists only Fragrance Click, MyBeauty
+Boutique, Nicchia Luxury UK and Perfume Click. The registry entry still reads
+`awinRequested('2041')` (applied 2026-08-11), no Awin feed key is available in this sandbox,
+and no evidence of acceptance exists in the repo. I did not dispatch the `awin_memberships`
+run of `catalogue-daily.yml` because a crawl was in progress and it shares that concurrency
+group. Even if accepted, the programme excludes Chanel, Dior and Jo Malone.
+
+Next, owner only: dispatch `catalogue-daily.yml` with `awin_memberships: true` (reads only)
+and read the `2041  boots` line. If joined, set `adapter: 'affiliate-feed'` and
+`affiliate: awinActive('2041', <publisherId>)`; `scripts/awin-feed-sync.ts` then picks the feed
+up. If not joined, chase the application or send the Boots press office permission request
+(draft in `docs/outreach/`). Delivery terms stay unset until a Boots page is readable.
+
+## Superdrug relaunch, findings of 2026-10-09
+
+Owner asked for Superdrug to be relaunched. Result: **no lawful route works today; nothing added to the site.**
+
+One polite request each, PriceSniffsBot/0.2 identity, 2 second gaps, at 18:27 UTC, nothing retried:
+
+| Request | Answer |
+| --- | --- |
+| `https://www.superdrug.com/robots.txt` | 403, `server: AkamaiGHost`, 385 byte "Access Denied" page with an errors.edgesuite.net reference. |
+| `https://www.superdrug.com/sitemap.xml` | 403, the same Akamai page (386 bytes). |
+
+The deny is served before robots.txt, so it is a rule about the requester, not a path (the same
+block as The Perfume Shop, both AS Watson). robots.txt cannot be read, so under D23 nothing more
+is asked; no product page was requested, and no browser headers, proxy, render or other way round
+was tried. No delivery terms were recorded (none can be quoted from a readable Superdrug page).
+
+Awin (profile 127687): the registry entry reads `status: 'not-applied'`, `publisherId: null`,
+and `data/awin-feed-sync-state.json` lists only Fragrance Click, MyBeauty Boutique, Nicchia
+Luxury UK and Perfume Click. So Superdrug is not joined and there is no feed to wire. The
+registry stays `enabled: false`. No code, registry entry, changelog or generated file changed.
+
+Next, owner only: apply to "Superdrug UK" (profile 127687) on Awin, leading with independent
+price comparison with delivery included (Superdrug excludes coupon, cashback and deal sites).
+On acceptance: set `affiliate: awinActive('127687', <publisherId>)` and `adapter:
+'affiliate-feed'`; `scripts/awin-feed-sync.ts` then picks the feed up, with no new reader code.
+Alternatively ask AS Watson for group permission (shared with The Perfume Shop).
+
 ## Sources
 
 Read 2026-10-08.

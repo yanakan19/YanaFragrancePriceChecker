@@ -138,16 +138,27 @@ describe.skipIf(!built)('the built region pages', () => {
     expect(read('notes.html')).not.toContain('hreflang="en-US"');
   });
 
-  it('shows no shop photo for a US or Indian product, and lists only that region\'s shops', () => {
+  it('shows a UK listing\'s picture on a matching bottle, else a shop\'s own hot-linked photo, never a file of ours, and lists only that region\'s shops', () => {
+    const ukFile = referencedDataFiles(read('index.html')).find((f) => f.startsWith('data/catalogue.'))!;
+    // Raw text, not parsed: the UK catalogue is far too large to hold twice.
+    const ukText = read(ukFile);
     for (const r of REGIONS) {
       const catalogueFile = referencedDataFiles(read(`${r.pathPrefix}/index.html`)).find((f) => f.startsWith('data/catalogue.'))!;
       const blobs = JSON.parse(read(`${r.pathPrefix}/${catalogueFile}`)) as unknown[];
-      const products = blobs.find((b): b is { id: string; image: unknown }[] => Array.isArray(b) && b.length > 100 && typeof (b[0] as { slug?: unknown })?.slug === 'string')!;
+      const products = blobs.find((b): b is { id: string; image: string | null }[] => Array.isArray(b) && b.length > 100 && typeof (b[0] as { slug?: unknown })?.slug === 'string')!;
       expect(products.length, r.id).toBeGreaterThan(1000);
-      expect(products.filter((p) => p.image !== null).length, `${r.id} products with a photo`).toBe(0);
+      const pictured = products.filter((p) => p.image !== null);
+      expect(pictured.length, `${r.id} products with a UK picture`).toBeGreaterThan(100);
+      expect(pictured.length, `${r.id} products with a UK picture`).toBeLessThan(products.length);
+      const crawled0 = blobs.find((b): b is Record<string, { imageUrl: string | null }[]> => !!b && typeof b === 'object' && !Array.isArray(b) && Object.keys(b).length > 1000)!;
+      const photoHosts = new Set(Object.values(crawled0).flat().map((o) => o.imageUrl).filter((u): u is string => u !== null).map((u) => new URL(u).host));
+      // A picture is a UK listing's, or an address on the host of a shop of this region: never a path in our own folders.
+      const strangers = [...new Set(pictured.map((p) => p.image!))].filter((i) => !ukText.includes(JSON.stringify(i)) && !photoHosts.has(new URL(i).host));
+      expect(strangers, `${r.id} pictures that are neither a UK listing's nor a shop's own`).toEqual([]);
+      expect(pictured.filter((p) => !/^https:\/\//.test(p.image!)).length, `${r.id} pictures that are not an address on a shop`).toBe(0);
       const crawled = blobs.find((b): b is Record<string, { imageUrl: unknown; retailerId: string }[]> => !!b && typeof b === 'object' && !Array.isArray(b) && Object.keys(b).length > 1000)!;
       const offers = Object.values(crawled).flat();
-      expect(offers.filter((o) => o.imageUrl !== null).length, `${r.id} offers with a photo`).toBe(0);
+      expect(offers.filter((o) => o.imageUrl !== null && !/^https:\/\//.test(o.imageUrl as string)).length, `${r.id} offer photos that are not an address on a shop`).toBe(0);
       const shops = new Set(offers.map((o) => o.retailerId));
       for (const ukShop of ['lookfantastic', 'boots', 'notino', 'escentual']) expect(shops.has(ukShop), `${ukShop} on the ${r.id} page`).toBe(false);
       // The page's own registry is the region's: no UK shop's domain in its code.

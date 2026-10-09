@@ -533,8 +533,9 @@ Taken by the owner on 9 October 2026 (recorded as D30 in `docs/DECISIONS.md`):
    permitted route exists under D23: no scraping a site that forbids it in robots.txt or its terms,
    and no getting past a block. This may rule them out in practice (both are large, bot guarded
    sites whose terms restrict automated access); check robots.txt and the terms before any work.
-5. **Photo rule (D24) for new countries: pending.** The owner is being asked. Until answered, no US
-   or Indian shop's photo is shown.
+5. **Photo rule (D24) for new countries: resolved, yes (owner, 9 Oct 2026).** Each US and Indian
+   shop shows its own photo, hot-linked from its page and never copied, as the UK does; the 16 UK
+   shops added on 8 and 9 Oct 2026 and Glossier UK are covered too (docs/DECISIONS.md D24).
 6. **Affiliate programmes: not now.** For now only shops our crawler can read under D23 (scraped
    shops). Affiliate sign ups (Awin US, CJ, Rakuten, Impact, Skimlinks, the Indian networks) are
    planned for later, so the US beta is built from the shops that answered the bot (section 4's
@@ -622,8 +623,8 @@ A dry run per region, nothing published: no page, no sitemap entry, no UK file t
   (16), shape `RegionRetailer` (`src/types/regionRetailer.ts`): neutral money names in the shop's own
   currency, standard delivery read off a robots allowed page with the sentence quoted and the date (or
   marked unread: Fragrance Outlet's and MicroPerfumes' `/policies/shipping-policy` is disallowed and
-  was not fetched), the tax note (US: before sales tax; India: GST included), no affiliate field, no
-  photo field (D24 pending). Shops that share one catalogue (Perfumania, Fragrance Outlet, Fragrance
+  was not fetched), the tax note (US: before sales tax; India: GST included), no affiliate field, and
+  `imageBasis` on every shop (D24, answered yes 9 Oct 2026). Shops that share one catalogue (Perfumania, Fragrance Outlet, Fragrance
   Market) carry one `catalogueGroup` and count once in the overlap measure. MicroPerfumes keeps
   retail bottles only. Purplle's price 0 is read as sold out (`zeroPriceMeansSoldOut`), never as a
   price. Off, each with its reason in the entry: Jomashop (no price in the markup), Dillard's (sizes
@@ -749,8 +750,8 @@ they have no brand page and no address.
   product addresses into the same module shapes the UK page reads (`scripts/regionSite.ts`), and
   `scripts/bundle-region.ts` bundles the same app once per region with five modules swapped: the
   catalogue, the deals, the dormant products, the price history and the shop registry (the
-  region's shops as page `Retailer`s, `src/config/regionShops.ts`: no affiliate code, no photo
-  basis, no logo). `scripts/build-demo.ts` publishes `demo/us/index.html`, `demo/us/404.html` and
+  region's shops as page `Retailer`s, `src/config/regionShops.ts`: no affiliate code, the hot-link
+  photo basis, no logo). `scripts/build-demo.ts` publishes `demo/us/index.html`, `demo/us/404.html` and
   `demo/us/data/` (and the same for `/in/`); `scripts/build-route-pages.ts` writes a page of its
   own for each fixed address inside each region (`/us/deals` is `demo/us/deals.html`), so they
   answer 200. All deploy files: gitignored and in `scripts/generated-files.txt`.
@@ -770,10 +771,12 @@ they have no brand page and no address.
   shipped, MSRP, ZIP code and "before sales tax" in the US; GST included, MRP, PIN code and the
   cash on delivery footnote in India; dates `Oct 9, 2026` in the US. Every UK string comes back
   unchanged (the functions return the UK text untouched).
-- **Photos.** D24 is pending for US and Indian shops (owner decision 5), so no shop photo is
-  shown for a US or Indian product: `image` and every offer's `imageUrl` are null in the region
-  data, and the page draws its "No image available" marker. `tests/regionPages.test.ts` checks the
-  built data.
+- **Photos.** Owner decision 5 is resolved: the owner answered D24 yes on 9 Oct 2026 for the US and
+  Indian shops. A product shows the matching UK product's picture first (below), else the best of
+  its shops' own photos by `pickImage`, hot-linked from the shop's page; the offer's `imageUrl` is
+  that address (`RegionListing.imageUrl`, kept by the region harvest from the next crawl on), and
+  a product with no picture draws the "No image available" marker. `tests/regionPages.test.ts` and
+  `tests/regionShopPhotos.test.ts` check it.
 - **Notes.** The region shops publish no notes, so the US and Indian Notes tabs are empty: kept
   out of the region sitemaps, `noindex`, and the UK Notes page declares no alternate
   (`regionHasFixedPage`, `src/config/regions.ts`).
@@ -865,10 +868,39 @@ Built twice from the same data, the live tip before the beta (`e38eedba`) and th
   hand off, the menu switches a UK product to its US page, and the UK home asks "Select your
   country" for a visitor in a US time zone.
 
+### UK photos on matching region products (9 Oct 2026)
+
+Owner instruction, 9 Oct 2026: where a US or Indian product is the same bottle as a UK product,
+the UK listing's picture is shown on the US or India page. The UK site already shows that picture
+under D24's existing basis, so no new shop's photo is shown; a US or Indian shop's own picture is
+never read (the region snapshots carry none).
+
+- **Rule** (`src/catalogue/regionUkPhotos.ts`, `matchUkPhotos`). Both products must be plain bottles
+  (never a gift set, oil or attar), with the same size in ml and the same strength. Then either
+  (1) by barcode: the region product's `ean-` id is a UK product id, the match
+  `productsMatchingUkByBarcode` counts; a barcode that names another size, strength or kind is no
+  match, and no name match is tried after it. Or (2) by name, the only non barcode match, used
+  because it is the UK's own idea of one bottle: identical house, name, strength and size after
+  `regionMatchName`, strength stated on both, exactly one UK product with that key, and no two real
+  barcodes that disagree. When unsure, no match.
+- **Where it lives.** The page build (`scripts/build-region-data.ts` into `buildRegionSite`) gives
+  the matched product the UK entry's `image` and `imageTransform`, so every deploy, and so every
+  daily region crawl, keeps it. The region build (`scripts/build-region-catalogue.ts`) records
+  `ukPhoto: { id, by }` on each matched line of `data/regions/<r>/catalogue.json` (the UK id, never
+  the picture) and the counts in `report.json`. A crawl that cannot load the UK catalogue still
+  builds, with no UK pictures counted. The pages draw the picture exactly as the UK page does
+  (`productArt`); a product with no match keeps the "no image" tile. No UK file is written.
+- **Counts** (committed snapshots of 9 Oct 2026): US 3,820 of 22,390 products (17.1%), 1,280 by
+  barcode and 2,540 by name; India 1,551 of 14,594 (10.6%), 57 by barcode and 1,494 by name. Of the
+  1,596 US barcode matches, 298 failed the size, strength or kind check and are not used (a US
+  1.7 oz bottle on the barcode of a UK 50 ml, for instance). Name matches with two UK candidates (170 US, 162 India), a barcode that disagrees or no stated strength are not used.
+  Homepage Most Stocked 12: US 9 have a picture, India 3.
+- **D24 for US and Indian shops' own photos was answered yes on 9 Oct 2026.** The UK picture still comes first; a shop's own photo fills the products with no UK match.
+
 ### Left for later
 
-- Deals in the regions (read the shops' compare at prices in the region harvest).
-- D24 for US and Indian shops (owner): until answered, no photos.
+- ~~Deals in the regions (read the shops' compare at prices in the region harvest).~~ Built 9 October 2026: see "Deals on the US and India sites" below; the numbers fill in with the next crawls.
+- D24 for US and Indian shops: answered yes on 9 Oct 2026 (resolved, see Owner decision 5).
 - The legal review (owner) before any affiliate programme or ad earns money there.
 - The Supabase wishlist region columns (plan section 6, "Accounts"): saved fragrances and alerts
   are still UK prices; a US product saved from `/us/` is a product id the UK page may not have.
@@ -885,3 +917,60 @@ and the sign in form never has it. Sign up and sign in are by email and password
 magic link path), so no other first sign in skips the form. Nothing is stored: no column, no
 migration. Whether the DPDP Rules need a stored record is left to the owner and the legal review
 (`docs/OWNER-STEPS.md`, section 10, step 3). Tests: `tests/ageConfirm.test.ts`.
+
+### Deals on the US and India sites (9 October 2026)
+
+Owner decision: make the US and India Deals tabs work. They were empty because the region crawl
+dropped every shop's "was" price (`wasPrice: null` in `toRegionListings`). Not a live crawl: built
+and tested on the committed snapshots.
+
+**What the crawl keeps now.** The shop's own stated reference price, as published, in the
+region's currency, on the listing as `wasPrice` (the neutral field the snapshot already had):
+Shopify `compare_at_price` per variant, and on a JSON-LD page `listPrice`, a `highPrice` on a
+single offer, or a `priceSpecification` typed ListPrice, strikethrough or MRP (India). The
+adapters carry it as `RawListing.nativeWasPrice` beside `nativePrice`, only when the currency is
+named, never converted, never guessed, never for a sterling shop (the UK keeps `wasPriceGbp` and
+its output is unchanged). `regionWasPriceOf` stores it only above the price: a reference equal to
+or below the price is no reference. An AggregateOffer's `highPrice` (the dearest size of a range)
+is never read as a reference. `reconcileRegion` replaces it each read, so a shop that drops its
+compare at price loses it at the next read.
+
+**The rule is the UK's** (`docs/` guide "How deals are chosen", `scripts/build-deals.ts`),
+run by the same code with the region's currency and formatter, not a copy:
+`dealCandidateForOffer` and `buildDiscount` for the saving (worked from the price the page prints,
+floored, under 1% no deal), `judgeWasPrice` for the shop's reference (only a reference the other
+shops corroborate survives; a lone shop's word, or one far above what the others charge, is
+withheld, so it can never make a deal), bottles only (no sets or oils), buyable offers only, never
+a single house's own shop, cheapest qualifying offer per product. There is no house price to
+anchor on in the regions, so every deal is against the shop's own MSRP (US) or MRP (India), named
+by `localWords`. **One addition, region only, and it can only remove a deal:** where the shop's own
+recorded prices for the bottle moved in the last 30 days, the price now must be below the highest
+of them (`historyAllowsDeal`, `src/catalogue/regionDeals.ts`); a price that has just gone up is
+not a deal. With no recorded movement (the history started on 9 Oct 2026) it has no say. Note the
+UK has no history check and its code says it never infers a reference from history; none is
+inferred here either.
+
+**Files.** `data/regions/<us|in>/deals.json`, written by the same crawl step
+(`scripts/build-region-catalogue.ts`, through `regionDealsFile`): the deals, the region's
+currency and reference name, and the counts of listings with a reference price and of references
+that survived the market check; `report.json` carries the same counts. Listed in
+`scripts/generated-files.txt` (policy `incoming`, committed by `catalogue-us.yml` and
+`catalogue-in.yml`). The pages' deals are built from the snapshots at deploy time by the one
+function (`buildRegionSite`), so the file and the page cannot differ.
+
+**The tabs.** Deals in the US shows `$1,299.00` and "MSRP"; in India whole rupees (`₹1,23,450`)
+and "MRP"; the Beta line stays. A beta region with fewer than six deals (`REGION_MIN_DEALS`)
+shows "Not many deals yet in the beta." above the real ones, or alone when there are none; nothing
+is padded. The product has no Deals rail on the home page in any region (the home page has Most
+Stocked only), so none was added.
+
+**Counts as built (committed snapshots, 9 Oct 2026): US 0 deals, India 0 deals.** No listing in
+either region's snapshots carries a reference price (0 of 22,390 US and 0 of 14,594 Indian
+products), because the harvest dropped them; the tabs show the empty line. **What fills in:** the
+next daily crawls (US 07:52 UTC, India 20:22 UTC) read the reference prices. Shopify shops fill in
+at once; the sitemap shops (Ulta, Nykaa, AAR Fragrances) fill in as their pages are re-read
+(unseen pages first, then the oldest). A deal also needs the bottle in three shops or more (a
+reference needs two others to check it) so expect tens, not thousands, in the first days.
+
+**UK unchanged.** `npm run deals:build` before and after: 4,024 deals, 875,439 bytes, identical
+apart from the `DEALS_GENERATED_AT` line.

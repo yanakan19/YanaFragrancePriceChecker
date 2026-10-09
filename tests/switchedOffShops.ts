@@ -11,7 +11,8 @@ import { getRetailer } from '../src/config/retailers.js';
  * on for that file only and puts them back afterwards. Vitest gives every test
  * file its own copy of the registry, so nothing leaks into another file, and
  * the registry itself, and every test of what is on the site, still sees them
- * switched off (tests/registry.test.ts).
+ * switched off (tests/registry.test.ts). Notino UK, switched off the same day,
+ * came back on on 2026-10-07 and is no longer listed here.
  */
 export const SWITCHED_OFF_ON_2026_10_04 = [
   'selfridges',
@@ -19,7 +20,6 @@ export const SWITCHED_OFF_ON_2026_10_04 = [
   'superdrug',
   'the-perfume-shop',
   'the-fragrance-shop',
-  'notino-uk',
   'zara',
   'harvey-nichols',
   'riiffs',

@@ -100,14 +100,14 @@ describe('words', () => {
 });
 
 describe('the region shops as the page reads them (src/config/regionShops.ts)', () => {
-  it('carry no affiliate programme, no photo basis and no logo (D24 pending, owner decisions 5 and 6)', () => {
+  it('carry no affiliate programme, a hot-linked photo basis (D24, answered 9 Oct 2026) and no logo', () => {
     for (const region of ['US', 'IN'] as const) {
       const shops = regionShopsAsRetailers(region);
       expect(shops.length).toBe(REGION_RETAILERS[region].length);
       for (const r of shops) {
         expect(r.affiliate.network, r.id).toBeNull();
         expect(r.affiliate.deeplinkTemplate, r.id).toBeNull();
-        expect(r.affiliate.imageBasis, r.id).toBeUndefined();
+        expect(r.affiliate.imageBasis, r.id).toBe('hotlink-unlicensed');
         expect(r.logo, r.id).toBeUndefined();
       }
     }

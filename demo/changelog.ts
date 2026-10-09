@@ -36,19 +36,19 @@ export const CHANGELOG: ChangelogEntry[] = [
       {
         heading: 'New',
         points: [
-          'US and India sites in beta: /us and /in',
+          'US and India beta sites, now with Deals',
           'Glossier UK, with its fragrances priced in pounds',
           'New UK shops: Rowlands, Lloyds, Beauté Boulevard',
           'Also Scent Warehouse, Roullier White, Scented',
           'More guides: shops, notes, matching and deals',
-          'New Notes page: groups, icons and search',
-          'Note icons beside each note on product pages',
+          'New Notes page, and note icons on products',
           'Country choice saved to your account',
+          'Bottle photos for US, India and new UK shops',
         ],
       },
       {
         heading: 'Products and Matching',
-        points: ['Notes tidied: one name per ingredient', 'Ortigia oils back; Commodity listed once'],
+        points: ['Notes tidied: one name per ingredient', 'Ortigia oils back; Commodity listed once', 'Notino UK back with a few saved prices'],
       },
     ],
   },

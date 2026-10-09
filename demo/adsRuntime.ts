@@ -23,22 +23,46 @@
  *      page has finished loading and the browser is idle, async, so it never
  *      competes with the prices for the first paint.
  *   4. Consent: Google's own consent message (the "Privacy & messaging" GDPR
- *      message in AdSense, a Google certified CMP) is served by that script
- *      once the owner switches it on, and reports through the IAB TCF API.
+ *      message in AdSense, a Google certified CMP) is served by its loader,
+ *      which installConsent adds at start up, before the ad script and only
+ *      with ads on, and reports through the IAB TCF API. The footer's
+ *      "Privacy and Cookie Choices" link reopens it (openConsentChoices).
  *      Slots wait up to CONSENT_WAIT_MS for its answer. Without an answer they
  *      are requested non personalised (nonPersonalisedFlag in demo/ads.ts),
  *      never personalised. There is no consent banner of this site's own.
  *   5. A slot is filled only when it comes within 400px of the screen, so a
  *      long grid never asks for ads nobody scrolls to.
  */
-import { ADS_ON, AD_STYLES, adPreviewOn, adScriptUrl, nonPersonalisedFlag, type TcData } from './ads.js';
+import {
+  ADS_ON,
+  AD_CONFIG,
+  AD_STYLES,
+  adPreviewOn,
+  adScriptUrl,
+  consentLoaderUrl,
+  nonPersonalisedFlag,
+  type AdConfig,
+  type TcData,
+} from './ads.js';
 
 /** How long slots wait for the consent message's answer before asking non personalised. */
 const CONSENT_WAIT_MS = 2000;
 
 type AdsQueue = { push: (x: object) => void; requestNonPersonalizedAds?: 0 | 1 };
 type TcfApi = (cmd: string, version: number, cb: (tc: TcData, ok: boolean) => void) => void;
-type AdWindow = Window & { adsbygoogle?: AdsQueue | object[]; __tcfapi?: TcfApi };
+type AdWindow = Window & {
+  adsbygoogle?: AdsQueue | object[];
+  __tcfapi?: TcfApi;
+  /** Defined by Google's consent loader once it has run. */
+  googlefc?: { showRevocationMessage?: () => void };
+};
+
+/** The little of the document installConsent needs, so a test can pass a stand in. */
+interface ConsentDoc {
+  head: { appendChild: (el: any) => unknown };
+  createElement: (tag: string) => any;
+  querySelector: (sel: string) => unknown;
+}
 
 let installed = false;
 let scriptRequested = false;
@@ -47,10 +71,46 @@ let npa: 0 | 1 = 1;
 let observer: IntersectionObserver | null = null;
 const waiting = new Set<HTMLElement>();
 
+/**
+ * Adds Google's consent message loader to the page head, once, and returns
+ * whether it is there. A no op (false) without a well formed publisher id and
+ * at least one slot id, i.e. with ads off: then nothing is added and nothing
+ * is requested. The ad script is added only after this (requestScript), so
+ * the consent message is always first on the page.
+ */
+export function installConsent(cfg: AdConfig = AD_CONFIG, doc: ConsentDoc = document): boolean {
+  const url = (Object.values(cfg.slots).some((v) => v !== '') && consentLoaderUrl(cfg)) || null;
+  if (!url) return false;
+  if (doc.querySelector('script[data-ps-consent]')) return true;
+  const s = doc.createElement('script');
+  s.async = true;
+  s.src = url;
+  s.setAttribute('data-ps-consent', '1');
+  doc.head.appendChild(s);
+  return true;
+}
+
+/**
+ * Opens Google's consent choices again (the footer link). True when Google's
+ * message was there to open; false leaves the link to its ordinary job, the
+ * privacy section of the Legal Notice. Uses googlefc.showRevocationMessage.
+ */
+export function openConsentChoices(w: AdWindow = window as AdWindow): boolean {
+  const open = w.googlefc?.showRevocationMessage;
+  if (typeof open !== 'function') return false;
+  try {
+    open.call(w.googlefc);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 /** Adds the ad styles once. A no op with ads off and no preview. */
 export function installAds(): void {
   if (!(ADS_ON || adPreviewOn()) || installed) return;
   installed = true;
+  if (!adPreviewOn()) installConsent();
   const style = document.createElement('style');
   style.id = 'ps-ad-styles';
   style.textContent = AD_STYLES;
@@ -133,6 +193,7 @@ function fill(): void {
 function requestScript(): void {
   if (scriptRequested) return;
   scriptRequested = true;
+  installConsent();
   const add = () => {
     const s = document.createElement('script');
     s.async = true;

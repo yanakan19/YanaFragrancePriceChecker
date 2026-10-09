@@ -123,6 +123,15 @@ export interface RawListing {
    */
   nativePrice?: { amount: number; currency: string } | null;
   /**
+   * The shop's own stated reference price (Shopify `compare_at_price`, a
+   * JSON-LD list price or Indian MRP) in the SAME currency as `nativePrice`,
+   * exactly as published: never converted, never guessed, never set without a
+   * `nativePrice` beside it, and only when it sits above that price. Read by
+   * the US and India crawl (src/catalogue/regionHarvest.ts) and kept there as
+   * `wasPrice`; the UK reads `wasPriceGbp` and ignores this.
+   */
+  nativeWasPrice?: number | null;
+  /**
    * The retailer's own `aggregateRating`, read off the same schema.org
    * Product node as the price — the legitimate substitute for a
    * Fragrantica-style rating, since that site's own ToS forbids scraping its

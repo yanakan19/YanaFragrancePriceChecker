@@ -701,6 +701,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
           sectionId: options.sectionId,
           rating: aggregateRating(node),
           ...(money.nativePrice ? { nativePrice: money.nativePrice } : {}),
+          ...nativeWas(o, money.nativePrice),
         });
       }
       continue;
@@ -735,6 +736,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
       sectionId: options.sectionId,
       rating: aggregateRating(node),
       ...(money.nativePrice ? { nativePrice: money.nativePrice } : {}),
+      ...nativeWas(offer, money.nativePrice),
     });
   }
 
@@ -968,6 +970,36 @@ function listPrice(offer: JsonValue | null): number | null {
     }
   }
   return null;
+}
+
+/**
+ * The reference price a shop states on a non sterling offer (the US and India
+ * crawl, src/catalogue/regionHarvest.ts), read more strictly than the UK's
+ * `listPrice`: an AggregateOffer's `highPrice` is the dearest size of a range,
+ * not a reference price for the size priced, so it never counts here. What
+ * counts is a `listPrice`, a `highPrice` on a single offer, or a
+ * priceSpecification typed ListPrice, strikethrough or MRP.
+ */
+function nativeListPrice(offer: JsonValue | null): number | null {
+  if (!offer) return null;
+  const range = String(offer['@type'] ?? '').toLowerCase().includes('aggregateoffer') || offer['lowPrice'] != null;
+  const direct = parsePrice(offer['listPrice']) ?? (range ? null : parsePrice(offer['highPrice']));
+  if (direct !== null) return direct;
+  for (const spec of flatten(offer['priceSpecification'])) {
+    const type = String(spec['priceType'] ?? '').toLowerCase();
+    if (type.includes('listprice') || type.includes('strikethrough') || /\bmrp\b|maximumretailprice/.test(type)) {
+      const p = parsePrice(spec['price']);
+      if (p !== null) return p;
+    }
+  }
+  return null;
+}
+
+/** The stated reference price to carry beside a named non sterling price, only when it sits above it. */
+function nativeWas(offer: JsonValue | null, nativePrice: { amount: number; currency: string } | undefined): { nativeWasPrice?: number } {
+  if (!nativePrice || nativePrice.currency === 'unknown') return {};
+  const listed = nativeListPrice(offer);
+  return listed !== null && listed > nativePrice.amount ? { nativeWasPrice: listed } : {};
 }
 
 /** A date we can trust enough to render a countdown against. */

@@ -10,11 +10,11 @@ import { tmpdir } from 'node:os';
 import { join, resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
-import { parseNotinoSavedPage, looksSecret } from '../src/catalogue/notinoSavedPage.js';
+import { parseNotinoSavedPage, looksSecret, barcodeFromVariantImage } from '../src/catalogue/notinoSavedPage.js';
 import { ingestNotinoPages } from '../src/catalogue/notinoImport.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { getRetailer } from '../src/config/retailers.js';
-import { fragranceId } from '../src/catalogue/fragranceId.js';
+import { fragranceId, isCatalogueListing } from '../src/catalogue/fragranceId.js';
 import { settleBarcodeSizes } from '../src/catalogue/productMatch.js';
 import { isTooOldToShow } from '../src/services/offerAge.js';
 import type { RawListing, StoredListing } from '../src/catalogue/types.js';
@@ -216,5 +216,51 @@ describe('matching by barcode, never by rounding sizes', () => {
     expect(two.outvoted.get('notino-uk|a')).toBe(100);
     // The importer never rounds: Notino's own label is what is stored.
     expect(big.rawTitle).toContain('105ml');
+  });
+});
+
+describe('a saved Notino product page with several sizes (the Armani page saved 2026-10-07)', () => {
+  const base = 'https://www.notino.co.uk/armani/emporio-stronger-with-you-intensely-eau-de-parfum-for-men/';
+  const ean: Record<number, string> = { 150: '3614274347388', 100: '3614272225718', 30: '3614272225695' };
+  const offer = (ml: number, id: number, sku: string, price: number, extra: Record<string, unknown> = {}) => ({
+    '@type': 'Offer', name: `Armani Emporio Stronger With You Intensely ${ml} ml`, sku, price, priceCurrency: 'GBP',
+    availability: 'https://schema.org/InStock', url: `/armani/emporio-stronger-with-you-intensely-eau-de-parfum-for-men/p-${id}/`,
+    image: `https://cdn.notinoimg.com/order_2k/armani/${ean[ml]}_01-o/emporio-stronger-with-you-intensely___190118.jpg`, ...extra,
+  });
+  const ld = {
+    '@context': 'https://schema.org', '@type': 'Product', '@id': base, name: 'Armani Emporio Stronger With You Intensely',
+    sku: 'GIOSWIM_AEDP10', gtin13: '3614274347388', category: 'eau de parfum for men', brand: { '@type': 'Brand', name: 'Armani' },
+    offers: [
+      offer(100, 15802363, 'GIOSWIM_AEDP10', 65.36, { priceValidUntil: '2026-10-11T22:59:59+00:00' }),
+      offer(30, 15802388, 'GIOSWIM_AEDP30', 46.66, { priceValidUntil: '2026-10-11T22:59:59+00:00' }),
+      offer(150, 16286591, 'GIOSWYM_AEDP15', 79.5),
+      offer(100, 15802363, 'GIOSWIM_AEDP10', 76.9),
+      offer(30, 15802388, 'GIOSWIM_AEDP30', 54.9),
+    ],
+  };
+  const html = `<!-- captured 2026-10-07T00:00:00Z from ${base} --><html><head><link rel="canonical" href="${base}"/></head><body>
+<script type="application/ld+json">${JSON.stringify(ld)}</script></body></html>`;
+  const out = parseNotinoSavedPage(html, { fileTime: null, now: new Date('2026-10-07T12:00:00Z') });
+  const by = Object.fromEntries(out.listings.map((l) => [l.retailerSku, l]));
+
+  it('reads each size once, at the shelf price, not the discount code price listed first', () => {
+    expect(out.listings).toHaveLength(3);
+    expect(by['GIOSWIM_AEDP10']!.priceGbp).toBe(76.9);
+    expect(by['GIOSWIM_AEDP30']!.priceGbp).toBe(54.9);
+    expect(by['GIOSWYM_AEDP15']!.priceGbp).toBe(79.5);
+  });
+
+  it('gives each size its own barcode, from its own photo address, never the product\'s', () => {
+    expect(by['GIOSWIM_AEDP10']!.ean).toBe('3614272225718');
+    expect(by['GIOSWIM_AEDP30']!.ean).toBe('3614272225695');
+    expect(by['GIOSWYM_AEDP15']!.ean).toBe('3614274347388');
+    expect(barcodeFromVariantImage('https://cdn.notinoimg.com/order_2k/armani/3614272225719_01-o/x.jpg')).toBeNull();
+    expect(barcodeFromVariantImage('https://example.com/order_2k/armani/3614272225718_01-o/x.jpg')).toBeNull();
+  });
+
+  it('names the strength its category gives in the title, so the catalogue takes it', () => {
+    expect(by['GIOSWIM_AEDP10']!.rawTitle).toBe('Armani Emporio Stronger With You Intensely Eau de Parfum 100ml');
+    expect(isCatalogueListing({ ...by['GIOSWIM_AEDP10']!, retailerId: 'notino-uk' } as never)).toBe(true);
+    expect(by['GIOSWIM_AEDP10']!.description).toBe('Eau de Parfum For men.');
   });
 });

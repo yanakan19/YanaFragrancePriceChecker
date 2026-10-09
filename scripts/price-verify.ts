@@ -59,7 +59,7 @@
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeFileSync } from 'node:fs';
-import { RETAILERS } from '../src/config/retailers.js';
+import { RETAILERS, crawlsShop } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
@@ -913,7 +913,7 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
 // checked whether or not it is live.
 const shops = onlyShop
   ? RETAILERS.filter((r) => r.id === onlyShop)
-  : RETAILERS.filter((r) => r.enabled);
+  : RETAILERS.filter((r) => r.enabled && crawlsShop(r));
 
 console.log('\nPrice verification');
 console.log(`shops     ${shops.length}`);

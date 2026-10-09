@@ -849,7 +849,7 @@ still wants them:
   gzipped** (1,036,933 to 1,039,770 bytes, 293,182 to 294,046 gzipped).
   The host gzips SVG (checked on pricesniffs.space: `content-encoding: gzip`).
 - **Icons that look weak at 20px** (looked at on a contact sheet of all 256 in
-  pills at 1x and 2x pixel density, both themes; not redrawn): on the light
+  pills at 1x and 2x pixel density, both themes; **redrawn 9 Oct 2026**, all 27 listed here, heavier shapes and a darker edge, checked at 20 and 64 px on both pills): on the light
   theme at 1x, the white things drawn with a soft grey edge read faintly:
   Jasmine, Orange Blossom, Gardenia, Tuberose, Magnolia, Lily, White Musk,
   Frankincense, Aldehydes, Apple Blossom, Hawthorn, Cotton Flower, Champagne,

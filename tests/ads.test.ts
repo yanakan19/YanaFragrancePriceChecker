@@ -32,7 +32,10 @@ import {
   type AdConfig,
   type AdPlacement,
 } from '../demo/ads.js';
-import { installAds, mountAds } from '../demo/adsRuntime.js';
+import { installAds, installConsent, mountAds, openConsentChoices } from '../demo/adsRuntime.js';
+import { CONSENT_LINK_LABEL, consentLinkHtml, consentLoaderUrl } from '../demo/ads.js';
+import { footerNavHtml, withFooterLinks, FOOTER_TAG } from '../demo/footerLinks.js';
+import { adsPolicy } from '../demo/legal.js';
 import { PER_ROW_CHOICES } from '../demo/tileDensity.js';
 
 /**
@@ -447,5 +450,102 @@ describe('placements in demo/app.ts', () => {
     const inserted = body.indexOf("el.insertAdjacentHTML('beforebegin', next.map((item) => held.render(item)).join(''));");
     expect(inserted).toBeGreaterThan(-1);
     expect(body.indexOf('mountAds();', inserted)).toBeGreaterThan(inserted);
+  });
+});
+
+describe('the consent message (Google Privacy & messaging)', () => {
+  const fakeDoc = () => {
+    const added: { src?: string; attrs: Record<string, string> }[] = [];
+    return {
+      added,
+      head: { appendChild: (el: (typeof added)[number]) => added.push(el) },
+      createElement: () => ({ attrs: {} as Record<string, string>, setAttribute(k: string, v: string) { this.attrs[k] = v; } }),
+      querySelector: () => (added.length ? added[0] : null),
+    };
+  };
+
+  it('flag off: no loader, no footer link, no text, nothing to request', () => {
+    expect(consentLoaderUrl(BLANK)).toBeNull();
+    expect(consentLinkHtml(BLANK)).toBe('');
+    // A publisher id alone (as committed today, for the site review) is still off.
+    expect(consentLinkHtml({ client: 'ca-pub-0000000000000000', slots: BLANK.slots })).toBe('');
+    const doc = fakeDoc();
+    expect(installConsent({ client: 'ca-pub-0000000000000000', slots: BLANK.slots }, doc)).toBe(false);
+    expect(installConsent(BLANK, doc)).toBe(false);
+    expect(doc.added).toEqual([]);
+    expect(withFooterLinks(`x ${FOOTER_TAG} y`, BLANK)).not.toMatch(/consent|Cookie Choices|google/i);
+    expect(footerNavHtml(BLANK)).toBe(footerNavHtml({ client: '', slots: BLANK.slots }));
+    expect(adsPolicy(false).cookiesAdsStored).toBe('');
+    // And as committed.
+    expect(ADS_ON).toBe(false);
+    expect(footerNavHtml()).not.toMatch(/data-ps-consent|Cookie Choices/);
+    expect(installAds).not.toThrow();
+  });
+
+  it('flag forced on: loader present for the publisher, once, from Google\'s consent host', () => {
+    const url = consentLoaderUrl(TEST)!;
+    expect(url).toBe('https://fundingchoicesmessages.google.com/i/pub-0000000000000000?ers=1');
+    const doc = fakeDoc();
+    expect(installConsent(TEST, doc)).toBe(true);
+    expect(installConsent(TEST, doc)).toBe(true);
+    expect(doc.added.length).toBe(1);
+    expect(doc.added[0]!.src).toBe(url);
+  });
+
+  it('flag forced on: the loader is added before the ad script is ever requested', () => {
+    const runtime = read('demo/adsRuntime.ts');
+    const req = runtime.slice(runtime.indexOf('function requestScript'));
+    expect(req.indexOf('installConsent()')).toBeGreaterThan(-1);
+    expect(req.indexOf('installConsent()')).toBeLessThan(req.indexOf('adScriptUrl()'));
+    // installAds runs at start up (before any slot exists) and adds it, not in preview.
+    const inst = runtime.slice(runtime.indexOf('export function installAds'), runtime.indexOf('/** Watches every slot'));
+    expect(inst).toMatch(/if \(!adPreviewOn\(\)\) installConsent\(\)/);
+    // The consent loader is not part of the preview or the off path.
+    expect(runtime.slice(runtime.indexOf('function mountPreview'), runtime.indexOf('/** Asks Google'))).not.toMatch(/installConsent/);
+  });
+
+  it('flag forced on: the footer link is present and opens the message through googlefc', () => {
+    const nav = footerNavHtml(TEST);
+    expect(nav).toContain(consentLinkHtml(TEST));
+    expect(nav).toContain(`>${CONSENT_LINK_LABEL}</a>`);
+    expect(nav).toContain('data-ps-consent');
+    expect(nav).toContain('href="/about/legal#privacy"');
+    let opened = 0;
+    const w = { googlefc: { showRevocationMessage: () => void opened++ } } as never;
+    expect(openConsentChoices(w)).toBe(true);
+    expect(opened).toBe(1);
+    // No message loaded (not published, blocked): the link just goes to the privacy section.
+    expect(openConsentChoices({} as never)).toBe(false);
+    expect(openConsentChoices({ googlefc: {} } as never)).toBe(false);
+    const app = read('demo/app.ts');
+    expect(app.indexOf("closest('[data-ps-consent]')")).toBeLessThan(app.indexOf("closest<HTMLElement>('[data-goto]')"));
+  });
+
+  it('flag forced on: the text says what turns on; off it says nothing', () => {
+    const on = adsPolicy(true);
+    expect(on.cookiesAdsStored).toContain('What Turns On With Ads');
+    expect(on.cookiesAdsStored).toContain('consent');
+    expect(on.cookiesAdsStored).toContain('Privacy and Cookie Choices');
+    expect(on.cookiesAdsStored).not.toMatch(/[–—]|\s-\s/);
+    expect(read('demo/legal.ts')).toMatch(/ONLY SHOWN WHEN\s+\* ADS ARE ON/);
+  });
+
+  it('with ads off, the runtime source names the consent host only through ads.ts', () => {
+    expect(read('demo/adsRuntime.ts')).not.toMatch(/fundingchoices/);
+    expect(read('demo/template.html')).not.toMatch(/fundingchoices|googlefc/);
+    expect(read('demo/app.ts')).not.toMatch(/fundingchoices/);
+  });
+
+  it.skipIf(!existsSync(resolve(root, 'demo/index.html')) || ADS_ON)('the built pages, as committed, load nothing from Google and show no consent link', () => {
+    for (const f of ['demo/index.html', 'demo/about.html', 'demo/us/index.html', 'demo/in/index.html']) {
+      if (!existsSync(resolve(root, f))) continue;
+      const html = read(f);
+      // Real markup only: the bundled app code holds these words as inert strings.
+      const scripts = [...html.matchAll(/<script[^>]*\ssrc="([^"]*)"/g)].map((m) => m[1]);
+      expect(scripts.filter((u) => /google|funding/i.test(u!)), f).toEqual([]);
+      expect(html, f).not.toMatch(/<a class="footer-link"[^>]*data-ps-consent/);
+      expect(html, f).not.toMatch(/<iframe[^>]*google/i);
+      expect(html, f).toContain('no advertising');
+    }
   });
 });

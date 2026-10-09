@@ -4,11 +4,13 @@ Written 2026-10-06. Plan only; nothing here is built yet.
 
 ## Where things stand
 
-- `notino-uk` in `src/config/retailers.ts`: `enabled: false` (owner, 2026-10-04),
-  `renderRefused: 'local'`, `adapter: 'headless'`. Every request since
+- `notino-uk` in `src/config/retailers.ts`: `enabled: true` since 2026-10-07 (owner;
+  off from 2026-10-04 to then), `adapter: 'owner-import'` so no sweep asks it for
+  anything (D31), `renderRefused: 'local'`. Every request since
   2026-09-11 gets a Cloudflare managed challenge (HTTP 403), home page included
   (recheck 2026-10-03). The 95 stored offers (newest 2026-09-09) are past the
-  7 day rule (`HIDE_OFFER_AFTER_DAYS`, `src/services/offerAge.ts`) and hidden.
+  7 day rule (`HIDE_OFFER_AFTER_DAYS`, `src/services/offerAge.ts`) and hidden;
+  the 9 saved on 2026-10-07 leave on 2026-10-14 unless the pages are saved again.
 - robots.txt (read 2026-09-10 and 2026-10-03) allows product pages, `/fragrance/`
   and the sitemap. The block is Cloudflare, not robots.txt.
 - `affiliate` is already recorded as `network: 'cj'`, `verified: true`,

@@ -37,9 +37,10 @@ describe('region registries', () => {
     }
   });
 
-  it('carry no affiliate, photo, logo or Trustpilot field (owner, 9 Oct 2026; D24 pending)', () => {
+  it('carry no affiliate, logo or Trustpilot field, and the one photo field the owner switched on (9 Oct 2026, D24)', () => {
     for (const r of ALL) {
-      for (const key of ['affiliate', 'imageBasis', 'logo', 'squareLogo', 'trustpilotUrl', 'trustpilotBusinessId', 'deeplinkTemplate']) {
+      expect(r.imageBasis, `${r.id} photo basis`).toBe('hotlink-unlicensed');
+      for (const key of ['affiliate', 'logo', 'squareLogo', 'trustpilotUrl', 'trustpilotBusinessId', 'deeplinkTemplate']) {
         expect(Object.keys(r), `${r.id} has ${key}`).not.toContain(key);
       }
     }

@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-09T15:23:54.873Z";
+export const DEALS_GENERATED_AT = "2026-10-09T18:01:02.238Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -8702,6 +8702,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "ean-6294015175745",
+    "price": 12.69,
+    "delivered": true,
+    "wasPrice": 12.99,
+    "percentOff": 2,
+    "retailerId": "notino-uk",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
     "fragranceId": "ean-6294015160734",
     "price": 27.8,
     "delivered": true,
@@ -9558,6 +9568,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 105,
     "percentOff": 25,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614272225718",
+    "price": 80.5,
+    "delivered": true,
+    "wasPrice": 99,
+    "percentOff": 18,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -11972,6 +11992,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "ean-6294015163513",
+    "price": 28.49,
+    "delivered": true,
+    "wasPrice": 42.99,
+    "percentOff": 33,
+    "retailerId": "notino-uk",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
     "fragranceId": "ean-6295199804360",
     "price": 18.9,
     "delivered": true,
@@ -13012,11 +13042,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614272225718",
-    "price": 80.5,
+    "fragranceId": "ean-3614272225701",
+    "price": 63.65,
     "delivered": true,
-    "wasPrice": 99,
-    "percentOff": 18,
+    "wasPrice": 72,
+    "percentOff": 11,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -15922,16 +15952,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
-    "fragranceId": "ean-6294015163513",
-    "price": 31.98,
-    "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 25,
-    "retailerId": "emirates-oud",
-    "kind": "house",
-    "houseName": "Armaf"
-  },
-  {
     "fragranceId": "ean-6295199800942",
     "price": 27.5,
     "delivered": true,
@@ -17468,16 +17488,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 79,
     "percentOff": 21,
     "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614272225701",
-    "price": 63.65,
-    "delivered": true,
-    "wasPrice": 72,
-    "percentOff": 11,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },

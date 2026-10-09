@@ -1,9 +1,9 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-09T07:08:12.975Z",
-  "published": false,
-  "note": "Dry run (docs/INTERNATIONAL-PLAN.md, Phase 1 step one): nothing here is shown on the site.",
+  "builtAt": "2026-10-09T17:47:58.817Z",
+  "published": true,
+  "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
@@ -73,6 +73,11 @@
       "shared": 4
     }
   ],
+  "productsShown": 14594,
+  "productsWithUkPhoto": 1551,
+  "productsWithUkPhotoByBarcode": 57,
+  "productsWithUkPhotoByName": 1494,
+  "shareWithUkPhoto": 0.106,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,

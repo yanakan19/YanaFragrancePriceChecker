@@ -290,26 +290,77 @@ link to others.
 
 UK and EEA law needs consent before personalised ads, and Google requires a
 Google certified consent tool for UK and EEA visitors. Google's own one is
-free and is served with the ad code, so the site has no banner of its own.
+free ("Privacy & messaging"). The site side is built and invisible today:
+the day ads are switched on (5d), the site itself adds Google's consent
+loader to every page, before the ad code, and shows a "Privacy and Cookie
+Choices" link in the footer that reopens the message. Until then the site
+contacts no Google host. There is no banner of our own and nothing to paste
+into the site. Do the dashboard steps below on the day you switch ads on, or
+just before it: the message only needs to be published, and it appears only
+once the site loads the loader.
 
-1. Left menu → **Privacy & messaging** → **European regulations** (GDPR) →
-   **Create message** (or **Manage** if one exists).
-2. Site: `pricesniffs.space`. Language: **English**.
+**Create the message**
+
+1. AdSense left menu → **Privacy & messaging**. Choose the site
+   `pricesniffs.space` (Google may ask you to add it first; accept).
+2. **European regulations** (GDPR) → **Create message**. This one covers
+   the UK as well as the EEA. Language: **English**.
 3. User choices: tick **Consent**, **Manage options** and **Do not
-   consent**. Offering a plain no next to yes is what the UK regulator, the
-   ICO, expects.
-4. In the message's **Privacy policy link** field (on the message editor,
-   under the site and language), paste
-   `https://pricesniffs.space/about/legal#privacy`. Since 2026-10-06 the
-   privacy notice is a section of the Legal Notice page and that is its
-   address. A message already published with the older
-   `https://pricesniffs.space/legal/privacy` still works (that address opens
-   the same section), but change it: **Privacy & messaging** → **European
-   regulations** → the message → **Edit** → the same field → **Publish**.
-5. **Publish**. It now appears on the site the first time a UK or EEA
-   visitor reaches a page with an ad.
-6. Leave the **US state regulations** message off unless you want US
-   visitors to get one too; it is not needed for the UK.
+   consent**. A plain no beside yes is what the UK regulator, the ICO,
+   expects. Do not choose a "consent or pay" or "no option to refuse"
+   variant.
+4. **Privacy policy link**: `https://pricesniffs.space/about/legal#privacy`.
+   An older message with `https://pricesniffs.space/legal/privacy` still works
+   (that address opens the same section), but change it to the above.
+5. Leave the options that let Google show the message to every visitor off:
+   the default of showing it to visitors in the regions the regulation
+   covers is what we want. Choose **Publish**.
+
+**The three regions (UK `/`, US `/us/`, India `/in/`)**
+
+6. UK and EEA: the European regulations message above. It is the only one
+   required.
+7. US: there is no GDPR style requirement. Leave **US state regulations**
+   unset unless you decide you want that notice; the site needs nothing for
+   it. If you do create it, the footer link opens it too.
+8. India: Google has no consent message to set up for it. Leave as is.
+9. The site behaves the same everywhere: ad requests are non personalised
+   until Google's message reports consent. Outside the regions the message
+   covers, Google reports that no consent rule applies and the ads may be
+   personalised. Nothing per region to set on the site.
+
+**Test it (the day ads are on)**
+
+10. Open the site in a private window with a UK connection (or a VPN set to
+    the UK or an EEA country) and no browser extension that blocks ads. The
+    message must appear on the first page. Choose **Do not consent**, then
+    scroll to an ad: it must be a generic, not personalised ad.
+11. Click **Privacy and Cookie Choices** in the footer. The message (or the
+    privacy settings it offers) must open again. If nothing opens and you
+    land on the privacy section instead, the message is not published or not
+    reaching the page: check step 5 and that **Privacy & messaging** shows the
+    message as **Published** for this exact site.
+12. Repeat with **Consent**: ads may now be personalised.
+13. Open `/us/` and `/in/` from a non EEA connection: no message is expected,
+    ads still show, the footer link is still there.
+
+**Verify after publishing**
+
+14. In the browser's developer tools, **Network** tab, filter `fundingchoices`:
+    one request to Google's consent loader on each page, and it is before the
+    `adsbygoogle.js` request. **Application** tab → storage: Google records the
+    answer as a cookie or a local storage entry; check it is there after
+    choosing, and gone after clearing site data.
+15. In AdSense → **Privacy & messaging**, the message status reads
+    **Published**, with no warning about the site or a missing policy link.
+16. Check that what Google's tag stores matches the cookies page section
+    "What Turns On With Ads" (docs/LEGAL.md says what to compare). Names,
+    lifetimes and the exact storage place are Google's and can change; if
+    the page claims something that is no longer true, tell me.
+17. Not sure: whether Google asks for anything further for the UK beyond the
+    European regulations message (its dashboard wording changes). If the
+    dashboard shows a to do or warning on **Privacy & messaging**, follow it
+    and send me its words.
 
 Until someone answers the message, or if it fails to load, the site asks
 Google for non personalised ads only. That is built in; nothing to set.
@@ -650,7 +701,7 @@ deleted branch can be restored there, or recreated from the tip below.
 | `claude/wizardly-faraday-owdlz1` | `e98e4a25` | Delete. #2, superseded as above |
 | `claude/modest-euler-3hwly2` | `b444d261` | Keep until #3 is reapplied, then delete. It holds the old history up to 3 October |
 | `claude/perfume-chatbot-multi-agent-lvf17y` | `1dd47e83` | Your call. The chatbot it prototyped went into the live branch (`dd14870a`, 10 August) and came out again with Fly.io (`104056cd`, 6 September). Its own five commits never merged: your local setup notes (`YanaFreeAPIMerger/SETUP_LOG.md`), the Oracle VM scripts and the Fly.io files. Delete it if you do not want those notes |
-| `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94` | Keep: #5's branch, on the new history |
+| `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94` | Merged into the live branch on 9 October 2026 (content only; the PR itself is yours to close on GitHub). Delete the branch after that |
 | `backup/pre-rewrite-2026-10-06` | `2e54cdb5` | Yours to decide. It alone keeps the whole old history |
 | `claude/scentday-retailer-registry-h92tth` | | The live and default branch |
 
@@ -910,8 +961,8 @@ holds the secret and answers only you.
 
 ## 9. Notino: bring its prices back from pages you save (optional, 5 minutes a week)
 
-Notino blocks automatic readers, so its prices are off the site. Until the
-CJ affiliate route in `docs/NOTINO-PLAN.md` is approved, you can keep a few
+Notino blocks automatic readers, so the crawl cannot read its prices. Until
+the CJ affiliate route in `docs/NOTINO-PLAN.md` is approved, you can keep
 products visible by saving Notino pages yourself. Notino's terms may limit
 copying, so keep it small and occasional, and stop if Notino objects.
 
@@ -921,7 +972,17 @@ copying, so keep it small and occasional, and stop if Notino objects.
 2. Open a brand page, a search results page or a single product page. Scroll
    down once so the list has loaded, and click the size you want on a product
    page (each size is its own price).
-3. Save it: **Ctrl+S** (Cmd+S on a Mac), choose "Webpage, HTML only" or
+3. Save it. Quickest: the **Save for PriceSniffs** bookmark. Install it once:
+   run `npm run -s catalogue:bookmarklet` (or ask me for the line), make a new
+   bookmark and paste that line as its address. One click on a Notino page
+   downloads a small file holding only the page's product data (the JSON-LD
+   blocks of type Product, ProductGroup, ItemList or CollectionPage), its
+   address and the time. It leaves behind the rest of the page, including any
+   account or Person block, but still use the private window of steps 1 and 2:
+   that is the sure way to have no account data in the page at all.
+   Put the files in `data/notino-inbox/`, or send them to me.
+
+   Or save it yourself: **Ctrl+S** (Cmd+S on a Mac), choose "Webpage, HTML only" or
    "Webpage, Complete", and save it into the folder `data/notino-inbox/` in
    the project (make the folder if it is not there). One file per page. The
    file's saved time is taken as the day you read the prices.
@@ -933,10 +994,14 @@ copying, so keep it small and occasional, and stop if Notino objects.
    keeps only product facts (name, brand, size, barcode, price, stock, image,
    notes, delivery) and discards everything else. Delete the saved files when
    done.
-6. The shop is still switched off on the site (`enabled: false` in
-   `src/config/retailers.ts`). When you want Notino to appear again, tell me
-   and I will switch it on; it will not start crawling, its only source is
-   these saved pages.
+6. Notino is switched on on the site again (owner, 2026-10-07, D31). It does
+   not crawl and no weekly or monthly check asks it for anything: its only
+   source is these saved pages. A price leaves the site 7 days after the day it
+   was read. The 9 products saved on 7 October left on 14 October; save the
+   pages again (steps 1 to 4) to bring them back.
+7. After `npm run notino:import`, run `npm run rebuild` and commit
+   `data/catalogue/notino-uk.json` with the rebuilt files, as in CLAUDE.md (or
+   ask me to).
 
 ## 10. The US and India (public beta since 9 October 2026)
 
@@ -960,9 +1025,10 @@ it brought new prices.
    domain's existing verification). Under **Settings, International
    Targeting** there is nothing to set: the pages declare their language and
    country themselves (hreflang).
-1. **Answer the photo question** (D24 for new countries, still pending): may a
-   US or Indian shop's own photo be shown beside a link to that shop, as for UK
-   shops? Until you answer, no US or Indian product shows a photo.
+1. **Done 9 October 2026:** you answered the photo question (D24) yes for the US
+   shops, the India shops, the 16 UK shops added on 8 and 9 October and Glossier
+   UK. Their photos are hot-linked from each shop's own page (docs/DECISIONS.md
+   D24); US and India tiles fill in as the daily crawls read each shop again.
 2. **Done 9 October 2026, and checked:** you ran
    `supabase/migrations/0009_profile_region.sql` in the Supabase SQL Editor
    (a nullable `region` column on `profiles`; safe to run twice). Checked the
