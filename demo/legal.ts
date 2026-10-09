@@ -212,7 +212,7 @@ export function adsPolicy(on: boolean) {
     basis: on
       ? ` For advertising cookies and personalised ads we rely on your consent,
       asked for by Google's consent message before any is set, and changed
-      whenever you like from its privacy settings link.`
+      whenever you like with the Privacy and Cookie Choices link in the footer.`
       : '',
     /** Privacy notice, the "Cookies and Storage" paragraph. */
     privacyCookies: on
@@ -237,7 +237,7 @@ export function adsPolicy(on: boolean) {
       and the EEA Google's own consent message asks you first whether Google
       may use cookies and show personalised ads. If you say no, or do not
       answer, the ads are not personalised. You can change your answer at any
-      time from the privacy settings link that message leaves on the page. Our
+      time with the Privacy and Cookie Choices link at the foot of every page. Our
       own visit counter writes nothing to your device and follows no one.</p>`
       : `<h2 class="t-section">Why There Is No Cookie Banner</h2>
       <p>UK rules, the Privacy and Electronic Communications Regulations, require
@@ -248,6 +248,31 @@ export function adsPolicy(on: boolean) {
       the count follows no one. There is no advertising and no tracking of
       you. So there is nothing a banner would ask you to accept. If that ever
       changes, we will ask for consent before anything is set, not after.</p>`,
+    /**
+     * Cookies page, a section listing what turns on with ads. ONLY SHOWN WHEN
+     * ADS ARE ON (it is '' otherwise, so nothing about it is on the page
+     * today). Google sets the names, lifetimes and exact contents, which we do
+     * not control, so it describes them by purpose, not by key name.
+     */
+    cookiesAdsStored: on
+      ? `<h2 class="t-section">What Turns On With Ads</h2>
+      <p>Only pages that show an ad, and the consent message, involve Google.
+      Everything in the list above stays the same. In addition:</p>
+      <ul>
+        <li><strong>Google's advertising cookies.</strong> Set by Google, not by
+        us, on this site's pages. Where you have not agreed to personalised ads
+        they are limited to what Google needs to serve, count and protect ads
+        that are not personalised. They are set by Google, under
+        <a href="https://policies.google.com/technologies/ads" rel="noopener" target="_blank">Google's policy</a>.</li>
+        <li><strong>Your consent choice.</strong> Google's consent message
+        records your answer in a cookie or in local storage, so it does not ask
+        again on every page. It holds your choice and when you made it, nothing
+        else. Without it the message would appear on every visit.</li>
+      </ul>
+      <p>The Privacy and Cookie Choices link in the footer opens the message
+      again, so you can change your answer or withdraw it. Clearing site data
+      for pricesniffs.space in your browser removes both.</p>`
+      : '',
     /** Cookies page, an extra item under "Third Parties". */
     cookiesThirdParty: on
       ? `<li><strong>Google AdSense.</strong> Pages that show an ad load Google's
@@ -767,7 +792,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       </dl>
       <p>Local storage stays until you clear it. Session storage is discarded
       when the tab closes. None of it is readable by us or by anyone else. It
-      lives in your browser and is read back only by this site on your device.</p>
+      lives in your browser and is read back only by this site on your device.</p>${ADS_TEXT.cookiesAdsStored}
 
       <h2 class="t-section">Third Parties</h2>
       <ul>

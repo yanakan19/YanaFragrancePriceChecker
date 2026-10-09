@@ -101,7 +101,7 @@ import { trustpilotStateFor, trustpilotLinkMarkup, TRUSTPILOT_LINK_TEXT } from '
 import { COVERAGE } from './legal.js';
 import { marqueeHtml, marqueePhrases } from './marquee.js';
 import { adPreviewOn, adPreviewRequested, adSlotHtml, interleaveAds, isGridAd, setAdPreview, withAdPreview } from './ads.js';
-import { installAds, mountAds } from './adsRuntime.js';
+import { installAds, mountAds, openConsentChoices } from './adsRuntime.js';
 import { compactDeliveryLine, deliveryLines } from './deliveryFacts.js';
 import {
   msrpComparison, msrpComparisonLabel, rrpSavingFor, rrpSavingLabel, shownPrice, type MsrpComparison,
@@ -8095,6 +8095,16 @@ function init(): void {
       e.preventDefault();
       openPath(navLink.getAttribute('href') ?? '/');
       return;
+    }
+
+    // Footer "Privacy and Cookie Choices" (only on a page built with ads on):
+    // reopen Google's consent message; with none to open the link goes on to
+    // the privacy section like any other footer link.
+    if (t.closest('[data-ps-consent]') && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      if (openConsentChoices()) {
+        e.preventDefault();
+        return;
+      }
     }
 
     const gotoLink = t.closest<HTMLElement>('[data-goto]');

@@ -17,9 +17,12 @@
  * router then draws. `anchor` is the part after the # that the click scrolls
  * to.
  *
- * This file imports nothing from the page or the catalogue, so Node can load
+ * This file imports only demo/ads.ts (itself import free) from the page,
+ * nothing from the catalogue, so Node can load
  * it for the build and for tests.
  */
+
+import { AD_CONFIG, consentLinkHtml, type AdConfig } from './ads.js';
 
 export interface FooterLink {
   label: string;
@@ -58,7 +61,7 @@ export const FOOTER_GROUPS: readonly FooterGroup[] = [
   },
 ];
 
-/** Every footer link, in reading order. */
+/** Every footer link, in reading order. The ads only link (consentLinkHtml) is not in it. */
 export const FOOTER_LINKS: readonly FooterLink[] = FOOTER_GROUPS.flatMap((g) => g.links);
 
 /** Where the build writes the footer in demo/template.html. */
@@ -77,15 +80,20 @@ function linkHtml(l: FooterLink): string {
  * from the top bar's, and a list per group (lists, not a run of links, so a
  * screen reader says how many there are).
  */
-export function footerNavHtml(): string {
+export function footerNavHtml(cfg: AdConfig = AD_CONFIG): string {
+  // The last group gains "Privacy and Cookie Choices" only when ads are on
+  // (demo/ads.ts consentLinkHtml); with ads off the markup is unchanged.
   const lists = FOOTER_GROUPS.map(
-    (g) => `<ul class="footer-list" aria-label="${escAttr(g.label)}">${g.links.map(linkHtml).join('')}</ul>`,
+    (g, i) =>
+      `<ul class="footer-list" aria-label="${escAttr(g.label)}">${g.links.map(linkHtml).join('')}${
+        i === FOOTER_GROUPS.length - 1 ? consentLinkHtml(cfg) : ''
+      }</ul>`,
   ).join('\n      ');
   return `<nav class="footer-nav" aria-label="Footer">\n      ${lists}\n    </nav>`;
 }
 
 /** Puts the footer navigation into the template. Throws when the placeholder is missing. */
-export function withFooterLinks(template: string): string {
+export function withFooterLinks(template: string, cfg: AdConfig = AD_CONFIG): string {
   if (!template.includes(FOOTER_TAG)) throw new Error(`demo/template.html has no ${FOOTER_TAG} placeholder to inject into`);
-  return template.replace(FOOTER_TAG, () => footerNavHtml());
+  return template.replace(FOOTER_TAG, () => footerNavHtml(cfg));
 }

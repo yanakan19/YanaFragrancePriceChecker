@@ -208,6 +208,34 @@ export function adScriptUrl(cfg: AdConfig = AD_CONFIG): string {
   return `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${encodeURIComponent(cfg.client)}`;
 }
 
+/**
+ * Google's consent message loader (Funding Choices, the tool behind AdSense
+ * "Privacy & messaging"), for the publisher id. Added to the page only when
+ * ads are on (demo/adsRuntime.ts installConsent), before the ad script, and
+ * never otherwise: with ads off nothing on this site contacts that host.
+ * It serves the message the owner publishes in AdSense and the IAB TCF API
+ * the ad requests wait for. Null without a well formed publisher id.
+ */
+export function consentLoaderUrl(cfg: AdConfig = AD_CONFIG): string | null {
+  const pub = publisherId(cfg);
+  return pub ? `https://fundingchoicesmessages.google.com/i/${encodeURIComponent(pub)}?ers=1` : null;
+}
+
+/** The footer link that opens the consent choices again. Shown only with ads on. */
+export const CONSENT_LINK_LABEL = 'Privacy and Cookie Choices';
+
+/**
+ * The footer list item for that link, or '' with ads off. It is a real link to
+ * the privacy section, so it still works if Google's message is not there
+ * (not published yet, blocked): the click handler in demo/app.ts calls
+ * openConsentChoices (demo/adsRuntime.ts) first and only lets the link
+ * navigate when that finds no message to open.
+ */
+export function consentLinkHtml(cfg: AdConfig = AD_CONFIG): string {
+  if (!adsOn(cfg)) return '';
+  return `<li><a class="footer-link" href="/about/legal#privacy" data-goto="legalNotice" data-anchor="privacy" data-ps-consent>${CONSENT_LINK_LABEL}</a></li>`;
+}
+
 /** What each placement is called and the ad unit it implies, as the preview prints it. */
 const PLACEMENT_SPEC: Readonly<Record<AdPlacement, string>> = {
   home: 'Home banner · horizontal, 970 × 90 or 728 × 90, 320 × 100 on phones',

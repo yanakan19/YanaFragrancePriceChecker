@@ -290,26 +290,77 @@ link to others.
 
 UK and EEA law needs consent before personalised ads, and Google requires a
 Google certified consent tool for UK and EEA visitors. Google's own one is
-free and is served with the ad code, so the site has no banner of its own.
+free ("Privacy & messaging"). The site side is built and invisible today:
+the day ads are switched on (5d), the site itself adds Google's consent
+loader to every page, before the ad code, and shows a "Privacy and Cookie
+Choices" link in the footer that reopens the message. Until then the site
+contacts no Google host. There is no banner of our own and nothing to paste
+into the site. Do the dashboard steps below on the day you switch ads on, or
+just before it: the message only needs to be published, and it appears only
+once the site loads the loader.
 
-1. Left menu → **Privacy & messaging** → **European regulations** (GDPR) →
-   **Create message** (or **Manage** if one exists).
-2. Site: `pricesniffs.space`. Language: **English**.
+**Create the message**
+
+1. AdSense left menu → **Privacy & messaging**. Choose the site
+   `pricesniffs.space` (Google may ask you to add it first; accept).
+2. **European regulations** (GDPR) → **Create message**. This one covers
+   the UK as well as the EEA. Language: **English**.
 3. User choices: tick **Consent**, **Manage options** and **Do not
-   consent**. Offering a plain no next to yes is what the UK regulator, the
-   ICO, expects.
-4. In the message's **Privacy policy link** field (on the message editor,
-   under the site and language), paste
-   `https://pricesniffs.space/about/legal#privacy`. Since 2026-10-06 the
-   privacy notice is a section of the Legal Notice page and that is its
-   address. A message already published with the older
-   `https://pricesniffs.space/legal/privacy` still works (that address opens
-   the same section), but change it: **Privacy & messaging** → **European
-   regulations** → the message → **Edit** → the same field → **Publish**.
-5. **Publish**. It now appears on the site the first time a UK or EEA
-   visitor reaches a page with an ad.
-6. Leave the **US state regulations** message off unless you want US
-   visitors to get one too; it is not needed for the UK.
+   consent**. A plain no beside yes is what the UK regulator, the ICO,
+   expects. Do not choose a "consent or pay" or "no option to refuse"
+   variant.
+4. **Privacy policy link**: `https://pricesniffs.space/about/legal#privacy`.
+   An older message with `https://pricesniffs.space/legal/privacy` still works
+   (that address opens the same section), but change it to the above.
+5. Leave the options that let Google show the message to every visitor off:
+   the default of showing it to visitors in the regions the regulation
+   covers is what we want. Choose **Publish**.
+
+**The three regions (UK `/`, US `/us/`, India `/in/`)**
+
+6. UK and EEA: the European regulations message above. It is the only one
+   required.
+7. US: there is no GDPR style requirement. Leave **US state regulations**
+   unset unless you decide you want that notice; the site needs nothing for
+   it. If you do create it, the footer link opens it too.
+8. India: Google has no consent message to set up for it. Leave as is.
+9. The site behaves the same everywhere: ad requests are non personalised
+   until Google's message reports consent. Outside the regions the message
+   covers, Google reports that no consent rule applies and the ads may be
+   personalised. Nothing per region to set on the site.
+
+**Test it (the day ads are on)**
+
+10. Open the site in a private window with a UK connection (or a VPN set to
+    the UK or an EEA country) and no browser extension that blocks ads. The
+    message must appear on the first page. Choose **Do not consent**, then
+    scroll to an ad: it must be a generic, not personalised ad.
+11. Click **Privacy and Cookie Choices** in the footer. The message (or the
+    privacy settings it offers) must open again. If nothing opens and you
+    land on the privacy section instead, the message is not published or not
+    reaching the page: check step 5 and that **Privacy & messaging** shows the
+    message as **Published** for this exact site.
+12. Repeat with **Consent**: ads may now be personalised.
+13. Open `/us/` and `/in/` from a non EEA connection: no message is expected,
+    ads still show, the footer link is still there.
+
+**Verify after publishing**
+
+14. In the browser's developer tools, **Network** tab, filter `fundingchoices`:
+    one request to Google's consent loader on each page, and it is before the
+    `adsbygoogle.js` request. **Application** tab → storage: Google records the
+    answer as a cookie or a local storage entry; check it is there after
+    choosing, and gone after clearing site data.
+15. In AdSense → **Privacy & messaging**, the message status reads
+    **Published**, with no warning about the site or a missing policy link.
+16. Check that what Google's tag stores matches the cookies page section
+    "What Turns On With Ads" (docs/LEGAL.md says what to compare). Names,
+    lifetimes and the exact storage place are Google's and can change; if
+    the page claims something that is no longer true, tell me.
+17. Not sure: whether Google asks for anything further for the UK beyond the
+    European regulations message (its dashboard wording changes). If the
+    dashboard shows a to do or warning on **Privacy & messaging**, follow it
+    and send me its words.
 
 Until someone answers the message, or if it fails to load, the site asks
 Google for non personalised ads only. That is built in; nothing to set.
