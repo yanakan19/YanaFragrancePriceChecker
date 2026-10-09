@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-10-09T05:07:04.572Z",
-  "minutes": 14.5,
+  "ranAt": "2026-10-09T06:27:43.741Z",
+  "minutes": 42.26,
   "dryRun": false,
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "listingsKept": 29953,
+  "listingsKept": 30534,
   "shops": [
     {
       "id": "perfumania",
@@ -46,12 +46,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 503,
-      "priced": 503,
-      "kept": 468,
-      "withBarcode": 192,
+      "listingsRead": 506,
+      "priced": 506,
+      "kept": 457,
+      "withBarcode": 156,
       "pagesFetched": 250,
-      "seconds": 506,
+      "seconds": 501,
       "currency": "JSON-LD offers named: USD",
       "errors": [],
       "diagnostics": [
@@ -69,7 +69,7 @@
       "kept": 705,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 22,
+      "seconds": 15,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -84,7 +84,7 @@
       "kept": 181,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 17,
+      "seconds": 14,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -99,7 +99,7 @@
       "kept": 540,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 14,
+      "seconds": 12,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -114,7 +114,7 @@
       "kept": 648,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 61,
+      "seconds": 51,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -129,7 +129,7 @@
       "kept": 861,
       "withBarcode": 0,
       "pagesFetched": 29,
-      "seconds": 71,
+      "seconds": 51,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -159,7 +159,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -234,7 +234,7 @@
       "kept": 5101,
       "withBarcode": 4488,
       "pagesFetched": 26,
-      "seconds": 55,
+      "seconds": 51,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -249,7 +249,7 @@
       "kept": 4606,
       "withBarcode": 0,
       "pagesFetched": 23,
-      "seconds": 45,
+      "seconds": 42,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -264,7 +264,7 @@
       "kept": 4721,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 43,
+      "seconds": 41,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -279,7 +279,7 @@
       "kept": 502,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 18,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -294,7 +294,7 @@
       "kept": 307,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 19,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -304,12 +304,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 3146,
-      "priced": 3060,
-      "kept": 1623,
+      "listingsRead": 3149,
+      "priced": 3062,
+      "kept": 1624,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 22,
+      "seconds": 16,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -324,7 +324,7 @@
       "kept": 4669,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 64,
+      "seconds": 51,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -334,17 +334,19 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 547,
-      "priced": 178,
-      "kept": 0,
-      "withBarcode": 0,
-      "pagesFetched": 187,
-      "seconds": 722,
+      "listingsRead": 1270,
+      "priced": 689,
+      "kept": 608,
+      "withBarcode": 607,
+      "pagesFetched": 699,
+      "seconds": 2401,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
+        "https://www.ulta.com/p/khamrah-eau-de-parfum-mkt77007202?sku=77011172: HTTP 404",
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
+        "https://www.ulta.com/p/khamrah-eau-de-parfum-mkt77007202?sku=77011172: HTTP 404",
         "sitemap: 2812 product address(es) found, first read https://www.ulta.com/p/hugo-man-eau-de-toilette-2261?sku=2273379"
       ]
     },
@@ -354,12 +356,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 249,
-      "priced": 249,
-      "kept": 208,
-      "withBarcode": 172,
+      "listingsRead": 248,
+      "priced": 248,
+      "kept": 191,
+      "withBarcode": 154,
       "pagesFetched": 250,
-      "seconds": 603,
+      "seconds": 602,
       "currency": "JSON-LD offers named: USD",
       "errors": [],
       "diagnostics": [

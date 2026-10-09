@@ -1,46 +1,46 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-09T05:21:35.270Z",
+  "builtAt": "2026-10-09T07:09:59.632Z",
   "published": false,
   "note": "Dry run (docs/INTERNATIONAL-PLAN.md, Phase 1 step one): nothing here is shown on the site.",
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "crawlMinutes": 14.5,
-  "harvestRanAt": "2026-10-09T05:07:04.572Z",
-  "listingsPriced": 64984,
-  "listingsKept": 29953,
+  "crawlMinutes": 42.26,
+  "harvestRanAt": "2026-10-09T06:27:43.741Z",
+  "listingsPriced": 65499,
+  "listingsKept": 30534,
   "staleAfterDays": 7,
-  "products": 21685,
-  "productsWithTwoOrMoreShops": 5824,
-  "shareWithTwoOrMoreShops": 0.269,
-  "productsWithTwoOrMoreIndependentShops": 1948,
-  "shareWithTwoOrMoreIndependentShops": 0.09,
-  "productsWithThreeOrMoreShops": 2112,
-  "medianPriceGap": 0.175,
-  "listingBarcodeShare": 0.168,
-  "productsMatchingUkByBarcode": 1490,
+  "products": 22512,
+  "productsWithTwoOrMoreShops": 5928,
+  "shareWithTwoOrMoreShops": 0.263,
+  "productsWithTwoOrMoreIndependentShops": 2067,
+  "shareWithTwoOrMoreIndependentShops": 0.092,
+  "productsWithThreeOrMoreShops": 2144,
+  "medianPriceGap": 0.177,
+  "listingBarcodeShare": 0.188,
+  "productsMatchingUkByBarcode": 1628,
   "shops": [
     {
       "id": "aedes",
       "products": 705,
-      "shared": 162
+      "shared": 167
     },
     {
       "id": "beauty-encounter",
       "products": 5079,
-      "shared": 992
+      "shared": 1018
     },
     {
       "id": "beautyhabit",
       "products": 861,
-      "shared": 209
+      "shared": 219
     },
     {
       "id": "bluemercury",
       "products": 648,
-      "shared": 234
+      "shared": 236
     },
     {
       "id": "ds-and-durga",
@@ -55,7 +55,7 @@
     {
       "id": "fragrance-market",
       "products": 4642,
-      "shared": 2493
+      "shared": 2507
     },
     {
       "id": "fragrance-outlet",
@@ -65,22 +65,22 @@
     {
       "id": "indigo-perfumery",
       "products": 540,
-      "shared": 96
+      "shared": 102
     },
     {
       "id": "la-belle-perfumes",
       "products": 4647,
-      "shared": 920
+      "shared": 931
     },
     {
       "id": "luckyscent",
-      "products": 792,
-      "shared": 154
+      "products": 1061,
+      "shared": 198
     },
     {
       "id": "maison-louis-marie",
       "products": 42,
-      "shared": 14
+      "shared": 19
     },
     {
       "id": "microperfumes",
@@ -89,13 +89,13 @@
     },
     {
       "id": "ministry-of-scent",
-      "products": 1623,
-      "shared": 374
+      "products": 1624,
+      "shared": 377
     },
     {
       "id": "parfums-raffy",
       "products": 307,
-      "shared": 73
+      "shared": 75
     },
     {
       "id": "perfumania",
@@ -109,18 +109,18 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 359,
-      "shared": 107
+      "products": 475,
+      "shared": 143
     },
     {
       "id": "twisted-lily",
       "products": 181,
-      "shared": 88
+      "shared": 96
     },
     {
       "id": "ulta",
-      "products": 31,
-      "shared": 6
+      "products": 639,
+      "shared": 105
     }
   ],
   "goNoGo": {
