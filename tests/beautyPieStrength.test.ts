@@ -66,8 +66,8 @@ describe('Beauty Pie Le Smash Santal', () => {
     expect(concentrationOfStoredListing(LE_SMASH)).toBe('Eau de Parfum');
   });
 
-  it('is the registry\'s statement for Beauty Pie and for no other shop', () => {
-    expect(RETAILERS.filter((r) => r.fragranceTypeIsEauDeParfum).map((r) => r.id)).toEqual(['beauty-pie']);
+  it('is the registry\'s statement for Beauty Pie and Glossier UK and for no other shop', () => {
+    expect(RETAILERS.filter((r) => r.fragranceTypeIsEauDeParfum).map((r) => r.id)).toEqual(['beauty-pie', 'glossier-uk']);
   });
 
   it('does not touch another shop that types a perfume Fragrance', () => {
