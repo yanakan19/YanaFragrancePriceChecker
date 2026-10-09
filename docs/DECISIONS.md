@@ -2243,3 +2243,42 @@ as the record of what was found.
 carry. For Sabina and Bath & Body Works, a shop that prices a UK delivery in
 sterling on a page the robots.txt lets us read. For Fragrancedirect, a
 storefront coming back. Each would be a new entry written from fresh readings.
+
+## D30 — The US and India: folders, the US first, scraped shops only for now (decided, 2026-10-09)
+
+**Decided by the owner, 9 October 2026**, on `docs/INTERNATIONAL-PLAN.md`. Phase 0 (the
+region foundation, UK only) was built the same day; nothing a UK visitor sees changed except the
+country menu, trimmed as decision 3 says.
+
+1. **Addresses: folders.** The UK stays at `/`, the US at `/us/`, India at `/in/`. No UK address
+   moves. (`pathPrefix` in `src/config/regions.ts`.)
+2. **The US goes first, India second.**
+3. **The country menu lists United Kingdom, United States and India** only. Germany, France and
+   Italy are out until planned. A country that is not live shows "Coming Soon" and cannot be
+   chosen.
+4. **India: marketplaces such as Amazon.in and Flipkart are allowed in principle, only where a
+   permitted route exists under D23**: no scraping a site that forbids it in robots.txt or its
+   terms, no getting past a block. This may well rule them out in practice; check robots.txt and
+   the terms before any work on them.
+5. **Photos (D24) for new countries: pending.** The owner is being asked. Until answered, no US or
+   Indian shop's photo is shown.
+6. **Affiliate programmes: not now.** For now, only shops our crawler can read under D23 (scraped
+   shops). Affiliate sign ups are planned for later; until then the US beta is built from the
+   shops that answered the bot and quote dollars.
+7. **Spelling on the US site: British English**, with US terms where the meaning changes (fl oz
+   beside ml, shipping, ZIP code, MSRP, sales tax).
+8. **A legal review of the US and India privacy and disclosure text happens before any money is
+   earned there** (owner's step).
+
+**What was built for it (Phase 0).** The region config (`src/config/regions.ts`); one money
+formatter (`formatMoney` and its siblings in `src/services/money.ts`) behind every printed price,
+proven to print every UK price exactly as before (`tests/ukPricesUnchanged.test.ts`, and 116 built
+pages compared byte for byte before and after) and guarded against a new hard coded `£`
+(`tests/moneyGuard.test.ts`); routing and canonical ready for the prefixes, hreflang for live
+regions only (none yet); the "Select your country" welcome pop-up, built, tested and switched off
+(`REGION_WELCOME_ON`, and it also needs a second live region), with the choice kept in
+`localStorage` (`pricesniffs.region`) and, signed in, in `profiles.region`
+(`supabase/migrations/0009_profile_region.sql`, for the owner to run before the US beta).
+
+**What would change this.** An owner decision; for 4, a marketplace that publishes a permitted
+route (an API or feed whose terms allow this use); for 6, the affiliate approvals.

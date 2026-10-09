@@ -1,5 +1,5 @@
 import type { PresentedOffer } from '../types/offer.js';
-import { roundPence } from './money.js';
+import { formatMoney, roundPence } from './money.js';
 import { purchasableOffers } from './priceService.js';
 
 /**
@@ -210,5 +210,5 @@ export function tooCloseToCallNote(verdict: CheapestVerdict): string | null {
 }
 
 function gbp(n: number): string {
-  return `£${n.toFixed(2)}`;
+  return formatMoney(n);
 }

@@ -14,15 +14,16 @@ const built = existsSync(resolve(root, 'demo/index.html'));
  * The country and currency selector in the top bar (owner's request,
  * 2026-10-05), on the built page: it sits just left of the account button,
  * the bar still fits at every phone width and on a tablet and a desktop in
- * both themes, the menu opens and closes by mouse and keyboard, the five
+ * both themes, the menu opens and closes by mouse and keyboard, the two
  * regions that are not available yet cannot be chosen, and nothing is stored.
  * The list's data is tests/regions.test.ts.
  */
 
 type Mode = 'dark' | 'light';
 
-const NAMES = ['United Kingdom', 'USA', 'Germany', 'India', 'France', 'Italy'];
-const CODES = ['GBP', 'USD', 'EUR', 'INR', 'EUR', 'EUR'];
+// Trimmed to three on 9 October 2026 (owner decision 3, docs/INTERNATIONAL-PLAN.md).
+const NAMES = ['United Kingdom', 'United States', 'India'];
+const CODES = ['GBP', 'USD', 'INR'];
 
 describe.skipIf(!built)('the country and currency selector', () => {
   let browser: Browser;
@@ -155,13 +156,13 @@ describe.skipIf(!built)('the country and currency selector', () => {
           }))`)) as { name: string; code: string; checked: string; disabled: string | null; tabindex: string; note: string | null; text: string; flag: number; tick: number }[];
           expect(items.map((i) => i.name)).toEqual(NAMES);
           expect(items.map((i) => i.code)).toEqual(CODES);
-          expect(items.map((i) => i.disabled)).toEqual([null, 'true', 'true', 'true', 'true', 'true']);
-          expect(items.map((i) => i.checked)).toEqual(['true', 'false', 'false', 'false', 'false', 'false']);
-          expect(items.map((i) => i.note)).toEqual([null, 'Coming Soon', 'Coming Soon', 'Coming Soon', 'Coming Soon', 'Coming Soon']);
-          expect(items.map((i) => i.text.endsWith('Coming Soon'))).toEqual([false, true, true, true, true, true]);
-          expect(items.map((i) => i.tabindex), 'only the choice made is a Tab stop').toEqual(['0', '-1', '-1', '-1', '-1', '-1']);
-          expect(items.map((i) => i.flag)).toEqual([1, 1, 1, 1, 1, 1]);
-          expect(items.map((i) => i.tick), 'a tick on the current choice only').toEqual([1, 0, 0, 0, 0, 0]);
+          expect(items.map((i) => i.disabled)).toEqual([null, 'true', 'true']);
+          expect(items.map((i) => i.checked)).toEqual(['true', 'false', 'false']);
+          expect(items.map((i) => i.note)).toEqual([null, 'Coming Soon', 'Coming Soon']);
+          expect(items.map((i) => i.text.endsWith('Coming Soon'))).toEqual([false, true, true]);
+          expect(items.map((i) => i.tabindex), 'only the choice made is a Tab stop').toEqual(['0', '-1', '-1']);
+          expect(items.map((i) => i.flag)).toEqual([1, 1, 1]);
+          expect(items.map((i) => i.tick), 'a tick on the current choice only').toEqual([1, 0, 0]);
           // No hyphens or dashes in anything shown.
           for (const i of items) expect(i.text, i.text).not.toMatch(/[-‐-―−]/);
 
@@ -184,7 +185,7 @@ describe.skipIf(!built)('the country and currency selector', () => {
           expect(await axe(page), 'axe with the menu open').toEqual([]);
 
           // ── the greyed out regions cannot be chosen ────────────────────
-          for (const id of ['US', 'DE', 'IN', 'FR', 'IT']) {
+          for (const id of ['US', 'IN']) {
             await page.click(`[data-region="${id}"]`, { force: true });
             expect(await expanded(page, '#region-btn'), `${id} click leaves the menu as it was`).toBe('true');
             expect(await page.getAttribute(`[data-region="${id}"]`, 'aria-checked')).toBe('false');
@@ -232,13 +233,13 @@ describe.skipIf(!built)('the country and currency selector', () => {
           await page.keyboard.press('ArrowDown');
           expect(await focusedId(page)).toBe('US');
           await page.keyboard.press('ArrowDown');
-          expect(await focusedId(page)).toBe('DE');
+          expect(await focusedId(page)).toBe('IN');
           await page.keyboard.press('End');
-          expect(await focusedId(page)).toBe('IT');
+          expect(await focusedId(page)).toBe('IN');
           await page.keyboard.press('ArrowDown');
           expect(await focusedId(page)).toBe('GB');
           await page.keyboard.press('ArrowUp');
-          expect(await focusedId(page)).toBe('IT');
+          expect(await focusedId(page)).toBe('IN');
           await page.keyboard.press('Home');
           expect(await focusedId(page)).toBe('GB');
 
@@ -258,7 +259,7 @@ describe.skipIf(!built)('the country and currency selector', () => {
           // The menu button pattern: ArrowUp opens on the last item.
           await page.keyboard.press('ArrowUp');
           expect(await expanded(page, '#region-btn')).toBe('true');
-          expect(await focusedId(page)).toBe('IT');
+          expect(await focusedId(page)).toBe('IN');
           await page.keyboard.press('Escape');
 
           // Enter on the UK item closes it and nothing changes.
@@ -330,7 +331,7 @@ describe.skipIf(!built)('the country and currency selector', () => {
       const keysBefore = (await page.evaluate(`Object.keys(localStorage).concat(Object.keys(sessionStorage))`)) as string[];
       const priceBefore = (await page.evaluate(`Array.from(document.querySelectorAll('#view')).map((v) => v.textContent).join('').match(/\\u00a3[0-9.,]+/g)?.slice(0, 20).join(' ') ?? ''`)) as string;
       await page.click('#region-btn');
-      for (const id of ['US', 'DE', 'IN', 'FR', 'IT', 'GB']) await page.click(`[data-region="${id}"]`, { force: true });
+      for (const id of ['US', 'IN', 'GB']) await page.click(`[data-region="${id}"]`, { force: true });
       await page.waitForTimeout(150);
       const keysAfter = (await page.evaluate(`Object.keys(localStorage).concat(Object.keys(sessionStorage))`)) as string[];
       expect(keysAfter).toEqual(keysBefore);

@@ -45,7 +45,9 @@ import {
   // harness no longer renders that sentence (see lowestPriceBox). It stays
   // exported from src/index.ts for consumers of the core — the verdict it
   // words is still computed and still drives the label swap above the price.
-  formatGbp,
+  formatMoney,
+  formatMoneyShort,
+  currencySymbol,
   RETAILERS,
   getRetailer,
   cannotCarryBrand,
@@ -116,7 +118,7 @@ import { officialSiteFor } from './brandSites.js';
 import { fragranceLinksFor, fragranticaLabel } from './fragranceLinks.js';
 import { noteSlug } from '../src/catalogue/noteName.js';
 import { matchRoute, routeToPath, setProductSlugLookup, slugify, basePath, type Route, type RouteName } from './router.js';
-import { headFor, withPreviewNoindex, SITE_URL, type HeadTags, type HeadInput } from './head.js';
+import { headFor, hreflangFor, withPreviewNoindex, SITE_URL, type HeadTags, type HeadInput } from './head.js';
 import { WRONG_PRICE_PROBLEMS, OTHER_SHOP, wrongPriceMailto, type WrongPriceProblem } from './wrongPrice.js';
 import { shareUrl, shareText, shareLinks, shareProductName, type ShareProduct, type SharePrice } from './share.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
@@ -132,6 +134,11 @@ import {
   type WishlistSort,
 } from '../src/services/accountMenu.js';
 import { REGIONS, CURRENT_REGION, regionButtonLabel, type Region } from '../src/services/regions.js';
+import { activeRegion, liveRegions, regionById, regionHome, type RegionId } from '../src/config/regions.js';
+import {
+  WELCOME_PREVIEW_PARAM, openRegionWelcome, previewChoices, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
+} from './regionWelcome.js';
+import { fetchProfileRegion, saveProfileRegion } from './regionProfile.js';
 import { flagSvg } from './flags.js';
 import { ABOUT } from './legal.js';
 import { liveCounts } from './data.js';
@@ -490,11 +497,11 @@ function rowsFor(frag: DemoFragrance): PresentedOffer[] {
 // short, and on 2026-10-01 the cheapest offer per product split 6,662 / 4,689
 // / 3,145 / 1,227 / 464 across them — every band worth offering.
 const PRICE_BANDS: { id: PriceBand; label: string; min: number; max: number | null }[] = [
-  { id: '0-25', label: 'Under £25', min: 0, max: 25 },
-  { id: '25-50', label: '£25 to £50', min: 25, max: 50 },
-  { id: '50-100', label: '£50 to £100', min: 50, max: 100 },
-  { id: '100-200', label: '£100 to £200', min: 100, max: 200 },
-  { id: '200+', label: '£200 and Over', min: 200, max: null },
+  { id: '0-25', label: `Under ${formatMoneyShort(25)}`, min: 0, max: 25 },
+  { id: '25-50', label: `${formatMoneyShort(25)} to ${formatMoneyShort(50)}`, min: 25, max: 50 },
+  { id: '50-100', label: `${formatMoneyShort(50)} to ${formatMoneyShort(100)}`, min: 50, max: 100 },
+  { id: '100-200', label: `${formatMoneyShort(100)} to ${formatMoneyShort(200)}`, min: 100, max: 200 },
+  { id: '200+', label: `${formatMoneyShort(200)} and Over`, min: 200, max: null },
 ];
 
 /**
@@ -1167,7 +1174,7 @@ function giftSetBlock(f: DemoFragrance): string {
     : `<p class="giftset-contents t-body"><span class="giftset-label">As the shop lists it:</span> ${esc(f.giftSet.title)}</p>`;
   const value = valueLine(f);
   const valueHtml = value
-    ? `<p class="giftset-value t-body">At ${esc(value.shopName)} this set is ${formatGbp(value.setPrice)}. The ${esc(sizeLabel(value.bottle))} ${esc(shortConcentration(value.bottle.concentration))} bottle alone is ${formatGbp(value.bottlePrice)} at the same shop. <button type="button" class="link-btn" data-frag="${esc(value.bottle.id)}">See the bottle</button></p>`
+    ? `<p class="giftset-value t-body">At ${esc(value.shopName)} this set is ${formatMoney(value.setPrice)}. The ${esc(sizeLabel(value.bottle))} ${esc(shortConcentration(value.bottle.concentration))} bottle alone is ${formatMoney(value.bottlePrice)} at the same shop. <button type="button" class="link-btn" data-frag="${esc(value.bottle.id)}">See the bottle</button></p>`
     : '';
   const sibs = siblingSets(f);
   const sibsHtml = sibs.length
@@ -1284,13 +1291,13 @@ function priceLine(f: DemoFragrance): string {
   // One element, not a bare text node beside a span: .tile-price stacks its
   // children, so anything left loose would drop the arrow onto its own line.
   if (best.deliveredPriceGbp !== null) {
-    return `<span class="amt">from ${formatGbp(best.deliveredPriceGbp)} <span aria-hidden="true">→</span></span>`;
+    return `<span class="amt">from ${formatMoney(best.deliveredPriceGbp)} <span aria-hidden="true">→</span></span>`;
   }
   // Only reachable when no shop with a stated delivery cost has it: the number
   // shown is the item price alone, and the line under it says so, because
   // "from £45" beside every other tile's delivered price would read as the
   // same kind of figure when it is not.
-  return `<span class="amt">${formatGbp(best.itemPriceGbp)} <span aria-hidden="true">→</span></span>
+  return `<span class="amt">${formatMoney(best.itemPriceGbp)} <span aria-hidden="true">→</span></span>
     <span class="amt-note">Delivery Not Stated</span>`;
 }
 
@@ -1902,13 +1909,13 @@ function offerRow(
       facts.push(
         row.delivery.costGbp === 0
           ? `${row.delivery.confirmed ? 'Free' : 'Est. free'} delivery`
-          : `Incl. ${est}${formatGbp(row.delivery.costGbp)} delivery`,
+          : `Incl. ${est}${formatMoney(row.delivery.costGbp)} delivery`,
       );
     }
     if (marks.fact) facts.push(marks.fact);
     // A bottle below the shop's minimum basket cannot be bought on its own.
     const minimum = row.retailer.shipping.minimumOrderGbp;
-    if (minimum && row.itemPriceGbp < minimum) facts.push(`${formatGbp(minimum)} minimum order`);
+    if (minimum && row.itemPriceGbp < minimum) facts.push(`${formatMoney(minimum)} minimum order`);
   }
   // The CAP Code asks for an affiliate relationship to be obvious before the
   // click, so a commissioned shop's row says so, and rel="sponsored" tells
@@ -1944,11 +1951,11 @@ function offerRow(
         <span class="price">${
           // A row with an MSRP comparison never also shows the shop's own RRP:
           // two reference prices on one row is the thing that must not happen.
-          d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''
+          d ? `<span class="was">RRP ${formatMoney(d.wasPrice)}</span>` : ''
         }<span class="now t-price ${
           // The saving ink only for a saving; a price above MSRP is not one.
           d || msrp?.direction === 'below' ? 'sale' : ''
-        }">${formatGbp(totalGbp)}</span></span>
+        }">${formatMoney(totalGbp)}</span></span>
       </span>
       <span class="offer-bot">
         <span class="facts t-caption">${factHtml.join('<span class="sep">·</span><wbr>')}</span>${
@@ -2265,12 +2272,12 @@ function wishlistPriceFacts(frag: DemoFragrance): { html: string; sortGbp: numbe
   }
   if (best.deliveredPriceGbp === null) {
     return {
-      html: `<strong>${formatGbp(best.itemPriceGbp)}</strong> at ${esc(best.retailer.name)}, delivery not stated`,
+      html: `<strong>${formatMoney(best.itemPriceGbp)}</strong> at ${esc(best.retailer.name)}, delivery not stated`,
       sortGbp: null,
     };
   }
   return {
-    html: `<strong>${formatGbp(best.deliveredPriceGbp)}</strong> delivered at ${esc(best.retailer.name)}`,
+    html: `<strong>${formatMoney(best.deliveredPriceGbp)}</strong> delivered at ${esc(best.retailer.name)}`,
     sortGbp: best.deliveredPriceGbp,
   };
 }
@@ -2284,14 +2291,14 @@ function wishlistPriceFacts(frag: DemoFragrance): { html: string; sortGbp: numbe
 function wishlistChangeHtml(savedGbp: number | null, changeGbp: number | null): string {
   if (savedGbp === null) return '';
   if (changeGbp === null) {
-    return `<span class="shop-row-meta t-caption wishlist-change">Saved at ${formatGbp(savedGbp)}</span>`;
+    return `<span class="shop-row-meta t-caption wishlist-change">Saved at ${formatMoney(savedGbp)}</span>`;
   }
   const text =
     changeGbp < 0
-      ? `Down ${formatGbp(-changeGbp)} since saved at ${formatGbp(savedGbp)}`
+      ? `Down ${formatMoney(-changeGbp)} since saved at ${formatMoney(savedGbp)}`
       : changeGbp > 0
-        ? `Up ${formatGbp(changeGbp)} since saved at ${formatGbp(savedGbp)}`
-        : `Same price as when saved at ${formatGbp(savedGbp)}`;
+        ? `Up ${formatMoney(changeGbp)} since saved at ${formatMoney(savedGbp)}`
+        : `Same price as when saved at ${formatMoney(savedGbp)}`;
   return `<span class="shop-row-meta t-caption wishlist-change${changeGbp < 0 ? ' down' : ''}">${esc(text)}</span>`;
 }
 
@@ -2307,10 +2314,10 @@ function savedOnLabel(iso: string): string {
 function wishlistTargetHtml(line: WishlistGroup<WishlistEntry>, frag: DemoFragrance): string {
   const value = line.targetPriceGbp === null ? '' : line.targetPriceGbp.toFixed(2);
   return `<label class="wishlist-target t-caption">
-      <span>Also email me at or below £</span>
+      <span>Also email me at or below ${esc(currencySymbol())}</span>
       <input type="text" inputmode="decimal" autocomplete="off" size="7" maxlength="9"
         data-wishlist-target="${esc(line.primary.fragranceId)}" value="${esc(value)}" placeholder="optional"
-        aria-label="Target price in pounds for ${esc(frag.brand)} ${esc(frag.name)}" />
+        aria-label="Target price in ${esc(activeRegion().currencyName)} for ${esc(frag.brand)} ${esc(frag.name)}" />
     </label>`;
 }
 
@@ -2331,7 +2338,7 @@ function priceAlertsSectionHtml(): string {
       <input type="checkbox" id="price-alerts"${state.priceAlerts ? ' checked' : ''} />
       <span class="facet-check-label">Email me when a saved fragrance gets cheaper</span>
     </label>
-    <p class="account-note">One email a morning at most, when a saved fragrance drops by 5% or £2,
+    <p class="account-note">One email a morning at most, when a saved fragrance drops by 5% or ${formatMoneyShort(2)},
       whichever is more, or reaches a target you set. Every email has a link to stop them.</p>
     <p class="account-note">${state.priceAlerts
       ? 'Set a target price for each fragrance on <button type="button" class="link-btn" data-acct-go="wishlist">My Wishlist</button>.'
@@ -2650,7 +2657,7 @@ function houseCeilingBox(frag: DemoFragrance): string {
   if (frag.houseCeiling === null) return '';
   return `<div class="price-box price-box--msrp">
       <p class="price-box-label t-eyebrow">MSRP</p>
-      <p class="price-box-amount t-price">${formatGbp(frag.houseCeiling)}</p>
+      <p class="price-box-amount t-price">${formatMoney(frag.houseCeiling)}</p>
       <p class="price-box-from price-box-from--fit t-caption">Brand's Current Price</p>
       <p class="price-box-from price-box-from--fit t-caption">Excl. delivery</p>
     </div>`;
@@ -2680,7 +2687,7 @@ function houseCeilingBox(frag: DemoFragrance): string {
  * figure (`houseCeilingBox` above, untouched), never a shop's claim about
  * it, and the retailer tier below is labelled "RRP" — the same word the
  * offer row already uses for a shop's own corroborated reference price
- * (`offerRow`'s `RRP ${formatGbp(d.wasPrice)}`) — with a caption that says
+ * (`offerRow`'s `RRP ${formatMoney(d.wasPrice)}`) — with a caption that says
  * whose word it is rather than the brand's. Kept a static string rather than
  * naming the specific shop, for the same reason `houseCeilingBox`'s caption
  * dropped the brand name (2026-08-26): the shop is already named on its own
@@ -2693,7 +2700,7 @@ function houseCeilingBox(frag: DemoFragrance): string {
 function retailerRrpBox(amountGbp: number): string {
   return `<div class="price-box price-box--msrp">
       <p class="price-box-label t-eyebrow">RRP</p>
-      <p class="price-box-amount t-price">${formatGbp(amountGbp)}</p>
+      <p class="price-box-amount t-price">${formatMoney(amountGbp)}</p>
       <p class="price-box-from price-box-from--fit t-caption">Shop's Stated RRP</p>
     </div>`;
 }
@@ -2772,13 +2779,13 @@ function lowestPriceBox(best: PresentedOffer, verdict: CheapestVerdict): string 
   if (best.deliveredPriceGbp === null) {
     return `<div class="price-box price-box--best">
         <p class="price-box-label t-eyebrow">Lowest Item Price</p>
-        <p class="price-box-amount t-price t-price--hero">${formatGbp(best.itemPriceGbp)}</p>
+        <p class="price-box-amount t-price t-price--hero">${formatMoney(best.itemPriceGbp)}</p>
         <p class="price-box-from t-caption">from ${esc(best.retailer.name)}. Delivery not stated, so this is not a delivered price</p>
       </div>`;
   }
   return `<div class="price-box price-box--best">
       <p class="price-box-label t-eyebrow">${verdict.decided ? 'Cheapest Price' : 'Lowest Total Price'}</p>
-      <p class="price-box-amount t-price t-price--hero">${formatGbp(best.deliveredPriceGbp)}</p>
+      <p class="price-box-amount t-price t-price--hero">${formatMoney(best.deliveredPriceGbp)}</p>
       <p class="price-box-from price-box-from--fit t-caption">from ${esc(best.retailer.name)}</p>
     </div>`;
 }
@@ -3240,11 +3247,11 @@ function dealsPanel(): string {
         // demo/msrpComparison.ts. An item price says so, as priceLine does.
         (d.kind === 'house'
           ? `<span class="off anchor">${d.percentOff}% Below ${esc(d.houseName!)}</span>
-        <span class="amt">${formatGbp(d.price)}</span>
-        <span class="was anchor">${formatGbp(d.wasPrice)} at ${esc(d.houseName!)}</span>`
+        <span class="amt">${formatMoney(d.price)}</span>
+        <span class="was anchor">${formatMoney(d.wasPrice)} at ${esc(d.houseName!)}</span>`
           : `<span class="off">${d.percentOff}% Off</span>
-        <span class="amt">${formatGbp(d.price)}</span>
-        <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`) +
+        <span class="amt">${formatMoney(d.price)}</span>
+        <span class="was">RRP ${formatMoney(d.wasPrice)}</span>`) +
         (d.delivered ? '' : `<span class="amt-note">Delivery Not Stated</span>`),
     });
 
@@ -4166,7 +4173,7 @@ function openWrongPriceDialog(): void {
         <span>Shop</span>
         <select name="shop" required>
           ${only ? '' : '<option value="">Choose a Shop</option>'}
-          ${offers.map((r, i) => `<option value="${i}">${esc(r.retailer.name)}, ${esc(formatGbp(r.deliveredPriceGbp ?? r.itemPriceGbp))}</option>`).join('')}
+          ${offers.map((r, i) => `<option value="${i}">${esc(r.retailer.name)}, ${esc(formatMoney(r.deliveredPriceGbp ?? r.itemPriceGbp))}</option>`).join('')}
           <option value="${OTHER_SHOP}">Other</option>
         </select>
       </label>
@@ -4928,9 +4935,10 @@ function closeAccountMenu(returnFocus: boolean): void {
 
 /* ── the country and currency menu ──────────────────────────────────────────
    A compact button just left of the account button: a small flag, "GBP" and
-   a chevron. UK and GBP is the site's only region, so the menu is a list of
-   where it works now (ticked) and where it may one day (greyed out, "Coming
-   Soon"). Choosing changes nothing: no storage, no cookie, no price moves.
+   a chevron. The list is the region config (src/config/regions.ts): the UK,
+   live and ticked, then the United States and India, greyed out ("Coming
+   Soon") until they are live. Choosing the UK changes nothing: no storage, no
+   cookie, no price moves (chooseRegionFromMenu).
 
    It follows the account menu's pattern: a real <button> with aria-haspopup
    and aria-expanded, a role="menu" panel right after it (so Tab from the
@@ -4997,6 +5005,94 @@ function closeRegionMenu(returnFocus: boolean): void {
   if (back) back.hidden = true;
   btn?.setAttribute('aria-expanded', 'false');
   if (returnFocus) btn?.focus();
+}
+
+/**
+ * A choice in the country menu. The region the page is already in only
+ * closes the menu, as it always has: nothing is stored. Another live region
+ * (none yet) is remembered, in this browser and on a signed in visitor's
+ * profile, and its home page opened (a full page load: each region has its
+ * own data files).
+ */
+function chooseRegionFromMenu(id: string | undefined): void {
+  const region = regionById(id);
+  closeRegionMenu(true);
+  if (!region || !region.live || region.id === activeRegion().id) return;
+  saveStoredRegion(region.id);
+  const open = () => window.location.assign(regionHome(region));
+  if (state.authUser) void Promise.race([saveProfileRegion(region.id), new Promise((r) => setTimeout(r, 1500))]).then(open);
+  else open();
+}
+
+/* ── "Select your country" (demo/regionWelcome.ts) ──────────────────────────
+   Off while the UK is the only live region: welcomeAction answers 'none'
+   unless REGION_WELCOME_ON is true and a second region is live, so nothing
+   below reads storage, asks the profile or draws anything today. The
+   ?regionwelcome=preview address opens it with every region as a choice, for
+   the browser test and for the owner to look at. */
+
+function welcomePreview(): boolean {
+  try {
+    return new URLSearchParams(window.location.search).get(WELCOME_PREVIEW_PARAM) === 'preview';
+  } catch {
+    return false;
+  }
+}
+
+function startRegionWelcome(): void {
+  const preview = welcomePreview();
+  if (!preview && !welcomeEnabled()) return;
+  const choices = preview ? previewChoices() : liveRegions();
+  const pathname = window.location.pathname.slice(basePath().length - 1) || '/';
+  const input = { switchOn: true, live: choices, pathname, stored: preview ? null : readStoredRegion(), active: activeRegion() };
+  const action = welcomeAction(input);
+  if (action.kind === 'none') return;
+  if (action.kind === 'redirect') {
+    window.location.replace(action.to);
+    return;
+  }
+  void currentUser().then(async (user) => {
+    // A signed in visitor may have chosen on another device.
+    const fromProfile = user && !preview ? await fetchProfileRegion() : null;
+    if (fromProfile) {
+      saveStoredRegion(fromProfile);
+      const again = welcomeAction({ ...input, stored: fromProfile });
+      if (again.kind === 'redirect') window.location.replace(again.to);
+      return;
+    }
+    await openRegionWelcome({
+      choices,
+      active: activeRegion(),
+      closeIcon: ICON_CLOSE,
+      saveToProfile: (id: RegionId) => (state.authUser ? saveProfileRegion(id) : Promise.resolve(false)),
+      openSignIn: () => {
+        state.authTab = 'signIn';
+        go('account');
+      },
+      navigate: (href: string) => window.location.assign(href),
+    });
+  });
+}
+
+/**
+ * Once per signed in visitor, while the pop-up is on: a region on the
+ * profile becomes this browser's choice, and a choice made in this browser
+ * before signing in is saved to a profile that has none ("we'll remember
+ * your preference"). No request at all while it is off.
+ */
+let regionSyncedFor: string | null = null;
+function syncProfileRegion(userId: string): void {
+  if (!welcomeEnabled() && !welcomePreview()) return;
+  if (regionSyncedFor === userId) return;
+  regionSyncedFor = userId;
+  void fetchProfileRegion().then((fromProfile) => {
+    if (fromProfile) {
+      saveStoredRegion(fromProfile);
+      return;
+    }
+    const local = readStoredRegion();
+    if (local) void saveProfileRegion(local);
+  });
 }
 
 /** Opens an account page, or does the one thing an item does. */
@@ -5792,6 +5888,26 @@ export function applyHead(tags: HeadTags): void {
 
   if (tags.noindex) setMeta('name', 'robots', 'noindex, follow');
   else document.head.querySelector('meta[name="robots"]')?.remove();
+
+  setHreflangLinks(hreflangFor(tags));
+}
+
+/**
+ * The page's hreflang alternates (demo/head.ts, hreflangFor), replaced as a
+ * set. Only live regions are named, so while the UK is the only one the list
+ * is empty and the head carries none, exactly as before.
+ */
+function setHreflangLinks(links: { hreflang: string; href: string }[]): void {
+  const old = document.head.querySelectorAll('link[rel="alternate"][hreflang]');
+  if (links.length === 0 && old.length === 0) return;
+  old.forEach((el) => el.remove());
+  for (const l of links) {
+    const el = document.createElement('link');
+    el.setAttribute('rel', 'alternate');
+    el.setAttribute('hreflang', l.hreflang);
+    el.setAttribute('href', l.href);
+    document.head.appendChild(el);
+  }
 }
 
 function setMeta(keyAttr: 'name' | 'property', key: string, value: string): void {
@@ -5854,7 +5970,7 @@ function headInputForState(): HeadInput {
       // a different one, which is the distinction the whole site turns on.
       const detail =
         best && best.deliveredPriceGbp !== null && shops > 0
-          ? `from ${formatGbp(best.deliveredPriceGbp)} delivered, across ${shops} ${shops === 1 ? 'shop' : 'shops'}`
+          ? `from ${formatMoney(best.deliveredPriceGbp)} delivered, across ${shops} ${shops === 1 ? 'shop' : 'shops'}`
           : shops > 0
             ? `stocked by ${shops} ${shops === 1 ? 'shop' : 'shops'} we track`
             : undefined;
@@ -6446,7 +6562,7 @@ const DS_TYPE_ROLES: { cls: string; sample: string; role: string }[] = [
   { cls: 't-eyebrow', sample: 'Eyebrow', role: 'One size, one tracking. 11px is the floor at 360px wide' },
   { cls: 't-caption', sample: 'Caption and meta text', role: 'Under a title, beside a figure' },
   { cls: 't-count', sample: '1,419', role: 'Tabular numerals, so a column of counts lines up' },
-  { cls: 't-price', sample: '£82.50', role: 'Tabular numerals, the one thing this site exists to show' },
+  { cls: 't-price', sample: formatMoney(82.5), role: 'Tabular numerals, the one thing this site exists to show' },
 ];
 
 /** Everything in the icon set, by the name it is declared under. */
@@ -7296,6 +7412,7 @@ function init(): void {
     if (user && isVerified(user)) {
       loadWishlist();
       loadPriceAlerts();
+      syncProfileRegion(user.id);
       // Once per reader: a token refresh fires this again for the same
       // account, and the photo it already holds is still the right one.
       if (photoOwner !== user.id) {
@@ -7319,6 +7436,7 @@ function init(): void {
     renderInPlace();
   };
   currentUser().then(handleAuthUser);
+  startRegionWelcome();
   // Fires on every sign in, sign out and token refresh, including the tab
   // that just followed a verification link back in — see its own comment in
   // auth.ts for why nothing here needs to poll for that.
@@ -7476,7 +7594,7 @@ function init(): void {
       // does. A greyed out item does nothing at all.
       e.preventDefault();
       const item = document.activeElement as HTMLElement | null;
-      if (item && item.getAttribute('aria-disabled') !== 'true') closeRegionMenu(true);
+      if (item && item.getAttribute('aria-disabled') !== 'true') chooseRegionFromMenu(item.dataset.region);
       return;
     }
     if (next >= 0 && items[next]) {
@@ -7487,7 +7605,7 @@ function init(): void {
   regionPop.addEventListener('click', (e) => {
     const item = (e.target as HTMLElement).closest<HTMLElement>('[data-region]');
     if (!item || item.getAttribute('aria-disabled') === 'true') return;
-    closeRegionMenu(true);
+    chooseRegionFromMenu(item.dataset.region);
   });
   ($('#region-menu-back') as HTMLElement).addEventListener('click', () => closeRegionMenu(true));
   document.addEventListener('keydown', (e) => {

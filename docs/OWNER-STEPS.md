@@ -937,3 +937,22 @@ copying, so keep it small and occasional, and stop if Notino objects.
    `src/config/retailers.ts`). When you want Notino to appear again, tell me
    and I will switch it on; it will not start crawling, its only source is
    these saved pages.
+
+## 10. The US and India (decided 9 October 2026; nothing to do yet)
+
+Your decisions are D30 in `docs/DECISIONS.md`; the plan is
+`docs/INTERNATIONAL-PLAN.md`. Phase 0 is built and changes nothing a UK
+visitor sees except the country menu (United Kingdom, United States, India;
+the last two "Coming Soon").
+
+1. **Answer the photo question** (D24 for new countries): may a US shop's own
+   photo be shown beside a link to that shop, as for UK shops?
+2. **Before the US beta goes public**, run
+   `supabase/migrations/0009_profile_region.sql` in the Supabase SQL Editor
+   (it adds a nullable `region` column to `profiles`; safe to run twice). It
+   is not needed before then: the site only uses it once the "Select your
+   country" pop-up is switched on.
+3. **Before any money is earned in the US or India**, have the US and India
+   privacy and disclosure text reviewed (decision 8).
+4. Affiliate sign ups (Awin US, CJ, Rakuten, Impact, Skimlinks, the Indian
+   networks) are for later (decision 6).

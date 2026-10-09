@@ -1,5 +1,5 @@
 import { getRetailer } from '../config/retailers.js';
-import { formatGbp } from './money.js';
+import { formatMoney } from './money.js';
 
 /**
  * Wording for a fragrance detail page's price history block when there is no
@@ -76,8 +76,8 @@ export function priceHistoryGapMessage(gap: PriceHistoryGap): string {
     case 'sold-out':
       return `Every price recorded for this, ${shortDateUtc(gap.firstAt)} to ${shortDateUtc(gap.lastAt)}, was for a listing marked out of stock. None of them could actually be bought, so there is no line to draw.`;
     case 'not-enough':
-      return `The only price recorded for this that could actually be paid is ${formatGbp(gap.priceGbp)} at ${retailerName(gap.retailerId)}, on ${shortDateUtc(gap.at)}. That is one reading, not a trend, so there is no line to draw yet.`;
+      return `The only price recorded for this that could actually be paid is ${formatMoney(gap.priceGbp)} at ${retailerName(gap.retailerId)}, on ${shortDateUtc(gap.at)}. That is one reading, not a trend, so there is no line to draw yet.`;
     case 'same-day':
-      return `Every price recorded for this that could actually be paid was read on the same day, ${shortDateUtc(gap.at)}, so there is no day by day trend to draw yet. The latest was ${formatGbp(gap.priceGbp)} at ${retailerName(gap.retailerId)}.`;
+      return `Every price recorded for this that could actually be paid was read on the same day, ${shortDateUtc(gap.at)}, so there is no day by day trend to draw yet. The latest was ${formatMoney(gap.priceGbp)} at ${retailerName(gap.retailerId)}.`;
   }
 }
