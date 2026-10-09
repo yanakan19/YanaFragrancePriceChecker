@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-09T04:49:26.402Z",
-  "minutes": 1.54,
+  "ranAt": "2026-10-09T05:01:35.371Z",
+  "minutes": 14.4,
   "dryRun": false,
   "shopsWired": 16,
-  "shopsEnabled": 13,
-  "shopsPriced": 11,
-  "listingsKept": 15266,
+  "shopsEnabled": 14,
+  "shopsPriced": 12,
+  "listingsKept": 15538,
   "shops": [
     {
       "id": "nykaa",
@@ -20,7 +20,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 5,
-      "seconds": 25,
+      "seconds": 31,
       "currency": "JSON-LD offers named: nothing read",
       "errors": [
         "https://www.nykaa.com/hugo-boss-intense-eau-de-parfum-for-men/p/15125799: HTTP 0",
@@ -28,6 +28,14 @@
         "https://www.nykaa.com/ducati-1926-eau-de-toilette/p/17561804: HTTP 0",
         "https://www.nykaa.com/hollister-feelin-good-for-her-eau-de-parfum/p/19197569: HTTP 0",
         "https://www.nykaa.com/ahmed-al-maghribi-lus-noir-long-lasting-eau-de-parfum/p/20154060: HTTP 0"
+      ],
+      "diagnostics": [
+        "https://www.nykaa.com/hugo-boss-intense-eau-de-parfum-for-men/p/15125799: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
+        "https://www.nykaa.com/bond-no-9-soho-eau-de-parfum/p/15294186: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
+        "https://www.nykaa.com/ducati-1926-eau-de-toilette/p/17561804: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
+        "https://www.nykaa.com/hollister-feelin-good-for-her-eau-de-parfum/p/19197569: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
+        "https://www.nykaa.com/ahmed-al-maghribi-lus-noir-long-lasting-eau-de-parfum/p/20154060: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
+        "sitemap: 3059 product address(es) found, first read https://www.nykaa.com/hugo-boss-intense-eau-de-parfum-for-men/p/15125799"
       ]
     },
     {
@@ -43,7 +51,10 @@
       "pagesFetched": 0,
       "seconds": 1,
       "currency": "JSON-LD offers named: nothing read",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "sitemap: 0 product address(es) found"
+      ]
     },
     {
       "id": "perfume-palace",
@@ -56,7 +67,7 @@
       "kept": 6530,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 92,
+      "seconds": 91,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -71,7 +82,7 @@
       "kept": 6294,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 77,
+      "seconds": 76,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -86,25 +97,29 @@
       "kept": 1894,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 22,
+      "seconds": 20,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
     {
       "id": "aar-fragrances",
       "name": "AAR Fragrances",
-      "route": null,
+      "route": "og-price",
       "singleBrand": false,
-      "status": "off",
-      "listingsRead": 0,
-      "priced": 0,
-      "kept": 0,
+      "status": "priced",
+      "listingsRead": 274,
+      "priced": 274,
+      "kept": 272,
       "withBarcode": 0,
-      "pagesFetched": 0,
-      "seconds": 0,
-      "currency": "",
-      "errors": [],
-      "note": "Readable (robots.txt allows everything; /sitemap.xml lists 4,386 product pages) but its pages carry no JSON-LD: the price is only in og:price:amount (\"₹2,389.00\") with product:price:currency \"Rupee\", which the shared reader does not take as a price, and stock is only in the visible button text. Needs a small reader of those tags first."
+      "pagesFetched": 275,
+      "seconds": 843,
+      "currency": "og:price tags named: INR",
+      "errors": [
+        "stopped early: exceeded this shop's time budget"
+      ],
+      "diagnostics": [
+        "sitemap: 2281 product address(es)"
+      ]
     },
     {
       "id": "bombay-perfumery",
@@ -117,7 +132,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -132,7 +147,7 @@
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 15,
+      "seconds": 14,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -147,7 +162,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 5,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -192,7 +207,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 10,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -209,7 +224,10 @@
       "pagesFetched": 10,
       "seconds": 29,
       "currency": "JSON-LD offers named: INR",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "sitemap: 10 product address(es) found, first read https://www.ustraa.com/cologne-spray-ammunition-125ml/p"
+      ]
     },
     {
       "id": "mirah-belle",

@@ -12,6 +12,7 @@ import { parseListings } from '../src/catalogue/jsonld.js';
 import { withTitleParts } from '../src/catalogue/sitemapCrawl.js';
 import {
   encodeRegionSnapshot, harvestRegionShop, reconcileRegion, regionPriceOf, regionStorefrontCurrency, toRegionListings, zeroPricedSkus,
+  barcodeInSku, readOgProductPage, recordingHttp,
   type RegionListing,
 } from '../src/catalogue/regionHarvest.js';
 import type { RawListing } from '../src/catalogue/types.js';
@@ -31,6 +32,10 @@ function readFixture(shop: RegionRetailer): RawListing[] {
   const route = shop.route?.kind === 'sitemap' ? shop.route.sitemapRoute : null;
   const html = readFileSync(join(fixtureDir(shop), `${shop.id}.html`), 'utf8');
   const url = /<!-- [^,]+, (\S+), read/.exec(html)![1]!;
+  if (shop.route?.kind === 'og-price') {
+    const one = readOgProductPage(html, url, 'og');
+    return one ? [one] : [];
+  }
   const found = parseListings(html, { sectionId: 'sitemap', pageUrl: url, microdata: true, requireGbp: true });
   if (route?.titleParts?.length && found.length === 1) found[0] = { ...found[0]!, rawTitle: withTitleParts(found[0]!.rawTitle, html, route.titleParts) };
   return found;
@@ -183,5 +188,68 @@ describe('reconcileRegion', () => {
     expect(b2).toMatchObject({ price: 1299, inStock: false, lastSeenAt: NOW, status: 'active' });
     // A new product read at 0 is never stored.
     expect(reconcileRegion([], [], false, { skus: new Set(['z']), at: NOW })).toEqual([]);
+  });
+});
+
+describe('the Open Graph price reader (AAR Fragrances)', () => {
+  const page = (amount: string, currency: string | null, h1 = 'Lattafa Dynasty For Men And Women EDP 100ml') =>
+    `<html><head><meta property="og:title" content="Buy ${h1} Online - AAR Fragnances" /><meta property="og:price:amount" content="${amount}" />` +
+    `${currency === null ? '' : `<meta property="product:price:currency" content="${currency}" />`}</head><body><h1 class="x">\n  ${h1}\n</h1></body></html>`;
+
+  it('reads the <h1> as the name and "Rupee" as INR', () => {
+    const l = readOgProductPage(page('₹5,000.00', 'Rupee'), 'https://www.aarfragrances.com/product/lattafa-dynasty', 'og')!;
+    expect(l).toMatchObject({ retailerSku: 'lattafa-dynasty', rawTitle: 'Lattafa Dynasty For Men And Women EDP 100ml', priceGbp: null, inStock: null, nativePrice: { amount: 5000, currency: 'INR' } });
+    const aar = REGION_RETAILERS.IN.find((r) => r.id === 'aar-fragrances')!;
+    expect(toRegionListings([l], aar, NOW).listings[0]).toMatchObject({ price: 5000, rawTitle: 'Lattafa Dynasty For Men And Women EDP 100ml' });
+  });
+
+  it('prices nothing when the page names no currency, or one it does not know, and never pounds as rupees', () => {
+    expect(readOgProductPage(page('₹5,000.00', null), 'https://x/product/a', 'og')!.nativePrice).toBeUndefined();
+    expect(readOgProductPage(page('5000', 'Doubloon'), 'https://x/product/a', 'og')!.nativePrice).toBeUndefined();
+    const gbp = readOgProductPage(page('£50.00', 'GBP'), 'https://x/product/a', 'og')!;
+    expect(regionPriceOf(gbp, 'INR')).toBeNull();
+  });
+
+  it('leaves decants and samples out of the walk', () => {
+    const aar = REGION_RETAILERS.IN.find((r) => r.id === 'aar-fragrances')!;
+    if (aar.route?.kind !== 'og-price') throw new Error('AAR route');
+    const product = new RegExp(aar.route.product, 'i');
+    const exclude = new RegExp(aar.route.exclude!, 'i');
+    expect(product.test('https://www.aarfragrances.com/product/lattafa-dynasty') && !exclude.test('https://www.aarfragrances.com/product/lattafa-dynasty')).toBe(true);
+    expect(exclude.test('https://www.aarfragrances.com/product/decantsample-lattafa-dynasty')).toBe(true);
+    expect(product.test('https://www.aarfragrances.com/users/login')).toBe(false);
+  });
+});
+
+describe('the barcode inside a shop id (Purplle)', () => {
+  it('reads PPLB plus an EAN-13 only when the check digit holds', () => {
+    const purplle = REGION_RETAILERS.IN.find((r) => r.id === 'purplle')!;
+    expect(barcodeInSku('PPLB8906111693723', purplle)).toBe('8906111693723');
+    expect(barcodeInSku('PPLB8906111693724', purplle)).toBeNull();
+    expect(barcodeInSku('8906111693723', purplle)).toBeNull();
+    expect(barcodeInSku('PPLB8906111693723', { })).toBeNull();
+  });
+});
+
+describe('the request diagnostics', () => {
+  it('remembers the first few requests that failed, with the transport error, and nothing else', async () => {
+    const sink: string[] = [];
+    const fake = async (url: string): Promise<HttpResponse> =>
+      url.endsWith('/ok') ? { status: 200, ok: true, body: '' } : { status: 0, ok: false, body: '', error: 'ECONNRESET' };
+    const http = recordingHttp(fake, sink, 2);
+    await http('https://a/ok', {});
+    await http('https://a/p/1', {});
+    await http('https://a/p/2', {});
+    await http('https://a/p/3', {});
+    expect(sink).toEqual(['https://a/p/1: HTTP 0 (ECONNRESET)', 'https://a/p/2: HTTP 0 (ECONNRESET)']);
+  });
+
+  it('notes a sitemap served 200 with no address in it', async () => {
+    const sink: string[] = [];
+    const http = recordingHttp(async (url: string): Promise<HttpResponse> =>
+      ({ status: 200, ok: true, body: url.includes('good') ? '<urlset><url><loc>https://a/p</loc></url></urlset>' : '<html><title>Access Denied</title></html>' }), sink);
+    await http('https://a/good.xml', {});
+    await http('https://a/bad.xml', {});
+    expect(sink).toEqual(['https://a/bad.xml: HTTP 200 but no <loc> in 41 bytes, starting "<html><title>Access Denied</title></html>"']);
   });
 });

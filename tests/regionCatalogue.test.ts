@@ -3,7 +3,7 @@
 // barcode, the UK's own same-bottle merge, sister shops counted once, and an
 // append only price history.
 import { describe, expect, it } from 'vitest';
-import { appendRegionHistory, buildRegionCatalogue, encodeHistory, encodeLines } from '../src/catalogue/regionCatalogue.js';
+import { appendRegionHistory, buildRegionCatalogue, encodeHistory, encodeLines, regionMatchName } from '../src/catalogue/regionCatalogue.js';
 import type { RegionListing, RegionSnapshot } from '../src/catalogue/regionHarvest.js';
 
 const NOW = '2026-10-09T12:00:00.000Z';
@@ -82,5 +82,33 @@ describe('appendRegionHistory', () => {
   it('writes files that parse back', () => {
     expect(JSON.parse(encodeLines({ a: 1 }, 'rows', [{ x: 1 }, { x: 2 }])).rows.length).toBe(2);
     expect(JSON.parse(encodeLines({ a: 1 }, 'rows', [])).rows).toEqual([]);
+  });
+});
+
+describe('who a bottle is for, as Indian shops write it', () => {
+  it('matches "For Unisex", "For Men & Women" and no word as one, and keeps one sex apart from the other', () => {
+    expect(regionMatchName('Khamrah For Unisex')).toBe('Khamrah');
+    expect(regionMatchName('Khamrah For Man & Woman')).toBe('Khamrah');
+    expect(regionMatchName('Khamrah Dukhan For Men(New Release 2025)')).toBe('Khamrah Dukhan formen');
+    expect(regionMatchName('Code for Women')).not.toBe(regionMatchName('Code for Men'));
+    expect(regionMatchName('Code')).not.toBe(regionMatchName('Code for Women'));
+  });
+
+  it('joins one bottle across three shops that each say it differently, and reads the house past a shop\'s own vendor name', () => {
+    const r = buildRegionCatalogue([
+      snap('a', [row('Lattafa Khamrah Eau De Parfum 100ml For Unisex', 'Lattafa', 2000)]),
+      snap('b', [row('Lattafa Khamrah Eau De Parfum 100ml For Men & Women', 'Seema Mehra', 2100)]),
+      snap('c', [row('Khamrah Eau De Parfum 100ml', 'Lattafa', 2200), row('Armani Code Eau de Parfum 100ml for Women', 'Giorgio Armani', 9000)]),
+      snap('d', [row('Armani Code Eau de Parfum 100ml for Men', 'Giorgio Armani', 8000)]),
+    ], {
+      now: NOW,
+      shopNames: new Map([['a', 'A'], ['b', 'B'], ['c', 'C'], ['d', 'D']]),
+      notHouse: new Map([['b', new Set(['seema mehra'])]]),
+    });
+    const khamrah = r.products.filter((p) => /khamrah/i.test(p.name));
+    expect(khamrah).toHaveLength(1);
+    expect(khamrah[0]!.brand).toBe('Lattafa');
+    expect(khamrah[0]!.offers.map((o) => o.shopId).sort()).toEqual(['a', 'b', 'c']);
+    expect(r.products.filter((p) => /code/i.test(p.name))).toHaveLength(2);
   });
 });

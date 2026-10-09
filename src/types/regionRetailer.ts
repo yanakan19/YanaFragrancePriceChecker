@@ -83,7 +83,15 @@ export type RegionRoute =
    * keep a price only where the page names its currency; the region layer then
    * keeps it only when that currency is the region's.
    */
-  | { kind: 'sitemap'; sitemapRoute: SitemapRoute };
+  | { kind: 'sitemap'; sitemapRoute: SitemapRoute }
+  /**
+   * A shop whose pages carry no JSON-LD but state the price in Open Graph
+   * product tags (`og:price:amount`, `product:price:currency`) and the name
+   * in the page's one <h1> (AAR Fragrances). Product addresses come from the
+   * plain sitemap `sitemap`; `product` and `exclude` are source text, case
+   * blind. Read by `readOgProductPage` in src/catalogue/regionHarvest.ts.
+   */
+  | { kind: 'og-price'; sitemap: string; product: string; exclude?: string };
 
 export interface RegionRetailer {
   /** Stable key, never one the UK registry uses. */
@@ -137,6 +145,19 @@ export interface RegionRetailer {
    * stored at all.
    */
   zeroPriceMeansSoldOut?: boolean;
+  /**
+   * The barcode inside the shop's own id, as source text with one capture
+   * group of digits: Purplle's sku is "PPLB" and the EAN-13
+   * ("PPLB8906111693723"). Kept only when it passes the barcode checks.
+   */
+  skuBarcodeFrom?: string;
+  /**
+   * Shopify `vendor` values this shop uses for itself, not for a house
+   * (Perfume Palace files 926 of its listings under "Seema Mehra"). A listing
+   * with one of these stores no brand, and the build reads the house from the
+   * title against the houses the region's shops name.
+   */
+  vendorNotHouse?: readonly string[];
   /**
    * The Shopify `vendor` is the shop, not the house (Parfums Raffy), so it is
    * not stored as the brand; the region build reads the house from the title

@@ -71,8 +71,8 @@ export interface RegionMeasures {
 /** Days after which a listing no longer counts, the UK's own window (offerAge.ts). */
 export const REGION_STALE_DAYS = 7;
 
-function brandOf(l: RegionListing, confirmed: ReadonlySet<string>, shopName: string): string {
-  if (l.rawBrand && l.rawBrand.trim()) return l.rawBrand.trim();
+function brandOf(l: RegionListing, confirmed: ReadonlySet<string>, shopName: string, notHouse?: ReadonlySet<string>): string {
+  if (l.rawBrand && l.rawBrand.trim() && !notHouse?.has(l.rawBrand.trim().toLowerCase())) return l.rawBrand.trim();
   return recoverBrandFromTitle(l.rawTitle, shopName, confirmed) ?? '';
 }
 
@@ -82,6 +82,34 @@ function regionSizeMl(title: string): number | null {
   return sizeMl(title);
 }
 
+const MEN = '(?:men|man|him|gents?)';
+const WOMEN = '(?:women|woman|her|ladies|lady)';
+const BOTH = new RegExp(`\\bfor\\s+(?:${MEN}\\s*(?:&|and|/)\\s*${WOMEN}|${WOMEN}\\s*(?:&|and|/)\\s*${MEN}|unisex|all)\\b|\\bunisex\\b`, 'gi');
+const FOR_MEN = new RegExp(`\\bfor\\s+${MEN}\\b`, 'gi');
+const FOR_WOMEN = new RegExp(`\\bfor\\s+${WOMEN}\\b`, 'gi');
+const has = (re: RegExp, text: string): boolean => text.search(re) >= 0;
+
+/**
+ * The name the region build matches on: the shop's "for Men", "For Man &
+ * Woman", "For Unisex" and a note in brackets ("(New Release 2025)") taken
+ * out, and who it is for put back as one word only where it is one sex. So
+ * "Khamrah For Unisex" and "Khamrah For Men & Women" are one bottle, while
+ * "Code for Men" and "Code for Women" stay two, and a name that states no
+ * one is matched only with names that say unisex or nothing. Indian shops
+ * write these phrases in every title, in many spellings; the UK merge
+ * (findDuplicateGroups) is exact about words, so without this one bottle
+ * read as three. The display name is left as the shop wrote it.
+ */
+export function regionMatchName(name: string): string {
+  let n = name.replace(/\([^)]*\)/g, ' ');
+  let who = '';
+  if (has(BOTH, n)) n = n.replace(BOTH, ' ');
+  else if (has(FOR_WOMEN, n)) { who = 'forwomen'; n = n.replace(FOR_WOMEN, ' '); }
+  else if (has(FOR_MEN, n)) { who = 'formen'; n = n.replace(FOR_MEN, ' '); }
+  n = n.replace(/\s+/g, ' ').trim();
+  return who ? `${n} ${who}` : n;
+}
+
 export interface BuildRegionOptions {
   now: string;
   /** Shop id to display name, for the brand reader's refusal of the shop's own name. */
@@ -89,6 +117,8 @@ export interface BuildRegionOptions {
   ukIds?: ReadonlySet<string>;
   /** Shop id to its `catalogueGroup`, for the independent count. */
   groups?: ReadonlyMap<string, string>;
+  /** Shop id to the vendor names it uses for itself (`vendorNotHouse`), lower case: never a brand. */
+  notHouse?: ReadonlyMap<string, ReadonlySet<string>>;
   /** Shop id to its `titleMustMatch`: words that name the shop's format, not the perfume, taken out of the name. */
   formatWords?: ReadonlyMap<string, string>;
 }
@@ -104,7 +134,8 @@ export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], optio
     }
   }
   const untrustworthy = untrustworthyEans(rows.map(({ shopId, l }) => ({ retailerId: shopId, ean: l.ean, rawTitle: l.rawTitle })));
-  const confirmed = new Set(rows.map(({ l }) => l.rawBrand?.trim().toLowerCase()).filter((b): b is string => !!b));
+  const notHouseAll = new Set([...(options.notHouse?.values() ?? [])].flatMap((v) => [...v]));
+  const confirmed = new Set(rows.map(({ l }) => l.rawBrand?.trim().toLowerCase()).filter((b): b is string => !!b && !notHouseAll.has(b)));
 
   const byId = new Map<string, RegionProduct>();
   let withBarcode = 0;
@@ -115,7 +146,7 @@ export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], optio
     if (ean) withBarcode++;
     const format = options.formatWords?.get(shopId);
     const title = ownSizeTitle(format ? l.rawTitle.replace(new RegExp(`\\s*-?\\s*${format}`, 'gi'), ' ').replace(/\s+/g, ' ').trim() : l.rawTitle);
-    const brand = brandOf(l, confirmed, options.shopNames.get(shopId) ?? shopId);
+    const brand = brandOf(l, confirmed, options.shopNames.get(shopId) ?? shopId, options.notHouse?.get(shopId));
     const offer: RegionOffer = { shopId, price: l.price, inStock: l.inStock };
     const existing = byId.get(id);
     if (existing) {
@@ -134,13 +165,22 @@ export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], optio
     });
   }
 
-  // One bottle sold by several shops under different ids: the UK's own merge.
+  // One bottle sold by several shops under different ids: the UK's own merge,
+  // run on the match name (regionMatchName) and mapped back to the products.
   const bottles = [...byId.values()].filter((p) => p.kind === 'bottle' && p.brand !== '');
-  const groups = findDuplicateGroups(bottles, { shopsOf: (p) => p.offers.map((o) => o.shopId) });
+  const proxyOf = new Map<RegionProduct, RegionProduct>();
+  const proxies = bottles.map((p) => {
+    const proxy = { ...p, name: regionMatchName(p.name) };
+    proxyOf.set(proxy, p);
+    return proxy;
+  });
+  const groups = findDuplicateGroups(proxies, { shopsOf: (p) => p.offers.map((o) => o.shopId) });
   for (const g of groups) {
+    const canonical = proxyOf.get(g.canonical)!;
     for (const a of g.absorbed) {
-      g.canonical.offers.push(...a.offers);
-      byId.delete(a.id);
+      const absorbed = proxyOf.get(a)!;
+      canonical.offers.push(...absorbed.offers);
+      byId.delete(absorbed.id);
     }
   }
 

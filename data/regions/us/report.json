@@ -1,0 +1,131 @@
+{
+  "region": "US",
+  "currency": "USD",
+  "builtAt": "2026-10-09T05:03:45.768Z",
+  "published": false,
+  "note": "Dry run (docs/INTERNATIONAL-PLAN.md, Phase 1 step one): nothing here is shown on the site.",
+  "shopsWired": 26,
+  "shopsEnabled": 22,
+  "shopsPriced": 22,
+  "crawlMinutes": 14.38,
+  "harvestRanAt": "2026-10-09T04:49:22.610Z",
+  "listingsPriced": 65011,
+  "listingsKept": 30018,
+  "staleAfterDays": 7,
+  "products": 21594,
+  "productsWithTwoOrMoreShops": 5593,
+  "shareWithTwoOrMoreShops": 0.259,
+  "productsWithTwoOrMoreIndependentShops": 1700,
+  "shareWithTwoOrMoreIndependentShops": 0.079,
+  "productsWithThreeOrMoreShops": 2059,
+  "medianPriceGap": 0.172,
+  "listingBarcodeShare": 0.162,
+  "productsMatchingUkByBarcode": 1442,
+  "shops": [
+    {
+      "id": "aedes",
+      "products": 705,
+      "shared": 154
+    },
+    {
+      "id": "beauty-encounter",
+      "products": 5096,
+      "shared": 922
+    },
+    {
+      "id": "beautyhabit",
+      "products": 861,
+      "shared": 174
+    },
+    {
+      "id": "bluemercury",
+      "products": 648,
+      "shared": 228
+    },
+    {
+      "id": "ds-and-durga",
+      "products": 12,
+      "shared": 8
+    },
+    {
+      "id": "ellis-brooklyn",
+      "products": 42,
+      "shared": 0
+    },
+    {
+      "id": "fragrance-market",
+      "products": 4646,
+      "shared": 2441
+    },
+    {
+      "id": "fragrance-outlet",
+      "products": 4436,
+      "shared": 3934
+    },
+    {
+      "id": "indigo-perfumery",
+      "products": 540,
+      "shared": 95
+    },
+    {
+      "id": "la-belle-perfumes",
+      "products": 4651,
+      "shared": 700
+    },
+    {
+      "id": "luckyscent",
+      "products": 483,
+      "shared": 89
+    },
+    {
+      "id": "maison-louis-marie",
+      "products": 42,
+      "shared": 14
+    },
+    {
+      "id": "microperfumes",
+      "products": 501,
+      "shared": 266
+    },
+    {
+      "id": "ministry-of-scent",
+      "products": 1623,
+      "shared": 354
+    },
+    {
+      "id": "parfums-raffy",
+      "products": 307,
+      "shared": 72
+    },
+    {
+      "id": "perfumania",
+      "products": 4198,
+      "shared": 3879
+    },
+    {
+      "id": "sol-de-janeiro",
+      "products": 242,
+      "shared": 2
+    },
+    {
+      "id": "the-perfume-spot",
+      "products": 226,
+      "shared": 52
+    },
+    {
+      "id": "twisted-lily",
+      "products": 181,
+      "shared": 80
+    },
+    {
+      "id": "ulta",
+      "products": 31,
+      "shared": 6
+    }
+  ],
+  "goNoGo": {
+    "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
+    "meetsBar": false,
+    "measuredOn": "shareWithTwoOrMoreIndependentShops (sister shops on one catalogue counted once)"
+  }
+}

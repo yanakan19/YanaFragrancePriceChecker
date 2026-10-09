@@ -2,10 +2,10 @@
   "retailerId": "ustraa",
   "region": "IN",
   "currency": "INR",
-  "updatedAt": "2026-10-09T04:49:26.402Z",
+  "updatedAt": "2026-10-09T05:01:35.371Z",
   "complete": true,
   "listings": [
-    {"retailerSku":"8904223817501","url":"https://www.ustraa.com/cologne-for-men-base-camp/p","rawTitle":"Base Camp Cologne - 100 ml - Perfume for Men","rawBrand":"Ustraa","ean":null,"price":449,"wasPrice":null,"inStock":false,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-09T04:49:26.402Z","lastSeenAt":"2026-10-09T04:49:26.402Z","status":"active"},
-    {"retailerSku":"8904223818478","url":"https://www.ustraa.com/cologne-for-men-ammunition/p","rawTitle":"Ammunition Cologne - 100 ml - Perfume for Men","rawBrand":"Ustraa","ean":null,"price":449,"wasPrice":null,"inStock":true,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-09T04:49:26.402Z","lastSeenAt":"2026-10-09T04:49:26.402Z","status":"active"}
+    {"retailerSku":"8904223817501","url":"https://www.ustraa.com/cologne-for-men-base-camp/p","rawTitle":"Base Camp Cologne - 100 ml - Perfume for Men","rawBrand":"Ustraa","ean":null,"price":449,"wasPrice":null,"inStock":false,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-09T04:49:26.402Z","lastSeenAt":"2026-10-09T05:01:35.371Z","status":"active"},
+    {"retailerSku":"8904223818478","url":"https://www.ustraa.com/cologne-for-men-ammunition/p","rawTitle":"Ammunition Cologne - 100 ml - Perfume for Men","rawBrand":"Ustraa","ean":null,"price":449,"wasPrice":null,"inStock":true,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-09T04:49:26.402Z","lastSeenAt":"2026-10-09T05:01:35.371Z","status":"active"}
   ]
 }
