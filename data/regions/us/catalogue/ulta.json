@@ -2,7 +2,7 @@
   "retailerId": "ulta",
   "region": "US",
   "currency": "USD",
-  "updatedAt": "2026-10-09T04:49:22.610Z",
+  "updatedAt": "2026-10-09T05:07:04.572Z",
   "complete": false,
   "listings": [
     {"retailerSku":"2011350","url":"https://www.ulta.com/p/eternity-eau-de-parfum-2505?sku=2011350","rawTitle":"Eternity Eau de Parfum 3.3 oz","rawBrand":"Calvin Klein","ean":"0088300601400","price":123,"wasPrice":null,"inStock":true,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-09T04:49:22.610Z","lastSeenAt":"2026-10-09T04:49:22.610Z","status":"active"},
