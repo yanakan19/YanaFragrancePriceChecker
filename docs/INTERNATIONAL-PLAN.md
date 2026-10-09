@@ -901,6 +901,16 @@ never read (the region snapshots carry none).
 - The legal review (owner) before any affiliate programme or ad earns money there.
 - The Supabase wishlist region columns (plan section 6, "Accounts"): saved fragrances and alerts
   are still UK prices; a US product saved from `/us/` is a product id the UK page may not have.
-- An 18 or over confirmation at sign up for Indian visitors (DPDP).
+- ~~An 18 or over confirmation at sign up for Indian visitors (DPDP).~~ Done 9 October 2026: see below.
 - Notes for region products, and the guides in US terms (they are written for the UK site).
 
+### 18 or over at sign up in India (9 October 2026)
+
+Owner decision, built the same day. On `/in/` pages, and for a visitor whose chosen country is
+India, the create account form has a required checkbox "I am 18 or over"
+(`demo/ageConfirm.ts`, wired in `demo/app.ts`). Without the tick, sign up stops with the site's
+pop-up ("Please Confirm Your Age") and nothing is sent to Supabase. UK and US forms are unchanged,
+and the sign in form never has it. Sign up and sign in are by email and password only (no social or
+magic link path), so no other first sign in skips the form. Nothing is stored: no column, no
+migration. Whether the DPDP Rules need a stored record is left to the owner and the legal review
+(`docs/OWNER-STEPS.md`, section 10, step 3). Tests: `tests/ageConfirm.test.ts`.
