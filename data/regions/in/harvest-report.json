@@ -1,41 +1,42 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-09T05:01:35.371Z",
-  "minutes": 14.4,
+  "ranAt": "2026-10-09T05:19:27.134Z",
+  "minutes": 14.31,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 14,
-  "shopsPriced": 12,
-  "listingsKept": 15538,
+  "shopsPriced": 13,
+  "listingsKept": 15783,
   "shops": [
     {
       "id": "nykaa",
       "name": "Nykaa",
       "route": "sitemap",
       "singleBrand": false,
-      "status": "no-prices",
-      "listingsRead": 0,
-      "priced": 0,
-      "kept": 0,
-      "withBarcode": 0,
-      "pagesFetched": 5,
-      "seconds": 31,
-      "currency": "JSON-LD offers named: nothing read",
+      "status": "priced",
+      "listingsRead": 283,
+      "priced": 280,
+      "kept": 260,
+      "withBarcode": 32,
+      "pagesFetched": 295,
+      "seconds": 840,
+      "currency": "JSON-LD offers named: INR",
       "errors": [
-        "https://www.nykaa.com/hugo-boss-intense-eau-de-parfum-for-men/p/15125799: HTTP 0",
-        "https://www.nykaa.com/bond-no-9-soho-eau-de-parfum/p/15294186: HTTP 0",
-        "https://www.nykaa.com/ducati-1926-eau-de-toilette/p/17561804: HTTP 0",
-        "https://www.nykaa.com/hollister-feelin-good-for-her-eau-de-parfum/p/19197569: HTTP 0",
-        "https://www.nykaa.com/ahmed-al-maghribi-lus-noir-long-lasting-eau-de-parfum/p/20154060: HTTP 0"
+        "https://www.nykaa.com/etat-libre-d-orange-eau-de-protection-edp/p/12387140: HTTP 500",
+        "https://www.nykaa.com/gisada-luxury-collection-iris-eau-de-parfum/p/15100009: HTTP 500",
+        "https://www.nykaa.com/yves-saint-laurent-libre-l-eau-nue-parfum-de-peau/p/20778154: HTTP 502",
+        "https://www.nykaa.com/park-avenue-poise-luxury-perfume-eau-de-parfum/p/22204946: HTTP 500",
+        "https://www.nykaa.com/memo-paris-inle-eau-de-parfum/p/24956137: HTTP 500"
       ],
       "diagnostics": [
-        "https://www.nykaa.com/hugo-boss-intense-eau-de-parfum-for-men/p/15125799: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
-        "https://www.nykaa.com/bond-no-9-soho-eau-de-parfum/p/15294186: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
-        "https://www.nykaa.com/ducati-1926-eau-de-toilette/p/17561804: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
-        "https://www.nykaa.com/hollister-feelin-good-for-her-eau-de-parfum/p/19197569: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
-        "https://www.nykaa.com/ahmed-al-maghribi-lus-noir-long-lasting-eau-de-parfum/p/20154060: HTTP 0 (TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error))",
-        "sitemap: 3059 product address(es) found, first read https://www.nykaa.com/hugo-boss-intense-eau-de-parfum-for-men/p/15125799"
+        "https://www.nykaa.com/etat-libre-d-orange-eau-de-protection-edp/p/12387140: HTTP 500",
+        "https://www.nykaa.com/gisada-luxury-collection-iris-eau-de-parfum/p/15100009: HTTP 500",
+        "https://www.nykaa.com/yves-saint-laurent-libre-l-eau-nue-parfum-de-peau/p/20778154: HTTP 502",
+        "https://www.nykaa.com/park-avenue-poise-luxury-perfume-eau-de-parfum/p/22204946: HTTP 500",
+        "https://www.nykaa.com/memo-paris-inle-eau-de-parfum/p/24956137: HTTP 500",
+        "https://www.nykaa.com/la-french-fonce-eau-de-parfume/p/25954279: HTTP 500",
+        "sitemap: 3069 product address(es) found, first read https://www.nykaa.com/hugo-boss-intense-eau-de-parfum-for-men/p/15125799"
       ]
     },
     {
@@ -53,6 +54,7 @@
       "currency": "JSON-LD offers named: nothing read",
       "errors": [],
       "diagnostics": [
+        "https://www.purplle.com/sitemap/products/all-subcategories.xml: HTTP 200 but no <loc> in 545 bytes, starting \"<!DOCTYPE html><html><head><meta charset=\\\"utf-8\\\"><script type=\\\"text/javascript\\\" src=\\\"/kramericaindus\"",
         "sitemap: 0 product address(es) found"
       ]
     },
@@ -67,7 +69,7 @@
       "kept": 6530,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 91,
+      "seconds": 61,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -82,7 +84,7 @@
       "kept": 6294,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 76,
+      "seconds": 71,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -97,7 +99,7 @@
       "kept": 1894,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 20,
+      "seconds": 18,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -107,12 +109,12 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 274,
-      "priced": 274,
-      "kept": 272,
+      "listingsRead": 266,
+      "priced": 266,
+      "kept": 257,
       "withBarcode": 0,
-      "pagesFetched": 275,
-      "seconds": 843,
+      "pagesFetched": 267,
+      "seconds": 840,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -162,7 +164,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -222,7 +224,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 29,
+      "seconds": 30,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [

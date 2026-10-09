@@ -1,41 +1,41 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-09T05:16:00.182Z",
+  "builtAt": "2026-10-09T05:33:46.355Z",
   "published": false,
   "note": "Dry run (docs/INTERNATIONAL-PLAN.md, Phase 1 step one): nothing here is shown on the site.",
   "shopsWired": 16,
   "shopsEnabled": 14,
-  "shopsPriced": 12,
-  "crawlMinutes": 14.4,
-  "harvestRanAt": "2026-10-09T05:01:35.371Z",
-  "listingsPriced": 21619,
-  "listingsKept": 15538,
+  "shopsPriced": 13,
+  "crawlMinutes": 14.31,
+  "harvestRanAt": "2026-10-09T05:19:27.134Z",
+  "listingsPriced": 21891,
+  "listingsKept": 15783,
   "staleAfterDays": 7,
-  "products": 14568,
-  "productsWithTwoOrMoreShops": 751,
-  "shareWithTwoOrMoreShops": 0.052,
-  "productsWithTwoOrMoreIndependentShops": 751,
-  "shareWithTwoOrMoreIndependentShops": 0.052,
-  "productsWithThreeOrMoreShops": 108,
-  "medianPriceGap": 0.144,
-  "listingBarcodeShare": 0,
-  "productsMatchingUkByBarcode": 0,
+  "products": 13856,
+  "productsWithTwoOrMoreShops": 1587,
+  "shareWithTwoOrMoreShops": 0.115,
+  "productsWithTwoOrMoreIndependentShops": 1587,
+  "shareWithTwoOrMoreIndependentShops": 0.115,
+  "productsWithThreeOrMoreShops": 286,
+  "medianPriceGap": 0.13,
+  "listingBarcodeShare": 0.002,
+  "productsMatchingUkByBarcode": 19,
   "shops": [
     {
       "id": "aar-fragrances",
-      "products": 272,
-      "shared": 98
+      "products": 528,
+      "shared": 284
     },
     {
       "id": "bellavita-india",
-      "products": 295,
-      "shared": 0
+      "products": 127,
+      "shared": 7
     },
     {
       "id": "fridaycharm",
-      "products": 6270,
-      "shared": 630
+      "products": 6256,
+      "shared": 1290
     },
     {
       "id": "naso-profumi",
@@ -43,19 +43,24 @@
       "shared": 0
     },
     {
+      "id": "nykaa",
+      "products": 260,
+      "shared": 18
+    },
+    {
       "id": "perfume-network",
       "products": 1891,
-      "shared": 508
+      "shared": 667
     },
     {
       "id": "perfume-palace",
-      "products": 6492,
-      "shared": 382
+      "products": 6482,
+      "shared": 1222
     },
     {
       "id": "the-man-company",
       "products": 80,
-      "shared": 0
+      "shared": 1
     },
     {
       "id": "ustraa",
@@ -65,7 +70,7 @@
     {
       "id": "wild-stone",
       "products": 104,
-      "shared": 0
+      "shared": 1
     }
   ],
   "goNoGo": {
