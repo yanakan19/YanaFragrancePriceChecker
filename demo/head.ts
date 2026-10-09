@@ -201,7 +201,7 @@ export function headFor(input: HeadInput): HeadTags {
   const description = input.route.name === 'home'
     ? `${SHARE_TITLE}. Fragrance prices from ${region.shopsAdjective} shops, compared${region.beta ? ', in beta' : ''}.`
     : localWords(tags.description, region);
-  const hidden = input.route.name === 'notes' && !regionHasFixedPage(region, '/notes');
+  const hidden = (input.route.name === 'notes' || input.route.name === 'notesGroup') && !regionHasFixedPage(region, '/notes');
   return { ...tags, description, ...(hidden ? { noindex: true } : {}) };
 }
 
@@ -324,6 +324,21 @@ function headTagsUk(input: HeadInput): HeadTags {
         ),
         canonical,
         noindex: false,
+      };
+
+    case 'notesGroup':
+      // leafName is the group's name once the page has it; the address is the group's either way.
+      return {
+        title: clamp(leafName ? `PriceSniffs: ${leafName} notes in perfume` : 'PriceSniffs: Notes by group', TITLE_MAX),
+        description: describe(
+          leafName
+            ? `${leafName} notes in perfume, as the shops publish them, with the fragrances that list each one.`
+            : 'Notes in perfume by group, as the shops publish them.',
+          SITE_TAIL,
+        ),
+        canonical,
+        // A group the page does not know (a made up id) is not a page of its own.
+        noindex: leafEmpty === true,
       };
 
     case 'notes':
@@ -616,6 +631,7 @@ function pathOf(route: Route): string {
     case 'retailers': return '/retailers';
     case 'retailer': return `/retailers/${p}`;
     case 'notes': return '/notes';
+    case 'notesGroup': return `/notes/group/${p}`;
     case 'note': return `/notes/${p}`;
     case 'fragrances': return '/fragrances';
     case 'oils': return '/oils';

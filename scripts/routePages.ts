@@ -65,6 +65,8 @@ export interface HeadFacts {
   retailerCount: number;
   /** The title of a /legal/<id> page, as the page shows it. */
   legalTitle(id: string): string | undefined;
+  /** The name of a note group, for /notes/group/<id>; undefined for an id that is not a group. */
+  noteGroupName(id: string): string | undefined;
 }
 
 export interface RoutePage {
@@ -126,11 +128,13 @@ function routePagesIn(sitemap: readonly string[], facts: HeadFacts, region: Regi
     const segments = path.replace(/^\//, '').split('/');
     if (!segments.every((s) => SAFE_SEGMENT.test(s))) continue;
 
+    if (route.name === 'notesGroup' && facts.noteGroupName(route.param) === undefined) continue;
     const tags = headFor({
       route,
       productCount: facts.productCount,
       retailerCount: facts.retailerCount,
       ...(route.name === 'legal' ? { leafName: facts.legalTitle(route.param) } : {}),
+      ...(route.name === 'notesGroup' ? { leafName: facts.noteGroupName(route.param) } : {}),
     });
     // An old way in (/explore, /gift-sets) matches a route but its page lives
     // at another address; its file would claim the other address as canonical.

@@ -62,7 +62,7 @@ describe('scripts/generated-files.txt', () => {
       'demo/index.html', 'demo/404.html', 'demo/sitemap.xml', 'demo/ads.txt',
       'demo/data', 'demo/data/catalogue.0123456789abcdef.json',
       // A page of its own for each fixed address (scripts/build-route-pages.ts).
-      'demo/about.html', 'demo/fragrances.html', 'demo/about/legal.html', 'demo/about/bot.html',
+      'demo/about.html', 'demo/fragrances.html', 'demo/about/legal.html', 'demo/about/bot.html', 'demo/notes/group/citrus.html',
     ]) {
       expect(policyOf(path), path).toBe('deploy');
     }
@@ -91,7 +91,7 @@ describe('scripts/generated-files.txt', () => {
     expect(deploy.map((e) => e.pattern)).toEqual([
       'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
       'demo/us/', 'demo/in/',
-      'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/', 'demo/guides/', 'demo/note-icons/h/',
+      'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/', 'demo/notes/', 'demo/guides/', 'demo/note-icons/h/',
     ]);
     for (const e of deploy) {
       const probe = e.pattern.endsWith('/')
@@ -158,7 +158,7 @@ describe('scripts/generated-files.txt', () => {
     expect(bash(['paths', 'deploy']).split(' ')).toEqual([
       'demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
       'demo/us', 'demo/in',
-      'demo/*.html', 'demo/about', 'demo/legal', 'demo/account', 'demo/guides', 'demo/note-icons/h',
+      'demo/*.html', 'demo/about', 'demo/legal', 'demo/account', 'demo/notes', 'demo/guides', 'demo/note-icons/h',
     ]);
   });
 

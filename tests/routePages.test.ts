@@ -29,7 +29,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const demo = join(root, 'demo');
 const read = (rel: string): string => readFileSync(join(demo, rel), 'utf8');
 
-const FACTS = { productCount: 27000, retailerCount: 42, legalTitle: (id: string) => (id === 'how-it-works' ? 'How PriceSniffs works' : undefined) };
+const FACTS = { productCount: 27000, retailerCount: 42, legalTitle: (id: string) => (id === 'how-it-works' ? 'How PriceSniffs works' : undefined), noteGroupName: (id: string) => (id === 'citrus' ? 'Citrus' : undefined) };
 
 /** The addresses the owner and a reviewer click first (the task that added this file). */
 const KEY_ADDRESSES = [
@@ -66,6 +66,15 @@ describe('which addresses get a file', () => {
     expect(odd).toEqual(paths);
   });
 
+  it('gives a file to a note group page the sitemap lists, and to a made up group never', () => {
+    const withGroups = routePages([...sitemap, '/notes/group/citrus', '/notes/group/nonsense'], FACTS);
+    const group = withGroups.find((p) => p.path === '/notes/group/citrus');
+    expect(group?.file).toBe('notes/group/citrus.html');
+    expect(group?.tags.title).toBe('PriceSniffs: Citrus notes in perfume');
+    expect(group?.tags.canonical).toBe(`${SITE_URL}/notes/group/citrus`);
+    expect(withGroups.map((p) => p.path)).not.toContain('/notes/group/nonsense');
+  });
+
   it('maps /word to word.html and /word/other to word/other.html', () => {
     const file = (p: string) => pages.find((x) => x.path === p)?.file;
     expect(file('/about')).toBe('about.html');
@@ -80,6 +89,7 @@ describe('which addresses get a file', () => {
         productCount: FACTS.productCount,
         retailerCount: FACTS.retailerCount,
         ...(page.route.name === 'legal' ? { leafName: FACTS.legalTitle(page.route.param) } : {}),
+        ...(page.route.name === 'notesGroup' ? { leafName: FACTS.noteGroupName(page.route.param) } : {}),
       }));
       expect(page.tags.canonical).toBe(`${SITE_URL}${page.path}`);
     }

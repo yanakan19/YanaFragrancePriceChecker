@@ -37,6 +37,12 @@ import {
 import { liveRegions } from '../src/config/regions.js';
 import type { RegionSiteFacts } from './build-region-data.js';
 
+/** Group id to name, from data/note-groups.json (the lazy notes file carries the same names). */
+const NOTE_GROUP_NAMES = new Map(
+  (JSON.parse(readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), '../data/note-groups.json'), 'utf8')) as { groups: { id: string; name: string }[] })
+    .groups.map((g) => [g.id, g.name] as const),
+);
+
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const demo = resolve(root, 'demo');
 
@@ -45,6 +51,7 @@ export const HEAD_FACTS: HeadFacts = {
   productCount: COUNTS.bottles,
   retailerCount: SHOP_COUNT,
   legalTitle: (id) => legalPage(id)?.title,
+  noteGroupName: (id) => NOTE_GROUP_NAMES.get(id),
 };
 
 /** The UK's pages, from the UK sitemap (demo/sitemap-gb.xml; demo/sitemap.xml is the index). */
@@ -64,7 +71,7 @@ export function regionPagesToWrite(): RoutePage[] {
       throw new Error(`the ${region.pathPrefix} region is live but ${existsSync(factsPath) ? sitemapPath : factsPath} is missing: run npm run demo`);
     }
     const facts = JSON.parse(readFileSync(factsPath, 'utf8')) as RegionSiteFacts;
-    const head: HeadFacts = { productCount: facts.bottles, retailerCount: facts.shopCount, legalTitle: HEAD_FACTS.legalTitle };
+    const head: HeadFacts = { productCount: facts.bottles, retailerCount: facts.shopCount, legalTitle: HEAD_FACTS.legalTitle, noteGroupName: HEAD_FACTS.noteGroupName };
     pages.push(...routePages(sitemapPaths(readFileSync(sitemapPath, 'utf8'), region), head, region));
   }
   return pages;

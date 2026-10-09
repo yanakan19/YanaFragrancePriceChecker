@@ -58,6 +58,7 @@ import { LEGAL_PAGES, isLegalNoticeId } from '../demo/legal.js';
 import { SITE_URL } from '../demo/head.js';
 import { CONTENT_PATHS, GUIDES_PATH, HOW_WE_CHECK } from '../demo/guideList.js';
 import { existsSync, readFileSync } from 'node:fs';
+import { NOTE_GROUP_IDS } from '../src/catalogue/noteGroups.js';
 import { liveRegions, regionHasFixedPage, regionPath, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import type { RegionSiteFacts } from './build-region-data.js';
 
@@ -111,6 +112,10 @@ entries.push({ loc: '/', lastmod: appMod, changefreq: 'daily' });
 entries.push({ loc: '/brands', lastmod: appMod, changefreq: 'weekly' });
 entries.push({ loc: '/retailers', lastmod: gitLastModified('src/config/retailers.ts'), changefreq: 'weekly' });
 entries.push({ loc: '/notes', lastmod: appMod, changefreq: 'weekly' });
+// The 16 note group pages (docs/NOTES-PAGE-PLAN.md D). Fixed addresses with a
+// route page each; single note pages stay out while they answer 404.
+const groupsMod = gitLastModified('data/note-groups.json');
+for (const id of NOTE_GROUP_IDS) entries.push({ loc: `/notes/group/${id}`, lastmod: groupsMod, changefreq: 'weekly' });
 // The Oils and Sets tabs under Explore (docs/GIFT-SETS-AND-OILS-PLAN.md). /gift-sets
 // is only the old way in to /sets and is never listed.
 entries.push({ loc: '/fragrances', lastmod: appMod, changefreq: 'weekly' });

@@ -240,7 +240,7 @@ export function suggestRegionForTimeZone(timeZone: string | null | undefined): R
  * empty, kept out of its sitemap and marked noindex (demo/head.ts).
  */
 export function regionHasFixedPage(region: RegionConfig, path: string): boolean {
-  return !(region.beta && path === '/notes');
+  return !(region.beta && (path === '/notes' || path.startsWith('/notes/group/')));
 }
 
 /**
