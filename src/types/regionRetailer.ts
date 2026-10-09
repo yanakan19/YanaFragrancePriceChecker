@@ -159,6 +159,22 @@ export interface RegionRetailer {
    */
   vendorNotHouse?: readonly string[];
   /**
+   * A larger page budget than the run's default, for a shop whose catalogue
+   * is read one product page at a time (Nykaa, Ulta, AAR Fragrances). The
+   * gap between requests stays the shop's own (`minRequestGapMs`, or its
+   * robots.txt Crawl-delay): more time, never more speed. Each run reads the
+   * pages it has never read first, so the snapshot grows run by run.
+   */
+  pageBudget?: { minutes: number; newPages: number };
+  /**
+   * The page names its selected size only in its schema.org ProductGroup
+   * (`hasVariant[].sku` and `.size`), while its priced Product names none
+   * (Ulta: "HUGO Man Eau de Toilette" at sku 2273379, the 4.2 oz variant).
+   * The region harvest reads that size off the same page and adds it to the
+   * title of the listing with that sku.
+   */
+  sizeFromProductGroup?: boolean;
+  /**
    * The Shopify `vendor` is the shop, not the house (Parfums Raffy), so it is
    * not stored as the brand; the region build reads the house from the title
    * against the houses the region's other shops name.

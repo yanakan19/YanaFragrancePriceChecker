@@ -3,7 +3,7 @@
  * report (docs/INTERNATIONAL-PLAN.md, Phase 1, step one).
  *
  *   npx tsx scripts/region-harvest.ts --region=us
- *   npx tsx scripts/region-harvest.ts --region=in --shop=nykaa --dry-run
+ *   npx tsx scripts/region-harvest.ts --region=in --shop=nykaa --dry-run --ignore-shop-budget --max=5
  *   npx tsx scripts/region-harvest.ts --region=us --max=250 --shop-minutes=12 --concurrency=3
  *
  * Writes data/regions/<us|in>/catalogue/<shop>.json and
@@ -33,6 +33,9 @@ if (!region) {
 }
 const onlyShop = arg('shop');
 const dryRun = process.argv.includes('--dry-run');
+// A shop's own larger page budget (pageBudget in its registry entry) wins over
+// --max and --shop-minutes unless this is given, for a quick look by hand.
+const ignoreShopBudget = process.argv.includes('--ignore-shop-budget');
 const maxPages = Number.parseInt(arg('max') ?? '250', 10);
 const shopMinutes = Number.parseFloat(arg('shop-minutes') ?? '12');
 const runMinutes = arg('run-minutes') ? Number.parseFloat(arg('run-minutes')!) : null;
@@ -85,8 +88,8 @@ async function lane(): Promise<void> {
       http,
       now,
       previous,
-      maxPages,
-      shopMs: Math.min(shopMinutes * 60_000, Math.max(60_000, left)),
+      maxPages: (ignoreShopBudget ? undefined : shop.pageBudget?.newPages) ?? maxPages,
+      shopMs: Math.min(((ignoreShopBudget ? undefined : shop.pageBudget?.minutes) ?? shopMinutes) * 60_000, Math.max(60_000, left)),
       refreshAfterHours,
       log: (line) => console.log(`  ${line}`),
     });

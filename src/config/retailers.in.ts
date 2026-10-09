@@ -58,6 +58,9 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
       },
     },
     // Round 2: its JSON-LD sku and mpn are the bottle's barcode on many pages (6293708700035).
+    // All seven product sitemaps are read (3,069 perfume addresses, 2026-10-09);
+    // what limits it is one product page per request: 295 in 14 minutes.
+    pageBudget: { minutes: 40, newPages: 1000 },
     skuIsBarcode: true,
     minRequestGapMs: 2000,
     delivery: {
@@ -88,7 +91,9 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     domain: 'www.purplle.com',
     homepage: 'https://www.purplle.com/',
     tiers: ['designer', 'mideast'],
-    enabled: true,
+    enabled: false,
+    blockedReason:
+      'Refused to the crawl runner: from GitHub Actions its sitemap (/sitemap/products/all-subcategories.xml) is answered with a 545 byte page that only loads a bot-check script, instead of the sitemap, on two runs (2026-10-09, runs 37886577840 and 37887989045). From other networks the same request as PriceSniffsBot gets the sitemap. A challenge is a refusal (D23): not worked around. Readable again only if the shop lets the bot through.',
     route: {
       kind: 'sitemap',
       sitemapRoute: {
@@ -188,6 +193,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
       product: '^https://www\\.aarfragrances\\.com/product/[^/?#]+$',
       exclude: '(?:decant|sample|gift-card)',
     },
+    // 2,281 product addresses; 266 read in 14 minutes on the second run.
+    pageBudget: { minutes: 40, newPages: 1000 },
     minRequestGapMs: 2000,
     delivery: unverified('Not read.'),
     taxNote: IN_TAX_NOTE,

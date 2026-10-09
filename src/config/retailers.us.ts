@@ -600,6 +600,10 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
         titleParts: ['"product_variant_size":\\["(\\d{1,2}(?:\\.\\d{1,2})?\\s?(?:fl\\.?\\s?)?oz|\\d{1,4}(?:\\.\\d)?\\s?ml)"\\]'],
       },
     },
+    // Its priced Product names no size; the page's ProductGroup does, per sku.
+    sizeFromProductGroup: true,
+    // Pages are about 1.4 MB: 187 read in 12 minutes on the second run, 178 priced.
+    pageBudget: { minutes: 40, newPages: 900 },
     minRequestGapMs: 2000,
     delivery: unverified('Its shipping help page did not answer the bot (no response) on 2026-10-09; not read.'),
     taxNote: US_TAX_NOTE,
