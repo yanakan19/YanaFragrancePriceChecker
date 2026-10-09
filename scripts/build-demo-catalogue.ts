@@ -98,7 +98,7 @@ import {
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
-import { pickBestNotes, type NoteCandidate } from '../src/catalogue/notesPick.js';
+import { pickBestNotes, proseTest, withoutProse, type NotANoteFile, type NoteCandidate } from '../src/catalogue/notesPick.js';
 import { applyNoteAliases, noteAliasMap, type NoteAliasFile } from '../src/catalogue/noteAliases.js';
 import { pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
 import { betterPhotoFor, type BetterPhoto } from '../src/catalogue/betterPhotos.js';
@@ -467,6 +467,8 @@ export interface Notes {
 const noteAliasFile = JSON.parse(readFileSync(resolve(root, 'data/note-aliases.json'), 'utf8')) as NoteAliasFile;
 const noteAliases = noteAliasMap(noteAliasFile);
 const noteRewrites = new Map<string, string>(noteAliasFile.aliases.map((a) => [a.variant, a.canonical]));
+/** Reviewed prose a shop's copy left in a notes list (data/note-not-a-note.json), dropped before the shops are compared. */
+const isNoteProse = proseTest(JSON.parse(readFileSync(resolve(root, 'data/note-not-a-note.json'), 'utf8')) as NotANoteFile);
 const noteStats = { withNotes: 0, contested: 0, fuller: 0, withBase: 0, bySource: new Map<string, number>() };
 
 /**
@@ -485,7 +487,8 @@ function pickNotes(offers: Offer[]): Notes | null {
     .filter((o) => o.description)
     .sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt));
   for (const o of byRecency) {
-    const parsed = parseNotes(o.description);
+    const read = parseNotes(o.description);
+    const parsed = read && withoutProse(read, isNoteProse);
     if (!parsed) continue;
     const c: NoteCandidate = { retailerId: o.retailerId, url: o.url, brandDirect: o.brandDirect, notes: parsed };
     newest ??= c;

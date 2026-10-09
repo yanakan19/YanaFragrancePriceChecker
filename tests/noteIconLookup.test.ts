@@ -171,7 +171,8 @@ describe.skipIf(!built)('the built site', () => {
   it('keeps every icon and the lookup out of the first load: only the lazy map names the file', () => {
     expect(html).not.toMatch(/note-icons\/h\/[a-z]/);
     expect(html).toContain(`"noteIcons":"data/${lookupName}"`);
-    expect(html).not.toContain(builtFile!.prose.slice(0, 60));
+    // The parser now removes the reviewed prose, so the list can be empty; an empty string is in every page.
+    if (builtFile!.prose.length > 0) expect(html).not.toContain(builtFile!.prose.slice(0, 60));
     // The eager files the loader fetches before the app starts do not include it.
     const eager = /var files = (\[[^\n]*\]);/.exec(html)?.[1] ?? '[]';
     expect(eager).not.toContain('noteIcons');

@@ -18,6 +18,37 @@
  * offers always give the same answer, whatever order they arrive in.
  */
 import type { ParsedNotes } from './notesParse.js';
+import { noteMergeKey } from './noteName.js';
+
+/** data/note-not-a-note.json: the reviewed prose, of which the picker reads the exact names. */
+export interface NotANoteFile {
+  notes: readonly { note: string }[];
+}
+
+/**
+ * The reviewed prose as a test (decision 7, docs/NOTES-PAGE-PLAN.md): a name is
+ * prose when its merge key is a listed name. The marker words in the same file
+ * are not read here: they hide a name only when the group rules cannot place
+ * it, which is the Notes tab's question, and a name they do place is kept.
+ */
+export function proseTest(file: NotANoteFile): (name: string) => boolean {
+  const names = new Set(file.notes.map((n) => noteMergeKey(n.note)));
+  return (name) => names.has(noteMergeKey(name));
+}
+
+/**
+ * A shop's pyramid without its prose, or null when nothing is left. Done
+ * before the shops are compared, so a sentence never counts as a note when the
+ * fuller pyramid is chosen.
+ */
+export function withoutProse(notes: ParsedNotes, isProse: (name: string) => boolean): ParsedNotes | null {
+  const out = {
+    top: notes.top.filter((n) => !isProse(n)),
+    middle: notes.middle.filter((n) => !isProse(n)),
+    base: notes.base.filter((n) => !isProse(n)),
+  };
+  return out.top.length + out.middle.length + out.base.length > 0 ? out : null;
+}
 
 export interface NoteCandidate {
   retailerId: string;
