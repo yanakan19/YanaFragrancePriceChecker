@@ -1,7 +1,7 @@
 {
   "retailerId": "al-haramain",
-  "updatedAt": "2026-10-09T14:15:32.643Z",
-  "seenAt": "2026-10-09T14:15:32.643Z",
+  "updatedAt": "2026-10-09T18:29:17.227Z",
+  "seenAt": "2026-10-09T18:29:17.227Z",
   "source": "live",
   "listings": [
     {
@@ -603,7 +603,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "AHP1950",
+      "retailerSku": "AHP1950-oss",
       "url": "https://alharamainperfumes.co.uk/products/madinah-deodorant-200ml",
       "rawTitle": "Al Haramain Madinah Unisex Deodorant Spray 200ml",
       "rawBrand": "AL HARAMAIN",
@@ -612,17 +612,17 @@
       "priceGbp": 3.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The best-selling 15ml perfume, Madinah, is now available as a deodorant. A gentle and fresh fragrance that masterfully blends some of the most intriguing floral essences. A fragrance for all genders. Scent from above! The feeling of inner peace is palpable. The deep satisfaction with the day gone by is comforting, and the hopes you hold for tomorrow seem like rays of the rising sun themselves. Bringing with it the gift of peace and a promise for tomorrow, it is ironic that the illuminating fragrance of Haramain Madinah is a promised gift in itself.. Fragrance notes: . Top note:. -Rose, Geranium, Davana Blossoms, Bergamot, Orange . Middle note:. -Rose, Jasmine, Orchid, Clove, Saffron, Sandalwood, Cedar wood . Base note:. -Floral, Musk, Amber, Sandalwood, Cedar wood, Cashmere wood, Fruity.",
       "productType": "DEODORANT",
       "nativePrice": null,
       "retailerId": "al-haramain",
-      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "firstSeenAt": "2026-10-09T18:29:17.227Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -13685,6 +13685,30 @@
       "firstSeenAt": "2026-08-19T14:29:34.313Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "AHP1950",
+      "url": "https://alharamainperfumes.co.uk/products/madinah-deodorant-200ml",
+      "rawTitle": "Al Haramain Madinah Unisex Deodorant Spray 200ml",
+      "rawBrand": "AL HARAMAIN",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0256/2683/7043/products/Madina_Deo.jpg?v=1578666400",
+      "priceGbp": 3.5,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "shopify-products-json",
+      "description": "The best-selling 15ml perfume, Madinah, is now available as a deodorant. A gentle and fresh fragrance that masterfully blends some of the most intriguing floral essences. A fragrance for all genders. Scent from above! The feeling of inner peace is palpable. The deep satisfaction with the day gone by is comforting, and the hopes you hold for tomorrow seem like rays of the rising sun themselves. Bringing with it the gift of peace and a promise for tomorrow, it is ironic that the illuminating fragrance of Haramain Madinah is a promised gift in itself.. Fragrance notes: . Top note:. -Rose, Geranium, Davana Blossoms, Bergamot, Orange . Middle note:. -Rose, Jasmine, Orchid, Clove, Saffron, Sandalwood, Cedar wood . Base note:. -Floral, Musk, Amber, Sandalwood, Cedar wood, Cashmere wood, Fruity.",
+      "productType": "DEODORANT",
+      "nativePrice": null,
+      "retailerId": "al-haramain",
+      "firstSeenAt": "2026-08-19T14:29:34.313Z",
+      "lastSeenAt": "2026-10-09T14:15:32.643Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-09T18:29:17.227Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null
