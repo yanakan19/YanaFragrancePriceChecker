@@ -42,6 +42,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Also Scent Warehouse, Roullier White, Scented',
           'More guides: shops, notes, matching and deals',
           'New Notes page: groups, icons and search',
+          'Note icons beside each note on product pages',
           'Country choice saved to your account',
         ],
       },

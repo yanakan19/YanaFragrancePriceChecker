@@ -57,7 +57,7 @@ import { build, type Plugin } from 'esbuild';
 import { inlineShopTimes, moveLiteralsToJson } from './dataLiterals.js';
 import { BLOBS_GLOBAL, LAZY_CONTENT_MODULES, LAZY_DATA_MODULES, type DataGroup, type DataManifest } from './dataFiles.js';
 import { applyNumbering, localMarker, numberGroups } from './dataNumbering.js';
-import { buildNoteData, NOTE_DATA_FILE, publishNoteIcons, readNoteGroupInputs } from './noteData.js';
+import { buildNoteData, buildNoteIconLookup, NOTE_DATA_FILE, NOTE_ICON_FILE, publishNoteIcons, readNoteGroupInputs } from './noteData.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
 import { REGION_LINKS_FILE } from './regionPages.js';
 
@@ -177,14 +177,21 @@ for (const [name, { module, exports }] of Object.entries(LAZY_CONTENT_MODULES)) 
   const inputs = readNoteGroupInputs(root);
   const iconPaths = publishNoteIcons(root, inputs);
   const pyramids = data.DEMO_FRAGRANCES.filter((f) => f.notes).map((f) => [...f.notes!.top, ...f.notes!.middle, ...f.notes!.base]);
-  const file = buildNoteData(data.NOTE_INDEX, pyramids, inputs, (f) => {
+  const iconPath = (f: string): string => {
     const p = iconPaths.get(f);
     if (!p) throw new Error(`note icon ${f} was not published`);
     return p;
-  });
+  };
+  const file = buildNoteData(data.NOTE_INDEX, pyramids, inputs, iconPath);
   await writeFile(resolve(root, `dist-demo/data/${NOTE_DATA_FILE}.json`), JSON.stringify({ NOTE_DATA: file }));
   lazy.push(NOTE_DATA_FILE);
   report.push(`${NOTE_DATA_FILE}: built by scripts/noteData.ts, ${file.names.length} notes, ${iconPaths.size} hashed icons, loaded on demand`);
+  // The product page's note icons (docs/NOTES-PAGE-PLAN.md section F): a small
+  // lookup of its own, so a product page never fetches the Notes tab's file.
+  const icons = buildNoteIconLookup(data.NOTE_INDEX, pyramids.flat(), inputs, iconPath);
+  await writeFile(resolve(root, `dist-demo/data/${NOTE_ICON_FILE}.json`), JSON.stringify({ NOTE_ICONS: icons }));
+  lazy.push(NOTE_ICON_FILE);
+  report.push(`${NOTE_ICON_FILE}: built by scripts/noteData.ts, the product page's note icon lookup, loaded on demand`);
 }
 // What the UK page knows of the other live regions (scripts/build-region-data.ts,
 // public beta of 9 October 2026): the country menu and the "You are seeing UK

@@ -2007,6 +2007,13 @@
     .note-chip:hover { border-color: var(--accent); color: var(--accent); }
   }
   .note-chip.on { background: var(--accent-sf); border-color: var(--accent); color: var(--ink); }
+  /* A product's note pills with their icon on the left (NOTES-PAGE-PLAN.md F):
+     18px, 20px from 390 wide (-1px margins keep the pill's height), 6px gap,
+     5px left padding; a group's icon at 70%. */
+  .note-chip-ico { display: inline-flex; align-items: center; gap: 6px; padding-left: 5px; }
+  .note-ico { flex: none; width: 18px; height: 18px; }
+  @media (min-width: 390px) { .note-ico { width: 20px; height: 20px; margin: -1px 0; } }
+  .note-ico.is-group { opacity: .7; }
   .note-chips-profile { margin-bottom: 12px; }
   .notes-none { font-size: 13.5px; color: var(--faint); margin: 0; }
 

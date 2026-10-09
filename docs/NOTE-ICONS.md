@@ -1,9 +1,9 @@
 # Note icons
 
 One small drawn picture for each family of scent notes. Built on 9 Oct 2026 as
-the first step of `docs/NOTES-PAGE-PLAN.md` (section C), **icons only**: nothing
-on the page uses them yet, nothing is in the home page's first load, and no
-JavaScript bundle includes them.
+the first step of `docs/NOTES-PAGE-PLAN.md` (section C). The Notes tab, the
+note pages and the product pages use them (below); nothing of them is in the
+home page's first load, and no JavaScript bundle includes them.
 
 - `demo/note-icons/<slug>.svg`: 240 note icons.
 - `demo/note-icons/groups/<id>.svg`: the 16 group icons of the plan (section B,
@@ -17,8 +17,13 @@ The folder is published as it stands (the deploy uploads `demo/`), at
 `/note-icons/<slug>.svg`, about 270 KB in all. Since 9 Oct 2026 the Notes tab
 and the note pages use the icons: the build copies each to
 `demo/note-icons/h/<slug>.<hash>.svg` (gitignored, scripts/noteData.ts), and the
-page and the service worker's icon cache use those copies. Product pages do not
-show icons yet (docs/NOTES-PAGE-PLAN.md section F).
+page and the service worker's icon cache use those copies. Since the same day
+each product page shows them too, small (18 to 20 px) on the left of every note
+pill of its Top, Middle and Base rows, through the same hashed copies and a
+small lookup file of its own (`data/noteIcons.<hash>.json`, built by
+`buildNoteIconLookup` in scripts/noteData.ts; docs/NOTES-PAGE-PLAN.md section
+F). A redrawn icon gets a new hashed name and reaches both pages with the next
+build; a new icon or alias needs nothing else.
 
 **Origin.** Own work. Drawn as original SVG source for PriceSniffs, starting
 from the 12 sample icons the owner approved (Pineapple, Blackcurrant, Apple,
@@ -64,7 +69,8 @@ and no agent opened Fragrantica or its images (D26).
 3. Add as aliases the note spellings the icon should also serve (below).
 4. Look at it on a dark tile and a light tile at 56 and 160 px.
 5. `npx vitest run tests/noteIcons.test.ts --pool=forks --poolOptions.forks.singleFork`.
-   Stage the files by name. Do not edit the page; the tiles are a later phase.
+   Stage the files by name. The page needs no change: the build publishes the
+   icon and both lookups pick it up.
 
 Shipped entries are append only: do not delete an entry, rename it, change its
 group or drop an alias. You may redraw a file. You may add aliases. The test
