@@ -11280,6 +11280,10 @@ export const RETAILERS: readonly Retailer[] = [
     // test cannot read them: `fragranceOnlyCatalogue` is set, as for Sainte Cellier, which is safe here
     // because the product type rule lets nothing but perfume through.
     //
+    // Sandbox proof, 2026-10-09: `npm run harvest -- --shop=scented-glasgow --dry-run` read 329 priced listings,
+    // all in GBP (325 after the Brume mists were left out); 310 of them pass the catalogue's own fragrance test
+    // and 266 of those are in stock. Every title that passed was read by eye.
+    //
     // Affiliate: none found (WebSearch, 2026-10-09). Not applied to.
     enabled: true,
     adapter: 'unknown',
@@ -11287,6 +11291,9 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyVariantRule: {
       productTypes: ['Perfume'],
       sizeOption: { name: 'Size', minMl: 5 },
+      // MarieJeanne's four "Brume" lines (matcha, summer, winter, and a pillow mist for sleep) are filed
+      // as Perfume but are body and room mists, found by reading every title that passed on 2026-10-09.
+      excludeTitle: '^brume\\b',
     },
     fragranceOnlyCatalogue: true,
     currency: 'GBP',

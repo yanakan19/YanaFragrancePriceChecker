@@ -217,6 +217,19 @@ describe('Scented', () => {
     expect(shop.shopifyVariantRule?.productTypes).toEqual(['Perfume']);
   });
 
+  it('keeps out the four Brume mists it files as Perfume, one of them a pillow mist', () => {
+    const rule = getRetailer('scented-glasgow')!.shopifyVariantRule!;
+    const body = JSON.stringify({
+      products: ["Brume d'Oreiller", 'Brume Matcha', 'Adèle'].map((title, i) => ({
+        id: i + 1, title, handle: `h${i}`, vendor: 'MarieJeanne', product_type: 'Perfume',
+        options: [{ name: 'Size', values: ['100ml'] }],
+        variants: [{ id: i + 10, sku: `S${i}`, title: '100ml', option1: '100ml', option2: null, option3: null, price: '55.00', compare_at_price: null, available: true }],
+      })),
+    });
+    const titles = parseShopifyProducts(body, { origin: 'https://www.scent-ed.com', sectionId: 'x', currency: 'GBP', variantRule: rule }).map((l) => l.rawTitle);
+    expect(titles).toEqual(['Adèle 100ml']);
+  });
+
   it('charges £5 under £50 and nothing from £50, Royal Mail 48 tracked in 2 to 4 days', () => {
     const shop = getRetailer('scented-glasgow')!;
     expect(shop.shipping.standardGbp).toBe(5);

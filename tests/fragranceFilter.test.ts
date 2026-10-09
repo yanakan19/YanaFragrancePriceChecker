@@ -288,7 +288,12 @@ describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
     // every one is a Rasasi perfume, a travel set, a duo or a gift set, and its one
     // title with no strength word (Rumz Al Rasasi 9325 Zebra Pour Lui 50ml) is a
     // perfume. See its entry in src/config/retailers.ts.
-    expect(flagged).toEqual(['escentric-molecules', 'kayali', 'rasasi-uk-store', 'riiffs', 'sainte-cellier', 'zimaya']);
+    //
+    // Scented (Glasgow) joined 2026-10-09 on the same footing as Sainte Cellier, after
+    // every title that passed its type rule was read: scent names alone, with the size
+    // only in a shop option. Four "Brume" mists filed as Perfume are kept out by its
+    // variant rule. See its entry in src/config/retailers.ts.
+    expect(flagged).toEqual(['escentric-molecules', 'kayali', 'rasasi-uk-store', 'riiffs', 'sainte-cellier', 'scented-glasgow', 'zimaya']);
   });
 
   // The trap this guards. LUSH is also single-brand (so was Bath & Body Works,

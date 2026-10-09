@@ -197,7 +197,7 @@ listed as not added, not added with a guess.
 | 3 | Beauté Boulevard | beaute-boulevard.co.uk | London luxury perfume and beauty; designer, Creed, Montale, Arabic | Shopify | Awin 126643 (read on the merchant profile; 30 day cookie, UK) | 200, 376 B, collections and products allowed, `/search` disallowed | `/products.json` 200, 11 pages, 2,624 products; GBP; 4,065 variants priced (2,280 pass); free delivery on every UK order |
 | 4 | Scent Warehouse | scentwarehouse.co.uk | Salford discount designer perfume (Calvin Klein, Burberry, Davidoff, Cacharel) | Shopify | None found | 200, 3,650 B, newer stock file, allowed | `/products.json` 200, 10 pages, 2,346 products; GBP; 2,345 variants priced (1,771 pass); £2.99 under £20, free over |
 | 5 | Roullier White | roullierwhite.com | East Dulwich homeware and lifestyle shop with a niche perfume shelf (Tocca, Wolf Brothers, Carthusia) | Shopify | None found | 200, 3,652 B, newer stock file, allowed | `/products.json` 200, 4 pages, 852 products; GBP; Perfume 247; 252 bottle variants priced after 2ml samples are left out (217 pass); £6.75, free over £175 |
-| 6 | Scented | scent-ed.com | Glasgow niche perfumery filed by scent family (Imaginary Authors, Trudon, Arquiste, Comme des Garçons) | Shopify | None found | 200, 3,632 B, newer stock file, allowed | `/products.json` 200, 2 pages, 377 products; GBP; Perfume 270; 329 bottle variants priced (314 pass); £5 under £50, free over |
+| 6 | Scented | scent-ed.com | Glasgow niche perfumery filed by scent family (Imaginary Authors, Trudon, Arquiste, Comme des Garçons) | Shopify | None found | 200, 3,632 B, newer stock file, allowed | `/products.json` 200, 2 pages, 377 products; GBP; Perfume 270; 325 bottle variants priced (310 pass); £5 under £50, free over |
 
 ### Found and not added
 
@@ -250,7 +250,7 @@ with a `catalogue` block whose section is the shop's own `/collections/all`.
 | Beauté Boulevard | none; the catalogue test sorts out skincare | 4,065 | 2,280 (1,797 in stock) | Free on every UK order, Royal Mail 48 tracked, 2 to 3 working days (`/pages/shipping-returns-policy`) |
 | Scent Warehouse | none; no product types | 2,345 | 1,771 (1,411 in stock) | £2.99 under £20, free from £20 (Evri standard), 2 to 5 working days (`/pages/delivery-information-shipping-policy`) |
 | Roullier White | type `Perfume` of 852 products; `sizeOption` leaves out the 2ml samples | 252 | 217 (139 in stock) | £6.75 mainland, free over £175, 1 to 2 working days (`/pages/delivery-returns`) |
-| Scented | type `Perfume` of 377 products; `sizeOption` leaves out samples and refills; `fragranceOnlyCatalogue` | 329 | 314 (270 in stock) | £5 under £50, free from £50, Royal Mail 48 tracked, 2 to 4 days (`/policies/shipping-policy`, allowed to the bot) |
+| Scented | type `Perfume` of 377 products; `sizeOption` leaves out samples and refills; `excludeTitle` leaves out four "Brume" mists (one a pillow mist); `fragranceOnlyCatalogue` | 325 | 310 (266 in stock) | £5 under £50, free from £50, Royal Mail 48 tracked, 2 to 4 days (`/policies/shipping-policy`, allowed to the bot) |
 
 Photos stay off for all six (`imageBasis` unset until the owner extends D24). No trustpilotUrl is set: the
 Trustpilot pages for these domains answer the bot with a "Verifying Connection" challenge (HTTP 403) and
@@ -259,7 +259,7 @@ not pressed further.
 
 Two things worth knowing about the shared code, neither changed: a `fragranceOnlyCatalogue` shop drops a listing
 whose title already names a size and whose option adds it again ("Zagorsk Eau de Toilette 50ml 50ml": 15 of
-Scented's 329 variants), and Beauté Boulevard's variant titles repeat the size ("... 100ml Spray Eau de Parfum
+Scented's 325 variants), and Beauté Boulevard's variant titles repeat the size ("... 100ml Spray Eau de Parfum
 100ml Spray"), which the catalogue still reads.
 
 ### Owner steps (Round 2)
