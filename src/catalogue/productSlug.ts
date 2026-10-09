@@ -53,6 +53,8 @@ export const RESERVED_WORDS: readonly string[] = [
   'search', 'deals', 'explore', 'about', 'brands', 'retailers', 'notes', 'settings', 'account',
   'suggestions', 'design', 'developer', 'legal', 'oils', 'sets', 'fragrance', 'fragrances', 'gift-sets', 'index', '404',
   'sw', 'robots', 'sitemap', 'ads', 'manifest', 'favicon', 'cname', 'icons', 'data', 'logos', 'guides',
+  // Region prefixes (src/config/regions.ts): /us/ and /in/, and /uk/ kept free.
+  'us', 'in', 'uk',
 ];
 
 /** True for a string that has the shape of a product address, whatever it names. */

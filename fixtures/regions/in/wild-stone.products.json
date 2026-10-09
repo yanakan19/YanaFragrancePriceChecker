@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.wildstone.in/products.json?limit=250",
+ "products": [
+  {
+   "id": 10312929542379,
+   "title": "Wild Stone Oud 100ml Perfume and Oud Deo 150ml | Pack of 2",
+   "handle": "wild-stone-oud-100ml-perfume-and-oud-deo-150ml-pack-of-2",
+   "vendor": "Wild Stone",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50520173969643,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "oud-edp100-deo150ml",
+     "price": "949.00",
+     "compare_at_price": "1098.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9842181832939,
+   "title": "Wild Stone CODE Platinum Body Perfume for Men 150ml",
+   "handle": "wild-stone-code-platinum-body-perfume-for-men-150ml",
+   "vendor": "Wild Stone CODE Grooming",
+   "product_type": "CODE_Body_Perfume",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 49120999276779,
+     "title": "150 ml",
+     "option1": "150 ml",
+     "option2": null,
+     "sku": "8904006311509",
+     "price": "228.00",
+     "compare_at_price": "350.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9842181112043,
+   "title": "Terra Luxury Perfume (30ml)",
+   "handle": "terra-luxury-perfume-30ml",
+   "vendor": "CODE Grooming",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 49120998523115,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "8904006310618",
+     "price": "479.00",
+     "compare_at_price": "599.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

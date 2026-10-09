@@ -1,0 +1,111 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.dsanddurga.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 10035786809635,
+   "title": "Ain't That Sweet",
+   "handle": "aint-that-sweet",
+   "vendor": "D.S. & Durga",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 55461610520867,
+     "title": "50 mL",
+     "option1": "50 mL",
+     "option2": null,
+     "sku": "561-WEP-050-ATSW",
+     "price": "225.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55461610553635,
+     "title": "100 mL",
+     "option1": "100 mL",
+     "option2": null,
+     "sku": "561-WEP-100-ATSW",
+     "price": "300.00",
+     "compare_at_price": null,
+     "available": false
+    },
+    {
+     "id": 55553279787299,
+     "title": "Limited Edition",
+     "option1": "Limited Edition",
+     "option2": null,
+     "sku": "561-MCM-SIN-ATSW",
+     "price": "350.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10283111579939,
+   "title": "Custom Pocket Perfume Spray Set",
+   "handle": "custom-pocket-perfume-spray-set",
+   "vendor": "Custom Bundle",
+   "product_type": "Custom Bundle",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 55299704914211,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": null,
+     "price": "195.00",
+     "compare_at_price": "240.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 10033190142243,
+   "title": "Debaser In Bloom",
+   "handle": "debaser-in-bloom",
+   "vendor": "D.S. & Durga",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 55336756642083,
+     "title": "50 mL",
+     "option1": "50 mL",
+     "option2": null,
+     "sku": "571-WEP-050-DEIB",
+     "price": "225.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 55312988766499,
+     "title": "100 mL",
+     "option1": "100 mL",
+     "option2": null,
+     "sku": "555-WEP-100-DEIB",
+     "price": "300.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

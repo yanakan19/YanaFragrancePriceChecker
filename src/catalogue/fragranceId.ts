@@ -1,6 +1,7 @@
 import type { StoredListing } from './types.js';
 import { isPerfumeOilTitle, isReviewedOil } from './perfumeOil.js';
 import { RETAILERS, getRetailer } from '../config/retailers.js';
+import { REGION_RETAILERS } from '../config/regionRetailers.js';
 import { trustworthyEan, type BarcodeSizeListing } from './productMatch.js';
 import { ownSizeTitle } from './shopifyJson.js';
 import { giftSetId, isGiftSet } from './giftSet.js';
@@ -349,7 +350,7 @@ export function travelSizeIsASize(retailerId: string): boolean {
   return getRetailer(retailerId)?.travelSizeIsASize === true;
 }
 
-/** 1 fl oz in millilitres — the imperial fluid ounce, which is what every oz size in the catalogue means. */
+/** 1 fl oz in millilitres: the US fluid ounce (29.5735 ml; the imperial one is 28.4131 ml), which is what the oz sizes shops print mean. */
 export const OZ_TO_ML = 29.5735;
 
 /**
@@ -986,8 +987,17 @@ const BODY_PRODUCT_TYPE = /\b(?:profumo in crema|olio corpo)\b/i;
  */
 const REFILL_PRODUCT_TYPE = /\brefills?\b/i;
 
+/**
+ * Region shops (src/config/retailers.us.ts, retailers.in.ts) that a human has
+ * said sell only fragrance, read by the US and India dry runs. Their ids never
+ * repeat a UK id (tests/regionRetailers.test.ts), so no UK shop is touched.
+ */
+const REGION_FRAGRANCE_ONLY: ReadonlySet<string> = new Set(
+  Object.values(REGION_RETAILERS).flat().filter((r) => r.fragranceOnlyCatalogue === true).map((r) => r.id),
+);
+
 export function sellsOnlyFragrance(retailerId: string): boolean {
-  return getRetailer(retailerId)?.fragranceOnlyCatalogue === true;
+  return getRetailer(retailerId)?.fragranceOnlyCatalogue === true || REGION_FRAGRANCE_ONLY.has(retailerId);
 }
 
 /**

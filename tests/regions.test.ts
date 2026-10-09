@@ -3,26 +3,26 @@ import { COMING_SOON, CURRENT_REGION, REGIONS, regionButtonLabel } from '../src/
 import { flagSvg } from '../demo/flags.js';
 
 /**
- * The country and currency selector's data (owner's request, 2026-10-05): the
- * order of the list, each region's currency, and which of them can be chosen.
+ * The country and currency selector's data (owner's request, 2026-10-05; the
+ * list trimmed to three on 9 October 2026, owner decision 3 in
+ * docs/INTERNATIONAL-PLAN.md): the order of the list, each region's currency,
+ * and which of them can be chosen. The list comes from src/config/regions.ts.
  * The browser half, the menu itself, is tests/regionSelectorBrowser.test.ts.
  */
 
 describe('the region list', () => {
-  it('is United Kingdom, USA, Germany, India, France, Italy, in that order', () => {
-    expect(REGIONS.map((r) => r.name)).toEqual(['United Kingdom', 'USA', 'Germany', 'India', 'France', 'Italy']);
-    expect(REGIONS.map((r) => r.id)).toEqual(['GB', 'US', 'DE', 'IN', 'FR', 'IT']);
+  it('is United Kingdom, United States, India, in that order', () => {
+    expect(REGIONS.map((r) => r.name)).toEqual(['United Kingdom', 'United States', 'India']);
+    expect(REGIONS.map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
   });
 
   it('pairs each with its currency', () => {
-    expect(REGIONS.map((r) => `${r.name} ${r.currency}`)).toEqual([
-      'United Kingdom GBP', 'USA USD', 'Germany EUR', 'India INR', 'France EUR', 'Italy EUR',
-    ]);
+    expect(REGIONS.map((r) => `${r.name} ${r.currency}`)).toEqual(['United Kingdom GBP', 'United States USD', 'India INR']);
   });
 
   it('makes the United Kingdom the only region that can be chosen', () => {
     expect(REGIONS.filter((r) => r.available).map((r) => r.id)).toEqual(['GB']);
-    expect(REGIONS.filter((r) => !r.available).map((r) => r.id)).toEqual(['US', 'DE', 'IN', 'FR', 'IT']);
+    expect(REGIONS.filter((r) => !r.available).map((r) => r.id)).toEqual(['US', 'IN']);
     expect(CURRENT_REGION).toBe(REGIONS[0]);
     expect(CURRENT_REGION.currency).toBe('GBP');
   });
@@ -46,7 +46,7 @@ describe('the region list', () => {
 
   it('names the region and its currency for a screen reader', () => {
     expect(regionButtonLabel()).toBe('Region and currency: United Kingdom, GBP');
-    expect(regionButtonLabel(REGIONS[1])).toBe('Region and currency: USA, USD');
+    expect(regionButtonLabel(REGIONS[1])).toBe('Region and currency: United States, USD');
   });
 });
 

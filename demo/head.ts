@@ -40,7 +40,8 @@
  * can run it under Node with no DOM at all — which is what lets the sitemap
  * be checked against the noindex rules in the same test run.
  */
-import { productPath, type Route } from './router.js';
+import { productPathInRegion, type Route } from './router.js';
+import { activeRegion, hreflangAlternates, regionPath, splitRegionPrefix } from '../src/config/regions.js';
 import { ADS_ON } from './ads.js';
 import { GUIDES_INDEX, GUIDES_PATH, HOW_WE_CHECK, guideBySlug, guidePath } from './guideList.js';
 
@@ -190,7 +191,9 @@ export function headFor(input: HeadInput): HeadTags {
   // Query strings are filter state, not separate documents: /brands?tier=niche
   // and /brands are the same page in a different mood, and giving them
   // different canonicals would split one page's standing across many URLs.
-  const canonical = `${SITE_URL}${pathOf(route)}`;
+  // Each region's page is canonical in its own region (never one region to
+  // another: the prices differ); on the UK site the path is unchanged.
+  const canonical = `${SITE_URL}${regionPath(activeRegion(), pathOf(route))}`;
 
   const products = productCount ? productCount.toLocaleString('en-GB') : null;
   const shops = retailerCount ? shopsPhrase(retailerCount) : null;
@@ -555,6 +558,17 @@ export function headFor(input: HeadInput): HeadTags {
 }
 
 /**
+ * The hreflang alternates a page declares beside its canonical: one per live
+ * region, and x-default for the UK page (src/config/regions.ts). None while
+ * the UK is the only live region, and none on a page kept out of search
+ * engines, so today no page declares any.
+ */
+export function hreflangFor(tags: HeadTags): { hreflang: string; href: string }[] {
+  if (tags.noindex || !tags.canonical.startsWith(SITE_URL)) return [];
+  return hreflangAlternates(SITE_URL, splitRegionPrefix(tags.canonical.slice(SITE_URL.length) || '/').rest);
+}
+
+/**
  * The tags with noindex forced on while the ad layout preview is on
  * (`?adpreview=1`, demo/ads.ts): a page drawn with placeholder frames is never
  * for a search engine. The canonical address is left as it is, the path alone,
@@ -586,7 +600,7 @@ function pathOf(route: Route): string {
     case 'fragrances': return '/fragrances';
     case 'oils': return '/oils';
     case 'sets': return '/sets';
-    case 'fragrance': return productPath(route.param);
+    case 'fragrance': return productPathInRegion(route.param);
     case 'product': return `/${p}`;
     case 'about': return '/about';
     // The anchor is not part of the canonical: the sections are one page.

@@ -1,0 +1,101 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://imaginaryauthors.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 9404572664044,
+   "title": "IMPASSABLE WILDERNESS - FRAGRANCE",
+   "handle": "impassable-wilderness",
+   "vendor": "Imaginary Authors",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 48305051238636,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "IMP50",
+     "price": "115.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9341077487852,
+   "title": "YESTERDAY HAZE - FRAGRANCE",
+   "handle": "yesterday-haze",
+   "vendor": "Imaginary Authors",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 48069856035052,
+     "title": "50ml",
+     "option1": "50ml",
+     "option2": null,
+     "sku": "48069856035052",
+     "price": "115.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 48069856067820,
+     "title": "14ml",
+     "option1": "14ml",
+     "option2": null,
+     "sku": "48069856067820",
+     "price": "46.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 48069856100588,
+     "title": "2ml",
+     "option1": "2ml",
+     "option2": null,
+     "sku": "48069856100588",
+     "price": "7.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 4164645191757,
+   "title": "O, UNKNOWN! - FRAGRANCE",
+   "handle": "o-unknown",
+   "vendor": "Imaginary Authors",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 30277030772813,
+     "title": "50ml",
+     "option1": "50ml",
+     "option2": null,
+     "sku": "",
+     "price": "115.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

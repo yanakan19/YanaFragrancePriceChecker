@@ -1,0 +1,141 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://parfumsraffy.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 15364978311400,
+   "title": "Fragrance du Bois Forbidden Plum",
+   "handle": "fragrance-du-bois-forbidden-plum",
+   "vendor": "Parfums Raffy",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67856397140200,
+     "title": "100 mL | 3.4 oz Parfum Spray",
+     "option1": "100 mL | 3.4 oz Parfum Spray",
+     "option2": null,
+     "sku": "FDB0008",
+     "price": "595.00",
+     "compare_at_price": "595.00",
+     "available": true
+    },
+    {
+     "id": 67856397172968,
+     "title": "2.0 mL | 0.07 oz (Spray Sample)",
+     "option1": "2.0 mL | 0.07 oz (Spray Sample)",
+     "option2": null,
+     "sku": "FDB0008",
+     "price": "16.00",
+     "compare_at_price": "16.00",
+     "available": true
+    },
+    {
+     "id": 67856397205736,
+     "title": "1.0 mL | 0.03 oz (Sample)",
+     "option1": "1.0 mL | 0.03 oz (Sample)",
+     "option2": null,
+     "sku": "FDB0008",
+     "price": "8.00",
+     "compare_at_price": "8.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15355374469352,
+   "title": "House of Sillage Mickey Mouse",
+   "handle": "house-of-sillage-mickey-mouse",
+   "vendor": "Parfums Raffy",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67807660114152,
+     "title": "75 mL | 2.5 oz Parfum Spray",
+     "option1": "75 mL | 2.5 oz Parfum Spray",
+     "option2": null,
+     "sku": "HS0001",
+     "price": "395.00",
+     "compare_at_price": "395.00",
+     "available": true
+    },
+    {
+     "id": 67807660146920,
+     "title": "2.0 mL | 0.07 oz (Spray Sample)",
+     "option1": "2.0 mL | 0.07 oz (Spray Sample)",
+     "option2": null,
+     "sku": "HS0001",
+     "price": "16.00",
+     "compare_at_price": "16.00",
+     "available": true
+    },
+    {
+     "id": 67807660179688,
+     "title": "1.0 mL | 0.03 oz (Sample)",
+     "option1": "1.0 mL | 0.03 oz (Sample)",
+     "option2": null,
+     "sku": "HS0001",
+     "price": "8.00",
+     "compare_at_price": "8.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9611616944360,
+   "title": "House of Sillage Supergirl",
+   "handle": "house-of-sillage-supergirl",
+   "vendor": "Parfums Raffy",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 48947104317672,
+     "title": "75 mL | 2.5 oz Parfum Spray",
+     "option1": "75 mL | 2.5 oz Parfum Spray",
+     "option2": null,
+     "sku": "HS0001",
+     "price": "418.00",
+     "compare_at_price": "418.00",
+     "available": true
+    },
+    {
+     "id": 48947104350440,
+     "title": "2.0 mL | 0.07 oz (Spray Sample)",
+     "option1": "2.0 mL | 0.07 oz (Spray Sample)",
+     "option2": null,
+     "sku": "HS0001",
+     "price": "18.00",
+     "compare_at_price": "18.00",
+     "available": true
+    },
+    {
+     "id": 48947104383208,
+     "title": "1.0 mL | 0.03 oz (Sample)",
+     "option1": "1.0 mL | 0.03 oz (Sample)",
+     "option2": null,
+     "sku": "HS0001",
+     "price": "9.00",
+     "compare_at_price": "9.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

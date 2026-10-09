@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://www.themancompany.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 8763764768964,
+   "title": "Eau De Parfum | Pravý (30ml)",
+   "handle": "eau-de-parfum-pravy-30ml-1",
+   "vendor": "The Man Company",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 46842549469380,
+     "title": "30ml",
+     "option1": "30ml",
+     "option2": null,
+     "sku": "TMC-WEB-4401",
+     "price": "499.00",
+     "compare_at_price": "899.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 8763759198404,
+   "title": "Eau De Parfum | Amour (30ml)",
+   "handle": "eau-de-parfum-amour-30ml-1",
+   "vendor": "The Man Company",
+   "product_type": "Fragrance",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 46842534854852,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "TMC-WEB-4400",
+     "price": "499.00",
+     "compare_at_price": "899.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7484000927940,
+   "title": "Eau De Parfum | Classy (20ml)",
+   "handle": "eau-de-parfum-classy-20ml",
+   "vendor": "The Man Company",
+   "product_type": "The Woman Company",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 42556681814212,
+     "title": "20ml",
+     "option1": "20ml",
+     "option2": null,
+     "sku": "TWC-WEB-011",
+     "price": "249.00",
+     "compare_at_price": "249.00",
+     "available": false
+    }
+   ]
+  }
+ ]
+}

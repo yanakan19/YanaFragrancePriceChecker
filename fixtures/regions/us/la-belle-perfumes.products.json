@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://labelleperfumes.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 11096058134721,
+   "title": "Secrets Of Diana 3.4 oz EDP for women",
+   "handle": "new-secrets-of-diana-w",
+   "vendor": "EMPER",
+   "product_type": "WOMENS FRAGRANCES",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50660847583425,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "SECOD34SW",
+     "price": "19.00",
+     "compare_at_price": "85.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 11096080187585,
+   "title": "Aya Allora 3.4 oz EDP for women",
+   "handle": "new-mush-mush-aya-allora-edp-100ml",
+   "vendor": "MUSH MUSH",
+   "product_type": "WOMENS FRAGRANCES",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50660915904705,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "AYAA34SW",
+     "price": "17.00",
+     "compare_at_price": "65.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 11096081170625,
+   "title": "Rayhann Imperial 3.4 oz EDP for men",
+   "handle": "new-mush-mush-rayhann-impereal-edp-100ml",
+   "vendor": "MUSH MUSH",
+   "product_type": "MENS FRAGRANCES",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 50660920590529,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "RAYH34SM",
+     "price": "17.00",
+     "compare_at_price": "65.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

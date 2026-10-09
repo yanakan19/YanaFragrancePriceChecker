@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://fragrancemarket.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 15414281240754,
+   "title": "Ana Abiyed Coral Eau de Parfum",
+   "handle": "ana-abiyed-coral-eau-de-parfum",
+   "vendor": "Lattafa",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67658115776690,
+     "title": "2.0 oz.",
+     "option1": "2.0 oz.",
+     "option2": null,
+     "sku": "1000013690",
+     "price": "19.99",
+     "compare_at_price": "40.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 15411193184434,
+   "title": "Pink Blush Shams Al Emarat Khususi Eau de Parfum",
+   "handle": "pink-blush-shams-al-emarat-khususi-eau-de-parfum",
+   "vendor": "Lattafa",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67643137065138,
+     "title": "3.4 oz.",
+     "option1": "3.4 oz.",
+     "option2": null,
+     "sku": "1000015462",
+     "price": "39.99",
+     "compare_at_price": "45.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15411047104690,
+   "title": "Dylan Blush Pink Eau de Parfum",
+   "handle": "dylan-blush-pink-eau-de-parfum",
+   "vendor": "Versace",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 67642298794162,
+     "title": "3.4 oz.",
+     "option1": "3.4 oz.",
+     "option2": null,
+     "sku": "1000015441",
+     "price": "109.99",
+     "compare_at_price": "158.00",
+     "available": false
+    }
+   ]
+  }
+ ]
+}

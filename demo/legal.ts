@@ -62,6 +62,9 @@ import { BRAND_LOGOS } from './brandLogos.js';
 import { SHOP_COUNT } from './catalogue.generated.js';
 import { shopsPhrase } from './head.js';
 import { ADS_ON, ADS_SWITCHED_ON } from './ads.js';
+import { formatMoneyShort } from '../src/services/money.js';
+import { REGION_STORAGE_KEY } from '../src/config/regions.js';
+import { welcomeEnabled } from './regionWelcome.js';
 
 /** Shops we actually fetch from today, as opposed to entries in the registry. */
 const ENABLED = RETAILERS.filter((r) => r.enabled);
@@ -84,8 +87,8 @@ const NETWORKS = [...new Set(COMMISSIONED.map((r) => r.affiliate.network ?? 'dir
  * even as the list changes.
  */
 const DELIVERY_UNSTATED = ENABLED.filter((r) => r.shipping.standardGbp === null);
-/** Money as a shop states it: £25 for a whole number, £3.95 otherwise. */
-const gbp = (v: number) => (Number.isInteger(v) ? `£${v}` : `£${v.toFixed(2)}`);
+/** Money as a shop states it: £25 for a whole number, £3.95 otherwise (src/services/money.ts). */
+const gbp = (v: number) => formatMoneyShort(v);
 /**
  * The two delivery examples the About and How it works pages use, read from
  * the registry so a re-checked charge changes the sentence with it. The
@@ -318,6 +321,10 @@ export const STORAGE_KEYS = [
   { key: 'pricesniffs.layout', kind: 'local storage', when: 'when you choose the mobile or desktop layout in Settings', holds: 'that choice' },
   { key: 'pricesniffs.perrow', kind: 'local storage', when: 'when you change how many tiles show per row', holds: 'that number' },
   { key: 'a key beginning sb', kind: 'local storage', when: 'when you sign in to an account', holds: 'your sign in token, written by the Supabase library so you stay signed in' },
+  // Listed once the country pop-up can write it (src/config/regions.ts): never before.
+  ...(welcomeEnabled()
+    ? [{ key: REGION_STORAGE_KEY, kind: 'local storage', when: 'when you choose a country', holds: 'that choice' } as const]
+    : []),
 ] as const;
 
 /** A definition list of the business details, with an honest line for each absent one. */

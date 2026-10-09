@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://microperfumes.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 15411973521659,
+   "title": "1 Million Elixir Parfum - Retail Bottle",
+   "handle": "1-million-elixir-parfum-retail-bottle",
+   "vendor": "Paco Rabanne",
+   "product_type": "Parfum",
+   "options": [
+    {
+     "name": "Option",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 68285027647739,
+     "title": "Retail Bottle - 30 ml (1.0 fl oz)",
+     "option1": "Retail Bottle - 30 ml (1.0 fl oz)",
+     "option2": null,
+     "sku": "mp-9706.030",
+     "price": "63.00",
+     "compare_at_price": "0.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15411973488891,
+   "title": "212 Sexy EDP - Retail Bottle",
+   "handle": "212-sexy-edp-retail-bottle-1",
+   "vendor": "Carolina Herrera",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Option",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 68285027614971,
+     "title": "Retail Bottle - 60 ml (2.0 fl oz)",
+     "option1": "Retail Bottle - 60 ml (2.0 fl oz)",
+     "option2": null,
+     "sku": "mp-8721.060",
+     "price": "54.00",
+     "compare_at_price": "72.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 15411973456123,
+   "title": "Pi EDT - Retail Bottle",
+   "handle": "pi-edt-retail-bottle-1",
+   "vendor": "Givenchy",
+   "product_type": "Eau de Toilette",
+   "options": [
+    {
+     "name": "Option",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 68285027549435,
+     "title": "Retail Bottle - 50 ml (1.7 fl oz)",
+     "option1": "Retail Bottle - 50 ml (1.7 fl oz)",
+     "option2": null,
+     "sku": "mp-6371.050",
+     "price": "38.00",
+     "compare_at_price": "94.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

@@ -3378,6 +3378,48 @@
   }
   .report-wrong .link-btn:hover { color: var(--ink); }
 
+  /* ── "Select your country" (demo/regionWelcome.ts) ─────────────────────────
+     The welcome pop-up on the bare home page, off until a second country is
+     live. The .ps-dialog card, small and centred over a lightly dimmed page
+     that stays readable behind it (not an interstitial). One large link per
+     country, 56px tall, the time zone's suggestion outlined in ink. */
+  .region-welcome { width: min(92vw, 380px); border-left: 1px solid var(--line-firm); }
+  .region-welcome::backdrop { background: rgba(0, 0, 0, .35); }
+  .region-welcome-body { padding: 16px 18px 14px; }
+  .region-welcome-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 12px; }
+  .region-welcome-head .ps-dialog-title { margin: 0; }
+  .region-welcome-close {
+    flex: none; width: 44px; height: 44px; margin: -8px -10px -8px 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 0; border-radius: 10px; background: transparent; color: var(--ink-2); cursor: pointer;
+  }
+  .region-welcome-close:hover { color: var(--ink); background: var(--surface-2); }
+  .region-welcome-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .region-welcome-choice {
+    display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 8px 14px;
+    border: 1px solid var(--line-firm); border-radius: 12px;
+    background: var(--surface); color: var(--ink); text-decoration: none;
+  }
+  .region-welcome-choice:hover { background: var(--surface-2); }
+  .region-welcome-choice.is-suggested { border-color: var(--ink); }
+  .region-welcome-choice .flag { flex: none; width: 28px; height: auto; }
+  .region-welcome-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .region-welcome-name { font-size: 16px; font-weight: 650; line-height: 1.3; }
+  .region-welcome-cur { font-size: 13px; line-height: 1.3; color: var(--ink-2); }
+  .region-welcome-suggested {
+    flex: none; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line-firm);
+    background: var(--surface-2); color: var(--ink); font-size: 12px; font-weight: 650;
+  }
+  .region-welcome-login-line { margin: 14px 0 0; text-align: center; }
+  .region-welcome-login {
+    display: inline-block; padding: 6px 4px; font-size: 14px; color: var(--ink-2);
+    text-decoration: underline; text-underline-offset: 3px;
+  }
+  .region-welcome-login:hover { color: var(--ink); }
+  .region-welcome-close:focus-visible, .region-welcome-choice:focus-visible, .region-welcome-login:focus-visible {
+    outline: 2px solid var(--accent); outline-offset: 2px;
+  }
+
   /* ── account pages (2026-10-04): profile, wishlist, notifications ─────── */
   .account-doc { max-width: 560px; }
   .account-doc .account-note, .account-doc .contact-form { max-width: none; }

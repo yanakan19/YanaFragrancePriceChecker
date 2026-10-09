@@ -129,3 +129,12 @@ incoming  data/better-photos.json             npm run photos:better (scripts/bet
 incoming  data/price-verification-report.json npm run price:verify
 incoming  data/delivery-recheck-report.json   npm run delivery:recheck
 incoming  docs/DELIVERY-RECHECK.md            npm run delivery:recheck
+
+# ── catalogue-us.yml, catalogue-in.yml: the region dry runs (docs/INTERNATIONAL-PLAN.md, Phase 1) ──
+# Each region's crawl writes and commits only its own folder: its snapshots
+# (catalogue/<shop>.json), its harvest report, its catalogue, price history and
+# report. No UK path, no page. So the region crawls and the UK crawl never commit
+# the same path, which is what lets each run in its own concurrency group
+# (tests/workflowRules.test.ts). Nothing here is published until Phase 1b.
+incoming  data/regions/us/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=us (catalogue-us.yml)
+incoming  data/regions/in/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=in (catalogue-in.yml)

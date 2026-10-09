@@ -1,6 +1,7 @@
 # PriceSniffs for the USA and India: plan
 
-Written 2026-10-09. **Plan only: nothing here is built.** Owner request: native US and Indian
+Written 2026-10-09. **Phase 0 (the region foundation, UK only) is built** (9 Oct 2026, section
+"Phase 0: what was built" below); everything after it is still a plan. Owner request: native US and Indian
 versions of PriceSniffs (prices in USD and INR from shops that sell in those countries on their
 own local delivery terms), a country menu at the top of the home screen that switches between
 UK, US and India, and possibly a different domain or address per country.
@@ -30,6 +31,7 @@ read from the GitHub API.
   DE, IN, FR, IT greyed out "Coming Soon"), drawn by `fillRegionMenu` in `demo/app.ts`, flags in
   `demo/flags.ts`, tests `tests/regions.test.ts` and `tests/regionSelectorBrowser.test.ts`.
   Choosing does nothing: no storage, no cookie, no price change. Changelog v3.88.0 (5 Oct).
+  (Phase 0, 9 Oct: trimmed to UK, US and India and read from `src/config/regions.ts`.)
 - **The `country-selector` branch has nothing extra.** Its two commits (1a0df932, eda0e9e7)
   predate the history rewrite of 6 October, so git finds no merge base, but every file it
   touched is byte for byte the same on the live branch (checked: `regions.ts`, `flags.ts` and
@@ -475,13 +477,123 @@ for `/us/` before starting India.
 
 ## Owner decisions
 
-1. Subfolders now (`/us/`, `/in/`), UK at the root unchanged; domains later behind Cloudflare.
-2. The USA first, as a hidden beta, then public "Beta".
-3. Trim the menu to UK, US and India (Germany, France and Italy out until planned).
-4. Marketplaces: keep D29 for the US beta; decide for India (first party offers only?) before
-   Phase 2.
-5. Photos: whether D24 extends to each US shop (one `imageBasis` line each).
-6. Affiliate sign ups for the US (Awin US, CJ, Rakuten, Impact, Skimlinks) with a W-8BEN; for
-   India, whether payouts can work without an Indian PAN and bank account.
-7. Copy: British English with US terms where meaning changes, or a full US English layer later.
-8. A legal review of the US and India privacy and disclosure text before monetising there.
+Taken by the owner on 9 October 2026 (recorded as D30 in `docs/DECISIONS.md`):
+
+1. **Addresses: folders. Approved.** The UK stays at `/`, the US at `/us/`, India at `/in/`. No UK
+   address moves. Domains later behind Cloudflare (section 2) remain an option, not a plan.
+2. **The US goes first, India second. Approved.**
+3. **The country menu is trimmed to United Kingdom, United States and India. Approved.** Done in
+   Phase 0: Germany, France and Italy are out until planned; the US and India show "Coming Soon"
+   and cannot be chosen while they are not live.
+4. **India: marketplaces such as Amazon.in and Flipkart are allowed in principle**, but only where a
+   permitted route exists under D23: no scraping a site that forbids it in robots.txt or its terms,
+   and no getting past a block. This may rule them out in practice (both are large, bot guarded
+   sites whose terms restrict automated access); check robots.txt and the terms before any work.
+5. **Photo rule (D24) for new countries: pending.** The owner is being asked. Until answered, no US
+   or Indian shop's photo is shown.
+6. **Affiliate programmes: not now.** For now only shops our crawler can read under D23 (scraped
+   shops). Affiliate sign ups (Awin US, CJ, Rakuten, Impact, Skimlinks, the Indian networks) are
+   planned for later, so the US beta is built from the shops that answered the bot (section 4's
+   shortlist); the big discounters that refused it stay out until then.
+7. **Spelling on the US site: British English**, with US terms where the meaning changes (fl oz
+   beside ml, shipping, ZIP code, MSRP, sales tax). The region config carries the hooks
+   (`units`, `delivery.word`, `delivery.postcodeWord`, `referencePriceName`).
+8. **A legal review of the US and India privacy and disclosure text happens before any money is
+   earned there** (owner's step, `docs/OWNER-STEPS.md`).
+
+## Phase 0: what was built (9 Oct 2026)
+
+The UK looks and behaves exactly as before, apart from the approved menu trim.
+
+- **Region config**, one place: `src/config/regions.ts` (`REGION_CONFIGS`): id, name, flag,
+  currency code and symbol, currency name, locale, hreflang, how money is written, units, path
+  prefix, live flag, time zones for the suggestion, reference price name, tax model, delivery
+  model and legal variant. The UK is live; the US and India are present and not live.
+  `src/services/regions.ts` (the menu's list) now reads it.
+- **One money formatter**: `formatMoney`, `formatMoneyShort`, `formatMoneyFine` and
+  `currencySymbol` in `src/services/money.ts`, taking the symbol and number format from the
+  region. The UK keeps exactly what it printed (`£`, two decimals, no thousands separator); the US
+  gets `$1,299.00`, India whole rupees `₹1,23,450`. Every price the page, the share text and the
+  alert emails print now goes through it (the old `formatGbp` call sites, the hand written `£` in
+  the delivery facts, the legal pages' delivery examples, the price bands, the wishlist target
+  field, the price per ml, the cheapest verdict). `formatGbp` stays as the public API's name for
+  the UK form. Most of the 802 `£` lines the plan counted are comments, tests, scripts reading
+  UK shops' pages and the registry's own delivery terms; those were left, by design.
+- **Guards**: `tests/ukPricesUnchanged.test.ts` runs every price in the catalogue, deals and price
+  history, every delivered total (each price plus each registry delivery charge), every registry
+  delivery amount, every penny to £2,000 and every price per ml through the old expressions and
+  the new formatter: all identical. `tests/moneyGuard.test.ts` fails on a new hard coded `£` in a
+  string the page code, services or alert emails print (read with the TypeScript scanner, so
+  comments do not count), with a small allowance for UK legal and guide copy.
+- **Proof on the built page**: 116 pages (home, Deals, Search, every Explore tab, Brands, Shops,
+  Notes, About, the Legal Notice, the guides, account and settings pages, 60 product pages, 12
+  brand pages, 20 shop pages, 4 note pages) rendered at 1280 wide with a fixed clock, before and
+  after, from the same data. Outside the inline script and the country menu, all 116 bodies are
+  byte for byte identical, and the 7,398 pound amounts on them are identical and in the same order.
+  Two runs of the old build were identical to each other, so the comparison is not noise.
+  Repeated after merging the live branch (25f2caf7, with the 9 October harvest): 70 pages,
+  identical outside the script and the menu, 3,983 pound amounts identical in order.
+- **The country menu**: United Kingdom, United States, India; the US and India greyed out
+  "Coming Soon". Choosing the UK still stores nothing. A live region other than the current one
+  would be remembered and opened (none yet).
+- **Welcome pop-up** ("Select your country"), exactly as the section above: `demo/regionWelcome.ts`
+  and `demo/regionProfile.ts`, styles in `demo/template.html`. Off: it needs
+  `REGION_WELCOME_ON = true` in `src/config/regions.ts` **and** a second live region. The
+  `?regionwelcome=preview` address opens it with every region as a choice, for the page test and
+  for the owner to look at. The choice is kept in `localStorage` (`pricesniffs.region`, every read
+  and write in try/catch) and, signed in only, in `profiles.region`
+  (`supabase/migrations/0009_profile_region.sql`, not run yet). The cookies page lists the key
+  only once the pop-up can write it. Tests: `tests/regionWelcome.test.ts`,
+  `tests/regionWelcomeBrowser.test.ts` (dialog, focus, Escape, close button, tap outside, light
+  and dark, 320, 390 and 1280 wide, axe clean).
+- **Routing ready**: `matchRoute` takes off a live region's prefix (`splitRegionPrefix`), and
+  `routeToPath`, `productPath` and the canonical put it back (`regionPath`); the UK has no prefix,
+  so nothing changes, and `/us/...` is a page not found while the US is not live. `us`, `in` and
+  `uk` are reserved words for slugs. hreflang (`hreflangAlternates`, `hreflangFor`, applied in
+  `applyHead`) names live regions only, so no page declares any yet.
+- `OZ_TO_ML`'s comment now says the US fluid ounce.
+
+**Left for Phase 1 (the US beta).**
+
+- The US shops that answered the bot and quote USD (`docs/RETAILER-CANDIDATES-USA-INDIA-2026-10-09.md`):
+  multi brand **Perfumania, Aedes, Twisted Lily, Indigo Perfumery, Bluemercury, Beautyhabit**
+  (Shopify `products.json`), **Jomashop** and **Luckyscent** (sitemap and JSON-LD); single
+  brand Boy Smells, Sol de Janeiro, D.S. & Durga, Imaginary Authors, Maison Louis Marie, Ellis
+  Brooklyn (USD at origin); Nordstrom later. Probe Ulta, Target, Kohl's, Dillard's, Belk and
+  JCPenney first.
+- `region` on `Retailer` and the currency guard per region; neutral delivery field names; US
+  snapshots, catalogue, history, deals, slug and alias files and `catalogue-us.yml` (section 3).
+- A build per region into `demo/us/`, route pages under `/us/`, the sitemap index, and a check of
+  the few hard coded `href="/..."` links in `demo/app.ts` so they carry the prefix.
+- The slim "You are seeing UK prices" bar on deep links, `/uk/...` redirects, fl oz labels, US
+  dates, the region variants of the legal pages and the US disclosure wording.
+- Switch on: set the US `live` (beta), `REGION_WELCOME_ON`, run migration 0009, list `/us/` in
+  Search Console.
+
+## Phase 1, step one: the US and India test crawl (9 Oct 2026)
+
+A dry run per region, nothing published: no page, no sitemap entry, no UK file touched.
+
+- **Registry, per region**: `src/config/retailers.us.ts` (26 shops) and `src/config/retailers.in.ts`
+  (16), shape `RegionRetailer` (`src/types/regionRetailer.ts`): neutral money names in the shop's own
+  currency, standard delivery read off a robots allowed page with the sentence quoted and the date (or
+  marked unread: Fragrance Outlet's and MicroPerfumes' `/policies/shipping-policy` is disallowed and
+  was not fetched), the tax note (US: before sales tax; India: GST included), no affiliate field, no
+  photo field (D24 pending). Shops that share one catalogue (Perfumania, Fragrance Outlet, Fragrance
+  Market) carry one `catalogueGroup` and count once in the overlap measure. MicroPerfumes keeps
+  retail bottles only. Purplle's price 0 is read as sold out (`zeroPriceMeansSoldOut`), never as a
+  price. Off, each with its reason in the entry: Jomashop (no price in the markup), Dillard's (sizes
+  only inside one AggregateOffer), eCosmetics (Store API only, for the owner to rule on), Nordstrom
+  (later), AAR Fragrances (price only in `og:price`), Mirah Belle (no perfume), Kannauj Attar.
+- **Crawl**: `scripts/region-harvest.ts` and `src/catalogue/regionHarvest.ts` reuse the UK adapters
+  (Shopify `products.json`, sitemap and JSON-LD, robots.txt first, PriceSniffsBot only). A price is
+  kept only in the region's currency as the shop states it (a Shopify storefront must publish it at
+  rate 1; a JSON-LD page must name it); pounds, an unnamed currency or a conversion are refused.
+- **Build**: `scripts/build-region-catalogue.ts` and `src/catalogue/regionCatalogue.ts` build the
+  catalogue, an append only price history and `report.json` (the go/no-go numbers of section 7) with
+  the UK's own identity, naming and merge rules; the UK slugs are read only, to count barcode matches.
+- **Files**: everything under `data/regions/us/` and `data/regions/in/` (listed in
+  `scripts/generated-files.txt`), never a UK path.
+- **Workflows**: `catalogue-us.yml` and `catalogue-in.yml`, run by hand only, each in its own
+  concurrency group (`catalogue-us`, `catalogue-in`; they commit paths no other workflow commits),
+  pushing only through `scripts/commit-and-push.sh`. A schedule waits for the hidden beta (1b).

@@ -9,7 +9,7 @@ import {
   GUIDES_FILE, METHOD_FILE, blocksHtml, blocksText, createGuideBodies, createMethodBody, guideHtml, guidesIndexHtml,
   howWeCheckHtml, inlineHtml, inlineText, linksIn, prepareGuides, prepareMethod, type Block,
 } from '../demo/contentPages.js';
-import { GUIDE_BODIES } from '../demo/content/guideBodies.js';
+import { GUIDE_BODIES, shopFacts, shopsGuide } from '../demo/content/guideBodies.js';
 import { METHOD_BODY } from '../demo/content/methodBody.js';
 import { headFor, SITE_URL } from '../demo/head.js';
 import { matchRoute, rootWords, routeToPath } from '../demo/router.js';
@@ -17,11 +17,20 @@ import { LAZY_CONTENT_MODULES, LAZY_DATA_MODULES } from '../scripts/dataFiles.js
 import { DEMO_FRAGRANCES, fragrancesWithNote, noteForAddress } from '../demo/data.js';
 import { slugOf } from '../demo/tabFacets.js';
 import { VOLUME_BANDS, volumeBandFor } from '../demo/volumeBands.js';
-import { OIL_SORT_OPTIONS, SET_SORT_OPTIONS } from '../demo/listSort.js';
+import { DEAL_SORT_OPTIONS, OIL_SORT_OPTIONS, SET_SORT_OPTIONS } from '../demo/listSort.js';
 import { isOil, isSet } from '../demo/productKind.js';
 import { LEGAL_NOTICE_IDS } from '../demo/legal.js';
 import { RETAILERS } from '../src/config/retailers.js';
+import type { Retailer } from '../src/types/retailer.js';
 import { HIDE_OFFER_AFTER_DAYS } from '../src/services/offerAge.js';
+import { deliveredPrice, resolveDelivery } from '../src/services/shipping.js';
+import { STOCK_LABEL, rowStockMarks } from '../demo/stockLabels.js';
+import { HISTORY_SCOPES } from '../demo/priceHistoryChart.js';
+import { DROP_FRACTION, DROP_MIN_GBP, evaluateItem } from '../src/alerts/rules.js';
+import { dealCandidateForOffer } from '../src/services/dealCandidates.js';
+import { matchKey, settleBarcodeSizes, type BarcodeSizeListing } from '../src/catalogue/productMatch.js';
+import { isGiftSet } from '../src/catalogue/giftSet.js';
+import { isPerfumeOilTitle } from '../src/catalogue/perfumeOil.js';
 import { BOT_NAME, BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
 
@@ -98,9 +107,15 @@ const MAX_WORDS_PER_BLOCK = 70;
  * wording rules for what a reader reads.
  */
 describe('the addresses', () => {
-  it('lists the guides index, five guides and the price checking page', () => {
-    expect(GUIDES.length).toBeGreaterThanOrEqual(3);
-    expect(GUIDES.length).toBeLessThanOrEqual(5);
+  it('lists the guides index, the guides and the price checking page', () => {
+    // The five about perfume in general, then the eight about how the site works.
+    expect(GUIDES.map((g) => g.slug)).toEqual([
+      'perfume-strengths-explained', 'perfume-notes-explained', 'compare-perfume-prices-per-ml',
+      'spot-fake-or-grey-market-perfume', 'decants-and-testers',
+      'which-shops-we-compare', 'how-we-tidy-perfume-notes', 'why-the-basket-price-can-differ',
+      'how-we-match-the-same-bottle', 'sets-and-oils-explained', 'how-deals-are-chosen',
+      'wishlists-and-price-alerts', 'reading-the-price-history-chart',
+    ]);
     expect(CONTENT_PATHS).toEqual([GUIDES_PATH, ...GUIDES.map((g) => guidePath(g.slug)), HOW_WE_CHECK.path]);
     expect(new Set(CONTENT_PATHS).size).toBe(CONTENT_PATHS.length);
   });
@@ -625,5 +640,300 @@ describe('the guides index', () => {
     expect(html).toContain(`<h1 class="t-page">${GUIDES_INDEX.title}</h1>`);
     for (const g of GUIDES) expect(html).toContain(g.description);
     expect(html).toContain(`href="${HOW_WE_CHECK.path}"`);
+  });
+});
+
+/**
+ * The eight guides about how the site works (from 'which-shops-we-compare'):
+ * every figure and every label they state is held to the record or the code it
+ * comes from, so a change there that makes a guide untrue fails here.
+ */
+describe('the guides about how the site works', () => {
+  const textOf = (slug: string): string => blocksText(GUIDE_BODIES[slug]!);
+  const app = readFileSync(resolve(root, 'demo/app.ts'), 'utf8');
+  /** A whole source file in a failure message is no help: say which wording is missing. */
+  const has = (source: string, wording: string): void => expect(source.includes(wording), `missing: ${wording}`).toBe(true);
+  const enabled = RETAILERS.filter((r) => r.enabled);
+
+  describe('Which Shops We Compare', () => {
+    const text = textOf('which-shops-we-compare');
+    const shops = (n: number): string => `${n} ${n === 1 ? 'shop' : 'shops'}`;
+
+    it('counts the shops, and what they sell, from the shop list', () => {
+      const own = enabled.filter((r) => r.singleBrandOnly).length;
+      expect(text).toContain(`shop list has ${enabled.length} UK shops switched on`);
+      expect(text).toContain(`Of the ${enabled.length}, ${enabled.length - own} sell many fragrance houses`);
+      expect(text).toContain(`The other ${own} are one house’s own shop`);
+      for (const [tier, label] of [['designer', 'designer houses'], ['niche', 'niche ones'], ['mideast', 'Middle Eastern ones']] as const) {
+        expect(text).toContain(`${enabled.filter((r) => r.tiers.includes(tier)).length} for ${label}`);
+      }
+      const paying = enabled.filter((r) => r.affiliate.status === 'active').length;
+      expect(text).toContain(`commission when you buy after clicking through to ${paying} of the ${enabled.length} shops`);
+    });
+
+    it('counts the delivery rules from the shop list', () => {
+      const std = enabled.map((r) => r.shipping.standardGbp);
+      const free = std.filter((v) => v === 0).length;
+      const unstated = std.filter((v) => v === null).length;
+      const paid = enabled.filter((r) => r.shipping.standardGbp !== null && r.shipping.standardGbp > 0);
+      expect(free + unstated + paid.length).toBe(enabled.length);
+      expect(text).toContain(`Free on every order: ${shops(free)}.`);
+      expect(text).toContain(`No standard charge stated, or none we could establish: ${shops(unstated)}.`);
+      const lowest = Math.min(...paid.map((r) => r.shipping.standardGbp!));
+      const highest = Math.max(...paid.map((r) => r.shipping.standardGbp!));
+      const money = (v: number) => (Number.isInteger(v) ? `£${v}` : `£${v.toFixed(2)}`);
+      expect(text).toContain(`from ${money(lowest)} to ${money(highest)}: ${shops(paid.length)}.`);
+      const waived = paid.filter((r) => (r.shipping.freeOverGbp ?? 0) > 0).map((r) => r.shipping.freeOverGbp!);
+      expect(text).toContain(`Of those, ${waived.length} waive it once you spend between ${money(Math.min(...waived))} and ${money(Math.max(...waived))}`);
+      const confirmed = enabled.filter((r) => r.shipping.confidence === 'confirmed').length;
+      expect(text).toContain(`${confirmed} of the ${enabled.length} sets of terms have been confirmed`);
+    });
+
+    it('follows the list: a shop added, switched off or changed moves the figures', () => {
+      const first = enabled[0]!;
+      const without = RETAILERS.map((r) => (r.id === first.id ? { ...r, enabled: false } : r));
+      expect(shopFacts(without).shops).toBe(enabled.length - 1);
+      expect(blocksText(shopsGuide(without))).toContain(`shop list has ${enabled.length - 1} UK shops switched on`);
+      // No shop that delivers free on every order, and the line for them goes.
+      const noFree = RETAILERS.map((r) => (r.shipping.standardGbp === 0 ? { ...r, enabled: false } : r));
+      expect(blocksText(shopsGuide(noFree))).not.toContain('Free on every order');
+      // One shop on its own reads as one shop.
+      const alone: Retailer[] = [{ ...first, singleBrandOnly: undefined }];
+      expect(blocksText(shopsGuide(alone))).toContain('shop list has 1 UK shop switched on');
+      expect(shopFacts([]).days).toBeNull();
+    });
+
+    it('says only what the Shops tab and Deals do: a house’s own shop is on neither', () => {
+      has(app, '!r.singleBrandOnly && r.enabled');
+      expect(readFileSync(resolve(root, 'scripts/build-deals.ts'), 'utf8')).toMatch(/SINGLE_BRAND_ONLY_IDS\.has\(o\.retailerId\)/);
+    });
+  });
+
+  describe('How We Tidy Perfume Notes', () => {
+    const text = textOf('how-we-tidy-perfume-notes');
+    const file = JSON.parse(readFileSync(resolve(root, 'data/note-aliases.json'), 'utf8')) as {
+      aliases: { variant: string; canonical: string }[];
+      keepApart: { notes: [string, string] }[];
+    };
+    const merged = (variant: string, canonical: string): boolean =>
+      file.aliases.some((a) => a.variant.toLowerCase() === variant.toLowerCase() && a.canonical === canonical);
+
+    it('quotes only merges the reviewed list holds', () => {
+      for (const [variant, canonical] of [
+        ['Cedarwood', 'Cedar'], ['Cassis', 'Blackcurrant'], ['Mandarin Orange', 'Mandarin'], ['Musks', 'Musk'],
+        ['Pepper Pink', 'Pink Pepper'], ['Cardamon', 'Cardamom'], ['Lavander', 'Lavender'], ['Rose Absolute', 'Rose'],
+        ['Italy Lemon', 'Italian Lemon'], ['Oudh', 'Oud'],
+      ] as const) {
+        expect(merged(variant, canonical), `${variant} is ${canonical}`).toBe(true);
+        expect(text, variant).toContain(variant);
+      }
+      expect(file.aliases.length, 'well over a thousand').toBeGreaterThan(1100);
+    });
+
+    it('quotes only pairs the list keeps apart', () => {
+      const apart = (a: string, b: string): boolean => file.keepApart.some((k) => k.notes.includes(a) && k.notes.includes(b));
+      expect(apart('Blackcurrant', 'Blackcurrant Leaf')).toBe(true);
+      expect(apart('Musk', 'White Musk')).toBe(true);
+      expect(apart('Orange', 'Bitter Orange')).toBe(true);
+      for (const kept of ['Blackcurrant Leaf', 'White Musk', 'Bitter Orange']) expect(text).toContain(kept);
+    });
+
+    it('opens an old address on the note it became, and links notes that have fragrances', () => {
+      expect(noteForAddress('cedarwood')).toBe('Cedar');
+      expect(noteForAddress('cedar')).toBe('Cedar');
+      expect(linksOf(GUIDE_BODIES['how-we-tidy-perfume-notes']!)).toEqual(expect.arrayContaining(['/notes/cedar', '/notes/blackcurrant']));
+    });
+  });
+
+  describe('Why the Basket Price Can Differ', () => {
+    const text = textOf('why-the-basket-price-can-differ');
+    // A shop that charges £3.95 below a £30 spend, as the guide's example says.
+    const example = {
+      shipping: { standardGbp: 3.95, freeOverGbp: 30, estimatedDays: [1, 3], verifiedAt: '2026-10-01', confidence: 'confirmed' },
+    } as unknown as Retailer;
+
+    it('works its example the way the shipping rules do', () => {
+      expect(deliveredPrice(example, 26)).toBe(29.95);
+      expect(resolveDelivery(example, 26).isFree).toBe(false);
+      expect(resolveDelivery(example, 30).isFree).toBe(true);
+      expect(resolveDelivery(example, 30).costGbp).toBe(0);
+      expect(text).toContain('A £26 bottle shows as £29.95');
+    });
+
+    it('never calls a lower rate above a spend free', () => {
+      const cheaper = {
+        shipping: { ...example.shipping, freeOverGbp: null, cheaperRateOver: { overGbp: 30, costGbp: 0.99, inclusive: false } },
+      } as unknown as Retailer;
+      const d = resolveDelivery(cheaper, 40);
+      expect(d.costGbp).toBe(0.99);
+      expect(d.isFree).toBe(false);
+    });
+
+    it('does not count a delivery cost it does not have as nothing', () => {
+      const unstated = { shipping: { ...example.shipping, standardGbp: null, freeOverGbp: null } } as unknown as Retailer;
+      expect(resolveDelivery(unstated, 26).costGbp).toBeNull();
+      expect(deliveredPrice(unstated, 26)).toBeNull();
+    });
+
+    it('uses the labels the product page uses', () => {
+      has(app, 'Delivery Not Included');
+      has(app, 'Last price');
+      has(app, 'Est. free');
+      has(app, 'Incl. ${est}');
+      has(app, '+ delivery');
+      has(app, 'minimum order');
+      expect(STOCK_LABEL.preOrder).toBe('Preorder');
+      expect(rowStockMarks({ isPurchasable: false, stock: 'outOfStock' }).lastPrice).toBe(true);
+      expect(rowStockMarks({ isPurchasable: false, stock: 'preOrder' }).lastPrice).toBe(false);
+    });
+
+    it('states the number of days a price is shown for from the constant that decides it', () => {
+      expect(text).toContain(`more than ${HIDE_OFFER_AFTER_DAYS} days`);
+    });
+  });
+
+  describe('How We Match the Same Bottle', () => {
+    const product = (id: string, name: string, sizeMl: number) => ({ id, brand: 'Example House', name, concentration: 'Eau de Parfum', sizeMl, ean: null });
+
+    it('keeps a 100ml and a 105ml bottle apart, and joins one name written in two orders', () => {
+      expect(matchKey(product('a', 'Night Rose', 100))).not.toBe(matchKey(product('b', 'Night Rose', 105)));
+      expect(matchKey(product('a', 'Night Rose', 50))).not.toBe(matchKey(product('b', 'Night Rose', 60)));
+      expect(matchKey(product('a', 'Night Rose Intense', 100))).toBe(matchKey(product('b', 'Intense Night Rose', 100)));
+      // Both sizes sit in one band of the Size filter, as the guide says.
+      expect(volumeBandFor(100)).toBe('70-120');
+      expect(volumeBandFor(105)).toBe('70-120');
+    });
+
+    it('settles a barcode sold at two sizes the way the guide says', () => {
+      const at = (retailerId: string, sizeMl: number): BarcodeSizeListing => ({ retailerId, retailerSku: `${retailerId}-1`, ean: '3274872419315', sizeMl });
+      // A shop alone against two that agree is read at their size.
+      const outvoted = settleBarcodeSizes([at('a', 80), at('b', 80), at('c', 100)]);
+      expect([...outvoted.outvoted]).toEqual([['c|c-1', 80]]);
+      expect(outvoted.revoked.size).toBe(0);
+      // One against one: neither is overruled, the barcode is left out for the one that is not first.
+      const tie = settleBarcodeSizes([at('a', 80), at('c', 100)]);
+      expect(tie.outvoted.size).toBe(0);
+      expect(tie.revoked.size).toBe(1);
+    });
+
+    it('names the labels the pages use', () => {
+      has(app, 'Spotted a Wrong Price? Tell Us');
+      has(app, 'Listed as:');
+    });
+  });
+
+  describe('Sets and Oils Explained', () => {
+    const set = (rawTitle: string) => isGiftSet({ rawTitle, retailerId: 'example-shop', productType: null, description: null, rawBrand: null });
+
+    it('counts as sets the shapes it names, and leaves out the ones it names', () => {
+      for (const title of [
+        'Example Night Rose Eau de Parfum 50ml Gift Set',
+        'Example Night Rose Eau de Parfum Coffret',
+        'Example Night Rose Eau de Parfum 3x10ml',
+        'Example Night Rose Eau de Parfum 50ml + Body Wash',
+        'Example Night Rose Eau de Parfum Discovery Set',
+      ]) expect(set(title), title).toBe(true);
+      expect(set('Tommy Bahama Set Sail Eau de Toilette 100ml')).toBe(false);
+      expect(set('Example Night Rose Eau de Parfum 50ml Tester Set')).toBe(false);
+    });
+
+    it('counts as oils only a title that names one and states a size', () => {
+      const oil = (rawTitle: string, ml: number | null, productType: string | null = null) => isPerfumeOilTitle({ rawTitle, productType }, ml);
+      expect(oil('Example Night Rose Perfume Oil 12ml', 12)).toBe(true);
+      expect(oil('Example Night Rose Perfumed Oil 15ml Roll On', 15)).toBe(true);
+      expect(oil('Example Night Rose Perfume Oil', null)).toBe(false);
+      expect(oil('Example Argan Body Oil 100ml', 100)).toBe(false);
+      expect(oil('Example Hair Oil Perfume 50ml', 50)).toBe(false);
+    });
+
+    it('states that the tabs keep them apart, as the page does', () => {
+      has(app, '!isSet(f) && !isOil(f)');
+      has(app, 'bottle alone is');
+      has(app, 'As the shop lists it');
+      expect(textOf('sets-and-oils-explained')).toContain('As the shop lists it');
+    });
+  });
+
+  describe('How Deals Are Chosen', () => {
+    const house = { brand: 'Example House', houseCeiling: 80 };
+    const noHouse = { brand: 'Example House', houseCeiling: null };
+
+    it('measures against the maker first, then a shop’s own RRP, and never above the maker', () => {
+      const first = dealCandidateForOffer(house, { price: 60, wasPrice: 90, retailerId: 'a' });
+      expect(first).toMatchObject({ kind: 'house', wasPrice: 80, percentOff: 25 });
+      expect(dealCandidateForOffer(noHouse, { price: 60, wasPrice: 90, retailerId: 'a' })).toMatchObject({ kind: 'retailer', wasPrice: 90, percentOff: 33 });
+      expect(dealCandidateForOffer({ ...house, houseCeiling: 50 }, { price: 55, wasPrice: 70, retailerId: 'a' })).toBeNull();
+    });
+
+    it('rounds the percentage down, and shows nothing under one whole per cent', () => {
+      expect(dealCandidateForOffer(noHouse, { price: 80.4, wasPrice: 100, retailerId: 'a' })?.percentOff).toBe(19);
+      expect(dealCandidateForOffer(noHouse, { price: 99.5, wasPrice: 100, retailerId: 'a' })).toBeNull();
+    });
+
+    it('takes only in stock bottles, from shops that are not one house’s own', () => {
+      const build = readFileSync(resolve(root, 'scripts/build-deals.ts'), 'utf8');
+      expect(build).toContain("new Set<StockState>(['inStock', 'lowStock'])");
+      expect(build).toContain("productKind(fragrance) !== 'bottle'");
+      expect(build).toMatch(/candidates\.sort\(\(a, b\) => a\.price - b\.price\)/);
+      expect(build).not.toMatch(/affiliate/);
+    });
+
+    it('names the sorts and the photo rule the page has', () => {
+      expect(DEAL_SORT_OPTIONS.map((o) => o.label)).toEqual(['Best to Worst Saving', 'Lowest to Highest Price', 'Highest to Lowest Price']);
+      has(app, 'd.fragrance.photoUrl !== null');
+      has(app, 'Delivery Not Stated');
+    });
+  });
+
+  describe('Wishlists and Price Alerts', () => {
+    const text = textOf('wishlists-and-price-alerts');
+
+    it('states the size of a drop from the rule that sends the email', () => {
+      expect(text).toContain(`${Math.round(DROP_FRACTION * 100)} per cent or £${DROP_MIN_GBP}`);
+      // 5 per cent of £100 is £5: a £4 drop is not enough, a £5 drop is.
+      expect(evaluateItem({ current: 96, baseline: 100, target: null }).alert).toBeNull();
+      expect(evaluateItem({ current: 95, baseline: 100, target: null }).alert).toBe('drop');
+      // £2 of £20 is more than 5 per cent: £18 counts.
+      expect(evaluateItem({ current: 18, baseline: 20, target: null }).alert).toBe('drop');
+    });
+
+    it('emails once a target is reached, and not again for a price that bounces', () => {
+      expect(evaluateItem({ current: 48, baseline: 60, target: 50 }).alert).toBe('target');
+      expect(evaluateItem({ current: 50, baseline: 50, target: 50 }).alert).toBeNull();
+      expect(evaluateItem({ current: 55, baseline: 50, target: null }).alert).toBeNull();
+      expect(evaluateItem({ current: null, baseline: 50, target: 60 }).alert).toBeNull();
+    });
+
+    it('is a daily morning job, off until the reader opts in', () => {
+      const workflow = readFileSync(resolve(root, '.github/workflows/price-alerts.yml'), 'utf8');
+      expect(workflow.match(/^\s*- cron: '\d+ \d+ \* \* \*'/gm)).toHaveLength(1);
+      expect(readFileSync(resolve(root, 'supabase/migrations/0004_price_alerts.sql'), 'utf8')).toMatch(/price_alerts boolean not null default false/);
+      has(app, 'One email a morning at most');
+      has(app, 'are not switched on for this site yet');
+    });
+
+    it('links to the pages of an account that exist', () => {
+      expect(matchRoute('/account/wishlist').name).toBe('accountWishlist');
+      expect(matchRoute('/account/notifications').name).toBe('accountNotifications');
+      expect(linksOf(GUIDE_BODIES['wishlists-and-price-alerts']!)).toEqual(expect.arrayContaining(['/account/wishlist', '/account/notifications', '/about/legal#privacy']));
+    });
+  });
+
+  describe('Reading the Price History Chart', () => {
+    const text = textOf('reading-the-price-history-chart');
+    const chart = readFileSync(resolve(root, 'demo/priceHistoryChart.ts'), 'utf8');
+
+    it('names the ranges the chart offers, and the days after which a price is called older', () => {
+      for (const scope of HISTORY_SCOPES) expect(text).toContain(scope.label);
+      expect(text).toContain(`last ${HIDE_OFFER_AFTER_DAYS} days`);
+    });
+
+    it('says what the caption under the chart says', () => {
+      has(chart, "worked out at today's delivery rates");
+      has(chart, 'Square points are item prices only');
+      has(chart, 'Hollow points are older prices');
+      has(chart, 'The grey points are the last prices at shops that were sold out');
+      has(chart, 'A flat line after it means no change has been recorded since');
+    });
   });
 });

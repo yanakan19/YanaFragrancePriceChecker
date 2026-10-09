@@ -14,7 +14,7 @@
  * built through routeToPath, never by hand, so it follows the address scheme
  * wherever that goes.
  */
-import { formatGbp } from '../src/index.js';
+import { formatMoney } from '../src/index.js';
 import { routeToPath } from './router.js';
 import { SITE_URL } from './head.js';
 
@@ -66,8 +66,8 @@ export function shareText(p: ShareProduct, price: SharePrice | null): string {
   const name = shareProductName(p);
   if (!price) return `${name} on PriceSniffs`;
   const shop = tidy(price.shop);
-  if (price.delivered) return `${name}, from ${formatGbp(price.gbp)} delivered at ${shop} on PriceSniffs`;
-  return `${name}, ${formatGbp(price.gbp)} at ${shop} with delivery not stated, on PriceSniffs`;
+  if (price.delivered) return `${name}, from ${formatMoney(price.gbp)} delivered at ${shop} on PriceSniffs`;
+  return `${name}, ${formatMoney(price.gbp)} at ${shop} with delivery not stated, on PriceSniffs`;
 }
 
 /** The three web share addresses, every part encoded. */

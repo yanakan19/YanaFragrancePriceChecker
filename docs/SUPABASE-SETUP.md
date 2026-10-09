@@ -103,6 +103,11 @@ an error, then move to the next.
    catch all row, so nothing goes uncounted) and a daily fold of old hourly
    rows into days and months. Optional. See docs/OWNER-STEPS.md, 8e, and
    docs/TRACKING-AND-STORAGE-STRATEGY.md.
+9. `supabase/migrations/0009_profile_region.sql` — a nullable `region`
+   column on `profiles` ('GB', 'US' or 'IN') for the "Select your country"
+   choice of a signed in reader. Optional until the US beta: the site reads
+   and writes it only once the welcome pop-up is switched on
+   (docs/INTERNATIONAL-PLAN.md, Phase 0).
 
 Order matters: nothing in 0002 references 0001 directly, but 0001 is what
 makes an account exist in the first place.

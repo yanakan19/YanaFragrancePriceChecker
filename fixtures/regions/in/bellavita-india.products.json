@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-09",
+ "source": "https://bellavitaorganic.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 7664357539886,
+   "title": "Beast Mode Perfume Gift Set for Men | 12 hr+ long lasting | 3 x 20ml",
+   "handle": "beast-mode-perfume-gift-set-for-men-2026",
+   "vendor": "Frag",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 42747951579182,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "8904512102394",
+     "price": "529.00",
+     "compare_at_price": "799.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7664277979182,
+   "title": "Pisces Perfume - 100ml (magicpin)",
+   "handle": "pisces-perfume-100ml-magicpin",
+   "vendor": "Frag",
+   "product_type": "magicpin",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 42747186905134,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "8906188060367-magicpin",
+     "price": "899.00",
+     "compare_at_price": "899.00",
+     "available": false
+    }
+   ]
+  },
+  {
+   "id": 7664277946414,
+   "title": "Aquarius Perfume - 100ml (magicpin)",
+   "handle": "aquarius-perfume-100ml-magicpin",
+   "vendor": "Frag",
+   "product_type": "magicpin",
+   "options": [
+    {
+     "name": "Title",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 42747186872366,
+     "title": "Default Title",
+     "option1": "Default Title",
+     "option2": null,
+     "sku": "8906188060350-magicpin",
+     "price": "899.00",
+     "compare_at_price": "899.00",
+     "available": false
+    }
+   ]
+  }
+ ]
+}
