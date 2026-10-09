@@ -1,0 +1,71 @@
+{
+  "region": "IN",
+  "currency": "INR",
+  "builtAt": "2026-10-09T04:50:59.263Z",
+  "published": false,
+  "note": "Dry run (docs/INTERNATIONAL-PLAN.md, Phase 1 step one): nothing here is shown on the site.",
+  "shopsWired": 16,
+  "shopsEnabled": 13,
+  "shopsPriced": 11,
+  "crawlMinutes": 1.54,
+  "harvestRanAt": "2026-10-09T04:49:26.402Z",
+  "listingsPriced": 21345,
+  "listingsKept": 15266,
+  "staleAfterDays": 7,
+  "products": 14394,
+  "productsWithTwoOrMoreShops": 685,
+  "shareWithTwoOrMoreShops": 0.048,
+  "productsWithTwoOrMoreIndependentShops": 685,
+  "shareWithTwoOrMoreIndependentShops": 0.048,
+  "productsWithThreeOrMoreShops": 84,
+  "medianPriceGap": 0.136,
+  "listingBarcodeShare": 0,
+  "productsMatchingUkByBarcode": 0,
+  "shops": [
+    {
+      "id": "bellavita-india",
+      "products": 295,
+      "shared": 0
+    },
+    {
+      "id": "fridaycharm",
+      "products": 6270,
+      "shared": 602
+    },
+    {
+      "id": "naso-profumi",
+      "products": 29,
+      "shared": 0
+    },
+    {
+      "id": "perfume-network",
+      "products": 1891,
+      "shared": 493
+    },
+    {
+      "id": "perfume-palace",
+      "products": 6492,
+      "shared": 359
+    },
+    {
+      "id": "the-man-company",
+      "products": 80,
+      "shared": 0
+    },
+    {
+      "id": "ustraa",
+      "products": 2,
+      "shared": 0
+    },
+    {
+      "id": "wild-stone",
+      "products": 104,
+      "shared": 0
+    }
+  ],
+  "goNoGo": {
+    "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
+    "meetsBar": false,
+    "measuredOn": "shareWithTwoOrMoreIndependentShops (sister shops on one catalogue counted once)"
+  }
+}
