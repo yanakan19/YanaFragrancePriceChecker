@@ -8,6 +8,11 @@
  * Reads data/regions/<us|in>/catalogue/*.json and harvest-report.json, and
  * data/product-slugs.json read only (to count products that land on a UK
  * product by barcode, and so a bottle the UK also sells keeps its UK address).
+ * Also reads the UK catalogue module (demo/catalogue.generated.ts, read only)
+ * for the UK picture of each product that is the same bottle as a UK product
+ * (src/catalogue/regionUkPhotos.ts): the product line carries `ukPhoto`
+ * ({ id, by }, never the picture itself) and report.json counts them. The page
+ * build (scripts/build-region-data.ts) shows the picture itself.
  * Writes only:
  *   data/regions/<us|in>/catalogue.json      the products, one per line
  *   data/regions/<us|in>/price-history.json  appended from its own last copy
@@ -25,6 +30,7 @@ import type { RegionSnapshot } from '../src/catalogue/regionHarvest.js';
 import {
   appendRegionHistory, buildRegionCatalogue, encodeHistory, encodeLines, REGION_STALE_DAYS, type RegionPriceHistory,
 } from '../src/catalogue/regionCatalogue.js';
+import { matchUkPhotos, type UkPhotoSource } from '../src/catalogue/regionUkPhotos.js';
 import { REPO_ROOT, writeGenerated } from './generatedFiles.js';
 import { isShowable, regionSlugPath, regionSlugProduct, regionSlugs } from './regionSite.js';
 
@@ -69,6 +75,24 @@ const { products, measures } = buildRegionCatalogue(snapshots, {
   notHouse: new Map(shops.filter((s) => s.vendorNotHouse?.length).map((s) => [s.id, new Set(s.vendorNotHouse!.map((v) => v.toLowerCase()))])),
 });
 
+// The UK catalogue, read only. A crawl that cannot load it still builds: no product then carries a UK picture.
+let ukCatalogue: readonly UkPhotoSource[] = [];
+try {
+  await import('./siteApply.js');
+  await import('../demo/siteData.js');
+  ukCatalogue = (await import('../demo/catalogue.generated.js')).CATALOGUE;
+} catch (e) {
+  console.warn(`UK catalogue not loaded, no UK pictures counted: ${(e as Error).message}`);
+}
+const ukPhotos = matchUkPhotos(products.filter(isShowable), ukCatalogue);
+const photoCounts = {
+  productsShown: products.filter(isShowable).length,
+  productsWithUkPhoto: ukPhotos.size,
+  productsWithUkPhotoByBarcode: [...ukPhotos.values()].filter((x) => x.by === 'barcode').length,
+  productsWithUkPhotoByName: [...ukPhotos.values()].filter((x) => x.by === 'name').length,
+};
+const lines = products.map((p) => (ukPhotos.has(p.id) ? { ...p, ukPhoto: { id: ukPhotos.get(p.id)!.ukId, by: ukPhotos.get(p.id)!.by } } : p));
+
 const historyPath = resolve(REPO_ROOT, folder, 'price-history.json');
 const history = appendRegionHistory(readJson<RegionPriceHistory>(historyPath), products, region.currency, now);
 
@@ -91,6 +115,8 @@ const report = {
   listingsKept: harvest?.shops?.reduce((n, s) => n + s.kept, 0) ?? null,
   staleAfterDays: REGION_STALE_DAYS,
   ...measures,
+  ...photoCounts,
+  shareWithUkPhoto: photoCounts.productsShown ? Math.round((photoCounts.productsWithUkPhoto / photoCounts.productsShown) * 1000) / 1000 : 0,
   goNoGo: {
     bar: 'Proceed if at least a quarter of products have two or more shops (plan section 7).',
     meetsBar: measures.shareWithTwoOrMoreIndependentShops >= 0.25,
@@ -98,7 +124,7 @@ const report = {
   },
 };
 
-writeGenerated(REPO_ROOT, `${folder}/catalogue.json`, encodeLines({ region: region.id, currency: region.currency, builtAt: now }, 'products', products));
+writeGenerated(REPO_ROOT, `${folder}/catalogue.json`, encodeLines({ region: region.id, currency: region.currency, builtAt: now }, 'products', lines));
 writeGenerated(REPO_ROOT, `${folder}/price-history.json`, encodeHistory(history));
 writeGenerated(REPO_ROOT, `${folder}/report.json`, `${JSON.stringify(report, null, 2)}\n`);
 // The region's product addresses: append only, a UK address kept for a bottle the UK also sells.
@@ -109,6 +135,6 @@ console.log(`${region.id}: ${snapshots.length} snapshot(s), ${measures.products}
   `(${(measures.shareWithTwoOrMoreShops * 100).toFixed(1)}%), ${measures.productsWithTwoOrMoreIndependentShops} with two or more independent ` +
   `(${(measures.shareWithTwoOrMoreIndependentShops * 100).toFixed(1)}%), ${measures.productsWithThreeOrMoreShops} with three or more; ` +
   `median gap ${measures.medianPriceGap === null ? 'n/a' : `${(measures.medianPriceGap * 100).toFixed(1)}%`}; ` +
-  `${measures.productsMatchingUkByBarcode} match a UK product by barcode; ` +
+  `${measures.productsMatchingUkByBarcode} match a UK product by barcode; ${photoCounts.productsWithUkPhoto} of ${photoCounts.productsShown} take a UK picture; ` +
   `${Object.keys(regionAddresses).length - Object.keys(slugMemory).length} new product address(es), ${Object.keys(regionAddresses).length} in all.`);
 for (const s of measures.shops) console.log(`  ${s.id.padEnd(22)} ${String(s.products).padStart(6)} product(s), ${s.shared} shared`);

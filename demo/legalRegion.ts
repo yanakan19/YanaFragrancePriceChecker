@@ -239,7 +239,8 @@ function inPages(c: RegionLegalContext): RegionLegalPage[] {
       deleting your account in Settings. If your data were ever exposed, we
       would tell you and the authorities as the Act requires.</p>
       <h2 class="t-section">Age</h2>
-      <p>Accounts are for people aged 18 or over. Browsing needs no account.</p>
+      <p>Accounts are for people aged 18 or over. Browsing needs no account. When you
+      create an account from the Indian site you confirm that you are 18 or over; we do not keep a separate record of that.</p>
       <h2 class="t-section">Where Data Is Kept</h2>
       <p>Pages are served by GitHub Pages. Accounts, saved fragrances and the
       visit counts are kept by Supabase, outside India. Price drop emails, if you

@@ -23,9 +23,12 @@
  *     never a house's own shop;
  *   - the NEW badge only for a listing that arrived after the shop's first
  *     crawl (src/catalogue/newBadge.ts);
- *   - no photo at all: D24 is pending for these countries (owner decision 5),
- *     so `image` and every `imageUrl` are null and the page draws its
- *     placeholder;
+ *   - no US or Indian shop's photo: D24 is pending for these countries (owner
+ *     decision 5), so every offer's `imageUrl` is null. A product that is the
+ *     same bottle as a UK product takes the UK listing's picture and its
+ *     per photo transform instead (`entry.image`, src/catalogue/regionUkPhotos.ts,
+ *     owner instruction of 9 Oct 2026); any other product's `image` is null and
+ *     the page draws its placeholder;
  *   - no notes: the region shops' listings carry none, and a UK shop's notes
  *     would name a shop the region page does not list.
  *
@@ -57,6 +60,7 @@ import { dealCandidateForOffer } from '../src/services/dealCandidates.js';
 import type { StockState } from '../src/types/offer.js';
 import { shownPrice } from '../demo/msrpComparison.js';
 import { slugify } from '../demo/router.js';
+import { matchUkPhotos, type UkPhotoSource } from '../src/catalogue/regionUkPhotos.js';
 
 const DAY_MS = 86_400_000;
 
@@ -88,8 +92,13 @@ export interface RegionCatalogueEntry {
   sizeMl: number | null;
   ean: string | null;
   shops: number;
-  /** Always null: no shop photo is shown for a US or Indian product (D24 pending). */
-  image: null;
+  /**
+   * The matching UK product's picture (src/catalogue/regionUkPhotos.ts), else
+   * null. Never a US or Indian shop's own photo (D24 pending).
+   */
+  image: string | null;
+  /** The UK photo's own build time transform (docs/IMAGE-SCALE-PLAN.md), carried with it. */
+  imageTransform?: string;
   notes: null;
   giftSet?: { contents: null; title: string };
 }
@@ -282,8 +291,15 @@ export function cheapestSeries(byShop: Readonly<Record<string, readonly (readonl
 const BUYABLE: ReadonlySet<StockState> = new Set<StockState>(['inStock', 'lowStock']);
 
 /** Builds a region's page data from what its crawl committed. Pure apart from the clock it is given. */
-export function buildRegionSite(inputs: RegionInputs, ukSlugs: Readonly<Record<string, string>>, now: string): RegionSite {
+export function buildRegionSite(
+  inputs: RegionInputs,
+  ukSlugs: Readonly<Record<string, string>>,
+  now: string,
+  /** The UK catalogue, read only, for the pictures of matching bottles (`matchUkPhotos`); none given, none shown. */
+  uk: readonly UkPhotoSource[] = [],
+): RegionSite {
   const products = regionProducts(inputs, now).filter(isShowable);
+  const ukPhotos = matchUkPhotos(products, uk);
   const slugs = regionSlugs(products.map(regionSlugProduct), ukSlugs, inputs.slugMemory);
   const shopById = new Map(inputs.shops.map((s) => [s.id, s]));
   const retailerById = new Map(inputs.shops.map((s) => [s.id, regionShopAsRetailer(s)]));
@@ -348,7 +364,8 @@ export function buildRegionSite(inputs: RegionInputs, ukSlugs: Readonly<Record<s
       sizeMl: isSet ? null : p.sizeMl,
       ean: p.ean,
       shops: offers.length,
-      image: null,
+      image: isSet ? null : (ukPhotos.get(p.id)?.image ?? null),
+      ...(!isSet && ukPhotos.get(p.id)?.imageTransform ? { imageTransform: ukPhotos.get(p.id)!.imageTransform! } : {}),
       notes: null,
       ...(isSet ? { giftSet: { contents: null, title: setTitle! } } : {}),
     });

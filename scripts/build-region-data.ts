@@ -178,7 +178,8 @@ function main(): void {
     if (config.id === 'GB') continue;
     const region = regionCodeOf(config);
     const started = Date.now();
-    const site = buildRegionSite(readRegionInputs(root, region), ukSlugs, now);
+    // The UK picture of every product that is the same bottle as a UK product (src/catalogue/regionUkPhotos.ts).
+    const site = buildRegionSite(readRegionInputs(root, region), ukSlugs, now, CATALOGUE);
     const dir = resolve(out, config.pathPrefix);
     mkdirSync(dir, { recursive: true });
     writeFileSync(resolve(dir, 'catalogue.generated.js'), catalogueModule(site));
@@ -193,7 +194,7 @@ function main(): void {
     console.log(
       `dist-demo/regions/${config.pathPrefix}  ${site.catalogue.length} products from ${site.shopCount} shops ` +
         `(${multi} at two or more, ${site.catalogue.length ? ((multi / site.catalogue.length) * 100).toFixed(1) : '0.0'}%), ` +
-        `${site.deals.length} deals, ${Object.keys(site.priceHistory).length} price lines, ` +
+        `${site.catalogue.filter((c) => c.image).length} with a UK picture, ${site.deals.length} deals, ${Object.keys(site.priceHistory).length} price lines, ` +
         `${Object.keys(site.slugs).length} addresses, prices read ${site.crawledAt}, ${((Date.now() - started) / 1000).toFixed(1)} s`,
     );
   }

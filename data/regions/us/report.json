@@ -1,9 +1,9 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-09T07:09:59.632Z",
-  "published": false,
-  "note": "Dry run (docs/INTERNATIONAL-PLAN.md, Phase 1 step one): nothing here is shown on the site.",
+  "builtAt": "2026-10-09T17:47:35.556Z",
+  "published": true,
+  "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
@@ -20,7 +20,7 @@
   "productsWithThreeOrMoreShops": 2144,
   "medianPriceGap": 0.177,
   "listingBarcodeShare": 0.188,
-  "productsMatchingUkByBarcode": 1628,
+  "productsMatchingUkByBarcode": 1644,
   "shops": [
     {
       "id": "aedes",
@@ -123,6 +123,11 @@
       "shared": 105
     }
   ],
+  "productsShown": 22390,
+  "productsWithUkPhoto": 3820,
+  "productsWithUkPhotoByBarcode": 1280,
+  "productsWithUkPhotoByName": 2540,
+  "shareWithUkPhoto": 0.171,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,

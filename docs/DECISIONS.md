@@ -2298,3 +2298,5 @@ earned there. The region name match (`regionMatchName`) the measured numbers inc
 the region builds only. The region crawls run daily (07:52 and 20:22 UTC). The UK build is
 unchanged: its 8 data files byte for byte and its 35,257 sitemap addresses identical before and
 after. What shipped: `docs/INTERNATIONAL-PLAN.md`, "Public beta, 9 October 2026: what shipped".
+
+**UK pictures on matching products (owner instruction, 9 October 2026).** Decision 5 stands, and a US or Indian product that is the same bottle as a UK product (barcode, or identical house, name, strength and size) shows the UK listing's picture, which D24 already allows on the UK site; no US or Indian shop's photo is shown. `docs/INTERNATIONAL-PLAN.md`, "UK photos on matching region products".
