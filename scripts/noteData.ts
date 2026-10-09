@@ -16,8 +16,9 @@ import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, readdirSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
-  createNoteGrouper, NOTE_GROUP_IDS, type NoteDataFile, type NoteGrouper, type NoteGroupId, type NoteGroupOut, type NoteGroupRules, type NoteGroupOverride,
+  createNoteGrouper, NOTE_GROUP_IDS, noteWords, type NoteDataFile, type NoteGrouper, type NoteGroupId, type NoteGroupOut, type NoteGroupRules, type NoteGroupOverride,
 } from '../src/catalogue/noteGroups.js';
+import { headWords, NOTE_ICON_FILE, noteHeadWord, prepareNoteIcons, singularWord, type NoteIconFile } from '../src/catalogue/noteIconLookup.js';
 import { noteMergeKey } from '../src/catalogue/noteName.js';
 import { writeGenerated } from './generatedFiles.js';
 
@@ -112,6 +113,37 @@ export function listPublishedIcons(root: string): string[] {
   return existsSync(dir) ? readdirSync(dir).sort() : [];
 }
 
+/**
+ * The note's own icon, as an index into the manifest's `icons`, or -1: the icon
+ * whose name or alias spelling has the note's merge key, else, for a spelling
+ * data/note-aliases.json folds into another note, its canonical's (so a merged
+ * spelling the catalogue still carries can never miss its canonical's icon).
+ * The first icon to claim a spelling keeps it. Shared by the Notes tab's file
+ * and the product page's lookup, so the two always show the same picture.
+ */
+export function ownIconOf(inputs: Pick<NoteGroupInputs, 'icons' | 'aliases'>): (name: string) => number {
+  const byKey = new Map<string, number>();
+  inputs.icons.forEach((i, at) => {
+    for (const n of [i.name, ...i.aliases]) {
+      const k = noteMergeKey(n);
+      if (!byKey.has(k)) byKey.set(k, at);
+    }
+  });
+  const canonicalOf = new Map<string, string>();
+  for (const a of inputs.aliases) canonicalOf.set(noteMergeKey(a.variant), noteMergeKey(a.canonical));
+  return (name) => {
+    let k = noteMergeKey(name);
+    for (let depth = 0; depth < 4; depth++) {
+      const at = byKey.get(k);
+      if (at !== undefined) return at;
+      const next = canonicalOf.get(k);
+      if (next === undefined || next === k) break;
+      k = next;
+    }
+    return -1;
+  };
+}
+
 export interface NoteIndexEntry {
   name: string;
   count: number;
@@ -142,18 +174,11 @@ export function buildNoteData(
   });
 
   // Own icons: the icon whose name or alias spelling is the note's.
-  const icons: string[] = [];
-  const iconByKey = new Map<string, number>();
-  for (const i of inputs.icons) {
-    const at = icons.push(iconPath(i.file)) - 1;
-    for (const n of [i.name, ...i.aliases]) {
-      const k = noteMergeKey(n);
-      if (!iconByKey.has(k)) iconByKey.set(k, at);
-    }
-  }
+  const icons = inputs.icons.map((i) => iconPath(i.file));
+  const ownIcon = ownIconOf(inputs);
 
   const group = sorted.map((n) => groupIndex.get(grouper.classify(n.name).group)!);
-  const icon = sorted.map((n) => iconByKey.get(noteMergeKey(n.name)) ?? -1);
+  const icon = sorted.map((n) => ownIcon(n.name));
   const hiddenSet = new Set<number>();
   sorted.forEach((n, i) => {
     if (grouper.hidden(n.name)) hiddenSet.add(i);
@@ -221,3 +246,134 @@ export function buildNoteData(
 
   return { v: 1, groups, icons, names, group, icon, related, alias, desc, hidden: [...hiddenSet].sort((a, b) => a - b), wornWith };
 }
+
+/**
+ * The product page's icon lookup (docs/NOTES-PAGE-PLAN.md section F, read by
+ * src/catalogue/noteIconLookup.ts): for every note the page ships, its own
+ * icon, its group's, or none for prose. `notes` is the page's NOTE_INDEX,
+ * `shown` every spelling a product shows (normally one per note), `iconPath`
+ * as for buildNoteData. The group of a note without an icon is carried as a
+ * table of head words plus the notes their head word would misplace, which is
+ * about a third of the size of listing every note. Before returning, the file
+ * is read back the way the page reads it and must give every spelling exactly
+ * the picture the grouper and the manifest give it; anything else throws, so a
+ * build never publishes a lookup that disagrees with the Notes tab.
+ */
+export function buildNoteIconLookup(
+  notes: readonly NoteIndexEntry[],
+  shown: Iterable<string>,
+  inputs: NoteGroupInputs,
+  iconPath: (file: string) => string,
+): NoteIconFile {
+  const grouper = grouperFor(inputs);
+  const ownIcon = ownIconOf(inputs);
+  const dir = `${HASHED_ICON_DIR}/`;
+  const fileName = (file: string): string => {
+    const p = iconPath(file);
+    if (!p.startsWith(dir) || !p.endsWith('.svg')) throw new Error(`note icon ${file} is published at ${p}, not under ${dir}`);
+    return p.slice(dir.length, -'.svg'.length);
+  };
+  const groups = NOTE_GROUP_IDS.map((id) => {
+    const icon = inputs.groupIcons.find((g) => g.id === id);
+    if (!icon) throw new Error(`no group icon for ${id} in data/note-icons-manifest.json`);
+    return fileName(icon.file);
+  });
+  const more = NOTE_GROUP_IDS.indexOf('more');
+
+  // Every spelling a product shows, by merge key, NOTE_INDEX's own first.
+  const spellings = new Map<string, Set<string>>();
+  const addSpelling = (name: string) => {
+    const k = noteMergeKey(name);
+    if (k === '') return;
+    const set = spellings.get(k) ?? new Set<string>();
+    set.add(name);
+    spellings.set(k, set);
+  };
+  for (const n of notes) addSpelling(n.name);
+  for (const name of shown) addSpelling(name);
+
+  const ownKeys = inputs.icons.map(() => new Set<string>());
+  const prose = new Set<string>();
+  const tail: { key: string; names: string[]; group: number }[] = [];
+  for (const [key, set] of spellings) {
+    const name = set.values().next().value!;
+    const own = ownIcon(name);
+    if (grouper.hidden(name)) prose.add(key);
+    else if (own >= 0) ownKeys[own]!.add(key);
+    else tail.push({ key, names: [...set], group: NOTE_GROUP_IDS.indexOf(grouper.classify(name).group) });
+  }
+
+  // Strip words: the rules' suffixes and origins, as single words. Only those
+  // that really come off the end of a tail note's name are shipped.
+  const stripAll = new Set(
+    [...inputs.rules.strip, ...inputs.rules.origins].map((w) => noteWords(w)).filter((w) => w.length === 1).map((w) => singularWord(w[0]!)),
+  );
+  const stripUsed = new Set<string>();
+  for (const t of tail) {
+    for (const name of t.names) {
+      const words = headWords(name);
+      while (words.length > 1 && stripAll.has(words[words.length - 1]!)) stripUsed.add(words.pop()!);
+    }
+  }
+  const headOf = (name: string) => noteHeadWord(name, stripUsed);
+
+  // Each head word places notes in the group most of its notes are in (ties to
+  // the lighter group); a word whose notes are mostly More Notes is left out.
+  const votes = new Map<string, number[]>();
+  for (const t of tail) {
+    const w = headOf(t.names[0]!);
+    if (w === '') continue;
+    const row = votes.get(w) ?? NOTE_GROUP_IDS.map(() => 0);
+    row[t.group]!++;
+    votes.set(w, row);
+  }
+  const head = new Map<string, number>();
+  for (const [w, row] of votes) {
+    let best = 0;
+    row.forEach((n, g) => {
+      if (n > row[best]!) best = g;
+    });
+    if (best !== more) head.set(w, best);
+  }
+  const exact = new Map<string, number>();
+  for (const t of tail) {
+    if (t.names.some((name) => (head.get(headOf(name)) ?? more) !== t.group)) exact.set(t.key, t.group);
+  }
+
+  const sortedJoin = (xs: Iterable<string>): string => [...xs].sort().join('|');
+  const perGroup = (m: Map<string, number>): string[] =>
+    NOTE_GROUP_IDS.map((_, g) => sortedJoin([...m].filter(([, at]) => at === g).map(([x]) => x)));
+  const file: NoteIconFile = {
+    v: 1,
+    dir,
+    icons: inputs.icons.map((i, at) => [fileName(i.file), ...[...ownKeys[at]!].sort()].join('|')),
+    groups,
+    more,
+    prose: sortedJoin(prose),
+    strip: sortedJoin(stripUsed),
+    head: perGroup(head),
+    exact: perGroup(exact),
+  };
+
+  // Read it back as the page does, and hold it to the grouper and the manifest.
+  const lookup = prepareNoteIcons(JSON.parse(JSON.stringify({ NOTE_ICONS: file })));
+  for (const [key, set] of spellings) {
+    const first = set.values().next().value!;
+    const own = ownIcon(first);
+    const want = prose.has(key)
+      ? null
+      : own >= 0
+        ? { src: iconPath(inputs.icons[own]!.file), group: false }
+        : { src: `${dir}${groups[NOTE_GROUP_IDS.indexOf(grouper.classify(first).group)]}.svg`, group: true };
+    for (const name of set) {
+      const got = lookup.iconFor(name);
+      if (got?.src !== want?.src || got?.group !== want?.group) {
+        throw new Error(`note icon lookup gives "${name}" ${JSON.stringify(got)}, expected ${JSON.stringify(want)}`);
+      }
+    }
+  }
+  return file;
+}
+
+/** Re-exported for scripts/bundle-demo.ts: the lookup file's name. */
+export { NOTE_ICON_FILE };

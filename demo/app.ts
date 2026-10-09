@@ -68,6 +68,7 @@ import {
   type Deal, type DemoFragrance, type NoteLayer,
 } from './data.js';
 import { factsFor, notesData, type NotesData } from './notesData.js';
+import { noteIconImg, noteIcons, notePill, NOTE_PILL_ICON_CLASS } from './noteIcons.js';
 import {
   LAYER_LABEL, noteHeroHtml, notesResults, notesTabHtml, relatedNotesHtml, tierLabel, type NotesTabEnv, type NotesTabState,
 } from './notesPage.js';
@@ -2219,6 +2220,25 @@ function fillPendingHistory(): void {
   }
 }
 
+/**
+ * Puts each note's icon into the empty boxes notesBlock drew while the lookup
+ * was on its way. Prose gets no icon, and if the lookup could not be fetched
+ * every pill goes back to the plain name; the next product page asks again.
+ */
+function fillPendingNoteIcons(): void {
+  const icons = noteIcons.current();
+  for (const slot of document.querySelectorAll<HTMLElement>('[data-note-ico-slot]')) {
+    const pill = slot.parentElement;
+    const icon = icons && pill ? icons.iconFor(pill.getAttribute('data-note') ?? '') : null;
+    if (icon) {
+      slot.outerHTML = noteIconImg(icon, basePath(), esc);
+    } else {
+      pill?.classList.remove(NOTE_PILL_ICON_CLASS);
+      slot.remove();
+    }
+  }
+}
+
 function notesBlock(f: DemoFragrance): string {
   if (!f.notes) {
     return `<div class="notes-block">
@@ -2237,14 +2257,26 @@ function notesBlock(f: DemoFragrance): string {
   // indent used to show is carried where it always really was — the three
   // labels below, in fixed document order, which is also the only version of
   // this shape a screen reader ever had.
+  //
+  // Each pill shows the note's icon on the left of its name (section F of
+  // docs/NOTES-PAGE-PLAN.md, owner's layout of 9 Oct 2026; demo/noteIcons.ts).
+  // The lookup is fetched the first time a product page with notes opens;
+  // until it is in, each pill holds an empty box the icon's size and
+  // fillPendingNoteIcons puts the icons in where those boxes still stand.
+  const icons = noteIcons.current();
+  if (!icons) {
+    noteIcons.load().then(fillPendingNoteIcons, (err: unknown) => {
+      console.warn('PriceSniffs: note icons could not be loaded', err);
+      fillPendingNoteIcons();
+    });
+  }
+  const pillEnv = { esc, titleCase, base: basePath(), icons };
   const layer = (label: string, tier: 'top' | 'middle' | 'base', list: string[]) =>
     list.length === 0
       ? ''
       : `<div class="note-layer note-layer--${tier}">
            <p class="note-layer-name t-eyebrow">${label}</p>
-           <p class="note-chips">${list
-             .map((n) => `<button class="note-chip" data-note="${esc(n)}">${esc(titleCase(n))}</button>`)
-             .join('')}</p>
+           <p class="note-chips">${list.map((n) => notePill(n, pillEnv)).join('')}</p>
          </div>`;
   // Provenance is only ever missing for notes a future build somehow produced
   // with no attributable offer (see Notes.source's own doc) or a retailer id

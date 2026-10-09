@@ -94,6 +94,10 @@ export const LAZY_CONTENT_MODULES: Record<string, { module: string; exports: rea
  */
 export const LAZY_BUILT_MODULES: Record<string, string> = {
   notes: 'scripts/noteData.ts',
+  // The product page's note icons (docs/NOTES-PAGE-PLAN.md section F): which
+  // icon each note of a product shows. Fetched the first time a product page
+  // with notes opens, so a product page never needs the Notes tab's file.
+  noteIcons: 'scripts/noteData.ts',
 };
 
 /** Every lazy data file's name: the generated modules', the written pages' and the built ones. */
