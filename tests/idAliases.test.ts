@@ -304,7 +304,7 @@ describe('an absorbed address lands on its survivor', () => {
   });
 
   it('keeps every old address out of the sitemap, so search engines are offered one page, never two', () => {
-    const sitemap = readFileSync(resolve(root, 'demo/sitemap.xml'), 'utf8');
+    const sitemap = readFileSync(resolve(root, 'demo/sitemap-gb.xml'), 'utf8');
     const listed = new Set([...sitemap.matchAll(/<loc>[^<]*\/([^/<]+)<\/loc>/g)].map((m) => m[1]!));
     expect(listed.size).toBeGreaterThan(1000);
     // The sitemap lists products by their own address now (docs/PRODUCT-URLS.md):

@@ -124,7 +124,7 @@ describe('renderRoutePage', () => {
 describe('the built folder', () => {
   const index = read('index.html');
   const pages = pagesToWrite();
-  const sitemap = sitemapPaths(read('sitemap.xml'));
+  const sitemap = sitemapPaths(read('sitemap-gb.xml'));
 
   it('has a file for each of the key addresses, with its own title and canonical', () => {
     expect(pages.length).toBeGreaterThanOrEqual(KEY_ADDRESSES.length);

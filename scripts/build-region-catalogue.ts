@@ -1,17 +1,22 @@
 /**
- * Build a region's catalogue, price history and report from its snapshots
- * (docs/INTERNATIONAL-PLAN.md, Phase 1, step one: no publishing).
+ * Build a region's catalogue, price history, report and product addresses from
+ * its snapshots (docs/INTERNATIONAL-PLAN.md, Phase 1; public beta since
+ * 9 October 2026).
  *
  *   npx tsx scripts/build-region-catalogue.ts --region=us
  *
  * Reads data/regions/<us|in>/catalogue/*.json and harvest-report.json, and
  * data/product-slugs.json read only (to count products that land on a UK
- * product by barcode). Writes only:
+ * product by barcode, and so a bottle the UK also sells keeps its UK address).
+ * Writes only:
  *   data/regions/<us|in>/catalogue.json      the products, one per line
  *   data/regions/<us|in>/price-history.json  appended from its own last copy
  *   data/regions/<us|in>/report.json         the plan's go/no-go numbers
- * No page, no slug, no alias, no UK file. src/catalogue/regionCatalogue.ts
- * holds the logic.
+ *   data/regions/<us|in>/product-slugs.json  the region's product addresses,
+ *                                            append only (scripts/regionSite.ts)
+ * No page, no alias, no UK file. src/catalogue/regionCatalogue.ts holds the
+ * logic; the pages are built from these files at deploy time
+ * (scripts/build-region-data.ts).
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
@@ -21,6 +26,7 @@ import {
   appendRegionHistory, buildRegionCatalogue, encodeHistory, encodeLines, REGION_STALE_DAYS, type RegionPriceHistory,
 } from '../src/catalogue/regionCatalogue.js';
 import { REPO_ROOT, writeGenerated } from './generatedFiles.js';
+import { isShowable, regionSlugPath, regionSlugProduct, regionSlugs } from './regionSite.js';
 
 function arg(name: string): string | null {
   const hit = process.argv.find((a) => a.startsWith(`--${name}=`));
@@ -51,6 +57,8 @@ const snapshots: RegionSnapshot[] = existsSync(dir)
 
 const slugs = readJson<{ slugs: Record<string, string> }>(resolve(REPO_ROOT, 'data/product-slugs.json'));
 const ukIds = new Set(Object.keys(slugs?.slugs ?? {}));
+const slugMemoryPath = regionSlugPath(region.id);
+const slugMemory = readJson<{ slugs?: Record<string, string> }>(resolve(REPO_ROOT, slugMemoryPath))?.slugs ?? {};
 const now = new Date().toISOString();
 const { products, measures } = buildRegionCatalogue(snapshots, {
   now,
@@ -72,8 +80,8 @@ const report = {
   region: region.id,
   currency: region.currency,
   builtAt: now,
-  published: false,
-  note: 'Dry run (docs/INTERNATIONAL-PLAN.md, Phase 1 step one): nothing here is shown on the site.',
+  published: true,
+  note: `Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /${region.folder}/ pages are built from these files at deploy time.`,
   shopsWired: shops.length,
   shopsEnabled: shops.filter((s) => s.enabled).length,
   shopsPriced: harvest?.shopsPriced ?? null,
@@ -93,10 +101,14 @@ const report = {
 writeGenerated(REPO_ROOT, `${folder}/catalogue.json`, encodeLines({ region: region.id, currency: region.currency, builtAt: now }, 'products', products));
 writeGenerated(REPO_ROOT, `${folder}/price-history.json`, encodeHistory(history));
 writeGenerated(REPO_ROOT, `${folder}/report.json`, `${JSON.stringify(report, null, 2)}\n`);
+// The region's product addresses: append only, a UK address kept for a bottle the UK also sells.
+const regionAddresses = regionSlugs(products.filter(isShowable).map(regionSlugProduct), slugs?.slugs ?? {}, slugMemory);
+writeGenerated(REPO_ROOT, slugMemoryPath, `${JSON.stringify({ slugs: regionAddresses }, null, 1)}\n`);
 
 console.log(`${region.id}: ${snapshots.length} snapshot(s), ${measures.products} product(s), ${measures.productsWithTwoOrMoreShops} with two or more shops ` +
   `(${(measures.shareWithTwoOrMoreShops * 100).toFixed(1)}%), ${measures.productsWithTwoOrMoreIndependentShops} with two or more independent ` +
   `(${(measures.shareWithTwoOrMoreIndependentShops * 100).toFixed(1)}%), ${measures.productsWithThreeOrMoreShops} with three or more; ` +
   `median gap ${measures.medianPriceGap === null ? 'n/a' : `${(measures.medianPriceGap * 100).toFixed(1)}%`}; ` +
-  `${measures.productsMatchingUkByBarcode} match a UK product by barcode.`);
+  `${measures.productsMatchingUkByBarcode} match a UK product by barcode; ` +
+  `${Object.keys(regionAddresses).length - Object.keys(slugMemory).length} new product address(es), ${Object.keys(regionAddresses).length} in all.`);
 for (const s of measures.shops) console.log(`  ${s.id.padEnd(22)} ${String(s.products).padStart(6)} product(s), ${s.shared} shared`);

@@ -36,6 +36,14 @@
  * changed. See that module's header for why: two commits shipped a stale
  * `demo/index.html` on 2026-08-26 with every test green, because nothing
  * compared the built page against the source it claims to represent.
+ *
+ * ── The region pages (public beta, 9 October 2026) ───────────────────────────
+ * Then, for every live region but the UK, the same document from that
+ * region's bundle and data (scripts/bundle-region.ts): demo/<r>/index.html,
+ * demo/<r>/404.html and demo/<r>/data/, its head naming the region's address,
+ * language and description. The UK document gains one script, first in its
+ * head, that hands a region's deep link to the region's document
+ * (scripts/regionPages.ts); nothing else in it changes.
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
@@ -58,8 +66,10 @@ import { withFooterLinks } from '../demo/footerLinks.js';
 import { readSiteBuild, siteHeadScript } from './siteBuild.js';
 import {
   SITE_URL as HEAD_SITE_URL, SHARE_TITLE, SHARE_DESCRIPTION,
-  OG_IMAGE_URL, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT, OG_IMAGE_ALT,
+  OG_IMAGE_URL, OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT, OG_IMAGE_ALT, headFor,
 } from '../demo/head.js';
+import { hreflangAlternates, liveRegions, setActiveRegionForBuild, type RegionConfig } from '../src/config/regions.js';
+import { regionDispatchScript, regionFilePath, regionRestoreScript, regionTemplate } from './regionPages.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -167,30 +177,46 @@ const siteScriptTag = siteScript ? `<script>${siteScript}</script>\n` : '';
 // The site wide default a shared link shows, and the home page's description:
 // the owner's exact words (demo/head.ts).
 
-const standalone = `<!doctype html>
+/** What differs between the UK's document and a region's. */
+interface DocumentParts {
+  lang: string;
+  /** Prefix of the icon and manifest links: empty (relative) for the UK, `/` for a region's folder. */
+  assets: string;
+  description: string;
+  canonical: string;
+  /** The home page's hreflang alternates, one line each (scripts/routePages.ts swaps them per address). */
+  alternates: string;
+  /** Scripts before the loader: the UK's region hand off (scripts/regionPages.ts). */
+  firstScripts: string;
+  loader: string;
+  body: string;
+}
+
+function documentFor(d: DocumentParts): string {
+  return `<!doctype html>
 ${demoBuildHashComment(inputsHash.hash)}
-<html lang="en-GB">
+<html lang="${d.lang}">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 ${verificationMeta()}
 <meta name="theme-color" content="#131013" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
-<link rel="manifest" href="manifest.webmanifest" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
-<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<link rel="manifest" href="${d.assets}manifest.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="${d.assets}favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="${d.assets}icons/favicon-32.png" />
+<link rel="apple-touch-icon" href="${d.assets}icons/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="PriceSniffs" />
 <meta name="mobile-web-app-capable" content="yes" />
-<meta name="description" content="${SHARE_DESCRIPTION}" />
-<link rel="canonical" href="${SITE_URL}/" />
-<meta property="og:type" content="website" />
+<meta name="description" content="${d.description}" />
+<link rel="canonical" href="${d.canonical}" />
+${d.alternates}<meta property="og:type" content="website" />
 <meta property="og:site_name" content="PriceSniffs" />
 <meta property="og:title" content="${SHARE_TITLE}" />
-<meta property="og:description" content="${SHARE_DESCRIPTION}" />
-<meta property="og:url" content="${SITE_URL}/" />
+<meta property="og:description" content="${d.description}" />
+<meta property="og:url" content="${d.canonical}" />
 <meta property="og:image" content="${OG_IMAGE_URL}" />
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="${OG_IMAGE_WIDTH}" />
@@ -198,13 +224,33 @@ ${verificationMeta()}
 <meta property="og:image:alt" content="${OG_IMAGE_ALT}" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="${SHARE_TITLE}" />
-<meta name="twitter:description" content="${SHARE_DESCRIPTION}" />
+<meta name="twitter:description" content="${d.description}" />
 <meta name="twitter:image" content="${OG_IMAGE_URL}" />
 <meta name="twitter:image:alt" content="${OG_IMAGE_ALT}" />
-<script>${loaderScript(dataFiles, lazyFiles)}</script>
-${siteScriptTag}${body}
+${d.firstScripts}<script>${d.loader}</script>
+${siteScriptTag}${d.body}
 </html>
 `;
+}
+
+/** The hreflang alternates of a page every live region has, as head lines (none while one region is live). */
+function alternateLines(path: string): string {
+  return hreflangAlternates(SITE_URL, path).map((a) => `<link rel="alternate" hreflang="${a.hreflang}" href="${a.href}" />\n`).join('');
+}
+
+// The live regions' prefixes, for the UK document's hand off of their deep links.
+const regionPrefixes = liveRegions().map((r) => r.pathPrefix).filter((p) => p !== '');
+
+const standalone = documentFor({
+  lang: 'en-GB',
+  assets: '',
+  description: SHARE_DESCRIPTION,
+  canonical: `${SITE_URL}/`,
+  alternates: alternateLines('/'),
+  firstScripts: `<script>${regionDispatchScript(regionPrefixes)}</script>\n`,
+  loader: loaderScript(dataFiles, lazyFiles),
+  body,
+});
 writeGenerated(root, 'demo/index.html', standalone);
 
 // GitHub Pages serves 404.html for any path that is not a real file, which is
@@ -215,6 +261,67 @@ writeGenerated(root, 'demo/index.html', standalone);
 // relay, and no flash of a different page, because there is no server-rendered
 // content that could differ between the two entry points.
 writeGenerated(root, 'demo/404.html', standalone);
+
+/**
+ * A region's page (/us/, /in/): the same document from the region's bundle
+ * and data (scripts/bundle-region.ts), published under demo/<r>/. Its data
+ * paths are written from the site root (us/data/...), which is where the
+ * loader resolves them from on every address of the site.
+ */
+function publishRegion(region: RegionConfig): { index: number; files: number } {
+  const r = region.pathPrefix;
+  const dist = resolve(root, 'dist-demo', r);
+  const manifest = JSON.parse(readFileSync(resolve(dist, 'data-files.json'), 'utf8')) as DataManifest;
+  const regionData = resolve(root, 'demo', r, 'data');
+  mkdirSync(regionData, { recursive: true });
+  const eager: DataFile[] = [];
+  let next = 0;
+  for (const g of manifest.groups) {
+    if (g.start !== next) throw new Error(`${r}/data-files.json leaves a gap before blob ${g.start}`);
+    next = g.start + g.count;
+    const content = readFileSync(resolve(dist, `data/${g.name}.json`), 'utf8');
+    const path = hashedDataPath(g.name, content);
+    writeGenerated(root, `demo/${regionFilePath(region, path)}`, content);
+    eager.push({ path: regionFilePath(region, path), start: g.start });
+  }
+  const onDemand: LazyDataFile[] = [];
+  for (const name of manifest.lazy) {
+    const content = readFileSync(resolve(dist, `data/${name}.json`), 'utf8');
+    const path = hashedDataPath(name, content);
+    writeGenerated(root, `demo/${regionFilePath(region, path)}`, content);
+    onDemand.push({ name, path: regionFilePath(region, path) });
+  }
+  const kept = new Set([...eager, ...onDemand].map((f) => f.path.slice(`${r}/data/`.length)));
+  for (const f of readdirSync(regionData).filter((x) => !kept.has(x))) rmSync(resolve(regionData, f), { recursive: true, force: true });
+
+  const regionBundle = readFileSync(resolve(dist, 'bundle.js'), 'utf8').replace(/<\/script>/gi, '<\\/script>');
+  const regionBody = regionTemplate(template, region).replace(BUNDLE_TAG, () => `<script>${bootScript(regionBundle)}</script>`);
+  setActiveRegionForBuild(region);
+  const home = headFor({ route: { name: 'home', param: '', query: {} } });
+  setActiveRegionForBuild(null);
+  const doc = documentFor({
+    lang: region.locale,
+    assets: '/',
+    description: home.description,
+    canonical: home.canonical,
+    alternates: alternateLines('/'),
+    firstScripts: `<script>${regionRestoreScript(region.pathPrefix)}</script>\n`,
+    loader: loaderScript(eager, onDemand),
+    body: regionBody,
+  });
+  writeGenerated(root, `demo/${r}/index.html`, doc);
+  // Pages answers a deep link under /us/ with the root 404.html (the UK page),
+  // whose first script hands the address to /us/ (scripts/regionPages.ts). This
+  // copy is for a host that serves a folder's own 404.html.
+  writeGenerated(root, `demo/${r}/404.html`, doc);
+  return { index: doc.length, files: eager.length + onDemand.length };
+}
+
+for (const region of liveRegions()) {
+  if (region.pathPrefix === '') continue;
+  const { index, files } = publishRegion(region);
+  console.log(`demo/${region.pathPrefix}/index.html       ${(index / 1024).toFixed(1)} kB, ${files} data files in demo/${region.pathPrefix}/data`);
+}
 
 // /ads.txt, naming the AdSense account as the site's one authorised seller.
 // Published from demo/ like robots.txt and CNAME (the Pages workflow uploads

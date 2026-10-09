@@ -18,7 +18,7 @@ import { enabledRetailers } from '../src/config/retailers.js';
  * the builder, or a stale sitemap committed after a catalogue change.
  */
 
-const SITEMAP = resolve(__dirname, '../demo/sitemap.xml');
+const SITEMAP = resolve(__dirname, '../demo/sitemap-gb.xml');
 
 function listedShopIds(xml: string): Set<string> {
   const ids = new Set<string>();

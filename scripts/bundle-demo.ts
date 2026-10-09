@@ -49,6 +49,7 @@
  * The generated .ts files are untouched, so every test that imports them reads
  * exactly the data it did before.
  */
+import { existsSync } from 'node:fs';
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -58,6 +59,7 @@ import { BLOBS_GLOBAL, LAZY_CONTENT_MODULES, LAZY_DATA_MODULES, type DataGroup, 
 import { applyNumbering, localMarker, numberGroups } from './dataNumbering.js';
 import { buildNoteData, NOTE_DATA_FILE, publishNoteIcons, readNoteGroupInputs } from './noteData.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
+import { REGION_LINKS_FILE } from './regionPages.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // Each module's literals, numbered from 0 within the module while esbuild loads
@@ -183,6 +185,19 @@ for (const [name, { module, exports }] of Object.entries(LAZY_CONTENT_MODULES)) 
   await writeFile(resolve(root, `dist-demo/data/${NOTE_DATA_FILE}.json`), JSON.stringify({ NOTE_DATA: file }));
   lazy.push(NOTE_DATA_FILE);
   report.push(`${NOTE_DATA_FILE}: built by scripts/noteData.ts, ${file.names.length} notes, ${iconPaths.size} hashed icons, loaded on demand`);
+}
+// What the UK page knows of the other live regions (scripts/build-region-data.ts,
+// public beta of 9 October 2026): the country menu and the "You are seeing UK
+// prices" bar read it to open the same product or brand there. Fetched only
+// when one of them needs it.
+{
+  const linksPath = resolve(root, 'dist-demo/regions/links/GB.json');
+  if (existsSync(linksPath)) {
+    const links = JSON.parse(await readFile(linksPath, 'utf8')) as unknown;
+    await writeFile(resolve(root, `dist-demo/data/${REGION_LINKS_FILE}.json`), JSON.stringify({ REGION_LINKS: links }));
+    lazy.push(REGION_LINKS_FILE);
+    report.push(`${REGION_LINKS_FILE}: built by scripts/build-region-data.ts, the other regions' addresses, loaded on demand`);
+  }
 }
 const manifest: DataManifest = { groups, lazy };
 await writeFile(resolve(root, 'dist-demo/data-files.json'), JSON.stringify(manifest, null, 2));

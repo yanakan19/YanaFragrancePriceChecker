@@ -207,9 +207,19 @@ jobs:
           # so the host answers it 200 and not the 404.html fallback: present,
           # from this build, with its own title and canonical.
           npx tsx scripts/build-route-pages.ts --check
+          # demo/sitemap.xml is the index of one sitemap per region (public
+          # beta, 2026-10-09): the UK's, the US's and India's.
           test -s demo/sitemap.xml
-          grep -q '<urlset' demo/sitemap.xml
-          ls -la demo/index.html demo/404.html demo/sitemap.xml demo/data
+          grep -q '<sitemapindex' demo/sitemap.xml
+          grep -q '<urlset' demo/sitemap-gb.xml
+          # The region pages: each live region's page, its deep link copy and
+          # its sitemap, from the same build as the UK page.
+          for r in us in; do
+            test -s "demo/$r/index.html"
+            cmp "demo/$r/index.html" "demo/$r/404.html"
+            grep -q '<urlset' "demo/sitemap-$r.xml"
+          done
+          ls -la demo/index.html demo/404.html demo/sitemap*.xml demo/data demo/us/data demo/in/data
 
       # What this deployment is built from, published beside the page for the
       # next run's `decide` job: the commit checked out above and the hidden

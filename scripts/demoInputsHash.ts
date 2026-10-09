@@ -87,6 +87,11 @@ const EXTRA_INPUTS = [
   'data/note-not-a-note.json',
   'data/note-descriptions.json',
   'data/note-icons-manifest.json',
+  // The region pages are built by these from data/regions/ (public beta, 9 October 2026).
+  'scripts/regionSite.ts',
+  'scripts/build-region-data.ts',
+  'scripts/bundle-region.ts',
+  'scripts/regionPages.ts',
 ];
 
 /**

@@ -9,7 +9,12 @@ dist-demo/
 /demo/404.html
 /demo/data/
 /demo/sitemap.xml
+/demo/sitemap-*.xml
 /demo/ads.txt
+# The region pages (public beta since 2026-10-09): /us/ and /in/, each with its own
+# page, data files and route pages, built at deploy time like the UK's.
+/demo/us/
+/demo/in/
 # The note icons under content-hashed names (scripts/noteData.ts); the drawn
 # sources beside them in demo/note-icons/ are committed.
 /demo/note-icons/h/

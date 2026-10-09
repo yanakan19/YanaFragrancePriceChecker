@@ -37,6 +37,24 @@ export interface RegionOffer {
   shopId: string;
   price: number;
   inStock: boolean | null;
+  /**
+   * The listing behind the offer, carried only when the caller asks for it
+   * (`BuildRegionOptions.withListingDetail`): the region page build needs the
+   * shop's address, its own previous price and when it was seen
+   * (src/catalogue/regionSite.ts). Never written to catalogue.json, which
+   * keeps its dry run shape.
+   */
+  detail?: RegionOfferDetail;
+}
+
+export interface RegionOfferDetail {
+  url: string;
+  title: string;
+  wasPrice: number | null;
+  firstSeenAt: string;
+  lastSeenAt: string;
+  /** The shop's own page says the bottle is a pre-order. */
+  preOrder?: true;
 }
 
 export interface RegionProduct extends MatchableProduct {
@@ -121,6 +139,8 @@ export interface BuildRegionOptions {
   notHouse?: ReadonlyMap<string, ReadonlySet<string>>;
   /** Shop id to its `titleMustMatch`: words that name the shop's format, not the perfume, taken out of the name. */
   formatWords?: ReadonlyMap<string, string>;
+  /** Carry each offer's listing (`RegionOffer.detail`) for the page build. Off for the dry run files. */
+  withListingDetail?: boolean;
 }
 
 export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], options: BuildRegionOptions): { products: RegionProduct[]; measures: RegionMeasures } {
@@ -147,7 +167,9 @@ export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], optio
     const format = options.formatWords?.get(shopId);
     const title = ownSizeTitle(format ? l.rawTitle.replace(new RegExp(`\\s*-?\\s*${format}`, 'gi'), ' ').replace(/\s+/g, ' ').trim() : l.rawTitle);
     const brand = brandOf(l, confirmed, options.shopNames.get(shopId) ?? shopId, options.notHouse?.get(shopId));
-    const offer: RegionOffer = { shopId, price: l.price, inStock: l.inStock };
+    const offer: RegionOffer = options.withListingDetail
+      ? { shopId, price: l.price, inStock: l.inStock, detail: { url: l.url, title: l.rawTitle, wasPrice: l.wasPrice, firstSeenAt: l.firstSeenAt, lastSeenAt: l.lastSeenAt, ...(l.availability === 'preOrder' ? { preOrder: true as const } : {}) } }
+      : { shopId, price: l.price, inStock: l.inStock };
     const existing = byId.get(id);
     if (existing) {
       existing.offers.push(offer);

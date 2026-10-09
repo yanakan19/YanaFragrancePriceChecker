@@ -221,11 +221,18 @@ export interface AssignResult {
  *      form and the others take v2, v3 and so on.
  * Plain slugs are settled for the whole batch before any strength form, so a
  * strength form can never take an address that another product's plain slug
- * wanted.
+ * wanted. A slug in `reserved` is never given, as if an earlier build had.
  */
-export function assignSlugs(previous: Readonly<Record<string, string>>, products: readonly SlugProduct[]): AssignResult {
+export function assignSlugs(
+  previous: Readonly<Record<string, string>>,
+  products: readonly SlugProduct[],
+  reserved: ReadonlySet<string> = new Set(),
+): AssignResult {
   const slugs: Record<string, string> = { ...previous };
-  const taken = new Set<string>(Object.values(previous));
+  // `reserved`: slugs another file owns that this one must never give out (a
+  // region's build passes the UK's, so a US address never names a different
+  // bottle from the UK address it looks like; src/catalogue/regionSite.ts).
+  const taken = new Set<string>([...Object.values(previous), ...reserved]);
   const stats: AssignStats = { kept: 0, fresh: 0, plain: 0, withStrength: 0, withVersion: 0 };
 
   const wanting = new Map<string, SlugProduct[]>();

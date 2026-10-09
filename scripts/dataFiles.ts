@@ -94,6 +94,10 @@ export const LAZY_CONTENT_MODULES: Record<string, { module: string; exports: rea
  */
 export const LAZY_BUILT_MODULES: Record<string, string> = {
   notes: 'scripts/noteData.ts',
+  // What a page knows of the other live regions (public beta, 9 October 2026):
+  // the country menu and the "You are seeing UK prices" bar open the same
+  // product or brand there (scripts/regionSite.ts RegionLinks).
+  regions: 'scripts/build-region-data.ts',
 };
 
 /** Every lazy data file's name: the generated modules', the written pages' and the built ones. */

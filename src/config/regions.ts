@@ -6,9 +6,10 @@
  * name and flag, the currency and how money is written, the locale, the size
  * units, the address prefix, whether the country is live, and the hooks the
  * legal pages and the delivery rows will read. The United Kingdom is live and
- * sits at the root of the site, exactly as before; the United States (`/us/`)
- * and India (`/in/`) are present but not live, so nothing a visitor sees
- * changes until one of them is switched on.
+ * sits at the root of the site, exactly as before. The United States (`/us/`)
+ * and India (`/in/`) are live as a public beta since 9 October 2026 (owner
+ * decision: run the beta on the numbers measured that day, the plan's quarter
+ * bar waived; docs/INTERNATIONAL-PLAN.md, "Public beta, 9 October 2026").
  *
  * Kept free of the DOM and of the catalogue, so Node scripts, the price alert
  * emails and the tests can all read it. The menu (demo/app.ts), the flags
@@ -61,8 +62,15 @@ export interface RegionConfig {
   units: 'ml' | 'floz-and-ml';
   /** The first segment of every address in this region; empty for the UK at the root. */
   pathPrefix: '' | 'us' | 'in';
-  /** True once the region's pages are built and shown. Only the UK is live today. */
+  /** True once the region's pages are built and shown. All three since 9 Oct 2026. */
   live: boolean;
+  /**
+   * A public beta: the menu says "(Beta)" after the name and the region's
+   * pages carry a line saying it has fewer shops than the UK site for now.
+   */
+  beta: boolean;
+  /** How the shops are named in a sentence: "UK shops", "US shops", "Indian shops". */
+  shopsAdjective: 'UK' | 'US' | 'Indian';
   /** Time zone names that suggest this region in the welcome pop-up. */
   timeZones: readonly string[];
   /** The reference price's local name. */
@@ -87,6 +95,8 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
     units: 'ml',
     pathPrefix: '',
     live: true,
+    beta: false,
+    shopsAdjective: 'UK',
     timeZones: ['Europe/London', 'Europe/Belfast', 'Europe/Guernsey', 'Europe/Jersey', 'Europe/Isle_of_Man'],
     referencePriceName: 'RRP',
     taxModel: 'vat-included',
@@ -105,7 +115,9 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
     money: { fractionDigits: 2, grouping: true },
     units: 'floz-and-ml',
     pathPrefix: 'us',
-    live: false,
+    live: true,
+    beta: true,
+    shopsAdjective: 'US',
     timeZones: ['America/', 'Pacific/Honolulu', 'US/'],
     referencePriceName: 'MSRP',
     taxModel: 'sales-tax-at-checkout',
@@ -124,7 +136,9 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
     money: { fractionDigits: 0, grouping: true },
     units: 'ml',
     pathPrefix: 'in',
-    live: false,
+    live: true,
+    beta: true,
+    shopsAdjective: 'Indian',
     timeZones: ['Asia/Kolkata', 'Asia/Calcutta'],
     referencePriceName: 'MRP',
     taxModel: 'gst-included-mrp',
@@ -135,11 +149,12 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
 
 /**
  * The "Select your country" welcome pop-up (plan section 2, "Welcome").
- * Built and tested, and off: it also needs a second live region before it can
- * show, so switching this on alone changes nothing while the UK is the only
- * one. Turn it on with the US beta.
+ * On since the public beta of 9 October 2026, by owner decision, while the
+ * AdSense review is still open: a small centred dialog on the bare home page
+ * only, which leaves the page readable behind it (demo/regionWelcome.ts). It
+ * also needs a second live region before it can show.
  */
-export const REGION_WELCOME_ON = false;
+export const REGION_WELCOME_ON = true;
 
 /** Where a visitor's chosen region is kept in their browser (listed on the cookies page once it can be written). */
 export const REGION_STORAGE_KEY = 'pricesniffs.region';
@@ -184,7 +199,9 @@ let active: RegionConfig | null = null;
 
 /**
  * The region this page is in, read once from the address (a region only
- * changes with a full page load). The UK under Node and on every UK address.
+ * changes with a full page load). The UK under Node and on every UK address,
+ * unless a build script names the region it is building
+ * (setActiveRegionForBuild).
  */
 export function activeRegion(): RegionConfig {
   if (active) return active;
@@ -199,6 +216,15 @@ export function resetActiveRegionForTests(): void {
 }
 
 /**
+ * For the build scripts under Node, which have no address: the region whose
+ * pages, sitemap and route files they are writing (scripts/build-route-pages.ts,
+ * scripts/build-sitemap.ts). Null goes back to reading the address.
+ */
+export function setActiveRegionForBuild(region: RegionConfig | null): void {
+  active = region;
+}
+
+/**
  * The region a browser time zone suggests, or null. No request and no
  * storage: Intl's own answer, read in the browser.
  */
@@ -208,15 +234,33 @@ export function suggestRegionForTimeZone(timeZone: string | null | undefined): R
 }
 
 /**
- * hreflang alternates for an unprefixed path: one per live region plus
- * x-default (the UK page). Empty while only one region is live, since a page
- * with no other version has nothing to declare.
+ * Whether a region offers one of the fixed pages (home, Deals, Brands and the
+ * rest) to search engines. Every region does, except that a beta region has
+ * no Notes page worth the name yet: its shops publish no notes, so the tab is
+ * empty, kept out of its sitemap and marked noindex (demo/head.ts).
  */
-export function hreflangAlternates(siteUrl: string, path: string): { hreflang: string; href: string }[] {
-  const live = liveRegions();
+export function regionHasFixedPage(region: RegionConfig, path: string): boolean {
+  return !(region.beta && path === '/notes');
+}
+
+/**
+ * hreflang alternates for an unprefixed path: one per live region that has
+ * the page, plus x-default (the UK page, only when the UK has it). Empty when
+ * fewer than two regions have the page, since a page with no other version has
+ * nothing to declare. `has` names the regions that have this page; left out,
+ * every live region that offers that fixed page does (regionHasFixedPage).
+ * A product or a brand is passed the regions that sell it.
+ */
+export function hreflangAlternates(
+  siteUrl: string,
+  path: string,
+  has?: ReadonlySet<RegionId> | readonly RegionId[],
+): { hreflang: string; href: string }[] {
+  const wanted = has ? new Set(has) : null;
+  const live = liveRegions().filter((r) => (wanted ? wanted.has(r.id) : regionHasFixedPage(r, path)));
   if (live.length < 2) return [];
   return [
     ...live.map((r) => ({ hreflang: r.hreflang, href: `${siteUrl}${regionPath(r, path)}` })),
-    { hreflang: 'x-default', href: `${siteUrl}${regionPath(DEFAULT_REGION, path)}` },
+    ...(live.includes(DEFAULT_REGION) ? [{ hreflang: 'x-default', href: `${siteUrl}${regionPath(DEFAULT_REGION, path)}` }] : []),
   ];
 }

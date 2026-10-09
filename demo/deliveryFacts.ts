@@ -1,5 +1,6 @@
 import type { Retailer } from '../src/types/retailer.js';
 import { formatMoney, formatMoneyShort } from '../src/services/money.js';
+import { localWords } from '../src/services/regionText.js';
 
 /**
  * Plain-English delivery facts for one retailer, in the order a shopper
@@ -86,14 +87,16 @@ export function deliveryLines(r: Retailer): string[] {
     );
   }
   const [lo, hi] = s.estimatedDays;
-  lines.push(lo === hi ? `Arrives in about ${lo} working days` : `Arrives in about ${lo} to ${hi} working days`);
+  // [0, 0] is a region shop that states no delivery window (src/config/regionShops.ts); no UK shop has it.
+  if (hi > 0) lines.push(lo === hi ? `Arrives in about ${lo} working days` : `Arrives in about ${lo} to ${hi} working days`);
   if (s.membershipPerk) {
     lines.push(`${s.membershipPerk.scheme}: ${s.membershipPerk.description}`);
   }
   if (s.minimumOrderGbp) {
     lines.push(`Minimum order ${formatMoney(s.minimumOrderGbp)}, so a cheaper bottle cannot be ordered on its own`);
   }
-  return lines;
+  // The US says shipping and MSRP (src/services/regionText.ts); the UK's lines come back unchanged.
+  return lines.map((l) => localWords(l));
 }
 
 /**
@@ -105,11 +108,11 @@ export function deliveryLines(r: Retailer): string[] {
  */
 export function compactDeliveryLine(line: string): string {
   return line
-    .replace(/^Delivery not stated\. This shop publishes no standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest$/, 'Delivery not stated (the shop publishes no standard cost): item prices only, never ranked cheapest')
-    .replace(/^Delivery not stated\. We have not established this shop’s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest$/, 'Delivery not stated (not established by us): item prices only, never ranked cheapest')
-    .replace(/^Read from this shop’s own delivery page on /, 'Read from its delivery page on ')
+    .replace(/^(Delivery|Shipping) not stated\. This shop publishes no standard (delivery|shipping) cost, so its prices here are item prices only and it is never ranked as cheapest$/, '$1 not stated (the shop publishes no standard cost): item prices only, never ranked cheapest')
+    .replace(/^(Delivery|Shipping) not stated\. We have not established this shop’s standard (delivery|shipping) cost, so its prices here are item prices only and it is never ranked as cheapest$/, '$1 not stated (not established by us): item prices only, never ranked cheapest')
+    .replace(/^Read from this shop’s own (delivery|shipping) page on /, 'Read from its $1 page on ')
     .replace(/^Checked by hand in this shop’s own basket on /, 'Checked in its own basket on ')
-    .replace(/^Confirmed against this shop’s own delivery page$/, 'Confirmed with its delivery page')
-    .replace(/^Not yet confirmed with the shop\. These delivery terms came from research, not from their own delivery page$/, 'Not yet confirmed with the shop: terms come from research')
+    .replace(/^Confirmed against this shop’s own (delivery|shipping) page$/, 'Confirmed with its $1 page')
+    .replace(/^Not yet confirmed with the shop\. These (delivery|shipping) terms came from research, not from their own (delivery|shipping) page$/, 'Not yet confirmed with the shop: terms come from research')
     .replace(/, so a cheaper bottle cannot be ordered on its own$/, ', so one cheap bottle cannot be ordered alone');
 }

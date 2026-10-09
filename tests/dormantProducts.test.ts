@@ -83,7 +83,7 @@ describe('the built data', () => {
   });
 
   it('is not in the sitemap', () => {
-    const sitemap = readFileSync(resolve(import.meta.dirname, '../demo/sitemap.xml'), 'utf8');
+    const sitemap = readFileSync(resolve(import.meta.dirname, '../demo/sitemap-gb.xml'), 'utf8');
     for (const id of ids) {
       expect(sitemap.includes(`/fragrance/${id}<`), id).toBe(false);
       expect(sitemap.includes(`/${DORMANT_PRODUCTS[id]!.slug}<`), id).toBe(false);

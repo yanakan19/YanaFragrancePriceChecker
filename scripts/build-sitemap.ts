@@ -1,7 +1,18 @@
 /**
- * Write demo/sitemap.xml from the routes that actually exist.
+ * Write the sitemaps from the routes that actually exist.
  *
  *   npm run sitemap
+ *
+ * ── One sitemap per region, and an index (public beta, 9 October 2026) ─────
+ * demo/sitemap.xml is a sitemap index (robots.txt names it, unchanged) naming
+ * demo/sitemap-gb.xml (every UK address, exactly the list the one sitemap held
+ * before), demo/sitemap-us.xml and demo/sitemap-in.xml (the region pages,
+ * read from scripts/build-region-data.ts's dist-demo/regions/<r>/site.json).
+ * An address that exists in more than one region carries its hreflang
+ * alternates (en-GB, en-US, en-IN, and x-default for the UK page) as
+ * xhtml:link children, which search engines read whatever the page's status:
+ * the fixed pages in every region, a product where the same product id is
+ * sold, a brand where it is sold. A shop's page is its region's alone.
  *
  * ── Why a sitemap matters more here than on most sites ────────────────────
  * Every in-app path is served by demo/404.html, which is byte-identical to
@@ -46,6 +57,9 @@ import { isProductSlug } from '../src/catalogue/productSlug.js';
 import { LEGAL_PAGES, isLegalNoticeId } from '../demo/legal.js';
 import { SITE_URL } from '../demo/head.js';
 import { CONTENT_PATHS, GUIDES_PATH, HOW_WE_CHECK } from '../demo/guideList.js';
+import { existsSync, readFileSync } from 'node:fs';
+import { liveRegions, regionHasFixedPage, regionPath, type RegionConfig, type RegionId } from '../src/config/regions.js';
+import type { RegionSiteFacts } from './build-region-data.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -207,26 +221,143 @@ if (entries.length > 50000) {
 const seen = new Set<string>();
 const unique = entries.filter((e) => (seen.has(e.loc) ? false : (seen.add(e.loc), true)));
 
-const xml = [
-  '<?xml version="1.0" encoding="UTF-8"?>',
-  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-  ...unique.map(
-    (e) =>
-      `  <url><loc>${SITE_URL}${e.loc}</loc><lastmod>${e.lastmod}</lastmod><changefreq>${e.changefreq}</changefreq></url>`,
-  ),
-  '</urlset>',
-  '',
-].join('\n');
+// ── The region pages (public beta) ────────────────────────────────────────
+// Each live region but the UK, from the facts its page build wrote. The fixed
+// pages are the UK's own list, under the region's prefix, except the ones a
+// beta region does not offer yet (regionHasFixedPage: Notes, whose shops
+// publish no notes, so the tab has nothing on it and is noindex there).
+const regionSitemaps: { region: RegionConfig; facts: RegionSiteFacts; entries: Entry[] }[] = [];
+for (const region of liveRegions()) {
+  if (region.pathPrefix === '') continue;
+  const path = resolve(root, 'dist-demo/regions', region.pathPrefix, 'site.json');
+  if (!existsSync(path)) {
+    console.error(`::error::${path} is missing: run scripts/build-region-data.ts first (npm run demo does).`);
+    process.exit(1);
+  }
+  const facts = JSON.parse(readFileSync(path, 'utf8')) as RegionSiteFacts;
+  const day = facts.crawledAt.slice(0, 10);
+  const list: Entry[] = [];
+  const fixed = unique.filter((e) => !e.loc.startsWith('/brands/') && !e.loc.startsWith('/retailers/') && !isProductSlug(e.loc.slice(1)));
+  for (const e of fixed) {
+    if (!regionHasFixedPage(region, e.loc)) continue;
+    // A Deals page with nothing on it is not offered to a crawler (the region
+    // harvest reads no shop's previous price yet, so a region has no deals).
+    if (e.loc === '/deals' && facts.deals === 0) continue;
+    list.push({ ...e, lastmod: e.loc === '/deals' || e.loc === '/' ? day : e.lastmod });
+  }
+  for (const p of facts.productPages) list.push({ loc: `/${p.slug}`, lastmod: p.lastmod, changefreq: 'daily' });
+  for (const b of facts.brandSlugs) list.push({ loc: `/brands/${encodeURIComponent(b)}`, lastmod: day, changefreq: 'weekly' });
+  for (const id of facts.shops) list.push({ loc: `/retailers/${encodeURIComponent(id)}`, lastmod: day, changefreq: 'daily' });
+  const regionSeen = new Set<string>();
+  regionSitemaps.push({ region, facts, entries: list.filter((e) => (regionSeen.has(e.loc) ? false : (regionSeen.add(e.loc), true))) });
+}
 
-writeGenerated(root, 'demo/sitemap.xml', xml);
+// ── hreflang: which regions have each page ────────────────────────────────
+// Keyed by what the page is, not by its address: a product by its id (the
+// same bottle can have a different address in another region), a brand by its
+// slug, a fixed page by its path. A shop page has no alternate.
+const ukIdBySlug = new Map(DEMO_FRAGRANCES.map((f) => [f.slug, f.id] as const));
+const ukSlugById = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f.slug] as const));
+const ukBrands = brandSlugs;
+const ukFixed = new Set(unique.map((e) => e.loc).filter((loc) => !loc.startsWith('/brands/') && !loc.startsWith('/retailers/') && !isProductSlug(loc.slice(1))));
+type Holder = { id: RegionId; region: RegionConfig; path: string };
+const GB = liveRegions().find((r) => r.id === 'GB');
+
+/** The regions that have the same page as `loc` (a fixed page or a brand), each with its path there. */
+function holders(loc: string): Holder[] {
+  const out: Holder[] = [];
+  if (loc.startsWith('/retailers/')) return out;
+  if (loc.startsWith('/brands/')) {
+    const slug = decodeURIComponent(loc.slice('/brands/'.length));
+    if (GB && ukBrands.has(slug)) out.push({ id: 'GB', region: GB, path: loc });
+    for (const r of regionSitemaps) if (r.facts.brandSlugs.includes(slug)) out.push({ id: r.region.id, region: r.region, path: loc });
+    return out;
+  }
+  if (GB && ukFixed.has(loc)) out.push({ id: 'GB', region: GB, path: loc });
+  for (const r of regionSitemaps) if (r.entries.some((e) => e.loc === loc)) out.push({ id: r.region.id, region: r.region, path: loc });
+  return out;
+}
+
+/** A url line, with its hreflang alternates when another region has the page too. */
+function urlLine(region: RegionConfig, e: Entry, alternates: Holder[]): string {
+  const links = alternates.length >= 2
+    ? [
+        ...alternates.map((h) => `<xhtml:link rel="alternate" hreflang="${h.region.hreflang}" href="${SITE_URL}${regionPath(h.region, h.path)}"/>`),
+        ...(alternates.some((h) => h.id === 'GB') ? [`<xhtml:link rel="alternate" hreflang="x-default" href="${SITE_URL}${alternates.find((h) => h.id === 'GB')!.path}"/>`] : []),
+      ].join('')
+    : '';
+  return `  <url><loc>${SITE_URL}${regionPath(region, e.loc)}</loc><lastmod>${e.lastmod}</lastmod><changefreq>${e.changefreq}</changefreq>${links}</url>`;
+}
+
+// A product's alternates go by its id: the same bottle may have another address in another region.
+const regionSlugToId = new Map(regionSitemaps.map((r) => [r.region.id, new Map(Object.entries(r.facts.ids).map(([id, slug]) => [slug, id] as const))] as const));
+function holdersOf(fromId: RegionId, loc: string): Holder[] {
+  if (!isProductSlug(loc.slice(1))) return holders(loc);
+  const slug = loc.slice(1);
+  const id = fromId === 'GB' ? ukIdBySlug.get(slug) : regionSlugToId.get(fromId)?.get(slug);
+  if (!id) return [];
+  const out: Holder[] = [];
+  const uk = ukSlugById.get(id);
+  if (GB && uk) out.push({ id: 'GB', region: GB, path: `/${uk}` });
+  for (const r of regionSitemaps) {
+    const there = r.facts.ids[id];
+    if (there) out.push({ id: r.region.id, region: r.region, path: `/${there}` });
+  }
+  return out;
+}
+
+function urlset(region: RegionConfig, list: readonly Entry[]): { xml: string; withAlternates: number } {
+  let withAlternates = 0;
+  const lines = list.map((e) => {
+    const alt = holdersOf(region.id, e.loc);
+    if (alt.length >= 2) withAlternates++;
+    return urlLine(region, e, alt);
+  });
+  const xml = [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    withAlternates > 0
+      ? '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'
+      : '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    ...lines,
+    '</urlset>',
+    '',
+  ].join('\n');
+  return { xml, withAlternates };
+}
+
+const ukRegion = GB ?? liveRegions()[0]!;
+const gb = urlset(ukRegion, unique);
+writeGenerated(root, 'demo/sitemap-gb.xml', gb.xml);
+const written: { file: string; lastmod: string }[] = [{ file: 'sitemap-gb.xml', lastmod: today() }];
+for (const r of regionSitemaps) {
+  if (r.entries.length > 50000) {
+    console.error(`::error::sitemap-${r.region.pathPrefix}.xml has ${r.entries.length} URLs, over the 50,000 limit.`);
+    process.exit(1);
+  }
+  const out = urlset(r.region, r.entries);
+  writeGenerated(root, `demo/sitemap-${r.region.pathPrefix}.xml`, out.xml);
+  written.push({ file: `sitemap-${r.region.pathPrefix}.xml`, lastmod: r.facts.crawledAt.slice(0, 10) });
+  console.log(`demo/sitemap-${r.region.pathPrefix}.xml  ${r.entries.length} URLs  (${r.facts.productPages.length} products, ` +
+    `${r.facts.brandSlugs.length} brands, ${r.facts.shops.length} shops; ${out.withAlternates} with hreflang alternates)`);
+}
+// The index robots.txt names (Sitemap: https://pricesniffs.space/sitemap.xml).
+writeGenerated(root, 'demo/sitemap.xml', [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  ...written.map((w) => `  <sitemap><loc>${SITE_URL}/${w.file}</loc><lastmod>${w.lastmod}</lastmod></sitemap>`),
+  '</sitemapindex>',
+  '',
+].join('\n'));
 // The shop figure counts what was actually written, not what is enabled. Those
 // were the same number until enabled-but-empty shops stopped being listed, and
 // reporting the old one would misstate the file this line is describing.
 const listedShops = enabledRetailers().filter((r) => shopsWithListings.has(r.id)).length;
 const emptyShops = enabledRetailers().length - listedShops;
 console.log(
-  `demo/sitemap.xml  ${unique.length} URLs  (${DEMO_FRAGRANCES.length} fragrances, ` +
+  `demo/sitemap-gb.xml  ${unique.length} URLs  (${DEMO_FRAGRANCES.length} fragrances, ` +
     `${brandSlugs.size} brands, ${listedShops} shops of ${RETAILERS.length} in the registry` +
     `${emptyShops ? `; ${emptyShops} enabled but carrying no listing, left out` : ''}` +
-    `${SITE_OVERRIDE_ROWS.length ? `; ${SITE_OVERRIDE_ROWS.length} hidden or removed in the dashboard, left out` : ''})`,
+    `${SITE_OVERRIDE_ROWS.length ? `; ${SITE_OVERRIDE_ROWS.length} hidden or removed in the dashboard, left out` : ''}; ` +
+    `${gb.withAlternates} with hreflang alternates)`,
 );
+console.log(`demo/sitemap.xml  the index: ${written.map((w) => w.file).join(', ')}`);
