@@ -117,8 +117,9 @@ describe('region registries', () => {
       const cfg = REGION_CONFIGS.find((c) => c.id === r.id)!;
       expect(cfg.currency, r.id).toBe(r.currency);
       expect(cfg.pathPrefix, r.id).toBe(r.folder);
-      // Not live: nothing of a region is shown until Phase 1b.
-      expect(cfg.live, r.id).toBe(false);
+      // Live as a public beta since 9 October 2026 (the pages at /us/ and /in/).
+      expect(cfg.live, r.id).toBe(true);
+      expect(cfg.beta, r.id).toBe(true);
     }
   });
 });

@@ -28,8 +28,9 @@ const IN = regionById('IN')!;
 const base: WelcomeInput = { switchOn: true, live: [GB, US], pathname: '/', stored: null, active: GB };
 
 describe('when the pop-up shows', () => {
-  it('never while the switch is off or only one region is live (today)', () => {
-    expect(welcomeEnabled()).toBe(false);
+  it('never while the switch is off or only one region is live; on since the public beta of 9 Oct 2026', () => {
+    // US and India live and the switch on (owner decision, src/config/regions.ts).
+    expect(welcomeEnabled()).toBe(true);
     expect(welcomeEnabled(true, [GB])).toBe(false);
     expect(welcomeEnabled(true, [GB, US])).toBe(true);
     expect(welcomeAction({ ...base, switchOn: false })).toEqual({ kind: 'none' });
@@ -87,8 +88,8 @@ describe('the remembered choice', () => {
     expect(saveStoredRegion('GB', null)).toBe(false);
   });
 
-  it('is not listed on the cookies page until the pop-up can write it', () => {
-    expect(STORAGE_KEYS.map((k) => k.key)).not.toContain(REGION_STORAGE_KEY);
+  it('is listed on the cookies page now that the pop-up can write it (US and India live since 9 Oct 2026)', () => {
+    expect(STORAGE_KEYS.map((k) => k.key)).toContain(REGION_STORAGE_KEY);
   });
 });
 

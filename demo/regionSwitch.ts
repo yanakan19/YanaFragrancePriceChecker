@@ -13,7 +13,8 @@
  *   - on any other page that every country has (Deals, Explore, About, the
  *     guides, the Legal Notice and the rest): the same page there, filters
  *     kept;
- *   - anywhere else (a page not found, the owner's dashboard): that country's
+ *   - anywhere else (the account pages, which are the visitor's own and not
+ *     the country's, a page not found, the owner's dashboard): that country's
  *     home.
  * The lookup of products and brands sold elsewhere is a small lazy data file
  * per page (`regions`, scripts/regionSite.ts RegionLinks), fetched only when
@@ -47,8 +48,7 @@ export interface SwitchFrom {
 /** The routes every live region has a page for (the region's own copy of it). */
 const SAME_PAGE_ROUTES: ReadonlySet<Route['name']> = new Set<Route['name']>([
   'home', 'search', 'brands', 'deals', 'retailers', 'notes', 'fragrances', 'oils', 'sets', 'about', 'legalNotice',
-  'botPage', 'howWeCheck', 'guides', 'guide', 'settings', 'suggestions', 'legal', 'account', 'accountWishlist',
-  'accountNotifications',
+  'botPage', 'howWeCheck', 'guides', 'guide', 'settings', 'suggestions', 'legal',
 ]);
 
 /** A route's path with no region prefix: what it is inside any region. */

@@ -199,13 +199,19 @@ export interface DataExportInput {
    * an export built without it still says null rather than nothing.
    */
   photo?: { stored: boolean | null; contentType: string | null; dataUrl: string | null };
+  /**
+   * profiles.region (migration 0009): the country chosen while signed in,
+   * 'GB', 'US' or 'IN'. Null when none is saved or it could not be read.
+   * Optional so an export built without it still says null.
+   */
+  country?: string | null;
   exportedAt: Date;
 }
 
 /**
  * Everything the site holds about one account, as far as the signed in
  * browser can read it: the sign in record, the wishlist rows, the alert
- * choice and the profile photo. Built in the browser from the same reads the
+ * choice, the profile photo and the chosen country. Built in the browser from the same reads the
  * pages already make, so there is no server of ours in between and nothing
  * is added that is not stored. Fields that could not be read say null rather than a guess.
  */
@@ -236,6 +242,7 @@ export function buildDataExport(input: DataExportInput): Record<string, unknown>
       contentType: input.photo?.contentType ?? null,
       file: input.photo?.dataUrl ?? null,
     },
+    country: input.country ?? null,
   };
 }
 

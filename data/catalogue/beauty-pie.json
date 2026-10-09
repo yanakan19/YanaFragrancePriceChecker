@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-09T06:04:09.500Z",
-  "seenAt": "2026-10-09T06:04:09.500Z",
+  "updatedAt": "2026-10-09T09:54:07.346Z",
+  "seenAt": "2026-10-09T09:54:07.346Z",
   "source": "live",
   "listings": [
     {
@@ -589,7 +589,7 @@
       "priceGbp": 59,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A bright, airy, ethereal all-season scent that drifts between a floral freshness and a sophisticated softness. Jasmine, Rhubarb and Pear settle into Orris, Violet and the merest trace of Peppermint, settling into soft Musk, Moss and warm Tonka Bean. A breath of nature, made modern..",
       "productType": null,
@@ -2886,7 +2886,7 @@
       "rawBrand": "Beauty Pie",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/teenager_skin_2.0_virtual_kit_UK_62961_CSL_secondary_2_WEB_c05aa5d5-93ce-46f4-9d88-209b72852002.jpg?v=1782301922",
-      "priceGbp": 85,
+      "priceGbp": 93,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

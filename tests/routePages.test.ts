@@ -16,13 +16,14 @@ import { tmpdir } from 'node:os';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { HEAD_FACTS, pagesToWrite } from '../scripts/build-route-pages.js';
+import { HEAD_FACTS, pagesToWrite, regionPagesToWrite } from '../scripts/build-route-pages.js';
 import { policyOf } from '../scripts/generatedFiles.js';
 import { referencedDataFiles } from '../scripts/dataFiles.js';
 import { readStampedHash } from '../scripts/demoInputsHash.js';
 import { renderRoutePage, routePageProblems, routePages, sitemapPaths } from '../scripts/routePages.js';
 import { SITE_URL, headFor } from '../demo/head.js';
 import { basePath, listRoutePaths, matchRoute, rootWords } from '../demo/router.js';
+import { liveRegions } from '../src/config/regions.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const demo = join(root, 'demo');
@@ -169,9 +170,11 @@ describe('the built folder', () => {
   it('writes no file for a product, brand, shop or note page', () => {
     const files = execFileSync('find', ['demo', '-name', '*.html', '-not', '-path', 'demo/logos/*', '-not', '-path', 'demo/icons/*'], { cwd: root, encoding: 'utf8' })
       .split('\n').filter(Boolean).map((f) => f.replace(/^demo\//, ''));
-    const expected = new Set(['index.html', '404.html', 'template.html', ...pages.map((p) => p.file)]);
+    // The region pages (public beta): each live region's page, its deep link copy and its route pages.
+    const regionShells = liveRegions().filter((r) => r.pathPrefix !== '').flatMap((r) => [`${r.pathPrefix}/index.html`, `${r.pathPrefix}/404.html`]);
+    const expected = new Set(['index.html', '404.html', 'template.html', ...pages.map((p) => p.file), ...regionShells, ...regionPagesToWrite().map((p) => p.file)]);
     expect(files.filter((f) => !expected.has(f)), 'html files in demo/ that are not the page or a route page').toEqual([]);
-    expect(files.length).toBeLessThan(60);
+    expect(files.length).toBeLessThan(60 * liveRegions().length);
   });
 
   it('is listed by the sitemap: every indexable route page, and none that asks not to be indexed', () => {

@@ -144,7 +144,10 @@ import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxN
 import {
   WELCOME_PREVIEW_PARAM, browserTimeZone, openRegionWelcome, previewChoices, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
 } from './regionWelcome.js';
-import { fetchProfileRegion, saveProfileRegion } from './regionProfile.js';
+import { readProfileRegion, saveProfileRegion } from './regionProfile.js';
+import {
+  arrivalAction, chooseRegion, countryRowHtml, regionChoiceOn, syncRegionWithProfile, type ArrivalAction, type RegionSyncDeps,
+} from './regionPreference.js';
 import { flagSvg } from './flags.js';
 import { ABOUT } from './legal.js';
 import { liveCounts } from './data.js';
@@ -297,6 +300,9 @@ const state = {
   photoUrl: null as string | null,
   photoBroken: false,
   photoBusy: false,
+  // The Country row on the profile (demo/regionPreference.ts): true while a
+  // choice is being saved, so its buttons are disabled.
+  countrySaving: false,
 
 };
 
@@ -4721,6 +4727,8 @@ function accountView(): string {
         <p class="acct-card-note t-caption">Premium will add browsing with no ads, email and push alerts, and an alert history. It is not on sale yet.</p>
       </section>
 
+      ${accountCountryHtml()}
+
       <div class="acct-shortcuts">
         <button class="account-entry" data-acct-go="wishlist"><span>View My Wishlist${state.wishlistLoaded ? ` (${state.wishlistIds.size})` : ''}</span>${ICON_CHEVRON}</button>
         <button class="account-entry" data-acct-go="notifications"><span>My Notifications</span>${ICON_CHEVRON}</button>
@@ -4746,7 +4754,7 @@ function accountView(): string {
 
       <h2 class="t-section">Your Data</h2>
       <p class="account-note">Download a file of everything we hold for your account: your email, when the
-        account was created, your wishlist, your alert settings and your profile photo if you added one. It is
+        account was created, your wishlist, your alert settings${regionChoiceOn() ? ', your country if you chose one' : ''} and your profile photo if you added one. It is
         made in your browser.</p>
       <button class="seg-btn acct-download" id="acct-download" type="button">Download My Data</button>
 
@@ -4811,7 +4819,13 @@ function accountNotificationsView(): string {
 async function downloadMyData(): Promise<void> {
   const user = state.authUser;
   if (!user) return;
-  const [wishlist, alerts, photoState] = await Promise.all([fetchWishlist(), fetchPriceAlerts(), fetchPhotoState()]);
+  const [wishlist, alerts, photoState, country] = await Promise.all([
+    fetchWishlist(),
+    fetchPriceAlerts(),
+    fetchPhotoState(),
+    // The saved country (migration 0009), read only once it can be chosen.
+    regionChoiceOn() ? readProfileRegion() : Promise.resolve(null),
+  ]);
   // The photo itself goes inside the file as a data: address, read fresh
   // like everything else here. Null for "stored" when photos are not
   // switched on for this site, so the file never claims a no it cannot know.
@@ -4836,6 +4850,7 @@ async function downloadMyData(): Promise<void> {
     },
     priceAlerts: alerts,
     photo,
+    country: country?.ok ? country.region : null,
     exportedAt: now,
   });
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
@@ -5025,8 +5040,9 @@ function regionItemHtml(r: Region): string {
   const text = `<span class="region-text"><span class="region-line"><span id="${nameId}">${esc(r.name)}</span> <span class="region-code" id="${codeId}">${esc(r.currency)}</span></span>${
     r.note ? `<span class="region-note" id="${noteId}">${esc(r.note)}</span>` : ''}</span>`;
   const current = r.id === CURRENT_REGION.id;
+  // One Tab stop in the menu, the current choice; the arrow keys reach the rest.
   const attrs = r.available
-    ? `tabindex="0" aria-checked="${current}"`
+    ? `tabindex="${current ? 0 : -1}" aria-checked="${current}"`
     : `tabindex="-1" aria-checked="false" aria-disabled="true" aria-describedby="${noteId}"`;
   return `<div role="menuitemradio" class="region-item" data-region="${r.id}" ${attrs} aria-labelledby="${nameId} ${codeId}">${flagSvg(r.id)}${text}${current ? `<span class="region-tick">${ICON_TICK}</span>` : ''}</div>`;
 }
@@ -5073,22 +5089,16 @@ function closeRegionMenu(returnFocus: boolean): void {
 }
 
 /**
- * A choice in the country menu. The region the page is already in only
- * closes the menu, as it always has: nothing is stored. Another live region
- * is remembered, in this browser and on a signed in visitor's profile, and
- * the same page opened there when it has one (demo/regionSwitch.ts: the
- * product there when it is sold there, else its brand, else the same section,
- * else that country's home). A full page load: each region has its own data
- * files.
+ * A choice in the country menu (demo/regionPreference.ts, chooseRegion): the
+ * choice is remembered in this browser and, signed in, on the profile, and
+ * the same page opened in that country when it has one (demo/regionSwitch.ts:
+ * the product there when it is sold there, else its brand, else the same
+ * section, else that country's home). A full page load: each region has its
+ * own data files. The region the page is already in is only remembered.
  */
 function chooseRegionFromMenu(id: string | undefined): void {
-  const region = regionById(id);
   closeRegionMenu(true);
-  if (!region || !region.live || region.id === activeRegion().id) return;
-  saveStoredRegion(region.id);
-  const target = regionSwitchHref(region);
-  const save = state.authUser ? Promise.race([saveProfileRegion(region.id), new Promise((r) => setTimeout(r, 1500))]) : Promise.resolve();
-  void Promise.all([target, save]).then(([href]) => window.location.assign(href));
+  void chooseRegion({ id, live: liveRegions(), active: activeRegion(), signedIn: state.authUser !== null }, regionChoiceDeps);
 }
 
 /* ── switching country, and the "You are seeing UK prices" bar ──────────────
@@ -5122,6 +5132,9 @@ async function regionSwitchHref(to: RegionConfig): Promise<string> {
   return switchTarget(from, to, switchNeedsLinks(from.route) ? await regionLinks() : null);
 }
 
+/** The visitor's remembered country, once the profile has been read (noteRegionMismatch); null before. */
+let rememberedRegion: RegionId | null = null;
+
 function regionBarDismissed(): boolean {
   try {
     return window.sessionStorage.getItem(BAR_DISMISSED_KEY) === '1';
@@ -5144,7 +5157,7 @@ function renderRegionBar(): void {
     active: activeRegion(),
     live: liveRegions(),
     pathname,
-    stored: readStoredRegion(),
+    stored: rememberedRegion ?? readStoredRegion(),
     suggested: suggestRegionForTimeZone(browserTimeZone())?.id ?? null,
     dismissed: regionBarDismissed(),
   });
@@ -5184,8 +5197,7 @@ function initRegionBar(): void {
     const region = regionById(a.getAttribute('data-region-switch'));
     if (!region) return;
     e.preventDefault();
-    saveStoredRegion(region.id);
-    void regionSwitchHref(region).then((href) => window.location.assign(href));
+    void chooseRegion({ id: region.id, live: liveRegions(), active: activeRegion(), signedIn: state.authUser !== null }, regionChoiceDeps);
   });
 }
 
@@ -5205,45 +5217,96 @@ function renderBetaLine(): void {
   host.innerHTML = `<p class="beta-line-text"><span class="beta-pill">Beta</span> ${esc(line)}</p>`;
 }
 
-/* ── "Select your country" (demo/regionWelcome.ts) ──────────────────────────
-   Off while the UK is the only live region: welcomeAction answers 'none'
-   unless REGION_WELCOME_ON is true and a second region is live, so nothing
-   below reads storage, asks the profile or draws anything today. The
+/* ── "Select your country" and the remembered country ───────────────────────
+   demo/regionWelcome.ts (the pop-up) and demo/regionPreference.ts (what is
+   remembered, where, and when the bare home page moves). Off while the UK is
+   the only live region: nothing below reads storage, asks the profile or
+   draws anything today. The pop-up also needs REGION_WELCOME_ON. The
    ?regionwelcome=preview address opens it with every region as a choice, for
-   the browser test and for the owner to look at. */
+   the browser test and for the owner to look at, and shows the Country row on
+   the profile page the same way. */
 
-function welcomePreview(): boolean {
+/** Read once, as the script loads: the router tidies the query away from
+ *  some addresses (/account) before the page that needs it is drawn. */
+const welcomePreviewAtLoad = ((): boolean => {
   try {
     return new URLSearchParams(window.location.search).get(WELCOME_PREVIEW_PARAM) === 'preview';
   } catch {
     return false;
   }
+})();
+
+function welcomePreview(): boolean {
+  return welcomePreviewAtLoad;
+}
+
+/** How the page reads and writes the two places a choice is kept. */
+const regionSyncDeps: RegionSyncDeps = {
+  readLocal: () => readStoredRegion(),
+  writeLocal: (id: RegionId) => saveStoredRegion(id),
+  readProfile: readProfileRegion,
+  writeProfile: saveProfileRegion,
+};
+
+/**
+ * How a choice is remembered and opened. A choice opens the page on screen in
+ * that country when it has one (demo/regionSwitch.ts: the product there, else
+ * its brand, else the same section, else that country's home); chooseRegion
+ * hands over the other region's home address, and the region is read back
+ * from it. The account pages open the other country's home.
+ */
+const regionChoiceDeps = {
+  writeLocal: (id: RegionId) => saveStoredRegion(id),
+  writeProfile: saveProfileRegion,
+  navigate: (href: string) => {
+    const to = splitRegionPrefix(href).region;
+    void regionSwitchHref(to).then((target) => window.location.assign(target));
+  },
+};
+
+/**
+ * A deep link opened outside the visitor's remembered country. It is never
+ * redirected; the page notes the remembered country on the root element
+ * (data-remembered-region) and draws the slim "You are seeing UK prices. See
+ * US prices" bar offering it (docs/INTERNATIONAL-PLAN.md, section 2, "The
+ * menu: switching and remembering"; renderRegionBar).
+ */
+function noteRegionMismatch(region: RegionConfig): void {
+  document.documentElement.setAttribute('data-remembered-region', region.id);
+  rememberedRegion = region.id;
+  renderRegionBar();
+}
+
+function actOnArrival(action: ArrivalAction): void {
+  if (action.kind === 'redirect') window.location.replace(action.to);
+  else if (action.kind === 'mismatch') noteRegionMismatch(action.region);
 }
 
 function startRegionWelcome(): void {
   const preview = welcomePreview();
-  if (!preview && !welcomeEnabled()) return;
+  if (!preview && !regionChoiceOn()) return;
   const choices = preview ? previewChoices() : liveRegions();
   const pathname = window.location.pathname.slice(basePath().length - 1) || '/';
-  const input = { switchOn: true, live: choices, pathname, stored: preview ? null : readStoredRegion(), active: activeRegion() };
-  const action = welcomeAction(input);
-  if (action.kind === 'none') return;
-  if (action.kind === 'redirect') {
-    window.location.replace(action.to);
+  const active = activeRegion();
+  // A choice saved in this browser decides at once, with no request.
+  const local = preview ? null : readStoredRegion();
+  if (local && choices.some((r) => r.id === local)) {
+    actOnArrival(arrivalAction({ live: choices, pathname, chosen: local, active }));
     return;
   }
+  const ask = welcomeAction({ switchOn: preview || welcomeEnabled(), live: choices, pathname, stored: null, active }).kind === 'ask';
   void currentUser().then(async (user) => {
-    // A signed in visitor may have chosen on another device.
-    const fromProfile = user && !preview ? await fetchProfileRegion() : null;
-    if (fromProfile) {
-      saveStoredRegion(fromProfile);
-      const again = welcomeAction({ ...input, stored: fromProfile });
-      if (again.kind === 'redirect') window.location.replace(again.to);
+    // A signed in visitor may have chosen on another device: the profile's
+    // choice is mirrored into this browser, so the next load needs no request.
+    const fromProfile = user && isVerified(user) && !preview ? await syncRegionWithProfile(user.id, regionSyncDeps) : null;
+    if (fromProfile && choices.some((r) => r.id === fromProfile)) {
+      actOnArrival(arrivalAction({ live: choices, pathname, chosen: fromProfile, active }));
       return;
     }
+    if (!ask) return;
     await openRegionWelcome({
       choices,
-      active: activeRegion(),
+      active,
       closeIcon: ICON_CLOSE,
       saveToProfile: (id: RegionId) => (state.authUser ? saveProfileRegion(id) : Promise.resolve(false)),
       openSignIn: () => {
@@ -5256,24 +5319,49 @@ function startRegionWelcome(): void {
 }
 
 /**
- * Once per signed in visitor, while the pop-up is on: a region on the
- * profile becomes this browser's choice, and a choice made in this browser
- * before signing in is saved to a profile that has none ("we'll remember
- * your preference"). No request at all while it is off.
+ * On sign in, and on each page load for a signed in visitor, once a second
+ * region is live: the profile and this browser are reconciled
+ * (reconcileRegion: the profile wins, a choice made here fills an empty
+ * profile), and the profile page repaints its Country row with the result.
+ * No request at all while the UK is the only live region.
  */
-let regionSyncedFor: string | null = null;
 function syncProfileRegion(userId: string): void {
-  if (!welcomeEnabled() && !welcomePreview()) return;
-  if (regionSyncedFor === userId) return;
-  regionSyncedFor = userId;
-  void fetchProfileRegion().then((fromProfile) => {
-    if (fromProfile) {
-      saveStoredRegion(fromProfile);
-      return;
-    }
-    const local = readStoredRegion();
-    if (local) void saveProfileRegion(local);
+  if (!regionChoiceOn() && !welcomePreview()) return;
+  void syncRegionWithProfile(userId, regionSyncDeps).then(() => {
+    if (state.view === 'account') renderInPlace();
   });
+}
+
+/**
+ * The Country row on the profile page (demo/regionPreference.ts). Hidden
+ * while the UK is the only live region, except at ?regionwelcome=preview,
+ * which offers every region. The country marked is the one remembered in
+ * this browser (the profile's, once reconciled), else the region the page
+ * is in.
+ */
+function accountCountryHtml(): string {
+  const preview = welcomePreview();
+  const choices = preview ? previewChoices() : liveRegions();
+  if (!preview && !regionChoiceOn(choices)) return '';
+  const stored = readStoredRegion();
+  const current = choices.some((r) => r.id === stored) ? stored : activeRegion().id;
+  return countryRowHtml({ choices, current, tickIcon: ICON_TICK, busy: state.countrySaving });
+}
+
+/** A press on the Country row: remember it here and on the profile, then open that region's home. */
+async function chooseCountryFromProfile(id: string | undefined): Promise<void> {
+  if (state.countrySaving) return;
+  const preview = welcomePreview();
+  state.countrySaving = true;
+  renderInPlace();
+  const result = await chooseRegion(
+    { id, live: preview ? previewChoices() : liveRegions(), active: activeRegion(), signedIn: state.authUser !== null },
+    regionChoiceDeps,
+  );
+  if (result === 'opened') return;
+  state.countrySaving = false;
+  renderInPlace();
+  if (id) document.querySelector<HTMLElement>(`[data-acct-country="${id}"]`)?.focus();
 }
 
 /** Opens an account page, or does the one thing an item does. */
@@ -8108,6 +8196,13 @@ function init(): void {
     const acctGo = t.closest<HTMLElement>('[data-acct-go]');
     if (acctGo) {
       runAccountAction(acctGo.getAttribute('data-acct-go') as AccountMenuAction);
+      return;
+    }
+
+    // The Country row on the profile (demo/regionPreference.ts).
+    const countryBtn = t.closest<HTMLElement>('[data-acct-country]');
+    if (countryBtn) {
+      void chooseCountryFromProfile(countryBtn.getAttribute('data-acct-country') ?? undefined);
       return;
     }
 

@@ -947,11 +947,19 @@ the last two "Coming Soon").
 
 1. **Answer the photo question** (D24 for new countries): may a US shop's own
    photo be shown beside a link to that shop, as for UK shops?
-2. **Before the US beta goes public**, run
+2. **Done 9 October 2026, and checked:** you ran
    `supabase/migrations/0009_profile_region.sql` in the Supabase SQL Editor
-   (it adds a nullable `region` column to `profiles`; safe to run twice). It
-   is not needed before then: the site only uses it once the "Select your
-   country" pop-up is switched on.
+   (a nullable `region` column on `profiles`; safe to run twice). Checked the
+   same day from outside with only the public key, no sign in and nothing
+   written: `GET https://kemjyocklbkgjsyfdqtf.supabase.co/rest/v1/profiles?select=region&limit=0`
+   answered **200** with `[]` (the column exists; the security rules show a
+   signed out visitor no rows), while the same request for a made up column
+   answered 400 "column profiles.region_does_not_exist does not exist". The
+   site uses the column once a second country is live: a signed in visitor's
+   chosen country is saved on their profile and follows them to another
+   device, and the profile page gets a **Country** row
+   (`docs/INTERNATIONAL-PLAN.md`, "Remembered preference"). Nothing more to
+   do.
 3. **Before any money is earned in the US or India**, have the US and India
    privacy and disclosure text reviewed (decision 8).
 4. Affiliate sign ups (Awin US, CJ, Rakuten, Impact, Skimlinks, the Indian

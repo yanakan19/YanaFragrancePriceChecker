@@ -14,15 +14,18 @@ const built = existsSync(resolve(root, 'demo/index.html'));
  * The country and currency selector in the top bar (owner's request,
  * 2026-10-05), on the built page: it sits just left of the account button,
  * the bar still fits at every phone width and on a tablet and a desktop in
- * both themes, the menu opens and closes by mouse and keyboard, the two
- * regions that are not available yet cannot be chosen, and nothing is stored.
- * The list's data is tests/regions.test.ts.
+ * both themes, the menu opens and closes by mouse and keyboard, the US and
+ * India (live in beta since 9 October 2026) are named "(Beta)" and open the
+ * same page in that country, and choosing the country the page is in changes
+ * nothing. The list's data is tests/regions.test.ts; where a switch goes is
+ * tests/regionSwitch.test.ts.
  */
 
 type Mode = 'dark' | 'light';
 
-// Trimmed to three on 9 October 2026 (owner decision 3, docs/INTERNATIONAL-PLAN.md).
-const NAMES = ['United Kingdom', 'United States', 'India'];
+// Trimmed to three on 9 October 2026 (owner decision 3, docs/INTERNATIONAL-PLAN.md),
+// the US and India live in beta the same day.
+const NAMES = ['United Kingdom', 'United States (Beta)', 'India (Beta)'];
 const CODES = ['GBP', 'USD', 'INR'];
 
 describe.skipIf(!built)('the country and currency selector', () => {
@@ -32,7 +35,9 @@ describe.skipIf(!built)('the country and currency selector', () => {
 
   beforeAll(async () => {
     ({ port, close } = await startDemoServer());
-    browser = await launchChromium();
+    // A visitor who chose the UK (the default): the welcome pop-up does not ask,
+    // which tests/regionWelcomeBrowser.test.ts covers.
+    browser = await launchChromium({ countryChosen: 'GB' });
   }, 60_000);
 
   afterAll(async () => {
@@ -156,10 +161,10 @@ describe.skipIf(!built)('the country and currency selector', () => {
           }))`)) as { name: string; code: string; checked: string; disabled: string | null; tabindex: string; note: string | null; text: string; flag: number; tick: number }[];
           expect(items.map((i) => i.name)).toEqual(NAMES);
           expect(items.map((i) => i.code)).toEqual(CODES);
-          expect(items.map((i) => i.disabled)).toEqual([null, 'true', 'true']);
+          expect(items.map((i) => i.disabled), 'every country can be chosen').toEqual([null, null, null]);
           expect(items.map((i) => i.checked)).toEqual(['true', 'false', 'false']);
-          expect(items.map((i) => i.note)).toEqual([null, 'Coming Soon', 'Coming Soon']);
-          expect(items.map((i) => i.text.endsWith('Coming Soon'))).toEqual([false, true, true]);
+          expect(items.map((i) => i.note)).toEqual([null, null, null]);
+          expect(items.map((i) => i.text.includes('Coming Soon'))).toEqual([false, false, false]);
           expect(items.map((i) => i.tabindex), 'only the choice made is a Tab stop').toEqual(['0', '-1', '-1']);
           expect(items.map((i) => i.flag)).toEqual([1, 1, 1]);
           expect(items.map((i) => i.tick), 'a tick on the current choice only').toEqual([1, 0, 0]);
@@ -184,26 +189,7 @@ describe.skipIf(!built)('the country and currency selector', () => {
           }
           expect(await axe(page), 'axe with the menu open').toEqual([]);
 
-          // ── the greyed out regions cannot be chosen ────────────────────
-          for (const id of ['US', 'IN']) {
-            await page.click(`[data-region="${id}"]`, { force: true });
-            expect(await expanded(page, '#region-btn'), `${id} click leaves the menu as it was`).toBe('true');
-            expect(await page.getAttribute(`[data-region="${id}"]`, 'aria-checked')).toBe('false');
-            expect(await page.getAttribute('[data-region="GB"]', 'aria-checked')).toBe('true');
-          }
-          // No hover highlight on a greyed out item (where the pointer can hover).
-          if (width > 600) {
-            const hoverable = await page.evaluate(`matchMedia('(hover: hover) and (pointer: fine)').matches`);
-            if (hoverable) {
-              const bg = () => page.evaluate(`getComputedStyle(document.querySelector('[data-region="US"]')).backgroundColor`) as Promise<string>;
-              await page.mouse.move(2, 400);
-              const rest = await bg();
-              await page.hover('[data-region="US"]');
-              expect(await bg(), 'no hover highlight').toBe(rest);
-            }
-          }
-
-          // The region choice that is there is the UK: choosing it closes the menu, changes nothing.
+          // The country the page is in: choosing it closes the menu, changes nothing.
           await page.click('[data-region="GB"]');
           expect(await expanded(page, '#region-btn')).toBe('false');
           expect(await page.isVisible('#region-pop')).toBe(false);
@@ -242,14 +228,6 @@ describe.skipIf(!built)('the country and currency selector', () => {
           expect(await focusedId(page)).toBe('IN');
           await page.keyboard.press('Home');
           expect(await focusedId(page)).toBe('GB');
-
-          // Enter or Space on a greyed out item does nothing.
-          await page.keyboard.press('ArrowDown');
-          await page.keyboard.press('Enter');
-          expect(await expanded(page, '#region-btn')).toBe('true');
-          await page.keyboard.press('Space');
-          expect(await expanded(page, '#region-btn')).toBe('true');
-          expect(await page.getAttribute('[data-region="GB"]', 'aria-checked')).toBe('true');
 
           // Esc closes and hands focus back to the button.
           await page.keyboard.press('Escape');
@@ -325,16 +303,17 @@ describe.skipIf(!built)('the country and currency selector', () => {
     }, 90_000);
   }
 
-  it('the page keeps no region setting: no cookie, no storage key, no change to a price', async () => {
+  it('choosing the UK on the UK page keeps everything as it was: no cookie, no new storage key, no change to a price', async () => {
     const { context, page } = await open(390, 'dark');
     try {
       const keysBefore = (await page.evaluate(`Object.keys(localStorage).concat(Object.keys(sessionStorage))`)) as string[];
       const priceBefore = (await page.evaluate(`Array.from(document.querySelectorAll('#view')).map((v) => v.textContent).join('').match(/\\u00a3[0-9.,]+/g)?.slice(0, 20).join(' ') ?? ''`)) as string;
       await page.click('#region-btn');
-      for (const id of ['US', 'IN', 'GB']) await page.click(`[data-region="${id}"]`, { force: true });
+      await page.click('[data-region="GB"]');
       await page.waitForTimeout(150);
       const keysAfter = (await page.evaluate(`Object.keys(localStorage).concat(Object.keys(sessionStorage))`)) as string[];
-      expect(keysAfter).toEqual(keysBefore);
+      expect(keysAfter.sort()).toEqual(keysBefore.sort());
+      expect(await page.evaluate(`localStorage.getItem('pricesniffs.region')`)).toBe('GB');
       expect(await page.evaluate(`document.cookie`)).toBe('');
       const priceAfter = (await page.evaluate(`Array.from(document.querySelectorAll('#view')).map((v) => v.textContent).join('').match(/\\u00a3[0-9.,]+/g)?.slice(0, 20).join(' ') ?? ''`)) as string;
       expect(priceAfter).toBe(priceBefore);
@@ -343,4 +322,24 @@ describe.skipIf(!built)('the country and currency selector', () => {
       await context.close();
     }
   }, 90_000);
+
+  it('choosing the US opens the US page and remembers it; the US page offers the UK back', async () => {
+    const { context, page } = await open(1280, 'light');
+    try {
+      await page.click('#region-btn');
+      await Promise.all([page.waitForURL(/\/us\/$/, { timeout: 30_000 }), page.click('[data-region="US"]')]);
+      await waitForApp(page);
+      expect(await page.evaluate(`localStorage.getItem('pricesniffs.region')`)).toBe('US');
+      expect(await page.evaluate(`document.documentElement.lang`)).toBe('en-US');
+      expect(await page.evaluate(`document.querySelector('#region-btn').getAttribute('aria-label')`)).toBe('Region and currency: United States (Beta), USD');
+      expect(await page.evaluate(`document.querySelector('#beta-line').textContent`)).toContain('US prices are in beta: fewer shops than the UK site for now.');
+      // The Most Stocked tiles' prices (the update history further down quotes UK prices in its own words).
+      const prices = (await page.evaluate(`Array.from(document.querySelectorAll('.pop-rail .amt')).map((e) => e.textContent.trim()).slice(0, 20)`)) as string[];
+      expect(prices.length).toBeGreaterThan(0);
+      for (const p of prices) expect(p, 'a dollar price on the US page').toMatch(/^(from )?\$[0-9][0-9,]*\.[0-9]{2} →$/);
+      expect(await axe(page), 'axe on the US home').toEqual([]);
+    } finally {
+      await context.close();
+    }
+  }, 120_000);
 });

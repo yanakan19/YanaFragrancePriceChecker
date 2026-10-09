@@ -1,0 +1,51 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-09-launch-us . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "slide-1-3x4.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 105492,
+      "sha256": "0c263c359dc5b50c4f341bc5a80cb3697085746395e2c0773c4eedc21312f6df"
+    },
+    {
+      "file": "slide-1-9x16.png",
+      "make": "html",
+      "from": "slide-1-3x4.html",
+      "tiktok": true,
+      "width": 1080,
+      "height": 1920,
+      "bytes": 124081,
+      "sha256": "7a0e08c3c3983fc0e792f833330ba0584bf01f6cc5710911e240817b920699cc"
+    },
+    {
+      "file": "slide-2-3x4.png",
+      "make": "html",
+      "from": "slide-2-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 128972,
+      "sha256": "4ff0294322b33dd57d00169eef6e57ac79953578ebbb9f08ca21d48c035de2b6"
+    },
+    {
+      "file": "slide-3-3x4.png",
+      "make": "html",
+      "from": "slide-3-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 125474,
+      "sha256": "5169facc1b9fe6569a14a5d8d8d9191cd6ed5f3ca985cc9ceb9a860f81da64ca"
+    },
+    {
+      "file": "slide-4-3x4.png",
+      "make": "html",
+      "from": "slide-4-3x4.html",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 90863,
+      "sha256": "a0ace757c696bca1ea7a4a268654a7eb9da055c48447f268dfcc465609c2610d"
+    }
+  ]
+}

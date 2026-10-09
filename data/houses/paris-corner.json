@@ -1,7 +1,7 @@
 {
   "retailerId": "paris-corner",
-  "updatedAt": "2026-10-09T07:04:17.472Z",
-  "seenAt": "2026-10-09T07:04:17.472Z",
+  "updatedAt": "2026-10-09T10:58:38.931Z",
+  "seenAt": "2026-10-09T10:58:38.931Z",
   "source": "live",
   "listings": [
     {
@@ -696,32 +696,6 @@
       "rating": null,
       "nativePrice": {
         "amount": 90,
-        "currency": "AED"
-      },
-      "retailerId": "paris-corner",
-      "firstSeenAt": "2026-08-05T11:11:10.449Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "56158",
-      "url": "https://pariscorner.ae/product/identity-rose-leather-100ml/",
-      "rawTitle": "IDENTITY ROSE &amp;amp; LEATHER 100ML",
-      "rawBrand": "EMIR",
-      "ean": null,
-      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2024/12/ROSE-LEATHER-IDENTITY-11-scaled.jpg",
-      "description": "Top notes : Geranium, Black Currant and Sichuan Pepper. Middle notes : Leather and Rose Base notes : Vetiver and Cedar. Identity Rose &amp;amp; Leather is a Leather fragrance for women and men. It opens with a leather note, which dominates until the dry down, bolstered by an inspired squeeze of blackcurrant juice. The rich, jammy rose note emerges early on and plays second fiddle to the smooth, nutty leather. The geranium adds a green, peppery edge to the rose, enhanced by the pepper note. A unique and surprising scent based on a rather abstract rose-leather accord",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 70,
         "currency": "AED"
       },
       "retailerId": "paris-corner",
@@ -1562,6 +1536,59 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "56669",
+      "url": "https://pariscorner.ae/product/charuto-regal-reserve-100ml/",
+      "rawTitle": "CHARUTO REGAL RESERVE 100ML",
+      "rawBrand": "PENDORA SCENTS",
+      "ean": null,
+      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2024/12/CHARUTO_REGAL_RESERVE_COM_4.webp",
+      "description": "TOP NOTE – BLEND OF BERGAMOT , BLACK PEPPER , TOBACCO ABD INCENSE MIDDLE NOTE – BLEND OF OSMANTHUS,LAVANDER , LABDANUM AND CARDAMOM BASE NOTE - BLEND OF VANILLA , TONKA BEAN, LIGHT WOODS , AMBER AND MUSK Discover the essence of sophistication with Charuto Regal Reserve, a fragrance that embodies the spirit of luxury and refinement.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 65,
+        "currency": "AED"
+      },
+      "retailerId": "paris-corner",
+      "firstSeenAt": "2026-10-09T10:58:38.931Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "56158",
+      "url": "https://pariscorner.ae/product/identity-rose-leather-100ml/",
+      "rawTitle": "IDENTITY ROSE &amp;amp; LEATHER 100ML",
+      "rawBrand": "EMIR",
+      "ean": null,
+      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2024/12/ROSE-LEATHER-IDENTITY-11-scaled.jpg",
+      "description": "Top notes : Geranium, Black Currant and Sichuan Pepper. Middle notes : Leather and Rose Base notes : Vetiver and Cedar. Identity Rose &amp;amp; Leather is a Leather fragrance for women and men. It opens with a leather note, which dominates until the dry down, bolstered by an inspired squeeze of blackcurrant juice. The rich, jammy rose note emerges early on and plays second fiddle to the smooth, nutty leather. The geranium adds a green, peppery edge to the rose, enhanced by the pepper note. A unique and surprising scent based on a rather abstract rose-leather accord",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 70,
+        "currency": "AED"
+      },
+      "retailerId": "paris-corner",
+      "firstSeenAt": "2026-08-05T11:11:10.449Z",
+      "lastSeenAt": "2026-10-09T07:04:17.472Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {

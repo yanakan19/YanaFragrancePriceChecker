@@ -104,10 +104,9 @@ an error, then move to the next.
    rows into days and months. Optional. See docs/OWNER-STEPS.md, 8e, and
    docs/TRACKING-AND-STORAGE-STRATEGY.md.
 9. `supabase/migrations/0009_profile_region.sql` — a nullable `region`
-   column on `profiles` ('GB', 'US' or 'IN') for the "Select your country"
-   choice of a signed in reader. Optional until the US beta: the site reads
-   and writes it only once the welcome pop-up is switched on
-   (docs/INTERNATIONAL-PLAN.md, Phase 0).
+   column on `profiles` ('GB', 'US' or 'IN'): the country a signed in reader
+   chose. **Run on the live project on 9 October 2026 and checked** (see
+   step 10). The site reads and writes it once a second country is live.
 
 Order matters: nothing in 0002 references 0001 directly, but 0001 is what
 makes an account exist in the first place.
@@ -285,6 +284,32 @@ out. The browser crops it to a square of at most 256px and re-encodes it as
 WebP or JPEG through a canvas before upload, which drops all metadata.
 Delete Account removes the photo through the Storage API first, because
 stored files do not cascade from `auth.users`.
+
+### 10. The chosen country (migration 0009)
+
+Run on the live project on 9 October 2026. Checked from outside the same
+day with the public key alone, no sign in and nothing written:
+`GET /rest/v1/profiles?select=region&limit=0` answered 200 with `[]` (the
+column exists; RLS shows a signed out request no rows), where a column that
+does not exist answers 400 with code 42703. What it adds and how the site
+uses it:
+
+- **`profiles.region`**, null or 'GB', 'US' or 'IN' (a check constraint, the
+  same list as `src/config/regions.ts`). No new policy: the 0001 policies
+  already let a reader read and update only their own row.
+- **Written** whenever a signed in reader chooses a country: in the "Select
+  your country" pop-up, the country menu, or the **Country** row on their
+  profile page (`/account`, after Your Plan: United Kingdom, United States
+  and India with flag and currency, the current one ticked; pressing one
+  saves it and opens that country's home). The same choice is kept in the
+  browser's local storage (`pricesniffs.region`).
+- **Read** on sign in and once per page load for a signed in reader, and
+  reconciled with the browser's choice: the profile wins; a browser choice
+  fills an empty profile; nothing is written when the read fails
+  (`demo/regionPreference.ts`).
+- **Off** while the UK is the only live country: no row, no read, no write.
+- Included in Download My Data; listed in the privacy notice once it can be
+  chosen. Deleting the account deletes it with the profile row.
 
 ---
 

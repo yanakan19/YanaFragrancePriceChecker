@@ -3,31 +3,46 @@ import { regionById, type RegionId } from '../src/config/regions.js';
 
 /**
  * The signed in visitor's chosen region on their profile (profiles.region,
- * supabase/migrations/0009_profile_region.sql), so the choice follows them to
- * another device. Read and written only for a signed in visitor, and only
- * while the welcome pop-up is switched on (demo/regionWelcome.ts), so today
- * the page makes no request for it.
+ * supabase/migrations/0009_profile_region.sql, run on the live project on
+ * 9 October 2026), so the choice follows them to another device. Read and
+ * written only for a signed in visitor, and only once a second region is live
+ * (demo/regionPreference.ts decides when, and reconciles it with the choice
+ * saved in this browser), so while the UK is the only live region the page
+ * makes no request for it.
  *
- * Every call degrades quietly, like demo/priceAlerts.ts: until the migration
- * is run the column does not exist, the read fails and answers null, and a
- * write answers false. Nothing is shown to the visitor either way.
+ * Every call degrades quietly, like demo/priceAlerts.ts: should the column
+ * ever be missing, the read answers "could not read" and a write answers
+ * false. Nothing is shown to the visitor either way, and nothing is logged.
  */
 
-/** The region on the signed in visitor's profile, or null (signed out, none saved, or not set up). */
-export async function fetchProfileRegion(): Promise<RegionId | null> {
+/** What reading the profile found: a region or none, or that it could not be read. */
+export type ProfileRegionRead = { ok: true; region: RegionId | null } | { ok: false };
+
+/**
+ * The region on the signed in visitor's profile. `ok: false` when signed out
+ * or the read failed, so a caller never mistakes a failed read for "none
+ * saved" and overwrites a choice it could not see.
+ */
+export async function readProfileRegion(): Promise<ProfileRegionRead> {
   const client = supabase();
-  if (!client) return null;
+  if (!client) return { ok: false };
   try {
     const {
       data: { user },
     } = await client.auth.getUser();
-    if (!user) return null;
+    if (!user) return { ok: false };
     const { data, error } = await client.from('profiles').select('region').eq('id', user.id).maybeSingle();
-    if (error || !data) return null;
-    return regionById((data as { region?: unknown }).region as string | null)?.id ?? null;
+    if (error) return { ok: false };
+    return { ok: true, region: regionById((data as { region?: unknown } | null)?.region as string | null)?.id ?? null };
   } catch {
-    return null;
+    return { ok: false };
   }
+}
+
+/** The region on the signed in visitor's profile, or null (signed out, none saved, or it could not be read). */
+export async function fetchProfileRegion(): Promise<RegionId | null> {
+  const read = await readProfileRegion();
+  return read.ok ? read.region : null;
 }
 
 /** Saves the region on the signed in visitor's profile. False when signed out or it could not be saved. */
