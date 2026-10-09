@@ -152,7 +152,11 @@ house's own shop. The photos stay off (D24 does not cover it) and the affiliate 
 Directories disagree on its programme (Impact, FlexOffers, Shopify Collabs, Skimlinks); none was found on a
 network's own page.
 
-Runner proof: see the end of this file once the one shop dispatch has run.
+Proof so far is the sandbox dry run (`npm run harvest -- --shop=glossier-uk --dry-run`, as PriceSniffsBot,
+robots.txt first: 26 priced listings, all GBP, 12 bottles pass the catalogue's test). **No runner proof yet.**
+A full crawl (run 851) was in progress when this was pushed, and a one shop dispatch holds the crawl's
+concurrency group, so none was made; the next scheduled sweep reads the shop with the same code. Look for
+"Glossier UK" in `data/harvest-report.json` after it, and set `enabled: false` if it reads nothing.
 
 ## Findings that apply to the next pass
 
