@@ -72,6 +72,8 @@ and no agent opened Fragrantica or its images (D26).
    Stage the files by name. The page needs no change: the build publishes the
    icon and both lookups pick it up.
 
+**Redrawn 9 Oct 2026:** the 26 icons and the White Flowers group icon that read faintly at 20 px (list in `docs/NOTES-PAGE-PLAN.md` section F) now have heavier shapes and a darker edge (`#8A7F68` for white things, a lighter rim for dark ones, strokes 3 wide).
+
 Shipped entries are append only: do not delete an entry, rename it, change its
 group or drop an alias. You may redraw a file. You may add aliases. The test
 compares with `HEAD`.
