@@ -37,6 +37,10 @@ export const CHANGELOG: ChangelogEntry[] = [
         heading: 'New',
         points: ['Smoother pages, with gentle motion throughout'],
       },
+      {
+        heading: 'Fixes',
+        points: ['Switching country now always shows its own shops'],
+      },
     ],
   },
   {

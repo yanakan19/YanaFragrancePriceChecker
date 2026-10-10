@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-10T12:59:22.427Z",
-  "seenAt": "2026-10-10T12:59:22.427Z",
+  "updatedAt": "2026-10-10T17:08:21.960Z",
+  "seenAt": "2026-10-10T17:08:21.960Z",
   "source": "live",
   "listings": [
     {
@@ -1187,7 +1187,7 @@
       "priceGbp": 35,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Indulge in the art of fragrance exploration with The Iconic Discovery Set. Choose from 7 exquisite fragrance samples, each crafted to delight your senses and help you uncover your new signature scent. Contents: Amber, Lime & Bergamot, Black Cashmeran & Tonka, Golden Gardenia, Cobalt Patchouli & Cedar, Pomelo Oud, Orange Butterflies and Rose & Dates.",
       "productType": null,
@@ -2084,7 +2084,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Ignite your senses with our sophisticated Home Candle, a warm and smoky fragrance that transports you to a cozy evening by the fireplace. Crafted by hand in England using high-quality ingredients, this artisan candle in hand-blown glass will captivate you for up to 37.5 hours, filling your space with notes of wood fire, cedar oil, guaiac wood oil, and black leather. Experience the perfect ambiance for relaxation and indulgence. .",
       "productType": null,

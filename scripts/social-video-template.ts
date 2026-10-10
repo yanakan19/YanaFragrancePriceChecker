@@ -62,6 +62,8 @@ export const VIDEO_TEMPLATE = {
   deal: { totalSeconds: 10, theme: 'standard' as const },
   /** Informative videos: as long as the content needs, within this. Red theme, as every explainer. */
   informative: { minSeconds: 20, maxSeconds: 30, theme: 'inverted' as const },
+  /** Launch videos (a new country, say): short and to the point, black theme like the launch pictures. */
+  launch: { minSeconds: 10, maxSeconds: 12, theme: 'standard' as const },
   /** H.264 for TikTok and Instagram. Flat graphics compress well; a post stays far below the cap. */
   encode: { crf: 20, preset: 'slow', maxMegabytes: 8 },
 } as const;

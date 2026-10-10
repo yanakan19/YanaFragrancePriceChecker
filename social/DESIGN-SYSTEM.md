@@ -129,15 +129,21 @@ is plain background. The savings carousels always use it.
 a taller canvas of the same background, shown a little larger (scale 0.86,
 box x 110 to 970, y 380 to 1460), clear of TikTok's tabs at the top, its
 caption and buttons at the bottom and its icons down the right. Post them
-with `tiktok-caption.txt`.
+with the post's one `caption.txt` (section 5).
 
 ## 5. Words
 
-**Stories and posts:** a 9:16 picture is a **story**. It has no caption; its
-link goes on a link sticker. A 3:4 picture is a feed **post**. It needs a
-caption (`caption.txt` in the post's folder), and since feed posts cannot hold
-a clickable link, the picture says "Link in bio" and the caption points there
-too.
+**One caption for every platform (owner rule, 8 and 10 October 2026).**
+Every post, picture or video, has exactly ONE caption, `caption.txt` in its
+folder, used unchanged on Instagram, Facebook, Threads, TikTok, Pinterest,
+YouTube and X. So it must fit the strictest of them: **at most 280 characters
+including the hashtags and the address** (a free X account's limit). It gives
+the address written out (`pricesniffs.space`, or a path on it), never "link in
+bio", and names no platform. No `tiktok-caption.txt` or any second caption
+file. A 9:16 story picture needs no caption of its own; it uses the post's
+`caption.txt` when posted as a reel or photo post, and its link goes on a link
+sticker where a story allows one. `tests/socialSingleCaptions.test.ts` checks
+every post folder dated 9 October 2026 or later against this rule.
 
 These rules apply to all post copy: the image text and the caption.
 
@@ -154,10 +160,10 @@ These rules apply to all post copy: the image text and the caption.
 5. The address is always `pricesniffs.space`, lower case.
 6. **At most 5 hashtags per caption**, on the last line. `tests/socialPosts.test.ts`
    fails the build if a caption has more.
-7. **TikTok captions** go in `tiktok-caption.txt` beside `caption.txt`. They
-   give the address (pricesniffs.space) instead of "link in bio", since a new
-   TikTok account cannot put a link in its bio yet, and use TikTok's own tags:
-   `#perfumetok #fragrancetok #perfume #perfumedeals #pricesniffs`.
+7. **No separate TikTok caption** (rule changed 8 October 2026). Older posts
+   have a `tiktok-caption.txt`; new posts do not. Hashtags that suit every
+   platform go in the one caption (`#perfume #fragrance #pricesniffs` plus one
+   or two for the post, at most 5).
 
 ## 6. Checklist for a new post
 
@@ -309,7 +315,8 @@ fade to the background, and all text inside the TikTok safe box (x 110 to 970,
 y 380 to 1460). The config is `scripts/social-video-template.ts`; the rules and
 how to make one are in `docs/SOCIAL-MEDIA-PLAN.md` section 9. Colours, type and
 the wording rules above apply to them unchanged. Deal of the Day videos use the
-standard black theme, informative videos the red one.
+standard black theme, informative videos the red one, and launch videos (10 to 12 seconds,
+`scripts/social-video-launch.ts`) the black one.
 
 ## 10. Where the pictures go (from 8 October 2026)
 

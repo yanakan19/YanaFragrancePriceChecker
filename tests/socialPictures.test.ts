@@ -22,6 +22,7 @@ import {
   type Picture,
 } from '../scripts/socialPictures.js';
 import { EXPLAINER_VIDEOS } from '../scripts/social-video-explainers.js';
+import { LAUNCH_VIDEOS } from '../scripts/social-video-launch.js';
 import { VIDEO_TEMPLATE as T, dealScenes, dealVideoFromRecord, type DealVideoRecord } from '../scripts/social-video-template.js';
 
 const SOCIAL = join(REPO_ROOT, 'social');
@@ -31,7 +32,7 @@ const folders = [
   join(SOCIAL, 'highlights'),
 ];
 const name = (dir: string) => dir.slice(SOCIAL.length + 1);
-const MAKES = ['svg', 'html', 'deal-video', 'explainer-video', 'history'];
+const MAKES = ['svg', 'html', 'deal-video', 'explainer-video', 'launch-video', 'history'];
 
 describe('pictures.json in every post folder', () => {
   for (const dir of folders) {
@@ -65,6 +66,12 @@ describe('pictures.json in every post folder', () => {
           expect(v, `${p.file}: no informative video "${p.video}"`).toBeDefined();
           expect(v.file).toBe(p.file);
         }
+        if (p.make === 'launch-video') {
+          const v = LAUNCH_VIDEOS[p.video as keyof typeof LAUNCH_VIDEOS];
+          expect(v, `${p.file}: no launch video "${p.video}"`).toBeDefined();
+          expect(v.file).toBe(p.file);
+          expect(v.folder, p.file).toBe(name(dir).replace(/^posts\/\d{4}-\d{2}-\d{2}-/, ''));
+        }
       }
     });
   }
@@ -74,13 +81,17 @@ describe('the videos, as first made, keep the template rules', () => {
   const videos = folders.flatMap((dir) => (readPictures(dir)?.pictures ?? []).filter((p) => p.make.endsWith('-video')).map((p) => ({ dir, p })));
 
   it('finds the videos', () => {
-    expect(videos.length).toBeGreaterThanOrEqual(4);
+    expect(videos.length).toBeGreaterThanOrEqual(5);
   });
 
   for (const { dir, p } of videos) {
-    it(`${name(dir)}/${p.file}: ${p.make === 'deal-video' ? 'exactly 10 seconds' : '20 to 30 seconds'}, under ${T.encode.maxMegabytes} MB`, () => {
+    const rule = p.make === 'deal-video' ? 'exactly 10 seconds' : p.make === 'launch-video' ? `${T.launch.minSeconds} to ${T.launch.maxSeconds} seconds` : '20 to 30 seconds';
+    it(`${name(dir)}/${p.file}: ${rule}, under ${T.encode.maxMegabytes} MB`, () => {
       if (p.make === 'deal-video') expect(p.seconds).toBeCloseTo(T.deal.totalSeconds, 2);
-      else {
+      else if (p.make === 'launch-video') {
+        expect(p.seconds).toBeGreaterThanOrEqual(T.launch.minSeconds);
+        expect(p.seconds).toBeLessThanOrEqual(T.launch.maxSeconds);
+      } else {
         expect(p.seconds).toBeGreaterThanOrEqual(T.informative.minSeconds);
         expect(p.seconds).toBeLessThanOrEqual(T.informative.maxSeconds);
       }

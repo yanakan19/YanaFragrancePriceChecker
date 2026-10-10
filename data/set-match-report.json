@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 230,
+ "folded": 231,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1774,6 +1774,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -7315,6 +7347,37 @@
   },
   {
    "reasons": [
+    "price spread 1.65 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-classico-tonino-lamborghini-eau-de-toilette-spray-125ml-after-shave-balm-100ml-shower-gel-100ml",
+     "brand": "Lamborghini Tonino",
+     "name": "Classico Tonino Lamborghini Eau de Toilette Spray 125ml After Shave Balm 100ml, Shower Gel 100ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "classico lamborghini tonino",
+     "signature": "1x100wash|1x125body",
+     "shops": [
+      "debenhams"
+     ]
+    },
+    {
+     "id": "set-ean-810876038423",
+     "brand": "Lamborghini Tonino",
+     "name": "Classico Lamborghini Eau de Toilette Spray 125ml After Shave Balm 100ml, Shower Gel 100ml Lamborghini Tonino",
+     "concentration": "Eau de Toilette",
+     "ean": "810876038423",
+     "scent": "classico lamborghini tonino",
+     "signature": "1x100wash|1x125body",
+     "shops": [
+      "direct-cosmetics"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "a shop lists more than one: armaf"
    ],
    "members": [
@@ -10370,6 +10433,65 @@
   },
   {
    "reasons": [
+    "strengths differ: Eau de Toilette, Parfum",
+    "two different barcodes: 3616304957628, 3616305265180, 3616305439444, 8005610460598",
+    "a shop lists more than one: fragrance-click, paco-perfumerias-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616304957628",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Parfum 100ml Spray 3pcs Set",
+     "concentration": "Parfum",
+     "ean": "3616304957628",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk",
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3616305265180",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled 100ml Parfum 3pcs Set",
+     "concentration": "Parfum",
+     "ean": "3616305265180",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click"
+     ]
+    },
+    {
+     "id": "set-ean-3616305439444",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Eau de Toilette 100ml 3pcs Spray Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3616305439444",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-8005610460598",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled 100ml Eau de Toilette Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8005610460598",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3616304957642, 3616304957659",
     "a shop lists more than one: perfume-direct"
    ],
@@ -10483,40 +10605,6 @@
      "signature": "1x100fragrance|1x100wash|1x?deo",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "strengths differ: Eau de Toilette, Parfum",
-    "two different barcodes: 3616305265180, 8005610460598",
-    "a shop lists more than one: fragrance-click"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305265180",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled 100ml Parfum 3pcs Set",
-     "concentration": "Parfum",
-     "ean": "3616305265180",
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|3p",
-     "shops": [
-      "fragrance-click"
-     ]
-    },
-    {
-     "id": "set-ean-8005610460598",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled 100ml Eau de Toilette Set",
-     "concentration": "Eau de Toilette",
-     "ean": "8005610460598",
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|3p",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk"
      ]
     }
    ]

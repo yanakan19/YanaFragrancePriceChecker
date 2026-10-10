@@ -172,7 +172,7 @@ describe('the built page and its data folder', () => {
 
 const SCOPE = 'https://pricesniffs.space/';
 
-function fakeServiceWorker(host: Map<string, string>) {
+function fakeServiceWorker(host: Map<string, string>, openPages: string[] = []) {
   const network: string[] = [];
   let offline = false;
   const stores = new Map<string, Map<string, Response>>();
@@ -217,7 +217,7 @@ function fakeServiceWorker(host: Map<string, string>) {
   const self = {
     addEventListener: (type: string, fn: (e: unknown) => void) => listeners.set(type, fn),
     skipWaiting: () => {},
-    clients: { claim: async () => {} },
+    clients: { claim: async () => {}, matchAll: async () => openPages.map((p) => ({ url: new URL(p, SCOPE).href })) },
     registration: { scope: SCOPE },
     location: { origin: new URL(SCOPE).origin },
   };
@@ -316,5 +316,63 @@ describe('demo/sw.js', () => {
     const doc = await sw.get('/brands/lattafa', 'navigate');
     expect(await doc!.text()).toBe(page(oldData));
     expect(await (await sw.get(oldData))!.text()).toBe('["old"]');
+  });
+});
+
+/**
+ * One worker at the root serves every country (owner rule, 10 Oct 2026: a
+ * country's Most Stocked, Deals and counts use its own shops and prices only).
+ * Until then a visit to /us/ was kept as the UK's offline page, so an offline
+ * visitor at / was handed the US site, and its pruning resolved us/data/...
+ * against the root and dropped every UK data file.
+ */
+describe('demo/sw.js keeps each country to its own cache', () => {
+  const ukData = `/${hashedDataPath('catalogue', 'uk')}`;
+  const usData = `/us/${hashedDataPath('catalogue', 'us')}`;
+  const usNewer = `/us/${hashedDataPath('catalogue', 'us2')}`;
+  const page = (data: string) => `<!doctype html><script>var files=[["${data.slice(1)}",0]];</script>`;
+  const shell = { '/manifest.webmanifest': '{}', '/favicon.svg': '<svg/>', '/icons/icon-192.png': 'png', '/icons/icon-512.png': 'png' };
+  const site = () => new Map(Object.entries({
+    ...shell, '/index.html': page(ukData), '/': page(ukData), [ukData]: '["uk"]',
+    '/us/index.html': page(usData), '/us/': page(usData), [usData]: '["us"]', [usNewer]: '["us2"]',
+  }));
+
+  it('keeps each country\'s offline page apart, and never answers one country\'s address with another\'s page', async () => {
+    const host = site();
+    const sw = fakeServiceWorker(host);
+    await sw.dispatch('install');
+    await sw.get('/us/', 'navigate');
+    expect(await sw.cached('pricesniffs-shell-v3')).toEqual(expect.arrayContaining(['/index.html', '/us/index.html']));
+    sw.goOffline();
+    expect(await (await sw.get('/', 'navigate'))!.text()).toBe(page(ukData));
+    expect(await (await sw.get('/brands/lattafa', 'navigate'))!.text()).toBe(page(ukData));
+    expect(await (await sw.get('/us/deals', 'navigate'))!.text()).toBe(page(usData));
+    // No Indian page was ever opened: no page at all rather than the UK's or the US's.
+    expect(await sw.get('/in/', 'navigate')).toBeUndefined();
+  });
+
+  it('caches a country\'s data in its own folder and prunes only that country\'s files', async () => {
+    const host = site();
+    const sw = fakeServiceWorker(host);
+    await sw.dispatch('install');
+    await sw.get('/us/', 'navigate');
+    await sw.get(usData);
+    expect(await sw.cached('pricesniffs-data-v1')).toEqual([ukData, usData].sort());
+    // A newer US build: the old US file goes, the UK's stays.
+    host.set('/us/index.html', page(usNewer));
+    host.set('/us/', page(usNewer));
+    await sw.get('/us/', 'navigate');
+    await sw.get(usNewer);
+    expect(await sw.cached('pricesniffs-data-v1')).toEqual([ukData, usNewer].sort());
+    // Back on the UK page: the US file stays too.
+    await sw.get('/', 'navigate');
+    expect(await sw.cached('pricesniffs-data-v1')).toEqual([ukData, usNewer].sort());
+  });
+
+  it('installed from a US page, pre-caches the US page and its data, not the UK\'s data', async () => {
+    const sw = fakeServiceWorker(site(), ['/us/']);
+    await sw.dispatch('install');
+    expect(await sw.cached('pricesniffs-data-v1')).toEqual([usData]);
+    expect(await sw.cached('pricesniffs-shell-v3')).toContain('/us/index.html');
   });
 });
