@@ -1790,12 +1790,12 @@ function browseView(): string {
     ${
       isTop && state.browseSort === 'stocked'
         ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops stock each one, then by
-             brand and name. A brand's own store does not count. Sets and oils are not listed here, they have
-             their own tabs under Explore, and each perfume is listed once, in its most stocked size. This shows
-             how widely a fragrance is stocked, not how well it sells: we do not count views or purchases.</p>`
+             brand and name. A brand's own store does not count. One line per perfume, in its most stocked size;
+             sets and oils have their own tabs under Explore. This shows how widely a fragrance is stocked, not
+             how well it sells.</p>`
         : isTop
-          ? `<p class="panel-note t-body">Every fragrance in the Most Stocked ranking, in the order you chose. Sets
-               and oils are not listed here, they have their own tabs under Explore, and each perfume is listed once.</p>`
+          ? `<p class="panel-note t-body">Every fragrance in the Most Stocked ranking, in the order you chose. One
+               line per perfume; sets and oils have their own tabs under Explore.</p>`
           : ''
     }
     ${
@@ -2966,7 +2966,7 @@ function dormantDetailView(): string {
       </div>
 
       <div class="detail-offers">
-        <p class="panel-note t-body">No shop we check has confirmed a price for this in the last ${HIDE_OFFER_AFTER_DAYS} days, so none is shown, and the graph below keeps the prices we recorded.</p>
+        <p class="panel-note t-body">No shop has confirmed a price for this in the last ${HIDE_OFFER_AFTER_DAYS} days, so none is shown. The graph below keeps the prices we recorded.</p>
         ${priceHistorySection(id, false)}
       </div>
     </div>`;
@@ -3340,7 +3340,7 @@ function dealsPanel(): string {
     });
 
   return `${controls}${sparse ? `<p class="empty-note t-body">${esc(sparse)}</p>` : ''}
-    <p class="panel-note t-body">${esc(localWords("Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it. Each perfume shows its best deal across its sizes."))}${regionTaxNoteText()}</p>
+    <p class="panel-note t-body">${esc(localWords("Savings are against the shop's own published RRP, or the maker's own price where the maker sells it here. Prices include delivery where the shop states it. One deal per perfume, at its best size."))}${regionTaxNoteText()}</p>
     <ul class="tile-grid">${chunked(withGridAds(filtered, dealTile), (item, i) => item(i))}</ul>`;
 }
 
@@ -4071,7 +4071,7 @@ function settingsView(): string {
  * their own email app rather than posting it anywhere.
  */
 const SUGGEST_NOTE =
-  'Send opens your own email app with your message ready to go. Nothing goes to a server of ours.';
+  'Send opens your own email app with your message ready. Nothing goes to a server of ours.';
 
 /**
  * Suggestions, the page behind the account menu's item of that name (owner
@@ -5458,10 +5458,10 @@ function notFoundView(): string {
   return `
     <article class="doc">
       <h1 class="t-page">Page Not Found</h1>
-      <p class="t-body">Nothing on this site answers to
+      <p class="t-body">There is nothing at
         ${path && path !== '/' ? `<code>${esc(path)}</code>` : 'that address'}.
-        It may have been a fragrance or a shop that has since been delisted.</p>
-      <p class="t-body">Search the catalogue, or start from one of these:</p>
+        It may be a fragrance or a shop we no longer list.</p>
+      <p class="t-body">Try one of these.</p>
       <p class="notfound-links">
         <button class="link-btn" data-goto="home">Home</button>
         <button class="link-btn" data-goto="browse">Search ${COUNTS.bottles.toLocaleString('en-GB')} Fragrances</button>

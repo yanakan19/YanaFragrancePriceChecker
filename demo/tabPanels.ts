@@ -170,7 +170,7 @@ export function createTabs(deps: TabDeps) {
     fragrances: {
       title: 'Fragrances',
       searchLabel: 'Fragrances',
-      note: 'Every perfume we track, one line for each size. Sets and oils have their own tabs.',
+      note: 'Every bottle we track, one line per size. Sets and oils have their own tabs.',
       empty: 'No fragrance matches that.',
       noun: ['Fragrance', 'Fragrances'],
       sorts: BROWSE_SORT_OPTIONS,
@@ -181,7 +181,7 @@ export function createTabs(deps: TabDeps) {
       title: 'Sets',
       searchLabel: 'Sets',
       note:
-        'Gift sets, miniature and discovery sets, and bundles of full size bottles. A set is compared only with the same set at another shop, never with a single bottle.',
+        'Gift sets, minis, discovery sets and bundles of full size bottles. Each is compared only with the same set at other shops, never with a single bottle.',
       empty: 'No set matches that.',
       noun: ['Set', 'Sets'],
       sorts: SET_SORT_OPTIONS,
@@ -192,7 +192,7 @@ export function createTabs(deps: TabDeps) {
       title: 'Oils',
       searchLabel: 'Oils',
       note:
-        'Perfume oils, sold in small bottles and rollers rather than sprays. An oil is compared only with the same oil at another shop, never with a spray.',
+        'Perfume oils in small bottles and rollers. Each is compared only with the same oil at other shops, never with a spray.',
       empty: 'No oil matches that.',
       noun: ['Oil', 'Oils'],
       sorts: OIL_SORT_OPTIONS,

@@ -156,8 +156,7 @@ describe.skipIf(!built)('sets and oils one line away from the bottle lists', () 
     try {
       expect(await page.locator('#view .tabs-line').count()).toBe(0);
       const note = await page.locator('#view .panel-note').first().innerText();
-      expect(note).toMatch(/Sets and oils are not listed here/);
-      expect(note).toMatch(/tabs under Explore/);
+      expect(note).toMatch(/sets and oils have their own tabs under Explore/);
     } finally {
       await ctx.close();
     }

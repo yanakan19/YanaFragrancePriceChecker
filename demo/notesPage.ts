@@ -165,7 +165,7 @@ export function notesTabHtml(data: NotesData | null, failed: boolean, state: Not
       <label for="note-search" class="nt-search-label t-caption">Search notes</label>
       <input id="note-search" class="nt-search-input" type="search" value="${esc(state.query)}" placeholder="Bergamot, rose, oud…" autocomplete="off" spellcheck="false" enterkeyhint="search" aria-describedby="note-search-status">
     </div>`;
-  const intro = `<p class="panel-note t-body">Groups are our own way of sorting the notes shops publish. ${n(env.withNotes)} of ${n(env.products)} products list them.</p>`;
+  const intro = `<p class="panel-note t-body">We sort the notes shops publish into our own groups. ${n(env.withNotes)} of ${n(env.products)} products list notes.</p>`;
   if (!data) {
     return `<div class="nt-wrap">
       <div class="page-head"><h1 class="t-page">Notes</h1></div>
