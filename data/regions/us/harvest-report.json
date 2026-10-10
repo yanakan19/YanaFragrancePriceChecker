@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-10-09T19:03:36.224Z",
-  "minutes": 42.35,
+  "ranAt": "2026-10-10T14:00:30.182Z",
+  "minutes": 42.52,
   "dryRun": false,
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "listingsKept": 30633,
+  "listingsKept": 31057,
   "shops": [
     {
       "id": "perfumania",
@@ -15,12 +15,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 5938,
-      "priced": 5938,
-      "kept": 4364,
+      "listingsRead": 5941,
+      "priced": 5941,
+      "kept": 4366,
       "withBarcode": 0,
       "pagesFetched": 21,
-      "seconds": 37,
+      "seconds": 40,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -46,16 +46,20 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 488,
-      "priced": 488,
-      "kept": 412,
-      "withBarcode": 136,
-      "pagesFetched": 250,
-      "seconds": 440,
+      "listingsRead": 730,
+      "priced": 730,
+      "kept": 729,
+      "withBarcode": 312,
+      "pagesFetched": 333,
+      "seconds": 721,
       "currency": "JSON-LD offers named: USD",
-      "errors": [],
+      "errors": [
+        "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
+        "stopped early: exceeded this shop's time budget"
+      ],
       "diagnostics": [
-        "sitemap: 3466 product address(es) found, first read https://www.luckyscent.com/products/eau-de-lessive-edition-rose-by-bdk-parfums"
+        "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
+        "sitemap: 3469 product address(es) found, first read https://www.luckyscent.com/products/gothic-iii-eau-de-parfum-by-loree-rodkin"
       ]
     },
     {
@@ -69,7 +73,7 @@
       "kept": 705,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 18,
+      "seconds": 22,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -84,7 +88,7 @@
       "kept": 181,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 16,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -99,7 +103,7 @@
       "kept": 540,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 12,
+      "seconds": 13,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -109,12 +113,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 12012,
-      "priced": 12011,
-      "kept": 646,
+      "listingsRead": 12047,
+      "priced": 12046,
+      "kept": 645,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 52,
+      "seconds": 54,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -124,12 +128,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6823,
-      "priced": 6823,
-      "kept": 861,
+      "listingsRead": 6799,
+      "priced": 6799,
+      "kept": 853,
       "withBarcode": 0,
-      "pagesFetched": 29,
-      "seconds": 68,
+      "pagesFetched": 28,
+      "seconds": 66,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -159,7 +163,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -204,7 +208,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -234,7 +238,7 @@
       "kept": 5101,
       "withBarcode": 4488,
       "pagesFetched": 26,
-      "seconds": 52,
+      "seconds": 54,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -244,9 +248,9 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6334,
-      "priced": 6334,
-      "kept": 4606,
+      "listingsRead": 6337,
+      "priced": 6337,
+      "kept": 4608,
       "withBarcode": 0,
       "pagesFetched": 23,
       "seconds": 43,
@@ -259,12 +263,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6041,
-      "priced": 6041,
-      "kept": 4721,
+      "listingsRead": 6044,
+      "priced": 6044,
+      "kept": 4723,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 42,
+      "seconds": 43,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -274,12 +278,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1703,
+      "listingsRead": 1702,
       "priced": 502,
       "kept": 502,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 17,
+      "seconds": 18,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -319,12 +323,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 5615,
-      "priced": 5615,
-      "kept": 4867,
+      "listingsRead": 5617,
+      "priced": 5617,
+      "kept": 4868,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 50,
+      "seconds": 65,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -334,18 +338,18 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1701,
-      "priced": 700,
-      "kept": 572,
-      "withBarcode": 572,
-      "pagesFetched": 709,
-      "seconds": 2402,
+      "listingsRead": 1151,
+      "priced": 660,
+      "kept": 562,
+      "withBarcode": 561,
+      "pagesFetched": 669,
+      "seconds": 2403,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2812 product address(es) found, first read https://www.ulta.com/p/red-door-eau-de-toilette-2629?sku=2012170"
+        "sitemap: 2814 product address(es) found, first read https://www.ulta.com/p/acqua-di-gio-eau-de-toilette-fs356346?sku=2023509"
       ]
     },
     {
@@ -354,16 +358,18 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 248,
-      "priced": 248,
-      "kept": 176,
-      "withBarcode": 156,
-      "pagesFetched": 250,
-      "seconds": 604,
+      "listingsRead": 295,
+      "priced": 295,
+      "kept": 295,
+      "withBarcode": 259,
+      "pagesFetched": 295,
+      "seconds": 722,
       "currency": "JSON-LD offers named: USD",
-      "errors": [],
+      "errors": [
+        "stopped early: exceeded this shop's time budget"
+      ],
       "diagnostics": [
-        "sitemap: 7943 product address(es) found, first read https://theperfumespot.com/bod-man-dark-ice-by-parfums-de-coeur-8-oz-frgrance-body-spray-for-men/"
+        "sitemap: 7942 product address(es) found, first read https://theperfumespot.com/coach-gold-parfum-by-coach-1-oz-parfum-spray-for-women/"
       ]
     },
     {
