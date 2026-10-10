@@ -124,8 +124,8 @@ press) and `--dur-4` (320ms, theme cross fade) stay.
 Allowed effects, and nothing else:
 
 1. **Enter**: fade plus a 6px rise, `--dur` on `--ease-out`, once per view
-   (`.ps-rise`, existing). On Home the four top level blocks stagger by 40ms
-   instead (`.ps-stagger` on the home wrapper only, so nothing is nested).
+   (`.ps-rise`, existing). On Home the top level blocks stagger by 30ms
+   (0 to 90ms) instead (`.ps-stagger` on the home wrapper only, so nothing is nested).
 2. **Lift**: tiles and cards that are links rise 2px, border to
    `--line-firm`, and a soft shadow fades in (a pseudo element's opacity, so
    no shadow is animated). On hover with a fine pointer, and on keyboard
@@ -133,13 +133,14 @@ Allowed effects, and nothing else:
 3. **Press**: scale 0.98 on primary and secondary buttons, existing .985 on
    rows and tiles kept.
 4. **Rails**: `scroll-snap-type: x proximity` and smooth scroll (existing),
-   now with `scroll-snap-stop: normal` and the lift inside the rail clear of
-   its top edge.
+   with the lift kept inside the rail's 2px top padding so a lifted tile is
+   never clipped.
 5. **Skeletons**: a page skeleton while the data loads (static markup in
    `<main>`, replaced by the first render; shown only with JavaScript), and a
    soft sweep across each photo well until its photo has loaded (a class set
    from one captured `load` listener; it waits 250ms before showing, so a
-   cached photo never flashes it, and stops after 6 sweeps).
+   cached photo never flashes it, and stops when the photo has loaded or
+   failed; the page skeleton sweeps 6 times at most).
 6. **Graph draw in**: the line and band are revealed left to right by a clip
    rectangle scaled from 0 to 1 (transform), dots fade in after.
 7. **Menus and dialogs**: fade plus a 4px rise (menus) or scale from 0.98
@@ -183,8 +184,9 @@ Three places only, and never behind body text:
 2. **The top deal** (first tile on Deals in the default sort): a 2px ring of
    the same drift around the tile (the gradient layer behind, the tile's own
    `--surface` card inside). The tile's text sits on its usual card.
-3. **Primary buttons on hover** (`.contact-send`, `.ps-dialog-btn.primary`):
-   a drift between `--accent` and `--accent-ink`, which lifts the text
+3. **Primary buttons on hover** (`.contact-send`, the accent rank: Send,
+   Sign In, Save; a dialog's OK button is the ink rank and is left alone):
+   a drift between `--accent` and `--accent-ink`, 12s a pass, which lifts the text
    contrast in both themes (dark: near black on `#FF6A6E` 7.3:1, light: white
    on `#A80C25` 7.6:1) where today's hover drops it to 4.0:1 in dark.
 

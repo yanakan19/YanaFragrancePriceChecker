@@ -342,6 +342,9 @@ function chartCaption(input: PriceHistoryChartInput, realLine: readonly RawHisto
  * fill the card (`preserveAspectRatio="none"`), which would warp a circle into
  * an ellipse, while a fixed pixel sized button stays round at any width.
  */
+/** Numbers each chart's clip path, so two charts on one page never share an id. */
+let chartSerial = 0;
+
 function priceHistoryBody(
   points: readonly DailyHistoryPoint[],
   markers: readonly Marker[],
@@ -488,11 +491,19 @@ function priceHistoryBody(
     .map((p) => `<span class="history-ylabel" style="top:${yPct(p).toFixed(2)}%">${esc(formatMoney(p))}</span>`)
     .join('');
 
+  // The line and its band draw in from the left when the chart arrives: a
+  // clip rectangle scaled from nothing to full width (a transform, see
+  // .history-reveal in demo/template.html). Each chart needs its own id, and
+  // a page holds one chart per range.
+  const clipId = `history-clip-${++chartSerial}`;
   return `<div class="history-chart" data-history-chart data-y-lo="${domain.lo.toFixed(2)}" data-y-hi="${domain.hi.toFixed(2)}">
       <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="history-svg" aria-hidden="true" focusable="false">
+        <defs><clipPath id="${clipId}"><rect class="history-reveal" x="-8" y="-8" width="${W + 16}" height="${H + 16}" /></clipPath></defs>
         ${yGuides}
+        <g clip-path="url(#${clipId})">
         <path d="${areaPath}" class="history-area" />
         <path d="${linePath}" class="history-line" />
+        </g>
       </svg>
       <div class="history-yaxis" aria-hidden="true">${yLabels}</div>
       ${lineDots}${markerDots}

@@ -163,7 +163,7 @@ export function guideHtml(guide: GuideInfo, body: readonly Block[] | null, statu
     <article class="doc content-doc">
       <h1 class="t-page">${escapeHtml(guide.title)}</h1>
       <p class="content-lead t-body">${escapeHtml(guide.description)}</p>
-      ${body ? blocksHtml(body) : waiting(status)}
+      ${body ? `<div class="content-body">${blocksHtml(body)}</div>` : waiting(status)}
       <nav class="content-more" aria-labelledby="more-guides">
         <h2 class="t-section" id="more-guides">More Guides</h2>
         <ul class="t-body">
@@ -181,6 +181,6 @@ export function howWeCheckHtml(body: readonly Block[] | null, status: LazyStatus
     <article class="doc content-doc">
       <h1 class="t-page">${escapeHtml(HOW_WE_CHECK.title)}</h1>
       <p class="content-lead t-body">${escapeHtml(HOW_WE_CHECK.description)}</p>
-      ${body ? blocksHtml(body) : waiting(status)}
+      ${body ? `<div class="content-body">${blocksHtml(body)}</div>` : waiting(status)}
     </article>`;
 }

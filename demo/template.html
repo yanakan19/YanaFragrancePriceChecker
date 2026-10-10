@@ -208,12 +208,20 @@
        Every use pairs it with font-variant-numeric: tabular-nums. */
     --font-num: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-    /* Four durations, three curves. Nothing on the site animates for longer
-       than --dur-4, and nothing animates a price. */
-    --dur-1: 90ms;   /* press and release, colour-only swaps */
-    --dur-2: 160ms;  /* hover, chip select, toggle, tab underline */
-    --dur-3: 240ms;  /* content entering, sheets, list settle */
-    --dur-4: 320ms;  /* theme cross-fade — the longest thing on the site */
+    /* The motion scale (docs/UX-POLISH-PLAN.md 4). Three durations and one
+       arrival curve name every new rule; --dur-2 and --dur-3 point at them
+       so the older rules share one scale. Nothing that runs once lasts
+       longer than --dur-slow, and nothing animates a price. The only loops
+       are the marquee, the photo sweep, the live dot and the gradient
+       drift, and reduced motion stops all four. */
+    --ease-out:  cubic-bezier(.2,.8,.2,1);
+    --dur-fast:  150ms;  /* hover, focus, press release, menus */
+    --dur:       220ms;  /* page and section enter */
+    --dur-slow:  400ms;  /* graph draw in, skeleton fade */
+    --dur-1: 90ms;             /* press and release, colour-only swaps */
+    --dur-2: var(--dur-fast);  /* hover, chip select, toggle, tab underline */
+    --dur-3: var(--dur);       /* content entering, sheets, list settle */
+    --dur-4: 320ms;            /* theme cross-fade */
     --ease-standard: cubic-bezier(.2,0,0,1);
     --ease-exit:     cubic-bezier(.4,0,1,1);
   }
@@ -278,9 +286,13 @@
   .t-price--hero { font-size: 34px; line-height: 1.05; letter-spacing: -.022em; }
 
   /* ── motion ────────────────────────────────────────────────────────────────
-     Seven named behaviours, and nothing animates that is not one of them.
-     Motion explains a change of state, never arrival: idle pages are still.
-     Transform and opacity only — never width, height, top or left.
+     The named behaviours below, and nothing animates that is not one of them
+     (docs/UX-POLISH-PLAN.md 4; tests/motion.test.ts holds the rules).
+     Motion explains a change of state or an arrival. The one idle movement
+     is the slow gradient drift on three chosen tiles (behaviour 9), at the
+     owner's request of 10 Oct 2026.
+     Transform and opacity only, plus colour and border colour fades — never
+     width, height, top, left or a shadow.
 
      The rule below is the theme cross-fade (behaviour 5): switching mode
      fades ground, ink and border on every element over --dur-4 without
@@ -302,11 +314,13 @@
     from { opacity: 0; transform: translateY(6px); }
     to   { opacity: 1; transform: none; }
   }
-  .ps-rise        { animation: ps-rise var(--dur-3) var(--ease-standard) both; }
-  /* Behaviour 2: settle — a list re-ordering after a filter change. Staggered
-     30ms per item and capped at 8, so the last thing a reader sees lands
-     within --dur-3 of the first rather than trickling in indefinitely. */
-  .ps-stagger > * { animation: ps-rise var(--dur-3) var(--ease-standard) both; }
+  .ps-rise        { animation: ps-rise var(--dur) var(--ease-out) both; }
+  /* Behaviour 2: settle — blocks arriving in turn. The home page's wrapper
+     carries it instead of .ps-rise (render() in demo/app.ts), so its hero,
+     banner, rail and lower section arrive 30ms apart rather than as one
+     slab. Capped at 8, so the last thing a reader sees lands within --dur
+     of the first rather than trickling in indefinitely. */
+  .ps-stagger > * { animation: ps-rise var(--dur) var(--ease-out) both; }
   .ps-stagger > *:nth-child(1) { animation-delay: 0ms; }
   .ps-stagger > *:nth-child(2) { animation-delay: 30ms; }
   .ps-stagger > *:nth-child(3) { animation-delay: 60ms; }
@@ -317,8 +331,50 @@
   .ps-stagger > *:nth-child(8) { animation-delay: 210ms; }
   .ps-stagger > *:nth-child(n+9) { animation-delay: 240ms; }
 
+  /* Behaviour 6: open — a menu drops 4px from its button, a sheet rises from
+     the bottom, a dialog settles from .98. Closing is instant ([hidden]). */
+  @keyframes ps-pop {
+    from { opacity: 0; transform: translateY(-4px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes ps-zoom {
+    from { opacity: 0; transform: scale(.98); }
+    to   { opacity: 1; transform: none; }
+  }
+  /* No "to": it fades up to the element's own opacity, whatever that is. */
+  @keyframes ps-fade { from { opacity: 0; } }
+
+  /* Behaviour 8: sweep — a soft band across a box whose content is on its
+     way (the page skeleton, a photo well). It waits 250ms, so a box filled
+     from the cache never shows it. The skeleton sweeps 6 times at most and
+     then rests off the box; a photo well sweeps until its photo is in. */
+  @keyframes ps-sweep {
+    from { opacity: 0; transform: translateX(-100%); }
+    20%  { opacity: 1; }
+    to   { opacity: 1; transform: translateX(100%); }
+  }
+
+  /* Behaviour 9: drift — the moving gradient, on three tiles only (the home
+     title tile, the top deal, the primary button on hover; the motion test
+     holds the list). A layer three times the tile's width carries a three
+     stop gradient and slides sideways, so only transform changes and the
+     layer stays on the compositor. 18s a pass, alternating: slow enough to
+     read as light rather than movement. */
+  @keyframes ps-drift {
+    from { transform: translate3d(-16%, 0, 0); }
+    to   { transform: translate3d(16%, 0, 0); }
+  }
+  .ps-drift { position: relative; isolation: isolate; overflow: hidden; }
+  .ps-drift::before {
+    content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: -100%; width: 300%;
+    pointer-events: none;
+    background: linear-gradient(100deg, var(--drift-a), var(--drift-b) 50%, var(--drift-c));
+    animation: ps-drift 18s ease-in-out infinite alternate;
+  }
+
   /* Every behaviour above has a reduced-motion end state, and this is it:
-     the end state still arrives, it just arrives immediately. */
+     the end state still arrives, it just arrives immediately. The loops are
+     also named and stopped outright, so nothing moves at all. */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 1ms !important;
@@ -327,6 +383,8 @@
       transition-duration: 1ms !important;
       scroll-behavior: auto !important;
     }
+    .ps-drift::before, .contact-send::before, .art::before, .boot i::after,
+    .history-dot-live { animation: none !important; }
   }
 
   /* ── control ranks ─────────────────────────────────────────────────────────
@@ -474,6 +532,11 @@
     border-bottom: 2px solid transparent; white-space: nowrap;
   }
   .navbtn.on { color: var(--ink); border-bottom-color: var(--accent); }
+  @media (hover: hover) and (pointer: fine) {
+    .navbtn:hover, .subnavbtn:hover { color: var(--ink); }
+    .shop-row:hover, .offer-link:hover { background: var(--surface-2); }
+    .shop-row:hover .shop-row-go { transform: translateX(2px); }
+  }
   .navbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
   .navbtn:active { transform: scale(.94); }
   @media (max-width: 560px) {
@@ -570,6 +633,12 @@
     }
     .acct-item { min-height: 48px; font-size: 16px; }
   }
+  /* Behaviour 6 for the account and country menus: a dropdown drops 4px
+     from its button, a phone sheet rises from the bottom over a fading
+     backdrop. Closing is instant. */
+  .acct-pop:not([hidden]) { animation: ps-pop var(--dur-fast) var(--ease-out); }
+  .acct-back:not([hidden]) { animation: ps-fade var(--dur-fast) var(--ease-out); }
+  @media (max-width: 600px) { .acct-pop:not([hidden]) { animation-name: ps-rise; } }
   /* ── country and currency selector (owner's request, 2026-10-05) ───────
      A compact pill just left of the account button: a small flag, the
      currency code and a chevron. UK and GBP is the only active choice and
@@ -758,21 +827,26 @@
   ul.listing, ul.offers { list-style: none; margin: 0; padding: 0; }
 
   /* ── intro / hero ──────────────────────────────────────────────────────── */
-  .intro { padding: 34px 0 0; }
+  /* The title tile (owner, 10 Oct 2026: a moving gradient, used minimally,
+     on prominent tiles). A hairline card whose ground drifts between the
+     page, the accent wash and the second surface (behaviour 9). A still
+     oval of the plain page ground sits over the middle, under the words, so
+     the wordmark and the line below it keep exactly the contrast they had:
+     the colour moves at the tile's edges, never behind text. */
+  .intro {
+    --drift-a: var(--bg); --drift-b: var(--accent-sf); --drift-c: var(--surface-2);
+    margin-top: 12px; padding: 28px 16px 26px;
+    border: 1px solid var(--line); border-radius: 16px;
+  }
+  .intro::after {
+    content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none;
+    background: radial-gradient(farthest-side at 50% 50%, var(--bg) 62%, transparent);
+  }
   .hero-logo { text-align: center; position: relative; }
-  /* The wordmark used to sit on a wash of its own that breathed in and out
-     on a 9s cycle. It went for two reasons: it was a second piece of idle
-     motion, and the wordmark sat on the brightest part of it, which is the
-     one place text must never go. The drifting background it competed with
-     has since gone too, so the greeting now sits on a flat ground. */
-
-  /* ── hero entrance ─────────────────────────────────────────────────────────
-     There isn't one any more, and that is the point. Each piece of the
-     greeting used to rise separately on a .75s curve of its own with hand
-     written .08s/.16s/.26s/.34s/.42s delays -- a second rise keyframe, a
-     third easing curve, and five nested animations inside a view that was
-     already rising as one block. Behaviour 1 in the motion section is one
-     rise per block, never nested, and the block here is the view. */
+  /* The wordmark once sat on the brightest part of a breathing wash, which
+     is the one place text must never go; the oval above keeps the words on
+     the plain ground. The hero has no entrance of its own: it is the first
+     block of the home page's stagger (behaviour 2). */
 
   .hero-wordmark {
     margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -.035em; line-height: 1;
@@ -1032,7 +1106,7 @@
     text-align: left; cursor: pointer;
     padding: 3px 10px; margin: 0; border-radius: 999px;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-    transition: border-color .12s ease, color .12s ease;
+    transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
   }
   .phead-brand:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {
@@ -1074,7 +1148,22 @@
   .art-sm { width: 90%; }
   .art-md { width: min(90%, 300px); }
   .art-lg { width: 96%; max-width: 340px; }
-  .art-img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .art-img { width: 100%; height: 100%; object-fit: contain; display: block; position: relative; }
+  /* Behaviour 8 on a photo well: a soft band sweeps across it until its
+     photo has loaded (art-ready, set by one captured load listener in
+     demo/app.ts) or failed (art-failed), which take the band away. It paints
+     under the photo, so a photo that arrives mid sweep simply covers it.
+     Base opacity 0: the band is decoration, and under reduced motion it never
+     shows. It loops rather than counting sweeps: a tile off screen is not
+     drawn (content-visibility on .tile-grid > li), and a counted animation
+     there would never finish, which leaves anything waiting on it waiting. */
+  .art:has(> .art-img) { position: relative; }
+  .art:has(> .art-img)::before {
+    content: ''; position: absolute; inset: 0; opacity: 0; pointer-events: none;
+    background: linear-gradient(90deg, transparent, rgba(13,13,15,.06), transparent);
+    animation: ps-sweep 1.2s ease-in-out 250ms infinite both;
+  }
+  .art.art-ready::before, .art.art-failed::before { content: none; }
   /* Fixed, not theme-driven: the placeholder sits inside a tile that is
      always white now, so it needs a colour that reads the same way whichever
      mode the rest of the page is in. Background matches the tile itself
@@ -1223,13 +1312,29 @@
     width: 100%; display: flex; flex-direction: column; gap: 6px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
     padding: 12px 13px 14px; color: var(--ink);
-    transition: border-color var(--dur-2) var(--ease-standard);
+    transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
   }
-  /* Behaviour 4, hover: the border moves --line to --line-firm and nothing
-     else. No lift, no shadow, no scale — cards stay on the grid, so a row of
-     them does not ripple as the pointer crosses it. */
+  /* Behaviour 4, lift (owner, 10 Oct 2026, replacing "no lift"): under a
+     mouse, or with keyboard focus inside it, the tile rises 2px, its border
+     firms and the theme's lift shadow appears. Only the transform and the
+     border animate; the shadow is a state, not a transition. Not under a
+     finger, where a hover would stick after the tap. */
   @media (hover: hover) and (pointer: fine) {
-    .tile:hover { border-color: var(--line-firm); }
+    .tile:hover { border-color: var(--line-firm); transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+  }
+  .tile:has(:focus-visible) { border-color: var(--line-firm); transform: translateY(-2px); box-shadow: var(--shadow-lift); }
+  /* The top deal (first on Deals in the default order): a 2px ring of the
+     drifting gradient (behaviour 9). The drift layer fills the tile and the
+     tile's own card is laid back over all but its edge, so the words sit on
+     the usual --surface. 16s a pass, out of step with the title tile. */
+  .tile.tile-top {
+    --drift-a: var(--accent); --drift-b: var(--rank-1); --drift-c: var(--accent-sf);
+    border-color: transparent;
+  }
+  .tile.tile-top::before { animation-duration: 16s; }
+  .tile.tile-top::after {
+    content: ''; position: absolute; z-index: -1; inset: 2px; border-radius: 10px;
+    background: var(--surface); pointer-events: none;
   }
   /* The tile's own two controls: the brand label above, and everything else
      (name, art, price, shop) below as one button — see fragranceTile in
@@ -1238,7 +1343,7 @@
     flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 8px;
     background: none; border: 0; padding: 0; margin: 0; cursor: pointer;
     font: inherit; color: inherit; text-align: left;
-    transition: transform .12s ease;
+    transition: transform var(--dur-fast) var(--ease-out);
   }
   .tile-body:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 8px; }
   /* Behaviour 3, press. .985 rather than the .97 this used to carry: at tile
@@ -1264,7 +1369,7 @@
     background: var(--pill-brand); border: 0; color: var(--ink-2);
     font: 600 11px/13px var(--font-sans); letter-spacing: .01em;
     padding: 3px 8px; border-radius: 8px;
-    transition: box-shadow .12s ease, color .12s ease;
+    transition: color var(--dur-fast) var(--ease-out);
   }
   @media (hover: hover) and (pointer: fine) {
     .tile .phead-brand:hover { box-shadow: inset 0 0 0 1px var(--accent); color: var(--accent); }
@@ -1540,7 +1645,7 @@
     display: block; width: 100%; text-align: left; cursor: pointer;
     background: none; border: 0; border-bottom: 1px solid var(--line);
     padding: 12px 2px; color: var(--ink);
-    transition: color .12s ease;
+    transition: color var(--dur-fast) var(--ease-out);
   }
   .brand-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   @media (hover: hover) and (pointer: fine) {
@@ -1667,14 +1772,14 @@
     width: 100%; display: flex; align-items: center; gap: 13px; cursor: pointer;
     background: none; border: 0; border-bottom: 1px solid var(--line);
     padding: 12px 2px; font: inherit; color: var(--ink); text-align: left;
-    transition: background-color .12s ease;
+    transition: background-color var(--dur-fast) var(--ease-out);
   }
   .shop-row:active { background: var(--surface); }
   .shop-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .shop-row-text { flex: 1; min-width: 0; }
   .shop-row-name { display: block; }
   .shop-row-meta { display: block; }
-  .shop-row-go { flex: none; color: var(--accent); font-weight: 700; }
+  .shop-row-go { flex: none; color: var(--accent); font-weight: 700; transition: transform var(--dur-fast) var(--ease-out); }
 
   /* Module 7: the account page's own wishlist list. A remove control sits
      beside the row rather than inside it — a <button> cannot nest inside
@@ -1770,9 +1875,9 @@
     background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
     padding: 8px 13px 8px 10px; text-decoration: none;
     font: inherit; font-size: 13px; font-weight: 600; color: var(--ink);
-    transition: border-color .12s ease, color .12s ease;
+    transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
   }
-  .brand-site-link .control-ico { transition: color .12s ease; }
+  .brand-site-link .control-ico { transition: color var(--dur-fast) var(--ease-out); }
   .brand-site-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {
     .brand-site-link:hover { border-color: var(--accent); color: var(--accent); }
@@ -2000,7 +2105,7 @@
   .note-chip {
     background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;
     padding: 5px 11px; font: inherit; font-size: 12.5px; color: var(--ink);
-    cursor: pointer; transition: border-color .12s ease, color .12s ease;
+    cursor: pointer; transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
   }
   .note-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {
@@ -2722,39 +2827,53 @@
     position: absolute; transform: translate(-50%, -50%);
     width: 8px; height: 8px; border-radius: 50%; padding: 0;
     background: var(--bg); border: 2px solid var(--accent); cursor: pointer;
-    outline: none; transition: width .12s ease, height .12s ease; z-index: 2;
+    outline: none; z-index: 2;
+    /* Grows by scale, not by width and height: same look, no layout work.
+       --grow is each kind's hover size over its resting size. */
+    --grow: 1.625;
+    transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
   }
-  .history-dot:hover, .history-dot:focus-visible { width: 13px; height: 13px; background: var(--accent); }
+  .history-dot:hover, .history-dot:focus-visible { transform: translate(-50%, -50%) scale(var(--grow)); background: var(--accent); }
   /* The live/current price point. Pulses to read as "this one is now", the
      rest of the line as settled history — purely additive, never the only
      way the current point is distinguishable (it is also simply the last,
      rightmost, largest dot). Respects the app-wide reduced-motion rule at
      the bottom of this file, which strips all animation outright. */
-  .history-dot-last { width: 11px; height: 11px; background: var(--accent); }
+  .history-dot-last { width: 11px; height: 11px; background: var(--accent); --grow: 1.18; }
   .history-dot-live { animation: history-pulse 1.8s ease-in-out infinite; }
+  /* Behaviour 7: draw in. When a chart arrives, the clip over its line and
+     band grows from the left edge, then the dots fade up. Only inside a view
+     that was entered (.ps-rise), so an in-place redraw such as a wishlist
+     tap does not replay it; a range switch does, as its panel was hidden. */
+  .history-reveal { transform-origin: 0 0; }
+  .ps-rise .history-reveal { animation: ps-draw var(--dur-slow) var(--ease-out) both; }
+  @keyframes ps-draw { from { transform: scaleX(0); } }
+  .ps-rise .history-dot { animation: ps-fade var(--dur) var(--ease-out) var(--dur-slow) backwards; }
+  .ps-rise .history-dot-live {
+    animation: ps-fade var(--dur) var(--ease-out) var(--dur-slow) backwards,
+               history-pulse 1.8s ease-in-out calc(var(--dur-slow) + var(--dur)) infinite;
+  }
   /* A day with no price at all. Grey rather than accent, and smaller, so a
      run of them reads as the absence it is and never competes with the real
      line — the colour is the whole signal here, so it also says "No price
      recorded" in its tooltip and its aria-label rather than relying on hue
      alone, which a colour-blind or monochrome reader would lose. Sits on the
      chart floor; that is a position, not a price of zero. */
-  .history-dot-nodata { width: 7px; height: 7px; border-color: var(--faint); opacity: .55; }
-  .history-dot-nodata:hover, .history-dot-nodata:focus-visible {
-    width: 11px; height: 11px; background: var(--faint); opacity: 1;
-  }
+  .history-dot-nodata { width: 7px; height: 7px; border-color: var(--faint); opacity: .55; --grow: 1.57; }
+  .history-dot-nodata:hover, .history-dot-nodata:focus-visible { background: var(--faint); opacity: 1; }
   /* An older price (last checked over HIDE_OFFER_AFTER_DAYS ago, see
      demo/priceHistoryChart.ts): hollow, with a dashed ring, so it never reads
      as a point on the cheapest line. Its tooltip and aria-label say "Older
      price" too, so the shape is never the only signal. */
   .history-dot-older {
     width: 9px; height: 9px; background: var(--bg);
-    border: 2px dashed var(--ink-2); z-index: 1;
+    border: 2px dashed var(--ink-2); z-index: 1; --grow: 1.44;
   }
-  .history-dot-older:hover, .history-dot-older:focus-visible { width: 13px; height: 13px; background: var(--bg); border-style: solid; }
+  .history-dot-older:hover, .history-dot-older:focus-visible { background: var(--bg); border-style: solid; }
   /* The last price at a shop that was sold out: grey and hollow, labelled
      sold out in words as well. Only drawn when nothing buyable is on record. */
-  .history-dot-soldout { width: 9px; height: 9px; border-color: var(--faint); background: var(--bg); }
-  .history-dot-soldout:hover, .history-dot-soldout:focus-visible { width: 13px; height: 13px; background: var(--faint); }
+  .history-dot-soldout { width: 9px; height: 9px; border-color: var(--faint); background: var(--bg); --grow: 1.44; }
+  .history-dot-soldout:hover, .history-dot-soldout:focus-visible { background: var(--faint); }
   /* An item price at a shop that does not state its delivery cost, on a graph
      of delivered prices (demo/priceHistoryChart.ts): square rather than
      round, and its tooltip, aria label and the caption all say "delivery not
@@ -2766,8 +2885,8 @@
      graph replaces the placeholder. */
   .history-note { font-size: 12.5px; color: var(--faint); margin: 10px 0 0; line-height: 1.5; min-height: 3em; }
   @keyframes history-pulse {
-    0%, 100% { width: 11px; height: 11px; opacity: 1; }
-    50% { width: 15px; height: 15px; opacity: .65; }
+    0%, 100% { transform: translate(-50%, -50%); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.36); opacity: .65; }
   }
   .history-tip {
     position: absolute; z-index: 5; pointer-events: none;
@@ -2912,8 +3031,20 @@
     border: 1px solid var(--accent); border-radius: 12px; padding: 10px 20px;
     font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
   }
-  .contact-send:hover, .contact-send:active {
-    background: var(--accent-press); border-color: var(--accent-press);
+  .contact-send:active { background: var(--accent-press); border-color: var(--accent-press); }
+  /* Primary hover (behaviour 9): the fill drifts between --accent and
+     --accent-ink, which raises the label's contrast in both themes (7.3:1
+     and 7.6:1, against 4.0:1 for the old dark hover). The layer fades in on
+     hover only and runs only while it shows. */
+  .contact-send { position: relative; isolation: isolate; overflow: hidden; }
+  .contact-send::before {
+    content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: -100%; width: 300%;
+    pointer-events: none; opacity: 0;
+    background: linear-gradient(100deg, var(--accent), var(--accent-ink) 50%, var(--accent));
+    transition: opacity var(--dur-fast) var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .contact-send:hover:not(:active)::before { opacity: 1; animation: ps-drift 12s ease-in-out infinite alternate; }
   }
   .contact-send:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   /* The one-line privacy note under each form and at sign up. */
@@ -2937,7 +3068,7 @@
     text-align: left; cursor: pointer;
     background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
     font: inherit; font-size: 14px; font-weight: 600; color: var(--ink);
-    transition: border-color .15s ease;
+    transition: border-color var(--dur-fast) var(--ease-out);
   }
   .account-entry svg { margin-left: auto; color: var(--faint); flex: none; width: 18px; height: 18px; }
   @media (hover: hover) {
@@ -3173,6 +3304,23 @@
      replaces #view wholesale when it starts, so for a normal visitor this is
      never painted and takes no room: nothing shifts. */
   html.js .static-intro { display: none; }
+  /* The loading outline (behaviour 8): a title, a line and four tiles in the
+     theme's own surfaces, a band sweeping each. At least a screen tall, so
+     the footer is already below the fold and does not jump when the page
+     arrives. Without JavaScript it is never painted. */
+  .boot { display: none; }
+  html.js .boot { display: block; min-height: 100vh; padding-top: 24px; }
+  .boot i { display: block; position: relative; overflow: hidden; background: var(--surface-2); border-radius: 8px; }
+  .boot-t { width: 46%; height: 28px; }
+  .boot-l { width: 78%; height: 14px; margin-top: 14px; }
+  .boot-g { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
+  @media (min-width: 900px) { .boot-g { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .boot-g i { aspect-ratio: 3 / 4; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); }
+  .boot i::after {
+    content: ''; position: absolute; inset: 0; opacity: 0;
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--ink) 6%, transparent), transparent);
+    animation: ps-sweep 1.2s ease-in-out 250ms 6 both;
+  }
   .static-intro { padding: 24px 0 0; max-width: 62ch; }
   .static-intro p { margin: 0 0 12px; }
   .static-intro .t-section { margin: 20px 0 8px; }
@@ -3361,6 +3509,8 @@
   }
   .ps-dialog.is-ok { border-left-color: var(--ok); }
   .ps-dialog::backdrop { background: rgba(0, 0, 0, .6); }
+  .ps-dialog[open] { animation: ps-zoom var(--dur-fast) var(--ease-out); }
+  .ps-dialog[open]::backdrop { animation: ps-fade var(--dur-fast) var(--ease-out); }
   .ps-dialog-body { margin: 0; padding: 20px 20px 16px; }
   .ps-dialog-title { margin: 0 0 8px; font-size: 18px; font-weight: 700; line-height: 1.3; }
   .ps-dialog-msg { margin: 0 0 18px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
@@ -3578,6 +3728,18 @@
   .doc .guide-card-title { font: 700 16px/1.3 var(--font-sans); margin: 0; }
   .doc .guide-card-title a { display: flex; align-items: center; min-height: 44px; padding: 8px 0 4px; box-sizing: border-box; color: var(--ink); }
   .doc .guide-card p { margin: 0; }
+  /* The whole card is the link (the title's link stretched over it), so it
+     lifts like a tile, and its focus ring is drawn round the card. */
+  .guide-card { position: relative; transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
+  .doc .guide-card-title a::after { content: ''; position: absolute; inset: 0; border-radius: 12px; }
+  .doc .guide-card-title a:focus-visible { outline: none; }
+  .guide-card:has(a:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; transform: translateY(-2px); border-color: var(--line-firm); }
+  @media (hover: hover) and (pointer: fine) {
+    .guide-card:hover { transform: translateY(-2px); border-color: var(--line-firm); box-shadow: var(--shadow-lift); }
+  }
+  /* A guide's words arrive after its heading (a lazy file): they fade up
+     rather than appear in one frame. */
+  .content-body { animation: ps-fade var(--dur) var(--ease-out) backwards; }
   /* Home: one slim secondary button to the guides index (owner request,
      9 Oct 2026). Secondary rank (surface-2, firm edge), one line from 320 up. */
   .bottom-split .guides-section { margin-bottom: 32px; }
@@ -3698,6 +3860,9 @@
     <noscript>
       <p class="ns-note"><strong>JavaScript is switched off.</strong> PriceSniffs needs it to search and compare live prices. The pages below explain what the site does, and turning JavaScript on in your browser settings brings the prices back.</p>
     </noscript>
+    <!-- While the prices load (JavaScript only): a still outline of a page,
+         replaced by the first render. See .boot. -->
+    <div class="boot" aria-hidden="true"><i class="boot-t"></i><i class="boot-l"></i><span class="boot-g"><i></i><i></i><i></i><i></i></span></div>
     <!-- Replaced when the app starts, and not painted at all before that for a
          visitor with JavaScript (html.js hides it): see .static-intro. -->
     <section class="static-intro" aria-labelledby="static-intro-title">

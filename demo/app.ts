@@ -1395,7 +1395,7 @@ function setContentsArt(g: NonNullable<DemoFragrance['giftSet']>): string {
  */
 function fragranceTile(
   f: DemoFragrance,
-  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean; soldBy?: string | undefined; tier?: string },
+  opts?: { rank?: number; trailing?: string; rail?: boolean; eager?: boolean; soldBy?: string | undefined; tier?: string; top?: boolean },
 ): string {
   const rows = rowsFor(f);
   const best = bestOffer(rows);
@@ -1429,8 +1429,10 @@ function fragranceTile(
   // Two sibling buttons, not one wrapping the other: the brand's own control
   // and the rest of the tile (name, art, price, shop) each need their own
   // click and keyboard target, and a button cannot contain another button.
+  // `top`: the one tile on the site that carries the drifting gradient ring,
+  // the first deal on Deals in its default order (demo/template.html .tile-top).
   return `<li${opts?.rail ? ' class="pop-item"' : ''}>
-    <div class="tile">
+    <div class="tile${opts?.top ? ' tile-top ps-drift' : ''}">
       ${brandButton(f.brand)}
       <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}${opts?.tier ? `, ${esc(opts.tier)}` : ''}">
         ${productHead(f)}
@@ -1595,7 +1597,7 @@ function regionTaxNoteText(): string {
 
 function homeView(): string {
   return `
-    <section class="intro">
+    <section class="intro ps-drift">
       <div class="hero-logo">
         <!-- The site name is the home page's one level-one heading; every
              other view's title carries .t-page as an h1 of its own. The class
@@ -3320,6 +3322,7 @@ function dealsPanel(): string {
   const dealTile = (d: (typeof sorted)[number], i?: number) =>
     fragranceTile(d.fragrance, {
       eager: i !== undefined && i < eager,
+      top: i === 0 && state.dealSort === 'discount',
       soldBy: RETAILERS.find((r) => r.id === d.retailerId)?.name,
       trailing:
         // `d.price` is the figure the product page's row prints for this
@@ -6924,11 +6927,15 @@ const DS_CONSTANTS: TokenRow[] = [
 ];
 
 const DS_MOTION: TokenRow[] = [
+  { name: '--dur-fast', role: 'Hover, focus, press release, menus' },
+  { name: '--dur', role: 'A page or a section arriving' },
+  { name: '--dur-slow', role: 'The price graph drawing in, the longest one off movement' },
+  { name: '--ease-out', role: 'Everything arriving, lifting or drawing' },
   { name: '--dur-1', role: 'Press and release, colour only swaps' },
-  { name: '--dur-2', role: 'Hover, chip select, toggle, tab underline' },
-  { name: '--dur-3', role: 'Content entering, sheets, list settle' },
-  { name: '--dur-4', role: 'Theme cross fade, the longest thing on the site' },
-  { name: '--ease-standard', role: 'Everything arriving or settling' },
+  { name: '--dur-2', role: 'Hover, chip select, toggle. The same as --dur-fast' },
+  { name: '--dur-3', role: 'Content entering, sheets. The same as --dur' },
+  { name: '--dur-4', role: 'Theme cross fade' },
+  { name: '--ease-standard', role: 'Settling, and the release of a press' },
   { name: '--ease-exit', role: 'Everything leaving, and the press half of a tap' },
 ];
 
@@ -7447,8 +7454,10 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // just plays on insertion. No JS animation retriggering needed. It is the
   // design system's own .ps-rise (behaviour 1: content entering a view), not
   // a class of its own — this is the one block on the page that rises, and
-  // one rise per block is the whole rule.
-  $('#view').innerHTML = `<div${mode === 'enter' ? ' class="ps-rise"' : ''}>${body}</div>`;
+  // one rise per block is the whole rule. Home is the exception: its blocks
+  // arrive 30ms apart (.ps-stagger, behaviour 2) instead, still one level.
+  const enter = state.view === 'home' ? 'ps-stagger' : 'ps-rise';
+  $('#view').innerHTML = `<div${mode === 'enter' ? ` class="${enter}"` : ''}>${body}</div>`;
 
   // The Notes tab's sticky bar marks the group in view (no op elsewhere).
   mountNoteGroupSpy();
@@ -7986,6 +7995,12 @@ function init(): void {
     const dot = (e.target as HTMLElement).closest('.history-dot');
     if (dot && dot !== pinnedHistoryDot) hideHistoryTip();
   });
+  // A product photo that has arrived stops its well's loading sweep
+  // (.art-ready in demo/template.html). Captured, as load does not bubble.
+  document.addEventListener('load', (e) => {
+    const t = e.target;
+    if (t instanceof HTMLImageElement && t.classList.contains('art-img')) t.parentElement?.classList.add('art-ready');
+  }, true);
   // A profile photo that will not show (a damaged file, a blob address that
   // has gone) falls back to the initial, in the button and on the profile.
   // Captured, because an image's error event does not bubble.
