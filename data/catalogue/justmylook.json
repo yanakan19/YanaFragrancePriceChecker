@@ -1,7 +1,7 @@
 {
   "retailerId": "justmylook",
-  "updatedAt": "2026-10-10T16:00:48.009Z",
-  "seenAt": "2026-10-10T16:00:48.009Z",
+  "updatedAt": "2026-10-10T20:29:40.358Z",
+  "seenAt": "2026-10-10T20:29:40.358Z",
   "source": "live",
   "listings": [
     {
@@ -39097,7 +39097,7 @@
       "priceGbp": 28.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -39744,7 +39744,7 @@
       "priceGbp": 89.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",

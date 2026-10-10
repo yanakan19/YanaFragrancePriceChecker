@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-10T16:00:48.009Z",
-  "seenAt": "2026-10-10T16:00:48.009Z",
+  "updatedAt": "2026-10-10T20:29:40.358Z",
+  "seenAt": "2026-10-10T20:29:40.358Z",
   "source": "live",
   "listings": [
     {
@@ -1026,7 +1026,7 @@
       "priceGbp": 21.99,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Bidun Esam by Ahmed Al Maghribi is a Amber Floral fragrance for women and men.Top notes are Rose and Saffron; middle note is White Flowers; base notes are Cambodian Oud, Musk and Amber. .",
       "productType": null,

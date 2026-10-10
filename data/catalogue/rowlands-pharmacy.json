@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-10T16:00:48.009Z",
-  "seenAt": "2026-10-10T16:00:48.009Z",
+  "updatedAt": "2026-10-10T20:29:40.358Z",
+  "seenAt": "2026-10-10T20:29:40.358Z",
   "source": "live",
   "listings": [
     {
@@ -428,7 +428,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Eternity for Women Eau de Parfum 30ml. Key Features. ##features##. Classic women's fragrance from Calvin Klein.. Floral composition with white lily and mandarin notes.. Warm base of amber, sandalwood and musk.. Elegant, feminine scent suitable for all occasions.. Long-lasting Eau de Parfum concentration.. Convenient 30ml size for handbags and travel.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Calvin Klein Eternity for Women Eau de Parfum is an iconic floral fragrance inspired by enduring love and timeless elegance. Combining delicate florals with fresh mandarin and warm sandalwood, this sophisticated scent remains a favourite for both daytime and evening wear.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

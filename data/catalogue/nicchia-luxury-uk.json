@@ -1,7 +1,7 @@
 {
   "retailerId": "nicchia-luxury-uk",
-  "updatedAt": "2026-10-10T16:00:48.009Z",
-  "seenAt": "2026-10-10T16:00:48.009Z",
+  "updatedAt": "2026-10-10T20:29:40.358Z",
+  "seenAt": "2026-10-10T20:29:40.358Z",
   "source": "live",
   "listings": [
     {
@@ -29592,7 +29592,7 @@
       "priceGbp": 9,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Amouage rappresenta l’eccellenza assoluta della profumeria araba di nicchia, e Material ne è una delle espressioni più avvolgenti. La fragranza si apre con la brillante vivacità dell’elemi, subito catturata da un’onda intensa di patchouli che ne amplifica il carattere. Nel cuore, l’assoluta di vaniglia e il benzoino creano un velo caldo e sensuale, mentre bagliori di osmanto e fava tonka donano luminosità e profondità.. Sul fondo, il legno di guaiaco, il labdano e un tocco di oud costruiscono una scia ricca, opulenta, quasi regale. Material è un vero racconto di bellezza e magnificenza, parte della prestigiosa collezione Odyssey: una firma olfattiva che lascia il segno, senza compromessi..",
       "productType": "Eau de Parfum",

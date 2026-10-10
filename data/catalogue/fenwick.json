@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-10T16:00:48.009Z",
-  "seenAt": "2026-10-10T16:00:48.009Z",
+  "updatedAt": "2026-10-10T20:29:40.358Z",
+  "seenAt": "2026-10-10T20:29:40.358Z",
   "source": "live",
   "listings": [
     {
@@ -20346,7 +20346,7 @@
       "priceGbp": 207.9,
       "wasPriceGbp": 231,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Atelier Des Fleurs Sous Les Pins Eau de Parfum 150ml by Chloé is a woody aromatic fragrance inspired by pine forests and resinous warmth. Earthy notes blend with subtle freshness for a grounding yet elegant composition. A refined scent for those drawn to natural depth..",
       "productType": "Women's Fragrances",
