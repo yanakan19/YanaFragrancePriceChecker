@@ -35,7 +35,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     groups: [
       {
         heading: 'New',
-        points: ['Smoother pages, with gentle motion throughout'],
+        points: ['Smoother pages, with gentle motion throughout', 'Shorter, plainer text across the site'],
       },
       {
         heading: 'Fixes',
