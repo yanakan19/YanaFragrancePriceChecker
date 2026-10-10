@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-10-09T19:35:41.407Z",
-  "seenAt": "2026-10-09T19:35:41.407Z",
+  "updatedAt": "2026-10-10T00:15:15.027Z",
+  "seenAt": "2026-10-10T00:15:15.027Z",
   "source": "live",
   "listings": [
     {
@@ -22,6 +22,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -48,6 +49,7 @@
         "amount": 56.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -74,6 +76,7 @@
         "amount": 56.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -100,6 +103,7 @@
         "amount": 93.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -126,6 +130,7 @@
         "amount": 93.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -152,6 +157,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -178,6 +184,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -204,6 +211,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -230,6 +238,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -256,6 +265,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -282,6 +292,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -308,6 +319,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -334,6 +346,7 @@
         "amount": 93.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -360,6 +373,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -386,6 +400,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -412,6 +427,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -438,6 +454,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -464,6 +481,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -490,6 +508,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -516,6 +535,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -542,6 +562,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -568,6 +589,7 @@
         "amount": 30,
         "currency": "AED"
       },
+      "nativeWasPrice": 40,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -594,6 +616,7 @@
         "amount": 30,
         "currency": "AED"
       },
+      "nativeWasPrice": 40,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -620,6 +643,7 @@
         "amount": 30,
         "currency": "AED"
       },
+      "nativeWasPrice": 40,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -646,6 +670,7 @@
         "amount": 30,
         "currency": "AED"
       },
+      "nativeWasPrice": 40,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -672,6 +697,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -698,6 +724,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -724,6 +751,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -750,6 +778,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -776,6 +805,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -802,6 +832,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -828,6 +859,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -854,6 +886,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -880,6 +913,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -906,6 +940,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -932,6 +967,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -958,6 +994,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -984,6 +1021,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1010,6 +1048,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1036,6 +1075,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1062,6 +1102,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1088,6 +1129,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1114,6 +1156,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1140,6 +1183,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1166,6 +1210,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1192,6 +1237,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1218,6 +1264,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1244,6 +1291,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1270,6 +1318,7 @@
         "amount": 37.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1296,6 +1345,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1322,6 +1372,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1348,6 +1399,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1374,6 +1426,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1400,6 +1453,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1426,6 +1480,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1452,6 +1507,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1478,6 +1534,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1504,6 +1561,7 @@
         "amount": 15,
         "currency": "AED"
       },
+      "nativeWasPrice": 20,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1530,6 +1588,7 @@
         "amount": 90,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1556,6 +1615,7 @@
         "amount": 90,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1582,6 +1642,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1608,6 +1669,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1634,6 +1696,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1660,6 +1723,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1686,6 +1750,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1712,6 +1777,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1738,6 +1804,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1764,6 +1831,7 @@
         "amount": 93.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1790,6 +1858,7 @@
         "amount": 135,
         "currency": "AED"
       },
+      "nativeWasPrice": 180,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1816,6 +1885,7 @@
         "amount": 90,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1842,6 +1912,7 @@
         "amount": 90,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1868,6 +1939,7 @@
         "amount": 138.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 185,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1894,6 +1966,7 @@
         "amount": 138.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 185,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1920,6 +1993,7 @@
         "amount": 135,
         "currency": "AED"
       },
+      "nativeWasPrice": 180,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1946,6 +2020,7 @@
         "amount": 135,
         "currency": "AED"
       },
+      "nativeWasPrice": 180,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1972,6 +2047,7 @@
         "amount": 135,
         "currency": "AED"
       },
+      "nativeWasPrice": 180,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -1998,6 +2074,7 @@
         "amount": 135,
         "currency": "AED"
       },
+      "nativeWasPrice": 180,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2024,6 +2101,7 @@
         "amount": 120,
         "currency": "AED"
       },
+      "nativeWasPrice": 160,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2050,6 +2128,7 @@
         "amount": 120,
         "currency": "AED"
       },
+      "nativeWasPrice": 160,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2076,6 +2155,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2102,6 +2182,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2128,6 +2209,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2180,6 +2262,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2206,6 +2289,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2232,6 +2316,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2258,6 +2343,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2284,6 +2370,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2310,6 +2397,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2336,6 +2424,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2362,6 +2451,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2388,6 +2478,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2414,6 +2505,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2440,6 +2532,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2466,6 +2559,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2492,6 +2586,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2518,6 +2613,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2544,6 +2640,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2570,6 +2667,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2596,6 +2694,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2622,6 +2721,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2648,6 +2748,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2674,6 +2775,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2700,6 +2802,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2726,6 +2829,7 @@
         "amount": 67.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2752,6 +2856,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2778,6 +2883,7 @@
         "amount": 71.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 95,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2804,6 +2910,7 @@
         "amount": 90,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2830,6 +2937,7 @@
         "amount": 93.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2856,6 +2964,7 @@
         "amount": 93.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2882,6 +2991,7 @@
         "amount": 93.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2908,6 +3018,7 @@
         "amount": 82.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",

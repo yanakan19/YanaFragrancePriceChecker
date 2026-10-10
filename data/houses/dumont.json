@@ -1,7 +1,7 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-10-09T19:35:26.008Z",
-  "seenAt": "2026-10-09T19:35:26.008Z",
+  "updatedAt": "2026-10-10T00:14:59.094Z",
+  "seenAt": "2026-10-10T00:14:59.094Z",
   "source": "live",
   "listings": [
     {
@@ -22,6 +22,7 @@
         "amount": 210,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "dumont",
       "firstSeenAt": "2026-09-07T17:04:18.696Z",
       "status": "active",
@@ -48,6 +49,7 @@
         "amount": 210,
         "currency": "AED"
       },
+      "nativeWasPrice": 350,
       "retailerId": "dumont",
       "firstSeenAt": "2026-09-07T17:04:18.696Z",
       "status": "active",
@@ -204,6 +206,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 350,
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
@@ -750,6 +753,7 @@
         "amount": 190,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
@@ -776,6 +780,7 @@
         "amount": 190,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
@@ -828,6 +833,7 @@
         "amount": 190,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",

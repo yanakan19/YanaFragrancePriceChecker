@@ -1,7 +1,7 @@
 {
   "retailerId": "swiss-arabian",
-  "updatedAt": "2026-10-09T19:35:19.777Z",
-  "seenAt": "2026-10-09T19:35:19.777Z",
+  "updatedAt": "2026-10-10T00:14:53.024Z",
+  "seenAt": "2026-10-10T00:14:53.024Z",
   "source": "live",
   "listings": [
     {
@@ -100,6 +100,7 @@
         "amount": 147,
         "currency": "USD"
       },
+      "nativeWasPrice": 186,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-07T13:42:19.200Z",
       "status": "active",
@@ -126,6 +127,7 @@
         "amount": 182,
         "currency": "USD"
       },
+      "nativeWasPrice": 228,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-07T13:42:19.200Z",
       "status": "active",
@@ -152,6 +154,7 @@
         "amount": 63,
         "currency": "USD"
       },
+      "nativeWasPrice": 84,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-07T13:42:19.200Z",
       "status": "active",
@@ -178,6 +181,7 @@
         "amount": 136,
         "currency": "USD"
       },
+      "nativeWasPrice": 150,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-07T13:42:19.200Z",
       "status": "active",
@@ -204,6 +208,7 @@
         "amount": 109,
         "currency": "USD"
       },
+      "nativeWasPrice": 150,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-07T13:42:19.200Z",
       "status": "active",
@@ -230,6 +235,7 @@
         "amount": 83,
         "currency": "USD"
       },
+      "nativeWasPrice": 111,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-07T13:42:19.200Z",
       "status": "active",
@@ -282,6 +288,7 @@
         "amount": 79,
         "currency": "USD"
       },
+      "nativeWasPrice": 100,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -308,6 +315,7 @@
         "amount": 79,
         "currency": "USD"
       },
+      "nativeWasPrice": 100,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -334,6 +342,7 @@
         "amount": 59,
         "currency": "USD"
       },
+      "nativeWasPrice": 74,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -360,6 +369,7 @@
         "amount": 59,
         "currency": "USD"
       },
+      "nativeWasPrice": 74,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -386,6 +396,7 @@
         "amount": 53,
         "currency": "USD"
       },
+      "nativeWasPrice": 64,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -412,6 +423,7 @@
         "amount": 53,
         "currency": "USD"
       },
+      "nativeWasPrice": 64,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -438,6 +450,7 @@
         "amount": 51,
         "currency": "USD"
       },
+      "nativeWasPrice": 64,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -464,6 +477,7 @@
         "amount": 51,
         "currency": "USD"
       },
+      "nativeWasPrice": 64,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -490,6 +504,7 @@
         "amount": 162,
         "currency": "USD"
       },
+      "nativeWasPrice": 200,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -516,6 +531,7 @@
         "amount": 162,
         "currency": "USD"
       },
+      "nativeWasPrice": 200,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -542,6 +558,7 @@
         "amount": 162,
         "currency": "USD"
       },
+      "nativeWasPrice": 200,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -568,6 +585,7 @@
         "amount": 105,
         "currency": "USD"
       },
+      "nativeWasPrice": 124,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -594,6 +612,7 @@
         "amount": 105,
         "currency": "USD"
       },
+      "nativeWasPrice": 124,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -620,6 +639,7 @@
         "amount": 94,
         "currency": "USD"
       },
+      "nativeWasPrice": 116,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -646,6 +666,7 @@
         "amount": 94,
         "currency": "USD"
       },
+      "nativeWasPrice": 116,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -880,6 +901,7 @@
         "amount": 72,
         "currency": "USD"
       },
+      "nativeWasPrice": 85,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -906,6 +928,7 @@
         "amount": 72,
         "currency": "USD"
       },
+      "nativeWasPrice": 85,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -932,6 +955,7 @@
         "amount": 72,
         "currency": "USD"
       },
+      "nativeWasPrice": 85,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -958,6 +982,7 @@
         "amount": 72,
         "currency": "USD"
       },
+      "nativeWasPrice": 85,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -984,6 +1009,7 @@
         "amount": 72,
         "currency": "USD"
       },
+      "nativeWasPrice": 85,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -1010,6 +1036,7 @@
         "amount": 72,
         "currency": "USD"
       },
+      "nativeWasPrice": 85,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -1036,6 +1063,7 @@
         "amount": 72,
         "currency": "USD"
       },
+      "nativeWasPrice": 85,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -1114,6 +1142,7 @@
         "amount": 99.22,
         "currency": "USD"
       },
+      "nativeWasPrice": 141.75,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -1608,6 +1637,7 @@
         "amount": 315.9,
         "currency": "USD"
       },
+      "nativeWasPrice": 390,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -1738,6 +1768,7 @@
         "amount": 72,
         "currency": "USD"
       },
+      "nativeWasPrice": 96,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -1946,6 +1977,7 @@
         "amount": 76,
         "currency": "USD"
       },
+      "nativeWasPrice": 96,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -1972,6 +2004,7 @@
         "amount": 53,
         "currency": "USD"
       },
+      "nativeWasPrice": 63,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -1998,6 +2031,7 @@
         "amount": 112,
         "currency": "USD"
       },
+      "nativeWasPrice": 133,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2024,6 +2058,7 @@
         "amount": 107,
         "currency": "USD"
       },
+      "nativeWasPrice": 129,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2050,6 +2085,7 @@
         "amount": 110,
         "currency": "USD"
       },
+      "nativeWasPrice": 137,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2076,6 +2112,7 @@
         "amount": 55,
         "currency": "USD"
       },
+      "nativeWasPrice": 90,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2102,6 +2139,7 @@
         "amount": 77,
         "currency": "USD"
       },
+      "nativeWasPrice": 99,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2128,6 +2166,7 @@
         "amount": 77,
         "currency": "USD"
       },
+      "nativeWasPrice": 99,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2154,6 +2193,7 @@
         "amount": 69,
         "currency": "USD"
       },
+      "nativeWasPrice": 90,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2206,6 +2246,7 @@
         "amount": 69,
         "currency": "USD"
       },
+      "nativeWasPrice": 90,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2232,6 +2273,7 @@
         "amount": 76,
         "currency": "USD"
       },
+      "nativeWasPrice": 99,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2258,6 +2300,7 @@
         "amount": 76,
         "currency": "USD"
       },
+      "nativeWasPrice": 99,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2284,6 +2327,7 @@
         "amount": 178,
         "currency": "USD"
       },
+      "nativeWasPrice": 220,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2310,6 +2354,7 @@
         "amount": 231,
         "currency": "USD"
       },
+      "nativeWasPrice": 300,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2336,6 +2381,7 @@
         "amount": 146,
         "currency": "USD"
       },
+      "nativeWasPrice": 186,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2362,6 +2408,7 @@
         "amount": 135,
         "currency": "USD"
       },
+      "nativeWasPrice": 174,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2388,6 +2435,7 @@
         "amount": 135,
         "currency": "USD"
       },
+      "nativeWasPrice": 174,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
@@ -2544,6 +2592,7 @@
         "amount": 99.22,
         "currency": "USD"
       },
+      "nativeWasPrice": 141.75,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",

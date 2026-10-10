@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-09T19:31:00.975Z",
-  "seenAt": "2026-10-09T19:31:00.975Z",
+  "updatedAt": "2026-10-10T00:10:34.413Z",
+  "seenAt": "2026-10-10T00:10:34.413Z",
   "source": "live",
   "listings": [
     {
@@ -22,6 +22,7 @@
         "amount": 84,
         "currency": "AED"
       },
+      "nativeWasPrice": 168,
       "retailerId": "surrati",
       "firstSeenAt": "2026-10-01T20:07:49.344Z",
       "status": "active",
@@ -48,6 +49,7 @@
         "amount": 84,
         "currency": "AED"
       },
+      "nativeWasPrice": 168,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -126,6 +128,7 @@
         "amount": 150,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -178,6 +181,7 @@
         "amount": 84,
         "currency": "AED"
       },
+      "nativeWasPrice": 168,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-20T13:32:33.905Z",
       "status": "active",
@@ -334,6 +338,7 @@
         "amount": 52.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -464,6 +469,7 @@
         "amount": 84,
         "currency": "AED"
       },
+      "nativeWasPrice": 168,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -490,6 +496,7 @@
         "amount": 84,
         "currency": "AED"
       },
+      "nativeWasPrice": 168,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -594,6 +601,7 @@
         "amount": 150,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -854,6 +862,7 @@
         "amount": 150,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -880,6 +889,7 @@
         "amount": 150,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -906,6 +916,7 @@
         "amount": 150,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -932,6 +943,7 @@
         "amount": 150,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -958,6 +970,7 @@
         "amount": 150,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -984,6 +997,7 @@
         "amount": 150,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1088,6 +1102,7 @@
         "amount": 105,
         "currency": "AED"
       },
+      "nativeWasPrice": 210,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1114,6 +1129,7 @@
         "amount": 84,
         "currency": "AED"
       },
+      "nativeWasPrice": 168,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1556,6 +1572,7 @@
         "amount": 84,
         "currency": "AED"
       },
+      "nativeWasPrice": 168,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1686,6 +1703,7 @@
         "amount": 84,
         "currency": "AED"
       },
+      "nativeWasPrice": 168,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1764,6 +1782,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1790,6 +1809,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1816,6 +1836,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1842,6 +1863,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1868,6 +1890,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1894,6 +1917,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1920,6 +1944,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1946,6 +1971,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1972,6 +1998,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -1998,6 +2025,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2024,6 +2052,7 @@
         "amount": 15.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 50,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2050,6 +2079,7 @@
         "amount": 105,
         "currency": "AED"
       },
+      "nativeWasPrice": 210,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2102,6 +2132,7 @@
         "amount": 105,
         "currency": "AED"
       },
+      "nativeWasPrice": 210,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2128,6 +2159,7 @@
         "amount": 105,
         "currency": "AED"
       },
+      "nativeWasPrice": 210,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2154,6 +2186,7 @@
         "amount": 105,
         "currency": "AED"
       },
+      "nativeWasPrice": 210,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2232,6 +2265,7 @@
         "amount": 115,
         "currency": "AED"
       },
+      "nativeWasPrice": 230,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2258,6 +2292,7 @@
         "amount": 120,
         "currency": "AED"
       },
+      "nativeWasPrice": 230,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2284,6 +2319,7 @@
         "amount": 105,
         "currency": "AED"
       },
+      "nativeWasPrice": 210,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2336,6 +2372,7 @@
         "amount": 120,
         "currency": "AED"
       },
+      "nativeWasPrice": 210,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2362,6 +2399,7 @@
         "amount": 31.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2388,6 +2426,7 @@
         "amount": 52.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2414,6 +2453,7 @@
         "amount": 52.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2440,6 +2480,7 @@
         "amount": 52.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2466,6 +2507,7 @@
         "amount": 52.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2570,6 +2612,7 @@
         "amount": 31.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2596,6 +2639,7 @@
         "amount": 52.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2622,6 +2666,7 @@
         "amount": 52.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2648,6 +2693,7 @@
         "amount": 31.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-09-22T10:57:22.334Z",
       "status": "active",

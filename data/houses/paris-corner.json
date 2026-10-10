@@ -1,7 +1,7 @@
 {
   "retailerId": "paris-corner",
-  "updatedAt": "2026-10-09T19:33:41.542Z",
-  "seenAt": "2026-10-09T19:33:41.542Z",
+  "updatedAt": "2026-10-10T00:13:14.789Z",
+  "seenAt": "2026-10-10T00:13:14.789Z",
   "source": "live",
   "listings": [
     {
@@ -48,6 +48,7 @@
         "amount": 60,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-08-05T11:11:10.449Z",
       "status": "active",
@@ -100,6 +101,7 @@
         "amount": 60,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-08-05T11:11:10.449Z",
       "status": "active",
@@ -490,6 +492,7 @@
         "amount": 85,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-08-05T11:11:10.449Z",
       "status": "active",
@@ -932,6 +935,7 @@
         "amount": 110,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-08-05T11:11:10.449Z",
       "status": "active",
@@ -984,6 +988,7 @@
         "amount": 102,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-08-05T11:11:10.449Z",
       "status": "active",
@@ -1010,6 +1015,7 @@
         "amount": 102,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-08-05T11:11:10.449Z",
       "status": "active",
@@ -1036,6 +1042,7 @@
         "amount": 110,
         "currency": "AED"
       },
+      "nativeWasPrice": 120,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-08-05T11:11:10.449Z",
       "status": "active",
@@ -1478,6 +1485,7 @@
         "amount": 60,
         "currency": "AED"
       },
+      "nativeWasPrice": 65,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-09-17T14:40:29.494Z",
       "status": "active",

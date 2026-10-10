@@ -1,7 +1,7 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-10-09T19:35:43.431Z",
-  "seenAt": "2026-10-09T19:35:43.431Z",
+  "updatedAt": "2026-10-10T00:15:18.015Z",
+  "seenAt": "2026-10-10T00:15:18.015Z",
   "source": "live",
   "listings": [
     {
@@ -508,7 +508,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Le duo Eau de Parfum et Parfum pour Cheveux.",
       "productType": "Product Bundle",
@@ -1912,7 +1912,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Eau de Parfum.",
       "productType": "eau de parfum",

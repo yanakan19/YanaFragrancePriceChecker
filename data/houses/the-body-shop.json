@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-09T19:35:46.762Z",
-  "seenAt": "2026-10-09T19:35:46.762Z",
+  "updatedAt": "2026-10-10T00:15:21.708Z",
+  "seenAt": "2026-10-10T00:15:21.708Z",
   "source": "live",
   "listings": [
     {
@@ -9674,7 +9674,7 @@
       "priceGbp": 25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Win them over with our British Rose Essentials. Filled with body care infused with rose extract, this fabulously floral gift set is sure to impress. .",
       "productType": "Bath and Body gifts",

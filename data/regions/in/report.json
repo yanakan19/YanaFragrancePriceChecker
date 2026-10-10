@@ -1,31 +1,31 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-09T17:47:58.817Z",
+  "builtAt": "2026-10-10T00:45:06.649Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "crawlMinutes": 40.34,
-  "harvestRanAt": "2026-10-09T06:27:52.021Z",
-  "listingsPriced": 22769,
-  "listingsKept": 16624,
+  "crawlMinutes": 40.4,
+  "harvestRanAt": "2026-10-10T00:04:42.088Z",
+  "listingsPriced": 23014,
+  "listingsKept": 16804,
   "staleAfterDays": 7,
-  "products": 14693,
-  "productsWithTwoOrMoreShops": 1879,
-  "shareWithTwoOrMoreShops": 0.128,
-  "productsWithTwoOrMoreIndependentShops": 1879,
-  "shareWithTwoOrMoreIndependentShops": 0.128,
-  "productsWithThreeOrMoreShops": 383,
-  "medianPriceGap": 0.139,
-  "listingBarcodeShare": 0.007,
-  "productsMatchingUkByBarcode": 58,
+  "products": 15561,
+  "productsWithTwoOrMoreShops": 2164,
+  "shareWithTwoOrMoreShops": 0.139,
+  "productsWithTwoOrMoreIndependentShops": 2164,
+  "shareWithTwoOrMoreIndependentShops": 0.139,
+  "productsWithThreeOrMoreShops": 498,
+  "medianPriceGap": 0.152,
+  "listingBarcodeShare": 0.012,
+  "productsMatchingUkByBarcode": 91,
   "shops": [
     {
       "id": "aar-fragrances",
-      "products": 1087,
-      "shared": 631
+      "products": 1803,
+      "shared": 1014
     },
     {
       "id": "bellavita-india",
@@ -34,8 +34,8 @@
     },
     {
       "id": "fridaycharm",
-      "products": 6260,
-      "shared": 1343
+      "products": 6263,
+      "shared": 1397
     },
     {
       "id": "naso-profumi",
@@ -44,18 +44,18 @@
     },
     {
       "id": "nykaa",
-      "products": 941,
-      "shared": 82
+      "products": 1535,
+      "shared": 147
     },
     {
       "id": "perfume-network",
       "products": 1891,
-      "shared": 695
+      "shared": 718
     },
     {
       "id": "perfume-palace",
-      "products": 6482,
-      "shared": 1426
+      "products": 6481,
+      "shared": 1629
     },
     {
       "id": "the-man-company",
@@ -70,14 +70,17 @@
     {
       "id": "wild-stone",
       "products": 104,
-      "shared": 4
+      "shared": 5
     }
   ],
-  "productsShown": 14594,
-  "productsWithUkPhoto": 1551,
-  "productsWithUkPhotoByBarcode": 57,
-  "productsWithUkPhotoByName": 1494,
-  "shareWithUkPhoto": 0.106,
+  "productsShown": 15432,
+  "productsWithUkPhoto": 2101,
+  "productsWithUkPhotoByBarcode": 90,
+  "productsWithUkPhotoByName": 2011,
+  "listingsWithReference": 12393,
+  "offersWithCorroboratedReference": 1055,
+  "deals": 422,
+  "shareWithUkPhoto": 0.136,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
