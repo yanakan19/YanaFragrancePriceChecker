@@ -136,22 +136,22 @@ function waiting(status: LazyStatus): string {
 
 const link = (path: string, label: string): string => `<a href="${path}" data-nav>${escapeHtml(label)}</a>`;
 
-/** /guides: the five guides as a list of cards. */
+/** /guides: every guide as a card, its title and a one line summary. */
 export function guidesIndexHtml(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc content-doc">
       <h1 class="t-page">${escapeHtml(GUIDES_INDEX.title)}</h1>
-      <p class="content-lead t-body">${escapeHtml(GUIDES_INDEX.description)}</p>
+      <p class="content-lead t-body">${escapeHtml(GUIDES_INDEX.lead)}</p>
       <ul class="guide-cards">
         ${GUIDES.map(
           (g) => `<li class="guide-card">
           <h2 class="guide-card-title">${link(guidePath(g.slug), g.title)}</h2>
-          <p class="t-body">${escapeHtml(g.description)}</p>
+          <p class="t-body">${escapeHtml(g.summary)}</p>
         </li>`,
         ).join('')}
       </ul>
-      <p class="t-body">Curious where our prices come from? Read ${link(HOW_WE_CHECK.path, 'how we check prices')}.</p>
+      <p class="t-body">Where do our prices come from? Read ${link(HOW_WE_CHECK.path, 'how we check prices')}.</p>
     </article>`;
 }
 
@@ -180,7 +180,7 @@ export function howWeCheckHtml(body: readonly Block[] | null, status: LazyStatus
     <button class="back" data-back>Back</button>
     <article class="doc content-doc">
       <h1 class="t-page">${escapeHtml(HOW_WE_CHECK.title)}</h1>
-      <p class="content-lead t-body">${escapeHtml(HOW_WE_CHECK.description)}</p>
+      <p class="content-lead t-body">${escapeHtml(HOW_WE_CHECK.lead)}</p>
       ${body ? `<div class="content-body">${blocksHtml(body)}</div>` : waiting(status)}
     </article>`;
 }

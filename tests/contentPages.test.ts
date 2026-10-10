@@ -6,7 +6,7 @@ import {
   CONTENT_PATHS, GUIDES, GUIDES_INDEX, GUIDES_PATH, HOW_WE_CHECK, guideBySlug, guidePath,
 } from '../demo/guideList.js';
 import {
-  GUIDES_FILE, METHOD_FILE, blocksHtml, blocksText, createGuideBodies, createMethodBody, guideHtml, guidesIndexHtml,
+  GUIDES_FILE, METHOD_FILE, blocksHtml, blocksText, createGuideBodies, createMethodBody, escapeHtml, guideHtml, guidesIndexHtml,
   howWeCheckHtml, inlineHtml, inlineText, linksIn, prepareGuides, prepareMethod, type Block,
 } from '../demo/contentPages.js';
 import { GUIDE_BODIES, shopFacts, shopsGuide } from '../demo/content/guideBodies.js';
@@ -640,7 +640,10 @@ describe('the guides index', () => {
     expect(GUIDES_INDEX.title).toBe('Perfume Guides');
     const html = guidesIndexHtml();
     expect(html).toContain(`<h1 class="t-page">${GUIDES_INDEX.title}</h1>`);
-    for (const g of GUIDES) expect(html).toContain(g.description);
+    // Each card says in one line what the guide covers; the longer search
+    // description opens the guide itself (docs/UX-POLISH-PLAN.md 3).
+    expect(html).toContain(GUIDES_INDEX.lead);
+    for (const g of GUIDES) expect(html).toContain(escapeHtml(g.summary));
     expect(html).toContain(`href="${HOW_WE_CHECK.path}"`);
   });
 });

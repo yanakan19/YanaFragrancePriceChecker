@@ -37,6 +37,8 @@ export interface GuideInfo {
   title: string;
   /** The meta description, and the opening line of the page. */
   description: string;
+  /** The guide's one line on the guides index: under 15 words, a full stop at the end. */
+  summary: string;
 }
 
 export const GUIDES: readonly GuideInfo[] = [
@@ -45,78 +47,91 @@ export const GUIDES: readonly GuideInfo[] = [
     title: 'Perfume Strengths Explained',
     description:
       'What EDT, EDP, Parfum and Extrait mean, roughly how strong each one is, and how to choose a strength for the season, the occasion and your budget.',
+    summary: 'What EDT, EDP, Parfum and Extrait mean, and how to pick one.',
   },
   {
     slug: 'perfume-notes-explained',
     title: 'How Perfume Notes Work',
     description:
       'Top, middle and base notes in plain words: what each layer does, how a scent changes over a few hours, and how to read a notes list before you buy.',
+    summary: 'Top, middle and base notes, and how a scent changes as it wears.',
   },
   {
     slug: 'compare-perfume-prices-per-ml',
     title: 'Comparing Perfume Prices Per Ml',
     description:
       'A bigger bottle is not always the better buy. The one sum that compares any two sizes fairly, and why delivery can change the answer on small orders.',
+    summary: 'The one sum that shows which size is the better buy.',
   },
   {
     slug: 'spot-fake-or-grey-market-perfume',
     title: 'Spotting Fake and Grey Market Perfume',
     description:
       'How a fake differs from a grey market bottle, the warning signs before you buy, the checks to make when it arrives, and how to protect your money.',
+    summary: 'Warning signs before you buy, and checks to make when it arrives.',
   },
   {
     slug: 'decants-and-testers',
     title: 'Decants, Testers and Miniatures',
     description:
       'What a tester, a miniature and a decant really are, what each one saves and risks, and the safer ways to try a scent before buying a full bottle.',
+    summary: 'What testers, minis and decants are, and safer ways to try a scent.',
   },
   {
     slug: 'which-shops-we-compare',
     title: 'Which Shops We Compare',
     description:
       'How many shops PriceSniffs reads today, how they differ, and what their delivery rules look like. The figures are counted from our shop list, not typed in.',
+    summary: 'How many shops we read, how they differ, and their delivery rules.',
   },
   {
     slug: 'how-we-tidy-perfume-notes',
     title: 'How We Tidy Perfume Notes',
     description:
       'Why Cedar and Cedarwood show as one note, which look alike notes stay apart, and how the 16 groups, drawn icons, jump bar and search work.',
+    summary: 'Why Cedar and Cedarwood are one note, and how the groups work.',
   },
   {
     slug: 'why-the-basket-price-can-differ',
     title: 'Why the Basket Price Can Differ',
     description:
       'Why a shop’s basket can show a different total from the price here: delivery, free delivery spends, sold out rows and how old a price can be.',
+    summary: 'Why a shop’s basket can show a different total from ours.',
   },
   {
     slug: 'how-we-match-the-same-bottle',
     title: 'How We Match the Same Bottle',
     description:
       'How listings from different shops become one product: barcodes, names, sizes, what happens when shops disagree, and why 100ml and 105ml stay apart.',
+    summary: 'How listings from different shops become one product, and when they stay apart.',
   },
   {
     slug: 'sets-and-oils-explained',
     title: 'Sets and Oils Explained',
     description:
       'What counts as a set and what counts as an oil, why neither appears among the bottles, and how a set’s page compares it with the bottle alone.',
+    summary: 'What counts as a set or an oil, and how each is compared.',
   },
   {
     slug: 'how-deals-are-chosen',
     title: 'How Deals Are Chosen',
     description:
       'What makes a fragrance a deal on PriceSniffs: the reference price a saving is measured against, which offer wins, and what is always left out.',
+    summary: 'What makes a deal here, and what a saving is measured against.',
   },
   {
     slug: 'wishlists-and-price-alerts',
     title: 'Wishlists and Price Alerts',
     description:
       'What an account does here: saving fragrances, setting a target price, the price drop emails and when they are sent, and what the account does not do.',
+    summary: 'Saving fragrances, target prices, and when price drop emails go out.',
   },
   {
     slug: 'reading-the-price-history-chart',
     title: 'Reading the Price History Chart',
     description:
       'How to read the graph on a product page: what the line and the points mean, the date ranges, and why a flat line or a lone point is not a trend.',
+    summary: 'What the line and points mean, and why one point is not a trend.',
   },
 ];
 
@@ -131,6 +146,8 @@ export function guideBySlug(slug: string): GuideInfo | undefined {
 /** The guides index page: its heading and its description. */
 export const GUIDES_INDEX = {
   title: 'Perfume Guides',
+  /** The line under the heading. The description is for search engines. */
+  lead: 'Plain guides to buying perfume in the UK, and to how this site works.',
   description:
     'Short, plain guides to buying fragrance in the UK, and to how PriceSniffs works: shops, matching, delivery, deals, sets, oils, alerts and price history.',
 };
@@ -139,6 +156,8 @@ export const GUIDES_INDEX = {
 export const HOW_WE_CHECK = {
   path: '/about/how-we-check-prices',
   title: 'How We Check Prices',
+  /** The line under the heading. The description is for search engines. */
+  lead: 'Where our prices come from, how often we check them, and how we make money.',
   description:
     'How PriceSniffs collects prices from shop websites and affiliate feeds, how often, how delivery and size are handled, and how affiliate links earn money.',
 };

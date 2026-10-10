@@ -57,14 +57,14 @@ export const METHOD_BODY: Block[] = [
   },
   {
     t: 'p',
-    x: 'If a shop says no, we do not look for a way round: its prices simply stop updating and, as explained below, leave the site. A shop that wants to slow us down or stop us can do so with a line or two in its robots.txt, and the [PriceSniffsBot page](/about/bot) shows how.',
+    x: `If a shop says no, we do not look for a way round. Its prices stop updating and, once they are more than ${HIDE_OFFER_AFTER_DAYS} days old, leave the site. A shop can slow us down or stop us with a line or two in its robots.txt, and the [PriceSniffsBot page](/about/bot) shows how.`,
   },
 
   // Legal.ts, How it works: "once a day" and "Shops change their delivery terms far less often".
   { t: 'h', x: 'How Often We Check' },
   {
     t: 'p',
-    x: 'We aim to read every shop’s prices again at least once a day. Each shop row on a product page shows how long ago its price was last confirmed, so you can judge for yourself. Delivery terms change far less often than prices, so those are checked less often.',
+    x: 'We aim to read every shop’s prices again at least once a day. Each shop row on a product page shows how long ago its price was last confirmed, so you can judge for yourself. Delivery terms change far less often than prices, so we check those less often.',
   },
 
   // src/services/offerAge.ts: HIDE_OFFER_AFTER_DAYS, one rule for every place a price is shown or counted.
@@ -75,7 +75,7 @@ export const METHOD_BODY: Block[] = [
   },
   {
     t: 'p',
-    x: 'A price that old is no longer good evidence of what the shop charges today, and the likeliest reason for it is that the shop has stopped answering us. A fragrance with no price left inside that window is kept out of the lists and out of search engines until a shop confirms one again.',
+    x: 'A price that old says little about what the shop charges today, and usually means the shop has stopped answering us. A fragrance with no price left inside that window is kept out of the lists and out of search engines until a shop confirms one again.',
   },
 
   // src/services/shipping.ts, demo/app.ts offerRow, demo/offerGroups.ts.
@@ -90,11 +90,11 @@ export const METHOD_BODY: Block[] = [
   },
   {
     t: 'p',
-    x: 'Some shops publish no standard delivery charge at all. Their rows are listed apart, under Delivery Not Included, with the item price only. They can never be called Cheapest, because a blank charge counted as zero would put them at the top of every list unfairly.',
+    x: 'Some shops publish no standard delivery charge at all. We list their rows apart, under Delivery Not Included, with the item price only. They can never be called Cheapest, because a blank charge counted as zero would put them at the top of every list unfairly.',
   },
   {
     t: 'p',
-    x: 'We do not build members only rates into a price either, since you cannot pay one unless you have already joined.',
+    x: 'We leave out members only rates too, since you can only pay one once you have joined.',
   },
 
   // src/catalogue/productMatch.ts (matchKey, trustworthyEan), fragranceId.ts
@@ -103,12 +103,12 @@ export const METHOD_BODY: Block[] = [
   { t: 'h', x: 'How We Decide Two Listings Are One Bottle' },
   {
     t: 'p',
-    x: 'A price comparison is only useful if the same bottle is compared with itself. Two listings are treated as one product in one of two ways.',
+    x: 'We treat two listings from different shops as one product in one of two ways.',
   },
   {
     t: 'ul',
     x: [
-      'By barcode. When shops publish a barcode (an EAN) that passes the standard check, listings that share it are the same product. A barcode that fails the check, or that a shop prints on two different products, is ignored.',
+      'By barcode. When shops publish a barcode (an EAN) that passes the standard check, listings that share it are the same product. We ignore a barcode that fails the check, or that a shop prints on two different products.',
       'By name. Otherwise the brand, the size, the strength and the words of the name must all agree. Word order does not matter, because shops write the same name in different orders.',
     ],
   },
@@ -127,7 +127,7 @@ export const METHOD_BODY: Block[] = [
     t: 'ul',
     x: [
       'Size is part of what a product is. A 50ml bottle and a 100ml bottle of one scent are different products and are never merged, so you never compare the price of two different amounts.',
-      'Sizes are read from the shop’s title or product page. A title that gives ounces only is turned into the size of the bottle that is really sold, where another source confirms it.',
+      'We read sizes from the shop’s title or product page. Where a title gives ounces only, we use the size of the bottle really sold, if another source confirms it.',
       'A title that states two sizes and disagrees with itself is left without a size rather than guessed, and a listing with no size is never matched to one that has.',
       'Gift sets are compared only with the same set at other shops, and oils only with the same oil, never with a spray or a single bottle.',
     ],
