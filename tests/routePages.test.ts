@@ -240,10 +240,11 @@ describe('the built folder', () => {
 describe('the service worker and the deploy still work with a 200 for each address', () => {
   const sw = readFileSync(join(demo, 'sw.js'), 'utf8');
 
-  it('keeps one offline shell: every navigation is cached as ./index.html, whichever address answered', () => {
+  it('keeps one offline shell per country: every navigation is cached as its country\'s index.html, whichever address answered', () => {
     expect(sw).toMatch(/event\.request\.mode === 'navigate'/);
-    expect(sw).toMatch(/cache\.put\('\.\/index\.html', copy\)/);
-    expect(sw).toMatch(/caches\.match\('\.\/index\.html'\)/);
+    expect(sw).toMatch(/cache\.put\(shellKey\(region\), copy\)/);
+    expect(sw).toMatch(/caches\.match\(shellKey\(regionOfUrl\(event\.request\.url\)\)\)/);
+    expect(sw).toContain("return region ? `./${region}/index.html` : './index.html';");
   });
 
   it('prunes data by the names a document carries, which every route page shares with the page', () => {

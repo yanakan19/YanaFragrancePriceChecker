@@ -18,10 +18,26 @@
  * The price history, which the page only fetches once the app is running
  * (demo/priceHistoryStore.ts), is named in the document like the rest, so it
  * is pre-cached, served and pruned exactly the same way.
+ *
+ * One worker, at the site's root, serves every country: the UK at the root and
+ * each other country under its own folder (/us/, /in/; src/config/regions.ts),
+ * whose document names its own data files (us/data/<module>.<hash>.json). So
+ * nothing a country's page shows can come from another's cache (owner rule,
+ * 10 Oct 2026: Most Stocked, Deals and every count use the country's own shops
+ * and prices only), each country keeps its own offline document
+ * (`shellKey`), a document's data files are resolved inside its own folder,
+ * and pruning after a newer document only lets go of that country's files.
+ * Until then a visit to /us/ was stored as the UK's offline page (an offline
+ * visitor at / was handed the US page) and its pruning dropped every UK file.
  */
 // v2: v1 held two copies of the old ~25 MB all-in-one page (under './' and
 // './index.html'); renaming the cache is what gets activate to drop them.
-const CACHE = 'pricesniffs-shell-v2';
+// v3 (10 Oct 2026): v2 could hold a US or Indian page as the UK's one offline
+// page (see the header), which it served at a UK address whenever the network
+// failed: a dropped connection after switching from /us/ to the UK showed the
+// US Most Stocked rail and US shops at /. Renaming drops that copy for every
+// visitor who has it.
+const CACHE = 'pricesniffs-shell-v3';
 const DATA_CACHE = 'pricesniffs-data-v1';
 // The note icons under content-hashed names (scripts/noteData.ts): a redrawn
 // icon is a new address, so a stored one never goes stale. Filled on first
@@ -39,19 +55,56 @@ const SHELL = [
 // Same shape as DATA_FILE_PATTERN in scripts/dataFiles.ts; tests/demoDataFiles
 // holds the two together.
 const DATA_FILE = /data\/[A-Za-z]+\.[0-9a-f]{16}\.json/g;
+// The folders of the other countries' sites (src/config/regions.ts pathPrefix);
+// tests/serviceWorker.test.ts holds the list to the config.
+const REGION_PREFIXES = ['us', 'in'];
+// A data file's path as a document names it, with its country's folder when it has one.
+const REGION_DATA_FILE = new RegExp(`(?:\\b(${REGION_PREFIXES.join('|')})\\/)?${DATA_FILE.source}`, 'g');
 
-/** Absolute URLs of the data files a document names. */
-function dataUrlsIn(html) {
-  return [...new Set(html.match(DATA_FILE) || [])].map((path) => new URL(path, self.registration.scope).href);
+/** The country an address inside the worker's scope belongs to: 'us', 'in', or '' for the UK. */
+function regionOfUrl(href) {
+  const scope = new URL(self.registration.scope).pathname;
+  const path = new URL(href, self.registration.scope).pathname;
+  const rest = path.startsWith(scope) ? path.slice(scope.length) : path.replace(/^\//, '');
+  const first = rest.split('/')[0];
+  return REGION_PREFIXES.includes(first) ? first : '';
 }
 
-/** Drops every cached data file the given document does not name. */
+/** The country a document was built for (the folder its data files sit in), or null when it names none. */
+function regionOfDocument(html) {
+  const found = [...html.matchAll(REGION_DATA_FILE)];
+  return found.length === 0 ? null : (found[0][1] || '');
+}
+
+/** Where a country's offline document is kept. */
+function shellKey(region) {
+  return region ? `./${region}/index.html` : './index.html';
+}
+
+/** Absolute URLs of the data files a document names, each in its own country's folder. */
+function dataUrlsIn(html) {
+  return [...new Set([...html.matchAll(REGION_DATA_FILE)].map((m) => m[0]))].map((path) => new URL(path, self.registration.scope).href);
+}
+
+/** Drops every cached data file of the document's country that the document does not name; other countries' files stay. */
 async function pruneData(html) {
+  const region = regionOfDocument(html);
   const wanted = new Set(dataUrlsIn(html));
-  if (wanted.size === 0) return;
+  if (region === null || wanted.size === 0) return;
   const cache = await caches.open(DATA_CACHE);
   for (const request of await cache.keys()) {
-    if (!wanted.has(request.url)) await cache.delete(request);
+    if (regionOfUrl(request.url) === region && !wanted.has(request.url)) await cache.delete(request);
+  }
+}
+
+/** The countries of the pages open now, so installing caches what they show and nothing else; the UK when none can be read. */
+async function openRegions() {
+  try {
+    const windows = self.clients.matchAll ? await self.clients.matchAll({ type: 'window', includeUncontrolled: true }) : [];
+    const regions = new Set(windows.map((c) => regionOfUrl(c.url)));
+    return regions.size ? regions : new Set(['']);
+  } catch {
+    return new Set(['']);
   }
 }
 
@@ -66,9 +119,14 @@ self.addEventListener('install', (event) => {
       // it from there, and the app opens offline after a single visit. Best
       // effort: the fetch handler below caches each file on first use anyway,
       // so a miss here must not cost the visitor the offline shell itself.
+      // Only the countries of the open pages: a US visitor's worker keeps the
+      // US document and data, never fetches the UK's.
       try {
-        const page = await shell.match('./index.html');
-        if (page) await (await caches.open(DATA_CACHE)).addAll(dataUrlsIn(await page.text()));
+        for (const region of await openRegions()) {
+          if (region) await shell.addAll([shellKey(region)]);
+          const page = await shell.match(shellKey(region));
+          if (page) await (await caches.open(DATA_CACHE)).addAll(dataUrlsIn(await page.text()));
+        }
       } catch (err) {
         console.warn('PriceSniffs: could not pre-cache price data', err);
       }
@@ -94,16 +152,21 @@ self.addEventListener('fetch', (event) => {
         .then((response) => {
           const copy = response.clone();
           const text = response.clone();
+          // Kept as the offline document of the country it was built for (the
+          // UK's page answering a /us/ address it hands on stays the UK's).
           event.waitUntil(
-            caches
-              .open(CACHE)
-              .then((cache) => cache.put('./index.html', copy))
-              .then(() => text.text())
-              .then(pruneData),
+            text.text().then((html) => {
+              const region = regionOfDocument(html) ?? regionOfUrl(event.request.url);
+              return caches
+                .open(CACHE)
+                .then((cache) => cache.put(shellKey(region), copy))
+                .then(() => pruneData(html));
+            }),
           );
           return response;
         })
-        .catch(() => caches.match('./index.html')),
+        // Offline: this country's own document, never another country's.
+        .catch(() => caches.match(shellKey(regionOfUrl(event.request.url)))),
     );
     return;
   }

@@ -115,3 +115,17 @@ describe('service worker registration', () => {
     expect((await registerCall('/', { ready: failed })).script).toBe('/sw.js');
   });
 });
+
+/**
+ * The worker keeps each country's offline page and data apart by the folder
+ * its site lives in (demo/sw.js REGION_PREFIXES), so its list must be every
+ * country folder the config has: one missing would be treated as the UK.
+ */
+describe('service worker country folders', () => {
+  it('lists every country folder of src/config/regions.ts', async () => {
+    const { REGION_CONFIGS } = await import('../src/config/regions.js');
+    const sw = readFileSync(resolve(root, 'demo/sw.js'), 'utf8');
+    const listed = JSON.parse((/const REGION_PREFIXES = (\[[^\]]*\]);/.exec(sw)?.[1] ?? '[]').replace(/'/g, '"')) as string[];
+    expect([...listed].sort()).toEqual(REGION_CONFIGS.map((r) => r.pathPrefix).filter((p) => p !== '').sort());
+  });
+});

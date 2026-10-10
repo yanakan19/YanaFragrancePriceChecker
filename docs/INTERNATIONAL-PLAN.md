@@ -1032,3 +1032,58 @@ apart from the `DEALS_GENERATED_AT` line.
 **9 Oct 2026, converting shops.** D.S. & Durga, Imaginary Authors, Beautyhabit, Maison Louis Marie and Ellis Brooklyn are on the US site in their own US dollars (no conversion), read from `/products.json` at rate 1; robots.txt re-read the same day allows it. They are not on the UK site: a converted pound figure is not what a UK buyer pays unless the checkout charges pounds (the Nicchia standard), which needs the owner's basket check (`docs/OWNER-STEPS.md`). Imaginary Authors still keeps 0 listings (its titles end "- FRAGRANCE" with no strength), to be looked at separately.
 
 **9 Oct 2026, Imaginary Authors left at 0 listings, on purpose.** Looked at: `/products.json` (83 products) states no strength in the title, `product_type` ("Perfume", or empty), `tags` (scent families and moods), variant titles (50ml, 14ml, 2ml) or the body text, and six product pages (sundrunk, saint-julep, untamable, cape-heartache, a-city-on-fire, fox-in-the-flowerbed) and `/pages/faqs` contain no "Eau de Parfum", EDP, extrait or any other strength (read as PriceSniffsBot, robots.txt first, 2 second gaps). With no page of the shop calling them Eau de Parfum, the house standard is not assumed, and the shop is not marked `fragranceOnlyCatalogue` because it also sells candles, soaps, body oils and prints. No code changed; `tests/imaginaryAuthorsStrength.test.ts` pins the rule (a stated strength is kept, a missing one dropped, here and at other shops). If the shop ever states a strength, or the owner confirms it with the house, add a `STRENGTH_EVIDENCE` entry (`src/catalogue/unstatedStrengthEvidence.ts`) per scent. The UK catalogue build was run before and after the item 2 change below: no difference in any generated file.
+
+### Each country's own shops on its rails (10 October 2026)
+
+Owner rule: Most Stocked, the Deals tab, deal counts, the Deal of the Day and anything that ranks
+or lists products by deal or shop count use the country's own shops, offers and prices only. A
+region product borrows a UK product's photo and notes by match (the credit names the UK shop, as
+attribution), never its offers, prices, shop count or deals.
+
+**Checked, and not mixing.** The UK page reads only the UK modules; a region's bundle swaps in its
+own catalogue, deals, dormant products, price history and shop registry (`scripts/bundle-region.ts`),
+so Most Stocked ranks on the region's own shops (`shops` is the count of its own offers), the
+Deals tab reads only that region's deals, and the banner, the hero line and the Shops tab count the
+region's shops. The three shop registries share no id. The UK builds and the social scripts (Deal
+of the Day, the deal video, the savings posts) never read `data/regions/`; the cross region file
+(`regions`, the country menu's lookup) holds addresses and brands only. As built (10 Oct): UK rail
+"from Perfume Click" at £69.40, Deals at Fragrance Click and others in £; US rail "from Fragrance
+Market" at $288.00, Deals at Fragrance Market, Fragrance Outlet and MicroPerfumes in $; India rail
+"from Nykaa" at ₹6,900, Deals at FridayCharm, Perfume Network and Perfume Palace in ₹.
+
+**What mixed: the service worker's one offline page.** The owner's report (10 Oct): on `/us/`,
+switched to the UK with the country menu, and the UK home showed the US Most Stocked rail; a price
+there led to a US shop. Reproduced in Chromium with the real worker on a host like GitHub Pages:
+after a second visit to `/us/` (now through the worker), switching to the UK while the request for
+`/` failed (a dropped connection; the host cut it) opened `/` with "from Fragrance Market",
+"from MicroPerfumes", "from Perfumania" and the US prices printed in pounds ("from £288.00"), and
+the first tile opened a product with US shops. The worker had stored the `/us/` page as the one
+offline page and answered the failed UK request with it. The same happened every way round: with
+the old worker, UK to US showed "Perfume Click" at `/us/`, India to UK showed "Nykaa" at `/`, and
+UK to India showed "Perfume Click" at `/in/`.  One service worker at the root serves every country, and it
+kept any page it was handed as the one offline page (`./index.html`). After a visit to `/us/`, an
+offline visitor at `/` (or `/in/`) was handed the US page; and the US page's data names
+(`us/data/...`) were resolved against the root, so its pruning dropped the UK catalogue and deals
+from the cache. Seen in Chromium with the old worker (server stopped after visiting `/` then
+`/us/`): `/`, `/us/` and `/in/` all opened the US document, which then said "Today's prices could
+not be loaded"; with the new one, `/` opens the UK page with UK rails, `/us/` the US page with US
+rails, and `/in/` (never visited) no page. Now
+(`demo/sw.js`) each country keeps its own offline page (`./us/index.html`, `./in/index.html`), a
+page's data files resolve inside its own folder, pruning lets go only of that country's files,
+installing from a US page caches the US page and data and not the UK's, and an offline address
+with no page of its own country cached gets none rather than another country's. The shell cache
+is renamed (`pricesniffs-shell-v3`), so a visitor whose old cache holds a US page as the UK's
+loses it when the new worker activates. The same switch now shows the UK rail ("from Perfume
+Click", £69.40) with or without the dropped request; `tests/regionSwitchCacheBrowser.test.ts`
+runs US to UK, UK to US, India to UK and UK to India with the real worker, online and with the
+destination page's request cut. Separate and left as a suggested task: for a signed in visitor,
+a profile write that fails or is cut off by the page change lets the profile's old country win on
+the next page, so the bare home later sends them back.
+
+**Guards.** `tests/regionRails.test.ts` (each site's offers, Most Stocked ranking, deals and
+committed deals file use only its own shop ids and currency; the Deal of the Day picks a UK
+product at a UK shop; the UK builds and social scripts read no region data; the cross region file
+holds no offers), `tests/regionRailsBrowser.test.ts` (on the built page, each country's Most
+Stocked and Deals tiles name only its own shops and show only £, $ or ₹), and the worker's tests
+in `tests/demoDataFiles.test.ts` and `tests/serviceWorker.test.ts` (its country list is the
+config's). No UK data file changed.
