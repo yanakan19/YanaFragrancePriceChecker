@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-10T07:36:35.125Z",
-  "seenAt": "2026-10-10T07:36:35.125Z",
+  "updatedAt": "2026-10-10T11:51:56.237Z",
+  "seenAt": "2026-10-10T11:51:56.237Z",
   "source": "live",
   "listings": [
     {
@@ -1394,7 +1394,7 @@
       "priceGbp": 25.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein CK One Shock for Him Eau De Toilette Spray is a warm fragrance created for customers who enjoy a spicy scent. It opens with a fresh burst of citrusy clementine and crisp cucumber, develops into a balanced heart of black pepper, black basil, and cardamom, and settles into a smooth base of tobacco, musk, patchouli, and ambrene wood. Suitable for evening wear and cooler weather, this fragrance is a strong choice for anyone looking for a scent that feels confident and polished.. Why customers choose it . Well-suited for cooler weather and evening wear. A great option for dressier occasions. Designed for customers who prefer spicy and woody scents.",
       "productType": "Eau de Toilette",
@@ -10016,7 +10016,7 @@
       "rawBrand": "Calvin Klein",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0937/0035/8473/files/zoom-front-362673-600x600.png?v=1780075168",
-      "priceGbp": 25.99,
+      "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

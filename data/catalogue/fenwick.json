@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-10T07:36:35.125Z",
-  "seenAt": "2026-10-10T07:36:35.125Z",
+  "updatedAt": "2026-10-10T11:51:56.237Z",
+  "seenAt": "2026-10-10T11:51:56.237Z",
   "source": "live",
   "listings": [
     {
@@ -13975,7 +13975,7 @@
       "priceGbp": 29.75,
       "wasPriceGbp": 35,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Cosmic Kylie Jenner Eau De Parfum is a captivating fragrance with fresh top notes of star jasmine and blood orange. The heart features warm amber and red peony, while cedarwood and vanilla musk form a sweet base. The uniquely designed bottle fits comfortably in the hand, symbolizing love’s changing nature and encouraging self-love. .",
       "productType": "Women's Fragrances",
@@ -21634,7 +21634,7 @@
       "priceGbp": 576,
       "wasPriceGbp": 720,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Figue Érotique Eau de Parfum by Tom Ford offers the same rich, sensual scent in a generous format. With fig, woody and warm notes, it delivers depth and longevity. A luxurious fragrance designed for confident, expressive wear..",
       "productType": "Women's Fragrances",
@@ -22163,7 +22163,7 @@
       "priceGbp": 33.6,
       "wasPriceGbp": 42,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The L'Interdit Eau De Parfum Solid Perfume 2.7g by Givenchy offers a portable interpretation of the iconic L'Interdit fragrance in a compact solid format. This solid perfume delivers a convenient way to enjoy the scent throughout the day. A curated fragrance essential designed to elevate your collection..",
       "productType": "Unisex Fragrance",

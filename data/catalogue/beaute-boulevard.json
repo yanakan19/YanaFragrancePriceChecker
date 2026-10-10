@@ -1,7 +1,7 @@
 {
   "retailerId": "beaute-boulevard",
-  "updatedAt": "2026-10-10T07:36:35.125Z",
-  "seenAt": "2026-10-10T07:36:35.125Z",
+  "updatedAt": "2026-10-10T11:51:56.237Z",
+  "seenAt": "2026-10-10T11:51:56.237Z",
   "source": "live",
   "listings": [
     {
@@ -1716,7 +1716,7 @@
       "priceGbp": 38.99,
       "wasPriceGbp": 53,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Indulge in the timeless allure of Elizabeth Taylor Diamonds & Rubies Eau de Toilette , a fragrance that captures the essence of glamour and sophistication. This exquisite 100ml spray unveils a radiant bouquet where sparkling top notes of zesty citrus and luscious red berries shimmer like precious gems against a warm, sensuous heart of velvety florals. The rich base of creamy vanilla and amber wraps you in an irresistible embrace, evoking the passion and elegance of an unforgettable evening.. Designed for the modern woman who dazzles with confidence and grace, Diamonds & Rubies is a celebration of strength and femininity. Let its luminous spirit elevate your mood, enchanting your senses and leaving a trail of captivating charm that lingers long after you’ve gone.. ```",
       "productType": "Cosmetics",
@@ -3809,7 +3809,7 @@
       "priceGbp": 94.99,
       "wasPriceGbp": 115,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Jean Paul Gaultier Scandal Gift Set EDP 80ml + EDP 20ml is a provocative yet alluring fragrance that embodies the brand's signature blend of sophistication and seduction.. This scent is characterised by its rich, floral notes of jasmine and rose, complemented by a subtle touch of vanilla and sandalwood. Its alluring aroma makes it perfect for women who exude confidence and sensuality, and who are not afraid to make a statement. Suitable for evening wear, Scandal is ideal for special occasions or romantic get-togethers.. At Beaute Boulevard, we're proud to offer this iconic fragrance from Jean Paul Gaultier, a brand renowned for pushing the boundaries of fashion and beauty. With a legacy spanning over three decades, Jean Paul Gaultier has become synonymous with French chic and style. Discover Jean Paul Gaultier at Beaute Boulevard, where elegance and sophistication meet..",
       "productType": null,
@@ -32628,7 +32628,7 @@
       "priceGbp": 28.99,
       "wasPriceGbp": 40,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Cacharel Noa Eau de Toilette is an exquisite symphony of delicate elegance and timeless femininity. With every gentle spray, it unfolds like a whispered secret—pure, fresh, and luminously soft—inviting you into a world where grace meets modern sophistication.. This enchanting fragrance opens with shimmering top notes of crisp green apple and sweet lily of the valley, evoking a serene spring morning bathed in golden light. At its heart lies a tender bouquet of white musk and soft rose, wrapping you in a gentle embrace that feels both intimate and liberating. The subtle warmth of sandalwood and amber at the base lingers like a caress, grounding the scent in a tender, unforgettable warmth.. Noa is the essence of understated allure—effortlessly chic and endlessly captivating. Ideal for the woman who moves through life with quiet confidence and a radiant smile, this Eau de Toilette becomes her signature, a fragrant reflection of her natural beauty and inner harmony.. Discover the poetry of Noa , where lightness and sensuality entwine, creating a fragrance as unique and graceful as you are.. ```",
       "productType": "Cosmetics",

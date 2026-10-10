@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-10T08:37:33.149Z",
-  "seenAt": "2026-10-10T08:37:33.149Z",
+  "updatedAt": "2026-10-10T12:54:22.398Z",
+  "seenAt": "2026-10-10T12:54:22.398Z",
   "source": "live",
   "listings": [
     {
@@ -157,33 +157,6 @@
       },
       "retailerId": "surrati",
       "firstSeenAt": "2026-09-16T12:39:19.107Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "101044393",
-      "url": "https://surrati.ae/products/kiswa-140-ml",
-      "rawTitle": "Kiswa 140 Ml",
-      "rawBrand": "Surrati Perfumes",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/Kiswa_140_Ml111.png?v=1787231359",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Discover An Unforgettable Journey With This Leather / Vanilla Fragrance. The Scent Begins With Fresh Animalic / Woody, Revealing A Beautiful Core Of Amber / Smoky, Before Settling Into A Warm Base Of Musky / Green. A Perfectly Balanced Unisex Fragrance..",
-      "productType": "Men's Perfume",
-      "nativePrice": {
-        "amount": 84,
-        "currency": "AED"
-      },
-      "nativeWasPrice": 168,
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-08-20T13:32:33.905Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -2830,6 +2803,34 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "101044393",
+      "url": "https://surrati.ae/products/kiswa-140-ml",
+      "rawTitle": "Kiswa 140 Ml",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/Kiswa_140_Ml111.png?v=1787231359",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Discover An Unforgettable Journey With This Leather / Vanilla Fragrance. The Scent Begins With Fresh Animalic / Woody, Revealing A Beautiful Core Of Amber / Smoky, Before Settling Into A Warm Base Of Musky / Green. A Perfectly Balanced Unisex Fragrance..",
+      "productType": "Men's Perfume",
+      "nativePrice": {
+        "amount": 84,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 168,
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-08-20T13:32:33.905Z",
+      "lastSeenAt": "2026-10-10T08:37:33.149Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-10T12:54:22.398Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {

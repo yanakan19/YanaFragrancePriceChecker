@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-10T07:36:35.125Z",
-  "seenAt": "2026-10-10T07:36:35.125Z",
+  "updatedAt": "2026-10-10T11:51:56.237Z",
+  "seenAt": "2026-10-10T11:51:56.237Z",
   "source": "live",
   "listings": [
     {
@@ -6129,10 +6129,10 @@
       "rawBrand": "swiss arabian",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/SHAGHAF-OUD_67d998d3-1fe7-458f-a1b6-6a3dfb9bc183-PhotoRoom.jpg?v=1745671143",
-      "priceGbp": 24.99,
+      "priceGbp": 22.99,
       "wasPriceGbp": 41.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "It’s an oriental oud fragrance that surrounds your passionate heart with the peerless beauty of rich, golden oud. Shaghaf Oud opens with precious strands of saffron, also known as red gold. It merges with the seam of agarwood that starts like the source of a river, and threads itself with growing intensity through each layer of the fragrance. As the oud reaches the heart of the fragrance, it awakens an exquisite rose and nuances of delicious praline. Growing in intensity, the oud meets the warm embrace of vanilla, showering you in the perfect combination of rich, resonant agarwood and golden sweetness.. NOTES . TOP NOTES: SAFFRON, OUD. MIDDLE NOTES: ROSE, PRALINE, OUD. BASE NOTES: OUD, VANILLA.",
       "productType": null,

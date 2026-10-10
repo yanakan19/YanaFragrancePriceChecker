@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-10-10T07:36:35.125Z",
-  "seenAt": "2026-10-10T07:36:35.125Z",
+  "updatedAt": "2026-10-10T11:51:56.237Z",
+  "seenAt": "2026-10-10T11:51:56.237Z",
   "source": "live",
   "listings": [
     {
@@ -3579,7 +3579,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Extrait Absolu Perfume Oil. . Rose de Jamal is a lush study of the Queen of Flowers’ many folds. The extrait absolu is a more concentrated dosage of 40% combined with a Cosmos certified dry oil, replacing the alcohol used in the eau de parfum format.. Under a fleeting starburst of icy pink pepper, taking the leafy greens into an ecstasy of intense reds and sand-obscured dusks field of rubies and the colour of dawn. A massive absolution of Moroccan rose, scarlet-jam and pungent green, warmed by the animalic murmured milky vibration of Atlas cedarwood before splitting open to the aquatic sweetness of Nanah mint.. . Composition: . Madagascan Pink Pepper Co2 Extract 1.7%, French Lavender Essence .7%. Moroccan Rose Absolute 5.5%. Moroccan Atlas Cedar Essence 2.8%. Perfumer: Antoine Lie, 2019. . inci list: Alcohol Denat., Parfum, Water / Aqua, Alpha-Isomethyl Ionone, Citral, Coumarin, Citronellol, Limonene, Eugenol, Farnesol, Geraniol, Linalool, BHT, Ethylhexyl Methoxycinnamate, Butyl Methoxydibenzoylmethane (Avobenzone) .",
       "productType": "EXTRAIT ABSOLU",

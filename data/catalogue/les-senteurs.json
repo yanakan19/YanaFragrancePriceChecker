@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-10T07:36:35.125Z",
-  "seenAt": "2026-10-10T07:36:35.125Z",
+  "updatedAt": "2026-10-10T11:51:56.237Z",
+  "seenAt": "2026-10-10T11:51:56.237Z",
   "source": "live",
   "listings": [
     {
@@ -20530,7 +20530,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Powdery, soft and seductive Teint de Neige is a gracious arrangement of rose, jasmine and vanilla which settles like a fall of feathery snow warmed by winter sunshine. Also available in a selection of body products .. Top Notes: Jasmine, Rose, Ylang-Ylang, Powdery Notes Heart Notes: Tonka Bean, Floral Notes, Rose, Jasmine Base Notes: Heliotrope, Musk, Rose, Sugar, Jasmine .",
       "productType": "Fragrance",

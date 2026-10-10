@@ -1,9 +1,32 @@
 {
   "retailerId": "the-fragrance-counter",
-  "updatedAt": "2026-10-10T07:36:35.125Z",
+  "updatedAt": "2026-10-10T11:51:56.237Z",
   "seenAt": "2026-10-10T03:23:13.328Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "CH019A01",
+      "url": "https://www.thefragrancecounter.co.uk/jimmy-choo-man-aqua-eau-de-toilette-100ml.html",
+      "rawTitle": "Jimmy Choo Man Aqua Eau De Toilette 100ml",
+      "rawBrand": "Jimmy Choo",
+      "ean": "3386460129824",
+      "imageUrl": "https://www.thefragrancecounter.co.uk/user/products/large/jimmychoomanaqua100ml.jpg",
+      "description": "Jimmy Choo Man Aqua Eau De Toilette 100ml - Buy perfume & aftershave online. Authentic, fast UK delivery, great prices. Shop now.",
+      "priceGbp": 56.25,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-10-10T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "sitemap",
+      "rating": null,
+      "retailerId": "the-fragrance-counter",
+      "firstSeenAt": "2026-10-10T11:51:56.237Z",
+      "lastSeenAt": "2026-10-10T11:51:56.237Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "CT000070",
       "url": "https://www.thefragrancecounter.co.uk/hugo-boss-boss-bottled-tonic-eau-de-toilette-100ml.html",
