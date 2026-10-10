@@ -35,10 +35,11 @@ export const isVideo = (name: string) => /\.(mp4|mov|webm)$/i.test(name);
  *                    version of a 3:4 slide (tiktokSlide in socialSlides.ts)
  *   deal-video       scripts/social-video-deal.ts's video, from check.json's figures
  *   explainer-video  scripts/social-video-explainers.ts's video `video`
+ *   launch-video     scripts/social-video-launch.ts's video `video`
  *   history          not drawable (drawn from a live page): only the file as first made,
  *                    from git history
  */
-export type PictureMake = 'svg' | 'html' | 'deal-video' | 'explainer-video' | 'history';
+export type PictureMake = 'svg' | 'html' | 'deal-video' | 'explainer-video' | 'launch-video' | 'history';
 
 export interface Picture {
   file: string;

@@ -71,7 +71,8 @@
     "social:guess": "tsx scripts/ensure-catalogue-built.ts && tsx scripts/social-guess-fragrance.ts",
     "social:savings": "tsx scripts/ensure-catalogue-built.ts && tsx scripts/social-savings.ts",
     "social:video": "tsx scripts/ensure-catalogue-built.ts && tsx scripts/social-video-deal.ts",
-    "social:video:explainers": "tsx scripts/social-video-explainers.ts"
+    "social:video:explainers": "tsx scripts/social-video-explainers.ts",
+    "social:video:launch": "tsx scripts/social-video-launch.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

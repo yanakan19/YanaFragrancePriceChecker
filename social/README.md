@@ -33,7 +33,8 @@ holds the answer and the repository is public, so commit and push the folder
 that names no fragrance.
 
 Videos come from one template (`scripts/social-video-template.ts`): `npm run social:video -- --id <id>` for a
-Deal of the Day video and `npm run social:video:explainers` for the informative ones. Rules: `docs/SOCIAL-MEDIA-PLAN.md`
+Deal of the Day video, `npm run social:video:explainers` for the informative ones and `npm run social:video:launch`
+for a launch video (the US one). Rules: `docs/SOCIAL-MEDIA-PLAN.md`
 section 9.
 
 What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
@@ -62,6 +63,7 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | 2026-10-09 | `posts/2026-10-09-launch-us/` | Launch: "PriceSniffs is now in the US (beta)" (four black slides, 3:4, and a 9:16 cover; one caption) |
 | 2026-10-09 | `posts/2026-10-09-launch-india/` | Launch: "PriceSniffs is now in India (beta)" (four black slides, 3:4, and a 9:16 cover; one caption) |
 | 2026-10-09 | `posts/2026-10-09-select-your-country/` | "One site, three countries": the three country choices (one black picture, 3:4 and 9:16; one caption) |
+| 2026-10-10 | `posts/2026-10-10-launch-us-video/` | Launch video: "We've launched in the US" (11.8 second 9:16 MP4, black theme, video template; one caption with a call to tag friends) |
 | 2026-10-05 | `posts/2026-10-05-hurry-deal-video/` | Hurry deal video: Dolce & Gabbana The One for Men 150ml, £59.95 against RRP £153 (10 second 9:16 MP4, real site UI) |
 | 2026-10-02 | `posts/2026-10-02-what-is-pricesniffs/` | Intro carousel: "What is PriceSniffs?" (4 slides, 3:4 post). Remake with `npx tsx scripts/social-intro-slides.ts` |
 | 2026-10-02 | `posts/2026-10-02-savings-example/` | Savings example carousel: Miss Dior, Selfridges vs Justmylook (6 slides, 3:4 post). Remake with `npx tsx scripts/social-savings-example.ts` (inverted theme, hand picked figures, reel safe) |

@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-10T11:51:56.237Z",
-  "seenAt": "2026-10-10T11:51:56.237Z",
+  "updatedAt": "2026-10-10T16:00:48.009Z",
+  "seenAt": "2026-10-10T16:00:48.009Z",
   "source": "live",
   "listings": [
     {
@@ -11882,7 +11882,7 @@
       "priceGbp": 85,
       "wasPriceGbp": 100,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Kun Amo Extrait De Parfum 30ml by Jeroboam blends rich amber and fresh bergamot to create a captivating fragrance. This concentrated extrait de parfum offers a long-lasting scent experience, perfect for those who appreciate depth and elegance in their perfume. The 30ml size is ideal for daily use or travel, delivering a refined aroma that evolves beautifully throughout the day..",
       "productType": "Unisex Fragrance",
@@ -16620,7 +16620,7 @@
       "priceGbp": 93.5,
       "wasPriceGbp": 110,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The First Eau de Toilette by Van Cleef & Arpels is a timeless floral fragrance that blends elegance with soft sensuality. Delicately composed yet enduring, it reflects classic perfumery with a refined finish. A sophisticated choice for everyday wear and traditional fragrance collections..",
       "productType": "Women's Fragrances",
@@ -24141,7 +24141,7 @@
       "priceGbp": 95.2,
       "wasPriceGbp": 112,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A Limited Edition Gift Box for your fragrance.An ode to masculine freedom expressed in an aromatic-woody fragrance with a captivating trail. A timeless scent housed in a bottle of deep and mysterious blue. BLEU DE CHANEL Eau de Toilette encapsulates simple and passionate elegance..",
       "productType": "Men's Fragrances",
