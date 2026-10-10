@@ -18,6 +18,11 @@
  * apply: the page's stamp matches the source (scripts/demoInputsHash.ts) and
  * every data file it names exists. A missing sitemap, or a file in demo/data
  * the page does not name, counts as stale too.
+ *
+ * Since 2026-10-10 the catalogue modules (demo/catalogue.generated.ts,
+ * demo/dormant.generated.ts) are not committed either: this replays them first
+ * when missing or stale (scripts/ensure-catalogue-built.ts), so the tests that
+ * import them directly find them too.
  */
 import { spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
@@ -26,6 +31,7 @@ import { pathToFileURL } from 'node:url';
 import { referencedDataFiles } from './dataFiles.js';
 import { computeDemoInputsHash, readStampedHash } from './demoInputsHash.js';
 import { liveRegions } from '../src/config/regions.js';
+import { ensureCatalogueBuilt } from './ensure-catalogue-built.js';
 
 /** The live regions' folders under demo/ (us, in). */
 const REGION_FOLDERS = liveRegions().map((r) => r.pathPrefix).filter((p) => p !== '');
@@ -69,6 +75,14 @@ export function staleReason(root: string): string | null {
 function main(): void {
   const root = process.cwd();
   if (!existsSync(join(root, 'tsconfig.demo.json'))) return;
+  // The catalogue modules first (not committed since 2026-10-10): the page's
+  // stamp hashes them, and two dozen tests import them directly.
+  try {
+    ensureCatalogueBuilt(root);
+  } catch (err) {
+    console.error(err instanceof Error ? err.message : String(err));
+    process.exit(1);
+  }
   const reason = staleReason(root);
   if (reason === null) {
     console.log('ensure-demo-built: the page is current; not rebuilding.');

@@ -51,6 +51,13 @@ jobs:
         timeout-minutes: 5
         run: scripts/retry.sh 3 python3 -m pip install --quiet pillow
 
+      # The catalogue module, which names the photos to measure, is not
+      # committed since 2026-10-10: replayed here from the crawl's committed
+      # inputs and build record (scripts/ensure-catalogue-built.ts).
+      - name: Build the catalogue module
+        timeout-minutes: 10
+        run: npx tsx scripts/ensure-catalogue-built.ts
+
       - name: Measure photos
         timeout-minutes: 35
         run: npx tsx scripts/image-box-check.ts --remeasure --limit=${{ inputs.limit || '1500' }} --concurrency=6

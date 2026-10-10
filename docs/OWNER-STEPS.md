@@ -549,7 +549,56 @@ summer it misses commits made between midnight and 1am UK; and the "How much
 could you save?" routine's last run (3 October, 17:53 UK) failed after seven
 seconds with no reason given, worth one look.
 
-### 7d. The repository's size (done on 4 October; history rewritten 6 October; social pictures out of git 8 October)
+### 7d. The repository's size (done on 4 October; history rewritten 6 October; social pictures out of git 8 October; catalogue module out of git 10 October)
+
+**The catalogue module out of git, 10 October 2026 (agent, your request
+"build it at deploy time").** What changed:
+
+- `demo/catalogue.generated.ts` (45 MB, every product and price) and
+  `demo/dormant.generated.ts` (1 MB, the pages with no current prices) are no
+  longer committed. The crawl still builds them (`npm run catalogue:demo`) and
+  commits what they are built from: the shops' snapshots, the two address
+  memories (`data/product-slugs.json`, `data/id-aliases.json`) and a new small
+  build record, `data/catalogue-build.json` (the moment the build took as
+  "now" and the fingerprint of every input). Everything that reads the
+  catalogue (the deploy, `npm test`, `npm run demo`, the US and India crawls,
+  the photo measuring, price alerts, fragrance links, the social scripts)
+  builds it again from those first, in about 45 seconds
+  (`scripts/ensure-catalogue-built.ts`).
+- **Same site, proved.** The crawl's way (fresh build, then `npm run demo`)
+  and the deploy's way (catalogue rebuilt from the committed record, then
+  `npm run demo`) gave the same bytes for all 441 built files: the
+  catalogue modules, `demo/data/`, the four sitemaps, every UK, US and India
+  page. The rebuild also came out identical with the clock moved 12 days on,
+  and when the snapshots on disk were newer than the record (it then takes the
+  recorded ones out of git).
+- **Addresses cannot change.** A rebuild outside the crawl never writes the
+  address memories. If it would need a new product address or alias that the
+  crawl has not recorded, it stops instead (the deploy fails and the site
+  stays as it was), so a published address is always the crawl's. One small
+  change on the way: three old addresses of products since merged into others
+  (Amouage Opus XIV, Lancome O Oui, Mugler Alien Fusion) now open the product
+  that holds them instead of Page Not Found.
+- **Deploys:** about one minute longer (the catalogue rebuild: 37 to 45
+  seconds locally). A crawl that rebuilt the catalogue still deploys (its
+  build record changed); one that only saved prices still does not.
+- **Growth:** the branch grew 9, 19 and 23 MB on 7, 8 and 9 October, of which
+  the catalogue modules were 1.1, 7.3 and 4.9 MB: about a quarter of the
+  daily growth stops (about 12 MB a day instead of 17), and every checkout is
+  46 MB smaller. Measured as a push sends it; details in
+  `docs/PIPELINE-FAILURE-MODES.md` ("The catalogue modules, 2026-10-10").
+- **What is yours to do: nothing now.** The catalogue's 743 past versions
+  (about 210 MB, a third of the history) stay in history. Removing them is a
+  further history rewrite with a force push, like 6 October, and only you can
+  approve it. It is now possible (nothing needs those copies any more: the
+  price history is replayed from the snapshots, not the catalogue; only the
+  one off alias reseeding tool `scripts/id-alias-seed.sh` reads them, and the
+  aliases it once seeded are in `data/id-aliases.json`) and
+  recommended **once a week of crawls has run cleanly**, that is from about
+  17 October; say "rewrite out the catalogue module" and an agent will plan it
+  the 6 October way (pause the workflows, a backup branch, check the tip and
+  the price history are identical, then push).
+
 
 **Social pictures out of git, 8 October 2026 (your go ahead to D28, "only on
 command").** What changed:

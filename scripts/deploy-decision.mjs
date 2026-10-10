@@ -72,6 +72,14 @@ export const COUNTS_ANYWAY = [
   'data/note-not-a-note.json',
   'data/note-descriptions.json',
   'data/note-icons-manifest.json',
+  // The catalogue's build record (since 2026-10-10): the catalogue module is no
+  // longer committed but replayed at deploy time from the data inputs this
+  // record fingerprints (scripts/catalogueBuild.ts). Every catalogue build the
+  // crawl commits changes it, so a crawl that changed the catalogue's inputs
+  // deploys, as it did while it committed the module itself. Harvested
+  // snapshots alone do not: until the next build writes the record, the
+  // deploy replays the inputs the record names, the same catalogue as before.
+  'data/catalogue-build.json',
 ];
 
 /**

@@ -36,7 +36,7 @@ describe('which paths can change the page', () => {
   });
 
   it('counts the generated modules, the source and the build, and not snapshots, reports or posts', () => {
-    for (const p of ['demo/catalogue.generated.ts', 'demo/priceHistory.generated.ts', 'demo/fragranceLinks.generated.ts',
+    for (const p of ['demo/catalogue.generated.ts', 'data/catalogue-build.json', 'demo/priceHistory.generated.ts', 'demo/fragranceLinks.generated.ts',
       'src/config/retailers.ts', 'scripts/build-demo.ts', 'package-lock.json', 'demo/template.html',
       '.github/workflows/deploy-pages.yml']) {
       expect(canChangePage(p), p).toBe(true);
@@ -75,10 +75,29 @@ describe('the decision', () => {
   });
 
   it('deploys when a rebuild or a source change landed since the live commit', () => {
-    const rebuilt = paths(['data/catalogue/escentual.json', 'demo/catalogue.generated.ts']);
+    const rebuilt = paths(['data/catalogue/escentual.json', 'demo/deals.generated.ts']);
     const verdict = decide({ event: 'workflow_run', tip: TIP, overrides: FP, live, changedPaths: rebuilt });
     expect(verdict.deploy).toBe(true);
-    expect(verdict.reason).toContain('demo/catalogue.generated.ts');
+    expect(verdict.reason).toContain('demo/deals.generated.ts');
+  });
+
+  // Since 2026-10-10 the catalogue module is not committed: the deploy replays
+  // it from the committed inputs that data/catalogue-build.json names
+  // (scripts/catalogueBuild.ts), and every catalogue build the crawl commits
+  // changes that record.
+  it('deploys when the catalogue was rebuilt from new inputs (its build record changed), even with nothing else', () => {
+    expect(COUNTS_ANYWAY).toContain('data/catalogue-build.json');
+    expect(canChangePage('data/catalogue-build.json')).toBe(true);
+    const rebuilt = paths(['data/catalogue/escentual.json', 'data/catalogue-build.json', 'data/product-slugs.json']);
+    for (const event of ['workflow_run', 'schedule']) {
+      const verdict = decide({ event, tip: TIP, overrides: FP, live, changedPaths: rebuilt });
+      expect(verdict.deploy, event).toBe(true);
+      expect(verdict.reason).toContain('data/catalogue-build.json');
+    }
+    // Harvested snapshots alone (a crawl stopped before its rebuild): the
+    // deploy would replay the same recorded inputs, the same catalogue.
+    const harvestOnly = paths(['data/catalogue/escentual.json', 'data/houses/amouage.json', 'data/harvest-report.json']);
+    expect(decide({ event: 'workflow_run', tip: TIP, overrides: FP, live, changedPaths: harvestOnly }).deploy).toBe(false);
   });
 
   it('deploys when the hidden and removed list changed, but not on a database that did not answer', () => {

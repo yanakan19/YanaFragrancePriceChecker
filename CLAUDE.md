@@ -11,15 +11,22 @@ Since 2026-10-04 the page (`demo/index.html`, `demo/404.html`), its data files
 (`demo/data/`), `demo/sitemap.xml`, `demo/ads.txt` and the page of each fixed
 address (`demo/about.html`, `demo/about/legal.html` and the rest, so the host
 answers 200; `scripts/build-route-pages.ts`) are **not committed**.
-They are gitignored, and `.github/workflows/deploy-pages.yml` builds them with
-`npm run demo` from the committed source and `demo/*.generated.ts`, checks
-the build, and only then publishes it. A push or a manual run always
+Since 2026-10-10 neither are the catalogue modules
+(`demo/catalogue.generated.ts`, `demo/dormant.generated.ts`): the crawl's
+`npm run catalogue:demo` commits what they are built from (the snapshots, the
+address memories and the build record `data/catalogue-build.json`), and
+everything that reads them replays them byte for byte from those
+(`scripts/ensure-catalogue-built.ts`; `scripts/catalogueBuild.ts` says how).
+They are gitignored, and `.github/workflows/deploy-pages.yml` replays the
+catalogue and builds the rest with `npm run demo` from the committed source
+and `demo/*.generated.ts`, checks the build, and only then publishes it. A push or a manual run always
 deploys. A completed crawl first runs a light check job
 (`scripts/deploy-decision.mjs`) and deploys only when the page could change.
 
-- Locally, `npm run demo` builds the page; `npm test` builds it first when it
-  is missing or stale. Run `npm run demo` once before running a page test
-  directly with `npx vitest run`.
+- Locally, `npm run demo` builds the page (and the catalogue modules first,
+  about 45 seconds when they are missing or stale); `npm test` builds both
+  first when missing or stale. Run `npm run demo` once before running a page
+  or catalogue test directly with `npx vitest run`.
 - Never commit those paths (`git add -f` included). `scripts/commit-and-push.sh`
   refuses them.
 
@@ -32,7 +39,8 @@ snapshots and reports, and the "deploy" files above).
 1. **Never edit a generated file by hand.** Change its source and rebuild.
 2. **Do not commit regenerated files unless your change needs them.** If you
    changed only tests, docs, scripts or workflows, leave `demo/*.generated.ts`,
-   `data/id-aliases.json`, `data/product-slugs.json` and
+   `data/catalogue-build.json`, `data/id-aliases.json`,
+   `data/product-slugs.json`, `data/set-match-report.json` and
    `data/price-history-checkpoint.json` out of
    your commit (`git checkout -- <file>` after a local build). The crawl
    rebuilds and commits them within hours anyway.
@@ -40,10 +48,17 @@ snapshots and reports, and the "deploy" files above).
    from: the build scripts, `src/`, the catalogue code), run `npm run rebuild`
    (or the steps you need: `npm run catalogue:demo`, `npm run deals:build`,
    `npm run catalogue:history`) and commit, with your change, those of
-   `demo/*.generated.ts`, `data/id-aliases.json`, `data/product-slugs.json`
-   and `data/price-history-checkpoint.json` that changed. A change that only
+   `demo/deals.generated.ts`, `demo/priceHistory.generated.ts`,
+   `data/catalogue-build.json`, `data/id-aliases.json`,
+   `data/product-slugs.json`, `data/set-match-report.json` and
+   `data/price-history-checkpoint.json` that changed (never the catalogue
+   modules, which are not committed). A change that only
    alters how the page looks (`demo/*.ts`, `demo/template.html`) needs none of
    them: the deploy builds the page.
+   **The deploy's replay of the catalogue never writes a memory**: if your
+   change would give a product a new address or alias and you did not commit
+   the rebuilt memories and `data/catalogue-build.json`, the deploy (and
+   `npm test`) refuses to build and the site stays as it was until you do.
    **Memory files:** `data/product-slugs.json` (a product's published address,
    `/<brand>_<name>_<volume>`) and `data/id-aliases.json` (where a merged id now
    lives) are append only memories: the build only adds to them. Never delete or

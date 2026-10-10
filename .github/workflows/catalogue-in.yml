@@ -71,6 +71,15 @@ jobs:
         timeout-minutes: 10
         run: scripts/retry.sh 3 npm ci
 
+      # The UK catalogue module, which the region build reads for each bottle's
+      # UK picture, is not committed since 2026-10-10: it is replayed here from
+      # the UK crawl's committed inputs and build record, byte for byte the
+      # UK crawl's (scripts/ensure-catalogue-built.ts). Before the harvest, so
+      # a checkout that cannot build it stops in a minute, not after the crawl.
+      - name: Build the UK catalogue module
+        timeout-minutes: 10
+        run: npx tsx scripts/ensure-catalogue-built.ts
+
       - name: Test the region harvest before crawling
         timeout-minutes: 10
         run: npx vitest run tests/regionRetailers.test.ts tests/regionHarvest.test.ts tests/regionCatalogue.test.ts

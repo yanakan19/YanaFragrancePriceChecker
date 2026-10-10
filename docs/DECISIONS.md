@@ -2122,6 +2122,22 @@ either way, the rewrite only buys about three months, and none of the rows
 reaches 5 GB in a year) or checkouts pass a few minutes; then follow
 OWNER-STEPS 7d exactly, after building the price event log.
 
+**Done 10 October 2026: the catalogue module out of git** (owner's request).
+`demo/catalogue.generated.ts` (45 MB, about 210 MB of history, a third of it)
+and `demo/dormant.generated.ts` are "deploy" files from 10 October: the crawl
+commits their inputs and `data/catalogue-build.json` (the build's clock and
+each input's git blob id), and every reader replays them
+(`scripts/catalogueBuild.ts`, `scripts/ensure-catalogue-built.ts`). Proof: the
+crawl's build and the deploy's replay gave byte identical output for all 441
+built files (catalogue, data files, sitemaps, every UK, US and India
+page); a replay on a clock 12 days later, and one from inputs taken out of
+git, gave the same modules. A replay never writes the address memories and
+refuses to build if it would change them. Deploys take about a minute longer;
+daily growth falls by about a quarter (1.1 to 7.3 MB a day). This does not
+remove the past versions: a second rewrite (catalogue paths only, the
+6 October way) is now possible and recommended once a week of crawls has run
+cleanly, and is the owner's to approve (OWNER-STEPS 7d).
+
 ## D28 — Social images stop being committed; a workflow renders them (decided, done 2026-10-08)
 
 Recommendation for the owner, 2026-10-06. **Status: decided and done

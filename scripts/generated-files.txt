@@ -23,7 +23,9 @@
 #             conflict the incoming (already pushed) side is kept; the next run
 #             writes it again.
 #   manual    Machine-written source. A push conflict stops for a person.
-#   deploy    Written by `npm run demo` and never committed: gitignored, and
+#   deploy    Written by `npm run demo` (and, for the two catalogue modules,
+#             by `npm run catalogue:demo` or scripts/ensure-catalogue-built.ts)
+#             and never committed: gitignored, and
 #             built from the committed files by .github/workflows/deploy-pages.yml
 #             before every deployment. No workflow may commit one, and
 #             scripts/commit-and-push.sh refuses a caller that names one.
@@ -42,14 +44,26 @@
 # characters, / included. Lines starting with # are comments.
 
 # ── npm run rebuild (catalogue:demo, deals:build, catalogue:history, then demo below) ──
-rebuild   demo/catalogue.generated.ts         npm run catalogue:demo (scripts/build-demo-catalogue.ts)
-rebuild   demo/dormant.generated.ts           npm run catalogue:demo (scripts/build-demo-catalogue.ts)
+# The catalogue module and the pages with no current prices (demo/catalogue.generated.ts,
+# demo/dormant.generated.ts) are "deploy" below since 2026-10-10: the crawl commits what
+# they are built from (the snapshots, the memories and data/catalogue-build.json) and
+# every reader builds them (scripts/catalogueBuild.ts, scripts/ensure-catalogue-built.ts).
+rebuild   data/catalogue-build.json           npm run catalogue:demo (scripts/build-demo-catalogue.ts): the build's clock and the fingerprint of its data inputs, from which any checkout replays the catalogue byte for byte
 rebuild   data/id-aliases.json                npm run catalogue:demo (scripts/build-demo-catalogue.ts), reads its own last copy
 rebuild   data/set-match-report.json          npm run catalogue:demo (scripts/build-demo-catalogue.ts): the sets folded by src/catalogue/setMatch.ts and the groups it refused
 rebuild   data/product-slugs.json             npm run catalogue:demo (scripts/build-demo-catalogue.ts), reads its own last copy; a slug is never reassigned
 rebuild   demo/deals.generated.ts             npm run deals:build (scripts/build-deals.ts)
 rebuild   demo/priceHistory.generated.ts      npm run catalogue:history (scripts/build-price-history.ts)
 rebuild   data/price-history-checkpoint.json  npm run catalogue:history (scripts/priceHistoryReplay.ts)
+
+# ── the catalogue modules, built where they are read since 2026-10-10 ──
+# Committed by every crawl until then: the 45 MB catalogue module was a third of the
+# repository's history (docs/REPO-TIDY-2026-10-09.md). Built by the crawl's fresh
+# `npm run catalogue:demo`, and everywhere else replayed from the committed inputs and
+# data/catalogue-build.json by scripts/ensure-catalogue-built.ts (npm test, npm run demo,
+# the deploy, the region crawls, the scripts that read prices), byte for byte the crawl's.
+deploy    demo/catalogue.generated.ts         npm run catalogue:demo (scripts/build-demo-catalogue.ts); replayed by scripts/ensure-catalogue-built.ts
+deploy    demo/dormant.generated.ts           npm run catalogue:demo (scripts/build-demo-catalogue.ts); replayed by scripts/ensure-catalogue-built.ts
 
 # ── npm run demo: the published site, built at deploy time since 2026-10-04 ──
 # Committed by every crawl until then. The content-hashed data files took a new

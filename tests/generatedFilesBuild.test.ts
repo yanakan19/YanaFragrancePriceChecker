@@ -51,10 +51,12 @@ describe.runIf(run)('npm run rebuild, in a scratch copy', () => {
       execFileSync('npm', ['run', 'rebuild'], { cwd: scratch, stdio: 'pipe', maxBuffer: 256 * 1024 * 1024 });
 
       const writes = buildWritesSince(scratch, mark);
-      // The build really ran: it always rewrites the page and the catalogue.
-      // The page is gitignored since 2026-10-04 ("deploy" in the manifest),
-      // so it is checked on disk rather than among the tracked writes.
-      expect(writes.written).toContain('demo/catalogue.generated.ts');
+      // The build really ran: it always rewrites the page, the catalogue and
+      // the catalogue's build record. The page is gitignored since 2026-10-04
+      // and the catalogue modules since 2026-10-10 ("deploy" in the manifest),
+      // so they are checked on disk rather than among the tracked writes.
+      expect(writes.written).toContain('data/catalogue-build.json');
+      expect(statSync(join(scratch, 'demo/catalogue.generated.ts')).mtimeMs).toBeGreaterThanOrEqual(mark - 1000);
       expect(statSync(join(scratch, 'demo/index.html')).mtimeMs).toBeGreaterThanOrEqual(mark - 1000);
       expect(unlistedWrites(writes), 'committed files the build wrote that the manifest does not list as rebuild').toEqual([]);
     } finally {

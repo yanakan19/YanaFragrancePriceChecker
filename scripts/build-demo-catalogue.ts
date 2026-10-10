@@ -19,6 +19,17 @@ import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeGenerated } from './generatedFiles.js';
+import {
+  assertMemoriesUnchanged,
+  codeFingerprint,
+  currentInputs,
+  inputRoot,
+  inputsDiffer,
+  readRecord,
+  recordText,
+  stampLine,
+  CATALOGUE_RECORD,
+} from './catalogueBuild.js';
 import { oneEntryPerLine, shopTimes, withoutShopTimes } from './dataLiterals.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
@@ -57,10 +68,8 @@ import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
 import {
-  dormantIdsIn,
   lineageKey,
   listingIdForms,
-  productIdsIn,
   settleIdAliases,
   assertAppendOnly,
   type IdAliasFile,
@@ -118,9 +127,32 @@ const IMAGE_ALLOWED = new Set(
 );
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const dir = resolve(root, 'data/catalogue');
+/*
+ * Fresh or replay (scripts/catalogueBuild.ts). A fresh build (the crawl's
+ * `npm run catalogue:demo`) runs on the real clock, may add to the address
+ * memories and writes the build record. A replay (`--replay`, run by
+ * scripts/ensure-catalogue-built.ts wherever the module is read, the deploy
+ * included) runs on the record's clock, from data inputs the record
+ * fingerprints, and never writes a memory: the same bytes as the fresh build.
+ * The data inputs are read from CATALOGUE_INPUT_ROOT when set (an older
+ * commit's inputs, extracted), the outputs always go to this checkout.
+ */
+const replay = process.argv.includes('--replay');
+const dataRoot = inputRoot(root);
+const replayRecord = replay ? readRecord(dataRoot) : null;
+if (replay) {
+  if (replayRecord === null) throw new Error(`--replay needs ${CATALOGUE_RECORD}; run npm run catalogue:demo for a fresh build`);
+  const differ = inputsDiffer(currentInputs(dataRoot), replayRecord.files);
+  if (differ.length > 0) {
+    throw new Error(
+      `--replay: the data inputs in ${dataRoot} are not the ones ${CATALOGUE_RECORD} records ` +
+        `(${differ.length} differ: ${differ.slice(0, 5).join(', ')}); scripts/ensure-catalogue-built.ts gathers the right ones`,
+    );
+  }
+}
+const dir = resolve(dataRoot, 'data/catalogue');
 const store = new CatalogueStore(dir);
-const now = new Date();
+const now = replayRecord ? new Date(replayRecord.builtAt) : new Date();
 
 /**
  * scripts/image-box-check.ts's findings, keyed by the exact `imageUrl` it
@@ -129,7 +161,7 @@ const now = new Date();
  * Missing entirely (no run yet) is not an error: every offer is then simply
  * unverified, which pickImage already treats the same as `unsure`.
  */
-const imageBoxVerdictsPath = resolve(root, 'data/image-box-verdicts.json');
+const imageBoxVerdictsPath = resolve(dataRoot, 'data/image-box-verdicts.json');
 const imageBoxVerdicts = new Map<string, ImageBoxVerdict>();
 /**
  * The same file's `width`/`height`, when it has them. Added to the sweep on
@@ -200,7 +232,7 @@ if (existsSync(imageBoxVerdictsPath)) {
  * measured size goes into `imageDimensions` so pickImage ranks it by what it is.
  * Missing file is not an error: every listing then keeps its feed image.
  */
-const betterPhotosPath = resolve(root, 'data/better-photos.json');
+const betterPhotosPath = resolve(dataRoot, 'data/better-photos.json');
 const betterPhotos: Record<string, BetterPhoto> = existsSync(betterPhotosPath)
   ? (JSON.parse(readFileSync(betterPhotosPath, 'utf8')) as { photos?: Record<string, BetterPhoto> }).photos ?? {}
   : {};
@@ -464,11 +496,11 @@ export interface Notes {
  * reads this catalogue. NOTE_ALIASES (below, written into the catalogue file)
  * lists every spelling that was folded away, to redirect its old note address.
  */
-const noteAliasFile = JSON.parse(readFileSync(resolve(root, 'data/note-aliases.json'), 'utf8')) as NoteAliasFile;
+const noteAliasFile = JSON.parse(readFileSync(resolve(dataRoot, 'data/note-aliases.json'), 'utf8')) as NoteAliasFile;
 const noteAliases = noteAliasMap(noteAliasFile);
 const noteRewrites = new Map<string, string>(noteAliasFile.aliases.map((a) => [a.variant, a.canonical]));
 /** Reviewed prose a shop's copy left in a notes list (data/note-not-a-note.json), dropped before the shops are compared. */
-const isNoteProse = proseTest(JSON.parse(readFileSync(resolve(root, 'data/note-not-a-note.json'), 'utf8')) as NotANoteFile);
+const isNoteProse = proseTest(JSON.parse(readFileSync(resolve(dataRoot, 'data/note-not-a-note.json'), 'utf8')) as NotANoteFile);
 const noteStats = { withNotes: 0, contested: 0, fuller: 0, withBase: 0, bySource: new Map<string, number>() };
 
 /**
@@ -687,7 +719,7 @@ const brandCanon = (() => {
       }
     }
   }
-  const housesDir = resolve(root, 'data/houses');
+  const housesDir = resolve(dataRoot, 'data/houses');
   if (existsSync(housesDir)) {
     const s = new CatalogueStore(housesDir);
     for (const file of readdirSync(housesDir).filter((f) => f.endsWith('.json'))) {
@@ -2162,7 +2194,7 @@ interface HouseProduct {
 }
 
 const houseProducts: HouseProduct[] = [];
-const housesDir = resolve(root, 'data/houses');
+const housesDir = resolve(dataRoot, 'data/houses');
 
 if (existsSync(housesDir)) {
   const houseStore = new CatalogueStore(housesDir);
@@ -2561,23 +2593,32 @@ for (const l of formerListings) {
 }
 for (const [own, live] of hiddenSameBottle) if (!idSuccessors.has(own) && finalIds.has(live)) idSuccessors.set(own, live);
 
-const idAliasesPath = resolve(root, 'data/id-aliases.json');
+const idAliasesPath = resolve(dataRoot, 'data/id-aliases.json');
 const previousIdAliases: Record<string, string> = existsSync(idAliasesPath)
   ? (JSON.parse(readFileSync(idAliasesPath, 'utf8')) as IdAliasFile).aliases
   : {};
 // What is on disk now, before any seed: the record may only grow from this.
 const idAliasesOnDisk: Record<string, string> = { ...previousIdAliases };
-// Which ids were pages before this build: the last catalogue and its pages with
-// no current prices (still in the working tree, since they are written only at
-// the foot of this file), plus any ids a re-seed names with
+// Which ids were pages before this build: every id the address memory
+// (data/product-slugs.json) holds, since every page is given a slug the first
+// time it is built and keeps it, plus any ids a re-seed names with
 // --seed-ids <file> (one id a line) and the folds --seed-aliases <file> names,
 // both taken from the branch's history by scripts/id-alias-seed.sh.
-const previousCatalogueFile = resolve(root, 'demo/catalogue.generated.ts');
-const previousDormantFile = resolve(root, 'demo/dormant.generated.ts');
-const wasPage = new Set<string>([
-  ...(existsSync(previousCatalogueFile) ? productIdsIn(readFileSync(previousCatalogueFile, 'utf8')) : []),
-  ...(existsSync(previousDormantFile) ? dormantIdsIn(readFileSync(previousDormantFile, 'utf8')) : []),
-]);
+//
+// Until 2026-10-10 this read the last catalogue and dormant modules from the
+// working tree. They are no longer committed (scripts/catalogueBuild.ts), and
+// a replay must not depend on what an earlier step happened to leave on disk;
+// the memory is committed, and holds every id those modules held (each of
+// their products carries a slug). It also holds ids that were a page in an
+// older build only, so an address published then and folded since redirects
+// too. In a replay the memory read is the one this build's fresh run wrote:
+// its new keys are this build's own pages, which are never folded ids, so the
+// aliases come out the same.
+const productSlugsPath = resolve(dataRoot, 'data/product-slugs.json');
+const previousSlugs: Record<string, string> = existsSync(productSlugsPath)
+  ? (JSON.parse(readFileSync(productSlugsPath, 'utf8')) as SlugFile).slugs
+  : {};
+const wasPage = new Set<string>(Object.keys(previousSlugs));
 const seedFlag = process.argv.indexOf('--seed-ids');
 if (seedFlag >= 0) {
   const seedFile = process.argv[seedFlag + 1];
@@ -2617,10 +2658,6 @@ const idAliases = idAliasResult.published;
    src/catalogue/productSlug.ts (docs/PRODUCT-URLS.md). The slug of a product
    that has since been folded into another stays in the file and becomes an
    alias of the survivor (slugAliases below). */
-const productSlugsPath = resolve(root, 'data/product-slugs.json');
-const previousSlugs: Record<string, string> = existsSync(productSlugsPath)
-  ? (JSON.parse(readFileSync(productSlugsPath, 'utf8')) as SlugFile).slugs
-  : {};
 const slugProducts: SlugProduct[] = [
   ...ordered.map((p) => ({
     id: p.id,
@@ -2977,14 +3014,27 @@ export function isNewAt(productId: string, retailerId: string): boolean {
 }
 `;
 
-writeGenerated(root, 'demo/catalogue.generated.ts', body);
+/* The address memories as this build leaves them, the build record, and the
+   stamp both modules carry (scripts/catalogueBuild.ts). A replay checks the
+   memories against the committed ones and writes neither them nor the record. */
+const idAliasesText = `${JSON.stringify({ aliases: idAliasRecord }, null, 1)}\n`;
+const productSlugsText = `${JSON.stringify({ slugs: productSlugs }, null, 1)}\n`;
+const memoriesAfter: Record<string, string> = {
+  'data/id-aliases.json': idAliasesText,
+  'data/product-slugs.json': productSlugsText,
+};
+if (replayRecord) assertMemoriesUnchanged(dataRoot, memoriesAfter);
+const buildRecord = replayRecord ?? { builtAt: now.toISOString(), files: currentInputs(dataRoot, memoriesAfter) };
+const stamp = `${stampLine(buildRecord, codeFingerprint(root))}\n`;
+
+writeGenerated(root, 'demo/catalogue.generated.ts', stamp + body);
 
 // Products with no current prices: a data file of their own, fetched on demand
 // (LAZY_DATA_MODULES in scripts/dataFiles.ts), never part of the catalogue.
 writeGenerated(
   root,
   'demo/dormant.generated.ts',
-  `// Generated by scripts/build-demo-catalogue.ts. Do not edit by hand.
+  `${stamp}// Generated by scripts/build-demo-catalogue.ts. Do not edit by hand.
 //
 // Products whose last price any shop confirmed is older than ${HIDE_OFFER_AFTER_DAYS} days and that no
 // live product matches. Each keeps a page with its photo, name and price
@@ -3012,7 +3062,8 @@ export const SLUG_ALIASES: Record<string, string> = ${JSON.stringify(slugAliasMa
 `,
 );
 // What the third tier set matching did, and what it left to a person (data/set-match-report.json).
-if (setMatchReport) {
+// A replay writes no committed file: the crawl's fresh build wrote it.
+if (setMatchReport && !replayRecord) {
   const { result, candidates } = setMatchReport;
   const member = (id: string) => {
     const c = candidates.get(id)!;
@@ -3035,8 +3086,16 @@ if (setMatchReport) {
   };
   writeGenerated(root, 'data/set-match-report.json', `${JSON.stringify(report, null, 1)}\n`);
 }
-writeGenerated(root, 'data/id-aliases.json', `${JSON.stringify({ aliases: idAliasRecord }, null, 1)}\n`);
-writeGenerated(root, 'data/product-slugs.json', `${JSON.stringify({ slugs: productSlugs }, null, 1)}\n`);
+if (!replayRecord) {
+  writeGenerated(root, 'data/id-aliases.json', idAliasesText);
+  writeGenerated(root, 'data/product-slugs.json', productSlugsText);
+  writeGenerated(root, CATALOGUE_RECORD, recordText(buildRecord));
+}
+console.log(
+  replayRecord
+    ? `catalogue replayed from ${CATALOGUE_RECORD} (clock ${buildRecord.builtAt}); the address memories are unchanged`
+    : `${CATALOGUE_RECORD} written (clock ${buildRecord.builtAt}, ${Object.keys(buildRecord.files).length} data inputs)`,
+);
 console.log(
   `product addresses: ${slugResult.stats.kept} kept, ${slugResult.stats.fresh} given ` +
     `(${slugResult.stats.plain} plain, ${slugResult.stats.withStrength} with the strength, ${slugResult.stats.withVersion} with a version), ` +

@@ -105,6 +105,8 @@ Likelihood is over a month of normal running. Impact is on the live site.
 | 43 | A region deep link reaches the root `404.html` (the UK page) | Certain for every region product address: Pages has one 404 page | Without the hand off the UK app would show UK prices under a /us/ address | The UK page's first script hands /us/ and /in/ addresses to the region's page before any UK data is fetched (`scripts/regionPages.ts`) | `tests/regionPages.test.ts` runs the script against stand in addresses |
 | 44 | A test pins a count or a state of generated or daily changing data (note count under 4,800; "shop has no photos") | Certain (every new shop, note or owner decision) | The harvest or deploy gate fails with nothing broken, the same class as row 22 | None | Test the rule, never the figure: no duplicate merge keys, every alias target exists, count smaller than before folding; a shop field is unset or one allowed value (`tests/noteAliases.test.ts`, `tests/newSitemapShops20261008.test.ts`, as `tests/idAliasesAppendOnly.test.ts`) |
 | 45 | A new shop or brand brings product names with a "|" in them, and `tests/productNameNoise.test.ts` goes red on the next full sweep (happened 2026-10-09: VALJUES kits, "4 | Four") | Medium: each batch of new shops | Page shows a name with shop rubbish, or the sweep is red | The test over the built catalogue | Decide per name: shop rubbish is stripped in `src/catalogue/productName.ts` with a unit test; a real brand name is added to the test's brand held allowlist with the date and source (VALJUES, 2026-10-09). Rules in the test header |
+| 46 | A deploy or test replays the catalogue module and the replay would give a product an address, or an old id an alias, that `data/product-slugs.json` or `data/id-aliases.json` does not hold (a catalogue code change pushed without `npm run rebuild`, or memories edited by hand) | Low | None on the site: the deploy stops before upload and the site stays on its last good deployment; `npm test` stops in its pre step | The catalogue module was committed with the memories it was built with | Since 2026-10-10 a replay (`build-demo-catalogue.ts --replay`) never writes a memory and refuses to build when its memories differ from the committed ones (`assertMemoriesUnchanged`, before any write; `tests/catalogueBuild.test.ts`). Fix: `npm run rebuild` and commit the memories and `data/catalogue-build.json`; the next crawl's fresh build does the same |
+| 47 | The branch's snapshots are newer than the catalogue's build record (the crawl commits harvested prices before it rebuilds and stopped between the two; or a rebase put the record on top of another workflow's newer photo findings) | Medium: every crawl run for a few minutes, and after any failed rebuild | Would be a catalogue the crawl never built, out of step with the committed deals and with addresses the next crawl could give differently | n/a | The record names each input's git blob id; the replay takes each recorded input from the working tree when it matches and otherwise from git (`scripts/ensure-catalogue-built.ts`): the deploy's blobless clone fetches it, a shallow clone is deepened 100 commits at a time. A blob that is in no commit (a rebuild committed while its harvest commit was not) fails the replay: the deploy keeps the last good site and the next crawl's rebuild records committed inputs again |
 
 Rows 36 to 39 come from the review of every failed run to 2026-10-06,
 `docs/FAILED-RUNS-ANALYSIS.md`.
@@ -170,7 +172,8 @@ their history intact; nothing below touches them.
 | Option | Saves a day (2026-10-04 terms) | Risk | Done? |
 |---|---|---|---|
 | (a) Build the page, data files, sitemap and ads.txt in the deploy; stop committing them | 34.1 MB (56%) | Low: the deploy checks the build before uploading; the generated modules stay committed, so tests, scripts and the crawl's own checks are unchanged | Yes (1a7351c3, 10ef3cbe) |
-| (a+) Also stop committing `demo/*.generated.ts`, the checkpoint, `data/id-aliases.json` | about 7.5 MB more | High: about 50 files import the generated modules (tests, price alerts, social, fragrance links, sitemap); the deploy would need the full replay and history; `id-aliases` reads its own last copy | No; possible later |
+| (a+) Also stop committing `demo/*.generated.ts`, the checkpoint, `data/id-aliases.json` | about 7.5 MB more | High: about 50 files import the generated modules (tests, price alerts, social, fragrance links, sitemap); the deploy would need the full replay and history; `id-aliases` reads its own last copy | The catalogue modules only, yes (2026-10-10, below); the rest no |
+| (a++) Stop committing `demo/catalogue.generated.ts` and `demo/dormant.generated.ts`; commit their inputs and a build record (`data/catalogue-build.json`: the clock and every input's blob id) and replay them wherever they are read | 1.1 to 7.3 MB a day (2026-10-07 to 09), 46 MB off every checkout | Low: a replay is byte for byte the crawl's build (proved 2026-10-10, also on a clock 12 days later and from inputs taken out of git); the memories are read only in a replay, which refuses to build rather than publish an address the crawl has not recorded | Yes (2026-10-10) |
 | (b1) Checkpoint compact on disk (the ever-priced end time written once) | 0.5 MB | Low; tested round trip, outside the rules fingerprint | Yes (b9aeade5) |
 | (b2) Checkpoint rewritten only when 10 commits or 6 hours behind (24 and 24 since 2026-10-06: about 0.3 MB a day less) | about 2 MB more | Low: an older resume point gives the same output | Yes (b9aeade5) |
 | (b3) Checkpoint without its copy of the history (version 3): read back from `demo/priceHistory.generated.ts`, checked by hash | 15.9 → 5.0 MB of checkout; a rewrite packs to about 77 kB instead of 190 kB | Low: anything but an exact hash match replays from the first commit | Yes (2026-10-06) |
@@ -187,6 +190,17 @@ checkpoint (two thirds of its 4.3) ≈ 23.6 MB, of which 9.6 MB social images,
 so about 14 MB from the crawl. 2026-10-03: 40.4 − 25.3 − about 2.4 ≈ 12.7 MB.
 So about 13 to 14 MB on a busy crawl day plus whatever the social routines
 add, against 40 to 60 MB before.
+
+**The catalogue modules, 2026-10-10.** Measured the same way (each day's
+objects packed thin as a push sends them): the branch grew 9.1 MB on
+2026-10-07, 18.9 MB on 10-08 and 22.5 MB on 10-09, of which the catalogue and
+dormant modules were 1.1, 7.3 and 4.9 MB (18, 25 and 31 versions). Since
+2026-10-10 they are not committed: about 12 MB a day on average over those
+three days instead of about 17 (a quarter less), the crawl's new build record
+adds a few kB, and every
+checkout is 46 MB smaller. Their 210 MB of past versions stay in history
+until an owner approved rewrite (OWNER-STEPS 7d, D27). How the replay works
+and what guards it: rows 46 and 47 above, `scripts/catalogueBuild.ts`.
 
 ## Run times
 

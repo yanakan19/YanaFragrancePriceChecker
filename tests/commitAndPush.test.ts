@@ -613,17 +613,17 @@ describe('scripts/commit-and-push.sh reads scripts/generated-files.txt', () => {
   // The real manifest, not the page-committing copy the tests above use.
   it('refuses to commit the built page, which is built at deploy time, before staging anything', () => {
     const { root, worker } = setupTrio({
-      relPath: 'demo/catalogue.generated.ts',
+      relPath: 'demo/deals.generated.ts',
       content: 'BASE\n',
       extra: { 'demo/index.html': 'PAGE:A\n' },
     });
     cleanupDirs.push(root);
 
-    writeFileSync(join(worker, 'demo/catalogue.generated.ts'), 'OURS\n');
+    writeFileSync(join(worker, 'demo/deals.generated.ts'), 'OURS\n');
     writeFileSync(join(worker, 'demo/index.html'), 'PAGE:B\n');
     const base = git(worker, ['rev-parse', 'HEAD']);
 
-    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/catalogue.generated.ts', 'demo/index.html'], {
+    const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/deals.generated.ts', 'demo/index.html'], {
       GENERATED_FILES_MANIFEST: MANIFEST,
     });
 
@@ -632,5 +632,22 @@ describe('scripts/commit-and-push.sh reads scripts/generated-files.txt', () => {
     expect(git(worker, ['rev-parse', 'HEAD'])).toBe(base);
     expect(git(worker, ['rev-parse', 'origin/master'])).toBe(base);
     expect(git(worker, ['diff', '--cached', '--name-only'])).toBe('');
+  });
+
+  // Since 2026-10-10 the catalogue modules are replayed wherever they are read
+  // (scripts/catalogueBuild.ts) and never committed: "deploy" in the manifest.
+  it('refuses to commit the catalogue modules, which are built where they are read', () => {
+    const { root, worker } = setupTrio({ relPath: 'demo/deals.generated.ts', content: 'BASE\n' });
+    cleanupDirs.push(root);
+    const base = git(worker, ['rev-parse', 'HEAD']);
+    for (const module of ['demo/catalogue.generated.ts', 'demo/dormant.generated.ts']) {
+      writeFileSync(join(worker, module), 'BUILT\n');
+      const { status, output } = runScript(worker, ['Rebuild demo: sim', 'demo/deals.generated.ts', module], {
+        GENERATED_FILES_MANIFEST: MANIFEST,
+      });
+      expect(status, module).toBe(1);
+      expect(output).toContain(`Refusing to commit ${module}: it is built at deploy time`);
+      expect(git(worker, ['rev-parse', 'origin/master'])).toBe(base);
+    }
   });
 });

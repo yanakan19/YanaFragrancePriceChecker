@@ -1469,6 +1469,12 @@ jobs:
           # typed out here until 2026-10-04, and demo/dormant.generated.ts,
           # added to the build that morning, was missing from it.
           #
+          # The catalogue modules (demo/catalogue.generated.ts,
+          # demo/dormant.generated.ts) are not committed since 2026-10-10:
+          # data/catalogue-build.json, a rebuild path, records the clock and
+          # the inputs they were built from, and the deploy and every other
+          # reader replays them byte for byte (scripts/catalogueBuild.ts).
+          #
           # The page itself (demo/index.html, demo/404.html, demo/data,
           # demo/sitemap.xml) is not committed since 2026-10-04: the rebuild
           # above still writes it (the check and the tests read it), and

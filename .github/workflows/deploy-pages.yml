@@ -8,6 +8,9 @@ name: Deploy site
 # demo/sitemap.xml and demo/ads.txt are the output of `npm run demo`, and this
 # job builds them from what the branch does commit: the source, and the
 # generated modules (demo/*.generated.ts) the crawl rebuilds from its harvest.
+# Since 2026-10-10 the two catalogue modules (demo/catalogue.generated.ts,
+# demo/dormant.generated.ts) are built here too, first, from what the crawl
+# commits for them ("Build the catalogue" below).
 # They used to be committed by every crawl, and the content-hashed data files
 # were most of the repository's growth: about 32 of the 57 MB added on
 # 2026-10-04, because a new name every build defeats git's delta compression.
@@ -72,6 +75,7 @@ on:
       - 'data/note-not-a-note.json'
       - 'data/note-descriptions.json'
       - 'data/note-icons-manifest.json'
+      - 'data/catalogue-build.json'
       - 'data/regions/**'
   workflow_run:
     # The US and Indian crawls since the public beta (9 Oct 2026): their data is
@@ -147,7 +151,8 @@ jobs:
     concurrency:
       group: pages
       cancel-in-progress: false
-    # Checkout, install and build take about three minutes; the deployment
+    # Checkout, install and build take about four minutes (the catalogue
+    # replay added under one, 2026-10-10); the deployment
     # itself under one. A failed or stuck run is healed by the next (the
     # half hourly check deploys again while the live record is behind).
     timeout-minutes: 25
@@ -182,7 +187,8 @@ jobs:
         run: scripts/retry.sh 3 npm ci
 
       # tsc, the bundle, the page and its data files, then the sitemap
-      # (package.json). Reads the committed demo/*.generated.ts; never replays
+      # (package.json). Reads the committed demo/*.generated.ts and the
+      # catalogue modules built in the step above; never replays
       # the price history, which the crawl does before it commits them.
       # SITE_OVERRIDES_FETCH: the build reads the developer dashboard's public
       # list of hidden and removed brands and shops from the database, leaves
@@ -191,6 +197,21 @@ jobs:
       # Until then it answers "not set up" and the page is the one built
       # before the dashboard. A database that does not answer never fails the
       # build (scripts/siteBuild.ts).
+      # The catalogue modules (demo/catalogue.generated.ts, 45 MB, and
+      # demo/dormant.generated.ts) are not committed since 2026-10-10: they are
+      # replayed here from the committed snapshots, address memories and build
+      # record (data/catalogue-build.json), on the record's clock, byte for
+      # byte the catalogue the crawl built (scripts/catalogueBuild.ts). The
+      # memories are read only: a replay that would add or change a product
+      # address fails here, and the site stays on the last good deployment.
+      # When the branch's snapshots are newer than the record (a crawl
+      # commits prices before it rebuilds), it replays the inputs of the
+      # commit that wrote the record, fetched through the blobless checkout.
+      # About 45 seconds (scripts/ensure-catalogue-built.ts).
+      - name: Build the catalogue
+        timeout-minutes: 10
+        run: npx tsx scripts/ensure-catalogue-built.ts
+
       - name: Build the site
         timeout-minutes: 10
         env:

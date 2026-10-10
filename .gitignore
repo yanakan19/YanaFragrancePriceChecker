@@ -27,6 +27,12 @@ dist-demo/
 /demo/account/
 /demo/guides/
 /demo/notes/
+# The catalogue modules (since 2026-10-10): built by `npm run catalogue:demo` in
+# the crawl and replayed byte for byte from the committed inputs and
+# data/catalogue-build.json wherever they are read (scripts/ensure-catalogue-built.ts);
+# "deploy" in scripts/generated-files.txt. The catalogue was a third of the history.
+/demo/catalogue.generated.ts
+/demo/dormant.generated.ts
 # What a deployment was built from: written by deploy-pages.yml after the
 # build (scripts/deploy-decision.mjs record), published, never committed.
 /demo/build-state.json

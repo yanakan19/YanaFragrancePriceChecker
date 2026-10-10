@@ -52,13 +52,16 @@ describe('scripts/generated-files.txt', () => {
 
   it('lists every file the page build writes, including the ones run #592 and 2026-10-04 added', () => {
     for (const path of [
-      'demo/catalogue.generated.ts', 'demo/dormant.generated.ts', 'demo/deals.generated.ts',
-      'demo/priceHistory.generated.ts', 'data/price-history-checkpoint.json',
+      'demo/deals.generated.ts', 'demo/priceHistory.generated.ts', 'data/price-history-checkpoint.json',
+      // What the catalogue modules are built from (2026-10-10): the record and the address memories.
+      'data/catalogue-build.json', 'data/product-slugs.json', 'data/id-aliases.json',
     ]) {
       expect(policyOf(path), path).toBe('rebuild');
     }
     // The published site: built by deploy-pages.yml, never committed.
     for (const path of [
+      // The catalogue modules, replayed wherever they are read since 2026-10-10 (scripts/catalogueBuild.ts).
+      'demo/catalogue.generated.ts', 'demo/dormant.generated.ts',
       'demo/index.html', 'demo/404.html', 'demo/sitemap.xml', 'demo/ads.txt',
       'demo/data', 'demo/data/catalogue.0123456789abcdef.json',
       // A page of its own for each fixed address (scripts/build-route-pages.ts).
@@ -89,6 +92,7 @@ describe('scripts/generated-files.txt', () => {
   it('every deploy path is gitignored and untracked, so a local build can never be committed by accident', () => {
     const deploy = entries.filter((x) => x.policy === 'deploy');
     expect(deploy.map((e) => e.pattern)).toEqual([
+      'demo/catalogue.generated.ts', 'demo/dormant.generated.ts',
       'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
       'demo/us/', 'demo/in/',
       'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/', 'demo/notes/', 'demo/guides/', 'demo/note-icons/h/',
@@ -134,8 +138,12 @@ describe('scripts/generated-files.txt', () => {
   it('every deploy path is what the deploy workflow builds before it uploads', () => {
     const deployWorkflow = readFileSync(join(WORKFLOWS, 'deploy-pages.yml'), 'utf8');
     expect(deployWorkflow).toContain('run: npm run demo');
+    // The catalogue modules (2026-10-10): replayed in a step of their own before the page build.
+    expect(deployWorkflow).toContain('run: npx tsx scripts/ensure-catalogue-built.ts');
     for (const e of entries.filter((x) => x.policy === 'deploy')) {
-      expect(e.writtenBy, e.pattern).toMatch(/^npm run demo \(scripts\/(build-demo|build-sitemap|build-route-pages|bundle-demo)\.ts[),]/);
+      expect(e.writtenBy, e.pattern).toMatch(
+        /^npm run (demo \(scripts\/(build-demo|build-sitemap|build-route-pages|bundle-demo)\.ts[),]|catalogue:demo \(scripts\/build-demo-catalogue\.ts\); replayed by scripts\/ensure-catalogue-built\.ts)/,
+      );
     }
   });
 
@@ -152,10 +160,13 @@ describe('scripts/generated-files.txt', () => {
   it('prints the rebuild paths for the workflows, a folder without its trailing slash', () => {
     const paths = bash(['paths', 'rebuild']).split(' ');
     expect(paths).toEqual(entries.filter((e) => e.policy === 'rebuild').map((e) => e.pattern.replace(/\/$/, '')));
-    expect(paths).toContain('demo/catalogue.generated.ts');
-    // The crawl's page commit takes exactly this list: the built site is not on it.
-    for (const p of ['demo/data', 'demo/index.html', 'demo/404.html', 'demo/sitemap.xml']) expect(paths).not.toContain(p);
+    expect(paths).toContain('data/catalogue-build.json');
+    // The crawl's page commit takes exactly this list: the built site and the catalogue modules are not on it.
+    for (const p of ['demo/data', 'demo/index.html', 'demo/404.html', 'demo/sitemap.xml', 'demo/catalogue.generated.ts', 'demo/dormant.generated.ts']) {
+      expect(paths).not.toContain(p);
+    }
     expect(bash(['paths', 'deploy']).split(' ')).toEqual([
+      'demo/catalogue.generated.ts', 'demo/dormant.generated.ts',
       'demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
       'demo/us', 'demo/in',
       'demo/*.html', 'demo/about', 'demo/legal', 'demo/account', 'demo/notes', 'demo/guides', 'demo/note-icons/h',
@@ -263,8 +274,9 @@ describe('scripts/check-generated-writes.ts', () => {
     git(['config', 'user.email', 't@test']);
     git(['config', 'user.name', 't']);
     mkdirSync(join(dir, 'demo'), { recursive: true });
+    mkdirSync(join(dir, 'data'), { recursive: true });
     const base = {
-      'demo/catalogue.generated.ts': 'old', 'demo/dormant.generated.ts': 'old', 'demo/app.ts': 'src',
+      'demo/deals.generated.ts': 'old', 'demo/priceHistory.generated.ts': 'old', 'demo/app.ts': 'src',
       // As in this repository: the built site is ignored ("deploy" in the manifest).
       '.gitignore': readFileSync(join(REPO_ROOT, '.gitignore'), 'utf8'),
     };
@@ -280,18 +292,20 @@ describe('scripts/check-generated-writes.ts', () => {
   it('passes a build that wrote only rebuild paths, deletions and ignored output (the built site) included', () => {
     const dir = scratchRepo();
     const mark = Date.now();
-    writeFileSync(join(dir, 'demo/catalogue.generated.ts'), 'old'); // same bytes still counts as written
-    rmSync(join(dir, 'demo/dormant.generated.ts'));
-    writeFileSync(join(dir, 'demo/deals.generated.ts'), 'new');
+    writeFileSync(join(dir, 'demo/deals.generated.ts'), 'old'); // same bytes still counts as written
+    rmSync(join(dir, 'demo/priceHistory.generated.ts'));
+    writeFileSync(join(dir, 'data/catalogue-build.json'), '{}');
+    // The catalogue modules are ignored output since 2026-10-10, like the built site.
+    writeFileSync(join(dir, 'demo/catalogue.generated.ts'), 'new');
     writeFileSync(join(dir, 'demo/index.html'), 'page');
     mkdirSync(join(dir, 'demo/data'));
     writeFileSync(join(dir, 'demo/data/catalogue.bbbb.json'), '[1]');
     mkdirSync(join(dir, 'dist-demo'));
     writeFileSync(join(dir, 'dist-demo/artifact.html'), 'x');
     const writes = buildWritesSince(dir, mark);
-    expect(writes.written).toEqual(['demo/catalogue.generated.ts']);
-    expect(writes.deleted).toEqual(['demo/dormant.generated.ts']);
-    expect(writes.created).toEqual(['demo/deals.generated.ts']);
+    expect(writes.written).toEqual(['demo/deals.generated.ts']);
+    expect(writes.deleted).toEqual(['demo/priceHistory.generated.ts']);
+    expect(writes.created).toEqual(['data/catalogue-build.json']);
     expect(unlistedWrites(writes)).toEqual([]);
   });
 
