@@ -191,9 +191,10 @@ describe('the moving gradient', () => {
     }
   });
 
-  it('never sits behind the title tile\'s words: a still oval of the page ground covers the middle', () => {
-    const oval = rules().find((r) => r.selector === '.intro::after');
-    expect(oval?.decls).toMatch(/radial-gradient\([^;]*var\(--bg\)/);
-    expect(oval?.decls).not.toMatch(/animation/);
+  it('never sits behind the title tile\'s words: each line carries the plain page ground', () => {
+    const ground = rules().find((r) => r.selector.replace(/\s+/g, ' ') === '.intro .hero-wordmark, .intro .hero-mission, .intro .hero-fresh');
+    expect(ground?.decls).toMatch(/background:\s*var\(--bg\)/);
+    expect(ground?.decls).toMatch(/box-shadow:[^;]*var\(--bg\)/);
+    expect(ground?.decls).not.toMatch(/animation|transition/);
   });
 });

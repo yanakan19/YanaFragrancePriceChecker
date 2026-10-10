@@ -829,24 +829,24 @@
   /* ── intro / hero ──────────────────────────────────────────────────────── */
   /* The title tile (owner, 10 Oct 2026: a moving gradient, used minimally,
      on prominent tiles). A hairline card whose ground drifts between the
-     page, the accent wash and the second surface (behaviour 9). A still
-     oval of the plain page ground sits over the middle, under the words, so
-     the wordmark and the line below it keep exactly the contrast they had:
-     the colour moves at the tile's edges, never behind text. */
+     page, the accent wash and the second surface (behaviour 9). The words
+     never sit on it: each line of the greeting carries the plain page ground
+     with a soft edge, so the wordmark and the line below keep exactly the
+     contrast they had and the colour moves round them, at the tile's edges. */
   .intro {
     --drift-a: var(--bg); --drift-b: var(--accent-sf); --drift-c: var(--surface-2);
     margin-top: 12px; padding: 28px 16px 26px;
     border: 1px solid var(--line); border-radius: 16px;
   }
-  .intro::after {
-    content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none;
-    background: radial-gradient(farthest-side at 50% 50%, var(--bg) 62%, transparent);
+  .intro .hero-wordmark, .intro .hero-mission, .intro .hero-fresh {
+    width: fit-content; max-width: 90%; margin-inline: auto;
+    background: var(--bg); border-radius: 6px; box-shadow: 0 0 22px 14px var(--bg);
   }
   .hero-logo { text-align: center; position: relative; }
   /* The wordmark once sat on the brightest part of a breathing wash, which
-     is the one place text must never go; the oval above keeps the words on
-     the plain ground. The hero has no entrance of its own: it is the first
-     block of the home page's stagger (behaviour 2). */
+     is the one place text must never go; the plain ground each line carries
+     (above) keeps it off the gradient. The hero has no entrance of its own:
+     it is the first block of the home page's stagger (behaviour 2). */
 
   .hero-wordmark {
     margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -.035em; line-height: 1;
@@ -3858,7 +3858,7 @@
        and the next Tab carries on from the top bar as if nothing happened. -->
   <main id="view" tabindex="-1">
     <noscript>
-      <p class="ns-note"><strong>JavaScript is switched off.</strong> PriceSniffs needs it to search and compare live prices. The pages below explain what the site does, and turning JavaScript on in your browser settings brings the prices back.</p>
+      <p class="ns-note"><strong>JavaScript is switched off.</strong> PriceSniffs needs it to search and compare prices. Turn it on in your browser settings to see them; the page below explains what the site does.</p>
     </noscript>
     <!-- While the prices load (JavaScript only): a still outline of a page,
          replaced by the first render. See .boot. -->
