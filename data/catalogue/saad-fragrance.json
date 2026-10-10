@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-10T11:51:56.237Z",
-  "seenAt": "2026-10-10T11:51:56.237Z",
+  "updatedAt": "2026-10-10T16:00:48.009Z",
+  "seenAt": "2026-10-10T16:00:48.009Z",
   "source": "live",
   "listings": [
     {
@@ -60,7 +60,7 @@
       "priceGbp": 26.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Riiffs Momento 100ml Extrait de Parfum features a complex blend of sugar, saffron, and mandarin top notes; tonka bean, damask rose, and agarwood middle notes; and caramel, amberwood, and cedar base notes, delivering a balanced and long-lasting fragrance profile. .",
       "productType": null,
@@ -2728,7 +2728,7 @@
       "priceGbp": 41.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the luxurious blend of oud, leather, and saffron in Alf Escalo's Extrait de Parfum. With notes of amber and metallic, this fragrance is perfect for both men and women, adding a touch of sophistication to any occasion. Elevate your scent game with Alf Escalo 50ml EDP..",
       "productType": "Extrait De Parfum",
