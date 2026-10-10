@@ -208,12 +208,7 @@
        Every use pairs it with font-variant-numeric: tabular-nums. */
     --font-num: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 
-    /* The motion scale (docs/UX-POLISH-PLAN.md 4). Three durations and one
-       arrival curve name every new rule; --dur-2 and --dur-3 point at them
-       so the older rules share one scale. Nothing that runs once lasts
-       longer than --dur-slow, and nothing animates a price. The only loops
-       are the marquee, the photo sweep, the live dot and the gradient
-       drift, and reduced motion stops all four. */
+    /* The motion scale (docs/UX-POLISH-PLAN.md 4). --dur-2 and --dur-3 point at it. */
     --ease-out:  cubic-bezier(.2,.8,.2,1);
     --dur-fast:  150ms;  /* hover, focus, press release, menus */
     --dur:       220ms;  /* page and section enter */
@@ -285,20 +280,14 @@
   @media (min-width: 900px) { .t-page { font-size: 32px; } }
   .t-price--hero { font-size: 34px; line-height: 1.05; letter-spacing: -.022em; }
 
-  /* ── motion ────────────────────────────────────────────────────────────────
-     The named behaviours below, and nothing animates that is not one of them
-     (docs/UX-POLISH-PLAN.md 4; tests/motion.test.ts holds the rules).
-     Motion explains a change of state or an arrival. The one idle movement
-     is the slow gradient drift on three chosen tiles (behaviour 9), at the
-     owner's request of 10 Oct 2026.
-     Transform and opacity only, plus colour and border colour fades — never
-     width, height, top, left or a shadow.
+  /* ── motion ──────────────────────────────────────────────────────────────
+     Only the behaviours below animate (docs/UX-POLISH-PLAN.md 4, held by
+     tests/motion.test.ts): transform and opacity, plus colour and border
+     colour fades. Never width, height, top, left or a shadow. The one idle
+     movement is the gradient drift on three tiles (behaviour 9).
 
-     The rule below is the theme cross-fade (behaviour 5): switching mode
-     fades ground, ink and border on every element over --dur-4 without
-     anything moving or re-laying out. It is deliberately limited to those
-     three properties — a blanket `transition: all` would catch transform and
-     make every press and hover lag. */
+     The rule below is the theme cross-fade (behaviour 5): ground, ink and
+     border only, as a blanket `transition: all` would make every press lag. */
   html, body, * {
     transition: background-color var(--dur-4) var(--ease-standard),
                 color var(--dur-4) var(--ease-standard),
@@ -315,11 +304,7 @@
     to   { opacity: 1; transform: none; }
   }
   .ps-rise        { animation: ps-rise var(--dur) var(--ease-out) both; }
-  /* Behaviour 2: settle — blocks arriving in turn. The home page's wrapper
-     carries it instead of .ps-rise (render() in demo/app.ts), so its hero,
-     banner, rail and lower section arrive 30ms apart rather than as one
-     slab. Capped at 8, so the last thing a reader sees lands within --dur
-     of the first rather than trickling in indefinitely. */
+  /* Behaviour 2: settle — the home page's blocks arrive 30ms apart (render() in demo/app.ts), capped at 8. */
   .ps-stagger > * { animation: ps-rise var(--dur) var(--ease-out) both; }
   .ps-stagger > *:nth-child(1) { animation-delay: 0ms; }
   .ps-stagger > *:nth-child(2) { animation-delay: 30ms; }
@@ -331,8 +316,7 @@
   .ps-stagger > *:nth-child(8) { animation-delay: 210ms; }
   .ps-stagger > *:nth-child(n+9) { animation-delay: 240ms; }
 
-  /* Behaviour 6: open — a menu drops 4px from its button, a sheet rises from
-     the bottom, a dialog settles from .98. Closing is instant ([hidden]). */
+  /* Behaviour 6: open — a menu drops 4px, a sheet rises, a dialog settles. Closing is instant. */
   @keyframes ps-pop {
     from { opacity: 0; transform: translateY(-4px); }
     to   { opacity: 1; transform: none; }
@@ -341,25 +325,17 @@
     from { opacity: 0; transform: scale(.98); }
     to   { opacity: 1; transform: none; }
   }
-  /* No "to": it fades up to the element's own opacity, whatever that is. */
+  /* No "to": it fades up to the element's own opacity. */
   @keyframes ps-fade { from { opacity: 0; } }
 
-  /* Behaviour 8: sweep — a soft band across a box whose content is on its
-     way (the page skeleton, a photo well). It waits 250ms, so a box filled
-     from the cache never shows it. The skeleton sweeps 6 times at most and
-     then rests off the box; a photo well sweeps until its photo is in. */
+  /* Behaviour 8: sweep — a soft band over a box still loading, after 250ms so a cached one never shows it. */
   @keyframes ps-sweep {
     from { opacity: 0; transform: translateX(-100%); }
     20%  { opacity: 1; }
     to   { opacity: 1; transform: translateX(100%); }
   }
 
-  /* Behaviour 9: drift — the moving gradient, on three tiles only (the home
-     title tile, the top deal, the primary button on hover; the motion test
-     holds the list). A layer three times the tile's width carries a three
-     stop gradient and slides sideways, so only transform changes and the
-     layer stays on the compositor. 18s a pass, alternating: slow enough to
-     read as light rather than movement. */
+  /* Behaviour 9: drift — the moving gradient, on three tiles only. A layer three times the tile's width slides sideways (transform only), 18s a pass. */
   @keyframes ps-drift {
     from { transform: translate3d(-16%, 0, 0); }
     to   { transform: translate3d(16%, 0, 0); }
@@ -372,9 +348,7 @@
     animation: ps-drift 18s ease-in-out infinite alternate;
   }
 
-  /* Every behaviour above has a reduced-motion end state, and this is it:
-     the end state still arrives, it just arrives immediately. The loops are
-     also named and stopped outright, so nothing moves at all. */
+  /* Reduced motion: every behaviour ends at once, and the loops are stopped by name. */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 1ms !important;
@@ -633,9 +607,7 @@
     }
     .acct-item { min-height: 48px; font-size: 16px; }
   }
-  /* Behaviour 6 for the account and country menus: a dropdown drops 4px
-     from its button, a phone sheet rises from the bottom over a fading
-     backdrop. Closing is instant. */
+  /* Behaviour 6 for the account and country menus. */
   .acct-pop:not([hidden]) { animation: ps-pop var(--dur-fast) var(--ease-out); }
   .acct-back:not([hidden]) { animation: ps-fade var(--dur-fast) var(--ease-out); }
   @media (max-width: 600px) { .acct-pop:not([hidden]) { animation-name: ps-rise; } }
@@ -827,12 +799,7 @@
   ul.listing, ul.offers { list-style: none; margin: 0; padding: 0; }
 
   /* ── intro / hero ──────────────────────────────────────────────────────── */
-  /* The title tile (owner, 10 Oct 2026: a moving gradient, used minimally,
-     on prominent tiles). A hairline card whose ground drifts between the
-     page, the accent wash and the second surface (behaviour 9). The words
-     never sit on it: each line of the greeting carries the plain page ground
-     with a soft edge, so the wordmark and the line below keep exactly the
-     contrast they had and the colour moves round them, at the tile's edges. */
+  /* The title tile (owner, 10 Oct 2026): its ground drifts (behaviour 9), and each line of the greeting carries the plain page ground with a soft edge, so the words keep the contrast they had. */
   .intro {
     --drift-a: var(--bg); --drift-b: var(--accent-sf); --drift-c: var(--surface-2);
     margin-top: 12px; padding: 28px 16px 26px;
@@ -843,10 +810,7 @@
     background: var(--bg); border-radius: 6px; box-shadow: 0 0 22px 14px var(--bg);
   }
   .hero-logo { text-align: center; position: relative; }
-  /* The wordmark once sat on the brightest part of a breathing wash, which
-     is the one place text must never go; the plain ground each line carries
-     (above) keeps it off the gradient. The hero has no entrance of its own:
-     it is the first block of the home page's stagger (behaviour 2). */
+  /* The hero has no entrance of its own: it is the first block of the home stagger. */
 
   .hero-wordmark {
     margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -.035em; line-height: 1;
@@ -1149,14 +1113,7 @@
   .art-md { width: min(90%, 300px); }
   .art-lg { width: 96%; max-width: 340px; }
   .art-img { width: 100%; height: 100%; object-fit: contain; display: block; position: relative; }
-  /* Behaviour 8 on a photo well: a soft band sweeps across it until its
-     photo has loaded (art-ready, set by one captured load listener in
-     demo/app.ts) or failed (art-failed), which take the band away. It paints
-     under the photo, so a photo that arrives mid sweep simply covers it.
-     Base opacity 0: the band is decoration, and under reduced motion it never
-     shows. It loops rather than counting sweeps: a tile off screen is not
-     drawn (content-visibility on .tile-grid > li), and a counted animation
-     there would never finish, which leaves anything waiting on it waiting. */
+  /* Behaviour 8 on a photo well, until its photo loads (art-ready, demo/app.ts) or fails. It loops: a counted animation in an undrawn tile (content-visibility) never finishes. */
   .art:has(> .art-img) { position: relative; }
   .art:has(> .art-img)::before {
     content: ''; position: absolute; inset: 0; opacity: 0; pointer-events: none;
@@ -1314,19 +1271,12 @@
     padding: 12px 13px 14px; color: var(--ink);
     transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
   }
-  /* Behaviour 4, lift (owner, 10 Oct 2026, replacing "no lift"): under a
-     mouse, or with keyboard focus inside it, the tile rises 2px, its border
-     firms and the theme's lift shadow appears. Only the transform and the
-     border animate; the shadow is a state, not a transition. Not under a
-     finger, where a hover would stick after the tap. */
+  /* Behaviour 4, lift (owner, 10 Oct 2026): 2px, a firmer border and the lift shadow, under a mouse or keyboard focus. */
   @media (hover: hover) and (pointer: fine) {
     .tile:hover { border-color: var(--line-firm); transform: translateY(-2px); box-shadow: var(--shadow-lift); }
   }
   .tile:has(:focus-visible) { border-color: var(--line-firm); transform: translateY(-2px); box-shadow: var(--shadow-lift); }
-  /* The top deal (first on Deals in the default order): a 2px ring of the
-     drifting gradient (behaviour 9). The drift layer fills the tile and the
-     tile's own card is laid back over all but its edge, so the words sit on
-     the usual --surface. 16s a pass, out of step with the title tile. */
+  /* The top deal (first on Deals by saving): a 2px ring of the drift, the card laid back over the rest. */
   .tile.tile-top {
     --drift-a: var(--accent); --drift-b: var(--rank-1); --drift-c: var(--accent-sf);
     border-color: transparent;
@@ -2828,8 +2778,7 @@
     width: 8px; height: 8px; border-radius: 50%; padding: 0;
     background: var(--bg); border: 2px solid var(--accent); cursor: pointer;
     outline: none; z-index: 2;
-    /* Grows by scale, not by width and height: same look, no layout work.
-       --grow is each kind's hover size over its resting size. */
+    /* Grows by scale; --grow is each kind's hover size over its resting size. */
     --grow: 1.625;
     transition: transform var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out);
   }
@@ -2841,10 +2790,7 @@
      the bottom of this file, which strips all animation outright. */
   .history-dot-last { width: 11px; height: 11px; background: var(--accent); --grow: 1.18; }
   .history-dot-live { animation: history-pulse 1.8s ease-in-out infinite; }
-  /* Behaviour 7: draw in. When a chart arrives, the clip over its line and
-     band grows from the left edge, then the dots fade up. Only inside a view
-     that was entered (.ps-rise), so an in-place redraw such as a wishlist
-     tap does not replay it; a range switch does, as its panel was hidden. */
+  /* Behaviour 10: draw in, then the dots fade up. Only in an entered view (.ps-rise), so an in-place redraw does not replay it. */
   .history-reveal { transform-origin: 0 0; }
   .ps-rise .history-reveal { animation: ps-draw var(--dur-slow) var(--ease-out) both; }
   @keyframes ps-draw { from { transform: scaleX(0); } }
@@ -3032,10 +2978,7 @@
     font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
   }
   .contact-send:active { background: var(--accent-press); border-color: var(--accent-press); }
-  /* Primary hover (behaviour 9): the fill drifts between --accent and
-     --accent-ink, which raises the label's contrast in both themes (7.3:1
-     and 7.6:1, against 4.0:1 for the old dark hover). The layer fades in on
-     hover only and runs only while it shows. */
+  /* Primary hover (behaviour 9): a drift between --accent and --accent-ink, which raises the label's contrast in both themes. */
   .contact-send { position: relative; isolation: isolate; overflow: hidden; }
   .contact-send::before {
     content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: -100%; width: 300%;
@@ -3304,10 +3247,7 @@
      replaces #view wholesale when it starts, so for a normal visitor this is
      never painted and takes no room: nothing shifts. */
   html.js .static-intro { display: none; }
-  /* The loading outline (behaviour 8): a title, a line and four tiles in the
-     theme's own surfaces, a band sweeping each. At least a screen tall, so
-     the footer is already below the fold and does not jump when the page
-     arrives. Without JavaScript it is never painted. */
+  /* The loading outline (behaviour 8), a screen tall so the footer does not jump. JavaScript only. */
   .boot { display: none; }
   html.js .boot { display: block; min-height: 100vh; padding-top: 24px; }
   .boot i { display: block; position: relative; overflow: hidden; background: var(--surface-2); border-radius: 8px; }
@@ -3728,8 +3668,7 @@
   .doc .guide-card-title { font: 700 16px/1.3 var(--font-sans); margin: 0; }
   .doc .guide-card-title a { display: flex; align-items: center; min-height: 44px; padding: 8px 0 4px; box-sizing: border-box; color: var(--ink); }
   .doc .guide-card p { margin: 0; }
-  /* The whole card is the link (the title's link stretched over it), so it
-     lifts like a tile, and its focus ring is drawn round the card. */
+  /* The whole card is the link, so it lifts like a tile. */
   .guide-card { position: relative; transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
   .doc .guide-card-title a::after { content: ''; position: absolute; inset: 0; border-radius: 12px; }
   .doc .guide-card-title a:focus-visible { outline: none; }
@@ -3737,8 +3676,7 @@
   @media (hover: hover) and (pointer: fine) {
     .guide-card:hover { transform: translateY(-2px); border-color: var(--line-firm); box-shadow: var(--shadow-lift); }
   }
-  /* A guide's words arrive after its heading (a lazy file): they fade up
-     rather than appear in one frame. */
+  /* A guide's words arrive after its heading (a lazy file) and fade up. */
   .content-body { animation: ps-fade var(--dur) var(--ease-out) backwards; }
   /* Home: one slim secondary button to the guides index (owner request,
      9 Oct 2026). Secondary rank (surface-2, firm edge), one line from 320 up. */
