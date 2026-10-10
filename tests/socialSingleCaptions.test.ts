@@ -40,6 +40,44 @@ for (const f of FOLDERS) {
   });
 }
 
+// Owner rule, 10 October 2026: from now on EVERY post has one caption for all
+// platforms. Every post folder dated 9 October 2026 or later is found by name
+// (no list to forget to update) and must have exactly one caption.txt of at
+// most 280 characters including hashtags and the address (a free X account's
+// limit), 3 to 5 hashtags, the address written out, no "link in bio", no
+// platform names and no dashes. Guess the Fragrance folders have their own,
+// stricter test (tests/guessFragranceCaptions.test.ts) and are skipped here.
+const DATED = /^(\d{4}-\d{2}-\d{2})-/;
+const FROM_NOW_ON = readdirSync(POSTS).filter((f) => {
+  const m = DATED.exec(f);
+  return m !== null && m[1]! >= '2026-10-09' && !/guess-fragrance/.test(f);
+});
+
+describe('every post from 9 October 2026 on has one caption for all platforms', () => {
+  it('finds the post folders by date', () => {
+    expect(FROM_NOW_ON.length).toBeGreaterThan(0);
+  });
+  for (const f of FROM_NOW_ON) {
+    describe(f, () => {
+      const text = readFileSync(join(POSTS, f, 'caption.txt'), 'utf8').trim();
+      const tags = text.match(/#[\p{L}\p{N}_]+/gu) ?? [];
+      it('has exactly one caption file', () => {
+        expect(readdirSync(join(POSTS, f)).filter((n) => /caption/i.test(n))).toEqual(['caption.txt']);
+      });
+      it('fits 280 characters with 3 to 5 hashtags', () => {
+        expect([...text].length).toBeLessThanOrEqual(280);
+        expect(tags.length).toBeGreaterThanOrEqual(3);
+        expect(tags.length).toBeLessThanOrEqual(5);
+      });
+      it('names pricesniffs.space, with no link in bio, no dashes and no platform names', () => {
+        expect(text).toContain('pricesniffs.space');
+        expect(DASHES.test(noUrls(text))).toBe(false);
+        expect(text).not.toMatch(/\bbio\b|\b(tiktok|instagram|facebook|threads|pinterest|youtube|twitter)\b/i);
+      });
+    });
+  }
+});
+
 describe("the deal captions carry the deal's own figures from check.json", () => {
   for (const f of FOLDERS.slice(0, 2)) {
     it(f, () => {
