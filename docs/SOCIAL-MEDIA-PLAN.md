@@ -293,6 +293,7 @@ it and holds every rule below, so a change cannot quietly break one.
 | **Format** | Vertical 9:16, 1080 x 1920, 30 fps, H.264, no sound (add music in the app), under 8 MB. |
 | **Deal of the Day: length** | **Exactly 10 seconds** (300 frames). |
 | **Informative videos: length** | As long as the content needs, 20 to 30 seconds. |
+| **Launch videos: length** | 10 to 12 seconds, black theme (`VIDEO_TEMPLATE.launch`). Made by `scripts/social-video-launch.ts` (`npm run social:video:launch`); the first is the US launch video, 11.8 seconds. Its scenes are plain HTML and its figures are constants held to the region's report by `tests/socialLaunchVideo.test.ts`. 9:16 only: the template is one canvas, and its safe box (y 380 to 1460) also survives the feed's 4:5 and 3:4 crops. |
 | **The very start** | A clean still. Nothing moves for the first 0.8 seconds, so the first frame is a finished picture (and a usable cover). Then the motion begins. |
 | **Between scenes** | A dissolve or a swipe left, alternating. Every scene also zooms in slowly (Ken Burns): 5 per cent over its length, easing in and out. |
 | **Swipes and dissolves** | **None longer than 0.5 seconds.** Swipe 0.4 s, dissolve 0.5 s. |
@@ -334,6 +335,9 @@ npx tsx scripts/social-video-explainers.ts [--only strengths|notes]   # npm run 
   `npm run social:render -- <folder>` draws the same video again from
   `check.json` alone. The date on the video is the date it was made: make a
   new one with `--date` (and recheck the price) if it goes out another day.
+* A launch video (`npm run social:video:launch`) keeps its caption and
+  `source.md` by hand beside it; the script only draws the video and writes
+  `pictures.json` (`make: "launch-video"`).
 * Informative videos take their facts from the site's own guides
   (`demo/content/guideBodies.ts`); the test holds the figures and key phrases
   to that text, and longevity is shown only as the guide states it (more oil

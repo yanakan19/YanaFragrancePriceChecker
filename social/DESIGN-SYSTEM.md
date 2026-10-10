@@ -315,7 +315,8 @@ fade to the background, and all text inside the TikTok safe box (x 110 to 970,
 y 380 to 1460). The config is `scripts/social-video-template.ts`; the rules and
 how to make one are in `docs/SOCIAL-MEDIA-PLAN.md` section 9. Colours, type and
 the wording rules above apply to them unchanged. Deal of the Day videos use the
-standard black theme, informative videos the red one.
+standard black theme, informative videos the red one, and launch videos (10 to 12 seconds,
+`scripts/social-video-launch.ts`) the black one.
 
 ## 10. Where the pictures go (from 8 October 2026)
 

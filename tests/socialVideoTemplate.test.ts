@@ -6,6 +6,7 @@ import { launchChromium } from '../scripts/a11y-audit.js';
 import { GUIDE_BODIES } from '../demo/content/guideBodies.js';
 import { layoutProblems } from '../scripts/social-video-render.js';
 import { EXPLAINER_CSS, EXPLAINER_VIDEOS, LAYERS, STRENGTHS, captions } from '../scripts/social-video-explainers.js';
+import { LAUNCH_CSS, US_LAUNCH_VIDEO } from '../scripts/social-video-launch.js';
 import {
   DEAL_VIDEO,
   VIDEO_TEMPLATE as T,
@@ -36,6 +37,7 @@ const VIDEOS: [string, VideoSpec][] = [
   ['deal of the day', DEAL_VIDEO],
   ['perfume strengths', EXPLAINER_VIDEOS.strengths.spec],
   ['perfume notes', EXPLAINER_VIDEOS.notes.spec],
+  ['us launch', US_LAUNCH_VIDEO.spec],
 ];
 
 describe('video template config', () => {
@@ -178,6 +180,14 @@ describe('video lengths', () => {
     }
   });
 
+  it('the launch video runs 10 to 12 seconds, in the black theme', () => {
+    const tl = buildTimeline(US_LAUNCH_VIDEO.spec);
+    expect(tl.total).toBeGreaterThanOrEqual(T.launch.minSeconds);
+    expect(tl.total).toBeLessThanOrEqual(T.launch.maxSeconds);
+    expect(US_LAUNCH_VIDEO.spec.theme).toBe('standard');
+    expect(US_LAUNCH_VIDEO.scenes().map((s) => s.id)).toEqual(US_LAUNCH_VIDEO.spec.scenes.map((s) => s.id));
+  });
+
   it('breaks a rule when a swipe is stretched past half a second', () => {
     const slow = { ...T, transitions: { ...T.transitions, swipeSeconds: 0.6 } } as unknown as typeof T;
     expect(timelineProblems(buildTimeline(DEAL_VIDEO, slow), slow).join(' ')).toMatch(/swipe into/);
@@ -221,6 +231,7 @@ describe('video copy', () => {
       ...dealScenes(DEAL),
       ...EXPLAINER_VIDEOS.strengths.scenes(),
       ...EXPLAINER_VIDEOS.notes.scenes(),
+      ...US_LAUNCH_VIDEO.scenes(),
     ];
     for (const s of scenes) {
       expect(visibleWords(s.html).filter((w) => DASHES.test(w)), s.id).toEqual([]);
@@ -305,6 +316,10 @@ describe('video layout stays inside the safe box', () => {
     }
   }, 60_000);
 
+  it('keeps the launch video inside it, even at the end of every zoom', async () => {
+    expect(await layoutProblems(browser, US_LAUNCH_VIDEO.spec, US_LAUNCH_VIDEO.scenes(), LAUNCH_CSS), US_LAUNCH_VIDEO.spec.id).toEqual([]);
+  }, 60_000);
+
   it('keeps a Deal of the Day video inside it for a normal deal and for extreme data', async () => {
     const cases: DealVideoData[] = [
       DEAL,
@@ -360,6 +375,7 @@ describe('committed template videos', () => {
   const folders = existsSync(POSTS) ? readdirSync(POSTS).filter((n) => statSync(join(POSTS, n)).isDirectory()) : [];
   const deals = folders.filter((n) => /-deal-video-/.test(n));
   const explainers = folders.filter((n) => /-explainer-video-/.test(n));
+  const launches = folders.filter((n) => /-launch-[a-z]+-video$/.test(n));
 
   for (const folder of deals) {
     const file = join(POSTS, folder, 'deal-video-9x16.mp4');
@@ -367,6 +383,16 @@ describe('committed template videos', () => {
       expect(mp4Seconds(file)).toBeCloseTo(10, 2);
       expect(statSync(file).size).toBeLessThan(T.encode.maxMegabytes * 1024 * 1024);
     });
+  }
+  for (const folder of launches) {
+    for (const f of readdirSync(join(POSTS, folder)).filter((n) => n.endsWith('-9x16.mp4'))) {
+      it(`${folder}/${f} runs ${T.launch.minSeconds} to ${T.launch.maxSeconds} seconds and is under ${T.encode.maxMegabytes} MB`, () => {
+        const seconds = mp4Seconds(join(POSTS, folder, f));
+        expect(seconds).toBeGreaterThanOrEqual(T.launch.minSeconds);
+        expect(seconds).toBeLessThanOrEqual(T.launch.maxSeconds);
+        expect(statSync(join(POSTS, folder, f)).size).toBeLessThan(T.encode.maxMegabytes * 1024 * 1024);
+      });
+    }
   }
   for (const folder of explainers) {
     for (const f of readdirSync(join(POSTS, folder)).filter((n) => n.endsWith('-9x16.mp4'))) {
