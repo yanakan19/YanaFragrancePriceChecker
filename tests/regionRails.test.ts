@@ -76,7 +76,10 @@ describe('the UK site', () => {
 
   it('builds its catalogue, deals and social posts without reading a region\'s data', () => {
     const scripts = ['build-demo-catalogue.ts', 'build-deals.ts', 'build-price-history.ts',
-      ...readdirSync(resolve(root, 'scripts')).filter((f) => /^social-.*\.ts$/.test(f))];
+      // social-video-launch.ts draws the US launch video (10 Oct 2026): a post
+      // about the US site, so it reads the US report on purpose. Every other
+      // social script (deals, savings, Guess the Fragrance) is UK only.
+      ...readdirSync(resolve(root, 'scripts')).filter((f) => /^social-.*\.ts$/.test(f) && f !== 'social-video-launch.ts')];
     for (const f of scripts) {
       const src = readFileSync(resolve(root, 'scripts', f), 'utf8');
       expect(src, f).not.toMatch(/data\/regions|dist-demo\/regions|regionSite|regionRetailers|regionShops/);
