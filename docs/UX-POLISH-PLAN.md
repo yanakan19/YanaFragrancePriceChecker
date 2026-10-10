@@ -81,27 +81,28 @@ owner's own words on About are kept word for word (section 6).
 |---|---|---|---|
 | Home | Hero "See what a fragrance really costs across more than 60 UK shops, delivery included." Keep. | One block rise; empty page while data loads; photo pop in; tiles flat on hover | Hero becomes the title tile with the drifting gradient (section 5); sections stagger 0 to 120ms; load skeleton; photo shimmer; tile lift |
 | Search results | Keep ("Results for", "1 Oil also matches: See Oils") | Tiles flat | Tile lift and focus lift |
-| Product (many and few offers) | Graph caption "Each point is a bottle price plus that shop's delivery, worked out at today's delivery rates." "No shop we check has confirmed a price for this in the last 7 days, so none is shown, and the graph below keeps the prices we recorded." | Offer rows have no hover; graph pops in; dot pulse animates size | Caption: "Each point is a bottle price plus that shop's delivery, at today's rates." Empty line: "No shop has confirmed a price in the last 7 days, so none is shown. The graph keeps the prices we recorded." Offer row hover tint; graph line draws in left to right (transform only), dots fade in after it; pulse and hover by `scale` |
+| Product (many and few offers) | "No shop we check has confirmed a price for this in the last 7 days, so none is shown, and the graph below keeps the prices we recorded." The graph caption ("Each point is a bottle price plus that shop's delivery, worked out at today's delivery rates.") is quoted word for word by the Reading the Price History Chart guide, so it stays | Offer rows have no hover; graph pops in; dot pulse animates size | Empty line: "No shop has confirmed a price for this in the last 7 days, so none is shown. The graph below keeps the prices we recorded." Offer row hover tint; graph line draws in left to right (transform only), dots fade in after it; pulse and hover by `scale` |
 | Brand | Keep | Tiles flat | Tile lift |
 | Shop | Shop blurbs are the shops' own descriptions (registry data): out of scope | Tiles flat | Tile lift |
 | Shops list | Keep | Rows have no hover | Row hover: background step and the arrow nudges 2px |
-| Deals | "Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it. Each perfume shows its best deal across its sizes." (4 sentences) | Top deal looks like every other tile | "Savings are against the shop's own published RRP, or the maker's own price where the maker sells it here. Prices include delivery where the shop states it. One deal per perfume, at its best size." The first deal (default sort, best saving) gets the gradient ring |
+| Deals | "Savings are against the shop's own published recommended retail price. Where the maker also sells the fragrance here, they are against the maker's own price. Prices include delivery where the shop states it. Each perfume shows its best deal across its sizes." (4 sentences) | Top deal looks like every other tile | "Savings are against the shop's own published RRP, or the maker's own price where the maker sells it here. Prices include delivery where the shop states it. One deal per perfume, at its best size." The first deal (default sort, best saving) gets the gradient ring. (RRP, not the words in full, so the US and India pages still swap it for MSRP and MRP) |
 | Explore (All Fragrances) | "Every perfume we track, one line for each size. Sets and oils have their own tabs." | Tabs no hover | "Every bottle we track, one line per size. Sets and oils have their own tabs." Tab hover colour |
-| See All (Most Stocked) | "Ranked by how many of our 63 shops stock each one, then by brand and name. A brand's own store does not count. Sets and oils are not listed here, they have their own tabs under Explore, and each perfume is listed once, in its most stocked size. This shows how widely a fragrance is stocked, not how well it sells: we do not count views or purchases." | | "Ranked by how many of our 63 shops stock each one, then by brand and name. A brand's own store does not count. One line per perfume, in its most stocked size; sets and oils have their own tabs. This shows how widely a fragrance is stocked, not how well it sells." |
+| See All (Most Stocked) | "Ranked by how many of our 63 shops stock each one, then by brand and name. A brand's own store does not count. Sets and oils are not listed here, they have their own tabs under Explore, and each perfume is listed once, in its most stocked size. This shows how widely a fragrance is stocked, not how well it sells: we do not count views or purchases." | | "Ranked by how many of our 63 shops stock each one, then by brand and name. A brand's own store does not count. One line per perfume, in its most stocked size; sets and oils have their own tabs under Explore. This shows how widely a fragrance is stocked, not how well it sells." |
 | Notes | "Groups are our own way of sorting the notes shops publish. 14,887 of 34,739 products list them." | Note tiles already lift their icon | "We sort the notes shops publish into our own groups. 14,887 of 34,739 products list notes." |
 | Note group, note | Keep (the group and note descriptions are short, written per note) | | Tile lift on the product list |
-| Sets | "Gift sets, miniature and discovery sets, and bundles of full size bottles. A set is compared only with the same set at another shop, never with a single bottle." | | "Gift sets, minis, discovery sets and bundles. Each set is compared only with the same set at other shops, never with a single bottle." |
-| Oils | "Perfume oils, sold in small bottles and rollers rather than sprays. An oil is compared only with the same oil at another shop, never with a spray." | | "Perfume oils in small bottles and rollers. Each oil is compared only with the same oil at other shops, never with a spray." |
+| Sets | "Gift sets, miniature and discovery sets, and bundles of full size bottles. A set is compared only with the same set at another shop, never with a single bottle." | | "Gift sets, minis, discovery sets and bundles of full size bottles. Each is compared only with the same set at other shops, never with a single bottle." |
+| Oils | "Perfume oils, sold in small bottles and rollers rather than sprays. An oil is compared only with the same oil at another shop, never with a spray." | | "Perfume oils in small bottles and rollers. Each is compared only with the same oil at other shops, never with a spray." |
 | Brands | Keep | Rows have no hover beyond colour | Keep colour hover, add press |
 | Guides index | "Short, plain guides to buying fragrance in the UK, and to how PriceSniffs works: shops, matching, delivery, deals, sets, oils, alerts and price history." Each card repeats the guide's 25 to 30 word search description. "Curious where our prices come from? Read how we check prices." | Cards have no hover | A short lead ("Plain guides to buying perfume in the UK, and to how this site works.") and a one line summary per card (10 to 14 words, new `summary` field), so the page is a list you can scan. The search descriptions stay as they are (100 to 155 characters, the opening line of each guide). Footer: "Where do our prices come from? Read how we check prices." Card hover lift |
 | Guide pages | The 13 guides are 300 to 500 words each by test, and the AdSense review's commonest refusal is "low value content" (`docs/ADVERTISING-PLAN.md` risk 2). Bodies keep their length; only lines that break the copy rules change | | Reading width and the rise are already right |
 | About | Owner's own words in "Why I Built This" (kept verbatim). Cards are short | Cards no hover | Card hover border only (they are not links) is skipped: a hover on something that does nothing invites a click. Keep |
-| How We Check Prices | Opening line is the search description: "How PriceSniffs collects prices from shop websites and affiliate feeds, how often, how delivery and size are handled, and how affiliate links earn money." Body: "as explained below", "A price comparison is only useful if the same bottle is compared with itself." | | Visible lead: "Where our prices come from, how often we check them, and how we make money." Light trims in the body where a clause repeats; every fact and the affiliate section kept |
+| How We Check Prices | Opening line is the search description: "How PriceSniffs collects prices from shop websites and affiliate feeds, how often, how delivery and size are handled, and how affiliate links earn money." Body: "as explained below", "A price comparison is only useful if the same bottle is compared with itself.", "the likeliest reason for it is that", and many passive sentences ("is ignored", "are listed apart", "is turned into") | | Visible lead: "Where our prices come from, how often we check them, and how we make money." Body: the repeated clauses cut, "as explained below" replaced by the fact itself (once they are more than 7 days old), six passive sentences made active; every fact and the affiliate section kept |
 | Legal Notice, Cookies | Legal wording | | Unchanged (section 6). Contents row chips get the shared hover |
 | Account (signed out) | Keep; the sign up note is the consent statement `docs/LEGAL.md` requires | Sign In button | Primary button hover gradient |
 | Settings | Keep ("Your choice is saved on this device.") | | Segmented control press already present |
-| Suggestions | "Send opens your own email app with your message ready to go. Nothing goes to a server of ours." | | "Send opens your email app with your message ready. Nothing goes to a server of ours." (the privacy line under it is kept) |
-| Not found | "Nothing on this site answers to /x. It may have been a fragrance or a shop that has since been delisted." "Search the catalogue, or start from one of these:" | | "There is nothing at /x. It may be a fragrance or shop we no longer list." "Try one of these." |
+| Suggestions | "Send opens your own email app with your message ready to go. Nothing goes to a server of ours." | | "Send opens your own email app with your message ready. Nothing goes to a server of ours." ("own" stays: it is the privacy point; the line under it is kept) |
+| Not found | "Nothing on this site answers to /x. It may have been a fragrance or a shop that has since been delisted." "Search the catalogue, or start from one of these:" | | "There is nothing at /x. It may be a fragrance or a shop we no longer list." "Try one of these." |
+| No JavaScript note | "PriceSniffs needs it to search and compare live prices. The pages below explain what the site does, and turning JavaScript on in your browser settings brings the prices back." ("live" is a claim `docs/LEGAL.md` already had removed elsewhere) | | "PriceSniffs needs it to search and compare prices. Turn it on in your browser settings to see them; the page below explains what the site does." |
 | US and India home | Region words come from region code owned by the parallel rails agent: not touched | | Same hero gradient and motion as the UK |
 | US and India product | as UK | | as UK |
 
@@ -141,10 +142,14 @@ Allowed effects, and nothing else:
    from one captured `load` listener; it waits 250ms before showing, so a
    cached photo never flashes it, and stops when the photo has loaded or
    failed; the page skeleton sweeps 6 times at most).
-6. **Graph draw in**: the line and band are revealed left to right by a clip
+6. **Graph draw in** (behaviour 10 in the stylesheet): the line and band are revealed left to right by a clip
    rectangle scaled from 0 to 1 (transform), dots fade in after.
-7. **Menus and dialogs**: fade plus a 4px rise (menus) or scale from 0.98
-   (dialogs), `--dur-fast`.
+7. **Menus and dialogs**: a dropdown fades in with a 4px drop; a phone
+   sheet and a dialog only fade, in the place they will sit, `--dur-fast`.
+   (A rise and a 0.98 scale were tried first: the account, country, share
+   and welcome tests measure the sheet and the dialog the moment they open,
+   and found them 6px low or 1px small. Nothing on screen should be
+   anywhere but its place when it is first there to be read.)
 8. **The moving gradient**: section 5.
 
 Rules:
@@ -177,18 +182,23 @@ Three places only, and never behind body text:
 1. **Home title tile** (`.intro`): the hero becomes a rounded tile with a
    hairline border. Behind it, a layer three times its width carries a three
    stop gradient (`--bg`, `--accent-sf`, `--surface-2`) and drifts sideways
-   over 18s, alternating, `ease-in-out`. A static radial wash of `--bg` sits
-   over the middle, so the wordmark and the line under it stay on the plain
-   ground and their contrast is exactly what it is today; the colour shows
-   at the tile's edges only.
+   over 18s, alternating, `ease-in-out`. Each line of the greeting (the
+   wordmark, the line under it, a region's "last checked" line) carries the
+   plain `--bg` ground with a soft 22px edge, so the words never sit on the
+   gradient and keep exactly today's contrast; the colour moves round them.
+   (A first version used one still oval over the middle; on a 320 wide phone
+   the text reached past it and the accent "Sniffs" fell from 5.7:1 to
+   5.2:1, so it was replaced.)
 2. **The top deal** (first tile on Deals in the default sort): a 2px ring of
    the same drift around the tile (the gradient layer behind, the tile's own
    `--surface` card inside). The tile's text sits on its usual card.
 3. **Primary buttons on hover** (`.contact-send`, the accent rank: Send,
    Sign In, Save; a dialog's OK button is the ink rank and is left alone):
-   a drift between `--accent` and `--accent-ink`, 12s a pass, which lifts the text
-   contrast in both themes (dark: near black on `#FF6A6E` 7.3:1, light: white
-   on `#A80C25` 7.6:1) where today's hover drops it to 4.0:1 in dark.
+   a drift between two new tokens, `--accent-hover-1` and `--accent-hover-2`,
+   12s a pass. Dark: `#FF3B41` to `#FF6A6E`, near black text at 5.5 to
+   7.3:1, where the old hover (`--accent-press`) dropped it to 4.0:1. Light:
+   `#9E0C22` to `#8A0A1E`, white text at 8.3 to 9.8:1, never below the old
+   hover's 8.3:1. `tests/motion.test.ts` holds both.
 
 There is no Deal of the Day or Guess the Fragrance tile on the site (both
 are social pictures), so nothing else qualifies. The drift is transform
@@ -267,6 +277,111 @@ Each batch: merge the live branch, `npx tsc --noEmit`, `npm run demo`, the
 touched tests file by file, then push. Screenshots after each page go to
 `social/_today/ux-after/`.
 
-## 9. Results
+## 9. Results (10 Oct 2026)
 
-Filled in as the work lands.
+### Measured
+
+Before and after built from the same catalogue (only the files this pass
+touched swapped back), 390 wide, Chromium, local server, median of 3 loads,
+two rounds each, alternating:
+
+| Measure | Before | After |
+|---|---|---|
+| `demo/index.html` | 1,074,346 bytes, 304,001 gzipped | 1,083,463 bytes, 306,218 gzipped (+9.1 KB, +2.2 KB gzipped) |
+| of which styles | 211,108, 58,217 gzipped | 218,354, 59,888 gzipped (+1.7 KB gzipped, after cutting the new comments to one line each) |
+| of which script | 852,476, 241,902 gzipped | 854,099, 242,308 gzipped (+0.4 KB: the guide summaries, the copy) |
+| First contentful paint | 84 and 100 ms | 88 and 104 ms |
+| Largest contentful paint | 1,512 and 1,436 ms | 1,352 and 1,524 ms |
+| App content in | 1,438 and 1,361 ms | 1,268 and 1,412 ms |
+| Home idle (title tile drifting, marquee), CPU 4x | 60 fps, 0 frames over 34ms | 60 fps, 0 frames over 34ms |
+| Most Stocked rail scrolling, CPU 4x | 60 fps, 0 frames over 34ms | 60 fps, 0 frames over 34ms |
+| Deals idle (top deal ring drifting), CPU 4x | 61 fps | 60 fps, 0 frames over 34ms |
+
+The paint and load times are within run to run noise of each other. The
+gradient did not drop a frame on the throttled run, so it stays as built
+(18s and 16s a pass). Throttling slows the main thread; the drift is a
+transform on its own layer, so it runs on the compositor and costs the main
+thread nothing.
+
+Contrast of the title tile's words, measured under the glyphs themselves
+(screenshots with and without the text) at 320, 390 and 1280 wide, both
+themes, at the start, middle and end of the drift: light 18.9:1 (ink) and
+5.7:1 (the red "Sniffs"), dark 18.5:1 and 5.6:1, the same as on the plain
+page. The Send and Sign In hover rises from 4.0:1 to at least 5.5:1 in
+dark and stays at or above 8.3:1 in light.
+
+Reduced motion (`page.emulateMedia({ reducedMotion: 'reduce' })` and the
+context option): no animation is running on Home, Deals, a product page, the
+guides, Shops or About (`document.getAnimations()` empty of running ones);
+the marquee stops and wraps as before. Without it, the only running
+animations at rest are the title tile drift, the marquee, the top deal ring,
+the live price dot and the sweep on photo wells still loading.
+
+No page scrolls sideways at 320, 390 or 1280, light or dark, and no text is
+clipped (`social/_today/ux-shoot.ts` measures both on every page).
+
+Keyboard focus: a focused tile lifts and keeps its 2px accent ring; a guide
+card draws the ring round the whole card.
+
+### Tests
+
+New: `tests/motion.test.ts` (11) and `tests/copyRules.test.ts` (17).
+Changed on purpose: the guides index test reads the summaries, the cross
+links test and the Sets tab test read the shorter notes.
+
+The whole suite, run in 15 chunks of 20 files after the last merge: 300
+files, 7,475 tests. Every failure was traced. The ones this pass caused (the account
+and country sheets and three dialogs measured mid animation, the Sets note,
+a 320 wide set page) were fixed and those files rerun green, with
+tsc, `npm run demo`, layout consistency, accessibility, contrast, footer
+links, changelog, content pages, region pages, suggestions, share, set
+page, list filters and the build freshness check. Two failures are not
+from this pass and are left to their owners: `tests/perfumeDirectNames.test.ts`
+(today's harvest has no Davidoff Cool Water women's bottle from Perfume
+Direct) and `tests/regionRails.test.ts` (it finds region data read by
+`scripts/social-video-launch.ts`, the US launch video script merged today).
+
+### The AI writing check
+
+`yanaaidetection`, run on the rewritten words (a risk estimate, not proof):
+
+| Text | Human writing confidence | Stage 1 markers |
+|---|---|---|
+| Guides index (lead, 13 titles and summaries, footer line) | 96%, Very Low | none |
+| About (the owner's own paragraph and the four cards, unchanged) | 92%, Low | none |
+| How We Check Prices (lead and body) | 86%, Moderate | none |
+
+The method page was at 85% with passive voice flagged; six passive
+sentences were made active and the passive flag cleared. What remains is a
+low unique word ratio and high compressibility, which is what 1,100 words
+about one subject look like; cutting them would mean cutting facts the page
+was asked to state (tests/contentPages.test.ts).
+
+### Deliberately not done
+
+- **Guide bodies keep their length.** Each is 300 to 500 words by test, and
+  "low value content" is the AdSense review's commonest refusal. Their words
+  already pass the same dash and tone rules; only the index was shortened.
+- **The Legal Notice, the cookies page and the affiliate disclosure are
+  word for word as they were.** `tests/copyRules.test.ts` holds the
+  statements `docs/LEGAL.md` requires in their places.
+- **The graph caption** stays: the Reading the Price History Chart guide
+  quotes it, and a test holds the two together.
+- **Region words** (`demo/regionSwitch.ts`, `demo/regionWelcome.ts`,
+  `src/services/regionText.ts`) were left to the agent working on the
+  country switch today; the US and India pages get the same motion.
+- **No settle animation on a filter change.** The in place redraw that a
+  filter triggers also follows a wishlist tap, so a list that re-animated
+  would do so on every heart.
+- **No fade on a photo arriving.** An in place redraw recreates every
+  picture from the cache, so a fade would make every photo blink on a tap;
+  the sweep behind the well does the job without that.
+- **Shop descriptions** on a shop page are the shops' own words from the
+  registry, not copy of ours.
+- Found in passing, not fixed here: some shops send brand names with a
+  literal `&amp;`, so Brands lists "Dolce &amp; Gabbana" beside "Dolce &
+  Gabbana" (suggested as a separate task).
+
+Screenshots: `social/_today/ux-before/` and `social/_today/ux-after/`
+(gitignored), 390 and 1280 wide in both themes for every page type, 320 in
+the before set.
