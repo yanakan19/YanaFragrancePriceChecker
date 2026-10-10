@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-10T11:51:56.237Z",
-  "seenAt": "2026-10-10T11:51:56.237Z",
+  "updatedAt": "2026-10-10T16:00:48.009Z",
+  "seenAt": "2026-10-10T16:00:48.009Z",
   "source": "live",
   "listings": [
     {
@@ -3464,7 +3464,7 @@
       "priceGbp": 7.8,
       "wasPriceGbp": 12,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A soft silicone body buffer with specially-shaped nodules to both buff and massage. Turns your shower into a one-stop body-polishing, circulation-boosting, skin-smoothing, glow-giving, extra-firming spa treatment. (Just add body wash.) In Beauty Pie pink, of course..",
       "productType": "Accessories",
