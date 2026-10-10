@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
+import { contrastBetween } from '../demo/contrast.js';
 
 /**
  * The motion system's rules (docs/UX-POLISH-PLAN.md section 4), read from the
@@ -188,6 +189,23 @@ describe('the moving gradient', () => {
     expect(body).not.toMatch(/ps-drift/);
     for (const f of readdirSync(resolve(root, 'demo')).filter((n) => n.endsWith('.ts') && n !== 'app.ts' && !n.includes('.generated'))) {
       expect(readFileSync(resolve(root, 'demo', f), 'utf8'), f).not.toMatch(/ps-drift|tile-top/);
+    }
+  });
+
+  it('keeps the primary button\'s label at or above the old hover\'s contrast, in both themes', () => {
+    // The token blocks: the dark one first, then the light one chosen in Settings.
+    const tokens = (selector: string): Record<string, string> => {
+      const r = rules().find((x) => x.selector.replace(/\s+/g, ' ') === selector);
+      return Object.fromEntries([...(r?.decls ?? '').matchAll(/(--[\w-]+):\s*([^;]+);/g)].map((m) => [m[1]!, m[2]!.trim()]));
+    };
+    for (const [selector, oldHover] of [[':root, :root[data-mode="dark"]', '--accent-press'], [':root[data-mode="light"]', '--accent-press']] as const) {
+      const t = tokens(selector);
+      const before = contrastBetween(t['--accent-on']!, t[oldHover]!)!;
+      const resting = contrastBetween(t['--accent-on']!, t['--accent']!)!;
+      for (const stop of ['--accent-hover-1', '--accent-hover-2']) {
+        const now = contrastBetween(t['--accent-on']!, t[stop]!)!;
+        expect(now, `${selector} ${stop}`).toBeGreaterThanOrEqual(Math.min(Math.max(before, resting), 99) - 0.01);
+      }
     }
   });
 

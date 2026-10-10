@@ -44,6 +44,10 @@
     --accent-ink:   #FF6A6E;
     --accent-press: #D42B31;
     --focus:        #FF3B41;
+    /* The primary button's hover drifts between these two: each holds its
+       label at or above the resting 5.5:1 here, and at or above the old
+       pressed fill's 8.3:1 in light (tests/contrast.test.ts). */
+    --accent-hover-1: #FF3B41; --accent-hover-2: #FF6A6E;
     /* Price-history chart: gridlines sit below --line so data reads above
        them, and the band is the fill under the live price line. */
     --chart-grid: #1F1F23;
@@ -97,6 +101,7 @@
     --accent-ink:   #A80C25;
     --accent-press: #9E0C22;
     --focus:        #C8102E;
+    --accent-hover-1: #9E0C22; --accent-hover-2: #8A0A1E;
     --chart-grid: #EDEDF1;
     --chart-band: rgba(200,16,46,.08);
     --ok:        #17724B;
@@ -132,6 +137,7 @@
     --rank-3: #C08552; --rank-3-on: #2A1A0B;
       --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
       --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
+      --accent-hover-1: #9E0C22; --accent-hover-2: #8A0A1E;
       --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
       --ok: #17724B; --ok-sf: #DCE9E4; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
       --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
@@ -147,6 +153,7 @@
     --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
     --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
+      --accent-hover-1: #9E0C22; --accent-hover-2: #8A0A1E;
     --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
     --ok: #17724B; --ok-sf: #DCE9E4; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
@@ -161,6 +168,7 @@
     --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent: #FF3B41; --accent-on: #0B0405; --accent-sf: #1E0709;
     --accent-ink: #FF6A6E; --accent-press: #D42B31; --focus: #FF3B41;
+    --accent-hover-1: #FF3B41; --accent-hover-2: #FF6A6E;
     --chart-grid: #1F1F23; --chart-band: rgba(255,59,65,.10);
     --ok: #4FB47B; --ok-sf: #14221B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
     --shadow-lift: 0 1px 0 #26262A;
@@ -316,13 +324,9 @@
   .ps-stagger > *:nth-child(8) { animation-delay: 210ms; }
   .ps-stagger > *:nth-child(n+9) { animation-delay: 240ms; }
 
-  /* Behaviour 6: open — a menu drops 4px, a sheet rises, a dialog settles. Closing is instant. */
+  /* Behaviour 6: open — a dropdown drops 4px; a phone sheet and a dialog fade in where they will sit, so nothing measured on opening moves. Closing is instant. */
   @keyframes ps-pop {
     from { opacity: 0; transform: translateY(-4px); }
-    to   { opacity: 1; transform: none; }
-  }
-  @keyframes ps-zoom {
-    from { opacity: 0; transform: scale(.98); }
     to   { opacity: 1; transform: none; }
   }
   /* No "to": it fades up to the element's own opacity. */
@@ -610,7 +614,7 @@
   /* Behaviour 6 for the account and country menus. */
   .acct-pop:not([hidden]) { animation: ps-pop var(--dur-fast) var(--ease-out); }
   .acct-back:not([hidden]) { animation: ps-fade var(--dur-fast) var(--ease-out); }
-  @media (max-width: 600px) { .acct-pop:not([hidden]) { animation-name: ps-rise; } }
+  @media (max-width: 600px) { .acct-pop:not([hidden]) { animation-name: ps-fade; } }
   /* ── country and currency selector (owner's request, 2026-10-05) ───────
      A compact pill just left of the account button: a small flag, the
      currency code and a chevron. UK and GBP is the only active choice and
@@ -2555,6 +2559,9 @@
   .offer-bot + .offer-bot { margin-top: 4px; }
   .offer-link:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .offer-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  /* A long shop name with its Cheapest tag may wrap, never push the price
+     past the edge (MyBeauty.Boutique at 320 wide, 10 Oct 2026). */
+  .offer-top .shop { min-width: 0; overflow-wrap: anywhere; }
   /* Tinted, not filled: the accent left edge already marks this row, and a
      solid red block beside it made the same point twice and outshouted the
      price it was pointing at. */
@@ -2978,12 +2985,12 @@
     font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
   }
   .contact-send:active { background: var(--accent-press); border-color: var(--accent-press); }
-  /* Primary hover (behaviour 9): a drift between --accent and --accent-ink, which raises the label's contrast in both themes. */
+  /* Primary hover (behaviour 9): a drift between --accent-hover-1 and -2, which keeps the label's contrast at or above the old hover's in both themes. */
   .contact-send { position: relative; isolation: isolate; overflow: hidden; }
   .contact-send::before {
     content: ''; position: absolute; z-index: -1; top: 0; bottom: 0; left: -100%; width: 300%;
     pointer-events: none; opacity: 0;
-    background: linear-gradient(100deg, var(--accent), var(--accent-ink) 50%, var(--accent));
+    background: linear-gradient(100deg, var(--accent-hover-1), var(--accent-hover-2) 50%, var(--accent-hover-1));
     transition: opacity var(--dur-fast) var(--ease-out);
   }
   @media (hover: hover) and (pointer: fine) {
@@ -3449,7 +3456,7 @@
   }
   .ps-dialog.is-ok { border-left-color: var(--ok); }
   .ps-dialog::backdrop { background: rgba(0, 0, 0, .6); }
-  .ps-dialog[open] { animation: ps-zoom var(--dur-fast) var(--ease-out); }
+  .ps-dialog[open] { animation: ps-fade var(--dur-fast) var(--ease-out); }
   .ps-dialog[open]::backdrop { animation: ps-fade var(--dur-fast) var(--ease-out); }
   .ps-dialog-body { margin: 0; padding: 20px 20px 16px; }
   .ps-dialog-title { margin: 0 0 8px; font-size: 18px; font-weight: 700; line-height: 1.3; }

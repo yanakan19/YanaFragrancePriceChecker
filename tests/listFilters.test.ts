@@ -322,7 +322,7 @@ describe('the Oils and Sets tabs on the real catalogue', () => {
     expect(html).toContain('id="tab-search"');
     expect(html).toContain('aria-label="Search Sets"');
     expect(html).toContain(`<span class="count t-count">${sets.length}</span>`);
-    expect(html).toMatch(/compared only with the same set at another shop, never with a single bottle/);
+    expect(html).toMatch(/compared only with the same set at other shops, never with a single bottle/);
     expect(html).toContain('data-facets-toggle');
     expect(tabs.panel('oils')).toContain('aria-label="Search Oils"');
     // Wording rules: no hyphen or dash in what is read.
