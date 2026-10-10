@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 231,
+ "folded": 230,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2476,38 +2476,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3423222092900",
-   "absorbed": [
-    "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222092900",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Pour Homme Gift Set 125ml EDT + 50ml Shower Gel + 50ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": "3423222092900",
-     "scent": "d eau homme issey l pour",
-     "signature": "1x125fragrance|1x50body|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Pour Homme Gift Set EDT 125ml + S/Gel 50ml + A/Balm 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d eau homme issey l pour",
-     "signature": "1x125fragrance|1x50body|1x50wash",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
