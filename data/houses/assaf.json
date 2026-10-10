@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-09T19:27:50.640Z",
-  "seenAt": "2026-10-09T19:27:50.640Z",
+  "updatedAt": "2026-10-10T00:07:25.965Z",
+  "seenAt": "2026-10-10T00:07:25.965Z",
   "source": "live",
   "listings": [
     {
@@ -48,6 +48,7 @@
         "amount": 229,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-10-01T20:04:47.645Z",
       "status": "active",
@@ -74,6 +75,7 @@
         "amount": 196.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-10-01T20:04:47.645Z",
       "status": "active",
@@ -100,6 +102,7 @@
         "amount": 229,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-09-28T01:53:30.815Z",
       "status": "active",
@@ -126,6 +129,7 @@
         "amount": 199,
         "currency": "AED"
       },
+      "nativeWasPrice": 349,
       "retailerId": "assaf",
       "firstSeenAt": "2026-09-28T01:53:30.815Z",
       "status": "active",
@@ -152,6 +156,7 @@
         "amount": 196,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-24T13:38:35.214Z",
       "status": "active",
@@ -178,6 +183,7 @@
         "amount": 96.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-24T13:38:35.214Z",
       "status": "active",
@@ -204,6 +210,7 @@
         "amount": 96.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-24T13:38:35.214Z",
       "status": "active",
@@ -230,6 +237,7 @@
         "amount": 96.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-24T13:38:35.214Z",
       "status": "active",
@@ -256,6 +264,7 @@
         "amount": 96.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-23T15:28:03.383Z",
       "status": "active",
@@ -282,6 +291,7 @@
         "amount": 96.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-23T15:28:03.383Z",
       "status": "active",
@@ -308,6 +318,7 @@
         "amount": 96.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-23T13:26:00.929Z",
       "status": "active",
@@ -334,6 +345,7 @@
         "amount": 96.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-23T13:26:00.929Z",
       "status": "active",
@@ -360,6 +372,7 @@
         "amount": 196,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-23T13:26:00.929Z",
       "status": "active",
@@ -386,6 +399,7 @@
         "amount": 196.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-23T13:26:00.929Z",
       "status": "active",
@@ -412,6 +426,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-18T13:33:06.458Z",
       "status": "active",
@@ -438,6 +453,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-18T13:33:06.458Z",
       "status": "active",
@@ -464,6 +480,7 @@
         "amount": 149,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-18T13:33:06.458Z",
       "status": "active",
@@ -490,6 +507,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-18T13:33:06.458Z",
       "status": "active",
@@ -516,6 +534,7 @@
         "amount": 79,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-18T09:32:28.240Z",
       "status": "active",
@@ -542,6 +561,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-18T09:32:28.240Z",
       "status": "active",
@@ -568,6 +588,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-18T09:32:28.240Z",
       "status": "active",
@@ -594,6 +615,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 399,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-18T09:32:28.240Z",
       "status": "active",
@@ -620,6 +642,7 @@
         "amount": 175,
         "currency": "AED"
       },
+      "nativeWasPrice": 399,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -646,6 +669,7 @@
         "amount": 139,
         "currency": "AED"
       },
+      "nativeWasPrice": 399,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -672,6 +696,7 @@
         "amount": 100,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -698,6 +723,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -724,6 +750,7 @@
         "amount": 100,
         "currency": "AED"
       },
+      "nativeWasPrice": 209,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -750,6 +777,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 285,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -776,6 +804,7 @@
         "amount": 259,
         "currency": "AED"
       },
+      "nativeWasPrice": 569,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -802,6 +831,7 @@
         "amount": 259,
         "currency": "AED"
       },
+      "nativeWasPrice": 569,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -828,6 +858,7 @@
         "amount": 259,
         "currency": "AED"
       },
+      "nativeWasPrice": 569,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -854,6 +885,7 @@
         "amount": 155,
         "currency": "AED"
       },
+      "nativeWasPrice": 399,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -880,6 +912,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 309,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -932,6 +965,7 @@
         "amount": 169,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -958,6 +992,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 225.22,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1010,6 +1045,7 @@
         "amount": 187,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1036,6 +1072,7 @@
         "amount": 198.95,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1062,6 +1099,7 @@
         "amount": 256.52,
         "currency": "AED"
       },
+      "nativeWasPrice": 347.83,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1088,6 +1126,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1114,6 +1153,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 255,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1140,6 +1180,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1166,6 +1207,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1192,6 +1234,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 700,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1218,6 +1261,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 825,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1244,6 +1288,7 @@
         "amount": 205,
         "currency": "AED"
       },
+      "nativeWasPrice": 650,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1270,6 +1315,7 @@
         "amount": 199,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1296,6 +1342,7 @@
         "amount": 205,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1322,6 +1369,7 @@
         "amount": 149,
         "currency": "AED"
       },
+      "nativeWasPrice": 433.91,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1348,6 +1396,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1374,6 +1423,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1400,6 +1450,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 249,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1426,6 +1477,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1452,6 +1504,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1478,6 +1531,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1504,6 +1558,7 @@
         "amount": 55,
         "currency": "AED"
       },
+      "nativeWasPrice": 115,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1530,6 +1585,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 399,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1582,6 +1638,7 @@
         "amount": 149.01,
         "currency": "AED"
       },
+      "nativeWasPrice": 450,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1608,6 +1665,7 @@
         "amount": 49,
         "currency": "AED"
       },
+      "nativeWasPrice": 115,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1634,6 +1692,7 @@
         "amount": 199,
         "currency": "AED"
       },
+      "nativeWasPrice": 650,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1660,6 +1719,7 @@
         "amount": 199,
         "currency": "AED"
       },
+      "nativeWasPrice": 650,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1686,6 +1746,7 @@
         "amount": 86.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1712,6 +1773,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1738,6 +1800,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1764,6 +1827,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1790,6 +1854,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1816,6 +1881,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1842,6 +1908,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1868,6 +1935,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1894,6 +1962,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1920,6 +1989,7 @@
         "amount": 139,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1946,6 +2016,7 @@
         "amount": 79,
         "currency": "AED"
       },
+      "nativeWasPrice": 359,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1972,6 +2043,7 @@
         "amount": 49,
         "currency": "AED"
       },
+      "nativeWasPrice": 115,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -1998,6 +2070,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2024,6 +2097,7 @@
         "amount": 285,
         "currency": "AED"
       },
+      "nativeWasPrice": 495,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2050,6 +2124,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 495,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2076,6 +2151,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 495,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2102,6 +2178,7 @@
         "amount": 239,
         "currency": "AED"
       },
+      "nativeWasPrice": 495,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2128,6 +2205,7 @@
         "amount": 239,
         "currency": "AED"
       },
+      "nativeWasPrice": 495,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2154,6 +2232,7 @@
         "amount": 259,
         "currency": "AED"
       },
+      "nativeWasPrice": 495,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2206,6 +2285,7 @@
         "amount": 685,
         "currency": "AED"
       },
+      "nativeWasPrice": 1150,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2232,6 +2312,7 @@
         "amount": 685,
         "currency": "AED"
       },
+      "nativeWasPrice": 1150,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2258,6 +2339,7 @@
         "amount": 685,
         "currency": "AED"
       },
+      "nativeWasPrice": 1150,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2284,6 +2366,7 @@
         "amount": 339,
         "currency": "AED"
       },
+      "nativeWasPrice": 495,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2310,6 +2393,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2336,6 +2420,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2362,6 +2447,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2388,6 +2474,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2414,6 +2501,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2440,6 +2528,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 326.09,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2466,6 +2555,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 550,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2492,6 +2582,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2518,6 +2609,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2544,6 +2636,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2570,6 +2663,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 550,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2596,6 +2690,7 @@
         "amount": 685,
         "currency": "AED"
       },
+      "nativeWasPrice": 1350,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2622,6 +2717,7 @@
         "amount": 685,
         "currency": "AED"
       },
+      "nativeWasPrice": 1350,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2648,6 +2744,7 @@
         "amount": 405,
         "currency": "AED"
       },
+      "nativeWasPrice": 1375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2674,6 +2771,7 @@
         "amount": 760,
         "currency": "AED"
       },
+      "nativeWasPrice": 1500,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2700,6 +2798,7 @@
         "amount": 685,
         "currency": "AED"
       },
+      "nativeWasPrice": 1650,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2726,6 +2825,7 @@
         "amount": 485,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2752,6 +2852,7 @@
         "amount": 249,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2778,6 +2879,7 @@
         "amount": 259,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2804,6 +2906,7 @@
         "amount": 239,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2830,6 +2933,7 @@
         "amount": 55,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2856,6 +2960,7 @@
         "amount": 207,
         "currency": "AED"
       },
+      "nativeWasPrice": 700.01,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2882,6 +2987,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2908,6 +3014,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2934,6 +3041,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 249,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2986,6 +3094,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 450,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3012,6 +3121,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3038,6 +3148,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3064,6 +3175,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3090,6 +3202,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3116,6 +3229,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3142,6 +3256,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 450,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3168,6 +3283,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3194,6 +3310,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3220,6 +3337,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3246,6 +3364,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3272,6 +3391,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3298,6 +3418,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3324,6 +3445,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 500,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3350,6 +3472,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 645,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3376,6 +3499,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 645,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3402,6 +3526,7 @@
         "amount": 199,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3428,6 +3553,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3454,6 +3580,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3480,6 +3607,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3506,6 +3634,7 @@
         "amount": 85,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3532,6 +3661,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 850,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3558,6 +3688,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3584,6 +3715,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3610,6 +3742,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 645,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3636,6 +3769,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3662,6 +3796,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 500,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3688,6 +3823,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 510,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3714,6 +3850,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3740,6 +3877,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3766,6 +3904,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 645,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3792,6 +3931,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3818,6 +3958,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3844,6 +3985,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 535,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3870,6 +4012,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3896,6 +4039,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 645,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3922,6 +4066,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 645,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3948,6 +4093,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -3974,6 +4120,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 500,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4000,6 +4147,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 650,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4026,6 +4174,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 645,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4052,6 +4201,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4078,6 +4228,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 575,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4104,6 +4255,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 835,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4130,6 +4282,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 450,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4156,6 +4309,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 575,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4182,6 +4336,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 835,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4208,6 +4363,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 525,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4234,6 +4390,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 510,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4260,6 +4417,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 645,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4286,6 +4444,7 @@
         "amount": 159,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4312,6 +4471,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4338,6 +4498,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4364,6 +4525,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 450,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4390,6 +4552,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4416,6 +4579,7 @@
         "amount": 196.96,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4442,6 +4606,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4468,6 +4633,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 249,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4494,6 +4660,7 @@
         "amount": 96,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4520,6 +4687,7 @@
         "amount": 49,
         "currency": "AED"
       },
+      "nativeWasPrice": 149.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4546,6 +4714,7 @@
         "amount": 59,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4572,6 +4741,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4598,6 +4768,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4624,6 +4795,7 @@
         "amount": 50,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4650,6 +4822,7 @@
         "amount": 39,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4676,6 +4849,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4702,6 +4876,7 @@
         "amount": 109,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4728,6 +4903,7 @@
         "amount": 185,
         "currency": "AED"
       },
+      "nativeWasPrice": 650,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4754,6 +4930,7 @@
         "amount": 305,
         "currency": "AED"
       },
+      "nativeWasPrice": 750,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4780,6 +4957,7 @@
         "amount": 305,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4806,6 +4984,7 @@
         "amount": 185,
         "currency": "AED"
       },
+      "nativeWasPrice": 475,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4832,6 +5011,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 350,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4858,6 +5038,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 249,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4884,6 +5065,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4910,6 +5092,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4936,6 +5119,7 @@
         "amount": 305,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4962,6 +5146,7 @@
         "amount": 139,
         "currency": "AED"
       },
+      "nativeWasPrice": 450,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -4988,6 +5173,7 @@
         "amount": 139,
         "currency": "AED"
       },
+      "nativeWasPrice": 450,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5014,6 +5200,7 @@
         "amount": 115,
         "currency": "AED"
       },
+      "nativeWasPrice": 249,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5040,6 +5227,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5066,6 +5254,7 @@
         "amount": 305,
         "currency": "AED"
       },
+      "nativeWasPrice": 599,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5092,6 +5281,7 @@
         "amount": 59,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5118,6 +5308,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5144,6 +5335,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5170,6 +5362,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5196,6 +5389,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5222,6 +5416,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5248,6 +5443,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5274,6 +5470,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5300,6 +5497,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5326,6 +5524,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5352,6 +5551,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5378,6 +5578,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5404,6 +5605,7 @@
         "amount": 59,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5430,6 +5632,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5456,6 +5659,7 @@
         "amount": 305,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5482,6 +5686,7 @@
         "amount": 305,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5508,6 +5713,7 @@
         "amount": 205,
         "currency": "AED"
       },
+      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5534,6 +5740,7 @@
         "amount": 85,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5560,6 +5767,7 @@
         "amount": 85,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5586,6 +5794,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5612,6 +5821,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 249,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5638,6 +5848,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5664,6 +5875,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5690,6 +5902,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 299,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5716,6 +5929,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5742,6 +5956,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 249,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5768,6 +5983,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5794,6 +6010,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5820,6 +6037,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5846,6 +6064,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5872,6 +6091,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5898,6 +6118,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5924,6 +6145,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 255,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5950,6 +6172,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 255,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5976,6 +6199,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 255,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6002,6 +6226,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 255,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6028,6 +6253,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 399,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6054,6 +6280,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 399,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6080,6 +6307,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6106,6 +6334,7 @@
         "amount": 59,
         "currency": "AED"
       },
+      "nativeWasPrice": 65,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6132,6 +6361,7 @@
         "amount": 59,
         "currency": "AED"
       },
+      "nativeWasPrice": 65,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6158,6 +6388,7 @@
         "amount": 59,
         "currency": "AED"
       },
+      "nativeWasPrice": 65,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6184,6 +6415,7 @@
         "amount": 59,
         "currency": "AED"
       },
+      "nativeWasPrice": 65,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6210,6 +6442,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6236,6 +6469,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6262,6 +6496,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6288,6 +6523,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6314,6 +6550,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6340,6 +6577,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6392,6 +6630,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6496,6 +6735,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6522,6 +6762,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6548,6 +6789,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6574,6 +6816,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6600,6 +6843,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6626,6 +6870,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6652,6 +6897,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6678,6 +6924,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6704,6 +6951,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6730,6 +6978,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 259,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6756,6 +7005,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6782,6 +7032,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6808,6 +7059,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6834,6 +7086,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6860,6 +7113,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6886,6 +7140,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6912,6 +7167,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6938,6 +7194,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 149.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6964,6 +7221,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -6990,6 +7248,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -7016,6 +7275,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -7042,6 +7302,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -7068,6 +7329,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -7094,6 +7356,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -7120,6 +7383,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 199,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -7146,6 +7410,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -7172,6 +7437,7 @@
         "amount": 125,
         "currency": "AED"
       },
+      "nativeWasPrice": 275,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",

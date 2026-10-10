@@ -1,7 +1,7 @@
 {
   "retailerId": "gulf-orchid",
-  "updatedAt": "2026-10-09T19:27:53.543Z",
-  "seenAt": "2026-10-09T19:27:53.543Z",
+  "updatedAt": "2026-10-10T00:07:27.875Z",
+  "seenAt": "2026-10-10T00:07:27.875Z",
   "source": "live",
   "listings": [
     {
@@ -126,6 +126,7 @@
         "amount": 349,
         "currency": "AED"
       },
+      "nativeWasPrice": 420,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-28T01:53:32.452Z",
       "status": "active",
@@ -490,6 +491,7 @@
         "amount": 133,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -516,6 +518,7 @@
         "amount": 133,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -542,6 +545,7 @@
         "amount": 123.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -568,6 +572,7 @@
         "amount": 123.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -620,6 +625,7 @@
         "amount": 123.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -646,6 +652,7 @@
         "amount": 213.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 225,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -672,6 +679,7 @@
         "amount": 123.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -698,6 +706,7 @@
         "amount": 123.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -724,6 +733,7 @@
         "amount": 123.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -750,6 +760,7 @@
         "amount": 195,
         "currency": "AED"
       },
+      "nativeWasPrice": 205,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -776,6 +787,7 @@
         "amount": 374,
         "currency": "AED"
       },
+      "nativeWasPrice": 440,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -802,6 +814,7 @@
         "amount": 344,
         "currency": "AED"
       },
+      "nativeWasPrice": 405,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -828,6 +841,7 @@
         "amount": 344,
         "currency": "AED"
       },
+      "nativeWasPrice": 405,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -854,6 +868,7 @@
         "amount": 335,
         "currency": "AED"
       },
+      "nativeWasPrice": 395,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1036,6 +1051,7 @@
         "amount": 142.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1062,6 +1078,7 @@
         "amount": 148.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1088,6 +1105,7 @@
         "amount": 148.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1114,6 +1132,7 @@
         "amount": 148.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1140,6 +1159,7 @@
         "amount": 104.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1166,6 +1186,7 @@
         "amount": 157.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 185,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1192,6 +1213,7 @@
         "amount": 166.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 185,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1218,6 +1240,7 @@
         "amount": 166.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 185,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1244,6 +1267,7 @@
         "amount": 198,
         "currency": "AED"
       },
+      "nativeWasPrice": 220,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1270,6 +1294,7 @@
         "amount": 198,
         "currency": "AED"
       },
+      "nativeWasPrice": 220,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1296,6 +1321,7 @@
         "amount": 198,
         "currency": "AED"
       },
+      "nativeWasPrice": 220,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1322,6 +1348,7 @@
         "amount": 123.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1348,6 +1375,7 @@
         "amount": 123.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1374,6 +1402,7 @@
         "amount": 185.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 195,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-10-01T20:04:48.939Z",
       "status": "active",
@@ -1400,6 +1429,7 @@
         "amount": 187,
         "currency": "AED"
       },
+      "nativeWasPrice": 220,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1426,6 +1456,7 @@
         "amount": 212.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1452,6 +1483,7 @@
         "amount": 212.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1478,6 +1510,7 @@
         "amount": 212.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1504,6 +1537,7 @@
         "amount": 136,
         "currency": "AED"
       },
+      "nativeWasPrice": 160,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1530,6 +1564,7 @@
         "amount": 136,
         "currency": "AED"
       },
+      "nativeWasPrice": 160,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1556,6 +1591,7 @@
         "amount": 270,
         "currency": "AED"
       },
+      "nativeWasPrice": 385,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1582,6 +1618,7 @@
         "amount": 123.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1608,6 +1645,7 @@
         "amount": 270,
         "currency": "AED"
       },
+      "nativeWasPrice": 370,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1634,6 +1672,7 @@
         "amount": 365,
         "currency": "AED"
       },
+      "nativeWasPrice": 460,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1660,6 +1699,7 @@
         "amount": 380,
         "currency": "AED"
       },
+      "nativeWasPrice": 510,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1686,6 +1726,7 @@
         "amount": 295,
         "currency": "AED"
       },
+      "nativeWasPrice": 405,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1712,6 +1753,7 @@
         "amount": 119,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1738,6 +1780,7 @@
         "amount": 119,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1764,6 +1807,7 @@
         "amount": 119,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1790,6 +1834,7 @@
         "amount": 119,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1816,6 +1861,7 @@
         "amount": 119,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1842,6 +1888,7 @@
         "amount": 119,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1868,6 +1915,7 @@
         "amount": 119,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1894,6 +1942,7 @@
         "amount": 89.1,
         "currency": "AED"
       },
+      "nativeWasPrice": 99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1920,6 +1969,7 @@
         "amount": 89.1,
         "currency": "AED"
       },
+      "nativeWasPrice": 99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1946,6 +1996,7 @@
         "amount": 79.2,
         "currency": "AED"
       },
+      "nativeWasPrice": 99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1972,6 +2023,7 @@
         "amount": 148.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -1998,6 +2050,7 @@
         "amount": 148.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 175,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2024,6 +2077,7 @@
         "amount": 119,
         "currency": "AED"
       },
+      "nativeWasPrice": 140,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2050,6 +2104,7 @@
         "amount": 79.2,
         "currency": "AED"
       },
+      "nativeWasPrice": 99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2076,6 +2131,7 @@
         "amount": 72,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2102,6 +2158,7 @@
         "amount": 76.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2128,6 +2185,7 @@
         "amount": 450,
         "currency": "AED"
       },
+      "nativeWasPrice": 500,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2154,6 +2212,7 @@
         "amount": 72,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2180,6 +2239,7 @@
         "amount": 157.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 185,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2206,6 +2266,7 @@
         "amount": 148,
         "currency": "AED"
       },
+      "nativeWasPrice": 185,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2232,6 +2293,7 @@
         "amount": 297.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 350,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2258,6 +2320,7 @@
         "amount": 297.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 350,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2284,6 +2347,7 @@
         "amount": 93.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2310,6 +2374,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2336,6 +2401,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2362,6 +2428,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2388,6 +2455,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2414,6 +2482,7 @@
         "amount": 232,
         "currency": "AED"
       },
+      "nativeWasPrice": 290,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2440,6 +2509,7 @@
         "amount": 232,
         "currency": "AED"
       },
+      "nativeWasPrice": 290,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2466,6 +2536,7 @@
         "amount": 232,
         "currency": "AED"
       },
+      "nativeWasPrice": 290,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2492,6 +2563,7 @@
         "amount": 280,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2518,6 +2590,7 @@
         "amount": 246.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 290,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2544,6 +2617,7 @@
         "amount": 72,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2570,6 +2644,7 @@
         "amount": 39.2,
         "currency": "AED"
       },
+      "nativeWasPrice": 49,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2596,6 +2671,7 @@
         "amount": 39.2,
         "currency": "AED"
       },
+      "nativeWasPrice": 49,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2622,6 +2698,7 @@
         "amount": 191.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 225,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2648,6 +2725,7 @@
         "amount": 337.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 375,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2674,6 +2752,7 @@
         "amount": 49,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2700,6 +2779,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2726,6 +2806,7 @@
         "amount": 112.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2752,6 +2833,7 @@
         "amount": 112.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2778,6 +2860,7 @@
         "amount": 112.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2804,6 +2887,7 @@
         "amount": 72,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2830,6 +2914,7 @@
         "amount": 72,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2856,6 +2941,7 @@
         "amount": 110.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2882,6 +2968,7 @@
         "amount": 110.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2908,6 +2995,7 @@
         "amount": 110.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2934,6 +3022,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2960,6 +3049,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2986,6 +3076,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3012,6 +3103,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3038,6 +3130,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3064,6 +3157,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3090,6 +3184,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3116,6 +3211,7 @@
         "amount": 297.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 350,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3142,6 +3238,7 @@
         "amount": 148.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 165,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3168,6 +3265,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3194,6 +3292,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3220,6 +3319,7 @@
         "amount": 75,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3246,6 +3346,7 @@
         "amount": 350,
         "currency": "AED"
       },
+      "nativeWasPrice": 450,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3298,6 +3399,7 @@
         "amount": 153,
         "currency": "AED"
       },
+      "nativeWasPrice": 180,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3324,6 +3426,7 @@
         "amount": 64,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3350,6 +3453,7 @@
         "amount": 64,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3376,6 +3480,7 @@
         "amount": 88,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3402,6 +3507,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3454,6 +3560,7 @@
         "amount": 93.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3480,6 +3587,7 @@
         "amount": 176,
         "currency": "AED"
       },
+      "nativeWasPrice": 220,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3506,6 +3614,7 @@
         "amount": 56,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3532,6 +3641,7 @@
         "amount": 61,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3558,6 +3668,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3584,6 +3695,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3610,6 +3722,7 @@
         "amount": 93.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3636,6 +3749,7 @@
         "amount": 93.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3662,6 +3776,7 @@
         "amount": 93.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3688,6 +3803,7 @@
         "amount": 68,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3714,6 +3830,7 @@
         "amount": 69,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3740,6 +3857,7 @@
         "amount": 69,
         "currency": "AED"
       },
+      "nativeWasPrice": 125,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3766,6 +3884,7 @@
         "amount": 54,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3792,6 +3911,7 @@
         "amount": 93.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3818,6 +3938,7 @@
         "amount": 99,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3922,6 +4043,7 @@
         "amount": 27,
         "currency": "AED"
       },
+      "nativeWasPrice": 30,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3948,6 +4070,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3974,6 +4097,7 @@
         "amount": 27,
         "currency": "AED"
       },
+      "nativeWasPrice": 30,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4000,6 +4124,7 @@
         "amount": 27,
         "currency": "AED"
       },
+      "nativeWasPrice": 30,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4026,6 +4151,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4052,6 +4178,7 @@
         "amount": 110.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4078,6 +4205,7 @@
         "amount": 110.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 130,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4104,6 +4232,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4130,6 +4259,7 @@
         "amount": 176,
         "currency": "AED"
       },
+      "nativeWasPrice": 220,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4156,6 +4286,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4182,6 +4313,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4208,6 +4340,7 @@
         "amount": 64,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4234,6 +4367,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4260,6 +4394,7 @@
         "amount": 56,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4286,6 +4421,7 @@
         "amount": 68,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4312,6 +4448,7 @@
         "amount": 93.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4338,6 +4475,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4364,6 +4502,7 @@
         "amount": 420,
         "currency": "AED"
       },
+      "nativeWasPrice": 560,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4390,6 +4529,7 @@
         "amount": 27,
         "currency": "AED"
       },
+      "nativeWasPrice": 30,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4416,6 +4556,7 @@
         "amount": 27,
         "currency": "AED"
       },
+      "nativeWasPrice": 30,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4442,6 +4583,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4468,6 +4610,7 @@
         "amount": 180.4,
         "currency": "AED"
       },
+      "nativeWasPrice": 220,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4494,6 +4637,7 @@
         "amount": 180.4,
         "currency": "AED"
       },
+      "nativeWasPrice": 220,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4520,6 +4664,7 @@
         "amount": 153,
         "currency": "AED"
       },
+      "nativeWasPrice": 180,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4546,6 +4691,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4572,6 +4718,7 @@
         "amount": 27,
         "currency": "AED"
       },
+      "nativeWasPrice": 30,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4598,6 +4745,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4624,6 +4772,7 @@
         "amount": 54,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4650,6 +4799,7 @@
         "amount": 76.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4676,6 +4826,7 @@
         "amount": 76.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4702,6 +4853,7 @@
         "amount": 76.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4728,6 +4880,7 @@
         "amount": 120,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4754,6 +4907,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4780,6 +4934,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4806,6 +4961,7 @@
         "amount": 120,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4832,6 +4988,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4858,6 +5015,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4884,6 +5042,7 @@
         "amount": 120,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4910,6 +5069,7 @@
         "amount": 127.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 150,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4936,6 +5096,7 @@
         "amount": 49,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4962,6 +5123,7 @@
         "amount": 49,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4988,6 +5150,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5014,6 +5177,7 @@
         "amount": 139,
         "currency": "AED"
       },
+      "nativeWasPrice": 174.95,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5040,6 +5204,7 @@
         "amount": 123.25,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5066,6 +5231,7 @@
         "amount": 68,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5092,6 +5258,7 @@
         "amount": 68,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5118,6 +5285,7 @@
         "amount": 54,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5144,6 +5312,7 @@
         "amount": 76.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5170,6 +5339,7 @@
         "amount": 64,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5196,6 +5366,7 @@
         "amount": 54,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5222,6 +5393,7 @@
         "amount": 59.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5248,6 +5420,7 @@
         "amount": 56,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5274,6 +5447,7 @@
         "amount": 56,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5300,6 +5474,7 @@
         "amount": 56,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5326,6 +5501,7 @@
         "amount": 56,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5352,6 +5528,7 @@
         "amount": 64,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5378,6 +5555,7 @@
         "amount": 64,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5404,6 +5582,7 @@
         "amount": 49,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5430,6 +5609,7 @@
         "amount": 49,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5456,6 +5636,7 @@
         "amount": 56,
         "currency": "AED"
       },
+      "nativeWasPrice": 70,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5482,6 +5663,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5508,6 +5690,7 @@
         "amount": 63.75,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5534,6 +5717,7 @@
         "amount": 52,
         "currency": "AED"
       },
+      "nativeWasPrice": 75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5560,6 +5744,7 @@
         "amount": 118.9,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5586,6 +5771,7 @@
         "amount": 232,
         "currency": "AED"
       },
+      "nativeWasPrice": 290,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5612,6 +5798,7 @@
         "amount": 118.9,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5638,6 +5825,7 @@
         "amount": 220,
         "currency": "AED"
       },
+      "nativeWasPrice": 325,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5664,6 +5852,7 @@
         "amount": 220,
         "currency": "AED"
       },
+      "nativeWasPrice": 325,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5690,6 +5879,7 @@
         "amount": 220,
         "currency": "AED"
       },
+      "nativeWasPrice": 325,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5716,6 +5906,7 @@
         "amount": 220,
         "currency": "AED"
       },
+      "nativeWasPrice": 325,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5742,6 +5933,7 @@
         "amount": 180,
         "currency": "AED"
       },
+      "nativeWasPrice": 265,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5768,6 +5960,7 @@
         "amount": 180,
         "currency": "AED"
       },
+      "nativeWasPrice": 265,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5794,6 +5987,7 @@
         "amount": 180,
         "currency": "AED"
       },
+      "nativeWasPrice": 265,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5820,6 +6014,7 @@
         "amount": 180,
         "currency": "AED"
       },
+      "nativeWasPrice": 265,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5846,6 +6041,7 @@
         "amount": 72,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5872,6 +6068,7 @@
         "amount": 80,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5898,6 +6095,7 @@
         "amount": 200,
         "currency": "AED"
       },
+      "nativeWasPrice": 298,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5924,6 +6122,7 @@
         "amount": 299,
         "currency": "AED"
       },
+      "nativeWasPrice": 374,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5950,6 +6149,7 @@
         "amount": 390,
         "currency": "AED"
       },
+      "nativeWasPrice": 480,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5976,6 +6176,7 @@
         "amount": 299,
         "currency": "AED"
       },
+      "nativeWasPrice": 410,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6002,6 +6203,7 @@
         "amount": 299,
         "currency": "AED"
       },
+      "nativeWasPrice": 410,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6028,6 +6230,7 @@
         "amount": 299,
         "currency": "AED"
       },
+      "nativeWasPrice": 410,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6080,6 +6283,7 @@
         "amount": 375,
         "currency": "AED"
       },
+      "nativeWasPrice": 553.95,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6106,6 +6310,7 @@
         "amount": 280,
         "currency": "AED"
       },
+      "nativeWasPrice": 350,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6132,6 +6337,7 @@
         "amount": 229,
         "currency": "AED"
       },
+      "nativeWasPrice": 299.9,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6158,6 +6364,7 @@
         "amount": 205,
         "currency": "AED"
       },
+      "nativeWasPrice": 260,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6184,6 +6391,7 @@
         "amount": 140,
         "currency": "AED"
       },
+      "nativeWasPrice": 174.95,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6210,6 +6418,7 @@
         "amount": 400,
         "currency": "AED"
       },
+      "nativeWasPrice": 600,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6236,6 +6445,7 @@
         "amount": 72,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6262,6 +6472,7 @@
         "amount": 118.9,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6288,6 +6499,7 @@
         "amount": 90.2,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6314,6 +6526,7 @@
         "amount": 61,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6340,6 +6553,7 @@
         "amount": 61,
         "currency": "AED"
       },
+      "nativeWasPrice": 110,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6418,6 +6632,7 @@
         "amount": 118.9,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6444,6 +6659,7 @@
         "amount": 118.9,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6470,6 +6686,7 @@
         "amount": 54,
         "currency": "AED"
       },
+      "nativeWasPrice": 90,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6496,6 +6713,7 @@
         "amount": 64,
         "currency": "AED"
       },
+      "nativeWasPrice": 80,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6522,6 +6740,7 @@
         "amount": 118.9,
         "currency": "AED"
       },
+      "nativeWasPrice": 145,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",

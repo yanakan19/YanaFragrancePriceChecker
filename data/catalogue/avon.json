@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-09T18:29:17.227Z",
-  "seenAt": "2026-10-09T18:29:17.227Z",
+  "updatedAt": "2026-10-09T23:09:31.515Z",
+  "seenAt": "2026-10-09T23:09:31.515Z",
   "source": "live",
   "listings": [
     {
@@ -37711,7 +37711,7 @@
       "priceGbp": 7,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . . Discover your beginning, filled with butterflies and anticipation and encapsulated in the floral fragrance of Today Eau de Parfum Purse Spray, from the bestselling Today Tomorrow Always fragrance collection. Experience the excitement of something new with delicate neroli petals, romantic hibiscus and striking silk musk.. . Product specification: . . • Top note: neroli petals.. • Middle note: hibiscus.. • Base note: silk musk.. • 10ml.. . How to wear me: . . Keep the handy purse spray in your bag so you can spritz the soft floral fragrance when running errands or it’s the perfect travel-size perfume. Fallen in love? Treat yourself to the full-size perfume and matching body lotion..",
       "productType": "FRAGRANCE",

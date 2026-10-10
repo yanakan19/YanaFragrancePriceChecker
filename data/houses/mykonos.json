@@ -1,7 +1,7 @@
 {
   "retailerId": "mykonos",
-  "updatedAt": "2026-10-09T19:33:43.918Z",
-  "seenAt": "2026-10-09T19:33:43.918Z",
+  "updatedAt": "2026-10-10T00:13:17.296Z",
+  "seenAt": "2026-10-10T00:13:17.296Z",
   "source": "live",
   "listings": [
     {
@@ -100,6 +100,7 @@
         "amount": 259000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 449000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-10-08T14:52:31.926Z",
       "status": "active",
@@ -204,6 +205,7 @@
         "amount": 269000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 449000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-10-08T14:52:31.926Z",
       "status": "active",
@@ -1270,6 +1272,7 @@
         "amount": 379000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 799000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-08-05T11:11:16.884Z",
       "status": "active",
@@ -1582,6 +1585,7 @@
         "amount": 229000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 449000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-10-08T14:52:31.926Z",
       "status": "active",
@@ -1660,6 +1664,7 @@
         "amount": 199000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 449000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-08-05T11:11:16.884Z",
       "status": "active",
@@ -1686,6 +1691,7 @@
         "amount": 339000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 799000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-08-05T11:11:16.884Z",
       "status": "active",
@@ -1946,6 +1952,7 @@
         "amount": 379000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 799000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-08-05T11:11:16.884Z",
       "status": "active",
@@ -1998,6 +2005,7 @@
         "amount": 229000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 449000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-08-05T11:11:16.884Z",
       "status": "active",

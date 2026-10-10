@@ -1,7 +1,7 @@
 {
   "retailerId": "lattafa",
-  "updatedAt": "2026-10-09T19:30:58.056Z",
-  "seenAt": "2026-10-09T19:30:58.056Z",
+  "updatedAt": "2026-10-10T00:10:32.970Z",
+  "seenAt": "2026-10-10T00:10:32.970Z",
   "source": "live",
   "listings": [
     {
@@ -663,7 +663,6 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-10-09T10:55:46.958Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -693,7 +692,6 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T13:39:05.910Z",
-      "lastSeenAt": "2026-10-09T10:55:46.958Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -723,7 +721,6 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T13:39:05.910Z",
-      "lastSeenAt": "2026-10-09T10:55:46.958Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
