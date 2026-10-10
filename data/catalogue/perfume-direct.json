@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-10T03:23:13.328Z",
-  "seenAt": "2026-10-10T03:23:13.328Z",
+  "updatedAt": "2026-10-10T07:36:35.125Z",
+  "seenAt": "2026-10-10T07:36:35.125Z",
   "source": "live",
   "listings": [
     {
@@ -65297,7 +65297,7 @@
       "priceGbp": 16.99,
       "wasPriceGbp": 57.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Unleash your playful side with Katy Perry Purr Eau de Parfum Women's Perfume Spray. This enchanting fragrance opens with juicy peach, forbidden apple, and gardenia, leading to a heart of jasmine and rose, and a warm base of vanilla orchid and sandalwood. Perfect for day or night, Purr embodies feline grace and captivating charm. Indulge in this alluring scent and express your inner diva with confidence and style.. . Fragrance Type . Sweet, Fruity. . Fragrance Notes: . Top notes: Peach Nectar, Forbidden Apple, Green Bamboo. Middle notes: Jasmine Blossom, Pink Freesia, Bulgarian Rose. Base notes: Vanilla Orchid, Creamy Sandalwood, White Amber. . Launched: . 2010.",
       "productType": "Women's Perfume",

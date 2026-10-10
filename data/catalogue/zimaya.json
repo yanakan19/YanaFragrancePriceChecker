@@ -1,7 +1,7 @@
 {
   "retailerId": "zimaya",
-  "updatedAt": "2026-10-10T03:23:13.328Z",
-  "seenAt": "2026-10-10T03:23:13.328Z",
+  "updatedAt": "2026-10-10T07:36:35.125Z",
+  "seenAt": "2026-10-10T07:36:35.125Z",
   "source": "live",
   "listings": [
     {
@@ -1417,7 +1417,7 @@
       "priceGbp": 40,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A fragrance that transports you to a lush garden in full bloom, where the air is filled with the intoxicating scents of peony and apricot. This enchanting perfume captures the essence of a blooming garden in springtime, with its vibrant and refreshing aroma. Bahja is a celebration of floral abundance and fruity indulgence, inviting you to revel in its intoxicating charm.. TOP NOTE White Floral - Floral - Fresh MID NOTE Fruity - Patchouli - Lactonic BASE NOTE Sweet - Musk . .",
       "productType": "Perfume",

@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-10-10T04:28:36.823Z",
-  "seenAt": "2026-10-10T04:28:36.823Z",
+  "updatedAt": "2026-10-10T08:42:18.110Z",
+  "seenAt": "2026-10-10T08:42:18.110Z",
   "source": "live",
   "listings": [
     {
@@ -46,7 +46,7 @@
       "description": "An elegant Oriental Vanilla fragrance, opening with a luscious blend of pear, peach, bergamot, and pink pepper, blooming into a soft floral heart of rose, magnolia, lily of the valley, and cyclamen, and melting into a deep, sensual base of vanilla, amber, patchouli, and vetiver—rich, feminine, and effortlessly luxurious. .",
       "productType": null,
       "nativePrice": {
-        "amount": 56.25,
+        "amount": 52.5,
         "currency": "AED"
       },
       "nativeWasPrice": 75,
@@ -73,7 +73,7 @@
       "description": "A luxurious Floral Aquatic Gourmand fragrance that opens with a luminous blend of magnolia, sea breeze, and sparkling citrus, blooms into an elegant heart of lily, jasmine, and pittosporum, and settles into a refined base of musk, salty accords, and smooth woody notes—fresh, sensual, and effortlessly sophisticated. .",
       "productType": null,
       "nativePrice": {
-        "amount": 56.25,
+        "amount": 52.5,
         "currency": "AED"
       },
       "nativeWasPrice": 75,
@@ -100,7 +100,7 @@
       "description": "A sophisticated Floral Fruity Gourmand perfume with juicy blackcurrant and mandarin, a soft floral heart of jasmine and rose, and a warm, sweet base of vanilla, musk, and patchouli. .",
       "productType": null,
       "nativePrice": {
-        "amount": 93.75,
+        "amount": 87.5,
         "currency": "AED"
       },
       "nativeWasPrice": 125,
@@ -127,7 +127,7 @@
       "description": "A refined Floral Musky Gourmand fragrance that opens with a soft spicy touch of pink pepper and peony, unfolds into a fresh floral-fruity heart of lychee and rose with subtle cedarwood, and settles into a smooth, warm base of musk, amber, and white woods for an elegant, creamy finish. .",
       "productType": null,
       "nativePrice": {
-        "amount": 93.75,
+        "amount": 87.5,
         "currency": "AED"
       },
       "nativeWasPrice": 125,
@@ -154,7 +154,7 @@
       "description": "A crisp blend of bergamot, pear, peach, and rose opens fresh and confident. Magnolia, lily of the valley, and cyclamen add a smooth floral layer, while patchouli, vetiver, vanilla, and amber create a warm, woody base. Clean, bold, and masculine..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -181,7 +181,7 @@
       "description": "An ethereal blend of blue lotus and water lily opens with a clean, aquatic feel. Iris adds a soft, powdery touch, while vanilla and amber create a warm, creamy finish. Feminine, smooth, and gently enchanting..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -208,7 +208,7 @@
       "description": "A bright mix of pear, bergamot, and blackcurrant gives a juicy, fresh start. Rose, lily of the valley, and white florals add softness, while cedarwood, amber, moss, and musk bring a warm, elegant finish. Fruity, floral, and softly sensual. .",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -235,7 +235,7 @@
       "description": "Milele combines vibrant citrus and rich coffee notes with a warm amber dry-down for an unforgettable allure, making it a bold yet balanced scent for everyday sophistication..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -262,7 +262,7 @@
       "description": "Turquois is a luminous blend of sparkling citrus and spicy ginger, anchored by a clean musky finish. As it dries down, amber and musk provide a clean, smooth, and long-lasting base, making it an ideal choice for a crisp and modern everyday fragrance..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -289,7 +289,7 @@
       "description": "Airy and uplifting, Cloud captures the essence of breezy tropical fruits and crisp marine accords that create a soft and addictive finish that lingers beautifully..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -316,7 +316,7 @@
       "description": "A luscious blend of ripe fruits and delicate florals, Crème delivers a velvety and addictive gourmand signature..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -343,7 +343,7 @@
       "description": "Inspired by the mystery of midnight, Kayaan Midnight embodies confidence, refinement, and modern elegance. A signature scent designed for those who leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 93.75,
+        "amount": 87.5,
         "currency": "AED"
       },
       "nativeWasPrice": 125,
@@ -370,7 +370,7 @@
       "description": "An elegant composition that begins with bitter orange and roasted coffee, leading into a rich heart of cacao, tonka bean, and dried fruits. A smooth vanilla base adds warmth and depth, creating a balanced fragrance with understated sweetness..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -397,7 +397,7 @@
       "description": "A refined fragrance opening with smooth chocolate, coconut, and nuanced coffee, lightly touched with honey. The heart unfolds into soft lactonic notes, vanilla, and a gentle rose accent, settling into a warm base of tonka and subtle sweetness for a polished, comforting trail. .",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -424,7 +424,7 @@
       "description": "A sophisticated floral fragrance opening with bright lemon, red berries, lychee, and pink peppercorn. The heart reveals an elegant bouquet of rose, magnolia, jasmine sambac, and pear, resting on a smooth base of sandalwood, vanilla, and musk for a graceful, long-lasting trail..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -451,7 +451,7 @@
       "description": "A luminous and uplifting fragrance featuring fresh lemon and fruity notes at the top. Raspberry and freesia add a delicate softness, while a base of vanilla and musk brings gentle warmth and a refined, airy finish..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -478,7 +478,7 @@
       "description": "A vibrant yet refined fragrance that opens with cherry, raspberry, and pear. Warm cinnamon and jasmine blend seamlessly with patchouli at the heart, while the base of bubblegum, toffee, tonka bean, vanilla, and musk adds a soft, modern sweetness..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -505,7 +505,7 @@
       "description": "A radiant fragrance opening with blackcurrant, coffee, bergamot, lemon, and a hint of rum. The heart introduces raspberry, lily of the valley, and peach, while the base of musk, solar notes, ambergris, and cotton candy creates a luminous, sophisticated warmth..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -532,7 +532,7 @@
       "description": "A smooth and elegant fragrance beginning with apple, liquor, and citrus zest. The heart blends peach, heliotrope, balsam, and coconut, finishing with a refined base of musk, vanilla, cooked sugar, and tonka for a warm, polished sweetness..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -559,7 +559,7 @@
       "description": "A rich and enveloping fragrance that opens with sweet orange, lemon, coffee, mocha, and cream. The heart layers water florals, lavender, coconut milk, and caramel, settling into a warm base of tonka, sandalwood, vanilla, and musk for a smooth, elegant finish..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -586,7 +586,7 @@
       "description": "A soft and refreshing floral-gourmand mist featuring juicy plum and sugared violet, wrapped in vanilla orchid and creamy sandalwood for a delicate, chic finish..",
       "productType": null,
       "nativePrice": {
-        "amount": 30,
+        "amount": 28,
         "currency": "AED"
       },
       "nativeWasPrice": 40,
@@ -613,7 +613,7 @@
       "description": "A refreshing sweet-gourmand mist where caramelized vanilla meets sea salt and toasted nuts, balanced with airy tonka and white chocolate for a light yet comforting aura..",
       "productType": null,
       "nativePrice": {
-        "amount": 30,
+        "amount": 28,
         "currency": "AED"
       },
       "nativeWasPrice": 40,
@@ -640,7 +640,7 @@
       "description": "A fresh and vibrant fruity-floral mist bursting with pink dragonfruit and lychee, softened by jasmine and a clean vanilla-musk base for an effortless everyday freshness..",
       "productType": null,
       "nativePrice": {
-        "amount": 30,
+        "amount": 28,
         "currency": "AED"
       },
       "nativeWasPrice": 40,
@@ -667,7 +667,7 @@
       "description": "A refreshing gourmand mist blending creamy pistachio and almond with soft florals, finished with a smooth touch of vanilla and salted caramel for a breezy, sun-kissed feel..",
       "productType": null,
       "nativePrice": {
-        "amount": 30,
+        "amount": 28,
         "currency": "AED"
       },
       "nativeWasPrice": 40,
@@ -694,7 +694,7 @@
       "description": "Candy Musk is a playful yet elegant gourmand fragrance designed for everyday indulgence. It opens with a bright blend of bergamot, jasmine, and rose, creating a fresh and inviting introduction. The heart reveals creamy orris, sandalwood, and amber for added warmth and depth. As it settles, rich musk, sweet vanilla, and caramel form a cozy, long-lasting trail—perfect on its own or layered with your favorite perfumes..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -721,7 +721,7 @@
       "description": "Apple Musk offers a refreshing and luxurious blend of crisp fruit and soft warmth. It opens with the juicy sweetness of fresh apple, instantly uplifting and energizing the senses. The heart introduces clean, creamy musk that blends seamlessly with the fruity brightness. As it settles, warm musky undertones create a smooth, long-lasting trail—perfect for effortless everyday wear..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -748,7 +748,7 @@
       "description": "Rose Musk is a delicate and enchanting fragrance that celebrates the timeless elegance of rose. It opens with fresh, vibrant rose notes that gently sparkle on the skin, leading into a rich floral heart of rose accented with soft hints of jasmine and ylang-ylang. As it settles, warm musk and smooth sandalwood create a comforting, long-lasting finish—perfect for everyday wear with a touch of refined softness..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -775,7 +775,7 @@
       "description": "Coconut Musk captures the comforting warmth of the tropics in a light, refreshing form. It opens with a creamy wave of coconut that evokes sun-kissed, beachy vibes, followed by subtle floral and gourmand nuances that add soft, dessert-like sweetness. As it settles, a clean, smooth musky base leaves a long-lasting, comforting trail—perfect for effortless everyday wear..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -802,7 +802,7 @@
       "description": "Cherry Musk is a lively and refreshing blend designed for effortless everyday wear. It opens with the sweet, slightly tart freshness of ripe cherry, instantly uplifting the senses. The heart reveals delicate white florals and cherry blossom, adding a soft, airy elegance. As it settles, a clean base of gentle musk creates a smooth, long-lasting finish that lingers comfortably on the skin..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -829,7 +829,7 @@
       "description": "Pistachio Musk offers a refined blend of creamy indulgence and soft warmth. It opens with the rich, nutty aroma of pistachio, creating an inviting first impression. The heart reveals a delicate harmony of rose and vanilla, adding gentle floral sweetness and depth. As it settles, soft musk with a subtle hint of cinnamon delivers a comforting, long-lasting finish—perfect for everyday elegance..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -856,7 +856,7 @@
       "description": "Lychee Musk captures a refreshing blend of exotic sweetness and soft warmth. It opens with bright, juicy lychee for an uplifting tropical feel, followed by subtle fruity and floral nuances that add depth and freshness. A gentle musky base leaves a clean, long-lasting trail, making it perfect for effortless, everyday wear..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -883,7 +883,7 @@
       "description": "Vanilla Musk is a warm and comforting fragrance that blends rich, creamy vanilla with soft musk. It opens with a sweet burst of vanilla, followed by smooth vanilla bean notes layered with subtle musk for added depth. As it settles, a gentle musky base leaves a long-lasting, cozy, and elegant trail—perfect for everyday wear and lovers of gourmand, musky scents..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -910,7 +910,7 @@
       "description": "Bareeq Al Dhahab Body Mist is a luxurious oriental fragrance that radiates warmth, depth, and opulence—often described as “pure gold” in scent form. It opens with an elegant blend of rose, saffron, and a hint of pepper, creating a spicy-floral introduction that feels rich and refined. The heart unfolds with indulgent notes of oud, caramel, patchouli, and soft florals, adding sweetness and woody intensity. As it settles, incense, amber, musk, and warm woodsy notes create a smoky, resinous base—leaving a long-lasting, captivating trail that’s perfect for evening wear or cooler weather and delivers a truly standout presence..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -937,7 +937,7 @@
       "description": "Musk Dubai Body Mist is a refined and sensual unisex fragrance that blends spicy warmth, floral elegance, and earthy depth. It opens with the inviting spice of cardamom, creating a bold and aromatic introduction. The heart reveals a luxurious fusion of jasmine sambac and leather, combining soft florals with rich, textured warmth. As it settles, patchouli, amber, and moss form a smooth, grounded base—leaving a long-lasting, sophisticated trail perfect for everyday wear or layering..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -964,7 +964,7 @@
       "description": "Kenz Al Malik Body Mist for Men is a refreshing and energizing fragrance crafted for everyday wear. It opens with a vibrant burst of grapefruit, pink pepper, bergamot, and lemon, blended with cool marine notes and earthy vetiver for an instantly uplifting freshness. The heart reveals an aromatic mix of ginger, cedar, mint, nutmeg, and jasmine, adding spicy warmth and modern masculinity. As it settles, amberwood, incense, and sandalwood create a smooth, woody base—leaving a long-lasting, confident, and sophisticated trail..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -991,7 +991,7 @@
       "description": "Oud Mystery Intense Body Mist is a bold and sensual unisex fragrance that blends oriental depth with aromatic freshness. It opens with a captivating mix of saffron, nutmeg, and lavender, balancing spicy warmth with a clean, calming touch. The heart is defined by rich agarwood (oud), adding a smooth, resinous intensity. As it settles, patchouli and soft musk form a warm, earthy base—leaving a long-lasting, mysterious, and luxurious trail perfect for everyday wear or layering..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1018,7 +1018,7 @@
       "description": "Rose Mystery Intense Perfumed Body Mist is a bold and captivating floral fragrance with a deeper, more sensual character. It opens with rich, velvety rose notes that feel intense and luxurious, creating an immediate impression of elegance. As it settles, warm and slightly mysterious undertones add depth and sophistication, leaving the skin softly scented with a long-lasting, refined trail. Perfect for evenings or when you want something more expressive, Rose Mystery Intense feels confident, romantic, and irresistibly elegant..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1045,7 +1045,7 @@
       "description": "Marwa Perfumed Body Mist is a beautifully soft and comforting fragrance designed for effortless everyday wear. It opens with a gentle touch of fruity freshness that feels light and uplifting, followed by subtle floral notes that add warmth and femininity. As it settles, smooth musky accents create a cozy, long-lasting trail that lingers delicately on the skin. Easy to wear and soothing in character, Marwa feels fresh, elegant, and quietly inviting throughout the day..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1072,7 +1072,7 @@
       "description": "Sultan Al Lail Perfumed Body Mist is a warm and captivating fragrance inspired by the mystery of oriental nights. It opens with a fresh hint of citrus and spice, creating an inviting first impression. As it settles, aromatic and herbal nuances add depth and character, while a rich woody base leaves the skin softly scented with a long-lasting, comforting trail. Perfect for evening wear, Sultan Al Lail feels elegant, soothing, and subtly luxurious..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1099,7 +1099,7 @@
       "description": "Zahra Perfumed Body Mist is a fresh and graceful floral fragrance that brings a soft bloom to your everyday routine. It opens with delicate notes of rose and jasmine, creating a light and uplifting first impression. As it settles, subtle citrusy freshness adds brightness, while gentle woody and musky undertones leave a smooth, comforting trail. Perfect for daily wear, Zahra feels elegant, refreshing, and beautifully feminine..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1126,7 +1126,7 @@
       "description": "Special Oud Perfumed Body Mist is a rich and confident fragrance crafted for those who appreciate the depth of oud in a lighter, wearable form. It opens with a warm, slightly smoky oud character that feels refined rather than overpowering. As it settles, soft woody and musky nuances add balance and elegance, leaving the skin lightly scented with a long-lasting, sophisticated trail. Perfect for everyday wear or evening use, Special Oud feels bold, elegant, and effortlessly timeless..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1153,7 +1153,7 @@
       "description": "Sabah Al Ward Perfumed Body Mist is a soft and elegant floral fragrance designed for everyday freshness. It opens with a delicate burst of fresh floral notes that feel light and uplifting, instantly refreshing the skin. As it settles, gentle floral nuances create a calm and comforting aura, while a subtle musky base leaves a smooth, long-lasting trail. Perfect for daily wear, Sabah Al Ward feels graceful, soothing, and effortlessly feminine..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1180,7 +1180,7 @@
       "description": "Tibyan Perfumed Body Mist is a delightful blend of fruity sweetness and warm softness, perfect for everyday indulgence. It opens with a bright and enchanting mix of floral and citrus notes, creating a fresh and inviting start. The heart reveals a sweet gourmand touch with tropical nuances, adding a playful and comforting feel. As it settles, warm notes of vanilla, musk, and sandalwood wrap the skin in a soft, soothing trail, leaving you feeling refreshed, cozy, and effortlessly elegant..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1207,7 +1207,7 @@
       "description": "Ameerati Perfumed Body Mist is a fresh and elegant everyday fragrance that feels clean, soft, and uplifting. It opens with bright citrusy freshness, gently blended with light floral and musky nuances that create a smooth and comforting feel. As it settles, subtle woody and powdery notes add balance and sophistication, leaving your skin lightly scented and refreshed. Perfect for daily wear, Ameerati is easy, versatile, and effortlessly graceful..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1234,7 +1234,7 @@
       "description": "Shaghaf Al Ward Perfumed Body Mist is a graceful and romantic fragrance that celebrates timeless florals with a soft, elegant touch. It opens with delicate notes of jasmine and rose, creating a fresh and uplifting first impression. As it settles, subtle floral nuances add depth and femininity, while a gentle musky base leaves the skin lightly scented and refreshed. Perfect for everyday wear, this body mist offers a long-lasting, comforting trail that feels soft, elegant, and effortlessly charming..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1261,7 +1261,7 @@
       "description": "Watani Purple Perfumed Body Mist brings a playful yet elegant touch to your everyday routine. It opens with a bright burst of fruity freshness, followed by a soft heart of caramel and delicate florals that add sweetness and charm. As it settles, warm notes of sweet musk.",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1288,7 +1288,7 @@
       "description": "Attar Al Wesal Body Mist is a warm and refined fragrance that captures the essence of oriental elegance with a modern touch. It opens with soft, inviting notes that gently awaken the senses, setting a smooth and comforting tone. The heart reveals a harmonious blend of rich oriental accords with subtle woody nuances, adding depth and character. As it settles, warm musky and woody notes create a lingering, comforting base—leaving a long-lasting, elegant, and beautifully balanced trail ideal for everyday wear or light layering..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1315,7 +1315,7 @@
       "description": "Najah Body Mist is a comforting and elegant fragrance that blends creamy sweetness with soft floral warmth. It opens with gentle citrus touches that add a fresh, uplifting brightness. The heart reveals smooth white florals wrapped in delicate sweet accords, creating a soft and soothing character. As it settles, warm vanilla, subtle cacao, and powdery musky notes form a cozy, enveloping base—leaving a long-lasting, warm, and subtly indulgent trail perfect for everyday wear..",
       "productType": null,
       "nativePrice": {
-        "amount": 37.5,
+        "amount": 35,
         "currency": "AED"
       },
       "nativeWasPrice": 50,
@@ -1342,7 +1342,7 @@
       "description": "Watani Purple Air Freshener is designed to elevate your living space with its sophisticated and inviting fragrance. It opens with a vibrant burst of refreshing tropical fruits, creating a bright and uplifting first impression. The heart reveals a delightful blend of caramel and soft floral notes, adding a sweet and romantic touch. Finally, warm base notes of sweet musk and amber settle beautifully, leaving a lasting trail of elegance, warmth, and comfort in every room..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1369,7 +1369,7 @@
       "description": "Marwa Air Freshener is designed to elevate your living space with its enchanting blend of fruits, flowers, and soft musk. Perfect for any room in your home, it gently neutralizes unwanted odors while filling your surroundings with a luxurious and welcoming fragrance. Enjoy lasting freshness and refined elegance as Marwa transforms your everyday spaces into a beautifully scented haven..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1396,7 +1396,7 @@
       "description": "Durrat Al Aroos Air Freshener elevates your space with graceful charm. This elegant fragrance fills your surroundings with a soft, romantic aroma inspired by timeless florals and gentle warmth. Designed to neutralize unwanted odors while delivering a long-lasting scent, it creates a welcoming and refined ambiance in every room..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1423,7 +1423,7 @@
       "description": "Ameerati Air Freshener is designed to elevate your living space with its sophisticated and refreshing fragrance. It opens with bright citrus notes enhanced by green and musky undertones, creating a clean and invigorating introduction. The heart reveals a harmonious blend of woody and herbal notes, adding depth and natural elegance. Finally, the base settles into a subtle mix of spicy and powdery accords, leaving a balanced, refined, and long-lasting impression in every room..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1450,7 +1450,7 @@
       "description": "Musk Dubai Air Freshener is designed to elevate your living space with its sophisticated and elegant fragrance. Perfect for any room in your home, it gently neutralizes unwanted odors while transforming your surroundings into a luxurious and welcoming space. Enjoy lasting freshness and refined elegance as Musk Dubai enhances your everyday environment..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1477,7 +1477,7 @@
       "description": "Attar Al Wesal Air Freshener fills your space with warm elegance. This refined fragrance blends rich oriental accords with soft woody and musky notes, creating a welcoming and comforting ambiance. Designed to neutralize unwanted odors while delivering a long-lasting scent, it leaves every room feeling inviting, sophisticated, and beautifully scented..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1504,7 +1504,7 @@
       "description": "Sultan Al Lail Air Freshener lets you immerse your space in rich oriental allure. This sophisticated fragrance blends fresh citrus and spices with aromatic herbs and warm woody notes, creating a calming yet luxurious ambiance inspired by Arabian nights. Perfect for evenings, it leaves your surroundings feeling elegant, serene, and inviting..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1531,7 +1531,7 @@
       "description": "Shaghaf Al Ward Air Freshner brings a sophisticated oriental fragrance to your living space. It opens with the floral elegance of jasmine, osmanthus, and rose, creating a rich and inviting first impression. The heart reveals soft notes of hawthorn and narcissus, adding a fresh and romantic touch. Finally, warm base notes of amber and cedarwood settle beautifully, leaving a lasting trail of depth, elegance, and refinement in every room..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1558,7 +1558,7 @@
       "description": "Sabah Al Ward Air Freshner brings a sense of floral freshness to your space. This refined air freshener gently neutralizes unwanted odors while diffusing a soft, soothing fragrance inspired by fresh blooming flowers. Designed to create a calm and welcoming ambiance, its long-lasting scent refreshes every room with elegance and comfort..",
       "productType": null,
       "nativePrice": {
-        "amount": 15,
+        "amount": 13,
         "currency": "AED"
       },
       "nativeWasPrice": 20,
@@ -1585,7 +1585,7 @@
       "description": "A spirited blend of bright spice and comforting warmth. The fragrance opens with sparkling pink pepper and juicy mandarin, creating a lively and invigorating introduction. At its heart, aromatic lavender and earthy sage lend a fresh, herbal sophistication that grounds the brightness with calming elegance. A cozy base of roasted chestnut and creamy vanilla wraps the scent in gentle warmth, leaving a soft, inviting trail that feels both modern and timeless..",
       "productType": null,
       "nativePrice": {
-        "amount": 90,
+        "amount": 84,
         "currency": "AED"
       },
       "nativeWasPrice": 120,
@@ -1612,7 +1612,7 @@
       "description": "A vibrant dance of sparkling citrus and cozy spice. Mandarin and bergamot open fresh and bright, while cardamom, cinnamon, and pink pepper create warm, exotic intrigue. .",
       "productType": null,
       "nativePrice": {
-        "amount": 90,
+        "amount": 84,
         "currency": "AED"
       },
       "nativeWasPrice": 120,
@@ -1639,7 +1639,7 @@
       "description": "A juicy opening of crushed berries, blackcurrant, blueberry, raspberry, cherry, and strawberry fusing into a delicate floral heart and a warm, sensual amber-vanilla base..",
       "productType": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 70,
         "currency": "AED"
       },
       "nativeWasPrice": 100,
@@ -1666,7 +1666,7 @@
       "description": "Built around its gourmand sweet character, Granada reveals an elegant, bold and warm signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 71.25,
+        "amount": 66.5,
         "currency": "AED"
       },
       "nativeWasPrice": 95,
@@ -1693,7 +1693,7 @@
       "description": "Built around its citrus woody gourmand character, Castilla reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 71.25,
+        "amount": 66.5,
         "currency": "AED"
       },
       "nativeWasPrice": 95,
@@ -1720,7 +1720,7 @@
       "description": "Built around its amber vanilla character, Nawal Bronzite reveals a fresh, elegant and refined signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 67.5,
+        "amount": 63,
         "currency": "AED"
       },
       "nativeWasPrice": 90,
@@ -1747,7 +1747,7 @@
       "description": "Built around its spicy woody character, Nawal Alexandrite reveals a vibrant, elegant and refined signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 67.5,
+        "amount": 63,
         "currency": "AED"
       },
       "nativeWasPrice": 90,
@@ -1774,7 +1774,7 @@
       "description": "Built around its fruity floral musk character, Nawal Tanzanite reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 67.5,
+        "amount": 63,
         "currency": "AED"
       },
       "nativeWasPrice": 90,
@@ -1801,7 +1801,7 @@
       "description": "Built around its fruity floral woody character, Nawal Flourite reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 67.5,
+        "amount": 63,
         "currency": "AED"
       },
       "nativeWasPrice": 90,
@@ -1828,7 +1828,7 @@
       "description": "An expression of depth and quiet allure. Incense and Leather reveal a dark intensity, softened by Patchouli and Myrrh. Cedarwood and Davana leave a warm, sensual trail of timeless elegance..",
       "productType": null,
       "nativePrice": {
-        "amount": 93.75,
+        "amount": 87.5,
         "currency": "AED"
       },
       "nativeWasPrice": 125,
@@ -1855,7 +1855,7 @@
       "description": "Built around its fruity gourmand character, Massad Royale reveals a vibrant, warm and smooth signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 135,
+        "amount": 126,
         "currency": "AED"
       },
       "nativeWasPrice": 180,
@@ -1882,7 +1882,7 @@
       "description": "Layali captures an exotic night in a bottle. Juicy peach and guava open into warmly spiced cardamom and caramel, settling into a luxurious base of vanilla and amber. Rich, captivating, and unmistakably gourmand.",
       "productType": null,
       "nativePrice": {
-        "amount": 90,
+        "amount": 84,
         "currency": "AED"
       },
       "nativeWasPrice": 120,
@@ -1909,7 +1909,7 @@
       "description": "SAHARI is a vibrant, fruity-floral oriental that captures the essence of desert elegance. Redcurrant, bergamot, and raspberry open the scent, unfolding into a heart of rose, pomegranate, and jasmine. A base of patchouli, leathery accords, and musk completes this radiant, seductive fragrance..",
       "productType": null,
       "nativePrice": {
-        "amount": 90,
+        "amount": 84,
         "currency": "AED"
       },
       "nativeWasPrice": 120,
@@ -1936,7 +1936,7 @@
       "description": "Minimalistic elegance. ROYAL OAK II merges tobacco and aromatic tea into a refined composition with warm tonka undertones. Understated sophistication that lingers.",
       "productType": null,
       "nativePrice": {
-        "amount": 138.75,
+        "amount": 129.5,
         "currency": "AED"
       },
       "nativeWasPrice": 185,
@@ -1963,7 +1963,7 @@
       "description": "Timeless elegance meets quiet power. Royal Oak I opens with bergamot, cardamom, and pink peppercorn, transitions through amber and violet, and settles into a sophisticated base of sandalwood and tonka. .",
       "productType": null,
       "nativePrice": {
-        "amount": 138.75,
+        "amount": 129,
         "currency": "AED"
       },
       "nativeWasPrice": 185,
@@ -1990,7 +1990,7 @@
       "description": "A sumptuous fragrance that reimagines tradition through exotic florals and fruity sweetness. Patchouli, sandalwood, musk, and tonka create a luxuriously magnetic base that lingers beautifully on skin.",
       "productType": null,
       "nativePrice": {
-        "amount": 135,
+        "amount": 126,
         "currency": "AED"
       },
       "nativeWasPrice": 180,
@@ -2017,7 +2017,7 @@
       "description": "Al Daiem by Al Wataniah is a bold, long-lasting oriental fragrance designed for those who appreciate intensity, warmth, and a striking presence..",
       "productType": null,
       "nativePrice": {
-        "amount": 135,
+        "amount": 126,
         "currency": "AED"
       },
       "nativeWasPrice": 180,
@@ -2044,7 +2044,7 @@
       "description": "Arya Peony Rose EDP blends rich nutty notes with exquisite florals and a deeply sensual amber-vanilla dry-down..",
       "productType": null,
       "nativePrice": {
-        "amount": 135,
+        "amount": 126,
         "currency": "AED"
       },
       "nativeWasPrice": 180,
@@ -2071,7 +2071,7 @@
       "description": "Arya EDP opens with a vibrant burst of crisp fruits, unfolding into a lush floral heart and a warm, earthy base. Its essence reflects transformation — like a diamond forged under pressure, crowned with luminous strength, elegance, and inner brilliance..",
       "productType": null,
       "nativePrice": {
-        "amount": 135,
+        "amount": 126,
         "currency": "AED"
       },
       "nativeWasPrice": 180,
@@ -2098,7 +2098,7 @@
       "description": "Built around its spicy floral woody character, Ain Emarat reveals a fresh, elegant and refined signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 120,
+        "amount": 112,
         "currency": "AED"
       },
       "nativeWasPrice": 160,
@@ -2125,7 +2125,7 @@
       "description": "Built around its spicy gourmand character, Ain Emarat Extrait reveals a fresh, bold and warm signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 120,
+        "amount": 112,
         "currency": "AED"
       },
       "nativeWasPrice": 160,
@@ -2152,7 +2152,7 @@
       "description": "Built around its floral woody musk character, Abyat reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 71.25,
+        "amount": 67.4,
         "currency": "AED"
       },
       "nativeWasPrice": 95,
@@ -2179,7 +2179,7 @@
       "description": "Built around its fruity floral woody. character, Al Layl reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 67.5,
+        "amount": 63,
         "currency": "AED"
       },
       "nativeWasPrice": 90,
@@ -2206,7 +2206,7 @@
       "description": "Built around its fruity floral gourmand character, Perfume Alya reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 71.25,
+        "amount": 66.5,
         "currency": "AED"
       },
       "nativeWasPrice": 95,
@@ -2233,9 +2233,10 @@
       "description": "Built around its fresh woody spicy character, Perfume Ameerati reveals a fresh, refined and bold signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 100,
+        "amount": 70,
         "currency": "AED"
       },
+      "nativeWasPrice": 100,
       "retailerId": "al-wataniah",
       "firstSeenAt": "2026-08-05T18:12:04.652Z",
       "status": "active",
@@ -2259,7 +2260,7 @@
       "description": "Built around its fruity floral oriental character, Ameeri reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 71.25,
+        "amount": 66.5,
         "currency": "AED"
       },
       "nativeWasPrice": 95,
@@ -2286,7 +2287,7 @@
       "description": "Built around its aromatic spicy woody character, Perfume Attar Al Wesal reveals a fresh, vibrant and refined signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 71.25,
+        "amount": 66.5,
         "currency": "AED"
       },
       "nativeWasPrice": 95,
@@ -2313,7 +2314,7 @@
       "description": "Built around its amber oriental character, Bareeq Al Dhahab reveals an elegant, refined and bold signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 71.25,
+        "amount": 66.5,
         "currency": "AED"
       },
       "nativeWasPrice": 95,
@@ -2340,7 +2341,7 @@
       "description": "Built around its fruity floral gourmand. character, Dai'M reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
-        "amount": 67.5,
+        "amount": 63,
         "currency": "AED"
       },
       "nativeWasPrice": 90,
@@ -2367,7 +2368,7 @@
       "description": "Indulge in the delightful fragrance of Duha. Its top notes of raspberry and litchi create a sweet and juicy opening, while the heart note of damask rose adds a touch of elegance. The base notes of akigalawood and benzoin provide a warm and comforting finish. Experience the beauty and charm of Duha..",
       "productType": null,
       "nativePrice": {
-        "amount": 71.25,
+        "amount": 66.5,
         "currency": "AED"
       },
       "nativeWasPrice": 95,

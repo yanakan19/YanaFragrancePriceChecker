@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-10T03:23:13.328Z",
-  "seenAt": "2026-10-10T03:23:13.328Z",
+  "updatedAt": "2026-10-10T07:36:35.125Z",
+  "seenAt": "2026-10-10T07:36:35.125Z",
   "source": "live",
   "listings": [
     {
@@ -10341,7 +10341,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Supremacy Collector's Edition is a captivating masculine fragrance that honors the legacy of Afnan's beloved Supremacy collection. This exquisite scent combines the classic allure of a timeless classic with a refreshing twist of white floral and amber notes, creating a sophisticated and invigorating scent experience perfect for special occasions.. PERFUME NOTES. Top Notes: Pineapple, Bergamot, Apple and White Floral Middle Notes: Orange Blossom, Birch and Amber Base Notes: Oak Moss, Musk and Ambergris.",
       "productType": null,
