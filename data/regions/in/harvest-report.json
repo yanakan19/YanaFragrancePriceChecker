@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-09T06:27:52.021Z",
-  "minutes": 40.34,
+  "ranAt": "2026-10-10T00:04:42.088Z",
+  "minutes": 40.4,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 16624,
+  "listingsKept": 16804,
   "shops": [
     {
       "id": "nykaa",
@@ -15,18 +15,20 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 854,
-      "priced": 850,
-      "kept": 795,
-      "withBarcode": 103,
-      "pagesFetched": 854,
-      "seconds": 2401,
+      "listingsRead": 919,
+      "priced": 909,
+      "kept": 816,
+      "withBarcode": 123,
+      "pagesFetched": 920,
+      "seconds": 2402,
       "currency": "JSON-LD offers named: INR",
       "errors": [
+        "https://www.nykaa.com/wanderlust-edp-long-lasting-fragrance-perfume-for-women/p/24643808: HTTP 404",
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 3067 product address(es) found, first read https://www.nykaa.com/etat-libre-d-orange-eau-de-protection-edp/p/12387140"
+        "https://www.nykaa.com/wanderlust-edp-long-lasting-fragrance-perfume-for-women/p/24643808: HTTP 404",
+        "sitemap: 3061 product address(es) found, first read https://www.nykaa.com/la-french-fonce-eau-de-parfume/p/25954279"
       ]
     },
     {
@@ -51,12 +53,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7784,
-      "priced": 7784,
-      "kept": 6530,
+      "listingsRead": 7783,
+      "priced": 7783,
+      "kept": 6529,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 91,
+      "seconds": 98,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -66,12 +68,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7524,
-      "priced": 7524,
-      "kept": 6298,
+      "listingsRead": 7527,
+      "priced": 7527,
+      "kept": 6301,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 76,
+      "seconds": 86,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -86,7 +88,7 @@
       "kept": 1894,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 20,
+      "seconds": 21,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -96,12 +98,12 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 573,
-      "priced": 573,
-      "kept": 559,
+      "listingsRead": 760,
+      "priced": 760,
+      "kept": 716,
       "withBarcode": 0,
-      "pagesFetched": 574,
-      "seconds": 2400,
+      "pagesFetched": 761,
+      "seconds": 2403,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -121,7 +123,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -136,7 +138,7 @@
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 14,
+      "seconds": 15,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -151,7 +153,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -176,8 +178,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 419,
-      "priced": 419,
+      "listingsRead": 416,
+      "priced": 416,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
