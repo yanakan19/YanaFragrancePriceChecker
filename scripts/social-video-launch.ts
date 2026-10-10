@@ -88,10 +88,10 @@ export const US_LAUNCH_VIDEO = {
     id: 'launch-us',
     theme: VIDEO_TEMPLATE.launch.theme,
     scenes: [
-      { id: 'launch', seconds: 2.6 },
-      { id: 'compare', seconds: 2.9, transition: 'dissolve' },
+      { id: 'launch', seconds: 2.8 },
+      { id: 'compare', seconds: 2.8, transition: 'dissolve' },
       { id: 'shops', seconds: 2.8, transition: 'swipe' },
-      { id: 'tag', seconds: 2.7, transition: 'dissolve' },
+      { id: 'tag', seconds: 2.6, transition: 'dissolve' },
       OUTRO_SCENE('swipe', 2.6),
     ],
   } as VideoSpec,

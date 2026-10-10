@@ -18,9 +18,9 @@ adds both. It does not replace the carousel, and the carousel's caption is uncha
 | From | Scene | Shows |
 |---|---|---|
 | 0.0 | Launch (still until 0.8) | Wordmark, the US flag tile (`flagSvg('US')`, the same tile as the country menu), BETA tag, "We've launched in the US" |
-| 2.1 | Dissolve to compare | "Compare perfume prices from 20+ US shops", "22,000+ products, in dollars", "Prices before sales tax" |
-| 4.6 | Swipe to shops | "Some of the shops": Ulta Beauty, Bluemercury, Perfumania, Luckyscent, Beauty Encounter, Ministry of Scent, "And more. This is a beta." |
-| 6.9 | Dissolve to tag | An @ in a red ring, "Tag your friends who'd love this" |
+| 2.3 | Dissolve to compare | "Compare perfume prices from 20+ US shops", "22,000+ products, in dollars", "Prices before sales tax" |
+| 4.7 | Swipe to shops | "Some of the shops": Ulta Beauty, Bluemercury, Perfumania, Luckyscent, Beauty Encounter, Ministry of Scent, "And more. This is a beta." |
+| 7.0 | Dissolve to tag | An @ in a red ring, "Tag your friends who'd love this" |
 | 9.2 | Swipe to PriceSniffs | The mark, the wordmark and `pricesniffs.space/us`, held to 10.8, then the one second fade to the background at 11.8 |
 
 Owner's rules, all from the template: a still start (nothing moves for 0.8 s, so the first frame is a finished
