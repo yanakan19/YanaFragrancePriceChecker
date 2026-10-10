@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-10T00:15:24.256Z",
+  "checkedAt": "2026-10-10T04:28:43.961Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -140,18 +140,16 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 45,
+      "currency": "USD",
+      "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 45,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 59,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {

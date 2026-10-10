@@ -708,62 +708,76 @@ On a computer: `npm run social:render -- social/posts/<folder>` (add
   and run garbage collection on the repository. Until then a full clone
   fetches the old objects through those refs (the rewrite itself added only
   1.6 MB of new commits and trees). Where each of these stands, and the text
-  to send to Support: "Cleanup, 8 October 2026" just below.
+  to send to Support: "Cleanup, 10 October 2026" just below.
 - **To undo** (only if something turns out wrong, and before anything new is
   committed on top): pause the workflows again, then
   `git push --force-with-lease=claude/scentday-retailer-registry-h92tth:<current tip> origin origin/backup/pre-rewrite-2026-10-06:refs/heads/claude/scentday-retailer-registry-h92tth`,
   and clone again everywhere. Commits made after the rewrite would have to be
   cherry picked onto it.
 
-**Cleanup, 8 October 2026 (agent, owner authorised).** Compared by content
-and through the commit map, not by ancestry.
+**Cleanup, 10 October 2026 (agent review; replaces the table of 8 October).**
+Every branch was compared with the live branch by ancestry, `git cherry` and,
+for work merged by hand, by content. The tip of each is listed, so a deleted
+branch can be recreated until GitHub's garbage collection runs (a branch
+with a pull request also has a **Restore branch** button on that pull
+request's page). This session cannot delete branches; the steps below
+are yours and take about two minutes.
 
-Pull requests. Nothing was merged or reopened.
+| Branch | Tip | Last commit | Pull request | Verdict |
+|---|---|---|---|---|
+| `backup/pre-rewrite-2026-10-06` | `2e54cdb5` | 6 Oct, the old tip before the rewrite | none | **Delete** (you approved it). It alone keeps the whole old history; the rewrite was checked identical and has run four days |
+| `claude/relaxed-brahmagupta-wmey28` | `6455989b` | 1 Oct, service worker on deep links | #1, merged 1 Oct | **Delete**. Merged; the tip is `a4e62705` on the live branch |
+| `claude/wizardly-faraday-owdlz1` | `e98e4a25` | 1 Oct, catalogue in one `data.json` | #2, closed 6 Oct | **Delete**. Superseded by the hashed data files and the deploy time build |
+| `claude/modest-euler-3hwly2` | `b444d261` | 3 Oct, parser: ProductGroup variant by address | #3, closed 6 Oct | **Delete**. Reapplied on the live branch on 8 Oct as `f8377717` ("Parser: a ProductGroup's own variant by page address, every size first"); `src/catalogue/jsonld.ts` there has the address fallback |
+| `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94` | 7 Oct, merge of the live branch | #4 (closed 6 Oct, merged in substance as `12ff8f3a`) and #5 (merged 9 Oct) | **Delete**. Its tip is an ancestor of the live branch (merged as `588b302d`) |
+| `four-shops-20261008` | `c4920520` | 8 Oct, Gorgeous Shop switched on | none | **Delete**. Its tip is an ancestor of the live branch: nothing unmerged |
+| `claude/tender-cerf-d3t6wo` | `dbe9a79d` | 9 Oct, note merge test follows the catalogue | #6, **open** | **Delete**, and close #6. Its one commit (tests only) is not on the live branch, but the same test was rewritten there the same evening as rules with no counts (`ce66e9da`, "Make two data tests check rules, not live values"), which supersedes it |
+| `claude/perfume-chatbot-multi-agent-lvf17y` | `1dd47e83` | 12 Aug, Fly.io configs for the chatbot | none | **Keep, your call.** Five commits never merged: the `YanaFreeAPIMerger/` chatbot prototype, your `SETUP_LOG.md` setup notes, the Oracle VM and Fly.io files. It holds the old history only up to 12 August (220 commits, before the big page files), so keeping it costs little. To keep the notes without the branch: switch to it on GitHub, Code → Download ZIP, then delete it like the others |
+| `claude/scentday-retailer-registry-h92tth` | | | | The live and default branch. Never delete |
 
-- #1 (service worker on deep links): merged on 1 October. Its tip
-  `6455989b` is `a4e62705` on the live branch.
-- #2, #3 and #4 were closed by GitHub itself at 18:57 UTC on 6 October, when
-  the force push left their base with no shared history. A comment saying
-  why each stays closed was added on 8 October:
-  - #2 (catalogue in one `data.json`): superseded by the live branch's
-    hashed data files (`def0ff1`, now `18ae7734`) and by the deploy time
-    build.
-  - #4 (deterministic blob numbering): merged in substance, `12ff8f3a`
-    (`scripts/dataNumbering.ts`).
-  - #3 (parser: a ProductGroup's variant by page address, else every
-    distinct size; Space NK and Parfumdreams notes): **not on the live
-    branch**. `src/catalogue/jsonld.ts` there has no address fallback and
-    still needs two variants. Real work: an agent should reapply the one
-    commit (`b444d261`) on the live branch and open a new pull request
-    before its branch goes. It no longer applies cleanly.
-- #5 (Notino UK back on, the "Save for PriceSniffs" bookmark, importer
-  fixes): open, built on the new history, not merged. Left open for you.
+**Step 1, delete the seven branches (1 minute).** On GitHub:
+**Code** → **Branches** (or
+`https://github.com/yanakan19/YanaFragrancePriceChecker/branches/all`) → the
+bin icon at the right of each branch marked Delete above. Or, from any
+up to date clone:
 
-Branches. **None was deleted**: this session's GitHub access refuses branch
-deletion (the API and `git push --delete` both answered 403). Delete them
-yourself in Code → Branches. Until GitHub's garbage collection runs, a
-deleted branch can be restored there, or recreated from the tip below.
+```sh
+git push origin --delete backup/pre-rewrite-2026-10-06
+git push origin --delete claude/relaxed-brahmagupta-wmey28
+git push origin --delete claude/wizardly-faraday-owdlz1
+git push origin --delete claude/modest-euler-3hwly2
+git push origin --delete claude/wonderful-brahmagupta-8edg4h
+git push origin --delete four-shops-20261008
+git push origin --delete claude/tender-cerf-d3t6wo
+```
 
-| Branch | Tip | Verdict |
-|---|---|---|
-| `claude/relaxed-brahmagupta-wmey28` | `6455989b` | Delete. #1, merged; the tip is `a4e62705` on the live branch, same tree apart from the dropped page files |
-| `claude/wizardly-faraday-owdlz1` | `e98e4a25` | Delete. #2, superseded as above |
-| `claude/modest-euler-3hwly2` | `b444d261` | Keep until #3 is reapplied, then delete. It holds the old history up to 3 October |
-| `claude/perfume-chatbot-multi-agent-lvf17y` | `1dd47e83` | Your call. The chatbot it prototyped went into the live branch (`dd14870a`, 10 August) and came out again with Fly.io (`104056cd`, 6 September). Its own five commits never merged: your local setup notes (`YanaFreeAPIMerger/SETUP_LOG.md`), the Oracle VM scripts and the Fly.io files. Delete it if you do not want those notes |
-| `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94` | Merged into the live branch on 9 October 2026 (content only; the PR itself is yours to close on GitHub). Delete the branch after that |
-| `backup/pre-rewrite-2026-10-06` | `2e54cdb5` | Yours to decide. It alone keeps the whole old history |
-| `claude/scentday-retailer-registry-h92tth` | | The live and default branch |
+To recreate one deleted by mistake (before garbage collection), push its
+full tip id back from a clone that has it, for example the backup:
+`git push origin 2e54cdb5bc91fee45527e6582631786574caa30b:refs/heads/backup/pre-rewrite-2026-10-06`.
+The other full tip ids: relaxed `6455989b340218ac9bd3e4fa9d64f1862021d94b`,
+wizardly `e98e4a257d3fbbf48457ea1c8aea6fc0f3115270`, modest
+`b444d2613f2ac6ebcb8aa5ff1a61ff737ae5ef3f`, wonderful
+`dff4ab94c0aabd93179dcc9283721bac6ecf19d3`, four-shops
+`c4920520003e995b711bdcad1e14610d9fc8c124`, tender
+`dbe9a79dca3368552a3a723982fd976fc3f6e92c`, chatbot
+`1dd47e831098292a65f9a9dd6b632026c9a24f7a`.
 
-The request to GitHub Support (only you can send it). Send it **after** the
-backup branch and every old branch above are deleted: garbage collection
-removes only what no branch or ref reaches, and any one of them keeps
-nearly all the old history. Where: https://support.github.com/contact, signed
-in as the owner, topic "Repository size / remove unreachable objects" (or
-the nearest repository topic the form offers), repository
-`yanakan19/YanaFragrancePriceChecker`. Copy this:
+**Step 2, close the open pull request (30 seconds).** Only **#6** is still
+open (its branch `claude/tender-cerf-d3t6wo` goes in step 1; deleting the
+branch first closes it for you). If it is still open: **Pull requests** → #6 →
+**Close pull request**, with a comment such as "Superseded by ce66e9da on
+the live branch." #1 to #5 are already merged or closed.
+
+**Step 3, the request to GitHub Support (only you can send it).** Send it
+**after** step 1: garbage collection removes only what no branch or ref
+reaches. Where: `https://support.github.com/contact`, signed in as the
+owner. Pick the account `yanakan19` and the topic closest to repository
+maintenance (removing cached pull request refs or data from a repository;
+the form's wording changes, so choose the nearest repository or Git topic it
+offers). Copy this:
 
 ```text
-Subject: Remove pull request refs and run garbage collection on yanakan19/YanaFragrancePriceChecker
+Subject: Remove old pull request refs and run garbage collection on yanakan19/YanaFragrancePriceChecker
 
 Hello,
 
@@ -771,27 +785,34 @@ I own the repository yanakan19/YanaFragrancePriceChecker. On 6 October 2026
 (the force push was at about 18:57 UTC) I rewrote the history of its default
 branch, claude/scentday-retailer-registry-h92tth, with git filter-repo to
 remove large generated files (demo/index.html, demo/404.html, demo/data/,
-demo/sitemap.xml, demo/ads.txt) from every commit. I have since deleted every
-branch that pointed at the old history.
+demo/sitemap.xml, demo/ads.txt) from every commit. Today I deleted every
+other branch that pointed at the old history, including the backup branch.
 
-The old objects are still reachable through the head refs of four closed
-pull requests:
+The old objects are still reachable only through the head refs of four
+closed pull requests (there are no merge refs for them):
 
-  refs/pull/1/head  (6455989b340218ac9bd3e4fa9d64f1862021d94b)
-  refs/pull/2/head  (e98e4a257d3fbbf48457ea1c8aea6fc0f3115270)
-  refs/pull/3/head  (b444d2613f2ac6ebcb8aa5ff1a61ff737ae5ef3f)
-  refs/pull/4/head  (4ced52a220561c3f4e5043b7c622dccea3288995)
+  refs/pull/1/head  6455989b340218ac9bd3e4fa9d64f1862021d94b
+  refs/pull/2/head  e98e4a257d3fbbf48457ea1c8aea6fc0f3115270
+  refs/pull/3/head  b444d2613f2ac6ebcb8aa5ff1a61ff737ae5ef3f
+  refs/pull/4/head  4ced52a220561c3f4e5043b7c622dccea3288995
 
-Please remove those four refs (the pull requests themselves can stay, closed)
-and run garbage collection on the repository, so that the unreachable objects
-are pruned and the repository size reflects the rewritten history. Please
-keep refs/pull/5, an open pull request on the new history.
+Please remove those four refs (the pull requests themselves can stay,
+closed) and run garbage collection on the repository, so that the
+unreachable objects are pruned and the repository size reflects the
+rewritten history. refs/pull/5 and refs/pull/6 are on the new history and
+can stay.
 
-The repository reports about 684 MB today; the rewritten branch packs to
-about 392 MiB.
+The repository reports about 774 MB today; the rewritten branch packs to
+roughly 400 MiB.
 
 Thank you.
 ```
+
+Size to compare afterwards: GitHub reported **773,663 kB** on 10 October
+2026 (`gh api repos/yanakan19/YanaFragrancePriceChecker --jq .size`, or the
+repository's Settings page). After Support's garbage collection it should
+fall by about 170 MB or more (the old page files), less whatever the crawl
+has added in between.
 
 Live site, 8 October. The deploy of the guides commit (`920f1ecf`, pushed
 23:12 UTC on 7 October) is deploy-pages run #1301, finished 23:15 UTC; the
@@ -879,7 +900,7 @@ local copy of the history is about 920 MB. Two things are left, both yours:
 - **The old page files** (about 170 MB) are still reached only by the backup
   branch, the old branches and the closed pull requests in the table above.
   Deleting those and sending the Support request above removes them, with no
-  rewrite.
+  rewrite (reviewed again on 10 October: "Cleanup, 10 October 2026" above).
 - **The catalogue module** (`demo/catalogue.generated.ts`, 45 MB, committed
   by the crawl several times a day) is now a third of the history (about
   210 MB). Stopping that growth means building it at deploy time like the

@@ -2075,6 +2075,19 @@ and price history byte identical; the old tip is kept in the branch
 `backup/pre-rewrite-2026-10-06`. Details and what is left (old clones, other
 branches, pull request refs, GitHub's garbage collection) are in OWNER-STEPS 7d.
 
+**10 October 2026: branch review for the cleanup.** Every other branch was
+checked against the live branch (ancestry, `git cherry`, content). Seven are
+ready to delete, the 6 Oct backup and PR 5's branch included (both approved by
+the owner): `backup/pre-rewrite-2026-10-06`, `claude/relaxed-brahmagupta-wmey28`,
+`claude/wizardly-faraday-owdlz1`, `claude/modest-euler-3hwly2` (PR 3 reapplied as
+`f8377717`), `claude/wonderful-brahmagupta-8edg4h`, `four-shops-20261008` and
+`claude/tender-cerf-d3t6wo` (PR 6, superseded by `ce66e9da`). Kept, the owner's
+call: `claude/perfume-chatbot-multi-agent-lvf17y` (unmerged chatbot prototype
+and setup notes, old history only to 12 August). No branch was deleted: this
+session may not. The owner's steps, tips for recovery and the final Support
+request (remove `refs/pull/1` to `4` head refs, run garbage collection) are in
+OWNER-STEPS 7d, "Cleanup, 10 October 2026". GitHub reported 773,663 kB that day.
+
 Measured 2026-10-06: GitHub reports 720,287 kB (about 703 MB; 754 MB on
 5 October before GitHub's own repack). A full agent clone's `.git` is 2.6 GB
 on disk unpacked (1.97 GiB loose objects plus 613 MB in packs), 2,262 commits

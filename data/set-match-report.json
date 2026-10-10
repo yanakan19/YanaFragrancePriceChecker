@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 230,
+ "folded": 231,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1746,6 +1746,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3346470148949",
    "absorbed": [
     "set-guerlain-shalimar-gift-set-50ml-edp-75ml-body-lotion-5ml-edp"
@@ -1936,6 +1968,7 @@
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
       "fragrance-click",
+      "paco-perfumerias-uk",
       "perfume-click"
      ]
     },
@@ -3575,38 +3608,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3616305448187",
-   "absorbed": [
-    "set-tiffany-co-love-for-him-gift-set-90ml-edt-100ml-shower-gel-5ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305448187",
-     "brand": "Tiffany & Co",
-     "name": "Love for Him Gift Set 90ml EDT + 100ml Shower Gel + 5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3616305448187",
-     "scent": "love",
-     "signature": "1x100wash|1x5fragrance|1x90fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-tiffany-co-love-for-him-gift-set-90ml-edt-100ml-shower-gel-5ml-edt",
-     "brand": "Tiffany & Co",
-     "name": "Love For Him Gift Set 90ml Edt + 100ml Shower Gel + 5ml Edt",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "love",
-     "signature": "1x100wash|1x5fragrance|1x90fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3616305821065",
    "absorbed": [
     "set-marc-jacobs-miniature-gift-set-5ml-perfect-edp-4ml-daisy-wild-edp-4ml-daisy-eau-so-fresh-edt-4ml-daisy-edt"
@@ -3777,6 +3778,38 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3616306131705",
+   "absorbed": [
+    "set-marc-jacobs-perfect-gift-set-100ml-edp-75ml-body-lotion-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616306131705",
+     "brand": "Marc Jacobs",
+     "name": "Perfect Gift Set 100ml EDP + 75ml Body Lotion + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3616306131705",
+     "scent": "perfect",
+     "signature": "1x100fragrance|1x10fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-marc-jacobs-perfect-gift-set-100ml-edp-75ml-body-lotion-10ml-edp",
+     "brand": "Marc Jacobs",
+     "name": "Perfect Gift Set 100ml EDP - 75ml Body Lotion - 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "perfect",
+     "signature": "1x100fragrance|1x10fragrance|1x75body",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
@@ -4705,7 +4738,6 @@
      "scent": "raghba",
      "signature": "1x100fragrance|1x50deo",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
@@ -10450,37 +10482,6 @@
      "signature": "1x100wash|1x50fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 3616305181473, 3616305631961"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305181473",
-     "brand": "Marc Jacobs",
-     "name": "Perfect Women's Perfume Gift Set (100ml EDP + 75ml Body Lotion)",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305181473",
-     "scent": "perfect",
-     "signature": "1x100fragrance|1x75body",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3616305631961",
-     "brand": "Marc Jacobs",
-     "name": "Perfect Gift Set 100ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305631961",
-     "scent": "perfect",
-     "signature": "1x100fragrance|1x75body",
-     "shops": [
-      "perfume-click"
      ]
     }
    ]
