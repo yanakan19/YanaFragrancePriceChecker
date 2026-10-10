@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 231,
+ "folded": 232,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1471,6 +1471,39 @@
      "signature": "1x100fragrance|1x75body",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3274872415720",
+   "absorbed": [
+    "set-givenchy-l-interdit-gift-set-80ml-edp-12-5ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3274872415720",
+     "brand": "Givenchy",
+     "name": "L'Interdit 80ml Eau de Parfum + 12.5ml Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3274872415720",
+     "scent": "interdit l",
+     "signature": "1x12.5fragrance|1x80fragrance",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-givenchy-l-interdit-gift-set-80ml-edp-12-5ml-edp",
+     "brand": "Givenchy",
+     "name": "L'Interdit Gift Set 80ml EDP + 12.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "interdit l",
+     "signature": "1x12.5fragrance|1x80fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -8670,50 +8703,6 @@
      "signature": "1x100fragrance|1x30fragrance",
      "shops": [
       "fragrance-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 3274872415720, 3274872442160"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3274872415720",
-     "brand": "Givenchy",
-     "name": "L'Interdit 80ml Eau de Parfum + 12.5ml Set",
-     "concentration": "Eau de Parfum",
-     "ean": "3274872415720",
-     "scent": "interdit l",
-     "signature": "1x12.5fragrance|1x80fragrance",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk"
-     ]
-    },
-    {
-     "id": "set-ean-3274872442160",
-     "brand": "Givenchy",
-     "name": "L'Interdit Women's Perfume Gift Set (80ml EDP + 12.5ml EDP)",
-     "concentration": "Eau de Parfum",
-     "ean": "3274872442160",
-     "scent": "interdit l",
-     "signature": "1x12.5fragrance|1x80fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-givenchy-l-interdit-gift-set-80ml-edp-12-5ml-edp",
-     "brand": "Givenchy",
-     "name": "L'Interdit Gift Set 80ml EDP + 12.5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "interdit l",
-     "signature": "1x12.5fragrance|1x80fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
