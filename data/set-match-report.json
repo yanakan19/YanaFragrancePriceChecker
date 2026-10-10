@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 231,
+ "folded": 230,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -6386,38 +6386,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8435415112963",
-   "absorbed": [
-    "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-6ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415112963",
-     "brand": "Jean Paul Gaultier",
-     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415112963",
-     "scent": "classique",
-     "signature": "1x50fragrance|1x6fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-6ml-edt",
-     "brand": "Jean Paul Gaultier",
-     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "classique",
-     "signature": "1x50fragrance|1x6fragrance|1x75body",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8436581946246",
    "absorbed": [
     "set-reebok-cool-your-body-women-gift-set-100ml-edt-150ml-body-spray"
@@ -9514,8 +9482,9 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3423222092528, 3423222110857",
-    "price spread 1.79 is over 1.5"
+    "two different barcodes: 3423222092528, 3423222110857, 3423222133849",
+    "a shop lists more than one: perfume-click",
+    "price spread 1.86 is over 1.5"
    ],
    "members": [
     {
@@ -9540,6 +9509,20 @@
      "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-3423222133849",
+     "brand": "Narciso Rodriguez",
+     "name": "All Of Me Eau de Parfum Intense Fragrance Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3423222133849",
+     "scent": "all me",
+     "signature": "1x50body|1x50fragrance|1x50wash",
+     "shops": [
+      "allbeauty",
+      "perfume-click",
+      "scentsational"
      ]
     },
     {
@@ -9781,30 +9764,32 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3423222118495, 3423222119720",
-    "a shop lists more than one: perfume-direct"
+    "a shop lists more than one: paco-perfumerias-uk, perfume-direct"
    ],
    "members": [
     {
      "id": "set-ean-3423222118495",
      "brand": "Issey Miyake",
-     "name": "Le Sel D'Issey Eau de Toilette Men's Aftershave Gift Set (100ml + 50ml Shower Gel + 10ml)",
+     "name": "Le Sel D'Issey Eau de Toilette 100ml Spray Gift Set",
      "concentration": "Eau de Toilette",
      "ean": "3423222118495",
      "scent": "d issey le sel",
      "signature": "1x100fragrance|1x10?|1x50wash",
      "shops": [
+      "paco-perfumerias-uk",
       "perfume-direct"
      ]
     },
     {
      "id": "set-ean-3423222119720",
      "brand": "Issey Miyake",
-     "name": "Le Sel D'Issey Eau de Parfum Men's Aftershave Gift Set (100ml + 50ml Shower Gel + 10ml)",
+     "name": "Le Sel D'Issey Eau de Parfum 100ml Spray Gift Set",
      "concentration": "Eau de Parfum",
      "ean": "3423222119720",
      "scent": "d issey le sel",
      "signature": "1x100fragrance|1x10?|1x50wash",
      "shops": [
+      "paco-perfumerias-uk",
       "perfume-direct"
      ]
     }
@@ -11367,6 +11352,80 @@
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "fragrance-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 8410225594727, 8435415112963"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8410225594727",
+     "brand": "Jean Paul Gaultier",
+     "name": "Classique Eau de Toilette 50 ml + 6 ml + Body Lotion 75 ml",
+     "concentration": "Eau de Toilette",
+     "ean": "8410225594727",
+     "scent": "classique",
+     "signature": "1x50fragrance|1x6fragrance|1x75body",
+     "shops": [
+      "allbeauty"
+     ]
+    },
+    {
+     "id": "set-ean-8435415112963",
+     "brand": "Jean Paul Gaultier",
+     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415112963",
+     "scent": "classique",
+     "signature": "1x50fragrance|1x6fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-6ml-edt",
+     "brand": "Jean Paul Gaultier",
+     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "classique",
+     "signature": "1x50fragrance|1x6fragrance|1x75body",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 8410225601197, 8435415116558"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8410225601197",
+     "brand": "Jean Paul Gaultier",
+     "name": "Scandal Eau de Parfum 50 ml + Body Lotion 75 ml",
+     "concentration": "Eau de Parfum",
+     "ean": "8410225601197",
+     "scent": "scandal",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "allbeauty"
+     ]
+    },
+    {
+     "id": "set-ean-8435415116558",
+     "brand": "Jean Paul Gaultier",
+     "name": "Scandal Gift Set 50ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "8435415116558",
+     "scent": "scandal",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
      ]
     }
    ]
