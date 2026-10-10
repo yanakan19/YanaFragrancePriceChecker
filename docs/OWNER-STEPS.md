@@ -587,6 +587,21 @@ seconds with no reason given, worth one look.
   daily growth stops (about 12 MB a day instead of 17), and every checkout is
   46 MB smaller. Measured as a push sends it; details in
   `docs/PIPELINE-FAILURE-MODES.md` ("The catalogue modules, 2026-10-10").
+- **Live, 10 October.** Pushed as `d5a437c4` (with the merge `375cc0ce` and
+  the rebuild `00b6f0f6`). Its deploy (run 38029977171) built the catalogue
+  in 40 seconds and published at 06:13 UTC. The next real UK crawl (run
+  38033192198, 07:05 to 08:45 UTC) harvested, rebuilt and committed the
+  record, the memories, deals and price history and no catalogue module
+  (`d662aacd`); its deploy (run 38038990013) rebuilt the catalogue in 40
+  seconds and published at 08:49. The published data files carry the same
+  content hashes as a rebuild of that commit on this machine
+  (`catalogue.d116f8db…`, `deals.2951fabf…`, `dormant.1854b3e3…`).
+  `https://pricesniffs.space/` answers 200; a product address
+  (`/montblanc_explorer_extreme_60ml`) shows its page through the 404
+  fallback, as every product address does (`docs/PRODUCT-URLS.md` section 7),
+  and its prices are in the data file. Not new: the crawl's "Test everything
+  else" step hits its 15 minute limit (it did on the 03:05 run before this
+  change too); it only warns, and the harvest goes on.
 - **What is yours to do: nothing now.** The catalogue's 743 past versions
   (about 210 MB, a third of the history) stay in history. Removing them is a
   further history rewrite with a force push, like 6 October, and only you can

@@ -2146,7 +2146,9 @@ built files (catalogue, data files, sitemaps, every UK, US and India
 page); a replay on a clock 12 days later, and one from inputs taken out of
 git, gave the same modules. A replay never writes the address memories and
 refuses to build if it would change them. Deploys take about a minute longer;
-daily growth falls by about a quarter (1.1 to 7.3 MB a day). This does not
+daily growth falls by about a quarter (1.1 to 7.3 MB a day). Live the same
+day: the push's deploy and the next UK crawl and its deploy all succeeded,
+each catalogue rebuild 40 seconds on the runner (OWNER-STEPS 7d). This does not
 remove the past versions: a second rewrite (catalogue paths only, the
 6 October way) is now possible and recommended once a week of crawls has run
 cleanly, and is the owner's to approve (OWNER-STEPS 7d).
