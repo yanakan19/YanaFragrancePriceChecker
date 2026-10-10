@@ -72,8 +72,10 @@ describe('every shop added on 2026-10-09', () => {
     }
   });
 
-  it.each(IDS)('%s shows no photos until the owner extends the photo decision (D24) to it', (id) => {
-    expect(getRetailer(id)!.affiliate.imageBasis).toBeUndefined();
+  it.each(IDS)('%s shows photos only on the basis the owner decided (D24)', (id) => {
+    // D24 was extended to these shops on 9 Oct 2026: photos are hot linked from the shop's own
+    // server. The rule: the basis is unset or exactly 'hotlink-unlicensed'; any other value fails.
+    expect([undefined, 'hotlink-unlicensed']).toContain(getRetailer(id)!.affiliate.imageBasis);
   });
 
   it('none of them takes an affiliate link before an application is approved', () => {

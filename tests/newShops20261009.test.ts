@@ -107,8 +107,8 @@ describe('Glossier UK', () => {
     expect(shop.shipping.notes).toMatch(/does not say whether the sterling price includes VAT/);
   });
 
-  it('shows no photos and takes no affiliate link until the owner decides', () => {
-    expect(shop.affiliate.imageBasis).toBeUndefined();
+  it('shows photos only on the decided basis (D24, extended 9 Oct 2026) and takes no affiliate link until approved', () => {
+    expect([undefined, 'hotlink-unlicensed']).toContain(shop.affiliate.imageBasis);
     expect(shop.affiliate.status).not.toBe('active');
   });
 });
