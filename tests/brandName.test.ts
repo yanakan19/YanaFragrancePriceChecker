@@ -43,6 +43,14 @@ describe('brandKey', () => {
   it('does not invent a fold for a letter with no diacritic decomposition', () => {
     expect(brandKey('Kanøn')).not.toBe(brandKey('Kanon'));
   });
+
+  // Added 2026-10-11: Beauty Flash and Gorgeous Shop send their vendor field
+  // HTML escaped, and "Abercrombie &amp; Fitch" kept the letters "amp", so it
+  // stood in the Brands list beside "Abercrombie & Fitch".
+  it('reads an HTML escaped brand as the brand it spells', () => {
+    expect(brandKey('Abercrombie &amp; Fitch')).toBe(brandKey('Abercrombie & Fitch'));
+    expect(brandKey('L&#039;Occitane')).toBe(brandKey("L'Occitane"));
+  });
 });
 
 describe('pickBrandName', () => {
@@ -256,6 +264,28 @@ describe('buildBrandCanon', () => {
     expect(canon.get('Abercrombie and Fitch')).toBe('Abercrombie & Fitch');
     expect(canon.get('Tiffany and Co.')).toBe('Tiffany & Co');
     expect(canon.get('Roger and Gallet')).toBe('Roger & Gallet');
+  });
+
+  it('canonicalises a brand with &amp; to the same brand as one with &, never to the escaped spelling', () => {
+    const canon = buildBrandCanon([
+      // Escaped is the commoner spelling here, as it is at Beauty Flash: still not chosen.
+      ...Array(40).fill('Viktor &amp; Rolf'), 'Viktor & Rolf',
+      'Abercrombie &amp; Fitch', 'Abercrombie & Fitch',
+      'Dolce &amp; Gabbana', 'DOLCE&GABBANA',
+      'Tiffany &amp; Co', 'Tiffany',
+      'Zadig &amp; Voltaire', 'Zadig and Voltaire',
+      'Shay &amp; Blue',
+    ]);
+    expect(canon.get('Abercrombie &amp; Fitch')).toBe(canon.get('Abercrombie & Fitch'));
+    expect(canon.get('Abercrombie &amp; Fitch')).toBe('Abercrombie & Fitch');
+    expect(canon.get('Viktor &amp; Rolf')).toBe('Viktor & Rolf');
+    expect(canon.get('Viktor & Rolf')).toBe('Viktor & Rolf');
+    expect(canon.get('Dolce &amp; Gabbana')).toBe('Dolce & Gabbana');
+    expect(canon.get('Tiffany &amp; Co')).toBe('Tiffany & Co');
+    expect(canon.get('Zadig &amp; Voltaire')).toBe('Zadig & Voltaire');
+    // The only spelling a brand has is decoded too.
+    expect(canon.get('Shay &amp; Blue')).toBe('Shay & Blue');
+    expect([...canon.values()].filter((name) => name.includes('&amp;'))).toEqual([]);
   });
 
   it('folds a trailing "UK" storefront qualifier into the same house', () => {

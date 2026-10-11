@@ -128,6 +128,18 @@ export const BRAND_ALIAS_SLUGS: Readonly<Record<string, string>> = Object.fromEn
 );
 
 /**
+ * A brand address made from a name a shop sent HTML escaped, as the address of
+ * the brand it always was. Until 11 Oct 2026 "Viktor &amp; Rolf" was a brand
+ * of its own at /brands/viktor-and-amp-rolf, and "L&#039;Occitane" one at
+ * /brands/l-and-039-occitane. The names are decoded now
+ * (src/catalogue/htmlEntities.ts), so those addresses open Viktor & Rolf and
+ * L'Occitane.
+ */
+function unescapedBrandSlug(slug: string): string {
+  return slug.replace(/-and-amp(?=-|$)/g, '-and').replace(/-and-(?:0?39|apos)(?=-|$)/g, '');
+}
+
+/**
  * The account's own pages under /account. Fixed words rather than a param,
  * so a mistyped /account/anything is a miss like any other address, never the
  * profile page pretending to be what was asked for.
@@ -283,7 +295,10 @@ export function matchRoute(pathname: string, search = '', hash = ''): Route {
   if (leaf && tail) {
     const param = decodeURIComponent(tail);
     // An old brand address lands on the brand it was merged into.
-    if (leaf === 'brand') return { name: leaf, param: BRAND_ALIAS_SLUGS[param] ?? param, query };
+    if (leaf === 'brand') {
+      const brand = unescapedBrandSlug(param);
+      return { name: leaf, param: BRAND_ALIAS_SLUGS[brand] ?? brand, query };
+    }
     // Lower cased, so a retyped /guides/Decants-And-Testers opens the guide and the page rewrites the address.
     if (leaf === 'guide') return { name: leaf, param: param.toLowerCase(), query };
     return { name: leaf, param, query };

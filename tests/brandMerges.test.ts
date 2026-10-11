@@ -136,6 +136,13 @@ describe('old brand addresses', () => {
     expect(matchRoute('/brands/boss')).toMatchObject({ name: 'brand', param: 'hugo-boss' });
   });
 
+  it('open the brand a shop\'s HTML escaped name stood for', () => {
+    expect(matchRoute('/brands/viktor-and-amp-rolf')).toMatchObject({ name: 'brand', param: 'viktor-and-rolf' });
+    expect(matchRoute('/brands/abercrombie-and-amp-fitch')).toMatchObject({ name: 'brand', param: 'abercrombie-and-fitch' });
+    expect(matchRoute('/brands/tiffany-and-amp-co')).toMatchObject({ name: 'brand', param: 'tiffany-and-co' });
+    expect(matchRoute('/brands/l-and-039-occitane')).toMatchObject({ name: 'brand', param: slugify("L'Occitane") });
+  });
+
   it('leaves a current brand address, and an unknown one, alone', () => {
     expect(matchRoute('/brands/kayali')).toMatchObject({ name: 'brand', param: 'kayali' });
     expect(matchRoute('/brands/no-such-house')).toMatchObject({ name: 'brand', param: 'no-such-house' });

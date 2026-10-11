@@ -30,6 +30,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.107.0',
+    date: '11 Oct 2026',
+    groups: [
+      {
+        heading: 'Fixes',
+        points: ['Brands like Dolce & Gabbana now listed once'],
+      },
+    ],
+  },
+  {
     version: 'v3.106.0',
     date: '10 Oct 2026',
     groups: [

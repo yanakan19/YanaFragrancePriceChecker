@@ -55,6 +55,8 @@
  * is folded into "Giorgio Armani".
  */
 
+import { decodeHtmlEntities } from './htmlEntities.js';
+
 /**
  * Group key for one brand: letters and digits, lowercased.
  *
@@ -92,9 +94,14 @@
  * diacritic. A letter that is its own thing in Unicode — ø, æ, œ, ß, ł — has
  * no decomposition to fall back to, so "Kanøn"/"Kanon" still needed, and
  * still has, an explicit KNOWN_ALIASES pair below.
+ *
+ * HTML entities are decoded first, since 2026-10-11: two shops send their
+ * vendor field escaped, and "Abercrombie &amp; Fitch" kept the letters "amp"
+ * and so stood as a brand of its own beside "Abercrombie & Fitch". See
+ * src/catalogue/htmlEntities.ts.
  */
 export function brandKey(name: string): string {
-  return name
+  return decodeHtmlEntities(name)
     .normalize('NFKD')
     .replace(/\p{Mn}/gu, '')
     .toLowerCase()
@@ -1382,15 +1389,21 @@ export function pickBrandName(variants: ReadonlyMap<string, number>): string {
  *
  * Pass every brand string in the catalogue, including repeats — the counts are
  * what break ties.
+ *
+ * A spelling is counted decoded ("Viktor &amp; Rolf" as "Viktor & Rolf"), so
+ * an escaped one can never be the name chosen, and is looked up under both.
  */
 export function buildBrandCanon(allBrandStrings: readonly string[]): Map<string, string> {
   const groups = new Map<string, Map<string, number>>();
+  const escaped = new Map<string, string>();
 
   for (const raw of allBrandStrings) {
-    const name = raw.trim();
+    const published = raw.trim();
+    const name = decodeHtmlEntities(published).trim();
     if (!name) continue;
     const key = brandKey(name);
     if (!key) continue;
+    if (published !== name) escaped.set(published, name);
     const variants = groups.get(key) ?? new Map<string, number>();
     variants.set(name, (variants.get(name) ?? 0) + 1);
     groups.set(key, variants);
@@ -1403,6 +1416,7 @@ export function buildBrandCanon(allBrandStrings: readonly string[]): Map<string,
     const chosen = displayBrandName(KNOWN_ALIASES[key] ?? pickBrandName(variants));
     for (const spelling of variants.keys()) canon.set(spelling, chosen);
   }
+  for (const [published, name] of escaped) canon.set(published, canon.get(name)!);
   return canon;
 }
 

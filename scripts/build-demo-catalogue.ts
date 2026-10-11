@@ -34,6 +34,7 @@ import { oneEntryPerLine, shopTimes, withoutShopTimes } from './dataLiterals.js'
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
 import { ownSizeTitle } from '../src/catalogue/shopifyJson.js';
+import { decodeHtmlEntities } from '../src/catalogue/htmlEntities.js';
 import { HIDE_OFFER_AFTER_DAYS, isTooOldToShow } from '../src/services/priceService.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { listingStockState } from '../src/catalogue/listingAvailability.js';
@@ -582,6 +583,26 @@ function isSelfVendored(rawBrand: string | null | undefined, retailer: Retailer)
   return core === shopNameCore(retailer.name) || core === shopNameCore(retailer.domain);
 }
 
+/** Feed text as this build reads it: mojibake repaired, then HTML entities decoded. */
+function feedText(raw: string): string {
+  return decodeHtmlEntities(repairMojibake(raw));
+}
+
+/**
+ * A stored listing with its title and vendor field as this build reads them
+ * (feedText, and the title cut to its own size by ownSizeTitle). Every pass
+ * over the shops' snapshots reads a listing through this, so the brand list,
+ * the brand match and the product name all see the same text; see the
+ * comment where the eligible listings are gathered below.
+ */
+function readListing(stored: StoredListing): StoredListing {
+  return {
+    ...stored,
+    rawTitle: ownSizeTitle(feedText(stored.rawTitle)),
+    rawBrand: stored.rawBrand === null ? null : feedText(stored.rawBrand),
+  };
+}
+
 /**
  * Brand names this build has confirmed independently of any one retailer's
  * vendor field — every `rawBrand` actually published by a genuine fragrance
@@ -608,8 +629,10 @@ const knownFragranceBrands: ReadonlySet<string> = (() => {
       if (snap.source !== 'live') continue;
       const retailer = RETAILERS.find((r) => r.id === snap.retailerId);
       if (!retailer) continue;
-      for (const l of snap.listings) {
-        if (l.status !== 'active' || !l.rawBrand || !isFragrance(l)) continue;
+      for (const stored of snap.listings) {
+        if (stored.status !== 'active' || !stored.rawBrand) continue;
+        const l = readListing(stored);
+        if (!l.rawBrand || !isFragrance(l)) continue;
         if (isSelfVendored(l.rawBrand, retailer)) continue;
         const key = l.rawBrand.trim().toLowerCase();
         if (!key) continue;
@@ -712,8 +735,9 @@ const brandCanon = (() => {
       // self-vendoring check existed, so a file with no registry match keeps
       // contributing to the brand list precisely as it always has.
       const retailer = RETAILERS.find((r) => r.id === snap.retailerId);
-      for (const l of snap.listings) {
-        if (l.status !== 'active') continue;
+      for (const stored of snap.listings) {
+        if (stored.status !== 'active') continue;
+        const l = readListing(stored);
         const effective = retailer ? resolveRawBrand(l, retailer) : l.rawBrand;
         if (effective) seen.push(effective);
       }
@@ -726,7 +750,7 @@ const brandCanon = (() => {
       const snap = s.read(file.replace(/\.json$/, ''));
       if (snap.source !== 'live') continue;
       for (const l of snap.listings) {
-        if (l.status === 'active' && l.rawBrand) seen.push(l.rawBrand);
+        if (l.status === 'active' && l.rawBrand) seen.push(decodeHtmlEntities(l.rawBrand));
       }
     }
   }
@@ -767,6 +791,9 @@ const tooOldListings: StoredListing[] = [];
 
 /** Delisted listings of the shops read, for the old ids they answer to (src/catalogue/idAliases.ts). */
 const formerListings: StoredListing[] = [];
+
+/** An eligible listing's title before its HTML entities were decoded, by shop and SKU, where that changed it. */
+const titleBeforeDecoding = new Map<string, string>();
 
 /** One retailer's eligible listings, repaired, kept together for resolveRawBrand below. */
 interface EligibleSnapshot {
@@ -828,11 +855,7 @@ if (existsSync(dir)) {
       // price graph. See OLDER_OFFERS below.
       for (const stored of allActive) {
         if (!isTooOldToShow(stored.lastSeenAt, now, importedOnly)) continue;
-        tooOldListings.push({
-          ...stored,
-          rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
-          rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
-        });
+        tooOldListings.push(readListing(stored));
       }
     }
     if (active.some((l) => listingStockState(l) !== 'preOrder')) liveShops++;
@@ -849,13 +872,22 @@ if (existsSync(dir)) {
     // ("(30ml, 50ml, 100ml) 50ml": Perfume Direct) down to the row's own, so a
     // listing harvested before the parser did it reads its own size too. See
     // ownSizeTitle in src/catalogue/shopifyJson.ts; a no-op for any other title.
+    //
+    // And it decodes HTML entities (src/catalogue/htmlEntities.ts): Beauty
+    // Flash and Gorgeous Shop send "Viktor &amp; Rolf" as the vendor field and
+    // "J&#039;Adore" in the title, which made a second Viktor & Rolf in the
+    // Brands list and showed the entity on the page.
     eligible.push({
       retailer,
-      listings: active.map((stored) => ({
-        ...stored,
-        rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
-        rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
-      })),
+      listings: active.map((stored) => {
+        const l = readListing(stored);
+        // A gift set with no barcode is keyed on its title (giftSetId), and
+        // the id it was a page under came from the title before it was
+        // decoded. Kept so that id still opens it (memberIdForms below).
+        const before = ownSizeTitle(repairMojibake(stored.rawTitle));
+        if (before !== l.rawTitle) titleBeforeDecoding.set(`${l.retailerId}|${l.retailerSku}`, before);
+        return l;
+      }),
     });
   }
 }
@@ -1028,7 +1060,13 @@ for (const { retailer, listings } of eligible) {
     // The other ids this listing has answered to, kept for the id aliases
     // (src/catalogue/idAliases.ts): only a listing that really joins a product
     // gets here, so none of them is ever pointed at a product it is not part of.
-    memberIdForms.push({ own: id, forms: listingIdForms(l, untrustworthyEans), lineage: lineageKey(l) });
+    const forms = listingIdForms(l, untrustworthyEans);
+    const before = titleBeforeDecoding.get(`${l.retailerId}|${l.retailerSku}`);
+    if (before !== undefined) {
+      const asBefore: StoredListing = { ...l, rawTitle: before };
+      forms.push(...listingIdForms(asBefore, untrustworthyEans));
+    }
+    memberIdForms.push({ own: id, forms, lineage: lineageKey(l) });
     const effectiveRawBrand = resolveRawBrand(l, retailer);
 
     // What this shop's own listing says the bottle's concentration is —
@@ -2205,8 +2243,15 @@ if (existsSync(housesDir)) {
 
     const houseName = HOUSES.find((h) => h.id === id)?.name ?? id;
 
-    for (const l of snapshot.listings) {
-      if (l.status !== 'active') continue;
+    for (const stored of snapshot.listings) {
+      if (stored.status !== 'active') continue;
+      // Entities decoded as for a shop's listing: Pairfum's titles read
+      // "Scarlet Rhubarb &amp; Oakmoss" (src/catalogue/htmlEntities.ts).
+      const l = {
+        ...stored,
+        rawTitle: decodeHtmlEntities(stored.rawTitle),
+        rawBrand: stored.rawBrand === null ? null : decodeHtmlEntities(stored.rawBrand),
+      };
       if (!isHouseFragrance(l)) continue;
 
       // A house's own title is used as-is, unlike a retailer listing's (see
