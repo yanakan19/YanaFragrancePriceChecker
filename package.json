@@ -11,6 +11,8 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "pretest": "tsx scripts/ensure-demo-built.ts",
     "test": "vitest run",
+    "test:data": "tsx scripts/ensure-demo-built.ts && scripts/run-tests-chunked.sh --set data",
+    "test:code": "tsx scripts/ensure-demo-built.ts && scripts/run-tests-chunked.sh --set code",
     "test:watch": "vitest",
     "tests:count": "tsx scripts/count-tests.ts",
     "affiliate:status": "tsx scripts/affiliate-status.ts",

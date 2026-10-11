@@ -195,7 +195,31 @@ describe('catalogue-daily.yml', () => {
       expect(src, `${t} imports a generated module`).not.toMatch(/from '[^']*\.generated(\.js)?'/);
       expect(src, `${t} reads the harvest report or price history`).not.toMatch(/['/](harvest-report|price-history-checkpoint|harvest-cursor)\.json'/);
     }
-    expect(step('Test everything else')).toContain('continue-on-error: true');
+  });
+
+  // 2026-10-11: "Test everything else" ran `npm test` before the harvest, ended at its
+  // 15 minute cap in every run (#951 to #981) and only warned, so it could not say whether
+  // a test failed. The code and browser tests moved to tests.yml; the data tests run after
+  // the rebuild and commits, and their result turns the run red at its end.
+  it('tests the data the crawl produced after everything is committed, and turns the run red when they fail', () => {
+    expect(daily).not.toContain('- name: Test everything else');
+    expect(daily).not.toMatch(/run: npm test\b/);
+    const data = step('Test the data the crawl produced');
+    expect(data).toContain('run: npm run test:data');
+    expect(data).toContain('id: datatests');
+    // The harvest and the page are committed first, and a failure here costs neither.
+    expect(daily.indexOf('- name: Test the data the crawl produced')).toBeGreaterThan(daily.indexOf('- name: Commit rebuilt app'));
+    expect(daily.indexOf('- name: Test the data the crawl produced')).toBeGreaterThan(daily.indexOf('- name: Commit harvested prices'));
+    expect(data).toContain('continue-on-error: true');
+    expect(data).toMatch(/if: \$\{\{ !cancelled\(\) &&/);
+    expect(data).toContain("steps.rebuild.outcome == 'success'");
+    // A cap, so a hang ends, and one that is not the old 15 minutes for a whole suite.
+    expect(data).toMatch(/timeout-minutes: \d+/);
+    const fail = step('Fail the run if the data tests failed');
+    expect(fail).toContain("steps.datatests.outcome == 'failure'");
+    expect(fail).toMatch(/if: \$\{\{ !cancelled\(\) &&/);
+    expect(fail).toContain('exit 1');
+    expect(daily.indexOf('- name: Fail the run if the data tests failed')).toBeGreaterThan(daily.indexOf('- name: Test the data the crawl produced'));
   });
 
   it('runs the crawl on a pinned runner image, not ubuntu-latest, which moves to Ubuntu 26 on 2026-10-19', () => {
@@ -223,6 +247,45 @@ describe('catalogue-daily.yml', () => {
     expect(daily).toContain('run: bash scripts/crawl-guard.sh');
     // The dispatch form's own defaults must not leak into a tick.
     expect(step('Harvest via sitemap')).toContain("--max=${{ (env.SCHEDULED != 'true' && inputs.harvest_max) || '70' }}");
+  });
+});
+
+describe('tests.yml, the code and browser tests', () => {
+  // Without comment lines, which name the commands they explain.
+  const live = (f: string) => text(f).split('\n').filter((l) => !l.trimStart().startsWith('#')).join('\n');
+  const t = live('tests.yml');
+
+  it('runs on every push to the live branch and every pull request, and only reads the repository', () => {
+    expect(t).toMatch(/\n {2}push:\n {4}branches: \[claude\/scentday-retailer-registry-h92tth\]/);
+    expect(t).toMatch(/\n {2}pull_request:/);
+    expect(t).toMatch(/\npermissions:\n {2}contents: read\n/);
+    expect(t).not.toContain('commit-and-push.sh');
+    expect(t).not.toMatch(/git (push|commit)/);
+  });
+
+  it('has a concurrency group of its own, so it never queues behind or cancels the crawl', () => {
+    const group = /\nconcurrency:\n {2}group: (.+)/.exec(t)?.[1];
+    expect(group).toBeDefined();
+    expect(group).not.toBe('catalogue');
+    for (const f of files) {
+      if (f === 'tests.yml') continue;
+      expect(groupOf(f, text(f)), f).not.toBe(group);
+    }
+  });
+
+  it('builds the page, installs Chromium and runs the code set in chunks, each step capped', () => {
+    expect(t).toContain('run: npm run test:code');
+    expect(t).toContain('run: npm run demo');
+    expect(t).toContain('playwright install');
+    const job = jobs('tests.yml').find((j) => j.name === 'code')!;
+    for (const s of steps(job.body)) expect(s, s.split('\n')[0]).toMatch(/\n {8}timeout-minutes: \d+/);
+  });
+
+  it('runs the whole of the set the crawl leaves out: the crawl runs data, this runs code, and neither runs a bare npm test', () => {
+    expect(live('catalogue-daily.yml')).toContain('npm run test:data');
+    expect(live('catalogue-daily.yml')).not.toContain('npm run test:code');
+    expect(t).not.toContain('npm run test:data');
+    for (const f of files) expect(live(f), f).not.toMatch(/run: npm test\b/);
   });
 });
 
