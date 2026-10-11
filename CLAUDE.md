@@ -74,6 +74,16 @@ snapshots and reports, and the "deploy" files above).
 5. **On a merge conflict in a generated file, do not merge it by hand.** Take
    either side, rebuild, and stage the result.
 
+## Tests
+
+- A new `tests/*.test.ts` needs a line in `scripts/test-sets.txt`
+  (`npx tsx scripts/testSets.ts suggest` prints it): `data` tests read what
+  the crawl writes and run in the crawl after its rebuild (`npm run test:data`);
+  `code` tests run on every push and pull request (`.github/workflows/tests.yml`,
+  `npm run test:code`). `tests/testSets.test.ts` fails for a file in neither.
+- Never run the whole suite in one vitest process on a small machine; use
+  `scripts/run-tests-chunked.sh` (about 20 files per process).
+
 ## Update history
 
 The home page's update history is `demo/changelog.ts` (owner request,
