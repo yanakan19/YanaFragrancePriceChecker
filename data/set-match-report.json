@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 230,
+ "folded": 228,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1779,38 +1779,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3346130438243",
-   "absorbed": [
-    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3346130438243",
-     "brand": "Hermès",
-     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
-     "concentration": "Eau de Toilette",
-     "ean": "3346130438243",
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
-     "brand": "Hermès",
-     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3346470148949",
    "absorbed": [
     "set-guerlain-shalimar-gift-set-50ml-edp-75ml-body-lotion-5ml-edp"
@@ -2426,52 +2394,6 @@
      "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3423222048532",
-   "absorbed": [
-    "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-50ml-edp-50ml-body-lotion",
-    "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-edp-50ml-b-lotion-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222048532",
-     "brand": "Zadig & Voltaire",
-     "name": "This is Her! Vibes of Freedom Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3423222048532",
-     "scent": "freedom is this vibes",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-50ml-edp-50ml-body-lotion",
-     "brand": "Zadig & Voltaire",
-     "name": "This is Her! Vibes of Freedom Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "freedom is this vibes",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-edp-50ml-b-lotion-50ml",
-     "brand": "Zadig & Voltaire",
-     "name": "This Is Her! Vibes of Freedom Gift Set EDP 50ml + B/Lotion 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "freedom is this vibes",
      "signature": "1x50body|1x50fragrance",
      "shops": [
       "the-beauty-store-uk"
@@ -6808,6 +6730,39 @@
      "ean": null,
      "scent": "bright crystal",
      "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-50ml-edp-50ml-body-lotion",
+   "absorbed": [
+    "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-edp-50ml-b-lotion-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-50ml-edp-50ml-body-lotion",
+     "brand": "Zadig & Voltaire",
+     "name": "This is Her! Vibes of Freedom Gift Set 50ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "freedom is this vibes",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-edp-50ml-b-lotion-50ml",
+     "brand": "Zadig & Voltaire",
+     "name": "This Is Her! Vibes of Freedom Gift Set EDP 50ml + B/Lotion 50ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "freedom is this vibes",
+     "signature": "1x50body|1x50fragrance",
      "shops": [
       "the-beauty-store-uk"
      ]
@@ -11629,6 +11584,7 @@
      "signature": "1x50fragrance|1x75body",
      "shops": [
       "fragrance-click",
+      "paco-perfumerias-uk",
       "perfume-click"
      ]
     }
@@ -12038,6 +11994,37 @@
      "signature": "3x11fragrance",
      "shops": [
       "cult-beauty-global"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "a shop lists more than one: john-lewis"
+   ],
+   "members": [
+    {
+     "id": "set-memo-paris-eau-de-parfum-for-her-discovery-fragrance-gift-set-6-x-1-5ml",
+     "brand": "Memo Paris",
+     "name": "Eau de Parfum For Her Discovery Fragrance Gift Set, 6 x 1.5ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "6x1.5fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-memo-paris-eau-de-parfum-for-him-discovery-fragrance-gift-set-6-x-1-5ml",
+     "brand": "Memo Paris",
+     "name": "Eau de Parfum For Him Discovery Fragrance Gift Set, 6 x 1.5ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "6x1.5fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
