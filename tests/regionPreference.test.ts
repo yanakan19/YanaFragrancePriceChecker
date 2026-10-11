@@ -44,24 +44,24 @@ describe('when anything is remembered at all', () => {
 
 describe('signing in: the profile and this browser agree (reconcileRegion)', () => {
   it('a profile with a country and nothing in this browser: the profile is mirrored here', () => {
-    expect(reconcileRegion(null, 'US')).toEqual({ chosen: 'US', toLocal: 'US', toProfile: null });
+    expect(reconcileRegion(null, 'US')).toEqual({ chosen: 'US', toLocal: 'US', toProfile: null, clearPending: false });
   });
 
   it('a choice made here before signing in fills a profile that has none', () => {
-    expect(reconcileRegion('IN', null)).toEqual({ chosen: 'IN', toLocal: null, toProfile: 'IN' });
+    expect(reconcileRegion('IN', null)).toEqual({ chosen: 'IN', toLocal: null, toProfile: 'IN', clearPending: false });
   });
 
   it('both set and different: the profile wins', () => {
-    expect(reconcileRegion('GB', 'IN')).toEqual({ chosen: 'IN', toLocal: 'IN', toProfile: null });
-    expect(reconcileRegion('US', 'GB')).toEqual({ chosen: 'GB', toLocal: 'GB', toProfile: null });
+    expect(reconcileRegion('GB', 'IN')).toEqual({ chosen: 'IN', toLocal: 'IN', toProfile: null, clearPending: false });
+    expect(reconcileRegion('US', 'GB')).toEqual({ chosen: 'GB', toLocal: 'GB', toProfile: null, clearPending: false });
   });
 
   it('both set and the same: nothing is written', () => {
-    expect(reconcileRegion('US', 'US')).toEqual({ chosen: 'US', toLocal: null, toProfile: null });
+    expect(reconcileRegion('US', 'US')).toEqual({ chosen: 'US', toLocal: null, toProfile: null, clearPending: false });
   });
 
   it('neither: nothing is chosen, so the welcome pop-up may ask', () => {
-    expect(reconcileRegion(null, null)).toEqual({ chosen: null, toLocal: null, toProfile: null });
+    expect(reconcileRegion(null, null)).toEqual({ chosen: null, toLocal: null, toProfile: null, clearPending: false });
   });
 });
 
@@ -71,8 +71,9 @@ describe('syncRegionWithProfile', () => {
   function deps(local: RegionId | null, read: ProfileRegionRead) {
     const calls = { writeLocal: [] as RegionId[], writeProfile: [] as RegionId[], reads: 0 };
     const d: RegionSyncDeps = {
-      readLocal: () => local,
+      readLocal: () => (local ? { id: local, pendingAt: null } : null),
       writeLocal: (id) => void calls.writeLocal.push(id),
+      clearPending: () => undefined,
       readProfile: async () => {
         calls.reads++;
         return read;
@@ -165,6 +166,7 @@ describe('a choice (chooseRegion): the country menu and the Country row', () => 
     const calls = { writeLocal: [] as RegionId[], writeProfile: [] as RegionId[], navigate: [] as string[] };
     const d: ChooseRegionDeps = {
       writeLocal: (id) => void calls.writeLocal.push(id),
+      clearPending: () => undefined,
       writeProfile: (id) => {
         calls.writeProfile.push(id);
         return profile(id);
@@ -229,9 +231,11 @@ describe('the country menu writes to the profile (demo/app.ts)', () => {
   it('whose profile write is saveProfileRegion, the same one the pop-up and the Country row use', () => {
     const deps = /const regionChoiceDeps = \{([\s\S]*?)\n\};/.exec(app)?.[1] ?? '';
     expect(deps).toMatch(/writeProfile: saveProfileRegion/);
-    expect(deps).toMatch(/writeLocal: \(id: RegionId\) => saveStoredRegion\(id\)/);
+    expect(deps).toMatch(/writeLocal: \(id: RegionId, pendingAt\?: number\) => saveStoredRegion\(id, undefined, pendingAt \?\? null\)/);
+    expect(deps).toMatch(/clearPending: \(choice: StoredRegionChoice\) => clearPendingRegion\(choice\)/);
     expect(body('chooseCountryFromProfile')).toMatch(/chooseRegion\([\s\S]*regionChoiceDeps/);
-    expect(app).toMatch(/saveToProfile: \(id: RegionId\) => \(state\.authUser \? saveProfileRegion\(id\) : Promise\.resolve\(false\)\)/);
+    // The pop-up goes through the same rememberRegion, signed in or not.
+    expect(app).toMatch(/remember: \(id: RegionId\) => rememberRegion\(id, state\.authUser !== null, regionChoiceDeps\)/);
   });
 
   it('a signed in visitor is reconciled on sign in and on each page load, through one shared answer', () => {
