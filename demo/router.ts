@@ -27,7 +27,7 @@
  * is the record of why that scan exists, not evidence it is still needed.
  */
 
-import { BRAND_MERGES } from '../src/catalogue/brandName.js';
+import { BRAND_LEGACY_ADDRESSES, BRAND_MERGES } from '../src/catalogue/brandName.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
 import { GUIDES_PATH, HOW_WE_CHECK, guidePath } from './guideList.js';
 import { activeRegion, regionPath, splitRegionPrefix } from '../src/config/regions.js';
@@ -120,11 +120,13 @@ const ALIAS_ROUTES: Record<string, { name: RouteName; query: Record<string, stri
  * app then rewrites the address to /brands/kayali, the same way the gift sets
  * address above is rewritten. Read from BRAND_MERGES in brandName.ts, the one
  * list that also merges the brands, so a merge can never leave its old address
- * answering with a not found. That module has no catalogue data in it, which
- * keeps this file as light as it was.
+ * answering with a not found, and from BRAND_LEGACY_ADDRESSES there, the
+ * addresses of spellings the brand sweep of 11 Oct 2026 folded in by rule
+ * ("Dolce &amp; Gabbana", "Hermes"). That module has no catalogue data in it,
+ * which keeps this file as light as it was.
  */
 export const BRAND_ALIAS_SLUGS: Readonly<Record<string, string>> = Object.fromEntries(
-  BRAND_MERGES.map(([from, to]) => [slugify(from), slugify(to)] as const).filter(([from, to]) => from !== to),
+  [...BRAND_MERGES, ...BRAND_LEGACY_ADDRESSES].map(([from, to]) => [slugify(from), slugify(to)] as const).filter(([from, to]) => from !== to),
 );
 
 /**

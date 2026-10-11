@@ -1744,5 +1744,14 @@ function normalizeBrand(brand: string): string {
  */
 export function logoFor(brand: string): LogoRef | null {
   const key = normalizeBrand(brand);
-  return BRAND_LOGOS[LOGO_SPELLINGS[key] ?? key] ?? null;
+  const found = BRAND_LOGOS[LOGO_SPELLINGS[key] ?? key];
+  if (found) return found;
+  // An accent the catalogue keeps (Beyoncé, Comme des Garçons; brandName.ts prefers
+  // the spelling that kept its accent) drops out of normalizeBrand as though it
+  // were punctuation. Tried last, on the accent free spelling, so nothing that
+  // resolved before resolves differently.
+  const plain = brand.normalize('NFKD').replace(/\p{Mn}/gu, '');
+  if (plain === brand) return null;
+  const plainKey = normalizeBrand(plain);
+  return BRAND_LOGOS[LOGO_SPELLINGS[plainKey] ?? plainKey] ?? null;
 }

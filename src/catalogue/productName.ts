@@ -23,6 +23,7 @@ import {
   withoutTravelSprayWords,
 } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
+import { decodeHtmlEntities } from './htmlEntities.js';
 import type { StoredListing } from './types.js';
 import { isReviewedOil } from './perfumeOil.js';
 import { evidencedStrength } from './unstatedStrengthEvidence.js';
@@ -2354,6 +2355,11 @@ export function displayName(
   displayedBrand: string | null,
   travelSizeIsASize = false,
 ): string {
+  // A name is never shown with an HTML entity in it ("J&#039;Adore", "Men&#039;s
+  // Happy For Men" were 89 names of the live catalogue on 2026-10-11). The text
+  // is decoded where it is read (reconcile.ts, the builds); this is the last
+  // place it would be caught, so no path to a name can leave one.
+  title = decodeHtmlEntities(title);
   // A pre-order notice and its dispatch date are about the listing, not the
   // perfume: see stripPreOrderNotice.
   title = stripPreOrderNotice(title);

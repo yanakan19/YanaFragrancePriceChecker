@@ -38,6 +38,7 @@ import type { RegionCurrency, RegionRetailer } from '../types/regionRetailer.js'
 import type { RawListing, StoredListing } from './types.js';
 import type { Http } from './attempt.js';
 import { BOT_HEADERS } from './botIdentity.js';
+import { decodeHtmlEntities } from './htmlEntities.js';
 import { probeRobots } from './robotsSource.js';
 import { isAllowed, type RobotsRules } from './robots.js';
 import { fetchStorefrontCurrency, type StorefrontCurrency } from './shopCurrency.js';
@@ -369,8 +370,7 @@ function metaContent(html: string, property: string): string | null {
   return b ? b[1]! : null;
 }
 
-const decodeEntities = (s: string): string =>
-  s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#0?39;|&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ');
+const decodeEntities = decodeHtmlEntities;
 
 /**
  * One product page that states its price only in Open Graph product tags

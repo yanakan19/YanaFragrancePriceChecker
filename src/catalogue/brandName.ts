@@ -55,6 +55,8 @@
  * is folded into "Giorgio Armani".
  */
 
+import { decodeHtmlEntities } from './htmlEntities.js';
+
 /**
  * Group key for one brand: letters and digits, lowercased.
  *
@@ -92,13 +94,87 @@
  * diacritic. A letter that is its own thing in Unicode — ø, æ, œ, ß, ł — has
  * no decomposition to fall back to, so "Kanøn"/"Kanon" still needed, and
  * still has, an explicit KNOWN_ALIASES pair below.
+ *
+ * HTML entities are decoded first (2026-10-11), so a title that reached it as
+ * "Dolce &amp; Gabbana" is the key of "Dolce & Gabbana" and not "dolceampgabbana"
+ * (the `amp` is letters, so the strip left it in and the house became two
+ * brands). They are decoded where the text is read as well (htmlEntities.ts);
+ * this is the belt. Nothing else about the key changed, so no key of a string
+ * without an entity moved: the keys the link and alias files hold for those
+ * stay valid. `brandKey` is also used on product names and strengths, which is
+ * why the rules that are only true of a brand (the word "and", a legal form)
+ * are in `brandGroupKey` below and not here.
  */
 export function brandKey(name: string): string {
-  return name
+  return decodeHtmlEntities(name)
     .normalize('NFKD')
     .replace(/\p{Mn}/gu, '')
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '');
+}
+
+/** Letters NFKD leaves whole, folded the way src/catalogue/productSlug.ts folds them. */
+const LETTER_FOLDS: Readonly<Record<string, string>> = {
+  'ß': 'ss', 'æ': 'ae', 'œ': 'oe', 'ø': 'o', 'đ': 'd', 'ł': 'l', 'ð': 'd', 'þ': 'th', 'ı': 'i',
+};
+
+/**
+ * Words a company puts after its trading name and a shop sometimes copies into
+ * the vendor field: "Assaf Trading LLC", "Foo Ltd", "Foo Pvt. Ltd.". Only these
+ * and only at the end. "Parfums", "Perfumes", "Paris" and "London" are not
+ * here: they are part of a name as often as they are decoration ("Essential
+ * Parfums" is a house of its own spelling), so the pairs that carry them are
+ * settled one at a time in BRAND_MERGES.
+ */
+const LEGAL_FORM_WORDS: ReadonlySet<string> = new Set(['ltd', 'limited', 'llc', 'inc', 'incorporated', 'gmbh', 'plc', 'pvt', 'pty']);
+
+/**
+ * The key two spellings of one brand share (2026-10-11).
+ *
+ * `brandKey` loses case, accents and punctuation. This also settles what a
+ * shop's feed changes without changing the house, so that "Dolce & Gabbana",
+ * "Dolce &amp; Gabbana", "DOLCE & GABBANA", "Dolce&Gabbana" and "Dolce and
+ * Gabbana" are one brand:
+ *
+ *   - HTML entities are decoded, then accents folded (Hermès is Hermes) along
+ *     with the letters NFKD leaves whole (ø, æ, œ, ß, ł);
+ *   - an apostrophe is dropped, not turned into a space (Penhaligon's is
+ *     Penhaligons, L'Occitane is Loccitane);
+ *   - "&", "+" and the word "and" between two other words all mean the same
+ *     and vanish (Malin + Goetz is Malin and Goetz). A leading or trailing
+ *     "and" stays, so "And Fragrance" is not "Fragrance";
+ *   - a legal form at the end (Ltd, Limited, LLC, Inc, GmbH, plc) goes, if
+ *     something is left.
+ *
+ * It is a grouping key for brands only (buildBrandCanon, the duplicate test):
+ * never for product names, where "and" is a word of the perfume's name.
+ */
+export function brandGroupKey(name: string): string {
+  const words = decodeHtmlEntities(name)
+    .normalize('NFKD')
+    .replace(/\p{Mn}/gu, '')
+    .toLowerCase()
+    .replace(/[ßæœøđłðþı]/g, (c) => LETTER_FOLDS[c]!)
+    .replace(/['’‘`´]/g, '')
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean);
+  const kept = words.filter((w, i) => !(w === 'and' && i > 0 && i < words.length - 1));
+  while (kept.length > 1 && LEGAL_FORM_WORDS.has(kept[kept.length - 1]!)) kept.pop();
+  return kept.join('');
+}
+
+/**
+ * A brand string as it is stored and compared: entities decoded, accents
+ * composed, one space between words and none at the ends. Says nothing about
+ * which spelling of a house is right, only that two spellings that differ in
+ * nothing but these are the same string. (An apostrophe is left as the shop
+ * wrote it, curly or straight: the logo and site tables are keyed by it.)
+ */
+export function tidyBrandSpelling(raw: string): string {
+  return decodeHtmlEntities(raw)
+    .normalize('NFC')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 /**
@@ -199,6 +275,182 @@ export const BRAND_MERGES: readonly (readonly [from: string, to: string])[] = [
   ['Scotch and Soda', 'Scotch & Soda'],
   ['Tiffany', 'Tiffany & Co'],
   ['Zadig and Voltaire', 'Zadig & Voltaire'],
+  // Found by the brand duplicate sweep of 11 Oct 2026, which first settled by
+  // rule everything a rule can settle (case, entities, accents, "&" against
+  // "and", apostrophes, a legal form: brandGroupKey) and then listed every
+  // pair still left whose only difference is a trailing or leading descriptor
+  // (Paris, London, Parfum, Parfums, Perfume, Perfumes, Fragrance, Fragrances,
+  // Beauty, Boutique, Co., Official, Parfumeur) in the same region's catalogue.
+  // Each pair below was read, not assumed: the two spellings sell the same
+  // bottle (a shared perfume name), or a title in the catalogue names the other
+  // spelling in full ("Police Original by Parfums Police", "Chloe by Parfums
+  // Chloe", "Hackett London for Men Absolute"), or the products are one line
+  // from one house with no other candidate. The kept spelling is the house's
+  // own where a title or its site gives it, else the one the UK catalogue
+  // already uses, else the one more shops use.
+  //
+  // Kept apart on purpose, with the reason: Essential Perfumes (the owner's
+  // refusal of 4 Oct 2026 stands: it shares no bottle with Essential Parfums),
+  // Rare and Rare Beauty (Avon's Rare is not Selena Gomez's house), Baron and
+  // The Baron (one title is a perfume called The Baron), Paris and Paris
+  // Perfumes (no shared house, products unrelated), Kate Spade and Kate Spade
+  // New York (not a descriptor of this kind, left for a person to decide).
+  // UK catalogue.
+  ['Gucci Beauty', 'Gucci'],
+  ['Gucci Boutique', 'Gucci'],
+  ['The Agent Provocateur', 'Agent Provocateur'],
+  ['Rochas Paris', 'Rochas'],
+  ['Essential Parfum', 'Essential Parfums'],
+  ['Hackett', 'Hackett London'],
+  ['Mercedes Benz Perfume', 'Mercedes-Benz'],
+  ['Bibbi', 'Bibbi Parfum'],
+  ['Cheryl Cole Fragrances', 'Cheryl Cole'],
+  ['Floraiku', 'Floraïku Paris'],
+  ['Infiniment Coty Parfums', 'Infiniment Coty Paris'],
+  ['Isabey Paris', 'Isabey'],
+  ['Roos & Roos Paris', 'Roos & Roos'],
+  ['Tale Parfum', 'Tale'],
+  ['Maison Alhambra Official', 'Maison Alhambra'],
+  ['DKNY Donna Karan', 'DKNY'],
+  // US and India catalogues (the region builds use the same table since 11 Oct 2026).
+  ['Montale Paris', 'Montale'],
+  ['Montale Parfums', 'Montale'],
+  ['Obvious', 'Obvious Parfums'],
+  ['D\'Orsay Parfums', 'D\'Orsay'],
+  ['Parfums Houbigant', 'Houbigant'],
+  ['Cuba Perfumes', 'Cuba Paris'],
+  ['Five Star Fragrances', 'Five Star Fragrance Co.'],
+  ['Parfums Privilege', 'Privilege'],
+  ['Kai Fragrance', 'Kai'],
+  ['Penhaligon\'s London', 'Penhaligon\'s'],
+  ['Bon Parfumeur Paris', 'Bon Parfumeur'],
+  ['Sana Jardin Paris', 'Sana Jardin'],
+  ['Molton Brown London', 'Molton Brown'],
+  ['Lvnea Perfume', 'Lvnea'],
+  ['Parfum Cirque Du Soleil', 'Cirque du Soleil'],
+  ['Heretic', 'Heretic Parfum'],
+  ['Heretic Parfums', 'Heretic Parfum'],
+  ['Hollister Co.', 'Hollister'],
+  ['Parfums Police', 'Police'],
+  ['Parfums Chloe', 'Chloé'],
+  ['Yzy', 'YZY Perfumes'],
+  ['YZY Perfume', 'YZY Perfumes'],
+  ['Sean John Fragrances', 'Sean John'],
+  ['Clean Beauty', 'Clean'],
+  ['Yves de Sistelle Parfums', 'Yves De Sistelle'],
+  ['Maison Margiela Paris', 'Maison Margiela'],
+  ['Parfums Lomani', 'Lomani'],
+  ['Miu Miu Parfums', 'Miu Miu'],
+  ['Mancera Parfums', 'Mancera'],
+  ['ROJA London', 'Roja Parfums'],
+  ['Roja', 'Roja Parfums'],
+  ['Orientica Perfumes', 'Orientica'],
+  ['Pepe Jeans London', 'Pepe Jeans'],
+  ['Elysees Fashion', 'Elysees Fashion Parfums'],
+  ['Lively Paris', 'Lively Parfums'],
+  ['Parfums Lively', 'Lively Parfums'],
+  ['Parisis', 'Parisis Parfums'],
+  ['Carrera Jeans Parfums', 'Carrera Jeans'],
+  ['Gilles Cantuel Paris', 'Gilles Cantuel'],
+  ['Halloween Perfumes', 'Halloween'],
+  ['L\'orientale Fragrances', 'L\'orientale'],
+  ['Manos Gerakinis Parfums', 'Manos Gerakinis'],
+  ['Hiram Green Perfumes', 'Hiram Green'],
+  ['Kilian perfume', 'Kilian'],
+  ['Bdk', 'BDK Parfums'],
+  ['Thameen London', 'Thameen'],
+  ['Azha Perfumes', 'Azha'],
+  ['Carlton London Perfume', 'Carlton London'],
+  ['The Perfumer\'s Workshop', 'Perfumer\'s Workshop'],
+];
+
+/**
+ * Brand page addresses that were published for a spelling this change folded
+ * into another (11 Oct 2026), apart from the ones BRAND_MERGES already
+ * redirects. A brand page address is the slug of the brand's display name
+ * (demo/router.ts `slugify`), so a brand whose display name changed moved its
+ * address; each pair here is `[the old spelling, the name it shows under now]`
+ * and sends the old address to the new one, the way BRAND_MERGES does, so that
+ * `/brands/dolce-and-amp-gabbana` (what the UK sitemap listed for "Dolce
+ * &amp; Gabbana") opens Dolce & Gabbana and is rewritten to its address.
+ *
+ * Three kinds, all measured on the sitemaps the live site published (UK, US,
+ * India) against the catalogues rebuilt with this change:
+ *
+ *   - the spellings that carried an HTML entity ("Viktor &amp; Rolf", six UK
+ *     brand pages that had `amp` or `039` in their address);
+ *   - a spelling a feed wrote without the accent, apostrophe, "&" or space the
+ *     house writes, which the rule now folds into the house's ("Hermes" into
+ *     "Hermès", "Penhaligons", "Mont Blanc" into "Montblanc");
+ *   - a spelling the reviewed tables (BRAND_MERGES and HAND_ALIASES) already
+ *     folded in the UK, now applied in the US and India as well ("Paco Rabanne"
+ *     into "Rabanne", "Armani" into "Giorgio Armani").
+ *
+ * Append only, like the other address memories: an address that was published
+ * keeps answering. tests/brandDuplicates.test.ts checks that each old address
+ * is not a brand that exists now, that the new one is, and that nothing here
+ * contradicts BRAND_MERGES.
+ */
+export const BRAND_LEGACY_ADDRESSES: readonly (readonly [legacy: string, current: string])[] = [
+  ['Abercrombie &amp; Fitch', 'Abercrombie & Fitch'],
+  ['Alezz Oud', 'Al Ezz Oud'],
+  ['Al Haramain Perfumes', 'Al Haramain'],
+  ['Alaia Paris', 'Alaïa Paris'],
+  ['Al Wataniah', 'Alwataniah'],
+  ['QUORUM', 'Antonio Puig'],
+  ['Arabiyat Prestige', 'Arabiyat'],
+  ['Bellavita', 'Bellavita UK'],
+  ['Beyonce', 'Beyoncé'],
+  ['Chloe', 'Chloé'],
+  ['Comme des Garcons', 'Comme des Garçons'],
+  ['Courreges', 'Courrèges'],
+  ['Cuba', 'Cuba Paris'],
+  ['DS & Durga', 'D.S. & Durga'],
+  ['Donna Karan', 'DKNY'],
+  ['Dolce &amp; Gabbana', 'Dolce & Gabbana'],
+  ['DOLCE GABBANA', 'Dolce & Gabbana'],
+  ['Dunhill London', 'Dunhill'],
+  ['Estee Lauder', 'Estée Lauder'],
+  ['Frassai', 'Frassaï'],
+  ['Frederic Malle', 'Frédéric Malle'],
+  ['Armani', 'Giorgio Armani'],
+  ['Annick Goutal', 'Goutal'],
+  ['Parfums Gres', 'Gres'],
+  ['Hermes', 'Hermès'],
+  ['Houbigant Paris', 'Houbigant'],
+  ['Ibraheem Al Qurashi', 'Ibrahim Al Qurashi'],
+  ['Initio Parfums Prives', 'Initio Parfums Privés'],
+  ['Jo Malone London', 'Jo Malone'],
+  ['justJack', 'Just Jack'],
+  ['Khadlaj Perfumes', 'Khadlaj'],
+  ['L&#039;Occitane', 'L\'Occitane'],
+  ['LOccitane', 'L\'Occitane'],
+  ['Lancome', 'Lancôme'],
+  ['Les Indemodables', 'Les Indémodables'],
+  ['Malin and Goetz', 'Malin + Goetz'],
+  ['Mont Blanc', 'Montblanc'],
+  ['Maurer & Wirtz', 'Mäurer & Wirtz'],
+  ['Neela Vermeire Creations', 'Neela Vermeire Créations'],
+  ['Nu Parfums', 'Nuparfums'],
+  ['Penhaligons', 'Penhaligon\'s'],
+  ['Perfumers Workshop', 'Perfumer\'s Workshop'],
+  ['Paco Rabanne', 'Rabanne'],
+  ['Rance', 'Rance 1795'],
+  ['Rayhaan Perfumes', 'Rayhaan'],
+  ['Reef', 'Reef Perfumes'],
+  ['RPParis', 'RP Paris'],
+  ['ST Dupont', 'S.T. Dupont'],
+  ['Stephane Humbert Lucas 777', 'Stephane Humbert Lucas'],
+  ['TADangel', 'Tad Angel'],
+  ['Tiffany &amp; Co', 'Tiffany & Co'],
+  ['Tokyo Milk', 'TokyoMilk'],
+  ['tomford', 'Tom Ford'],
+  ['Uniquee Luxury', 'Unique’e Luxury'],
+  ['Swiss Army', 'Victorinox Swiss Army'],
+  ['Victorinox', 'Victorinox Swiss Army'],
+  ['Viktor &amp; Rolf', 'Viktor & Rolf'],
+  ['YSL', 'Yves Saint Laurent'],
+  ['Zadig &amp; Voltaire', 'Zadig & Voltaire'],
 ];
 
 /** BRAND_MERGES as alias entries: both spellings resolve to the kept one. */
@@ -227,6 +479,21 @@ export const HAND_ALIASES: Record<string, string> = {
   [brandKey('Lancôme')]: 'Lancôme',
   [brandKey('Hermes')]: 'Hermès',
   [brandKey('Hermès')]: 'Hermès',
+  // Accents the UK catalogue keeps and a US or India shop's feed strips, so the
+  // house reads the same in every region (11 Oct 2026). Their own accents.
+  [brandKey('Beyonce')]: 'Beyoncé',
+  [brandKey('Les Indemodables')]: 'Les Indémodables',
+  [brandKey('Neela Vermeire Creations')]: 'Neela Vermeire Créations',
+  [brandKey('Alaia Paris')]: 'Alaïa Paris',
+  // The house writes one word, Montblanc; the US and Indian shops that write two
+  // ("Mont Blanc", 98 products) outnumber it, so the count would pick the wrong one.
+  // The UK catalogue already says Montblanc. (Both spellings share a brandKey, which
+  // is why this is here and not a BRAND_MERGES pair.)
+  [brandKey('Montblanc')]: 'Montblanc',
+  // The spellings the UK catalogue shows, kept in every region where the shops'
+  // own are a capital "D" in d'Orange and a tight "Eight&Bob".
+  [brandKey('Etat Libre d\'Orange')]: 'Etat Libre d\'Orange',
+  [brandKey('Eight & Bob')]: 'Eight & Bob',
 
   // One Makkah house standing as three rows over 104 products, reported
   // 2026-09-10. "Ibrahim Al Qurashi (IBRAQ)" (65 products, at manchester-ouds,
@@ -930,6 +1197,32 @@ export const HAND_ALIASES: Record<string, string> = {
  */
 export const KNOWN_ALIASES: Record<string, string> = { ...HAND_ALIASES, ...mergeAliases() };
 
+let kept: Map<string, string> | null = null;
+
+/**
+ * The kept spelling of every alias target by `brandGroupKey`, so a spelling the
+ * tables above never listed but which only differs from a kept name in what
+ * `brandGroupKey` ignores (an entity, "and" for "&", a legal form) finds it.
+ */
+function keptByGroup(): Map<string, string> {
+  if (!kept) {
+    kept = new Map();
+    for (const to of new Set(Object.values(KNOWN_ALIASES))) {
+      const key = brandGroupKey(to);
+      if (key && !kept.has(key)) kept.set(key, to);
+    }
+  }
+  return kept;
+}
+
+/**
+ * The kept name for a brand string if the tables above settle it, else
+ * undefined. By `brandKey` first (the tables' own key), then by the group key.
+ */
+export function knownAlias(name: string): string | undefined {
+  return KNOWN_ALIASES[brandKey(name)] ?? keptByGroup().get(brandGroupKey(name));
+}
+
 /**
  * Marks a house puts in front of its own perfumes' names that are not the
  * house's full name and not a registered alias of it: "HUGO Man" and "BOSS
@@ -1358,18 +1651,83 @@ export function displayBrandName(name: string): string {
 }
 
 /**
+ * Marks a feed strips and a house keeps: accents, and an apostrophe inside a
+ * word (L'Occitane, Penhaligon's). A stray one beside a space ("La' French")
+ * is a typing slip and counts for nothing.
+ */
+function marksKept(name: string): number {
+  return (name.normalize('NFD').match(/\p{Mn}/gu) ?? []).length + (name.match(/(?<=\p{L})['’](?=\p{L})/gu) ?? []).length;
+}
+
+/**
+ * How many of a name's joining words after the first are written lower case
+ * ("Oscar de la Renta", "Parfums de Marly", "Acqua di Parma", "Juliette Has a
+ * Gun"). The houses write them that way; a feed that capitalises every word has
+ * written "Oscar De La Renta".
+ */
+function lowerSmallWords(name: string): number {
+  return name.split(/\s+/).slice(1).filter((w) => BRAND_SMALL_WORDS.has(w) && w !== w.toUpperCase()).length;
+}
+
+/** The ampersand form: "&" or "+" written as a symbol rather than the word "and". */
+function usesSymbolForAnd(name: string): boolean {
+  return /[&+]/.test(name) && !/\band\b/i.test(name);
+}
+
+/** "Dolce&Gabbana": an ampersand with no space on either side. */
+function hasTightAmpersand(name: string): boolean {
+  return /\S&\S/.test(name);
+}
+
+/** "Foo Ltd": a legal form copied from the company's name. */
+function endsInLegalForm(name: string): boolean {
+  const words = name.toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+  return words.length > 1 && LEGAL_FORM_WORDS.has(words[words.length - 1]!);
+}
+
+/**
  * Pick the display spelling for one group of variants.
  *
- * `variants` maps each observed spelling to how many listings used it.
+ * `variants` maps each observed spelling to how many listings used it. In order:
+ *
+ *   1. A known acronym as published ("DKNY" beats "Dkny"; see BRAND_ACRONYMS).
+ *   2. Ordinary mixed case over shouting or whispering (the rule at the top).
+ *   3. No trailing legal form ("Assaf Trading" over "Assaf Trading LLC").
+ *   4. The spelling that kept the marks a feed strips: the accent ("Hermès"
+ *      over "Hermes", "Chloé" over "Chloe") and the apostrophe ("L'Occitane"
+ *      over "LOccitane"). Checked, not assumed: every feed that differs from
+ *      another only in these has dropped them, none has added them.
+ *   5. "&" over the word "and" and a spaced "&" over a tight one: the houses
+ *      that use one write "Dolce & Gabbana", "Zadig & Voltaire", "Tiffany &
+ *      Co", and the shops that write "and" are the ones that dropped the symbol.
+ *   6. Joining words in lower case ("Oscar de la Renta" over "Oscar De La
+ *      Renta"), which is how every house that has one writes it.
+ *   7. Whichever spelling shops used more often.
+ *   8. Alphabetical, purely so the build is deterministic.
+ *
+ * A spelling a rule cannot settle (a house whose own name is the less common
+ * one: "Montblanc" against "Mont Blanc") is a reviewed entry in BRAND_MERGES.
  */
 export function pickBrandName(variants: ReadonlyMap<string, number>): string {
   const entries = [...variants.entries()];
   if (entries.length === 0) return '';
 
   return entries.sort((a, b) => {
+    const acronym = Number(BRAND_ACRONYMS.has(b[0])) - Number(BRAND_ACRONYMS.has(a[0]));
+    if (acronym !== 0) return acronym;
     // Mixed case first — this is what stops "ARMAF" beating "Armaf" on volume.
     const mixed = Number(isMixedCase(b[0])) - Number(isMixedCase(a[0]));
     if (mixed !== 0) return mixed;
+    const legal = Number(endsInLegalForm(a[0])) - Number(endsInLegalForm(b[0]));
+    if (legal !== 0) return legal;
+    const marks = marksKept(b[0]) - marksKept(a[0]);
+    if (marks !== 0) return marks;
+    const symbol = Number(usesSymbolForAnd(b[0])) - Number(usesSymbolForAnd(a[0]));
+    if (symbol !== 0) return symbol;
+    const spaced = Number(hasTightAmpersand(a[0])) - Number(hasTightAmpersand(b[0]));
+    if (spaced !== 0) return spaced;
+    const joining = lowerSmallWords(b[0]) - lowerSmallWords(a[0]);
+    if (joining !== 0) return joining;
     // Then whichever spelling shops used more often.
     if (b[1] !== a[1]) return b[1] - a[1];
     // Then alphabetical, purely so the build is deterministic.
@@ -1381,27 +1739,42 @@ export function pickBrandName(variants: ReadonlyMap<string, number>): string {
  * Build a lookup from every observed spelling to the one chosen for its group.
  *
  * Pass every brand string in the catalogue, including repeats — the counts are
- * what break ties.
+ * what break ties. Spellings are grouped by `brandGroupKey` (case, accents,
+ * punctuation, entities, "&" against "and", a legal form), after being tidied
+ * (`tidyBrandSpelling`). The lookup has an entry for the string exactly as it
+ * was passed in as well as for its tidied form, so a caller holding a shop's
+ * raw "Dolce &amp; Gabbana" finds the same name as one holding the decoded one.
  */
 export function buildBrandCanon(allBrandStrings: readonly string[]): Map<string, string> {
   const groups = new Map<string, Map<string, number>>();
+  const spellings = new Map<string, Set<string>>();
 
   for (const raw of allBrandStrings) {
-    const name = raw.trim();
+    const name = tidyBrandSpelling(raw);
     if (!name) continue;
-    const key = brandKey(name);
+    const key = brandGroupKey(name);
     if (!key) continue;
     const variants = groups.get(key) ?? new Map<string, number>();
     variants.set(name, (variants.get(name) ?? 0) + 1);
     groups.set(key, variants);
+    const seen = spellings.get(key) ?? new Set<string>();
+    seen.add(name);
+    seen.add(raw.trim());
+    spellings.set(key, seen);
   }
 
   const canon = new Map<string, string>();
   for (const [key, variants] of groups) {
+    // A reviewed name wins when any spelling of the group has one: the most
+    // used spelling's, if two disagree. Otherwise the rule above picks.
+    const aliased = [...variants.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([name]) => knownAlias(name))
+      .find((alias) => alias !== undefined);
     // Title cased only when every spelling shouts (or whispers): see
     // displayBrandName. Grouping above is already settled by then.
-    const chosen = displayBrandName(KNOWN_ALIASES[key] ?? pickBrandName(variants));
-    for (const spelling of variants.keys()) canon.set(spelling, chosen);
+    const chosen = displayBrandName(aliased ?? pickBrandName(variants));
+    for (const spelling of spellings.get(key)!) canon.set(spelling, chosen);
   }
   return canon;
 }

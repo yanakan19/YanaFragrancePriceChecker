@@ -98,6 +98,64 @@ describe('a region page built from snapshots', () => {
   });
 });
 
+describe('a house the shops spell three ways', () => {
+  const now = '2026-10-11T12:00:00.000Z';
+  const listing = (sku: string, title: string, brand: string, price: number) => ({
+    retailerSku: sku, url: `https://shop.example/products/${sku}`, rawTitle: title, rawBrand: brand, ean: null, price, wasPrice: null,
+    inStock: true, productType: 'Fragrance', sectionId: 's', firstSeenAt: '2026-10-09T04:00:00.000Z', lastSeenAt: '2026-10-11T06:00:00.000Z',
+    status: 'active' as const,
+  });
+  const snapshot = (retailerId: string, listings: ReturnType<typeof listing>[]): RegionSnapshot =>
+    ({ retailerId, region: 'US', currency: 'USD', updatedAt: now, complete: true, listings } as unknown as RegionSnapshot);
+  const title = 'Light Blue Eau de Toilette 100ml';
+  const inputs = (slugMemory: Record<string, string>): RegionInputs => ({
+    region: 'US',
+    shops: REGION_RETAILERS.US,
+    snapshots: [
+      snapshot('aedes', [listing('1', title, 'Dolce and Gabbana', 70)]),
+      snapshot('luckyscent', [listing('2', title, 'Dolce & Gabbana', 75)]),
+      snapshot('twisted-lily', [listing('3', title, 'DOLCE & GABBANA', 72)]),
+    ],
+    history: { currency: 'USD', updatedAt: now, points: {} },
+    slugMemory,
+    harvestRanAt: now,
+  });
+
+  it('is one brand, and one page for the bottle all three sell', () => {
+    const site = buildRegionSite(inputs({}), {}, now);
+    expect(site.catalogue.map((c) => c.brand)).toEqual(['Dolce & Gabbana']);
+    expect(site.catalogue[0]!.shops).toBe(3);
+    expect(site.catalogue[0]!.name).toBe('Light Blue');
+  });
+
+  it('keeps every address the region had given: the page that holds a folded bottle answers at the old one', () => {
+    const memory = {
+      'aedes-1': 'dolce_and_gabbana_light_blue_100ml',
+      'luckyscent-2': 'dolce_gabbana_light_blue_edt_100ml',
+      'twisted-lily-3': 'dolce_and_gabbana_light_blue_edt_v2_100ml',
+    };
+    const site = buildRegionSite(inputs(memory), {}, now);
+    const held = site.catalogue.find((c) => c.brand === 'Dolce & Gabbana')!;
+    // Whatever address the survivor has, the other two answer there, and nothing the region gave is lost.
+    for (const [id, slug] of Object.entries(memory)) expect(site.slugs[id], id).toBe(slug);
+    const folded = ['aedes-1', 'luckyscent-2', 'twisted-lily-3'].filter((id) => id !== held.id);
+    expect(folded).toHaveLength(2);
+    for (const id of folded) {
+      expect(site.idAliases[id], id).toBe(held.id);
+      const old = memory[id as keyof typeof memory];
+      if (old !== held.slug) expect(site.slugAliases[old], old).toBe(held.slug);
+    }
+  });
+
+  it('aliases nothing it never gave an address, and nothing that is on the page', () => {
+    const site = buildRegionSite(inputs({}), {}, now);
+    expect(site.idAliases).toEqual({});
+    expect(site.slugAliases).toEqual({});
+    const given = buildRegionSite(inputs({ 'aedes-1': 'x_y_100ml' }), {}, now);
+    for (const id of Object.keys(given.idAliases)) expect(given.catalogue.some((c) => c.id === id)).toBe(false);
+  });
+});
+
 describe('what a page knows of the other regions', () => {
   it('maps each product it shares with another region to its address there, and lists the brands sold there', () => {
     const gb = { id: 'GB' as const, slugs: { 'ean-1': 'creed_aventus_100ml', 'ean-2': 'dior_sauvage_100ml' }, brands: ['Creed', 'Dior'] };

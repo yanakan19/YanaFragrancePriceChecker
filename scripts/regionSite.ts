@@ -155,6 +155,14 @@ export interface RegionSite {
   priceHistoryGap: Record<string, RegionHistoryGap>;
   /** The region's whole address memory after this build: every slug ever given, current or not. */
   slugs: Record<string, string>;
+  /**
+   * A product this build folded into another page, by id, to the id that holds
+   * it now: what the page's `ID_ALIASES` is in the UK (src/catalogue/idAliases.ts).
+   * Only an id whose address was already given, and only to a product on the page.
+   */
+  idAliases: Record<string, string>;
+  /** The address the region had given to such a folded product, to the address of the page that holds it now (`SLUG_ALIASES`). */
+  slugAliases: Record<string, string>;
   /** When the newest shop's prices were read: the freshness line and the sitemap's dates. */
   crawledAt: string;
   /** Shops with at least one offer on the page. */
@@ -214,8 +222,13 @@ export function readRegionInputs(root: string, region: RegionCode): RegionInputs
 
 /** The region build's products, with each offer's listing carried for the page (the same call the crawl makes). */
 export function regionProducts(inputs: RegionInputs, now: string, ukIds?: ReadonlySet<string>): RegionProduct[] {
+  return regionBuild(inputs, now, ukIds).products;
+}
+
+/** `regionProducts`, and the ids the build folded into another page (`buildRegionCatalogue`'s `absorbed`). */
+export function regionBuild(inputs: RegionInputs, now: string, ukIds?: ReadonlySet<string>): { products: RegionProduct[]; absorbed: Record<string, string> } {
   const shops = inputs.shops;
-  return buildRegionCatalogue(inputs.snapshots, {
+  const { products, absorbed } = buildRegionCatalogue(inputs.snapshots, {
     now,
     shopNames: new Map(shops.map((s) => [s.id, s.name])),
     ...(ukIds ? { ukIds } : {}),
@@ -223,7 +236,8 @@ export function regionProducts(inputs: RegionInputs, now: string, ukIds?: Readon
     formatWords: new Map(shops.filter((s) => s.titleMustMatch).map((s) => [s.id, s.titleMustMatch!])),
     notHouse: new Map(shops.filter((s) => s.vendorNotHouse?.length).map((s) => [s.id, new Set(s.vendorNotHouse!.map((v) => v.toLowerCase()))])),
     withListingDetail: true,
-  }).products;
+  });
+  return { products, absorbed };
 }
 
 /** A product the page can show: it names its house (no house, no brand page and no address). */
@@ -327,7 +341,8 @@ export function buildRegionSite(
   /** A UK shop's name, to credit the shop a UK product's notes were read from; unknown, the credit keeps no name. */
   ukShopName: (retailerId: string) => string | undefined = () => undefined,
 ): RegionSite {
-  const products = regionProducts(inputs, now).filter(isShowable);
+  const built = regionBuild(inputs, now);
+  const products = built.products.filter(isShowable);
   const ukPhotos = matchUkPhotos(products, uk);
   const ukNotes = matchUkNotes(products, uk);
   const slugs = regionSlugs(products.map(regionSlugProduct), ukSlugs, inputs.slugMemory);
@@ -445,6 +460,21 @@ export function buildRegionSite(
     }
   }
 
+  // A product folded into another page keeps answering at the address it was
+  // given (the region has no id aliases file of its own yet; this is the whole
+  // of it): the page that holds it now is what the old address opens. Only an
+  // address the region really gave, to a product that is on the page.
+  const idAliases: Record<string, string> = {};
+  const slugAliases: Record<string, string> = {};
+  for (const [from, to] of Object.entries(built.absorbed).sort(([a], [b]) => (a < b ? -1 : 1))) {
+    if (!shown.has(to) || shown.has(from)) continue;
+    const given = inputs.slugMemory[from];
+    if (!given) continue;
+    idAliases[from] = to;
+    const survivor = slugs[to];
+    if (survivor && survivor !== given) slugAliases[given] = survivor;
+  }
+
   const shopCount = new Set(Object.values(crawled).flatMap((offers) => offers.map((o) => o.retailerId))).size;
   return {
     region: inputs.region,
@@ -455,6 +485,8 @@ export function buildRegionSite(
     priceHistory,
     priceHistoryGap,
     slugs,
+    idAliases,
+    slugAliases,
     crawledAt: newest || inputs.harvestRanAt || now,
     shopCount,
   };
