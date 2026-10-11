@@ -1,6 +1,5 @@
 import { describe, expect, it } from 'vitest';
 import { decodeHtmlEntities } from '../src/catalogue/htmlEntities.js';
-import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
 
 describe('decodeHtmlEntities', () => {
   it('decodes the ampersand and apostrophe shops send in vendor fields and titles', () => {
@@ -36,28 +35,5 @@ describe('decodeHtmlEntities', () => {
     expect(decodeHtmlEntities('Salt &Sea; &strong; &zgrave;')).toBe('Salt &Sea; &strong; &zgrave;');
     expect(decodeHtmlEntities('a&#0;b &#150; &#xD800;')).toBe('a&#0;b &#150; &#xD800;');
     expect(decodeHtmlEntities('AT&T &amp')).toBe('AT&T &amp');
-  });
-});
-
-describe('the built catalogue', () => {
-  const ENTITY = /&(?:#\d+|#x[0-9a-f]+|[a-z][a-z0-9]*);/i;
-
-  it('shows no HTML entity in a brand, a product name or a shop title', () => {
-    const found: string[] = [];
-    for (const p of CATALOGUE) {
-      const shopTitles = (CRAWLED[p.id] ?? []).map((o) => o.title ?? '');
-      for (const text of [p.brand, p.name, p.giftSet?.title ?? '', ...(p.giftSet?.contents ?? []), ...shopTitles]) {
-        if (ENTITY.test(text)) found.push(`${p.id}: ${text}`);
-      }
-    }
-    expect(found).toEqual([]);
-  });
-
-  it('holds each house a shop sent escaped as one brand', () => {
-    const brands = new Set(CATALOGUE.map((p) => p.brand));
-    for (const brand of ['Abercrombie & Fitch', 'Dolce & Gabbana', 'Tiffany & Co', 'Viktor & Rolf', 'Zadig & Voltaire']) {
-      expect(brands.has(brand), brand).toBe(true);
-      expect(brands.has(brand.replace('&', '&amp;')), brand).toBe(false);
-    }
   });
 });

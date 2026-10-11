@@ -113,6 +113,8 @@ code tests/harvestMinutes.test.ts
 code tests/harvestReport.test.ts
 data tests/head.test.ts
 code tests/heroAlign.test.ts
+code tests/htmlEntities.test.ts
+data tests/htmlEntitiesCatalogue.test.ts
 code tests/httpFetch.test.ts
 data tests/idAliases.test.ts
 data tests/idAliasesAppendOnly.test.ts
