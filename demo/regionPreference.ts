@@ -14,6 +14,11 @@
  * per page load for a signed in visitor, the two are reconciled
  * (reconcileRegion): the profile wins, a choice made in this browser fills an
  * empty profile, and nothing is written when the profile could not be read.
+ * One exception (11 Oct 2026): a choice made here while signed in is marked
+ * (`pricesniffs.regionPending`) until the profile confirms it, because the
+ * full page load that follows a choice cancels a write still in flight. A
+ * marked choice wins and is written again, so the profile it could not reach
+ * does not undo it.
  *
  * Only the bare home page (/) is ever redirected to the remembered country's
  * home. A deep link (a product, a brand, notes, guides, a region's own home)
@@ -53,8 +58,14 @@ export interface RegionReconcile {
  * be remembered, and every choice made while signed in is written there too.
  * A choice made in this browser before signing in is copied to a profile that
  * has none. With neither, nothing is chosen and the welcome pop-up asks.
+ *
+ * `unconfirmed`: the choice here was made while signed in and the profile has
+ * not confirmed it (its write failed, or the page load cancelled it). It wins
+ * over the profile and is written to it again, or a switch would be undone by
+ * the very profile it could not reach.
  */
-export function reconcileRegion(local: RegionId | null, profile: RegionId | null): RegionReconcile {
+export function reconcileRegion(local: RegionId | null, profile: RegionId | null, unconfirmed = false): RegionReconcile {
+  if (local && unconfirmed) return { chosen: local, toLocal: null, toProfile: local === profile ? null : local };
   if (profile) return { chosen: profile, toLocal: local === profile ? null : profile, toProfile: null };
   if (local) return { chosen: local, toLocal: null, toProfile: local };
   return { chosen: null, toLocal: null, toProfile: null };
@@ -63,8 +74,17 @@ export function reconcileRegion(local: RegionId | null, profile: RegionId | null
 export interface RegionSyncDeps {
   readLocal: () => RegionId | null;
   writeLocal: (id: RegionId) => unknown;
+  /** The choice marked as not yet on the profile, and setting or (null) clearing that mark. */
+  readPending: () => RegionId | null;
+  writePending: (id: RegionId | null) => unknown;
   readProfile: () => Promise<ProfileRegionRead>;
-  writeProfile: (id: RegionId) => Promise<unknown>;
+  /** True once the profile holds it. */
+  writeProfile: (id: RegionId) => Promise<boolean>;
+}
+
+/** Clears the mark once the profile holds `id`, unless a newer choice has been marked since. */
+function settlePending(deps: Pick<RegionSyncDeps, 'readPending' | 'writePending'>, id: RegionId): void {
+  if (deps.readPending() === id) deps.writePending(null);
 }
 
 let synced: { key: string; result: Promise<RegionId | null> } | null = null;
@@ -73,14 +93,17 @@ let synced: { key: string; result: Promise<RegionId | null> } | null = null;
  * Reconciles once per signed in account per page load and answers the
  * visitor's country. The sign in handler and the arrival check share one
  * answer, so the profile is read once. When the profile cannot be read the
- * choice in this browser stands and nothing is written. `accountKey` only
- * tells one account from the next on the same page; it is never stored or
- * logged.
+ * choice in this browser stands and nothing is written. A choice marked as
+ * not yet on the profile is written again, and the mark cleared once the
+ * profile holds it; it stays while the write keeps failing, so the next load
+ * tries again. `accountKey` only tells one account from the next on the same
+ * page; it is never stored or logged.
  */
 export function syncRegionWithProfile(accountKey: string, deps: RegionSyncDeps): Promise<RegionId | null> {
   if (synced && synced.key === accountKey) return synced.result;
   const result = (async (): Promise<RegionId | null> => {
     const local = deps.readLocal();
+    const pending = deps.readPending();
     let read: ProfileRegionRead;
     try {
       read = await deps.readProfile();
@@ -88,14 +111,24 @@ export function syncRegionWithProfile(accountKey: string, deps: RegionSyncDeps):
       read = { ok: false };
     }
     if (!read.ok) return local;
-    const r = reconcileRegion(local, read.region);
+    const r = reconcileRegion(local, read.region, local !== null && pending === local);
     if (r.toLocal) deps.writeLocal(r.toLocal);
-    if (r.toProfile) {
+    const toProfile = r.toProfile;
+    if (toProfile) {
       try {
-        void deps.writeProfile(r.toProfile).catch(() => undefined);
+        void deps
+          .writeProfile(toProfile)
+          .then((saved) => {
+            if (saved) settlePending(deps, toProfile);
+          })
+          .catch(() => undefined);
       } catch {
         // A failed write changes nothing: it is tried again on the next load.
       }
+    } else if (pending) {
+      // Nothing left to confirm: the profile holds the choice made here, or
+      // won over a mark left for a country no longer kept here.
+      settlePending(deps, pending);
     }
     return r.chosen;
   })();
@@ -155,7 +188,10 @@ export interface ChooseRegionInput {
 
 export interface ChooseRegionDeps {
   writeLocal: (id: RegionId) => unknown;
-  writeProfile: (id: RegionId) => Promise<unknown>;
+  readPending: () => RegionId | null;
+  writePending: (id: RegionId | null) => unknown;
+  /** True once the profile holds it. */
+  writeProfile: (id: RegionId) => Promise<boolean>;
   /** A full page load to another region's home. */
   navigate: (href: string) => void;
   waitMs?: number;
@@ -169,6 +205,11 @@ export type ChooseRegionResult = 'ignored' | 'saved' | 'opened';
  * (waiting at most PROFILE_WAIT_MS for it), then opens that region's home
  * unless the page is already in it. While only one region is live there is
  * nothing to choose, so nothing is stored, as before.
+ *
+ * A signed in choice is marked as not yet on the profile until the write
+ * answers that it is. The full page load that follows cancels a write still
+ * in flight, and a refused one never lands; either way the mark stays, and the
+ * next page keeps the choice and writes it again (syncRegionWithProfile).
  */
 export async function chooseRegion(input: ChooseRegionInput, deps: ChooseRegionDeps): Promise<ChooseRegionResult> {
   if (!regionChoiceOn(input.live)) return 'ignored';
@@ -176,12 +217,16 @@ export async function chooseRegion(input: ChooseRegionInput, deps: ChooseRegionD
   if (!region) return 'ignored';
   deps.writeLocal(region.id);
   if (input.signedIn) {
+    deps.writePending(region.id);
     let timer: ReturnType<typeof setTimeout> | undefined;
     const wait = new Promise<void>((resolve) => {
       timer = setTimeout(resolve, deps.waitMs ?? PROFILE_WAIT_MS);
     });
     const write = Promise.resolve()
       .then(() => deps.writeProfile(region.id))
+      .then((saved) => {
+        if (saved) settlePending(deps, region.id);
+      })
       .catch(() => undefined);
     await Promise.race([write, wait]);
     clearTimeout(timer);

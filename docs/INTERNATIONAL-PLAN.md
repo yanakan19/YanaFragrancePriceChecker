@@ -281,7 +281,22 @@ no request for it. It does not wait for `REGION_WELCOME_ON`, which only switches
   nothing is chosen and the pop-up asks. When the profile cannot be read, the local choice
   stands and nothing is written. The profile is read once per page load, shared by the sign
   in handler and the arrival check. A change made on another device shows from the next page
-  load on this one.
+  load on this one. One exception, below.
+- **A choice the profile has not confirmed (bug found 10 Oct 2026, fixed 11 Oct 2026).** A
+  signed in visitor with the US on the profile chose the UK in the country menu on `/us/`. The
+  choice waits at most 1.5 seconds for the profile write, then opens the UK page with a full
+  page load, which cancels a write still in flight; a refused write never lands at all. The UK
+  page then reconciled with the profile, which still said US, put US back in this browser, and
+  the next visit to `/` went to `/us/`. Now a choice made while signed in is also marked in this
+  browser (`localStorage` `pricesniffs.regionPending`, holding that country) until the profile
+  write answers that it saved it. On the next page load a marked choice that matches
+  `pricesniffs.region` wins over the profile and is written to it again; the mark goes once the
+  profile holds it (written, or already there because the first write landed after all), and
+  stays while the write keeps failing, so each page load tries once more. A mark for a country
+  no longer kept in this browser is stale: the profile wins as before and the mark goes. Every
+  sign out (and deleting the account) clears the mark, so one account's unsaved choice never
+  outranks the next account's profile on the same device. A choice made while signed out is
+  never marked, so the profile still wins over it on sign in. The cookies page lists the key.
 - **Where it moves the visitor** (`arrivalAction`): only the bare home page (`/`), and only to a
   live region's home. A deep link (a product, brand, notes or guides page, `/account`, a
   region's own home) is never redirected; the page notes the remembered country on the root
@@ -293,12 +308,16 @@ no request for it. It does not wait for `REGION_WELCOME_ON`, which only switches
   States and India drawn as the pop-up draws them (flag, name, currency), the current one
   pressed and ticked (the remembered country, else the region the page is in). Pressing one
   saves it here and on the profile and opens that region's home; pressing the current one
-  saves it and stays. Hidden while only the UK is live; `/account?regionwelcome=preview`
+  saves it and stays. A press whose profile write does not land is kept and written again, as
+  for the menu (above). Hidden while only the UK is live; `/account?regionwelcome=preview`
   shows it with every region, for the browser test and a look.
 - **Also:** Download My Data includes the saved country; the privacy notice and the cookies
   page say where the country is kept once it can be chosen. Tests:
   `tests/regionPreference.test.ts` (the rules, the menu's profile write, the row, the legal
-  text with the beta flags set) and `tests/regionPreferenceBrowser.test.ts` (the built page).
+  text with the beta flags set, the unconfirmed choice mark) and
+  `tests/regionPreferenceBrowser.test.ts` (the built page, including a menu switch from `/us/`
+  to the UK whose profile write is refused, and one held 4 seconds and cancelled by the page
+  load: both keep the UK, and the write from the UK page lands).
 
 ### Search
 
@@ -809,7 +828,9 @@ they have no brand page and no address.
 - The country menu lists United Kingdom, **United States (Beta)** and **India (Beta)**, all three
   choosable (`menuName`, `src/services/regions.ts`). A choice goes through lane 2's `chooseRegion`
   (`demo/regionPreference.ts`): saved in `localStorage` (`pricesniffs.region`) and, signed in, on the
-  profile, then the same page opens there (`demo/regionSwitch.ts`): a product sold there opens its
+  profile (marked `pricesniffs.regionPending` until the profile confirms it, so a write the page
+  load cancels or the profile refuses is written again from the next page rather than undoing
+  the switch; section 2, "Remembered preference"), then the same page opens there (`demo/regionSwitch.ts`): a product sold there opens its
   page there (found by id, through the `regions` lazy data file), else its brand's page there,
   else the same section (Deals, Explore, About, the guides, the Legal Notice, filters kept), else
   that country's home. A shop page opens that country's Shops; the account pages its home.

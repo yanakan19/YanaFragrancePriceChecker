@@ -144,7 +144,8 @@ import { activeRegion, liveRegions, regionById, regionHome, regionPath, splitReg
 import { BAR_DISMISSED_KEY, barRegion, barText, leafAlternates, switchNeedsLinks, switchTarget, type RegionLinks, type SwitchFrom } from './regionSwitch.js';
 import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxNote, sparseDealsLine } from '../src/services/regionText.js';
 import {
-  WELCOME_PREVIEW_PARAM, browserTimeZone, closeRegionWelcome, hasStoredSession, openRegionWelcome, previewChoices, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
+  WELCOME_PREVIEW_PARAM, browserTimeZone, closeRegionWelcome, hasStoredSession, openRegionWelcome, previewChoices, readPendingRegion, readStoredRegion, savePendingRegion, saveStoredRegion, welcomeAction,
+  welcomeEnabled,
 } from './regionWelcome.js';
 import { readProfileRegion, saveProfileRegion } from './regionProfile.js';
 import {
@@ -5278,10 +5279,13 @@ function welcomePreview(): boolean {
   return welcomePreviewAtLoad;
 }
 
-/** How the page reads and writes the two places a choice is kept. */
+/** How the page reads and writes the two places a choice is kept, and the
+ *  mark on a choice the profile has not confirmed yet. */
 const regionSyncDeps: RegionSyncDeps = {
   readLocal: () => readStoredRegion(),
   writeLocal: (id: RegionId) => saveStoredRegion(id),
+  readPending: () => readPendingRegion(),
+  writePending: (id: RegionId | null) => savePendingRegion(id),
   readProfile: readProfileRegion,
   writeProfile: saveProfileRegion,
 };
@@ -5295,6 +5299,8 @@ const regionSyncDeps: RegionSyncDeps = {
  */
 const regionChoiceDeps = {
   writeLocal: (id: RegionId) => saveStoredRegion(id),
+  readPending: () => readPendingRegion(),
+  writePending: (id: RegionId | null) => savePendingRegion(id),
   writeProfile: saveProfileRegion,
   navigate: (href: string) => {
     const to = splitRegionPrefix(href).region;
@@ -5434,6 +5440,9 @@ function runAccountAction(action: AccountMenuAction): void {
       return;
     case 'signOut':
       state.authPendingEmail = '';
+      // A country this account chose that its profile never confirmed must
+      // not outrank the profile of whoever signs in next on this device.
+      savePendingRegion(null);
       void signOut();
       return;
   }
@@ -8317,6 +8326,7 @@ function init(): void {
       // otherwise stay parked on the verification screen with nothing to
       // sign out of.
       state.authPendingEmail = '';
+      savePendingRegion(null);
       void signOut();
       return;
     }
@@ -8395,6 +8405,8 @@ function init(): void {
           void showDialog({ title: 'Account Not Deleted', message: result.message });
           return;
         }
+        // Signed out with the account gone: no country is left to confirm.
+        savePendingRegion(null);
         void showDialog({
           title: 'Account Deleted',
           message: `Your account, wishlist${withPhoto ? ' and profile photo have' : ' have'} been deleted.`,

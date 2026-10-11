@@ -63,7 +63,7 @@ import { SHOP_COUNT } from './catalogue.generated.js';
 import { shopsPhrase } from './head.js';
 import { ADS_ON, ADS_SWITCHED_ON } from './ads.js';
 import { formatMoneyShort } from '../src/services/money.js';
-import { REGION_STORAGE_KEY, activeRegion } from '../src/config/regions.js';
+import { REGION_PENDING_KEY, REGION_STORAGE_KEY, activeRegion } from '../src/config/regions.js';
 import { regionChoiceOn } from './regionPreference.js';
 import { regionLegalPages } from './legalRegion.js';
 import { BAR_DISMISSED_KEY } from './regionSwitch.js';
@@ -357,6 +357,12 @@ export const STORAGE_KEYS = [
           kind: 'local storage',
           when: 'when you choose a country',
           holds: 'that choice. When you are signed in it is also saved on your profile, so it follows you to another device',
+        } as const,
+        {
+          key: REGION_PENDING_KEY,
+          kind: 'local storage',
+          when: 'when you choose a country while signed in, and removed once your profile has saved it or you sign out',
+          holds: 'that country until then, so a choice your profile could not save yet is kept, and saved again on the next page you open',
         } as const,
         { key: BAR_DISMISSED_KEY, kind: 'session storage', when: 'when you close the bar offering another country’s prices', holds: 'that you closed it' } as const,
       ]

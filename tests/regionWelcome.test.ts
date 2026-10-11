@@ -2,11 +2,13 @@ import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { REGION_CONFIGS, REGION_STORAGE_KEY, regionById } from '../src/config/regions.js';
+import { REGION_CONFIGS, REGION_PENDING_KEY, REGION_STORAGE_KEY, regionById } from '../src/config/regions.js';
 import {
   WELCOME_LOGIN_TEXT,
   WELCOME_TITLE,
+  readPendingRegion,
   readStoredRegion,
+  savePendingRegion,
   saveStoredRegion,
   closeRegionWelcome,
   hasStoredSession,
@@ -95,7 +97,7 @@ describe('when the pop-up shows', () => {
 describe('the remembered choice', () => {
   const memory = () => {
     const m = new Map<string, string>();
-    return { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => void m.set(k, v), m };
+    return { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => void m.set(k, v), removeItem: (k: string) => void m.delete(k), m };
   };
 
   it('is saved under pricesniffs.region and read back', () => {
@@ -126,6 +128,41 @@ describe('the remembered choice', () => {
 
   it('is listed on the cookies page now that the pop-up can write it (US and India live since 9 Oct 2026)', () => {
     expect(STORAGE_KEYS.map((k) => k.key)).toContain(REGION_STORAGE_KEY);
+  });
+
+  it('a choice the profile has not confirmed is marked under pricesniffs.regionPending beside it, and the mark cleared with null', () => {
+    const s = memory();
+    expect(REGION_PENDING_KEY).toBe('pricesniffs.regionPending');
+    expect(readPendingRegion(s)).toBeNull();
+    expect(savePendingRegion('GB', s)).toBe(true);
+    expect(s.m.get(REGION_PENDING_KEY)).toBe('GB');
+    expect(readPendingRegion(s)).toBe('GB');
+    expect(savePendingRegion(null, s)).toBe(true);
+    expect(s.m.has(REGION_PENDING_KEY)).toBe(false);
+    expect(readPendingRegion(s)).toBeNull();
+    // The remembered choice is left alone either way.
+    expect(s.m.has(REGION_STORAGE_KEY)).toBe(false);
+  });
+
+  it('the mark ignores anything that is not a known region and never throws', () => {
+    const s = memory();
+    s.m.set(REGION_PENDING_KEY, 'DE');
+    expect(readPendingRegion(s)).toBeNull();
+    expect(savePendingRegion('DE' as never, s)).toBe(false);
+    const blocked = {
+      getItem: () => { throw new Error('SecurityError'); },
+      setItem: () => { throw new Error('QuotaExceededError'); },
+      removeItem: () => { throw new Error('SecurityError'); },
+    };
+    expect(readPendingRegion(blocked)).toBeNull();
+    expect(savePendingRegion('GB', blocked)).toBe(false);
+    expect(savePendingRegion(null, blocked)).toBe(false);
+    expect(readPendingRegion(null)).toBeNull();
+    expect(savePendingRegion(null, null)).toBe(false);
+  });
+
+  it('the mark is listed on the cookies page too', () => {
+    expect(STORAGE_KEYS.map((k) => k.key)).toContain(REGION_PENDING_KEY);
   });
 });
 

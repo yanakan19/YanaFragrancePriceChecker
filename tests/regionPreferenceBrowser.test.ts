@@ -3,10 +3,10 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import AxeBuilder from '@axe-core/playwright';
-import type { Browser, BrowserContext, Page } from 'playwright';
+import type { Browser, BrowserContext, Page, Route } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 import { liveRegions } from '../src/config/regions.js';
-import { stubSupabase, type FakeAccount } from './support/fakeAccount.js';
+import { SUPABASE_HOST, stubSupabase, type FakeAccount } from './support/fakeAccount.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
@@ -24,7 +24,9 @@ const built = existsSync(resolve(root, 'demo/index.html'));
  * light and dark, 320, 390 and 1280 wide, axe clean; a choice saved in this
  * browser and on the profile, then that region's home; the profile's country
  * mirrored into this browser; a choice made here before signing in copied to
- * an empty profile. Never a real Supabase: tests/support/fakeAccount.ts
+ * an empty profile; a switch from the country menu whose profile write was
+ * refused, or was too slow and cancelled by the page load, kept and written
+ * again rather than undone (11 Oct 2026). Never a real Supabase: tests/support/fakeAccount.ts
  * answers every request. The rules themselves are
  * tests/regionPreference.test.ts.
  */
@@ -83,6 +85,7 @@ describe.skipIf(!built)('the Country row and the remembered country', () => {
   }
 
   const stored = (page: Page) => page.evaluate(`localStorage.getItem('pricesniffs.region')`) as Promise<string | null>;
+  const pendingMark = (page: Page) => page.evaluate(`localStorage.getItem('pricesniffs.regionPending')`) as Promise<string | null>;
   const pressed = (page: Page) =>
     page.evaluate(`Array.from(document.querySelectorAll('[data-acct-country][aria-pressed="true"]')).map((b) => b.dataset.acctCountry)`) as Promise<string[]>;
 
@@ -208,4 +211,91 @@ describe.skipIf(!built)('the Country row and the remembered country', () => {
       await context.close();
     }
   }, 60_000);
+
+  /**
+   * Answers the profile's country writes here, ahead of the stub: `answer`
+   * gets each in turn (counted from 0) and refuses it, holds it, or passes it
+   * on to the stub, which saves it on the account. Answers what was sent.
+   */
+  async function answerRegionWrites(context: BrowserContext, answer: (route: Route, n: number) => Promise<void>): Promise<string[]> {
+    const sent: string[] = [];
+    await context.route(`${SUPABASE_HOST}/rest/v1/profiles**`, async (route) => {
+      const req = route.request();
+      if (req.method() !== 'PATCH' || !(req.postData() ?? '').includes('"region"')) return route.fallback();
+      sent.push(req.postData() ?? '');
+      await answer(route, sent.length - 1);
+    });
+    return sent;
+  }
+
+  /** The country menu on /us/: United Kingdom, then the UK home once it has loaded. */
+  async function chooseUkFromMenu(page: Page): Promise<void> {
+    await page.click('#region-btn');
+    await Promise.all([page.waitForURL((u) => u.pathname === '/', { timeout: 30_000 }), page.click('[data-region="GB"]')]);
+    await waitForApp(page);
+  }
+
+  /** The bare home page, given time to reconcile and to move if it is going to. */
+  async function openBareHome(page: Page): Promise<string> {
+    await page.goto(`http://127.0.0.1:${port}/`, { waitUntil: 'load' });
+    await waitForApp(page);
+    await page.waitForTimeout(1500);
+    return (await page.evaluate(`location.pathname`)) as string;
+  }
+
+  it('the US on the profile, the UK chosen on /us/ and the profile write refused: the UK holds, the write is tried again, and lands once accepted', async () => {
+    const account = reader({ region: 'US' });
+    const { context, page } = await open('/us/', { account, stored: 'US' });
+    let refuse = true;
+    const sent = await answerRegionWrites(context, (route) =>
+      refuse
+        ? route.fulfill({ status: 403, contentType: 'application/json', body: JSON.stringify({ code: '42501', message: 'permission denied for table profiles' }) })
+        : route.fallback(),
+    );
+    try {
+      await chooseUkFromMenu(page);
+      // The UK page reads the profile (still the US) and writes the UK to it
+      // again, instead of taking the US back into this browser.
+      await expect.poll(() => sent.length, { timeout: 10_000 }).toBeGreaterThanOrEqual(2);
+      expect(sent.every((b) => b === '{"region":"GB"}'), sent.join(' ')).toBe(true);
+      expect(await stored(page)).toBe('GB');
+      expect(await pendingMark(page)).toBe('GB');
+      expect(account.region).toBe('US');
+      // The bare home page is not sent back to /us/.
+      expect(await openBareHome(page)).toBe('/');
+      expect(await stored(page)).toBe('GB');
+      // The profile takes writes again: the next page load saves the UK there and drops the mark.
+      refuse = false;
+      await page.reload({ waitUntil: 'load' });
+      await expect.poll(() => account.region, { timeout: 10_000 }).toBe('GB');
+      await expect.poll(() => pendingMark(page), { timeout: 10_000 }).toBeNull();
+      expect(await stored(page)).toBe('GB');
+      expect(account.writes?.filter((w) => w.includes('region'))).toEqual(['profiles {"region":"GB"}']);
+    } finally {
+      await context.close();
+    }
+  }, 90_000);
+
+  it('the profile write slower than the choice waits for, and cancelled by the page load: the UK holds and the write from the UK page lands', async () => {
+    const account = reader({ region: 'US' });
+    const { context, page } = await open('/us/', { account, stored: 'US' });
+    const sent = await answerRegionWrites(context, async (route, n) => {
+      if (n > 0) return route.fallback();
+      // Four seconds, past PROFILE_WAIT_MS: the menu goes on to the UK home
+      // without it, and that page load cancels it, so it never lands.
+      await new Promise((r) => setTimeout(r, 4000));
+      await route.abort().catch(() => undefined);
+    });
+    try {
+      await chooseUkFromMenu(page);
+      await expect.poll(() => account.region, { timeout: 15_000 }).toBe('GB');
+      await expect.poll(() => pendingMark(page), { timeout: 10_000 }).toBeNull();
+      expect(sent.length).toBeGreaterThanOrEqual(2);
+      expect(await stored(page)).toBe('GB');
+      expect(await openBareHome(page)).toBe('/');
+      expect(await stored(page)).toBe('GB');
+    } finally {
+      await context.close();
+    }
+  }, 90_000);
 });

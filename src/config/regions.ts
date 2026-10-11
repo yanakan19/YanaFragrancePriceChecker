@@ -159,6 +159,13 @@ export const REGION_WELCOME_ON = true;
 /** Where a visitor's chosen region is kept in their browser (listed on the cookies page once it can be written). */
 export const REGION_STORAGE_KEY = 'pricesniffs.region';
 
+/**
+ * Beside it, a choice made while signed in that the profile has not yet
+ * confirmed (its write failed, or the page load that followed cancelled it),
+ * so the next page keeps it and writes it again (demo/regionPreference.ts).
+ */
+export const REGION_PENDING_KEY = 'pricesniffs.regionPending';
+
 export const DEFAULT_REGION: RegionConfig = REGION_CONFIGS[0]!;
 
 export function regionById(id: string | null | undefined): RegionConfig | undefined {

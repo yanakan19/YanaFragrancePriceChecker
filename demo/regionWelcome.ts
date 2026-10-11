@@ -40,6 +40,7 @@
 
 import {
   REGION_CONFIGS,
+  REGION_PENDING_KEY,
   REGION_STORAGE_KEY,
   REGION_WELCOME_ON,
   liveRegions,
@@ -80,6 +81,34 @@ export function saveStoredRegion(id: RegionId, storage: Pick<Storage, 'setItem'>
   try {
     if (!storage) return false;
     storage.setItem(REGION_STORAGE_KEY, id);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * The choice made while signed in that the profile has not confirmed yet
+ * (REGION_PENDING_KEY), or null. Never throws.
+ */
+export function readPendingRegion(storage: Pick<Storage, 'getItem'> | null = safeLocalStorage()): RegionId | null {
+  try {
+    return regionById(storage?.getItem(REGION_PENDING_KEY))?.id ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/** Marks a choice as not yet on the profile, or clears the mark with null. Answers false when storage is unavailable. */
+export function savePendingRegion(
+  id: RegionId | null,
+  storage: Pick<Storage, 'setItem' | 'removeItem'> | null = safeLocalStorage(),
+): boolean {
+  if (id !== null && !regionById(id)) return false;
+  try {
+    if (!storage) return false;
+    if (id === null) storage.removeItem(REGION_PENDING_KEY);
+    else storage.setItem(REGION_PENDING_KEY, id);
     return true;
   } catch {
     return false;
