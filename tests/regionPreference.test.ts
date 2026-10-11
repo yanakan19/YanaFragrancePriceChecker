@@ -21,9 +21,8 @@ import { buildDataExport } from '../src/services/accountMenu.js';
  * The remembered country (docs/INTERNATIONAL-PLAN.md, section 2, "Welcome",
  * "Remembered preference: built 9 Oct 2026"): the sign in rule, the bare
  * home page as the only address ever redirected, a choice written to the
- * profile from the country menu as well as the pop-up, a choice the profile
- * has not confirmed kept and written again (11 Oct 2026), and the Country row
- * on the profile page. Every rule takes the live regions as an argument, so
+ * profile from the country menu as well as the pop-up, and the Country row on
+ * the profile page. Every rule takes the live regions as an argument, so
  * these hold today (the UK alone) and once the US and India are live. The
  * built page half is tests/regionPreferenceBrowser.test.ts.
  */
@@ -45,70 +44,47 @@ describe('when anything is remembered at all', () => {
 
 describe('signing in: the profile and this browser agree (reconcileRegion)', () => {
   it('a profile with a country and nothing in this browser: the profile is mirrored here', () => {
-    expect(reconcileRegion(null, 'US')).toEqual({ chosen: 'US', toLocal: 'US', toProfile: null });
+    expect(reconcileRegion(null, 'US')).toEqual({ chosen: 'US', toLocal: 'US', toProfile: null, clearPending: false });
   });
 
   it('a choice made here before signing in fills a profile that has none', () => {
-    expect(reconcileRegion('IN', null)).toEqual({ chosen: 'IN', toLocal: null, toProfile: 'IN' });
+    expect(reconcileRegion('IN', null)).toEqual({ chosen: 'IN', toLocal: null, toProfile: 'IN', clearPending: false });
   });
 
   it('both set and different: the profile wins', () => {
-    expect(reconcileRegion('GB', 'IN')).toEqual({ chosen: 'IN', toLocal: 'IN', toProfile: null });
-    expect(reconcileRegion('US', 'GB')).toEqual({ chosen: 'GB', toLocal: 'GB', toProfile: null });
+    expect(reconcileRegion('GB', 'IN')).toEqual({ chosen: 'IN', toLocal: 'IN', toProfile: null, clearPending: false });
+    expect(reconcileRegion('US', 'GB')).toEqual({ chosen: 'GB', toLocal: 'GB', toProfile: null, clearPending: false });
   });
 
   it('both set and the same: nothing is written', () => {
-    expect(reconcileRegion('US', 'US')).toEqual({ chosen: 'US', toLocal: null, toProfile: null });
+    expect(reconcileRegion('US', 'US')).toEqual({ chosen: 'US', toLocal: null, toProfile: null, clearPending: false });
   });
 
   it('neither: nothing is chosen, so the welcome pop-up may ask', () => {
-    expect(reconcileRegion(null, null)).toEqual({ chosen: null, toLocal: null, toProfile: null });
-  });
-
-  it('a choice made here while signed in that the profile has not confirmed wins, and is written to it again', () => {
-    expect(reconcileRegion('GB', 'US', true)).toEqual({ chosen: 'GB', toLocal: null, toProfile: 'GB' });
-    expect(reconcileRegion('IN', null, true)).toEqual({ chosen: 'IN', toLocal: null, toProfile: 'IN' });
-  });
-
-  it('an unconfirmed choice the profile already holds needs no write', () => {
-    expect(reconcileRegion('GB', 'GB', true)).toEqual({ chosen: 'GB', toLocal: null, toProfile: null });
-  });
-
-  it('with nothing in this browser there is no unconfirmed choice: the profile wins', () => {
-    expect(reconcileRegion(null, 'US', true)).toEqual({ chosen: 'US', toLocal: 'US', toProfile: null });
-    expect(reconcileRegion(null, null, true)).toEqual({ chosen: null, toLocal: null, toProfile: null });
+    expect(reconcileRegion(null, null)).toEqual({ chosen: null, toLocal: null, toProfile: null, clearPending: false });
   });
 });
 
 describe('syncRegionWithProfile', () => {
   afterEach(() => resetRegionSyncForTests());
 
-  /** `pending`: the unconfirmed choice marked in this browser; `saved`: what the profile write answers. */
-  function deps(local: RegionId | null, read: ProfileRegionRead, opts: { pending?: RegionId | null; saved?: boolean } = {}) {
-    let pending = opts.pending ?? null;
-    const calls = { writeLocal: [] as RegionId[], writeProfile: [] as RegionId[], writePending: [] as (RegionId | null)[], reads: 0 };
+  function deps(local: RegionId | null, read: ProfileRegionRead) {
+    const calls = { writeLocal: [] as RegionId[], writeProfile: [] as RegionId[], reads: 0 };
     const d: RegionSyncDeps = {
-      readLocal: () => local,
+      readLocal: () => (local ? { id: local, pendingAt: null } : null),
       writeLocal: (id) => void calls.writeLocal.push(id),
-      readPending: () => pending,
-      writePending: (id) => {
-        calls.writePending.push(id);
-        pending = id;
-      },
+      clearPending: () => undefined,
       readProfile: async () => {
         calls.reads++;
         return read;
       },
       writeProfile: async (id) => {
         calls.writeProfile.push(id);
-        return opts.saved ?? true;
+        return true;
       },
     };
-    return { d, calls, pending: () => pending };
+    return { d, calls };
   }
-
-  /** Lets a profile write the sync did not wait for answer. */
-  const settle = () => new Promise((r) => setTimeout(r, 0));
 
   it('mirrors the profile into this browser, so the next load needs no request', async () => {
     const { d, calls } = deps(null, { ok: true, region: 'US' });
@@ -146,54 +122,6 @@ describe('syncRegionWithProfile', () => {
     const { d } = deps('IN', { ok: true, region: null });
     const failing: RegionSyncDeps = { ...d, writeProfile: () => Promise.reject(new Error('denied')) };
     expect(await syncRegionWithProfile('a', failing)).toBe('IN');
-  });
-
-  it('a choice made here that the profile has not confirmed wins over it and is written again; the mark goes once it is saved', async () => {
-    const { d, calls, pending } = deps('GB', { ok: true, region: 'US' }, { pending: 'GB' });
-    expect(await syncRegionWithProfile('a', d)).toBe('GB');
-    expect(calls.writeLocal).toEqual([]);
-    expect(calls.writeProfile).toEqual(['GB']);
-    await settle();
-    expect(pending()).toBeNull();
-  });
-
-  it('when that write fails again the mark stays, so the next page load tries once more', async () => {
-    const refused = deps('GB', { ok: true, region: 'US' }, { pending: 'GB', saved: false });
-    expect(await syncRegionWithProfile('a', refused.d)).toBe('GB');
-    expect(refused.calls.writeProfile).toEqual(['GB']);
-    await settle();
-    expect(refused.pending()).toBe('GB');
-    expect(refused.calls.writePending).toEqual([]);
-    resetRegionSyncForTests();
-    const thrown = deps('GB', { ok: true, region: 'US' }, { pending: 'GB' });
-    expect(await syncRegionWithProfile('a', { ...thrown.d, writeProfile: () => Promise.reject(new Error('offline')) })).toBe('GB');
-    await settle();
-    expect(thrown.pending()).toBe('GB');
-    expect(thrown.calls.writeLocal).toEqual([]);
-  });
-
-  it('the mark goes with no write once the profile holds that choice (the earlier write landed after all)', async () => {
-    const { d, calls, pending } = deps('GB', { ok: true, region: 'GB' }, { pending: 'GB' });
-    expect(await syncRegionWithProfile('a', d)).toBe('GB');
-    expect(calls.writeProfile).toEqual([]);
-    expect(calls.writeLocal).toEqual([]);
-    expect(pending()).toBeNull();
-  });
-
-  it('a mark for another country than the one kept here is stale: the profile wins as before and the mark goes', async () => {
-    const { d, calls, pending } = deps('IN', { ok: true, region: 'US' }, { pending: 'GB' });
-    expect(await syncRegionWithProfile('a', d)).toBe('US');
-    expect(calls.writeLocal).toEqual(['US']);
-    expect(calls.writeProfile).toEqual([]);
-    expect(pending()).toBeNull();
-  });
-
-  it('an unreadable profile leaves an unconfirmed choice standing and marked, and writes nothing', async () => {
-    const { d, calls, pending } = deps('GB', { ok: false }, { pending: 'GB' });
-    expect(await syncRegionWithProfile('a', d)).toBe('GB');
-    expect(calls.writeProfile).toEqual([]);
-    expect(calls.writePending).toEqual([]);
-    expect(pending()).toBe('GB');
   });
 
   it('reads the profile once per account per page load, shared by the sign in handler and the arrival check', async () => {
@@ -234,16 +162,11 @@ describe('arrival: only the bare home page is redirected (arrivalAction)', () =>
 });
 
 describe('a choice (chooseRegion): the country menu and the Country row', () => {
-  function deps(profile: (id: RegionId) => Promise<boolean> = async () => true) {
-    let pending: RegionId | null = null;
-    const calls = { writeLocal: [] as RegionId[], writePending: [] as (RegionId | null)[], writeProfile: [] as RegionId[], navigate: [] as string[] };
+  function deps(profile: (id: RegionId) => Promise<unknown> = async () => true) {
+    const calls = { writeLocal: [] as RegionId[], writeProfile: [] as RegionId[], navigate: [] as string[] };
     const d: ChooseRegionDeps = {
       writeLocal: (id) => void calls.writeLocal.push(id),
-      readPending: () => pending,
-      writePending: (id) => {
-        calls.writePending.push(id);
-        pending = id;
-      },
+      clearPending: () => undefined,
       writeProfile: (id) => {
         calls.writeProfile.push(id);
         return profile(id);
@@ -251,26 +174,25 @@ describe('a choice (chooseRegion): the country menu and the Country row', () => 
       navigate: (href) => void calls.navigate.push(href),
       waitMs: 50,
     };
-    return { d, calls, pending: () => pending };
+    return { d, calls };
   }
 
   it('signed in: saved here and on the profile, then that region\'s home opens', async () => {
     const { d, calls } = deps();
     expect(await chooseRegion({ id: 'US', live: ALL, active: GB, signedIn: true }, d)).toBe('opened');
-    // Marked unconfirmed until the profile answers that it holds it.
-    expect(calls).toEqual({ writeLocal: ['US'], writePending: ['US', null], writeProfile: ['US'], navigate: ['/us/'] });
+    expect(calls).toEqual({ writeLocal: ['US'], writeProfile: ['US'], navigate: ['/us/'] });
   });
 
-  it('signed out: saved here only, nothing goes to a profile and nothing is marked', async () => {
+  it('signed out: saved here only, nothing goes to a profile', async () => {
     const { d, calls } = deps();
     expect(await chooseRegion({ id: 'IN', live: ALL, active: GB, signedIn: false }, d)).toBe('opened');
-    expect(calls).toEqual({ writeLocal: ['IN'], writePending: [], writeProfile: [], navigate: ['/in/'] });
+    expect(calls).toEqual({ writeLocal: ['IN'], writeProfile: [], navigate: ['/in/'] });
   });
 
   it('the region the page is in is remembered too, and the page stays', async () => {
     const { d, calls } = deps();
     expect(await chooseRegion({ id: 'GB', live: ALL, active: GB, signedIn: true }, d)).toBe('saved');
-    expect(calls).toEqual({ writeLocal: ['GB'], writePending: ['GB', null], writeProfile: ['GB'], navigate: [] });
+    expect(calls).toEqual({ writeLocal: ['GB'], writeProfile: ['GB'], navigate: [] });
   });
 
   it('a slow or failing profile write never holds the visitor: it goes on after the wait', async () => {
@@ -284,36 +206,12 @@ describe('a choice (chooseRegion): the country menu and the Country row', () => 
     expect(failing.calls.navigate).toEqual(['/in/']);
   });
 
-  it('and leaves the choice marked unconfirmed, so the next page keeps it and writes it again (11 Oct 2026)', async () => {
-    for (const profile of [() => new Promise<boolean>(() => {}), () => Promise.reject(new Error('denied')), async () => false]) {
-      const { d, calls, pending } = deps(profile);
-      expect(await chooseRegion({ id: 'GB', live: ALL, active: US, signedIn: true }, d)).toBe('opened');
-      expect(calls.writeLocal).toEqual(['GB']);
-      expect(calls.navigate).toEqual(['/']);
-      expect(pending()).toBe('GB');
-    }
-  });
-
-  it('a write that lands after the visitor has chosen again leaves the newer choice marked', async () => {
-    let land!: (saved: boolean) => void;
-    const first = new Promise<boolean>((r) => {
-      land = r;
-    });
-    let n = 0;
-    const { d, pending } = deps(() => (n++ === 0 ? first : Promise.resolve(false)));
-    await chooseRegion({ id: 'US', live: ALL, active: GB, signedIn: true }, d);
-    await chooseRegion({ id: 'IN', live: ALL, active: GB, signedIn: true }, d);
-    land(true);
-    await new Promise((r) => setTimeout(r, 0));
-    expect(pending()).toBe('IN');
-  });
-
   it('while the UK is the only live region nothing is stored, as before; a region that is not live cannot be chosen', async () => {
     const { d, calls } = deps();
     expect(await chooseRegion({ id: 'GB', live: [GB], active: GB, signedIn: true }, d)).toBe('ignored');
     expect(await chooseRegion({ id: 'IN', live: [GB, US], active: GB, signedIn: true }, d)).toBe('ignored');
     expect(await chooseRegion({ id: undefined, live: ALL, active: GB, signedIn: true }, d)).toBe('ignored');
-    expect(calls).toEqual({ writeLocal: [], writePending: [], writeProfile: [], navigate: [] });
+    expect(calls).toEqual({ writeLocal: [], writeProfile: [], navigate: [] });
   });
 });
 
@@ -333,22 +231,11 @@ describe('the country menu writes to the profile (demo/app.ts)', () => {
   it('whose profile write is saveProfileRegion, the same one the pop-up and the Country row use', () => {
     const deps = /const regionChoiceDeps = \{([\s\S]*?)\n\};/.exec(app)?.[1] ?? '';
     expect(deps).toMatch(/writeProfile: saveProfileRegion/);
-    expect(deps).toMatch(/writeLocal: \(id: RegionId\) => saveStoredRegion\(id\)/);
+    expect(deps).toMatch(/writeLocal: \(id: RegionId, pendingAt\?: number\) => saveStoredRegion\(id, undefined, pendingAt \?\? null\)/);
+    expect(deps).toMatch(/clearPending: \(choice: StoredRegionChoice\) => clearPendingRegion\(choice\)/);
     expect(body('chooseCountryFromProfile')).toMatch(/chooseRegion\([\s\S]*regionChoiceDeps/);
-    expect(app).toMatch(/saveToProfile: \(id: RegionId\) => \(state\.authUser \? saveProfileRegion\(id\) : Promise\.resolve\(false\)\)/);
-  });
-
-  it('both mark a choice the profile has not confirmed in this browser, and every sign out forgets the mark', () => {
-    const choice = /const regionChoiceDeps = \{([\s\S]*?)\n\};/.exec(app)?.[1] ?? '';
-    const sync = /const regionSyncDeps: RegionSyncDeps = \{([\s\S]*?)\n\};/.exec(app)?.[1] ?? '';
-    for (const d of [choice, sync]) {
-      expect(d).toMatch(/readPending: \(\) => readPendingRegion\(\)/);
-      expect(d).toMatch(/writePending: \(id: RegionId \| null\) => savePendingRegion\(id\)/);
-    }
-    // A mark left by one account must not outrank the next account's profile.
-    const signOuts = app.match(/void signOut\(\);/g) ?? [];
-    expect(signOuts.length).toBeGreaterThan(0);
-    expect(app.match(/savePendingRegion\(null\);\s*void signOut\(\);/g)).toHaveLength(signOuts.length);
+    // The pop-up goes through the same rememberRegion, signed in or not.
+    expect(app).toMatch(/remember: \(id: RegionId\) => rememberRegion\(id, state\.authUser !== null, regionChoiceDeps\)/);
   });
 
   it('a signed in visitor is reconciled on sign in and on each page load, through one shared answer', () => {

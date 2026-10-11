@@ -306,11 +306,7 @@ uses it:
 - **Read** on sign in and once per page load for a signed in reader, and
   reconciled with the browser's choice: the profile wins; a browser choice
   fills an empty profile; nothing is written when the read fails
-  (`demo/regionPreference.ts`). The exception: a choice made while signed in
-  whose write did not land (refused, or cancelled by the page load that
-  follows a choice) is marked in the browser (`pricesniffs.regionPending`),
-  wins, and is written again until the profile holds it
-  (docs/INTERNATIONAL-PLAN.md, "Remembered preference").
+  (`demo/regionPreference.ts`).
 - **Off** while the UK is the only live country: no row, no read, no write.
 - Included in Download My Data; listed in the privacy notice once it can be
   chosen. Deleting the account deletes it with the profile row.

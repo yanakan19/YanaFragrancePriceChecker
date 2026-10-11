@@ -144,12 +144,12 @@ import { activeRegion, liveRegions, regionById, regionHome, regionPath, splitReg
 import { BAR_DISMISSED_KEY, barRegion, barText, leafAlternates, switchNeedsLinks, switchTarget, type RegionLinks, type SwitchFrom } from './regionSwitch.js';
 import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxNote, sparseDealsLine } from '../src/services/regionText.js';
 import {
-  WELCOME_PREVIEW_PARAM, browserTimeZone, closeRegionWelcome, hasStoredSession, openRegionWelcome, previewChoices, readPendingRegion, readStoredRegion, savePendingRegion, saveStoredRegion, welcomeAction,
-  welcomeEnabled,
+  WELCOME_PREVIEW_PARAM, browserTimeZone, clearPendingRegion, closeRegionWelcome, hasStoredSession, openRegionWelcome, previewChoices, readStoredChoice, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
+  type StoredRegionChoice,
 } from './regionWelcome.js';
 import { readProfileRegion, saveProfileRegion } from './regionProfile.js';
 import {
-  arrivalAction, chooseRegion, countryRowHtml, regionChoiceOn, syncRegionWithProfile, type ArrivalAction, type RegionSyncDeps,
+  arrivalAction, chooseRegion, countryRowHtml, forgetRegionSync, regionChoiceOn, rememberRegion, syncRegionWithProfile, type ArrivalAction, type RegionSyncDeps,
 } from './regionPreference.js';
 import { flagSvg } from './flags.js';
 import { ABOUT } from './legal.js';
@@ -5279,28 +5279,28 @@ function welcomePreview(): boolean {
   return welcomePreviewAtLoad;
 }
 
-/** How the page reads and writes the two places a choice is kept, and the
- *  mark on a choice the profile has not confirmed yet. */
+/** How the page reads and writes the two places a choice is kept. */
 const regionSyncDeps: RegionSyncDeps = {
-  readLocal: () => readStoredRegion(),
+  readLocal: () => readStoredChoice(),
   writeLocal: (id: RegionId) => saveStoredRegion(id),
-  readPending: () => readPendingRegion(),
-  writePending: (id: RegionId | null) => savePendingRegion(id),
+  clearPending: (choice) => clearPendingRegion(choice),
   readProfile: readProfileRegion,
   writeProfile: saveProfileRegion,
 };
 
 /**
- * How a choice is remembered and opened. A choice opens the page on screen in
- * that country when it has one (demo/regionSwitch.ts: the product there, else
- * its brand, else the same section, else that country's home); chooseRegion
- * hands over the other region's home address, and the region is read back
- * from it. The account pages open the other country's home.
+ * How a choice is remembered and opened. It is saved in this browser first
+ * (with a pending marker while signed in), then on the profile; a profile that
+ * does not take it never moves the visitor (rememberRegion). A choice opens
+ * the page on screen in that country when it has one (demo/regionSwitch.ts:
+ * the product there, else its brand, else the same section, else that
+ * country's home); chooseRegion hands over the other region's home address,
+ * and the region is read back from it. The account pages open the other
+ * country's home.
  */
 const regionChoiceDeps = {
-  writeLocal: (id: RegionId) => saveStoredRegion(id),
-  readPending: () => readPendingRegion(),
-  writePending: (id: RegionId | null) => savePendingRegion(id),
+  writeLocal: (id: RegionId, pendingAt?: number) => saveStoredRegion(id, undefined, pendingAt ?? null),
+  clearPending: (choice: StoredRegionChoice) => clearPendingRegion(choice),
   writeProfile: saveProfileRegion,
   navigate: (href: string) => {
     const to = splitRegionPrefix(href).region;
@@ -5332,7 +5332,9 @@ function startRegionWelcome(): void {
   const choices = preview ? previewChoices() : liveRegions();
   const pathname = window.location.pathname.slice(basePath().length - 1) || '/';
   const active = activeRegion();
-  // A choice saved in this browser decides at once, with no request.
+  // A choice saved in this browser decides at once, with no request. That
+  // includes a choice whose save on the profile is still pending: the profile
+  // is never asked to overrule it (demo/regionPreference.ts, reconcileRegion).
   const local = preview ? null : readStoredRegion();
   if (local && choices.some((r) => r.id === local)) {
     actOnArrival(arrivalAction({ live: choices, pathname, chosen: local, active }));
@@ -5357,7 +5359,7 @@ function startRegionWelcome(): void {
       choices,
       active,
       closeIcon: ICON_CLOSE,
-      saveToProfile: (id: RegionId) => (state.authUser ? saveProfileRegion(id) : Promise.resolve(false)),
+      remember: (id: RegionId) => rememberRegion(id, state.authUser !== null, regionChoiceDeps),
       openSignIn: () => {
         state.authTab = 'signIn';
         go('account');
@@ -5370,9 +5372,12 @@ function startRegionWelcome(): void {
 /**
  * On sign in, and on each page load for a signed in visitor, once a second
  * region is live: the profile and this browser are reconciled
- * (reconcileRegion: the profile wins, a choice made here fills an empty
- * profile), and the profile page repaints its Country row with the result.
- * No request at all while the UK is the only live region.
+ * (reconcileRegion: a choice made here whose profile write is still pending
+ * wins and is sent again; else the profile wins; a choice made here before
+ * signing in fills an empty profile), and the profile page repaints its
+ * Country row with the result. It never moves the visitor, so a failing save
+ * cannot send them back. No request at all while the UK is the only live
+ * region.
  */
 function syncProfileRegion(userId: string): void {
   if (!regionChoiceOn() && !welcomePreview()) return;
@@ -5440,9 +5445,6 @@ function runAccountAction(action: AccountMenuAction): void {
       return;
     case 'signOut':
       state.authPendingEmail = '';
-      // A country this account chose that its profile never confirmed must
-      // not outrank the profile of whoever signs in next on this device.
-      savePendingRegion(null);
       void signOut();
       return;
   }
@@ -7771,6 +7773,9 @@ function init(): void {
         loadPhoto();
       }
     } else {
+      // Signed out: the next sign in reconciles the country afresh (and sends a
+      // choice whose profile save failed again).
+      forgetRegionSync();
       clearPhoto();
       photoOwner = null;
       // A different reader may be signing in on the same device, or this one
@@ -8326,7 +8331,6 @@ function init(): void {
       // otherwise stay parked on the verification screen with nothing to
       // sign out of.
       state.authPendingEmail = '';
-      savePendingRegion(null);
       void signOut();
       return;
     }
@@ -8405,8 +8409,6 @@ function init(): void {
           void showDialog({ title: 'Account Not Deleted', message: result.message });
           return;
         }
-        // Signed out with the account gone: no country is left to confirm.
-        savePendingRegion(null);
         void showDialog({
           title: 'Account Deleted',
           message: `Your account, wishlist${withPhoto ? ' and profile photo have' : ' have'} been deleted.`,

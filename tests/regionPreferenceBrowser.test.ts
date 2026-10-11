@@ -24,9 +24,11 @@ const built = existsSync(resolve(root, 'demo/index.html'));
  * light and dark, 320, 390 and 1280 wide, axe clean; a choice saved in this
  * browser and on the profile, then that region's home; the profile's country
  * mirrored into this browser; a choice made here before signing in copied to
- * an empty profile; a switch from the country menu whose profile write was
- * refused, or was too slow and cancelled by the page load, kept and written
- * again rather than undone (11 Oct 2026). Never a real Supabase: tests/support/fakeAccount.ts
+ * an empty profile; a switch from the country menu on /us/ to the UK whose
+ * profile write was refused, or was too slow and cancelled by the page load,
+ * kept and written again rather than undone (11 Oct 2026; the rule is
+ * tests/regionPreferencePending.test.ts, a 500 and a dropped connection are
+ * tests/regionSaveFailedBrowser.test.ts). Never a real Supabase: tests/support/fakeAccount.ts
  * answers every request. The rules themselves are
  * tests/regionPreference.test.ts.
  */
@@ -85,7 +87,10 @@ describe.skipIf(!built)('the Country row and the remembered country', () => {
   }
 
   const stored = (page: Page) => page.evaluate(`localStorage.getItem('pricesniffs.region')`) as Promise<string | null>;
-  const pendingMark = (page: Page) => page.evaluate(`localStorage.getItem('pricesniffs.regionPending')`) as Promise<string | null>;
+  /** The stored choice's region, whatever its pending marker says (demo/regionWelcome.ts, readStoredChoice). */
+  const storedId = async (page: Page) => (await stored(page))?.split('|')[0] ?? null;
+  /** True while the stored choice carries the pending marker: chosen signed in, not yet confirmed by the profile. */
+  const pendingMark = async (page: Page) => /^[A-Z]{2}\|pending\|\d+$/.test((await stored(page)) ?? '');
   const pressed = (page: Page) =>
     page.evaluate(`Array.from(document.querySelectorAll('[data-acct-country][aria-pressed="true"]')).map((b) => b.dataset.acctCountry)`) as Promise<string[]>;
 
@@ -258,18 +263,17 @@ describe.skipIf(!built)('the Country row and the remembered country', () => {
       // again, instead of taking the US back into this browser.
       await expect.poll(() => sent.length, { timeout: 10_000 }).toBeGreaterThanOrEqual(2);
       expect(sent.every((b) => b === '{"region":"GB"}'), sent.join(' ')).toBe(true);
-      expect(await stored(page)).toBe('GB');
-      expect(await pendingMark(page)).toBe('GB');
+      expect(await storedId(page)).toBe('GB');
+      expect(await pendingMark(page)).toBe(true);
       expect(account.region).toBe('US');
       // The bare home page is not sent back to /us/.
       expect(await openBareHome(page)).toBe('/');
-      expect(await stored(page)).toBe('GB');
+      expect(await storedId(page)).toBe('GB');
       // The profile takes writes again: the next page load saves the UK there and drops the mark.
       refuse = false;
       await page.reload({ waitUntil: 'load' });
       await expect.poll(() => account.region, { timeout: 10_000 }).toBe('GB');
-      await expect.poll(() => pendingMark(page), { timeout: 10_000 }).toBeNull();
-      expect(await stored(page)).toBe('GB');
+      await expect.poll(() => stored(page), { timeout: 10_000 }).toBe('GB');
       expect(account.writes?.filter((w) => w.includes('region'))).toEqual(['profiles {"region":"GB"}']);
     } finally {
       await context.close();
@@ -289,9 +293,9 @@ describe.skipIf(!built)('the Country row and the remembered country', () => {
     try {
       await chooseUkFromMenu(page);
       await expect.poll(() => account.region, { timeout: 15_000 }).toBe('GB');
-      await expect.poll(() => pendingMark(page), { timeout: 10_000 }).toBeNull();
+      // Saved: the marker goes, leaving the plain region.
+      await expect.poll(() => stored(page), { timeout: 10_000 }).toBe('GB');
       expect(sent.length).toBeGreaterThanOrEqual(2);
-      expect(await stored(page)).toBe('GB');
       expect(await openBareHome(page)).toBe('/');
       expect(await stored(page)).toBe('GB');
     } finally {

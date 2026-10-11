@@ -2,13 +2,15 @@ import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { REGION_CONFIGS, REGION_PENDING_KEY, REGION_STORAGE_KEY, regionById } from '../src/config/regions.js';
+import { REGION_CONFIGS, REGION_STORAGE_KEY, regionById } from '../src/config/regions.js';
 import {
   WELCOME_LOGIN_TEXT,
   WELCOME_TITLE,
-  readPendingRegion,
+  clearPendingRegion,
+  formatStoredRegion,
+  parseStoredRegion,
+  readStoredChoice,
   readStoredRegion,
-  savePendingRegion,
   saveStoredRegion,
   closeRegionWelcome,
   hasStoredSession,
@@ -97,7 +99,7 @@ describe('when the pop-up shows', () => {
 describe('the remembered choice', () => {
   const memory = () => {
     const m = new Map<string, string>();
-    return { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => void m.set(k, v), removeItem: (k: string) => void m.delete(k), m };
+    return { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => void m.set(k, v), m };
   };
 
   it('is saved under pricesniffs.region and read back', () => {
@@ -115,54 +117,63 @@ describe('the remembered choice', () => {
     expect(saveStoredRegion('DE' as never, s)).toBe(false);
   });
 
+  it('holds the pending marker and its time inside the same value, so no second key exists', () => {
+    const s = memory();
+    expect(saveStoredRegion('US', s, 1_760_000_000_000)).toBe(true);
+    expect(s.m.get(REGION_STORAGE_KEY)).toBe('US|pending|1760000000000');
+    expect([...s.m.keys()]).toEqual([REGION_STORAGE_KEY]);
+    expect(readStoredChoice(s)).toEqual({ id: 'US', pendingAt: 1_760_000_000_000 });
+    // The region reads the same with or without the marker, so every reader of the choice is unchanged.
+    expect(readStoredRegion(s)).toBe('US');
+    // A save without the marker is a settled choice.
+    expect(saveStoredRegion('IN', s)).toBe(true);
+    expect(s.m.get(REGION_STORAGE_KEY)).toBe('IN');
+    expect(readStoredChoice(s)).toEqual({ id: 'IN', pendingAt: null });
+  });
+
+  it('parses and formats the stored value, and ignores anything else', () => {
+    expect(parseStoredRegion('GB')).toEqual({ id: 'GB', pendingAt: null });
+    expect(parseStoredRegion('IN|pending|42')).toEqual({ id: 'IN', pendingAt: 42 });
+    expect(parseStoredRegion('IN|pending')).toEqual({ id: 'IN', pendingAt: 0 });
+    for (const bad of ['', 'DE', 'DE|pending|42', 'US|saved|42', 'US|pending|42|x', 'us', null, undefined]) {
+      expect(parseStoredRegion(bad), String(bad)).toBeNull();
+    }
+    expect(formatStoredRegion('US')).toBe('US');
+    expect(formatStoredRegion('US', 7)).toBe('US|pending|7');
+    for (const id of ['GB', 'US', 'IN'] as const) {
+      expect(parseStoredRegion(formatStoredRegion(id, 123))).toEqual({ id, pendingAt: 123 });
+      expect(parseStoredRegion(formatStoredRegion(id))).toEqual({ id, pendingAt: null });
+    }
+  });
+
+  it('drops the marker only from the very choice that was pending', () => {
+    const s = memory();
+    saveStoredRegion('US', s, 10);
+    expect(clearPendingRegion({ id: 'US', pendingAt: 9 }, s)).toBe(false);
+    expect(clearPendingRegion({ id: 'IN', pendingAt: 10 }, s)).toBe(false);
+    expect(s.m.get(REGION_STORAGE_KEY)).toBe('US|pending|10');
+    expect(clearPendingRegion({ id: 'US', pendingAt: 10 }, s)).toBe(true);
+    expect(s.m.get(REGION_STORAGE_KEY)).toBe('US');
+    expect(clearPendingRegion({ id: 'US', pendingAt: null }, s)).toBe(false);
+    expect(clearPendingRegion({ id: 'US', pendingAt: 10 }, null)).toBe(false);
+  });
+
   it('never throws when storage is blocked or missing', () => {
     const blocked = {
       getItem: () => { throw new Error('SecurityError'); },
       setItem: () => { throw new Error('QuotaExceededError'); },
     };
     expect(readStoredRegion(blocked)).toBeNull();
+    expect(readStoredChoice(blocked)).toBeNull();
     expect(saveStoredRegion('GB', blocked)).toBe(false);
+    expect(saveStoredRegion('GB', blocked, 5)).toBe(false);
+    expect(clearPendingRegion({ id: 'GB', pendingAt: 5 }, blocked)).toBe(false);
     expect(readStoredRegion(null)).toBeNull();
     expect(saveStoredRegion('GB', null)).toBe(false);
   });
 
   it('is listed on the cookies page now that the pop-up can write it (US and India live since 9 Oct 2026)', () => {
     expect(STORAGE_KEYS.map((k) => k.key)).toContain(REGION_STORAGE_KEY);
-  });
-
-  it('a choice the profile has not confirmed is marked under pricesniffs.regionPending beside it, and the mark cleared with null', () => {
-    const s = memory();
-    expect(REGION_PENDING_KEY).toBe('pricesniffs.regionPending');
-    expect(readPendingRegion(s)).toBeNull();
-    expect(savePendingRegion('GB', s)).toBe(true);
-    expect(s.m.get(REGION_PENDING_KEY)).toBe('GB');
-    expect(readPendingRegion(s)).toBe('GB');
-    expect(savePendingRegion(null, s)).toBe(true);
-    expect(s.m.has(REGION_PENDING_KEY)).toBe(false);
-    expect(readPendingRegion(s)).toBeNull();
-    // The remembered choice is left alone either way.
-    expect(s.m.has(REGION_STORAGE_KEY)).toBe(false);
-  });
-
-  it('the mark ignores anything that is not a known region and never throws', () => {
-    const s = memory();
-    s.m.set(REGION_PENDING_KEY, 'DE');
-    expect(readPendingRegion(s)).toBeNull();
-    expect(savePendingRegion('DE' as never, s)).toBe(false);
-    const blocked = {
-      getItem: () => { throw new Error('SecurityError'); },
-      setItem: () => { throw new Error('QuotaExceededError'); },
-      removeItem: () => { throw new Error('SecurityError'); },
-    };
-    expect(readPendingRegion(blocked)).toBeNull();
-    expect(savePendingRegion('GB', blocked)).toBe(false);
-    expect(savePendingRegion(null, blocked)).toBe(false);
-    expect(readPendingRegion(null)).toBeNull();
-    expect(savePendingRegion(null, null)).toBe(false);
-  });
-
-  it('the mark is listed on the cookies page too', () => {
-    expect(STORAGE_KEYS.map((k) => k.key)).toContain(REGION_PENDING_KEY);
   });
 });
 
