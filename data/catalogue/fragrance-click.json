@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-10-11T00:52:39.971Z",
-  "seenAt": "2026-10-11T00:52:39.971Z",
+  "updatedAt": "2026-10-11T08:58:59.801Z",
+  "seenAt": "2026-10-11T08:58:59.801Z",
   "source": "live",
   "listings": [
     {
@@ -17627,28 +17627,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "3605972698742",
-      "url": "https://www.awin1.com/pclick.php?p=45353161255&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/ralph-lauren-ralph-s-club-100ml-parfum.html",
-      "rawTitle": "Ralph Lauren Ralph's Club 100ml Parfum",
-      "rawBrand": "Ralph Lauren",
-      "ean": "3605972698742",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-ralphs-club-parfum.jpg",
-      "priceGbp": 62.95,
-      "wasPriceGbp": 104,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "#html-body [data-pb-style=W317NU0]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}Step inside Ralph's Club, the after-hours spot where style and music collide.\n Ralph's Club Parfum is the strongest version yet. A concentrated masculine scent built for men who dress on their own terms and stay out late.\n Every ingredient has been picked for quality, which is why the trail sticks around long after you've left the room.\n The scent opens fresh with lavandin, then takes a turn with warm, spicy cardamom. Deep vetiver gives it real intensity, softened by rich patchouli underneath.\n Bold, woody and sensual. A fragrance made for nights spent in good company.",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "3614274347562",
       "url": "https://www.awin1.com/pclick.php?p=45255619737&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/azzaro-pour-elle-eau-de-parfum-100ml.html",
@@ -18614,6 +18592,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3605972698742",
+      "url": "https://www.awin1.com/pclick.php?p=45353161255&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/ralph-lauren-ralph-s-club-100ml-parfum.html",
+      "rawTitle": "Ralph Lauren Ralph's Club 100ml Parfum",
+      "rawBrand": "Ralph Lauren",
+      "ean": "3605972698742",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-ralphs-club-parfum.jpg",
+      "priceGbp": 62.95,
+      "wasPriceGbp": 104,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "#html-body [data-pb-style=W317NU0]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}Step inside Ralph's Club, the after-hours spot where style and music collide.\n Ralph's Club Parfum is the strongest version yet. A concentrated masculine scent built for men who dress on their own terms and stay out late.\n Every ingredient has been picked for quality, which is why the trail sticks around long after you've left the room.\n The scent opens fresh with lavandin, then takes a turn with warm, spicy cardamom. Deep vetiver gives it real intensity, softened by rich patchouli underneath.\n Bold, woody and sensual. A fragrance made for nights spent in good company.",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-10-11T00:52:39.971Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-11T08:58:59.801Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
