@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-11T04:52:47.060Z",
-  "seenAt": "2026-10-11T04:52:47.060Z",
+  "updatedAt": "2026-10-11T09:01:54.839Z",
+  "seenAt": "2026-10-11T09:01:54.839Z",
   "source": "live",
   "listings": [
     {
@@ -175,7 +175,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Bottled Eau de Toilette 50ml. Key Features. ##features##. Bestselling men's fragrance from Hugo Boss.. Fresh apple opening with warm cinnamon and spice.. Woody base provides depth and masculinity.. Versatile fragrance suitable for all occasions.. Ideal signature scent for everyday wear.. Compact 50ml bottle perfect for travel.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Hugo Boss Boss Bottled Eau de Toilette is an iconic men's fragrance combining fresh apple notes with warm cinnamon, clove and woody accords. Sophisticated and versatile, it offers a balanced fragrance that transitions effortlessly from the office to evening occasions, making it a true modern classic.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. . ##accordion-item-end##. ##accordion-item-start##. Patient Information Leaflet. ##leaflet##. ##accordion-item-end##. ##accordion-item-start##. Age Restricted Product. Purchasing this product online is only suitable for those aged 18 years and over. If you are under 18 years of age and wish to purchase this product, please visit your local Rowlands Pharmacy and speak with a pharmacist in store.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

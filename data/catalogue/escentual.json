@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-11T04:52:47.060Z",
-  "seenAt": "2026-10-11T04:52:47.060Z",
+  "updatedAt": "2026-10-11T09:01:54.839Z",
+  "seenAt": "2026-10-11T09:01:54.839Z",
   "source": "live",
   "listings": [
     {
@@ -155494,7 +155494,7 @@
       "priceGbp": 107,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The ideal man is a myth. His fragrance, a reality. GUERLAIN decodes men's aspirations and creates for them a concentrate of ideal.. The ideal fragrance? Smart, handsome, strong. Three adjectives, three accords for this fresh woody fragrance that will trigger your full potential.. For the first time, an almond scent for men composed by GUERLAIN around three accords. The intelligence of a sparkling and perfectly fresh top note: citrus, rosemary, orange blossom. The beauty of an incredibly sensual \"amaretto\" heart note based on an almond/tonka bean duo. The strength of a woody leather base note, definitely masculine: Indian vetiver, cedar and leather given a contemporary interpretation..",
       "productType": "Fragrance",

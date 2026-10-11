@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-11T04:52:47.060Z",
-  "seenAt": "2026-10-11T04:52:47.060Z",
+  "updatedAt": "2026-10-11T09:01:54.839Z",
+  "seenAt": "2026-10-11T09:01:54.839Z",
   "source": "live",
   "listings": [
     {
@@ -46438,7 +46438,7 @@
       "priceGbp": 55.99,
       "wasPriceGbp": 89,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Refresh and invigorate your skin with Armani Acqua Di Gio Men's After Shave Lotion, a bottle of pure sophistication. This after shave lotion combines the iconic aquatic, citrus, and woody notes of Acqua Di Gio, leaving your skin feeling smooth and revitalized. Perfect for daily use, it soothes and hydrates post-shave, providing a lasting, subtle fragrance. Elevate your grooming routine with the timeless elegance of Armani Acqua Di Gio.. Fragrance Type: Citrus, Aromatic. Fragrance Notes: - Top notes: Lime, Lemon, Bergamot, Jasmine, Orange, Mandarin Orange, Neroli - Middle notes: Sea Notes, Jasmine, Rosemary, Peach, Freesia, Hyacinth, Cyclamen, Violet, Coriander, Rose, Nutmeg, Mignonette - Base notes: White Musk, Cedar, Oakmoss, Patchouli, Amber. Launched: 1996.",
       "productType": "Men's Aftershave",
@@ -90259,7 +90259,7 @@
       "priceGbp": 17.99,
       "wasPriceGbp": 44,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . The 1st fragrance by Britney Spears. Launched in 2004, it became an instant hit. Curious, for the adventurous young woman, not afraid to take risks. A lively, exhilarating white floral fragrance with Louisiana magnolia and sensual vanilla-infused musk. . . Fragrance Type: . Floral . . Fragrance Notes: . - Top notes: Magnolia, Pear, Lotus. - Middle notes: Tuberose, Jasmine, Cyclamen. - Base notes: Sandalwood, Musk, Vanilla, Precious Woods . . Launched: . 2004.",
       "productType": "Women's Perfume",

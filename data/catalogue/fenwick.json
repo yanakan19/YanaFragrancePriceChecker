@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-11T04:52:47.060Z",
-  "seenAt": "2026-10-11T04:52:47.060Z",
+  "updatedAt": "2026-10-11T09:01:54.839Z",
+  "seenAt": "2026-10-11T09:01:54.839Z",
   "source": "live",
   "listings": [
     {
@@ -3556,7 +3556,7 @@
       "priceGbp": 96,
       "wasPriceGbp": 120,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Paradigme Eau de Parfum by PRADA is a sophisticated fragrance presented in a 100ml bottle. This scent combines warm amber with fresh geranium, offering a balanced blend of floral and resinous notes. Ideal for those seeking a modern yet timeless perfume, it delivers lasting elegance throughout the day..",
       "productType": "Women's Fragrances",
@@ -22186,7 +22186,7 @@
       "priceGbp": 264,
       "wasPriceGbp": 330,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Soleil Blanc Eau de Parfum 50ml by Tom Ford captures a warm, solar-inspired fragrance with luxurious floral and amber notes. Designed to evoke sun-drenched escapes and effortless sophistication, this long-lasting eau de parfum leaves an elegant and radiant scent trail. A refined fragrance addition for modern perfume collections..",
       "productType": "Women's Fragrances",
@@ -23474,7 +23474,7 @@
       "priceGbp": 219.6,
       "wasPriceGbp": 244,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The perfume’s aim is clear: to transform the famous Grasse rose, a symbol of voluptuousness and unqualified femininity, into an assertively virile fragrance that can be worn by anyone The result is a model of its kind: alternating femininity and masculinity of the Centifolia rose, quickly picked up by a chorus of warm, spicy, and woodsy notes such as cumin, olbanum, cedar, and a touch of amber In the background, the declared sensuality of Gaïac..",
       "productType": "Women's Fragrances",
