@@ -161,7 +161,7 @@ export interface RegionSite {
    * Only an id whose address was already given, and only to a product on the page.
    */
   idAliases: Record<string, string>;
-  /** The address the region had given to such a folded product, to the address of the page that holds it now (`SLUG_ALIASES`). */
+  /** The address the region had given to such a folded product, to the id of the page that holds it now (`SLUG_ALIASES`, as in the UK's dormant file). */
   slugAliases: Record<string, string>;
   /** When the newest shop's prices were read: the freshness line and the sitemap's dates. */
   crawledAt: string;
@@ -466,13 +466,16 @@ export function buildRegionSite(
   // address the region really gave, to a product that is on the page.
   const idAliases: Record<string, string> = {};
   const slugAliases: Record<string, string> = {};
-  for (const [from, to] of Object.entries(built.absorbed).sort(([a], [b]) => (a < b ? -1 : 1))) {
+  for (const [from, first] of Object.entries(built.absorbed).sort(([a], [b]) => (a < b ? -1 : 1))) {
+    // A page folded into one that was itself folded into another (the merge runs
+    // in rounds): the page that holds it now is the end of the chain.
+    let to = first;
+    for (let hops = 0; hops < 12 && !shown.has(to) && built.absorbed[to] !== undefined; hops++) to = built.absorbed[to]!;
     if (!shown.has(to) || shown.has(from)) continue;
     const given = inputs.slugMemory[from];
     if (!given) continue;
     idAliases[from] = to;
-    const survivor = slugs[to];
-    if (survivor && survivor !== given) slugAliases[given] = survivor;
+    if (slugs[to] !== given) slugAliases[given] = to;
   }
 
   const shopCount = new Set(Object.values(crawled).flatMap((offers) => offers.map((o) => o.retailerId))).size;

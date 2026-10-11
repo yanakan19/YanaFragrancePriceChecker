@@ -143,7 +143,29 @@ describe('a house the shops spell three ways', () => {
     for (const id of folded) {
       expect(site.idAliases[id], id).toBe(held.id);
       const old = memory[id as keyof typeof memory];
-      if (old !== held.slug) expect(site.slugAliases[old], old).toBe(held.slug);
+      // As in the UK's dormant file, the old address maps to the id of the page that holds it.
+      if (old !== held.slug) expect(site.slugAliases[old], old).toBe(held.id);
+    }
+  });
+
+  it('follows a bottle folded into one that was itself folded, to the page that holds it', () => {
+    // Four shops, four spellings: the merge runs in rounds, so an id can be folded into one that goes on to be folded.
+    const four: RegionInputs = {
+      ...inputs({}),
+      snapshots: [
+        snapshot('aedes', [listing('1', title, 'Dolce and Gabbana', 70)]),
+        snapshot('luckyscent', [listing('2', title, 'Dolce & Gabbana', 75)]),
+        snapshot('twisted-lily', [listing('3', title, 'DOLCE & GABBANA', 72)]),
+        snapshot('beautyhabit', [listing('4', title, 'Dolce&Gabbana', 74)]),
+      ],
+      slugMemory: { 'aedes-1': 'a_b_100ml', 'luckyscent-2': 'c_d_100ml', 'twisted-lily-3': 'e_f_100ml', 'beautyhabit-4': 'g_h_100ml' },
+    };
+    const site = buildRegionSite(four, {}, now);
+    expect(site.catalogue).toHaveLength(1);
+    const held = site.catalogue[0]!;
+    for (const id of Object.keys(four.slugMemory).filter((id) => id !== held.id)) {
+      expect(site.idAliases[id], id).toBe(held.id);
+      expect(site.slugAliases[four.slugMemory[id]!], id).toBe(held.id);
     }
   });
 

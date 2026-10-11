@@ -242,8 +242,10 @@ Chloe") reviewed one at a time. What that does to an address:
   address is a brand that exists now.
 - **The US and India builds use the same brand canon** (they had none), and now
   keep an address for a bottle they fold into another: the region's page data
-  carries `ID_ALIASES` and `SLUG_ALIASES` for it (`scripts/regionSite.ts`), built
-  from the region's own address memory. The region memories stay append only.
+  carries `ID_ALIASES` (folded id to the id that holds it) and `SLUG_ALIASES`
+  (the folded product's address to that id) for it (`scripts/regionSite.ts`),
+  built from the region's own address memory. The region memories stay append
+  only.
 
 ## 4. Routing: no clash with the site's own routes
 
