@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-11T13:06:54.325Z",
-  "seenAt": "2026-10-11T13:06:54.325Z",
+  "updatedAt": "2026-10-11T17:11:19.256Z",
+  "seenAt": "2026-10-11T17:11:19.256Z",
   "source": "live",
   "listings": [
     {
@@ -50223,7 +50223,7 @@
       "priceGbp": 65,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "STEP 1: Lait Galatee Confort 400ml Smooth and gentle, this emollient-rich, milky cream cleanser gently melts away makeup and impurities. The instantly comforting formula contains Honey and Sweet Almond Extracts to condition and pamper skin, leaving it feeling clean, silky-soft and soothed. Rinse or tissue off. . STEP 2: Tonique Confort 400ml New Tonique Confort, Lancôme's most iconic lotion, is reborn. For the first time, Lancôme combines 100% pure & natural-origin Centifolia rose and skin hydrating actives obtained from biotechnology: Hyaluronic Acid, now x3 more concentrated*, and Squalane, obtained from biotechnology and captured in a 97%** natural-origin formula. As the perfect preliminary step of your hydration routine, it has a double hydration efficacy* and recovers the skin barrier in only 1 hour. . *compared to previous formula **the remaining 3% contribute to the formula's performance, sensory appeal and stability .",
       "productType": "Gift",
