@@ -18,7 +18,7 @@
  * launches the same pinned Chromium, for the same reasons recorded there.
  */
 import AxeBuilder from '@axe-core/playwright';
-import { chromium, type Browser, type Page } from 'playwright';
+import { chromium, webkit, type Browser, type Page } from 'playwright';
 import { createServer } from 'node:http';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, extname } from 'node:path';
@@ -96,6 +96,21 @@ export interface LaunchOptions {
 
 export async function launchChromium(options: LaunchOptions = {}): Promise<Browser> {
   const browser = await chromium.launch(existsSync(PINNED_CHROMIUM) ? { executablePath: PINNED_CHROMIUM } : {});
+  return withCountryChosen(browser, options);
+}
+
+/**
+ * WebKit, the engine inside Safari, for the "Layout check (Safari engine)"
+ * workflow, with the same visitor as launchChromium: a country already chosen
+ * unless `countryChosen` says otherwise. A bare webkit.launch() is a visitor
+ * who has chosen none: the pop-up covered the bare home page and the Filters
+ * button under it, and the workflow failed from 9 to 11 October 2026.
+ */
+export async function launchWebkit(options: LaunchOptions = {}): Promise<Browser> {
+  return withCountryChosen(await webkit.launch(), options);
+}
+
+function withCountryChosen(browser: Browser, options: LaunchOptions): Browser {
   const country = options.countryChosen === undefined ? 'GB' : options.countryChosen;
   if (country === null) return browser;
   const newContext = browser.newContext.bind(browser);

@@ -2,8 +2,8 @@ import { existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { devices, webkit, type Browser, type BrowserContextOptions, type Page } from 'playwright';
-import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
+import { devices, type Browser, type BrowserContextOptions, type Page } from 'playwright';
+import { launchChromium, launchWebkit, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -97,7 +97,7 @@ describe.skipIf(!built)(`page layout holds its rules (${engine})`, () => {
 
   beforeAll(async () => {
     ({ port, close } = await startDemoServer());
-    browser = engine === 'webkit' ? await webkit.launch() : await launchChromium();
+    browser = engine === 'webkit' ? await launchWebkit() : await launchChromium();
   }, 60_000);
 
   afterAll(async () => {

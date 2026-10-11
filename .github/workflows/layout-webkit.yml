@@ -23,6 +23,8 @@ on:
       - 'tests/layoutConsistency.test.ts'
       - 'tests/listFiltersBrowser.test.ts'
       - 'tests/support/filterPanel.ts'
+      # launchWebkit and the demo server both tests use.
+      - 'scripts/a11y-audit.ts'
       - '.github/workflows/layout-webkit.yml'
   workflow_dispatch:
 
