@@ -1779,6 +1779,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3346470148949",
    "absorbed": [
     "set-guerlain-shalimar-gift-set-50ml-edp-75ml-body-lotion-5ml-edp"
@@ -2477,12 +2509,13 @@
     {
      "id": "set-ean-3423222106805",
      "brand": "Zadig & Voltaire",
-     "name": "This is Him Gift Set 50ml EDT + 50ml Shower Gel",
+     "name": "This Is Him Eau de Toilette 50ml Spray Gift Set",
      "concentration": "Eau de Toilette",
      "ean": "3423222106805",
      "scent": "is this",
      "signature": "1x50fragrance|1x50wash",
      "shops": [
+      "paco-perfumerias-uk",
       "perfume-click"
      ]
     },
@@ -6198,38 +6231,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8435415092128",
-   "absorbed": [
-    "set-jean-paul-gaultier-scandal-gift-set-edp-80ml-edp-20ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415092128",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Gift Set EDP 80ml + EDP 20ml",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415092128",
-     "scent": "scandal",
-     "signature": "1x20fragrance|1x80fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-scandal-gift-set-edp-80ml-edp-20ml",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Gift Set EDP 80ml + EDP 20ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "scandal",
-     "signature": "1x20fragrance|1x80fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8435415112895",
    "absorbed": [
     "set-jean-paul-gaultier-classique-2-piece-gift-set-eau-de-toilette-50ml-body-lotion-75ml",
@@ -7264,6 +7265,38 @@
      "shops": [
       "perfume-click",
       "perfume-direct"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Eau de Toilette",
+    "a shop lists more than one: john-lewis"
+   ],
+   "members": [
+    {
+     "id": "set-chanel-n-5-eau-de-parfum-purse-spray-3-x-20ml",
+     "brand": "Chanel",
+     "name": "N°5 Eau de Parfum Purse Spray, 3 x 20ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "5 n",
+     "signature": "3x20fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-chanel-n-5-eau-de-toilette-purse-spray-3-x-20ml",
+     "brand": "Chanel",
+     "name": "N°5 Eau de Toilette Purse Spray, 3 x 20ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "5 n",
+     "signature": "3x20fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -9369,37 +9402,6 @@
      "signature": "1x100body|1x60fragrance",
      "shops": [
       "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.56 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460156028",
-     "brand": "Jimmy Choo",
-     "name": "I Want Choo Forever Gift Set 100ml EDP + 7.5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3386460156028",
-     "scent": "choo forever i want",
-     "signature": "1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jimmy-choo-i-want-choo-forever-gift-set-100ml-edp-7-5ml-edp",
-     "brand": "Jimmy Choo",
-     "name": "I Want Choo Forever Gift Set 100ml EDP + 7.5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "choo forever i want",
-     "signature": "1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
