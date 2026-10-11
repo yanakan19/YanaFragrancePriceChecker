@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 226,
+ "folded": 227,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -4202,6 +4202,38 @@
      "signature": "1x100wash|1x30fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5056446640541",
+   "absorbed": [
+    "set-charlotte-tilbury-charlotte-s-fragrance-collection-of-emotions-perfume-travel-trio-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5056446640541",
+     "brand": "Charlotte Tilbury",
+     "name": "Charlotte's Fragrance Collection Of Emotions Perfume Travel Trio Set",
+     "concentration": "Not stated",
+     "ean": "5056446640541",
+     "scent": "charlotte collection emotions travel trio",
+     "signature": "3p",
+     "shops": [
+      "space-nk"
+     ]
+    },
+    {
+     "id": "set-charlotte-tilbury-charlotte-s-fragrance-collection-of-emotions-perfume-travel-trio-fragrance-gift-set",
+     "brand": "Charlotte Tilbury",
+     "name": "Charlotte's Fragrance Collection of Emotions Perfume Travel Trio Fragrance Gift Set",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "charlotte collection emotions travel trio",
+     "signature": "3p",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
