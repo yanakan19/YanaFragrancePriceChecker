@@ -310,3 +310,7 @@ code tests/wrongPrice.test.ts
 code tests/wrongPriceBrowser.test.ts
 code tests/yslNaming.test.ts
 code tests/testSets.test.ts
+code tests/regionPreferencePending.test.ts
+code tests/regionProfile.test.ts
+code tests/regionSaveFailedBrowser.test.ts
+code tests/socialLaunchVideoIn.test.ts
