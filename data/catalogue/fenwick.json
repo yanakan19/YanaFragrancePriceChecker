@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-11T00:58:39.695Z",
-  "seenAt": "2026-10-11T00:58:39.695Z",
+  "updatedAt": "2026-10-11T04:52:47.060Z",
+  "seenAt": "2026-10-11T04:52:47.060Z",
   "source": "live",
   "listings": [
     {
@@ -11882,7 +11882,7 @@
       "priceGbp": 85,
       "wasPriceGbp": 100,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Kun Amo Extrait De Parfum 30ml by Jeroboam blends rich amber and fresh bergamot to create a captivating fragrance. This concentrated extrait de parfum offers a long-lasting scent experience, perfect for those who appreciate depth and elegance in their perfume. The 30ml size is ideal for daily use or travel, delivering a refined aroma that evolves beautifully throughout the day..",
       "productType": "Unisex Fragrance",
@@ -21703,7 +21703,7 @@
       "priceGbp": 88,
       "wasPriceGbp": 110,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Figue Érotique Candle by Tom Ford fills the space with a warm, indulgent scent inspired by ripe fig and woods. Crafted for an even burn and refined fragrance throw, it brings atmosphere and elegance to interiors. A considered candle for elevated home fragrance..",
       "productType": "Women's Fragrances",
