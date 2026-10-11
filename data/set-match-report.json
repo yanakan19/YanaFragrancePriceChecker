@@ -2047,6 +2047,7 @@
      "signature": "4x5fragrance",
      "shops": [
       "fragrance-click",
+      "paco-perfumerias-uk",
       "perfume-click",
       "perfume-direct"
      ]
@@ -11857,6 +11858,37 @@
      "signature": "1x50fragrance|1x5fragrance|1x75body",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "a shop lists more than one: john-lewis"
+   ],
+   "members": [
+    {
+     "id": "set-hermes-barenia-eau-de-parfum-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Barénia Eau de Parfum Fragrance Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "barenia",
+     "signature": "1x15fragrance|1x60fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-hermes-barenia-eau-de-parfum-intense-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Barénia Eau de Parfum Intense Fragrance Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "barenia",
+     "signature": "1x15fragrance|1x60fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
