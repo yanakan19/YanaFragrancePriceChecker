@@ -1,0 +1,72 @@
+name: Tests
+
+# The code and browser tests, on every push to the live branch and on every
+# pull request: page layout, accessibility, copy, social, motion, the workflow
+# rules and the parsers of every crawl route (the "code" set in
+# scripts/test-sets.txt, `npm run test:code`).
+#
+# Until 2026-10-11 these ran only inside the catalogue crawl, in a step that
+# ended at its 15 minute cap in every run, so no push ever heard whether a test
+# failed. They do not depend on the day's prices, so they run here, where a
+# push or a pull request is what changed. The tests that read what the crawl
+# writes (the "data" set, `npm run test:data`) stay in the crawl, after its
+# rebuild: catalogue-daily.yml, "Test the data the crawl produced".
+#
+# Read only: it commits nothing, so it needs no concurrency group shared with
+# the crawl. The crawl's own pushes use GITHUB_TOKEN and never start it (GitHub
+# does not start workflows from them); people's and agents' pushes do.
+#
+# The WebKit half of the layout tests has its own workflow
+# (layout-webkit.yml); here the browser tests run in Chromium.
+on:
+  push:
+    branches: [claude/scentday-retailer-registry-h92tth]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  code:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      # Full history: the sitemap dates read `git log`, and the price history
+      # tests replay real commits.
+      - uses: actions/checkout@v4
+        timeout-minutes: 10
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      - name: Install Chromium for the browser tests
+        timeout-minutes: 10
+        run: scripts/retry.sh 2 npx playwright install --with-deps chromium
+
+      # The page, its data files and the catalogue modules are built at deploy
+      # time and not committed (2026-10-04, 2026-10-10); the page tests read
+      # them, so they are built here first, from the branch as pushed.
+      - name: Build the page
+        timeout-minutes: 15
+        run: npm run demo
+
+      # About 20 files per vitest process, one at a time (the 7 GB runner
+      # cannot hold the whole suite in one); a chunk that fails does not stop
+      # the others, and the step fails at the end naming every failed file.
+      - name: Code and browser tests
+        timeout-minutes: 40
+        run: npm run test:code
