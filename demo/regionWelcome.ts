@@ -20,10 +20,11 @@
  * - One large link per live region, with its flag and currency, the browser
  *   time zone's suggestion marked "Suggested", and underneath "or log in,
  *   we'll remember your preference", which opens the existing sign in.
- * - Choosing saves the region in local storage (pricesniffs.region) and, when
- *   signed in, on the profile, then goes to that region's home (the UK stays
- *   on /). Each choice is a real link (<a href="/us/">), so it works without
- *   the script too.
+ * - Choosing saves the region in local storage (pricesniffs.region) first and,
+ *   when signed in, then on the profile (a failed profile save keeps the
+ *   choice here, marked pending: demo/regionPreference.ts), then goes to that
+ *   region's home (the UK stays on /). Each choice is a real link
+ *   (<a href="/us/">), so it works without the script too.
  * - Closing it (Escape, the close button, a tap outside) means "stay on the
  *   UK site" for this visit only and saves nothing.
  * - A saved choice skips the pop-up; a visitor who chose another live region
@@ -64,23 +65,94 @@ const esc = (s: string): string =>
 
 // ── the remembered choice ──────────────────────────────────────────────────
 
-/** The region saved in this browser, or null. Never throws (private windows, blocked storage). */
-export function readStoredRegion(storage: Pick<Storage, 'getItem'> | null = safeLocalStorage()): RegionId | null {
+/**
+ * What this browser holds for the visitor's country (local storage
+ * `pricesniffs.region`). `pendingAt` is the time (milliseconds) a signed in
+ * visitor made the choice while saving it on their profile was not yet
+ * confirmed, or null once it is, and for a visitor who is signed out. A choice
+ * with a `pendingAt` is the newest word the visitor has said, so it wins over
+ * the profile until the profile write succeeds (demo/regionPreference.ts).
+ */
+export interface StoredRegionChoice {
+  id: RegionId;
+  pendingAt: number | null;
+}
+
+/** The word after the region in a stored value whose profile write is not yet confirmed: `US|pending|1760000000000`. */
+const PENDING_WORD = 'pending';
+
+/**
+ * What a stored value means: a region alone (`US`, a settled choice), or a
+ * region with the pending marker and the time of the choice
+ * (`US|pending|1760000000000`). Anything else, an unknown region included, is
+ * no choice. The marker lives inside the one key, so no second key is written
+ * and the cookies page has nothing new to list.
+ */
+export function parseStoredRegion(raw: string | null | undefined): StoredRegionChoice | null {
+  if (typeof raw !== 'string' || raw === '') return null;
+  const [id, word, at, ...rest] = raw.split('|');
+  const region = regionById(id);
+  if (!region || rest.length > 0) return null;
+  if (word === undefined) return { id: region.id, pendingAt: null };
+  if (word !== PENDING_WORD) return null;
+  const when = at !== undefined && /^\d{1,15}$/.test(at) ? Number(at) : 0;
+  return { id: region.id, pendingAt: when };
+}
+
+/** The stored value for a choice: the region alone, or with the pending marker and its time. */
+export function formatStoredRegion(id: RegionId, pendingAt: number | null = null): string {
+  return pendingAt === null ? id : `${id}|${PENDING_WORD}|${Math.max(0, Math.floor(pendingAt))}`;
+}
+
+/** The choice saved in this browser, with its pending marker, or null. Never throws (private windows, blocked storage). */
+export function readStoredChoice(storage: Pick<Storage, 'getItem'> | null = safeLocalStorage()): StoredRegionChoice | null {
   try {
-    const id = storage?.getItem(REGION_STORAGE_KEY);
-    return regionById(id)?.id ?? null;
+    return parseStoredRegion(storage?.getItem(REGION_STORAGE_KEY));
   } catch {
     return null;
   }
 }
 
-/** Saves the visitor's choice in this browser. Answers false when storage is unavailable. */
-export function saveStoredRegion(id: RegionId, storage: Pick<Storage, 'setItem'> | null = safeLocalStorage()): boolean {
+/** The region saved in this browser, or null. Never throws (private windows, blocked storage). */
+export function readStoredRegion(storage: Pick<Storage, 'getItem'> | null = safeLocalStorage()): RegionId | null {
+  return readStoredChoice(storage)?.id ?? null;
+}
+
+/**
+ * Saves the visitor's choice in this browser. With `pendingAt` it is saved
+ * with the pending marker (a signed in visitor's choice, until it is on the
+ * profile). Answers false when storage is unavailable.
+ */
+export function saveStoredRegion(
+  id: RegionId,
+  storage: Pick<Storage, 'setItem'> | null = safeLocalStorage(),
+  pendingAt: number | null = null,
+): boolean {
   if (!regionById(id)) return false;
   try {
     if (!storage) return false;
-    storage.setItem(REGION_STORAGE_KEY, id);
+    storage.setItem(REGION_STORAGE_KEY, formatStoredRegion(id, pendingAt));
     return true;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Drops the pending marker once the profile holds the choice, leaving the
+ * region. Only when the stored value is still that very pending choice: a
+ * newer choice made while the write was on its way keeps its own marker.
+ */
+export function clearPendingRegion(
+  choice: StoredRegionChoice,
+  storage: Pick<Storage, 'getItem' | 'setItem'> | null = safeLocalStorage(),
+): boolean {
+  if (choice.pendingAt === null) return false;
+  try {
+    if (!storage) return false;
+    const now = readStoredChoice(storage);
+    if (!now || now.id !== choice.id || now.pendingAt !== choice.pendingAt) return false;
+    return saveStoredRegion(choice.id, storage);
   } catch {
     return false;
   }
@@ -212,16 +284,17 @@ export interface OpenWelcomeOptions {
   choices: readonly RegionConfig[];
   active: RegionConfig;
   closeIcon: string;
-  /** Saves the choice on the profile when signed in; resolves either way. */
-  saveToProfile: (id: RegionId) => Promise<unknown>;
+  /**
+   * Remembers the choice: in this browser first and, when signed in, on the
+   * profile (rememberRegion in demo/regionPreference.ts, which also waits at
+   * most 1.5 seconds for the profile). Resolves either way.
+   */
+  remember: (id: RegionId) => Promise<unknown>;
   /** Opens the existing sign in (the /account page). */
   openSignIn: () => void;
   /** Goes to another region's home: a full page load. */
   navigate: (href: string) => void;
 }
-
-/** How long a choice waits for the profile write before it navigates anyway. */
-const PROFILE_WAIT_MS = 1500;
 
 /** Opens the pop-up. Resolves with the region chosen, or null when closed without a choice. */
 export function openRegionWelcome(o: OpenWelcomeOptions): Promise<RegionId | null> {
@@ -271,9 +344,15 @@ export function openRegionWelcome(o: OpenWelcomeOptions): Promise<RegionId | nul
         if (!region) return;
         e.preventDefault();
         chosen = region.id;
-        saveStoredRegion(region.id);
-        const wait = new Promise((r) => setTimeout(r, PROFILE_WAIT_MS));
-        void Promise.race([o.saveToProfile(region.id).catch(() => undefined), wait]).then(() => {
+        // The choice is saved in this browser at once (remember starts with that), then the
+        // profile, for at most 1.5 seconds; a failed save never holds the visitor here.
+        let saved: Promise<unknown>;
+        try {
+          saved = Promise.resolve(o.remember(region.id));
+        } catch {
+          saved = Promise.resolve();
+        }
+        void saved.catch(() => undefined).then(() => {
           dlg.close('choose');
           if (region.id !== o.active.id) o.navigate(a.href);
         });

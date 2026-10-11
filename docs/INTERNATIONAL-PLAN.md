@@ -271,17 +271,53 @@ no request for it. It does not wait for `REGION_WELCOME_ON`, which only switches
   `GET /rest/v1/profiles?select=region&limit=0` with the public key answers 200 and `[]`,
   where a missing column answers 400). Nothing else is stored; no cookie.
 - **Who writes it.** Every choice, from the pop-up, the country menu (`chooseRegionFromMenu`)
-  or the Country row, is written to this browser and, when signed in, to the profile, waiting
-  at most 1.5 seconds for the profile before going on. Choosing the region the page is in is
-  remembered too once a second region is live (it was a no op while the UK was alone).
-- **The rule on sign in, and on each page load for a signed in visitor** (`reconcileRegion`):
-  the profile wins. A profile country is mirrored into this browser, even over a different
-  local one, because the account is what the visitor asked to be remembered by. A choice made
-  in this browser before signing in is copied to a profile that has none. With neither,
-  nothing is chosen and the pop-up asks. When the profile cannot be read, the local choice
-  stands and nothing is written. The profile is read once per page load, shared by the sign
-  in handler and the arrival check. A change made on another device shows from the next page
-  load on this one.
+  or the Country row, goes through `rememberRegion`: saved in this browser first, then, when
+  signed in, written to the profile, waiting at most 1.5 seconds for it before going on.
+  Choosing the region the page is in is remembered too once a second region is live (it was a
+  no op while the UK was alone).
+- **The rule on sign in, and on each page load for a signed in visitor** (`reconcileRegion`,
+  changed 11 Oct 2026, see "A failed save" below): a choice in this browser that still carries
+  the pending marker wins over the profile. Otherwise the profile wins: a profile country is
+  mirrored into this browser, even over a different local one, because the account is what the
+  visitor asked to be remembered by. A choice made in this browser before signing in (no
+  marker) is copied to a profile that has none. With neither, nothing is chosen and the pop-up
+  asks. When the profile cannot be read, the local choice stands and nothing is written, except
+  that a pending choice is still sent again. The profile is read once per page load, shared by
+  the sign in handler and the arrival check. A change made on another device shows from the
+  next page load on this one.
+- **A failed save never moves the visitor (fixed 11 Oct 2026; found 10 Oct).** The bug: a
+  signed in visitor chose the US, the write to `profiles.region` failed (network error,
+  Supabase down, a rejected row), the profile still held the UK, and the next page load of the
+  US home reconciled with "the profile wins", mirrored the UK into the browser and redirected
+  the visitor to `/`. The visitor's explicit choice is now the truth from the moment they make
+  it:
+  - It is saved in this browser first. For a signed in visitor the stored value carries a
+    pending marker and the time of the choice, inside the same key: `US|pending|1760000000000`
+    (a settled choice, and every choice of a signed out visitor, is the plain `US`). No second
+    key exists, so the cookies and privacy text, which list `pricesniffs.region` as "that
+    choice", needs nothing new. Every reader of the choice sees the region either way
+    (`readStoredRegion`; `parseStoredRegion` and `clearPendingRegion` in `demo/regionWelcome.ts`).
+  - Then the profile write is tried. An answer of `true` drops the marker (even if it lands after
+    the 1.5 second wait). Anything else (false, an error, a throw, no answer) leaves it: nothing
+    is shown, nothing is logged, and the visitor goes where they chose.
+  - While the marker stands the choice wins over the profile, so the sync cannot overwrite it
+    and the arrival check redirects only towards it. The write is sent again on every page load
+    (and when the same browser signs in) until it succeeds; if the profile already holds the
+    choice, the marker is simply dropped. The marker is cleared only for the very choice that
+    was pending (same region and time), so a newer choice made meanwhile keeps its own marker.
+    A choice made while the profile is being read is newer than that read and stands.
+  - `profiles` has no `updated_at` (only `price_alerts` and `site_stats` rows do) and no column
+    or migration was added, so a later choice on another device cannot be told from an older
+    one: the pending marker wins until it is cleared. The time in the marker is kept so that a
+    future `updated_at` can settle "last choice wins" without changing the stored value. Known
+    edge: the marker belongs to the browser, not to an account; if someone else signs in here
+    before a failing write has ever succeeded, it is sent to their profile.
+  - A signed out visitor is unchanged: only the plain local key is written, no marker, no
+    request. Tests: `tests/regionPreferencePending.test.ts` (the reproduction, the marker, the
+    retry, who wins), `tests/regionProfile.test.ts` (a failed write answers false and logs
+    nothing), `tests/regionWelcome.test.ts` (the stored value) and
+    `tests/regionSaveFailedBrowser.test.ts` (the built page, the profile write stubbed to fail
+    with a 500 and with a dropped connection: the visitor stays on `/us/` through reloads).
 - **Where it moves the visitor** (`arrivalAction`): only the bare home page (`/`), and only to a
   live region's home. A deep link (a product, brand, notes or guides page, `/account`, a
   region's own home) is never redirected; the page notes the remembered country on the root
