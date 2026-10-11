@@ -1,7 +1,7 @@
 {
   "retailerId": "nicchia-luxury-uk",
-  "updatedAt": "2026-10-10T20:29:40.358Z",
-  "seenAt": "2026-10-10T20:29:40.358Z",
+  "updatedAt": "2026-10-11T00:58:39.695Z",
+  "seenAt": "2026-10-11T00:58:39.695Z",
   "source": "live",
   "listings": [
     {
@@ -114922,7 +114922,7 @@
       "priceGbp": 9,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Amore al primo sguardo.... Regale e di alta classe…. Armonia di ingredienti nobili per rendere omaggio alla sua grandezza… Lavanda infusa in frutti succosi. Incorniciata in un lussuoso letto di oud e una dose delle note più uniche e sfaccettate di tutte: legno di agar; miscelato armoniosamente alla perfezione. .",
       "productType": "Extrait de Parfum",

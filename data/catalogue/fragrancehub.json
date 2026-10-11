@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-10T20:29:40.358Z",
-  "seenAt": "2026-10-10T20:29:40.358Z",
+  "updatedAt": "2026-10-11T00:58:39.695Z",
+  "seenAt": "2026-10-11T00:58:39.695Z",
   "source": "live",
   "listings": [
     {
@@ -4062,7 +4062,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 64.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Brazilian Tobacco – Extrait de Parfum (100ml). Smoky, spicy and unapologetically bold. Fresh bergamot and lavender meet fiery peppers before melting into rich tobacco, oud and cedarwood. The dry down of leather, patchouli and vetiver delivers a deep, long-lasting, masculine trail.. Perfect for evenings, cold weather and statement wear. High-strength extrait for maximum projection and longevity.. Fragrance Notes Top: Pink Pepper, Red Chilli Pepper, Bergamot, Lavender Middle: Tobacco, Oud, Cedarwood, Cherry Base: Leather, Patchouli, Vetiver.",
       "productType": null,
