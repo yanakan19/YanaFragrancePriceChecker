@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import AxeBuilder from '@axe-core/playwright';
 import { devices, webkit, type Browser, type BrowserContext, type Page } from 'playwright';
-import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
+import { launchChromium, launchWebkit, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 import { BY_POPULARITY, DEALS, type DemoFragrance } from '../demo/data.js';
 import { readGender } from '../demo/gender.js';
 import { rankedInMostStocked } from '../demo/mostStocked.js';
@@ -362,7 +362,8 @@ describe.skipIf(!built || !webkitReady)('the Filters panel in WebKit, with iPhon
 
   beforeAll(async () => {
     ({ port, close } = await startDemoServer());
-    browser = await webkit.launch();
+    // Started with the UK saved, as launchChromium does: the pop-up on the bare home page would cover a page that starts there.
+    browser = await launchWebkit();
   }, 60_000);
 
   afterAll(async () => {
