@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-10T00:04:42.088Z",
+  "ranAt": "2026-10-10T23:38:19.329Z",
   "minutes": 40.4,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 16804,
+  "listingsKept": 16872,
   "shops": [
     {
       "id": "nykaa",
@@ -15,20 +15,18 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 919,
-      "priced": 909,
-      "kept": 816,
-      "withBarcode": 123,
-      "pagesFetched": 920,
-      "seconds": 2402,
+      "listingsRead": 901,
+      "priced": 901,
+      "kept": 899,
+      "withBarcode": 218,
+      "pagesFetched": 901,
+      "seconds": 2401,
       "currency": "JSON-LD offers named: INR",
       "errors": [
-        "https://www.nykaa.com/wanderlust-edp-long-lasting-fragrance-perfume-for-women/p/24643808: HTTP 404",
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "https://www.nykaa.com/wanderlust-edp-long-lasting-fragrance-perfume-for-women/p/24643808: HTTP 404",
-        "sitemap: 3061 product address(es) found, first read https://www.nykaa.com/la-french-fonce-eau-de-parfume/p/25954279"
+        "sitemap: 3074 product address(es) found, first read https://www.nykaa.com/dior-poison-eau-de-toilette/p/950939"
       ]
     },
     {
@@ -68,12 +66,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7527,
-      "priced": 7527,
-      "kept": 6301,
+      "listingsRead": 7535,
+      "priced": 7535,
+      "kept": 6309,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 86,
+      "seconds": 78,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -98,11 +96,11 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 760,
-      "priced": 760,
-      "kept": 716,
+      "listingsRead": 745,
+      "priced": 745,
+      "kept": 693,
       "withBarcode": 0,
-      "pagesFetched": 761,
+      "pagesFetched": 746,
       "seconds": 2403,
       "currency": "og:price tags named: INR",
       "errors": [
@@ -183,7 +181,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -208,16 +206,16 @@
       "route": "sitemap",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 3,
-      "priced": 3,
+      "listingsRead": 5,
+      "priced": 5,
       "kept": 2,
       "withBarcode": 0,
-      "pagesFetched": 10,
-      "seconds": 29,
+      "pagesFetched": 12,
+      "seconds": 36,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
-        "sitemap: 10 product address(es) found, first read https://www.ustraa.com/cologne-spray-ammunition-125ml/p"
+        "sitemap: 10 product address(es) found, first read https://www.ustraa.com/cologne-for-men-base-camp/p"
       ]
     },
     {
