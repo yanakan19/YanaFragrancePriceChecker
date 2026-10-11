@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-11T17:11:19.256Z",
-  "seenAt": "2026-10-11T17:11:19.256Z",
+  "updatedAt": "2026-10-11T21:15:18.764Z",
+  "seenAt": "2026-10-11T21:15:18.764Z",
   "source": "live",
   "listings": [
     {
@@ -11192,7 +11192,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . . Show your beauty from within with the floral in the scented Incandessence Anti-Perspirant Roll-On Deodorant. A mysterious blend of white peach, rose and teakwood unveils your radiance.. . Product specification: . . • Top note: white peach.. • Middle note: rose.. • Base note: teakwood.. • 50ml.. . How to wear me: . . Live your vitality and your radiance by starting your day feeling fresh by using the floral-scented roll-on deodorant in the morning. If you've fallen in love with the sent, treat yourself to the matching perfume.. . .",
       "productType": "FRAGRANCE",

@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-11T17:11:19.256Z",
-  "seenAt": "2026-10-11T17:11:19.256Z",
+  "updatedAt": "2026-10-11T21:15:18.764Z",
+  "seenAt": "2026-10-11T21:15:18.764Z",
   "source": "live",
   "listings": [
     {
@@ -15976,7 +15976,7 @@
       "priceGbp": 80.75,
       "wasPriceGbp": 95,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rose Silence Eau de Parfum 50ml by Miller Harris captures the delicate essence of blooming roses with a refined floral fragrance. This elegant scent offers a fresh and timeless aroma, perfect for those who appreciate subtle sophistication. The 50ml bottle is ideal for daily wear, providing a graceful touch of nature’s beauty throughout your day..",
       "productType": "Women's Fragrances",
@@ -16988,7 +16988,7 @@
       "priceGbp": 182.75,
       "wasPriceGbp": 215,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Angels’ Share On The Rocks Eau de Parfum by Kilian Paris offers a fresher take on the iconic composition. Bright citrus layers balance the warmth beneath, delivering a crisp, modern profile. A compact format that captures contrast, clarity and unmistakable character..",
       "productType": "Women's Fragrances",
@@ -24118,7 +24118,7 @@
       "priceGbp": 139.5,
       "wasPriceGbp": 155,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rose of No Man's Land is the nickname given by soldiers to the nurses who saved thousands of lives during WWI. The scent is tribute to selflessness and compassion..",
       "productType": "Women's Fragrances",

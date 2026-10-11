@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-11T18:16:19.771Z",
-  "seenAt": "2026-10-11T18:16:19.771Z",
+  "updatedAt": "2026-10-11T22:21:08.303Z",
+  "seenAt": "2026-10-11T22:21:08.303Z",
   "source": "live",
   "listings": [
     {
@@ -3947,7 +3947,7 @@
       "priceGbp": 12.5,
       "wasPriceGbp": 25,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Celebrate them with this indulgent mango gift set. .",
       "productType": "Bath and Body gifts",

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-11T18:16:21.798Z",
+  "checkedAt": "2026-10-11T22:21:10.152Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -142,10 +142,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
+      "listings": 59,
       "pricedInGbp": 0,
-      "withPhoto": 59,
-      "errors": [],
+      "withPhoto": 58,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -191,9 +193,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 59,
+      "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 59,
+      "withPhoto": 60,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
