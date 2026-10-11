@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-11T10:07:13.894Z",
+  "checkedAt": "2026-10-11T14:13:18.958Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -141,16 +141,18 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "USD",
-      "listings": 60,
+      "currency": "AED",
+      "listings": 48,
       "pricedInGbp": 0,
-      "withPhoto": 59,
-      "errors": [],
+      "withPhoto": 48,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -324,13 +326,15 @@
     {
       "houseId": "dumont",
       "name": "Dumont Paris",
-      "origin": "https://dumontparfums.com",
+      "origin": "https://www.dumontparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
       "listings": 177,
       "pricedInGbp": 0,
       "withPhoto": 177,
-      "errors": [],
+      "errors": [
+        "https://dumontparfums.com did not answer; used https://www.dumontparfums.com instead"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "dumontparis.com is the brand site and dumontparfums.com the shop; this points at the shop because that is what carries prices, but the relationship between the two was not confirmed",

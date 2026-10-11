@@ -1,7 +1,7 @@
 {
   "retailerId": "beaute-boulevard",
-  "updatedAt": "2026-10-11T09:01:54.839Z",
-  "seenAt": "2026-10-11T09:01:54.839Z",
+  "updatedAt": "2026-10-11T13:06:54.325Z",
+  "seenAt": "2026-10-11T13:06:54.325Z",
   "source": "live",
   "listings": [
     {
@@ -198,7 +198,7 @@
       "priceGbp": 86.99,
       "wasPriceGbp": 125,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Tiffany & Co by Tiffany is a Floral fragrance for women. Tiffany & Co was launched in 2017. The nose behind this fragrance is Daniela (Roche) Andrier. Top notes are Mandarin Orange, Bergamot and Lemon; middle notes are iris, Rose, Black Currant and Peach; base notes are Musk and Patchouli..",
       "productType": "Cosmetics",
@@ -22876,7 +22876,7 @@
       "priceGbp": 166.99,
       "wasPriceGbp": 240,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the essence of timeless elegance with Xerjoff Regio Eau de Parfum , a masterful olfactory journey that captures the spirit of Mediterranean sophistication. This radiant fragrance opens with luminous citrus bursts of Sicilian bergamot and Calabrian lemon, evoking sun-drenched coastlines and gentle sea breezes. At its heart lies a captivating harmony of delicate floral nuances, where tender jasmine and lush orange blossom intertwine, creating an enchanting aura of refined grace.. As it unfolds, warm and sensual notes of amber and rich woods emerge, enveloping the wearer in a cocoon of subtle luxury and enduring allure. Regio embodies a radiant confidence—vibrant yet serene, fresh yet deeply evocative—making it the perfect signature scent for those who appreciate effortless elegance and a whisper of Mediterranean charm.. Experience a fragrance that not only awakens your senses but also tells a story of passion, artistry, and the hypnotic beauty of the sun-kissed Italian shores..",
       "productType": "Cosmetics",

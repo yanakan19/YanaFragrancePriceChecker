@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-11T09:01:54.839Z",
-  "seenAt": "2026-10-11T09:01:54.839Z",
+  "updatedAt": "2026-10-11T13:06:54.325Z",
+  "seenAt": "2026-10-11T13:06:54.325Z",
   "source": "live",
   "listings": [
     {
@@ -24095,7 +24095,7 @@
       "priceGbp": 20,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "First appeared in 1888, at the height of the craze for all things Japanese. A perfume inspired by the heady sensual scent of the Japanese lotus. Radiant, oriental, dry, dark and rich.. A bright, radiant composition with pronounced Chypre and Amber facets on a woody dry, very sensual base. Hasu-no-Hana hailed the dawn of modern creative perfumery.. Top: Bergamot, Bitter Orange Heart: Iris, Lotus, Jasmine, Ylang-Ylang, Rose, Oakmoss Base: Sandalwood, Vetiver, Patchouli, Cedar, Tonka Bean .",
       "productType": "Fragrance",
