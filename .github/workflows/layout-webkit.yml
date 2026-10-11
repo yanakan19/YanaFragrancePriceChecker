@@ -5,6 +5,10 @@ name: Layout check (Safari engine)
 # is the half that catches what only Safari does differently, which is where
 # the filters were reported looking wrong on an iPhone. The WebKit half of
 # tests/listFiltersBrowser.test.ts (the Filters panel on an iPhone) runs with it.
+# It also checks the "Select your country" pop-up fits an iPhone screen, for a
+# visitor who has chosen no country; every other page is checked as a returning
+# visitor, with the UK saved, so the pop-up is not over it (launchWebkit in
+# scripts/a11y-audit.ts).
 #
 # Only on a change to the page's own source or to the test, never on a price
 # crawl: a harvest changes data, not layout, and the page it builds is checked
@@ -20,6 +24,11 @@ on:
       - 'demo/listFilters.ts'
       - 'demo/tabPanels.ts'
       - 'scripts/build-demo.ts'
+      # The browser launch both engines use (the saved country every test
+      # browser starts with), and the pop-up that asks a visitor with none.
+      - 'scripts/a11y-audit.ts'
+      - 'demo/regionWelcome.ts'
+      - 'src/config/regions.ts'
       - 'tests/layoutConsistency.test.ts'
       - 'tests/listFiltersBrowser.test.ts'
       - 'tests/support/filterPanel.ts'

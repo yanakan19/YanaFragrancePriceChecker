@@ -44,6 +44,14 @@ export interface FakeAccount {
    */
   region?: 'GB' | 'US' | 'IN' | null;
   /**
+   * Makes every write of profiles.region fail, as a Supabase that is down or a
+   * rejected row would: 'status' answers 500 (the row is not changed), 'network'
+   * drops the connection. Each attempt is still recorded in `writes`. Reads are
+   * unaffected. Left out, or null, writes succeed. A test may set it back to
+   * null mid-test: "Supabase is back".
+   */
+  failRegionWrites?: 'status' | 'network' | null;
+  /**
    * The developer dashboard's database (migration 0007). Left out is a project
    * where the owner has not run it: its functions and table answer as missing.
    * `isAdmin` is this account's owner flag; `stats` is what site_stats answers
@@ -160,7 +168,11 @@ export async function stubSupabase(
       account?.writes?.push(`profiles ${req.postData() ?? ''}`);
       try {
         const body = JSON.parse(req.postData() ?? '{}') as { region?: 'GB' | 'US' | 'IN' | null };
-        if (account && 'region' in body) account.region = body.region ?? null;
+        if (account && 'region' in body) {
+          if (account.failRegionWrites === 'network') return route.abort('connectionfailed');
+          if (account.failRegionWrites === 'status') return json(500, { message: 'The database is not answering' });
+          account.region = body.region ?? null;
+        }
       } catch {
         /* not JSON: nothing to keep */
       }
