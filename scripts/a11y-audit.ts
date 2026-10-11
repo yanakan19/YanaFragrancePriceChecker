@@ -18,7 +18,7 @@
  * launches the same pinned Chromium, for the same reasons recorded there.
  */
 import AxeBuilder from '@axe-core/playwright';
-import { chromium, type Browser, type Page } from 'playwright';
+import { chromium, webkit, type Browser, type Page } from 'playwright';
 import { createServer } from 'node:http';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve, dirname, extname } from 'node:path';
@@ -94,8 +94,15 @@ export interface LaunchOptions {
   countryChosen?: 'GB' | 'US' | 'IN' | null;
 }
 
-export async function launchChromium(options: LaunchOptions = {}): Promise<Browser> {
-  const browser = await chromium.launch(existsSync(PINNED_CHROMIUM) ? { executablePath: PINNED_CHROMIUM } : {});
+/**
+ * Makes every context `browser` opens start with the country chosen (see
+ * LaunchOptions.countryChosen). Shared by both engines: the layout check ran
+ * WebKit through a bare `webkit.launch()` that did not do this, so from the
+ * public beta on the pop-up opened over its first page and every click
+ * waited behind it until the test timed out (Layout check (Safari engine)
+ * runs 95 to 97, 9 to 11 October 2026).
+ */
+function startWithCountry(browser: Browser, options: LaunchOptions): Browser {
   const country = options.countryChosen === undefined ? 'GB' : options.countryChosen;
   if (country === null) return browser;
   const newContext = browser.newContext.bind(browser);
@@ -111,6 +118,20 @@ export async function launchChromium(options: LaunchOptions = {}): Promise<Brows
     return context;
   };
   return browser;
+}
+
+export async function launchChromium(options: LaunchOptions = {}): Promise<Browser> {
+  const browser = await chromium.launch(existsSync(PINNED_CHROMIUM) ? { executablePath: PINNED_CHROMIUM } : {});
+  return startWithCountry(browser, options);
+}
+
+/**
+ * WebKit, the engine inside Safari, for the "Layout check (Safari engine)"
+ * workflow. Every test that launches an engine goes through here or through
+ * launchChromium, so both start the same way (tests/layoutConsistency.test.ts).
+ */
+export async function launchWebkit(options: LaunchOptions = {}): Promise<Browser> {
+  return startWithCountry(await webkit.launch(), options);
 }
 
 export interface Violation {
