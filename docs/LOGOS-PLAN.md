@@ -851,3 +851,44 @@ is the one in §3 and §5 step 6, with these decisions made while doing it:
   now capped at 180px and kept in proportion), and on a phone a wide mark beside
   the name pushed the page sideways (the hero stacks under 520px when the mark
   is a wordmark).
+
+---
+
+## 9. Resumed 12 Oct 2026
+
+The owner paused logo work on 8 Oct ("don't worry about the logos for now") and
+asked on 12 Oct to resume it. This section records where the plan stood when
+work restarted, measured on the tree at `d496cbea` (live branch tip of
+12 Oct), and then what was done, in the plan's own order. Nothing here widens
+what §2c, §4 and §8 authorise.
+
+### Where the plan stood
+
+| Step | State on 12 Oct |
+|---|---|
+| 1 Types and the empty registry | Done. `LogoRef`, `LogoBasis`, `Retailer.logo` and `Retailer.squareLogo`, `demo/brandLogos.ts`. |
+| 2 The probe | Done. `scripts/logo-probe.ts`, with `--brands`, `--no-social` and robots.txt read literally (§8). |
+| 3 Render in the monogram slots | Done. `orgMark`, `.org-mark` in `demo/template.html`. |
+| 4 Pin the invariants | Done. `tests/brandLogos.test.ts`, `tests/imageFallback.test.ts`. |
+| 5 The retailer pass | Done for the shops that existed on 3 and 4 Oct: **41 of the 87 registry shops carry a logo** (33 `own-site-declared`, 8 `owner-supplied`; 7 of them also a `squareLogo`), which is **41 of the 63 enabled shops**. No disabled shop has one and none is wanted (the Shops directory lists enabled shops only). **22 enabled shops have none**: the ones added on 8 and 9 Oct and a few older ones that were blocked. |
+| 6 The brand pass | Done in three rounds: the top 100 (10 Sep), 41 more houses from their own sites (5 Oct, §8), and 109 files the owner supplied on 6 Oct. **197 brand keys carry a logo** (83 `own-site-declared`, 5 `commons-public-domain`, 109 `owner-supplied`); about 195 houses. |
+| 7 Health check and notice | Done. `scripts/image-link-check.ts` sweeps every hot-linked `LogoRef`; the Terms carry the Logos paragraph and count what the registry holds (`tests/legalPages.test.ts`). |
+| 8 Offer rows | Shipped on 3 Oct in the form the owner chose ("I hate the fact that on a perfume listing some retailers have logos and some don't"): every row has a 20px mark, a square logo or an initials tile. Pinned by `tests/offerMark.test.ts`. |
+
+Offer rows were therefore done, not outstanding. The plan's gate ("only after
+1 to 7 have shipped and settled") was met on 3 Oct, and what is left of step 8
+is only to look again at 20px once more logos exist.
+
+### What is next, in the plan's order
+
+1. Step 5 again for the 22 enabled shops with no logo, by the §8 method.
+2. Step 6 again: the next 200 houses without a logo, by §8.
+3. Step 8 check at 20px, in both themes, at 320, 390 and 1280.
+
+**Out of scope, and why.** The 42 US and India shops are not in this plan:
+`src/types/regionRetailer.ts` records "no `logo`" for a region shop, and
+`tests/regionRetailers.test.ts` fails a region shop that has the field, and the
+region pages are built from `src/config/regionShops.ts`, which has no logo. Giving
+them logos means changing that type, that test and the region page build, which
+no step of §5 covers. That is a decision for the owner and nothing was changed
+for it today.
