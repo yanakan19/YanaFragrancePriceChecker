@@ -961,7 +961,9 @@ this one step is yours. It takes a minute.
    Restoring from it, if a rewrite ever goes wrong:
    `git push --force-with-lease=<live branch>:<current tip> origin <backup tip>:refs/heads/<live branch>`.
 4. Delete a `backup/*` branch or an `archive/*` tag only when you are sure the
-   job it covered is fine; agents never do.
+   job it covered is fine; agents never do. Since 13 October the guard also
+   accepts the archive as a branch `archive/<branch>-YYYYMMDD` (made through the
+   GitHub MCP `create_branch` tool when the tag push answers 403).
 5. **Found 12 October, after you made the settings change:** this cloud
    session's GitHub credential may only push to the live branch. Pushing a tag
    or a `backup/*` branch from it answers HTTP 403, so the fall back copy cannot

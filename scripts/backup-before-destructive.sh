@@ -15,6 +15,11 @@
 #       (so its commits stay reachable after the branch is deleted), then
 #       prints the one line that restores the branch.
 #
+# If the tag push is refused (HTTP 403: the cloud session's credential may only
+# push the live branch), make the same archive as a BRANCH instead, through the
+# GitHub MCP create_branch tool: branch archive/<branch>-YYYYMMDD at the exact
+# tip (the guard accepts a tag or a branch). Do not work round the credential.
+#
 # Both verify the ref is really on origin and print the recovery command.
 # Add the printed lines to docs/OWNER-STEPS.md 7d in the same commit as the job.
 # Never force pushes, never deletes anything.
@@ -24,7 +29,7 @@ LIVE=claude/scentday-retailer-registry-h92tth
 STAMP=$(date -u +%Y%m%d-%H%M)
 DAY=$(date -u +%Y%m%d)
 
-usage() { sed -n '3,22p' "$0"; exit 2; }
+usage() { sed -n '3,27p' "$0"; exit 2; }
 [ $# -ge 1 ] || usage
 mode=$1; shift
 

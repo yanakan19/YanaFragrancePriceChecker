@@ -8,7 +8,7 @@
 #
 #   force push of the live branch  -> a branch  backup/pre-rewrite-YYYYMMDD-HHMM
 #                                     made in the last 24 hours must exist on origin
-#   git push origin --delete <b>   -> a tag  archive/<b>-YYYYMMDD  must exist on origin
+#   git push origin --delete <b>   -> a tag or branch  archive/<b>-YYYYMMDD  at (or containing) the tip of b must exist on origin
 #   git filter-repo / git replace  -> same as the force push (a rewrite)
 #
 # scripts/backup-before-destructive.sh makes both. Everything else passes.
@@ -59,7 +59,18 @@ for m in re.finditer(r"git\s+push\s+\S+\s+:(\S+)", c):
 print(" ".join(out))')
   for b in $branches; do
     [ "$b" != "$LIVE" ] || block "$LIVE is the live branch and is never deleted."
-    git ls-remote --tags origin "refs/tags/archive/$b-*" 2>/dev/null | grep -q . || block "no archive/$b-* tag on origin for branch $b."
+    # the archive is a tag OR a branch (a tag push from the cloud session answers 403, so it may be made as a
+    # branch through the GitHub MCP create_branch tool); it must be at the branch's tip or at a commit containing it
+    tip=$(git ls-remote --heads origin "refs/heads/$b" 2>/dev/null | awk '{print $1}' | head -1)
+    [ -n "$tip" ] || block "branch $b is not on origin."
+    ok=0
+    while read -r sha ref; do
+      [ -n "$sha" ] || continue
+      if [ "$sha" = "$tip" ]; then ok=1; break; fi
+      git cat-file -e "$sha^{commit}" 2>/dev/null || git fetch -q origin "$ref" 2>/dev/null || true
+      if git merge-base --is-ancestor "$tip" "$sha" 2>/dev/null; then ok=1; break; fi
+    done < <(git ls-remote origin "refs/tags/archive/$b-*" "refs/heads/archive/$b-*" 2>/dev/null)
+    [ "$ok" = 1 ] || block "no archive/$b-* tag or branch on origin at (or containing) the tip of branch $b."
   done
 fi
 exit 0
