@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-10-12T09:18:34.595Z",
-  "seenAt": "2026-10-12T09:18:34.595Z",
+  "updatedAt": "2026-10-12T13:07:45.850Z",
+  "seenAt": "2026-10-12T13:07:45.850Z",
   "source": "live",
   "listings": [
     {
@@ -6431,7 +6431,7 @@
       "priceGbp": 90,
       "wasPriceGbp": 124,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. 80ml size perfect for travelling. A mix of audacious and sophisticated aroma. Designed by Carolina Herrera. ##end-features##. Product description. A sensual, evocative fragrance from the House of Carolina Herrera, the Good Girl Eau de Parfum Spray is a celebration of the modern woman. . Its compelling scent is bottled in a strikingly polished stiletto shaped bottle making it a symbol of feminine power. The dual nature of Good Girl is expressed through a seamless blend of high-quality ingredients, meticulously chosen by Carolina Herrera.. Features of Carolina Herrera Good Girl EDP Spray 80ml. Top notes of almond and coffee for an energising start. Heart notes of jasmine sambac and tuberose for a pure floral indulgence. Base notes of tonka bean and cacao wrapping up the fragrance in sweetness and warmth. Packed in an iconic stiletto-shaped bottle symbolising empowered women. ##accordion-start##. Specifications. Brand: Carolina Herrera. Volume: 80ml. ##accordion-item-end##. Suitable for. Everyday wear. Special occasions. Gift for loved ones. ##accordion-item-end##. Warnings and cautions. Avoid contact with eyes.. Keep out of reach of children.. Do not apply to broken or irritated skin.. Discontinue use if skin irritation occurs.. ##accordion-item-end##. How to use. Spray the perfume onto pulse points.. Allow it to dry naturally without rubbing.. ##accordion-item-end##. Ingredients. Alcohol, Parfum/Fragrance, Water, Linalool, Hydroxycitronellal, Limonene, Coumarin, Citral.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -6799,7 +6799,7 @@
       "priceGbp": 27.5,
       "wasPriceGbp": 55,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Burberry brand's unique signature scent. Individually crafted bottle - making each one special. 50ml volume for considerable use. ##end-features##. Product description. A versatile Burberry Touch EDT 50ml embracing elegance and chic masculinity. . This distinctive Eau de Toilette is a subtle yet robust fragrance that commands attention without being overpowering. Expertly crafted, it represents an impressive harmony between fresh, vibrant notes and soft, understated accents.. Burberry Touch EDT 50ml is perfect for everyday wear and a must-have addition to one's personal grooming repertoire.. Features of Burberry Touch EDT 50ml. Eau de Toilette type of perfume. The fragrance gives a fresh feeling. Perfect for everyday wear. Unisex but leans toward masculine notes. ##accordion-start##. Specifications. Brand: Burberry. Product Type: Eau de Toilette (EDT). Volume: 50ml. ##accordion-item-end##. Suitable for. Individual 18 years and over. ##accordion-item-end##. Warnings and cautions. For external use only. Avoid contact with eyes and other sensitive areas. Do not use on broken or irritated skin. Discontinue use if rash occurs. ##accordion-item-end##. How to use. Spray lightly on pulse points; behind your ears, on your chest, lower neck, or wrist. For a lasting scent, avoid rubbing the fragrance into your skin. Just apply the scent and leave it to dry naturally.. ##accordion-item-end##. Ingredients. Alcohol, Aqua/Water, Fragrance, Benzyl Salicylate, Ethylhexyl Methoxycinnamate, Citral, Limonene, Blue 1 or C1 42090, Ext Violet 2/C1 60730. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",

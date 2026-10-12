@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-12T09:18:34.595Z",
-  "seenAt": "2026-10-12T09:18:34.595Z",
+  "updatedAt": "2026-10-12T13:07:45.850Z",
+  "seenAt": "2026-10-12T13:07:45.850Z",
   "source": "live",
   "listings": [
     {
@@ -612,7 +612,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Viktor & Rolf Flowerbomb Eau de Parfum 20ml. Key Features. ##features##. Award-winning floral fragrance for women.. Features bergamot, tea and freesia top notes.. Luxurious floral bouquet of jasmine, orchid and rose.. Warm patchouli base adds depth and longevity.. Compact 20ml size perfect for travel.. Signature Viktor & Rolf fragrance.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Viktor & Rolf Flowerbomb Eau de Parfum is an iconic floral fragrance that delivers an explosion of elegant blooms. Combining fresh bergamot and tea with jasmine, orchid and rose, this luxurious scent is balanced by rich patchouli for a sophisticated and long-lasting finish. Perfect for handbags and travel.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points including wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. Alcohol Denat., Parfum/Fragrance, Aqua/Water, Limonene, Linalool, Citronellol, Geraniol, Benzyl Salicylate, Coumarin, Citral, Benzyl Alcohol.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

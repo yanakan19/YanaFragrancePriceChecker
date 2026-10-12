@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-12T09:18:34.595Z",
-  "seenAt": "2026-10-12T09:18:34.595Z",
+  "updatedAt": "2026-10-12T13:07:45.850Z",
+  "seenAt": "2026-10-12T13:07:45.850Z",
   "source": "live",
   "listings": [
     {
@@ -23911,7 +23911,7 @@
       "priceGbp": 95.2,
       "wasPriceGbp": 112,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The myth of a hero, both virile and vulnerable, told in an intense and subtle leather-aromatic fragrance. A singular fragrance housed in a rounded square black bottle. A symbol of powerful and sensitive masculinity..",
       "productType": "Men's Fragrances",

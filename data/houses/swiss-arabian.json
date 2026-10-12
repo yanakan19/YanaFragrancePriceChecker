@@ -1,7 +1,7 @@
 {
   "retailerId": "swiss-arabian",
-  "updatedAt": "2026-10-12T10:25:15.222Z",
-  "seenAt": "2026-10-12T10:25:15.222Z",
+  "updatedAt": "2026-10-12T14:13:07.912Z",
+  "seenAt": "2026-10-12T14:13:07.912Z",
   "source": "live",
   "listings": [
     {
@@ -811,7 +811,7 @@
       "rawTitle": "AMAANI",
       "rawBrand": "Swiss Arabian",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/PRIVATE_AMAANI-01.png?v=1776335478",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Amaani.png?v=1791803474",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
