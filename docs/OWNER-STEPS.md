@@ -1149,6 +1149,24 @@ it brought new prices.
    device, and the profile page gets a **Country** row
    (`docs/INTERNATIONAL-PLAN.md`, "Remembered preference"). Nothing more to
    do.
+   **Done 12 October 2026, through your Supabase connector:**
+   `supabase/migrations/0010_hardening.sql` was applied to the live project
+   (it is in the project's migration history as
+   `hardening_trigger_grant_and_rls_initplan`). It takes the sign up trigger
+   function `handle_new_user()` off the public API (only the auth role that
+   fires the trigger may run it now) and rewrites the six "own row" security
+   policies on `profiles` and `wishlists` so Postgres evaluates `auth.uid()`
+   once per statement. Checked after: the performance advisor is clear and
+   the trigger warning is gone. The database is 11 MB (134 page view rows,
+   10 click rows, 1 profile); the nightly fold job `site-stats-compact` is
+   scheduled at 03:23. The advisor's remaining notes are intentional and
+   reviewed: `count_page_view` and `count_shop_click` must be callable with
+   the public key (the visit counter, capped per hour by 0008), and
+   `site_stats`, `site_stats_compact` and `is_site_admin` check the caller
+   is you inside. **One step left for you, in the dashboard only:**
+   Authentication → Sign In / Providers → Email → turn on **Prevent the use
+   of leaked passwords** (Supabase checks new passwords against
+   HaveIBeenPwned; it cannot be set by SQL).
 3. **Before any money is earned in the US or India**, have the US and India
    legal pages reviewed (decision 8): pricesniffs.space/us/about/legal and
    pricesniffs.space/in/about/legal (terms, privacy, affiliate disclosure,
