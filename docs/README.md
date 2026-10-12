@@ -31,6 +31,7 @@ path. Superseded plans and one-off reports are in [archive/](archive/).
 |---|---|
 | [PIPELINE-FAILURE-MODES.md](PIPELINE-FAILURE-MODES.md) | What can break the price pipeline, what guards it, who writes which file |
 | [FAILED-RUNS-ANALYSIS.md](FAILED-RUNS-ANALYSIS.md) | Every failed workflow run, classed and fixed (6 October 2026) |
+| [SITE-AUDIT-2026-10-12.md](SITE-AUDIT-2026-10-12.md) | The site, runs and storage audit of 12 October 2026: measurements, the ranked plan, every prior mistake with its guard, results |
 | [TRACKING-AND-STORAGE-STRATEGY.md](TRACKING-AND-STORAGE-STRATEGY.md) | Price history and storage |
 | [CATALOGUE.md](CATALOGUE.md) | The fragrance database |
 | [PRODUCT-URLS.md](PRODUCT-URLS.md) | Product addresses and the append only slug memory |
