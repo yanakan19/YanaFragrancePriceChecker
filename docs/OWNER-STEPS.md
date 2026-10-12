@@ -783,6 +783,13 @@ wizardly `e98e4a257d3fbbf48457ea1c8aea6fc0f3115270`, modest
 `dbe9a79dca3368552a3a723982fd976fc3f6e92c`, chatbot
 `1dd47e831098292a65f9a9dd6b632026c9a24f7a`.
 
+**13 October update (agent).** All of the above (and the three branches made on
+12 October) are archived as `archive/<name>-20261013` branches, with restore
+lines and the reason the deletions are pending, in 7f item 6. Decisions on the
+12 October branches: `funny-ride-h9fxy0` already on live in another form;
+`exciting-bardeen-3k75vb` and `hopeful-euler-9nuqc1` tests brought onto live.
+All three are safe to delete.
+
 **Step 2, close the open pull requests (1 minute).** **#6**, **#8** and
 **#9** are open on 12 October (their branches go in step 1; deleting a branch
 first closes its pull request for you). If one is still open: **Pull
@@ -991,6 +998,47 @@ this one step is yours. It takes a minute.
    `claude/exciting-bardeen-3k75vb` and `claude/hopeful-euler-9nuqc1` (created
    12 Oct, each holding unmerged work: look at them before deleting), and
    `backup/pre-rewrite-2026-10-06` (only you delete a backup).
+6. **Done 13 October (agent): the archives exist as branches, the deletions
+   wait for one thing.** The tag push still answers 403, so each branch below
+   was archived as a branch `archive/<name>-20261013` through the GitHub MCP
+   `create_branch` tool, each checked on origin at the exact tip. Restore line
+   for each: `git push origin <tip>:refs/heads/<name>`.
+
+   | Branch | Tip | Archive branch |
+   |---|---|---|
+   | `claude/modest-euler-3hwly2` | `b444d2613f2ac6ebcb8aa5ff1a61ff737ae5ef3f` | `archive/claude/modest-euler-3hwly2-20261013` |
+   | `claude/relaxed-brahmagupta-wmey28` | `6455989b340218ac9bd3e4fa9d64f1862021d94b` | `archive/claude/relaxed-brahmagupta-wmey28-20261013` |
+   | `claude/wizardly-faraday-owdlz1` | `e98e4a257d3fbbf48457ea1c8aea6fc0f3115270` | `archive/claude/wizardly-faraday-owdlz1-20261013` |
+   | `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94c0aabd93179dcc9283721bac6ecf19d3` | `archive/claude/wonderful-brahmagupta-8edg4h-20261013` |
+   | `four-shops-20261008` | `c4920520003e995b711bdcad1e14610d9fc8c124` | `archive/four-shops-20261008-20261013` |
+   | `claude/tender-cerf-d3t6wo` | `dbe9a79dca3368552a3a723982fd976fc3f6e92c` | `archive/claude/tender-cerf-d3t6wo-20261013` |
+   | `claude/eager-tesla-79jgos` | `d224a74dee2443386465f2b0570806e3f07252d7` | `archive/claude/eager-tesla-79jgos-20261013` |
+   | `claude/relaxed-allen-mv0j8n` | `6ce30f6337d95dba9d84860e9b3751e8dbc908aa` | `archive/claude/relaxed-allen-mv0j8n-20261013` |
+   | `claude/admiring-clarke-ly0s3e` | `8da718ad552aeff4e5305321500330d9a6133b51` | `archive/claude/admiring-clarke-ly0s3e-20261013` |
+   | `claude/funny-ride-h9fxy0` | `eb5ec88f4662e893d9c3aad3cd4595df99084abd` | `archive/claude/funny-ride-h9fxy0-20261013` |
+   | `claude/exciting-bardeen-3k75vb` | `feb9041e81082c73fc742c61bc94984dd59db447` | `archive/claude/exciting-bardeen-3k75vb-20261013` |
+   | `claude/hopeful-euler-9nuqc1` | `815ec8050c703c420ae82e1d3c73ffe8790717ec` | `archive/claude/hopeful-euler-9nuqc1-20261013` |
+
+   **Why nothing is deleted yet:** the guard that runs in the session comes from
+   the checkout `/home/user/YanaFragrancePriceChecker`, which was still two
+   commits behind the live branch and so still looked only for tags; it blocked
+   the first deletion (correctly, by its old rule). The new guard (accepts a
+   tag or a branch) is on the live branch. Once that checkout has been updated
+   (`git pull`), the twelve branches can be deleted one at a time with
+   `git push origin --delete <name>`, by an agent or by you, and pull requests
+   #6, #8, #9, #10, #11 and #12 (heads: tender-cerf, relaxed-allen,
+   admiring-clarke, exciting-bardeen, hopeful-euler, funny-ride) closed if they
+   stay open. Left alone: `claude/perfume-chatbot-multi-agent-lvf17y` (your
+   call) and `backup/pre-rewrite-2026-10-06`. You may delete the `archive/*`
+   branches in a few weeks.
+
+   The three 12 October branches, reviewed 13 October: `funny-ride-h9fxy0`
+   (dormant id reader): already on live in another form (`dormantIdsIn` in
+   `src/catalogue/idAliases.ts` reads both `brand` and `slug` first), safe to
+   delete. `exciting-bardeen-3k75vb` (ad preview CLS test holding the grid rows):
+   test only, brought onto live as it was (passes against the built site), safe
+   to delete. `hopeful-euler-9nuqc1` (Debenhams French Arabian phrase test): the
+   rule is already on live, the pinned test was brought across, safe to delete.
 
 ### 7e. GitHub settings only you can change (10 minutes; audit of 12 October 2026)
 
