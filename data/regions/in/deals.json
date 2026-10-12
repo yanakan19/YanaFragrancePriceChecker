@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-12T00:25:03.434Z",
+ "builtAt": "2026-10-12T05:22:54.499Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
  "listingsWithReference": 12421,
- "offersWithCorroboratedReference": 1173,
+ "offersWithCorroboratedReference": 1206,
  "deals": [
   {
    "fragranceId": "aar-fragrances-ibraheem-al-qurashi-blue-oud",
@@ -374,6 +374,26 @@
    "wasPrice": 4500,
    "percentOff": 47,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-hypnotic-amber",
+   "price": 3450,
+   "delivered": false,
+   "wasPrice": 6499,
+   "percentOff": 46,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-hypnotic-vanilla",
+   "price": 3450,
+   "delivered": false,
+   "wasPrice": 6499,
+   "percentOff": 46,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -968,6 +988,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-dumont-nitro-red-3",
+   "price": 3298.9,
+   "delivered": false,
+   "wasPrice": 5498.9,
+   "percentOff": 40,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-elizabeth-arden-green-tea",
    "price": 2500,
    "delivered": false,
@@ -1348,6 +1378,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-safa",
+   "price": 3463.9,
+   "delivered": false,
+   "wasPrice": 5498.9,
+   "percentOff": 37,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-maison-alhambra-dark-door-intense-for-men-edp-100ml",
    "price": 2117.5,
    "delivered": false,
@@ -1508,6 +1548,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-arabiyat-nyla-suede",
+   "price": 2473.9,
+   "delivered": false,
+   "wasPrice": 3848.9,
+   "percentOff": 35,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-bentley-black-edition",
    "price": 6506.5,
    "delivered": false,
@@ -1648,6 +1698,66 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-memo-paris-sicilian-leather-edp-75ml",
+   "price": 17499,
+   "delivered": false,
+   "wasPrice": 27000,
+   "percentOff": 35,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-memo-paris-sintra-edp-u-75ml",
+   "price": 17499,
+   "delivered": false,
+   "wasPrice": 27000,
+   "percentOff": 35,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-memo-paris-tamarindo--edp-75ml",
+   "price": 17500,
+   "delivered": false,
+   "wasPrice": 27000,
+   "percentOff": 35,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-memo-paris-winter-palace-edp-75ml",
+   "price": 17500,
+   "delivered": false,
+   "wasPrice": 27000,
+   "percentOff": 35,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-mp-kedu-edp-75ml",
+   "price": 17500,
+   "delivered": false,
+   "wasPrice": 27000,
+   "percentOff": 35,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-mp-vaadhoo-edp-75ml",
+   "price": 17500,
+   "delivered": false,
+   "wasPrice": 27000,
+   "percentOff": 35,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-rasasi-fattan-pour-homme-50ml",
    "price": 2250,
    "delivered": false,
@@ -1784,6 +1894,26 @@
    "wasPrice": 4950,
    "percentOff": 33,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-blueberry-musk",
+   "price": 2198.9,
+   "delivered": false,
+   "wasPrice": 3298.9,
+   "percentOff": 33,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-oud-al-youm",
+   "price": 2198.9,
+   "delivered": false,
+   "wasPrice": 3298.9,
+   "percentOff": 33,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -2428,6 +2558,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-marwa",
+   "price": 3666,
+   "delivered": false,
+   "wasPrice": 4999,
+   "percentOff": 26,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-armaf-yum-yum",
    "price": 4750,
    "delivered": false,
@@ -2534,6 +2674,16 @@
    "wasPrice": 2198.9,
    "percentOff": 25,
    "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-hypnotic-oud",
+   "price": 3749,
+   "delivered": false,
+   "wasPrice": 4999,
+   "percentOff": 25,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -2822,6 +2972,16 @@
    "price": 4550,
    "delivered": false,
    "wasPrice": 6000,
+   "percentOff": 24,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-mahd-al-dhahab",
+   "price": 3790,
+   "delivered": false,
+   "wasPrice": 4999,
    "percentOff": 24,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3538,7 +3698,7 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-cd-dior-faherenhie-parfum-75ml",
+   "fragranceId": "ean-3348901116817",
    "price": 13418.9,
    "delivered": false,
    "wasPrice": 16500,
@@ -4684,16 +4844,6 @@
    "wasPrice": 7500,
    "percentOff": 5,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "nykaa-memox00000022",
-   "price": 18645,
-   "delivered": false,
-   "wasPrice": 19745,
-   "percentOff": 5,
-   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
