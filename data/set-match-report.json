@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 226,
+ "folded": 228,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1742,6 +1742,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -4313,6 +4345,38 @@
      "ean": null,
      "scent": "amelia",
      "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5060524511258",
+   "absorbed": [
+    "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060524511258",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Eau De Toilette 100ml, Body Spray 150ml & Shower Gel 150ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "5060524511258",
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "beautybase"
+     ]
+    },
+    {
+     "id": "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -8699,6 +8763,18 @@
      "shops": [
       "the-beauty-store-uk"
      ]
+    },
+    {
+     "id": "set-paco-rabanne-invictus-eau-de-toilette-100ml-eau-de-toilette-20ml-gift-set",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Eau de Toilette 100ml + Eau de Toilette 20ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x20fragrance",
+     "shops": [
+      "scent-warehouse"
+     ]
     }
    ]
   },
@@ -11942,6 +12018,37 @@
      "signature": "3x11fragrance",
      "shops": [
       "cult-beauty-global"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "a shop lists more than one: john-lewis"
+   ],
+   "members": [
+    {
+     "id": "set-memo-paris-eau-de-parfum-discovery-fragrance-gift-set-7-x-1-5ml",
+     "brand": "Memo Paris",
+     "name": "Eau de Parfum Discovery Fragrance Gift Set, 7 x 1.5ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "7x1.5fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-memo-paris-eau-de-parfum-discovery-fragrance-gift-set-for-him-7-x-1-5ml",
+     "brand": "Memo Paris",
+     "name": "Eau de Parfum Discovery Fragrance Gift Set For Him, 7 x 1.5ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "7x1.5fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
