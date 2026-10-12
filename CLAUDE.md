@@ -104,6 +104,32 @@ snapshots and reports, and the "deploy" files above).
   session start hook warns under 3 GB free and when the shared `.git` holds
   repack garbage (`git count-objects -v`).
 
+## Destructive jobs (history rewrite, branch deletion)
+
+The owner allowed two destructive jobs (12 Oct 2026) on one condition: **a fall
+back copy of the whole repository exists on origin before the job runs, and
+stays until the owner says it can go.**
+
+- Before rewriting the live branch's history: `scripts/backup-before-destructive.sh
+  rewrite` (pushes the exact tip to `backup/pre-rewrite-YYYYMMDD-HHMM`; the whole
+  old history stays reachable from it). Pause the workflows that push to the
+  branch first, verify the new tip's tree is byte identical to the old tip's tree
+  and that the memories and price history are unchanged, force push only with
+  `--force-with-lease=<branch>:<old tip>`, re-enable the workflows, deploy once
+  and check the site. Never delete a `backup/*` branch yourself.
+- Before deleting a remote branch: `scripts/backup-before-destructive.sh delete
+  <branch>` (pushes a tag `archive/<branch>-YYYYMMDD` at its tip, so its commits
+  stay reachable). Never delete the live branch, a `backup/*` branch or an
+  `archive/*` tag or branch.
+- The guard `.claude/hooks/require-backup.sh` blocks both jobs until the copy is
+  on origin (a `backup/pre-rewrite-*` branch from the last 24 hours, or an
+  `archive/<branch>-*` tag or branch at the tip or a commit containing it; when
+  the tag push answers HTTP 403, make the archive as a branch with the GitHub
+  MCP `create_branch` tool). Record each job, with the restore line the script
+  prints, in `docs/OWNER-STEPS.md` 7d in the same commit.
+- `.claude/settings.json` holds the allow rules; only the owner edits it
+  (`docs/claude-settings.proposed.json` is the reviewed version).
+
 ## Update history
 
 The home page's update history is `demo/changelog.ts` (owner request,

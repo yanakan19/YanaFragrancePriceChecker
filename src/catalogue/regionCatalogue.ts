@@ -26,7 +26,8 @@ import type { RegionCurrency } from '../types/regionRetailer.js';
 import type { RegionListing, RegionSnapshot } from './regionHarvest.js';
 import { asGateListing } from './regionHarvest.js';
 import { fragranceId, isCatalogueListing, sizeMl } from './fragranceId.js';
-import { findDuplicateGroups, untrustworthyEans, trustworthyEan, type MatchableProduct } from './productMatch.js';
+import { findSameBottleGroups } from './audienceNames.js';
+import { untrustworthyEans, trustworthyEan, type MatchableProduct } from './productMatch.js';
 import { concentrationOfListing, displayName } from './productName.js';
 import { ownSizeTitle } from './shopifyJson.js';
 import { nominalMlForOz, ouncesStated } from './ounceSizes.js';
@@ -216,10 +217,15 @@ export function buildRegionCatalogue(
     proxyOf.set(proxy, p);
     return proxy;
   });
-  const groups = findDuplicateGroups(proxies, { shopsOf: (p) => p.offers.map((o) => o.shopId) });
+  const groups = findSameBottleGroups(proxies, { shopsOf: (p) => p.offers.map((o) => o.shopId) });
   const absorbedInto: Record<string, string> = {};
   for (const g of groups) {
     const canonical = proxyOf.get(g.canonical)!;
+    // A pair that differed only by an audience word shows the plain name (audienceNames.ts).
+    if (g.name !== undefined) {
+      const plain = [g.canonical, ...g.absorbed].find((m) => m.name === g.name);
+      if (plain) canonical.name = proxyOf.get(plain)!.name;
+    }
     for (const a of g.absorbed) {
       const absorbed = proxyOf.get(a)!;
       canonical.offers.push(...absorbed.offers);

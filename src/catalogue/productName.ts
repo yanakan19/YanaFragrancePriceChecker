@@ -2055,16 +2055,52 @@ const SHOP_TITLE_NOUN_BEFORE_SPRAY = /\b(?:perfume|aftershave|fragrance|scent)\s
 const SHOP_TITLE_COLOGNE_BEFORE_SPRAY = /\b(eau\s+de\s+(?:toilette|parfum))\s+cologne\s+(?=spray\b)/gi;
 const SHOP_TITLES_WITH_A_LABEL: ReadonlySet<string> = new Set(['perfume-direct']);
 
+/**
+ * Shops that close every fragrance title with their own shelf label, "Spray for
+ * Her", "Refillable for Unisex", "Eau de Parfum Spray for Him". Scent Warehouse
+ * does it on 1,850 of its 2,418 titles ("French Avenue Vulcan Feu 100ml Eau de
+ * Parfum Spray for Unisex", measured 2026-10-12), so its bottle never met the
+ * same bottle at another shop: Vulcan Feu was listed twice, once with "for
+ * Unisex" in its name, and so were 1,300 more.
+ *
+ * Only the closing label is read, and only when it follows a strength or the
+ * words "spray", "splash" or "refillable" (the shape the shop writes it in), so
+ * a name that itself ends "For Him" ("Replay True For Him 30ml Eau De Toilette
+ * Spray for Him" is "True For Him") keeps its own words. The audience is kept
+ * beside the title, like Perfume Direct's, and where the same shop labels one
+ * name for men and for women the label stays (labelConflicts in
+ * scripts/build-demo-catalogue.ts), which is how a house's "Pour Homme" and
+ * "Pour Femme" twins stay two bottles.
+ */
+const SHOP_TITLES_WITH_A_CLOSING_LABEL: ReadonlySet<string> = new Set(['scent-warehouse']);
+const SHOP_CLOSING_LABEL = new RegExp(
+  String.raw`(\b(?:spray|splash|refillable|${SHOP_TITLE_STRENGTH})(?:\s+(?:spray|splash))?)\s+(?:for\s+)?(him|her|men|women|unisex)\s*$`,
+  'i',
+);
+
+/** Whether a shop closes its fragrance titles with its own audience label (see SHOP_TITLES_WITH_A_CLOSING_LABEL). */
+export function hasClosingShopLabel(retailerId: string): boolean {
+  return SHOP_TITLES_WITH_A_CLOSING_LABEL.has(retailerId);
+}
+
 function audienceOfLabel(word: string): ShopTitleAudience {
   const w = word.toLowerCase();
   if (w.startsWith('unisex')) return 'unisex';
-  return w.startsWith('women') || w === 'womens' ? 'womens' : 'mens';
+  return w.startsWith('women') || w === 'womens' || w === 'her' ? 'womens' : 'mens';
 }
 
 export function stripShopTitleLabel(
   title: string,
   retailerId: string,
 ): { title: string; audience: ShopTitleAudience | null } {
+  if (SHOP_TITLES_WITH_A_CLOSING_LABEL.has(retailerId)) {
+    const closing = SHOP_CLOSING_LABEL.exec(title);
+    if (!closing) return { title, audience: null };
+    const rest = title.slice(0, closing.index) + closing[1];
+    // Never leave nothing behind: a title that is only the label keeps itself.
+    if (!/[a-z]/i.test(rest.replace(closing[1]!, ''))) return { title, audience: null };
+    return { title: rest.replace(/\s{2,}/g, ' ').trim(), audience: audienceOfLabel(closing[2]!) };
+  }
   if (!SHOP_TITLES_WITH_A_LABEL.has(retailerId)) return { title, audience: null };
   const heard = new Set<ShopTitleAudience>();
   const take = (_whole: string, word: string): string => {
@@ -2157,6 +2193,9 @@ const NAME_NOISE_SEGMENT_WORDS: ReadonlySet<string> = new Set([
   // Amber" (2026-10-08). "Bold" is deliberately not here: Commodity's "Book |
   // Bold" is a variant name (see the vocabulary test in stripTrailingNoiseSegment).
   'juicy', 'oriental',
+  // French Arabian's "Arabian Rouge | Turkish Rose Fragrance for Unisex" and "Dinar Wardi |
+  // Luxurious Oriental Floral Scent" (crawl #1066, 2026-10-12): a descriptor, not a name.
+  'turkish', 'luxurious', 'scent', 'scents',
 ]);
 
 /**
@@ -2184,7 +2223,7 @@ const NOISE_SEGMENT_SIZE_LABEL_RE =
  * Women"). Taken off a segment only when descriptor words remain in front of
  * it, so "Eternity | For Him" keeps its words.
  */
-const NOISE_SEGMENT_AUDIENCE_TAIL_RE = /\s+for\s+(?:men|women|him|her)(?:\s*(?:&|and)\s*(?:men|women))?$/i;
+const NOISE_SEGMENT_AUDIENCE_TAIL_RE = /\s+for\s+(?:men|women|him|her|unisex)(?:\s*(?:&|and)\s*(?:men|women))?$/i;
 
 /**
  * A trailing segment that is a release marker — "New 2023", "New 2026
