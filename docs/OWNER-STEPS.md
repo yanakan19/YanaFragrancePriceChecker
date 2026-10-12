@@ -832,7 +832,7 @@ Thank you.
 ```
 
 Size to compare afterwards: GitHub reported **773,663 kB** on 10 October
-2026 (`gh api repos/yanakan19/YanaFragrancePriceChecker --jq .size`, or the
+2026 and **763,728 kB** on 12 October (`gh api repos/yanakan19/YanaFragrancePriceChecker --jq .size`, or the
 repository's Settings page). After Support's garbage collection it should
 fall by about 170 MB or more (the old page files), less whatever the crawl
 has added in between.
