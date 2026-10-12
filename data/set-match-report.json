@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 227,
+ "folded": 226,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1742,38 +1742,6 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3346130438243",
-   "absorbed": [
-    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3346130438243",
-     "brand": "Hermès",
-     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
-     "concentration": "Eau de Toilette",
-     "ean": "3346130438243",
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
-     "brand": "Hermès",
-     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -7208,6 +7176,8 @@
   },
   {
    "reasons": [
+    "two different barcodes: 5050456005697, 5050456009404",
+    "a shop lists more than one: perfume-click",
     "price spread 1.63 is over 1.5"
    ],
    "members": [
@@ -7234,6 +7204,20 @@
      "shops": [
       "perfume-click",
       "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-5050456009404",
+     "brand": "Cerruti",
+     "name": "1881 Pour Homme Eau de Toilette 100ml Spray Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "5050456009404",
+     "scent": "1881 homme pour",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "paco-perfumerias-uk",
+      "perfume-click",
+      "scentstore"
      ]
     }
    ]
@@ -9880,6 +9864,37 @@
      "signature": "1x10fragrance|1x50body|1x90fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3614273624060, 3614274341195"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614273624060",
+     "brand": "Prada",
+     "name": "Luna Rossa Ocean 100ml Eau de Toilette + 10ml Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3614273624060",
+     "scent": "luna ocean rossa",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "fragrance-click"
+     ]
+    },
+    {
+     "id": "set-ean-3614274341195",
+     "brand": "Prada",
+     "name": "Luna Rossa Ocean Eau de Toilette 100ml Spray + 10ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3614274341195",
+     "scent": "luna ocean rossa",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
      ]
     }
    ]
