@@ -195,7 +195,8 @@ describe('the built catalogue', () => {
     expect(nomade.gender).toBe('womens');
     const k = CATALOGUE.find((c) => c.id === 'ean-3423473049654')!;
     expect(k.gender).toBe('mens');
-    const aqua = CATALOGUE.find((c) => c.brand === 'Acqua Di Parma' && c.name === 'Blu Mediterraneo Fico Di Amalfi' && c.sizeMl === 150);
+    // The house writes "Acqua di Parma" (brandName.ts keeps the joining word in lower case when a shop spelt it that way).
+    const aqua = CATALOGUE.find((c) => c.brand.toLowerCase() === 'acqua di parma' && c.name === 'Blu Mediterraneo Fico Di Amalfi' && c.sizeMl === 150);
     expect(aqua?.gender).toBe('unisex');
   });
 
