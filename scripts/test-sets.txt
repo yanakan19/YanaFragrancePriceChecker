@@ -248,6 +248,7 @@ code tests/renderTier.test.ts
 code tests/retry.test.ts
 code tests/robotsSource.test.ts
 data tests/routePages.test.ts
+data tests/sameFragranceNames.test.ts
 code tests/saveBookmarklet.test.ts
 code tests/scentsationalRoute.test.ts
 code tests/selfridgesRsc.test.ts

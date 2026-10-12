@@ -50,6 +50,7 @@ import {
   shopNameCore,
   CONFIRMED_FRAGRANCE_HOUSES,
 } from '../src/catalogue/brandName.js';
+import { audiencesOf, findSameBottleGroups, readAudienceName, type Audience } from '../src/catalogue/audienceNames.js';
 import {
   concentrationBlindKey,
   settleHouseConcentrations,
@@ -104,6 +105,7 @@ import {
   displayName,
   stripRedundantSize,
   stripShopTitleLabel,
+  hasClosingShopLabel,
   stripTrailingShopCredit,
   type ShopTitleAudience,
   reattachArmafLine,
@@ -922,14 +924,17 @@ const labelConflicts = new Set<string>();
     for (const l of listings) {
       if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0) || !isCatalogueListing(l) || isGiftSet(l)) continue;
       const read = stripShopTitleLabel(stripTrailingShopCredit(l.rawTitle, retailer.name, retailer.domain), l.retailerId);
-      if (read.audience !== 'mens' && read.audience !== 'womens') continue;
+      // A shop that closes every title with its label (Scent Warehouse) also calls a
+      // name "Unisex" in one listing and "for Him" in another: two audiences for one
+      // name is a disagreement it has with itself, and the label stays on all of them.
+      if (read.audience === null || (read.audience === 'unisex' && !hasClosingShopLabel(l.retailerId))) continue;
       const key = shopLabelKey(l, retailer, read.title);
       const seen = audiences.get(key);
       if (seen) seen.add(read.audience);
       else audiences.set(key, new Set([read.audience]));
     }
   }
-  for (const [key, seen] of audiences) if (seen.has('mens') && seen.has('womens')) labelConflicts.add(key);
+  for (const [key, seen] of audiences) if (seen.size > 1) labelConflicts.add(key);
 }
 /** The title and audience a listing is read with: the shop's label off, unless it is what tells two bottles apart. */
 function readShopLabel(l: StoredListing, retailer: Retailer, title: string): { title: string; audience: ShopTitleAudience | null } {
@@ -1379,7 +1384,9 @@ if (resolvedStatements.length > 0) {
 const absorbedIds = new Map<string, string[]>();
 const absorbedInto = new Map<string, string>();
 function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): void {
-  for (const { canonical, absorbed } of groups) {
+  for (const { canonical, absorbed, name } of groups) {
+    // The plain name of a pair that differed only by an audience word (audienceNames.ts).
+    if (name !== undefined) canonical.name = name;
     for (const dupe of absorbed) {
       // Ids this record had already absorbed move with it: a merged record can
       // itself be absorbed by a later group or a later pass, and the ids it
@@ -1442,7 +1449,13 @@ function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): v
 }
 
 const shopsOf = (p: Product) => p.offers.map((o) => o.retailerId);
-const duplicateGroups = findDuplicateGroups([...products.values()], { shopsOf });
+/** Who the shops' own titles for a product say it is for: one audience across every title that names one, else null. */
+function statedAudience(p: Product): Audience | null {
+  const heard = new Set<Audience>();
+  for (const o of p.offers) for (const a of audiencesOf(readAudienceName(o.rawTitle))) heard.add(a);
+  return heard.size === 1 ? [...heard][0]! : null;
+}
+const duplicateGroups = findSameBottleGroups([...products.values()], { shopsOf, statedAudience });
 applyMerges(duplicateGroups);
 let mergedProducts = duplicateGroups.reduce((n, g) => n + g.absorbed.length, 0);
 
@@ -1868,7 +1881,7 @@ if (concentrationResolvedFromNotStated > 0) {
    Same rule, same function, asked again of the settled strengths; whatever it
    folds is folded exactly as above, and the two collapse passes run again
    because the folded records can now hold two rows from one shop. */
-const secondGroups = findDuplicateGroups([...products.values()], { shopsOf });
+const secondGroups = findSameBottleGroups([...products.values()], { shopsOf, statedAudience });
 applyMerges(secondGroups);
 const mergedInSecondLook = secondGroups.reduce((n, g) => n + g.absorbed.length, 0);
 mergedProducts += mergedInSecondLook;
