@@ -98,7 +98,13 @@ permissions:
   actions: write
 
 jobs:
-  # Light: a checkout of commits and trees only, plain node, two small fetches.
+  # Light: one commit, no blobs, the four files the two scripts read, the
+  # runner's own Node, two small fetches. Until 2026-10-12 this job checked
+  # out the whole history (blobless) and set up Node on every run: about 40 s,
+  # 697 times in 14 days, most of them to say "nothing changed"
+  # (docs/SITE-AUDIT-2026-10-12.md, 2b and 9.3). The live commit the decision
+  # compares with is fetched by scripts/deploy-decision.mjs itself (trees
+  # only) when it is not the tip.
   decide:
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -110,13 +116,14 @@ jobs:
         timeout-minutes: 5
         with:
           ref: ${{ github.event.workflow_run.head_branch || github.ref }}
-          fetch-depth: 0
+          fetch-depth: 1
           filter: blob:none
-
-      - uses: actions/setup-node@v4
-        timeout-minutes: 5
-        with:
-          node-version: '22'
+          sparse-checkout: |
+            scripts/deploy-decision.mjs
+            scripts/deploy-watchdog.mjs
+            demo/CNAME
+            demo/supabase.ts
+          sparse-checkout-cone-mode: false
 
       # Deploy #1165 (2026-10-06) waited almost four hours for a runner it
       # never got, holding the pages group, and ten deploys behind it were

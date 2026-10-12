@@ -12,6 +12,8 @@ export interface LiveState { commit: string; overrides?: string; builtAt?: strin
 type Fetch = (url: string, init?: Record<string, unknown>) => Promise<{ ok: boolean; status: number; json(): Promise<unknown> }>;
 export function readOverrides(fetchImpl?: Fetch): Promise<string>;
 export function readLiveState(fetchImpl?: Fetch, bust?: string): Promise<LiveState | null>;
+/** The paths that differ between two commits, fetching `from` into a shallow checkout when needed; null when it cannot be found. */
+export function gitChangedPaths(from: string, to: string, options?: { cwd?: string; deepen?: number; tries?: number }): string[] | null;
 export function decide(input: {
   event: string;
   tip: string;

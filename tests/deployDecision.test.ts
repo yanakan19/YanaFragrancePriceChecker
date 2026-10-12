@@ -1,10 +1,12 @@
 // scripts/deploy-decision.mjs: the deploy workflow publishes the site only
 // when the built page could change (owner decision, 2026-10-06).
-import { readFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it } from 'vitest';
 import {
-  canChangePage, COUNTS_ANYWAY, decide, NOT_PAGE_FOLDERS, PAGE_DATA_FOLDERS, overridesFingerprint, readLiveState, readOverrides, supabasePublic,
+  canChangePage, COUNTS_ANYWAY, decide, gitChangedPaths, NOT_PAGE_FOLDERS, PAGE_DATA_FOLDERS, overridesFingerprint, readLiveState, readOverrides, supabasePublic,
 } from '../scripts/deploy-decision.mjs';
 import { OVERRIDES_ENDPOINT } from '../scripts/siteBuild.js';
 import { SUPABASE_ANON_KEY, SUPABASE_URL } from '../demo/supabase.js';
@@ -144,6 +146,75 @@ describe('the fingerprint and the fetches', () => {
     expect(asked).toMatch(/^https:\/\/[^/]+\/build-state\.json\?check=42$/);
     expect(await readLiveState(record({ commit: 'main' }), '1')).toBeNull();
     expect(await readLiveState(async () => ({ ok: false, status: 404, json: async () => null }), '1')).toBeNull();
+  });
+});
+
+// Since 2026-10-12 the decide job checks out one commit with no blobs and four
+// files; the live commit is fetched by id, or the branch deepened, when it is
+// not there (docs/SITE-AUDIT-2026-10-12.md 9.3).
+describe('the changed paths from a one commit checkout', () => {
+  const cleanup: string[] = [];
+  afterEach(() => { while (cleanup.length) rmSync(cleanup.pop()!, { recursive: true, force: true }); });
+  const git = (cwd: string, args: string[]) => execFileSync('git', args, { cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+
+  function origin(): { dir: string; first: string; second: string } {
+    const dir = mkdtempSync(join(tmpdir(), 'decide-origin-'));
+    cleanup.push(dir);
+    git(dir, ['init', '-q', '-b', 'main']);
+    git(dir, ['config', 'user.email', 't@test']);
+    git(dir, ['config', 'user.name', 't']);
+    // A clone may fetch a commit by its id, as GitHub allows.
+    git(dir, ['config', 'uploadpack.allowReachableSHA1InWant', 'true']);
+    writeFileSync(join(dir, 'a.txt'), '1');
+    writeFileSync(join(dir, 'CNAME'), 'x');
+    git(dir, ['add', '-A']);
+    git(dir, ['commit', '-q', '-m', 'first']);
+    const first = git(dir, ['rev-parse', 'HEAD']);
+    for (let i = 0; i < 3; i++) {
+      writeFileSync(join(dir, 'a.txt'), `${i + 2}`);
+      writeFileSync(join(dir, `b${i}.txt`), 'b');
+      git(dir, ['add', '-A']);
+      git(dir, ['commit', '-q', '-m', `change ${i}`]);
+    }
+    return { dir, first, second: git(dir, ['rev-parse', 'HEAD']) };
+  }
+
+  function shallowClone(from: string): string {
+    const dir = mkdtempSync(join(tmpdir(), 'decide-clone-'));
+    cleanup.push(dir);
+    execFileSync('git', ['clone', '-q', '--depth', '1', `file://${from}`, dir], { stdio: 'ignore' });
+    return dir;
+  }
+
+  it('fetches the live commit into a one commit checkout and diffs it against the tip', () => {
+    const { dir, first, second } = origin();
+    const clone = shallowClone(dir);
+    expect(() => execFileSync('git', ['cat-file', '-e', `${first}^{commit}`], { cwd: clone, stdio: 'ignore' })).toThrow();
+    const paths = gitChangedPaths(first, second, { cwd: clone });
+    expect(paths?.sort()).toEqual(['a.txt', 'b0.txt', 'b1.txt', 'b2.txt']);
+  });
+
+  it('deepens the branch when the commit cannot be fetched by id, and answers null when it is nowhere', () => {
+    const { dir, first, second } = origin();
+    git(dir, ['config', 'uploadpack.allowReachableSHA1InWant', 'false']);
+    const clone = shallowClone(dir);
+    expect(gitChangedPaths(first, second, { cwd: clone, deepen: 2, tries: 3 })?.sort()).toEqual(['a.txt', 'b0.txt', 'b1.txt', 'b2.txt']);
+    expect(gitChangedPaths('0'.repeat(40), second, { cwd: clone, deepen: 2, tries: 1 })).toBeNull();
+  });
+
+  it('is what the decide job checks out: one commit, no blobs, the four files the scripts read', () => {
+    const decideJob = /\n {2}decide:\n([\s\S]*?)\n {2}deploy:\n/.exec(workflow)![1]!;
+    expect(decideJob).toContain('fetch-depth: 1');
+    expect(decideJob).toContain('filter: blob:none');
+    for (const file of ['scripts/deploy-decision.mjs', 'scripts/deploy-watchdog.mjs', 'demo/CNAME', 'demo/supabase.ts']) {
+      expect(decideJob, file).toContain(`\n            ${file}\n`);
+    }
+    expect(decideJob).toContain('sparse-checkout-cone-mode: false');
+    // The two scripts read exactly those files and nothing else from the checkout.
+    const decision = readFileSync(join(REPO_ROOT, 'scripts/deploy-decision.mjs'), 'utf8');
+    for (const file of ['demo/CNAME', 'demo/supabase.ts']) expect(decision).toContain(`'${file}'`);
+    expect(decision.match(/join\(ROOT, '([^']+)'\)/g)?.map((m) => /'([^']+)'/.exec(m)![1]).sort()).toEqual(['demo/CNAME', 'demo/supabase.ts']);
+    expect(decideJob).not.toContain('actions/setup-node');
   });
 });
 

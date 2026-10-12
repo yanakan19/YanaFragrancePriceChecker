@@ -115,9 +115,10 @@ Likelihood is over a month of normal running. Impact is on the live site.
 | 53 | The whole suite in one vitest process (`npm test` was plain `vitest run`) is killed for memory, or an agent's `pkill vitest` kills another agent's run (twice, 11 and 12 October) | Medium | None on the site; lost test runs and time | Prose in CLAUDE.md | `npm test` is `scripts/run-tests-chunked.sh --set data --set code`; every chunk's Node runs under `--max-old-space-size` (`TEST_HEAP_MB`, 4096 MB), so a runaway test fails naming its file; the runner prints `kill <pid>` for its own run and stops its own process group only; `tests/testSets.test.ts` holds both (2026-10-12) |
 | 54 | Worktrees and their build output fill the disk (2.1 GB free of 252 on 2026-10-12; a build then fails with ENOSPC half written) | Medium | None on the site; failed local builds and tests | None | The session start hook warns under 3 GB free and lists the worktrees; CLAUDE.md "Worktrees and disk" (2026-10-12) |
 | 55 | An interrupted repack leaves `tmp_pack_*` garbage in the shared `.git` (98 MiB in two files on 2026-10-12) | Low | None | None | Removed (`git fsck --connectivity-only` passed); the session start hook reports `garbage:` from `git count-objects -v` (2026-10-12) |
+| 56 | The deploy's `decide` job checked out the whole history (blobless) and set up Node on every run: about 40 s, 697 of 847 runs in 14 days ending there with "nothing changed" | Certain, by design until 2026-10-12 | None on the site; 40 s on the start of every deploy, about 35 runner minutes a day | n/a | One commit, no blobs, the four files the scripts read (a sparse checkout like the crawl guard's), the runner's own Node; the live commit is fetched by its id (trees only) or the branch deepened, and a commit that cannot be found still deploys, as before (`gitChangedPaths` in `scripts/deploy-decision.mjs`; `tests/deployDecision.test.ts` runs it against a scratch origin; `docs/SITE-AUDIT-2026-10-12.md` 9.3) |
 
 Rows 36 to 39 come from the review of every failed run to 2026-10-06,
-`docs/FAILED-RUNS-ANALYSIS.md`; rows 51 to 55 from the audit of 2026-10-12,
+`docs/FAILED-RUNS-ANALYSIS.md`; rows 51 to 56 from the audit of 2026-10-12,
 `docs/SITE-AUDIT-2026-10-12.md`.
 
 ## Repository growth (measured 2026-10-04)

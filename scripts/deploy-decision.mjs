@@ -186,13 +186,43 @@ export function decide({ event, tip, overrides, live, changedPaths }) {
   };
 }
 
-function gitChangedPaths(from, to) {
+function commitPresent(commit, cwd) {
   try {
-    execFileSync('git', ['cat-file', '-e', `${from}^{commit}`], { cwd: ROOT, stdio: 'ignore' });
+    execFileSync('git', ['cat-file', '-e', `${commit}^{commit}`], { cwd, stdio: 'ignore' });
+    return true;
   } catch {
-    return null;
+    return false;
   }
-  const out = execFileSync('git', ['diff', '--name-only', '--no-renames', from, to], { cwd: ROOT, encoding: 'utf8' });
+}
+
+/**
+ * The paths that differ between two commits, or null when `from` cannot be
+ * found. Since 2026-10-12 the decide job checks out one commit, no blobs and
+ * four files (a few seconds) instead of the whole history (about 40 s, 700
+ * times in 14 days), so the live commit is usually not in the checkout: it
+ * is fetched by its id (trees only, no blobs; GitHub serves any reachable
+ * commit this way), and failing that the branch is deepened by `deepen`
+ * commits a few times. `git diff --name-only` reads trees only, so a blobless
+ * checkout answers it without downloading a single file. A commit that still
+ * cannot be found means a deploy, as before (docs/SITE-AUDIT-2026-10-12.md 9.3).
+ */
+export function gitChangedPaths(from, to, { cwd = ROOT, deepen = 200, tries = 3 } = {}) {
+  if (!commitPresent(from, cwd)) {
+    try {
+      execFileSync('git', ['fetch', '--quiet', '--depth=1', '--filter=blob:none', 'origin', from], { cwd, stdio: 'ignore' });
+    } catch {
+      // Not reachable by id from this remote; deepen the branch instead.
+    }
+    for (let i = 0; i < tries && !commitPresent(from, cwd); i++) {
+      try {
+        execFileSync('git', ['fetch', '--quiet', `--deepen=${deepen}`, '--filter=blob:none', 'origin'], { cwd, stdio: 'ignore' });
+      } catch {
+        break;
+      }
+    }
+    if (!commitPresent(from, cwd)) return null;
+  }
+  const out = execFileSync('git', ['diff', '--name-only', '--no-renames', from, to], { cwd, encoding: 'utf8' });
   return out.split('\n').filter(Boolean);
 }
 
