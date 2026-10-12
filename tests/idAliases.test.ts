@@ -191,6 +191,17 @@ describe('reading the last build', () => {
     const text = readFileSync(resolve(root, 'demo/dormant.generated.ts'), 'utf8');
     expect([...dormantIdsIn(text)].sort()).toEqual(Object.keys(DORMANT_PRODUCTS).sort());
   });
+
+  it('reads dormant ids whichever field each entry starts with', () => {
+    const header = 'export const DORMANT_PRODUCTS: Record<string, DormantEntry> = ';
+    const slugFirst = { a: { slug: 'x_y_100ml', brand: 'X' }, b: { slug: 'x_z_50ml', brand: 'X' } };
+    const brandFirst = { a: { brand: 'X', name: 'Y' }, b: { brand: 'X', name: 'Z' } };
+    for (const v of [slugFirst, brandFirst]) {
+      expect([...dormantIdsIn(`${header}${JSON.stringify(v)};\n`)].sort()).toEqual(['a', 'b']);
+      expect([...dormantIdsIn(`${header}${JSON.stringify(v, null, 2)};\n`)].sort()).toEqual(['a', 'b']);
+    }
+    expect([...dormantIdsIn(`${header}{};\n`)]).toEqual([]);
+  });
 });
 
 describe('the data file', () => {

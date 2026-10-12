@@ -118,10 +118,25 @@ export function productIdsIn(generatedCatalogue: string): Set<string> {
   return ids;
 }
 
-/** The ids of the products with no current prices a dormant file held, read from its generated text. */
+/**
+ * The ids of the products with no current prices a dormant file held, read from
+ * its generated text. The build writes DORMANT_PRODUCTS on one line with
+ * JSON.stringify, so its keys are read by parsing that literal, whatever field
+ * each entry starts with (`"brand"` first until products got addresses, `"slug"`
+ * first since; docs/PRODUCT-URLS.md). A text that does not parse falls back to
+ * matching an entry that opens with either field.
+ */
 export function dormantIdsIn(generatedDormant: string): Set<string> {
+  const line = /^export const DORMANT_PRODUCTS\b[^=]*=\s*(\{.*\});\s*$/m.exec(generatedDormant);
+  if (line) {
+    try {
+      return new Set(Object.keys(JSON.parse(line[1]!) as Record<string, unknown>));
+    } catch {
+      // Not one JSON line: read it as text below.
+    }
+  }
   const ids = new Set<string>();
-  for (const m of generatedDormant.matchAll(/"([^"]+)":\{"brand":/g)) ids.add(m[1]!);
+  for (const m of generatedDormant.matchAll(/"([^"]+)":\s*\{\s*"(?:slug|brand)":/g)) ids.add(m[1]!);
   return ids;
 }
 
