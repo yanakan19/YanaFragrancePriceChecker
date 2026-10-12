@@ -2460,6 +2460,22 @@ export function displayName(
     s = s.replace(/\bbalanced\s*(?:&|and)\s*expressive\b/i, 'Expressive');
   }
 
+  // Maison Matine names every scent in French and Bloom Perfumery adds the
+  // English title after a pipe: "Faire Le Mur | Going AWOL", "Shifumi | Rock Paper
+  // Scissors", "Un Jour Sans Fin | Endless Day", "Tu te Calmes | Calm Down", "Bain de
+  // Minuit | Skinny Dipping" (all six pipe names of the house, 2026-10-12). Liberty
+  // London lists the same bottles by the French name alone (EANs 5063871609319,
+  // ...326, ...333), so the bottle showed twice at 100ml EDP with two prices and no
+  // comparison, which failed tests/productNameNoise.test.ts. The French name is the
+  // house's own and is what the other shops write, so it stays; only for this house
+  // and only a single pipe, so nothing else is read as a translation.
+  if (
+    [displayedBrand, brand].some((b) => b !== null && foldDiacritics(b).toLowerCase().replace(/[^a-z]+/g, ' ').trim() === 'maison matine')
+  ) {
+    const french = s.match(/^([^|]*[^|\s])\s*\|\s*[^|\s][^|]*$/);
+    if (french) s = french[1]!;
+  }
+
   const parenBrand = s.match(/^\(([^()]+)\)\s*/);
   const parenBrandKey = parenBrand ? brandKey(foldDiacritics(parenBrand[1]!)) : '';
   if (parenBrandKey && [displayedBrand, brand].some((c) => c && brandKey(foldDiacritics(c)) === parenBrandKey)) {

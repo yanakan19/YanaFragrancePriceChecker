@@ -113,11 +113,15 @@ describe('product names carry no shop descriptor rubbish', () => {
    * houses "<line or name> | <scent, variant or translated name>": Brocard's
    * "Terra Incognita | Siberia" and "Scents of Nature | Tulip and Mimosa",
    * Commodity's "Book | Bold" and "Book | Personal", Comme Des Garcons'
-   * "Series 3: Incense | Kyoto", Maison Matine's "Bain de Minuit | Skinny
-   * Dipping", Etat Libre d'Orange's "I am Trash | Les Fleurs du Dechet", Ylem's
+   * "Series 3: Incense | Kyoto", Etat Libre d'Orange's "I am Trash | Les Fleurs du Dechet", Ylem's
    * "NGC 6302 | Butterfly Nebula". All 46 were read against
    * data/catalogue/bloom-perfumery.json: each is that shop's own product title,
    * and its vendor is the house.
+   *
+   * Maison Matine was on this list until 2026-10-12 and is off it: its "| Going
+   * AWOL" is the English title of the French name before it, Liberty London lists
+   * the same bottles by the French name alone, and the pairs below caught the
+   * bottle twice. displayName now keeps the French name (productName.ts).
    *
    * What is verified is not that the pipe is the house's own punctuation (it is
    * a reseller's layout, and nothing here claims otherwise) but that the words
@@ -139,7 +143,6 @@ describe('product names carry no shop descriptor rubbish', () => {
     'commodity',
     'comme des garcons',
     "etat libre d'orange",
-    'maison matine',
     'ylem',
   ]);
   /** The house name without accents, so "Comme Des Garçons" is the house listed as 'comme des garcons'. */
