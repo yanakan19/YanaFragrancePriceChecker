@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 225,
+ "folded": 226,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -317,6 +317,38 @@
      "ean": null,
      "scent": "be blossom delicious fresh",
      "signature": "1x100fragrance|1x125body|1x?other",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0085805377519",
+   "absorbed": [
+    "set-elizabeth-arden-green-tea-gift-set-100ml-edt-100ml-green-tea-honey-drops-body-cream"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085805377519",
+     "brand": "Elizabeth Arden",
+     "name": "Green Tea Gift Set 100ml EDT + 100ml Green Tea Honey Drops Body Cream",
+     "concentration": "Eau de Toilette",
+     "ean": "0085805377519",
+     "scent": "drops green honey tea",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-elizabeth-arden-green-tea-gift-set-100ml-edt-100ml-green-tea-honey-drops-body-cream",
+     "brand": "Elizabeth Arden",
+     "name": "Green Tea Gift Set 100ml EDT + 100ml Green Tea Honey Drops Body Cream",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "drops green honey tea",
+     "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -3199,38 +3231,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3616304990489",
-   "absorbed": [
-    "set-davidoff-cool-water-woman-gift-set-30ml-edt-75ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616304990489",
-     "brand": "Davidoff",
-     "name": "Cool Water Woman Gift Set 30ml EDT + 75ml Body Lotion",
-     "concentration": "Eau de Toilette",
-     "ean": "3616304990489",
-     "scent": "cool water woman",
-     "signature": "1x30fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-davidoff-cool-water-woman-gift-set-30ml-edt-75ml-body-lotion",
-     "brand": "Davidoff",
-     "name": "Cool Water Woman Gift Set 30ml EDT + 75ml Body Lotion",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cool water woman",
-     "signature": "1x30fragrance|1x75body",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3616305250339",
    "absorbed": [
     "set-gucci-bloom-gift-set-100ml-edp-10ml-edp"
@@ -3543,6 +3543,38 @@
      "signature": "1x100body|1x50fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3616306130746",
+   "absorbed": [
+    "set-davidoff-cool-water-woman-gift-set-30ml-edt-75ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616306130746",
+     "brand": "Davidoff",
+     "name": "Cool Water Woman Gift Set 30ml EDT + 75ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": "3616306130746",
+     "scent": "cool water woman",
+     "signature": "1x30fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-davidoff-cool-water-woman-gift-set-30ml-edt-75ml-body-lotion",
+     "brand": "Davidoff",
+     "name": "Cool Water Woman Gift Set 30ml EDT + 75ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cool water woman",
+     "signature": "1x30fragrance|1x75body",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -7730,51 +7762,6 @@
   },
   {
    "reasons": [
-    "strengths differ: Eau de Parfum, Eau de Toilette",
-    "two different barcodes: 85805258757, 85805377519",
-    "a shop lists more than one: perfume-click"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085805258757",
-     "brand": "Elizabeth Arden",
-     "name": "Green Tea Gift Set 100ml EDP + 100ml Green Tea Honey Drops Body Cream",
-     "concentration": "Eau de Parfum",
-     "ean": "0085805258757",
-     "scent": "drops green honey tea",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-0085805377519",
-     "brand": "Elizabeth Arden",
-     "name": "Green Tea Gift Set 100ml EDT + 100ml Green Tea Honey Drops Body Cream",
-     "concentration": "Eau de Toilette",
-     "ean": "0085805377519",
-     "scent": "drops green honey tea",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-elizabeth-arden-green-tea-gift-set-100ml-edt-100ml-green-tea-honey-drops-body-cream",
-     "brand": "Elizabeth Arden",
-     "name": "Green Tea Gift Set 100ml EDT + 100ml Green Tea Honey Drops Body Cream",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "drops green honey tea",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.63 is over 1.5"
    ],
    "members": [
@@ -9386,7 +9373,7 @@
    "reasons": [
     "two different barcodes: 3423222092528, 3423222110857, 3423222133849",
     "a shop lists more than one: perfume-click",
-    "price spread 1.86 is over 1.5"
+    "price spread 1.79 is over 1.5"
    ],
    "members": [
     {
@@ -10754,7 +10741,7 @@
   },
   {
    "reasons": [
-    "price spread 1.86 is over 1.5"
+    "price spread 1.69 is over 1.5"
    ],
    "members": [
     {
@@ -11481,13 +11468,12 @@
     {
      "id": "set-ean-8435415092081",
      "brand": "Jean Paul Gaultier",
-     "name": "Le Male Gift Set 125ml EDT + 20ml EDT",
+     "name": "Le Male Eau de Toilette Men's Gift Set Spray (125ml) with 20ml EDT",
      "concentration": "Eau de Toilette",
      "ean": "8435415092081",
      "scent": "le male",
      "signature": "1x125fragrance|1x20fragrance",
      "shops": [
-      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -11500,7 +11486,8 @@
      "scent": "le male",
      "signature": "1x125fragrance|1x20fragrance",
      "shops": [
-      "fragrance-click"
+      "fragrance-click",
+      "perfume-click"
      ]
     },
     {
