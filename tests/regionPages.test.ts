@@ -144,6 +144,9 @@ describe.skipIf(!built)('the built region pages', () => {
     const ukFile = referencedDataFiles(read('index.html')).find((f) => f.startsWith('data/catalogue.'))!;
     // Raw text, not parsed: the UK catalogue is far too large to hold twice.
     const ukText = read(ukFile);
+    // Every address in it, found once. This test used to ask `ukText.includes(...)` for each picture (about
+    // 12 minutes over the whole UK file, most of what the crawl's 15 minute test step spent).
+    const ukImages = new Set(ukText.match(/"https:\/\/(?:[^"\\]|\\.)*"/g));
     for (const r of REGIONS) {
       const catalogueFile = referencedDataFiles(read(`${r.pathPrefix}/index.html`)).find((f) => f.startsWith('data/catalogue.'))!;
       const blobs = JSON.parse(read(`${r.pathPrefix}/${catalogueFile}`)) as unknown[];
@@ -155,7 +158,7 @@ describe.skipIf(!built)('the built region pages', () => {
       const crawled0 = blobs.find((b): b is Record<string, { imageUrl: string | null }[]> => !!b && typeof b === 'object' && !Array.isArray(b) && Object.keys(b).length > 1000)!;
       const photoHosts = new Set(Object.values(crawled0).flat().map((o) => o.imageUrl).filter((u): u is string => u !== null).map((u) => new URL(u).host));
       // A picture is a UK listing's, or an address on the host of a shop of this region: never a path in our own folders.
-      const strangers = [...new Set(pictured.map((p) => p.image!))].filter((i) => !ukText.includes(JSON.stringify(i)) && !photoHosts.has(new URL(i).host));
+      const strangers = [...new Set(pictured.map((p) => p.image!))].filter((i) => !ukImages.has(JSON.stringify(i)) && !photoHosts.has(new URL(i).host));
       expect(strangers, `${r.id} pictures that are neither a UK listing's nor a shop's own`).toEqual([]);
       expect(pictured.filter((p) => !/^https:\/\//.test(p.image!)).length, `${r.id} pictures that are not an address on a shop`).toBe(0);
       const crawled = blobs.find((b): b is Record<string, { imageUrl: unknown; retailerId: string }[]> => !!b && typeof b === 'object' && !Array.isArray(b) && Object.keys(b).length > 1000)!;

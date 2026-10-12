@@ -578,9 +578,24 @@ jobs:
       #
       # So the gate is the tests of the code the harvest runs (reconcile, the
       # store, every crawl route, robots, currency, the cursor and report) and
-      # nothing that reads data/catalogue or the built site. The whole suite
-      # still runs, straight after, and a failure there is a warning on the
-      # run; it does not cost every shop a day of prices.
+      # nothing that reads data/catalogue or the built site.
+      #
+      # ── 2026-10-11: the rest of the suite is split by purpose ──
+      # The step that followed ran `npm test` before the harvest with
+      # continue-on-error and a 15 minute cap, and it ended at the cap in
+      # every run read (#951, #962, #972 and #981: 15m12s to 15m13s each), where a failure
+      # shows only as a yellow warning: a step that always times out cannot
+      # tell anyone whether a test failed. One test (tests/regionPages.test.ts,
+      # a loop of `includes` over the whole UK catalogue) took 12 minutes of
+      # it. Now:
+      #   - the tests that read what the crawl writes ("data" in
+      #     scripts/test-sets.txt) run after the rebuild, on the data this run
+      #     just produced ("Test the data the crawl produced" below); a
+      #     failure there turns the run red at its end, after everything is
+      #     committed;
+      #   - the rest (page layout, accessibility, copy, workflow rules, the
+      #     browser tests) do not depend on the crawl and run on every push
+      #     and pull request (.github/workflows/tests.yml).
       - name: Test the harvest before crawling
         timeout-minutes: 10
         run: |
@@ -596,16 +611,6 @@ jobs:
             tests/strategy.test.ts tests/registry.test.ts tests/freshness.test.ts \
             tests/selfridgesRsc.test.ts tests/johnLewisNextData.test.ts \
             tests/sitemapDiscoveryComplete.test.ts
-
-      - name: Test everything else
-        id: fulltests
-        continue-on-error: true
-        timeout-minutes: 15
-        run: npm test
-
-      - name: Note a failing test outside the harvest
-        if: ${{ steps.fulltests.outcome == 'failure' }}
-        run: echo "::warning::npm test failed (see the step above). The harvest still runs, because its own tests passed; whatever failed needs fixing, but not at the cost of every shop's prices going stale."
 
       # Tries several retrieval strategies per shop, ordered by what has worked
       # before, and commits what it learned so tomorrow starts smarter.
@@ -1413,9 +1418,9 @@ jobs:
           # command scripts/commit-and-push.sh runs to settle a conflict.
           # Two seconds first: the check allows one second for the file
           # system's coarse clock, and the step before this one can write a
-          # file as it ends ("Test everything else" rewrites
-          # demo/testCount.generated.ts). Dispatch #595 (deals_refresh, no
-          # harvest in between) failed here on exactly that.
+          # file as it ends (the full test step that used to run before the
+          # harvest rewrote demo/testCount.generated.ts). Dispatch #595
+          # (deals_refresh, no harvest in between) failed here on exactly that.
           sleep 2
           MARK=$(node -e 'console.log(Date.now())')
           npm run rebuild
@@ -1494,6 +1499,31 @@ jobs:
         if: ${{ !cancelled() && (inputs.harvest || inputs.deals_refresh || env.SCHEDULED == 'true') && steps.rebuild.outcome != 'success' }}
         run: |
           echo "::warning::The rebuild step ended with outcome '${{ steps.rebuild.outcome }}', so nothing derived from this harvest was committed. The harvested prices are on the branch; the page will be rebuilt by the next run. If this repeats, the replay's checkpoint was probably invalidated by a rules change — see scripts/priceHistoryReplay.ts."
+
+      # ── The data tests: what the crawl just produced, tested after it is safe ──
+      # The tests that read the catalogue, deals, price history, region data,
+      # sitemaps, address memories and aliases (scripts/test-sets.txt, set
+      # "data"), run against the files this run's rebuild just wrote. They run
+      # after "Commit rebuilt app" on purpose: a failing data test must never
+      # cost the harvest or the page its prices (runs #507 to #548 lost
+      # harvests that way), so by now everything is committed and the failure
+      # only turns the run red, at the end ("Fail the run if the data tests
+      # failed"), with the failing files in the run's summary. Skipped when the
+      # rebuild did not finish, which "Note a rebuild that did not finish"
+      # already says: tests of half rebuilt files would blame the data.
+      #
+      # scripts/run-tests-chunked.sh runs about 20 files per vitest process
+      # (one process at a time, so one crash loses one chunk). Measured 2026-10-11
+      # on a 4 core machine: 5m34s for 55 files (the old step ended at its
+      # 15 minute cap); the cap is about twice that, so a hang is still caught.
+      # continue-on-error so the steps after it run; `outcome` carries the
+      # real result to the final step.
+      - name: Test the data the crawl produced
+        id: datatests
+        if: ${{ !cancelled() && (inputs.harvest || inputs.deals_refresh || env.SCHEDULED == 'true') && steps.rebuild.outcome == 'success' }}
+        continue-on-error: true
+        timeout-minutes: 12
+        run: npm run test:data
 
       # ── Freshness: the check that keeps "every price within a day" true ──
       # Reads the per shop table the harvest wrote into data/harvest-report.json
@@ -1672,6 +1702,16 @@ jobs:
         if: ${{ !cancelled() && (steps.shipping.outcome == 'failure' || steps.commit_shipping.outcome == 'failure' || steps.awin.outcome == 'failure' || steps.commit_awin.outcome == 'failure') }}
         run: |
           echo "::error::A periodic stage failed: shipping discovery ${{ steps.shipping.outcome }}, its commit ${{ steps.commit_shipping.outcome }}; Awin sync ${{ steps.awin.outcome }}, its commit ${{ steps.commit_awin.outcome }}. The harvest after them still ran; see those steps' logs."
+          exit 1
+
+      # A data test that fails (or hangs past its cap) turns the run red here,
+      # once the harvest and the rebuilt page are safe. The step above it
+      # carries continue-on-error so nothing after it is skipped; `outcome` is
+      # the real result. See docs/PIPELINE-FAILURE-MODES.md, row 49.
+      - name: Fail the run if the data tests failed
+        if: ${{ !cancelled() && steps.datatests.outcome == 'failure' }}
+        run: |
+          echo "::error::The data tests failed or ran out of time (see \"Test the data the crawl produced\" and the run's summary for the files). The harvest and the rebuilt page were committed before they ran, so no prices were lost; the data or a test needs fixing."
           exit 1
 
       # Keep the failure loud. A crawl that quietly stops working leaves stale
