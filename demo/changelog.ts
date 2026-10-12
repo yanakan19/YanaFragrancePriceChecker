@@ -35,7 +35,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     groups: [
       {
         heading: 'New',
-        points: ['More shop logos'],
+        points: ['More shop and brand logos'],
       },
     ],
   },

@@ -470,3 +470,18 @@ describe('shop logos added from 2026-10-12', () => {
     }
   });
 });
+
+/**
+ * The 2026-10-12 brand pass left these houses on their initials, each for a reason
+ * recorded in the header of demo/brandLogos.ts. A later pass may give one a logo
+ * with a new reason; it must not happen by accident.
+ */
+describe('houses the 2026-10-12 pass looked at and left on their initials', () => {
+  it.each([
+    'Loewe', 'Van Cleef & Arpels', 'Jaguar', 'Bentley', 'Louis Vuitton', 'Mercedes-Benz', 'David Beckham', 'Replay',
+    'Revlon', 'Chopard', 'Elizabeth Taylor', 'Jo Loves', 'Lamborghini', 'Tonino Lamborghini', 'Giardino Benessere',
+    'Louis Varel', 'Annayake', 'La Perla', 'Roger & Gallet', 'Ex Nihilo', 'Jovan', 'Aigner',
+  ])('%s', (brand) => {
+    expect(logoFor(brand)).toBeNull();
+  });
+});

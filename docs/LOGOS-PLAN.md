@@ -892,3 +892,76 @@ region pages are built from `src/config/regionShops.ts`, which has no logo. Givi
 them logos means changing that type, that test and the region page build, which
 no step of §5 covers. That is a decision for the owner and nothing was changed
 for it today.
+
+### What was done on 12 Oct 2026
+
+**Step 5 again, the shops.** The 22 enabled shops with no logo were probed as
+PriceSniffsBot (`scripts/logo-probe.ts --no-social`, robots.txt first, two
+seconds between requests to a host), every candidate was drawn at 42 and 56px
+on white and on dark from the exact bytes, and the survivors were fetched again
+at the size they ask for. **14 shops gained a logo**, which makes **55 of the 87
+registry shops, and 55 of the 63 enabled ones**: Notino UK, Beauty Flash (wordmark
+and square), Gorgeous Shop, Scentsational (wordmark), Opulensi (wordmark, on the
+dark tile), Perfume Closet (dark tile), Perfumoi, Saad Fragrance (wordmark),
+Sainte Cellier, Fenwick (wordmark, dark tile), Direct Cosmetics (wordmark and
+square), Rowlands Pharmacy (wordmark and square, dark tile), Lloyds Pharmacy and
+Scent Warehouse (wordmark). Eight kept their initials:
+
+- Perfume UK declares nothing; Liberty London's homepage cannot be fetched (its
+  response headers overflow the client) and nothing was worked around.
+- Glossier UK and Beaute Boulevard declare only a 32px icon (Glossier's
+  "180px" touch icon is the same 32px file).
+- Scented Glasgow's icon is a bare letter S, as is Scentsational's touch icon
+  (its declared wordmark was used instead).
+- Roullier White's wordmark and Beauty Pie's (12 to 1) are thin type that is
+  unreadable at the size drawn.
+- Rasasi UK Store declares the gradient heart already refused for the house.
+- Gorgeous Shop declares the Magento platform logo as its Organization.logo,
+  another company's mark, so only its own favicon was taken.
+
+`cdn.notinoimg.com` was added to the documented asset hosts in
+`tests/brandLogos.test.ts`: Notino's homepage declares its touch icon there.
+
+**US and India shops: not done.** See "Out of scope" above. Nothing was fetched
+for them and nothing changed; the owner can say yes to giving region shops a
+`logo` (a type, test and region page change), after which the same method
+applies.
+
+**Step 6 again, the brands.** The next 200 houses without a logo, ranked by
+product count over the UK catalogue and the US and India catalogues for houses only
+they sell, skipping every house already decided (header of `demo/brandLogos.ts`):
+Unbranded (442, not a house) down to Fred Hayman (23). 149 of the 200 have no
+official site in `BRAND_SITES` and keep the monogram; no domain was guessed. The
+other 51 were probed the same way and **18 shipped** (Nishane, Jil Sander, Korres,
+Alyssa Ashley, Memo Paris, Laura Biagiotti, Jean Patou, Anna Sui, Franck Olivier,
+Coty, Lomani, El Ganso, Mexx, 100 Bon, Bharara, Tubbees, Billie Eilish,
+Victorinox), which makes 215 brand keys with a logo. Method exactly §8: the
+brand's own site only, never og:image, hot linked, a Shopify `width=` for the
+size drawn, white tile (`ink: 'dark'`) except marks with their own ground, no
+light ink. Every refusal and rejection with its reason is in the header of
+`demo/brandLogos.ts` and `tests/brandLogos.test.ts` holds the rejected houses
+to initials. In one line each: Loewe, Van Cleef & Arpels, Courreges (robots.txt
+403); Salvador Dali (robots.txt 503); Jaguar, Bentley (no answer); Louis
+Vuitton, Fcuk (homepage 403); Emanuel Ungaro, Arabian Oud (robots.txt disallows
+the icon); Hollister, Giorgio Beverly Hills, Pascal Morabito (declare nothing);
+Mercedes-Benz, Le Couvent, Vera Wang, Laverne (30 to 32px); David Beckham,
+Replay, Revlon, Chopard, Elizabeth Taylor (a bare letter); Jo Loves (a plain
+circle); Lamborghini, Tonino Lamborghini, Giardino Benessere (light ink); Louis
+Varel, Annayake, La Perla (thin type or line art); Roger & Gallet (27 KB SVG), Ex
+Nihilo (66 KB ICO); Jovan (its site is Coty's, so the mark is Coty's); Aigner
+(logo served from another domain).
+
+**Step 8, the offer rows.** The gate was met on 3 Oct and the rows already show
+a 20px mark for every shop, so nothing was added. They were looked at again
+with the new logos on a fragrance stocked at 20 shops, in light and dark at 320,
+390 and 1280: the marks sit on the same box and baseline as the initials tiles
+and read at 20px (Beauty Flash, Gorgeous Shop, Notino, Perfumoi and Sainte
+Cellier are clear; Scentsational's touch icon was refused for being a letter, so
+it keeps initials). One thing seen and left alone: at 320px a long shop name
+(MyBeauty.Boutique) drops below its mark. It is the existing layout, not new.
+
+**Seen, not caused by this pass.** In the test browser the Shops tab drew
+initials for Marks & Spencer and Perfume Click, whose declared `favicon.ico`
+files are served as an icon type but are PNG files by their bytes; and
+Parfumdreams UK and Perfume Market UK draw an empty white tile. Worth a look by
+whoever next runs `npm run images:check`.

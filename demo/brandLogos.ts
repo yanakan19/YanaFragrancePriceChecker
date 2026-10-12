@@ -102,6 +102,40 @@ import type { LogoRef } from '../src/types/retailer.js';
  *   - weight or doubt: Atkinsons' only mark is a 1 MB SVG; Dkhoon Emirates'
  *     logo is a 200px file stretched to 512 by a third party host; Trussardi's
  *     and Cacharel's icons could not be told to be the house's mark.
+ *
+ * ── The 2026-10-12 pass: the next 200 houses without a logo ────────────────
+ * Worked the same way, docs/LOGOS-PLAN.md section 8 and section 9, over the next
+ * 200 houses without a logo by product count (the UK catalogue, and the US and
+ * India catalogues for houses only they sell), skipping every house already
+ * decided above: Unbranded (442 products, not a house) down to Fred Hayman (23).
+ * 149 of the 200 have no official site in BRAND_SITES, so there is nothing to ask
+ * and they keep the monogram. The other 51 were probed with
+ * `scripts/logo-probe.ts --brands=... --no-social` as PriceSniffsBot (robots.txt
+ * first, read literally, one request per host per 2s). 18 shipped, each opened and
+ * looked at from the exact bytes at 42 and 56px on white and on dark.
+ *
+ * Refused us, recorded and not worked around: Loewe, Van Cleef & Arpels,
+ * Courreges (robots.txt answered 403); Salvador Dali (robots.txt 503); Jaguar and
+ * Bentley (no answer); Louis Vuitton and Fcuk (homepage 403); Emanuel Ungaro and
+ * Arabian Oud (robots.txt disallows the icon path). Declared nothing usable:
+ * Hollister, Giorgio Beverly Hills, Pascal Morabito (homepage 200, no icon or logo).
+ *
+ * Looked at and rejected:
+ *   - too small: Mercedes-Benz, Le Couvent, Vera Wang and Laverne declare only a
+ *     30 to 32px icon (Mercedes-Benz's and Le Couvent's declared logos answer 404);
+ *   - a bare letter, which is no better than our own initials tile: David Beckham
+ *     (D), Replay (R), Revlon (R), Chopard (script C), Elizabeth Taylor (T);
+ *   - not a mark: Jo Loves declares a plain red circle;
+ *   - light artwork that vanishes on the white tile: Lamborghini and Tonino
+ *     Lamborghini (white script), Giardino Benessere (white leaf; its logo is a
+ *     95 KB file with fine type);
+ *   - thin or tiny type, or line art, that cannot be read at the size drawn: Louis
+ *     Varel, Annayake, La Perla;
+ *   - weight: Roger & Gallet's logo is a 27 KB SVG and Ex Nihilo's only icon a
+ *     66 KB ICO (a Shopify width cannot shrink either);
+ *   - not the house's own: Jovan (its site is Coty's, so the mark is Coty's; Coty
+ *     itself shipped), Aigner (its declared logo is served from aignerimage.de,
+ *     not its own domain).
  */
 export const BRAND_LOGOS: Record<string, LogoRef> = {
   // ── Own site declared (42) ──────────────────────────────────────────────
@@ -1716,6 +1750,151 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     basis: 'own-site-declared',
     source: 'https://www.alexandre-j.com/',
     readAt: '2026-10-05',
+  },
+  // ── Own site declared, the 2026-10-12 pass (18) ─────────────────────────────
+  nishane: {
+    src: 'https://nishane.com/wp-content/uploads/2022/08/cropped-248569031_676373556590517_4037961695356791990_n-192x192.jpeg',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://nishane.com/',
+    readAt: '2026-10-12',
+  },
+  'jil sander': {
+    src: 'https://www.jilsander.com/on/demandware.static/Sites-JilSanderUS-Site/-/default/dw8da5e552/favicons/apple-touch-icon.png',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://www.jilsander.com/',
+    readAt: '2026-10-12',
+  },
+  korres: {
+    src: 'https://uk.korres.com/cdn/shop/files/KORRES_Web_Logo_735750ed-2c98-490f-92bd-c513397e553a.svg?v=1743398216&width=500',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://uk.korres.com/',
+    readAt: '2026-10-12',
+  },
+  'alyssa ashley': {
+    src: 'https://www.alyssaashley.com/cdn/shop/files/favicon.png?crop=center&height=180&v=1720505981&width=180',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://www.alyssaashley.com/',
+    readAt: '2026-10-12',
+  },
+  'memo paris': {
+    src: 'https://www.memoparis.com/cdn/shop/files/Favicon_Memo_MONO_blanc_copie.png?v=1773238837&width=180',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.memoparis.com/',
+    readAt: '2026-10-12',
+  },
+  'laura biagiotti': {
+    src: 'https://laurabiagiotti.it/wp-content/uploads/2026/07/cropped-favicon-192x192.jpeg',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://laurabiagiotti.it/fragrances/?lang=en',
+    readAt: '2026-10-12',
+  },
+  'jean patou': {
+    src: 'https://www.patou.com/cdn/shop/t/243/assets/logo-patou-navy.svg?v=1634940831055757901726480957',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.patou.com/',
+    readAt: '2026-10-12',
+  },
+  'anna sui': {
+    src: 'https://annasui.com/cdn/shop/files/Anna_Sui_Logo-Black1_93bd821d-48b1-46f4-baad-04ae160f7ccb.png?v=1738688472&width=500',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.annasui.com/',
+    readAt: '2026-10-12',
+  },
+  'franck olivier': {
+    src: 'https://franckolivier.fr/cdn/shop/t/8/assets/logo-franck-olivier.svg?v=61560029146549292701781087353',
+    shape: 'square',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://franckolivier.fr/',
+    readAt: '2026-10-12',
+  },
+  coty: {
+    src: 'https://www.coty.com/android-icon-192x192.png',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://www.coty.com/',
+    readAt: '2026-10-12',
+  },
+  lomani: {
+    src: 'https://lomaniperfumes.com/cdn/shop/files/Untitled_97.png?v=1723085284&width=500',
+    shape: 'wordmark',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://lomaniperfumes.com/',
+    readAt: '2026-10-12',
+  },
+  'el ganso': {
+    src: 'https://www.elganso.com/media/favicon/icons/icon_ios_180x180.png',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://www.elganso.com/intl_en/',
+    readAt: '2026-10-12',
+  },
+  mexx: {
+    src: 'https://www.mexx.com/cdn/shop/files/logo-black.svg?v=1781248773',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.mexx.com/',
+    readAt: '2026-10-12',
+  },
+  bon: {
+    src: 'https://www.100bon.com/cdn/shop/files/Logo_100BON_site.jpg?v=1659357207&width=360',
+    shape: 'wordmark',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://www.100bon.com/en',
+    readAt: '2026-10-12',
+  },
+  bharara: {
+    src: 'https://www.bhararabeauty.com/cdn/shop/files/Gemini_Generated_Image_357jhn357jhn357j.png?v=1772644055&width=168',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://www.bhararabeauty.com/',
+    readAt: '2026-10-12',
+  },
+  tubbees: {
+    src: 'https://www.tubbees.com/cdn/shop/files/tubbees-logo.png?v=1759142270&width=500',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.tubbees.com/',
+    readAt: '2026-10-12',
+  },
+  'billie eilish': {
+    src: 'https://store.billieeilish.com/cdn/shop/files/BE-000087_2026Store_Meta-01_Favicon_88136a41-2270-4724-b0af-3bdafa79048b.jpg?crop=center&height=180&v=1778243479&width=180',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://store.billieeilish.com/',
+    readAt: '2026-10-12',
+  },
+  'victorinox swiss army': {
+    src: 'https://www.victorinox.com/_next/static/media/favicon-apple-180x180.b70abf26.png',
+    shape: 'square',
+    ink: 'own',
+    basis: 'own-site-declared',
+    source: 'https://www.victorinox.com/en-GB/Products/Fragrances/c/FRA_AllProducts/',
+    readAt: '2026-10-12',
   },
 };
 
