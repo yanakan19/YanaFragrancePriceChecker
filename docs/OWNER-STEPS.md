@@ -940,6 +940,56 @@ with a repository variable `SIGNED_COMMITS` = `off` (D19).
 
 ---
 
+
+### 7f. Letting agents delete branches and rewrite history without asking (12 October 2026)
+
+The session's safety check will not let an agent edit its own permissions, so
+this one step is yours. It takes a minute.
+
+1. Open `docs/claude-settings.proposed.json` in the repository, copy its whole
+   contents over `.claude/settings.json`, commit it to the live branch (or paste
+   it in on GitHub and commit). It allows ordinary work (git, tests, builds) and
+   the two destructive jobs, **behind a guard**.
+2. The guard is `.claude/hooks/require-backup.sh`, already in the repository. It
+   refuses a force push of the live branch or a history rewrite unless a
+   `backup/pre-rewrite-*` branch made in the last 24 hours is on origin, and
+   refuses a branch deletion unless an `archive/<branch>-*` tag is on origin.
+   `scripts/backup-before-destructive.sh` makes both (CLAUDE.md, Destructive
+   jobs). The live branch itself can never be deleted through it.
+3. To get the fall back copy yourself at any time, in any clone:
+   `git push origin <live tip>:refs/heads/backup/pre-rewrite-$(date -u +%Y%m%d-%H%M)`.
+   Restoring from it, if a rewrite ever goes wrong:
+   `git push --force-with-lease=<live branch>:<current tip> origin <backup tip>:refs/heads/<live branch>`.
+4. Delete a `backup/*` branch or an `archive/*` tag only when you are sure the
+   job it covered is fine; agents never do.
+5. **Found 12 October, after you made the settings change:** this cloud
+   session's GitHub credential may only push to the live branch. Pushing a tag
+   or a `backup/*` branch from it answers HTTP 403, so the fall back copy cannot
+   be made from the session, and the guard (correctly) refuses the deletions and
+   the rewrite until it exists. Until the credential is widened, make the fall
+   back copies yourself, from any clone, then the deletions can be done by you
+   or by an agent:
+
+   ```sh
+   git fetch origin
+   git push origin b444d2613f2ac6ebcb8aa5ff1a61ff737ae5ef3f:refs/tags/archive/claude/modest-euler-3hwly2-20261012
+   git push origin 6455989b340218ac9bd3e4fa9d64f1862021d94b:refs/tags/archive/claude/relaxed-brahmagupta-wmey28-20261012
+   git push origin e98e4a257d3fbbf48457ea1c8aea6fc0f3115270:refs/tags/archive/claude/wizardly-faraday-owdlz1-20261012
+   git push origin dff4ab94c0aabd93179dcc9283721bac6ecf19d3:refs/tags/archive/claude/wonderful-brahmagupta-8edg4h-20261012
+   git push origin c4920520003e995b711bdcad1e14610d9fc8c124:refs/tags/archive/four-shops-20261008-20261012
+   git push origin dbe9a79dca3368552a3a723982fd976fc3f6e92c:refs/tags/archive/claude/tender-cerf-d3t6wo-20261012
+   git push origin d224a74dee2443386465f2b0570806e3f07252d7:refs/tags/archive/claude/eager-tesla-79jgos-20261012
+   git push origin 6ce30f6337d95dba9d84860e9b3751e8dbc908aa:refs/tags/archive/claude/relaxed-allen-mv0j8n-20261012
+   git push origin 8da718ad552aeff4e5305321500330d9a6133b51:refs/tags/archive/claude/admiring-clarke-ly0s3e-20261012
+   ```
+
+   Once those nine tags are on origin the nine branches in the 7d table (all but
+   `perfume-chatbot` and the three newer unlisted ones) can be deleted with the
+   lines already in 7d. Left alone on purpose: `claude/funny-ride-h9fxy0`,
+   `claude/exciting-bardeen-3k75vb` and `claude/hopeful-euler-9nuqc1` (created
+   12 Oct, each holding unmerged work: look at them before deleting), and
+   `backup/pre-rewrite-2026-10-06` (only you delete a backup).
+
 ### 7e. GitHub settings only you can change (10 minutes; audit of 12 October 2026)
 
 Found by `docs/SITE-AUDIT-2026-10-12.md`, section 5. None of these stops
