@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 226,
+ "folded": 225,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2003,38 +2003,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3349668643127",
-   "absorbed": [
-    "set-paco-rabanne-invictus-2-piece-gift-set-eau-de-toilette-100ml-eau-de-toilette-10ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3349668643127",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Invictus Gift Set 100ml EDT + 10ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668643127",
-     "scent": "invictus paco rabanne",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-invictus-2-piece-gift-set-eau-de-toilette-100ml-eau-de-toilette-10ml",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Invictus 2 Piece Gift Set: Eau de Toilette 100ml - Eau de Toilette 10ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "invictus paco rabanne",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3349668643158",
    "absorbed": [
     "set-paco-rabanne-olympea-2-piece-gift-set-eau-de-parfum-50ml-eau-de-parfum-10ml"
@@ -2049,7 +2017,8 @@
      "scent": "olympea paco rabanne",
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
-      "perfume-click"
+      "perfume-click",
+      "perfume-direct"
      ]
     },
     {
@@ -8692,38 +8661,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3349668554157, 3349668642496",
-    "a shop lists more than one: parfumdreams-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3349668554157",
-     "brand": "Rabanne",
-     "name": "1 Million Gift Set Eau de Toilette Spray 50 ml + Shower Gel 100 ml / 1 Stk.",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668554157",
-     "scent": "1 million stk",
-     "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-3349668642496",
-     "brand": "Rabanne",
-     "name": "1 Million Eau de Toilette Spray Eau de Toilette Spray 50 ml + Shower Gel 100 ml / 1 Stk.",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668642496",
-     "scent": "1 million stk",
-     "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3349668571819, 3349668626861, 3349668628681"
    ],
    "members": [
@@ -9034,6 +8971,49 @@
      "signature": "1x100fragrance|1x10fragrance|1x?deo",
      "shops": [
       "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3349668643127, 3349668666836"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668643127",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Gift Set 100ml EDT + 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668643127",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-3349668666836",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Eau de Toilette 100ml + 10ml Spray Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668666836",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-paco-rabanne-invictus-2-piece-gift-set-eau-de-toilette-100ml-eau-de-toilette-10ml",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus 2 Piece Gift Set: Eau de Toilette 100ml - Eau de Toilette 10ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -11336,37 +11316,6 @@
      "signature": "1x50fragrance|1x6fragrance|1x75body",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 8410225601197, 8435415116558"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8410225601197",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Eau de Parfum 50 ml + Body Lotion 75 ml",
-     "concentration": "Eau de Parfum",
-     "ean": "8410225601197",
-     "scent": "scandal",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "allbeauty"
-     ]
-    },
-    {
-     "id": "set-ean-8435415116558",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Gift Set 50ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415116558",
-     "scent": "scandal",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "perfume-click"
      ]
     }
    ]
