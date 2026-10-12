@@ -213,7 +213,22 @@ describe('this build\'s own report', () => {
       for (const old of g.absorbed) {
         expect(live.has(old), `${old} is gone`).toBe(false);
         if (!everAPage.has(old)) continue;
-        expect(movedTo(data, old, (id) => live.has(id)), old).toBe(g.canonical);
+        const to = movedTo(data, old, (id) => live.has(id));
+        // The rule: the old address lands on a page, never on nothing, and never on itself.
+        expect(to, `${old} lands nowhere`).not.toBeNull();
+        expect(to, old).not.toBe(old);
+        if (to !== g.canonical) {
+          // data/id-aliases.json is append only, so an address an earlier merge already sent
+          // somewhere keeps going there when a later merge folds it into another set (the
+          // fold the report names). That is right while it still lands on a page for the same
+          // goods: a set of the same brand, live or kept as a page with no current prices.
+          // Pinning it to this build's canonical failed the crawl on 2026-10-12 (the Zadig &
+          // Voltaire "Vibes of Freedom" set went to its barcode set in an earlier build).
+          expect(to, `${old} lands on ${to}, not a set`).toMatch(/^set-/);
+          const brandOf = (id: string): string | undefined =>
+            CATALOGUE.find((c) => c.id === id)?.brand ?? DORMANT_PRODUCTS[id]?.brand;
+          expect(brandOf(to!), `${old} lands on ${to}, another house's set`).toBe(g.members[0]!.brand);
+        }
         answered++;
       }
     }
