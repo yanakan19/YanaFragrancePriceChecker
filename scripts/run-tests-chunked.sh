@@ -6,6 +6,7 @@
 #   scripts/run-tests-chunked.sh --set data            the files of a set in scripts/test-sets.txt
 #   scripts/run-tests-chunked.sh tests/a.test.ts 'tests/region*.test.ts'
 #   scripts/run-tests-chunked.sh --chunk 10 --set code  chunk size (default 20)
+#   scripts/run-tests-chunked.sh --set code --shard 2/4  every 4th file from the 2nd (a job of a matrix)
 #
 # Why chunks: the whole suite in one vitest process is killed for memory on the
 # 7 GB runner (several files import the 35 MB catalogue), and one crash then
@@ -27,10 +28,12 @@ set -uo pipefail
 cd "$(dirname "$0")/.."
 
 chunk_size=20
+shard=""
 files=()
 while [ "$#" -gt 0 ]; do
   case "$1" in
     --chunk) chunk_size="${2:-}"; shift 2 ;;
+    --shard) shard="${2:-}"; shift 2 ;;
     --set)
       set_name="${2:-}"; shift 2
       list=$(awk -v s="$set_name" '$1 == s { print $2 }' scripts/test-sets.txt)
@@ -54,11 +57,22 @@ for f in "${files[@]}"; do
   [ -f "$f" ] || { echo "::error::Test file $f does not exist" >&2; exit 2; }
 done
 
+# The sorted, de-duplicated list; with --shard I/N, every Nth file from the Ith,
+# so the shards of a matrix together run each file exactly once.
+list=$(printf '%s\n' "${files[@]}" | sort -u)
+if [ -n "$shard" ]; then
+  if ! [[ "$shard" =~ ^[1-9][0-9]*/[1-9][0-9]*$ ]] || [ "${shard%/*}" -gt "${shard#*/}" ]; then
+    echo "::error::--shard wants I/N with I from 1 to N, got '$shard'" >&2; exit 2
+  fi
+  list=$(printf '%s\n' "$list" | awk -v i="${shard%/*}" -v n="${shard#*/}" 'NR % n == i % n')
+  if [ -z "$list" ]; then echo "::error::Shard $shard holds no test files" >&2; exit 2; fi
+fi
+
 work=$(mktemp -d)
 trap 'rm -rf "$work"' EXIT
-printf '%s\n' "${files[@]}" | sort -u | split -l "$chunk_size" -d - "$work/chunk-"
+printf '%s\n' "$list" | split -l "$chunk_size" -d - "$work/chunk-"
 
-total=$(printf '%s\n' "${files[@]}" | sort -u | wc -l)
+total=$(printf '%s\n' "$list" | wc -l)
 chunks=$(ls "$work" | grep -c '^chunk-')
 echo "Running $total test files in $chunks chunks of up to $chunk_size"
 
@@ -83,7 +97,8 @@ for chunk in "$work"/chunk-*; do
     summary+=("chunk $n: FAILED (exit $code), ${#members[@]} files, ${secs}s")
     # The files vitest names as failed; when the process died without naming
     # any (killed for memory), the whole chunk is listed.
-    named=$(grep -oE '(FAIL|❯)[[:space:]]+tests/[A-Za-z0-9_.-]+\.test\.ts' "$chunk.log" | grep -oE 'tests/[A-Za-z0-9_.-]+\.test\.ts' | sort -u)
+    # The runner colours its output (FORCE_COLOR), so the codes come out first.
+    named=$(sed 's/\x1b\[[0-9;]*m//g' "$chunk.log" | grep -E '^[[:space:]]*(FAIL|❯)[[:space:]]+tests/' | grep -oE 'tests/[A-Za-z0-9_.-]+\.test\.ts' | sort -u)
     if [ -z "$named" ]; then
       named=$(printf '%s\n' "${members[@]}")
       summary+=("  chunk $n ended without naming a failed file (a crash or a kill): all its files count as failed")
