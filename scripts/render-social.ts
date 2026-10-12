@@ -25,6 +25,8 @@
  *   deal-video       the Deal of the Day video, from check.json's figures (dealVideoFromRecord)
  *   explainer-video  an informative video, from scripts/social-video-explainers.ts
  *   launch-video     a launch video, from scripts/social-video-launch.ts
+ *   guess-video      a Guess the Fragrance video, from scripts/social-video-guess.ts: "puzzle" from the
+ *                    9:16 picture's HTML beside it, "reveal" from check.json
  *   history          drawn from a live page once and never again: only the file as first
  *                    made, from git history (the 5 October hurry video)
  *
@@ -57,6 +59,7 @@ import { renderVideo } from './social-video-render.js';
 import { DEAL_VIDEO, dealScenes, dealVideoFromRecord, esc, type DealVideoRecord } from './social-video-template.js';
 import { EXPLAINER_CSS, EXPLAINER_VIDEOS } from './social-video-explainers.js';
 import { LAUNCH_CSS, LAUNCH_VIDEOS } from './social-video-launch.js';
+import { drawPuzzleVideo, drawRevealVideo } from './social-video-guess.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SOCIAL = join(ROOT, 'social');
@@ -156,6 +159,11 @@ async function draw(browser: () => Promise<Browser>, dir: string, outDir: string
     if (!v) throw new Error(`${p.file}: no launch video "${p.video}" in scripts/social-video-launch.ts`);
     await withRetries(p.file, () => renderVideo({ spec: v.spec, scenes: v.scenes(), outDir, file: p.file, extraCss: LAUNCH_CSS, log: () => {} }));
     return `drawn from scripts/social-video-launch.ts (${p.video})`;
+  }
+  if (p.make === 'guess-video') {
+    if (p.video !== 'puzzle' && p.video !== 'reveal') throw new Error(`${p.file}: a guess-video is "puzzle" or "reveal", not "${p.video}"`);
+    await withRetries(p.file, () => (p.video === 'puzzle' ? drawPuzzleVideo(dir, outDir, () => {}) : drawRevealVideo(dir, outDir, () => {})));
+    return `drawn from scripts/social-video-guess.ts (${p.video}, from ${p.video === 'puzzle' ? 'guess-9x16.html' : 'check.json'})`;
   }
   throw new Error(`${p.file} cannot be drawn again (it was drawn from a live page); only the original in git history`);
 }

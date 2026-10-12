@@ -22,7 +22,7 @@ import { execFileSync, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { Browser } from 'playwright';
+import type { Browser, Page } from 'playwright';
 import { launchChromium } from './a11y-audit.js';
 import { BRAND_FONT_CSS, FIT_SCRIPT } from './socialRender.js';
 import { assertPicturePath } from './socialPictures.js';
@@ -96,6 +96,13 @@ export interface RenderJob {
   /** The video's file name inside outDir. */
   file: string;
   extraCss?: string;
+  /**
+   * What the scenes animate inside themselves at time t (a plain JSON value, handed to `window.__extra(x, t)` that
+   * a scene's own script defines). Frames with the same layers and the same value are drawn once.
+   */
+  extra?: (t: number) => unknown;
+  /** More layout checks, run on the loaded page with every scene laid out; each string is a problem and refuses the draw. */
+  check?: (page: Page) => Promise<string[]>;
   /** Keep the drawn frames (default: they are deleted once the video is encoded). */
   keepFrames?: boolean;
   log?: (line: string) => void;
@@ -151,11 +158,14 @@ export function pageHtml(spec: VideoSpec, scenes: { id: string; html: string }[]
 }
 
 /** Loads the page and waits until the font and every picture are ready. */
-async function loadPage(browser: Browser, html: string) {
+export async function loadPage(browser: Browser, html: string) {
   const page = await browser.newPage({ viewport: { width: VIDEO_TEMPLATE.width, height: VIDEO_TEMPLATE.height }, deviceScaleFactor: 1 });
   await page.setContent(html);
   await page.evaluate('document.fonts.ready');
   await page.evaluate(`Promise.all([...document.images].map((i) => (i.decode ? i.decode().catch(() => {}) : null)))`);
+  // A scene made of a whole picture (an iframe) has its own fonts; a scene's own script may need the fonts first.
+  await page.evaluate(`Promise.all([...document.querySelectorAll('iframe')].map((f) => (f.contentDocument ? f.contentDocument.fonts.ready : null)))`);
+  await page.evaluate(`window.__ready ? window.__ready() : null`);
   return page;
 }
 
@@ -163,19 +173,33 @@ async function loadPage(browser: Browser, html: string) {
  * Text or pictures outside the safe box once each scene has finished its zoom,
  * and text that had to be cut short to fit. Empty when the layout is fine.
  */
-export async function layoutProblems(browser: Browser, spec: VideoSpec, scenes: { id: string; html: string }[], extraCss = ''): Promise<string[]> {
+export async function layoutProblems(
+  browser: Browser,
+  spec: VideoSpec,
+  scenes: { id: string; html: string }[],
+  extraCss = '',
+  check?: (page: Page) => Promise<string[]>,
+): Promise<string[]> {
   const tpl = VIDEO_TEMPLATE;
   const tl = buildTimeline(spec, tpl);
   const page = await loadPage(browser, pageHtml(spec, scenes, extraCss));
   try {
-    return (await page.evaluate(`(${SAFE_CHECK})(${JSON.stringify({
+    const bad = (await page.evaluate(`(${SAFE_CHECK})(${JSON.stringify({
       safe: tpl.safe,
       tol: 0.5,
-      scenes: tl.scenes.map((s) => ({ id: s.id, ox: s.focus.x, oy: s.focus.y, zoom: tpl.zoom.to })),
+      scenes: tl.scenes.map((s) => ({ id: s.id, ox: s.focus.x, oy: s.focus.y, zoom: s.zoomTo })),
     })})`)) as string[];
+    if (check) bad.push(...(await check(page)));
+    return bad;
   } finally {
     await page.close();
   }
+}
+
+/** One frame of a finished video as a PNG (a poster or a check by eye). */
+export function extractFrame(video: string, seconds: number, out: string): void {
+  assertPicturePath(out);
+  execFileSync(ffmpegPath(), ['-y', '-hide_banner', '-loglevel', 'error', '-ss', String(seconds), '-i', video, '-frames:v', '1', out], { stdio: 'inherit' });
 }
 
 export async function renderVideo(job: RenderJob): Promise<RenderReport> {
@@ -191,7 +215,8 @@ export async function renderVideo(job: RenderJob): Promise<RenderReport> {
 
   mkdirSync(job.outDir, { recursive: true });
   const framesDir = join(job.outDir, '_frames');
-  const stamp = createHash('sha1').update(html).update(JSON.stringify(tl)).update(JSON.stringify(tpl)).digest('hex');
+  const extras = job.extra ? Array.from({ length: tl.frames }, (_, f) => job.extra!(f / tpl.fps)) : null;
+  const stamp = createHash('sha1').update(html).update(JSON.stringify(tl)).update(JSON.stringify(tpl)).update(JSON.stringify(extras)).digest('hex');
   const stampFile = join(framesDir, '.stamp');
   if (existsSync(framesDir) && (!existsSync(stampFile) || readFileSync(stampFile, 'utf8') !== stamp)) rmSync(framesDir, { recursive: true, force: true });
   mkdirSync(framesDir, { recursive: true });
@@ -199,7 +224,7 @@ export async function renderVideo(job: RenderJob): Promise<RenderReport> {
 
   const browser = await launchChromium();
   try {
-    const bad = await layoutProblems(browser, job.spec, job.scenes, job.extraCss ?? '');
+    const bad = await layoutProblems(browser, job.spec, job.scenes, job.extraCss ?? '', job.check);
     if (bad.length) throw new Error(`${job.spec.id}: layout problems (safe box x ${tpl.safe.left} to ${tpl.safe.right}, y ${tpl.safe.top} to ${tpl.safe.bottom}):\n  ${bad.join('\n  ')}`);
     const page = await loadPage(browser, html);
 
@@ -208,7 +233,8 @@ export async function renderVideo(job: RenderJob): Promise<RenderReport> {
     for (let f = 0; f < tl.frames; f++) {
       const file = join(framesDir, `${pad(f)}.png`);
       const st = frameState(tl, f / tpl.fps, tpl);
-      const key = JSON.stringify({ l: st.layers, v: st.veil });
+      if (extras) st.extra = extras[f];
+      const key = JSON.stringify({ l: st.layers, v: st.veil, x: st.extra ?? null });
       if (existsSync(file)) {
         prevKey = key;
         prevFile = file;

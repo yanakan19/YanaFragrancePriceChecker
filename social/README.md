@@ -33,11 +33,13 @@ x 110 to 970, y 380 to 1460, footer included) and `-1x1` (1080 x 1080, inside
 x 135 to 945, y 90 to 990), all listed in `pictures.json`. A puzzle folder's `check.json`
 holds the answer and the repository is public, so commit and push the folder
 (and `guess-fragrance-history.json`) only when posting, with a commit message
-that names no fragrance.
+that names no fragrance. Add `-- --video` (with `--reveal` for the answer) for the 10 second 9:16
+video beside the pictures (`guess-video-9x16.mp4`, `reveal-video-9x16.mp4`, plan section 6, "The videos");
+like every picture it is drawn again by `npm run social:render` and never committed.
 
 Videos come from one template (`scripts/social-video-template.ts`): `npm run social:video -- --id <id>` for a
 Deal of the Day video, `npm run social:video:explainers` for the informative ones and `npm run social:video:launch`
-for a launch video (the US one; `-- --video in` for India). Rules: `docs/SOCIAL-MEDIA-PLAN.md`
+for a launch video (the US one; `-- --video in` for India), and `npm run social:guess -- --video` for the Guess the Fragrance videos. Rules: `docs/SOCIAL-MEDIA-PLAN.md`
 section 9.
 
 What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.

@@ -64,6 +64,13 @@ export const VIDEO_TEMPLATE = {
   informative: { minSeconds: 20, maxSeconds: 30, theme: 'inverted' as const },
   /** Launch videos (a new country, say): short and to the point, black theme like the launch pictures. */
   launch: { minSeconds: 10, maxSeconds: 12, theme: 'standard' as const },
+  /**
+   * Guess the Fragrance videos (the puzzle and its reveal): exactly this long, black theme. Their scenes do not
+   * zoom slowly (the puzzle scenes are the 9:16 picture itself, whose footer already ends on the safe box's
+   * bottom edge); instead the two scenes of a dissolve zoom out together to `dip` of their size at its middle
+   * and back to full size at its end, a slight zoom that never leaves the safe box.
+   */
+  guess: { totalSeconds: 10, theme: 'standard' as const, dip: 0.97 },
   /** H.264 for TikTok and Instagram. Flat graphics compress well; a post stays far below the cap. */
   encode: { crf: 20, preset: 'slow', maxMegabytes: 8 },
 } as const;
@@ -80,6 +87,14 @@ export interface SceneSpec {
   transition?: TransitionKind;
   /** Where the zoom is aimed, in pixels. Default: the middle of the safe box. */
   focus?: { x: number; y: number };
+  /** How far this scene zooms over its length. Default: `VIDEO_TEMPLATE.zoom.to`; 1 for none. */
+  zoom?: number;
+  /**
+   * A scene that arrives by a dissolve: it and the scene it replaces both shrink together to this fraction of
+   * their size (below 1, so nothing leaves the safe box) at the middle of the dissolve and are back at full
+   * size at its end, a slight zoom out and in that cannot ghost. Default 1: none.
+   */
+  dip?: number;
 }
 
 export interface VideoSpec {
@@ -100,6 +115,10 @@ export interface SceneTiming {
   arrives: number;
   transition: TransitionKind | null;
   focus: { x: number; y: number };
+  /** The size this scene's slow zoom reaches (1 for none). */
+  zoomTo: number;
+  /** The size this scene and the one it replaces reach together mid dissolve (1 for none). */
+  dip: number;
 }
 
 export interface TransitionTiming {
@@ -151,6 +170,8 @@ export function buildTimeline(spec: VideoSpec, tpl: Template = VIDEO_TEMPLATE): 
       arrives,
       transition: kind,
       focus: s.focus ?? safeCentre(tpl),
+      zoomTo: s.zoom ?? tpl.zoom.to,
+      dip: s.dip ?? 1,
     });
     if (kind) transitions.push({ kind, from: spec.scenes[index - 1]!.id, to: s.id, start, end: ms(start + arrives), seconds: arrives });
     cursor = end;
@@ -189,6 +210,11 @@ export function timelineProblems(tl: Timeline, tpl: Template = VIDEO_TEMPLATE): 
   if (first.zoomStart < tpl.openingStillSeconds - 1e-9) out.push('the first zoom starts before the opening still has finished');
   if (tpl.openingStillSeconds <= 0) out.push('the video must open on a still');
   if (tpl.openingStillSeconds >= first.end - first.arrives) out.push('the opening still outlasts the first scene');
+  for (const s of tl.scenes) {
+    if (s.dip > 1 || s.dip <= 0.9) out.push(`scene ${s.id} dips to ${s.dip}, which must be above 0.9 and at most 1`);
+    if (s.dip !== 1 && s.transition !== 'dissolve') out.push(`scene ${s.id} dips but does not arrive by a dissolve`);
+    if (s.zoomTo < 1) out.push(`scene ${s.id} zooms out (${s.zoomTo})`);
+  }
   return out;
 }
 
@@ -218,6 +244,8 @@ export interface FrameState {
   layers: LayerState[];
   /** 0 = nothing, 1 = the whole frame is the background colour. */
   veil: number;
+  /** What a video's own scenes animate inside themselves at t (RenderJob.extra), handed to window.__extra. */
+  extra?: unknown;
 }
 
 export function frameState(tl: Timeline, t: number, tpl: Template = VIDEO_TEMPLATE): FrameState {
@@ -235,7 +263,13 @@ export function frameState(tl: Timeline, t: number, tpl: Template = VIDEO_TEMPLA
       x = -Math.round(tpl.width * easeInOutCubic((t - next.start) / next.arrives) * 100) / 100;
     }
     const zoomed = clamp01((t - s.zoomStart) / (s.end - s.zoomStart));
-    const scale = 1 + (tpl.zoom.to - 1) * easeInOutSine(zoomed);
+    let scale = 1 + (s.zoomTo - 1) * easeInOutSine(zoomed);
+    // The dip: this scene's own dissolve in, and the next scene's dissolve over it, shrink both together.
+    const dip = (of: SceneTiming | undefined) =>
+      of && of.dip !== 1 && of.transition === 'dissolve' && t >= of.start && t < of.start + of.arrives
+        ? 1 - (1 - of.dip) * Math.sin((Math.PI * (t - of.start)) / of.arrives)
+        : 1;
+    scale *= dip(s) * dip(tl.scenes[i + 1]);
     return { id: s.id, visible, opacity, x, scale: Math.round(scale * 1e6) / 1e6, z: i, ox: s.focus.x, oy: s.focus.y };
   });
   const veil = t <= tl.fadeStart ? 0 : easeInOutSine((t - tl.fadeStart) / tpl.outro.fadeOutSeconds);
@@ -306,6 +340,7 @@ window.__apply = (st) => {
     el.style.transform = 'translate(' + l.x + 'px, 0px) scale(' + l.scale + ')';
   }
   document.getElementById('veil').style.opacity = String(st.veil);
+  if (window.__extra) window.__extra(st.extra, st.t);
 };
 </script></body></html>`;
 }

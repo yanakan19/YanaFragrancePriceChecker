@@ -201,6 +201,10 @@ answer.
 
 ### 1.9 The 10 second video
 
+**Superseded on 12 October 2026 by the owner's approved design, built and recorded in
+section 6 ("The videos").** The original proposal follows; the build differs in its scenes
+and timings (no slow zoom, a puzzle video and a reveal video, no "Answer in 24 hours").
+
 Built from the template with its rules unchanged (opening still, then
 dissolve and swipe, none longer than 0.5 s, a slow 5% zoom on every scene,
 the PriceSniffs end card, then the 1 s fade). It uses the black theme and the
@@ -530,10 +534,10 @@ line above it, and the footer "Comment your guess." with `pricesniffs.space`
 (the mock shows both, which replaces the plan's "no web address on the picture").
 **No "answer tomorrow" text anywhere**, on the pictures, the alt text or the
 caption. The feed picture is **3:4 vertical, 1080 x 1440** (`guess-3x4`,
-`reveal-3x4`); the video of section 1.9 is not built.
+`reveal-3x4`); the videos are described under "The videos" below (built 12 October 2026).
 A **9:16 version** (1080 x 1920, `guess-9x16`, `reveal-9x16`) and a **1:1 version**
 (1080 x 1080, `guess-1x1`, `reveal-1x1`) are built from the same code; the rules
-for both are in "Safe areas and the three shapes" below. The video is still not built.
+for both are in "Safe areas and the three shapes" below.
 
 **Safe areas and the three shapes (12 October 2026).** Each picture has a safe
 box (`SAFE` in `scripts/social-guess-html.ts`); every box of text, tile and
@@ -630,9 +634,9 @@ refuses and asks for `--name`. The price is the product's own cheapest offer
 today, at the most stocked size that has one; `--no-price` and `--no-photo` are
 the owner's explicit fallbacks (the plan's 2.4).
 
-**Not built.** The video (`social-video-guess.ts`, the `guess-video` make; another
-agent builds it later), the "PUZZLE n" pill, and the `social:guess:video` script. The
-Social pictures workflow draws the folders as they are (every picture is `html`).
+**Not built.** The "PUZZLE n" pill, and a separate `social:guess:video` script (the
+video is `social:guess -- --video`, see below). The Social pictures workflow draws a folder's
+pictures and, from 12 October, its video (`make: "guess-video"`).
 
 **Tests.** `tests/guessFragranceMask.test.ts` (every row of the table in 1.6 and
 the invariants), `guessFragrancePick.test.ts` (each rule, rests, variety,
@@ -642,3 +646,76 @@ safe box, 9:16 footer above y 1460, logo flush right, one line title, no overlap
 text, minimum size, contrast, the 12 longest note names), `guessFragranceCaptions.test.ts` (finds `*-guess-fragrance-*` folders
 by name; answer words never leak into the puzzle caption, alt text or HTML).
 
+### The videos (12 October 2026)
+
+Two 10 second 9:16 videos (1080 x 1920, 30 fps, exactly 300 frames, H.264, no sound,
+about 0.5 MB), black theme, drawn by the shared video template and renderer
+(`scripts/social-video-template.ts`, `scripts/social-video-render.ts`) from
+`scripts/social-video-guess.ts`:
+
+```
+npm run social:guess -- --video             # the puzzle video, beside the puzzle pictures
+npm run social:guess -- --reveal --video    # the reveal video, beside the reveal pictures
+npm run social:render -- social/posts/<folder>   # draws either again from the folder's text
+```
+
+| File | Drawn from | Listed in `pictures.json` as |
+|---|---|---|
+| `guess-video-9x16.mp4` (puzzle folder) | `guess-9x16.html` beside it | `make: "guess-video"`, `video: "puzzle"` |
+| `reveal-video-9x16.mp4` (reveal folder) | `check.json` beside it (the photo is downloaded again, as the reveal picture's is) | `make: "guess-video"`, `video: "reveal"` |
+
+**Puzzle video.**
+
+| From | Scene | Shows |
+|---|---|---|
+| 0.0 to 3.0 | Puzzle, motionless | The 9:16 puzzle picture itself, full layout (it is an iframe of `guess-9x16.html`, so the first frame is the picture and a usable cover) |
+| 3.0 (dissolve 0.5 s) | Notes | The same layout; the notes reveal tier by tier: Top at 3.9 s, Heart at 4.3 s, Base at 4.7 s. Each tier's notes (tile and name) fade in and rise 8 px over 0.5 s, transform and opacity only. The dashed House and Fragrance lines never change. All shown by 5.2 s and held |
+| 7.3 (dissolve 0.5 s) | End | "Comment your guess.", the PriceSniffs mark and wordmark and `pricesniffs.space`, held from 7.8 to 9.0, then a 1 s fade to the background (ends 10.0). No countdown, no "answer tomorrow" |
+
+**Reveal video.**
+
+| From | Scene | Shows |
+|---|---|---|
+| 0.0 | The answer, motionless | Corner logo, "The answer", the title, House and Fragrance as the same dashes as the puzzle. From 1.0 s one 0.5 s dissolve to the letters (not letter by letter), held to 2.7 s |
+| 2.7 (dissolve) | Bottle | House, name, the shop's bottle photo (the reveal picture's own, `check.json` `photo`) and the strength and size tags |
+| 4.8 (dissolve) | Price | The product and size, the green Cheapest price box with the shop, "Price includes delivery, checked ...", and "Prices change, so check before you buy." |
+| 7.3 (dissolve) | End | The PriceSniffs mark and wordmark and `pricesniffs.space`, held 7.8 to 9.0, then the 1 s fade |
+
+Scenes 1 to 3 of the reveal carry the corner logo (flush top right of the safe box).
+A reveal made with `--no-price` shows "See it at pricesniffs.space" in the price box;
+with `--no-photo` the bottle scene has the names and the tags only.
+
+**Rules kept, and the choices made where the brief left room.**
+
+* Everything inside the TikTok box (x 110 to 970, y 380 to 1460), at every scene. The
+  renderer measures every scene before drawing and refuses (it looks inside the picture
+  iframes too: `pictureSceneProblems`, with the notes hidden 8 px low and shown).
+* Owner's timing rules: a motionless start (nothing changes for the first 3 s of the
+  puzzle and 1 s of the reveal), transitions all 0.5 s dissolves (none over half a
+  second; the template's swipe is still available, not used), the PriceSniffs end card
+  held 1.2 s then a 1 s fade, 10.000 s in all.
+* **Slight zoom.** Decision: the two scenes of a dissolve shrink together to 97% at its
+  middle and are back at full size at its end (`dip` on a scene, `VIDEO_TEMPLATE.guess.dip`).
+  Nothing ever grows past full size, so nothing can leave the safe box, and because both
+  scenes move together the unchanged puzzle layout does not ghost. The template's slow 5%
+  zoom is **not** used in these two videos (the puzzle scenes are the picture, whose footer
+  already ends on y 1460); the other videos are unchanged (`zoom` and `dip` default to the
+  old behaviour).
+* **The end card** carries the call to action and the address in one scene (the template
+  requires the last scene to be the wordmark held 1.2 s before the fade, so a separate
+  "Comment your guess" scene would not fit in 10 s). The address is the bare
+  `pricesniffs.space` in both videos; the reveal caption carries the product address.
+* The letters of the reveal fill in by a crossfade between two layers of the same lines,
+  the full words shrunk only if they are wider than the dashes' block.
+* Captions unchanged: `caption.txt` of each folder, one for every platform. The videos
+  are never committed (D28); the repository is public and a puzzle folder's `check.json`
+  holds the answer, so a puzzle or reveal folder is committed only when posting.
+* Deterministic: a redraw is byte for byte the same file (checked on 12 October by
+  drawing two puzzles and two reveals twice; `npm run social:render` reports "identical to the first").
+
+Code added: `scripts/social-video-guess.ts` (specs, scenes, the two animations, drawing),
+`RenderJob.extra` and `RenderJob.check` in the renderer, per scene `zoom` and `dip` in the template,
+`make: "guess-video"` in `socialPictures.ts` and `render-social.ts`. Test:
+`tests/guessFragranceVideo.test.ts` (timing rules, the words inside the safe box in every
+scene for worst case puzzles and reveals, the answer never in a puzzle video's text or any
+attribute, the same frames from two page loads, the notes moving by transform and opacity only).

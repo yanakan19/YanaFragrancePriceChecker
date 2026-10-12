@@ -107,6 +107,7 @@ data tests/giftSetItems.test.ts
 code tests/guessFragranceCaptions.test.ts
 code tests/guessFragranceLayout.test.ts
 code tests/guessFragranceMask.test.ts
+code tests/guessFragranceVideo.test.ts
 data tests/guessFragrancePick.test.ts
 code tests/harvestCursor.test.ts
 code tests/harvestMinutes.test.ts

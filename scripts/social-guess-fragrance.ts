@@ -9,6 +9,7 @@
  *   npm run social:guess -- --id <id>           a chosen product (still answers to the rules)
  *   npm run social:guess -- --reveal            the reveal of the latest puzzle not yet revealed
  *   npm run social:guess -- --reveal --no-price | --no-photo | --skip-live-check | --name "Short Name"
+ *   --video               also the 10 second 9:16 video (guess-video-9x16.mp4 with the puzzle, reveal-video-9x16.mp4 with the reveal)
  *   --date YYYY-MM-DD     the post's date (default: today, UK)
  *   --out-root <dir>      write the folders here instead of social/posts (samples, tests)
  *   --history <file>      the history file (default social/guess-fragrance-history.json)
@@ -41,6 +42,8 @@ import { cleanNotes, liveCheck } from './social-deal-of-day.js';
 import { FORMATS, TIER_LABEL, altText, layoutOf, puzzleHtml, revealHtml, type PuzzleView, type RevealView, type Tier } from './social-guess-html.js';
 import { CAPTION_LIMIT, FIXED_COPY, PUZZLE_CAPTION, revealCaption } from './social-guess-captions.js';
 import { grouperFor, ownIconOf, readNoteGroupInputs } from './noteData.js';
+import { GUESS_PUZZLE_VIDEO, GUESS_REVEAL_VIDEO, PUZZLE_VIDEO_FILE, REVEAL_VIDEO_FILE, drawPuzzleVideo, drawRevealVideo } from './social-video-guess.js';
+import { buildTimeline } from './social-video-template.js';
 import {
   STRENGTHS, hiddenAnswerWords, phraseText, planPuzzleText, tidyName,
   type PuzzleText,
@@ -408,6 +411,7 @@ async function runPuzzle(outRoot: string, historyFile: string, today: string) {
   console.log(`  Notes from ${pick.notesSource ?? 'the shops'}; ${pick.shown.length} shown. Check them by eye against the shop's page before posting.`);
   console.log(`  Answer (private): ${pick.rep.brand} ${pick.text.answerName} ${pick.rep.concentration}; ${pick.popularity} shops; ${pick.gender}, ${pick.tierName}, ${pick.band}`);
   console.log(`  Caption (${PUZZLE_CAPTION.length} characters): ${PUZZLE_CAPTION}`);
+  if (flag('--video')) console.log(`  Video:     ${PUZZLE_VIDEO_FILE}, ${buildTimeline(GUESS_PUZZLE_VIDEO).total} seconds (drawn from guess-9x16.html)`);
   if (flag('--dry-run')) {
     console.log('Dry run: nothing written.');
     return;
@@ -450,7 +454,8 @@ async function runPuzzle(outRoot: string, historyFile: string, today: string) {
     join(dir, 'source.md'),
     `# Guess the Fragrance, puzzle ${no}\n\nMade by \`npm run social:guess\` (scripts/social-guess-fragrance.ts) on ${today}. The pictures are drawn from guess-3x4.html, guess-9x16.html and guess-1x1.html; the answer is in check.json and is private until the reveal.\n`,
   );
-  recordPictures(dir);
+  if (flag('--video')) await drawPuzzleVideo(dir);
+  recordPictures(dir, flag('--video') ? { [PUZZLE_VIDEO_FILE]: { make: 'guess-video', from: 'guess-9x16.html', video: 'puzzle' } } : {});
   const entry: HistoryEntry = { date: today, no, id: pick.rep.id, key: pick.key, brand: pick.rep.brand, gender: pick.gender, tier: pick.tierName, band: pick.band, revealed: null };
   writeFileSync(historyFile, JSON.stringify([...history.filter((h) => h.date !== today), entry], null, 2) + '\n');
   console.log(`${dir} written`);
@@ -494,6 +499,7 @@ async function runReveal(outRoot: string, historyFile: string, today: string) {
   const dir = join(outRoot, `${today}-guess-fragrance-${pad(entry.no)}-reveal`);
   console.log(`${today}: reveal of puzzle ${entry.no}: ${shownFrag.brand} ${name} ${shownFrag.concentration} ${size}${priced ? `, ${gbp(priced.delivered)} at ${priced.best.retailer.name}` : ', no price'}`);
   console.log(`  Caption (${caption.length} characters): ${caption}`);
+  if (flag('--video')) console.log(`  Video: ${REVEAL_VIDEO_FILE}, ${buildTimeline(GUESS_REVEAL_VIDEO).total} seconds (drawn from check.json)`);
   if (flag('--dry-run')) {
     console.log('Dry run: nothing written.');
     return;
@@ -521,7 +527,8 @@ async function runReveal(outRoot: string, historyFile: string, today: string) {
       2,
     ) + '\n',
   );
-  recordPictures(dir);
+  if (flag('--video')) await drawRevealVideo(dir);
+  recordPictures(dir, flag('--video') ? { [REVEAL_VIDEO_FILE]: { make: 'guess-video', from: 'check.json', video: 'reveal' } } : {});
   writeFileSync(historyFile, JSON.stringify(history.map((h) => (h.date === entry.date ? { ...h, revealed: today } : h)), null, 2) + '\n');
   console.log(`${dir} written; live check: ${check ? 'link opens the product on the live site' : 'skipped'}`);
 }

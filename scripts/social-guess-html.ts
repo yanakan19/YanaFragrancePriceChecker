@@ -44,7 +44,7 @@ export const SAFE: Record<Kind, Box> = {
 /** The least room between two blocks of the 9:16 and the 1:1 (the 3:4 has its own margins): the note tiles and gaps shrink with --k until every gap is at least this. */
 const MIN_GAP = 20;
 const TALL_CONTENT_W = 1080 - 2 * 72;
-const TALL_SCALE = (SAFE.tall.r - SAFE.tall.l) / TALL_CONTENT_W;
+export const TALL_SCALE = (SAFE.tall.r - SAFE.tall.l) / TALL_CONTENT_W;
 /** When even the smallest tiles do not fit, the whole 9:16 block is drawn a little smaller (never below this: 26 px text stays 20.8 px). */
 const TALL_SCALE_FLOOR = 0.8;
 
@@ -111,17 +111,17 @@ const formatCss = (f: Format) => (f.kind === 'tall' ? TALL_CSS : f.kind === 'squ
 
 /** A hidden letter is a drawn bar, never a character (plan 1.5). */
 const cellHtml = (c: MaskWord[number]) => ('blank' in c ? '<i></i>' : `<b>${esc(c.t)}</b>`);
-const wordHtml = (w: MaskWord) => `<span class="w">${w.map(cellHtml).join('')}</span>`;
+export const wordHtml = (w: MaskWord) => `<span class="w">${w.map(cellHtml).join('')}</span>`;
 
 const CAP_HALF = 0.358;
 
 /** The blanks' room. The square has 810 px across, so its words column is narrower, its labels smaller and its sizes may go lower (40, not 48). */
-interface Geo { labelPx: number; labelSpacing: number; colGap: number; wordsW: number; sizes: number[]; minSize: number; houseH: number; nameH: number; /** Tried first: fewer, smaller lines, which leave room for twelve notes. */ tight?: { houseH: number; nameH: number } }
+export interface Geo { labelPx: number; labelSpacing: number; colGap: number; wordsW: number; sizes: number[]; minSize: number; houseH: number; nameH: number; /** Tried first: fewer, smaller lines, which leave room for twelve notes. */ tight?: { houseH: number; nameH: number } }
 const GEO: Record<'wide' | 'square', Geo> = {
   wide: { labelPx: 24, labelSpacing: 5, colGap: 26, wordsW: 696, sizes: [88, 80, 72, 64, 56, 48], minSize: 44, houseH: 150, nameH: 214 },
   square: { labelPx: 20, labelSpacing: 4, colGap: 20, wordsW: 628, sizes: [68, 64, 60, 56, 52, 48, 44, 40], minSize: 36, houseH: 120, nameH: 180, tight: { houseH: 72, nameH: 128 } },
 };
-const geoOf = (f?: Format): Geo => GEO[f?.kind === 'square' ? 'square' : 'wide'];
+export const geoOf = (f?: Format): Geo => GEO[f?.kind === 'square' ? 'square' : 'wide'];
 
 /** How the house and the name are laid out in picture `f` (the 3:4 when omitted), or null when they do not fit (then the puzzle is not eligible). */
 export function layoutOf(text: PuzzleText, f?: Format): { house: BlockPlan; name: BlockPlan } | null {
@@ -135,7 +135,7 @@ export function layoutOf(text: PuzzleText, f?: Format): { house: BlockPlan; name
   return null;
 }
 
-function blockHtml(label: string, plan: BlockPlan, spoken: string, g: Geo): string {
+export function blockHtml(label: string, plan: BlockPlan, spoken: string, g: Geo): string {
   const top = -(CAP_HALF * (plan.size - g.labelPx)).toFixed(1);
   const lines = plan.lines.map((l) => `<div class="ln">${l.map(wordHtml).join('')}</div>`).join('');
   return `<span class="lab" style="top:${top}px">${label}</span><div class="blk" role="img" aria-label="${esc(spoken)}" data-w="${g.wordsW}" data-lab="${g.labelPx}" data-min="${g.minSize}" style="font-size:${plan.size}px">${lines}</div>`;
