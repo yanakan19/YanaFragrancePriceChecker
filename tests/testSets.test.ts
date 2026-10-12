@@ -87,8 +87,16 @@ describe('the runner and its scripts', () => {
     expect(text).toContain('--pool=forks --poolOptions.forks.singleFork');
     expect(text).toContain('chunk_size=20');
     expect(text).toContain('[ "${#failed_chunks[@]}" -eq 0 ]');
+    // A heap ceiling per chunk (a runaway test names itself instead of the
+    // kernel killing the chunk), and the one process id to stop a run with.
+    expect(text).toContain('--max-old-space-size=');
+    expect(text).toContain('TEST_HEAP_MB');
+    expect(text).toContain('To stop this run and only this run: kill $$');
     const pkg = JSON.parse(readFileSync(join(REPO_ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> };
     expect(pkg.scripts['test:data']).toContain('scripts/run-tests-chunked.sh --set data');
     expect(pkg.scripts['test:code']).toContain('scripts/run-tests-chunked.sh --set code');
+    // `npm test` ran the whole suite in one vitest process until 2026-10-12,
+    // which this machine and the 7 GB runner kill; it is the chunked runner now.
+    expect(pkg.scripts['test']).toBe('scripts/run-tests-chunked.sh --set data --set code');
   });
 });

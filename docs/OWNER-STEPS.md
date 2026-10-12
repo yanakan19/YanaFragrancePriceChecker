@@ -747,10 +747,13 @@ are yours and take about two minutes.
 | `claude/wonderful-brahmagupta-8edg4h` | `dff4ab94` | 7 Oct, merge of the live branch | #4 (closed 6 Oct, merged in substance as `12ff8f3a`) and #5 (merged 9 Oct) | **Delete**. Its tip is an ancestor of the live branch (merged as `588b302d`) |
 | `four-shops-20261008` | `c4920520` | 8 Oct, Gorgeous Shop switched on | none | **Delete**. Its tip is an ancestor of the live branch: nothing unmerged |
 | `claude/tender-cerf-d3t6wo` | `dbe9a79d` | 9 Oct, note merge test follows the catalogue | #6, **open** | **Delete**, and close #6. Its one commit (tests only) is not on the live branch, but the same test was rewritten there the same evening as rules with no counts (`ce66e9da`, "Make two data tests check rules, not live values"), which supersedes it |
+| `claude/eager-tesla-79jgos` (added 12 Oct) | `d224a74d` | 10 Oct, Safari layout check launches WebKit with a country chosen | #7, closed 10 Oct | **Delete**. The same fix is on the live branch (`launchWebkit`, PIPELINE-FAILURE-MODES row 48) |
+| `claude/relaxed-allen-mv0j8n` (added 12 Oct) | `6ce30f63` | 11 Oct, browser cases for the undone country switch | #8, **open** | **Delete**, and close #8. The fix for the undone country switch is on the live branch (the branch itself merged it: "take its fix for the undone country switch"); what is left on the branch is 100 lines of extra browser test cases in `tests/regionPreferenceBrowser.test.ts` and a paragraph of `docs/INTERNATIONAL-PLAN.md`. If you want those cases, ask an agent to cherry pick `e3476b0f` before deleting |
+| `claude/admiring-clarke-ly0s3e` (added 12 Oct) | `8da718ad` | 11 Oct, decode HTML entities in shop brands and titles | #9, **open** | **Delete**, and close #9. Done on the live branch on 11 Oct another way (`src/catalogue/htmlEntities.ts`, `tests/htmlEntities.test.ts`, the brand sweep of row 50) |
 | `claude/perfume-chatbot-multi-agent-lvf17y` | `1dd47e83` | 12 Aug, Fly.io configs for the chatbot | none | **Keep, your call.** Five commits never merged: the `YanaFreeAPIMerger/` chatbot prototype, your `SETUP_LOG.md` setup notes, the Oracle VM and Fly.io files. It holds the old history only up to 12 August (220 commits, before the big page files), so keeping it costs little. To keep the notes without the branch: switch to it on GitHub, Code → Download ZIP, then delete it like the others |
 | `claude/scentday-retailer-registry-h92tth` | | | | The live and default branch. Never delete |
 
-**Step 1, delete the seven branches (1 minute).** On GitHub:
+**Step 1, delete the ten branches (1 minute).** On GitHub:
 **Code** → **Branches** (or
 `https://github.com/yanakan19/YanaFragrancePriceChecker/branches/all`) → the
 bin icon at the right of each branch marked Delete above. Or, from any
@@ -764,6 +767,9 @@ git push origin --delete claude/modest-euler-3hwly2
 git push origin --delete claude/wonderful-brahmagupta-8edg4h
 git push origin --delete four-shops-20261008
 git push origin --delete claude/tender-cerf-d3t6wo
+git push origin --delete claude/eager-tesla-79jgos
+git push origin --delete claude/relaxed-allen-mv0j8n
+git push origin --delete claude/admiring-clarke-ly0s3e
 ```
 
 To recreate one deleted by mistake (before garbage collection), push its
@@ -777,11 +783,13 @@ wizardly `e98e4a257d3fbbf48457ea1c8aea6fc0f3115270`, modest
 `dbe9a79dca3368552a3a723982fd976fc3f6e92c`, chatbot
 `1dd47e831098292a65f9a9dd6b632026c9a24f7a`.
 
-**Step 2, close the open pull request (30 seconds).** Only **#6** is still
-open (its branch `claude/tender-cerf-d3t6wo` goes in step 1; deleting the
-branch first closes it for you). If it is still open: **Pull requests** → #6 →
-**Close pull request**, with a comment such as "Superseded by ce66e9da on
-the live branch." #1 to #5 are already merged or closed.
+**Step 2, close the open pull requests (1 minute).** **#6**, **#8** and
+**#9** are open on 12 October (their branches go in step 1; deleting a branch
+first closes its pull request for you). If one is still open: **Pull
+requests** → the number → **Close pull request**, with a comment such as
+"Superseded on the live branch" (#6 by `ce66e9da`, #8 by the live branch's
+own fix of the undone country switch, #9 by `src/catalogue/htmlEntities.ts`).
+#1 to #5 and #7 are already merged or closed.
 
 **Step 3, the request to GitHub Support (only you can send it).** Send it
 **after** step 1: garbage collection removes only what no branch or ref
@@ -931,6 +939,44 @@ GPG keys** → **New SSH key** → **Key type: Signing Key** → paste the key i
 with a repository variable `SIGNED_COMMITS` = `off` (D19).
 
 ---
+
+### 7e. GitHub settings only you can change (10 minutes; audit of 12 October 2026)
+
+Found by `docs/SITE-AUDIT-2026-10-12.md`, section 5. None of these stops
+anything today; each one closes a door.
+
+1. **A rule against a force push to the live branch (3 minutes).** Nothing
+   stops a force push to `claude/scentday-retailer-registry-h92tth` today, and
+   one from an old clone would put the old history back (7d). The crawls push
+   with the workflow token, so a rule that *requires* a review or a passing
+   check would stop them; a rule that only blocks force pushes and deletion
+   does not. GitHub → the repository → **Settings** → **Rules** → **Rulesets**
+   → **New ruleset** → **New branch ruleset**. Name `live branch`, Enforcement
+   **Active**, Target branches → **Add target** → **Include by pattern** →
+   `claude/scentday-retailer-registry-h92tth`. Under Rules tick **Restrict
+   deletions** and **Block force pushes** and nothing else (leave "Require a
+   pull request" and "Require status checks" unticked). **Create**. To do a
+   planned rewrite (7d), set the ruleset's Enforcement to **Disabled** first and
+   back to **Active** after.
+2. **Dependabot alerts (2 minutes).** **Settings** → **Code security** (or
+   **Advanced Security**) → turn on **Dependabot alerts** and **Dependabot
+   security updates**. You then get an email, and a pull request, when a
+   dependency has a published vulnerability. On 12 October `npm audit` showed
+   one in a runtime dependency (`undici`, fixed in the lockfile by the audit)
+   and five in the test runner (`vitest` 2 and its `vite`, `tinypool`,
+   `esbuild`), which only matter when the Vitest UI server listens, which
+   nothing here does. Fixing those needs `vitest` 5, a major upgrade: when you
+   want it, say "upgrade vitest to 5" and an agent will do it with a full
+   test run; nothing is broken meanwhile.
+3. **The workflow token's default (1 minute).** **Settings** → **Actions** →
+   **General** → **Workflow permissions** → choose **Read repository contents
+   and packages permissions** → **Save**. Every workflow here declares the
+   rights it needs (`tests/workflowRules.test.ts` checks that), so the
+   default is only what a future workflow without a block would get.
+4. **The shared `.git` on the agents' machine (optional, 2 minutes).** It
+   holds 310 MiB of loose objects that a `git gc` in the main checkout
+   (`/home/user/YanaFragrancePriceChecker`) would pack; the audit removed the
+   98 MiB of repack garbage. Only when no agent is working: `git gc`.
 
 ## 8. Developer dashboard (10 minutes)
 

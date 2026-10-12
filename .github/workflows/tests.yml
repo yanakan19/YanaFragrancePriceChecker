@@ -77,3 +77,34 @@ jobs:
       - name: Code and browser tests (a quarter of the files)
         timeout-minutes: 30
         run: npm run test:code -- --shard ${{ matrix.shard }}/4
+
+  # The whole repository's types (src, demo, scripts and tests: tsconfig.json)
+  # on every push and pull request. Until 2026-10-12 nothing ran this: the
+  # deploy's `tsc -p tsconfig.demo.json` covers the page and src/ only, so a
+  # type error in a test or a script (TS2375, 9 October) reached the branch
+  # and was found by the next agent's own tsc. The catalogue modules are built
+  # first because the tests import them; about 70 s and 3.5 GB in all.
+  typecheck:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        timeout-minutes: 5
+
+      - uses: actions/setup-node@v4
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      - name: Build the catalogue modules the tests import
+        timeout-minutes: 10
+        run: npx tsx scripts/ensure-catalogue-built.ts
+
+      - name: Type check the whole repository
+        timeout-minutes: 10
+        run: npx tsc --noEmit -p tsconfig.json

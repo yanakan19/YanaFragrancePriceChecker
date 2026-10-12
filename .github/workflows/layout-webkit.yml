@@ -44,19 +44,29 @@ concurrency:
 
 jobs:
   webkit:
-    runs-on: ubuntu-latest
+    # Pinned like the crawl (ubuntu-latest moves to Ubuntu 26 on 2026-10-19,
+    # and `playwright install --with-deps` names packages per release).
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        timeout-minutes: 5
 
       - uses: actions/setup-node@v4
+        timeout-minutes: 5
         with:
           node-version: '22'
+          cache: npm
 
-      - run: scripts/retry.sh 3 npm ci
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
 
+      # Retried like every other browser download (scripts/retry.sh): a CDN
+      # blip here used to fail the check.
       - name: Install WebKit
-        run: npx playwright install --with-deps webkit
+        timeout-minutes: 10
+        run: scripts/retry.sh 2 npx playwright install --with-deps webkit
 
       # The page is built at deploy time and not committed (2026-10-04), and
       # the test skips itself when there is no demo/index.html, so it is
@@ -68,6 +78,7 @@ jobs:
       # The layout rules, and the Filters panel driven as on an iPhone: a tap
       # on several options, the page held still behind it, Escape and focus.
       - name: Layout rules and the Filters panel in WebKit with iPhone settings
+        timeout-minutes: 15
         env:
           LAYOUT_BROWSER: webkit
         run: npx vitest run tests/layoutConsistency.test.ts tests/listFiltersBrowser.test.ts

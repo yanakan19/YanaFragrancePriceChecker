@@ -7,12 +7,23 @@
 #   scripts/run-tests-chunked.sh tests/a.test.ts 'tests/region*.test.ts'
 #   scripts/run-tests-chunked.sh --chunk 10 --set code  chunk size (default 20)
 #   scripts/run-tests-chunked.sh --set code --shard 2/4  every 4th file from the 2nd (a job of a matrix)
+#   npm test                                         both sets (this script; since 2026-10-12)
 #
 # Why chunks: the whole suite in one vitest process is killed for memory on the
 # 7 GB runner (several files import the 35 MB catalogue), and one crash then
 # loses every result. Each chunk runs `--pool=forks --poolOptions.forks.singleFork`
 # (one process at a time), so a chunk that dies loses only its own files, is
 # named at the end, and does not stop the chunks after it.
+#
+# Each chunk's Node processes run with a heap ceiling (TEST_HEAP_MB, default
+# 4096 MB, through NODE_OPTIONS --max-old-space-size): a test that runs away
+# then fails with "heap out of memory" naming its file, instead of the kernel
+# killing the whole chunk and the runner with it (2026-10-12 audit).
+#
+# Stopping a run: this script prints `kill <pid>` at its start. That stops this
+# run and only this run (the chunk's vitest goes with it). Never `pkill vitest`
+# or `pkill node`: on a shared machine that kills other agents' runs too, which
+# happened twice on 11 and 12 October 2026.
 #
 # Arguments are test files or patterns (a pattern is expanded here, relative to
 # the repository root), and `--set NAME` adds the files of that set. A pattern
@@ -28,6 +39,8 @@ set -uo pipefail
 cd "$(dirname "$0")/.."
 
 chunk_size=20
+heap_mb="${TEST_HEAP_MB:-4096}"
+if ! [[ "$heap_mb" =~ ^[1-9][0-9]*$ ]]; then echo "TEST_HEAP_MB must be a positive number of megabytes" >&2; exit 2; fi
 shard=""
 files=()
 while [ "$#" -gt 0 ]; do
@@ -69,12 +82,41 @@ if [ -n "$shard" ]; then
 fi
 
 work=$(mktemp -d)
+chunk_pid=""
+# Stopped by Ctrl-C or `kill <this pid>`: the running chunk's whole process
+# group goes with it (setsid below makes each chunk a group of its own), so
+# no vitest or node of this run is left behind, and nobody else's is touched.
+stop_run() {
+  if [ -n "$chunk_pid" ]; then kill -- -"$chunk_pid" 2>/dev/null || kill "$chunk_pid" 2>/dev/null; fi
+  rm -rf "$work"
+  exit 130
+}
+trap stop_run INT TERM
 trap 'rm -rf "$work"' EXIT
 printf '%s\n' "$list" | split -l "$chunk_size" -d - "$work/chunk-"
 
 total=$(printf '%s\n' "$list" | wc -l)
 chunks=$(ls "$work" | grep -c '^chunk-')
-echo "Running $total test files in $chunks chunks of up to $chunk_size"
+echo "Running $total test files in $chunks chunks of up to $chunk_size, each chunk with a ${heap_mb} MB Node heap ceiling"
+echo "To stop this run and only this run: kill $$"
+
+# One chunk: vitest in a process group of its own (setsid, where there is one),
+# its output shown and kept, the exit status vitest's.
+run_chunk() {
+  local log="$1"
+  shift
+  local script='set -o pipefail; export NODE_OPTIONS="--max-old-space-size='"$heap_mb"'${NODE_OPTIONS:+ $NODE_OPTIONS}"; npx vitest run --pool=forks --poolOptions.forks.singleFork "$@" 2>&1 | tee "$0"'
+  if command -v setsid >/dev/null 2>&1; then
+    setsid bash -c "$script" "$log" "$@" &
+  else
+    bash -c "$script" "$log" "$@" &
+  fi
+  chunk_pid=$!
+  wait "$chunk_pid"
+  local status=$?
+  chunk_pid=""
+  return "$status"
+}
 
 failed_chunks=()
 failed_files=()
@@ -86,8 +128,8 @@ for chunk in "$work"/chunk-*; do
   mapfile -t members < "$chunk"
   echo "::group::Chunk $n of $chunks (${#members[@]} files)"
   t0=$(date +%s)
-  npx vitest run --pool=forks --poolOptions.forks.singleFork "${members[@]}" 2>&1 | tee "$chunk.log"
-  code=${PIPESTATUS[0]}
+  run_chunk "$chunk.log" "${members[@]}"
+  code=$?
   secs=$(( $(date +%s) - t0 ))
   echo "::endgroup::"
   if [ "$code" -eq 0 ]; then

@@ -10,7 +10,7 @@
     "build": "tsc -p tsconfig.json",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "pretest": "tsx scripts/ensure-demo-built.ts",
-    "test": "vitest run",
+    "test": "scripts/run-tests-chunked.sh --set data --set code",
     "test:data": "tsx scripts/ensure-demo-built.ts && scripts/run-tests-chunked.sh --set data",
     "test:code": "tsx scripts/ensure-demo-built.ts && scripts/run-tests-chunked.sh --set code",
     "test:watch": "vitest",

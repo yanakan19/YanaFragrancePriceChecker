@@ -5,6 +5,7 @@ import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import config from '../vitest.config.js';
 import { REPO_ROOT } from '../scripts/generatedFiles.js';
+import { codeOf } from '../scripts/testSets.js';
 
 const TESTS = join(REPO_ROOT, 'tests');
 const files = readdirSync(TESTS, { recursive: true, encoding: 'utf8' }).filter((f) => /\.test\.[jt]s$/.test(f));
@@ -32,5 +33,21 @@ describe('test hygiene', () => {
       expect(pinned, f).toEqual([]);
     }
     expect(checked).toBeGreaterThan(10);
+  });
+
+  // The Safari layout check was blind for three days (9 to 11 October 2026,
+  // docs/PIPELINE-FAILURE-MODES.md row 48): a test launched WebKit bare, so
+  // it started as a visitor with no country chosen and the "Select your
+  // country" pop up covered its first page. Every test browser starts through
+  // the shared helpers in scripts/a11y-audit.ts, which choose the country.
+  it('launches every test browser through launchChromium or launchWebkit, never bare', () => {
+    let checked = 0;
+    for (const f of files) {
+      const src = codeOf(readFileSync(join(TESTS, f), 'utf8'));
+      if (!/playwright/.test(src)) continue;
+      checked++;
+      expect(src, `${f} launches a browser directly; use launchChromium or launchWebkit from scripts/a11y-audit.ts`).not.toMatch(/\b(chromium|webkit|firefox)\.launch\(/);
+    }
+    expect(checked).toBeGreaterThan(5);
   });
 });

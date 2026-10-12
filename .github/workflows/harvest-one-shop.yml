@@ -52,6 +52,13 @@ on:
         type: boolean
         default: true
 
+# Read only: the probe is always `--dry-run`, writes nothing and never pushes,
+# so the token needs no write right. Until 2026-10-12 this workflow declared
+# no permissions and ran with the repository's default token
+# (docs/SITE-AUDIT-2026-10-12.md, section 5).
+permissions:
+  contents: read
+
 jobs:
   probe:
     # Pinned to the crawl's image (catalogue-daily.yml), because the Chromium

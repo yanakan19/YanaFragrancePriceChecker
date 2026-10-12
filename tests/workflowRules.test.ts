@@ -108,6 +108,14 @@ describe('every workflow', () => {
     expect(checked).toBeGreaterThan(20);
   });
 
+  // Until 2026-10-12 two dispatch workflows declared no permissions and so ran
+  // with the repository's default token (docs/SITE-AUDIT-2026-10-12.md, 5).
+  it('declares the token permissions it needs, so none runs with the repository default', () => {
+    for (const f of files) {
+      expect(text(f), `${f} has no top level permissions block`).toMatch(/\npermissions:\n {2}[a-z-]+: (read|write|none)\n/);
+    }
+  });
+
   it('pushes only through scripts/commit-and-push.sh, never a bare git push', () => {
     for (const f of files) {
       const code = text(f).split('\n').filter((l) => !l.trimStart().startsWith('#')).join('\n');
@@ -288,6 +296,19 @@ describe('tests.yml, the code and browser tests', () => {
     expect(t).not.toContain('npm run test:data');
     for (const f of files) expect(live(f), f).not.toMatch(/run: npm test\b/);
   });
+
+  // TS2375 reached the branch on 9 October 2026: the deploy's tsc covers the
+  // page and src/ only, and nothing checked the tests and scripts on a push.
+  it('type checks the whole repository on every push, after building the catalogue modules the tests import', () => {
+    const job = jobs('tests.yml').find((j) => j.name === 'typecheck');
+    expect(job, 'a typecheck job').toBeDefined();
+    const s = steps(job!.body);
+    const build = s.findIndex((x) => x.includes('scripts/ensure-catalogue-built.ts'));
+    const check = s.findIndex((x) => x.includes('run: npx tsc --noEmit -p tsconfig.json'));
+    expect(build, 'the catalogue build step').toBeGreaterThan(0);
+    expect(check, 'the tsc step, after the build').toBeGreaterThan(build);
+    for (const step of s) expect(step, step.split('\n')[0]).toMatch(/\n {8}timeout-minutes: \d+/);
+  });
 });
 
 describe('deploy-pages.yml', () => {
@@ -383,6 +404,14 @@ describe('catalogue-us.yml and catalogue-in.yml, the region crawls (daily since 
       expect(text(file), `${file} says when its schedule started`).toContain('since the beta of 9 October 2026');
     }
     expect(new Set(hours).size, 'the two regions at different hours').toBe(2);
+  });
+
+  // Nykaa answers with headers over Node's 16 KB default (undici
+  // HeadersOverflowError, the first India run, 2026-10-09; row 40).
+  it('each raises Node\'s response header limit for the shops that overflow it', () => {
+    for (const { file } of regions) {
+      expect(text(file), file).toMatch(/NODE_OPTIONS: --max-http-header-size=\d{5,}/);
+    }
   });
 
   it('each keeps its own concurrency group and commits only its own folder, through commit-and-push.sh, on a schedule too', () => {

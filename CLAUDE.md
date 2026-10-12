@@ -81,8 +81,28 @@ snapshots and reports, and the "deploy" files above).
   the crawl writes and run in the crawl after its rebuild (`npm run test:data`);
   `code` tests run on every push and pull request (`.github/workflows/tests.yml`,
   `npm run test:code`). `tests/testSets.test.ts` fails for a file in neither.
-- Never run the whole suite in one vitest process on a small machine; use
-  `scripts/run-tests-chunked.sh` (about 20 files per process).
+- `npm test` is the chunked runner over both sets (`scripts/run-tests-chunked.sh
+  --set data --set code`: about 20 files per vitest process, each with a 4 GB
+  heap ceiling, `TEST_HEAP_MB`). Never run the whole suite in one vitest
+  process; one file is `npx vitest run tests/<name>.test.ts`.
+- To stop your run, use the `kill <pid>` line the runner prints at its start.
+  Never `pkill vitest` or `pkill node`: other agents' runs share this machine.
+- Test the rule, never the figure: a test that reads what the crawl writes
+  must not pin a count, a price, a product or a shop the next harvest can
+  change (`docs/PIPELINE-FAILURE-MODES.md` row 44; `tests/testHygiene.test.ts`
+  refuses a price literal). Every test browser starts through `launchChromium`
+  or `launchWebkit` (`scripts/a11y-audit.ts`), never `chromium.launch()` (the
+  same test refuses it).
+- The whole repository type checks on every push (`tests.yml`, job
+  `typecheck`): run `npx tsc --noEmit -p tsconfig.json` before you push.
+
+## Worktrees and disk
+
+- One worktree per task, cut from the live tip, removed when the task is done
+  (`git worktree remove <path>`). A checkout with its build output is about
+  410 MB (`dist-demo/` 300, `demo/data/` 70); never copy the repository. The
+  session start hook warns under 3 GB free and when the shared `.git` holds
+  repack garbage (`git count-objects -v`).
 
 ## Update history
 
@@ -114,8 +134,13 @@ The home page's update history is `demo/changelog.ts` (owner request,
 - Workflows push only through `scripts/commit-and-push.sh`; a new workflow
   that commits must too, and must share a concurrency group with any workflow
   that commits the same files (`tests/workflowRules.test.ts` checks both).
+- Every workflow declares `permissions:` with the least it needs
+  (`contents: write` only where it commits; `pages`, `id-token` and
+  `actions: write` only in the deploy); the same test fails without a block.
 - A one shop crawl dispatch (`harvest_shop`) holds the crawl's concurrency
   group: dispatch them one at a time, not in a burst.
 
 More: `docs/PIPELINE-FAILURE-MODES.md` (what can break the data pipeline and
-what guards it), `docs/OWNER-STEPS.md` (what only the owner can do).
+what guards it), `docs/SITE-AUDIT-2026-10-12.md` (the measurements behind these
+rules and every past mistake with its guard), `docs/OWNER-STEPS.md` (what only
+the owner can do).

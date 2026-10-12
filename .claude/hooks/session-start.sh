@@ -221,6 +221,24 @@ else
   fi
 fi
 
+# Disk and the shared .git (docs/SITE-AUDIT-2026-10-12.md, section 6 rows 11
+# and 24). A checkout with its build output is about 410 MB (dist-demo/ 300,
+# demo/data/ 70), and worktrees of finished tasks have filled this machine
+# to 2 GB free; an interrupted repack also left 98 MB of tmp_pack_* garbage
+# in .git/objects/pack. Report only, never delete: a worktree may be another
+# agent's, and a repack may be running.
+free_mb="$(df -Pm . 2>/dev/null | awk 'NR == 2 { print $4 }')"
+if [ -n "$free_mb" ] && [ "$free_mb" -lt 3072 ] 2>/dev/null; then
+  say "[session-start] Only ${free_mb} MB of disk is free. Worktrees and their dist-demo/ and demo/data/ are the usual cause:"
+  say "[session-start] delete the worktrees of finished tasks (git worktree remove <path>) and large scratch output."
+  git worktree list 2>/dev/null | sed 's/^/[session-start]   /'
+fi
+garbage="$(git count-objects -v 2>/dev/null | awk '$1 == "garbage:" { print $2 }')"
+if [ -n "$garbage" ] && [ "$garbage" -gt 0 ] 2>/dev/null; then
+  say "[session-start] .git/objects/pack holds ${garbage} garbage file(s) left by an interrupted repack (git count-objects -v)."
+  say "[session-start] When no git process is running, delete the tmp_pack_* files there and run git fsck --connectivity-only."
+fi
+
 # Dependencies, but only when they are actually absent.
 #
 # The reflex here is to run `npm install` every session. That would be wrong in
