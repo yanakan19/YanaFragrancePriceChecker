@@ -34,7 +34,14 @@ concurrency:
 jobs:
   code:
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 45
+    # Four jobs, each a quarter of the files (scripts/run-tests-chunked.sh
+    # --shard): the first push ran them in one job and the browser tests'
+    # axe audits alone took 40 minutes there (chunks 1 to 10 of 13 took 34).
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     steps:
       # Full history: the sitemap dates read `git log`, and the price history
       # tests replay real commits.
@@ -67,6 +74,6 @@ jobs:
       # About 20 files per vitest process, one at a time (the 7 GB runner
       # cannot hold the whole suite in one); a chunk that fails does not stop
       # the others, and the step fails at the end naming every failed file.
-      - name: Code and browser tests
-        timeout-minutes: 40
-        run: npm run test:code
+      - name: Code and browser tests (a quarter of the files)
+        timeout-minutes: 30
+        run: npm run test:code -- --shard ${{ matrix.shard }}/4
