@@ -1640,7 +1640,7 @@ describe('a shop\'s translation of a name, after a pipe, is not part of the name
 
   it('leaves a pipe that is all Latin letters or numbers exactly as it is', () => {
     expect(displayName('Terra Incognita  | Secret Island 100 ml EdT', 'Brocard', 'Brocard')).toBe('Terra Incognita | Secret Island');
-    expect(displayName('Bain de Minuit | Skinny Dipping 100 ml EdP', 'Maison Matine', 'Maison Matine')).toBe('Bain de Minuit | Skinny Dipping');
+    expect(displayName('I am Trash | Les Fleurs du Dechet 100 ml EdP', 'Etat Libre d\'Orange', 'Etat Libre d\'Orange')).toBe('I am Trash | Les Fleurs du Dechet');
     expect(displayName('Series 3: Incense | Kyoto 50 ml EdT', 'Comme Des Garcons', 'Comme Des Garcons')).toBe('Series 3: Incense | Kyoto');
     // An accent is still Latin: nothing here is a translation.
     expect(displayName('Café Noir | Crème 50 ml EdP', 'Brand', 'Brand')).toBe('Café Noir | Crème');
@@ -1680,5 +1680,21 @@ describe('displayName: Commodity\'s middle variant is "Expressive" at every shop
     expect(displayName('Gold | Bold 100 ml EdP', 'Commodity', 'Commodity')).toBe('Gold | Bold');
     expect(displayName('Velvet | Balanced 100 ml EdP', 'Commodity', 'Commodity')).toBe('Velvet | Balanced');
     expect(displayName('Some Scent | Balanced & Expressive 100 ml EdP', 'Another House', 'Another House')).toContain('Balanced');
+  });
+});
+
+describe('displayName: Maison Matine\'s French name is the name at every shop', () => {
+  // Bloom Perfumery adds the English title after a pipe; Liberty London lists the
+  // same bottles by the French name alone (2026-10-12), which showed each twice.
+  it('takes the English title Bloom Perfumery adds after the pipe off', () => {
+    expect(displayName('Faire Le Mur | Going AWOL 100 ml EDP', 'Maison Matine', 'Maison Matine')).toBe('Faire Le Mur');
+    expect(displayName('Un Jour Sans Fin | Endless Day 100 ml EDP', 'Maison Matine', 'Maison Matine')).toBe('Un Jour Sans Fin');
+    expect(displayName('Tu te Calmes | Calm Down 50 ml EDP', 'Maison Matine', 'Maison Matine')).toBe('Tu te Calmes');
+  });
+
+  it('leaves a name with no pipe, and every other house\'s pipe, alone', () => {
+    expect(displayName('Hasard Bazar 50 ml EDP', 'Maison Matine', 'Maison Matine')).toBe('Hasard Bazar');
+    expect(displayName('Book | Personal 100 ml EDP', 'Commodity', 'Commodity')).toBe('Book | Personal');
+    expect(displayName('Terra Incognita | Siberia 100 ml EDP', 'Brocard', 'Brocard')).toBe('Terra Incognita | Siberia');
   });
 });

@@ -34,6 +34,10 @@ export const CHANGELOG: ChangelogEntry[] = [
     date: '11 Oct 2026',
     groups: [
       {
+        heading: 'Products and Matching',
+        points: ['Brands spelt one way across every shop'],
+      },
+      {
         heading: 'Fixes',
         points: ['Country choice no longer undone when signed in'],
       },

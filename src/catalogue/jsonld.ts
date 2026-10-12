@@ -1,4 +1,5 @@
 import type { RawListing } from './types.js';
+import { decodeHtmlEntities } from './htmlEntities.js';
 
 /**
  * schema.org/Product extraction from a retailer page.
@@ -320,6 +321,16 @@ function str(value: unknown): string | null {
   return null;
 }
 
+/**
+ * A name as a shop's markup spells it, entities decoded: WordPress and Woo
+ * themes write "Dolce &amp; Gabbana" and "L&#039;Occitane" inside the JSON-LD
+ * string itself. For a product's name and brand, not for a url or a sku.
+ */
+function nameText(value: unknown): string | null {
+  const v = str(value);
+  return v === null ? null : decodeHtmlEntities(v).trim() || null;
+}
+
 /** Prices arrive as 62.95, "62.95", "£62.95" and "GBP 62.95". */
 export function parsePrice(value: unknown): number | null {
   if (typeof value === 'number') return Number.isFinite(value) ? value : null;
@@ -426,9 +437,9 @@ function selectOffer(node: JsonValue, sku: string): JsonValue | null {
 
 function brandName(node: JsonValue): string | null {
   const brand = node['brand'];
-  if (typeof brand === 'string') return brand.trim() || null;
+  if (typeof brand === 'string') return nameText(brand);
   if (brand && typeof brand === 'object') {
-    return str((brand as JsonValue)['name']);
+    return nameText((brand as JsonValue)['name']);
   }
   return null;
 }
@@ -635,7 +646,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     // variant or variants the page describes.
     if (String(node['@type']).toLowerCase() === 'productgroup') continue;
 
-    const title = str(node['name']);
+    const title = nameText(node['name']);
     if (!title) continue;
 
     // Computed from the product node itself, never from a *selected* offer —
@@ -688,7 +699,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
         listings.push({
           retailerSku: oSku,
           url: absolute(str(o['url']), url),
-          rawTitle: str(o['name'])!,
+          rawTitle: nameText(o['name'])!,
           rawBrand: brandName(node),
           ean: gtin(o),
           imageUrl: imageUrl(o) ?? imageUrl(node),
@@ -802,19 +813,8 @@ function namedBySizeList(node: JsonValue, offers: JsonValue[]): JsonValue[] | nu
   return offers.map((o, i) => ({ ...o, name: `${name} ${labels[i]}` }));
 }
 
-/** HTML entities a microdata text value commonly carries. */
-function decodeEntities(s: string): string {
-  const named: Record<string, string> = {
-    amp: '&', lt: '<', gt: '>', quot: '"', apos: "'", nbsp: ' ', pound: '£', euro: '€',
-  };
-  return s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (whole, body: string) => {
-    if (body[0] === '#') {
-      const code = body[1] === 'x' || body[1] === 'X' ? Number.parseInt(body.slice(2), 16) : Number.parseInt(body.slice(1), 10);
-      return Number.isFinite(code) ? String.fromCodePoint(code) : whole;
-    }
-    return named[body.toLowerCase()] ?? whole;
-  });
-}
+/** HTML entities a microdata text value commonly carries: the shared decoder (htmlEntities.ts). */
+const decodeEntities = decodeHtmlEntities;
 
 /** Elements that never have a closing tag. */
 const VOID_ELEMENTS = new Set([

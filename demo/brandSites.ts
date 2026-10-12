@@ -2275,6 +2275,24 @@ export function officialSiteFor(brand: string): BrandSite | null {
       if (url) break;
     }
   }
+  // An accent the catalogue keeps (Beyoncé, Comme des Garçons, since 2026-10-11:
+  // brandName.ts prefers the spelling that kept its accent) drops out of
+  // normalizeBrand as though it were punctuation, so the key misses an entry
+  // filed under the plain spelling. Tried last, on the accent free spelling, so
+  // nothing that resolved before resolves differently.
+  if (!url) {
+    const plain = brand.normalize('NFKD').replace(/\p{Mn}/gu, '');
+    if (plain !== brand) {
+      const plainKey = normalizeBrand(plain);
+      url = BRAND_SITES[plainKey];
+      if (!url) {
+        for (const key of fallbackKeys(plainKey)) {
+          url = BRAND_SITES[key];
+          if (url) break;
+        }
+      }
+    }
+  }
   if (!url) return null;
   // marketOf reports the /en-gb/ path shape as "gb" rather than "uk" — the
   // same synonym classifyLanding's own sameMarket() normalises before

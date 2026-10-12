@@ -208,6 +208,45 @@ commits: the old build had lost 50 id aliases and re-pointed about 950).
   file against the stored reference keys. To raise the reference, append keys to
   the fixture; never remove one.
 
+### A brand's spelling and the addresses (2026-10-11)
+
+The brand sweep of 11 October 2026 (`tests/brandDuplicates.test.ts`) made every
+house one brand: an HTML entity decoded where a shop's text is read, then case,
+accents, "&" against "and", apostrophes and a legal form folded to one key
+(`brandGroupKey`), and the descriptor pairs ("Rochas Paris", "Hackett", "Parfums
+Chloe") reviewed one at a time. What that does to an address:
+
+- **A product address is never touched.** The slug is the stored entry of the
+  product's id, and the id of a bottle with a barcode or a shop's SKU does not
+  contain its brand. Measured on the rebuilt UK data: no slug in
+  `data/product-slugs.json` changed or went, six were appended, all for gift
+  sets (below).
+- **A bottle sold under two spellings is now one product.** Beauty Flash's
+  "Roger &amp; Gallet" and Scentstore's "Viktor &amp; Rolf" are the same bottle
+  as the barcoded product of the clean spelling, and used to be a page of their
+  own. The page that is folded keeps answering: its id is appended to
+  `data/id-aliases.json` and its address becomes a `SLUG_ALIASES` entry, as for
+  any merge above.
+- **A gift set's id is made from its title** (`set-<title>`), so decoding
+  "Roger &amp; Gallet ... Gift Set" gave it a new id, `set-roger-gallet-...`, and
+  the old one (`set-roger-amp-gallet-...`) could have gone to Page Not Found.
+  `listingIdForms` now also lists the title as the shop's markup spelt it
+  (`entityEncodedForms`), so the old id is an alias of the new one. Six sets.
+- **A brand page address is the slug of the display name**, so a brand whose
+  display name changed moved: `/brands/dolce-and-amp-gabbana` (six UK brand
+  pages had `amp` or `039` in their address), `/brands/hermes`, and in the US and
+  India the spellings the UK tables already folded. Each old address is in
+  `BRAND_MERGES` (the descriptor pairs) or `BRAND_LEGACY_ADDRESSES` (the rest)
+  and redirects through `BRAND_ALIAS_SLUGS` in `demo/router.ts`; the new sitemaps
+  list only the new addresses. `tests/brandDuplicates.test.ts` checks that no old
+  address is a brand that exists now.
+- **The US and India builds use the same brand canon** (they had none), and now
+  keep an address for a bottle they fold into another: the region's page data
+  carries `ID_ALIASES` (folded id to the id that holds it) and `SLUG_ALIASES`
+  (the folded product's address to that id) for it (`scripts/regionSite.ts`),
+  built from the region's own address memory. The region memories stay append
+  only.
+
 ## 4. Routing: no clash with the site's own routes
 
 The site's own routes are single words: `/search`, `/deals`, `/brands`,

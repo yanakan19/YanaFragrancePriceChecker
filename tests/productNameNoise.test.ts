@@ -113,11 +113,15 @@ describe('product names carry no shop descriptor rubbish', () => {
    * houses "<line or name> | <scent, variant or translated name>": Brocard's
    * "Terra Incognita | Siberia" and "Scents of Nature | Tulip and Mimosa",
    * Commodity's "Book | Bold" and "Book | Personal", Comme Des Garcons'
-   * "Series 3: Incense | Kyoto", Maison Matine's "Bain de Minuit | Skinny
-   * Dipping", Etat Libre d'Orange's "I am Trash | Les Fleurs du Dechet", Ylem's
+   * "Series 3: Incense | Kyoto", Etat Libre d'Orange's "I am Trash | Les Fleurs du Dechet", Ylem's
    * "NGC 6302 | Butterfly Nebula". All 46 were read against
    * data/catalogue/bloom-perfumery.json: each is that shop's own product title,
    * and its vendor is the house.
+   *
+   * Maison Matine was on this list until 2026-10-12 and is off it: its "| Going
+   * AWOL" is the English title of the French name before it, Liberty London lists
+   * the same bottles by the French name alone, and the pairs below caught the
+   * bottle twice. displayName now keeps the French name (productName.ts).
    *
    * What is verified is not that the pipe is the house's own punctuation (it is
    * a reseller's layout, and nothing here claims otherwise) but that the words
@@ -139,7 +143,6 @@ describe('product names carry no shop descriptor rubbish', () => {
     'commodity',
     'comme des garcons',
     "etat libre d'orange",
-    'maison matine',
     'ylem',
   ]);
   /** The house name without accents, so "Comme Des Garçons" is the house listed as 'comme des garcons'. */
@@ -174,6 +177,33 @@ describe('product names carry no shop descriptor rubbish', () => {
     return pipes > 0 && ok.length === pipes;
   };
 
+  /**
+   * (1f) VERIFIED REAL, 2026-10-12. J.F. Schwarzlose Berlin's "20|20" (launched
+   * 2019 for the new decade, "Zwanzigzwanzig"). The only shop that stocks it
+   * here is Parfumdreams, which titles all three sizes "J.F. Schwarzlose Berlin
+   * 20|20 Eau de Parfum Spray ..." and in its description writes "Eau de Parfum
+   * Spray 20 | 20" and "20, as the eau de parfum spray ... is often called". The
+   * brand's own storefront could not be fetched from the build machine, so the
+   * claim rests on that description and on the fact that the pipe is joined
+   * (no spaces) and both halves are the same number, which no shop layout
+   * writes: a shop's separator is " | " with spaces and a different word after
+   * it. Read from data/catalogue/parfumdreams-uk.json.
+   *
+   * The crawl failed on it from 2026-10-12 because the 10ml travel size's name
+   * keeps the shop's size label ("20|20 Travel size") and so escapes the rule
+   * that takes a restated segment off the 50ml and 100ml ("20|20" is shown as
+   * "20"). Held to this house and to the shape "<number>|<the same number>" for
+   * every pipe in the name, so any other pipe on this brand still fails. The label itself ("Travel size"
+   * on every Schwarzlose travel bottle) is a separate, wider fault in the size
+   * labels and is not excused or fixed here.
+   */
+  const isSchwarzloseTwinNumber = (brand: string, name: string): boolean => {
+    if (brand !== 'J.F. Schwarzlose Berlin') return false;
+    const pipes = (name.match(/\|/g) ?? []).length;
+    const twins = [...name.matchAll(/(?<![\w|])(\d{1,2})\|\1(?![\w|])/g)];
+    return pipes > 0 && twins.length === pipes;
+  };
+
   it('has no "|" in a name outside the verified allowlist', () => {
     const offenders = CATALOGUE.filter(
       (p) =>
@@ -182,6 +212,7 @@ describe('product names carry no shop descriptor rubbish', () => {
         !(p.brand.toLowerCase() === 'kayali' && KAYALI_PIPE_NAMES.test(p.name)) &&
         !(p.brand.toLowerCase() === 'kayali' && p.giftSet && KAYALI_SET_PIPE_NAMES.test(p.name)) &&
         !isValjuesNumberPipe(p.brand, p.name) &&
+        !isSchwarzloseTwinNumber(p.brand, p.name) &&
         !(TWO_PART_PIPE_HOUSES.has(houseKey(p.brand)) && isTwoPartLatinPipe(p.name)),
     ).map((p) => `${p.brand}: ${p.name}`);
     expect([...new Set(offenders)]).toEqual([]);

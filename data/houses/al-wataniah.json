@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-10-11T10:07:05.663Z",
-  "seenAt": "2026-10-11T10:07:05.663Z",
+  "updatedAt": "2026-10-12T10:25:35.316Z",
+  "seenAt": "2026-10-12T10:25:35.316Z",
   "source": "live",
   "listings": [
     {
@@ -2147,7 +2147,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Built around its floral woody musk character, Abyat reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,

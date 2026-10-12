@@ -30,7 +30,8 @@ import { findDuplicateGroups, untrustworthyEans, trustworthyEan, type MatchableP
 import { concentrationOfListing, displayName } from './productName.js';
 import { ownSizeTitle } from './shopifyJson.js';
 import { nominalMlForOz, ouncesStated } from './ounceSizes.js';
-import { recoverBrandFromTitle } from './brandName.js';
+import { buildBrandCanon, recoverBrandFromTitle, tidyBrandSpelling } from './brandName.js';
+import { decodeListingNames } from './htmlEntities.js';
 import { isGiftSet } from './giftSet.js';
 
 export interface RegionOffer {
@@ -145,30 +146,47 @@ export interface BuildRegionOptions {
   withListingDetail?: boolean;
 }
 
-export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], options: BuildRegionOptions): { products: RegionProduct[]; measures: RegionMeasures } {
+export function buildRegionCatalogue(
+  snapshots: readonly RegionSnapshot[],
+  options: BuildRegionOptions,
+): {
+  products: RegionProduct[];
+  measures: RegionMeasures;
+  /** Every product folded into another bottle's page, by id: the id that was folded, and the id that now holds it. */
+  absorbed: Record<string, string>;
+} {
   const cutoff = Date.parse(options.now) - REGION_STALE_DAYS * 86_400_000;
   const rows: { shopId: string; l: RegionListing }[] = [];
   for (const s of snapshots) {
     for (const l of s.listings) {
       if (l.status !== 'active' || Date.parse(l.lastSeenAt) < cutoff) continue;
       if (!isCatalogueListing(asGateListing(l, s.retailerId))) continue;
-      rows.push({ shopId: s.retailerId, l });
+      // The shop's text, entities decoded (a region snapshot is stored as harvested).
+      rows.push({ shopId: s.retailerId, l: decodeListingNames(l) });
     }
   }
   const untrustworthy = untrustworthyEans(rows.map(({ shopId, l }) => ({ retailerId: shopId, ean: l.ean, rawTitle: l.rawTitle })));
   const notHouseAll = new Set([...(options.notHouse?.values() ?? [])].flatMap((v) => [...v]));
   const confirmed = new Set(rows.map(({ l }) => l.rawBrand?.trim().toLowerCase()).filter((b): b is string => !!b && !notHouseAll.has(b)));
 
+  // One display spelling per house in the region, decided before any product is
+  // built, by the rule the UK catalogue uses (brandName.ts buildBrandCanon): the
+  // US shops alone wrote "Amouage" and "AMOUAGE", "Hermes" and "HERMES", "Dolce
+  // and Gabbana" and "Dolce & Gabbana", and each was its own brand on the page.
+  const brandOfRow = rows.map(({ shopId, l }) => brandOf(l, confirmed, options.shopNames.get(shopId) ?? shopId, options.notHouse?.get(shopId)));
+  const canon = buildBrandCanon(brandOfRow.filter((b) => b !== ''));
+
   const byId = new Map<string, RegionProduct>();
   let withBarcode = 0;
-  for (const { shopId, l } of rows) {
+  for (const [rowIndex, { shopId, l }] of rows.entries()) {
     const gate = asGateListing(l, shopId);
     const id = fragranceId(gate, untrustworthy);
     const ean = trustworthyEan({ retailerId: shopId, ean: l.ean, rawTitle: l.rawTitle }, untrustworthy);
     if (ean) withBarcode++;
     const format = options.formatWords?.get(shopId);
     const title = ownSizeTitle(format ? l.rawTitle.replace(new RegExp(`\\s*-?\\s*${format}`, 'gi'), ' ').replace(/\s+/g, ' ').trim() : l.rawTitle);
-    const brand = brandOf(l, confirmed, options.shopNames.get(shopId) ?? shopId, options.notHouse?.get(shopId));
+    const rawBrand = brandOfRow[rowIndex]!;
+    const brand = rawBrand === '' ? '' : (canon.get(rawBrand) ?? tidyBrandSpelling(rawBrand));
     const offer: RegionOffer = options.withListingDetail
       ? { shopId, price: l.price, inStock: l.inStock, detail: { url: l.url, title: l.rawTitle, wasPrice: l.wasPrice, firstSeenAt: l.firstSeenAt, lastSeenAt: l.lastSeenAt, ...(l.availability === 'preOrder' ? { preOrder: true as const } : {}), ...(l.imageUrl ? { imageUrl: l.imageUrl } : {}) } }
       : { shopId, price: l.price, inStock: l.inStock };
@@ -181,7 +199,7 @@ export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], optio
       id,
       kind: isGiftSet(gate) ? 'set' : 'bottle',
       brand,
-      name: displayName(title, brand || null, brand || null),
+      name: displayName(title, rawBrand || null, brand || null),
       concentration: concentrationOfListing(title, null),
       sizeMl: regionSizeMl(title),
       ean,
@@ -199,12 +217,14 @@ export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], optio
     return proxy;
   });
   const groups = findDuplicateGroups(proxies, { shopsOf: (p) => p.offers.map((o) => o.shopId) });
+  const absorbedInto: Record<string, string> = {};
   for (const g of groups) {
     const canonical = proxyOf.get(g.canonical)!;
     for (const a of g.absorbed) {
       const absorbed = proxyOf.get(a)!;
       canonical.offers.push(...absorbed.offers);
       byId.delete(absorbed.id);
+      absorbedInto[absorbed.id] = canonical.id;
     }
   }
 
@@ -246,7 +266,7 @@ export function buildRegionCatalogue(snapshots: readonly RegionSnapshot[], optio
       return { id, products: mine.length, shared: mine.filter((p) => p.offers.length >= 2).length };
     }),
   };
-  return { products, measures };
+  return { products, measures, absorbed: absorbedInto };
 }
 
 /**

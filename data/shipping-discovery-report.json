@@ -1,11 +1,12 @@
 {
-  "checkedAt": "2026-10-11T08:58:56.898Z",
-  "startedAt": "2026-10-11T08:52:10.303Z",
+  "checkedAt": "2026-10-12T09:14:06.633Z",
+  "startedAt": "2026-10-12T09:07:31.948Z",
   "complete": true,
   "endedReason": "swept-batch",
-  "wrote": 0,
+  "wrote": 1,
   "eligible": 21,
   "heldForLaterRuns": [
+    "the-range",
     "amazon-uk",
     "niche-beauty-uk",
     "perfume-shopping",
@@ -15,10 +16,10 @@
     "next",
     "ocado",
     "sainsburys",
-    "savers",
-    "sephora-uk"
+    "savers"
   ],
   "planned": [
+    "sephora-uk",
     "space-nk",
     "notino-uk",
     "tesco",
@@ -27,11 +28,54 @@
     "perfume-closet",
     "sainte-cellier",
     "carethy",
-    "cosmetify",
-    "the-range"
+    "cosmetify"
   ],
   "notReached": [],
   "outcomes": [
+    {
+      "retailerId": "sephora-uk",
+      "name": "Sephora UK",
+      "homepage": "https://www.sephora.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.sephora.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.sephora.co.uk/: HTTP 403",
+        "https://www.sephora.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.sephora.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.sephora.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.sephora.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.sephora.co.uk/pages/shipping: HTTP 403",
+        "https://www.sephora.co.uk/pages/delivery: HTTP 403",
+        "https://www.sephora.co.uk/shipping-policy: HTTP 403",
+        "https://www.sephora.co.uk/delivery: HTTP 403",
+        "https://www.sephora.co.uk/shipping: HTTP 403",
+        "https://www.sephora.co.uk/pages/faq: HTTP 403",
+        "https://www.sephora.co.uk/pages/shipping-returns: HTTP 403",
+        "https://www.sephora.co.uk/pages/delivery-returns: HTTP 403",
+        "https://www.sephora.co.uk/pages/shipping-info: HTTP 403",
+        "https://www.sephora.co.uk/pages/help: HTTP 403",
+        "https://www.sephora.co.uk/policies/refund-policy: HTTP 403",
+        "https://www.sephora.co.uk/pages/terms-of-service: HTTP 403"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
     {
       "retailerId": "space-nk",
       "name": "Space NK",
@@ -49,33 +93,13 @@
           "foundBy": "path",
           "standardGbp": null,
           "freeOverGbp": 25,
-          "caveats": [
-            "page names 2 different free-delivery thresholds (£110.00, £25.00)"
-          ],
+          "caveats": [],
           "standardRateNotStated": true,
           "evidence": [
             {
               "kind": "free-threshold",
-              "amountGbp": 110,
-              "sentence": "Skip to main content Skip to footer content Receive a FREE Gift Worth Over £165 When You Spend £110 On Makeup - WHAT'S IN THE GIFT",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 110,
-              "sentence": "Receive a FREE Gift Worth Over £165 When You Spend £110 On Makeup - WHAT'S IN THE GIFT",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
               "amountGbp": 25,
               "sentence": "FREE UK STANDARD DELIVERY on all orders over £25",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 110,
-              "sentence": "WORTH OVER £165 FREE WHEN YOU SPEND £110 ON MAKEUP",
               "isUpgradeTier": false
             }
           ]
@@ -93,8 +117,22 @@
         ]
       },
       "errors": [],
-      "patch": null,
-      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+      "patch": {
+        "retailerId": "space-nk",
+        "action": "confirm-absence",
+        "detail": "page states delivery terms and publishes no standard rate (https://www.spacenk.com/uk/shipping)",
+        "write": {
+          "confidence": "confirmed",
+          "verifiedAt": "2026-10-12",
+          "source": {
+            "url": "https://www.spacenk.com/uk/shipping",
+            "quote": "FREE UK STANDARD DELIVERY on all orders over £25",
+            "readAt": "2026-10-12"
+          },
+          "standardRateNotPublished": true
+        }
+      },
+      "verdict": "NO RATE PUBLISHED: page states delivery terms and publishes no standard rate (https://www.spacenk.com/uk/shipping)"
     },
     {
       "retailerId": "notino-uk",
@@ -380,50 +418,6 @@
       "errors": [],
       "patch": null,
       "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
-    },
-    {
-      "retailerId": "the-range",
-      "name": "The Range",
-      "homepage": "https://www.therange.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
-        "steps": [
-          "https://www.therange.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.therange.co.uk/: HTTP 403",
-        "https://www.therange.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.therange.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.therange.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.therange.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.therange.co.uk/pages/shipping: HTTP 403",
-        "https://www.therange.co.uk/pages/delivery: HTTP 403",
-        "https://www.therange.co.uk/shipping-policy: HTTP 403",
-        "https://www.therange.co.uk/delivery: HTTP 403",
-        "https://www.therange.co.uk/shipping: HTTP 403",
-        "https://www.therange.co.uk/pages/faq: HTTP 403",
-        "https://www.therange.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.therange.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.therange.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.therange.co.uk/pages/help: HTTP 403",
-        "https://www.therange.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.therange.co.uk/pages/terms-of-service: HTTP 403"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     }
   ]
 }

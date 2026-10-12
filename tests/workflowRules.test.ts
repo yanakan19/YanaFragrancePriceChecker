@@ -274,7 +274,8 @@ describe('tests.yml, the code and browser tests', () => {
   });
 
   it('builds the page, installs Chromium and runs the code set in chunks, each step capped', () => {
-    expect(t).toContain('run: npm run test:code');
+    expect(t).toMatch(/run: npm run test:code -- --shard \$\{\{ matrix\.shard \}\}\/4/);
+    expect(t).toContain('shard: [1, 2, 3, 4]');
     expect(t).toContain('run: npm run demo');
     expect(t).toContain('playwright install');
     const job = jobs('tests.yml').find((j) => j.name === 'code')!;

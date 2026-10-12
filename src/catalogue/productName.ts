@@ -23,6 +23,7 @@ import {
   withoutTravelSprayWords,
 } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
+import { decodeHtmlEntities } from './htmlEntities.js';
 import type { StoredListing } from './types.js';
 import { isReviewedOil } from './perfumeOil.js';
 import { evidencedStrength } from './unstatedStrengthEvidence.js';
@@ -2354,6 +2355,11 @@ export function displayName(
   displayedBrand: string | null,
   travelSizeIsASize = false,
 ): string {
+  // A name is never shown with an HTML entity in it ("J&#039;Adore", "Men&#039;s
+  // Happy For Men" were 89 names of the live catalogue on 2026-10-11). The text
+  // is decoded where it is read (reconcile.ts, the builds); this is the last
+  // place it would be caught, so no path to a name can leave one.
+  title = decodeHtmlEntities(title);
   // A pre-order notice and its dispatch date are about the listing, not the
   // perfume: see stripPreOrderNotice.
   title = stripPreOrderNotice(title);
@@ -2452,6 +2458,22 @@ export function displayName(
   // Only that exact phrase, and only for this house.
   if ([displayedBrand, brand].some((b) => b !== null && brandKey(b) === 'commodity')) {
     s = s.replace(/\bbalanced\s*(?:&|and)\s*expressive\b/i, 'Expressive');
+  }
+
+  // Maison Matine names every scent in French and Bloom Perfumery adds the
+  // English title after a pipe: "Faire Le Mur | Going AWOL", "Shifumi | Rock Paper
+  // Scissors", "Un Jour Sans Fin | Endless Day", "Tu te Calmes | Calm Down", "Bain de
+  // Minuit | Skinny Dipping" (all six pipe names of the house, 2026-10-12). Liberty
+  // London lists the same bottles by the French name alone (EANs 5063871609319,
+  // ...326, ...333), so the bottle showed twice at 100ml EDP with two prices and no
+  // comparison, which failed tests/productNameNoise.test.ts. The French name is the
+  // house's own and is what the other shops write, so it stays; only for this house
+  // and only a single pipe, so nothing else is read as a translation.
+  if (
+    [displayedBrand, brand].some((b) => b !== null && foldDiacritics(b).toLowerCase().replace(/[^a-z]+/g, ' ').trim() === 'maison matine')
+  ) {
+    const french = s.match(/^([^|]*[^|\s])\s*\|\s*[^|\s][^|]*$/);
+    if (french) s = french[1]!;
   }
 
   const parenBrand = s.match(/^\(([^()]+)\)\s*/);
