@@ -134,7 +134,7 @@ async function draw(browser: () => Promise<Browser>, dir: string, outDir: string
       return `drawn from ${p.from}`;
     }
     const w = p.width ?? W;
-    const h = p.height ?? (p.tiktok || /-9x16\.png$/.test(p.file) ? H_TIKTOK : 1440);
+    const h = p.height ?? (p.tiktok || /-9x16\.png$/.test(p.file) ? H_TIKTOK : /-1x1\.png$/.test(p.file) ? W : 1440);
     const html = inlinePhotos(p.tiktok ? tiktokSlide(src) : src);
     await renderSmooth(await browser(), html, w, h, out);
     return `drawn from ${p.from}${p.tiktok ? ' (9:16 TikTok version)' : ''}`;

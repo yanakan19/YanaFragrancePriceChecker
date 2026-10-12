@@ -27,7 +27,10 @@ the commit, Artifacts). DESIGN-SYSTEM.md section 10 has the details.
 
 Guess the Fragrance puzzles and their reveals are made by `npm run social:guess`
 (`-- --dry-run` to look first, `-- --reveal` for the answer post; plan:
-`docs/GUESS-THE-FRAGRANCE-PLAN.md` section 6). A puzzle folder's `check.json`
+`docs/GUESS-THE-FRAGRANCE-PLAN.md` section 6). Each is drawn in three shapes:
+`-3x4` (1080 x 1440, feed), `-9x16` (1080 x 1920, everything inside TikTok's box
+x 110 to 970, y 380 to 1460, footer included) and `-1x1` (1080 x 1080, inside
+x 135 to 945, y 90 to 990), all listed in `pictures.json`. A puzzle folder's `check.json`
 holds the answer and the repository is public, so commit and push the folder
 (and `guess-fragrance-history.json`) only when posting, with a commit message
 that names no fragrance.
@@ -69,4 +72,4 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | 2026-10-02 | `posts/2026-10-02-what-is-pricesniffs/` | Intro carousel: "What is PriceSniffs?" (4 slides, 3:4 post). Remake with `npx tsx scripts/social-intro-slides.ts` |
 | 2026-10-02 | `posts/2026-10-02-savings-example/` | Savings example carousel: Miss Dior, Selfridges vs Justmylook (6 slides, 3:4 post). Remake with `npx tsx scripts/social-savings-example.ts` (inverted theme, hand picked figures, reel safe) |
 | 2026-10-02 | `posts/2026-10-02-savings/` | How much could you save?: Creed Acqua Fiorentina, Allbeauty vs MyBeauty.Boutique (6 slides, 3:4 post) |
-| 2026-10-09 | `posts/YYYY-MM-DD-guess-fragrance-NN/` and `posts/YYYY-MM-DD-guess-fragrance-NN-reveal/` | Guess the Fragrance: a puzzle (black picture, house and name as blanks, notes and strength as clues, 3:4 and 9:16) and its reveal (answer, bottle, today's cheapest price); one caption each. Made by `npm run social:guess`; folders are added only when posting |
+| 2026-10-09 | `posts/YYYY-MM-DD-guess-fragrance-NN/` and `posts/YYYY-MM-DD-guess-fragrance-NN-reveal/` | Guess the Fragrance: a puzzle (black picture, house and name as blanks, notes and strength as clues, 3:4, 9:16 and 1:1) and its reveal (answer, bottle, today's cheapest price); one caption each. Made by `npm run social:guess`; folders are added only when posting |

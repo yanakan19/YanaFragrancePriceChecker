@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
+import { FORMATS, layoutOf } from '../scripts/social-guess-html.js';
+import { planPuzzleText } from '../scripts/social-guess-mask.js';
 import { CRAWLED_AT } from '../demo/catalogue.generated.js';
 import {
   BRAND_REST_DAYS, MAX_NOTES, MAX_PER_TIER, MIN_NOTES, buildContext, choose, evaluate, productKey, productsOf, rank, score,
@@ -133,5 +135,22 @@ describe('variety (plan 2.2)', () => {
     const c1 = { ...a, rep: { ...a.rep, id: 'b' } } as Candidate;
     const c2 = { ...a, rep: { ...a.rep, id: 'a' } } as Candidate;
     expect(rank([c1, c2], history, TODAY)[0]!.rep.id).toBe('a');
+  });
+});
+
+describe('the pictures of any product the catalogue has', () => {
+  it('every product whose house and name fit the 3:4 also fits the 9:16 and the 1:1 (so no puzzle loses a picture)', () => {
+    const square = FORMATS.find((f) => f.kind === 'square')!;
+    const lost: string[] = [];
+    let fitting = 0;
+    for (const sizes of products.values()) {
+      const f = sizes[0]!;
+      const text = planPuzzleText(f.brand, f.name);
+      if (!text.ok || !layoutOf(text)) continue;
+      fitting++;
+      if (!layoutOf(text, square)) lost.push(`${f.brand} ${f.name}`);
+    }
+    expect(fitting).toBeGreaterThan(100);
+    expect(lost).toEqual([]);
   });
 });

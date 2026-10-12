@@ -18,14 +18,35 @@ const undash = (s: string) => s.replace(/\s*[-\u2010-\u2015\u2212]\s*/g, ' ').re
 
 /* ── the pictures ────────────────────────────────────────────────────────── */
 
-export interface Format { file: string; w: number; h: number }
+export type Kind = 'plain' | 'tall' | 'square';
+export interface Format { file: string; w: number; h: number; kind: Kind }
 export const FORMATS: Format[] = [
-  { file: '3x4', w: 1080, h: 1440 },
-  { file: '9x16', w: 1080, h: 1920 },
+  { file: '3x4', w: 1080, h: 1440, kind: 'plain' },
+  { file: '9x16', w: 1080, h: 1920, kind: 'tall' },
+  { file: '1x1', w: 1080, h: 1080, kind: 'square' },
 ];
-/** The 9:16 picture shows the 3:4 layout scaled down inside TikTok's and Stories' safe area. */
-const TALL_SCALE = 0.86;
-const TALL_TOP = 300;
+export interface Box { l: number; r: number; t: number; b: number }
+/**
+ * Where every box of a picture must stay (docs/GUESS-THE-FRAGRANCE-PLAN.md 1.2
+ * and section 6; social/DESIGN-SYSTEM.md section 4):
+ *   plain  (3:4)   the layout's own margins, 72 at the sides, 52 above and below
+ *   tall   (9:16)  TikTok's box: x 110 to 970, y 380 to 1460 (clear of its tabs,
+ *                  its caption and buttons, and its icons down the right)
+ *   square (1:1)   x 135 to 945, y 90 to 990: Instagram's grid shows a square as
+ *                  its middle 810 pixels, so nothing sits nearer the sides
+ */
+export const SAFE: Record<Kind, Box> = {
+  plain: { l: 72, r: 1008, t: 52, b: 1388 },
+  tall: { l: 110, r: 970, t: 380, b: 1460 },
+  square: { l: 135, r: 945, t: 90, b: 990 },
+};
+/** The 9:16 picture is the 3:4 layout's 936 px wide content block, scaled to fill the TikTok box's 860 px width, in a block as tall as the box. */
+/** The least room between two blocks of the 9:16 and the 1:1 (the 3:4 has its own margins): the note tiles and gaps shrink with --k until every gap is at least this. */
+const MIN_GAP = 20;
+const TALL_CONTENT_W = 1080 - 2 * 72;
+const TALL_SCALE = (SAFE.tall.r - SAFE.tall.l) / TALL_CONTENT_W;
+/** When even the smallest tiles do not fit, the whole 9:16 block is drawn a little smaller (never below this: 26 px text stays 20.8 px). */
+const TALL_SCALE_FLOOR = 0.8;
 
 const BASE_CSS = `
   * { box-sizing: border-box; }
@@ -44,29 +65,80 @@ const BASE_CSS = `
   .site { margin: 0; color: var(--ink-2); }
 `;
 
-const TALL_CSS = `html, body { height: 1920px; } main { position: absolute; left: ${Math.round((1080 - 1080 * TALL_SCALE) / 2)}px; top: ${TALL_TOP}px; transform: scale(${TALL_SCALE}); transform-origin: 0 0; }`;
+const TALL_CSS = `html { --s: ${TALL_SCALE}; } html, body { height: 1920px; }
+  main { position: absolute; left: calc(${SAFE.tall.l}px + (${SAFE.tall.r - SAFE.tall.l}px - ${TALL_CONTENT_W}px * var(--s)) / 2); top: ${SAFE.tall.t}px; width: ${TALL_CONTENT_W}px; height: calc(${SAFE.tall.b - SAFE.tall.t}px / var(--s)); padding: 0; gap: ${MIN_GAP}px; transform: scale(var(--s)); transform-origin: 0 0; }
+  .photo { width: calc(400px * var(--k, 1)); height: calc(400px * var(--k, 1)); }`;
 const PLAIN_CSS = `html, body { height: 1440px; }`;
+/**
+ * The square (1:1, 1080 x 1080): the same elements in the box x 135 to 945,
+ * y 90 to 990 (810 x 900), laid out at their own sizes, not scaled. The note
+ * tiles and gaps shrink with --k as in the other pictures, but only as far
+ * as the rule in FIT_PAGE (never below 0.5), and no text is below 20 px.
+ */
+const SQUARE_CSS = `html, body { height: 1080px; }
+  main { position: absolute; left: ${SAFE.square.l}px; top: ${SAFE.square.t}px; width: ${SAFE.square.r - SAFE.square.l}px; height: ${SAFE.square.b - SAFE.square.t}px; padding: 0; gap: ${MIN_GAP}px; }
+  .logo { font-size: 40px; gap: 12px; }
+  .logo .mark { width: 50px; height: 50px; }
+  .kicker { margin: 0 0 2px; font-size: 22px; letter-spacing: 6px; }
+  h1 { font-size: 76px; letter-spacing: -1px; }
+  .foot { font-size: 28px; }
+  .words { column-gap: 20px; row-gap: 10px; }
+  .lab { font-size: 20px; letter-spacing: 4px; }
+  .pill { padding: 4px 16px; font-size: 22px; }
+  .pillrow { margin-bottom: calc(-4px * var(--k, 1)); }
+  .notes { gap: calc(10px * var(--k, 1)); }
+  .box { border-radius: 28px; padding: calc(10px * var(--k, 1)) 10px calc(8px * var(--k, 1)); }
+  .tier { margin: 0 0 calc(4px * var(--k, 1)) 12px; font-size: 20px; letter-spacing: 5px; }
+  .n { width: 194px; gap: calc(4px * var(--k, 1)); }
+  .tile { width: calc(64px * var(--k, 1)); height: calc(64px * var(--k, 1)); border-radius: 18px; }
+  .tile img { width: calc(46px * var(--k, 1)); height: calc(46px * var(--k, 1)); }
+  .nm { font-size: 21px; line-height: 1.1; }
+  .stage { gap: 18px; }
+  .duo { width: 100%; display: flex; align-items: center; gap: 28px; }
+  .duo .photo { flex: none; width: calc(372px * var(--k, 1)); height: calc(372px * var(--k, 1)); border-radius: 28px; }
+  .duo .who { flex: 1; min-width: 0; gap: 10px; }
+  .house { font-size: 24px; letter-spacing: 4px; }
+  .answer { font-size: 60px; }
+  .pills { flex-wrap: wrap; }
+  .pills p { padding: 6px 18px; font-size: 24px; }
+  .price { padding: 14px 16px; border-radius: 24px; }
+  .price .l { font-size: 22px; letter-spacing: 4px; }
+  .price .amt { margin-top: 4px; font-size: 68px; }
+  .price .from { margin-top: 4px; font-size: 30px; }
+  .price .fine { margin-top: 6px; font-size: 22px; }`;
+
+const formatCss = (f: Format) => (f.kind === 'tall' ? TALL_CSS : f.kind === 'square' ? SQUARE_CSS : PLAIN_CSS);
 
 /** A hidden letter is a drawn bar, never a character (plan 1.5). */
 const cellHtml = (c: MaskWord[number]) => ('blank' in c ? '<i></i>' : `<b>${esc(c.t)}</b>`);
 const wordHtml = (w: MaskWord) => `<span class="w">${w.map(cellHtml).join('')}</span>`;
 
-const LABEL_PX = 24;
 const CAP_HALF = 0.358;
-const WORDS_W = 696;
-const SIZES = [88, 80, 72, 64, 56, 48];
 
-/** How the house and the name are laid out, or null when they do not fit (then the puzzle is not eligible). */
-export function layoutOf(text: PuzzleText): { house: BlockPlan; name: BlockPlan } | null {
-  const house = planBlock(text.houseWords, WORDS_W, SIZES, 2, 150);
-  const name = planBlock(text.nameWords, WORDS_W, SIZES, 3, 214);
-  return house && name ? { house, name } : null;
+/** The blanks' room. The square has 810 px across, so its words column is narrower, its labels smaller and its sizes may go lower (40, not 48). */
+interface Geo { labelPx: number; labelSpacing: number; colGap: number; wordsW: number; sizes: number[]; minSize: number; houseH: number; nameH: number; /** Tried first: fewer, smaller lines, which leave room for twelve notes. */ tight?: { houseH: number; nameH: number } }
+const GEO: Record<'wide' | 'square', Geo> = {
+  wide: { labelPx: 24, labelSpacing: 5, colGap: 26, wordsW: 696, sizes: [88, 80, 72, 64, 56, 48], minSize: 44, houseH: 150, nameH: 214 },
+  square: { labelPx: 20, labelSpacing: 4, colGap: 20, wordsW: 628, sizes: [68, 64, 60, 56, 52, 48, 44, 40], minSize: 36, houseH: 120, nameH: 180, tight: { houseH: 72, nameH: 128 } },
+};
+const geoOf = (f?: Format): Geo => GEO[f?.kind === 'square' ? 'square' : 'wide'];
+
+/** How the house and the name are laid out in picture `f` (the 3:4 when omitted), or null when they do not fit (then the puzzle is not eligible). */
+export function layoutOf(text: PuzzleText, f?: Format): { house: BlockPlan; name: BlockPlan } | null {
+  const g = geoOf(f);
+  for (const h of [g.tight, { houseH: g.houseH, nameH: g.nameH }]) {
+    if (!h) continue;
+    const house = planBlock(text.houseWords, g.wordsW, g.sizes, 2, h.houseH);
+    const name = planBlock(text.nameWords, g.wordsW, g.sizes, 3, h.nameH);
+    if (house && name) return { house, name };
+  }
+  return null;
 }
 
-function blockHtml(label: string, plan: BlockPlan, spoken: string): string {
-  const top = -(CAP_HALF * (plan.size - LABEL_PX)).toFixed(1);
+function blockHtml(label: string, plan: BlockPlan, spoken: string, g: Geo): string {
+  const top = -(CAP_HALF * (plan.size - g.labelPx)).toFixed(1);
   const lines = plan.lines.map((l) => `<div class="ln">${l.map(wordHtml).join('')}</div>`).join('');
-  return `<span class="lab" style="top:${top}px">${label}</span><div class="blk" role="img" aria-label="${esc(spoken)}" data-w="${WORDS_W}" data-lab="${LABEL_PX}" style="font-size:${plan.size}px">${lines}</div>`;
+  return `<span class="lab" style="top:${top}px">${label}</span><div class="blk" role="img" aria-label="${esc(spoken)}" data-w="${g.wordsW}" data-lab="${g.labelPx}" data-min="${g.minSize}" style="font-size:${plan.size}px">${lines}</div>`;
 }
 
 export interface PuzzleView {
@@ -78,7 +150,7 @@ export interface PuzzleView {
 
 const PUZZLE_CSS = `
   .words { display: grid; grid-template-columns: max-content max-content; column-gap: 26px; row-gap: 18px; justify-content: center; align-items: baseline; }
-  .lab { justify-self: end; position: relative; font-size: ${LABEL_PX}px; font-weight: 400; letter-spacing: 5px; text-transform: uppercase; color: var(--ink-3); }
+  .lab { justify-self: end; position: relative; font-size: 24px; font-weight: 400; letter-spacing: 5px; text-transform: uppercase; color: var(--ink-3); }
   .blk { font-weight: 700; line-height: 1.12; }
   .ln { display: flex; gap: 0.5em; white-space: nowrap; }
   .ln + .ln { margin-top: 0.04em; }
@@ -107,21 +179,31 @@ const PUZZLE_CSS = `
 const FIT_PAGE = `<script>
 (() => {
   const foot = document.querySelector('.foot');
+  const main = document.querySelector('main');
   const root = document.documentElement;
+  const limit = () => main.clientHeight - parseFloat(getComputedStyle(main).paddingBottom);
+  const fits = () => !foot || foot.offsetTop + foot.offsetHeight <= limit();
   let k = parseFloat(root.style.getPropertyValue('--k') || '1');
-  while (foot && foot.offsetTop + foot.offsetHeight > 1440 - 52 && k > 0.5) {
-    k = Math.round((k - 0.02) * 100) / 100;
-    root.style.setProperty('--k', String(k));
+  const shrink = (to) => { while (!fits() && k > to) { k = Math.round((k - 0.02) * 100) / 100; root.style.setProperty('--k', String(k)); } };
+  // The 9:16 block is a scaled copy of the 3:4 layout: tiles shrink to 0.7, then the block itself to ${TALL_SCALE_FLOOR}, then the tiles to 0.5.
+  const tall = getComputedStyle(root).getPropertyValue('--s').trim();
+  if (tall) {
+    shrink(0.7);
+    let s = parseFloat(tall);
+    while (!fits() && s > ${TALL_SCALE_FLOOR}) { s = Math.round((s - 0.005) * 1000) / 1000; root.style.setProperty('--s', String(s)); }
   }
+  shrink(0.5);
 })();
 </script>`;
 
 const FIT_BLOCKS = `<script>
 (() => {
+  const main = document.querySelector('main');
+  const scale = main.getBoundingClientRect().width / main.offsetWidth;
   for (const b of document.querySelectorAll('.blk')) {
     const max = Number(b.dataset.w);
     let s = parseFloat(b.style.fontSize);
-    while (b.getBoundingClientRect().width > max && s > 44) { s -= 1; b.style.fontSize = s + 'px'; }
+    while (b.getBoundingClientRect().width / scale > max && s > Number(b.dataset.min || 44)) { s -= 1; b.style.fontSize = s + 'px'; }
     const lab = b.previousElementSibling;
     if (lab) lab.style.top = (-0.358 * (s - Number(b.dataset.lab))) + 'px';
   }
@@ -138,6 +220,7 @@ function spoken(words: readonly MaskWord[], what: string): string {
 }
 
 export function puzzleHtml(view: PuzzleView, layout: { house: BlockPlan; name: BlockPlan }, f: Format): string {
+  const g = geoOf(f);
   const rows = TIERS.map((tier) => {
     const list = view.notes.filter((n) => n.tier === tier);
     if (!list.length) return '';
@@ -148,10 +231,10 @@ export function puzzleHtml(view: PuzzleView, layout: { house: BlockPlan; name: B
   }).filter((r): r is { tier: Tier; html: string } => r !== '');
   const first = rows[0]?.html ?? '';
   const rest = rows.slice(1).map((r) => r.html).join('');
-  return `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>Guess the Fragrance</title><meta name="social-size" content="${f.w}x${f.h}"><style>${BASE_CSS}${PUZZLE_CSS}${f.h === 1920 ? TALL_CSS : PLAIN_CSS}</style></head><body><main>
+  return `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>Guess the Fragrance</title><meta name="social-size" content="${f.w}x${f.h}"><style>${BASE_CSS}${PUZZLE_CSS}${formatCss(f)}</style></head><body><main>
   <div class="logo"><span>Price<em>Sniffs</em></span>${MARK('mark')}</div>
-  <div class="head"><p class="kicker">Today's puzzle</p><h1 data-fit="1,60">Guess the <em>Fragrance</em></h1></div>
-  <div class="words">${blockHtml('House', layout.house, spoken(view.house, 'House'))}${blockHtml('Fragrance', layout.name, spoken(view.name, 'Fragrance'))}</div>
+  <div class="head">${f.kind === 'square' ? '' : `<p class="kicker">Today's puzzle</p>`}<h1 data-fit="1,60">Guess the <em>Fragrance</em></h1></div>
+  <div class="words">${blockHtml('House', layout.house, spoken(view.house, 'House'), g)}${blockHtml('Fragrance', layout.name, spoken(view.name, 'Fragrance'), g)}</div>
   <div class="notes"><div class="pillrow"><p class="pill">${esc(view.concentration)}</p></div>${first}${rest}</div>
   <div class="foot"><p class="cta">Comment your guess.</p><p class="site">pricesniffs.space</p></div>
 </main>${FIT_BLOCKS}${FIT_SCRIPT}${FIT_PAGE}</body></html>`;
@@ -193,16 +276,21 @@ export function revealHtml(v: RevealView, f: Format): string {
   const price = v.price
     ? `<div class="price"><p class="l">Cheapest price</p><p class="amt" data-fit="1,50">${esc(v.price.amount)}</p><p class="from" data-fit="1,24">from ${esc(undash(v.price.shop))}</p><p class="fine" data-fit="1,20">Price includes delivery, checked ${esc(v.price.checked)}</p></div>`
     : `<div class="price none"><p class="l">Today's price</p><p class="amt" data-fit="1,30">See it at pricesniffs.space</p></div>`;
+  const pills = `<div class="pills"><p class="a">${esc(v.concentration)}</p>${v.size ? `<p class="b">${esc(v.size)}</p>` : ''}</div>`;
   const photo = v.photo ? `<div class="photo"><img src="${esc(v.photo)}" alt=""></div>` : '';
-  return `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>The answer</title><meta name="social-size" content="${f.w}x${f.h}"><style>${BASE_CSS}${REVEAL_CSS}${f.h === 1920 ? TALL_CSS : PLAIN_CSS}</style></head><body><main>
-  <div class="logo"><span>Price<em>Sniffs</em></span>${MARK('mark')}</div>
-  <div class="head"><p class="kicker">The answer</p><h1 data-fit="1,60">Guess the <em>Fragrance</em></h1></div>
-  <div class="stage">
-    <div class="who"><p class="house" data-fit="1,24">${esc(undash(v.brand))}</p><p class="answer" data-fit="2,48">${esc(undash(v.name))}</p></div>
-    <div class="pills"><p class="a">${esc(v.concentration)}</p>${v.size ? `<p class="b">${esc(v.size)}</p>` : ''}</div>
+  const who = `<div class="who"><p class="house" data-fit="${f.kind === 'square' ? '1,20' : '1,24'}">${esc(undash(v.brand))}</p><p class="answer" data-fit="${f.kind === 'square' ? '3,34' : '2,48'}">${esc(undash(v.name))}</p>${f.kind === 'square' ? pills : ''}</div>`;
+  const stage = f.kind === 'square'
+    ? `<div class="stage"><div class="duo">${photo}${who}</div>${price}</div>`
+    : `<div class="stage">
+    ${who}
+    ${pills}
     ${photo}
     ${price}
-  </div>
+  </div>`;
+  return `<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>The answer</title><meta name="social-size" content="${f.w}x${f.h}"><style>${BASE_CSS}${REVEAL_CSS}${formatCss(f)}</style></head><body><main>
+  <div class="logo"><span>Price<em>Sniffs</em></span>${MARK('mark')}</div>
+  <div class="head"><p class="kicker">The answer</p><h1 data-fit="1,60">Guess the <em>Fragrance</em></h1></div>
+  ${stage}
   <div class="foot"><p class="cta">Did you get it?</p><p class="site">pricesniffs.space</p></div>
 </main>${FIT_SCRIPT}${FIT_PAGE}</body></html>`;
 }
