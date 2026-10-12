@@ -260,6 +260,22 @@ describe.skipIf(!built)('ad spacers on the built site', () => {
     for (const width of [390, 1280]) {
       it(`keeps every frame where the generator puts it through chunking, windowing and scrolling back, ${width} wide`, async () => {
         const { page, ctx } = await open('/search?adpreview=1', width, 'dark', 844);
+        // The rows are held to the height they arrive with. Every row of the grid is
+        // the tallest drawn tile's height (grid-auto-rows: 1fr), and a tile is
+        // content-visibility: auto, so it has no say in that until it is first drawn.
+        // The first tile drawn with one line more than the rest (a name that wraps to
+        // two lines, or a "Delivery Not Stated" note under its price) grows every row
+        // by that line at once, and the footer below the list moves with them. Which
+        // names wrap depends on the machine's system-ui font (Inter on one 4 core Linux
+        // box first wrapped the 24th tile, so the rows grew by 19.5px as the second
+        // chunk arrived: CLS 0.24 there, none in the Tests workflow) and which tiles
+        // carry a note on the day's data. Neither is the frames' doing; holding the
+        // rows keeps this measuring what is: chunks, frames, stand ins and scrolling.
+        const rowHeight = (await page.evaluate(
+          `parseFloat(getComputedStyle(document.querySelector('#view .tile-grid')).gridTemplateRows)`,
+        )) as number;
+        expect(rowHeight).toBeGreaterThan(0);
+        await page.addStyleTag({ content: `#view .tile-grid { grid-auto-rows: ${rowHeight}px !important; }` });
         await page.evaluate(`
           window.__cls = 0;
           new PerformanceObserver((l) => { for (const e of l.getEntries()) if (!e.hadRecentInput) window.__cls += e.value; }).observe({ type: 'layout-shift' });
