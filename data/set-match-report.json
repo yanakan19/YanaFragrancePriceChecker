@@ -819,38 +819,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0810103654280",
-   "absorbed": [
-    "set-head-fire-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0810103654280",
-     "brand": "Head",
-     "name": "Fire Gift Set: EDT 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0810103654280",
-     "scent": "fire",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-head-fire-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
-     "brand": "Head",
-     "name": "Fire 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "fire",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0810103654365",
    "absorbed": [
     "set-head-men-3-piece-gift-set-attitude-eau-de-toilette-50ml-fire-eau-de-toilette-50ml-motion-eau-de-toilette-50ml"
@@ -1742,6 +1710,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -3671,38 +3671,6 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616306131705",
-   "absorbed": [
-    "set-marc-jacobs-perfect-gift-set-100ml-edp-75ml-body-lotion-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616306131705",
-     "brand": "Marc Jacobs",
-     "name": "Perfect Gift Set 100ml EDP + 75ml Body Lotion + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306131705",
-     "scent": "perfect",
-     "signature": "1x100fragrance|1x10fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-marc-jacobs-perfect-gift-set-100ml-edp-75ml-body-lotion-10ml-edp",
-     "brand": "Marc Jacobs",
-     "name": "Perfect Gift Set 100ml EDP - 75ml Body Lotion - 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "perfect",
-     "signature": "1x100fragrance|1x10fragrance|1x75body",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -6515,6 +6483,38 @@
    ]
   },
   {
+   "canonical": "set-korres-set-white-tea-eau-de-toilette-50ml-body-milk-125ml",
+   "absorbed": [
+    "set-korres-set-white-tea-edt-50ml-body-milk-125ml"
+   ],
+   "members": [
+    {
+     "id": "set-korres-set-white-tea-eau-de-toilette-50ml-body-milk-125ml",
+     "brand": "Korres",
+     "name": "Set White Tea Eau De Toilette 50ml & Body Milk 125ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "tea white",
+     "signature": "1x125body|1x50fragrance",
+     "shops": [
+      "gorgeous-shop"
+     ]
+    },
+    {
+     "id": "set-korres-set-white-tea-edt-50ml-body-milk-125ml",
+     "brand": "Korres",
+     "name": "Set White Tea EDT 50ml & Body Milk 125ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "tea white",
+     "signature": "1x125body|1x50fragrance",
+     "shops": [
+      "beauty-flash"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-mango-skin-eau-de-parfum-3x10-ml",
    "absorbed": [
     "set-mango-skin-eau-de-parfum-3x10ml"
@@ -8020,6 +8020,49 @@
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 3.98 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0810103654280",
+     "brand": "Head",
+     "name": "Fire Gift Set: EDT 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0810103654280",
+     "scent": "fire",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-head-fire-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Fire 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "fire",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-head-fire-gift-set-edt-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Fire Gift Set: EDT 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "fire",
      "signature": "1x100fragrance|1x200deo",
      "shops": [
       "beaute-boulevard"
