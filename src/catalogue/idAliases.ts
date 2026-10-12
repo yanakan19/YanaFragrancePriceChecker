@@ -121,7 +121,9 @@ export function productIdsIn(generatedCatalogue: string): Set<string> {
 /** The ids of the products with no current prices a dormant file held, read from its generated text. */
 export function dormantIdsIn(generatedDormant: string): Set<string> {
   const ids = new Set<string>();
-  for (const m of generatedDormant.matchAll(/"([^"]+)":\{"brand":/g)) ids.add(m[1]!);
+  // An entry opens with "brand" or with "slug": the writer's key order has changed, and the
+  // reader must not depend on it (crawl #1066).
+  for (const m of generatedDormant.matchAll(/"([^"]+)":\{"(?:brand|slug)":/g)) ids.add(m[1]!);
   return ids;
 }
 

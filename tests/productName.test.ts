@@ -1618,6 +1618,9 @@ describe('shop labels after a pipe: size labels, audience descriptors and a cred
   it('takes a scent descriptor with an audience tail off, and keeps an audience on its own', () => {
     expect(displayName('Ombre 100ml EDP | Bold Woody Fragrance For Men & Women', 'French Arabian Perfume', null)).toBe('Ombre');
     expect(displayName('Eternity | For Him', 'Calvin Klein', 'Calvin Klein')).toContain('For Him');
+    // crawl #1066: a descriptor after the pipe, with and without a "for Unisex" tail.
+    expect(displayName('Perfume: Arabian Rouge 100ml EDP | Turkish Rose Fragrance for Unisex', 'French Arabian', 'French Arabian')).not.toContain('|');
+    expect(displayName('Dinar Wardi 100ml EDP | Luxurious Oriental Floral Scent', 'French Arabian', 'French Arabian')).toBe('Dinar Wardi');
     // "Bold" alone is Commodity's variant name, not a descriptor.
     expect(displayName('Book | Bold 100 ml EdP', 'Commodity', 'Commodity')).toContain('Bold');
   });

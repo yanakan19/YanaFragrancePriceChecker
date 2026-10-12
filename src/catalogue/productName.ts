@@ -2193,6 +2193,9 @@ const NAME_NOISE_SEGMENT_WORDS: ReadonlySet<string> = new Set([
   // Amber" (2026-10-08). "Bold" is deliberately not here: Commodity's "Book |
   // Bold" is a variant name (see the vocabulary test in stripTrailingNoiseSegment).
   'juicy', 'oriental',
+  // French Arabian's "Arabian Rouge | Turkish Rose Fragrance for Unisex" and "Dinar Wardi |
+  // Luxurious Oriental Floral Scent" (crawl #1066, 2026-10-12): a descriptor, not a name.
+  'turkish', 'luxurious', 'scent', 'scents',
 ]);
 
 /**
@@ -2220,7 +2223,7 @@ const NOISE_SEGMENT_SIZE_LABEL_RE =
  * Women"). Taken off a segment only when descriptor words remain in front of
  * it, so "Eternity | For Him" keeps its words.
  */
-const NOISE_SEGMENT_AUDIENCE_TAIL_RE = /\s+for\s+(?:men|women|him|her)(?:\s*(?:&|and)\s*(?:men|women))?$/i;
+const NOISE_SEGMENT_AUDIENCE_TAIL_RE = /\s+for\s+(?:men|women|him|her|unisex)(?:\s*(?:&|and)\s*(?:men|women))?$/i;
 
 /**
  * A trailing segment that is a release marker — "New 2023", "New 2026
