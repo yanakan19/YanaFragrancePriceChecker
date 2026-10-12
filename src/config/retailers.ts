@@ -359,6 +359,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Notino UK',
     domain: 'notino.co.uk',
     homepage: 'https://www.notino.co.uk',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: <link rel="apple-touch-icon">, 180px.
+    logo: {
+      src: 'https://cdn.notinoimg.com/files/layout/img/icon/apple-touch-icon.png?v=C7FDEFB127',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.notino.co.uk',
+      readAt: '2026-10-12',
+    },
     trustpilotUrl: 'https://uk.trustpilot.com/review/notino.co.uk',
     trustpilotCheckedOn: '2026-10-04',
     tiers: ['designer', 'niche', 'mideast'],
@@ -6397,6 +6408,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Gorgeous Shop',
     domain: 'gorgeousshop.com',
     homepage: 'https://www.gorgeousshop.com',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: <link rel="icon">, 75px. Its declared Organization.logo is the Magento platform logo, another company's mark, and is not used.
+    logo: {
+      src: 'https://www.gorgeousshop.com/media/favicon/default/favicon.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.gorgeousshop.com',
+      readAt: '2026-10-12',
+    },
     tiers: ['designer'],
     // Currency probe (run 32254790354, job 96073877400, 2026-08-19): robots.txt
     // itself answers (no disallow found), but every single request this
@@ -6515,6 +6537,28 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Beauty Flash',
     domain: 'beautyflash.co.uk',
     homepage: 'https://www.beautyflash.co.uk',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, SVG.
+    logo: {
+      src: 'https://www.beautyflash.co.uk/static/version1791466212/frontend/Limely/beautyflash/en_GB/images/logo.svg',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.beautyflash.co.uk',
+      readAt: '2026-10-12',
+    },
+    // Square mark the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: <link rel="icon">, 96px.
+    squareLogo: {
+      src: 'https://www.beautyflash.co.uk/media/favicon/websites/2/favicon.png',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.beautyflash.co.uk',
+      readAt: '2026-10-12',
+    },
     tiers: ['designer'],
     // Currency probe run twice (run 32255421951 job 96075888273, and run
     // 32257346131 job 96082041201, both 2026-08-19): both attempts got
@@ -6624,6 +6668,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Scentsational',
     domain: 'scentsational.com',
     homepage: 'https://www.scentsational.com',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, 420 x 140. Its touch icon is a bare letter S and is not used.
+    logo: {
+      src: 'https://www.scentsational.com/images/modules/promo_units/1565363395-40361800.png',
+      shape: 'wordmark',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.scentsational.com',
+      readAt: '2026-10-12',
+    },
     tiers: ['designer'],
     // Off CURRENCY_UNCONFIRMED since 2026-10-08 (see the dated section below
     // and the note at the foot of this file). Currency probe (run 32255905250, job 96077421762, 2026-08-19):
@@ -10146,6 +10201,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Opulensi',
     domain: 'opulensi.com',
     homepage: 'https://www.opulensi.com',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, gold on transparency, so it sits on the dark tile.
+    logo: {
+      src: 'https://www.opulensi.com/cdn/shop/files/OPULENSI_Luxury_arabian_oud_perfume_designer_perfume.png?v=1735863557&width=500',
+      shape: 'wordmark',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://www.opulensi.com',
+      readAt: '2026-10-12',
+    },
     trustpilotUrl: 'https://uk.trustpilot.com/review/opulensi.com',
     trustpilotCheckedOn: '2026-10-08',
     tiers: ['mideast'],
@@ -10221,6 +10287,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'The Perfume Closet',
     domain: 'theperfumecloset.co.uk',
     homepage: 'https://theperfumecloset.co.uk',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, 180px roundel, gold on transparency, so it sits on the dark tile.
+    logo: {
+      src: 'https://theperfumecloset.co.uk/cdn/shop/files/logo_1.png?v=1745085880&width=500',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://theperfumecloset.co.uk',
+      readAt: '2026-10-12',
+    },
     tiers: ['mideast', 'designer'],
     // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a Birmingham shop at
     // 462 Stratford Road that sells Arabian houses (Lattafa, Ajmal, Reef, Al Haramain, Ard Al Zaafaran) and
@@ -10287,6 +10364,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Perfumoi',
     domain: 'perfumoi.co.uk',
     homepage: 'https://perfumoi.co.uk',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo and <link rel="icon">, the same 682px file asked for at 128px.
+    logo: {
+      src: 'https://perfumoi.co.uk/cdn/shop/files/NEW_PERFUMOI_FAVICON.png?v=1780074923&width=128',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://perfumoi.co.uk',
+      readAt: '2026-10-12',
+    },
     trustpilotUrl: 'https://uk.trustpilot.com/review/perfumoi.co.uk',
     trustpilotCheckedOn: '2026-10-08',
     tiers: ['designer', 'mideast'],
@@ -10356,6 +10444,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Saad Fragrance',
     domain: 'saadfragrance.com',
     homepage: 'https://saadfragrance.com',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, 500 x 125 asked for at 360px.
+    logo: {
+      src: 'https://saadfragrance.com/cdn/shop/files/Photoroom_20260505_45718_pm.png?v=1777996668&width=360',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://saadfragrance.com',
+      readAt: '2026-10-12',
+    },
     tiers: ['mideast'],
     // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a UK company
     // (SAADFRAGRANCE LTD, Thornton Heath, per a company directory) selling Arabian houses: Lattafa,
@@ -10425,6 +10524,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Sainte Cellier',
     domain: 'saintecellier.com',
     homepage: 'https://saintecellier.com',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, the red roundel, 403px asked for at 168px.
+    logo: {
+      src: 'https://saintecellier.com/cdn/shop/files/Brooke_Sainte_Cellier_ROUNDEL_1.png?v=1683579943&width=168',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://saintecellier.com',
+      readAt: '2026-10-12',
+    },
     tiers: ['niche'],
     fragranceOnlyCatalogue: true,
     // Added 2026-10-08 (docs/RETAILER-CANDIDATES-2026-10-08.md). Found by WebSearch: a London based online
@@ -10506,6 +10616,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Fenwick',
     domain: 'fenwick.co.uk',
     homepage: 'https://fenwick.co.uk',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, white on transparency, so it sits on the dark tile.
+    logo: {
+      src: 'https://fenwick.co.uk/cdn/shop/files/header_logo_white.svg?v=1740550559&width=500',
+      shape: 'wordmark',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://fenwick.co.uk',
+      readAt: '2026-10-12',
+    },
     trustpilotUrl: 'https://uk.trustpilot.com/review/www.fenwick.co.uk',
     trustpilotCheckedOn: '2026-10-08',
     tiers: ['designer', 'niche'],
@@ -10837,6 +10958,28 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Direct Cosmetics',
     domain: 'directcosmetics.com',
     homepage: 'https://www.directcosmetics.com',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, 420 x 100.
+    logo: {
+      src: 'https://www.directcosmetics.com/images/modules/promo_units/1754916830-54009300.jpg',
+      shape: 'wordmark',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.directcosmetics.com',
+      readAt: '2026-10-12',
+    },
+    // Square mark the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: <link rel="apple-touch-icon">, 180px.
+    squareLogo: {
+      src: 'https://www.directcosmetics.com/apple-touch-icon-180x180.png',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.directcosmetics.com',
+      readAt: '2026-10-12',
+    },
     trustpilotUrl: 'https://uk.trustpilot.com/review/www.directcosmetics.com',
     trustpilotCheckedOn: '2026-10-08',
     tiers: ['designer'],
@@ -11000,6 +11143,28 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Rowlands Pharmacy',
     domain: 'shop.rowlandspharmacy.co.uk',
     homepage: 'https://shop.rowlandspharmacy.co.uk',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, 2134 px asked for at 360px, on the dark tile.
+    logo: {
+      src: 'https://shop.rowlandspharmacy.co.uk/cdn/shop/files/Rowlands_logo_512_px_wide_07eeeb7a-c58d-4353-912d-cd4bd8728dfd.png?v=1739876244&width=360',
+      shape: 'wordmark',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://shop.rowlandspharmacy.co.uk',
+      readAt: '2026-10-12',
+    },
+    // Square mark the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: <link rel="apple-touch-icon">, 180px, on the dark tile.
+    squareLogo: {
+      src: 'https://shop.rowlandspharmacy.co.uk/cdn/shop/files/Cross_1.png?crop=center&height=180&v=1749123270&width=180',
+      shape: 'square',
+      ink: 'light',
+      basis: 'own-site-declared',
+      source: 'https://shop.rowlandspharmacy.co.uk',
+      readAt: '2026-10-12',
+    },
     tiers: ['designer'],
     // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch: the
     // online shop of Rowlands Pharmacy (L Rowland & Co (Retail) Ltd, Runcorn), a chain of high street
@@ -11067,6 +11232,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'LloydsPharmacy',
     domain: 'lloydspharmacy.com',
     homepage: 'https://lloydspharmacy.com',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: <link rel="icon">, 192px; the dark green L needs the white tile.
+    logo: {
+      src: 'https://lloydspharmacy.com/cdn/shop/t/248/assets/favicon-192.png?v=157478155344128082771791286008',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://lloydspharmacy.com',
+      readAt: '2026-10-12',
+    },
     tiers: ['designer'],
     // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch: the
     // online shop of LloydsPharmacy (Warwick), whose "Premium fragrance brands" collection sells Tom Ford,
@@ -11194,6 +11370,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Scent Warehouse',
     domain: 'scentwarehouse.co.uk',
     homepage: 'https://scentwarehouse.co.uk',
+    // Logo the shop's own site declares, read by scripts/logo-probe.ts and looked at
+    // by eye at 42 and 56px on white and dark, 2026-10-12 (docs/LOGOS-PLAN.md section 9).
+    // Asset: Organization.logo, 418 x 129 asked for at 360px.
+    logo: {
+      src: 'https://scentwarehouse.co.uk/cdn/shop/files/SW_Shopify_Banner_tsp.png?v=1766403090&width=500',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://scentwarehouse.co.uk',
+      readAt: '2026-10-12',
+    },
     tiers: ['designer'],
     // Added 2026-10-09 (docs/RETAILER-CANDIDATES-2026-10-08.md, Round 2, UK). Found by WebSearch (an eBay
     // store of the same name, 20 years in the trade, led to its own site): a Salford discount perfume

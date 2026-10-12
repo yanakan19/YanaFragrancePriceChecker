@@ -44,6 +44,7 @@ const DECLARED_ASSET_HOSTS = new Set([
   'www.lattafa-usa.com', // Lattafa's own US site; brand site is lattafa.com
   'www.bgstatic.net', // Perfume Click's own asset host: perfume-click.co.uk declares its favicon there (2026-10-03)
   'us.thebeautystore.com', // The Beauty Store's own US storefront, declared by thebeautystore.com
+  'cdn.notinoimg.com', // Notino's own image host: notino.co.uk declares its apple touch icon there (2026-10-12)
 ]);
 
 /**
@@ -427,5 +428,45 @@ describe('owner supplied brand logos are hosted PNGs on solid white', () => {
     }
     expect(total).toBeLessThanOrEqual(400 * 1024);
     expect(files.sort()).toEqual(owned.map(([, l]) => l.src.split('/').pop()!).sort());
+  });
+});
+
+/**
+ * The shop pass of 2026-10-12 (docs/LOGOS-PLAN.md section 9): the enabled
+ * shops added since the first retailer pass. Same rules as the brand pass: only
+ * what the shop's own site declares, hot linked from its own host (or a host its
+ * homepage declares), read as PriceSniffsBot, looked at by eye. A logo that is
+ * another company's mark (Gorgeous Shop declares the Magento logo) is left out.
+ */
+describe('shop logos added from 2026-10-12', () => {
+  const entries = RETAILERS.flatMap((r) =>
+    ([['logo', r.logo], ['squareLogo', r.squareLogo]] as const)
+      .filter(([, l]) => l != null && l.readAt >= '2026-10-12')
+      .map(([field, l]) => [`${r.id}:${field}`, r, l!] as const),
+  );
+
+  it('is not empty', () => {
+    expect(entries.length).toBeGreaterThan(0);
+  });
+
+  it.each(entries)('%s: the shop is enabled, the source is its own homepage, the basis is its own site', (_where, r, logo) => {
+    expect(r.enabled, `${r.id} is not enabled`).toBe(true);
+    expect(logo.basis).toBe('own-site-declared');
+    expect(logo.source).toBe(r.homepage);
+    expect(logo.src.startsWith('https://')).toBe(true);
+    expect(logo.src, `${r.id}: a logo from a platform or a third party is not the shop's own`).not.toMatch(
+      /magento|wikipedia|wikimedia|wikidata|google|bing|duckduckgo|clearbit|brandfetch|logo\.dev/i,
+    );
+  });
+
+  it('leaves the shops that declared nothing usable on their initials', () => {
+    // Nothing declared (Perfume UK), a fetch that fails (Liberty), only a 16 to 32px icon
+    // (Glossier, Beaute Boulevard), a bare letter (Scented Glasgow), type too thin to read
+    // at the size drawn (Roullier White, Beauty Pie) and a mark already refused for the
+    // house itself (Rasasi UK Store). Each can be given a logo later with a recorded reason.
+    for (const id of ['perfumeuk', 'liberty-london', 'glossier-uk', 'beaute-boulevard', 'scented-glasgow', 'roullier-white', 'beauty-pie', 'rasasi-uk-store']) {
+      const r = RETAILERS.find((x) => x.id === id)!;
+      expect(r.logo, id).toBeUndefined();
+    }
   });
 });
