@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-12T17:11:29.089Z",
-  "seenAt": "2026-10-12T17:11:29.089Z",
+  "updatedAt": "2026-10-12T21:11:50.686Z",
+  "seenAt": "2026-10-12T21:11:50.686Z",
   "source": "live",
   "listings": [
     {
@@ -1969,7 +1969,7 @@
       "priceGbp": 50,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Velixir Harmonia Eau de Parfum 100ml . Discover the perfect balance of freshness and elegance with Harmonia Eau De Parfum by Velixir Parfums, a vibrant fragrance that blends crisp citrus, aromatic greens, and soft florals. Refreshing, uplifting, and effortlessly refined, Harmonia is designed for those who appreciate a scent that feels clean, modern, and naturally sophisticated. . Fresh. Green. Refined. . Harmonia opens with the bright, invigorating freshness of citrus and aromatic lemongrass, creating a vibrant and energising first impression. At its heart, delicate rose and magnolia add a smooth floral elegance, beautifully balanced by the calming character of tea. The fragrance settles into a subtle woody base, leaving a fresh, clean, and long-lasting trail that is both comforting and versatile. . Fragrance Notes: . Top Notes: Citrus, Lemongrass . Heart Notes: Tea, Rose, Magnolia . Base Notes: Woody Notes .",
       "productType": null,
@@ -7673,7 +7673,7 @@
       "priceGbp": 47.99,
       "wasPriceGbp": 63.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Step into a world of clarity and sophistication with Vision by Maison Asrar. This refined fragrance opens with the brightness of orange and green lemon, balanced by the juicy freshness of blackcurrant. As it evolves, basil, coriander, and white tea leaves create a clean, herbal heart, evoking elegance and focus. The base of musk, moss, and ambergris lingers with a subtle earthy depth, leaving a trail that’s as confident as it is timeless.. Top Notes: Orange, Green Lemon, Blackcurrant Heart Notes: Basil, Coriander, White Tea Leaves Base Notes: Musk, Moss, Ambergris.",
       "productType": null,

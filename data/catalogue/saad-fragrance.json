@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-12T17:11:29.089Z",
-  "seenAt": "2026-10-12T17:11:29.089Z",
+  "updatedAt": "2026-10-12T21:11:50.686Z",
+  "seenAt": "2026-10-12T21:11:50.686Z",
   "source": "live",
   "listings": [
     {
@@ -129,7 +129,7 @@
       "priceGbp": 26.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Riiffs Momento 100ml Extrait de Parfum features a complex blend of sugar, saffron, and mandarin top notes; tonka bean, damask rose, and agarwood middle notes; and caramel, amberwood, and cedar base notes, delivering a balanced and long-lasting fragrance profile. .",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-12T17:11:29.089Z",
-  "seenAt": "2026-10-12T17:11:29.089Z",
+  "updatedAt": "2026-10-12T21:11:50.686Z",
+  "seenAt": "2026-10-12T21:11:50.686Z",
   "source": "live",
   "listings": [
     {
@@ -14964,7 +14964,7 @@
       "priceGbp": 124.8,
       "wasPriceGbp": 156,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Colonia Essenza Eau de Cologne blends citrus freshness with amber and musk. A bold, elegant fragrance for those who value timeless style..",
       "productType": "Unisex Fragrance",
@@ -16965,7 +16965,7 @@
       "priceGbp": 32,
       "wasPriceGbp": 40,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Oud Minérale Eau de Parfum by Tom Ford fuses smoky oud with marine accords for a scent that balances depth and freshness. Salty amber and warm woods create an unexpectedly serene, mineral impression..",
       "productType": "Women's Fragrances",

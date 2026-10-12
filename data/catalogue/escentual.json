@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-12T17:11:29.089Z",
-  "seenAt": "2026-10-12T17:11:29.089Z",
+  "updatedAt": "2026-10-12T21:11:50.686Z",
+  "seenAt": "2026-10-12T21:11:50.686Z",
   "source": "live",
   "listings": [
     {
@@ -21979,7 +21979,7 @@
       "priceGbp": 170,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Bvlgari Man Wood Essence Parfum is crafted in a way only Bvlgari dares. Being the woodiest creation in the collection, its structure reveals every facet of this natural element: profound, textured, mysterious. Like a wood rooted in the ground, darker and veined with mystery.. The Notes The intense wood blend accord – patchouli, cedarwood and guaiac wood, among the others - generates a refined ambery olfactive vibrancy that radiates in a masculine elegant aura. . The Circle of Nature The elemental force is part of a deeper inspiration that unites the entire Bvlgari Man collection. At its heart lies the Circle of Nature: a visual and narrative journey through the geometry of nature, capturing the eternal essence of the elements.. For Bvlgari Man, the Circle of Nature holds profound meaning. More than just a shape, it’s a timeless and ever-flowing force that governs all life; the eternal essence of nature. . The Bottle The timeless Bvlgari Man bottle translates the inspiration of a darker wood into a more layered visual expression – a dark cap crowns a deep brown glass base that gradually fades into a lighter hue. The removable cap reveals a circular aluminium plate engraved with the BVLGARI BVLGARI logo - reflecting the Circle of Nature concept..",
       "productType": "Fragrance",
@@ -77432,7 +77432,7 @@
       "priceGbp": 31,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "\" The Lancome Teint Idole Ultra Wear All Over Face Concealer gives foundation a run for its money! Its full coverage formula and large applicator will filter your skin in all the right places.\" - Ceryn, Escentual Beauty Team.. . . . Why You'll Love The Lancome Teint Idole Ultra Wear All Over Concealer: . Full coverage concealer.. Natural, matte finish.. Skincare-infused formula.. Suitable for all skin types, including sensitive.. Ultra flexible, large applicator for precision and full face coverage.. Variety of shades with pure colour mineral pigments.. . Why It's Escentual: . The Teint Idole Ultra Wear All Over Face Concealer covers, naturally. The medium coverage formula is buildable, allowing you to even out your skin tone and conceal redness and imperfections with ease. The multi-tasking concealer contains skin-loving ingredients, including moringa extract, glycerin and waterlily, which provide 24-hour hydration and comfort and stop caking and creasing.. Every handbag needs an Ultra Wear All Over Face Concealer. It has a large doe-foot applicator with a precise tip that makes it ideal for targeted coverage or full-face coverage.. . The Best Way To Use It: . Use the applicator to apply to the skin. Blend with your ring finger or concealer brush.. . Values: . Dermatologist-tested.. .",
       "productType": "Makeup",
@@ -163587,8 +163587,8 @@
       "rawBrand": "GIVENCHY",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/givenchy_ysatis_eau_de_toilette_spray_100ml_-_old_version.png?v=1729190249",
-      "priceGbp": 75.4,
-      "wasPriceGbp": 116,
+      "priceGbp": 116,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

@@ -485,7 +485,7 @@ two region crawls set `--max-http-header-size=131072` (row 40, Nykaa).
 | Rank | Item | Saving | Risk | Class |
 |---|---|---|---|---|
 | 1 | Drop the three unread offer fields from the page's data files (UK, US, India) | 1.4 MB gzipped (24%) and 10.9 MB raw off every UK first visit, 22% less to parse; about 0.6 MB gzipped off the US file | Low, proved by identical rendered DOM and identical bundle | Needs proof: done, 9.2 |
-| 2 | `decide` without the full checkout (sparse checkout of four files, changed paths from the compare API, a compare that cannot be read deploys) | about 35 runner minutes a day; 40 s off the start of every deploy | Low: unit tests with a fake API; a dry run against the live record | Needs proof: done, 9.3 |
+| 2 | `decide` without the full checkout (one commit, no blobs, a sparse checkout of the four files the scripts read; the live commit fetched by its id, or the branch deepened, for `git diff --name-only`; a commit that cannot be found still deploys) | about 35 runner minutes a day; 40 s off the start of every deploy (measured live: 7 s instead of 40) | Low: the same `git diff` as before; `tests/deployDecision.test.ts` runs the new path against a scratch origin | Needs proof: done, 9.3 |
 | 3 | `permissions: contents: read` on the two bare workflows; delete the Apify state probe workflow | the default token's write rights off two dispatch workflows | None | Safe now: done |
 | 4 | A `typecheck` job in `tests.yml` | a type error found within minutes of a push instead of at the next agent's `tsc` | None (69 s a push) | Safe now: done |
 | 5 | `npm test` chunked; heap ceiling and process id in the chunk runner | no more whole suite kills; a runaway test names itself | None | Safe now: done |
@@ -493,7 +493,7 @@ two region crawls set `--max-http-header-size=131072` (row 40, Nykaa).
 | 7 | `layout-webkit.yml`: npm cache, retried WebKit install, step caps, pinned image; `apps-build.yml`: npm cache, step caps | a minute a run; a flaky download no longer fails the check | None | Safe now: done |
 | 8 | `undici` 8.9.0 → 8.11.2, `nanoid`, `source-map-js` in the lockfile | ten open advisories closed | Low: minor versions; the harvest gate tests run against it at the start of the next crawl | Safe now: done |
 | 9 | Guards for the mistakes list (rows 7, 13, 23 of section 6) | the next recurrence is caught by a test | None | Safe now: done |
-| 10 | Rules: CLAUDE.md, `docs/PIPELINE-FAILURE-MODES.md` rows 51 to 55, OWNER-STEPS 7d and 7e | | None | Safe now: done |
+| 10 | Rules: CLAUDE.md, `docs/PIPELINE-FAILURE-MODES.md` rows 51 to 57, OWNER-STEPS 7d and 7e | | None | Safe now: done |
 | 11 | Branch and pull request cleanup, the history rewrite of the catalogue module paths, GitHub Support's garbage collection, a ruleset against force pushes, Dependabot | about 380 MB off the repository; a safer live branch | Owner's decisions | Owner only: steps written |
 | 12 | An external, content hashed bundle (option G) | repeat visits 311 → about 60 kB gzipped; deploy output 328 → about 235 MB | Medium | Planned, not done: needs its own proof run (section 8) |
 | 13 | A slim first load index with offers on demand (option B) | about 3.2 MB gzipped off a UK first visit; heap about halved | High | Planned, not done |
@@ -530,6 +530,9 @@ two region crawls set `--max-http-header-size=131072` (row 40, Nykaa).
 - **The scratch scripts** that measured this audit are under
   `.claude/audit-tmp/` (ignored, not committed); the numbers they produced
   are in this document.
+- **The runs of the last push** (this document's results commit) are
+  watched and reported to the coordinator, not written back here: each write
+  back is another push with runs of its own.
 
 ## 9. Results
 
@@ -656,11 +659,80 @@ null. Measured on the first live runs after the push: in 9.6.
 
 ### 9.5 The whole suite
 
-(pending)
+`npm test` (now `scripts/run-tests-chunked.sh --set data --set code`) on the
+final code, 13:59 to 15:16 UTC on this 4 core machine, the Playwright pass
+and the pushes running beside it: **309 files in 16 chunks, 77 minutes;
+307 files passed, 1 failed, 1 skipped by design** (`generatedFilesBuild`
+runs only with `CHECK_BUILD_WRITES=1`, in `build-manifest.yml`). The one
+failure, `tests/adPreviewBrowser.test.ts` "keeps every frame where the
+generator puts it through chunking, windowing and scrolling back, 390 wide"
+(one of its 18 tests, 8 s), is a browser test of ad frame positions in a
+long list; it passed in GitHub's Tests #17 on the same commit (all four shards
+green, 11 to 17 minutes each), so it is load sensitive, not a regression (the
+chunk ran 714 s with three other browser heavy files); its re-run alone is
+noted at the end of this section. Peak memory of the whole run's process
+tree, Chromium included: **11.3 GB** at 37 minutes in (chunk 6; 16
+processes), which is why the suite must never run on the 7 GB class of
+machine in one process and why the shards and the data set exist; no Node
+process reached the new 4 GB heap ceiling.
+
+Test files over 60 s, all browser tests (the axe audits and page drives):
+`developerBrowser` 259 s, `setPageBrowser` 248 s, `adPreviewBrowser` 214 s,
+`sortLabelsBrowser` 211 s, `shareBrowser` 199 s, `contentPagesBrowser` 197 s,
+`accessibility` 189 s, `accountPagesBrowser` 170 s, `exploreFragrances`
+170 s, `crossLinksBrowser` 156 s, `setsOilsTabs` 128 s, `listFiltersBrowser`
+126 s, `brandInitials` 118 s, `regionSelectorBrowser` 109 s, `footerBrowser`
+103 s, `heroAlign` 90 s. None is in the crawl's data set (`tests/testSets.test.ts`
+keeps every browser test out of it); together they are most of the Tests
+workflow's 11 to 17 minutes a shard. The data set (56 files) ran in the first
+full crawl after these pushes in 226 s (run #1057, against the step's 12
+minute cap).
+
+**The one failure, run alone.** `tests/adPreviewBrowser.test.ts` on its own
+(21:28 UTC, 230 s, nothing else running) failed the same check, with 17 of
+its 18 tests passing: the cumulative layout shift of the long list at 390
+wide was 0.139 against the test's 0.01. It is not the slim data file: run
+with the test's own filter on today's data, twice on a build with the
+bundle scripts of `958d1ab0` (the offer fields kept, a 46.5 MB catalogue
+file) and twice on the slim build (36.1 MB), it failed all four times at
+the same 0.24052132701421802, identical to the last digit; the test dates
+from 5 October (`b742bba0`) and places the frames by list position, reading
+no offer field.
+It passed in GitHub's Tests #17 on the same commit. So the shift depends on
+the machine (this 4 core box, its Chromium, today's data), not on this
+pass's changes; finding the element that moves, or giving the check a
+margin, is a follow up of its own (queued as a suggested task), since the
+look of the page is outside this pass. Guard for the suite: `tests.yml`
+stays the arbiter of a browser test, and a local failure of one is re-run
+alone before it is called a regression.
 
 ### 9.6 Live checks after each push
 
-(pending)
+| Push | Commit | What ran | Outcome |
+|---|---|---|---|
+| Batch 1, the audit document | `63d51c99` (13:37 UTC) | Deploy site #1664 had already published the tip `73842617` at 12:50; the document is docs only, so the push's deploy was filtered out by the paths | Tests #14 replaced by the next push |
+| Batch 2, workflow hygiene and rules | `b67497a3` (13:50) | Build manifest check #193 success (2 m); App builds #4 success (2 m: the npm cache keyed on `apps/package-lock.json` restored); Layout check (Safari engine) #101 success (5 m: the pinned image, the cached npm and the retried WebKit download); Deploy site #1666 success (4 m), live `build-state.json` at 13:54:58 naming `b67497a3`; Tests #15 cancelled, replaced by #16 for the next push (the group's `cancel-in-progress`) | green |
+| Batch 3, the decide job | `958d1ab0` (13:53) | Deploy site #1667 success (5 m): its `decide` job on the new checkout took **7 s** (checkout 1 s, watchdog 2 s, decision 1 s; the old job's median was 40 s) and said deploy (a push); Build manifest check #194 success; Tests #16: the new `typecheck` job **passed in 2.7 min** (checkout 16 s, install 2 s from the npm cache, catalogue modules 86 s, `tsc --noEmit` 52 s) and the four shards were replaced by the next push's run | green |
+| Batch 4, the slim data file | `bd3d9018` (14:06) | Deploy site #1668 success (4 m), live from 14:03:40 (9.6a); Build manifest check #195 success (3 m); Tests #17 **success**: the four shards 11.3, 12.7, 16.9 and 17.4 minutes and the typecheck job 2.6 minutes, all green | green |
+| The next crawl and its deploys | `ce8b5bb3`, `28f06e21` (the rebuilds of 14:19 and 18:27) | Catalogue crawl #1057 (17:05, a dispatch tick, 80 m) **success** with the new lockfile and rules: harvest gate tests 9 s, Awin sync 236 s, harvest 56 m, houses 10 m, rebuild 170 s, the data tests 226 s; Deploy site #1670 after the 14:19 rebuild: `decide` **9 s** on the new checkout (the live commit fetched by its id, since the tip had moved) and a 199 s deploy; every deploy run since 14:00 green (19: 4 deployed after rebuilds, 14 decide only after crawl ticks, 1 on the schedule) | green; the live site named `28f06e21` at 18:27:50 |
+
+**9.6a The live site after the slim deploy** (curl, 14:03 to 14:05 UTC;
+`build-state.json` named `bd3d9018` from 14:03:40):
+
+| Address | Status | Raw | Gzipped | Before (13:07) |
+|---|---|---|---|---|
+| `/`, `/deals`, `/notes` | 200 | 1,100,406 / 1,100,764 / 1,100,409 | 314,831 / 314,894 / 314,847 | the same bytes |
+| `/us/`, `/in/` | 200 | 966,616 / 966,643 | 283,574 / 283,576 | the same |
+| `/dior_dune_100ml`, `/us/dior_dune_100ml` | 404 with the app | 1,100,406 | 314,831 | the same |
+| `data/catalogue.63fd96f55dbb098e.json` | 200 | **37,775,047** | **4,748,459** | 48,676,800 / 6,200,636: 10.9 MB and 1.45 MB (23%) less |
+| `us/data/catalogue.11aeda6729e21a67.json` | 200 | 17,086,487 | 1,927,510 | 22,585,645 / 2,419,471 |
+| `in/data/catalogue.1c493e4e2ccdb97e.json` | 200 | 11,218,626 | 1,353,434 | 14,158,536 / 1,748,283 |
+| `deals`, `dormant`, `fragranceLinks`, `guides`, `method`, `noteIcons`, `notes`, `priceHistory`, `regions` data files | 200 | unchanged names, so unchanged bytes | | |
+
+A UK first visit now downloads 6.0 MB gzipped instead of 7.4 (the page
+0.31, the catalogue 4.75, the price history 1.48, the rest 0.2); a visitor
+whose service worker already holds the old files downloads the one new
+catalogue file and nothing else, since every other name is the same.
 
 ## Method notes
 
