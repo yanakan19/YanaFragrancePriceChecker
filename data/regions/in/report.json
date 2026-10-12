@@ -1,26 +1,26 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-11T00:18:43.748Z",
+  "builtAt": "2026-10-12T00:25:03.434Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "crawlMinutes": 40.4,
-  "harvestRanAt": "2026-10-10T23:38:19.329Z",
-  "listingsPriced": 23001,
-  "listingsKept": 16872,
+  "crawlMinutes": 40.38,
+  "harvestRanAt": "2026-10-11T23:44:40.043Z",
+  "listingsPriced": 23008,
+  "listingsKept": 16874,
   "staleAfterDays": 7,
-  "products": 15793,
-  "productsWithTwoOrMoreShops": 2294,
+  "products": 15823,
+  "productsWithTwoOrMoreShops": 2299,
   "shareWithTwoOrMoreShops": 0.145,
-  "productsWithTwoOrMoreIndependentShops": 2294,
+  "productsWithTwoOrMoreIndependentShops": 2299,
   "shareWithTwoOrMoreIndependentShops": 0.145,
   "productsWithThreeOrMoreShops": 561,
-  "medianPriceGap": 0.164,
+  "medianPriceGap": 0.162,
   "listingBarcodeShare": 0.012,
-  "productsMatchingUkByBarcode": 95,
+  "productsMatchingUkByBarcode": 97,
   "shops": [
     {
       "id": "aar-fragrances",
@@ -35,7 +35,7 @@
     {
       "id": "fridaycharm",
       "products": 6271,
-      "shared": 1450
+      "shared": 1454
     },
     {
       "id": "naso-profumi",
@@ -44,18 +44,18 @@
     },
     {
       "id": "nykaa",
-      "products": 1544,
-      "shared": 150
+      "products": 1561,
+      "shared": 151
     },
     {
       "id": "perfume-network",
       "products": 1891,
-      "shared": 720
+      "shared": 721
     },
     {
       "id": "perfume-palace",
-      "products": 6481,
-      "shared": 1701
+      "products": 6500,
+      "shared": 1706
     },
     {
       "id": "the-man-company",
@@ -73,14 +73,14 @@
       "shared": 5
     }
   ],
-  "productsShown": 15652,
-  "productsWithUkPhoto": 2151,
+  "productsShown": 15682,
+  "productsWithUkPhoto": 2160,
   "productsWithUkPhotoByBarcode": 92,
-  "productsWithUkPhotoByName": 2059,
-  "listingsWithReference": 12402,
+  "productsWithUkPhotoByName": 2068,
+  "listingsWithReference": 12421,
   "offersWithCorroboratedReference": 1173,
   "deals": 477,
-  "shareWithUkPhoto": 0.137,
+  "shareWithUkPhoto": 0.138,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
