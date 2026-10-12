@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-10-11T14:25:10.597Z",
-  "minutes": 42.29,
+  "ranAt": "2026-10-12T17:03:32.855Z",
+  "minutes": 42.81,
   "dryRun": false,
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "listingsKept": 31238,
+  "listingsKept": 31379,
   "shops": [
     {
       "id": "perfumania",
@@ -20,7 +20,7 @@
       "kept": 4366,
       "withBarcode": 0,
       "pagesFetched": 21,
-      "seconds": 37,
+      "seconds": 39,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -46,11 +46,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 792,
-      "priced": 792,
-      "kept": 786,
-      "withBarcode": 252,
-      "pagesFetched": 370,
+      "listingsRead": 935,
+      "priced": 935,
+      "kept": 934,
+      "withBarcode": 384,
+      "pagesFetched": 427,
       "seconds": 721,
       "currency": "JSON-LD offers named: USD",
       "errors": [
@@ -59,7 +59,7 @@
       ],
       "diagnostics": [
         "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
-        "sitemap: 3465 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
+        "sitemap: 3463 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
       ]
     },
     {
@@ -73,7 +73,7 @@
       "kept": 705,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 16,
+      "seconds": 21,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -88,7 +88,7 @@
       "kept": 181,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 17,
+      "seconds": 21,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -103,7 +103,7 @@
       "kept": 540,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 12,
+      "seconds": 14,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -118,7 +118,7 @@
       "kept": 645,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 51,
+      "seconds": 60,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -128,14 +128,17 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6793,
-      "priced": 6793,
+      "listingsRead": 6792,
+      "priced": 6792,
       "kept": 852,
       "withBarcode": 0,
       "pagesFetched": 28,
-      "seconds": 61,
+      "seconds": 92,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://www.beautyhabit.com/products.json?limit=250&page=6: HTTP 503"
+      ]
     },
     {
       "id": "ds-and-durga",
@@ -148,7 +151,7 @@
       "kept": 12,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -163,7 +166,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -188,12 +191,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 167,
-      "priced": 167,
+      "listingsRead": 166,
+      "priced": 166,
       "kept": 42,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -208,7 +211,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -223,7 +226,7 @@
       "kept": 353,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 8,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -238,9 +241,12 @@
       "kept": 5101,
       "withBarcode": 4488,
       "pagesFetched": 26,
-      "seconds": 50,
+      "seconds": 75,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://beautyencounter.com/products.json?limit=250&page=6: HTTP 503"
+      ]
     },
     {
       "id": "fragrance-outlet",
@@ -253,7 +259,7 @@
       "kept": 4608,
       "withBarcode": 0,
       "pagesFetched": 23,
-      "seconds": 42,
+      "seconds": 44,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -268,7 +274,7 @@
       "kept": 4723,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 40,
+      "seconds": 44,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -278,12 +284,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1702,
-      "priced": 502,
-      "kept": 502,
+      "listingsRead": 1705,
+      "priced": 503,
+      "kept": 503,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 17,
+      "seconds": 20,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -298,7 +304,7 @@
       "kept": 307,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 17,
+      "seconds": 19,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -313,7 +319,7 @@
       "kept": 1623,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 18,
+      "seconds": 19,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -323,12 +329,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 5617,
-      "priced": 5617,
-      "kept": 4868,
+      "listingsRead": 5622,
+      "priced": 5622,
+      "kept": 4873,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 52,
+      "seconds": 56,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -338,18 +344,18 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1730,
-      "priced": 686,
-      "kept": 686,
-      "withBarcode": 686,
-      "pagesFetched": 686,
-      "seconds": 2403,
+      "listingsRead": 1342,
+      "priced": 682,
+      "kept": 681,
+      "withBarcode": 680,
+      "pagesFetched": 682,
+      "seconds": 2400,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2816 product address(es) found, first read https://www.ulta.com/p/eternity-eau-de-parfum-2505?sku=2011350"
+        "sitemap: 2816 product address(es) found, first read https://www.ulta.com/p/sakura-tokyo-eau-de-parfum-mkt77004810?sku=77007793"
       ]
     },
     {
@@ -358,12 +364,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 296,
-      "priced": 296,
-      "kept": 296,
-      "withBarcode": 247,
-      "pagesFetched": 305,
-      "seconds": 721,
+      "listingsRead": 288,
+      "priced": 288,
+      "kept": 288,
+      "withBarcode": 254,
+      "pagesFetched": 299,
+      "seconds": 722,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/: HTTP 404",
@@ -379,7 +385,7 @@
         "https://theperfumespot.com/sweet-like-candy-by-ariana-grande-3-4-oz-eau-de-parfum-spray-for-women-outlet2/: HTTP 404",
         "https://theperfumespot.com/versace-bright-crystal-absolu-by-versace-3-oz-eau-de-parfum-spray-for-women-unboxed-outlet/: HTTP 404",
         "https://theperfumespot.com/baccarat-rouge-540-by-maison-francis-kurkdjian-2-4-oz-extrait-de-parfum-spray-for-unisex-outlet/: HTTP 404",
-        "sitemap: 7922 product address(es) found, first read https://theperfumespot.com/la-surprise-by-parfums-mdci-2-5-oz-edp-spray-for-women/"
+        "sitemap: 7923 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
       ]
     },
     {
