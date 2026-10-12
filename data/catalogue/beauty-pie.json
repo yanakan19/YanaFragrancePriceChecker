@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-12T05:07:24.561Z",
-  "seenAt": "2026-10-12T05:07:24.561Z",
+  "updatedAt": "2026-10-12T09:18:34.595Z",
+  "seenAt": "2026-10-12T09:18:34.595Z",
   "source": "live",
   "listings": [
     {
@@ -589,7 +589,7 @@
       "priceGbp": 59,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A bright, airy, ethereal all-season scent that drifts between a floral freshness and a sophisticated softness. Jasmine, Rhubarb and Pear settle into Orris, Violet and the merest trace of Peppermint, settling into soft Musk, Moss and warm Tonka Bean. A breath of nature, made modern..",
       "productType": null,
@@ -3464,7 +3464,7 @@
       "priceGbp": 7.8,
       "wasPriceGbp": 12,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A soft silicone body buffer with specially-shaped nodules to both buff and massage. Turns your shower into a one-stop body-polishing, circulation-boosting, skin-smoothing, glow-giving, extra-firming spa treatment. (Just add body wash.) In Beauty Pie pink, of course..",
       "productType": "Accessories",
