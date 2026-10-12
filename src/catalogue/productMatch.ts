@@ -821,6 +821,12 @@ export interface MergeGroup<T extends MatchableProduct> {
   canonical: T;
   /** Everything folded into it, canonical excluded. */
   absorbed: T[];
+  /**
+   * The name the merged product should show, where the group knows a better one
+   * than the canonical record's own: the plain name of a pair that differed only
+   * by an audience word (audienceNames.ts). Absent for every other group.
+   */
+  name?: string;
 }
 
 export interface FindDuplicateOptions<T> {
@@ -854,7 +860,7 @@ export interface FindDuplicateOptions<T> {
  * the same UPC padded to thirteen digits are one code, not two. Two codes that
  * are neighbours in the maker's numbering are refused too: see neighbouringItems.
  */
-function barcodeEditionsNeverMeet<T extends MatchableProduct>(
+export function barcodeEditionsNeverMeet<T extends MatchableProduct>(
   bucket: readonly T[],
   shopsOf: (product: T) => Iterable<string>,
 ): boolean {

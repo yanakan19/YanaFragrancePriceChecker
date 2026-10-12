@@ -37,6 +37,10 @@ export const CHANGELOG: ChangelogEntry[] = [
         heading: 'New',
         points: ['More shop and brand logos'],
       },
+      {
+        heading: 'Products and Matching',
+        points: ['Same scent no longer listed twice'],
+      },
     ],
   },
   {

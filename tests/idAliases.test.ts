@@ -187,6 +187,11 @@ describe('reading the last build', () => {
     expect([...productIdsIn(perLine)]).toEqual(['ean-1', 'set-ean-2']);
   });
 
+  it('reads a dormant entry whichever key it opens with', () => {
+    const text = 'export const DORMANT_PRODUCTS = {"a-1":{"brand":"A","slug":"a_b_50ml","older":[{"retailerId":"s"}]},"b-2":{"slug":"c_d_50ml","brand":"C"}};';
+    expect([...dormantIdsIn(text)].sort()).toEqual(['a-1', 'b-2']);
+  });
+
   it('reads exactly the dormant pages from their generated file', () => {
     const text = readFileSync(resolve(root, 'demo/dormant.generated.ts'), 'utf8');
     expect([...dormantIdsIn(text)].sort()).toEqual(Object.keys(DORMANT_PRODUCTS).sort());
