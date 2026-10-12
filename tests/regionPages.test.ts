@@ -18,6 +18,16 @@ import { SITE_URL } from '../demo/head.js';
 const demo = resolve(REPO_ROOT, 'demo');
 const built = existsSync(join(demo, 'us/index.html')) && existsSync(join(demo, 'sitemap-gb.xml'));
 const read = (rel: string): string => readFileSync(join(demo, rel), 'utf8');
+
+/** A region's compiled catalogue module, as the bundle read it (dist-demo/regions/<r>/, written by scripts/build-region-data.ts). */
+function regionModule(prefix: string): { CRAWLED: Record<string, { retailerId: string; imageUrl: string | null }[]> } {
+  const file = resolve(REPO_ROOT, 'dist-demo/regions', prefix, 'catalogue.generated.js');
+  const source = readFileSync(file, 'utf8');
+  // One module, no imports of its own: run it as a script with its `export`s turned into assignments.
+  const sandbox: Record<string, unknown> = {};
+  runInNewContext(source.replace(/^export const /gm, 'this.').replace(/^export function /gm, 'this.$FN = function ').replace(/this\.\$FN = function (\w+)/g, 'this.$1 = function $1').replace(/^export \{[^}]*\};?$/gm, ''), sandbox);
+  return sandbox as { CRAWLED: Record<string, { retailerId: string; imageUrl: string | null }[]> };
+}
 const US = regionById('US')!;
 const IN = regionById('IN')!;
 const GB = regionById('GB')!;
@@ -155,15 +165,19 @@ describe.skipIf(!built)('the built region pages', () => {
       const pictured = products.filter((p) => p.image !== null);
       expect(pictured.length, `${r.id} products with a UK picture`).toBeGreaterThan(100);
       expect(pictured.length, `${r.id} products with a UK picture`).toBeLessThan(products.length);
-      const crawled0 = blobs.find((b): b is Record<string, { imageUrl: string | null }[]> => !!b && typeof b === 'object' && !Array.isArray(b) && Object.keys(b).length > 1000)!;
-      const photoHosts = new Set(Object.values(crawled0).flat().map((o) => o.imageUrl).filter((u): u is string => u !== null).map((u) => new URL(u).host));
+      // The shops' own photo addresses come from the region's module: the page's
+      // data file leaves an offer's imageUrl out since 2026-10-12, because no page
+      // code reads it (scripts/slimOffers.ts); the module keeps every field.
+      const moduleOffers = Object.values(regionModule(r.pathPrefix).CRAWLED).flat();
+      expect(moduleOffers.length, `${r.id} offers in the module`).toBeGreaterThan(1000);
+      const photoHosts = new Set(moduleOffers.map((o) => o.imageUrl).filter((u): u is string => u !== null).map((u) => new URL(u).host));
       // A picture is a UK listing's, or an address on the host of a shop of this region: never a path in our own folders.
       const strangers = [...new Set(pictured.map((p) => p.image!))].filter((i) => !ukImages.has(JSON.stringify(i)) && !photoHosts.has(new URL(i).host));
       expect(strangers, `${r.id} pictures that are neither a UK listing's nor a shop's own`).toEqual([]);
       expect(pictured.filter((p) => !/^https:\/\//.test(p.image!)).length, `${r.id} pictures that are not an address on a shop`).toBe(0);
-      const crawled = blobs.find((b): b is Record<string, { imageUrl: unknown; retailerId: string }[]> => !!b && typeof b === 'object' && !Array.isArray(b) && Object.keys(b).length > 1000)!;
+      expect(moduleOffers.filter((o) => o.imageUrl !== null && !/^https:\/\//.test(o.imageUrl)).length, `${r.id} offer photos that are not an address on a shop`).toBe(0);
+      const crawled = blobs.find((b): b is Record<string, { retailerId: string }[]> => !!b && typeof b === 'object' && !Array.isArray(b) && Object.keys(b).length > 1000)!;
       const offers = Object.values(crawled).flat();
-      expect(offers.filter((o) => o.imageUrl !== null && !/^https:\/\//.test(o.imageUrl as string)).length, `${r.id} offer photos that are not an address on a shop`).toBe(0);
       const shops = new Set(offers.map((o) => o.retailerId));
       for (const ukShop of ['lookfantastic', 'boots', 'notino', 'escentual']) expect(shops.has(ukShop), `${ukShop} on the ${r.id} page`).toBe(false);
       // The page's own registry is the region's: no UK shop's domain in its code.

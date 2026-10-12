@@ -279,6 +279,7 @@ code tests/sitemapDiscoveryComplete.test.ts
 code tests/sitemapRoute.test.ts
 data tests/sitemapShops.test.ts
 code tests/sizeFromUrl.test.ts
+data tests/slimOffers.test.ts
 code tests/slowShopRetry.test.ts
 code tests/socialLaunchVideo.test.ts
 code tests/socialPictures.test.ts

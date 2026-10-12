@@ -59,6 +59,7 @@ import { BLOBS_GLOBAL, LAZY_CONTENT_MODULES, LAZY_DATA_MODULES, type DataGroup, 
 import { applyNumbering, localMarker, numberGroups } from './dataNumbering.js';
 import { buildNoteData, buildNoteIconLookup, NOTE_DATA_FILE, NOTE_ICON_FILE, publishNoteIcons, readNoteGroupInputs } from './noteData.js';
 import { pruneContext, pruneMovedBlobs, removedSets, resolveSiteBuild } from './siteBuild.js';
+import { slimMovedBlobs } from './slimOffers.js';
 import { REGION_LINKS_FILE } from './regionPages.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -106,8 +107,11 @@ const dataAsJson: Plugin = {
       const local: unknown[] = [];
       const { code: moved_, moved } = moveLiteralsToJson(source, local);
       pruneMovedBlobs(module, moved, local, 0, removed, prune);
+      // The page's data file leaves out the offer fields no page code reads
+      // (scripts/slimOffers.ts); the module on disk keeps them.
+      const slimmed = slimMovedBlobs(module, moved, local, 0);
       perModule.set(module, local);
-      if (moved.length) report.push(`${name}: ${moved.length} literal(s) moved`);
+      if (moved.length) report.push(`${name}: ${moved.length} literal(s) moved${slimmed ? `, ${slimmed} offers without the fields the page never reads` : ''}`);
       const code = moved_.replace(/__psData\((\d+)\)/g, (_m, i: string) => localMarker(module, Number(i)));
       return { contents: code, loader: 'js' };
     });

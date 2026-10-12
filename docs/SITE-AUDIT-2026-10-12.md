@@ -543,15 +543,116 @@ file in 9.2.
 
 ### 9.2 The slim data file
 
-(pending)
+`scripts/slimOffers.ts` drops `imageUrl`, `firstSeenAt` and `isNew` from the
+offers the bundle publishes (`bundle-demo.ts` and `bundle-region.ts`, right
+after the removed brands are pruned); the generated module keeps every field.
+Built from the same inputs as the live page of 12:50 UTC (`73842617`), the
+page itself came out byte for byte identical to the live page once the data
+file names, the build stamp and the deploy's dashboard script (which only the
+deploy adds) are set aside, in all three regions; the bundle is the same
+because the slimming touches the moved data blobs and never the code.
+
+| Published file | Before | After | Saving |
+|---|---|---|---|
+| UK `data/catalogue.*.json` | 48.68 MB raw, 5.93 MB gzipped | 36.0 MB raw (writes as 37.8 MB on disk: the report rounds), 4.53 MB gzipped | 10.9 MB raw, 1.4 MB gzipped (24%) |
+| US `us/data/catalogue.*.json` | 22.59 MB raw, 2.42 MB gzipped | 16.3 MB raw | about 6.3 MB raw |
+| India `in/data/catalogue.*.json` | 14.16 MB raw, 1.75 MB gzipped | 10.7 MB raw | about 3.5 MB raw |
+
+**Proof that the visitor sees the same thing.**
+
+1. Every published offer equals the module's offer minus exactly the three
+   fields, for all 67,205 UK, 31,801 US and 18,652 Indian offers (0 other
+   differences); the product entries (35,512, 22,885, 15,629), the house
+   products and the history aliases are byte identical to the module's
+   (`.claude/audit-tmp/prove-slim.mjs`).
+2. The bundle reads none of the three fields: 0 occurrences of `.isNew` and
+   `.firstSeenAt` in `dist-demo/bundle.js`; the one `.imageUrl` is
+   `priceService`'s copy into an offer row nothing reads
+   (`tests/slimOffers.test.ts` holds this).
+3. The rendered page: 60 captures of the DOM after `data-app-ready` plus 3 s
+   (home, a product, a brand, Deals, Notes x UK, US, India x light, dark x
+   390 and 1280 wide; `.claude/audit-tmp/capture-dom.mjs`) before and after,
+   with the data file names and build stamp normalised. Two captures of the
+   same build first, for the noise floor: 59 of 60 identical, the one
+   difference a shop photo that loaded in one run and not the other (an
+   external image). Before against after: 56 of 60 identical as they are, and
+   60 of 60 once the offer age labels are normalised ("checked 4 hours ago"
+   became "5 hours ago": the clock crossed an hour between the two capture
+   runs, and the label comes from `fetchedAt`, a field both builds keep). The
+   inline scripts of all 60 pairs are byte identical.
+4. The data tests that read the built files pass on the slim build:
+   `slimOffers`, `regionPages` (its photo host check now reads the region
+   module, which keeps `imageUrl`), `demoDataFiles`, `dataLiterals`,
+   `routePages`, `demoBuildFreshness`, `regionRails`, `priceHistoryLazy`
+   (113 tests).
+
+**Measured after**, the same script and settings as 1a (13:54 to 13:57 UTC):
+
+| Region | Page | Data gz / raw MB (before) | Total gz MB (before) | App ready (before) | JS heap after GC (before) | SW data cache |
+|---|---|---|---|---|---|---|
+| UK | home | 5.8 / 59.0 (7.1 / 69.3) | 6.1 (7.4) | 6,690 ms (6,982) | 84.0 MB (93.9) | 60.4 MB (70.8) after the home page |
+| UK | product | 5.8 / 59.1 (7.1 / 69.5) | 6.1 (7.4) | 11,930 ms (14,140) | 84.4 MB (94.3) | |
+| UK | brand | 5.8 / 59.1 (7.1 / 69.5) | 6.7 (8.0) | 6,885 ms (8,146) | 84.4 MB (94.3) | |
+| UK | deals | 5.8 / 59.0 (7.1 / 69.3) | 6.1 (7.4) | 7,161 ms (8,053) | 85.4 MB (95.3) | |
+| UK | notes | 5.8 / 59.1 (7.2 / 69.5) | 6.1 (7.5) | 6,422 ms (6,950) | 85.0 MB (94.9) | |
+| US | home | 1.9 / 18.5 (2.4 / 23.8) | 2.2 (2.7) | 3,644 ms (3,478) | 28.0 MB (33.0) | 78.9 MB (94.6) after the UK and US home pages |
+| US | product | 2.0 / 18.7 (2.4 / 23.9) | 2.2 (2.7) | 5,125 ms (4,956) | 28.2 MB (33.2) | |
+| US | brand | 2.0 / 18.7 (2.4 / 23.9) | 2.2 (2.7) | 4,189 ms (4,282) | 28.4 MB (33.4) | |
+| US | deals | 1.9 / 18.5 (2.4 / 23.8) | 2.2 (2.7) | 3,736 ms (4,186) | 28.6 MB (33.6) | |
+| IN | home | 1.5 / 12.9 (1.8 / 15.7) | 1.7 (2.1) | 2,909 ms (2,617) | 19.4 MB (22.0) | |
+| IN | product | 1.5 / 12.9 (1.8 / 15.7) | 1.7 (2.1) | 2,913 ms (3,330) | 19.5 MB (22.2) | |
+| IN | brand | 1.5 / 12.9 (1.8 / 15.7) | 1.7 (2.1) | 3,164 ms (3,348) | 19.7 MB (22.4) | |
+| IN | deals | 1.5 / 12.9 (1.8 / 15.7) | 1.7 (2.1) | 2,678 ms (2,705) | 19.8 MB (22.4) | |
+
+Gzipped on this machine (level 6) the three published files are 4.58 MB
+(UK), 1.86 MB (US) and 1.32 MB (India); the live host's gzip is a little
+tighter (6.20 MB for the old UK file against 5.93 here). So a UK first visit
+downloads about 1.4 MB (18%) less, parses 10 MB less and holds a tenth less
+heap; the US and Indian visits about 0.5 MB and 0.4 MB less. The timings at
+4x CPU move with the bytes parsed where the catalogue dominates (the UK
+product page 14.1 → 11.9 s, the brand page 8.1 → 6.9 s) and are within run
+to run noise on the small region pages (± 0.4 s). The page's DOM node
+counts and tile counts are identical in every row. The service worker's UK
+data cache holds 60.4 MB instead of 70.8.
 
 ### 9.3 The deploy's `decide` job
 
-(pending)
+Before: `actions/checkout` with `fetch-depth: 0` and `filter: blob:none` (the
+whole history's commits and trees, then every blob of the tip for the
+working tree: 1,717 files, 313 MB), `actions/setup-node`, then the two
+scripts. 697 such runs in 14 days, median 40 s, p90 2 minutes.
+
+After: `fetch-depth: 1`, `filter: blob:none` and a sparse checkout of the four
+files the scripts read (`scripts/deploy-decision.mjs`,
+`scripts/deploy-watchdog.mjs`, `demo/CNAME`, `demo/supabase.ts`), the runner's
+own Node (the scripts are plain JavaScript), and `gitChangedPaths` fetches the
+live commit by its id with `--depth=1 --filter=blob:none` when it is not the
+tip (GitHub serves any reachable commit by id), deepens the branch by 200
+commits up to three times if that is refused, and answers "not in the
+history" (a deploy) if it is still missing. `git diff --name-only` reads
+trees only, so no blob is downloaded. The decision itself (`decide()`) is
+untouched, and `tests/deployDecision.test.ts` runs the new path against a
+scratch origin: a one commit clone, the live commit fetched by id, the same
+paths as before; the id fetch refused, the branch deepened; an unknown commit,
+null. Measured on the first live runs after the push: in 9.6.
 
 ### 9.4 Workflow and hygiene changes
 
-(pending)
+| Change | Where | Checked by |
+|---|---|---|
+| `permissions: contents: read` | `harvest-one-shop.yml` | `tests/workflowRules.test.ts` "declares the token permissions it needs" (every workflow) |
+| Deleted (Apify actor, off since D23; last run 22 August) | `state-probe-one-shop.yml`; `scripts/apify-state-probe.ts` kept | `tests/packageScripts.test.ts` (the npm script still resolves) |
+| Pinned image, npm cache, retried WebKit download, every step capped | `layout-webkit.yml` | `tests/workflowRules.test.ts` (caps) |
+| npm cache keyed on `apps/package-lock.json`, every step capped and named | `apps-build.yml` | same |
+| `typecheck` job: catalogue modules, then `tsc --noEmit -p tsconfig.json` | `tests.yml` | `tests/workflowRules.test.ts` "type checks the whole repository" |
+| `npm test` is the chunked runner over both sets | `package.json` | `tests/testSets.test.ts` |
+| Heap ceiling per chunk (`TEST_HEAP_MB`, 4096), `kill <pid>` printed, the chunk's own process group stopped with it | `scripts/run-tests-chunked.sh` | `tests/testSets.test.ts` |
+| Disk and `.git` garbage warning | `.claude/hooks/session-start.sh` | run by every session start |
+| No bare `chromium.launch(` or `webkit.launch(` in a test | `tests/testHygiene.test.ts` | itself |
+| Region crawls keep `--max-http-header-size` | `tests/workflowRules.test.ts` | itself |
+| `undici` 8.9.0 → 8.11.2, `nanoid` 3.3.16 → 3.3.20, `source-map-js` 1.2.1 → 1.2.2 | `package-lock.json` (`npm audit fix --package-lock-only`; the shared `node_modules` of this machine was not touched) | the crawl's "Test the harvest before crawling" gate and the typecheck job install it on the next runs |
+| The two garbage pack files | `/home/user/YanaFragrancePriceChecker/.git/objects/pack/tmp_pack_7d1IOB`, `tmp_pack_fMRmNU` (98 MiB) removed; `git fsck --connectivity-only` passed (two dangling trees, harmless) | `git count-objects -v`: `garbage: 0` |
+| Rules | `CLAUDE.md` (tests, disk, permissions), `docs/PIPELINE-FAILURE-MODES.md` rows 51 to 57, `docs/OWNER-STEPS.md` 7d (three more branches, three pull requests) and 7e (ruleset, Dependabot, token default, `git gc`) | |
 
 ### 9.5 The whole suite
 
