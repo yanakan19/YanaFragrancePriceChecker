@@ -325,6 +325,18 @@ describe('a shop\'s marketing or status after a pipe', () => {
     expect(displayName('Farwah Oriental Eau De Parfum | Unisex Fragrance 100 ml', 'Maryaj', 'Maryaj')).toBe('Farwah Oriental');
   });
 
+  // Debenhams' own titles, data/catalogue/debenhams.json, 2026-10-12. Stated
+  // here as fixed titles so the rule is checked whether or not a harvest
+  // brings the two listings (crawls #1030 and #1066 failed the catalogue test
+  // above on them; the ones in between, without them, passed).
+  it('takes a French Arabian marketing phrase off a name', () => {
+    const brand = 'French Arabian Perfume';
+    expect(displayName('Arabian Rouge 100ml Eau De Parfum | Turkish Rose Fragrance for Unisex', brand, brand)).toBe('Arabian Rouge');
+    expect(displayName('Dinar Wardi 100ml Eau De Parfum | Luxurious Oriental Floral Scent', brand, brand)).toBe('Dinar Wardi');
+    // "for Unisex" alone is not a descriptor: with nothing in front of it the segment stays.
+    expect(displayName('Eternity | For Unisex', 'Example', 'Example')).toBe('Eternity | For Unisex');
+  });
+
   it('never leaves a recall status in a name', () => {
     expect(displayName('Burberry Weekend Edp 50ml Spray | DNL RECALLED', 'Burberry', 'Burberry')).toBe('Weekend');
     for (const p of CATALOGUE) expect(p.name, p.name).not.toMatch(/\brecalled\b|\|\s*dnl\b/i);

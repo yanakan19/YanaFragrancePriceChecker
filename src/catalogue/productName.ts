@@ -2157,6 +2157,12 @@ const NAME_NOISE_SEGMENT_WORDS: ReadonlySet<string> = new Set([
   // Amber" (2026-10-08). "Bold" is deliberately not here: Commodity's "Book |
   // Bold" is a variant name (see the vocabulary test in stripTrailingNoiseSegment).
   'juicy', 'oriental',
+  // Debenhams' French Arabian titles, data/catalogue/debenhams.json
+  // (2026-10-12): "Arabian Rouge 100ml Eau De Parfum | Turkish Rose Fragrance
+  // for Unisex" and "Dinar Wardi 100ml Eau De Parfum | Luxurious Oriental
+  // Floral Scent". Marketing copy; the shop's own description names the
+  // bottles "Arabian Rouge" and "Dinar Wardi".
+  'turkish', 'luxurious', 'scent', 'scents',
 ]);
 
 /**
@@ -2181,10 +2187,12 @@ const NOISE_SEGMENT_SIZE_LABEL_RE =
 
 /**
  * The audience a shop closes a descriptor with ("Bold Woody Fragrance For Men &
- * Women"). Taken off a segment only when descriptor words remain in front of
- * it, so "Eternity | For Him" keeps its words.
+ * Women", Debenhams' "Turkish Rose Fragrance for Unisex"). Taken off a segment
+ * only when descriptor words remain in front of it, so "Eternity | For Him"
+ * keeps its words.
  */
-const NOISE_SEGMENT_AUDIENCE_TAIL_RE = /\s+for\s+(?:men|women|him|her)(?:\s*(?:&|and)\s*(?:men|women))?$/i;
+const NOISE_SEGMENT_AUDIENCE_TAIL_RE =
+  /\s+for\s+(?:unisex|(?:men|women|him|her)(?:\s*(?:&|and)\s*(?:men|women))?)$/i;
 
 /**
  * A trailing segment that is a release marker — "New 2023", "New 2026
