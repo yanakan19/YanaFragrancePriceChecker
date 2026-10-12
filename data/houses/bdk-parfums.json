@@ -1,7 +1,7 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-10-12T14:13:31.031Z",
-  "seenAt": "2026-10-12T14:13:31.031Z",
+  "updatedAt": "2026-10-12T18:17:53.300Z",
+  "seenAt": "2026-10-12T18:17:53.300Z",
   "source": "live",
   "listings": [
     {
@@ -378,7 +378,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Le duo Eau de Parfum et Parfum pour Cheveux.",
       "productType": "Product Bundle",
@@ -1730,7 +1730,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Eau de Parfum.",
       "productType": "eau de parfum",
@@ -3004,7 +3004,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Eau de Lessive . 1L .",
       "productType": "Lessive",

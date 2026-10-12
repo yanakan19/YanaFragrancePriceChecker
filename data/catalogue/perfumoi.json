@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-12T13:07:45.850Z",
-  "seenAt": "2026-10-12T13:07:45.850Z",
+  "updatedAt": "2026-10-12T17:11:29.089Z",
+  "seenAt": "2026-10-12T17:11:29.089Z",
   "source": "live",
   "listings": [
     {
@@ -3188,7 +3188,7 @@
       "priceGbp": 34,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Abercrombie & Fitch Fierce Cologne is a woody fragrance created for customers who enjoy a modern, grounded scent. It opens with bright notes of lemon, orange, and cardamom, balanced by fresh woody fir accords and a subtle sea breeze. The heart presents a refined floral blend, settling into a smooth and confident base of vetiver, musk, oakmoss, rosewood, and sandalwood.. Suitable for day or evening wear, this cologne offers a stylish and versatile option that feels polished and sophisticated. Its layered composition makes it a great choice for those seeking a woody scent with balanced freshness and warmth.. Why customers choose it Well-suited for everyday use and special occasions. A great option for daily wear or gifting. Designed for customers who prefer fresh and woody scents.",
       "productType": "Cologne",

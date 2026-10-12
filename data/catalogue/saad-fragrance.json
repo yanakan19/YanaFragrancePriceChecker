@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-12T13:07:45.850Z",
-  "seenAt": "2026-10-12T13:07:45.850Z",
+  "updatedAt": "2026-10-12T17:11:29.089Z",
+  "seenAt": "2026-10-12T17:11:29.089Z",
   "source": "live",
   "listings": [
     {
@@ -1578,7 +1578,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Liquid Brun French Avenue 100ml Eau de Parfum features a complex scent profile, beginning with top notes of Cinnamon, Orange Blossom, Cardamom, and Bergamot. The heart reveals Bourbon Vanilla and Elemi, leading to a rich base of Praline, Ambroxan, Guaiac Wood, and Musk. This composition offers an elegant, long-lasting fragrance experience. .",
       "productType": null,

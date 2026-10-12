@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-12T14:13:36.957Z",
-  "seenAt": "2026-10-12T14:13:36.957Z",
+  "updatedAt": "2026-10-12T18:17:57.699Z",
+  "seenAt": "2026-10-12T18:17:57.699Z",
   "source": "live",
   "listings": [
     {
@@ -223,7 +223,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Join our Founder Jo for a virtual Christmas masterclass filled with personal traditions, festive inspiration and the joy of gifting. During this 30–40 minute experience, Jo will unveil the Christmas traditions she treasures and share her secrets for making the season feel special. From thoughtful gifts to those little touches that make a celebration memorable, discover Christmas through Jo’s eyes. Jo will also introduce this year’s Jo Loves Christmas collection, sharing the stories and inspiration behind her festive creations. A moment to get inspired, embrace the season and bring a little Jo Loves magic into your own Christmas. To bring a little of that magic home, every ticket includes a mystery goody bag from Jo, filled with surprises to discover. You’ll also be able to redeem the full value of your ticket against Jo Loves purchases.",
+      "description": "Join our Founder Jo for a virtual Christmas masterclass filled with personal traditions, festive inspiration and the joy of gifting. During this 30–40 minute experience, Jo will unveil the Christmas traditions she treasures and share her secrets for making the season feel special. From thoughtful gifts to those little touches that make a celebration memorable, discover Christmas through Jo’s eyes. Jo will also introduce this year’s Jo Loves Christmas collection, sharing the stories and inspiration behind her festive creations. A moment to get inspired, embrace the season and bring a little Jo Loves magic into your own Christmas. To bring a little of that magic home, every ticket includes a mystery goody bag from Jo, filled with surprises to discover. You’ll also receive a £20 voucher to redeem against Jo Loves purchases..",
       "productType": null,
       "nativePrice": null,
       "retailerId": "jo-loves",
@@ -3970,7 +3970,7 @@
       "priceGbp": 35,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Replenish your favorite scent on the move with Jo by Jo Loves Fragrance Paintbrush Refill, Jo's personal creation. Grapefruit inspires her, symbolizing rawness and sweetness. This signature scent, featuring Grapefruit, Orange, Lime, Spearmint, Hedione, Black Pepper, Guaiac Wood, Vetiver, and Cedarwood, embodies her essence. Packaged in her signature red, it's her daily must-have. Jo's everyday go-to fragrance, which she affectionately refers to it as 'Parfum Jo.' Her olfactory signature, it's as synonymous with her as the iconic Red Dot.",
       "productType": null,
@@ -4614,7 +4614,7 @@
       "priceGbp": 39,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Discover the scent of your dreams with Jo Loves Pomelo Bath & Shower Gel! Inspired by sun-kissed beaches and creative bliss, this luxurious formula gently cleanses and nourishes your skin, leaving it delicately fragranced with a captivating blend of rose, pomelo, vetiver, clove, patchouli, and suede. Indulge in a moment of pure relaxation and let the scent of holidays, sun, and water transport you to your own personal paradise. Experience the joy of creativity and the comfort of home with every use.",
       "productType": null,

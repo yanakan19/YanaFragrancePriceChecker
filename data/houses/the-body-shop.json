@@ -1,9 +1,32 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-12T14:13:35.239Z",
-  "seenAt": "2026-10-12T14:13:35.239Z",
+  "updatedAt": "2026-10-12T18:17:56.572Z",
+  "seenAt": "2026-10-12T18:17:56.572Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "1049328",
+      "url": "https://www.thebodyshop.com/products/hand-care-trio",
+      "rawTitle": "Hand Care Trio",
+      "rawBrand": "The Body Shop",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1049328_G2TRIOHANDCAREXM26A0X_FRONT_HERO_FAFAFA_INAKUPS106.jpg?v=1790867698",
+      "priceGbp": 18,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Their hands will love the three little beauties inside our Hand Care Trio Gift Set. .",
+      "productType": "New Product",
+      "nativePrice": null,
+      "retailerId": "the-body-shop",
+      "firstSeenAt": "2026-10-12T18:17:56.572Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "1049241",
       "url": "https://www.thebodyshop.com/products/guarana-and-coffee-energising-moisturiser-for-men",
@@ -421,7 +444,7 @@
     {
       "retailerSku": "1049478",
       "url": "https://www.thebodyshop.com/products/cranberry-essentials",
-      "rawTitle": "Cranberry Essentials",
+      "rawTitle": "Frosted Cranberry & Mint Leaves Essentials",
       "rawBrand": "The Body Shop",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1049478_G3ESSENTIALSCRANBERRYXM26A0X_HERO_FAFAFA_INAKUPS104.jpg?v=1790612642",
@@ -444,7 +467,7 @@
     {
       "retailerSku": "1049470",
       "url": "https://www.thebodyshop.com/products/cranberry-favourites",
-      "rawTitle": "Cranberry Favourites",
+      "rawTitle": "Frosted Cranberry & Mint Leaves Favourites",
       "rawBrand": "The Body Shop",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1049470_G2MINICRANBERRYXM26A0X_HERO_FAFAFA_INAKUPS076_1.jpg?v=1790611579",
@@ -4146,7 +4169,7 @@
     },
     {
       "retailerSku": "1047298",
-      "url": "https://www.thebodyshop.com/products/black-musk-collection",
+      "url": "https://www.thebodyshop.com/products/black-musk-collection-gift-sets",
       "rawTitle": "Black Musk Collection",
       "rawBrand": "The Body Shop",
       "ean": null,
@@ -9727,8 +9750,9 @@
       "nativePrice": null,
       "retailerId": "the-body-shop",
       "firstSeenAt": "2026-08-11T08:11:43.358Z",
-      "status": "active",
-      "delistedAt": null,
+      "lastSeenAt": "2026-10-12T14:13:35.239Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-12T18:17:56.572Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-12T13:07:45.850Z",
-  "seenAt": "2026-10-12T13:07:45.850Z",
+  "updatedAt": "2026-10-12T17:11:29.089Z",
+  "seenAt": "2026-10-12T17:11:29.089Z",
   "source": "live",
   "listings": [
     {
@@ -7075,7 +7075,7 @@
       "priceGbp": 76,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Discover a captivating new expression of La Vie Est Belle with Elixir Cherry Eau de Parfum. Defined by its distinctive cherry-inspired character, this feminine fragrance offers a rich and alluring scent experience in a compact 30ml bottle..",
       "productType": "Women's Fragrances",
@@ -16574,7 +16574,7 @@
       "priceGbp": 71.2,
       "wasPriceGbp": 89,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Vanilla Sex All Over Body Spray by Tom Ford elevates scent layering with an enveloping, sensual finish. Designed to amplify the signature and transform everyday wear with a confident edge..",
       "productType": "Women's Fragrances",
@@ -23934,7 +23934,7 @@
       "priceGbp": 124.95,
       "wasPriceGbp": 147,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Libre Eau de Parfum is an iconic floral fragrance that balances fresh lavender with warm orange blossom and sensual vanilla for a bold, feminine signature scent..",
       "productType": "Women's Fragrances",
