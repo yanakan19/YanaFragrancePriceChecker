@@ -940,6 +940,29 @@ with a repository variable `SIGNED_COMMITS` = `off` (D19).
 
 ---
 
+
+### 7f. Letting agents delete branches and rewrite history without asking (12 October 2026)
+
+The session's safety check will not let an agent edit its own permissions, so
+this one step is yours. It takes a minute.
+
+1. Open `docs/claude-settings.proposed.json` in the repository, copy its whole
+   contents over `.claude/settings.json`, commit it to the live branch (or paste
+   it in on GitHub and commit). It allows ordinary work (git, tests, builds) and
+   the two destructive jobs, **behind a guard**.
+2. The guard is `.claude/hooks/require-backup.sh`, already in the repository. It
+   refuses a force push of the live branch or a history rewrite unless a
+   `backup/pre-rewrite-*` branch made in the last 24 hours is on origin, and
+   refuses a branch deletion unless an `archive/<branch>-*` tag is on origin.
+   `scripts/backup-before-destructive.sh` makes both (CLAUDE.md, Destructive
+   jobs). The live branch itself can never be deleted through it.
+3. To get the fall back copy yourself at any time, in any clone:
+   `git push origin <live tip>:refs/heads/backup/pre-rewrite-$(date -u +%Y%m%d-%H%M)`.
+   Restoring from it, if a rewrite ever goes wrong:
+   `git push --force-with-lease=<live branch>:<current tip> origin <backup tip>:refs/heads/<live branch>`.
+4. Delete a `backup/*` branch or an `archive/*` tag only when you are sure the
+   job it covered is fine; agents never do.
+
 ### 7e. GitHub settings only you can change (10 minutes; audit of 12 October 2026)
 
 Found by `docs/SITE-AUDIT-2026-10-12.md`, section 5. None of these stops
