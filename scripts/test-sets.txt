@@ -314,3 +314,5 @@ code tests/regionPreferencePending.test.ts
 code tests/regionProfile.test.ts
 code tests/regionSaveFailedBrowser.test.ts
 code tests/socialLaunchVideoIn.test.ts
+data tests/brandDuplicates.test.ts
+code tests/htmlEntities.test.ts

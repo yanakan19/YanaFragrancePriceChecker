@@ -28,6 +28,7 @@
 import type { StoredListing } from './types.js';
 import { trustworthyEan } from './productMatch.js';
 import { isGiftSet, normalisedSetTitle } from './giftSet.js';
+import { entityEncodedForms } from './htmlEntities.js';
 
 /** Old id to the id of the product that now holds it. */
 export type IdAliases = Record<string, string>;
@@ -67,6 +68,14 @@ export function listingIdForms(
   if (typeof full.rawTitle === 'string' && isGiftSet(full)) {
     const title = normalisedSetTitle(full.rawTitle);
     if (title) forms.add(`set-${title}`);
+    // The title as the shop's markup spelt it before its entities were decoded
+    // (2026-10-11): "Roger &amp; Gallet ... Gift Set" was `set-roger-amp-gallet-...`
+    // and is `set-roger-gallet-...` now. Only an id that was a page is kept (see
+    // the header), so a spelling no shop ever used adds nothing.
+    for (const encoded of entityEncodedForms(full.rawTitle)) {
+      const old = normalisedSetTitle(encoded);
+      if (old && old !== title) forms.add(`set-${old}`);
+    }
     if (ean) forms.add(`set-ean-${ean}`);
   }
   return [...forms];

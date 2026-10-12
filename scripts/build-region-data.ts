@@ -90,7 +90,7 @@ function dealsModule(site: RegionSite): string {
 }
 
 function dormantModule(site: RegionSite): string {
-  return `${HEADER(site.region, 'Products with no current prices (none yet)')}${exportLines({ DORMANT_PRODUCTS: {}, ID_ALIASES: {}, SLUG_ALIASES: {} })}\n`;
+  return `${HEADER(site.region, 'Products with no current prices (none yet), and the pages folded into another')}${exportLines({ DORMANT_PRODUCTS: {}, ID_ALIASES: site.idAliases, SLUG_ALIASES: site.slugAliases })}\n`;
 }
 
 function priceHistoryModule(site: RegionSite): string {

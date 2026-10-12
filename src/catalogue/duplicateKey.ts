@@ -20,7 +20,7 @@
  * Homme ...), every edition word (Tester, Limited, Refill, Travel, Set) and
  * the size, and it does not treat a stated strength and a missing one as equal.
  */
-import { brandKey, brandPrefixKeys, KNOWN_ALIASES } from './brandName.js';
+import { brandKey, brandPrefixKeys, knownAlias } from './brandName.js';
 
 export interface KeyableProduct {
   brand: string;
@@ -31,9 +31,8 @@ export interface KeyableProduct {
 
 /** The brand reduced to one alias key, so "Paco Rabanne" and "Rabanne" meet. */
 export function brandAliasKey(brand: string): string {
-  const k = brandKey(brand);
-  const alias = KNOWN_ALIASES[k];
-  return alias ? brandKey(alias) : k;
+  const alias = knownAlias(brand);
+  return alias ? brandKey(alias) : brandKey(brand);
 }
 
 /** Lowercase, accent free, punctuation free words. Apostrophes vanish. */

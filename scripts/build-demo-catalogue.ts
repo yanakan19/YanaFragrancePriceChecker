@@ -44,6 +44,7 @@ import { HOUSES } from '../src/config/houses.js';
 import { HOUSE_STRENGTH_EVIDENCE } from '../src/catalogue/houseStrengthEvidence.js';
 import {
   buildBrandCanon,
+  tidyBrandSpelling,
   armafLineName,
   recoverBrandFromTitle,
   shopNameCore,
@@ -88,6 +89,7 @@ import {
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
 import { brandAliasKey, nameCore } from '../src/catalogue/duplicateKey.js';
+import { decodeHtmlEntities, decodeListingNames } from '../src/catalogue/htmlEntities.js';
 import { resolveOunceListing } from '../src/catalogue/ounceSizes.js';
 import {
   buildKnownHouseProducts, giftSetName, giftSetRecord, isGiftSet, mergeGiftSetRecords, registerKnownHouseProducts,
@@ -714,7 +716,7 @@ const brandCanon = (() => {
       const retailer = RETAILERS.find((r) => r.id === snap.retailerId);
       for (const l of snap.listings) {
         if (l.status !== 'active') continue;
-        const effective = retailer ? resolveRawBrand(l, retailer) : l.rawBrand;
+        const effective = retailer ? resolveRawBrand(decodeListingNames(l), retailer) : l.rawBrand;
         if (effective) seen.push(effective);
       }
     }
@@ -733,10 +735,20 @@ const brandCanon = (() => {
   return buildBrandCanon(seen);
 })();
 
-/** The chosen spelling for a brand, or the raw one if it was never grouped. */
+/** The chosen spelling for a brand, or its tidied raw one if it was never grouped. */
 function canonBrand(raw: string | null | undefined): string | null {
   if (!raw) return null;
-  return brandCanon.get(raw.trim()) ?? raw.trim();
+  return brandCanon.get(raw.trim()) ?? brandCanon.get(tidyBrandSpelling(raw)) ?? (tidyBrandSpelling(raw) || null);
+}
+
+/**
+ * A stored shop's text as the build reads it: HTML entities decoded, then a
+ * mojibake repaired (in that order: "&Atilde;&copy;" is "Ã©", which repairMojibake
+ * turns into "é"). The crawl stores decoded text since 2026-10-11 (reconcile.ts);
+ * this repeats it for a snapshot stored before, so a rebuild needs no re-crawl.
+ */
+function shopText(text: string): string {
+  return repairMojibake(decodeHtmlEntities(text));
 }
 
 const products = new Map<string, Product>();
@@ -816,7 +828,7 @@ if (existsSync(dir)) {
     // so they are read for src/catalogue/idAliases.ts: where a delisted
     // listing is an earlier state of a variant that is live now, its id opens
     // the live product.
-    for (const stored of snapshot.listings) if (stored.status !== 'active') formerListings.push(stored);
+    for (const stored of snapshot.listings) if (stored.status !== 'active') formerListings.push(decodeListingNames(stored));
     const allActive = snapshot.listings.filter((l) => l.status === 'active');
     const importedOnly = retailer.adapter === 'owner-import';
     const active = allActive.filter((l) => !isTooOldToShow(l.lastSeenAt, now, importedOnly));
@@ -830,8 +842,8 @@ if (existsSync(dir)) {
         if (!isTooOldToShow(stored.lastSeenAt, now, importedOnly)) continue;
         tooOldListings.push({
           ...stored,
-          rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
-          rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
+          rawTitle: ownSizeTitle(shopText(stored.rawTitle)),
+          rawBrand: stored.rawBrand === null ? null : shopText(stored.rawBrand),
         });
       }
     }
@@ -853,8 +865,8 @@ if (existsSync(dir)) {
       retailer,
       listings: active.map((stored) => ({
         ...stored,
-        rawTitle: ownSizeTitle(repairMojibake(stored.rawTitle)),
-        rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
+        rawTitle: ownSizeTitle(shopText(stored.rawTitle)),
+        rawBrand: stored.rawBrand === null ? null : shopText(stored.rawBrand),
       })),
     });
   }
@@ -2215,12 +2227,12 @@ if (existsSync(housesDir)) {
       // card as both "Ashore 100ml" and a 100ml badge. stripRedundantSize
       // only removes it where the two plainly agree; see its own comment for
       // the cases it deliberately leaves alone.
-      const size = sizeMl(l.rawTitle);
+      const size = sizeMl(shopText(l.rawTitle));
       houseProducts.push({
         id: `${id}-${l.retailerSku}`.replace(/[^a-z0-9-]/gi, '-').toLowerCase(),
         house: houseName,
         brand: canonBrand(l.rawBrand) ?? houseName,
-        name: stripRedundantSize(l.rawTitle, size),
+        name: stripRedundantSize(shopText(l.rawTitle), size),
         sizeMl: size,
         url: l.url,
         // A house's own photography of its own bottle, hot-linked exactly like

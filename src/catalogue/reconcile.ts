@@ -1,5 +1,6 @@
 import type { RawListing, ReconcileResult, StoredListing } from './types.js';
 import { listingKey } from './types.js';
+import { decodeListingNames } from './htmlEntities.js';
 
 /**
  * Reconcile one crawl against what we already had for a retailer.
@@ -49,7 +50,11 @@ export function reconcile(options: ReconcileOptions): ReconcileResult {
   const relistedIds: string[] = [];
   const result: StoredListing[] = [];
 
-  for (const raw of crawled) {
+  for (const crawledListing of crawled) {
+    // The shop's text is read into the store here, whichever route it came by,
+    // so a title or vendor name that arrived with HTML entities in it ("Dolce
+    // &amp; Gabbana") is stored as the name it spells. See htmlEntities.ts.
+    const raw = decodeListingNames(crawledListing);
     const key = listingKey(retailerId, raw.retailerSku);
 
     // A retailer can list the same product in two sections. First one wins.
