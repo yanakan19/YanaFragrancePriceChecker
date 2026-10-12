@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-11T21:15:18.764Z",
-  "seenAt": "2026-10-11T21:15:18.764Z",
+  "updatedAt": "2026-10-12T01:10:42.542Z",
+  "seenAt": "2026-10-12T01:10:42.542Z",
   "source": "live",
   "listings": [
     {
@@ -109471,7 +109471,7 @@
       "priceGbp": 42.83,
       "wasPriceGbp": 66,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Narciso Rodriguez Mini Set for Her. The Narciso Rodriguez Miniature Set for Her is a refined fragrance gift set for women who love elegant musky perfumes. Each miniature bottle captures the signature Narciso Rodriguez style. Clean musk blends with soft florals and warm woods. This travel-friendly set is ideal for discovery, gifting, or keeping favourite scents in your handbag.. The Narciso Rodriguez Mini Set for Her offers four distinct interpretations of modern musk. For Her EDT features rose and peach over amber and patchouli. For Her EDP adds richer rose with soft amber warmth. Pure Musc highlights clean musk layered with delicate florals and cashmeran. Musc Noir Rose brings plum, rose and vanilla for a deeper sensual feel. Explore more scents in our Fragrance and Womens Perfume collections.. Key features:. Includes four miniature fragrances: For Her EDT, For Her EDP, Pure Musc, and Musc Noir Rose. Each bottle contains 7.5ml, ideal for travel or trying the range. Signature musky floral compositions with rose, amber, plum and vanilla notes. Elegant gift set suitable for fragrance lovers or special occasions.",
       "productType": "Gift Set",
@@ -136082,7 +136082,7 @@
       "priceGbp": 12.4,
       "wasPriceGbp": 25,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Clarins Hydrating Toning Lotion 200ml For Normal To Dry Skin.",
       "productType": "Toners",

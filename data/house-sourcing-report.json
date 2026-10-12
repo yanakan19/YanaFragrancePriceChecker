@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-11T22:21:10.152Z",
+  "checkedAt": "2026-10-12T02:16:16.349Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -142,12 +142,10 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 59,
+      "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 58,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 59,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -534,9 +532,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 198,
-      "pricedInGbp": 198,
-      "withPhoto": 197,
+      "listings": 206,
+      "pricedInGbp": 206,
+      "withPhoto": 205,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

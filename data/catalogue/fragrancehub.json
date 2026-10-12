@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-11T21:15:18.764Z",
-  "seenAt": "2026-10-11T21:15:18.764Z",
+  "updatedAt": "2026-10-12T01:10:42.542Z",
+  "seenAt": "2026-10-12T01:10:42.542Z",
   "source": "live",
   "listings": [
     {
@@ -4568,7 +4568,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "9PM Night Out is a statement of confidence, created for nights that leave a lasting impression. From the first moment, it feels energetic and polished - bright, vibrant, and immediately captivating, setting the tone for what’s to come. As the fragrance unfolds, it reveals a smooth, modern warmth with an elegant edge. There’s a refined sensuality at its core - confident, stylish, and magnetic, balancing freshness with depth in a way that feels effortless and contemporary. When it settles on the skin, the scent becomes deeper and more intense, wrapping itself in warmth and richness that lingers long after the moment has passed. Bold yet refined, 9PM Night Out leaves a powerful signature, one that speaks without words and defines the night as yours. . Top Notes: Dragon Fruit, Bergamot, Cognac, Lavender, Apple . Heart Notes: Cardamom, Mahonial, Suede, Toffee, Cedar . Base Notes: Tonka Bean, Akigalawood, Ambrofix, Patchouli. . .",
       "productType": null,
@@ -6497,7 +6497,7 @@
       "rawBrand": "French Avenue",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Untitleddesign_28.jpg?v=1760706659",
-      "priceGbp": 58,
+      "priceGbp": 59.99,
       "wasPriceGbp": 69.99,
       "promoEndsAt": null,
       "inStock": true,
@@ -10177,7 +10177,7 @@
       "rawBrand": "Rasasi",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/8b4308ec-b468-44c0-963f-e6aa6484d919.jpg?v=1743863093",
-      "priceGbp": 27.5,
+      "priceGbp": 25.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
       "inStock": true,
