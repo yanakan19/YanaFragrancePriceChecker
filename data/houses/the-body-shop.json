@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-11T10:07:11.780Z",
-  "seenAt": "2026-10-11T10:07:11.780Z",
+  "updatedAt": "2026-10-12T02:16:12.510Z",
+  "seenAt": "2026-10-12T02:16:12.510Z",
   "source": "live",
   "listings": [
     {
@@ -3947,7 +3947,7 @@
       "priceGbp": 12.5,
       "wasPriceGbp": 25,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Celebrate them with this indulgent mango gift set. .",
       "productType": "Bath and Body gifts",
@@ -9605,7 +9605,7 @@
       "priceGbp": 35,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Whisk their senses away to a tropical island with our Mango Collection. This exotic gift set features body care with notes of mango, for fans of fruity scents. .",
       "productType": "Bath and Body gifts",

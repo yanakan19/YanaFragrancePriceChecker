@@ -1,5 +1,5 @@
 {
-  "repricedAt": "2026-10-11T09:00:12.009Z",
+  "repricedAt": "2026-10-12T01:08:38.962Z",
   "dryRun": false,
   "outcomes": [
     {
@@ -8,7 +8,7 @@
       "reason": "repriced from the storefront",
       "products": 9346,
       "storefrontCurrency": "GBP",
-      "active": 8897,
+      "active": 8896,
       "keyed": 8894,
       "agreed": 8894,
       "corrected": 0,

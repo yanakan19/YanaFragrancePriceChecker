@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-10T23:38:19.329Z",
-  "minutes": 40.4,
+  "ranAt": "2026-10-11T23:44:40.043Z",
+  "minutes": 40.38,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 16872,
+  "listingsKept": 16874,
   "shops": [
     {
       "id": "nykaa",
@@ -15,18 +15,18 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 901,
-      "priced": 901,
-      "kept": 899,
+      "listingsRead": 887,
+      "priced": 887,
+      "kept": 883,
       "withBarcode": 218,
-      "pagesFetched": 901,
+      "pagesFetched": 887,
       "seconds": 2401,
       "currency": "JSON-LD offers named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 3074 product address(es) found, first read https://www.nykaa.com/dior-poison-eau-de-toilette/p/950939"
+        "sitemap: 3063 product address(es) found, first read https://www.nykaa.com/guerlain-mon-guerlain-eau-de-parfum/p/394712"
       ]
     },
     {
@@ -51,12 +51,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7783,
-      "priced": 7783,
-      "kept": 6529,
+      "listingsRead": 7805,
+      "priced": 7805,
+      "kept": 6549,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 98,
+      "seconds": 90,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -71,7 +71,7 @@
       "kept": 6309,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 78,
+      "seconds": 69,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -86,7 +86,7 @@
       "kept": 1894,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 21,
+      "seconds": 20,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -96,12 +96,12 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 745,
-      "priced": 745,
-      "kept": 693,
+      "listingsRead": 743,
+      "priced": 743,
+      "kept": 691,
       "withBarcode": 0,
-      "pagesFetched": 746,
-      "seconds": 2403,
+      "pagesFetched": 744,
+      "seconds": 2402,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -136,7 +136,7 @@
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 15,
+      "seconds": 14,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -196,7 +196,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 10,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -211,7 +211,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 12,
-      "seconds": 36,
+      "seconds": 41,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
@@ -240,12 +240,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 958,
-      "priced": 958,
+      "listingsRead": 959,
+      "priced": 959,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 12,
+      "seconds": 11,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },

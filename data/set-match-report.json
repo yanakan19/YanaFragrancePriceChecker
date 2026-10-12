@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 228,
+ "folded": 226,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -947,38 +947,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0849017009398",
-   "absorbed": [
-    "set-izod-red-gift-set-15ml-edt-200ml-body-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017009398",
-     "brand": "Izod",
-     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "0849017009398",
-     "scent": "red",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-izod-red-gift-set-15ml-edt-200ml-body-spray",
-     "brand": "Izod",
-     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "red",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0849017014552",
    "absorbed": [
     "set-mustang-red-gift-set-100ml-edt-100ml-aftershave-balm-100ml-shower-gel"
@@ -1774,38 +1742,6 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3346130438243",
-   "absorbed": [
-    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3346130438243",
-     "brand": "Hermès",
-     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
-     "concentration": "Eau de Toilette",
-     "ean": "3346130438243",
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
-     "brand": "Hermès",
-     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -4239,6 +4175,38 @@
    ]
   },
   {
+   "canonical": "set-ean-5056446640541",
+   "absorbed": [
+    "set-charlotte-tilbury-charlotte-s-fragrance-collection-of-emotions-perfume-travel-trio-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5056446640541",
+     "brand": "Charlotte Tilbury",
+     "name": "Charlotte's Fragrance Collection Of Emotions Perfume Travel Trio Set",
+     "concentration": "Not stated",
+     "ean": "5056446640541",
+     "scent": "charlotte collection emotions travel trio",
+     "signature": "3p",
+     "shops": [
+      "space-nk"
+     ]
+    },
+    {
+     "id": "set-charlotte-tilbury-charlotte-s-fragrance-collection-of-emotions-perfume-travel-trio-fragrance-gift-set",
+     "brand": "Charlotte Tilbury",
+     "name": "Charlotte's Fragrance Collection of Emotions Perfume Travel Trio Fragrance Gift Set",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "charlotte collection emotions travel trio",
+     "signature": "3p",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-5060426155062",
    "absorbed": [
     "set-sarah-jessica-parker-born-lovely-gift-set-10ml-edp-rollerball-mirror"
@@ -5382,38 +5350,6 @@
      "ean": null,
      "scent": "absolu bright crystal",
      "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003829224",
-   "absorbed": [
-    "set-versace-gift-set-30ml-bright-crystal-edt-30ml-bright-crystal-absolu-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003829224",
-     "brand": "Versace",
-     "name": "Gift Set 30ml Bright Crystal EDT + 30ml Bright Crystal Absolu EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003829224",
-     "scent": "absolu bright crystal",
-     "signature": "1x30fragrance|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-gift-set-30ml-bright-crystal-edt-30ml-bright-crystal-absolu-edp",
-     "brand": "Versace",
-     "name": "Gift Set 30ml Bright Crystal EDT + 30ml Bright Crystal Absolu EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "absolu bright crystal",
-     "signature": "1x30fragrance|1x30fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -7240,6 +7176,8 @@
   },
   {
    "reasons": [
+    "two different barcodes: 5050456005697, 5050456009404",
+    "a shop lists more than one: perfume-click",
     "price spread 1.63 is over 1.5"
    ],
    "members": [
@@ -7266,6 +7204,20 @@
      "shops": [
       "perfume-click",
       "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-5050456009404",
+     "brand": "Cerruti",
+     "name": "1881 Pour Homme Eau de Toilette 100ml Spray Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "5050456009404",
+     "scent": "1881 homme pour",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "paco-perfumerias-uk",
+      "perfume-click",
+      "scentstore"
      ]
     }
    ]
@@ -9045,49 +8997,6 @@
   },
   {
    "reasons": [
-    "a shop lists more than one: mybeauty-boutique"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3349668628346",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Olympea Gift Set 50ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3349668628346",
-     "scent": "olympea paco rabanne",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-olympea-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-75ml",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Olympéa 2 Piece Gift Set: Eau De Parfum 50ml - Body Lotion 75ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "olympea paco rabanne",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-olympea-50ml-edp-body-lotion-75ml-gift-set",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Olympea - 50ml EDP + Body Lotion 75ml Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "olympea paco rabanne",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3349668643141, 3349668656158",
     "a shop lists more than one: perfume-direct"
    ],
@@ -9961,6 +9870,37 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3614273624060, 3614274341195"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614273624060",
+     "brand": "Prada",
+     "name": "Luna Rossa Ocean 100ml Eau de Toilette + 10ml Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3614273624060",
+     "scent": "luna ocean rossa",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "fragrance-click"
+     ]
+    },
+    {
+     "id": "set-ean-3614274341195",
+     "brand": "Prada",
+     "name": "Luna Rossa Ocean Eau de Toilette 100ml Spray + 10ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3614274341195",
+     "scent": "luna ocean rossa",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3614274102680, 3614274707397"
    ],
    "members": [
@@ -10810,7 +10750,7 @@
   },
   {
    "reasons": [
-    "price spread 1.69 is over 1.5"
+    "price spread 1.86 is over 1.5"
    ],
    "members": [
     {
@@ -11486,6 +11426,50 @@
   },
   {
    "reasons": [
+    "two different barcodes: 8435415005388, 8435415019187, 8435415092524",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415005388",
+     "brand": "Jean Paul Gaultier",
+     "name": "Classique Gift Set Eau de Toilette Spray 50 ml + Body Lotion 75 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415005388",
+     "scent": "1 classique stk",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-8435415019187",
+     "brand": "Jean Paul Gaultier",
+     "name": "Classique Gift Set Eau de Toilette Spray 50 ml + Body Milk 75 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415019187",
+     "scent": "1 classique stk",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-8435415092524",
+     "brand": "Jean Paul Gaultier",
+     "name": "Classique Gift set Classique Eau de Toilette 50 ml + Body Lotion 75 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415092524",
+     "scent": "1 classique stk",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 8435415081269, 8435415092630"
    ],
    "members": [
@@ -11574,7 +11558,8 @@
      "scent": "divine",
      "signature": "1x50fragrance|1x75body",
      "shops": [
-      "beautybase"
+      "beautybase",
+      "parfumdreams-uk"
      ]
     },
     {
@@ -12059,6 +12044,37 @@
      "signature": "6x1.5fragrance",
      "shops": [
       "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "a shop lists more than one: mybeauty-boutique"
+   ],
+   "members": [
+    {
+     "id": "set-paco-rabanne-olympea-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-75ml",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Olympéa 2 Piece Gift Set: Eau De Parfum 50ml - Body Lotion 75ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "olympea paco rabanne",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-paco-rabanne-olympea-50ml-edp-body-lotion-75ml-gift-set",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Olympea - 50ml EDP + Body Lotion 75ml Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "olympea paco rabanne",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]

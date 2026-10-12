@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-11T09:01:54.839Z",
-  "seenAt": "2026-10-11T09:01:54.839Z",
+  "updatedAt": "2026-10-12T01:10:42.542Z",
+  "seenAt": "2026-10-12T01:10:42.542Z",
   "source": "live",
   "listings": [
     {
@@ -37,7 +37,7 @@
       "priceGbp": 32.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "French Avenue Spectre Ghost 80ml Eau de Parfum combines spicy top notes of Ginger, Cardamom, and Bergamot with a heart of Pink Pepper, Blackcurrant, and Rose, anchored by a base of Vanilla, Cedarwood, and Patchouli, offering a balanced and lasting olfactory experience. .",
       "productType": null,

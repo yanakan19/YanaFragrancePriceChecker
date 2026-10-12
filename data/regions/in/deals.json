@@ -2,9 +2,9 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-11T00:18:43.748Z",
+ "builtAt": "2026-10-12T00:25:03.434Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 12402,
+ "listingsWithReference": 12421,
  "offersWithCorroboratedReference": 1173,
  "deals": [
   {
@@ -1728,6 +1728,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-rasasi-blue-for-men",
+   "price": 1813.9,
+   "delivered": false,
+   "wasPrice": 2750,
+   "percentOff": 34,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-rasasi-shuhrah-femme",
    "price": 2750,
    "delivered": false,
@@ -2182,16 +2192,6 @@
    "price": 26950,
    "delivered": false,
    "wasPrice": 38390,
-   "percentOff": 29,
-   "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-rasasi-hawas-ice-freeze",
-   "price": 4673.9,
-   "delivered": false,
-   "wasPrice": 6600,
    "percentOff": 29,
    "retailerId": "perfume-palace",
    "kind": "retailer",
@@ -2758,16 +2758,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-rasasi-blue-for-men",
-   "price": 1799,
-   "delivered": false,
-   "wasPrice": 2399,
-   "percentOff": 25,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-nasomatto-china-white-edp-unisex-30ml",
    "price": 12870,
    "delivered": false,
@@ -3048,7 +3038,7 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-gucci-bamboo-edp-75ml",
+   "fragranceId": "ean-0737052925127",
    "price": 8499,
    "delivered": false,
    "wasPrice": 11100,
@@ -3394,6 +3384,16 @@
    "wasPrice": 9240,
    "percentOff": 19,
    "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-rasasi-hawas-ice-freeze",
+   "price": 4250,
+   "delivered": false,
+   "wasPrice": 5250,
+   "percentOff": 19,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
