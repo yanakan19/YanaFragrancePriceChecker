@@ -515,7 +515,7 @@ that the fix list in section 4 would correct to "Caraway".
 
 ---
 
-## 6. As built (2026-10-09, owner's approved design)
+## 6. As built (2026-10-09, owner's approved design; 1:1 and the 9:16 safe area 2026-10-12)
 
 The owner approved a mock (`social/_today/guess-the-fragrance-aventus-mock-3x4-v5.png`
 in the owner's working copy, not committed) and these changes to sections 1 to 4.
@@ -529,14 +529,48 @@ the title "Guess the Fragrance" always on one line, a small red "Today's puzzle"
 line above it, and the footer "Comment your guess." with `pricesniffs.space`
 (the mock shows both, which replaces the plan's "no web address on the picture").
 **No "answer tomorrow" text anywhere**, on the pictures, the alt text or the
-caption. Posts are always **4:3 vertical, 1080 x 1440** (`guess-3x4`,
-`reveal-3x4`); the 1:1 and the video of sections 1.1 and 1.9 are not built.
-A **9:16 version** (1080 x 1920, `guess-9x16`, `reveal-9x16`) is the same
-layout scaled to 0.86 and placed from y 300, which keeps it inside the Stories
-safe zone (y 250 to 1670); the lowest line sits near y 1540, below TikTok's
-y 1460, so on TikTok the footer line can sit under its caption (decided: the
-footer is the least important line, and a smaller picture would drop the notes
-under 22 px).
+caption. The feed picture is **3:4 vertical, 1080 x 1440** (`guess-3x4`,
+`reveal-3x4`); the video of section 1.9 is not built.
+A **9:16 version** (1080 x 1920, `guess-9x16`, `reveal-9x16`) and a **1:1 version**
+(1080 x 1080, `guess-1x1`, `reveal-1x1`) are built from the same code; the rules
+for both are in "Safe areas and the three shapes" below. The video is still not built.
+
+**Safe areas and the three shapes (12 October 2026).** Each picture has a safe
+box (`SAFE` in `scripts/social-guess-html.ts`); every box of text, tile and
+photo, the logo and the footer included, stays inside it, and
+`tests/guessFragranceLayout.test.ts` checks it in Chromium for the worst cases.
+
+| Picture | Size | Safe box | How it is laid out |
+|---|---|---|---|
+| `*-3x4` | 1080 x 1440 | x 72 to 1008, y 52 to 1388 (its own margins) | The approved layout, unchanged (a puzzle's PNG is byte for byte what it was before 12 October) |
+| `*-9x16` | 1080 x 1920 | **TikTok's box, x 110 to 970, y 380 to 1460** (DESIGN-SYSTEM.md section 4): clear of its tabs above, its caption and buttons below, its icons on the right | The 3:4 layout's 936 px wide block scaled to 0.919 (860 px wide) in a block exactly 1080 px tall, so its last line ends on y 1460 |
+| `*-1x1` | 1080 x 1080 | x 135 to 945, y 90 to 990 (Instagram's profile grid shows a square as its middle 810 px) | Drawn at its own sizes in the 810 x 900 box, not scaled |
+
+The 9:16 used to be the 3:4 scaled to 0.86 from y 300. Its footer text ran from
+**y 1461 to 1494** (the block ended at y 1538), under TikTok's caption line. Now
+the footer ends on **y 1460** and nothing is below it, nothing above y 380.
+Both new shapes keep at least 20 px between blocks (`MIN_GAP`), and the fit order
+is a rule, in `FIT_PAGE`:
+
+1. The note tiles, icons and gaps shrink together (`--k`, as in every picture).
+2. 9:16 only: down to 0.7, the whole block then shrinks, never below 0.80 (so
+   26 px text is never drawn under 20.8 px). Then the tiles go on shrinking to 0.5.
+3. 1:1: the tiles shrink to 0.5 (a 64 px tile, 46 px icon at 1, so 32 px at the
+   floor); the tests hold the worst case, 12 of the longest note names in the
+   catalogue with a three line name, to a tile of at least 40 px. No note is
+   ever dropped, no name is cut, no text is under 20 px as drawn.
+
+The 1:1 differences, so that 12 notes keep a legible size in 810 x 900: no
+small red "Today's puzzle" line on the puzzle (the reveal keeps "The answer"),
+title 76 px, words column 628 px with 20 px House and Fragrance labels, the
+house and name first tried on one line each at up to 68 px (the tight budget)
+and only then as the roomier 2 and 3 line plan, tiles 64 px with 46 px icons,
+note names 21 px, tier names 20 px. The 1:1 reveal puts the photo (372 px) left
+of the house, name, strength and size, with the price box full width below and
+the footer "Did you get it?" under it. A puzzle that fits the 3:4 always fits the
+1:1 (`tests/guessFragrancePick.test.ts` checks the whole catalogue: 9,316 products
+on 12 October, the tightest at 52 px); if a house or name ever did not, the
+script says so and writes no 1:1 picture for it.
 
 **Labels and blanks.** "House" and "Fragrance" labels sit left of the words in
 a two column grid, right aligned, and are centred vertically on the capital
@@ -577,11 +611,11 @@ puzzle's `no` is its series number and names the folder). A real run adds it;
 this file lists the answers, so **commit it only with the puzzle folder, when
 posting**. The reveal run sets `revealed`.
 
-**Folders.** `YYYY-MM-DD-guess-fragrance-NN/` holds `guess-3x4` and `guess-9x16`
-(HTML and PNG), `caption.txt`, `alt.txt`, `check.json` (the answer, what is shown,
+**Folders.** `YYYY-MM-DD-guess-fragrance-NN/` holds `guess-3x4`, `guess-9x16` and
+`guess-1x1` (HTML and PNG), `caption.txt`, `alt.txt`, `check.json` (the answer, what is shown,
 the notes and their source and icon, the scores, every rule's result),
 `pictures.json` and `source.md`. `YYYY-MM-DD-guess-fragrance-NN-reveal/` holds
-`reveal-3x4` and `reveal-9x16`, `caption.txt`, `check.json` and `pictures.json`.
+`reveal-3x4`, `reveal-9x16` and `reveal-1x1`, `caption.txt`, `check.json` and `pictures.json`.
 `--out-root <dir>` and `--history <file>` write elsewhere (the samples live in
 `social/_today/guess/`, which is ignored by git).
 
@@ -596,14 +630,15 @@ refuses and asks for `--name`. The price is the product's own cheapest offer
 today, at the most stocked size that has one; `--no-price` and `--no-photo` are
 the owner's explicit fallbacks (the plan's 2.4).
 
-**Not built.** The 1:1 pictures, the video (`social-video-guess.ts`, the
-`guess-video` make), the "PUZZLE n" pill, and the `social:guess:video` script. The
+**Not built.** The video (`social-video-guess.ts`, the `guess-video` make; another
+agent builds it later), the "PUZZLE n" pill, and the `social:guess:video` script. The
 Social pictures workflow draws the folders as they are (every picture is `html`).
 
 **Tests.** `tests/guessFragranceMask.test.ts` (every row of the table in 1.6 and
 the invariants), `guessFragrancePick.test.ts` (each rule, rests, variety,
-determinism, no candidate), `guessFragranceLayout.test.ts` (the worst cases in
-Chromium: safe box, logo flush right, one line title, no overlap, minimum size,
-contrast), `guessFragranceCaptions.test.ts` (finds `*-guess-fragrance-*` folders
+determinism, no candidate, and that every catalogue product that fits the 3:4 fits the
+1:1), `guessFragranceLayout.test.ts` (the worst cases in Chromium, all three shapes:
+safe box, 9:16 footer above y 1460, logo flush right, one line title, no overlapping
+text, minimum size, contrast, the 12 longest note names), `guessFragranceCaptions.test.ts` (finds `*-guess-fragrance-*` folders
 by name; answer words never leak into the puzzle caption, alt text or HTML).
 

@@ -15,9 +15,9 @@
  *   --allow-repeat        let a chosen product break the no repeat / brand rest rules (recorded)
  *
  * Output, two folders per round, neither named after the answer:
- *   social/posts/YYYY-MM-DD-guess-fragrance-NN/         guess-3x4 and guess-9x16 (.html/.png), caption.txt,
+ *   social/posts/YYYY-MM-DD-guess-fragrance-NN/         guess-3x4, guess-9x16 and guess-1x1 (.html/.png), caption.txt,
  *                                                       alt.txt, check.json (THE ANSWER), pictures.json, source.md
- *   social/posts/YYYY-MM-DD-guess-fragrance-NN-reveal/  reveal-3x4 and reveal-9x16, caption.txt, check.json, pictures.json
+ *   social/posts/YYYY-MM-DD-guess-fragrance-NN-reveal/  reveal-3x4, reveal-9x16 and reveal-1x1, caption.txt, check.json, pictures.json
  *
  * check.json holds the answer and the repository is public: commit and push a
  * puzzle folder only when posting, with a commit message that names no
@@ -416,7 +416,13 @@ async function runPuzzle(outRoot: string, historyFile: string, today: string) {
   mkdirSync(dir, { recursive: true });
   const browser = await launchChromium();
   for (const f of FORMATS) {
-    const html = puzzleHtml(view, layout, f);
+    // The square has its own blank layout (a narrower words column); a puzzle that fits the 3:4 and not the square gets no 1:1 picture.
+    const own = layoutOf(pick.text, f);
+    if (!own) {
+      console.log(`  No ${f.file} picture: the house and name do not fit it at 40px or more.`);
+      continue;
+    }
+    const html = puzzleHtml(view, own, f);
     writeFileSync(join(dir, `guess-${f.file}.html`), html);
     await renderSmooth(browser, html, f.w, f.h, join(dir, `guess-${f.file}.png`));
   }
@@ -442,7 +448,7 @@ async function runPuzzle(outRoot: string, historyFile: string, today: string) {
   );
   writeFileSync(
     join(dir, 'source.md'),
-    `# Guess the Fragrance, puzzle ${no}\n\nMade by \`npm run social:guess\` (scripts/social-guess-fragrance.ts) on ${today}. The pictures are drawn from guess-3x4.html and guess-9x16.html; the answer is in check.json and is private until the reveal.\n`,
+    `# Guess the Fragrance, puzzle ${no}\n\nMade by \`npm run social:guess\` (scripts/social-guess-fragrance.ts) on ${today}. The pictures are drawn from guess-3x4.html, guess-9x16.html and guess-1x1.html; the answer is in check.json and is private until the reveal.\n`,
   );
   recordPictures(dir);
   const entry: HistoryEntry = { date: today, no, id: pick.rep.id, key: pick.key, brand: pick.rep.brand, gender: pick.gender, tier: pick.tierName, band: pick.band, revealed: null };
