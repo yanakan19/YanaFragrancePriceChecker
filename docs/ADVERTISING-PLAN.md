@@ -59,7 +59,7 @@ Nothing in Phase 1 shows ads or loads Google's ad script.
 | 5 | **Copied or scraped material** | Product photos and descriptions come from shops and feeds. | Keep shop names and links on every copied description ("from the shop's listing"); prefer feed images (Awin) where licensed. Not worth a rebuild during review. | Leave unless refused |
 | 6 | **Ad placement near affiliate links** (later policy risk, not a review item) | Price rows and shop buttons are affiliate links; an ad mistaken for one, or placed where a tap meant for a shop lands on it, is "encouraging accidental clicks". | Already designed out: no ads in the price rail, price boxes or offer rows; product block sits under the whole price list, labelled "Advertisement", dashed frame. Keep it that way. | None now |
 | 7 | **Too new, too little traffic** | Google does not publish a traffic bar but refuses sites it considers "not ready". | Keep shipping visible updates (the changelog does this) and keep the crawl running. Nothing to build. | None |
-| 8 | **Self clicks, altered code, pop ups** | Account level risk. | Owner never clicks or previews live ads; nobody edits Google's code; the site has no pop ups and should add none. | Owner |
+| 8 | **Self clicks, altered code, pop ups** | Account level risk. | Owner never clicks or previews live ads; nobody edits Google's code; the site has no pop ups and should add none. **13 Oct 2026:** the "Select your country" pop-up (on from 9 Oct) is switched off again for the review (`REGION_WELCOME_ON = false`, `src/config/regions.ts`); switch it on after approval. | Owner |
 
 Already fine, no work: `/ads.txt`; meta tag; privacy notice at
 `/about/legal#privacy` with cookies section; sitemap lists priced pages only

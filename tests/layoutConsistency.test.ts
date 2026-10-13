@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { devices, type Browser, type BrowserContextOptions, type Page } from 'playwright';
 import { launchChromium, launchWebkit, startDemoServer, waitForApp, type LaunchOptions } from '../scripts/a11y-audit.js';
+import { REGION_WELCOME_ON } from '../src/config/regions.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -142,11 +143,13 @@ describe.skipIf(!built)(`page layout holds its rules (${engine})`, () => {
 
     it(`${size}: a visitor who has chosen no country gets the Select your country pop-up whole on the screen, and Escape puts it away`, async () => {
       // A browser of its own: the shared one starts every visitor with the UK saved.
+      // While the switch is off (the AdSense review, 13 Oct 2026) the bare home
+      // page never asks, so the pop-up is measured at its preview address.
       const fresh = await launch({ countryChosen: null });
       try {
         const ctx = await fresh.newContext({ ...CONTEXTS[size], reducedMotion: 'reduce', timezoneId: 'America/New_York' });
         const page = await ctx.newPage();
-        await page.goto(`http://localhost:${port}/`, { waitUntil: 'load' });
+        await page.goto(`http://localhost:${port}/${REGION_WELCOME_ON ? '' : '?regionwelcome=preview'}`, { waitUntil: 'load' });
         await waitForApp(page);
         await page.waitForSelector('#region-welcome[open]', { timeout: 15_000 });
         const d = (await page.evaluate(`(() => {

@@ -857,6 +857,14 @@ they have no brand page and no address.
 - **The welcome pop-up is on** (`REGION_WELCOME_ON = true`), by owner decision, **while the
   AdSense review is still open**: a small centred dialog on the bare UK home only, for a visitor
   who has chosen no country, which leaves the page readable behind it (section 2, "Welcome").
+- **13 Oct 2026: the welcome pop-up is off again** (`REGION_WELCOME_ON = false`) during the
+  AdSense review, after the application was refused that day with no reason shown (Google's
+  review checks for pop-ups; `docs/ADVERTISING-PLAN.md`, "Refused 13 Oct 2026"). Switch it back
+  on after approval: it is one flag in `src/config/regions.ts`, nothing else changes. While off,
+  the country menu in the header, the profile's Country row and the saved choice all work as
+  before, and `?regionwelcome=preview` still opens the pop-up for testing. The tests check the
+  rule in both states (`tests/regionWelcome.test.ts`, `tests/regionWelcomeBrowser.test.ts`,
+  `tests/layoutConsistency.test.ts`).
 - The US and Indian pages carry a beta line under the top bar ("US prices are in beta: fewer shops
   than the UK site for now", "Indian prices are in beta: ..."), and their home shows "Prices
   checked daily. Last checked Oct 9, 2026." from the region's own build.

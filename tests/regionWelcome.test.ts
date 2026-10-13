@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import { REGION_CONFIGS, REGION_STORAGE_KEY, regionById } from '../src/config/regions.js';
+import { REGION_CONFIGS, REGION_STORAGE_KEY, REGION_WELCOME_ON, regionById } from '../src/config/regions.js';
 import {
   WELCOME_LOGIN_TEXT,
   WELCOME_TITLE,
@@ -37,11 +37,13 @@ const IN = regionById('IN')!;
 const base: WelcomeInput = { switchOn: true, live: [GB, US], pathname: '/', stored: null, active: GB };
 
 describe('when the pop-up shows', () => {
-  it('never while the switch is off or only one region is live; on since the public beta of 9 Oct 2026', () => {
-    // US and India live and the switch on (owner decision, src/config/regions.ts).
-    expect(welcomeEnabled()).toBe(true);
+  it('never while the switch is off or only one region is live, whichever state the switch is in', () => {
+    // US and India live; the switch is the owner's (src/config/regions.ts):
+    // off during the AdSense review (13 Oct 2026), on again after approval.
+    expect(welcomeEnabled()).toBe(REGION_WELCOME_ON);
     expect(welcomeEnabled(true, [GB])).toBe(false);
     expect(welcomeEnabled(true, [GB, US])).toBe(true);
+    expect(welcomeEnabled(false, [GB, US])).toBe(false);
     expect(welcomeAction({ ...base, switchOn: false })).toEqual({ kind: 'none' });
     expect(welcomeAction({ ...base, live: [GB] })).toEqual({ kind: 'none' });
   });

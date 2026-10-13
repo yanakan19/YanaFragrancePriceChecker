@@ -1261,8 +1261,10 @@ copying, so keep it small and occasional, and stop if Notino objects.
 Your decisions are D30 in `docs/DECISIONS.md`; what shipped is
 `docs/INTERNATIONAL-PLAN.md`, "Public beta, 9 October 2026: what shipped".
 pricesniffs.space/us/ and pricesniffs.space/in/ are live as a public beta,
-the country menu lists "United States (Beta)" and "India (Beta)", and the
-"Select your country" pop-up is on. The US and Indian crawls run once a day
+the country menu lists "United States (Beta)" and "India (Beta)". The
+"Select your country" pop-up is **off since 13 Oct 2026** while the AdSense
+review is open (it was on from 9 Oct); after approval ask an agent to set
+`REGION_WELCOME_ON` back to `true` in `src/config/regions.ts` (one line). The US and Indian crawls run once a day
 by themselves (07:52 and 20:22 UTC); each finished run redeploys the site when
 it brought new prices.
 

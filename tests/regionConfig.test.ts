@@ -81,8 +81,9 @@ describe('the regions', () => {
     expect(DEFAULT_REGION).toBe(GB);
   });
 
-  it('has the welcome pop-up switched on (owner decision, while the AdSense review is open), and names its storage key', () => {
-    expect(REGION_WELCOME_ON).toBe(true);
+  it('has the welcome pop-up behind one boolean switch (off during the AdSense review, 13 Oct 2026), and names its storage key', () => {
+    // The state is the owner's call (docs/INTERNATIONAL-PLAN.md); the rule is one flag.
+    expect(typeof REGION_WELCOME_ON).toBe('boolean');
     expect(REGION_STORAGE_KEY).toBe('pricesniffs.region');
   });
 

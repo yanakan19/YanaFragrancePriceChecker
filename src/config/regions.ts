@@ -149,12 +149,15 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
 
 /**
  * The "Select your country" welcome pop-up (plan section 2, "Welcome").
- * On since the public beta of 9 October 2026, by owner decision, while the
- * AdSense review is still open: a small centred dialog on the bare home page
- * only, which leaves the page readable behind it (demo/regionWelcome.ts). It
- * also needs a second live region before it can show.
+ * On from the public beta of 9 October 2026; OFF again from 13 October 2026
+ * while the AdSense review is open (the application was refused on 13 Oct and
+ * Google's review checks for pop-ups: docs/ADVERTISING-PLAN.md). Switch it
+ * back to true after approval: this one flag is all it takes. Off, the country
+ * menu in the header, the profile's Country row and the saved choice all keep
+ * working, and ?regionwelcome=preview still opens the pop-up for testing.
+ * It also needs a second live region before it can show (demo/regionWelcome.ts).
  */
-export const REGION_WELCOME_ON = true;
+export const REGION_WELCOME_ON: boolean = false;
 
 /** Where a visitor's chosen region is kept in their browser (listed on the cookies page once it can be written). */
 export const REGION_STORAGE_KEY = 'pricesniffs.region';

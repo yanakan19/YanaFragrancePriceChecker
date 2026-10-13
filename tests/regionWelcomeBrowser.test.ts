@@ -6,6 +6,7 @@ import AxeBuilder from '@axe-core/playwright';
 import type { Browser, BrowserContext, Page } from 'playwright';
 import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-audit.js';
 import { stubSupabase, type FakeAccount } from './support/fakeAccount.js';
+import { REGION_WELCOME_ON } from '../src/config/regions.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
@@ -14,8 +15,10 @@ const built = existsSync(resolve(root, 'demo/index.html'));
  * "Select your country" on the built page (docs/INTERNATIONAL-PLAN.md,
  * section 2, "Welcome"; owner request, 9 October 2026).
  *
- * On since the public beta of 9 October 2026 (US and India live, the switch
- * on): the bare home page asks a visitor who has not chosen. The
+ * On from the public beta of 9 October 2026, off again from 13 October 2026
+ * while the AdSense review is open (REGION_WELCOME_ON, src/config/regions.ts):
+ * switched on, the bare home page asks a visitor who has not chosen; switched
+ * off, it never does, and the country menu stays the way to choose. The
  * ?regionwelcome=preview address opens it with every region as a choice, which
  * is how the rest of this file drives it: a real <dialog>, focus in and back,
  * Escape, the close button and a tap outside, light and dark, 320, 390 and
@@ -79,14 +82,34 @@ describe.skipIf(!built)('Select your country', () => {
     return r.violations.map((v) => `[${v.impact}] ${v.id}: ${v.nodes.slice(0, 3).map((n) => n.target.join(' ')).join(' | ')}`);
   }
 
-  it('asks a signed OUT visitor on the bare home page since the US and India went live (9 Oct 2026), storing nothing until a choice', async () => {
+  it(`${REGION_WELCOME_ON ? 'asks' : 'never asks'} a signed OUT visitor on the bare home page while the switch is ${REGION_WELCOME_ON ? 'on' : 'off'}, storing nothing until a choice`, async () => {
     const { context, page } = await open('/', { account: null });
+    try {
+      if (REGION_WELCOME_ON) {
+        await page.waitForSelector('#region-welcome[open]', { timeout: 15_000 });
+        expect(await dialogOpen(page)).toBe(true);
+      } else {
+        // Off (the AdSense review): no pop-up at all, the page stays as it is.
+        await page.waitForTimeout(2500);
+        expect(await page.evaluate(`!!document.querySelector('#region-welcome')`), 'a pop-up while the switch is off').toBe(false);
+        expect(await page.evaluate(`location.pathname`)).toBe('/');
+        // The country menu in the header is still there to choose with.
+        expect(await page.evaluate(`!!document.getElementById('region-btn')`), 'the country menu').toBe(true);
+      }
+      expect(await stored(page)).toBeNull();
+      // The home page exists in all three countries: en-GB, en-US, en-IN and x-default.
+      expect(await page.evaluate(`document.querySelectorAll('link[rel="alternate"][hreflang]').length`), 'hreflang').toBe(4);
+    } finally {
+      await context.close();
+    }
+  }, 60_000);
+
+  it('opens at ?regionwelcome=preview whichever state the switch is in', async () => {
+    const { context, page } = await open('/?regionwelcome=preview', { account: null });
     try {
       await page.waitForSelector('#region-welcome[open]', { timeout: 15_000 });
       expect(await dialogOpen(page)).toBe(true);
       expect(await stored(page)).toBeNull();
-      // The home page exists in all three countries: en-GB, en-US, en-IN and x-default.
-      expect(await page.evaluate(`document.querySelectorAll('link[rel="alternate"][hreflang]').length`), 'hreflang').toBe(4);
     } finally {
       await context.close();
     }
