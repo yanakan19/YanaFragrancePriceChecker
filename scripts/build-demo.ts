@@ -5,7 +5,7 @@
  * is compiled and bundled unchanged, then inlined. There is no second
  * implementation of the pricing rules to fall out of sync.
  *
- *   tsc -p tsconfig.demo.json   →  dist-demo/**.js
+ *   scripts/compile-demo.ts     →  dist-demo/**.js
  *   scripts/bundle-demo.ts      →  dist-demo/bundle.js + dist-demo/data/*.json
  *   this script                 →  demo/index.html, demo/404.html,
  *                                  demo/data/<module>.<hash>.json

@@ -2,7 +2,7 @@
  * Bundles the demo app, moving its large data literals out of the JavaScript
  * and into JSON files scripts/build-demo.ts publishes beside the page.
  *
- *   tsc -p tsconfig.demo.json  →  dist-demo/**.js
+ *   scripts/compile-demo.ts    →  dist-demo/**.js (esbuild; the old tsc -p tsconfig.demo.json peaked near 4 GB)
  *   this script                →  dist-demo/bundle.js + dist-demo/data/<module>.json
  *                                 + dist-demo/data-files.json (which blob is where)
  *   scripts/build-demo.ts      →  demo/index.html + demo/data/<module>.<hash>.json

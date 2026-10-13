@@ -80,6 +80,8 @@ import { join } from 'node:path';
 const EXTRA_INPUTS = [
   'demo/template.html',
   'scripts/dataFiles.ts',
+  // How the page's TypeScript is compiled (it replaced tsc, 13 Oct 2026).
+  'scripts/compile-demo.ts',
   // The Notes tab's lazy file is built from these (scripts/noteData.ts).
   'scripts/noteData.ts',
   'data/note-groups.json',

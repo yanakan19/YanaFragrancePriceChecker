@@ -750,3 +750,78 @@ catalogue file and nothing else, since every other name is the same.
 - Memory: a sampler over `/proc/<pid>/status` of the command's whole process
   tree every 250 ms (`.claude/audit-tmp/peakrss.mjs`).
 - Commits: `git log` on the branch with `--numstat`; kinds by message prefix.
+
+## 13 Oct 2026: the slim first load index (option B), measured, not shipped
+
+Measured on the live tree after the 13 Oct prerender work (`demo/` built by `npm run demo`, served with
+gzip on a local port, Chromium through CDP: 390 wide, CPU 4x, slow 4G profile of 1.6 Mbps down and 150 ms
+round trip, service worker blocked so every run is a first visit, three runs each):
+
+| Page | Bytes on a first visit (gzip) | Time to first tiles | App ready |
+|---|---|---|---|
+| UK home `/` | 4,820 kB | 29.1, 29.6, 29.6 s | about the same |
+| UK product page `/creed_aventus_100ml` (prerendered) | 4,868 kB | 0.4 s (static content) | 46 s |
+| `/us/` | 2,263 kB | 14.3 s | 14.4 s |
+| `/in/` | 1,625 kB | 10.6 s | 10.7 s |
+
+What the first load carries, gzipped (UK): the products 2,660 kB (notes 678 kB, image addresses 676 kB,
+slugs 295 kB, image transforms 211 kB, gift set records 78 kB), the offers 1,544 kB, the page code 246 kB, the
+price history 1,396 kB (lazy, not in the first load).
+
+**Why it was not shipped.**
+
+1. The audit's "about 3.2 MB" is out of date. The 12 Oct step that dropped the unread offer fields
+   (`bd3d9018`) already took the offers from 28.6 MB raw to 17.9 MB, and 1,544 kB gzipped. Of that,
+   only the fields a tile and a count never read can wait (address, was price, promo end, rating, new flag):
+   dropping them leaves 619 kB, a saving of about 0.9 MB. The only other large block a tile never reads is
+   the notes (0.68 MB). So the most a slim first load can save is about 1.5 MB of 4.8 MB (about 30%), not 3.2.
+2. Every reader that would have to change is synchronous: `demo/data.ts` builds `NOTE_INDEX` (the Notes tab and
+   its counts) from every product's notes at start, and Most Stocked, shop pages, the counts, Deals and the
+   filters read each offer's shop, price, stock and time with the freshness rule evaluated at the visitor's
+   own `now` (`isTooOldToShow`). A lowest price and a shop count computed at build time would not move with
+   that clock, so they cannot replace the offers without changing what a visitor sees after the page has been
+   cached for a day. Keeping the clock exact means keeping shop, price, stock and time in the first load (the
+   619 kB above) and loading only the rest on demand, which is the 0.9 MB figure.
+3. The product page, which is now a prerendered page that boots the app, needs the address of every offer and
+   the notes before its offer list and its pyramid are right, so on a product page the on demand files add a
+   request after the app starts unless the loader fetches them in parallel with the main files for that route
+   (a route aware loader in `scripts/dataFiles.ts`). That is a new design, with its own proof for the 16 cases
+   asked for (home, product, brand, Deals, Notes, `/us/`, `/in/`, the country switch, offline reload, light and
+   dark, 390 and 1280). It could not be shown identical inside this session, and an unproven change to the
+   data path of every page is the wrong risk beside a pending AdSense review.
+
+**What a later run should do.** The saving is real and the route aware loader is the safe shape: keep shop, price,
+stock and time per offer, and the products without their notes, in the first load; move offer addresses and the
+other offer fields, and the notes, to two files fetched in parallel by the loader only for the routes that read
+them (product pages, shop pages, Notes, search by note). Expect about 1.5 MB (30%) off the UK home, about 9 s of
+the 29 s on this profile. Measure with `/tmp`-style scripts like the ones above before and after.
+
+## 13 Oct 2026: a cheaper build (compile outside tsc), measured and shipped
+
+`npm run demo` compiled `src/` and `demo/` with `tsc -p tsconfig.demo.json`, and tsc holding the 50 MB generated
+catalogue module was the peak. Re-measured on 13 Oct (a Python wrapper reading the largest process's peak, one
+step at a time):
+
+| | Before | After |
+|---|---|---|
+| compile step | tsc: 73 s, 4,148 MB | `scripts/compile-demo.ts`: 3 to 5 s, 671 MB |
+| whole `npm run demo` | 5 min 08 s, peak about 4.1 GB | 2 min 36 s, peak 1.6 GB (the page build `build-demo.ts`) |
+| `npm run catalogue:demo` | 57 s, 1,156 MB | unchanged |
+
+How: `scripts/compile-demo.ts` strips the types with esbuild (already a dependency; no new one) file by file, and for
+the `*.generated.ts` data modules lifts the big literals out, strips types from the rest with TypeScript's per file
+transpile and puts the literals back, so their text is exactly what the generators wrote (esbuild reprints strings,
+and the bundle step moves a literal to JSON only where the compiled text is valid JSON; found by trying it: the
+first esbuild only build left three catalogue chunks in the bundle). The type check is untouched:
+`npx tsc --noEmit -p tsconfig.json` in `tests.yml` (job `typecheck`) and before every push. What the build no longer
+does is stop on a type error in `demo/` or `src/`: tests.yml now is that gate (a syntax error still stops the build).
+
+Proof the built site is the same (both pipelines run from the same tree, every file of `demo/` and
+`dist-demo/artifact.html` hashed, 35,821 files): all ten data files are byte identical, every sitemap, every
+route and every one of the 35,076 prerendered product, brand, shop and note pages is byte identical once the
+`app.<hash>` name is read as one name, and the hashed bundles have the same size to the byte. What differs is
+the minified bundle's short local variable names (tsc and esbuild print the source in slightly different text, so the
+minifier orders its names differently), which gives the bundle a new hash and so changes the asset name on every
+page and the inline copy in `dist-demo/artifact.html`. The browser tests that read the built site (leaf pages,
+product addresses, region switch and its cache, region rails, list filters, price history) pass on the new build.
+`tests/compileDemo.test.ts` holds the rules.
