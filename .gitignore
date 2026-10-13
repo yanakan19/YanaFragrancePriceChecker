@@ -8,6 +8,7 @@ dist-demo/
 /demo/index.html
 /demo/404.html
 /demo/data/
+/demo/assets/
 /demo/sitemap.xml
 /demo/sitemap-*.xml
 /demo/ads.txt
@@ -27,6 +28,9 @@ dist-demo/
 /demo/account/
 /demo/guides/
 /demo/notes/
+# Prerendered brand and shop pages (scripts/build-leaf-pages.ts); products are demo/*.html.
+/demo/brands/
+/demo/retailers/
 # The catalogue modules (since 2026-10-10): built by `npm run catalogue:demo` in
 # the crawl and replayed byte for byte from the committed inputs and
 # data/catalogue-build.json wherever they are read (scripts/ensure-catalogue-built.ts);

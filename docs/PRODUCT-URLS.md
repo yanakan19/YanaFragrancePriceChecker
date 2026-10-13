@@ -330,6 +330,43 @@ address. Nothing here changes it, and nothing here claims to:
   each carrying the whole app), neither of which this change adds.
 - The sitemap lists the new addresses and names no old ones.
 
+### Since 13 October 2026: a real page per priced UK product
+
+After the AdSense refusal of 13 Oct 2026 (`docs/ADVERTISING-PLAN.md`) the
+deploy writes a file for each address that matters, so the host answers it
+with **HTTP 200** and plain HTML content (`scripts/leafPages.ts`,
+`scripts/build-leaf-pages.ts`, `scripts/staticContent.ts`):
+
+- `/<slug>` is `demo/<slug>.html` for **every priced UK product** (32,958 of
+  32,958 on the first build), `/brands/<slug>` is `demo/brands/<slug>.html`
+  (all 1,233 brands), `/retailers/<id>` (all 63 shops with prices) and
+  `/notes/<slug>` for each note listed by at least 10 fragrances (627). Each
+  is the home page's document with the address's own title, description,
+  canonical and share tags, no noindex, a Product + AggregateOffer JSON-LD
+  block on a product (GBP, its lowPrice the page's lowest shown price), and
+  inside `<main>` the H1, strength and size, the cheapest price and shop with
+  the day it was checked, every shop's price, the affiliate disclosure in the
+  site's words, the notes and links on. A visitor with JavaScript never sees
+  that static content painted (it is hidden by `html.js`, as the home page's
+  intro always was) and the app replaces it, exactly as from 404.html.
+- They are small (about 13 kB on average) because the code and the styles
+  are now files of their own, `assets/app.<hash>.js` and
+  `assets/app.<hash>.css` (audit option G), kept by the service worker in its
+  own cache.
+- **The budget:** the whole deploy output may weigh at most 700 MB
+  (`DEPLOY_BUDGET_BYTES`; Pages refuses 1 GB). First build: 591 MB with every
+  page above. Pages are written in order of importance (shops, brands,
+  products by shop count then by the day their price was read, notes) until
+  the next would not fit; what does not fit stays a 404 shell. The US and
+  Indian product, brand and shop pages are **not** prerendered and still
+  answer 404 (they would take about 40,000 more pages).
+- **Still 404 shells:** every address without a file (US and Indian leaves,
+  notes under 10 fragrances, `/fragrance/<id>`, a merged product's old slug).
+  They open in the app as before, and a merged product's old address still
+  reaches the product it moved to: no old slug ever gets a file.
+- **The sitemap lists only addresses that answer 200** (`scripts/build-sitemap.ts`),
+  and the deploy checks every listed address has its file.
+
 ## 8. Direction of the mapping
 
 Slug to product id is a lookup in the committed map (and its aliases). It is

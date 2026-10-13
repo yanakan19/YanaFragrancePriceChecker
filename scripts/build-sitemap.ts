@@ -32,6 +32,19 @@
  * asking not to be indexed is a contradiction that search consoles report as
  * an error. The two lists are kept in step by a test.
  *
+ * ── Only addresses that answer 200 (13 Oct 2026) ─────────────────────────
+ * A product, brand, shop or note address is listed only when
+ * scripts/build-leaf-pages.ts wrote a page for it (dist-demo/leaf-pages.json),
+ * which Pages answers with status 200. Until then the sitemap listed about
+ * 35,000 UK addresses that all answered 404 (the app inside 404.html), which a
+ * crawler reads as broken pages (docs/ADVERTISING-PLAN.md, the refusal of
+ * 13 Oct 2026). What the deploy budget leaves out, and the US and Indian
+ * product, brand and shop pages (not prerendered), still open in the app and
+ * are simply not listed. The fixed pages all have route pages
+ * (scripts/build-route-pages.ts). hreflang alternates are kept only between
+ * addresses that are both listed. The deploy checks that every listed address
+ * has its file (scripts/build-leaf-pages.ts --check).
+ *
  * ── lastmod ───────────────────────────────────────────────────────────────
  * Product pages carry the date of the harvest that last wrote a price for
  * them, read from the catalogue itself. That is a real modification date: the
@@ -61,6 +74,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { NOTE_GROUP_IDS } from '../src/catalogue/noteGroups.js';
 import { liveRegions, regionHasFixedPage, regionPath, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import type { RegionSiteFacts } from './build-region-data.js';
+import { LEAF_MANIFEST, type LeafManifest } from './leafPages.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -105,6 +119,20 @@ function lastPriceRead(fragranceId: string): string | null {
 }
 
 const appMod = gitLastModified('demo/app.ts');
+
+// The addresses that have a page of their own (scripts/build-leaf-pages.ts).
+const leafPath = resolve(root, LEAF_MANIFEST);
+if (!existsSync(leafPath)) {
+  console.error(`::error::${LEAF_MANIFEST} is missing: run scripts/build-leaf-pages.ts first (npm run demo does).`);
+  process.exit(1);
+}
+const leafManifest = JSON.parse(readFileSync(leafPath, 'utf8')) as LeafManifest;
+const ukLeaf = new Set(leafManifest.pages.map((p) => p.path));
+/** A single note's page (/notes/<slug>), as opposed to a note group's (/notes/group/<id>). */
+const isNoteLeaf = (loc: string): boolean => /^\/notes\/(?!group\/)[^/]+$/.test(loc);
+/** A page of one thing among many: a product, a brand, a shop or a note. */
+const isLeaf = (loc: string): boolean =>
+  loc.startsWith('/brands/') || loc.startsWith('/retailers/') || isProductSlug(loc.slice(1)) || isNoteLeaf(loc);
 const entries: Entry[] = [];
 
 // ── The pages that are the same every day ────────────────────────────────
@@ -163,6 +191,8 @@ if (unaddressed.length > 0) {
   process.exit(1);
 }
 for (const f of DEMO_FRAGRANCES) {
+  // Only a product with a page of its own answers 200 (scripts/leafPages.ts).
+  if (!ukLeaf.has(`/${f.slug}`)) continue;
   entries.push({
     // The product's own address, /BRAND_NAME_VOLUME (docs/PRODUCT-URLS.md). The
     // slug is lower case a to z, 0 to 9 and underscores, so it needs no encoding.
@@ -176,7 +206,7 @@ for (const f of DEMO_FRAGRANCES) {
 const brandSlugs = new Set<string>();
 for (const f of DEMO_FRAGRANCES) {
   const slug = slugify(f.brand);
-  if (slug && !brandSlugs.has(slug)) {
+  if (slug && !brandSlugs.has(slug) && ukLeaf.has(`/brands/${encodeURIComponent(slug)}`)) {
     brandSlugs.add(slug);
     entries.push({ loc: `/brands/${encodeURIComponent(slug)}`, lastmod: appMod, changefreq: 'weekly' });
   }
@@ -209,11 +239,17 @@ for (const offers of Object.values(CRAWLED)) {
 
 for (const r of enabledRetailers()) {
   if (!shopsWithListings.has(r.id)) continue;
+  if (!ukLeaf.has(`/retailers/${encodeURIComponent(r.id)}`)) continue;
   entries.push({
     loc: `/retailers/${encodeURIComponent(r.id)}`,
     lastmod: gitLastModified('src/config/retailers.ts'),
     changefreq: 'daily',
   });
+}
+
+// ── Notes with a page of their own (scripts/leafPages.ts) ────────────────
+for (const p of leafManifest.pages) {
+  if (p.kind === 'note') entries.push({ loc: p.path, lastmod: appMod, changefreq: 'weekly' });
 }
 
 // A sitemap may hold 50,000 URLs. Catching the overflow here beats a search
@@ -244,7 +280,7 @@ for (const region of liveRegions()) {
   const groupsPath = resolve(root, 'dist-demo/regions', region.pathPrefix, 'note-groups.json');
   const regionNoteGroups: string[] = existsSync(groupsPath) ? (JSON.parse(readFileSync(groupsPath, 'utf8')) as string[]) : [];
   const list: Entry[] = [];
-  const fixed = unique.filter((e) => !e.loc.startsWith('/brands/') && !e.loc.startsWith('/retailers/') && !isProductSlug(e.loc.slice(1)));
+  const fixed = unique.filter((e) => !isLeaf(e.loc));
   for (const e of fixed) {
     // Notes and the note group pages: offered once the region has products showing a matching UK
     // product's notes, a group page only if the region has a note in that group.
@@ -258,9 +294,9 @@ for (const region of liveRegions()) {
     if (e.loc === '/deals' && facts.deals === 0) continue;
     list.push({ ...e, lastmod: e.loc === '/deals' || e.loc === '/' ? day : e.lastmod });
   }
-  for (const p of facts.productPages) list.push({ loc: `/${p.slug}`, lastmod: p.lastmod, changefreq: 'daily' });
-  for (const b of facts.brandSlugs) list.push({ loc: `/brands/${encodeURIComponent(b)}`, lastmod: day, changefreq: 'weekly' });
-  for (const id of facts.shops) list.push({ loc: `/retailers/${encodeURIComponent(id)}`, lastmod: day, changefreq: 'daily' });
+  // The region's product, brand and shop pages are not prerendered (the UK's
+  // fill the deploy budget, scripts/leafPages.ts): they answer 404 with the
+  // app inside, so they are not listed. They still open for a visitor.
   const regionSeen = new Set<string>();
   regionSitemaps.push({ region, facts, entries: list.filter((e) => (regionSeen.has(e.loc) ? false : (regionSeen.add(e.loc), true))) });
 }
@@ -272,7 +308,7 @@ for (const region of liveRegions()) {
 const ukIdBySlug = new Map(DEMO_FRAGRANCES.map((f) => [f.slug, f.id] as const));
 const ukSlugById = new Map(DEMO_FRAGRANCES.map((f) => [f.id, f.slug] as const));
 const ukBrands = brandSlugs;
-const ukFixed = new Set(unique.map((e) => e.loc).filter((loc) => !loc.startsWith('/brands/') && !loc.startsWith('/retailers/') && !isProductSlug(loc.slice(1))));
+const ukFixed = new Set(unique.map((e) => e.loc).filter((loc) => !isLeaf(loc)));
 type Holder = { id: RegionId; region: RegionConfig; path: string };
 const GB = liveRegions().find((r) => r.id === 'GB');
 
@@ -282,8 +318,9 @@ function holders(loc: string): Holder[] {
   if (loc.startsWith('/retailers/')) return out;
   if (loc.startsWith('/brands/')) {
     const slug = decodeURIComponent(loc.slice('/brands/'.length));
+    // Only between listed pages: a region's brand page is not prerendered, so a UK brand has no alternate.
     if (GB && ukBrands.has(slug)) out.push({ id: 'GB', region: GB, path: loc });
-    for (const r of regionSitemaps) if (r.facts.brandSlugs.includes(slug)) out.push({ id: r.region.id, region: r.region, path: loc });
+    for (const r of regionSitemaps) if (r.entries.some((e) => e.loc === loc)) out.push({ id: r.region.id, region: r.region, path: loc });
     return out;
   }
   if (GB && ukFixed.has(loc)) out.push({ id: 'GB', region: GB, path: loc });
@@ -312,10 +349,11 @@ function holdersOf(fromId: RegionId, loc: string): Holder[] {
   if (!id) return [];
   const out: Holder[] = [];
   const uk = ukSlugById.get(id);
-  if (GB && uk) out.push({ id: 'GB', region: GB, path: `/${uk}` });
+  // Only between listed pages: an address that answers 404 is never an alternate.
+  if (GB && uk && ukLeaf.has(`/${uk}`)) out.push({ id: 'GB', region: GB, path: `/${uk}` });
   for (const r of regionSitemaps) {
     const there = r.facts.ids[id];
-    if (there) out.push({ id: r.region.id, region: r.region, path: `/${there}` });
+    if (there && r.entries.some((e) => e.loc === `/${there}`)) out.push({ id: r.region.id, region: r.region, path: `/${there}` });
   }
   return out;
 }
@@ -351,8 +389,8 @@ for (const r of regionSitemaps) {
   const out = urlset(r.region, r.entries);
   writeGenerated(root, `demo/sitemap-${r.region.pathPrefix}.xml`, out.xml);
   written.push({ file: `sitemap-${r.region.pathPrefix}.xml`, lastmod: r.facts.crawledAt.slice(0, 10) });
-  console.log(`demo/sitemap-${r.region.pathPrefix}.xml  ${r.entries.length} URLs  (${r.facts.productPages.length} products, ` +
-    `${r.facts.brandSlugs.length} brands, ${r.facts.shops.length} shops; ${out.withAlternates} with hreflang alternates)`);
+  console.log(`demo/sitemap-${r.region.pathPrefix}.xml  ${r.entries.length} URLs  (the fixed pages; its ${r.facts.productPages.length} products, ` +
+    `${r.facts.brandSlugs.length} brands and ${r.facts.shops.length} shops are not prerendered and not listed; ${out.withAlternates} with hreflang alternates)`);
 }
 // The index robots.txt names (Sitemap: https://pricesniffs.space/sitemap.xml).
 writeGenerated(root, 'demo/sitemap.xml', [
@@ -368,8 +406,8 @@ writeGenerated(root, 'demo/sitemap.xml', [
 const listedShops = enabledRetailers().filter((r) => shopsWithListings.has(r.id)).length;
 const emptyShops = enabledRetailers().length - listedShops;
 console.log(
-  `demo/sitemap-gb.xml  ${unique.length} URLs  (${DEMO_FRAGRANCES.length} fragrances, ` +
-    `${brandSlugs.size} brands, ${listedShops} shops of ${RETAILERS.length} in the registry` +
+  `demo/sitemap-gb.xml  ${unique.length} URLs  (${unique.filter((e) => isProductSlug(e.loc.slice(1))).length} of ${DEMO_FRAGRANCES.length} fragrances, ` +
+    `${brandSlugs.size} brands, ${listedShops} shops of ${RETAILERS.length} in the registry, ${unique.filter((e) => isNoteLeaf(e.loc)).length} notes` +
     `${emptyShops ? `; ${emptyShops} enabled but carrying no listing, left out` : ''}` +
     `${SITE_OVERRIDE_ROWS.length ? `; ${SITE_OVERRIDE_ROWS.length} hidden or removed in the dashboard, left out` : ''}; ` +
     `${gb.withAlternates} with hreflang alternates)`,

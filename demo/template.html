@@ -1,5 +1,11 @@
 <title>PriceSniffs</title>
 <script>document.documentElement.classList.add('js')</script>
+<!-- The colour mode and the layout the reader chose (or, for the layout, the
+     one demo/app.ts detectDefaultLayout would pick), set before anything is
+     drawn: until 13 Oct 2026 the app set them once its data was in, so a
+     desktop drew the phone layout first and then jumped (a layout shift of
+     0.63 at 1280 wide) and a light mode reader saw the dark page first. -->
+<script>(function(){var d=document.documentElement,m=null,l=null;try{m=localStorage.getItem('pricesniffs.display');l=localStorage.getItem('pricesniffs.layout')}catch(e){}if(m==='dark'||m==='light'||m==='system')d.setAttribute('data-mode',m);if(l!=='mobile'&&l!=='desktop'){try{l=matchMedia('(hover: hover) and (pointer: fine)').matches&&innerWidth>=900?'desktop':'mobile'}catch(e){l='mobile'}}d.setAttribute('data-layout',l)})()</script>
 <style>
   /* Dark ground with a red accent, per the brief. One narrow column, centred on
      wider screens, so the phone layout is the only layout to maintain and a
@@ -756,6 +762,10 @@
   .subnav-tabs { display: flex; gap: 20px; width: max-content; }
   .subnav::-webkit-scrollbar { display: none; }
   .subnav[hidden] { display: none; }
+  /* A prerendered brand, shop or note page (scripts/leafPages.ts puts data-subnav
+     on <html>) shows the Explore tabs once the app starts: their room is kept
+     while it starts, so the page under them does not jump down (13 Oct 2026). */
+  html.js[data-subnav]:not([data-app-ready]) .subnav[hidden] { display: block; height: 44px; }
   /* The gap between the two groups of Explore tabs: a thin rule with room either side. Decorative. */
   .subnav-gap { flex: none; align-self: center; width: 1px; height: 16px; margin: 0 12px; background: var(--line-firm); }
   /* Was a row of outlined pills that filled with accent when selected, which
@@ -3274,6 +3284,10 @@
   .static-intro p a { color: var(--accent-ink); text-decoration: underline; }
   .static-links { list-style: none; margin: 0 0 12px; padding: 0; display: flex; flex-wrap: wrap; gap: 4px 18px; }
   .static-links a { display: inline-flex; align-items: center; min-height: 32px; color: var(--accent-ink); font-weight: 600; }
+  /* A prerendered product page's prices (scripts/staticContent.ts), one shop a row. */
+  .static-offers { list-style: none; margin: 0 0 12px; padding: 0; }
+  .static-offers li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .static-offers a { color: var(--accent-ink); font-weight: 600; }
   .ns-note {
     margin: 16px 0 0; padding: 12px 14px; border: 1px solid var(--line-firm); border-radius: 12px;
     background: var(--surface); color: var(--ink); font-size: 14px; line-height: 1.5;
@@ -3832,7 +3846,7 @@
         <li><a href="/about#contact">Contact</a></li>
         <li><a href="/about/legal">Legal Notice</a></li>
         <li><a href="/about/legal#privacy">Privacy</a></li>
-      </ul>
+      </ul><!--__HOME_STATIC__-->
     </section>
   </main>
 

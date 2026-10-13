@@ -29,6 +29,12 @@ deploys. A completed crawl first runs a light check job
   or catalogue test directly with `npx vitest run`.
 - Never commit those paths (`git add -f` included). `scripts/commit-and-push.sh`
   refuses them.
+- Since 2026-10-13 the deploy also writes a page per priced UK product, brand,
+  shop and note (`scripts/build-leaf-pages.ts`; code and styles are
+  `demo/assets/app.<hash>.js|css`). **The sitemap lists only addresses that
+  answer 200** (a file of their own), and **the deploy output must stay under
+  `DEPLOY_BUDGET_BYTES`** (700 MB, `scripts/leafPages.ts`); the deploy's
+  `build-leaf-pages.ts --check` enforces both.
 
 ## Generated files
 

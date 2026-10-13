@@ -33,9 +33,10 @@
  * does not know: those stay on 404.html, which is also what makes the app say
  * "Page not found" and mark itself noindex for a wrong address.
  *
- * Why not the 27,000 leaf pages: see docs/ROUTING-PLAN.md section 3.2. Each
- * copy of the page is about 0.93 MB, so every product and brand would add
- * about 25 GB to the deployment; the bundle would have to leave the page first.
+ * The leaf pages are not written here: since 13 Oct 2026, with the bundle and
+ * the styles out of the page (assets/app.<hash>.js|css), scripts/leafPages.ts
+ * writes one for each priced UK product, brand, shop and note, within the
+ * deploy size budget.
  *
  * ── Where the files go ────────────────────────────────────────────────────
  * /word is demo/word.html and /word/other is demo/word/other.html. They are
@@ -48,6 +49,7 @@ import { listRoutePaths, matchRoute, type Route, type RouteName } from '../demo/
 import { DEFAULT_REGION, regionPath, setActiveRegionForBuild, type RegionConfig } from '../src/config/regions.js';
 import { referencedDataFiles } from './dataFiles.js';
 import { readStampedHash } from './demoInputsHash.js';
+import { isProductSlug } from '../src/catalogue/productSlug.js';
 
 /** Pages of one thing among many: never given a file of their own (see the header). */
 const LEAF_ROUTES: ReadonlySet<RouteName> = new Set<RouteName>([
@@ -174,7 +176,7 @@ function alternateLinks(tags: HeadTags): string {
 }
 
 /** The page with one address's own <head> tags, and nothing else changed. */
-export function renderRoutePage(shell: string, tags: HeadTags): string {
+export function renderRoutePage(shell: string, tags: HeadTags, options: { alternates?: boolean } = {}): string {
   const shareTitle = escapeAttr(tags.shareTitle ?? tags.title);
   const description = escapeAttr(tags.description);
   const canonical = escapeAttr(tags.canonical);
@@ -182,7 +184,7 @@ export function renderRoutePage(shell: string, tags: HeadTags): string {
   let html = shell.replace(ALTERNATE_LINES, '');
   html = swap(html, /<title>[^<]*<\/title>/, `<title>${escapeAttr(tags.title)}</title>`, '<title>');
   html = swap(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${description}" />`, 'meta description');
-  html = swap(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />${alternateLinks(tags)}`, 'canonical link');
+  html = swap(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />${options.alternates === false ? '' : alternateLinks(tags)}`, 'canonical link');
   html = swap(html, /<meta property="og:title" content="[^"]*" \/>/, `<meta property="og:title" content="${shareTitle}" />`, 'og:title');
   html = swap(html, /<meta property="og:description" content="[^"]*" \/>/, `<meta property="og:description" content="${description}" />`, 'og:description');
   html = swap(html, /<meta property="og:url" content="[^"]*" \/>/, `<meta property="og:url" content="${canonical}" />`, 'og:url');
@@ -206,6 +208,9 @@ export function removeStaleRoutePages(demoDir: string, keep: ReadonlySet<string>
   const NOT_ROUTE_PAGES = new Set(['index.html', '404.html', 'template.html']);
   const drop = (rel: string): void => {
     if (keep.has(rel)) return;
+    // A prerendered product page (/<slug>, scripts/leafPages.ts) is not a
+    // route page: scripts/build-leaf-pages.ts owns it.
+    if (!rel.includes('/') && isProductSlug(rel.replace(/\.html$/, ''))) return;
     rmSync(join(demoDir, rel), { force: true });
     removed.push(rel);
   };

@@ -20,7 +20,7 @@
 import AxeBuilder from '@axe-core/playwright';
 import { chromium, webkit, type Browser, type Page } from 'playwright';
 import { createServer } from 'node:http';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, statSync } from 'node:fs';
 import { resolve, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { APP_READY_ATTR } from './dataFiles.js';
@@ -65,6 +65,39 @@ export async function startDemoServer(): Promise<{ port: number; close: () => vo
     const target = file.startsWith(demoDir) && existsSync(file) && extname(file) !== '' ? file : shell;
     res.writeHead(200, { 'Content-Type': MIME[extname(target)] ?? 'application/octet-stream' });
     res.end(readFileSync(target));
+  });
+  await new Promise<void>((r) => server.listen(0, '127.0.0.1', r));
+  const { port } = server.address() as { port: number };
+  return { port, close: () => server.close() };
+}
+
+/**
+ * Serves demo/ the way GitHub Pages does, status codes included: a file at its
+ * own path; an address without an extension from `<path>.html` (how /about and
+ * every prerendered product, brand, shop and note page answer, scripts/leafPages.ts);
+ * a folder's address from its index.html; anything else from the root
+ * 404.html with status 404. startDemoServer above answers every address with
+ * the app and 200, which is what most browser tests want; this one is for the
+ * tests about what the host really answers.
+ */
+export async function startPagesServer(): Promise<{ port: number; close: () => void }> {
+  if (!existsSync(resolve(demoDir, 'index.html'))) {
+    throw new Error('demo/index.html does not exist yet — run `npm run demo` first.');
+  }
+  const inside = (f: string): boolean => f.startsWith(demoDir) && existsSync(f) && statSync(f).isFile();
+  const server = createServer((req, res) => {
+    let path = '/';
+    try {
+      path = decodeURIComponent((req.url ?? '/').split('?')[0]!);
+    } catch {
+      // A malformed address: answered as one that does not exist.
+    }
+    const exact = resolve(demoDir, `.${path}`);
+    const candidates = path.endsWith('/') ? [resolve(exact, 'index.html')] : [exact, `${exact}.html`];
+    const found = candidates.find(inside);
+    const target = found ?? resolve(demoDir, '404.html');
+    res.writeHead(found ? 200 : 404, { 'Content-Type': MIME[extname(target)] ?? 'application/octet-stream' });
+    res.end(req.method === 'HEAD' ? undefined : readFileSync(target));
   });
   await new Promise<void>((r) => server.listen(0, '127.0.0.1', r));
   const { port } = server.address() as { port: number };

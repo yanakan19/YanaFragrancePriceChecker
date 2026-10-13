@@ -45,18 +45,26 @@
  * head, that hands a region's deep link to the region's document
  * (scripts/regionPages.ts); nothing else in it changes.
  */
+// First, before anything reads the catalogue (the home page's static content
+// does): the brands and shops hidden in the dashboard are left out, as on the
+// page and in the sitemap (scripts/siteApply.ts).
+import './siteApply.js';
+import '../demo/siteData.js';
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { computeDemoInputsHash, demoBuildHashComment } from './demoInputsHash.js';
 import { writeGenerated } from './generatedFiles.js';
 import {
+  ASSET_FAILED_GLOBAL,
   BLOBS_GLOBAL,
   LAZY_GLOBAL,
   READY_GLOBAL,
   bootScript,
+  hashedAssetPath,
   hashedDataPath,
   loaderScript,
+  referencedAssetFiles,
   type DataFile,
   type DataManifest,
   type LazyDataFile,
@@ -70,6 +78,7 @@ import {
 } from '../demo/head.js';
 import { hreflangAlternates, liveRegions, setActiveRegionForBuild, type RegionConfig } from '../src/config/regions.js';
 import { regionDispatchScript, regionFilePath, regionRestoreScript, regionTemplate } from './regionPages.js';
+import { HOME_STATIC_MARKER, homeStaticHtml } from './staticContent.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -123,6 +132,64 @@ const keep = new Set([...dataFiles, ...lazyFiles].map((f) => f.path.slice('data/
 const removed = readdirSync(dataDir).filter((f) => !keep.has(f));
 for (const f of removed) rmSync(resolve(dataDir, f), { recursive: true, force: true });
 
+// ── The code and the styles, as files of their own (audit option G) ──────
+// Every page (the home page, its 404.html fallback, each route page, each
+// prerendered product, brand and shop page) names the same two files,
+// assets/app.<hash>.js and assets/app.<hash>.css, instead of carrying 864 kB
+// of script and 214 kB of styles inline: a page is then a few kB, and a
+// repeat visit or a second page costs the document only (the service worker
+// keeps the files, demo/sw.js). The stylesheet is a plain render blocking
+// <link>, so nothing is ever painted unstyled; the script sits where the
+// inline bundle sat and still runs only once the data is in (bootScript). A
+// region's page names its own pair under its folder (us/assets/...). The
+// artifact wrapper (dist-demo/artifact.html) keeps everything inline.
+const STYLE_BLOCK = /<style>([\s\S]*?)<\/style>/g;
+
+/** The one <style> block of a template body, which every page shares. */
+function styleOf(html: string): string {
+  const found = [...html.matchAll(STYLE_BLOCK)];
+  if (found.length !== 1) throw new Error(`demo/template.html must hold exactly one <style> block, found ${found.length}`);
+  return found[0]![1]!;
+}
+
+/**
+ * Publishes a body's styles and bundle under content hashed names in the
+ * region's assets folder (demo/assets, or demo/us/assets for `us`), and
+ * returns the body that links them, from the site root ('/assets/...' or
+ * '/us/assets/...'): absolute, because 404.html answers every deep link
+ * (/brands/dior and the like) with this same document.
+ */
+function externalBody(templateBody: string, bundleCode: string, region: string): string {
+  const css = styleOf(templateBody);
+  const cssPath = hashedAssetPath('app', 'css', css);
+  const jsCode = bootScript(bundleCode);
+  const jsPath = hashedAssetPath('app', 'js', jsCode);
+  const folder = region === '' ? '' : `${region}/`;
+  mkdirSync(resolve(root, 'demo', folder, 'assets'), { recursive: true });
+  writeGenerated(root, `demo/${folder}${cssPath}`, css);
+  writeGenerated(root, `demo/${folder}${jsPath}`, jsCode);
+  return templateBody
+    .replace(STYLE_BLOCK, () => `<link rel="stylesheet" href="/${folder}${cssPath}" onerror="${ASSET_FAILED_GLOBAL}()" />`)
+    .replace(BUNDLE_TAG, () => `<script src="/${folder}${jsPath}" onerror="${ASSET_FAILED_GLOBAL}()"></script>`);
+}
+
+/** Deletes the files in an assets folder this build did not name. */
+function pruneAssets(folder: string, body: string): string[] {
+  const dir = resolve(root, 'demo', folder, 'assets');
+  if (!existsSync(dir)) return [];
+  const keep = new Set([...body.matchAll(/assets\/([A-Za-z]+\.[0-9a-f]{16}\.(?:js|css))/g)].map((m) => m[1]!));
+  const gone = readdirSync(dir).filter((f) => !keep.has(f));
+  for (const f of gone) rmSync(resolve(dir, f), { recursive: true, force: true });
+  return gone;
+}
+
+// The UK home page's plain content for a visitor or crawler without the
+// script (scripts/staticContent.ts): the intro, today's top deals and most
+// stocked bottles, the guides and the shops, as plain links. The regions keep
+// the short intro only.
+const ukTemplate = template.replace(HOME_STATIC_MARKER, () => homeStaticHtml());
+const regionBaseTemplate = template.replace(HOME_STATIC_MARKER, '');
+
 // `</script>` inside the bundle would close the inline tag early.
 const safeBundle = bundle.replace(/<\/script>/gi, '<\\/script>');
 // A function replacer, not a string one: String.replace treats a string
@@ -134,7 +201,9 @@ const safeBundle = bundle.replace(/<\/script>/gi, '<\\/script>');
 // previously exercised a bundle large enough to hit one. A function
 // replacer's return value is spliced in literally, with no such patterns
 // recognised, which is what this always needed to be doing.
-const body = template.replace(BUNDLE_TAG, () => `<script>${bootScript(safeBundle)}</script>`);
+const body = ukTemplate.replace(BUNDLE_TAG, () => `<script>${bootScript(safeBundle)}</script>`);
+const pageBody = externalBody(ukTemplate, bundle, '');
+const removedAssets = pruneAssets('', pageBody);
 
 mkdirSync(resolve(root, 'dist-demo'), { recursive: true });
 // The artifact wrapper hosts one file, so its copy carries the data inline,
@@ -249,7 +318,7 @@ const standalone = documentFor({
   alternates: alternateLines('/'),
   firstScripts: `<script>${regionDispatchScript(regionPrefixes)}</script>\n`,
   loader: loaderScript(dataFiles, lazyFiles),
-  body,
+  body: pageBody,
 });
 writeGenerated(root, 'demo/index.html', standalone);
 
@@ -294,8 +363,9 @@ function publishRegion(region: RegionConfig): { index: number; files: number } {
   const kept = new Set([...eager, ...onDemand].map((f) => f.path.slice(`${r}/data/`.length)));
   for (const f of readdirSync(regionData).filter((x) => !kept.has(x))) rmSync(resolve(regionData, f), { recursive: true, force: true });
 
-  const regionBundle = readFileSync(resolve(dist, 'bundle.js'), 'utf8').replace(/<\/script>/gi, '<\\/script>');
-  const regionBody = regionTemplate(template, region).replace(BUNDLE_TAG, () => `<script>${bootScript(regionBundle)}</script>`);
+  const regionBundle = readFileSync(resolve(dist, 'bundle.js'), 'utf8');
+  const regionBody = externalBody(regionTemplate(regionBaseTemplate, region), regionBundle, r);
+  pruneAssets(r, regionBody);
   setActiveRegionForBuild(region);
   const home = headFor({ route: { name: 'home', param: '', query: {} } });
   setActiveRegionForBuild(null);
@@ -340,6 +410,8 @@ for (const f of [...dataFiles, ...lazyFiles]) {
   console.log(`demo/${f.path.padEnd(38)} ${(readFileSync(resolve(root, 'demo', f.path)).length / 1024 / 1024).toFixed(1)} MB${onDemand}`);
 }
 if (removed.length) console.log(`demo/data                removed ${removed.length} superseded file(s)`);
+for (const f of referencedAssetFiles(standalone)) console.log(`demo/${f.padEnd(38)} ${(readFileSync(resolve(root, 'demo', f)).length / 1024).toFixed(1)} kB`);
+if (removedAssets.length) console.log(`demo/assets              removed ${removedAssets.length} superseded file(s)`);
 console.log(`demo/ads.txt             ${adsTxtBody ? 'written' : 'none (no AdSense publisher id)'}`);
 console.log(`dist-demo/artifact.html  ${(body.length / 1024).toFixed(1)} kB + inline data`);
 console.log(`build-hash               sha256:${inputsHash.hash.slice(0, 12)}… (${inputsHash.files.length} input files)`);

@@ -153,6 +153,32 @@ const RELOAD_KEY = 'pricesniffs.dataReload';
 /** Matches a published data file's path anywhere in a document. demo/sw.js carries a copy. */
 export const DATA_FILE_PATTERN = /data\/[A-Za-z]+\.[0-9a-f]{16}\.json/g;
 
+/**
+ * The page's own code and styles, published beside the data (audit option G,
+ * docs/SITE-AUDIT-2026-10-12.md; done 13 Oct 2026): `assets/<name>.<hash>.js`
+ * and `assets/<name>.<hash>.css`, named for a hash of their exact bytes like a
+ * data file, so the service worker keeps them in a cache of their own and
+ * drops a hash the newest page no longer names (demo/sw.js). Until then every
+ * page carried the 864 kB bundle and 214 kB of styles inline, which made each
+ * route page about 1 MB and a page per product impossible.
+ * demo/sw.js carries a copy of the pattern.
+ */
+export const ASSET_FILE_PATTERN = /assets\/[A-Za-z]+\.[0-9a-f]{16}\.(?:js|css)/g;
+
+/** `assets/<name>.<hash>.<ext>` for these exact bytes. */
+export function hashedAssetPath(name: string, ext: 'js' | 'css', content: string | Buffer): string {
+  if (!/^[A-Za-z]+$/.test(name)) throw new Error(`asset name "${name}" must be letters only`);
+  return `assets/${name}.${createHash('sha256').update(content).digest('hex').slice(0, 16)}.${ext}`;
+}
+
+/** The code and style files a built page names, as paths relative to the site root. */
+export function referencedAssetFiles(html: string): string[] {
+  return [...new Set(html.match(ASSET_FILE_PATTERN) ?? [])];
+}
+
+/** Global the loader defines: called by the bundle's and the stylesheet's onerror. */
+export const ASSET_FAILED_GLOBAL = '__psAssetFailed';
+
 /** `data/<name>.<hash>.json` for these exact bytes. */
 export function hashedDataPath(name: string, content: string | Buffer): string {
   if (!/^[A-Za-z]+$/.test(name)) throw new Error(`data file name "${name}" must be letters only`);
@@ -203,6 +229,20 @@ export function loaderScript(files: DataFile[], lazy: LazyDataFile[] = []): stri
       }
       return r.json();
     });
+  };
+  // The page's code or styles failed to load (assets/<name>.<hash>.js|css): a
+  // copy of the page older than the site names a file the deploy replaced, so
+  // reload once, as for a data file; after that, show the page's plain content
+  // (the static text a visitor without the script sees) instead of a blank one.
+  window.${ASSET_FAILED_GLOBAL} = function () {
+    var retried = true;
+    try { retried = sessionStorage.getItem('${RELOAD_KEY}') === '1'; } catch (e) {}
+    if (!retried) {
+      try { sessionStorage.setItem('${RELOAD_KEY}', '1'); } catch (e) {}
+      location.reload();
+      return;
+    }
+    document.documentElement.classList.remove('js');
   };
   window.${READY_GLOBAL} = Promise.all(files.map(function (f) {
     return fetch(base + f[0]).then(function (r) {

@@ -6157,6 +6157,12 @@ export function applyHead(tags: HeadTags): void {
   if (tags.noindex) setMeta('name', 'robots', 'noindex, follow');
   else document.head.querySelector('meta[name="robots"]')?.remove();
 
+  // A prerendered page's structured data (scripts/leafPages.ts) describes its
+  // own address only: dropped once the reader moves to another page.
+  document.head.querySelectorAll('script[type="application/ld+json"][data-page]').forEach((el) => {
+    if (el.getAttribute('data-page') !== tags.canonical) el.remove();
+  });
+
   setHreflangLinks(pageAlternates(tags));
 }
 

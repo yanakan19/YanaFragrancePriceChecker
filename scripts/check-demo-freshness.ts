@@ -21,7 +21,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { computeDemoInputsHash, readStampedHash } from './demoInputsHash.js';
-import { referencedDataFiles } from './dataFiles.js';
+import { referencedAssetFiles, referencedDataFiles } from './dataFiles.js';
 
 const root = process.cwd();
 
@@ -49,10 +49,10 @@ if (stamped !== current) {
 // The page's prices live in demo/data (scripts/build-demo.ts). A page whose
 // stamp matches but whose data files are gone would deploy as a site with no
 // prices, so that is refused too.
-const missing = referencedDataFiles(page).filter((path) => !existsSync(join(root, 'demo', path)));
+const missing = [...referencedDataFiles(page), ...referencedAssetFiles(page)].filter((path) => !existsSync(join(root, 'demo', path)));
 if (missing.length > 0) {
   console.error(
-    `check-demo-freshness: demo/index.html names data file(s) that do not exist: ${missing.join(', ')}. ` +
+    `check-demo-freshness: demo/index.html names data or code file(s) that do not exist: ${missing.join(', ')}. ` +
       'Run `npm run demo` and commit demo/data with the page.',
   );
   process.exit(4);

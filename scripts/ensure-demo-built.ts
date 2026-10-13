@@ -28,7 +28,7 @@ import { spawnSync } from 'node:child_process';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { referencedDataFiles } from './dataFiles.js';
+import { referencedAssetFiles, referencedDataFiles } from './dataFiles.js';
 import { computeDemoInputsHash, readStampedHash } from './demoInputsHash.js';
 import { liveRegions } from '../src/config/regions.js';
 import { ensureCatalogueBuilt } from './ensure-catalogue-built.js';
@@ -47,6 +47,10 @@ export function staleReason(root: string): string | null {
   const named = referencedDataFiles(html);
   const missing = named.filter((p) => !existsSync(join(root, 'demo', p)));
   if (missing.length > 0) return `demo/index.html names data files that are missing: ${missing.join(', ')}`;
+  // Its code and styles (assets/app.<hash>.js|css, since 13 Oct 2026).
+  const assets = referencedAssetFiles(html).filter((p) => !existsSync(join(root, 'demo', p)));
+  if (assets.length > 0) return `demo/index.html names code files that are missing: ${assets.join(', ')}`;
+  if (!existsSync(join(root, 'dist-demo/leaf-pages.json'))) return 'the prerendered pages are not built';
   // Untracked, demo/data is no longer cleaned by git when a checkout or merge
   // brings another build's page; the build deletes what its page does not
   // name, and tests/demoDataFiles.test.ts holds the folder to that.

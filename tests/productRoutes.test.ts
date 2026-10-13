@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -109,10 +109,17 @@ describe('a product address cannot clash with the site\'s own routes', () => {
     expect(matchRoute('/sets').name).toBe('sets');
   });
 
-  it('has no file or folder at the top of the published site with the shape of a product address', () => {
+  it('has no file or folder at the top of the published site with the shape of a product address, but the product\'s own page', () => {
     const entries = readdirSync(resolve(root, 'demo'));
     expect(entries).toContain('sw.js');
+    // Since 13 Oct 2026 each priced product has its own page, <slug>.html
+    // (scripts/leafPages.ts), listed in the build's manifest; nothing else may take that shape.
+    const manifestPath = resolve(root, 'dist-demo/leaf-pages.json');
+    const pages = new Set(existsSync(manifestPath)
+      ? (JSON.parse(readFileSync(manifestPath, 'utf8')) as { pages: { kind: string; file: string }[] }).pages.filter((p) => p.kind === 'product').map((p) => p.file)
+      : []);
     for (const entry of entries) {
+      if (pages.has(entry)) continue;
       const name = entry.replace(/\.[a-z0-9]+$/i, '');
       expect(isProductSlug(entry.toLowerCase()), entry).toBe(false);
       expect(isProductSlug(name.toLowerCase()), entry).toBe(false);

@@ -286,6 +286,34 @@ link to others.
    about four weeks. You get an email either way. If refused, send me the
    reason word for word.
 
+### 5g. After the refusal of 13 October 2026: resubmit (10 minutes, from about 20 October)
+
+What was changed is in `docs/ADVERTISING-PLAN.md`, "Refused 13 Oct 2026".
+Do not resubmit straight away: Google wants to see the fixed site crawled.
+
+1. **Search Console first** (https://search.google.com/search-console, the
+   `pricesniffs.space` property). Left menu → **Sitemaps** → submit
+   `https://pricesniffs.space/sitemap.xml` again. Then **URL Inspection**:
+   paste three addresses, for example a product
+   (`https://pricesniffs.space/creed_aventus_100ml`), a brand
+   (`https://pricesniffs.space/brands/creed`) and
+   `https://pricesniffs.space/about`. For each press **Test live URL**: it
+   must say **"URL is available to Google"**, and **View tested page** →
+   HTML should show the product's name and a price. If one says "Not found
+   (404)", send me the address.
+2. Wait until **Pages** in Search Console shows the product pages being
+   indexed or at least crawled (a few days), and at least a week after
+   13 October. About **20 October 2026** at the earliest.
+3. **AdSense** → left menu → **Sites** → `pricesniffs.space` → **Request
+   review** (or, where it shows a checklist, tick "I confirm I have fixed the
+   issues" and press **Resubmit**). Keep Auto ads off.
+4. If refused again, send me the wording word for word, and the date.
+   Two refusals for "low value content" means the affiliate first fallback
+   for a month (`docs/ADVERTISING-PLAN.md` section 4).
+
+The "Select your country" pop-up stays off until the site is approved; then
+ask an agent to switch it back on (one line).
+
 ### 5b. Turn on Google's consent message (before any ad shows)
 
 UK and EEA law needs consent before personalised ads, and Google requires a

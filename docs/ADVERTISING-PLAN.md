@@ -52,9 +52,9 @@ Nothing in Phase 1 shows ads or loads Google's ad script.
 
 | # | Risk | Why it applies here | Fix before or during review | Who |
 |---|---|---|---|---|
-| 1 | **"Site down or unavailable" / pages unreachable** | GitHub Pages serves every deep link (`/about`, `/about/legal`, every product, brand and shop page) through `404.html`, so each one answers **HTTP 404** with the full app inside (`docs/ROUTING-PLAN.md` 3.2). Only `/` answers 200. A reviewer's crawler that follows the About, Contact or Privacy link gets a 404 status. | Build real files for the pages Google asks about: `about.html`, `about/legal.html`, `about/bot.html` (copies of the shell, 0.93 MB each), which Pages serves at `/about`, `/about/legal`, `/about/bot` with status 200. Check with `curl -I` after deploy. Each new file goes in `scripts/generated-files.txt` and `.gitignore` as a deploy file. **Done 2026-10-07:** `scripts/build-route-pages.ts` writes a page for every list route and every fixed sitemap address (16 files, `docs/ROUTING-PLAN.md` 3.2); check with `curl -I` after deploy. | Agent |
+| 1 | **"Site down or unavailable" / pages unreachable** (**done 13 Oct 2026 for every priced UK product, brand and shop: see "Refused 13 Oct 2026"**) | GitHub Pages serves every deep link (`/about`, `/about/legal`, every product, brand and shop page) through `404.html`, so each one answers **HTTP 404** with the full app inside (`docs/ROUTING-PLAN.md` 3.2). Only `/` answers 200. A reviewer's crawler that follows the About, Contact or Privacy link gets a 404 status. | Build real files for the pages Google asks about: `about.html`, `about/legal.html`, `about/bot.html` (copies of the shell, 0.93 MB each), which Pages serves at `/about`, `/about/legal`, `/about/bot` with status 200. Check with `curl -I` after deploy. Each new file goes in `scripts/generated-files.txt` and `.gitignore` as a deploy file. **Done 2026-10-07:** `scripts/build-route-pages.ts` writes a page for every list route and every fixed sitemap address (16 files, `docs/ROUTING-PLAN.md` 3.2); check with `curl -I` after deploy. | Agent |
 | 2 | **"Low value content"** (the commonest refusal) | 27,800 sitemap pages are generated from shop data with one template; many are sizes of the same scent; shop descriptions are copied text. The reviewer sees a price list, not writing. | Add a small amount of plainly original content and link it from home and the footer: a "How we check prices" page (the method, delivery included, how often), 3 to 5 short buying guides (for example "Is a gift set cheaper than the bottle?", "Tester vs retail", "Best time to buy in the UK", from `docs/CONTENT-PLAN.md`), and a one line original summary on each set and oil page (what is in the set, saving vs the bottle alone) which `docs/GIFT-SETS-AND-OILS-PLAN.md` already computes. Do not mass rename, delete or noindex product pages during review: churn looks worse than thin pages. | Agent builds; owner writes or approves the guide wording |
-| 3 | **Empty page without JavaScript** | `<main id="view">` in `demo/template.html` is empty; all text comes from 930 KB of script plus 3.2 MB of data. A crawler that does not wait sees nothing. | Add a `<noscript>` block and a short static intro in the template (what PriceSniffs is, links to About, How we check prices, Legal, Contact, top brands) as real `<a href>` links. Safe for `404.html` because the app replaces it on boot. | Agent |
+| 3 | **Empty page without JavaScript** (**done 13 Oct 2026**) | `<main id="view">` in `demo/template.html` is empty; all text comes from 930 KB of script plus 3.2 MB of data. A crawler that does not wait sees nothing. | Add a `<noscript>` block and a short static intro in the template (what PriceSniffs is, links to About, How we check prices, Legal, Contact, top brands) as real `<a href>` links. Safe for `404.html` because the app replaces it on boot. | Agent |
 | 4 | **Navigation, About, Contact** | About exists, with a Contact Us form (`#contact`) and the Legal Notice's Contact section; email `yannysniffs@gmail.com`. Contact is not a page of its own. | Give the footer a visible **Contact** link to `/about#contact` and make sure About, Legal, Privacy and Contact are all one click from every page. A separate `/contact` route is optional. | Agent |
 | 5 | **Copied or scraped material** | Product photos and descriptions come from shops and feeds. | Keep shop names and links on every copied description ("from the shop's listing"); prefer feed images (Awin) where licensed. Not worth a rebuild during review. | Leave unless refused |
 | 6 | **Ad placement near affiliate links** (later policy risk, not a review item) | Price rows and shop buttons are affiliate links; an ad mistaken for one, or placed where a tap meant for a shop lands on it, is "encouraging accidental clicks". | Already designed out: no ads in the price rail, price boxes or offer rows; product block sits under the whole price list, labelled "Advertisement", dashed frame. Keep it that way. | None now |
@@ -77,6 +77,39 @@ and product pages with no prices are `noindex` (`demo/head.ts`);
   data split first and is not a review blocker).
 - **Do not do during review:** change URLs or noindex rules in bulk, add
   Auto ads, add an own cookie banner, add pop ups or interstitials.
+
+### Refused 13 Oct 2026, and what changed
+
+AdSense answered "You need to fix some issues before you can use AdSense"
+with no specific reason the owner could see. The most likely causes, from
+the risks above, were fixed the same day:
+
+- **Pop-ups (risk 8):** the "Select your country" pop-up, on since 9 Oct, is
+  off again (`REGION_WELCOME_ON = false`).
+- **Unreachable pages (risk 1):** every product, brand and shop address
+  answered HTTP 404 (the app inside `404.html`) and the sitemap listed about
+  35,000 of them. Now each priced UK product (all 32,958), brand (1,233),
+  shop (63) and well stocked note (627) has a real page that answers **200**
+  (`scripts/leafPages.ts`, `docs/PRODUCT-URLS.md` section 7), and the sitemap
+  lists only addresses that answer 200.
+- **Empty without JavaScript (risk 3):** those pages, and the home page,
+  carry their real content as plain HTML inside `<main>`: the product's
+  name, size, cheapest price and shop with the date checked, every shop's
+  price, the affiliate disclosure, the notes and links; the home page's top
+  deals, most stocked, guides and shops. Product pages carry Product JSON-LD.
+- **Speed and layout shift:** code and styles moved to cached files of their
+  own (each page about 13 kB instead of 1 MB), and the desktop layout no
+  longer jumps when the app starts (layout shift 0.63 → 0.0002 at 1280 wide).
+- Already in place and checked again: About, How We Check Prices, Guides,
+  Legal Notice, Privacy and Contact (`/about#contact`, a page answering 200)
+  linked from every page's footer; `ads.txt`; the verification meta tag; no
+  Google ad or consent script loaded.
+
+**Resubmit advice:** wait until Search Console shows the new pages being
+crawled (URL Inspection of three product pages says "URL is available to
+Google", and Pages / Sitemaps show the new sitemap read with no 404 errors),
+and at least a week of visible updates after 13 Oct, so **not before about
+20 Oct 2026**. Then request review (`docs/OWNER-STEPS.md` 5g).
 
 ### If refused
 

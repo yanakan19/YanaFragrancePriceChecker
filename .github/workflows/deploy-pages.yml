@@ -239,6 +239,10 @@ jobs:
           # so the host answers it 200 and not the 404.html fallback: present,
           # from this build, with its own title and canonical.
           npx tsx scripts/build-route-pages.ts --check
+          # Every prerendered product, brand, shop and note page well formed,
+          # every sitemap address a real file (so it answers 200), and the
+          # deploy output under its budget (scripts/leafPages.ts).
+          npx tsx scripts/build-leaf-pages.ts --check
           # demo/sitemap.xml is the index of one sitemap per region (public
           # beta, 2026-10-09): the UK's, the US's and India's.
           test -s demo/sitemap.xml
@@ -256,6 +260,16 @@ jobs:
       # What this deployment is built from, published beside the page for the
       # next run's `decide` job: the commit checked out above and the hidden
       # and removed list's fingerprint as `decide` read it.
+      # The page's TypeScript sources (the catalogue modules alone are 55 MB)
+      # are never fetched by the site; leaving them out keeps the deploy output
+      # inside its budget (DEPLOY_BUDGET_BYTES in scripts/leafPages.ts counts
+      # it without them).
+      - name: Leave out the sources the site never serves
+        timeout-minutes: 2
+        run: |
+          find demo -name '*.ts' -type f -delete
+          du -sh demo
+
       - name: Record what this deployment is built from
         timeout-minutes: 2
         env:

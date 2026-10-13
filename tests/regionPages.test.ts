@@ -203,7 +203,10 @@ describe.skipIf(!built)('the sitemaps', () => {
     for (const r of REGIONS) {
       const xml = read(`sitemap-${r.pathPrefix}.xml`);
       const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
-      expect(locs.length, r.id).toBeGreaterThan(1000);
+      // Since 13 Oct 2026 a sitemap lists only addresses that answer 200: a region's
+      // product, brand and shop pages are not prerendered (scripts/leafPages.ts),
+      // so its sitemap holds its fixed pages, each a route page of its own.
+      expect(locs.length, r.id).toBeGreaterThan(10);
       expect(locs.length, r.id).toBeLessThanOrEqual(50_000);
       expect(locs.every((l) => l.startsWith(`${SITE_URL}/${r.pathPrefix}/`)), r.id).toBe(true);
       expect(locs, r.id).toContain(`${SITE_URL}/${r.pathPrefix}/`);
@@ -216,9 +219,11 @@ describe.skipIf(!built)('the sitemaps', () => {
     expect(gb).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"');
     const home = /<url><loc>https:\/\/pricesniffs\.space\/<\/loc>.*?<\/url>/.exec(gb)![0];
     for (const h of ['en-GB', 'en-US', 'en-IN', 'x-default']) expect(home, h).toContain(`hreflang="${h}"`);
-    // A product the US also sells, by its UK address: its US address beside it.
-    const shared = /<url><loc>https:\/\/pricesniffs\.space\/([a-z0-9_]+)<\/loc>[^\n]*hreflang="en-US" href="https:\/\/pricesniffs\.space\/us\/([a-z0-9_]+)"/.exec(gb);
-    expect(shared, 'a UK product with a US alternate').not.toBeNull();
+    // An alternate only between listed addresses (13 Oct 2026): every href an
+    // alternate names is itself in one of the sitemaps, so it answers 200.
+    const listed = new Set([gb, ...REGIONS.map((r) => read(`sitemap-${r.pathPrefix}.xml`))].flatMap((x) => [...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!)));
+    const hrefs = new Set([gb, ...REGIONS.map((r) => read(`sitemap-${r.pathPrefix}.xml`))].flatMap((x) => [...x.matchAll(/hreflang="[^"]+" href="([^"]+)"/g)].map((m) => m[1]!)));
+    expect([...hrefs].filter((h) => !listed.has(h))).toEqual([]);
     // A shop's page is its region's alone.
     const shop = /<url><loc>https:\/\/pricesniffs\.space\/retailers\/[^<]+<\/loc>[^\n]*<\/url>/.exec(gb)![0];
     expect(shop).not.toContain('hreflang');

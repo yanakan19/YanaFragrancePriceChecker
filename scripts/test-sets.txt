@@ -131,6 +131,8 @@ code tests/jsonldProductGroup.test.ts
 data tests/kayaliCatalogue.test.ts
 code tests/kayaliMinis.test.ts
 code tests/layoutConsistency.test.ts
+data tests/leafPages.test.ts
+code tests/leafPagesBrowser.test.ts
 code tests/legalPages.test.ts
 code tests/linkPreview.test.ts
 code tests/linkPriority.test.ts

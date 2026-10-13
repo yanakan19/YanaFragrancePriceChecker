@@ -170,21 +170,24 @@ describe('the built folder', () => {
 
   it('keeps 404.html for the rest, byte for byte the page, so an unknown address still says Page not found', () => {
     expect(read('404.html')).toBe(index);
-    for (const rel of ['not-a-page.html', 'about/nothing.html', 'developer.html', 'explore.html', 'gift-sets.html', 'brands/dior.html']) {
+    for (const rel of ['not-a-page.html', 'about/nothing.html', 'developer.html', 'explore.html', 'gift-sets.html', 'brands/no-such-brand-anywhere.html']) {
       expect(existsSync(join(demo, rel)), rel).toBe(false);
     }
     expect(pages.map((p) => p.path)).not.toContain('/developer');
     expect(pages.map((p) => p.path)).not.toContain('/');
   });
 
-  it('writes no file for a product, brand, shop or note page', () => {
-    const files = execFileSync('find', ['demo', '-name', '*.html', '-not', '-path', 'demo/logos/*', '-not', '-path', 'demo/icons/*'], { cwd: root, encoding: 'utf8' })
+  it('writes no other page: the page, the route pages and the prerendered product, brand, shop and note pages (scripts/leafPages.ts) only', () => {
+    const files = execFileSync('find', ['demo', '-name', '*.html', '-not', '-path', 'demo/logos/*', '-not', '-path', 'demo/icons/*'], { cwd: root, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
       .split('\n').filter(Boolean).map((f) => f.replace(/^demo\//, ''));
     // The region pages (public beta): each live region's page, its deep link copy and its route pages.
     const regionShells = liveRegions().filter((r) => r.pathPrefix !== '').flatMap((r) => [`${r.pathPrefix}/index.html`, `${r.pathPrefix}/404.html`]);
-    const expected = new Set(['index.html', '404.html', 'template.html', ...pages.map((p) => p.file), ...regionShells, ...regionPagesToWrite().map((p) => p.file)]);
-    expect(files.filter((f) => !expected.has(f)), 'html files in demo/ that are not the page or a route page').toEqual([]);
-    expect(files.length).toBeLessThan(60 * liveRegions().length);
+    // Since 13 Oct 2026 each priced UK product, brand, shop and well stocked note has a page of its own.
+    const leafPath = join(root, 'dist-demo/leaf-pages.json');
+    const leaves = existsSync(leafPath) ? (JSON.parse(readFileSync(leafPath, 'utf8')) as { pages: { file: string }[] }).pages.map((p) => p.file) : [];
+    const expected = new Set(['index.html', '404.html', 'template.html', ...pages.map((p) => p.file), ...regionShells, ...regionPagesToWrite().map((p) => p.file), ...leaves]);
+    expect(files.filter((f) => !expected.has(f)), 'html files in demo/ that are not the page, a route page or a prerendered page').toEqual([]);
+    expect(files.length - leaves.length).toBeLessThan(60 * liveRegions().length);
   });
 
   it('is listed by the sitemap: every indexable route page, and none that asks not to be indexed', () => {

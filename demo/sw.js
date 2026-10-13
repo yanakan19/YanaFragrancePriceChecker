@@ -44,6 +44,16 @@ const DATA_CACHE = 'pricesniffs-data-v1';
 // use, never at install, so installing costs what it did; scripts/noteData.ts
 // carries the same pattern (HASHED_ICON_PATTERN).
 const ICON_CACHE = 'pricesniffs-icons-v1';
+// The page's code and styles (13 Oct 2026, audit option G): every page names
+// assets/app.<hash>.js and assets/app.<hash>.css (us/assets/... for a region),
+// named for a hash of their bytes like the data, so they are kept cache-first
+// in a cache of their own, pre-cached at install from the page that installed
+// the worker, and a country's old hashes are dropped once a newer page of that
+// country no longer names them. Without them cached, the offline page would
+// open unstyled and never start. scripts/dataFiles.ts ASSET_FILE_PATTERN is
+// the same shape; tests/serviceWorker.test.ts holds the two together.
+const ASSET_CACHE = 'pricesniffs-assets-v1';
+const ASSET_FILE = /assets\/[A-Za-z]+\.[0-9a-f]{16}\.(?:js|css)/g;
 const NOTE_ICON = /\/note-icons\/h\/[a-z0-9-]+\.[0-9a-f]{10}\.svg$/;
 const SHELL = [
   './index.html',
@@ -60,6 +70,8 @@ const DATA_FILE = /data\/[A-Za-z]+\.[0-9a-f]{16}\.json/g;
 const REGION_PREFIXES = ['us', 'in'];
 // A data file's path as a document names it, with its country's folder when it has one.
 const REGION_DATA_FILE = new RegExp(`(?:\\b(${REGION_PREFIXES.join('|')})\\/)?${DATA_FILE.source}`, 'g');
+// The same for the code and styles a document names (from the site root: /us/assets/...).
+const REGION_ASSET_FILE = new RegExp(`(?:\\b(?:${REGION_PREFIXES.join('|')})\\/)?${ASSET_FILE.source}`, 'g');
 
 /** The country an address inside the worker's scope belongs to: 'us', 'in', or '' for the UK. */
 function regionOfUrl(href) {
@@ -86,14 +98,21 @@ function dataUrlsIn(html) {
   return [...new Set([...html.matchAll(REGION_DATA_FILE)].map((m) => m[0]))].map((path) => new URL(path, self.registration.scope).href);
 }
 
-/** Drops every cached data file of the document's country that the document does not name; other countries' files stay. */
+/** Absolute URLs of the code and style files a document names. */
+function assetUrlsIn(html) {
+  return [...new Set([...html.matchAll(REGION_ASSET_FILE)].map((m) => m[0]))].map((path) => new URL(path, self.registration.scope).href);
+}
+
+/** Drops every cached data and code file of the document's country that the document does not name; other countries' files stay. */
 async function pruneData(html) {
   const region = regionOfDocument(html);
-  const wanted = new Set(dataUrlsIn(html));
-  if (region === null || wanted.size === 0) return;
-  const cache = await caches.open(DATA_CACHE);
-  for (const request of await cache.keys()) {
-    if (regionOfUrl(request.url) === region && !wanted.has(request.url)) await cache.delete(request);
+  if (region === null) return;
+  for (const [name, wanted] of [[DATA_CACHE, new Set(dataUrlsIn(html))], [ASSET_CACHE, new Set(assetUrlsIn(html))]]) {
+    if (wanted.size === 0) continue;
+    const cache = await caches.open(name);
+    for (const request of await cache.keys()) {
+      if (regionOfUrl(request.url) === region && !wanted.has(request.url)) await cache.delete(request);
+    }
   }
 }
 
@@ -125,7 +144,11 @@ self.addEventListener('install', (event) => {
         for (const region of await openRegions()) {
           if (region) await shell.addAll([shellKey(region)]);
           const page = await shell.match(shellKey(region));
-          if (page) await (await caches.open(DATA_CACHE)).addAll(dataUrlsIn(await page.text()));
+          if (!page) continue;
+          const html = await page.text();
+          // The code and styles first: without them the offline page cannot start at all.
+          await (await caches.open(ASSET_CACHE)).addAll(assetUrlsIn(html));
+          await (await caches.open(DATA_CACHE)).addAll(dataUrlsIn(html));
         }
       } catch (err) {
         console.warn('PriceSniffs: could not pre-cache price data', err);
@@ -138,7 +161,7 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
       .keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE && key !== DATA_CACHE && key !== ICON_CACHE).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE && key !== DATA_CACHE && key !== ICON_CACHE && key !== ASSET_CACHE).map((key) => caches.delete(key))))
       .then(() => self.clients.claim()),
   );
 });
@@ -175,6 +198,22 @@ self.addEventListener('fetch', (event) => {
   if (url.origin === self.location.origin && /\/data\/[A-Za-z]+\.[0-9a-f]{16}\.json$/.test(url.pathname)) {
     event.respondWith(
       caches.open(DATA_CACHE).then((cache) =>
+        cache.match(event.request).then(
+          (cached) =>
+            cached ??
+            fetch(event.request).then((response) => {
+              if (response.ok) event.waitUntil(cache.put(event.request, response.clone()));
+              return response;
+            }),
+        ),
+      ),
+    );
+    return;
+  }
+
+  if (url.origin === self.location.origin && /\/assets\/[A-Za-z]+\.[0-9a-f]{16}\.(?:js|css)$/.test(url.pathname)) {
+    event.respondWith(
+      caches.open(ASSET_CACHE).then((cache) =>
         cache.match(event.request).then(
           (cached) =>
             cached ??

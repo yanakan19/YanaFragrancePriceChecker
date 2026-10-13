@@ -92,6 +92,8 @@ const EXTRA_INPUTS = [
   'scripts/build-region-data.ts',
   'scripts/bundle-region.ts',
   'scripts/regionPages.ts',
+  // The UK home page's static content for a reader without the script (13 Oct 2026).
+  'scripts/staticContent.ts',
 ];
 
 /**

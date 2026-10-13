@@ -144,7 +144,9 @@ describe('the built page and its data folder', () => {
     expect(referenced.length).toBeGreaterThan(0);
     // The loader sits in <head>, ahead of the stylesheet and the markup, so
     // the downloads start as early as the document allows.
-    expect(html.indexOf(READY_GLOBAL)).toBeLessThan(html.indexOf('<style>'));
+    // The styles are a file of their own since 13 Oct 2026 (assets/app.<hash>.css).
+    expect(html.indexOf('<link rel="stylesheet"')).toBeGreaterThan(-1);
+    expect(html.indexOf(READY_GLOBAL)).toBeLessThan(html.indexOf('<link rel="stylesheet"'));
     // The whole point: was ~25 MB with the data inline.
     expect(html.length).toBeLessThan(3 * 1024 * 1024);
   });

@@ -93,7 +93,7 @@ describe('scripts/generated-files.txt', () => {
     const deploy = entries.filter((x) => x.policy === 'deploy');
     expect(deploy.map((e) => e.pattern)).toEqual([
       'demo/catalogue.generated.ts', 'demo/dormant.generated.ts',
-      'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
+      'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/assets/', 'demo/brands/', 'demo/retailers/', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
       'demo/us/', 'demo/in/',
       'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/', 'demo/notes/', 'demo/guides/', 'demo/note-icons/h/',
     ]);
@@ -142,7 +142,7 @@ describe('scripts/generated-files.txt', () => {
     expect(deployWorkflow).toContain('run: npx tsx scripts/ensure-catalogue-built.ts');
     for (const e of entries.filter((x) => x.policy === 'deploy')) {
       expect(e.writtenBy, e.pattern).toMatch(
-        /^npm run (demo \(scripts\/(build-demo|build-sitemap|build-route-pages|bundle-demo)\.ts[),]|catalogue:demo \(scripts\/build-demo-catalogue\.ts\); replayed by scripts\/ensure-catalogue-built\.ts)/,
+        /^npm run (demo \(scripts\/(build-demo|build-sitemap|build-route-pages|build-leaf-pages|bundle-demo)\.ts[),]|catalogue:demo \(scripts\/build-demo-catalogue\.ts\); replayed by scripts\/ensure-catalogue-built\.ts)/,
       );
     }
   });
@@ -167,7 +167,7 @@ describe('scripts/generated-files.txt', () => {
     }
     expect(bash(['paths', 'deploy']).split(' ')).toEqual([
       'demo/catalogue.generated.ts', 'demo/dormant.generated.ts',
-      'demo/index.html', 'demo/404.html', 'demo/data', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
+      'demo/index.html', 'demo/404.html', 'demo/data', 'demo/assets', 'demo/brands', 'demo/retailers', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
       'demo/us', 'demo/in',
       'demo/*.html', 'demo/about', 'demo/legal', 'demo/account', 'demo/notes', 'demo/guides', 'demo/note-icons/h',
     ]);
