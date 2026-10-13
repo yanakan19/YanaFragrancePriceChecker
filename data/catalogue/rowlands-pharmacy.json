@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-12T21:11:50.686Z",
-  "seenAt": "2026-10-12T21:11:50.686Z",
+  "updatedAt": "2026-10-13T01:26:16.123Z",
+  "seenAt": "2026-10-13T01:26:16.123Z",
   "source": "live",
   "listings": [
     {
@@ -980,7 +980,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Joop! Homme Eau de Toilette Natural Spray 125ml. Key Features. ##features##. Iconic Men's Fragrance – A classic scent loved worldwide . Oriental Fougère Fragrance Family – Rich, warm and distinctive . Long-Lasting Eau de Toilette – Bold fragrance with lasting appeal . Ideal for Day or Evening Wear – Versatile and recognisable scent. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Make a bold statement with Joop! Homme Eau de Toilette Natural Spray 125ml, one of the world's most recognisable men's fragrances. Renowned for its distinctive oriental scent, Joop! Homme combines warm, spicy and sweet notes to create a powerful fragrance that has remained a popular choice for decades. Opening with fresh citrus accords and vibrant spices, this iconic fragrance develops into a rich floral heart before settling into a warm and sensual base of vanilla, sandalwood and tonka bean. The result is a confident, long-lasting scent that is instantly recognisable and ideal for men who appreciate a distinctive fragrance. Perfect for evening wear, special occasions or everyday use, Joop! Homme delivers exceptional longevity and projection. Presented in a stylish 125ml spray bottle, it offers excellent value and makes a great addition to any fragrance collection.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points including the neck, chest and wrists. Allow the fragrance to dry naturally on the skin. Reapply as desired throughout the day or evening.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat and open flames. Store in a cool, dry place. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -1670,7 +1670,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Eternity Men’s Eau de Toilette 30 ml. Key Features. ##features##. Classic, clean EDT with fresh aromatic notes. Versatile everyday wear for work or weekends. Timeless gift for men who prefer a refined scent. Compact 30 ml size ideal for travel . ##end-features##. Product Details. CK Eternity takes on an unexpectedly masculine sensibility by infusing refreshing notes of an aromatic mix of organic lavender oil and spearmint oil with a warm, woody base of cedarwood essence and Indonesian patchouli essence. Madagascan vanilla absolute and rum extract impart a finishing amber warmth, creating a lingering CK scent with an addictive fougère quality..",
       "productType": "Fragrance",

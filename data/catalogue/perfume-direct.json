@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-12T21:11:50.686Z",
-  "seenAt": "2026-10-12T21:11:50.686Z",
+  "updatedAt": "2026-10-13T01:26:16.123Z",
+  "seenAt": "2026-10-13T01:26:16.123Z",
   "source": "live",
   "listings": [
     {
@@ -79285,7 +79285,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 68,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Jimmy Choo Rose Passion by Jimmy Choo is a Floral fragrance for women. A beautifully rich scent that captures the essence of glamour. Opening with the freshness of coconut water and the exotic bloom of the frangipani flower, notes of orchid and jasmine complemented by sandalwood and exotic vanilla. A free-spirited and soulful perfume to help you stand out in a world where you don't need to fit in. Fragrance Type: Floral Fragrance Notes: - Top notes: Frangipani and Jasmine - Middle notes: Coconut Milk and Orchid - Base notes: Vanilla and Sandalwood Launched: 2023 .",
       "productType": "Women's Perfume",
