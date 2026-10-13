@@ -56,9 +56,19 @@ describe('data/note-aliases.json', () => {
 });
 
 describe('the catalogue the build wrote', () => {
-  it('has every alias target as a note', () => {
-    const missing = [...new Set(file.aliases.map((a) => a.canonical))].filter((c) => !indexKeys.has(noteMergeKey(c)));
-    expect(missing).toEqual([]);
+  it('has every alias target as a note, unless no product carries it or any spelling of it today', () => {
+    // A target is a note whenever one product names it or a spelling folded into it. When
+    // the harvest holds none of them (a rare spelling whose products left the catalogue),
+    // the alias is dormant: it must still turn each variant into its target, which is
+    // what a returning product would need, and no variant may be listed.
+    const dormant = file.aliases.filter((a) => !indexKeys.has(noteMergeKey(a.canonical)));
+    for (const a of dormant) {
+      expect(applyNoteAliases([a.variant], map), a.variant).toEqual([a.canonical]);
+      expect(indexKeys.has(noteMergeKey(a.variant)), `${a.variant} is listed though its target is not`).toBe(false);
+    }
+    // A catalogue where the alias file was not applied at all would list the variants,
+    // not leave targets unlisted; the check above fails there. Most targets are live.
+    expect(dormant.length).toBeLessThan(file.aliases.length / 2);
   });
 
   it('lists no folded spelling any more: every one of them is gone from the Notes tab', () => {
@@ -110,7 +120,9 @@ describe('the catalogue the build wrote', () => {
 describe('addresses of merged spellings', () => {
   it('open the canonical note: every merged spelling resolves, whichever way its address was made', () => {
     for (const a of file.aliases) {
-      const note = indexKeys.get(noteMergeKey(a.canonical))!.name;
+      const listed = indexKeys.get(noteMergeKey(a.canonical));
+      if (listed === undefined) continue; // dormant: no product carries the note today
+      const note = listed.name;
       for (const slug of new Set([slugify(a.variant), noteSlug(a.variant)])) {
         if (slug === '') continue;
         // A slug that is another note's own address means that note (its own address always wins).

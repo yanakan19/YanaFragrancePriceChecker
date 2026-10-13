@@ -912,6 +912,13 @@ const memberIdForms: { own: string; forms: string[]; lineage: string | null }[] 
    from the unlabelled bottle of the same name. Worked out once, over every
    listing of a shop that writes a label, before any is turned into a product. */
 function shopLabelKey(l: StoredListing, retailer: Retailer, labelledTitle: string): string {
+  // Per shop: the disagreement that keeps a label is one shop's own (Perfume Direct filing
+  // a name under Men's and under Women's). Another shop's label for the same words (Scent
+  // Warehouse's "for Unisex" on Hermès Un Jardin Sur Le Nil) is not a second bottle on the
+  // first shop's shelf, and counting it left "Women's Perfume" in the name.
+  return `${l.retailerId}|${shopLabelKeyOfName(l, retailer, labelledTitle)}`;
+}
+function shopLabelKeyOfName(l: StoredListing, retailer: Retailer, labelledTitle: string): string {
   const rawBrand = resolveRawBrand(l, retailer);
   const brand = canonBrand(rawBrand);
   const name = displayName(labelledTitle, rawBrand, brand, travelSizeIsASize(l.retailerId));
@@ -1445,9 +1452,24 @@ function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): v
       }
       products.delete(dupe.id);
     }
+    // A pair joined for differing only by an audience word ("Spicebomb" and "Spicebomb
+    // Pour Homme", one barcode) now holds two pages of one shop whose matchKeys still
+    // differ by that word, so the same-bottle collapse would keep both. Their keys lose
+    // the name part (brand, size and strength stay); rawTitlesAgree still has to agree
+    // before a page is dropped, as the Avon case needs.
+    if (name !== undefined) {
+      for (const o of canonical.offers) o.matchKey = `${o.matchKey.split('|').slice(0, 3).join('|')}|audience-merged`;
+    }
   }
 }
 
+const AUDIENCE_OF_LABEL = { mens: 'm', womens: 'f', unisex: 'u' } as const;
+/** Whether the product's name states one audience and it is not the one a shop's label gave. */
+function nameContradictsAudience(p: Product): boolean {
+  if (p.audience === null) return false;
+  const named = audiencesOf(readAudienceName(`${p.name} ${p.concentration}`));
+  return named.length === 1 && named[0] !== AUDIENCE_OF_LABEL[p.audience];
+}
 const shopsOf = (p: Product) => p.offers.map((o) => o.retailerId);
 /** Who the shops' own titles for a product say it is for: one audience across every title that names one, else null. */
 function statedAudience(p: Product): Audience | null {
@@ -2755,7 +2777,11 @@ const catalogue = ordered.map((p) => {
       : {}),
     // Omitted for every product no shop's category label has named an audience
     // for, so the shipped file grows by those alone.
-    ...(p.audience ? { gender: p.audience } : {}),
+    // And for a product whose own name says who it is for and a shop's label said
+    // otherwise (Amber Oud White Edition Unisex, which one shop shelves "for Her"): the
+    // name wins, as the Gender filter reads it first, so the stored label would only be
+    // a second, contradicting claim.
+    ...(p.audience && !nameContradictsAudience(p) ? { gender: p.audience } : {}),
   };
 });
 

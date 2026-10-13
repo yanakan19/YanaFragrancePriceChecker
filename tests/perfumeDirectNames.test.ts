@@ -200,17 +200,19 @@ describe('the built catalogue', () => {
     expect(aqua?.gender).toBe('unisex');
   });
 
-  it('rarely gives a product a gender its own name contradicts, and the name wins when it does', () => {
+  it('never gives a product a gender its own name contradicts: the name wins', () => {
     // Perfume Direct files Valentino Donna Born In Roma Coral Fantasy under Men's
-    // Aftershave while its title says Donna. The Gender filter reads the name
-    // first (demo/app.ts genderOf), so that product is still filed as women's.
+    // Aftershave while its title says Donna, and Scent Warehouse shelves a
+    // "Unisex" bottle "for Her". The Gender filter reads the name first (demo/app.ts
+    // genderOf); the build leaves the stored gender off such a product
+    // (nameContradictsAudience in scripts/build-demo-catalogue.ts) so the two never
+    // disagree. A product that names no audience keeps the label's gender.
     const contradicted = CATALOGUE.filter((c) => {
       if (!c.gender) return false;
       const named = readGender(`${c.brand} ${c.name} ${c.concentration}`);
       return named !== 'notStated' && named !== c.gender;
     });
-    expect(contradicted.length).toBeLessThanOrEqual(3);
-    for (const c of contradicted) expect(c.name).toContain('Donna');
+    expect(contradicted.map((c) => `${c.brand} ${c.name}: ${c.gender}`)).toEqual([]);
   });
 
   it('keeps apart the men\'s and the women\'s bottle Perfume Direct sells under one name', () => {
