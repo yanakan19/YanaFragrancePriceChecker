@@ -12,6 +12,7 @@ import {
   readAudienceName,
 } from '../src/catalogue/audienceNames.js';
 import { brandKey } from '../src/catalogue/brandName.js';
+import { KEPT_APART_UNPROVEN, KEEP_APART_REVIEWED, SAME_FRAGRANCE_REVIEWED } from '../src/catalogue/audienceReviewed.js';
 import { matchKey, type MatchableProduct } from '../src/catalogue/productMatch.js';
 import { regionMatchName } from '../src/catalogue/regionCatalogue.js';
 import { displayName, stripShopTitleLabel } from '../src/catalogue/productName.js';
@@ -116,9 +117,10 @@ describe('what is merged, and on what evidence', () => {
   });
 
   it('keeps Gucci Guilty Pour Homme and Pour Femme two products', () => {
-    const homme = product({ id: 'a', brand: 'Gucci', name: 'Guilty Pour Homme', concentration: 'Eau de Toilette', sizeMl: 90 });
-    const femme = product({ id: 'b', brand: 'Gucci', name: 'Guilty Pour Femme', concentration: 'Eau de Toilette', sizeMl: 90 });
-    const plain = product({ id: 'c', brand: 'Gucci', name: 'Guilty', concentration: 'Eau de Toilette', sizeMl: 90 });
+    // A made-up house with the Guilty pattern, so the rule is tested without the reviewed list (Gucci Guilty is in it).
+    const homme = product({ id: 'a', brand: 'Testa', name: 'Guilty Pour Homme', concentration: 'Eau de Toilette', sizeMl: 90 });
+    const femme = product({ id: 'b', brand: 'Testa', name: 'Guilty Pour Femme', concentration: 'Eau de Toilette', sizeMl: 90 });
+    const plain = product({ id: 'c', brand: 'Testa', name: 'Guilty', concentration: 'Eau de Toilette', sizeMl: 90 });
     expect(groups([homme, femme])).toHaveLength(0);
     // The plain name is the women's bottle, so it does not join "Pour Homme" on the words.
     expect(groups([homme, plain])).toHaveLength(0);
@@ -177,6 +179,59 @@ describe('what is merged, and on what evidence', () => {
     for (const e of KEEP_APART_AUDIENCE) expect(e.reason.length).toBeGreaterThan(20);
     const keys = SAME_FRAGRANCE_AUDIENCE.map((e) => `${brandKey(e.brand)}|${audienceFamilyKey(product({ id: 'k', brand: e.brand, name: e.name }))}`);
     expect(new Set(keys).size).toBe(keys.length);
+  });
+});
+
+describe('the name pairs reviewed on 13 Oct 2026', () => {
+  const key = (brand: string, name: string) => `${brandKey(brand)}|${audienceFamilyKey(product({ id: 'k', brand, name }))}`;
+  const word = { m: 'for Men', f: 'for Women', u: 'Unisex' } as const;
+  const other = { m: 'for Women', f: 'for Men', u: 'for Men' } as const;
+
+  it('keeps all three lists well formed: evidence on every line, a plain name, nobody in two lists', () => {
+    for (const e of SAME_FRAGRANCE_REVIEWED) {
+      expect(['m', 'f', 'u']).toContain(e.is);
+      expect(e.evidence.length, `${e.brand} ${e.name}`).toBeGreaterThan(30);
+      expect(audiencesOf(readAudienceName(e.name)), `${e.name} is the plain spelling`).toEqual([]);
+    }
+    for (const e of [...KEEP_APART_REVIEWED, ...KEPT_APART_UNPROVEN]) {
+      expect(e.reason.length, `${e.brand} ${e.name}`).toBeGreaterThan(30);
+      expect(audiencesOf(readAudienceName(e.name)), `${e.name} is the plain spelling`).toEqual([]);
+    }
+    const merged = new Set(SAME_FRAGRANCE_AUDIENCE.map((e) => key(e.brand, e.name)));
+    const apart = [...KEEP_APART_REVIEWED, ...KEPT_APART_UNPROVEN].map((e) => key(e.brand, e.name));
+    expect(new Set(apart).size, 'a family is listed once as kept apart').toBe(apart.length);
+    expect(apart.filter((k) => merged.has(k)), 'a family is never both merged and kept apart').toEqual([]);
+  });
+
+  it('joins the plain name to the labelled name of the audience it is for, at every size, and to no other', () => {
+    for (const e of SAME_FRAGRANCE_REVIEWED) {
+      const plain = product({ id: 'p', brand: e.brand, name: e.name });
+      const right = product({ id: 'r', brand: e.brand, name: `${e.name} ${word[e.is]}` });
+      const wrong = product({ id: 'w', brand: e.brand, name: `${e.name} ${other[e.is]}` });
+      expect(findAudienceDuplicates([plain, right]).length, `${e.name} ${word[e.is]}`).toBe(1);
+      if (e.is !== 'u') expect(findAudienceDuplicates([plain, wrong]), `${e.name} ${other[e.is]}`).toEqual([]);
+      const big = { ...right, id: 'r2', sizeMl: 50 };
+      expect(findAudienceDuplicates([plain, big]), 'a different size is another product').toEqual([]);
+    }
+  });
+
+  it('keeps a family on the keep apart list from being joined by the weaker rules, but a shared barcode still joins it', () => {
+    for (const e of KEEP_APART_REVIEWED) {
+      const plain = product({ id: 'p', brand: e.brand, name: e.name });
+      const unisex = product({ id: 'u', brand: e.brand, name: `${e.name} Unisex` });
+      expect(findAudienceDuplicates([plain, unisex]), `${e.brand} ${e.name}`).toEqual([]);
+      const a = { ...plain, ean: '5012345678900' };
+      const b = { ...unisex, ean: '5012345678900' };
+      expect(findAudienceDuplicates([a, b]).length, `${e.brand} ${e.name} with one barcode`).toBe(1);
+    }
+  });
+
+  it('never joins two different barcodes by a reviewed entry, however sure the words are', () => {
+    for (const e of SAME_FRAGRANCE_REVIEWED) {
+      const plain = product({ id: 'p', brand: e.brand, name: e.name, ean: '5012345678900' });
+      const right = product({ id: 'r', brand: e.brand, name: `${e.name} ${word[e.is]}`, ean: '5012345678917' });
+      expect(findAudienceDuplicates([plain, right], { shopsOf: () => ['a', 'b'] }), `${e.brand} ${e.name}`).toEqual([]);
+    }
   });
 });
 

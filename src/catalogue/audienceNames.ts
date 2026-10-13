@@ -43,6 +43,7 @@
  */
 
 import { brandKey } from './brandName.js';
+import { KEEP_APART_REVIEWED, SAME_FRAGRANCE_REVIEWED } from './audienceReviewed.js';
 import {
   barcodeEditionsNeverMeet,
   findDuplicateGroups,
@@ -143,6 +144,8 @@ const RASASI_HAWAS_LINE =
   "Rasasi's Hawas line is the men's line: its own storefront and the shops list the bottle as \"Hawas X\" and as \"Hawas X for Him\" (the owner confirmed Hawas and Hawas for Him are one scent, 12 Oct 2026; barcode 614514331026 is both), and the women's bottles carry their own name (\"Hawas For Her\", 614514331019).";
 
 export const SAME_FRAGRANCE_AUDIENCE: readonly SameFragranceEntry[] = [
+  // The 13 Oct 2026 review of the name pairs the rules left open (audienceReviewed.ts).
+  ...SAME_FRAGRANCE_REVIEWED,
   { brand: 'Rasasi', name: 'Hawas', is: 'm', evidence: RASASI_HAWAS_LINE },
   { brand: 'Rasasi', name: 'Hawas Ice', is: 'm', evidence: `${RASASI_HAWAS_LINE} Rasasi's own store sells "Hawas Ice"; other shops call it "Hawas Ice for Men".` },
   { brand: 'Rasasi', name: 'Hawas Fire', is: 'm', evidence: `${RASASI_HAWAS_LINE} "Hawas Fire For Him" is barcode 614514178065.` },
@@ -161,8 +164,12 @@ export const SAME_FRAGRANCE_AUDIENCE: readonly SameFragranceEntry[] = [
   },
 ];
 
-/** Families where the rules above must not apply at all. Reviewed, with the reason, only ever added to. */
-export const KEEP_APART_AUDIENCE: readonly { brand: string; name: string; reason: string }[] = [];
+/**
+ * Families where the weaker rules above (same audience written two ways, Unisex, the shops say
+ * so, reviewed entry) must not apply. Reviewed, with the reason, only ever added to. A shared
+ * barcode still joins a pair: it is the one proof that outweighs the words.
+ */
+export const KEEP_APART_AUDIENCE: readonly { brand: string; name: string; reason: string }[] = KEEP_APART_REVIEWED;
 
 const entryKey = (brand: string, name: string): string =>
   `${brandKey(brand)}|${audienceFamilyKey({ id: 'entry', brand, name, concentration: '', sizeMl: 0, ean: null })}`;
@@ -220,7 +227,7 @@ export function findAudienceDuplicates<T extends MatchableProduct>(
   const shopCount = (p: T): number => (options.shopsOf ? new Set(options.shopsOf(p)).size : 0);
   for (const cluster of byCluster.values()) {
     if (cluster.length < 2) continue;
-    if (APART.has(cluster[0]!.family)) continue;
+    const apart = APART.has(cluster[0]!.family);
     const RANKS = ['barcode', 'same audience', 'unisex', 'shops say so', 'reviewed'] as const;
     const code = (m: Member<T>): string | null => (isBarcode(m.p.ean) ? normalizedEan(m.p.ean) : null);
     // Two different barcodes keep a pair apart, unless no shop sells both: then they are
@@ -249,6 +256,7 @@ export function findAudienceDuplicates<T extends MatchableProduct>(
           edges.push({ i, j, rank: 0 });
           continue;
         }
+        if (apart) continue;
         const xa = claims(a);
         const xb = claims(b);
         if (xa !== null && xa === xb) {

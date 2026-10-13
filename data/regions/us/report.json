@@ -1,7 +1,7 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-12T22:52:28.951Z",
+  "builtAt": "2026-10-13T11:52:26.637Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
@@ -12,15 +12,15 @@
   "listingsPriced": 65979,
   "listingsKept": 31379,
   "staleAfterDays": 7,
-  "products": 22824,
-  "productsWithTwoOrMoreShops": 6368,
-  "shareWithTwoOrMoreShops": 0.279,
-  "productsWithTwoOrMoreIndependentShops": 2554,
-  "shareWithTwoOrMoreIndependentShops": 0.112,
-  "productsWithThreeOrMoreShops": 2324,
-  "medianPriceGap": 0.183,
+  "products": 22722,
+  "productsWithTwoOrMoreShops": 6371,
+  "shareWithTwoOrMoreShops": 0.28,
+  "productsWithTwoOrMoreIndependentShops": 2589,
+  "shareWithTwoOrMoreIndependentShops": 0.114,
+  "productsWithThreeOrMoreShops": 2354,
+  "medianPriceGap": 0.186,
   "listingBarcodeShare": 0.202,
-  "productsMatchingUkByBarcode": 1934,
+  "productsMatchingUkByBarcode": 1944,
   "shops": [
     {
       "id": "aedes",
@@ -30,7 +30,7 @@
     {
       "id": "beauty-encounter",
       "products": 5075,
-      "shared": 1277
+      "shared": 1300
     },
     {
       "id": "beautyhabit",
@@ -55,11 +55,11 @@
     {
       "id": "fragrance-market",
       "products": 4644,
-      "shared": 2607
+      "shared": 2652
     },
     {
       "id": "fragrance-outlet",
-      "products": 4435,
+      "products": 4434,
       "shared": 3945
     },
     {
@@ -70,7 +70,7 @@
     {
       "id": "la-belle-perfumes",
       "products": 4849,
-      "shared": 1244
+      "shared": 1272
     },
     {
       "id": "luckyscent",
@@ -85,7 +85,7 @@
     {
       "id": "microperfumes",
       "products": 502,
-      "shared": 312
+      "shared": 319
     },
     {
       "id": "ministry-of-scent",
@@ -99,8 +99,8 @@
     },
     {
       "id": "perfumania",
-      "products": 4194,
-      "shared": 3896
+      "products": 4193,
+      "shared": 3895
     },
     {
       "id": "sol-de-janeiro",
@@ -120,17 +120,17 @@
     {
       "id": "ulta",
       "products": 1134,
-      "shared": 310
+      "shared": 311
     }
   ],
-  "productsShown": 22702,
-  "productsWithUkPhoto": 4512,
-  "productsWithUkPhotoByBarcode": 1486,
-  "productsWithUkPhotoByName": 3026,
+  "productsShown": 22600,
+  "productsWithUkPhoto": 4475,
+  "productsWithUkPhotoByBarcode": 1484,
+  "productsWithUkPhotoByName": 2991,
   "listingsWithReference": 23529,
-  "offersWithCorroboratedReference": 6337,
-  "deals": 1020,
-  "shareWithUkPhoto": 0.199,
+  "offersWithCorroboratedReference": 6477,
+  "deals": 1051,
+  "shareWithUkPhoto": 0.198,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,

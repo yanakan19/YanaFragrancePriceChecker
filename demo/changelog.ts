@@ -30,6 +30,16 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.109.0',
+    date: '13 Oct 2026',
+    groups: [
+      {
+        heading: 'Products and Matching',
+        points: ['More same scents joined into one product'],
+      },
+    ],
+  },
+  {
     version: 'v3.108.0',
     date: '12 Oct 2026',
     groups: [

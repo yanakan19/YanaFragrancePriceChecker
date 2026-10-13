@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-13T02:46:16.564Z",
+ "builtAt": "2026-10-13T11:52:44.118Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
  "listingsWithReference": 12423,
- "offersWithCorroboratedReference": 1434,
+ "offersWithCorroboratedReference": 1448,
  "deals": [
   {
    "fragranceId": "aar-fragrances-ibraheem-al-qurashi-blue-oud",
@@ -178,16 +178,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-cool-water-for-women",
-   "price": 2975,
-   "delivered": false,
-   "wasPrice": 5995,
-   "percentOff": 50,
-   "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-rasasi-hawas-black",
    "price": 3450,
    "delivered": false,
@@ -314,6 +304,16 @@
    "wasPrice": 6350,
    "percentOff": 48,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-afnan-supremacy-not-only-intense-extrait-de-parfum-150ml",
+   "price": 4200,
+   "delivered": false,
+   "wasPrice": 8000,
+   "percentOff": 47,
+   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -2278,6 +2278,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-versace-eros-parfum-200ml",
+   "price": 12320,
+   "delivered": false,
+   "wasPrice": 18535,
+   "percentOff": 33,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-chopard-cedar-malaki-edp-u-80ml",
    "price": 7650,
    "delivered": false,
@@ -2388,11 +2398,21 @@
    "houseName": null
   },
   {
-   "fragranceId": "nykaa-gioaa00000444",
+   "fragranceId": "fridaycharm-armani-acqua-di-gio-edt-men-125ml",
    "price": 6950,
    "delivered": false,
    "wasPrice": 10250,
    "percentOff": 32,
+   "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-giorgio-armani-acqua-di-gio-edt-100ml",
+   "price": 5600,
+   "delivered": false,
+   "wasPrice": 8200,
+   "percentOff": 31,
    "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
@@ -2699,11 +2719,11 @@
   },
   {
    "fragranceId": "aar-fragrances-versace-eros-edt-100ml",
-   "price": 7423.9,
+   "price": 6750,
    "delivered": false,
-   "wasPrice": 10560,
+   "wasPrice": 9600,
    "percentOff": 29,
-   "retailerId": "perfume-palace",
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -3022,6 +3042,16 @@
    "price": 5399,
    "delivered": false,
    "wasPrice": 7350,
+   "percentOff": 26,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-versace-eros-edt-200ml",
+   "price": 9250,
+   "delivered": false,
+   "wasPrice": 12600,
    "percentOff": 26,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3948,12 +3978,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-coach-floral-blush",
+   "price": 5960,
+   "delivered": false,
+   "wasPrice": 7450,
+   "percentOff": 20,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-davidoff-zino",
    "price": 3069,
    "delivered": false,
    "wasPrice": 3848.9,
    "percentOff": 20,
    "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-giorgio-armani-code-2",
+   "price": 7000,
+   "delivered": false,
+   "wasPrice": 8750,
+   "percentOff": 20,
+   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -4308,6 +4358,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-versace-eros-parfum-1",
+   "price": 8550,
+   "delivered": false,
+   "wasPrice": 10500,
+   "percentOff": 18,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-xerjoff-renaissance",
    "price": 18490,
    "delivered": false,
@@ -4352,16 +4412,6 @@
    "price": 6250,
    "delivered": false,
    "wasPrice": 7700,
-   "percentOff": 18,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-versace-eros-parfum-men-100ml",
-   "price": 8550,
-   "delivered": false,
-   "wasPrice": 10500,
    "percentOff": 18,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -4888,6 +4938,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-hugo-boss-bottled-parfum-3",
+   "price": 9864.8,
+   "delivered": false,
+   "wasPrice": 11605,
+   "percentOff": 14,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-lattafa-yara-candy",
    "price": 2650,
    "delivered": false,
@@ -4924,16 +4984,6 @@
    "wasPrice": 42550,
    "percentOff": 14,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-jpg-scandal-ph-le-parfum-m-100ml",
-   "price": 8300,
-   "delivered": false,
-   "wasPrice": 9740,
-   "percentOff": 14,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -5464,6 +5514,26 @@
    "wasPrice": 11935,
    "percentOff": 10,
    "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-tf-black-orchd-edp-50ml",
+   "price": 20160,
+   "delivered": false,
+   "wasPrice": 22400,
+   "percentOff": 10,
+   "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-tom-ford-black-orchid-edp-50ml",
+   "price": 10890,
+   "delivered": false,
+   "wasPrice": 12100,
+   "percentOff": 10,
+   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
