@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-12T21:11:50.686Z",
-  "seenAt": "2026-10-12T21:11:50.686Z",
+  "updatedAt": "2026-10-13T01:26:16.123Z",
+  "seenAt": "2026-10-13T01:26:16.123Z",
   "source": "live",
   "listings": [
     {
@@ -2659,7 +2659,7 @@
       "priceGbp": 50,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Velixir Concordia Eau de Parfum 100ml . Experience precision and clarity with Concordia Eau De Parfum by Velixir Parfums, a refined fragrance built on balance, freshness, and quiet strength. Clean, sharp, and effortlessly composed, Concordia is designed for those who value control, confidence, and understated power. . Clean. Precise. Effortlessly Powerful. . Concordia opens with a crisp blend of grapefruit and bergamot, delivering a bright, citrusy freshness that feels instantly uplifting. A touch of ginger adds a fresh spicy edge, creating a scent that is both energising and refined. The result is a minimal yet impactful fragrance that stays clean, sharp, and modern from start to finish. . Fragrance Notes: . Key Notes: Grapefruit, Bergamot, Ginger .",
       "productType": null,
