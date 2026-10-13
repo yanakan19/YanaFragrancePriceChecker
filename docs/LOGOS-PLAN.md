@@ -965,3 +965,40 @@ initials for Marks & Spencer and Perfume Click, whose declared `favicon.ico`
 files are served as an icon type but are PNG files by their bytes; and
 Parfumdreams UK and Perfume Market UK draw an empty white tile. Worth a look by
 whoever next runs `npm run images:check`.
+
+---
+
+## 10. US and India shops, 13 Oct 2026
+
+The owner said yes to logos for the region shops (the "Out of scope" note in section 9 is
+lifted). `RegionRetailer` (`src/types/regionRetailer.ts`) now takes the same `logo` and
+`squareLogo` as a UK shop, `regionShopAsRetailer` (`src/config/regionShops.ts`) hands them to
+the region page build, and `tests/regionRetailers.test.ts` holds the rules (own site declared,
+own registrable domain, https, no light ink, a dated source; the refused shops stay on initials).
+The region pages draw them exactly as the UK pages do: the Shops tab, the shop page and the 20px
+offer row (`orgMark`, `offerMark`).
+
+Method: section 8, unchanged. `scripts/logo-probe.ts --region=us|in --no-social --save=<dir>` probed
+the 20 US and 10 Indian shops that are enabled and have listings, as PriceSniffsBot, robots.txt first
+and read literally, two seconds between requests to a host. Every candidate was drawn at 42 and 56px
+on white and on dark from the exact bytes fetched.
+
+**Added, 10 shops** (all hot linked from the shop's own domain, none copied):
+
+- US (5 of 20): Aedes (wordmark), Beautyhabit (wordmark, SVG), D.S. & Durga (square SVG), Ellis Brooklyn
+  (wordmark), Ministry of Scent (apple touch icon).
+- India (5 of 10): Perfume Palace (wordmark), Perfume Network (96px square), Bella Vita (wordmark), Wild
+  Stone (wordmark), Ustraa (apple touch icon).
+
+**Kept on initials, 20 shops**, each with its reason:
+
+- Only a 16 to 48px icon declared: Lucky Scent, Twisted Lily, Indigo Perfumery, Bluemercury (48px),
+  Maison Louis Marie, Microperfumes, La Belle Perfumes, The Perfume Spot, Fridaycharm, Naso Profumi.
+- Wordmark too thin or small to read at the size drawn: Sol de Janeiro, Parfums Raffy, Beauty Encounter,
+  Fragrance Outlet, Fragrance Market.
+- Light ink, which the white tile cannot show: The Man Company.
+- Too heavy for the tile with no smaller size offered: AAR Fragrances (243 KB).
+- Ulta: its declared `favicon.ico` is PNG bytes under an icon type, and the test browser refused it (the same fault as Marks & Spencer in section 9).
+- Served from a third party host: Perfumania (its wordmark sits on a Bluecore CDN).
+- Homepage answered 503: Nykaa.
+- Ustraa's manifest icons are another company's mark (VLCC) and were not used; its apple touch icon was.

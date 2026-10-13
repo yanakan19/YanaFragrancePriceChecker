@@ -148,6 +148,15 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://www.aedes.com/cdn/shop/files/aedes_logo_web.png?v=1675363842&width=500',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.aedes.com/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -220,6 +229,15 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://www.beautyhabit.com/cdn/shop/files/bh-logo_175x.svg?v=1745466675',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.beautyhabit.com/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -252,6 +270,15 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://www.dsanddurga.com/cdn/shop/files/DSD_Favicon.svg?v=1785808618&width=180',
+      shape: 'square',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.dsanddurga.com/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -349,6 +376,15 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://www.ellisbrooklyn.com/cdn/shop/files/Ellis-BK-Logo_Primary-Alternate_Black_1206_1.png?v=1736984620&width=500',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.ellisbrooklyn.com/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -581,6 +617,15 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://ministryofscent.com/cdn/shop/t/58/assets/apple-touch-icon.png?v=107930566064443390291661524260',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://ministryofscent.com/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: [...NOT_FOR_SALE_TYPES, 'Sample Set'],

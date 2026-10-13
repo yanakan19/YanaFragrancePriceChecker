@@ -137,6 +137,15 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://perfumepalace.in/cdn/shop/files/Perfume_Palace_logo_Final.png?v=1666518741&width=140',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://perfumepalace.in/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -176,6 +185,15 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://www.perfumenetwork.in/cdn/shop/files/Untitled_design_-_2026-08-12T135110.670.png?v=1786522905',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.perfumenetwork.in/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -258,6 +276,15 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://bellavitaorganic.com/cdn/shop/files/Bella_Vita_Logo_360_E_2x_d60de42b-fa50-45b3-b490-be70ac1fffa1.png?v=1716533001&width=668',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://bellavitaorganic.com/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -289,6 +316,15 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://www.wildstone.in/cdn/shop/files/Wild_Stone_Logo_973ee566-ce01-45db-8b37-628380b8d85b_1417x.png?v=1672557783',
+      shape: 'wordmark',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.wildstone.in/',
+      readAt: '2026-10-13',
+    },
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
@@ -378,6 +414,15 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
+    // Logo read 2026-10-13 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 10); hot linked, never copied.
+    logo: {
+      src: 'https://www.ustraa.com/icon-180x180.png',
+      shape: 'square',
+      ink: 'own',
+      basis: 'own-site-declared',
+      source: 'https://www.ustraa.com/',
+      readAt: '2026-10-13',
+    },
     route: {
       kind: 'sitemap',
       sitemapRoute: {

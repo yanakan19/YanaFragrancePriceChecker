@@ -100,7 +100,7 @@ describe('words', () => {
 });
 
 describe('the region shops as the page reads them (src/config/regionShops.ts)', () => {
-  it('carry no affiliate programme, a hot-linked photo basis (D24, answered 9 Oct 2026) and no logo', () => {
+  it('carry no affiliate programme, a hot-linked photo basis (D24, answered 9 Oct 2026) and exactly the logo the region registry holds (13 Oct 2026)', () => {
     for (const region of ['US', 'IN'] as const) {
       const shops = regionShopsAsRetailers(region);
       expect(shops.length).toBe(REGION_RETAILERS[region].length);
@@ -108,7 +108,9 @@ describe('the region shops as the page reads them (src/config/regionShops.ts)', 
         expect(r.affiliate.network, r.id).toBeNull();
         expect(r.affiliate.deeplinkTemplate, r.id).toBeNull();
         expect(r.affiliate.imageBasis, r.id).toBe('hotlink-unlicensed');
-        expect(r.logo, r.id).toBeUndefined();
+        const own = REGION_RETAILERS[region].find((x) => x.id === r.id)!;
+        expect(r.logo, r.id).toEqual(own.logo);
+        expect(r.squareLogo, r.id).toEqual(own.squareLogo);
       }
     }
   });

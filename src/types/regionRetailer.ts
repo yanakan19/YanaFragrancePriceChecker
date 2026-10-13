@@ -16,7 +16,9 @@
  *   - no `affiliate` block: the owner decided on 9 Oct 2026 that no affiliate
  *     programme is joined for now; only shops our crawler can read under
  *     docs/DECISIONS.md D23 are listed;
- *   - no `logo`. `imageBasis` is the one photo field, and it is the same switch
+ *   - no `affiliate`-style extras. `logo` and `squareLogo` are allowed since 13 Oct 2026 (owner said yes;
+ *     docs/LOGOS-PLAN.md section 10): the same `LogoRef` as a UK shop, only what the shop's own site
+ *     declares, hot linked. `imageBasis` is the one photo field, and it is the same switch
  *     as the UK's (src/types/retailer.ts): the owner answered D24 for the US and
  *     India on 9 Oct 2026, so each shop carries `hotlink-unlicensed` and its
  *     photos show, hot-linked from the shop's own page and never copied. Delete
@@ -24,7 +26,7 @@
  *   - no Trustpilot fields.
  * tests/regionRetailers.test.ts holds every one of those lines.
  */
-import type { RetailerTier, ShopifyVariantRule, SitemapRoute } from './retailer.js';
+import type { LogoRef, RetailerTier, ShopifyVariantRule, SitemapRoute } from './retailer.js';
 import type { RegionId } from '../config/regions.js';
 
 /**
@@ -121,6 +123,10 @@ export interface RegionRetailer {
    * owner's answer of 9 Oct 2026). Unset means no photo of this shop is shown.
    */
   imageBasis?: 'hotlink-unlicensed';
+  /** The shop's own logo, as for a UK shop (docs/LOGOS-PLAN.md section 10). Unset means initials. */
+  logo?: LogoRef;
+  /** A square mark beside a wordmark `logo`. */
+  squareLogo?: LogoRef;
   /** Whether the region crawl reads this shop. */
   enabled: boolean;
   /** Why an entry is off, in a sentence, when it is. */

@@ -34,6 +34,10 @@ export const CHANGELOG: ChangelogEntry[] = [
     date: '13 Oct 2026',
     groups: [
       {
+        heading: 'New',
+        points: ['Shop logos on the US and India sites'],
+      },
+      {
         heading: 'Products and Matching',
         points: ['More same scents joined into one product'],
       },

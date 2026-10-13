@@ -61,7 +61,9 @@ import { readFileSync, mkdtempSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import { RETAILERS } from '../src/config/retailers.js';
+import { REGION_RETAILERS, regionFromArg } from '../src/config/regionRetailers.js';
 import { BOT_HEADERS, BOT_ROBOTS_TOKEN } from '../src/catalogue/botIdentity.js';
 import { isAllowed, parseRobots, NO_RESTRICTIONS, type RobotsRules } from '../src/catalogue/robots.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
@@ -73,6 +75,8 @@ function arg(name: string): string | null {
 }
 
 const onlyRetailer = arg('retailer');
+/** --region=us|in: probe the enabled shops of a region that have listings in data/regions/<r>/catalogue/ (docs/LOGOS-PLAN.md section 10). */
+const regionArg = arg('region');
 const onlyBrand = arg('brand');
 /** --brands=a,b,c: several brands in one run, one report. Names or keys. */
 const onlyBrands = arg('brands');
@@ -103,6 +107,22 @@ interface Target {
 }
 
 function retailerTargets(): Target[] {
+  if (regionArg) {
+    const region = regionFromArg(regionArg);
+    if (!region) return [];
+    const shops = REGION_RETAILERS[region.id].filter((r) => {
+      if (!r.enabled) return false;
+      const file = join(process.cwd(), 'data/regions', region.folder, 'catalogue', `${r.id}.json`);
+      if (!existsSync(file)) return false;
+      try {
+        return ((JSON.parse(readFileSync(file, 'utf8')) as { listings?: unknown[] }).listings ?? []).length > 0;
+      } catch {
+        return false;
+      }
+    });
+    const wantedIds = onlyRetailer ? new Set(onlyRetailer.split(',')) : null;
+    return shops.filter((r) => !wantedIds || wantedIds.has(r.id)).map((r) => ({ id: r.id, kind: 'retailer', homepage: r.homepage }));
+  }
   const enabled = RETAILERS.filter((r) => r.enabled);
   // --retailer= takes one id or a comma separated list of them.
   const wanted = onlyRetailer ? new Set(onlyRetailer.split(',')) : null;
@@ -148,7 +168,7 @@ function brandTargets(): Target[] {
   return withSite.slice(0, n).map((x) => ({ id: x.brand, kind: 'brand', homepage: x.url }));
 }
 
-let targets: Target[] = onlyRetailer
+let targets: Target[] = onlyRetailer || regionArg
   ? retailerTargets()
   : onlyBrand || onlyBrands
     ? brandTargets()

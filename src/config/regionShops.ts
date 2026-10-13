@@ -21,7 +21,7 @@
  *     link is the shop's own address with no tracking;
  *   - `imageBasis` is carried over (owner decision of 9 Oct 2026, D24): a shop
  *     that has it shows its own photo, hot-linked; a shop without it shows
- *     none. No logo, no Trustpilot;
+ *     none. The shop's own logo is carried over (13 Oct 2026); no Trustpilot;
  *   - `catalogue: null`: the region crawl reads the region entry itself.
  */
 import type { Retailer, ShippingRule } from '../types/retailer.js';
@@ -54,6 +54,8 @@ export function regionShopAsRetailer(shop: RegionRetailer): Retailer {
     ...(shop.singleBrandOnly ? { singleBrandOnly: shop.singleBrandOnly } : {}),
     ...(shop.fragranceOnlyCatalogue ? { fragranceOnlyCatalogue: true } : {}),
     enabled: shop.enabled,
+    ...(shop.logo ? { logo: shop.logo } : {}),
+    ...(shop.squareLogo ? { squareLogo: shop.squareLogo } : {}),
     adapter: shop.route ? 'json-ld' : 'unknown',
     ...(shop.route?.kind === 'shopify' ? { shopifyStorefront: true } : {}),
     shipping: regionShipping(shop),

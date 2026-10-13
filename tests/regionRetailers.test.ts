@@ -37,10 +37,10 @@ describe('region registries', () => {
     }
   });
 
-  it('carry no affiliate, logo or Trustpilot field, and the one photo field the owner switched on (9 Oct 2026, D24)', () => {
+  it('carry no affiliate or Trustpilot field (a logo is allowed since 13 Oct 2026), and the one photo field the owner switched on (9 Oct 2026, D24)', () => {
     for (const r of ALL) {
       expect(r.imageBasis, `${r.id} photo basis`).toBe('hotlink-unlicensed');
-      for (const key of ['affiliate', 'logo', 'squareLogo', 'trustpilotUrl', 'trustpilotBusinessId', 'deeplinkTemplate']) {
+      for (const key of ['affiliate', 'trustpilotUrl', 'trustpilotBusinessId', 'deeplinkTemplate']) {
         expect(Object.keys(r), `${r.id} has ${key}`).not.toContain(key);
       }
     }
@@ -144,4 +144,54 @@ describe('region registries', () => {
     expect(REGION_RETAILERS.US.filter((r) => r.enabled).length).toBeGreaterThanOrEqual(ids.length);
   });
 
+});
+
+// Shop logos for the US and India (owner said yes, 13 Oct 2026; docs/LOGOS-PLAN.md section 10).
+// Same rules as a UK shop (tests/brandLogos.test.ts): only what the shop's own site declares,
+// hot linked from its own domain, drawn on the white tile (never light ink), a recorded date.
+describe('region shop logos', () => {
+  const withLogo = ALL.flatMap((r) =>
+    ([['logo', r.logo], ['squareLogo', r.squareLogo]] as const).filter(([, l]) => l != null).map(([f, l]) => [`${r.id}:${f}`, r, l!] as const),
+  );
+  const root = (host: string) => host.toLowerCase().split('.').slice(-2).join('.');
+
+  it('is not empty', () => {
+    expect(withLogo.length).toBeGreaterThan(0);
+  });
+
+  it.each(withLogo)('%s: its own site declared it, on its own domain, as a hot link', (_w, r, logo) => {
+    expect(r.enabled).toBe(true);
+    expect(logo.basis).toBe('own-site-declared');
+    expect(logo.src.startsWith('https://')).toBe(true);
+    expect(root(new URL(logo.src).host), `${r.id} logo host`).toBe(root(r.domain));
+    expect(logo.source).toBe(r.homepage);
+    expect(logo.readAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(['square', 'wordmark']).toContain(logo.shape);
+    expect(logo.ink, 'light ink is not drawn on the white tile').not.toBe('light');
+    expect(logo.src).not.toMatch(/og[-_]?image|wikipedia|wikimedia|google|clearbit|brandfetch|logo\.dev/i);
+  });
+
+  it('keeps a squareLogo square', () => {
+    for (const r of ALL) if (r.squareLogo) expect(r.squareLogo.shape).toBe('square');
+  });
+
+  it('leaves the shops whose own mark was refused on their initials', () => {
+    // 32px or smaller icons, a mark too thin to read or too heavy for the tile (AAR, 243 KB with no
+    // smaller size), Ulta (its favicon.ico is PNG bytes under an icon type, which the test browser refused), a light mark, a third party host (Perfumania), Nykaa's 503, a mark that is
+    // another brand's (the VLCC manifest icon of Ustraa is not used).
+    for (const id of ['luckyscent', 'twisted-lily', 'indigo-perfumery', 'bluemercury', 'maison-louis-marie', 'sol-de-janeiro', 'beauty-encounter',
+      'fragrance-outlet', 'fragrance-market', 'microperfumes', 'parfums-raffy', 'la-belle-perfumes', 'the-perfume-spot', 'perfumania',
+      'ulta', 'nykaa', 'fridaycharm', 'aar-fragrances', 'naso-profumi', 'the-man-company']) {
+      expect(ALL.find((r) => r.id === id)?.logo, id).toBeUndefined();
+    }
+  });
+
+  it('reaches the page: a region shop as a page Retailer carries its logo', async () => {
+    const { regionShopAsRetailer } = await import('../src/config/regionShops.js');
+    for (const r of ALL) {
+      const page = regionShopAsRetailer(r);
+      expect(page.logo, r.id).toEqual(r.logo);
+      expect(page.squareLogo, r.id).toEqual(r.squareLogo);
+    }
+  });
 });
