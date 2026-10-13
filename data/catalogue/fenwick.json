@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-13T17:11:56.201Z",
-  "seenAt": "2026-10-13T17:11:56.201Z",
+  "updatedAt": "2026-10-13T21:12:13.429Z",
+  "seenAt": "2026-10-13T21:12:13.429Z",
   "source": "live",
   "listings": [
     {
@@ -15677,7 +15677,7 @@
       "priceGbp": 140,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hydra Figue Eau de Parfum 100ml by Miller Harris offers a distinctive woody fragrance enriched with the fresh, green aroma of fig leaf. This elegant scent combines natural warmth and crispness, creating a balanced and inviting experience. Perfect for those who appreciate subtle yet memorable perfumes, it delivers lasting freshness throughout the day..",
       "productType": "Women's Fragrances",

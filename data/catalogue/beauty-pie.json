@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-13T17:11:56.201Z",
-  "seenAt": "2026-10-13T17:11:56.201Z",
+  "updatedAt": "2026-10-13T21:12:13.429Z",
+  "seenAt": "2026-10-13T21:12:13.429Z",
   "source": "live",
   "listings": [
     {
@@ -474,7 +474,7 @@
       "priceGbp": 18,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "For a fresher, more radiant face, use this next-gen, actives-packed daily 'everything' moisturiser. Formulated by a Swiss genius, with 3% stable Vit-C Complex and 2% Niacinamide, Hyaluronic Acid, O-Lift Complex and Grape Stem Cells. Brightening. Firming. Visibly plumping and fine-line smoothing.. Clean and cruelty free (of course)..",
       "productType": null,

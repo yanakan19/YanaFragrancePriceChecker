@@ -1,7 +1,7 @@
 {
   "retailerId": "lattafa",
-  "updatedAt": "2026-10-13T18:14:18.063Z",
-  "seenAt": "2026-10-13T18:14:18.063Z",
+  "updatedAt": "2026-10-13T22:13:35.094Z",
+  "seenAt": "2026-10-13T22:13:35.094Z",
   "source": "live",
   "listings": [
     {
@@ -932,7 +932,6 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-10-03T09:01:20.571Z",
-      "lastSeenAt": "2026-10-13T14:03:24.365Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
