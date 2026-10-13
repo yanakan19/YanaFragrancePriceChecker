@@ -1,9 +1,35 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-10-13T06:12:46.037Z",
-  "seenAt": "2026-10-13T06:12:46.037Z",
+  "updatedAt": "2026-10-13T10:23:03.887Z",
+  "seenAt": "2026-10-13T10:23:03.887Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "BDKDECC15X2",
+      "url": "https://bdkparfums.com/products/coffret-a-composer-immersion-copie",
+      "rawTitle": "Coffret à composer - Immersion",
+      "rawBrand": "BDK Parfums",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/LaDecouverteParsiennenew_2.jpg?v=1696606430",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Composez votre coffret de 15 échantillons 2ml (10 + 5 offerts) . En complément de votre coffret, recevez un bon digital de 40 € à valoir sur votre prochaine commande d'un parfum 100ml ou plus. .",
+      "productType": "Product Bundle",
+      "nativePrice": {
+        "amount": 75,
+        "currency": "EUR"
+      },
+      "retailerId": "bdk-parfums",
+      "firstSeenAt": "2026-08-05T18:12:06.629Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
     {
       "retailerSku": "COFSTUDIO3X50",
       "url": "https://bdkparfums.com/products/le-coffret-collection-studio",
@@ -426,7 +452,7 @@
       "rawTitle": "Eau de Lessive Édition Concrete",
       "rawBrand": "BDK Parfums",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/site4-5Lessiveconcrete.jpg?v=1780674761",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/EDL_concrete_site_2.png?v=1791880898",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -3062,32 +3088,6 @@
       "productType": "eau de parfum",
       "nativePrice": {
         "amount": 48,
-        "currency": "EUR"
-      },
-      "retailerId": "bdk-parfums",
-      "firstSeenAt": "2026-08-05T18:12:06.629Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "BDKDECC15X2",
-      "url": "https://bdkparfums.com/products/coffret-decouverte-large",
-      "rawTitle": "Coffret à composer - Immersion 15x2ml",
-      "rawBrand": "BDK Parfums",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/LaDecouverteParsiennenew_2.jpg?v=1696606430",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Composez votre coffret de 15 échantillons 2ml (10 + 5 offerts) . En complément de votre coffret, recevez un bon digital de 40 € à valoir sur votre prochaine commande d'un parfum 100ml ou plus. .",
-      "productType": "Product Bundle",
-      "nativePrice": {
-        "amount": 75,
         "currency": "EUR"
       },
       "retailerId": "bdk-parfums",

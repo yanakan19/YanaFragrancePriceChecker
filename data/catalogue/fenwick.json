@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-13T05:07:14.807Z",
-  "seenAt": "2026-10-13T05:07:14.807Z",
+  "updatedAt": "2026-10-13T09:15:52.922Z",
+  "seenAt": "2026-10-13T09:15:52.922Z",
   "source": "live",
   "listings": [
     {
@@ -11537,7 +11537,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Experience the elegant warmth of Burberry Goddess Parfum in a convenient 10ml pen spray. This beautifully crafted fragrance combines rich amber and creamy vanilla notes, creating a soft yet captivating scent perfect for daily wear or special occasions. Its compact size allows for easy, on-the-go application, ensuring you can refresh your signature aroma anytime. Ideal for those seeking a refined and timeless fragrance experience..",
       "productType": "Women's Fragrances",
@@ -16965,7 +16965,7 @@
       "priceGbp": 40,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Oud Minérale Eau de Parfum by Tom Ford fuses smoky oud with marine accords for a scent that balances depth and freshness. Salty amber and warm woods create an unexpectedly serene, mineral impression..",
       "productType": "Women's Fragrances",

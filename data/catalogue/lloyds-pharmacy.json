@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-10-13T05:07:14.807Z",
-  "seenAt": "2026-10-13T05:07:14.807Z",
+  "updatedAt": "2026-10-13T09:15:52.922Z",
+  "seenAt": "2026-10-13T09:15:52.922Z",
   "source": "live",
   "listings": [
     {
@@ -3530,7 +3530,7 @@
       "rawBrand": "Mont Blanc",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Montblanc-Explorer-EDP-100ml-63993917767948.png?v=1781180364",
-      "priceGbp": 45.5,
+      "priceGbp": 50.46,
       "wasPriceGbp": 79,
       "promoEndsAt": null,
       "inStock": true,

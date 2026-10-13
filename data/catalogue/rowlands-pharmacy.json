@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-13T05:07:14.807Z",
-  "seenAt": "2026-10-13T05:07:14.807Z",
+  "updatedAt": "2026-10-13T09:15:52.922Z",
+  "seenAt": "2026-10-13T09:15:52.922Z",
   "source": "live",
   "listings": [
     {
@@ -1739,7 +1739,7 @@
       "priceGbp": 5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Charlie Red Eau De Toilette Spray 100ml. Product Features. ##features##. Vibrant Top Notes – A refreshing blend of orange blossom, gardenia, plum, blackcurrant, violet, and peach. . Floral Heart – A delicate mix of carnation, tuberose, orchid, jasmine, ylang-ylang, lily-of-the-valley, and rose. . Warm Base Notes – Sensual undertones of honey, sandalwood, amber, musk, and cedar. . Long-Lasting Wear – A fragrance that stays fresh throughout the day. . Versatile & Elegant – Ideal for both casual and special occasions. . Generous 100ml Size – Perfect for everyday use or gifting. . ##end-features##. Product Description. Indulge in the classic elegance of Charlie Red Eau De Toilette Spray 100ml, a fragrance that blends floral, fruity, and warm woody notes for a captivating scent. Designed for confident and sophisticated women, this iconic Revlon perfume is perfect for both day and evening wear. With its rich bouquet of florals and sensual base notes, Charlie Red is a timeless fragrance that leaves a lasting impression. .",
       "productType": "Fragrance",

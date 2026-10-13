@@ -1,7 +1,7 @@
 {
   "retailerId": "maison-asrar",
-  "updatedAt": "2026-10-13T06:05:12.149Z",
-  "seenAt": "2026-10-13T06:05:12.149Z",
+  "updatedAt": "2026-10-13T10:15:14.790Z",
+  "seenAt": "2026-10-13T10:15:14.790Z",
   "source": "live",
   "listings": [
     {
@@ -20,7 +20,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-10-01T20:04:49.939Z",
@@ -46,7 +46,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-31T14:17:28.410Z",
@@ -72,7 +72,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-31T14:17:28.410Z",
@@ -98,7 +98,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 62.49,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-31T14:17:28.410Z",
@@ -124,7 +124,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -150,7 +150,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -176,7 +176,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -202,7 +202,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -228,7 +228,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -254,7 +254,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -280,7 +280,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -306,7 +306,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -332,7 +332,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -358,7 +358,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -384,7 +384,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -410,7 +410,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 54.16,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -436,7 +436,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -462,7 +462,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -488,7 +488,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -514,7 +514,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -540,7 +540,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -566,7 +566,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -592,7 +592,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -618,7 +618,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -644,7 +644,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -670,7 +670,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 38.88,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -696,7 +696,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -722,7 +722,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 51.38,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -748,7 +748,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 97.2,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -774,7 +774,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 97.2,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -800,7 +800,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 52.77,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -826,7 +826,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -852,7 +852,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -878,7 +878,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -904,7 +904,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -930,7 +930,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -956,7 +956,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -982,7 +982,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 97.2,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1008,7 +1008,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 33.33,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1034,7 +1034,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 33.33,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1060,7 +1060,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 33.33,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1086,7 +1086,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1112,7 +1112,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1138,7 +1138,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1164,7 +1164,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1190,7 +1190,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1216,7 +1216,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1242,7 +1242,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1268,7 +1268,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1294,7 +1294,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1320,7 +1320,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1346,7 +1346,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1372,7 +1372,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1398,7 +1398,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1424,7 +1424,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1450,7 +1450,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1476,7 +1476,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1502,7 +1502,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1528,7 +1528,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1554,7 +1554,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1580,7 +1580,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1606,7 +1606,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1632,7 +1632,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1658,7 +1658,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1684,7 +1684,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1710,7 +1710,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1736,7 +1736,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 34.71,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1762,7 +1762,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 34.71,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1788,7 +1788,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1814,7 +1814,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 34.71,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1840,7 +1840,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 34.71,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1866,7 +1866,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1892,7 +1892,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1918,7 +1918,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1944,7 +1944,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1970,7 +1970,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -1996,7 +1996,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2022,7 +2022,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2048,7 +2048,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2074,7 +2074,7 @@
       "productType": null,
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2100,7 +2100,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2126,7 +2126,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2152,7 +2152,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2178,7 +2178,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2204,7 +2204,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2230,7 +2230,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2256,7 +2256,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2282,7 +2282,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2308,7 +2308,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2334,7 +2334,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2360,7 +2360,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2386,7 +2386,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2412,7 +2412,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2438,7 +2438,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 40.27,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2464,7 +2464,7 @@
       "productType": "Room Spray",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2490,7 +2490,7 @@
       "productType": "Room Spray",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2516,7 +2516,7 @@
       "productType": "Room Spray",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2542,7 +2542,7 @@
       "productType": "Room Spray",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2568,7 +2568,7 @@
       "productType": "Room Spray",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2594,7 +2594,7 @@
       "productType": "Room Spray",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2620,7 +2620,7 @@
       "productType": "Room Spray",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2646,7 +2646,7 @@
       "productType": "Room Spray",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2672,7 +2672,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2698,7 +2698,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2724,7 +2724,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2750,7 +2750,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2776,7 +2776,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2802,7 +2802,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2828,7 +2828,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2854,7 +2854,7 @@
       "productType": "Reed Diffuser",
       "nativePrice": {
         "amount": 41.66,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2880,7 +2880,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2906,7 +2906,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "nativeWasPrice": 36.1,
       "retailerId": "maison-asrar",
@@ -2933,7 +2933,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2959,7 +2959,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 30.55,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -2985,7 +2985,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3011,7 +3011,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3037,7 +3037,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3063,7 +3063,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3089,7 +3089,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 61.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3115,7 +3115,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3141,7 +3141,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3167,7 +3167,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3193,7 +3193,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3219,7 +3219,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 36.1,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3245,7 +3245,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 48.6,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3271,7 +3271,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3297,7 +3297,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3323,7 +3323,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 24.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3349,7 +3349,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
@@ -3375,7 +3375,7 @@
       "productType": "Perfumes",
       "nativePrice": {
         "amount": 49.99,
-        "currency": "AED"
+        "currency": "USD"
       },
       "retailerId": "maison-asrar",
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
