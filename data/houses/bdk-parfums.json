@@ -1,13 +1,13 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-10-13T14:08:26.239Z",
-  "seenAt": "2026-10-13T14:08:26.239Z",
+  "updatedAt": "2026-10-13T18:19:12.927Z",
+  "seenAt": "2026-10-13T18:19:12.927Z",
   "source": "live",
   "listings": [
     {
       "retailerSku": "BDKDECC15X2",
       "url": "https://bdkparfums.com/products/coffret-a-composer-immersion-copie",
-      "rawTitle": "Coffret à composer - Immersion",
+      "rawTitle": "Coffret à composer - Immersion 15x2ml",
       "rawBrand": "BDK Parfums",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/LaDecouverteParsiennenew_2.jpg?v=1696606430",
@@ -3101,7 +3101,7 @@
     {
       "retailerSku": "BDKASSOR4X2",
       "url": "https://bdkparfums.com/products/coffret-decouverte-small",
-      "rawTitle": "Coffret à composer - Initiation",
+      "rawTitle": "Coffret à composer - Initiation 4x2ml",
       "rawBrand": "BDK Parfums",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/EchantillonEtui.jpg?v=1791299854",

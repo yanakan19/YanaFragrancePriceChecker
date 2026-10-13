@@ -1,9 +1,36 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-10-13T14:08:02.952Z",
-  "seenAt": "2026-10-13T14:08:02.952Z",
+  "updatedAt": "2026-10-13T18:18:51.338Z",
+  "seenAt": "2026-10-13T18:18:51.338Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "15417837846838-Default Title",
+      "url": "https://dumontparfums.com/products/nitro-gold-1",
+      "rawTitle": "Nitro Gold",
+      "rawBrand": "Dumont Paris",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/IMG_0247_JPG.jpg?v=1791909450",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Dumont Nitro Gold is a unisex, woody-spicy extrait de parfum launched in 2026. . The vibe is fresh, fruity, and aquatic upfront that transitions into a warm, slightly boozy, and sweet gourmand dry-down. . . Fragrance Notes: . Opening: Pink pepper, grapefruit, tangerine, apple, black pepper, and pineapple. . Heart: Cedarwood, salt, marine notes, cognac, and vetiver. . Base: Amberwood, musk, sandalwood, vanilla, and toffee. . . . .",
+      "productType": "Perfume",
+      "nativePrice": {
+        "amount": 230,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 350,
+      "retailerId": "dumont",
+      "firstSeenAt": "2026-10-13T18:18:51.338Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "10837560328502-100ml",
       "url": "https://dumontparfums.com/products/soprano-ice-qk",
