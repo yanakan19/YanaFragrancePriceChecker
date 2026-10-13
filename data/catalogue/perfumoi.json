@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-13T09:15:52.922Z",
-  "seenAt": "2026-10-13T09:15:52.922Z",
+  "updatedAt": "2026-10-13T13:07:34.850Z",
+  "seenAt": "2026-10-13T13:07:34.850Z",
   "source": "live",
   "listings": [
     {
@@ -6431,7 +6431,7 @@
       "priceGbp": 35.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss The Scent For Her Eau de Parfum is a warm fragrance created for customers who enjoy a sophisticated scent. It opens with a distinctive first impression, develops into a balanced heart, and settles into a smooth lasting base. Suitable for evening occasions and cooler weather, this fragrance is a strong choice for anyone looking for a scent that feels elegant and confident.. Why customers choose it . Well-suited for evening occasions and cooler seasons. A great option for special occasions and polished presence. Designed for customers who prefer warm and oriental scents.",
       "productType": "Eau de Parfum",
