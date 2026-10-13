@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 227,
+ "folded": 228,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -5564,6 +5564,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003996209",
    "absorbed": [
     "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray"
@@ -10612,18 +10644,20 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
-    "a shop lists more than one: mybeauty-boutique"
+    "a shop lists more than one: mybeauty-boutique",
+    "price spread 2.00 is over 1.5"
    ],
    "members": [
     {
      "id": "set-ean-3616306127852",
      "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 50ml EDT + 150ml Deodorant Spray",
+     "name": "Boss Bottled Eau de Toilette 50ml Spray Gift Set",
      "concentration": "Eau de Toilette",
      "ean": "3616306127852",
      "scent": "boss bottled",
      "signature": "1x150deo|1x50fragrance",
      "shops": [
+      "paco-perfumerias-uk",
       "perfume-click"
      ]
     },
@@ -11972,6 +12006,37 @@
      "signature": "5x9fragrance",
      "shops": [
       "lookfantastic"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "a shop lists more than one: cult-beauty-global"
+   ],
+   "members": [
+    {
+     "id": "set-le-labo-discovery-set-eau-de-parfum-3x7ml",
+     "brand": "Le Labo",
+     "name": "Discovery Set Eau de Parfum 3x7ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "3x7fragrance",
+     "shops": [
+      "cult-beauty-global"
+     ]
+    },
+    {
+     "id": "set-le-labo-eau-de-parfum-discovery-set-3x7ml",
+     "brand": "Le Labo",
+     "name": "Eau de Parfum Discovery Set 3x7ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "3x7fragrance",
+     "shops": [
+      "cult-beauty-global"
      ]
     }
    ]
