@@ -1725,7 +1725,7 @@ describe('displayName: a house name that is part of the fragrance name stays', (
   });
 
   it('drops the pack and travel spray words from a refillable travel set', () => {
-    expect(name('Bleu De CHANEL Eau de Parfum Refillable Travel Spray, 3 x 20ml', 'Chanel')).toBe('Bleu De CHANEL');
+    expect(name('Bleu De CHANEL Eau de Parfum Refillable Travel Spray, 3 x 20ml', 'Chanel')).toBe('Bleu de Chanel');
   });
 
   it('keeps the house when the whole name is a gender phrase or one generic word', () => {
@@ -1822,5 +1822,12 @@ describe('displayName: noisy long names, phase A rules', () => {
     ['Gold Edition Eau de Parfum 100ml', 'Lattafa', 'Gold Edition'],
   ])('keeps the real name %s', (title, brand, expected) => {
     expect(name(title, brand)).toBe(expected);
+  });
+});
+
+describe('displayName: one spelling of a kept house', () => {
+  it('writes the connector in lower case and the house as the brand field has it', () => {
+    expect(displayName('Chanel Bleu De CHANEL Eau de Toilette 100ml', 'Chanel', 'Chanel')).toBe('Bleu de Chanel');
+    expect(displayName("Hermes Terre D'Hermes 100ml", 'Hermes', 'Hermes')).toBe("Terre d'Hermes");
   });
 });

@@ -2819,6 +2819,9 @@ export function displayName(
       closer = s.slice(credit);
     } else if ((TRAILING_CONNECTOR.test(before) && connectorBeforeHouse(title, closer)) || (/^by\s*$/i.test(before) && new RegExp(`\\bby\\s+${escapeRe(closer)}(?![A-Za-z0-9])`, 'i').test(title))) {
       s = houseNamedAfterConnector(beforeCloser, closer);
+      // One spelling: "Bleu De CHANEL" is "Bleu de Chanel", "Terre D'Hermes" is "Terre d'Hermes".
+      const house = displayedBrand && brandKey(displayedBrand) === brandKey(closer) && closer === closer.toUpperCase() && closer.length > 3 ? displayedBrand : closer;
+      s = s.replace(new RegExp(`(?<=\\s)(?:(de|di|del|du|des)(\\s+)|d(['\u2019]))${escapeRe(closer)}$`, 'i'), (_m, c: string | undefined, sp: string | undefined, ap: string | undefined) => (c ? `${c.toLowerCase()}${sp}${house}` : `d${ap}${house}`));
       closer = null;
     }
   }
