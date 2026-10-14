@@ -1068,6 +1068,26 @@ this one step is yours. It takes a minute.
    to delete. `hopeful-euler-9nuqc1` (Debenhams French Arabian phrase test): the
    rule is already on live, the pinned test was brought across, safe to delete.
 
+### 7g. A daily email when something fails (3 minutes; 14 October 2026)
+
+`Failure digest` (`.github/workflows/failure-digest.yml`) emails
+yanakan19@gmail.com once a day at about 08:23 UTC, only when a workflow
+failed in the last 24 hours, a scheduled workflow went quiet (no run when it
+should have had one), one is still failing, or the site (`/`, `/us/`, `/in/`)
+does not answer 200. When all is well it sends nothing.
+
+1. It uses the same `RESEND_API_KEY` repository secret and sender as the
+   price alerts (section 4c). If you did that, nothing more to add. If not,
+   it stays green and sends nothing until you do. Never paste the key in a
+   chat; add it in GitHub only.
+2. Check the point **Resend sending domain verified** (section 4b: the
+   domain `pricesniffs.space` shows green in Resend), or Resend refuses the
+   send and the digest run turns red.
+3. To see it: **Actions** → **Failure digest**. Its log says whether the key
+   is set and ends with "all quiet" or the list of problems. **Run workflow**
+   defaults to a dry run (prints, sends nothing); untick it to send one now.
+4. Optional: a repository variable `DIGEST_TO` changes the address.
+
 ### 7e. GitHub settings only you can change (10 minutes; audit of 12 October 2026)
 
 Found by `docs/SITE-AUDIT-2026-10-12.md`, section 5. None of these stops

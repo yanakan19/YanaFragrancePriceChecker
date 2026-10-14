@@ -303,3 +303,4 @@ move to UK time before 25 October, and a decision on repository growth.
   served the build of the tip, 556be070: the same five data file hashes and
   build stamp (`sha256:0a860d3ccc1f`) as a local `npm run demo` of that
   commit, and `data/catalogue.5098a4dc3a4e3b02.json` byte-identical to it.
+| 60 | Nobody notices a failed or silent workflow (a red run, or a dropped cron tick with no run at all, which GitHub emails nothing about), or the site stops answering | Medium: ticks are dropped (#7), failures were found by reading runs | Stale prices or a down site for days | None on its own | `failure-digest.yml` (14 Oct 2026): a daily email only when a workflow failed, went quiet against its cron, is still failing, or `/`, `/us/`, `/in/` answer other than 200; needs `RESEND_API_KEY`; its own failure shows as a red run; `tests/failureDigest.test.ts` |

@@ -1,0 +1,68 @@
+name: Failure digest
+
+# Once a day, email the owner when any workflow failed in the last 24 hours,
+# when a scheduled workflow went quiet (no run at all when its cron says it
+# should have one), when one is still failing after earlier successes, or when
+# the live site (/, /us/, /in/) does not answer 200. Nothing to report means
+# no email: the log says "all quiet". Code: scripts/failure-digest.ts, tested
+# in tests/failureDigest.test.ts. Setup: docs/OWNER-STEPS.md 7g.
+#
+# Reads the Actions API with the built in token; commits nothing, so it needs
+# no concurrency group with the crawl. Email goes through Resend with the same
+# RESEND_API_KEY secret and sender as the price alerts. Without the secret the
+# run logs what it would send and stays green. If the digest itself fails
+# (GitHub API or Resend error) the run turns red and GitHub's own failure
+# email to the owner applies.
+#
+# A manual run defaults to a dry run (prints, sends nothing). Untick dry_run
+# to send; `to` overrides the recipient (repository variable DIGEST_TO, else
+# the owner's address in the script).
+on:
+  schedule:
+    # 08:23 UTC, off the hour on purpose (minute 0 is GitHub's busiest), after
+    # the morning daily workflows have run.
+    - cron: '23 8 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run: print the digest, send nothing. Untick to send for real.'
+        type: boolean
+        default: true
+      to:
+        description: 'Send to this address instead of the default (for tests).'
+        type: string
+        default: ''
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        timeout-minutes: 5
+
+      - uses: actions/setup-node@v4
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 5
+        run: scripts/retry.sh 3 npm ci
+
+      - name: Build and send the digest
+        timeout-minutes: 5
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          ALERTS_FROM: ${{ vars.ALERTS_FROM }}
+          DIGEST_TO: ${{ inputs.to || vars.DIGEST_TO }}
+          DIGEST_SELF: ${{ github.workflow }}
+          # Live for the schedule, or a manual run with dry_run unticked.
+          DRY_RUN: ${{ (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run)) && 'false' || 'true' }}
+        run: npx tsx scripts/failure-digest.ts
