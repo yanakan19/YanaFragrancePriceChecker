@@ -11673,41 +11673,22 @@
   },
   {
    "reasons": [
-    "two different barcodes: 8435415081269, 8435415092630"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415081269",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Pour Homme Gift Set 50ml EDT + 75ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415081269",
-     "scent": "homme pour scandal",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-8435415092630",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Pour Homme Eau De Toilette 50ml & Shower Gel 75ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415092630",
-     "scent": "homme pour scandal",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "beautybase"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 8435415092081, 8435415118651",
+    "two different barcodes: 8435415066105, 8435415092081, 8435415118651",
     "price spread 1.52 is over 1.5"
    ],
    "members": [
+    {
+     "id": "set-ean-8435415066105",
+     "brand": "Jean Paul Gaultier",
+     "name": "Le Male Eau de Toilette 125ml Spray + 20ml Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415066105",
+     "scent": "le male",
+     "signature": "1x125fragrance|1x20fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
     {
      "id": "set-ean-8435415092081",
      "brand": "Jean Paul Gaultier",
@@ -11743,6 +11724,37 @@
      "signature": "1x125fragrance|1x20fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 8435415081269, 8435415092630"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415081269",
+     "brand": "Jean Paul Gaultier",
+     "name": "Scandal Pour Homme Gift Set 50ml EDT + 75ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415081269",
+     "scent": "homme pour scandal",
+     "signature": "1x50fragrance|1x75wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-8435415092630",
+     "brand": "Jean Paul Gaultier",
+     "name": "Scandal Pour Homme Eau De Toilette 50ml & Shower Gel 75ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415092630",
+     "scent": "homme pour scandal",
+     "signature": "1x50fragrance|1x75wash",
+     "shops": [
+      "beautybase"
      ]
     }
    ]
