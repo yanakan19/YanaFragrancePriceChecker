@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 229,
+ "folded": 228,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -5167,38 +5167,6 @@
    ]
   },
   {
-   "canonical": "set-ean-7640171199276",
-   "absorbed": [
-    "set-lalique-encre-noire-gift-set-50ml-edt-150ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-7640171199276",
-     "brand": "Lalique",
-     "name": "Encre Noire Gift Set 50ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "7640171199276",
-     "scent": "encre noire",
-     "signature": "1x150wash|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-lalique-encre-noire-gift-set-50ml-edt-150ml-shower-gel",
-     "brand": "Lalique",
-     "name": "Encre Noire Gift Set 50ml Edt + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "encre noire",
-     "signature": "1x150wash|1x50fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-7640233340745",
    "absorbed": [
     "set-elie-saab-le-parfum-lumiere-gift-set-50ml-edp-10ml-edp"
@@ -6911,6 +6879,74 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Extrait de Parfum",
+    "a shop lists more than one: niche-beauty-uk"
+   ],
+   "members": [
+    {
+     "id": "set-baccarat-rouge-540-eau-de-parfum-unisex-refills-3-x-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Eau de Parfum Unisex Refills 3 x 11ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "540 baccarat refills rouge",
+     "signature": "3x11fragrance",
+     "shops": [
+      "niche-beauty-uk"
+     ]
+    },
+    {
+     "id": "set-baccarat-rouge-540-extrait-de-parfum-unisex-refills-3-x-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Extrait de Parfum Unisex Refills 3 x 11ml",
+     "concentration": "Extrait de Parfum",
+     "ean": null,
+     "scent": "540 baccarat refills rouge",
+     "signature": "3x11fragrance",
+     "shops": [
+      "niche-beauty-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3700559606735",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Extrait de Parfum Travel Set 3 x 11ml Extrait de Parfum Refills",
+     "concentration": "Extrait de Parfum",
+     "ean": "3700559606735",
+     "scent": "540 baccarat refills rouge",
+     "signature": "3x11fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-eau-de-parfum-refills-3-x-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Eau de Parfum Refills, 3 x 11ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "540 baccarat refills rouge",
+     "signature": "3x11fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-travel-set-3-x-11ml-extrait-de-parfum-refills",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Baccarat Rouge 540 Extrait de Parfum Travel Set 3 x 11ml Extrait de Parfum Refills",
+     "concentration": "Extrait de Parfum",
+     "ean": null,
+     "scent": "540 baccarat refills rouge",
+     "signature": "3x11fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Extrait de Parfum",
     "a shop lists more than one: cult-beauty-global"
    ],
    "members": [
@@ -7034,7 +7070,6 @@
      "scent": "essence man rain",
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -7772,6 +7807,37 @@
      "ean": "8057971185498",
      "scent": "k",
      "signature": "1x100fragrance|1x50body|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 2.30 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-dsquared-icon-pour-homme-gift-set-100ml-edp-100ml-shower-gel-100ml-aftershave-balm",
+     "brand": "Dsquared2",
+     "name": "Dsquared² Icon Pour Homme Gift Set 100ml Edp + 100ml Shower Gel + 100ml Aftershave Balm",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "dsquared homme icon pour",
+     "signature": "1x100body|1x100fragrance|1x100wash",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    },
+    {
+     "id": "set-ean-8011003900206",
+     "brand": "Dsquared2",
+     "name": "DSquared² Icon Pour Homme Gift Set 100ml EDP + 100ml Shower Gel + 100ml Aftershave Balm",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003900206",
+     "scent": "dsquared homme icon pour",
+     "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
       "perfume-click"
      ]
@@ -9445,6 +9511,69 @@
   },
   {
    "reasons": [
+    "price spread 1.56 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460156028",
+     "brand": "Jimmy Choo",
+     "name": "I Want Choo Forever Gift Set 100ml EDP + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460156028",
+     "scent": "choo forever i want",
+     "signature": "1x100fragrance|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jimmy-choo-i-want-choo-forever-gift-set-100ml-edp-7-5ml-edp",
+     "brand": "Jimmy Choo",
+     "name": "I Want Choo Forever Gift Set 100ml EDP + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "choo forever i want",
+     "signature": "1x100fragrance|1x7.5fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3423222018245, 8054754400748"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222018245",
+     "brand": "Dolce & Gabbana",
+     "name": "The One 75ml Eau de Parfum 3 Piece Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3423222018245",
+     "scent": "one",
+     "signature": "1x75fragrance|3p",
+     "shops": [
+      "fragrance-click"
+     ]
+    },
+    {
+     "id": "set-ean-8054754400748",
+     "brand": "Dolce & Gabbana",
+     "name": "The One Eau de Parfum 75ml Spray 3 Piece Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8054754400748",
+     "scent": "one",
+     "signature": "1x75fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk",
+      "perfume-direct"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.61 is over 1.5"
    ],
    "members": [
@@ -10139,6 +10268,38 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3616301781707, 3616302686438",
+    "a shop lists more than one: paco-perfumerias-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616301781707",
+     "brand": "Calvin Klein",
+     "name": "Eternity Eau de Parfum 100ml Spray 3 Piece Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3616301781707",
+     "scent": "eternity",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3616302686438",
+     "brand": "Calvin Klein",
+     "name": "Eternity Eau de Parfum 100ml Spray 3 Piece Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3616302686438",
+     "scent": "eternity",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3616303428617, 3616304197994"
    ],
    "members": [
@@ -10722,49 +10883,6 @@
      "ean": null,
      "scent": "boss bottled",
      "signature": "1x150deo|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "strengths differ: Eau de Parfum, Extrait de Parfum"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3700559606735",
-     "brand": "Maison Francis Kurkdjian",
-     "name": "Baccarat Rouge 540 Extrait de Parfum Travel Set 3 x 11ml Extrait de Parfum Refills",
-     "concentration": "Extrait de Parfum",
-     "ean": "3700559606735",
-     "scent": "540 baccarat refills rouge",
-     "signature": "3x11fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-eau-de-parfum-refills-3-x-11ml",
-     "brand": "Maison Francis Kurkdjian",
-     "name": "Baccarat Rouge 540 Eau de Parfum Refills, 3 x 11ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "540 baccarat refills rouge",
-     "signature": "3x11fragrance",
-     "shops": [
-      "john-lewis"
-     ]
-    },
-    {
-     "id": "set-maison-francis-kurkdjian-baccarat-rouge-540-extrait-de-parfum-travel-set-3-x-11ml-extrait-de-parfum-refills",
-     "brand": "Maison Francis Kurkdjian",
-     "name": "Baccarat Rouge 540 Extrait de Parfum Travel Set 3 x 11ml Extrait de Parfum Refills",
-     "concentration": "Extrait de Parfum",
-     "ean": null,
-     "scent": "540 baccarat refills rouge",
-     "signature": "3x11fragrance",
      "shops": [
       "mybeauty-boutique"
      ]

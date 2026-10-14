@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-14T01:11:42.223Z",
-  "seenAt": "2026-10-14T01:11:42.223Z",
+  "updatedAt": "2026-10-14T04:58:42.334Z",
+  "seenAt": "2026-10-14T04:58:42.334Z",
   "source": "live",
   "listings": [
     {
@@ -175826,7 +175826,7 @@
       "priceGbp": 33.95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Bold, free and connected. CKin2U is for a generation without limits, those who are joined by technology and a passion for life.. Spontaneous, sensual, no boundaries and no obligations. Both fresh, yet warm - a sexy tension. Fresh and floral with a woody oriental base, CKin2U is a fragrance for those living in the now.. Top: Pink Grapefruit, Sicilian Bergamot, Redcurrant Leaves.. Heart: Sugar Orchid, White Cactus. Base: Amber, Red Cedar, Vanilla.",
       "productType": "Fragrance",
