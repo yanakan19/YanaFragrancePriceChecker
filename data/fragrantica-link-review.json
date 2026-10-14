@@ -3,6 +3,11 @@
  "how": "Read off web search results for each exact page (title and address). Fragrantica itself is not fetched: its robots.txt allows /perfume/ pages for PriceSniffsBot but every request is answered with a Cloudflare challenge. See docs/FRAGRANTICA-LINK-AUDIT-2026-10-05.md.",
  "singlePage": [
   {
+   "brand": "Byredo",
+   "name": "rose of no man's land absolu",
+   "url": "https://www.fragrantica.com/perfume/Byredo/Rose-of-No-Man-s-Land-Absolu-108422.html"
+  },
+  {
    "brand": "Afnan",
    "name": "9pm night out",
    "url": "https://www.fragrantica.com/perfume/Afnan/9-PM-Night-Out-123313.html"

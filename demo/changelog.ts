@@ -30,6 +30,22 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.110.0',
+    date: '14 Oct 2026',
+    groups: [
+      {
+        heading: 'Products and Matching',
+        points: [
+          'Bleu de Chanel and Terre d\'Hermes names fixed',
+          'Pour Homme and For Women keep the brand',
+          'Calvin Klein CK lines joined into one product',
+          'Cleaner names for Rasasi Hawas and others',
+          'Sizes of one scent now sit together in order',
+        ],
+      },
+    ],
+  },
+  {
     version: 'v3.109.0',
     date: '13 Oct 2026',
     groups: [

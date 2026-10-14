@@ -68,3 +68,27 @@ function dealBeats(a: Parameters<typeof bestDealPerScent>[0][number], b: Paramet
   if (sa !== sb) return sa < sb;
   return a.fragrance.id < b.fragrance.id;
 }
+
+/**
+ * The sizes of one scent side by side, smallest first, at the place the scent's
+ * best ranked size holds. Under "Most to Least Stocked" each size is ranked on
+ * its own shop count, so one scent came out 50ml, 200ml, 100ml (owner report
+ * 2026-10-14); the list is regrouped here and every other order is untouched.
+ * A bottle whose size cannot be read goes last in its group. Stable, one pass
+ * and one sort per group.
+ */
+export function sizesTogether<T extends Pick<DemoFragrance, 'brand' | 'name' | 'concentration' | 'sizeMl'>>(ranked: readonly T[]): T[] {
+  const groups = new Map<string, T[]>();
+  for (const f of ranked) {
+    const key = scentKey(f);
+    const g = groups.get(key);
+    if (g) g.push(f);
+    else groups.set(key, [f]);
+  }
+  const out: T[] = [];
+  for (const g of groups.values()) {
+    if (g.length > 1) g.sort((a, b) => (a.sizeMl ?? Infinity) - (b.sizeMl ?? Infinity));
+    out.push(...g);
+  }
+  return out;
+}

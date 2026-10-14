@@ -1,6 +1,7 @@
 import type { DemoFragrance } from './data.js';
 import { compareVariants, lowestPrice } from './data.js';
 import { pricePerMl } from './tabFacets.js';
+import { sizesTogether } from './oneScent.js';
 
 /**
  * How a list of fragrances can be ordered, and the comparator that does it.
@@ -101,7 +102,7 @@ export const OIL_SORT_OPTIONS: SortOption<TabSort>[] = [
  * Largest with a different tiebreak.
  */
 export function sortTab(list: DemoFragrance[], sort: TabSort): DemoFragrance[] {
-  if (sort === 'stocked') return list;
+  if (sort === 'stocked') return sizesTogether(list);
   if (sort !== 'main-low' && sort !== 'main-high' && sort !== 'items-high' && sort !== 'ml-low') return sortFragrances(list, sort);
   const value = (f: DemoFragrance): number | null =>
     sort === 'items-high' ? (f.giftSet?.items ?? null) : sort === 'ml-low' ? pricePerMl(f) : (f.giftSet?.mainMl ?? null);

@@ -1524,6 +1524,15 @@ export function brandTitleOpens(title: string, candidates: (string | null)[]): s
     if (!b) continue;
     if (longest !== null && b.length <= longest.length) continue;
     if (new RegExp(`^${escapeRe(b)}\\s*`, 'i').test(title)) longest = b;
+    else {
+      // The same house spelt with and without accents ("Lancome" in the brand
+      // field, "Lancôme IDÔLE" in the title): the opener is the title's own spelling.
+      const folded = foldDiacritics(title.normalize('NFC'));
+      const fb = foldDiacritics(b.normalize('NFC'));
+      if (folded.length === title.normalize('NFC').length && fb.length > 0 && new RegExp(`^${escapeRe(fb)}(?![A-Za-z0-9])`, 'i').test(folded)) {
+        longest = title.normalize('NFC').slice(0, fb.length);
+      }
+    }
   }
   return longest;
 }
@@ -1669,6 +1678,57 @@ export function brandTitleEnds(title: string, candidates: (string | null)[]): st
  * to make one more name come out tidy.
  */
 const KNOWN_TRAILING_HOUSES = new Set(['afnan', 'fragranceworld', 'pariscorner']);
+
+/**
+ * A name that ends in a connector ("Bleu de", "Terre d'", "Rose Ivoire de")
+ * once a trailing house name is cut: the house was part of the name. See the
+ * comment where displayName uses it.
+ */
+const TRAILING_CONNECTOR = /(?:^|\s)(?:de|di|del|du|des|of|and|d['’])\s*$/i;
+
+/**
+ * Manufacturer credits written "<line> de <house>" that a shop closes its
+ * titles with, keyed by brandKey of the whole credit. Measured: Emirates Oud's
+ * eight Rasasi titles end "Kenz De Rasasi" (2026-10-14). Added on evidence only.
+ */
+const KNOWN_CONNECTOR_CREDITS = new Set(['kenzderasasi']);
+
+/** Where a known connector credit starts in `before + closer`, or null. */
+function connectorCredit(before: string, closer: string): number | null {
+  const m = before.match(/(?:^|\s)(\S+\s+(?:de|di|del|du|des)\s+)$/i);
+  if (!m) return null;
+  if (!KNOWN_CONNECTOR_CREDITS.has(brandKey(m[1]! + closer))) return null;
+  return before.length - m[1]!.length;
+}
+
+/** True when `title` itself writes a connector straight before `house`. */
+function connectorBeforeHouse(title: string, house: string): boolean {
+  return new RegExp(`(?:(?:^|\\s)(?:de|di|del|du|des|of|and)\\s+|(?:^|\\s)d['\u2019]\\s*)${escapeRe(house)}(?![A-Za-z0-9])`, 'i').test(title);
+}
+
+/**
+ * A name kept whole because it closes "<connector> <house>": put back the
+ * house an opener strip took off the front ("de Molinard" is "Molinard de
+ * Molinard", "De Lalique" is "Lalique De Lalique"), and drop a second copy of
+ * the house in front that the opener strip missed ("Lancome O de Lancome" is
+ * "O de Lancome").
+ */
+function houseNamedAfterConnector(name: string, house: string): string {
+  if (/^(?:de|di|del|du|des|d['’])(?:\s|$)/i.test(name) || /^d['’]/i.test(name)) return `${house} ${name}`;
+  const want = brandKey(house);
+  const tokens = [...name.matchAll(/[A-Za-z0-9\u00C0-\u024F]+/g)];
+  let acc = '';
+  for (let i = 0; i < tokens.length - 1; i++) {
+    acc += brandKey(tokens[i]![0]);
+    if (acc.length > want.length) break;
+    if (acc === want) {
+      const rest = name.slice(tokens[i]!.index! + tokens[i]![0].length).replace(/^[\s\-|:,]+/, '');
+      if (rest && !TRAILING_CONNECTOR.test(rest.replace(/\s.*$/, '')) && rest.length > house.length) return rest;
+      break;
+    }
+  }
+  return name;
+}
 
 export function brandTitleEndsWithHouse(title: string, candidates: (string | null)[]): string | null {
   const parenthesised = title.match(/\s+by\s+(\S(?:.*\S)?)\s+\(([^()]+)\)\s*$/i);
@@ -2388,6 +2448,155 @@ export function stripPreOrderNotice(title: string): string {
   return out === '' ? title : out;
 }
 
+/**
+ * A name that is only a gender phrase or one generic word ("Pour Homme", "For
+ * Women", "Homme", "Classic", "Original", "Sport", "Intense", "Gold", "Noir")
+ * is the house's fragrance whose whole name is that phrase: "Moncler Pour
+ * Homme", "Burberry For Women", "Rabanne Pour Homme". Without the house it
+ * reads as nothing (owner report 2026-10-14, 297 names), so the house stays in
+ * front. Every shop gets the same answer, with or without the house in its
+ * title, because the house is taken from the brand field, not the title.
+ */
+const NAME_IS_ONLY_A_WORD = new RegExp(
+  '^(?:(?:pour|for)\\s+(?:homme|femme|elle|lui|men|women|man|woman|him|her|unisex)|homme|femme|man|woman|men|women|unisex|him|her|' +
+    "men['\u2019]?s|women['\u2019]?s|classic|original|sport|intense|absolute|absolue|gold|silver|black|white|blue|red|noir|night|elixir|" +
+    'eau\\s+de\\s+(?:toilette|parfum|cologne)|parfum|cologne)$',
+  'i',
+);
+const DOUBLED_STRENGTH_WORD = /\b(by|intense|intensa|extreme|absolu|absolute|elixir|sport)\s+\1\b/gi;
+
+/**
+ * What is left at the two ends of a name once every strip has run (owner
+ * report 2026-10-14): a connector with nothing after it ("Remain Essence de",
+ * "Gold Eau De", "Sorbetto Rosso Le", "Gift Set + D", "Fashion - De"), a size
+ * marker in brackets that is only a shop's count ("(20)", "[]"), a word the
+ * shop wrote twice ("Sample By by", "Intense Intense") and words a shop glued
+ * together ("ArpegeEau de"). "Voyage d'" is Hermes' own "Voyage d'Hermes", so
+ * the house goes back on. A four digit year in brackets is a reformulation
+ * and stays.
+ */
+/** Seller and status wording a shop closes a title with: a closed list, never a wildcard. */
+const SELLER_TAILS = /(?:[\s,]+(?:FBF?\s*Fragrances(?:\s+Edition)?|Kenz\s+De|Bujairami\s+Sydney|Outlet2?|Final\s+Sale|GWP|BOGO)|\s*\((?:Discontinued|Unboxed|Pack\s+of\s+1)\))\s*$/i;
+/** Houses whose shops append a bare "Perfume" to the name. */
+const PERFUME_TAIL_HOUSES = new Set(['lattafa', 'fragranceworld', 'ardalzaafaran', 'bujairami', 'rasasi', 'ajmal', 'khadlaj', 'maryaj', 'royalmirage']);
+const CREDIT_FILLER = new Set(['perfumes', 'perfume', 'parfums', 'parfum', 'fragrances', 'fragrance', 'paris', 'london', 'the', 'of']);
+
+/**
+ * Phase A of the long name rules (docs 2026-10-14): R1 a "by <house>" credit
+ * (every word of it is a word of the house, or filler), R2 seller tails from a
+ * closed list, R3 a trailing "Perfume" for the houses that append it, R5 an
+ * audience label written twice, R7 a stray " ." Word count never triggers any
+ * of them, and the audience label always stays. R4 (a cut off "Eau De") and R6
+ * (one of "Pour Homme" / "for Men") live in tidyNameEnds.
+ */
+export function tidyLongName(name: string, brands: (string | null)[]): string {
+  let s = name;
+  for (let pass = 0; pass < 3; pass++) {
+    const before = s;
+    s = s.replace(/\s+\.(?=\s|$)/g, '').replace(/\s+\.\s*$/, '');
+    s = s.replace(SELLER_TAILS, '').replace(/\b(Retail\s+Bottle)(\s+\1)+/gi, '$1').replace(/\s+Retail\s+Bottle\s*$/i, '');
+    if (brands.some((b) => b !== null && PERFUME_TAIL_HOUSES.has(brandKey(b)))) s = s.replace(/(\S)\s+Perfume(?=(\s+(?:for|pour)\s+\S+(?:\s+(?:and|&)\s+\S+)?)?\s*$)/i, '$1');
+    s = s.replace(/\b((?:for|pour)\s+(?:him|her|men|women|man|woman|unisex|homme|femme))\s+\1\b/i, '$1');
+    s = s.trim();
+    if (s === before) break;
+  }
+  // R1: "Gentleman by Givenchy for Men" is "Gentleman for Men".
+  const houseWords = new Set<string>();
+  for (const b of brands) if (b) for (const w of b.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/)) if (w) houseWords.add(w);
+  const credit = s.match(/^(.*?\S)(?:,)?\s+by\s+([A-Za-z0-9'\u2019.&-]+(?:\s+[A-Za-z0-9'\u2019.&-]+){0,4}?)(\s+(?:for|pour)\s+.*|\s+-.*)?$/i);
+  if (credit && houseWords.size > 0) {
+    const words = credit[2]!.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+    const lead = credit[1]!.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+    const leadIsHouse = lead.length > 0 && lead.join('') === words.join('');
+    if (words.length > 0 && !leadIsHouse && words.some((w) => houseWords.has(w)) && words.every((w) => houseWords.has(w) || CREDIT_FILLER.has(w))) {
+      s = `${credit[1]}${credit[3] ?? ''}`.trim();
+    }
+  }
+  return s || name;
+}
+
+export function tidyNameEnds(name: string, house: string | null): string {
+  let s = name
+    .replace(/\s*\(\s*\d{1,2}\s*\)/g, '')
+    .replace(/\s*(?:\(\s*\)|\[\s*\])/g, '')
+    .replace(DOUBLED_STRENGTH_WORD, '$1')
+    .replace(/\s+[-\u2013]\s*\.?\s*$/, '');
+  // "Daarej pour homme ... for men": the second phrase repeats the first.
+  if (/\bpour\s+(?:homme|lui)\b/i.test(s)) s = s.replace(/\s+for\s+(?:men|him|man)\s*$/i, '');
+  if (/\bpour\s+(?:femme|elle)\b/i.test(s)) s = s.replace(/\s+for\s+(?:women|her|woman)\s*$/i, '');
+  for (let pass = 0; pass < 4; pass++) {
+    const before = s;
+    const apostrophe = s.match(/^(.*\S)\s+d['\u2019]\s*$/i);
+    if (apostrophe && house) {
+      s = `${apostrophe[1]} d'${house.trim()}`;
+      break;
+    }
+    s = s.replace(/\s+\+\s*[A-Za-z]\s*$/, '').replace(/(\S)\s+(?:and|of|with)\s*$/i, '$1');
+    const connector = s.match(/^(.*\S)\s+(?:de|du|des|di|del|d['\u2019])\s*$/i);
+    if (connector) {
+      s = connector[1]!.replace(/\s+eau$/i, '');
+    }
+    const article = s.match(/^(.*\S)\s+(?:le|la|les)\s*$/i);
+    if (article && !/\b(?:le|la|les)$/i.test(article[1]!)) s = article[1]!;
+    s = s.replace(/[\s,\-&|+]+$/g, '');
+    if (s === before) break;
+  }
+  return s || name;
+}
+
+const DESCRIPTIVE_WORDS = new Set([
+  'edition', 'collection', 'limited', 'intense', 'extreme', 'exclusive', 'special', 'reserve', 'original', 'classic',
+  'absolute', 'sport', 'noir', 'elixir', 'extrait', 'intensa', 'unisex',
+]);
+/**
+ * A descriptive word a shop left in lower case ("Remix Lavender edition",
+ * "Cedar Paradise unisex") is capitalised like the rest of the name. Only
+ * these words, only after the first, and only in a name that is otherwise
+ * written in capitals: small words (de, du, of, and, for, by, the, la, le,
+ * pour, eau) are never touched, and nor is a name a shop wrote entirely in
+ * lower case. Case never decides which product a listing belongs to.
+ */
+export function capitaliseDescriptiveWords(name: string): string {
+  if (!/[A-Z]/.test(name)) return name;
+  name = name.replace(/(?<=\s)pour\s+(homme|femme)\b/g, (_m, g: string) => `Pour ${g[0]!.toUpperCase()}${g.slice(1)}`);
+  return name.replace(/(?<=\s)([a-z\u00E0-\u00FF]{3,})(?![\w'\u2019])/g, (w) => (DESCRIPTIVE_WORDS.has(w) ? w[0]!.toUpperCase() + w.slice(1) : w));
+}
+
+const CK_LINES: Record<string, string> = {
+  be: 'Be', all: 'All', one: 'One', free: 'Free', everyone: 'Everyone', in2u: 'IN2U', '2': '2', '1': 'One',
+};
+/**
+ * Calvin Klein's cK line is written "CK Be", "cK BE", "Be", "All cK Calvin
+ * Klein" and "Calvin Klein CK All" by different shops, so one fragrance sat in
+ * several products (owner report 2026-10-14). One spelling is shown: "CK Be",
+ * "CK All", "CK One", "CK Free", "CK Everyone", "CK IN2U", "CK2", with the rest of
+ * the name (Shock, Gold, For Her, ...) kept as written. Only for this house and only
+ * when the name opens with, or is, one of these line words, so "Eternity",
+ * "Beauty", "Obsession" and "Euphoria" are never touched.
+ */
+export function calvinKleinLineName(name: string, brands: (string | null)[]): string {
+  if (!brands.some((b) => b !== null && brandKey(b) === 'calvinklein')) return name;
+  let s = name.replace(/\s*\bc[Kk]\s+Calvin Klein\b/i, '').replace(/\s*\bCalvin Klein\b\s*/i, ' ').replace(/\s{2,}/g, ' ').trim();
+  const m = s.match(/^(?:ck\s*)?(be|all|one|free|everyone|in\s*2\s*u|2|1)(?![A-Za-z0-9])\s*(.*)$/i);
+  if (!m) return name;
+  const hadCk = /^ck/i.test(s);
+  const word = m[1]!.toLowerCase().replace(/\s+/g, '');
+  const line = CK_LINES[word];
+  if (!line) return name;
+  // A bare "Free" / "One" / "Be" is the line only when the shop wrote no other house line word after it.
+  if (!hadCk && word === 'free' && /^(?:for|pour)\b/i.test(m[2]!) === false && m[2] !== '' && !/^(?:for|pour|eau)/i.test(m[2]!)) return name;
+  const rest = m[2]!.trim();
+  if (line === '2') return `CK2${rest ? ' ' + rest : ''}`;
+  return `CK ${line}${rest ? ' ' + rest : ''}`;
+}
+
+export function keepHouseWhenNameIsOnlyAWord(name: string, house: string | null): string {
+  if (!house) return name;
+  const bare = foldDiacritics(name).trim();
+  if (!NAME_IS_ONLY_A_WORD.test(bare)) return name;
+  return `${house.trim()} ${name}`;
+}
+
 export function displayName(
   title: string,
   brand: string | null,
@@ -2412,14 +2621,24 @@ export function displayName(
   // back on the end of the name below, so it meets only other travel sprays of
   // the same perfume and size. See isSingleTravelSpray for why.
   const ownTravelSpray = !travelSizeIsASize && isSingleTravelSpray(title);
-  let s = stripSizeLabel(ownTravelSpray ? withoutTravelSprayWords(title) : title, travelSizeIsASize);
+  // Words a shop glued together ("Mon Eclat d'ArpegeEau de Parfum", "Eau deParfum").
+  const spaced = title.replace(/([a-z\u00E0-\u00FF])(Eau\s+de\b)/g, '$1 $2').replace(/\b(Eau|Extrait|Elixir) de(Parfum|Toilette|Cologne)\b/gi, '$1 de $2');
+  let s = stripSizeLabel(ownTravelSpray ? withoutTravelSprayWords(spaced) : spaced, travelSizeIsASize);
   const opener = brandTitleOpens(title, [displayedBrand, brand]);
-  if (opener) s = s.replace(new RegExp(`^${escapeRe(opener)}\\s*`, 'i'), '');
+  if (opener) {
+    s = s.replace(new RegExp(`^${escapeRe(opener)}\\s*`, 'i'), '');
+    // "Gucci by Gucci", "Chloe by Chloe": the first copy of the house is the name.
+    if (/^by\s+\S/i.test(s) && new RegExp(`^${escapeRe(opener)}\\s+by\\s+${escapeRe(opener)}(?![A-Za-z0-9])`, 'i').test(title)) s = `${opener} ${s}`;
+  }
   const matchedConcentration = concentrationMatch(title);
   if (matchedConcentration) {
     s = stripGenuineConcentration(s, matchedConcentration);
   }
   s = s
+    // "Refillable Travel Spray, 3 x 20ml" (Chanel): the pack count goes with the
+    // sizes, and the spray words go whole so no stray "Travel ," is left.
+    .replace(/\brefillable\s+travel\s+spray\b/gi, '')
+    .replace(/,?\s*\b\d{1,2}\s*x\s*\d{1,4}(?:\.\d)?\s*ml\b/gi, '')
     .replace(/\b\d{1,4}(?:\.\d)?\s*ml\b/gi, '')
     // A size written in US ounces is the same fact, in the size field already:
     // "Ysl Black Opium 3 Oz" is Black Opium. Not after a digit or a point, so
@@ -2548,6 +2767,20 @@ export function displayName(
   // brand really is what sits behind it — the word is dropped only when a
   // brand was actually found there, never on its own, which is the identical
   // lock the `\s+perfume\s*$` strip a few lines below already uses.
+  // A seller's own wording is not part of the fragrance: Emirates Oud sells
+  // Rasasi's Hawas as "Hawas Sapphire Perfume FB Fragrances Edition".
+  s = s.replace(/\s+FBF?\s*Fragrances(?:\s+Edition)?\b/i, '').replace(/\s{2,}/g, ' ').trim();
+  // A credit written "by <house> perfumes" ("Daarej pour homme 100 ml by rasasi
+  // perfumes for men"), with the audience words that follow it.
+  for (const b of [displayedBrand, brand]) {
+    if (!b) continue;
+    const credit = new RegExp(`\\s+by\\s+${escapeRe(b)}\\s+(?:perfumes?|fragrances?|parfums?)(?:\\s+(?:for|pour)\\s+(?:men|women|him|her))?\\s*$`, 'i');
+    if (credit.test(s)) {
+      s = s.replace(credit, '');
+      break;
+    }
+  }
+  const beforeCloser = s;
   let closer = brandTitleEndsWithHouse(s, [displayedBrand, brand]) ?? brandTitleEnds(s, [displayedBrand, brand]);
   if (!closer) {
     const withoutGeneric = s.replace(/\s+perfume\s*$/i, '');
@@ -2557,6 +2790,36 @@ export function displayName(
         s = withoutGeneric;
         closer = behind;
       }
+    }
+  }
+  // A house name that closes the title after a French or Italian connector is
+  // part of the fragrance's own name, not a brand the shop appended: "Bleu de
+  // Chanel", "Terre d'Hermes", "Pasha de Cartier", "L'Instant de Guerlain",
+  // "Twilly d'Hermes". Cutting it left "Bleu de" and "Terre d'" (about 270 live
+  // products, owner report 2026-10-14), so the brand stays in the name. Only
+  // when the shop's own title writes the connector right before the house: in
+  // "Arrogate Blue De 200ml EDP Assaf" the size and strength stand between
+  // them, so "Assaf" is an appended brand and still comes off.
+  //
+  // The one exception is a manufacturer credit that itself reads "<line> de
+  // <house>": Emirates Oud closes every Rasasi title with "Kenz De Rasasi"
+  // ("Hawas Apex Perfume 100ml EDP Kenz De Rasasi"), which names the house's
+  // own shop line, not the fragrance. Only the measured credits in
+  // KNOWN_CONNECTOR_CREDITS come off whole.
+  //
+  // Kept, the name may still open with the house a second time, because the
+  // opener strip above needs the exact spelling ("Lancome O de Lancome" for
+  // Lancôme, Scentsational's "Hermes Hermes Twilly d'Hermes"), or may have
+  // lost the house it opened with ("Molinard de Molinard" read "de Molinard"):
+  // see houseNamedAfterConnector.
+  if (closer) {
+    const before = s.slice(0, s.length - closer.length);
+    const credit = connectorCredit(before, closer);
+    if (credit !== null) {
+      closer = s.slice(credit);
+    } else if ((TRAILING_CONNECTOR.test(before) && connectorBeforeHouse(title, closer)) || (/^by\s*$/i.test(before) && new RegExp(`\\bby\\s+${escapeRe(closer)}(?![A-Za-z0-9])`, 'i').test(title))) {
+      s = houseNamedAfterConnector(beforeCloser, closer);
+      closer = null;
     }
   }
   if (closer) {
@@ -2665,6 +2928,12 @@ export function displayName(
   // mid-string "+ +" / "- +" is not a boundary problem at all.
   s = stripOrphanedSeparators(s);
   s = stripAudienceOfSingleAudienceLine(s, [displayedBrand, brand]);
+
+  s = tidyLongName(s, [displayedBrand, brand]);
+  s = tidyNameEnds(s, displayedBrand || brand);
+  s = calvinKleinLineName(s, [displayedBrand, brand]);
+  s = capitaliseDescriptiveWords(s);
+  s = keepHouseWhenNameIsOnlyAWord(s, displayedBrand || brand);
 
   const name = canonicalSeriesSpelling(s) || emptiedNameFallback(opener, brand, displayedBrand) || title;
   return ownTravelSpray && !/\btravel spray$/i.test(name) ? `${name} Travel Spray` : name;

@@ -61,6 +61,7 @@ import {
   untrustworthyEans as computeUntrustworthyEans,
   trustworthyEan,
   settleBarcodeSizes,
+  normalizedEan,
 } from '../src/catalogue/productMatch.js';
 import { barcodeLosers, listingViolations, namespaceViolations } from '../src/catalogue/kindGuards.js';
 import { contentsSignature, matchSets, scentKey, type SetCandidate, type SetMatchResult } from '../src/catalogue/setMatch.js';
@@ -1390,6 +1391,10 @@ if (resolvedStatements.length > 0) {
  */
 const absorbedIds = new Map<string, string[]>();
 const absorbedInto = new Map<string, string>();
+function nameIsOnlyTheBrand(p: { brand: string; name: string }): boolean {
+  const fold = (s: string): string => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  return fold(p.name) === fold(p.brand);
+}
 function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): void {
   for (const { canonical, absorbed, name } of groups) {
     // The plain name of a pair that differed only by an audience word (audienceNames.ts).
@@ -1436,6 +1441,12 @@ function applyMerges(groups: ReturnType<typeof findDuplicateGroups<Product>>): v
       // just because a different shop's record won the merge — see
       // reattachArmafLine's own comment for why this has to run after every
       // merge is already settled, on the surviving record's final name.
+      // A product whose whole name is the brand ("Fcuk") that a record with the
+      // same barcode names fully ("fcuk Her") takes the full name: the barcode is
+      // the proof it is that fragrance. Only the name moves, never the id.
+      if (nameIsOnlyTheBrand(canonical) && !nameIsOnlyTheBrand(dupe) && canonical.ean && dupe.ean && normalizedEan(canonical.ean) === normalizedEan(dupe.ean)) {
+        canonical.name = dupe.name.replace(/^[a-z]/, (c) => c.toUpperCase());
+      }
       canonical.armafLine ??= dupe.armafLine;
       // The audience a shop's label gave: kept from whichever record had one,
       // and dropped where the two disagree (a label never decides against another).

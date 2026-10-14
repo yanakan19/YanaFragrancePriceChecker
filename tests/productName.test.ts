@@ -81,7 +81,7 @@ describe('displayName: the brand is not repeated in the name', () => {
   // The regressions the longest-match rule exists to prevent. Both would ship
   // a visibly mangled name.
   it('does not leave a fragment of the brand behind', () => {
-    expect(displayName('Joop! Homme Eau de Toilette 125ml Spray', 'Joop!', 'Joop')).toBe('Homme');
+    expect(displayName('Joop! Homme Eau de Toilette 125ml Spray', 'Joop!', 'Joop')).toBe('Joop Homme');
     expect(displayName('Dunhill London Desire Red For Men Eau de Toilette 100ml', 'Dunhill London', 'Dunhill')).toBe(
       'Desire Red For Men',
     );
@@ -206,10 +206,10 @@ describe('displayName: a fragrance named after its own house, qualified by a bra
   // two products is a house's own real, standalone product name — pinned
   // here so this rule is never widened to swallow them.
   it.each([
-    ['Dior Homme Eau De Toilette 100ml Spray', 'Dior', 'Dior', 'Homme'],
-    ['DKNY Women Eau De Parfum 100ml Spray', 'DKNY', 'DKNY', 'Women'],
+    ['Dior Homme Eau De Toilette 100ml Spray', 'Dior', 'Dior', 'Dior Homme'],
+    ['DKNY Women Eau De Parfum 100ml Spray', 'DKNY', 'DKNY', 'DKNY Women'],
     ['Histoires de Parfums 1804 Eau de Parfum 60ml', 'Histoires de Parfums', 'Histoires de Parfums', '1804'],
-    ['Calvin Klein One Eau de Toilette 100ml Spray', 'Calvin Klein', 'Calvin Klein', 'One'],
+    ['Calvin Klein One Eau de Toilette 100ml Spray', 'Calvin Klein', 'Calvin Klein', 'CK One'],
   ])('does not touch a real one-word or bare-year name: %s -> %s', (title, raw, displayed, expected) => {
     expect(displayName(title, raw, displayed)).toBe(expected);
   });
@@ -715,7 +715,7 @@ describe('displayName: "Le Parfum" and other French-article naming, not a stripp
   // La" cases either.
   it('leaves Escada\'s one stray "Le" as feed noise rather than inventing a rule that would break a real "La" name', () => {
     expect(displayName('Escada Sorbetto Rosso Le Eau De Toilette 100ml', 'Escada', 'Escada')).toBe(
-      'Sorbetto Rosso Le',
+      'Sorbetto Rosso',
     );
     expect(
       displayName('Juicy Couture Couture La La Eau de Parfum 100ml Spray', 'Juicy Couture', 'Juicy Couture'),
@@ -806,7 +806,7 @@ describe('displayName: "L\'Eau de Parfum"/"L\'Eau de Toilette", an elided articl
     expect(displayName('Creed Aventus Cologne Eau De Parfum 50ml', 'Creed', 'Creed')).toBe('Aventus Cologne');
     expect(displayName('Aramis Eau de Toilette 110ml Spray', 'Aramis', 'Aramis')).toBe('Aramis');
     expect(displayName('Escada Sorbetto Rosso Le Eau De Toilette 100ml', 'Escada', 'Escada')).toBe(
-      'Sorbetto Rosso Le',
+      'Sorbetto Rosso',
     );
   });
 });
@@ -1635,8 +1635,8 @@ describe('a shop\'s translation of a name, after a pipe, is not part of the name
     ['Damascus Cologne | كولونيا دمشق 30 ml EdP', 'Mabra', 'Damascus Cologne'],
     ['Mumbai Cologne | मुंबई से कोलोन 30 ml EdP', 'Mabra', 'Mumbai Cologne'],
     // Mixed: the Latin words after the pipe are the name's own and stay.
-    ["Tea Rituals | 5 O'Clock Английская Традиция (Discontinued) 100 ml EdP", 'Brocard', "Tea Rituals | 5 O'Clock (Discontinued)"],
-    ['Gardens of Temptation | Love  Сады Соблазна  | Любовь (Discontinued) 55 ml EdP', 'Brocard', 'Gardens of Temptation | Love (Discontinued)'],
+    ["Tea Rituals | 5 O'Clock Английская Традиция (Discontinued) 100 ml EdP", 'Brocard', "Tea Rituals | 5 O'Clock"],
+    ['Gardens of Temptation | Love  Сады Соблазна  | Любовь (Discontinued) 55 ml EdP', 'Brocard', 'Gardens of Temptation | Love'],
   ])('%s', (title, brand, expected) => {
     expect(displayName(title, brand, brand)).toBe(expected);
   });
@@ -1699,5 +1699,128 @@ describe('displayName: Maison Matine\'s French name is the name at every shop', 
     expect(displayName('Hasard Bazar 50 ml EDP', 'Maison Matine', 'Maison Matine')).toBe('Hasard Bazar');
     expect(displayName('Book | Personal 100 ml EDP', 'Commodity', 'Commodity')).toBe('Book | Personal');
     expect(displayName('Terra Incognita | Siberia 100 ml EDP', 'Brocard', 'Brocard')).toBe('Terra Incognita | Siberia');
+  });
+});
+
+describe('displayName: a house name that is part of the fragrance name stays', () => {
+  const name = (title: string, brand: string) => displayName(title, brand, brand);
+
+  it('keeps the house after a connector, with or without the house in front', () => {
+    expect(name('Bleu de Chanel Eau de Parfum 100ml', 'Chanel')).toBe('Bleu de Chanel');
+    expect(name('Chanel Bleu de Chanel Eau de Parfum 100ml', 'Chanel')).toBe('Bleu de Chanel');
+    expect(name("Terre d'Hermes 100ml", 'Hermès')).toBe("Terre d'Hermes");
+    expect(name('Pasha de Cartier 100ml', 'Cartier')).toBe('Pasha de Cartier');
+    expect(name('Lancome O de Lancome 50ml', 'Lancôme')).toBe('O de Lancome');
+  });
+
+  it('still cuts a brand a shop appended', () => {
+    expect(name('Flower by Kenzo 50ml', 'Kenzo')).toBe('Flower');
+    expect(name('Arrogate Blue De 200ml EDP Assaf', 'Assaf')).not.toMatch(/Assaf/);
+  });
+
+  it('never leaves a name ending in a connector for a house-named fragrance', () => {
+    for (const [t, b] of [['Bleu de Chanel EDP 50ml', 'Chanel'], ["Twilly d'Hermes 30ml", 'Hermès'], ['Eau de Givenchy 100ml', 'Givenchy']] as const) {
+      expect(name(t, b)).not.toMatch(/(?:^|\s)(?:de|d['’])$/i);
+    }
+  });
+
+  it('drops the pack and travel spray words from a refillable travel set', () => {
+    expect(name('Bleu De CHANEL Eau de Parfum Refillable Travel Spray, 3 x 20ml', 'Chanel')).toBe('Bleu De CHANEL');
+  });
+
+  it('keeps the house when the whole name is a gender phrase or one generic word', () => {
+    expect(name('Moncler Pour Homme Eau de Parfum 100ml Spray', 'Moncler')).toBe('Moncler Pour Homme');
+    expect(name('Pour Homme Eau de Parfum 60ml', 'Moncler')).toBe('Moncler Pour Homme');
+    expect(name('Rabanne Pour Homme Eau de Toilette 100ml', 'Rabanne')).toBe('Rabanne Pour Homme');
+    expect(name('Burberry For Women Eau De Parfum 30ml Spray', 'Burberry')).toBe('Burberry For Women');
+    expect(name('For Women Eau de Parfum Spray 100ml', 'Burberry')).toBe('Burberry For Women');
+    expect(name('Dior Homme Eau De Toilette 100ml', 'Dior')).toBe('Dior Homme');
+    expect(name('Police Original Eau de Toilette 100ml Spray', 'Police')).toBe('Police Original');
+    // a real name beside the phrase is left alone
+    expect(name('Gucci Guilty Pour Homme Eau de Toilette 90ml', 'Gucci')).toBe('Guilty Pour Homme');
+  });
+
+  it('shows Rasasi Hawas titles without the Kenz credit or the word Perfume', () => {
+    expect(name('Hawas Apex GT Perfume 100ml EDP Kenz De Rasasi', 'Rasasi')).toBe('Hawas Apex GT');
+    expect(name('Hawas Le Parfum 100ml EDP Kenz De Rasasi', 'Rasasi')).toBe('Hawas Le Parfum');
+    expect(name('Hawas Apex GT Perfume Kenz De Rasasi', 'Rasasi')).toBe('Hawas Apex GT');
+    expect(name('Hawas for Him by Rasasi', 'Rasasi')).toBe('Hawas for Him');
+  });
+});
+
+describe('displayName: tidy ends and capitals', () => {
+  const name = (title: string, brand: string) => displayName(title, brand, brand);
+
+  it('capitalises a descriptive word a shop left in lower case, and nothing else', () => {
+    expect(name('Remix Lavender edition Eau de Parfum 50ml', 'Zadig')).toBe('Remix Lavender Edition');
+    expect(name('Nuit de Noel pour homme 100ml', 'X')).toBe('Nuit de Noel Pour Homme');
+  });
+
+  it('leaves no name ending on a dangling connector', () => {
+    expect(name('Amouage Remain Essence de Parfum 2 ml', 'Amouage')).toBe('Remain Essence');
+    expect(name('Confidential Private Gold Eau De Perfume 100ml', 'Lattafa')).toBe('Confidential Private Gold');
+    expect(name("Hermès Voyage d' Eau de Toilette 35ml", 'Hermès')).toBe("Voyage d'Hermès");
+    expect(name('Lanvin Mon Éclat d\'ArpègeEau de Parfum 30ml Spray', 'Lanvin')).toBe("Mon Éclat d'Arpège");
+    expect(name('Shakira Dream Gift Set EDT 80ml + D/Spray 150ml', 'Shakira')).not.toMatch(/\+\s*D$/);
+  });
+
+  it('drops a shop count in brackets but keeps a year', () => {
+    expect(name('Issey Miyake Nuit D\'issey Eau De Toilette 125ml Spray (20)', 'Issey Miyake')).toBe("Nuit D'issey");
+    expect(name('Rochas Byzance (2019) Eau de Parfum 90ml Spray', 'Rochas')).toBe('Byzance (2019)');
+  });
+
+  it('reads the eponymous "X by X" as X and matches the house across accents', () => {
+    expect(name('Gucci by Gucci Eau de Parfum 50ml', 'Gucci')).toBe('Gucci');
+    expect(name('Lancôme IDÔLE EDP 50ml', 'Lancome')).toBe('IDÔLE');
+  });
+});
+
+describe('displayName: seller wording, credits and Calvin Klein cK lines', () => {
+  const name = (title: string, brand: string) => displayName(title, brand, brand);
+  it('drops a seller edition and a "by <house> perfumes" credit', () => {
+    expect(name('Hawas Sapphire Perfume 100ml EDP FB Fragrances Edition Rasasi', 'Rasasi')).toBe('Hawas Sapphire');
+    expect(name('Rasasi Hawas Sapphire Eau de Parfum 100ml FBFragrances Edition', 'Rasasi')).toBe('Hawas Sapphire');
+    expect(name('Daarej pour homme 100 ml by rasasi perfumes for men', 'Rasasi')).toBe('Daarej Pour Homme');
+  });
+  it('writes one spelling for the cK line', () => {
+    for (const t of ['Calvin Klein CK All Eau de Toilette 100ml Spray', 'Calvin Klein All cK Calvin Klein Eau de Toilette Spray 100ml Calvin Klein', 'Calvin Klein All Eau De Toilette 100ml']) {
+      expect(name(t, 'Calvin Klein')).toBe('CK All');
+    }
+    for (const t of ['Calvin Klein CK Be Eau de Toilette 200ml', 'Calvin Klein CK BE EDT 200ml', 'Calvin Klein Be Eau De Toilette 200ml', 'Ck Be Eau De Toilette Spray']) {
+      expect(name(t, 'Calvin Klein')).toBe('CK Be');
+    }
+    expect(name('Calvin Klein CK2 EDT 50ml', 'Calvin Klein')).toBe('CK2');
+    expect(name('Calvin Klein Eternity Eau de Parfum 50ml', 'Calvin Klein')).toBe('Eternity');
+  });
+});
+
+describe('displayName: noisy long names, phase A rules', () => {
+  const name = (title: string, brand: string) => displayName(title, brand, brand);
+  it.each([
+    ['Gentleman by Givenchy for Men Eau de Toilette 100ml', 'Givenchy', 'Gentleman for Men'],
+    ['The Chant By Maison Alhambra For Men & Women 100ml', 'Maison Alhambra', 'The Chant For Men & Women'],
+    ['Oscar by Oscar de la Renta for Women 100ml', 'Oscar de la Renta', 'Oscar for Women'],
+    ['Brit by Burberry Eau de Toilette 100ml', 'Burberry', 'Brit'],
+    ['Pure Musc Blanc for Her Intense GWP 50ml', 'Kayali', 'Pure Musc Blanc for Her Intense'],
+    ['Very Irresistible, for Women Outlet 50ml', 'Givenchy', 'Very Irresistible, for Women'],
+    ['Attrape-Reves - Retail Bottle Retail Bottle', 'Pierre Guillaume', 'Attrape-Reves'],
+    ['PG03 Cuir Venenum (Discontinued)', 'Parfumerie Generale', 'PG03 Cuir Venenum'],
+    ['Bad N Boujee Bujairami Sydney 100ml', 'Bujairami', 'Bad N Boujee'],
+    ['Thara Al Oud Perfume 100ml', 'Lattafa', 'Thara Al Oud'],
+    ['Pagan for Women Perfume 100ml', 'Lattafa', 'Pagan for Women'],
+    ['Vanilla on the Beach Eau de 100ml', 'Fien', 'Vanilla on the Beach'],
+    ['Happy for Men for Men 100ml', 'Clinique', 'Happy for Men'],
+    ['Eternity for Men . 100ml', 'Calvin Klein', 'Eternity for Men'],
+  ])('%s -> %s', (title, brand, expected) => {
+    expect(name(title, brand)).toBe(expected);
+  });
+  it.each([
+    ['1881 1881 Eau de Toilette 100ml', 'Cerruti', '1881 1881'],
+    ['Wanted by Night EDT 100ml', 'Azzaro', 'Wanted by Night'],
+    ['Eau de Rochas 100ml', 'Rochas', 'Eau de Rochas'],
+    ['Chloe by Chloe Eau De Parfum Rollerball 10ml', 'Chloé', 'Chloe by Chloe Rollerball'],
+    ['Gold Edition Eau de Parfum 100ml', 'Lattafa', 'Gold Edition'],
+  ])('keeps the real name %s', (title, brand, expected) => {
+    expect(name(title, brand)).toBe(expected);
   });
 });

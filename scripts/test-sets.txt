@@ -322,3 +322,4 @@ code tests/socialLaunchVideoIn.test.ts
 data tests/brandDuplicates.test.ts
 code tests/htmlEntities.test.ts
 code tests/compileDemo.test.ts
+code tests/housePrefixNames.test.ts

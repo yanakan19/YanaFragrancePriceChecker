@@ -43,6 +43,7 @@
  */
 
 import { brandKey } from './brandName.js';
+import { findHousePrefixDuplicates } from './housePrefixNames.js';
 import { KEEP_APART_REVIEWED, SAME_FRAGRANCE_REVIEWED } from './audienceReviewed.js';
 import {
   barcodeEditionsNeverMeet,
@@ -367,5 +368,10 @@ export function findSameBottleGroups<T extends MatchableProduct>(
   for (const g of groups) for (const a of g.absorbed) gone.add(a);
   const standing = products.filter((p) => !gone.has(p));
   const found = findAudienceDuplicates(standing, options);
-  return [...groups, ...found.map((g): MergeGroup<T> => ({ canonical: g.canonical, absorbed: g.absorbed, name: g.name }))];
+  const audienceGroups = [...groups, ...found.map((g): MergeGroup<T> => ({ canonical: g.canonical, absorbed: g.absorbed, name: g.name }))];
+  // Then a house word in front of the name (housePrefixNames.ts), over what is still standing.
+  const spent = new Set<T>();
+  for (const g of audienceGroups) for (const a of g.absorbed) spent.add(a);
+  const prefixGroups = findHousePrefixDuplicates(products.filter((p) => !spent.has(p)), options);
+  return [...audienceGroups, ...prefixGroups];
 }

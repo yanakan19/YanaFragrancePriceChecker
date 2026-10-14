@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { BY_POPULARITY, DEALS } from '../demo/data.js';
 import { rankedInMostStocked } from '../demo/mostStocked.js';
-import { bestDealPerScent, onePerScent, scentKey } from '../demo/oneScent.js';
+import { bestDealPerScent, onePerScent, scentKey, sizesTogether } from '../demo/oneScent.js';
 
 /**
  * Owner's decision, 2026-10-03: the Most stocked list, Today's Deals and the
@@ -62,5 +62,13 @@ describe('one entry per scent', () => {
   it('holds on the real deals: one deal per scent', () => {
     const kept = bestDealPerScent(DEALS);
     expect(new Set(kept.map((d) => scentKey(d.fragrance))).size).toBe(kept.length);
+  });
+});
+
+describe('sizesTogether: the sizes of one scent sit side by side, smallest first', () => {
+  const f = (name: string, sizeMl: number | null) => ({ brand: 'B', name, concentration: 'Eau de Toilette', sizeMl });
+  it('regroups at the best ranked size and leaves other scents in place', () => {
+    const ranked = [f('A', 50), f('X', 100), f('A', 200), f('A', 100), f('Y', 30), f('A', null)];
+    expect(sizesTogether(ranked).map((p) => `${p.name}${p.sizeMl ?? '?'}`)).toEqual(['A50', 'A100', 'A200', 'A?', 'X100', 'Y30']);
   });
 });

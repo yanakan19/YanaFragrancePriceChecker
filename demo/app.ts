@@ -57,7 +57,7 @@ import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import { BOT_NAME, BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { availabilityHeading, offerGroups, offersInPageOrder, offerAge } from './offerGroups.js';
 import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
-import { bestDealPerScent, onePerScent } from './oneScent.js';
+import { bestDealPerScent, onePerScent, sizesTogether } from './oneScent.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { noStockLabel, rowStockMarks } from './stockLabels.js';
 import type { Retailer, RetailerTier, LogoRef } from '../src/types/retailer.js';
@@ -1780,7 +1780,7 @@ function browseView(): string {
   // on the whole ranking: sorting by price lists the cheapest of all of them,
   // not the cheapest of a first fifty.
   const isTop = isMostStockedList();
-  const list = state.browseSort === 'stocked' ? faceted : sortFragrances(faceted, state.browseSort);
+  const list = state.browseSort === 'stocked' ? (isTop ? faceted : sizesTogether(faceted)) : sortFragrances(faceted, state.browseSort);
   const title =
     state.brand ??
     (state.query.trim() ? `Results for "${state.query.trim()}"` : isTop ? `Most stocked` : `All Fragrances`);
