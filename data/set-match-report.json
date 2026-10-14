@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 227,
+ "folded": 228,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -3120,6 +3120,7 @@
   {
    "canonical": "set-ean-3616304678325",
    "absorbed": [
+    "set-calvin-klein-eternity-eau-de-parfum-50ml-fragrance-gift-set",
     "set-calvin-klein-eternity-gift-set-50ml-edp-100ml-shower-gel-100ml-body-lotion"
    ],
    "members": [
@@ -3133,6 +3134,18 @@
      "signature": "1x100body|1x100wash|1x50fragrance",
      "shops": [
       "perfume-click"
+     ]
+    },
+    {
+     "id": "set-calvin-klein-eternity-eau-de-parfum-50ml-fragrance-gift-set",
+     "brand": "Calvin Klein",
+     "name": "Eternity Eau de Parfum 50ml Fragrance Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "eternity",
+     "signature": "1x100body|1x100wash|1x50fragrance",
+     "shops": [
+      "john-lewis"
      ]
     },
     {
@@ -11761,7 +11774,8 @@
   },
   {
    "reasons": [
-    "two different barcodes: 8435415092067, 8435415098908"
+    "two different barcodes: 8435415092067, 8435415098908",
+    "a shop lists more than one: paco-perfumerias-uk"
    ],
    "members": [
     {
@@ -11774,6 +11788,7 @@
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "fragrance-click",
+      "paco-perfumerias-uk",
       "perfume-click"
      ]
     },
