@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-14T08:35:59.107Z";
+export const DEALS_GENERATED_AT = "2026-10-14T08:42:44.273Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -4973,11 +4973,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460129893",
-    "price": 38.98,
+    "price": 42.98,
     "delivered": true,
-    "wasPrice": 50.99,
-    "percentOff": 23,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 55,
+    "percentOff": 21,
+    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -4987,16 +4987,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 100.99,
     "percentOff": 41,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460025522",
-    "price": 31.98,
-    "delivered": true,
-    "wasPrice": 49.99,
-    "percentOff": 36,
     "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
@@ -14733,11 +14723,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614273474641",
-    "price": 20.48,
+    "price": 21.25,
     "delivered": true,
-    "wasPrice": 49.99,
-    "percentOff": 59,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 50,
+    "percentOff": 57,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -22208,16 +22198,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 36,
     "percentOff": 53,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3616303462062",
-    "price": 16.18,
-    "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 52,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -33262,16 +33242,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6295124051432",
-    "price": 48.98,
-    "delivered": true,
-    "wasPrice": 55,
-    "percentOff": 10,
-    "retailerId": "emirates-oud",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6295124045608",
     "price": 43.98,
     "delivered": true,
@@ -34788,16 +34758,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 230,
     "percentOff": 54,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "bloom-perfumery-aube-rubis-100-ml-edp",
-    "price": 107.99,
-    "delivered": true,
-    "wasPrice": 224.99,
-    "percentOff": 52,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
