@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 227,
+ "folded": 226,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1963,41 +1963,6 @@
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3349668630813",
-   "absorbed": [
-    "set-paco-rabanne-men-s-mini-fragrance-gift-set-4-x-5ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3349668630813",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne 4 x 5ml Eau de Parfum Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": "3349668630813",
-     "scent": "paco rabanne",
-     "signature": "4x5fragrance",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk",
-      "perfume-click",
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-men-s-mini-fragrance-gift-set-4-x-5ml",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Men's Mini Fragrance Gift Set 4 x 5ml",
-     "concentration": "Not stated",
-     "ean": null,
-     "scent": "paco rabanne",
-     "signature": "4x5fragrance",
-     "shops": [
-      "justmylook"
      ]
     }
    ]
