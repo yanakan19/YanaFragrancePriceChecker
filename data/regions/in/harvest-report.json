@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-13T02:05:50.874Z",
-  "minutes": 40.42,
+  "ranAt": "2026-10-13T23:45:50.773Z",
+  "minutes": 40.38,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 16935,
+  "listingsKept": 16859,
   "shops": [
     {
       "id": "nykaa",
@@ -15,18 +15,20 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 909,
-      "priced": 909,
-      "kept": 905,
+      "listingsRead": 881,
+      "priced": 881,
+      "kept": 877,
       "withBarcode": 217,
-      "pagesFetched": 909,
-      "seconds": 2402,
+      "pagesFetched": 882,
+      "seconds": 2401,
       "currency": "JSON-LD offers named: INR",
       "errors": [
+        "https://www.nykaa.com/nina-ricci-nina-rose-eau-de-toilette/p/4673700: HTTP 502",
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 3122 product address(es) found, first read https://www.nykaa.com/guerlain-mon-guerlain-eau-de-parfum/p/394712"
+        "https://www.nykaa.com/nina-ricci-nina-rose-eau-de-toilette/p/4673700: HTTP 502",
+        "sitemap: 3155 product address(es) found, first read https://www.nykaa.com/guerlain-mon-guerlain-eau-de-parfum/p/394712"
       ]
     },
     {
@@ -51,12 +53,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7805,
-      "priced": 7805,
+      "listingsRead": 7806,
+      "priced": 7806,
       "kept": 6549,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 102,
+      "seconds": 93,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -66,12 +68,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7537,
-      "priced": 7537,
-      "kept": 6311,
+      "listingsRead": 7543,
+      "priced": 7543,
+      "kept": 6318,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 68,
+      "seconds": 73,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -81,12 +83,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2157,
-      "priced": 2157,
-      "kept": 1894,
+      "listingsRead": 2165,
+      "priced": 2165,
+      "kept": 1900,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 23,
+      "seconds": 21,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -96,18 +98,18 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 780,
-      "priced": 780,
-      "kept": 728,
+      "listingsRead": 719,
+      "priced": 719,
+      "kept": 667,
       "withBarcode": 0,
-      "pagesFetched": 781,
+      "pagesFetched": 720,
       "seconds": 2402,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2281 product address(es)"
+        "sitemap: 2283 product address(es)"
       ]
     },
     {
@@ -131,12 +133,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 1322,
-      "priced": 1251,
+      "listingsRead": 1325,
+      "priced": 1254,
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 17,
+      "seconds": 14,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -151,7 +153,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 8,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -176,8 +178,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 417,
-      "priced": 417,
+      "listingsRead": 416,
+      "priced": 416,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
@@ -191,12 +193,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 670,
-      "priced": 630,
+      "listingsRead": 672,
+      "priced": 632,
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 12,
+      "seconds": 11,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -211,7 +213,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 12,
-      "seconds": 33,
+      "seconds": 34,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
@@ -245,7 +247,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 12,
+      "seconds": 11,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },

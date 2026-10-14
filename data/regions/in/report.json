@@ -1,31 +1,31 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-13T11:52:44.118Z",
+  "builtAt": "2026-10-14T00:26:14.305Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "crawlMinutes": 40.42,
-  "harvestRanAt": "2026-10-13T02:05:50.874Z",
-  "listingsPriced": 23073,
-  "listingsKept": 16935,
+  "crawlMinutes": 40.38,
+  "harvestRanAt": "2026-10-13T23:45:50.773Z",
+  "listingsPriced": 23003,
+  "listingsKept": 16859,
   "staleAfterDays": 7,
-  "products": 15488,
-  "productsWithTwoOrMoreShops": 2453,
+  "products": 15502,
+  "productsWithTwoOrMoreShops": 2457,
   "shareWithTwoOrMoreShops": 0.158,
-  "productsWithTwoOrMoreIndependentShops": 2453,
+  "productsWithTwoOrMoreIndependentShops": 2457,
   "shareWithTwoOrMoreIndependentShops": 0.158,
-  "productsWithThreeOrMoreShops": 687,
-  "medianPriceGap": 0.169,
+  "productsWithThreeOrMoreShops": 690,
+  "medianPriceGap": 0.167,
   "listingBarcodeShare": 0.012,
   "productsMatchingUkByBarcode": 98,
   "shops": [
     {
       "id": "aar-fragrances",
-      "products": 2227,
-      "shared": 1340
+      "products": 2229,
+      "shared": 1342
     },
     {
       "id": "bellavita-india",
@@ -34,8 +34,8 @@
     },
     {
       "id": "fridaycharm",
-      "products": 6271,
-      "shared": 1568
+      "products": 6276,
+      "shared": 1570
     },
     {
       "id": "naso-profumi",
@@ -44,18 +44,18 @@
     },
     {
       "id": "nykaa",
-      "products": 1570,
-      "shared": 194
+      "products": 1578,
+      "shared": 196
     },
     {
       "id": "perfume-network",
-      "products": 1891,
-      "shared": 781
+      "products": 1897,
+      "shared": 782
     },
     {
       "id": "perfume-palace",
       "products": 6497,
-      "shared": 1867
+      "shared": 1871
     },
     {
       "id": "the-man-company",
@@ -73,13 +73,13 @@
       "shared": 5
     }
   ],
-  "productsShown": 15347,
-  "productsWithUkPhoto": 2006,
+  "productsShown": 15361,
+  "productsWithUkPhoto": 2010,
   "productsWithUkPhotoByBarcode": 91,
-  "productsWithUkPhotoByName": 1915,
-  "listingsWithReference": 12423,
-  "offersWithCorroboratedReference": 1448,
-  "deals": 584,
+  "productsWithUkPhotoByName": 1919,
+  "listingsWithReference": 12432,
+  "offersWithCorroboratedReference": 1455,
+  "deals": 585,
   "shareWithUkPhoto": 0.131,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",

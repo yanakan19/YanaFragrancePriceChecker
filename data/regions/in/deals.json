@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-13T11:52:44.118Z",
+ "builtAt": "2026-10-14T00:26:14.305Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 12423,
- "offersWithCorroboratedReference": 1448,
+ "listingsWithReference": 12432,
+ "offersWithCorroboratedReference": 1455,
  "deals": [
   {
    "fragranceId": "aar-fragrances-ibraheem-al-qurashi-blue-oud",
@@ -178,16 +178,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-rasasi-hawas-black",
-   "price": 3450,
-   "delivered": false,
-   "wasPrice": 7000,
-   "percentOff": 50,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-rasasi-hawas-elixir",
    "price": 2750,
    "delivered": false,
@@ -308,12 +298,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-afnan-supremacy-not-only-intense-extrait-de-parfum-150ml",
-   "price": 4200,
+   "fragranceId": "aar-fragrances-rasasi-hawas-la-mer",
+   "price": 3350,
    "delivered": false,
-   "wasPrice": 8000,
-   "percentOff": 47,
-   "retailerId": "perfume-network",
+   "wasPrice": 6500,
+   "percentOff": 48,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -604,6 +594,16 @@
    "wasPrice": 10800,
    "percentOff": 45,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-rasasi-hawas-black",
+   "price": 3573.9,
+   "delivered": false,
+   "wasPrice": 6600,
+   "percentOff": 45,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -1018,6 +1018,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-lattafa-yara-elixir",
+   "price": 2583.9,
+   "delivered": false,
+   "wasPrice": 4400,
+   "percentOff": 41,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-rasasi-hawas-for-her",
    "price": 3999,
    "delivered": false,
@@ -1188,16 +1198,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-lattafa-yara-elixir",
-   "price": 2500,
-   "delivered": false,
-   "wasPrice": 4200,
-   "percentOff": 40,
-   "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-lattafa-yara-tous-for-women",
    "price": 2308.9,
    "delivered": false,
@@ -1244,16 +1244,6 @@
    "wasPrice": 5500,
    "percentOff": 40,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-rasasi-hawas-la-mer",
-   "price": 3850,
-   "delivered": false,
-   "wasPrice": 6500,
-   "percentOff": 40,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -2609,6 +2599,16 @@
   },
   {
    "fragranceId": "aar-fragrances-rasasi-hawas-fire",
+   "price": 4618.9,
+   "delivered": false,
+   "wasPrice": 6600,
+   "percentOff": 30,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-rasasi-hawas-thunder",
    "price": 4618.9,
    "delivered": false,
    "wasPrice": 6600,
@@ -4038,16 +4038,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-maison-alhambra-alhambra-avant",
-   "price": 2198.9,
-   "delivered": false,
-   "wasPrice": 2748.9,
-   "percentOff": 20,
-   "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-maison-alhambra-salvo-intense",
    "price": 1923.9,
    "delivered": false,
@@ -4418,6 +4408,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-rayhaan-vantage-edp-m-100ml",
+   "price": 3793.9,
+   "delivered": false,
+   "wasPrice": 4675,
+   "percentOff": 18,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-halloween-man-x",
    "price": 5500,
    "delivered": false,
@@ -4724,16 +4724,6 @@
    "wasPrice": 2739,
    "percentOff": 15,
    "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-guerlain-lhomme-ideal-edp",
-   "price": 10300,
-   "delivered": false,
-   "wasPrice": 12250,
-   "percentOff": 15,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -5318,6 +5308,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-afnan-supremacy-not-only-intense-extrait-de-parfum-150ml",
+   "price": 5443.9,
+   "delivered": false,
+   "wasPrice": 6072,
+   "percentOff": 10,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-ahmed-al-maghribi-oud-lavender",
    "price": 4300,
    "delivered": false,
@@ -5722,6 +5722,16 @@
    "price": 2750,
    "delivered": false,
    "wasPrice": 2900,
+   "percentOff": 5,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-dolce-gabbana-k-4",
+   "price": 7250,
+   "delivered": false,
+   "wasPrice": 7700,
    "percentOff": 5,
    "retailerId": "fridaycharm",
    "kind": "retailer",
