@@ -1,46 +1,46 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-13T16:01:54.290Z",
+  "builtAt": "2026-10-14T13:50:35.107Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "crawlMinutes": 42.23,
-  "harvestRanAt": "2026-10-13T15:19:39.880Z",
-  "listingsPriced": 65849,
-  "listingsKept": 31224,
+  "crawlMinutes": 42.42,
+  "harvestRanAt": "2026-10-14T13:08:09.496Z",
+  "listingsPriced": 65846,
+  "listingsKept": 31264,
   "staleAfterDays": 7,
-  "products": 22743,
-  "productsWithTwoOrMoreShops": 6372,
-  "shareWithTwoOrMoreShops": 0.28,
-  "productsWithTwoOrMoreIndependentShops": 2590,
-  "shareWithTwoOrMoreIndependentShops": 0.114,
-  "productsWithThreeOrMoreShops": 2355,
-  "medianPriceGap": 0.186,
+  "products": 22573,
+  "productsWithTwoOrMoreShops": 6485,
+  "shareWithTwoOrMoreShops": 0.287,
+  "productsWithTwoOrMoreIndependentShops": 2704,
+  "shareWithTwoOrMoreIndependentShops": 0.12,
+  "productsWithThreeOrMoreShops": 2388,
+  "medianPriceGap": 0.19,
   "listingBarcodeShare": 0.202,
-  "productsMatchingUkByBarcode": 1950,
+  "productsMatchingUkByBarcode": 1961,
   "shops": [
     {
       "id": "aedes",
       "products": 706,
-      "shared": 177
+      "shared": 179
     },
     {
       "id": "beauty-encounter",
-      "products": 5075,
-      "shared": 1300
+      "products": 5073,
+      "shared": 1365
     },
     {
       "id": "beautyhabit",
-      "products": 855,
-      "shared": 225
+      "products": 854,
+      "shared": 237
     },
     {
       "id": "bluemercury",
       "products": 645,
-      "shared": 282
+      "shared": 283
     },
     {
       "id": "ds-and-durga",
@@ -55,26 +55,26 @@
     {
       "id": "fragrance-market",
       "products": 4645,
-      "shared": 2651
+      "shared": 2684
     },
     {
       "id": "fragrance-outlet",
-      "products": 4434,
-      "shared": 3945
+      "products": 4433,
+      "shared": 3951
     },
     {
       "id": "indigo-perfumery",
       "products": 541,
-      "shared": 103
+      "shared": 109
     },
     {
       "id": "la-belle-perfumes",
-      "products": 4848,
-      "shared": 1271
+      "products": 4850,
+      "shared": 1344
     },
     {
       "id": "luckyscent",
-      "products": 1320,
+      "products": 1321,
       "shared": 279
     },
     {
@@ -84,23 +84,23 @@
     },
     {
       "id": "microperfumes",
-      "products": 501,
-      "shared": 318
+      "products": 503,
+      "shared": 327
     },
     {
       "id": "ministry-of-scent",
-      "products": 1642,
-      "shared": 417
+      "products": 1644,
+      "shared": 420
     },
     {
       "id": "parfums-raffy",
       "products": 307,
-      "shared": 81
+      "shared": 83
     },
     {
       "id": "perfumania",
-      "products": 4193,
-      "shared": 3895
+      "products": 4194,
+      "shared": 3910
     },
     {
       "id": "sol-de-janeiro",
@@ -109,28 +109,28 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 576,
-      "shared": 178
+      "products": 567,
+      "shared": 224
     },
     {
       "id": "twisted-lily",
-      "products": 181,
-      "shared": 107
+      "products": 183,
+      "shared": 108
     },
     {
       "id": "ulta",
       "products": 1134,
-      "shared": 311
+      "shared": 317
     }
   ],
-  "productsShown": 22621,
-  "productsWithUkPhoto": 4503,
-  "productsWithUkPhotoByBarcode": 1489,
-  "productsWithUkPhotoByName": 3014,
-  "listingsWithReference": 23528,
-  "offersWithCorroboratedReference": 6476,
-  "deals": 1046,
-  "shareWithUkPhoto": 0.199,
+  "productsShown": 22451,
+  "productsWithUkPhoto": 4737,
+  "productsWithUkPhotoByBarcode": 1491,
+  "productsWithUkPhotoByName": 3246,
+  "listingsWithReference": 23533,
+  "offersWithCorroboratedReference": 6559,
+  "deals": 1075,
+  "shareWithUkPhoto": 0.211,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
