@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-14T16:44:30.584Z",
-  "seenAt": "2026-10-14T16:44:30.584Z",
+  "updatedAt": "2026-10-14T20:42:21.403Z",
+  "seenAt": "2026-10-14T20:42:21.403Z",
   "source": "live",
   "listings": [
     {
@@ -1624,7 +1624,7 @@
       "priceGbp": 36,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Fleur de Peau Solid Perfume Refills 2 x 3g for Soft Musky Scent by Diptyque offer an intimate, long-lasting fragrance experience inspired by velvety musk and delicate florals. Designed for easy replenishment of your solid perfume case, they deliver a subtle, lingering scent. A refined refill choice for fragrance lovers..",
       "productType": "Unisex Fragrance",

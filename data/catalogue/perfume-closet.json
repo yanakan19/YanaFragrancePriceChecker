@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-10-14T16:44:30.584Z",
-  "seenAt": "2026-10-14T16:44:30.584Z",
+  "updatedAt": "2026-10-14T20:42:21.403Z",
+  "seenAt": "2026-10-14T20:42:21.403Z",
   "source": "live",
   "listings": [
     {
@@ -750,7 +750,7 @@
       "priceGbp": 65,
       "wasPriceGbp": 74.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "In Reef 11, French authenticity meets the contemporary creativity. The fragrance begins with a spicy, radiant touch of pink pepper that elegantly awakes the senses, then transitions smoothly into a velvety heart of Jasmine, reflecting the soul's beauty and the essence's purity. Finally, the journey rests on a luxurious base of sandalwood, granting you a sense of prestige and poise. It is a fragrance that does not merely announce your presence, but fills the space with an aura of timeless majesty and enchantment.. Top: Pink Pepper. Middle: Jasmin. Base: Sandalwood.",
       "productType": null,

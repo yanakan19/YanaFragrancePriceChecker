@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-14T16:44:30.584Z",
-  "seenAt": "2026-10-14T16:44:30.584Z",
+  "updatedAt": "2026-10-14T20:42:21.403Z",
+  "seenAt": "2026-10-14T20:42:21.403Z",
   "source": "live",
   "listings": [
     {
@@ -11353,7 +11353,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . . Show your beauty from within with the floral in the scented Incandessence Anti-Perspirant Roll-On Deodorant. A mysterious blend of white peach, rose and teakwood unveils your radiance.. . Product specification: . . • Top note: white peach.. • Middle note: rose.. • Base note: teakwood.. • 50ml.. . How to wear me: . . Live your vitality and your radiance by starting your day feeling fresh by using the floral-scented roll-on deodorant in the morning. If you've fallen in love with the sent, treat yourself to the matching perfume.. . .",
       "productType": "FRAGRANCE",
@@ -23152,7 +23152,7 @@
       "priceGbp": 1,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: Want to see smooth, plump skin? Try Anew Reversalist Plump & Smooth Day Cream - now with Triple Collagen Action to help boost, build and protect your collagen reserves. The best bit? You’ll see impressive results in 1 day*! The upgraded formula, backed by 20 years of collagen longevity research**, uses award-winning Protinol™, Phytol, a new Plumping Active; and a modernised UV filter system with SPF 30 to help future-proof your collagen reserves. After 1 day, your skin will feel deeply hydrated, smoother and plumper; and after 3 weeks, wrinkles will appear reduced*.. When skin ageing, collagen depletion and loss of plumpness prove inevitable, skinvestments become non-negotiable.. 2ml sample sachet.. Why you’ll love it: • Ideal for skin age 30+ - this moisturiser is co-created with dermatologists and scientists; and is specially designed to help slow down collagen loss and the appearance of signs of ageing**. • In 3 weeks, it helps improve skin hydration by 30%, firmness by 10%, elasticity by 10%, and reduces fine lines and wrinkles by 14%***. • Rave Review: “This product absorbs fast, hydrates very well, doesn’t leave a greasy feeling, and most importantly, it faded the wrinkles on my forehead and reduced expression lines!”*****. How to use it: At night, complete your skincare routine with Anew Reversalist Plump & Smooth Night Cream.. *Based on consumer study with 120 participants over 3 weeks **Anew Core creams support Collagen longevity and are designed to prolong collagen’s cycle. Based on in-vitro testing on skin cells ***Based on a clinical efficacy study *****Taken from a consumer study with 360 participants over 3 weeks..",
       "productType": "FACE",

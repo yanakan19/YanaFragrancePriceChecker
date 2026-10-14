@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-14T16:44:30.584Z",
-  "seenAt": "2026-10-14T16:44:30.584Z",
+  "updatedAt": "2026-10-14T20:42:21.403Z",
+  "seenAt": "2026-10-14T20:42:21.403Z",
   "source": "live",
   "listings": [
     {
@@ -6339,7 +6339,7 @@
       "priceGbp": 27,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Our super-luxurious moisturising balm has a smoothing gel-cream feel and is infused with Shea and Murumuru Butters, Sesame and Coconut Oils, plus antioxidant vitamin E and a skin protecting Tomato Stem-Cell extract – VitaFreezeTM. Use it to rehydrate your face, neck, chest, hands and elbows..",
       "productType": "Skincare",

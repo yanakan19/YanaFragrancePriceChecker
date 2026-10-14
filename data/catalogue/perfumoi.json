@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-14T16:44:30.584Z",
-  "seenAt": "2026-10-14T16:44:30.584Z",
+  "updatedAt": "2026-10-14T20:42:21.403Z",
+  "seenAt": "2026-10-14T20:42:21.403Z",
   "source": "live",
   "listings": [
     {
@@ -10686,7 +10686,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Orange Woman Eau de Toilette is a warm fragrance created for customers who enjoy a rich, expressive scent. It opens with a distinctive first impression, develops into a balanced heart, and settles into a smooth lasting base. Suitable for evenings and cooler seasons, this fragrance is a strong choice for anyone looking for a scent that feels modern and confident.. Why customers choose it . Well-suited for evenings and cooler seasons. A great option for daily wear and special occasions. Designed for customers who prefer warm and expressive scents.",
       "productType": "Eau de Toilette",

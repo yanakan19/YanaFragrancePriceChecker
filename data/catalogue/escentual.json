@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-14T16:44:30.584Z",
-  "seenAt": "2026-10-14T16:44:30.584Z",
+  "updatedAt": "2026-10-14T20:42:21.403Z",
+  "seenAt": "2026-10-14T20:42:21.403Z",
   "source": "live",
   "listings": [
     {
@@ -36765,8 +36765,8 @@
       "rawBrand": "GIVENCHY",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GIVENCHYL_InterditParfum35ml_c3d5a318-2e75-4b97-973b-a9143371728d.png?v=1754997933",
-      "priceGbp": 60.75,
-      "wasPriceGbp": 81,
+      "priceGbp": 81,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -62617,8 +62617,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/b638b8cbb6a69b636d402916b74a919f.png?v=1788356031",
-      "priceGbp": 21.33,
-      "wasPriceGbp": 32,
+      "priceGbp": 32,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
