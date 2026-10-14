@@ -1,9 +1,35 @@
 {
   "retailerId": "reef",
-  "updatedAt": "2026-10-14T13:45:47.974Z",
-  "seenAt": "2026-10-14T13:45:47.974Z",
+  "updatedAt": "2026-10-14T17:52:52.818Z",
+  "seenAt": "2026-10-14T17:52:52.818Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "6287036282462",
+      "url": "https://www.reef-parfum.com/en/product/summer-pink-reef-unisex-woody-fragrance/",
+      "rawTitle": "Summer Pink Reef | Unisex Woody Fragrance, 100 ml",
+      "rawBrand": null,
+      "ean": "6287036282462",
+      "imageUrl": "https://www.reef-parfum.com/wp-content/uploads/2026/10/summer-pink-reef-flacon-1500x1500-1.jpg",
+      "description": "Discover Summer Pink by Reef, a bright, woody unisex fragrance with notes of pear, amber, and sandalwood. 100 ml Eau de Parfum for everyday wear.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 89.9,
+        "currency": "EUR"
+      },
+      "retailerId": "reef",
+      "firstSeenAt": "2026-10-14T17:52:52.818Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "P1431553",
       "url": "https://www.reef-parfum.com/en/product/pearl-musk-reef-perfume/",

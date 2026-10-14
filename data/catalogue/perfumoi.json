@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-14T12:37:52.831Z",
-  "seenAt": "2026-10-14T12:37:52.831Z",
+  "updatedAt": "2026-10-14T16:44:30.584Z",
+  "seenAt": "2026-10-14T16:44:30.584Z",
   "source": "live",
   "listings": [
     {
@@ -2268,7 +2268,7 @@
       "priceGbp": 44.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Estee Lauder Knowing Eau de Parfum Spray is an eau de parfum created for customers who enjoy a rich, floral chypre scent. It opens with a refined and elegant first impression, develops into a luxurious floral heart, and settles into a warm, woody base. Suitable for evening wear or special occasions, this fragrance is a strong choice for anyone looking for a scent that feels confident and sophisticated.. Why customers choose it: ● Well-suited for autumn and winter ● A great option for evening wear or gifting ● Designed for customers who prefer floral chypre scents.",
       "productType": "Eau de Parfum",
@@ -4568,7 +4568,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Dolce & Gabbana The One Eau De Parfum Spray is a warm fragrance created for customers who enjoy a sophisticated scent. It opens with sparkling notes of bergamot and mandarin, develops into a balanced heart of madonna lily, and settles into a smooth lasting base of vanilla, plum, and amber. Suitable for evening and cooler weather, this fragrance is a strong choice for anyone looking for a warm and elegant scent.. Why customers choose it . Well-suited for evening wear and cooler seasons. A great option for dressier occasions and special events. Designed for customers who prefer warm and oriental scents.",
       "productType": "Eau de Parfum",

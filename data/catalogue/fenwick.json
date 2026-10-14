@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-14T12:37:52.831Z",
-  "seenAt": "2026-10-14T12:37:52.831Z",
+  "updatedAt": "2026-10-14T16:44:30.584Z",
+  "seenAt": "2026-10-14T16:44:30.584Z",
   "source": "live",
   "listings": [
     {
@@ -911,7 +911,7 @@
       "priceGbp": 86,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Bois Imperial Eau de Parfum 100ml by Essential Parfums combines vibrant woody notes with aromatic freshness for a contemporary unisex fragrance. Designed with depth and lasting character, this eau de parfum delivers an elegant balance of spice, woods and green accords. A standout addition to curated fragrance collections..",
       "productType": "Unisex Fragrance",
@@ -22025,7 +22025,7 @@
       "priceGbp": 42,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Irresistible Eau De Parfum Solid Perfume 2.7g by Givenchy offers a portable interpretation of the signature Irresistible fragrance in a compact solid format. This solid perfume delivers a convenient way to enjoy the scent throughout the day. A curated fragrance essential designed to elevate your collection..",
       "productType": "Women's Fragrances",

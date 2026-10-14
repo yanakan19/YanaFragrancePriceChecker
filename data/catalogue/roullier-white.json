@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-10-14T12:37:52.831Z",
-  "seenAt": "2026-10-14T12:37:52.831Z",
+  "updatedAt": "2026-10-14T16:44:30.584Z",
+  "seenAt": "2026-10-14T16:44:30.584Z",
   "source": "live",
   "listings": [
     {
@@ -497,7 +497,7 @@
       "priceGbp": 100,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A luminous and sensual perfume extract in which pear reigns supreme. Sun-drenched, luscious and seductive, the fruit mingles with a generous dose of sweetness and captivating aromas, underpinned by modern, ambery woods and the house’s emblematic musks. A bold perfume that asserts its presence with elegance and character. . Fragrance Notes . Top : Almbond, Bergamot & Mandarin. Middle: Crunchy Pear, Jasmine, Sea Spray & Raspberry. Base: Ceadarwood, Suger, White Musks, Ambery Woods & Cashmeran . Fragrance House . Created by the independent perfumer Vanina Muracciole, Origino is a base composed of a cocktail of musks. This “ball of musks”, concentrated into a perfume extract, marks nothing less than a new beginning. For François Hénin, the founder, it is the origin for creating a new olfactory universe: “What was nothing more than a creative olfactory exploration, a game between Vanina and me, led to the genesis of a completely new brand.” Given that the great majority of modern perfumes have musky bases, Origino, and the Jeroboam brand, were designed to be universal. Therefore, it was only natural to christen Jeroboam fragrances with a word drawn from Esperanto, a language invented at the end of the 19th century with the intent of creating a universal tongue. While the small bottle makes an ideal everyday accessory for the urban nomads we’ve all become, the perfumes themselves are a Lingvo Internacia (international language) in the art of seduction. They remind us that, sometimes, fragrance is infinitely more efficient than words. .",
       "productType": "Perfume",

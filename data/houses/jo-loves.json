@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-14T13:45:57.295Z",
-  "seenAt": "2026-10-14T13:45:57.295Z",
+  "updatedAt": "2026-10-14T17:52:59.539Z",
+  "seenAt": "2026-10-14T17:52:59.539Z",
   "source": "live",
   "listings": [
     {
@@ -29,7 +29,7 @@
     },
     {
       "retailerSku": "JLCHOM229",
-      "url": "https://www.joloves.com/products/nutmeg-incense-home-candle-2026-185g",
+      "url": "https://www.joloves.com/products/nutmeg-incense-home-candle-185g",
       "rawTitle": "Nutmeg & Incense Home Candle 2026 (185g)",
       "rawBrand": "Jo Loves",
       "ean": null,
@@ -75,8 +75,8 @@
     },
     {
       "retailerSku": "JLGBAU602",
-      "url": "https://www.joloves.com/products/christmas-trees-bauble-2026",
-      "rawTitle": "Christmas Trees Bauble 2026",
+      "url": "https://www.joloves.com/products/christmas-trees-a-collection",
+      "rawTitle": "Christmas Trees A Collection 2026",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/Baubles_3e30d185-61fa-49e3-ad86-8bb906e881a6.png?v=1789131792",
@@ -98,8 +98,8 @@
     },
     {
       "retailerSku": "JLGBAU601",
-      "url": "https://www.joloves.com/products/pomelo-bauble-2026",
-      "rawTitle": "Pomelo Bauble 2026",
+      "url": "https://www.joloves.com/products/pomelo-a-collection",
+      "rawTitle": "Pomelo A Collection 2026",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/Baubles_3e30d185-61fa-49e3-ad86-8bb906e881a6.png?v=1789131792",
@@ -121,7 +121,7 @@
     },
     {
       "retailerSku": "JLCRAS004",
-      "url": "https://www.joloves.com/products/2-sku-cracker-2026",
+      "url": "https://www.joloves.com/products/jo-by-jo-loves-cracker",
       "rawTitle": "Jo By Jo Loves Cracker - 2026",
       "rawBrand": "Jo Loves",
       "ean": null,
@@ -144,7 +144,7 @@
     },
     {
       "retailerSku": "JLGTLC001",
-      "url": "https://www.joloves.com/products/tea-light-collection-2026",
+      "url": "https://www.joloves.com/products/tea-light-collection",
       "rawTitle": "Tea Light Collection 2026",
       "rawBrand": "Jo Loves",
       "ean": null,
@@ -167,7 +167,7 @@
     },
     {
       "retailerSku": "JLGSOP001",
-      "url": "https://www.joloves.com/products/soap-bar-collection-2026",
+      "url": "https://www.joloves.com/products/soap-bar-collection",
       "rawTitle": "Soap Bar Collection 2026",
       "rawBrand": "Jo Loves",
       "ean": null,
@@ -190,7 +190,7 @@
     },
     {
       "retailerSku": "JLGCAH001",
-      "url": "https://www.joloves.com/products/christmas-at-home-set-2026",
+      "url": "https://www.joloves.com/products/christmas-at-home-set",
       "rawTitle": "Christmas At Home Set 2026",
       "rawBrand": "Jo Loves",
       "ean": null,
@@ -213,7 +213,7 @@
     },
     {
       "retailerSku": "JLGTOC002",
-      "url": "https://www.joloves.com/products/12-days-of-fragrance-2026",
+      "url": "https://www.joloves.com/products/12-days-of-fragrance",
       "rawTitle": "12 Days of Fragrance 2026",
       "rawBrand": "Jo Loves",
       "ean": null,
