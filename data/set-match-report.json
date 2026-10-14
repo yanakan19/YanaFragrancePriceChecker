@@ -709,38 +709,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0783320423444",
-   "absorbed": [
-    "set-bvlgari-man-wood-essence-gift-set-100ml-edp-15ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0783320423444",
-     "brand": "Bvlgari",
-     "name": "Man Wood Essence Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0783320423444",
-     "scent": "essence man wood",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-bvlgari-man-wood-essence-gift-set-100ml-edp-15ml-edp",
-     "brand": "Bvlgari",
-     "name": "Man Wood Essence Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "essence man wood",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0783320427749",
    "absorbed": [
     "set-bvlgari-omnia-crystalline-gift-set-100ml-edt-15ml-edt-40ml-handcream"
@@ -940,6 +908,38 @@
      "ean": null,
      "scent": "chevron",
      "signature": "1x100body|1x100fragrance|1x100wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0849017009398",
+   "absorbed": [
+    "set-izod-red-gift-set-15ml-edt-200ml-body-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0849017009398",
+     "brand": "Izod",
+     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "0849017009398",
+     "scent": "red",
+     "signature": "1x15fragrance|1x200body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-izod-red-gift-set-15ml-edt-200ml-body-spray",
+     "brand": "Izod",
+     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "red",
+     "signature": "1x15fragrance|1x200body",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -7061,6 +7061,37 @@
   },
   {
    "reasons": [
+    "price spread 1.56 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-bvlgari-man-wood-essence-gift-set-100ml-edp-15ml-edp",
+     "brand": "Bvlgari",
+     "name": "Man Wood Essence Gift Set 100ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "essence man wood",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-ean-0783320423444",
+     "brand": "Bvlgari",
+     "name": "Man Wood Essence Gift Set 100ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320423444",
+     "scent": "essence man wood",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.69 is over 1.5"
    ],
    "members": [
@@ -9133,13 +9164,12 @@
     {
      "id": "set-ean-3349668643141",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Lady Million Gift Set 50ml EDP + 10ml EDP",
+     "name": "Paco Rabanne Lady Million Gift Set (50ml EDP + 10ml EDP)",
      "concentration": "Eau de Parfum",
      "ean": "3349668643141",
      "scent": "lady million paco rabanne",
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
-      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -11450,7 +11480,8 @@
      "scent": "classique",
      "signature": "1x100fragrance|3p",
      "shops": [
-      "fragrance-click"
+      "fragrance-click",
+      "perfume-click"
      ]
     },
     {
