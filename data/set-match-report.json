@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 226,
+ "folded": 227,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1742,6 +1742,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -3780,12 +3812,13 @@
     {
      "id": "set-ean-3660732524129",
      "brand": "Viktor & Rolf",
-     "name": "FlowerBomb Gift Set 100ml EDP + 20ml EDP",
+     "name": "Flowerbomb Eau De Parfum 100ml Spray + 20ml Set",
      "concentration": "Eau de Parfum",
      "ean": "3660732524129",
      "scent": "flowerbomb",
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
+      "paco-perfumerias-uk",
       "perfume-click",
       "perfume-direct"
      ]
@@ -5529,6 +5562,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003996209",
    "absorbed": [
     "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray"
@@ -5683,38 +5748,6 @@
      "ean": null,
      "scent": "misteriosa signorina",
      "signature": "1x100fragrance|1x10fragrance|1x50body",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8054754400649",
-   "absorbed": [
-    "set-dolce-gabbana-q-gift-set-10ml-edp-5ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8054754400649",
-     "brand": "Dolce & Gabbana",
-     "name": "Q Gift Set 10ml EDP + 5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8054754400649",
-     "scent": "q",
-     "signature": "1x10fragrance|1x5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-dolce-gabbana-q-gift-set-10ml-edp-5ml-edp",
-     "brand": "Dolce & Gabbana",
-     "name": "Q Gift Set 10ml EDP + 5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "q",
-     "signature": "1x10fragrance|1x5fragrance",
      "shops": [
       "beaute-boulevard"
      ]
