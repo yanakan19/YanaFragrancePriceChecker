@@ -55,6 +55,91 @@ export function searchMatches(text: string, query: string): boolean {
   return words.every((w) => (isIntentWord(w) ? wholeWord(w).test(hay) : hay.includes(w)));
 }
 
+/**
+ * Short names people type for a brand, by the brand's lowercase name. They count as
+ * part of the brand's searched text, so "ck man" finds Calvin Klein's Man.
+ */
+const BRAND_ALIASES: Readonly<Record<string, readonly string[]>> = {
+  'calvin klein': ['ck'],
+  'yves saint laurent': ['ysl'],
+  'jean paul gaultier': ['jpg', 'jpgaultier'],
+  'dolce & gabbana': ['d&g', 'dg', 'dolce and gabbana'],
+  'dolce and gabbana': ['d&g', 'dg', 'dolce & gabbana'],
+  'marc jacobs': ['mj'],
+  'giorgio armani': ['armani', 'ga'],
+  'emporio armani': ['ea'],
+  'armani': ['giorgio armani'],
+  'hugo boss': ['boss'],
+  'boss': ['hugo boss'],
+  'paco rabanne': ['rabanne', 'paco'],
+  'rabanne': ['paco rabanne'],
+  'carolina herrera': ['ch'],
+  'viktor & rolf': ['v&r', 'viktor and rolf'],
+  'viktor and rolf': ['v&r', 'viktor & rolf'],
+  'maison francis kurkdjian': ['mfk'],
+  'thierry mugler': ['mugler'],
+  'mugler': ['thierry mugler'],
+  'issey miyake': ['miyake'],
+  'ralph lauren': ['rl'],
+  'tom ford': ['tf'],
+  'christian dior': ['dior'],
+  'dior': ['christian dior'],
+  'jo malone london': ['jo malone'],
+  'jo malone': ['jo malone london'],
+  'armani privé': ['armani prive'],
+  'maison margiela': ['margiela', 'mm'],
+  'initio parfums prives': ['initio'],
+  'parfums de marly': ['pdm', 'marly'],
+  'penhaligon\'s': ['penhaligons'],
+  'atelier cologne': ['atelier'],
+  'nina ricci': ['nina'],
+  'lancôme': ['lancome'],
+  'estée lauder': ['estee lauder'],
+};
+
+const aliasText = new Map<string, string>();
+/** The brand's aliases as one string ("" for most brands), worked out once per brand. */
+function aliasesOf(brand: string): string {
+  let t = aliasText.get(brand);
+  if (t === undefined) aliasText.set(brand, (t = (BRAND_ALIASES[brand.toLowerCase()] ?? []).join(' ')));
+  return t;
+}
+
+/** The text a search is matched against: brand, the brand's short names, name and strength. */
+export function searchText(brand: string, name: string, concentration = ''): string {
+  const a = aliasesOf(brand);
+  return a ? `${brand} ${a} ${name} ${concentration}` : `${brand} ${name} ${concentration}`;
+}
+
+const tokens = (s: string): string[] => normalise(s).split(/[^a-z0-9&]+/).filter(Boolean);
+
+/**
+ * How well a matching product fits the search, 0 best: 0 when the words are exactly the
+ * brand (or a short name of it) and the name, in any order, or exactly the name; 1 when
+ * every word starts a word of the brand and name; 2 for the rest (a word found inside one).
+ */
+export function searchRank(brand: string, name: string, query: string): 0 | 1 | 2 {
+  const q = tokens(query);
+  if (q.length === 0) return 2;
+  const key = (w: string[]): string => [...w].sort().join(' ');
+  const qk = key(q);
+  const nameT = tokens(name);
+  if (qk === key(nameT)) return 0;
+  const brands = [brand, ...(aliasesOf(brand) ? (BRAND_ALIASES[brand.toLowerCase()] ?? []) : [])];
+  if (brands.some((b) => qk === key([...tokens(b), ...nameT]))) return 0;
+  const words = [...tokens(brand), ...tokens(aliasesOf(brand)), ...nameT];
+  return q.every((w) => words.some((h) => h.startsWith(w))) ? 1 : 2;
+}
+
+/** The list with the best fitting products first; products that fit alike keep their order. */
+export function rankSearch<T>(list: readonly T[], query: string, parts: (item: T) => { brand: string; name: string }): T[] {
+  if (!query.trim()) return list.slice();
+  return list
+    .map((item, i) => ({ item, i, r: searchRank(parts(item).brand, parts(item).name, query) }))
+    .sort((a, b) => a.r - b.r || a.i - b.i)
+    .map((x) => x.item);
+}
+
 export interface Intent {
   /** The search asks for oils. */
   oils: boolean;

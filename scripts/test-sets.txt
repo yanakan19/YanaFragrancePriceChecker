@@ -60,6 +60,7 @@ code tests/crawlGuard.test.ts
 code tests/crawlerClaims.test.ts
 code tests/crossLinks.test.ts
 code tests/crossLinksBrowser.test.ts
+code tests/searchBrandName.test.ts
 code tests/cultBeautyRoute.test.ts
 data tests/currencyQuarantine.test.ts
 code tests/dataLiterals.test.ts

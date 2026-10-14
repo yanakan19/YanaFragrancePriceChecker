@@ -93,7 +93,7 @@ import {
 } from './filterUi.js';
 import { isOil, isSet } from './productKind.js';
 import { COUNTS } from './counts.js';
-import { countsPhrase, intentOf, leadingKind, searchMatches } from './searchIntent.js';
+import { countsPhrase, intentOf, leadingKind, rankSearch, searchMatches, searchText } from './searchIntent.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
@@ -1705,7 +1705,7 @@ function tabCount(kind: TabKind, scope: TabScope): number {
   for (const f of itemsForTab(kind)) {
     if (scope.brand && f.brand !== scope.brand) continue;
     if (scope.shop && !shopIdsOf(f.id).includes(scope.shop)) continue;
-    if (q && !searchMatches(`${f.brand} ${f.name} ${f.concentration}`, q)) continue;
+    if (q && !searchMatches(searchText(f.brand, f.name, f.concentration), q)) continue;
     n += 1;
   }
   return n;
@@ -1762,9 +1762,9 @@ function visibleFragrances(): DemoFragrance[] {
     const list = BY_POPULARITY.filter((f) => {
       if (isSet(f) || isOil(f)) return false;
       if (state.brand && f.brand !== state.brand) return false;
-      return searchMatches(`${f.brand} ${f.name} ${f.concentration}`, q);
+      return searchMatches(searchText(f.brand, f.name, f.concentration), q);
     });
-    searchBase = { key, list };
+    searchBase = { key, list: q ? rankSearch(list, q, (f) => f) : list };
   }
   return searchBase.list;
 }

@@ -42,6 +42,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Calvin Klein CK lines joined into one product',
           'Cleaner names for Rasasi Hawas and others',
           'Sizes of one scent now sit together in order',
+          'Search finds brand plus name, like CK Man',
         ],
       },
     ],
