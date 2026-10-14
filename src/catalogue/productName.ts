@@ -2557,8 +2557,9 @@ const DESCRIPTIVE_WORDS = new Set([
  * lower case. Case never decides which product a listing belongs to.
  */
 export function capitaliseDescriptiveWords(name: string): string {
+  // An audience phrase is always written the same way: "For Men", "For Her", "Pour Homme".
+  name = name.replace(/(?<=\s|^)(for|pour)\s+(men|women|him|her|man|woman|unisex|homme|femme|elle|lui)\b/gi, (_m, a: string, b: string) => `${a[0]!.toUpperCase()}${a.slice(1).toLowerCase()} ${b[0]!.toUpperCase()}${b.slice(1).toLowerCase()}`);
   if (!/[A-Z]/.test(name)) return name;
-  name = name.replace(/(?<=\s)pour\s+(homme|femme)\b/g, (_m, g: string) => `Pour ${g[0]!.toUpperCase()}${g.slice(1)}`);
   return name.replace(/(?<=\s)([a-z\u00E0-\u00FF]{3,})(?![\w'\u2019])/g, (w) => (DESCRIPTIVE_WORDS.has(w) ? w[0]!.toUpperCase() + w.slice(1) : w));
 }
 

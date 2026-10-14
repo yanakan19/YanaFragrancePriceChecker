@@ -72,7 +72,7 @@ describe('displayName: the brand is not repeated in the name', () => {
   // The other half of the same rule: "for" carries a real fact in the middle
   // of a name and must survive there.
   it('keeps a connector that is still doing work', () => {
-    expect(displayName('Afnan 9pm for Men Eau de Parfum 100ml', 'Afnan', 'Afnan')).toBe('9pm for Men');
+    expect(displayName('Afnan 9pm for Men Eau de Parfum 100ml', 'Afnan', 'Afnan')).toBe('9pm For Men');
     expect(displayName('Dunhill London Desire Red For Men Eau de Toilette 100ml', 'Dunhill London', 'Dunhill')).toBe(
       'Desire Red For Men',
     );
@@ -1744,7 +1744,7 @@ describe('displayName: a house name that is part of the fragrance name stays', (
     expect(name('Hawas Apex GT Perfume 100ml EDP Kenz De Rasasi', 'Rasasi')).toBe('Hawas Apex GT');
     expect(name('Hawas Le Parfum 100ml EDP Kenz De Rasasi', 'Rasasi')).toBe('Hawas Le Parfum');
     expect(name('Hawas Apex GT Perfume Kenz De Rasasi', 'Rasasi')).toBe('Hawas Apex GT');
-    expect(name('Hawas for Him by Rasasi', 'Rasasi')).toBe('Hawas for Him');
+    expect(name('Hawas for Him by Rasasi', 'Rasasi')).toBe('Hawas For Him');
   });
 });
 
@@ -1797,20 +1797,20 @@ describe('displayName: seller wording, credits and Calvin Klein cK lines', () =>
 describe('displayName: noisy long names, phase A rules', () => {
   const name = (title: string, brand: string) => displayName(title, brand, brand);
   it.each([
-    ['Gentleman by Givenchy for Men Eau de Toilette 100ml', 'Givenchy', 'Gentleman for Men'],
+    ['Gentleman by Givenchy for Men Eau de Toilette 100ml', 'Givenchy', 'Gentleman For Men'],
     ['The Chant By Maison Alhambra For Men & Women 100ml', 'Maison Alhambra', 'The Chant For Men & Women'],
-    ['Oscar by Oscar de la Renta for Women 100ml', 'Oscar de la Renta', 'Oscar for Women'],
+    ['Oscar by Oscar de la Renta for Women 100ml', 'Oscar de la Renta', 'Oscar For Women'],
     ['Brit by Burberry Eau de Toilette 100ml', 'Burberry', 'Brit'],
-    ['Pure Musc Blanc for Her Intense GWP 50ml', 'Kayali', 'Pure Musc Blanc for Her Intense'],
-    ['Very Irresistible, for Women Outlet 50ml', 'Givenchy', 'Very Irresistible, for Women'],
+    ['Pure Musc Blanc for Her Intense GWP 50ml', 'Kayali', 'Pure Musc Blanc For Her Intense'],
+    ['Very Irresistible, for Women Outlet 50ml', 'Givenchy', 'Very Irresistible, For Women'],
     ['Attrape-Reves - Retail Bottle Retail Bottle', 'Pierre Guillaume', 'Attrape-Reves'],
     ['PG03 Cuir Venenum (Discontinued)', 'Parfumerie Generale', 'PG03 Cuir Venenum'],
     ['Bad N Boujee Bujairami Sydney 100ml', 'Bujairami', 'Bad N Boujee'],
     ['Thara Al Oud Perfume 100ml', 'Lattafa', 'Thara Al Oud'],
-    ['Pagan for Women Perfume 100ml', 'Lattafa', 'Pagan for Women'],
+    ['Pagan for Women Perfume 100ml', 'Lattafa', 'Pagan For Women'],
     ['Vanilla on the Beach Eau de 100ml', 'Fien', 'Vanilla on the Beach'],
-    ['Happy for Men for Men 100ml', 'Clinique', 'Happy for Men'],
-    ['Eternity for Men . 100ml', 'Calvin Klein', 'Eternity for Men'],
+    ['Happy for Men for Men 100ml', 'Clinique', 'Happy For Men'],
+    ['Eternity for Men . 100ml', 'Calvin Klein', 'Eternity For Men'],
   ])('%s -> %s', (title, brand, expected) => {
     expect(name(title, brand)).toBe(expected);
   });
@@ -1829,5 +1829,13 @@ describe('displayName: one spelling of a kept house', () => {
   it('writes the connector in lower case and the house as the brand field has it', () => {
     expect(displayName('Chanel Bleu De CHANEL Eau de Toilette 100ml', 'Chanel', 'Chanel')).toBe('Bleu de Chanel');
     expect(displayName("Hermes Terre D'Hermes 100ml", 'Hermes', 'Hermes')).toBe("Terre d'Hermes");
+  });
+});
+
+describe('displayName: audience phrases are written one way', () => {
+  it('title cases for men, for her, pour homme', () => {
+    expect(displayName('Daarej pour homme 100ml EDP', 'Rasasi', 'Rasasi')).toBe('Daarej Pour Homme');
+    expect(displayName('Sample Scent FOR HER Eau de Parfum 50ml', 'X', 'X')).toBe('Sample Scent For Her');
+    expect(displayName('Sample Scent for men 50ml Eau de Toilette', 'X', 'X')).toBe('Sample Scent For Men');
   });
 });
