@@ -324,3 +324,5 @@ code tests/htmlEntities.test.ts
 code tests/compileDemo.test.ts
 code tests/housePrefixNames.test.ts
 code tests/failureDigest.test.ts
+code tests/sizeReview.test.ts
+data tests/sizeReviewData.test.ts

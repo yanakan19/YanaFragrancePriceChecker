@@ -68,6 +68,7 @@ import { contentsSignature, matchSets, scentKey, type SetCandidate, type SetMatc
 import { isOilStrength, oilFactsOfOffers } from '../src/catalogue/perfumeOil.js';
 import { headlineBottles, scentGroups, sprayVersions } from '../src/catalogue/setLinks.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
+import { reviewedSizeMap } from '../src/catalogue/sizeReview.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
 import {
@@ -899,6 +900,9 @@ const sharedCodeEans = computeUntrustworthyEans(eligible.flatMap(({ listings }) 
 const barcodeSizes = settleBarcodeSizes(
   eligible.flatMap(({ listings }) => listings.flatMap((l) => barcodeSizeVote(l, sharedCodeEans) ?? [])),
 );
+// A shop's size the house's own list contradicts, reviewed by hand
+// (src/catalogue/sizeReview.ts): read at the reviewed size, as an outvoted code is.
+for (const [key, ml] of reviewedSizeMap()) barcodeSizes.outvoted.set(key, ml);
 const untrustworthyEans: ReadonlySet<string> = new Set([...sharedCodeEans, ...barcodeSizes.revoked]);
 /** Every listing that joined a product, with its own id and the other ids it has answered to. */
 const memberIdForms: { own: string; forms: string[]; lineage: string | null }[] = [];

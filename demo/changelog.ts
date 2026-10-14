@@ -37,6 +37,7 @@ export const CHANGELOG: ChangelogEntry[] = [
         heading: 'Products and Matching',
         points: [
           'Bleu de Chanel and Terre d\'Hermes names fixed',
+          'Swiss Arabian Shaghaf sizes corrected to 75ml',
           'Pour Homme and For Women keep the brand',
           'Calvin Klein CK lines joined into one product',
           'Cleaner names for Rasasi Hawas and others',
