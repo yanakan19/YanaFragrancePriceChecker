@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-14T08:44:06.743Z",
-  "seenAt": "2026-10-14T08:44:06.743Z",
+  "updatedAt": "2026-10-14T12:37:52.831Z",
+  "seenAt": "2026-10-14T12:37:52.831Z",
   "source": "live",
   "listings": [
     {
@@ -428,7 +428,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Arabiyat Prestige Nayla 80ml Eau De Parfum features a complex fragrance profile with top notes of Coconut, Peach, Mandarin, and Bergamot, balanced by floral middle notes of Tiare, White Flowers, Jasmine, and Rose, and anchored by base notes of White Musk and Patchouli for lasting depth and sophistication. .",
       "productType": null,

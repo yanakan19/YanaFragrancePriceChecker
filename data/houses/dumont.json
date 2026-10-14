@@ -1,9 +1,35 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-10-14T09:50:52.718Z",
-  "seenAt": "2026-10-14T09:50:52.718Z",
+  "updatedAt": "2026-10-14T13:44:43.254Z",
+  "seenAt": "2026-10-14T13:44:43.254Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "15419208728886-Default Title",
+      "url": "https://dumontparfums.com/products/ampro-lamor",
+      "rawTitle": "AMPRO L'AMOR",
+      "rawBrand": "Dumont Paris",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/Luxury_Amber_Perfume_Set.png?v=1791973504",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Introducing AMPRO L’AMOR by Dumont , a new launch debuting at Beauty World 2026.. L’AMOR is a warm, romantic fragrance that sets sweet gourmand notes against deep, smoky richness. It opens with the sweetness dark cherry, lifted by the spark of ginger. At its heart, amber and cypriol give it depth, with rose and violet adding a soft floral touch. The dry-down settles into cashmere, musk, patchouli, tonka and vanilla, finished with dry oud.. Fragrance notes . Top: Sweet Almond, Ginger, Rose, Dark Cherry. Heart: Ambery, Cypriol, Rose, Violet. Base: Cashmere, Musk, Patchouli, Tonka, Vanilla, Dry Oud. Angéline Leporini. Senior Perfumer. .",
+      "productType": "Perfume",
+      "nativePrice": {
+        "amount": 450,
+        "currency": "AED"
+      },
+      "retailerId": "dumont",
+      "firstSeenAt": "2026-10-14T13:44:43.254Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "15417837846838-Default Title",
       "url": "https://dumontparfums.com/products/nitro-gold-1",

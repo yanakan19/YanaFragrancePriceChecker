@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-14T08:44:06.743Z",
-  "seenAt": "2026-10-14T08:44:06.743Z",
+  "updatedAt": "2026-10-14T12:37:52.831Z",
+  "seenAt": "2026-10-14T12:37:52.831Z",
   "source": "live",
   "listings": [
     {
@@ -980,7 +980,7 @@
       "priceGbp": 59,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A bright, airy, ethereal all-season scent that drifts between a floral freshness and a sophisticated softness. Jasmine, Rhubarb and Pear settle into Orris, Violet and the merest trace of Peppermint, settling into soft Musk, Moss and warm Tonka Bean. A breath of nature, made modern..",
       "productType": null,
