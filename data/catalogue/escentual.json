@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-13T21:12:13.429Z",
-  "seenAt": "2026-10-13T21:12:13.429Z",
+  "updatedAt": "2026-10-14T01:11:42.223Z",
+  "seenAt": "2026-10-14T01:11:42.223Z",
   "source": "live",
   "listings": [
     {
@@ -180265,7 +180265,7 @@
       "priceGbp": 140,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Intriguing, complex and addictive, Miller Harris Feuilles de Tabac Eau de Parfum Spray is a sensual fragrance that is well suited to a man's skin.. A resounding blend of rich woods, tobacco leaves and spices, Feuilles de Tabac replicates the romantic feel of Saint-Germain brasseries, a community of warmth and suave creativity. The evocative scent blends Cuban Cascarilla Oil and Pimento Berries with a cooling heart of Pine Needles and Velvet Sage, while a haunting dry down of Tobacco Leaves, Tonka Bean and Patchouli reveal a darker character.. Experience a more sensual side of Paris with Feuilles de Tabac.. Top Notes: Cuban Cascarilla Oil, Pimento Berries. Heart Notes: Pine Needles, Velvet Sage. Base Notes: Tobacco Leaves, Tonka Bean, Malay Patchouli.",
       "productType": "Fragrance",

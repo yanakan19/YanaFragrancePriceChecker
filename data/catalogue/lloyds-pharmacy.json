@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-10-13T21:12:13.429Z",
-  "seenAt": "2026-10-13T21:12:13.429Z",
+  "updatedAt": "2026-10-14T01:11:42.223Z",
+  "seenAt": "2026-10-14T01:11:42.223Z",
   "source": "live",
   "listings": [
     {
@@ -655,7 +655,7 @@
       "rawBrand": "Yardley",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/0166484.png?v=1785426606",
-      "priceGbp": 10,
+      "priceGbp": 13.4,
       "wasPriceGbp": 20,
       "promoEndsAt": null,
       "inStock": true,
@@ -4795,7 +4795,7 @@
       "rawBrand": "Sarah Jessica Parker",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Sarah-Jessica-Parker-Lovely-You-EDP-Spray-50ml-63968031932684.jpg?v=1781181800",
-      "priceGbp": 10,
+      "priceGbp": 14.99,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
       "inStock": true,
@@ -4887,7 +4887,7 @@
       "rawBrand": "Sarah Jessica Parker",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Sarah-Jessica-Parker-Lovely-Lights-EDP-Spray-50ml-63968031801612.jpg?v=1781181800",
-      "priceGbp": 10,
+      "priceGbp": 14.99,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
       "inStock": true,
