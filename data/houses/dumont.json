@@ -1,7 +1,7 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-10-14T05:38:42.223Z",
-  "seenAt": "2026-10-14T05:38:42.223Z",
+  "updatedAt": "2026-10-14T09:50:52.718Z",
+  "seenAt": "2026-10-14T09:50:52.718Z",
   "source": "live",
   "listings": [
     {
@@ -234,32 +234,6 @@
         "currency": "AED"
       },
       "nativeWasPrice": 350,
-      "retailerId": "dumont",
-      "firstSeenAt": "2026-08-05T18:10:57.418Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "10586185040182-Default Title",
-      "url": "https://dumontparfums.com/products/nitro-red-intensely-free-nitro-discovery-set",
-      "rawTitle": "Nitro Red Intensely + Free Nitro Discovery Set",
-      "rawBrand": "Dumont Perfumes UAE",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/Dumont_perfumes_Recreate_the_provided_reference_image_with_exact_accuracy_in_comp_1bdb3892-4cf6-474d-8a23-b74b7d9a9f82.png?v=1770616181",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "A statement scent, plus the power to explore. Nitro Red Intensely delivers deep intensity and bold seduction, while the Discovery Set lets you experience the full Nitro universe—layer, test, and travel with confidence. A perfect choice for those who want one signature and many possibilities.. Ideal for: Gifting, fragrance discovery, and unforgettable first impressions..",
-      "productType": null,
-      "nativePrice": {
-        "amount": 209,
-        "currency": "AED"
-      },
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
@@ -624,6 +598,7 @@
         "amount": 209,
         "currency": "AED"
       },
+      "nativeWasPrice": 350,
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
@@ -4635,6 +4610,33 @@
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "10586185040182-Default Title",
+      "url": "https://dumontparfums.com/products/nitro-red-intensely-free-nitro-discovery-set",
+      "rawTitle": "Nitro Red Intensely + Free Nitro Discovery Set",
+      "rawBrand": "Dumont Perfumes UAE",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/Dumont_perfumes_Recreate_the_provided_reference_image_with_exact_accuracy_in_comp_1bdb3892-4cf6-474d-8a23-b74b7d9a9f82.png?v=1770616181",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A statement scent, plus the power to explore. Nitro Red Intensely delivers deep intensity and bold seduction, while the Discovery Set lets you experience the full Nitro universe—layer, test, and travel with confidence. A perfect choice for those who want one signature and many possibilities.. Ideal for: Gifting, fragrance discovery, and unforgettable first impressions..",
+      "productType": null,
+      "nativePrice": {
+        "amount": 209,
+        "currency": "AED"
+      },
+      "retailerId": "dumont",
+      "firstSeenAt": "2026-08-05T18:10:57.418Z",
+      "lastSeenAt": "2026-10-14T05:38:42.223Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-14T09:50:52.718Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

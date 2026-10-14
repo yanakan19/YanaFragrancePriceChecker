@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-14T05:39:05.051Z",
+  "checkedAt": "2026-10-14T09:52:09.853Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 512,
+      "listings": 462,
       "pricedInGbp": 0,
-      "withPhoto": 490,
-      "errors": [],
+      "withPhoto": 440,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -140,18 +142,16 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "USD",
-      "listings": 54,
+      "currency": "AED",
+      "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 54,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 59,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -192,12 +192,10 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 57,
+      "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 57,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 60,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
@@ -330,9 +328,9 @@
       "origin": "https://dumontparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 178,
+      "listings": 177,
       "pricedInGbp": 0,
-      "withPhoto": 178,
+      "withPhoto": 177,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -411,19 +409,17 @@
       "houseId": "reef",
       "name": "Reef Perfumes",
       "origin": "https://www.reef-parfum.com",
-      "routeUsed": null,
+      "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 0,
+      "listings": 32,
       "pricedInGbp": 0,
-      "withPhoto": 0,
+      "withPhoto": 32,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "https://www.reef-parfum.com/sitemap_index.xml: HTTP 404"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "Saudi niche house, founded 2018. \"REEF\" is a generic enough word that search results carry a lot of noise — confirm this domain before trusting its listings",
-        "no listings retrieved from the storefront on this run"
+        "Saudi niche house, founded 2018. \"REEF\" is a generic enough word that search results carry a lot of noise — confirm this domain before trusting its listings"
       ]
     },
     {

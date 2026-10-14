@@ -1,11 +1,11 @@
 {
   "retailerId": "maison-asrar",
-  "updatedAt": "2026-10-14T05:30:46.038Z",
-  "seenAt": "2026-10-14T05:30:46.038Z",
+  "updatedAt": "2026-10-14T09:43:20.388Z",
+  "seenAt": "2026-10-14T09:43:20.388Z",
   "source": "live",
   "listings": [
     {
-      "retailerSku": "10931041337656-Default Title",
+      "retailerSku": "20472725",
       "url": "https://maisonasrar.com/products/ameer",
       "rawTitle": "AMEER",
       "rawBrand": "Maison Asrar",
@@ -23,7 +23,7 @@
         "currency": "AED"
       },
       "retailerId": "maison-asrar",
-      "firstSeenAt": "2026-10-01T20:04:49.939Z",
+      "firstSeenAt": "2026-10-14T09:43:20.388Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -3383,6 +3383,33 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "10931041337656-Default Title",
+      "url": "https://maisonasrar.com/products/ameer",
+      "rawTitle": "AMEER",
+      "rawBrand": "Maison Asrar",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0703/6000/6968/files/Ameer_Maison_Asrar_Perfume_White_Background_Bottle.webp?v=1790742026",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A prince in silver, set in frosted stone — serene and absolute. Cardamom and saffron give way to frankincense, myrrh, and warm vanilla woods. A refined, resinous fragrance of authority and ease. .",
+      "productType": "Perfumes",
+      "nativePrice": {
+        "amount": 51.38,
+        "currency": "AED"
+      },
+      "retailerId": "maison-asrar",
+      "firstSeenAt": "2026-10-01T20:04:49.939Z",
+      "lastSeenAt": "2026-10-14T05:30:46.038Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-14T09:43:20.388Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     }
   ],

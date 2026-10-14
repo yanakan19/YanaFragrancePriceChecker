@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-14T04:58:42.334Z",
-  "seenAt": "2026-10-14T04:58:42.334Z",
+  "updatedAt": "2026-10-14T08:44:06.743Z",
+  "seenAt": "2026-10-14T08:44:06.743Z",
   "source": "live",
   "listings": [
     {
@@ -1302,7 +1302,7 @@
       "priceGbp": 24,
       "wasPriceGbp": 48,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Women’s Miniature Fragrance Gift Set 4 x 15ml. Key Features. ##features##. 4 Iconic Calvin Klein Fragrances – Includes Eternity, Obsession, CK One & Escape for a versatile scent wardrobe. Travel-Friendly Miniatures (4 x 15ml) – Perfect for handbags, travel, or on-the-go fragrance top-ups. Variety of Fragrance Profiles – From fresh and floral to warm, sensual and modern scents. Luxury Gift Set for Women – Ideal present for birthdays, Christmas, anniversaries or special occasions. Perfect for Sampling – Try multiple bestselling Calvin Klein perfumes before purchasing full-size bottles. Premium Brand Quality – From globally recognised fashion house Calvin Klein, known for timeless fragrances. Stylish Presentation Box – Elegantly packaged, ready to gift. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Discover timeless elegance with the Calvin Klein Women’s Miniature Fragrance Gift Set, a luxurious collection of four iconic scents designed for every mood and occasion. Featuring 4 x 15ml mini perfumes, this beautifully presented gift set includes the legendary Eternity, Obsession, CK One, and Escape fragrances—each offering a distinct character from fresh and floral to warm and sensual.. Perfect for gifting or personal indulgence, this Calvin Klein perfume collection allows you to explore a versatile wardrobe of scents in convenient travel-size bottles.. From the romantic floral notes of Eternity to the bold intensity of Obsession, the clean modern finish of CK One, and the uplifting freshness of Escape, this set delivers a complete fragrance experience for women who love variety and sophistication.. Crafted by one of the world’s most recognised fashion houses, Calvin Klein fragrances are known for their enduring appeal and quality. Whether you're looking for a luxury perfume gift set, a handbag-friendly fragrance collection, or a way to sample classic scents before committing to full sizes, this miniature set is the perfect choice.. Ideal for birthdays, holidays, or special occasions, this elegant gift set combines style, convenience, and value—making it a must-have addition to any fragrance collection.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -1509,7 +1509,7 @@
       "priceGbp": 29,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Boss Bottled Eau De Toilette 50ml. Key Features. ##features##. Fragrance Family: Woody Spicy . . Top Notes: Apple, Citrus Fruits . . Heart Notes: Geranium, Cinnamon, Clove . . Base Notes: Sandalwood, Cedar, Vetiver. . ##end-features##. Product Details. An iconic masculine fragrance blending fresh apple and citrus with a spicy heart of cinnamon and geranium, and a warm woody base of sandalwood, cedar, and vetiver..",
       "productType": "Fragrance",
@@ -1739,7 +1739,7 @@
       "priceGbp": 5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Charlie Red Eau De Toilette Spray 100ml. Product Features. ##features##. Vibrant Top Notes – A refreshing blend of orange blossom, gardenia, plum, blackcurrant, violet, and peach. . Floral Heart – A delicate mix of carnation, tuberose, orchid, jasmine, ylang-ylang, lily-of-the-valley, and rose. . Warm Base Notes – Sensual undertones of honey, sandalwood, amber, musk, and cedar. . Long-Lasting Wear – A fragrance that stays fresh throughout the day. . Versatile & Elegant – Ideal for both casual and special occasions. . Generous 100ml Size – Perfect for everyday use or gifting. . ##end-features##. Product Description. Indulge in the classic elegance of Charlie Red Eau De Toilette Spray 100ml, a fragrance that blends floral, fruity, and warm woody notes for a captivating scent. Designed for confident and sophisticated women, this iconic Revlon perfume is perfect for both day and evening wear. With its rich bouquet of florals and sensual base notes, Charlie Red is a timeless fragrance that leaves a lasting impression. .",
       "productType": "Fragrance",

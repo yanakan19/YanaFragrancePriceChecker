@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-14T05:30:43.397Z",
-  "seenAt": "2026-10-14T05:30:43.397Z",
+  "updatedAt": "2026-10-14T09:43:17.772Z",
+  "seenAt": "2026-10-14T09:43:17.772Z",
   "source": "live",
   "listings": [
     {
@@ -22,6 +22,7 @@
         "amount": 229,
         "currency": "AED"
       },
+      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-10-01T20:04:47.645Z",
       "status": "active",
@@ -1226,7 +1227,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Order your Wild Colt and Grace Earl perfume set and you can try it for two years with Asaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used if necessary , and get your money back. . Wildcolt perfume . Wild Colt comes with Grace Earl and a stylish sample box containing 7 of our best-selling fragrances. We created this box to be a replica of the Asaf branch in your home.. . Sources of inspiration and naming . Wild Colt is a fragrance for the confident. Its composition reveals a unique and radiant personality, a spirit that chooses to prove itself. The name of the fragrance is inspired by wildness, as it makes others feel your presence even if you never speak.. . The composition . Its components are expertly woven and have a pure and intense character. Wilde denotes boldness and self-confidence. . Ingredients mixed to create a unique, distinctive scent, most notably: . \"Veterindian , Oud, Frankincense, Davana, Leather.\". . Size: 200ml. Fragrance type: Unisex. . Grace Erk perfume. It is an olfactory expression of the celebrations and the special noisy days in your life.. . Sources of inspiration and naming . It is certainly not just a fragrance, but the result of the best performance you can get. The abundance of ingredients inspired this composition that blends jasmine and bergamot with moist woody scents. The color turns into a symbolic and immortal fragrance. This vibrant scent is multifaceted and effortlessly elegant. Creamy sandalwood adds a velvety character to the scent and excites everyone around you. It is the perfect choice for men and women looking for the highest levels of elegance. The harmony of patchouli with oak increases the warmth and strength of the scent to complete the warm epic of the fragrance.. . The composition . Sandalwood, amber, cedar, bergamot, patchouli, oak moss, rose. . . Size: 200 ml . Fragrance type: Unisex . . . . . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the fragrance directly onto the warmer areas of the skin (neck and wrists). . .",
       "productType": null,
