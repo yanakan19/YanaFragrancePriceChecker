@@ -7043,7 +7043,8 @@
   },
   {
    "reasons": [
-    "price spread 1.56 is over 1.5"
+    "two different barcodes: 783320407277, 783320423444",
+    "price spread 1.68 is over 1.5"
    ],
    "members": [
     {
@@ -7068,6 +7069,18 @@
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
       "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-783320407277",
+     "brand": "Bvlgari",
+     "name": "Man Wood Essence Eau de Parfum 100ml + 15ml Spray Set",
+     "concentration": "Eau de Parfum",
+     "ean": "783320407277",
+     "scent": "essence man wood",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "paco-perfumerias-uk"
      ]
     }
    ]
@@ -10024,37 +10037,6 @@
      "signature": "1x50wash|1x75fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 2.27 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222121860",
-     "brand": "Narciso Rodriguez",
-     "name": "All Of Me Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3423222121860",
-     "scent": "all me",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-narciso-rodriguez-all-of-me-gift-set-50ml-edp-50ml-body-lotion",
-     "brand": "Narciso Rodriguez",
-     "name": "All Of Me Gift Set 50ml EDP - 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "all me",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
