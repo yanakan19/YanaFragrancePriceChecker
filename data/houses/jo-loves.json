@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-15T05:44:43.571Z",
-  "seenAt": "2026-10-15T05:44:43.571Z",
+  "updatedAt": "2026-10-15T09:53:05.885Z",
+  "seenAt": "2026-10-15T09:53:05.885Z",
   "source": "live",
   "listings": [
     {
@@ -1578,7 +1578,7 @@
       "priceGbp": 39,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Evoking the glamour of 1920s soirées, this luxurious Bath & Shower Gel fills the air with sparkling citrus and sensual amber. A tribute to life’s most refined moments, it transforms everyday bathing into pure indulgence. Contents: x1 Amber, Lime & Bergamot A Bath & Shower Gel (275ml)",
       "productType": null,

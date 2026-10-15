@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-10-15T04:37:51.453Z",
-  "seenAt": "2026-10-15T04:37:51.453Z",
+  "updatedAt": "2026-10-15T08:45:05.809Z",
+  "seenAt": "2026-10-15T08:45:05.809Z",
   "source": "live",
   "listings": [
     {
@@ -1831,7 +1831,7 @@
       "priceGbp": 64.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Immerse yourself in the untamed essence of Africa with this luxurious fragrance. . Designed to take you on a journey to the heart of an untouched, breathtaking landscape. Just as the Massai ostrich stands out with its unique characteristics and confident personality, this scent invites you to explore its remarkable world in all its beauty.. 75 mL . Notes: . Top Notes: Mandarin, Saffron. Heart Notes: Tuberose, Orange Flower, Oud Wood. Base Notes: Patchouli, Vanilla.",
       "productType": "Arabic Perfumes",

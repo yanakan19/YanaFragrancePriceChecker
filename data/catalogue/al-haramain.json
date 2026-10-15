@@ -1,7 +1,7 @@
 {
   "retailerId": "al-haramain",
-  "updatedAt": "2026-10-15T04:37:51.453Z",
-  "seenAt": "2026-10-15T04:37:51.453Z",
+  "updatedAt": "2026-10-15T08:45:05.809Z",
+  "seenAt": "2026-10-15T08:45:05.809Z",
   "source": "live",
   "listings": [
     {
@@ -2107,7 +2107,7 @@
       "priceGbp": 12,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Haramain Amber 12ml Concentrated Perfume Oil. A captivating blend of rose, geranium, davana, blossoms, bergamot, and orange, create a fresh opening. At its heart, Haramain Amber, reveals a rich floral bouquet of rose, jasmine, and orchid, complemented by clove, saffron, and warm sandalwood and cedarwood. As the scent deepens, the base notes of cedarwood, sandalwood, cashmere wood, and fruity nuances leave a lasting impression. . . . . . Fragrance notes: Top notes: Rose, Geranium, Davana, Blossoms, Bergamot, Orange Middle notes: Amber, Rose, Jasmine, Orchid, Saffron, Clove, Sandalwood Base notes: Sandalwood, Cedarwood, Cashmere Wood Complex, Fruity.",
       "productType": "ATTTAR / OIL",
@@ -10962,7 +10962,7 @@
       "priceGbp": 20,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Let Al Haramain's Oudh Laosi fill your home with the distinctive aromas of the middle east. Infused with a selection of fragrant oils, create a relaxing atmosphere that will make you and your guests feel at home..",
       "productType": "BUKHOOR",

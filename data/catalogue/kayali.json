@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-10-15T04:37:51.453Z",
-  "seenAt": "2026-10-15T04:37:51.453Z",
+  "updatedAt": "2026-10-15T08:45:05.809Z",
+  "seenAt": "2026-10-15T08:45:05.809Z",
   "source": "live",
   "listings": [
     {
@@ -2107,7 +2107,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Big blue skies, breathtaking beaches and tranquil turquoise water as far as the eyes can see…Take a quick trip to a dreamy island escape with Maldives in a Bottle Ylang Coco | 20 Eau de Parfum! Inspired by Mona’s honeymoon, this fragrance is an irresistible and aromatic bouquet of banana blossom, ylang-ylang, rosemary and white plumeria that blend perfectly with creamy facets of sandalwood, silky coconut milk and juicy notes of starfruit!.",
       "productType": "Fragrances",

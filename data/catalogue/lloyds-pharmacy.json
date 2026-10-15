@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-10-15T04:37:51.453Z",
-  "seenAt": "2026-10-15T04:37:51.453Z",
+  "updatedAt": "2026-10-15T08:45:05.809Z",
+  "seenAt": "2026-10-15T08:45:05.809Z",
   "source": "live",
   "listings": [
     {
@@ -7164,7 +7164,7 @@
       "rawBrand": "Clinique",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Clinique-Aromatics-Elixir-EDP-Spray-100ml-63957390524684.png?v=1781182586",
-      "priceGbp": 38.64,
+      "priceGbp": 39.99,
       "wasPriceGbp": 92,
       "promoEndsAt": null,
       "inStock": true,
