@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 226,
+ "folded": 227,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1742,6 +1742,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -3598,12 +3630,13 @@
     {
      "id": "set-ean-3616306131651",
      "brand": "Marc Jacobs",
-     "name": "Daisy Eau So Fresh Eau De Toilette 75ml & Body Lotion 75ml Gift Set",
+     "name": "Daisy Eau So Fresh Eau de Toilette 75ml Gift Set",
      "concentration": "Eau de Toilette",
      "ean": "3616306131651",
      "scent": "daisy eau fresh so",
      "signature": "1x75body|1x75fragrance",
      "shops": [
+      "allbeauty",
       "beautybase"
      ]
     },
@@ -3617,39 +3650,6 @@
      "signature": "1x75body|1x75fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616306131699",
-   "absorbed": [
-    "set-marc-jacobs-perfect-eau-de-parfum-50ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616306131699",
-     "brand": "Marc Jacobs",
-     "name": "Perfect Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306131699",
-     "scent": "perfect",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click",
-      "scentstore"
-     ]
-    },
-    {
-     "id": "set-marc-jacobs-perfect-eau-de-parfum-50ml-fragrance-gift-set",
-     "brand": "Marc Jacobs",
-     "name": "Perfect Eau de Parfum 50ml Fragrance Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "perfect",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -5538,6 +5538,38 @@
      "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -10476,7 +10508,7 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Parfum",
-    "two different barcodes: 3616304679773, 3616305439482, 3616306127890",
+    "two different barcodes: 3616304679773, 3616305439482",
     "a shop lists more than one: perfume-direct"
    ],
    "members": [
@@ -10502,18 +10534,6 @@
      "signature": "1x150deo|1x50fragrance",
      "shops": [
       "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3616306127890",
-     "brand": "Hugo Boss",
-     "name": "Bottled Parfum 50ml & Deodorant Spray 150ml Gift Set",
-     "concentration": "Parfum",
-     "ean": "3616306127890",
-     "scent": "bottled",
-     "signature": "1x150deo|1x50fragrance",
-     "shops": [
-      "beautybase"
      ]
     }
    ]
@@ -10794,58 +10814,32 @@
   },
   {
    "reasons": [
-    "strengths differ: Eau de Parfum, Eau de Toilette",
-    "a shop lists more than one: mybeauty-boutique",
-    "price spread 2.00 is over 1.5"
+    "two different barcodes: 3616305449696, 3616305631916",
+    "price spread 1.57 is over 1.5"
    ],
    "members": [
     {
-     "id": "set-ean-3616306127852",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Eau de Toilette 50ml Spray Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3616306127852",
-     "scent": "boss bottled",
-     "signature": "1x150deo|1x50fragrance",
-     "shops": [
-      "paco-perfumerias-uk",
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-50ml-edp-150ml-deodorant-spray",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Eau de Parfum Gift Set 50ml EDP + 150ml Deodorant Spray",
+     "id": "set-ean-3616305449696",
+     "brand": "Marc Jacobs",
+     "name": "Daisy Wild Women's Perfume Gift Set (50ml EDP + 10ml EDP)",
      "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x150deo|1x50fragrance",
+     "ean": "3616305449696",
+     "scent": "daisy wild",
+     "signature": "1x10fragrance|1x50fragrance",
      "shops": [
-      "mybeauty-boutique"
+      "perfume-direct"
      ]
     },
     {
-     "id": "set-hugo-boss-boss-bottled-eau-de-toilette-50ml-fragrance-gift-set",
-     "brand": "Hugo Boss",
-     "name": "BOSS Bottled Eau de Toilette 50ml Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x150deo|1x50fragrance",
-     "shops": [
-      "john-lewis"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-bottled-parfum-gift-set-50ml-edp-150ml-deodorant-spray",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Parfum Gift Set 50ml EDP + 150ml Deodorant Spray",
+     "id": "set-ean-3616305631916",
+     "brand": "Marc Jacobs",
+     "name": "Daisy Wild Eau de Parfum 50ml + 10ml Spray Gift Set",
      "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x150deo|1x50fragrance",
+     "ean": "3616305631916",
+     "scent": "daisy wild",
+     "signature": "1x10fragrance|1x50fragrance",
      "shops": [
-      "mybeauty-boutique"
+      "paco-perfumerias-uk"
      ]
     }
    ]
@@ -12115,6 +12109,50 @@
      "ean": null,
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Eau de Toilette",
+    "a shop lists more than one: mybeauty-boutique"
+   ],
+   "members": [
+    {
+     "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-50ml-edp-150ml-deodorant-spray",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Eau de Parfum Gift Set 50ml EDP + 150ml Deodorant Spray",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "boss bottled",
+     "signature": "1x150deo|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-hugo-boss-boss-bottled-eau-de-toilette-50ml-fragrance-gift-set",
+     "brand": "Hugo Boss",
+     "name": "BOSS Bottled Eau de Toilette 50ml Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "boss bottled",
+     "signature": "1x150deo|1x50fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-hugo-boss-boss-bottled-parfum-gift-set-50ml-edp-150ml-deodorant-spray",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Parfum Gift Set 50ml EDP + 150ml Deodorant Spray",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "boss bottled",
+     "signature": "1x150deo|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
