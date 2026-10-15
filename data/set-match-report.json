@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 228,
+ "folded": 220,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -286,38 +286,6 @@
      "signature": "1x100fragrance|1x150wash",
      "shops": [
       "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0085715961198",
-   "absorbed": [
-    "set-dkny-be-delicious-fresh-blossom-gift-set-100ml-edp-125ml-body-mist-pouch"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085715961198",
-     "brand": "DKNY",
-     "name": "Be Delicious Fresh Blossom Gift Set 100ml EDP + 125ml Body Mist + Pouch",
-     "concentration": "Eau de Parfum",
-     "ean": "0085715961198",
-     "scent": "be blossom delicious fresh",
-     "signature": "1x100fragrance|1x125body|1x?other",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-dkny-be-delicious-fresh-blossom-gift-set-100ml-edp-125ml-body-mist-pouch",
-     "brand": "DKNY",
-     "name": "Be Delicious Fresh Blossom Gift Set 100ml EDP + 125ml Body Mist + Pouch",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "be blossom delicious fresh",
-     "signature": "1x100fragrance|1x125body|1x?other",
-     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -677,38 +645,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0679602820011",
-   "absorbed": [
-    "set-replay-essential-for-him-gift-set-30ml-edt-spray-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0679602820011",
-     "brand": "Replay",
-     "name": "Essential for Him Gift Set 30ml EDT Spray + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "0679602820011",
-     "scent": "essential",
-     "signature": "1x100wash|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-replay-essential-for-him-gift-set-30ml-edt-spray-100ml-shower-gel",
-     "brand": "Replay",
-     "name": "Essential for Him Gift Set 30ml EDT Spray + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "essential",
-     "signature": "1x100wash|1x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0783320427749",
    "absorbed": [
     "set-bvlgari-omnia-crystalline-gift-set-100ml-edt-15ml-edt-40ml-handcream"
@@ -947,38 +883,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0849017014552",
-   "absorbed": [
-    "set-mustang-red-gift-set-100ml-edt-100ml-aftershave-balm-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017014552",
-     "brand": "Mustang",
-     "name": "Red Gift Set 100ml EDT + 100ml Aftershave Balm + 100ml Body Wash",
-     "concentration": "Eau de Toilette",
-     "ean": "0849017014552",
-     "scent": "red",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-mustang-red-gift-set-100ml-edt-100ml-aftershave-balm-100ml-shower-gel",
-     "brand": "Mustang",
-     "name": "Red Gift Set 100ml EDT + 100ml Aftershave Balm + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "red",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0849017016419",
    "absorbed": [
     "set-caribbean-joe-tropical-haven-gift-set-eau-de-parfum-100ml-b-lotion-100ml"
@@ -1167,64 +1071,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0888066136808",
-   "absorbed": [
-    "set-tom-ford-blend-roses-3-piece-gift-set-rose-d-amalfi-eau-de-parfum-10ml-rose-de-chine-eau-de-parfum-10ml-rose-de-russie-eau-de-parfum-10ml",
-    "set-tom-ford-blend-roses-gift-set-rose-d-amalfi-edp-10ml-rose-de-chine-edp-10ml-rose-de-russie-edp-10ml",
-    "set-tom-ford-blend-roses-gift-set-rose-d-amalfi-edp-10ml-rose-de-chine-edp-10ml-rose-de-russie-edp-10ml-10ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0888066136808",
-     "brand": "Tom Ford",
-     "name": "Blend Roses Gift Set - Rose D'Amalfi EDP 10ml - Rose De Chine EDP 10ml - Rose De Russie EDP 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": "0888066136808",
-     "scent": "amalfi blend chine d de rose roses russie",
-     "signature": "3x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-tom-ford-blend-roses-3-piece-gift-set-rose-d-amalfi-eau-de-parfum-10ml-rose-de-chine-eau-de-parfum-10ml-rose-de-russie-eau-de-parfum-10ml",
-     "brand": "Tom Ford",
-     "name": "Blend Roses 3 Piece Gift Set: Rose D'Amalfi Eau de Parfum 10ml - Rose De Chine Eau de Parfum 10ml - Rose De Russie Eau de Parfum 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "amalfi blend chine d de rose roses russie",
-     "signature": "3x10fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-tom-ford-blend-roses-gift-set-rose-d-amalfi-edp-10ml-rose-de-chine-edp-10ml-rose-de-russie-edp-10ml",
-     "brand": "Tom Ford",
-     "name": "Blend Roses Gift Set - Rose D'Amalfi EDP 10ml - Rose De Chine EDP 10ml - Rose De Russie EDP 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "amalfi blend chine d de rose roses russie",
-     "signature": "3x10fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-tom-ford-blend-roses-gift-set-rose-d-amalfi-edp-10ml-rose-de-chine-edp-10ml-rose-de-russie-edp-10ml-10ml",
-     "brand": "Tom Ford",
-     "name": "Blend Roses Gift Set - Rose D'Amalfi EDP 10ml - Rose De Chine EDP 10ml - Rose De Russie EDP 10ml 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "amalfi blend chine d de rose roses russie",
-     "signature": "3x10fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0888066150668",
    "absorbed": [
     "set-tom-ford-noir-extreme-eau-de-parfum-fragrance-gift-set"
@@ -1330,70 +1176,6 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0888066167109",
-   "absorbed": [
-    "set-tom-ford-private-blend-oud-wood-gift-set-50ml-edp-10ml-travel-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0888066167109",
-     "brand": "Tom Ford",
-     "name": "Private Blend Oud Wood Gift Set 50ml EDP + 10ml Travel Spray",
-     "concentration": "Eau de Parfum",
-     "ean": "0888066167109",
-     "scent": "blend oud private wood",
-     "signature": "1x10travel|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-tom-ford-private-blend-oud-wood-gift-set-50ml-edp-10ml-travel-spray",
-     "brand": "Tom Ford",
-     "name": "Private Blend Oud Wood Gift Set 50ml EDP + 10ml Travel Spray",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blend oud private wood",
-     "signature": "1x10travel|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0888066167123",
-   "absorbed": [
-    "set-tom-ford-f-fabulous-gift-set-50ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0888066167123",
-     "brand": "Tom Ford",
-     "name": "F****** Fabulous Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0888066167123",
-     "scent": "f fabulous",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-tom-ford-f-fabulous-gift-set-50ml-edp-10ml-edp",
-     "brand": "Tom Ford",
-     "name": "F****** Fabulous Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "f fabulous",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -4550,38 +4332,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5060524511579",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-discover-gift-set-30ml-edt-150ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511579",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Discover Gift Set 30ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511579",
-     "scent": "cr7 discover",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-discover-gift-set-30ml-edt-150ml-shower-gel",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Discover Gift Set 30ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 discover",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5060753160364",
    "absorbed": [
     "set-lambretta-intense-gift-set-100ml-edp-150ml-shower-gel-150ml-aftershave-lotion"
@@ -5569,6 +5319,38 @@
      "ean": null,
      "scent": "2 bubble gum toy",
      "signature": "1x50body|1x50fragrance|1x50wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003903023",
+   "absorbed": [
+    "set-versace-pour-homme-dylan-blue-gift-set-50ml-edt-50ml-aftershave-balm-50ml-perfumed-bath-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003903023",
+     "brand": "Versace",
+     "name": "Pour Homme Dylan Blue Gift Set 50ml EDT + 50ml Aftershave Balm + 50ml Perfumed Bath & Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "8011003903023",
+     "scent": "blue dylan homme pour",
+     "signature": "1x50?|1x50body|1x50fragrance|1x?wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-pour-homme-dylan-blue-gift-set-50ml-edt-50ml-aftershave-balm-50ml-perfumed-bath-shower-gel",
+     "brand": "Versace",
+     "name": "Pour Homme Dylan Blue Gift Set 50ml EDT + 50ml Aftershave Balm + 50ml Perfumed Bath & Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "blue dylan homme pour",
+     "signature": "1x50?|1x50body|1x50fragrance|1x?wash",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -8783,6 +8565,61 @@
   },
   {
    "reasons": [
+    "price spread 1.60 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0888066136808",
+     "brand": "Tom Ford",
+     "name": "Blend Roses Gift Set - Rose D'Amalfi EDP 10ml - Rose De Chine EDP 10ml - Rose De Russie EDP 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": "0888066136808",
+     "scent": "amalfi blend chine d de rose roses russie",
+     "signature": "3x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-tom-ford-blend-roses-3-piece-gift-set-rose-d-amalfi-eau-de-parfum-10ml-rose-de-chine-eau-de-parfum-10ml-rose-de-russie-eau-de-parfum-10ml",
+     "brand": "Tom Ford",
+     "name": "Blend Roses 3 Piece Gift Set: Rose D'Amalfi Eau de Parfum 10ml - Rose De Chine Eau de Parfum 10ml - Rose De Russie Eau de Parfum 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "amalfi blend chine d de rose roses russie",
+     "signature": "3x10fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-tom-ford-blend-roses-gift-set-rose-d-amalfi-edp-10ml-rose-de-chine-edp-10ml-rose-de-russie-edp-10ml",
+     "brand": "Tom Ford",
+     "name": "Blend Roses Gift Set - Rose D'Amalfi EDP 10ml - Rose De Chine EDP 10ml - Rose De Russie EDP 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "amalfi blend chine d de rose roses russie",
+     "signature": "3x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-tom-ford-blend-roses-gift-set-rose-d-amalfi-edp-10ml-rose-de-chine-edp-10ml-rose-de-russie-edp-10ml-10ml",
+     "brand": "Tom Ford",
+     "name": "Blend Roses Gift Set - Rose D'Amalfi EDP 10ml - Rose De Chine EDP 10ml - Rose De Russie EDP 10ml 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "amalfi blend chine d de rose roses russie",
+     "signature": "3x10fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 22548436783, 85715962157",
     "a shop lists more than one: fragrance-click"
    ],
@@ -8985,12 +8822,13 @@
     {
      "id": "set-ean-3349668604654",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Phantom Eau De Toilette Gift Set Spray (100ml) with 20ml EDT",
+     "name": "Paco Rabanne Phantom 100ml Eau de Toilette + 20ml Set",
      "concentration": "Eau de Toilette",
      "ean": "3349668604654",
      "scent": "paco phantom rabanne",
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
+      "fragrance-click",
       "perfume-direct"
      ]
     },
