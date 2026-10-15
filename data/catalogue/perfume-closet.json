@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-10-15T16:41:57.950Z",
-  "seenAt": "2026-10-15T16:41:57.950Z",
+  "updatedAt": "2026-10-15T20:38:17.311Z",
+  "seenAt": "2026-10-15T20:38:17.311Z",
   "source": "live",
   "listings": [
     {
@@ -267,7 +267,7 @@
       "priceGbp": 15,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Reef 29, French elegance captured with quiet confidence and simplicity. A balanced composition fusing the warmth of spices with the velvety softness of iris, gifting you a presence that reflects your true, elegant essence. . 15 ml in a perfectly compact format to accompany you anywhere and anytime . The story unfolds with warm, spicy notes of saffron that evoke a sense of distinction, harmonizing gently with the delicate, powdery luxury of iris. In the end, the fragrance settles over a rich ambergris base. . This is more than a practically-sized fragrance, it is a fragrance that leaves behind a serene French trail that refuses to fade. . Note: Mini fragrances come without outer packaging . Fragrance Notes . Top Note: Saffron . Heart Note: Iris Flower . Base Note: Ambergris .",
       "productType": null,

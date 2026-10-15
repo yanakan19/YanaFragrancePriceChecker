@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-15T16:41:57.950Z",
-  "seenAt": "2026-10-15T16:41:57.950Z",
+  "updatedAt": "2026-10-15T20:38:17.311Z",
+  "seenAt": "2026-10-15T20:38:17.311Z",
   "source": "live",
   "listings": [
     {
@@ -8524,7 +8524,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Take your home décor seriously by adding this oil to your oil burner, aroma diffuser, reed diffuser or potpourri.. Got a special occasion on the horizon? Home fragrance is always welcome.. Complete the ambient aesthetic with our Energise Diffuser..",
       "productType": "HOME DECOR",
@@ -26280,7 +26280,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": 6.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "OURS VS PREMIUM BEAUTY . . Essie Original Nail Polish, 10ml . . £8.99* . . * Price sourced from boots.com on 31.01.2025.. . About Me: . Power up your mani-pedi with the long-lasting, salon-quality, gel-like nail colour that’s strong enough to pass the toughest test. That’s 8 days* of colour and shine in one super-easy sweep, so you can live life hands on.. . Product Specification: • 8 days of colour and shine.* • Effortless application and full coverage in 1 coat. • ColourLock Technology to help improve chip resistance.. . How To Use Me: . Sweep the specially-designed, contoured brush over your nails for an effortless application and full coverage in 1 coat. Don’t forget to finish with our enamel-strengthening Power Stay Top coat to help your mani-pedi last even longer.**. . *Based on a consumer science study with 120 participants. **Based on a consumer science study with 29 participants who used Power Stay Gel Shine Enamel + Power Stay Top Coat..",
       "productType": "COLOR",
