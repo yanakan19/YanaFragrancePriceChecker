@@ -1,7 +1,7 @@
 {
   "retailerId": "lattafa",
-  "updatedAt": "2026-10-15T01:42:16.117Z",
-  "seenAt": "2026-10-15T01:42:16.117Z",
+  "updatedAt": "2026-10-15T05:38:44.503Z",
+  "seenAt": "2026-10-15T05:38:44.503Z",
   "source": "live",
   "listings": [
     {
@@ -538,21 +538,18 @@
     },
     {
       "retailerSku": "31NE0013",
-      "url": "https://lattafa.com/product/hayaam/",
-      "rawTitle": "Hayaam",
+      "url": "https://lattafa.com/ar/product/%d9%87%d9%8a%d8%a7%d9%85/",
+      "rawTitle": "هيام",
       "rawBrand": null,
       "ean": null,
       "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/2-22.jpg",
-      "description": "Top: Marine, Salt, Lemon, Davana Heart: Lily Of The Valley, Iris Base: Oakmoss, Ambergris, Sandalwood",
+      "description": "\"إفتتاحية العطر: نوتات بحرية، ملح، ليمون، دافانا قلب العطر: زنبق الوادي قاعدة العطر: طحلب البلوط، العنبر، خشب الصندل\"",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "inStock": true,
       "sectionId": "house-direct",
-      "rating": {
-        "value": 4,
-        "count": 1
-      },
+      "rating": null,
       "nativePrice": {
         "amount": 300,
         "currency": "AED"
