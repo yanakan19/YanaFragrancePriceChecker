@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 227,
+ "folded": 228,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2351,7 +2351,8 @@
      "scent": "d drop issey",
      "signature": "1x50fragrance|2x50body",
      "shops": [
-      "perfume-click"
+      "perfume-click",
+      "scentsational"
      ]
     },
     {
@@ -2854,6 +2855,38 @@
      "signature": "1x100fragrance|2x50body",
      "shops": [
       "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3614274102680",
+   "absorbed": [
+    "set-thierry-mugler-angel-gift-set-25ml-edp-50ml-body-lotion-50ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614274102680",
+     "brand": "Mugler",
+     "name": "Thierry Mugler Angel Women's Perfume Gift Set (25ml EDP + 50ml Shower Gel + 50ml Body Lotion)",
+     "concentration": "Eau de Parfum",
+     "ean": "3614274102680",
+     "scent": "angel mugler thierry",
+     "signature": "1x25fragrance|1x50body|1x50wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-thierry-mugler-angel-gift-set-25ml-edp-50ml-body-lotion-50ml-shower-gel",
+     "brand": "Mugler",
+     "name": "Thierry Mugler Angel Gift Set 25ml EDP + 50ml Body Lotion + 50ml Shower Gel",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "angel mugler thierry",
+     "signature": "1x25fragrance|1x50body|1x50wash",
+     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -7213,6 +7246,7 @@
   },
   {
    "reasons": [
+    "a shop lists more than one: the-beauty-store-uk",
     "price spread 1.56 is over 1.5"
    ],
    "members": [
@@ -7232,6 +7266,18 @@
      "id": "set-calvin-klein-ck-one-gift-set-eau-de-toilette-100ml-deodorant-spray-150ml",
      "brand": "Calvin Klein",
      "name": "CK One Gift Set Eau de Toilette 100ml + Deodorant Spray 150ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "ck one",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-calvin-klein-ck-one-gift-set-edt-spray-100ml-deodorant-spray-150ml",
+     "brand": "Calvin Klein",
+     "name": "CK One Gift Set EDT Spray 100ml + Deodorant Spray 150ml",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "ck one",
@@ -10144,50 +10190,6 @@
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "paco-perfumerias-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 3614274102680, 3614274707397"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614274102680",
-     "brand": "Mugler",
-     "name": "Thierry Mugler Angel Women's Perfume Gift Set (25ml EDP + 50ml Shower Gel + 50ml Body Lotion)",
-     "concentration": "Eau de Parfum",
-     "ean": "3614274102680",
-     "scent": "angel mugler thierry",
-     "signature": "1x25fragrance|1x50body|1x50wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3614274707397",
-     "brand": "Mugler",
-     "name": "Thierry Mugler Angel Gift Set 25ml EDP + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "3614274707397",
-     "scent": "angel mugler thierry",
-     "signature": "1x25fragrance|1x50body|1x50wash",
-     "shops": [
-      "perfume-click",
-      "scentstore"
-     ]
-    },
-    {
-     "id": "set-thierry-mugler-angel-gift-set-25ml-edp-50ml-body-lotion-50ml-shower-gel",
-     "brand": "Mugler",
-     "name": "Thierry Mugler Angel Gift Set 25ml EDP + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "angel mugler thierry",
-     "signature": "1x25fragrance|1x50body|1x50wash",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
