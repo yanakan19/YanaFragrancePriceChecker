@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-14T23:18:37.740Z",
-  "minutes": 40.4,
+  "ranAt": "2026-10-15T23:07:13.815Z",
+  "minutes": 40.42,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 16928,
+  "listingsKept": 16944,
   "shops": [
     {
       "id": "nykaa",
@@ -15,12 +15,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 906,
-      "priced": 906,
-      "kept": 901,
+      "listingsRead": 939,
+      "priced": 939,
+      "kept": 933,
       "withBarcode": 216,
-      "pagesFetched": 906,
-      "seconds": 2403,
+      "pagesFetched": 939,
+      "seconds": 2400,
       "currency": "JSON-LD offers named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -56,7 +56,7 @@
       "kept": 6549,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 94,
+      "seconds": 88,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -66,12 +66,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7547,
-      "priced": 7547,
-      "kept": 6322,
+      "listingsRead": 7554,
+      "priced": 7554,
+      "kept": 6329,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 78,
+      "seconds": 77,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -96,18 +96,18 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 760,
-      "priced": 760,
-      "kept": 708,
+      "listingsRead": 737,
+      "priced": 737,
+      "kept": 685,
       "withBarcode": 0,
-      "pagesFetched": 761,
-      "seconds": 2401,
+      "pagesFetched": 738,
+      "seconds": 2402,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2289 product address(es)"
+        "sitemap: 2293 product address(es)"
       ]
     },
     {
@@ -121,7 +121,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -136,7 +136,7 @@
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 16,
+      "seconds": 15,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -151,7 +151,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 8,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -191,8 +191,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 673,
-      "priced": 633,
+      "listingsRead": 671,
+      "priced": 631,
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
@@ -211,7 +211,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 12,
-      "seconds": 34,
+      "seconds": 33,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
@@ -245,7 +245,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 12,
+      "seconds": 13,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
