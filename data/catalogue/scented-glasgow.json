@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-10-15T08:45:05.809Z",
-  "seenAt": "2026-10-15T08:45:05.809Z",
+  "updatedAt": "2026-10-15T12:37:36.261Z",
+  "seenAt": "2026-10-15T12:37:36.261Z",
   "source": "live",
   "listings": [
     {
@@ -3280,7 +3280,7 @@
       "priceGbp": 120,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rum, Roasted nut, Cocoa powder, Caramel fudge, Fig, Tobacco leaf, Styrax, Musk, Ambergris .",
       "productType": "Perfume",

@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-15T08:45:05.809Z",
-  "seenAt": "2026-10-15T08:45:05.809Z",
+  "updatedAt": "2026-10-15T12:37:36.261Z",
+  "seenAt": "2026-10-15T12:37:36.261Z",
   "source": "live",
   "listings": [
     {
@@ -8087,7 +8087,7 @@
       "priceGbp": 3.25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "About me: . Our bigger shower gel bottles give you up to 72* washes, so your body wash lasts even longer! Try our Senses Secret Lagoon Shower Gel: Water Fruits & Musk and step into your own secret oasis. This super-refreshing body wash with natural extracts will captivate your senses and whisk you away. Why not treat yourself to the matching hand wash too?. Product specification: . • Shower gel infused with the scent of water fruits and musk. • Enriched with natural extracts. • Recyclable bottle (but please remove the pump first!). • Part of the Senses Secret Lagoon collection. • Size: 720ml, also available in 250ml and 500ml.. How to use me: . Work into a lather and massage into your skin before rinsing away.. *Based on 720ml bottle when used as directed..",
       "productType": "TOILETRIES",
@@ -9858,7 +9858,7 @@
       "priceGbp": 4.5,
       "wasPriceGbp": 5.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know:\nReady to awaken your deepest desires? Indulge in Attraction Deep Instinct for Him Hair & Body Wash for the ultimate shower experience and dare to feel the irresistible allure of the night. Infused with smoky, dark ingredients, this 2-in-1 formula has an intense, intoxicating scent set to seduce, cleanses skin and hair and leaves a rich, lasting fragrance behind. Energise your daily routine and create an aphrodisiac atmosphere for your boldest instincts to come alive. 200ml Scent type: An intoxicating and intense woody spicy scent with sensual, seductive notes. Key notes:\nTop Notes: Smoky Black Pepper, Madagascan Black Pepper, Cinnamon Bark\nMiddle Notes: Indonesian Patchouli, Lavandin, Indian Davana\nBottom Notes: Toasted Vanilla Wood, Cedarwood Duo, Ambrofix™ Why you’ll love it:\nIt’s suitable for everyday use\nIt refreshes and leaves skin looking and feeling healthy\nIt has a rich, intense scent stirs passion and deepens desire How to use it:Don't over do it: Squeeze a small amount directly onto your palm, sponge or washcloth, work up a lather, cleanse and rinse. Shelve your shampoo: Why have two separate wash products when you can have two in one. Make it last longer: Use the matching Eau de Toilette after cleansing to deepen your scent.",
       "productType": "FRAGRANCE",

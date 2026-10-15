@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-15T08:45:05.809Z",
-  "seenAt": "2026-10-15T08:45:05.809Z",
+  "updatedAt": "2026-10-15T12:37:36.261Z",
+  "seenAt": "2026-10-15T12:37:36.261Z",
   "source": "live",
   "listings": [
     {
@@ -7374,7 +7374,7 @@
       "priceGbp": 85,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Michael Kors Pink Horizon Eau de Parfum is a captivating women's fragrance with a modern, feminine character. Presented in a 100ml bottle, it's an elegant scent for everyday wear and special occasions..",
       "productType": "Women's Fragrances",

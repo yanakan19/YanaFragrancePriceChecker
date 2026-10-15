@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-15T08:45:05.809Z",
-  "seenAt": "2026-10-15T08:45:05.809Z",
+  "updatedAt": "2026-10-15T12:37:36.261Z",
+  "seenAt": "2026-10-15T12:37:36.261Z",
   "source": "live",
   "listings": [
     {
@@ -796,7 +796,7 @@
       "priceGbp": 17.99,
       "wasPriceGbp": 19.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Ramz Lattafa (Gold) by Lattafa Perfumes is a fragrance for women and men. Top notes are Apple, Peach, Pear, Sweet Orange and Black Currant; middle notes are Jasmine Sambac, Rose and Orange Blossom; base notes are Sandalwood, Vanilla, White Musk and Patchouli..",
       "productType": null,
@@ -3139,10 +3139,10 @@
       "rawBrand": "Saad Fragrance",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0820/7997/3699/files/01ff0e23ec5b4cbfb7aec11e018202f1_tplv-tulkllf4y5-origin-jpeg.jpg?v=1724350626",
-      "priceGbp": 19.99,
-      "wasPriceGbp": null,
+      "priceGbp": 17.99,
+      "wasPriceGbp": 19.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Ramz Lattafa Silver by Lattafa Perfumes is an Amber Vanilla fragrance for women and men. Top notes are Pear, Lavender, Bergamot and Mint; middle notes are Cardamom and Sage; base notes are Vanilla, Amber, Musk and Patchouli. .",
       "productType": null,

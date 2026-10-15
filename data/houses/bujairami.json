@@ -1,9 +1,35 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-15T09:50:00.831Z",
-  "seenAt": "2026-10-15T09:50:00.831Z",
+  "updatedAt": "2026-10-15T13:43:09.296Z",
+  "seenAt": "2026-10-15T13:43:09.296Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "11018986815799-Default Title",
+      "url": "https://bujairami.ae/products/resolution-inspired-by-decision-amouage",
+      "rawTitle": "Resolution Inspired By Decision Amouage",
+      "rawBrand": "Bujairami UAE",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/yellowblue.webp?v=1792070595",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A rich and captivating fragrance opening with fresh bergamot, aromatic cardamom, and spicy pink pepper. The heart reveals smoky frankincense, warm myrrh, and crisp juniper berries, while vanilla, cedarwood, and patchouli create a smooth, warm, and resinous finish.. Fragrance Notes . Top: Bergamot, Cardamom, Pink Pepper. Heart: Frankincense, Myrrh, Juniper Berries. Base: Vanilla, Cedarwood, Patchouli. Profile: Woody • Spicy • Smoky • Resinous • Warm.",
+      "productType": null,
+      "nativePrice": {
+        "amount": 150,
+        "currency": "AED"
+      },
+      "retailerId": "bujairami",
+      "firstSeenAt": "2026-10-15T13:43:09.296Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11013728338231-Default Title",
       "url": "https://bujairami.ae/products/top-tier-inspired-by-tuxedo-extrait-de-parfum-yves-saint-laurent-extrait",

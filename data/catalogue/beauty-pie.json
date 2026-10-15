@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-15T08:45:05.809Z",
-  "seenAt": "2026-10-15T08:45:05.809Z",
+  "updatedAt": "2026-10-15T12:37:36.261Z",
+  "seenAt": "2026-10-15T12:37:36.261Z",
   "source": "live",
   "listings": [
     {
@@ -11,7 +11,7 @@
       "rawBrand": "Beauty Pie®",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/82113_ELEMENT_79_PDP_PACKSHOT_1X1_01.jpg?v=1791903673",
-      "priceGbp": 55,
+      "priceGbp": 59,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

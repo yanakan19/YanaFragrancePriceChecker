@@ -1,7 +1,7 @@
 {
   "retailerId": "escentric-molecules",
-  "updatedAt": "2026-10-15T08:45:05.809Z",
-  "seenAt": "2026-10-15T08:45:05.809Z",
+  "updatedAt": "2026-10-15T12:37:36.261Z",
+  "seenAt": "2026-10-15T12:37:36.261Z",
   "source": "live",
   "listings": [
     {
@@ -374,8 +374,8 @@
     },
     {
       "retailerSku": "15240229355904-Default Title",
-      "url": "https://escentric.com/products/e01-200ml-atomiser-gift-set",
-      "rawTitle": "Escentric 01 Cult Gift Set 200ml",
+      "url": "https://escentric.com/products/escentric-01-cult-gift-set",
+      "rawTitle": "Escentric 01 Cult Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0855/9220/files/E01200mlAtomiserandRefils.jpg?v=1755533875",
@@ -397,8 +397,8 @@
     },
     {
       "retailerSku": "15240228733312-Default Title",
-      "url": "https://escentric.com/products/m01-200ml-atomiser-gift-set",
-      "rawTitle": "Molecule 01 Cult Gift Set 200ml",
+      "url": "https://escentric.com/products/molecule-01-cult-gift-set",
+      "rawTitle": "Molecule 01 Cult Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0855/9220/files/M01200mlAtomiserandRefils_9bee458f-9201-4b4a-ab6c-9b6988f2e195.jpg?v=1761236619",
@@ -466,8 +466,8 @@
     },
     {
       "retailerSku": "15240229126528-Default Title",
-      "url": "https://escentric.com/products/m01-100ml-atomiser-gift-set",
-      "rawTitle": "Molecule 01 Gift Set 100ml",
+      "url": "https://escentric.com/products/molecule-01-gift-set",
+      "rawTitle": "Molecule 01 Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0855/9220/files/M01100mlAtomiserandRefils.jpg?v=1755535802",
@@ -489,7 +489,7 @@
     },
     {
       "retailerSku": "15240152088960-Default Title",
-      "url": "https://escentric.com/products/e02-atomiser-refills",
+      "url": "https://escentric.com/products/escentric-02-atomiser-gift-set",
       "rawTitle": "Escentric 02 ATOM.iser Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
@@ -512,8 +512,8 @@
     },
     {
       "retailerSku": "15240147206528-Default Title",
-      "url": "https://escentric.com/products/e02-100ml-atomiser-gift-set",
-      "rawTitle": "Escentric 02 Gift Set 100ml",
+      "url": "https://escentric.com/products/escentric-02-gift-set",
+      "rawTitle": "Escentric 02 Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0855/9220/files/E02100mlAtomiserandRefils.jpg?v=1755533697",
@@ -535,7 +535,7 @@
     },
     {
       "retailerSku": "15240143503744-Default Title",
-      "url": "https://escentric.com/products/m01-atomiser-gift-set",
+      "url": "https://escentric.com/products/molecule-01-atomiser-gift-set",
       "rawTitle": "Molecule 01 ATOM.iser Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
@@ -558,7 +558,7 @@
     },
     {
       "retailerSku": "15240140849536-Default Title",
-      "url": "https://escentric.com/products/m-patchouli-atomiser-gift-set",
+      "url": "https://escentric.com/products/m-patchouli-gift-set",
       "rawTitle": "M+ Patchouli Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
@@ -581,7 +581,7 @@
     },
     {
       "retailerSku": "15240112144768-Default Title",
-      "url": "https://escentric.com/products/e02-portable-body-care-gift-set",
+      "url": "https://escentric.com/products/escentric-02-travel-body-gift-set",
       "rawTitle": "Escentric 02 Travel & Body Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
@@ -604,7 +604,7 @@
     },
     {
       "retailerSku": "15240111718784-Default Title",
-      "url": "https://escentric.com/products/e01-portable-body-care-gift-set",
+      "url": "https://escentric.com/products/escentric-01-travel-body-gift-set",
       "rawTitle": "Escentric 01 Travel & Body Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
@@ -627,7 +627,7 @@
     },
     {
       "retailerSku": "15240110276992-Default Title",
-      "url": "https://escentric.com/products/e02-body-care-gift-set",
+      "url": "https://escentric.com/products/escentric-02-scent-body-gift-set",
       "rawTitle": "Escentric 02 Scent & Body Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
@@ -650,7 +650,7 @@
     },
     {
       "retailerSku": "15240109457792-Default Title",
-      "url": "https://escentric.com/products/e01-body-care-gift-set",
+      "url": "https://escentric.com/products/escentric-01-scent-body-gift-set",
       "rawTitle": "Escentric 01 Scent & Body Gift Set",
       "rawBrand": "Escentric Molecules",
       "ean": null,
