@@ -1,18 +1,18 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-14T13:50:35.107Z",
+  "builtAt": "2026-10-15T13:36:44.782Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "crawlMinutes": 42.42,
-  "harvestRanAt": "2026-10-14T13:08:09.496Z",
-  "listingsPriced": 65846,
-  "listingsKept": 31264,
+  "crawlMinutes": 42.45,
+  "harvestRanAt": "2026-10-15T12:54:17.131Z",
+  "listingsPriced": 65832,
+  "listingsKept": 31226,
   "staleAfterDays": 7,
-  "products": 22573,
+  "products": 22576,
   "productsWithTwoOrMoreShops": 6485,
   "shareWithTwoOrMoreShops": 0.287,
   "productsWithTwoOrMoreIndependentShops": 2704,
@@ -20,7 +20,7 @@
   "productsWithThreeOrMoreShops": 2388,
   "medianPriceGap": 0.19,
   "listingBarcodeShare": 0.202,
-  "productsMatchingUkByBarcode": 1961,
+  "productsMatchingUkByBarcode": 1974,
   "shops": [
     {
       "id": "aedes",
@@ -34,7 +34,7 @@
     },
     {
       "id": "beautyhabit",
-      "products": 854,
+      "products": 855,
       "shared": 237
     },
     {
@@ -89,7 +89,7 @@
     },
     {
       "id": "ministry-of-scent",
-      "products": 1644,
+      "products": 1646,
       "shared": 420
     },
     {
@@ -123,13 +123,13 @@
       "shared": 317
     }
   ],
-  "productsShown": 22451,
-  "productsWithUkPhoto": 4737,
-  "productsWithUkPhotoByBarcode": 1491,
-  "productsWithUkPhotoByName": 3246,
+  "productsShown": 22454,
+  "productsWithUkPhoto": 4744,
+  "productsWithUkPhotoByBarcode": 1500,
+  "productsWithUkPhotoByName": 3244,
   "listingsWithReference": 23533,
   "offersWithCorroboratedReference": 6559,
-  "deals": 1075,
+  "deals": 1071,
   "shareWithUkPhoto": 0.211,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",

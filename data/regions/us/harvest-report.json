@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-10-14T13:08:09.496Z",
-  "minutes": 42.42,
+  "ranAt": "2026-10-15T12:54:17.131Z",
+  "minutes": 42.45,
   "dryRun": false,
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "listingsKept": 31264,
+  "listingsKept": 31226,
   "shops": [
     {
       "id": "perfumania",
@@ -46,12 +46,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 759,
-      "priced": 759,
-      "kept": 758,
-      "withBarcode": 296,
-      "pagesFetched": 344,
-      "seconds": 721,
+      "listingsRead": 779,
+      "priced": 779,
+      "kept": 773,
+      "withBarcode": 252,
+      "pagesFetched": 362,
+      "seconds": 720,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
@@ -59,7 +59,7 @@
       ],
       "diagnostics": [
         "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
-        "sitemap: 3461 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
+        "sitemap: 3466 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
       ]
     },
     {
@@ -73,7 +73,7 @@
       "kept": 706,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 19,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -83,12 +83,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1717,
-      "priced": 1708,
+      "listingsRead": 1698,
+      "priced": 1690,
       "kept": 183,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 16,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -113,12 +113,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 12052,
-      "priced": 12051,
+      "listingsRead": 12085,
+      "priced": 12084,
       "kept": 647,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 53,
+      "seconds": 55,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -128,12 +128,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6751,
-      "priced": 6751,
-      "kept": 854,
+      "listingsRead": 6753,
+      "priced": 6753,
+      "kept": 855,
       "withBarcode": 0,
       "pagesFetched": 28,
-      "seconds": 66,
+      "seconds": 59,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -158,8 +158,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 136,
-      "priced": 136,
+      "listingsRead": 135,
+      "priced": 135,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
@@ -188,8 +188,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 166,
-      "priced": 166,
+      "listingsRead": 165,
+      "priced": 165,
       "kept": 42,
       "withBarcode": 0,
       "pagesFetched": 4,
@@ -223,7 +223,7 @@
       "kept": 353,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 8,
+      "seconds": 7,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -238,7 +238,7 @@
       "kept": 5101,
       "withBarcode": 4488,
       "pagesFetched": 26,
-      "seconds": 52,
+      "seconds": 55,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -268,7 +268,7 @@
       "kept": 4726,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 42,
+      "seconds": 43,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -283,7 +283,7 @@
       "kept": 504,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 17,
+      "seconds": 18,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -308,12 +308,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 3176,
-      "priced": 3089,
-      "kept": 1644,
+      "listingsRead": 3183,
+      "priced": 3096,
+      "kept": 1646,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 17,
+      "seconds": 19,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -328,7 +328,7 @@
       "kept": 4874,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 57,
+      "seconds": 63,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -338,18 +338,20 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1430,
-      "priced": 708,
-      "kept": 708,
-      "withBarcode": 707,
-      "pagesFetched": 708,
-      "seconds": 2403,
+      "listingsRead": 1633,
+      "priced": 657,
+      "kept": 657,
+      "withBarcode": 657,
+      "pagesFetched": 658,
+      "seconds": 2402,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
+        "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2816 product address(es) found, first read https://www.ulta.com/p/salt-eau-de-parfum-pimprod2017168?sku=2570418"
+        "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
+        "sitemap: 2844 product address(es) found, first read https://www.ulta.com/p/perfect-intense-eau-de-parfum-pimprod2025954?sku=2583483"
       ]
     },
     {
@@ -358,11 +360,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 288,
-      "priced": 288,
-      "kept": 288,
-      "withBarcode": 259,
-      "pagesFetched": 306,
+      "listingsRead": 283,
+      "priced": 283,
+      "kept": 283,
+      "withBarcode": 243,
+      "pagesFetched": 311,
       "seconds": 722,
       "currency": "JSON-LD offers named: USD",
       "errors": [
@@ -379,7 +381,7 @@
         "https://theperfumespot.com/sweet-like-candy-by-ariana-grande-3-4-oz-eau-de-parfum-spray-for-women-outlet2/: HTTP 404",
         "https://theperfumespot.com/versace-bright-crystal-absolu-by-versace-3-oz-eau-de-parfum-spray-for-women-unboxed-outlet/: HTTP 404",
         "https://theperfumespot.com/baccarat-rouge-540-by-maison-francis-kurkdjian-2-4-oz-extrait-de-parfum-spray-for-unisex-outlet/: HTTP 404",
-        "sitemap: 7895 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
+        "sitemap: 7902 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
       ]
     },
     {
