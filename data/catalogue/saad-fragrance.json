@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-15T12:37:36.261Z",
-  "seenAt": "2026-10-15T12:37:36.261Z",
+  "updatedAt": "2026-10-15T16:41:57.950Z",
+  "seenAt": "2026-10-15T16:41:57.950Z",
   "source": "live",
   "listings": [
     {
@@ -3303,7 +3303,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": 29.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "BLU BY AHMED by Ahmed Al Maghribi , an enchanting fragrance that harmoniously blends freshness and sophistication. It opens with grapefruit, pink pepper, mint, and lemon. The heart combines ginger, nutmeg, jasmine, and the intriguing ISO E Super. The base is a rich blend of incense, vetiver, cedar, sandalwood, patchouli, labdanum, and white musk. A multifaceted scent for those who appreciate refined fragrances.",
       "productType": null,

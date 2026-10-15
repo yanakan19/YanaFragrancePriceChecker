@@ -1,7 +1,7 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-10-15T13:44:49.484Z",
-  "seenAt": "2026-10-15T13:44:49.484Z",
+  "updatedAt": "2026-10-15T17:46:53.222Z",
+  "seenAt": "2026-10-15T17:46:53.222Z",
   "source": "live",
   "listings": [
     {
@@ -178,7 +178,7 @@
       "description": "Luxury deserves to be discovered. . Your invitation to experience an exclusive collection of luxurious scents. From vibrant fruits and elegant florals to warm woods, rich amber, and sensual musk, each creation is meticulously crafted to leave a lasting impression. Every fragrance unfolds with exceptional depth and character, evolving beautifully on the skin to create a memorable signature. Whether you seek refined sophistication for everyday elegance or a bold statement for special occasions, this collection offers a fragrance for every mood, every moment, and every unforgettable journey. Discover the artistry of fine perfumery and find the scent that speaks uniquely to you..",
       "productType": null,
       "nativePrice": {
-        "amount": 620,
+        "amount": 630,
         "currency": "AED"
       },
       "retailerId": "dumont",

@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-10-15T13:45:58.139Z",
-  "seenAt": "2026-10-15T13:45:58.139Z",
+  "updatedAt": "2026-10-15T17:48:06.075Z",
+  "seenAt": "2026-10-15T17:48:06.075Z",
   "source": "live",
   "listings": [
     {
@@ -2660,7 +2660,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Built around its fruity gourmand with floral accents character, Perfume Sabah Al Ward reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,

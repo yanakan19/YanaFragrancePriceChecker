@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-15T13:46:07.042Z",
+  "checkedAt": "2026-10-15T17:48:12.129Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,12 +59,10 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 468,
+      "listings": 507,
       "pricedInGbp": 0,
-      "withPhoto": 446,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 484,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -141,20 +139,18 @@
       "houseId": "lattafa",
       "name": "Lattafa",
       "origin": "https://lattafa.com",
-      "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 1,
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
       "pricedInGbp": 0,
-      "withPhoto": 1,
+      "withPhoto": 0,
       "errors": [
-        "https://lattafa.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
-        "stopped early: exceeded this house's time budget"
+        "robots.txt unreachable at https://lattafa.com and https://www.lattafa.com — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
-        "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap"
       ]
     },
     {
@@ -480,9 +476,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 690,
+      "listings": 693,
       "pricedInGbp": 0,
-      "withPhoto": 690,
+      "withPhoto": 693,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -534,9 +530,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 208,
-      "pricedInGbp": 208,
-      "withPhoto": 207,
+      "listings": 210,
+      "pricedInGbp": 210,
+      "withPhoto": 209,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

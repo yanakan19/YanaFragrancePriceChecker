@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-15T12:37:36.261Z",
-  "seenAt": "2026-10-15T12:37:36.261Z",
+  "updatedAt": "2026-10-15T16:41:57.950Z",
+  "seenAt": "2026-10-15T16:41:57.950Z",
   "source": "live",
   "listings": [
     {
@@ -8409,7 +8409,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A luxury scented soap made with pure vegetable paste. . Olea Europaea: A collection of products for the body and the bath, based on olive oil and enriched by the green and fresh fragrance of the Mediterranean bush. Rich in minerals, vitamins and natural antioxidant agents, olive oil has been employed for its cosmetic virtues, for body care, to cleanse, nourish and soften the skin since ancient times.. . Fresh green Fruity Spices Aromatic herbs.",
       "productType": "Soap",
