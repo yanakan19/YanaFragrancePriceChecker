@@ -1,7 +1,7 @@
 name: Fragrance links daily
 
 # Finds direct links for each perfume's own page on its brand's official site
-# and on Fragrantica, 30 minutes a day, picking up where the previous day
+# and on Fragrantica, 60 minutes a day (raised from 30 on 15 Oct 2026: 14 daily runs added about 18 Fragrantica and 139 official links a day), picking up where the previous day
 # stopped. Order: the perfumes shown first on the site (front page rail, Top
 # 50, deals), then the top of every brand, note and shop list, then the rest
 # by number of shops. See scripts/resolve-fragrance-links.ts.
@@ -15,7 +15,7 @@ on:
     inputs:
       minutes:
         description: 'Time budget in minutes'
-        default: '30'
+        default: '60'
 
 permissions:
   contents: write
@@ -35,7 +35,7 @@ concurrency:
 jobs:
   resolve:
     runs-on: ubuntu-latest
-    timeout-minutes: 55
+    timeout-minutes: 85
     steps:
       - uses: actions/checkout@v4
         timeout-minutes: 5
@@ -55,8 +55,8 @@ jobs:
       # Exits 0 when the budget runs out, and on rate limits it backs off and
       # ends early rather than failing.
       - name: Resolve links
-        timeout-minutes: 40
-        run: npm run links:resolve -- --minutes ${{ inputs.minutes || '30' }}
+        timeout-minutes: 70
+        run: npm run links:resolve -- --minutes ${{ inputs.minutes || '60' }}
 
       # The crawl pushes to this branch most hours, so this run's three files
       # are laid on top of the newest commit rather than the one it started
