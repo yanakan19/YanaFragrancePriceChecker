@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-14T20:42:21.403Z",
-  "seenAt": "2026-10-14T20:42:21.403Z",
+  "updatedAt": "2026-10-15T00:40:23.582Z",
+  "seenAt": "2026-10-15T00:40:23.582Z",
   "source": "live",
   "listings": [
     {
@@ -8823,7 +8823,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Kenzo Flower Eau de Toilette is a floral fragrance created for customers who enjoy a soft and elegant scent. It opens with a fresh floral heart inspired by the delicate scentless poppy, developing into a smooth, lasting base. Suitable for everyday wear or special occasions, this fragrance feels graceful and refined.. Why customers choose it . Well-suited for everyday wear and special occasions. A great option for gifting or daily use. Designed for customers who prefer fresh and floral scents.",
       "productType": "Eau de Toilette",
