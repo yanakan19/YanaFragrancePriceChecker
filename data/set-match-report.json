@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 220,
+ "folded": 218,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -787,6 +787,39 @@
    ]
   },
   {
+   "canonical": "set-ean-0810876038409",
+   "absorbed": [
+    "set-lamborghini-mitico-gift-set-125ml-edt-100ml-shower-gel-100ml-aftershave-balm"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0810876038409",
+     "brand": "Lamborghini",
+     "name": "Mitico Gift Set 125ml EDT + 100ml Shower Gel + 100ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "0810876038409",
+     "scent": "mitico",
+     "signature": "1x100body|1x100wash|1x125fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-lamborghini-mitico-gift-set-125ml-edt-100ml-shower-gel-100ml-aftershave-balm",
+     "brand": "Lamborghini",
+     "name": "Mitico Gift Set 125ml EDT + 100ml Shower Gel + 100ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "mitico",
+     "signature": "1x100body|1x100wash|1x125fragrance",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0849017007394",
    "absorbed": [
     "set-ellen-tracy-miniatures-gift-set-11ml-brilliant-edp-11ml-dazzling-edp-11ml-dynamic-edp-11ml-sensational-edp"
@@ -844,38 +877,6 @@
      "ean": null,
      "scent": "chevron",
      "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0849017009398",
-   "absorbed": [
-    "set-izod-red-gift-set-15ml-edt-200ml-body-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017009398",
-     "brand": "Izod",
-     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "0849017009398",
-     "scent": "red",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-izod-red-gift-set-15ml-edt-200ml-body-spray",
-     "brand": "Izod",
-     "name": "Red Gift Set 15ml EDT + 200ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "red",
-     "signature": "1x15fragrance|1x200body",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -1034,6 +1035,39 @@
      "signature": "1x100body|1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0856857007224",
+   "absorbed": [
+    "set-lamborghini-essenza-gift-set-40ml-edt-100ml-aftershave-balm"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0856857007224",
+     "brand": "Lamborghini",
+     "name": "Essenza Gift Set 40ml EDT + 100ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "0856857007224",
+     "scent": "essenza",
+     "signature": "1x100body|1x40fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-lamborghini-essenza-gift-set-40ml-edt-100ml-aftershave-balm",
+     "brand": "Lamborghini",
+     "name": "Essenza Gift Set 40ml EDT + 100ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "essenza",
+     "signature": "1x100body|1x40fragrance",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -1286,38 +1320,6 @@
      "signature": "1x100fragrance|1x12.5fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3274872464094",
-   "absorbed": [
-    "set-kenzo-flower-by-kenzo-l-absolue-gift-set-100ml-edp-10ml-edp-75ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3274872464094",
-     "brand": "Kenzo",
-     "name": "Flower by Kenzo L'Absolue Gift Set 100ml EDP + 10ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3274872464094",
-     "scent": "absolue by flower kenzo l",
-     "signature": "1x100fragrance|1x10fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-kenzo-flower-by-kenzo-l-absolue-gift-set-100ml-edp-10ml-edp-75ml-body-lotion",
-     "brand": "Kenzo",
-     "name": "Flower by Kenzo L'Absolue Gift Set 100ml EDP + 10ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "absolue by flower kenzo l",
-     "signature": "1x100fragrance|1x10fragrance|1x75body",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -3938,38 +3940,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5055116606610",
-   "absorbed": [
-    "set-jojo-siwa-be-you-gift-set-30ml-edp-100ml-luxury-body-wash"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5055116606610",
-     "brand": "Jojo Siwa",
-     "name": "Be You Gift Set 30ml EDP + 100ml Luxury Body Wash",
-     "concentration": "Eau de Parfum",
-     "ean": "5055116606610",
-     "scent": "be luxury you",
-     "signature": "1x100wash|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jojo-siwa-be-you-gift-set-30ml-edp-100ml-luxury-body-wash",
-     "brand": "Jojo Siwa",
-     "name": "Be You Gift Set 30ml EDP + 100ml Luxury Body Wash",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "be luxury you",
-     "signature": "1x100wash|1x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5056446640541",
    "absorbed": [
     "set-charlotte-tilbury-charlotte-s-fragrance-collection-of-emotions-perfume-travel-trio-fragrance-gift-set"
@@ -4139,38 +4109,6 @@
      "ean": null,
      "scent": "amelia",
      "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-5060524511258",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511258",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Eau De Toilette 100ml, Body Spray 150ml & Shower Gel 150ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511258",
-     "scent": "cr7",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "beautybase"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7",
-     "signature": "1x100fragrance|1x150body|1x150wash",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -6936,7 +6874,7 @@
   },
   {
    "reasons": [
-    "price spread 1.69 is over 1.5"
+    "price spread 1.80 is over 1.5"
    ],
    "members": [
     {
@@ -7265,6 +7203,49 @@
      "signature": "3p",
      "shops": [
       "armaf"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 5060524511258, 5060524511739"
+   ],
+   "members": [
+    {
+     "id": "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-ean-5060524511258",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Eau De Toilette 100ml, Body Spray 150ml & Shower Gel 150ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "5060524511258",
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "beautybase"
+     ]
+    },
+    {
+     "id": "set-ean-5060524511739",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "5060524511739",
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "perfume-click"
      ]
     }
    ]
@@ -7894,6 +7875,38 @@
   },
   {
    "reasons": [
+    "two different barcodes: 783320422393, 783320424243",
+    "a shop lists more than one: perfume-click"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0783320422393",
+     "brand": "Bvlgari",
+     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Milk",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320422393",
+     "scent": "blossom delight goldea rose",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-0783320424243",
+     "brand": "Bvlgari",
+     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320424243",
+     "scent": "blossom delight goldea rose",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 2.12 is over 1.5"
    ],
    "members": [
@@ -8298,49 +8311,6 @@
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "white",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.57 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017009435",
-     "brand": "Izod",
-     "name": "Green Gift Set 15ml EDT + 200ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "0849017009435",
-     "scent": "green",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-izod-green-2-piece-gift-set-eau-de-toilette-15ml-body-spray-200ml",
-     "brand": "Izod",
-     "name": "Green 2 Piece Gift Set: Eau de Toilette 15ml - Body Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "green",
-     "signature": "1x15fragrance|1x200body",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-izod-green-gift-set-15ml-edt-200ml-body-spray",
-     "brand": "Izod",
-     "name": "Green Gift Set 15ml EDT + 200ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "green",
      "signature": "1x15fragrance|1x200body",
      "shops": [
       "mybeauty-boutique"
@@ -8792,12 +8762,13 @@
     {
      "id": "set-ean-3349668604654",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Phantom Eau De Toilette Gift Set Spray (100ml) with 20ml EDT",
+     "name": "Paco Rabanne Phantom 100ml Eau de Toilette + 20ml Set",
      "concentration": "Eau de Toilette",
      "ean": "3349668604654",
      "scent": "paco phantom rabanne",
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
+      "fragrance-click",
       "perfume-direct"
      ]
     },
@@ -11918,6 +11889,37 @@
      "ean": null,
      "scent": "boss bottled",
      "signature": "1x150deo|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.57 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-izod-green-2-piece-gift-set-eau-de-toilette-15ml-body-spray-200ml",
+     "brand": "Izod",
+     "name": "Green 2 Piece Gift Set: Eau de Toilette 15ml - Body Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "green",
+     "signature": "1x15fragrance|1x200body",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-izod-green-gift-set-15ml-edt-200ml-body-spray",
+     "brand": "Izod",
+     "name": "Green Gift Set 15ml EDT + 200ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "green",
+     "signature": "1x15fragrance|1x200body",
      "shops": [
       "mybeauty-boutique"
      ]
