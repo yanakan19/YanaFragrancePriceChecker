@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-16T12:32:33.954Z",
-  "seenAt": "2026-10-16T12:32:33.954Z",
+  "updatedAt": "2026-10-16T16:12:14.006Z",
+  "seenAt": "2026-10-16T16:12:14.006Z",
   "source": "live",
   "listings": [
     {
@@ -11606,7 +11606,7 @@
       "priceGbp": 250,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Vanilla Powder Extrait de Parfum by Matiere Premiere is a refined study in contrast - raw Madagascan vanilla absolute wrapped in powdery white musk and soft coconut. Crafted in Grasse, it unveils a luminous warmth that lingers with quiet depth and sensual precision..",
       "productType": "Unisex Fragrance",
@@ -11839,7 +11839,7 @@
       "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Discover the Mini Fragrance Wardrobe For Her by Maison Francis Kurkdijan, featuring eight 2ml vials of exquisite woody scents. This collection offers a versatile way to experience a range of sophisticated fragrances, perfect for exploring new aromas or carrying your favourite scents on the go. Ideal for those who appreciate refined, long-lasting woody notes that complement any occasion..",
-      "productType": "Unisex Fragrance",
+      "productType": "Women's Fragrances",
       "nativePrice": null,
       "retailerId": "fenwick",
       "firstSeenAt": "2026-10-08T03:57:43.385Z",
@@ -12345,7 +12345,7 @@
       "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Miss Dior Essence, crafted by Francis Kurkdjian, Dior Perfume Creative Director, embodies empowered and free-spirited femininity. This new version reveals its strength through a rich, intense fragrance bursting with vibrant colors and gourmand sensuality. The scent opens with a luscious blend of blackberry and elderflower, elevating a grand jasmine bouquet. It settles on a warm, woody oak base, creating a bold and playful chypre character. Miss Dior Essence celebrates a modern generation of women, blending tradition and innovation with its frosted houndstooth bottle and elegant French grosgrain bow..",
-      "productType": "Unisex Fragrance",
+      "productType": "Women's Fragrances",
       "nativePrice": null,
       "retailerId": "fenwick",
       "firstSeenAt": "2026-10-08T03:57:43.385Z",

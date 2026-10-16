@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-10-16T12:32:33.954Z",
-  "seenAt": "2026-10-16T12:32:33.954Z",
+  "updatedAt": "2026-10-16T16:12:14.006Z",
+  "seenAt": "2026-10-16T16:12:14.006Z",
   "source": "live",
   "listings": [
     {
@@ -5672,7 +5672,7 @@
       "priceGbp": 89,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Azalea, Sweet Basil, Pink pepper, Bell Heather, Clove Bud, Primrose, Rhododendron, Jasmine Absolute, Geranium oil, Rose Absolute.. . Atlantic Oak, Flag Iris, Vetiver, Ambergris*, Mineral Accord..",
       "productType": "Perfume",
@@ -5695,7 +5695,7 @@
       "priceGbp": 89,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Pineapple weed, Neroli oil, Chamomile, Gorseflower, Crab Apple, Lemon oil, Astilbe, Lavender Absolute. . Gooseberry, Milk-vetch, Elderflower, Catchfly, Woodruff, Gorsewood, Zdravetz, Kush.",
       "productType": "Perfume",
