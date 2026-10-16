@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-15T23:07:13.815Z",
-  "minutes": 40.42,
+  "ranAt": "2026-10-16T22:54:18.203Z",
+  "minutes": 40.29,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 16944,
+  "listingsKept": 16839,
   "shops": [
     {
       "id": "nykaa",
@@ -15,18 +15,28 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 939,
-      "priced": 939,
-      "kept": 933,
-      "withBarcode": 216,
-      "pagesFetched": 939,
-      "seconds": 2400,
+      "listingsRead": 869,
+      "priced": 869,
+      "kept": 861,
+      "withBarcode": 214,
+      "pagesFetched": 879,
+      "seconds": 2402,
       "currency": "JSON-LD offers named: INR",
       "errors": [
-        "stopped early: exceeded this shop's time budget"
+        "https://www.nykaa.com/police-to-be-the-queen-eau-de-parfum/p/196293: HTTP 404",
+        "https://www.nykaa.com/ajmal-india-wisal-dhahab-perfume-for-men/p/22754513: HTTP 404",
+        "https://www.nykaa.com/azha-perfumes-eternal-nights-eau-de-parfum/p/22163370: HTTP 404",
+        "https://www.nykaa.com/carolina-herrera-good-girl-blush-eau-de-parfum-roller-ball/p/9680432: HTTP 404",
+        "https://www.nykaa.com/fw-faun-walk-passion-bomb-by-faunwalk-similar-to-bombshell-long-lasting-women-perfume/p/17109806: HTTP 404"
       ],
       "diagnostics": [
-        "sitemap: 3156 product address(es) found, first read https://www.nykaa.com/guerlain-mon-guerlain-eau-de-parfum/p/394712"
+        "https://www.nykaa.com/police-to-be-the-queen-eau-de-parfum/p/196293: HTTP 404",
+        "https://www.nykaa.com/ajmal-india-wisal-dhahab-perfume-for-men/p/22754513: HTTP 404",
+        "https://www.nykaa.com/azha-perfumes-eternal-nights-eau-de-parfum/p/22163370: HTTP 404",
+        "https://www.nykaa.com/carolina-herrera-good-girl-blush-eau-de-parfum-roller-ball/p/9680432: HTTP 404",
+        "https://www.nykaa.com/fw-faun-walk-passion-bomb-by-faunwalk-similar-to-bombshell-long-lasting-women-perfume/p/17109806: HTTP 404",
+        "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
+        "sitemap: 3170 product address(es) found, first read https://www.nykaa.com/guerlain-mon-guerlain-eau-de-parfum/p/394712"
       ]
     },
     {
@@ -51,12 +61,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7806,
-      "priced": 7806,
-      "kept": 6549,
+      "listingsRead": 7808,
+      "priced": 7808,
+      "kept": 6551,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 88,
+      "seconds": 91,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -66,12 +76,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7554,
-      "priced": 7554,
-      "kept": 6329,
+      "listingsRead": 7562,
+      "priced": 7562,
+      "kept": 6337,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 77,
+      "seconds": 71,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -86,7 +96,7 @@
       "kept": 1900,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 23,
+      "seconds": 16,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -96,18 +106,18 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 737,
-      "priced": 737,
-      "kept": 685,
+      "listingsRead": 694,
+      "priced": 694,
+      "kept": 642,
       "withBarcode": 0,
-      "pagesFetched": 738,
-      "seconds": 2402,
+      "pagesFetched": 695,
+      "seconds": 2401,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2293 product address(es)"
+        "sitemap: 2294 product address(es)"
       ]
     },
     {
@@ -131,12 +141,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 1325,
-      "priced": 1254,
+      "listingsRead": 1329,
+      "priced": 1255,
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 15,
+      "seconds": 14,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -151,7 +161,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 8,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -181,7 +191,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -191,8 +201,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 671,
-      "priced": 631,
+      "listingsRead": 673,
+      "priced": 632,
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
@@ -211,7 +221,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 12,
-      "seconds": 33,
+      "seconds": 37,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
@@ -240,12 +250,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 959,
-      "priced": 959,
+      "listingsRead": 987,
+      "priced": 987,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 13,
+      "seconds": 11,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
