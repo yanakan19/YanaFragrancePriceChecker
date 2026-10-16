@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 218,
+ "folded": 221,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1526,6 +1526,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -4640,7 +4672,8 @@
      "scent": "club collectors de intense milestone nuit pride",
      "signature": "3x30fragrance",
      "shops": [
-      "perfume-click"
+      "perfume-click",
+      "scentsational"
      ]
     },
     {
@@ -5296,6 +5329,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003996209",
    "absorbed": [
     "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray"
@@ -5800,6 +5865,38 @@
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8411061152720",
+   "absorbed": [
+    "set-carolina-herrera-la-bomba-eau-de-parfum-50ml-10ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8411061152720",
+     "brand": "Carolina Herrera",
+     "name": "La Bomba Eau de Parfum 50 ml + 10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061152720",
+     "scent": "bomba la",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "allbeauty"
+     ]
+    },
+    {
+     "id": "set-carolina-herrera-la-bomba-eau-de-parfum-50ml-10ml",
+     "brand": "Carolina Herrera",
+     "name": "La Bomba Eau de Parfum 50ml + 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "bomba la",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "lookfantastic"
      ]
     }
    ]
@@ -9423,19 +9520,20 @@
   {
    "reasons": [
     "two different barcodes: 3423222092528, 3423222110857, 3423222133849",
-    "a shop lists more than one: perfume-click",
+    "a shop lists more than one: allbeauty, perfume-click",
     "price spread 1.86 is over 1.5"
    ],
    "members": [
     {
      "id": "set-ean-3423222092528",
      "brand": "Narciso Rodriguez",
-     "name": "All Of Me Gift Set (50ml EDP + 50ml Body Lotion + 50ml Shower Gel)",
+     "name": "All Of Me Eau de Parfum Spray 50ml Gift Set",
      "concentration": "Eau de Parfum",
      "ean": "3423222092528",
      "scent": "all me",
      "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
+      "allbeauty",
       "perfume-direct"
      ]
     },
