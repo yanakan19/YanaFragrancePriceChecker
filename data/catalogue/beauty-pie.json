@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-15T20:38:17.311Z",
-  "seenAt": "2026-10-15T20:38:17.311Z",
+  "updatedAt": "2026-10-16T00:40:49.377Z",
+  "seenAt": "2026-10-16T00:40:49.377Z",
   "source": "live",
   "listings": [
     {
@@ -1069,7 +1069,7 @@
       "rawBrand": "Beauty Pie",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/NEW_PLP_BRONZING_DROPS.jpg?v=1782416925",
-      "priceGbp": 22,
+      "priceGbp": 18.33,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": false,

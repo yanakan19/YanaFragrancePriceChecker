@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-15T20:38:17.311Z",
-  "seenAt": "2026-10-15T20:38:17.311Z",
+  "updatedAt": "2026-10-16T00:40:49.377Z",
+  "seenAt": "2026-10-16T00:40:49.377Z",
   "source": "live",
   "listings": [
     {
@@ -11553,7 +11553,7 @@
       "priceGbp": 18.99,
       "wasPriceGbp": 30,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Experience the refined sophistication of Lattafa Extrait Eau de Parfum Men's Aftershave Spray. This exquisite fragrance offers a perfect blend of timeless elegance and modern style. Its invigorating aroma captivates the senses, leaving a lasting impression of subtle masculinity. Designed for the discerning gentleman, this aftershave spray provides a refreshing finish to your grooming routine. Indulge in its luxurious scent and elevate your presence with every spritz. Ideal for any occasion, it embodies pure class. . . Fragrance Type: . Amber, Tuberose . . Fragrance Notes: . - Top notes: Grapefruit, Cardamom, Pink Pepper . - Middle notes: Tuberose, Solar Notes, Artemisia . - Base notes: Amber, Cashmeran, Labdanum, Leather . . Launched: . 2023 .",
       "productType": "Men's Aftershave",
@@ -38682,7 +38682,7 @@
       "priceGbp": 75.99,
       "wasPriceGbp": 115,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Jean Paul Gaultier Scandal Absolu Concentre Parfum is an intense, bold fragrance that exudes confidence and allure. This captivating women’s perfume features a rich blend of honey, tonka bean, and sandalwood, creating a warm, sensual scent with a deep, provocative edge. Perfect for the modern woman who dares to make a statement, Scandal Absolu is a luxurious, long-lasting fragrance that leaves an unforgettable impression. . . Fragrance Type: . Tuberose, Woody . . Fragrance Notes: . Top Notes: Tuberose . Middle Notes: Black Fig . Base Notes: Sandalwood . . Launched: . 2024 .",
       "productType": "Women's Perfume",

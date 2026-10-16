@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-15T20:38:17.311Z",
-  "seenAt": "2026-10-15T20:38:17.311Z",
+  "updatedAt": "2026-10-16T00:40:49.377Z",
+  "seenAt": "2026-10-16T00:40:49.377Z",
   "source": "live",
   "listings": [
     {
@@ -1693,7 +1693,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A bold tribute to the Emirati majlis - where frankincense burns, oud speaks, and Kholas dates are shared with honour. This scent captures the soul of gathering, generosity, and deep tradition. . It opens aromatic and vibrant, unfolds refined and mineral, then settles into a rich trail of incense, amber, oud, and patchouli - warm, smoky, and unforgettable. . Tales of Oud & Dates is not just a perfume - it is the majlis, on your skin. .",
       "productType": "Fragrance",
@@ -19449,7 +19449,7 @@
       "priceGbp": 205,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Rekindle small fires in the darkest of nights, under blackest night skies that hold the brightest stars.. Languid honey laced with sweet spices mingles with mysterious smoky incense essence and vanilla absolute, making Back to Black a nourishingly yet addictive substance. Blue camomile and cedarwood are veiled in smoke. A sandalwood note creates a gourmand tobacco harmony–a true titillation for the senses.. Top Notes: Bergamot, Cardamom, Coriander Seeds, Raspberry Heart Notes: Honey, Olibanum, Cedar, Vetiver, Patchouli, Moss Base Notes: Tobacco, Amber, Cistus Labdanum, Almond, Vanilla .",
       "productType": "Fragrance",
