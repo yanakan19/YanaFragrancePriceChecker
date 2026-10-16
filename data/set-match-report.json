@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 221,
+ "folded": 220,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -5059,38 +5059,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003822195",
-   "absorbed": [
-    "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003822195",
-     "brand": "Versace",
-     "name": "Bright Crystal Absolu Gift Set 2 x 30ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003822195",
-     "scent": "absolu bright crystal",
-     "signature": "2x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp",
-     "brand": "Versace",
-     "name": "Bright Crystal Absolu Gift Set 2 x 30ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "absolu bright crystal",
-     "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8011003831999",
    "absorbed": [
     "set-missoni-2015-gift-set-50ml-edt-50ml-body-lotion-50ml-shower-gel"
@@ -8859,13 +8827,12 @@
     {
      "id": "set-ean-3349668604654",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Phantom 100ml Eau de Toilette + 20ml Set",
+     "name": "Paco Rabanne Phantom Eau De Toilette Gift Set Spray (100ml) with 20ml EDT",
      "concentration": "Eau de Toilette",
      "ean": "3349668604654",
      "scent": "paco phantom rabanne",
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
-      "fragrance-click",
       "perfume-direct"
      ]
     },
