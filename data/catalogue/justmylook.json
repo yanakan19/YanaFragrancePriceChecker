@@ -1,7 +1,7 @@
 {
   "retailerId": "justmylook",
-  "updatedAt": "2026-10-16T04:37:35.755Z",
-  "seenAt": "2026-10-16T04:37:35.755Z",
+  "updatedAt": "2026-10-16T08:45:40.301Z",
+  "seenAt": "2026-10-16T08:45:40.301Z",
   "source": "live",
   "listings": [
     {
@@ -12354,7 +12354,7 @@
       "priceGbp": 109.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -13718,7 +13718,7 @@
       "ean": null,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0145.png?v=1761931431&width=1000",
       "description": "Dolce &amp; Gabbana K Eau De Toilette Gift Set (100ml) is an attractively presented 3-piece fragrance gift set for men, comprising eau de toilette, shower gel, and after-shave balm in this woody, aromatic fragrance.Collection Contains: 1 x Dolce &amp; Gabbana K Eau De Toilette (100ml) - a woody, aromatic fragrance for men which captures the essence of a man in his element. The opening notes of this EDT include sparkling Blood Orange, pressed Sicilian Lemon and Juniper Berries. The heart reveals Pimento Essence combined with Clary Sage, Geranium and Lavandin, while the base is woody and masculine, combining accords of Cedarwood, Vetiver and Patchouli. 1 x Dolce &amp; Gabbana K Shower Gel (50ml) - a shower gel for men with the woody, aromatic fragrance of Dolce &amp; Gabbana K, providing intense refreshment and cleansing care at the same time. It provides optimum freshness in the morning, evening or at any time of the day. 1 x Dolce &amp; Gabbana K After Shave Balm (50ml) - is a fluid emulsion with the signature notes of Dolce &amp; Gabbana K. It is ideal for moisturising and calming skin irritation after your shaving routine. With its special formula, this grooming product has a pleasant smell and is refreshing on the skin.",
-      "priceGbp": 53.99,
+      "priceGbp": 55.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -43391,7 +43391,7 @@
       "ean": null,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0035.jpg?v=1765198825&width=1000",
       "description": "Dolce &amp; Gabbana The One for Men Eau De Parfum (50ml) is an elegant and sensual fragrance, which uses classic notes but with a modern touch.Stronger scented than its toilette counterpart, this EDP is both vibrant and engaging, unleashing a symphony of fresh, herbaceous notes which slowly develop to reveal a spicy, aromatic heart, before drying to reveal a base of woody undertones. The fragrance is housed in an elegant glass bottle which truly showcases the fragrance as the star of the show, topped by a sleek wooden stopper. Top Notes: Grapefruit, Coriander and Basil. Heart Notes: Ginger, Cardamom, and Sweet Orange Blossom. Base Notes: Tobacco, Amber and Cedarwood.",
-      "priceGbp": 43.99,
+      "priceGbp": 45.95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

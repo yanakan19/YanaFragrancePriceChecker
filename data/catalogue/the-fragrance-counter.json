@@ -1,9 +1,35 @@
 {
   "retailerId": "the-fragrance-counter",
-  "updatedAt": "2026-10-16T00:40:49.377Z",
+  "updatedAt": "2026-10-16T08:45:40.301Z",
   "seenAt": "2026-10-16T00:40:49.377Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "GUYFIDF0105002",
+      "url": "https://www.thefragrancecounter.co.uk/guy-laroche-fidji-eau-de-parfum-50ml.html",
+      "rawTitle": "Guy Laroche Fidji Eau De Parfum 50ml",
+      "rawBrand": "Guy Laroche",
+      "ean": "3360372009573",
+      "imageUrl": "https://www.thefragrancecounter.co.uk/user/products/large/71WY24UqJ1L._AC_SX466_.jpg",
+      "description": "Guy Laroche Fidji Eau De Parfum 50ml - Buy perfume & aftershave online. Authentic, fast UK delivery, great prices. Shop now.",
+      "priceGbp": 25.5,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-10-16T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "sitemap",
+      "rating": {
+        "value": 5,
+        "count": 6
+      },
+      "retailerId": "the-fragrance-counter",
+      "firstSeenAt": "2026-10-16T08:45:40.301Z",
+      "lastSeenAt": "2026-10-16T08:45:40.301Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "CH019A01",
       "url": "https://www.thefragrancecounter.co.uk/jimmy-choo-man-aqua-eau-de-toilette-100ml.html",

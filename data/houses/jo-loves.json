@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-16T05:44:29.978Z",
-  "seenAt": "2026-10-16T05:44:29.978Z",
+  "updatedAt": "2026-10-16T09:51:37.408Z",
+  "seenAt": "2026-10-16T09:51:37.408Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Envelop your home in the quiet luxury of Christmas morning. The Christmas Trees Room Spray blends aromatic pine, encens, and warm clove, wrapped in rich cedar and amber - evoking the elegance of freshly cut evergreens and softly falling snow. A single spritz transforms the air into pure festive sophistication.",
       "productType": null,

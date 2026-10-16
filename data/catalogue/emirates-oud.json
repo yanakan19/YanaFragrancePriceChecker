@@ -1,7 +1,7 @@
 {
   "retailerId": "emirates-oud",
-  "updatedAt": "2026-10-16T04:37:35.755Z",
-  "seenAt": "2026-10-16T04:37:35.755Z",
+  "updatedAt": "2026-10-16T08:45:40.301Z",
+  "seenAt": "2026-10-16T08:45:40.301Z",
   "source": "live",
   "listings": [
     {
@@ -1417,7 +1417,7 @@
       "priceGbp": 22.5,
       "wasPriceGbp": 30,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Paris Corner Rifakat Perfume 85ml EDP is a sophisticated unisex fragrance that blends smooth warmth with dark spices. It is a sophisticated choice for modern fragrance lovers. From the first spray, it greets you with a vibrant blend of black pepper, pink pepper and elemi that delivers a burst of spicy freshness that invigorates the senses. As it settles, the heart unfolds into olibanum and saffron, introducing a smoky-resinous richness balanced by a soft, exotic warmth.. Its base is enchanting, with bourbon vanilla adding a creamy, sensual depth, while suede and cedar lend an elegant earthy note, perfect for long-lasting wear. This exquisite Arabic fragrance is ideal for those in the UK looking for a special scent that stands out without being overwhelming.. Specifications . Suitable For: Men and women . Brand: Paris Corner . Fragrance Type: Oriental fragrance . Size: 85ml . Specialty: Best for travel . Fragrance Profile: . Top Notes: Black Pepper, Pink Pepper, Elemi. Middle Notes: Olibanum, Saffron. Base Notes: Bourbon Vanilla, Suede, Cedar. Whether for everyday wear or a special occasion, Rifakat offers a unique olfactory journey, bold yet smooth, modern yet timeless. The sleek 85ml EDP bottle reflects its sophisticated character, making it a great gift or a statement addition to your collection.. .",
       "productType": "Perfume",
@@ -20852,7 +20852,7 @@
       "priceGbp": 3.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Top Notes: Bergamot, Jasmine . Middle Notes: Musk, Coconut, Almond . Base Notes: Vanilla, Cedarwood, Nutmeg .",
       "productType": "Perfume Sample",
