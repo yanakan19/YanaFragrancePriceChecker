@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 219,
+ "folded": 220,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -6311,6 +6311,38 @@
    ]
   },
   {
+   "canonical": "set-maison-francis-kurkdjian-oud-satin-mood-eau-de-parfum-refills-3-x-11ml",
+   "absorbed": [
+    "set-oud-satin-mood-eau-de-parfum-unisex-refills-3-x-11ml"
+   ],
+   "members": [
+    {
+     "id": "set-maison-francis-kurkdjian-oud-satin-mood-eau-de-parfum-refills-3-x-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Oud Satin Mood Eau de Parfum Refills, 3 x 11ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "mood oud refills satin",
+     "signature": "3x11fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-oud-satin-mood-eau-de-parfum-unisex-refills-3-x-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "OUD satin mood Eau de Parfum Unisex Refills 3 x 11ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "mood oud refills satin",
+     "signature": "3x11fragrance",
+     "shops": [
+      "niche-beauty-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-mango-skin-eau-de-parfum-3x10-ml",
    "absorbed": [
     "set-mango-skin-eau-de-parfum-3x10ml"
@@ -11951,6 +11983,18 @@
      "signature": "3x7fragrance",
      "shops": [
       "cult-beauty-global"
+     ]
+    },
+    {
+     "id": "set-le-labo-eau-de-parfum-discovery-fragrance-gift-set-3-x-7ml",
+     "brand": "Le Labo",
+     "name": "Eau de Parfum Discovery Fragrance Gift Set, 3 x 7ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "3x7fragrance",
+     "shops": [
+      "john-lewis"
      ]
     },
     {
