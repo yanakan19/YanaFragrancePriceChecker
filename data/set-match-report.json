@@ -6868,6 +6868,7 @@
      "scent": "essence man rain",
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -9419,37 +9420,6 @@
   },
   {
    "reasons": [
-    "price spread 1.56 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460156028",
-     "brand": "Jimmy Choo",
-     "name": "I Want Choo Forever Gift Set 100ml EDP + 7.5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3386460156028",
-     "scent": "choo forever i want",
-     "signature": "1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jimmy-choo-i-want-choo-forever-gift-set-100ml-edp-7-5ml-edp",
-     "brand": "Jimmy Choo",
-     "name": "I Want Choo Forever Gift Set 100ml EDP + 7.5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "choo forever i want",
-     "signature": "1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3423222018245, 8054754400748"
    ],
    "members": [
@@ -9953,6 +9923,37 @@
      "signature": "1x50wash|1x75fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 2.27 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222121860",
+     "brand": "Narciso Rodriguez",
+     "name": "All Of Me Gift Set 50ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3423222121860",
+     "scent": "all me",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-narciso-rodriguez-all-of-me-gift-set-50ml-edp-50ml-body-lotion",
+     "brand": "Narciso Rodriguez",
+     "name": "All Of Me Gift Set 50ml EDP - 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "all me",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
