@@ -1,7 +1,7 @@
 {
   "retailerId": "zimaya",
-  "updatedAt": "2026-10-16T08:45:40.301Z",
-  "seenAt": "2026-10-16T08:45:40.301Z",
+  "updatedAt": "2026-10-16T12:32:33.954Z",
+  "seenAt": "2026-10-16T12:32:33.954Z",
   "source": "live",
   "listings": [
     {
@@ -129,7 +129,7 @@
       "priceGbp": 35,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Ode to Rose Royale is bright, elegant, and gently feminine. It opens with a soft fruity freshness that feels light and uplifting, setting a graceful tone. As it develops, a smooth floral character comes through, adding a touch of softness and charm without being too strong. The scent settles into a warm, slightly creamy base that feels comforting and balanced. Clean, modern, and easy to wear, this fragrance is perfect for everyday elegance. TOP NOTES Orange – Peach – Pear MID NOTES Peony – Musk – Violet BASE NOTES Vanilla – Amber – Vetiver .",
       "productType": "Perfume",

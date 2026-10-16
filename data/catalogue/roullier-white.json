@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-10-16T08:45:40.301Z",
-  "seenAt": "2026-10-16T08:45:40.301Z",
+  "updatedAt": "2026-10-16T12:32:33.954Z",
+  "seenAt": "2026-10-16T12:32:33.954Z",
   "source": "live",
   "listings": [
     {
@@ -3717,7 +3717,7 @@
       "priceGbp": 25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Fragrance Notes. Top: Orange Oil, Peach, basil, Bergamot, Lemon. Middle: Cyclamen, Lily, Melon, Jasmine, Bulgarian Rose. Base: Patchouli, Vetiver, Musk, Sandalwood, Oakmoss, Cedar. Fragrance House. One of the world’s first examples of eau de cologne, 4711 have been producing their signature fragrance since 1792, and it has remained a staple of high society throughout its long and storied history. Originally conceived as an ‘aqua mirabilis’, or ‘miracle water’, the composition was intended for use as a curative health drink. However, upon the French occupation of Cologne under Napoleon Bonaparte, it was decreed that recipes for all medicines designed for internal be made public. Upon hearing this news, Muelhens, unwilling to relinquish his secret, decided to market his preparation as a fragrance rather than a remedy, giving birth to the iconic scent known around the world to this day. .",
       "productType": "Perfume",

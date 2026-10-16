@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-16T08:45:40.301Z",
-  "seenAt": "2026-10-16T08:45:40.301Z",
+  "updatedAt": "2026-10-16T12:32:33.954Z",
+  "seenAt": "2026-10-16T12:32:33.954Z",
   "source": "live",
   "listings": [
     {
@@ -39,7 +39,7 @@
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "shopify-products-json",
-      "description": "Issey Miyake Pleats Please L'Eau Eau de Toilette is a fresh, floral fragrance created for customers who enjoy a light, elegant scent with a soft musky finish. It opens with delicate wild rose, followed by a floral heart of neroli and Bulgarian rose, complemented by a touch of pink pepper. White musk, cedar, and patchouli create a smooth, woody base, making it a lovely choice for everyday wear and relaxed occasions. . Why customers choose it . Well-suited for spring and summer . . A great option for daily wear or gifting . . Designed for customers who prefer fresh, floral, and musky scents . .",
+      "description": "Issey Miyake Pleats Please L'Eau Eau de Toilette is a fresh, floral fragrance created for customers who enjoy a light, elegant scent with a soft musky finish. It opens with delicate wild rose, followed by a floral heart of neroli and Bulgarian rose, complemented by a touch of pink pepper. White musk, cedar, and patchouli create a smooth, woody base, making it a lovely choice for everyday wear and relaxed occasions. . Why customers choose it . - Well-suited for spring and summer . - A great option for daily wear or gifting . - Designed for customers who prefer fresh, floral, and musky scents .",
       "productType": "Eau de Toilette",
       "nativePrice": null,
       "retailerId": "perfumoi",
@@ -85,7 +85,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
-      "description": "Hugo Boss Bottled Parfum is a refined woody fragrance created for customers who appreciate a warm, elegant scent with a confident character. It opens with fresh mandarin and spicy notes, developing into a heart of orris and fig tree root. The base combines cedarwood and leather accords for a smooth, sophisticated finish, making it suitable for both professional settings and evening occasions. . Why customers choose it . Well-suited for autumn and winter . . A great option for work, evening wear, or gifting . . Designed for customers who prefer woody, warm, and subtly spicy scents . .",
+      "description": "Hugo Boss Bottled Parfum is a refined woody fragrance created for customers who appreciate a warm, elegant scent with a confident character. It opens with fresh mandarin and spicy notes, developing into a heart of orris and fig tree root. The base combines cedarwood and leather accords for a smooth, sophisticated finish, making it suitable for both professional settings and evening occasions. . Why customers choose it . - Well-suited for autumn and winter . - A great option for work, evening wear, or gifting . - Designed for customers who prefer woody, warm, and subtly spicy scents .",
       "productType": "Parfum",
       "nativePrice": null,
       "retailerId": "perfumoi",
@@ -405,7 +405,7 @@
       "priceGbp": 25.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "DKNY Men Energising Eau de Toilette is an eau de toilette created for customers who enjoy a fresh, citrus aromatic scent. It opens with a bright citrus impression, develops into a clean aromatic heart, and settles into a smooth woody base. Suitable for everyday wear or active daytime occasions, this fragrance is a great choice for anyone looking for a scent that feels fresh, modern, and easy to wear. . Why customers choose it ● Well-suited for spring and summer ● A great option for daily wear or gifting ● Designed for customers who prefer fresh citrus and aromatic scents .",
       "productType": "Eau de Toilette",

@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-10-16T09:51:30.812Z",
-  "seenAt": "2026-10-16T09:51:30.812Z",
+  "updatedAt": "2026-10-16T13:20:09.411Z",
+  "seenAt": "2026-10-16T13:20:09.411Z",
   "source": "live",
   "listings": [
     {
@@ -43,7 +43,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "An elegant Oriental Vanilla fragrance, opening with a luscious blend of pear, peach, bergamot, and pink pepper, blooming into a soft floral heart of rose, magnolia, lily of the valley, and cyclamen, and melting into a deep, sensual base of vanilla, amber, patchouli, and vetiver—rich, feminine, and effortlessly luxurious. .",
+      "description": "An elegant Oriental Vanilla fragrance, opening with a luscious blend of pear, peach, bergamot, and pink pepper, blooming into a soft floral heart of rose, magnolia, lily of the valley, and cyclamen, and melting into a deep, sensual base of vanilla, amber, patchouli, and vetiver, rich, feminine, and effortlessly luxurious. .",
       "productType": null,
       "nativePrice": {
         "amount": 52.5,
@@ -70,7 +70,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "A luxurious Floral Aquatic Gourmand fragrance that opens with a luminous blend of magnolia, sea breeze, and sparkling citrus, blooms into an elegant heart of lily, jasmine, and pittosporum, and settles into a refined base of musk, salty accords, and smooth woody notes—fresh, sensual, and effortlessly sophisticated. .",
+      "description": "A luxurious floral aquatic gourmand fragrance blending luminous magnolia, sea breeze, and citrus with an elegant floral heart, resting on a sensual base of musk, salty accords, and smooth woods. .",
       "productType": null,
       "nativePrice": {
         "amount": 52.5,
@@ -145,7 +145,7 @@
       "rawTitle": "Attar Al Wesal Elixir",
       "rawBrand": "Alwataniah",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Attar_Al_Wesal_Elixir_Perfume.png?v=1781765540",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/AttarAlWesalLuxuryPerfumeBottle_1_1_bbcd433c-3da2-44f2-ac42-e639db463580.jpg?v=1792148913",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -1582,7 +1582,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "A spirited blend of bright spice and comforting warmth. The fragrance opens with sparkling pink pepper and juicy mandarin, creating a lively and invigorating introduction. At its heart, aromatic lavender and earthy sage lend a fresh, herbal sophistication that grounds the brightness with calming elegance. A cozy base of roasted chestnut and creamy vanilla wraps the scent in gentle warmth, leaving a soft, inviting trail that feels both modern and timeless..",
+      "description": "Built around its stronger with you parfum character, Fayyad reveals a fresh, bold and warm signature designed to leave a lasting impression..",
       "productType": null,
       "nativePrice": {
         "amount": 84,
@@ -2093,7 +2093,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Built around its spicy floral woody character, Ain Emarat reveals a fresh, elegant and refined signature designed to leave a lasting impression..",
       "productType": null,

@@ -1,9 +1,35 @@
 {
   "retailerId": "reef",
-  "updatedAt": "2026-10-16T09:51:29.562Z",
-  "seenAt": "2026-10-16T09:51:29.562Z",
+  "updatedAt": "2026-10-16T13:20:08.499Z",
+  "seenAt": "2026-10-16T13:20:08.499Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "P1421866",
+      "url": "https://www.reef-parfum.com/en/product/reef-31-unisex-oriental-fragrance/",
+      "rawTitle": "Reef 31 Black Bottle | Unisex Oriental Fragrance, 100 ml",
+      "rawBrand": null,
+      "ean": "6287036280895",
+      "imageUrl": "https://www.reef-parfum.com/wp-content/uploads/2026/06/parfum-reef-31.jpg",
+      "description": "Reef 31 reveals notes of saffron, amber, and vanilla in a warm and refined unisex oriental eau de parfum. 100 ml bottle by Reef Perfumes.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 89.9,
+        "currency": "EUR"
+      },
+      "retailerId": "reef",
+      "firstSeenAt": "2026-10-16T13:20:08.499Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "6287036282462",
       "url": "https://www.reef-parfum.com/en/product/summer-pink-reef-unisex-woody-fragrance/",
