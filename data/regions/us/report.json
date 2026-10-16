@@ -1,36 +1,36 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-15T13:36:44.782Z",
+  "builtAt": "2026-10-16T13:29:07.978Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "crawlMinutes": 42.45,
-  "harvestRanAt": "2026-10-15T12:54:17.131Z",
-  "listingsPriced": 65832,
-  "listingsKept": 31226,
+  "crawlMinutes": 42.19,
+  "harvestRanAt": "2026-10-16T12:46:55.964Z",
+  "listingsPriced": 65922,
+  "listingsKept": 31326,
   "staleAfterDays": 7,
   "products": 22576,
-  "productsWithTwoOrMoreShops": 6485,
+  "productsWithTwoOrMoreShops": 6484,
   "shareWithTwoOrMoreShops": 0.287,
-  "productsWithTwoOrMoreIndependentShops": 2704,
+  "productsWithTwoOrMoreIndependentShops": 2703,
   "shareWithTwoOrMoreIndependentShops": 0.12,
   "productsWithThreeOrMoreShops": 2388,
   "medianPriceGap": 0.19,
   "listingBarcodeShare": 0.202,
-  "productsMatchingUkByBarcode": 1974,
+  "productsMatchingUkByBarcode": 1994,
   "shops": [
     {
       "id": "aedes",
-      "products": 706,
+      "products": 709,
       "shared": 179
     },
     {
       "id": "beauty-encounter",
       "products": 5073,
-      "shared": 1365
+      "shared": 1366
     },
     {
       "id": "beautyhabit",
@@ -70,11 +70,11 @@
     {
       "id": "la-belle-perfumes",
       "products": 4850,
-      "shared": 1344
+      "shared": 1343
     },
     {
       "id": "luckyscent",
-      "products": 1321,
+      "products": 1320,
       "shared": 279
     },
     {
@@ -84,8 +84,8 @@
     },
     {
       "id": "microperfumes",
-      "products": 503,
-      "shared": 327
+      "products": 506,
+      "shared": 329
     },
     {
       "id": "ministry-of-scent",
@@ -109,8 +109,8 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 567,
-      "shared": 224
+      "products": 562,
+      "shared": 221
     },
     {
       "id": "twisted-lily",
@@ -124,13 +124,13 @@
     }
   ],
   "productsShown": 22454,
-  "productsWithUkPhoto": 4744,
-  "productsWithUkPhotoByBarcode": 1500,
-  "productsWithUkPhotoByName": 3244,
-  "listingsWithReference": 23533,
-  "offersWithCorroboratedReference": 6559,
-  "deals": 1071,
-  "shareWithUkPhoto": 0.211,
+  "productsWithUkPhoto": 4753,
+  "productsWithUkPhotoByBarcode": 1511,
+  "productsWithUkPhotoByName": 3242,
+  "listingsWithReference": 23537,
+  "offersWithCorroboratedReference": 6560,
+  "deals": 1080,
+  "shareWithUkPhoto": 0.212,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
