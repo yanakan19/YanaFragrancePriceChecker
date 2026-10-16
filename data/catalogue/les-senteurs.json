@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-16T16:12:14.006Z",
-  "seenAt": "2026-10-16T16:12:14.006Z",
+  "updatedAt": "2026-10-16T20:10:15.800Z",
+  "seenAt": "2026-10-16T20:10:15.800Z",
   "source": "live",
   "listings": [
     {
@@ -7696,7 +7696,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A unisex Floral, Ambery Perfume Extract imagined as an elixir of love by master perfumer Dominique Ropion for D'ORSAY.. For those who revel in excess, ready to explore their own depths of lust. In this powerful Extrait de Parfum, Red Pepper and Black Pepper create an exciting ambiance, while dense Sandalwood illuminates Ylang-Ylang and Orange Blossom against an amber backdrop. Flower Lust explodes with exquisite pleasure all day long..",
       "productType": "Fragrance",
@@ -15493,7 +15493,7 @@
       "priceGbp": 185,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Working the ingredient to express its full potential and meeting the challenge of composing two different eaux de parfum with the same notes: juniper berries, nutmeg, coriander, musks, ambery woods and vanilla. The Gentle Fluidity duo was born of the perfumer’s imagination to offer two distinct olfactory silhouettes, for her or for him. . In Gentle fluidity Silver, nutmeg and ambery woods are dominant and release a vibrant, comfortable trail. As for juniper berry essence, it leads to an ascending, ultra-fresh, aromatic note, similar to a “gin frappé” effect, balanced by the dry, slightly balmy, spicy notes of nutmeg. The base notes reveal ambery wood facets ranging from sweet and enveloping to powerful and dry.. Top Notes: Nutmeg, Coriander Heart Notes: Juniper berry, Amber Base Notes: Vanilla, Musks, Precious Woods .",
       "productType": "Fragrance",
@@ -28488,7 +28488,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "An exquisite tropical floral intricately structured around a heart of creamy frangipani flowers, given extra heady power with absolutes of night-blooming tuberose and jasmine. Plum, orchid and water lilies convey a fruity sensuous freshness. Though rich and intense, Frangipani also has a feeling of youthful softness and purity which makes it wholly irresistible.. Top Notes: Linden Blossom, Magnolia Flower, Lime Heart Notes: Frangipani, Rose, Tuberose, Water Lilies, Plum, Orchid Oil Base Notes: Amber, Musk, Cedar, Vanilla .",
       "productType": "Fragrance",

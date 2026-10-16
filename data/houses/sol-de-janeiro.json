@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-16T17:19:17.728Z",
-  "seenAt": "2026-10-16T17:19:17.728Z",
+  "updatedAt": "2026-10-16T21:07:41.522Z",
+  "seenAt": "2026-10-16T21:07:41.522Z",
   "source": "live",
   "listings": [
     {
@@ -14757,7 +14757,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "The iconic body care pair your skin craves. Depuff and deeply nourish with Bum Bum Body Firmeza Oil, then smooth on v isibly tighten ing Brazilian Bum Bum ® Cream for the ultimate body boost. .",
       "productType": "bundle",
@@ -15777,32 +15777,6 @@
       "productType": "Merch",
       "nativePrice": {
         "amount": 35,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-08-05T18:12:07.600Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "BN000200",
-      "url": "https://soldejaneiro.com/products/bright-side-mini-body-duo",
-      "rawTitle": "Bright Side Body Duo",
-      "rawBrand": "Sol de Janeiro",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_Web_Ppage_Bright_Side_Body_Duo_update.webp?v=1726177246",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Brighten your shower routine with our Bright Side Body Duo. Our award-winning, visibly brightening body care minis are perfect for traveling or trying something new. Bom Dia Bright™ Body Wash clarifies with AHA BHA, while Bom Dia Bright™ Body Cream visibly brightens and smooths rough skin. Use together to heighten benefits and the sultry, delicate scent of Cheirosa 40. .",
-      "productType": "bundle",
-      "nativePrice": {
-        "amount": 32,
         "currency": "USD"
       },
       "retailerId": "sol-de-janeiro",
@@ -17374,7 +17348,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "SJ00140501",
+      "retailerSku": "SJ99049100",
       "url": "https://soldejaneiro.com/products/cheirosa-40-hair-body-fragrance-mist",
       "rawTitle": "Cheirosa 40 Perfume Mist 240ml",
       "rawBrand": "Sol de Janeiro",
@@ -17392,11 +17366,11 @@
         "currency": "USD"
       },
       "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-08-05T18:12:07.600Z",
+      "firstSeenAt": "2026-10-16T21:07:41.522Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -18021,6 +17995,60 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "BN000200",
+      "url": "https://soldejaneiro.com/products/bright-side-mini-body-duo",
+      "rawTitle": "Bright Side Body Duo",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_Web_Ppage_Bright_Side_Body_Duo_update.webp?v=1726177246",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Brighten your shower routine with our Bright Side Body Duo. Our award-winning, visibly brightening body care minis are perfect for traveling or trying something new. Bom Dia Bright™ Body Wash clarifies with AHA BHA, while Bom Dia Bright™ Body Cream visibly brightens and smooths rough skin. Use together to heighten benefits and the sultry, delicate scent of Cheirosa 40. .",
+      "productType": "bundle",
+      "nativePrice": {
+        "amount": 32,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-08-05T18:12:07.600Z",
+      "lastSeenAt": "2026-10-16T17:19:17.728Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-16T21:07:41.522Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "SJ00140501",
+      "url": "https://soldejaneiro.com/products/cheirosa-40-hair-body-fragrance-mist",
+      "rawTitle": "Cheirosa 40 Perfume Mist 240ml",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_C40_240ML_OVERHEAD_RGB_1452X1452_af46ed9e-898d-456a-88af-1c52b823a2a1.jpg?v=1788860832",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Champagne flutes on the marble vanity. Silk draped on your skin. A glimmer of anticipation.. . Cheirosa 40 Perfume Mist invites the playful elegance of Rio's legendary Carnaval Ball, which debuted in 1840. Sultry and delicate, this alluring fragrance opens with rich Black Amber plum, while a veil of jasmine blooms and vanilla woods intertwine with warm musk.. . Revel in the allure. . . Not sure which scent fits your mood? Take our quiz to find your fragrance .. Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
+      "productType": "Fragrance",
+      "nativePrice": {
+        "amount": 39,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-08-05T18:12:07.600Z",
+      "lastSeenAt": "2026-10-16T17:19:17.728Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-16T21:07:41.522Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {

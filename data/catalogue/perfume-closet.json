@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-10-16T16:12:14.006Z",
-  "seenAt": "2026-10-16T16:12:14.006Z",
+  "updatedAt": "2026-10-16T20:10:15.800Z",
+  "seenAt": "2026-10-16T20:10:15.800Z",
   "source": "live",
   "listings": [
     {
@@ -4174,8 +4174,8 @@
       "rawBrand": "The Perfume Closet",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0954/9119/5220/files/ultra-V.png?v=1745057451",
-      "priceGbp": 84,
-      "wasPriceGbp": null,
+      "priceGbp": 49.99,
+      "wasPriceGbp": 95,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

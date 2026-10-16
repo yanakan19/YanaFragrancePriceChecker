@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-bay",
-  "updatedAt": "2026-10-16T16:12:14.006Z",
-  "seenAt": "2026-10-16T16:12:14.006Z",
+  "updatedAt": "2026-10-16T20:10:15.800Z",
+  "seenAt": "2026-10-16T20:10:15.800Z",
   "source": "live",
   "listings": [
     {
@@ -656,14 +656,14 @@
       "variantId": null
     },
     {
-      "retailerSku": "SABR0017F",
-      "url": "https://www.beautybay.com/p/sabrina-carpenter/lemon-pie-eau-de-parfum/30ml/",
-      "rawTitle": "Sabrina Carpenter Lemon Pie Eau De Parfum 30ml",
+      "retailerSku": "SABR0016F",
+      "url": "https://www.beautybay.com/p/sabrina-carpenter/lemon-pie-eau-de-parfum/75ml/",
+      "rawTitle": "Sabrina Carpenter Lemon Pie Eau De Parfum 75ml",
       "rawBrand": "Sabrina Carpenter",
       "ean": null,
-      "imageUrl": "https://cdn.beautybay.com/images/eoaaqxyywn6o/4SumUGctNLWM4vKLElJHx/d07693a84479e8c4c4ddac9596bd2662/SABR0017F_1.jpg",
+      "imageUrl": "https://cdn.beautybay.com/images/eoaaqxyywn6o/2phwUMEQWdk58iYPrjkdw0/0d7ed005e7f062ca2296e66c871e8c23/SABR0016F_1.jpg",
       "description": "One spritz and you'll want seconds. Lemon Pie is the fifth flavour in Sabrina Carpenter's Sweet Tooth collection, a bright, juicy gourmand that smells like a fresh baked dessert on a sun soaked afternoon. Created by perfumer Gil Clavien, it opens with a citrus triple threat of candied lemon, Italian bergamot, and sparkling neroli, before a splash of limoncello, jasmine, orange blossom, and violet smooths the zest into airy sweetness. The base is pure indulgence: vanilla bean, liquid sugar, and buttery graham cracker crust, layered like whipped cream over a slice of pie. All served in the collectible chocolate bar bottle in a sunny pastel shade. Vegan and cruelty free.",
-      "priceGbp": 26.95,
+      "priceGbp": 39.95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -677,17 +677,17 @@
       "variantId": null
     },
     {
-      "retailerSku": "SABR0016F",
-      "url": "https://www.beautybay.com/p/sabrina-carpenter/lemon-pie-eau-de-parfum/75ml/",
-      "rawTitle": "Sabrina Carpenter Lemon Pie Eau De Parfum 75ml",
+      "retailerSku": "SABR0017F",
+      "url": "https://www.beautybay.com/p/sabrina-carpenter/lemon-pie-eau-de-parfum/30ml/",
+      "rawTitle": "Sabrina Carpenter Lemon Pie Eau De Parfum 30ml",
       "rawBrand": "Sabrina Carpenter",
       "ean": null,
-      "imageUrl": "https://cdn.beautybay.com/images/eoaaqxyywn6o/2phwUMEQWdk58iYPrjkdw0/0d7ed005e7f062ca2296e66c871e8c23/SABR0016F_1.jpg",
+      "imageUrl": "https://cdn.beautybay.com/images/eoaaqxyywn6o/4SumUGctNLWM4vKLElJHx/d07693a84479e8c4c4ddac9596bd2662/SABR0017F_1.jpg",
       "description": "One spritz and you'll want seconds. Lemon Pie is the fifth flavour in Sabrina Carpenter's Sweet Tooth collection, a bright, juicy gourmand that smells like a fresh baked dessert on a sun soaked afternoon. Created by perfumer Gil Clavien, it opens with a citrus triple threat of candied lemon, Italian bergamot, and sparkling neroli, before a splash of limoncello, jasmine, orange blossom, and violet smooths the zest into airy sweetness. The base is pure indulgence: vanilla bean, liquid sugar, and buttery graham cracker crust, layered like whipped cream over a slice of pie. All served in the collectible chocolate bar bottle in a sunny pastel shade. Vegan and cruelty free.",
-      "priceGbp": 39.95,
+      "priceGbp": 26.95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "retailerId": "beauty-bay",
       "firstSeenAt": "2026-10-03T21:07:09.028Z",
