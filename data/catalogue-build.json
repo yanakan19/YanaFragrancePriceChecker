@@ -1,6 +1,6 @@
 {
  "note": "Written by npm run catalogue:demo. The catalogue modules are built from exactly these data inputs (git blob ids), with this clock, wherever they are read (scripts/catalogueBuild.ts); never edit by hand.",
- "builtAt": "2026-10-16T05:44:46.640Z",
+ "builtAt": "2026-10-16T08:42:35.866Z",
  "files": {
   "data/better-photos.json": "2b1d444a22c4a7ef5db164a8f1d146e2c5881c04",
   "data/catalogue/al-haramain.json": "79d0e61d3d4b15b3270052b001608eb9fd819872",
@@ -22,7 +22,7 @@
   "data/catalogue/escentric-molecules.json": "31bac96657ac293e84072b7fd384d1818b1d39db",
   "data/catalogue/escentual.json": "c83f038785515fe0dcbed7c0858d7d139a2699e8",
   "data/catalogue/fenwick.json": "4bf6dbc75d8a2b3c700cce5477b8b73962eb782b",
-  "data/catalogue/fragrance-click.json": "07a3ec4754d24cf056a7bee7ccf489fb121fa977",
+  "data/catalogue/fragrance-click.json": "39095ee50f613e02daa6c125f4b2a7ca2d654c4c",
   "data/catalogue/fragrancehub.json": "c1a82123260c6508784db49a020136e96a2e61ba",
   "data/catalogue/french-avenue.json": "44e062c9bec0ec9700e73d355e794060aa71ee02",
   "data/catalogue/glorious-beauty.json": "180d183def8d3a2615688d1942068af1c2e11fb6",
@@ -40,7 +40,7 @@
   "data/catalogue/lookfantastic.json": "0e1402a6ec508b524d02b6b224ba46c50f8566e0",
   "data/catalogue/manchester-ouds.json": "12df8933d0e4de18fa2c2856d3040e6bb890272e",
   "data/catalogue/marks-and-spencer.json": "02d6c463332396b9128c0d664420445d77c08ecf",
-  "data/catalogue/mybeauty-boutique.json": "6976c7fb0750f4edd37b452ac4a2ef02e86f9aeb",
+  "data/catalogue/mybeauty-boutique.json": "38cac12627947bea8cf8fd74a67ec9584a4b7571",
   "data/catalogue/nicchia-luxury-uk.json": "08cfc5219598e654d45425ef64f15e7659fcced2",
   "data/catalogue/niche-beauty-uk.json": "21f9962144e5e3a3da586b29f79e26f8154b5e2c",
   "data/catalogue/notino-uk.json": "6351e2d0a69449b72e0e949ec539454c187ec519",
@@ -102,6 +102,6 @@
   "data/image-box-verdicts.json": "043fa3191420ee69338b23c8ff51cadc8d8f7734",
   "data/note-aliases.json": "7fc4b8f4ba71c29993580bd732815fe7a2d0b6b8",
   "data/note-not-a-note.json": "aed2513264555cf20392c82d0aa5098b1cfcc715",
-  "data/product-slugs.json": "9b62a00a1dfa6a6a38b3e0acbba69e6e6d4c217f"
+  "data/product-slugs.json": "86f016f051afbe74cea61255c3e9d96dae6a4e9e"
  }
 }
