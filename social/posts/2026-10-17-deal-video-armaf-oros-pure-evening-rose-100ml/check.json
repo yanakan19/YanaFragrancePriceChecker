@@ -1,0 +1,63 @@
+{
+  "id": "ean-6294015128192",
+  "url": "https://pricesniffs.space/armaf_oros_pure_evening_rose_100ml",
+  "name": "Oros Pure Evening Rose 100ml",
+  "brand": "Armaf",
+  "delivered": 39.15,
+  "msrp": 79.99,
+  "shop": "Perfume Click",
+  "percent": 51,
+  "pricesCheckedAt": "2026-10-17T14:38:04.398Z",
+  "date": "2026-10-17",
+  "dealsList": {
+    "generatedAt": "2026-10-17T16:09:44.225Z",
+    "retailerId": "perfume-click",
+    "price": 39.15,
+    "wasPrice": 79.99,
+    "percentOff": 51,
+    "kind": "house"
+  },
+  "photo": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51HWzIC4UPL.jpg?v=1767984864",
+  "brandRule": {
+    "restDays": 7,
+    "overridden": false
+  },
+  "liveCheck": {
+    "status": 200,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "video": {
+    "file": "deal-video-9x16.mp4",
+    "seconds": 10,
+    "frames": 300,
+    "bytes": 986491,
+    "transitions": [
+      {
+        "kind": "swipe",
+        "from": "bottle",
+        "to": "prices",
+        "start": 2.6,
+        "end": 3,
+        "seconds": 0.4
+      },
+      {
+        "kind": "dissolve",
+        "from": "prices",
+        "to": "note",
+        "start": 5.1,
+        "end": 5.6,
+        "seconds": 0.5
+      },
+      {
+        "kind": "swipe",
+        "from": "note",
+        "to": "outro",
+        "start": 7.4,
+        "end": 7.8,
+        "seconds": 0.4
+      }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": "ean-6294015128192",
+  "url": "https://pricesniffs.space/armaf_oros_pure_evening_rose_100ml",
+  "delivered": 39.15,
+  "msrp": 79.99,
+  "shop": "Perfume Click",
+  "percent": 51,
+  "pricesCheckedAt": "2026-10-17T14:38:04.398Z",
+  "brandRule": {
+    "restDays": 7,
+    "overridden": false
+  },
+  "liveCheck": {
+    "status": 200,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "gender": {
+    "reading": "notStated",
+    "basis": "not stated anywhere"
+  },
+  "notes": {
+    "used": "own",
+    "source": "MyBeauty.Boutique",
+    "reasons": [],
+    "top": [
+      "Amber Floral"
+    ],
+    "middle": [
+      "Saffron",
+      "Berry Pepper"
+    ],
+    "base": [
+      "Patchouli",
+      "Labdanum",
+      "Ambroxan",
+      "Ambrocenide"
+    ]
+  }
+}

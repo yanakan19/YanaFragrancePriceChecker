@@ -1,0 +1,12 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-17-deal-video-armaf-oros-pure-evening-rose-100ml . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "deal-video-9x16.mp4",
+      "make": "deal-video",
+      "seconds": 10,
+      "bytes": 986491,
+      "sha256": "f83da5548eab1a05d13d2cc95bb88640512a71d62a5908bafd68e2e551bd3e09"
+    }
+  ]
+}
