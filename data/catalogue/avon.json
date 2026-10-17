@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-16T20:10:15.800Z",
-  "seenAt": "2026-10-16T20:10:15.800Z",
+  "updatedAt": "2026-10-16T23:46:30.535Z",
+  "seenAt": "2026-10-16T23:46:30.535Z",
   "source": "live",
   "listings": [
     {
@@ -26625,7 +26625,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": 6.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "OURS VS PREMIUM BEAUTY . . Essie Original Nail Polish, 10ml . . £8.99* . . * Price sourced from boots.com on 31.01.2025.. . About Me: . Power up your mani-pedi with the long-lasting, salon-quality, gel-like nail colour that’s strong enough to pass the toughest test. That’s 8 days* of colour and shine in one super-easy sweep, so you can live life hands on.. . Product Specification: • 8 days of colour and shine.* • Effortless application and full coverage in 1 coat. • ColourLock Technology to help improve chip resistance.. . How To Use Me: . Sweep the specially-designed, contoured brush over your nails for an effortless application and full coverage in 1 coat. Don’t forget to finish with our enamel-strengthening Power Stay Top coat to help your mani-pedi last even longer.**. . *Based on a consumer science study with 120 participants. **Based on a consumer science study with 29 participants who used Power Stay Gel Shine Enamel + Power Stay Top Coat..",
       "productType": "COLOR",
@@ -32536,7 +32536,7 @@
       "priceGbp": 20,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Wrap yourself in the fragrance that’s perfect for every occasion, the floral and oriental perfume of Little Black Dress Eau de Parfum. Elegant scents of beautiful honeysuckle, exotic ylang-ylang and sophisticated milkwood. Product specification: • Top note: honeysuckle. • Middle note: ylang-ylang. • Base note: milkwood. • 100ml. How to wear me: Feel your most confident whether you’re heading to the office, on the school run or for dinner with friends. Spritz the floral and oriental perfume onto your pulse points for the perfect final accessory. Make the scent last even longer by pairing with the matching body lotion.",
       "productType": "FRAGRANCE",

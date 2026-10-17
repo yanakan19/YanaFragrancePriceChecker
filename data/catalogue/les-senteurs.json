@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-16T20:10:15.800Z",
-  "seenAt": "2026-10-16T20:10:15.800Z",
+  "updatedAt": "2026-10-16T23:46:30.535Z",
+  "seenAt": "2026-10-16T23:46:30.535Z",
   "source": "live",
   "listings": [
     {
@@ -5189,7 +5189,7 @@
       "priceGbp": 400,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Reintroducing two of the most loved scents from the house of Clive Christian Iconic Feminine & Masculine. Iconic Masculine, the perfect example of a Woody Citrus. Both energetic and mysterious with an unparalleled longevity on the skin of over 8 hours, this scent travels from bright citrusy notes to smoky vetiver.. Top Keynote: Yuzu Heart Keynote: Mandarin Base Keynote: Haitian Vetiver .",
       "productType": "Fragrance",
