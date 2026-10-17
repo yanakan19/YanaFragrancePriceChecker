@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 220,
+ "folded": 218,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1526,38 +1526,6 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3346130438243",
-   "absorbed": [
-    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3346130438243",
-     "brand": "Hermès",
-     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
-     "concentration": "Eau de Toilette",
-     "ean": "3346130438243",
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
-     "brand": "Hermès",
-     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -5297,38 +5265,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003907106",
-   "absorbed": [
-    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003907106",
-     "brand": "Versace",
-     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
-     "concentration": "Parfum",
-     "ean": "8011003907106",
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
-     "brand": "Versace",
-     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
-     "concentration": "Parfum",
-     "ean": null,
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8011003996209",
    "absorbed": [
     "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray"
@@ -8683,6 +8619,39 @@
      "signature": "1x100fragrance|1x30fragrance",
      "shops": [
       "fragrance-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3274872463172, 3274872506442",
+    "a shop lists more than one: paco-perfumerias-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3274872463172",
+     "brand": "Givenchy",
+     "name": "L'Interdit Eau de Parfum 80ml Spray 3 pcs Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3274872463172",
+     "scent": "interdit l",
+     "signature": "1x80fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3274872506442",
+     "brand": "Givenchy",
+     "name": "L'Interdit 80ml Eau de Parfum 3 Piece Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3274872506442",
+     "scent": "interdit l",
+     "signature": "1x80fragrance|3p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
      ]
     }
    ]
