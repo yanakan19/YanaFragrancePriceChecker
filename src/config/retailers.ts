@@ -6514,6 +6514,7 @@ export const RETAILERS: readonly Retailer[] = [
         // about 10 of the 29 pages.
         rotation: 3,
       },
+      patientOn429: true,
       // About 840 products to read once, about 700 of them perfume.
       discoveryPages: 150,
     },
@@ -6527,8 +6528,10 @@ export const RETAILERS: readonly Retailer[] = [
       // Five seconds, the gap its robots.txt asks of bingbot. A local dry run
       // at 1.5 s on 2026-10-08 was answered HTTP 429 (Cloudflare) after about
       // 40 requests, on the heels of a 110 page walk of the aisles from the
-      // same address, and the harvest stopped as it should.
-      minRequestGapMs: 5000,
+      // same address, and the harvest stopped as it should. Still refused after
+      // 3 to 5 pages at 5 s (runs from 13 Oct 2026), so 8 s now, no robots.txt
+      // delay for "*", and the route waits out a 429 once (patientOn429).
+      minRequestGapMs: 8000,
     },
     affiliate: { ...awinRequested() },
   },
@@ -6645,6 +6648,7 @@ export const RETAILERS: readonly Retailer[] = [
         // about 11 of the 32 pages.
         rotation: 3,
       },
+      patientOn429: true,
       // About 940 products to read once, about 780 of them perfume.
       discoveryPages: 150,
     },
@@ -6658,8 +6662,10 @@ export const RETAILERS: readonly Retailer[] = [
       // Five seconds, the gap its robots.txt asks of bingbot. A local dry run
       // at 1.5 s on 2026-10-08 was answered HTTP 429 (Cloudflare) after about
       // 40 requests, on the heels of a 110 page walk of the aisles from the
-      // same address, and the harvest stopped as it should.
-      minRequestGapMs: 5000,
+      // same address, and the harvest stopped as it should. Still refused after
+      // 3 to 5 pages at 5 s (runs from 13 Oct 2026), so 8 s now, no robots.txt
+      // delay for "*", and the route waits out a 429 once (patientOn429).
+      minRequestGapMs: 8000,
     },
     affiliate: { ...awinRequested() },
   },

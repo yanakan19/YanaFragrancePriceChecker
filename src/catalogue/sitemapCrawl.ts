@@ -1,6 +1,6 @@
 import type { Retailer, SitemapRoute } from '../types/retailer.js';
 import type { RawListing } from './types.js';
-import type { Http } from './attempt.js';
+import type { Http, HttpResponse } from './attempt.js';
 import { parseListings } from './jsonld.js';
 import { isAllowed, type RobotsRules } from './robots.js';
 import { readRobotsResponse, resolveRobotsReadings } from './robotsSource.js';
@@ -514,7 +514,7 @@ async function walkCategories(
         break;
       }
       if (fetched > 0 && gapMs > 0) await sleep(gapMs);
-      const res = await http(url, routeHeaders(route));
+      const res = await askPatiently(http, url, routeHeaders(route), route, sleep, deadlineAt);
       fetched++;
       onProgress?.(fetched, kept.size);
       if (!res.ok) {
@@ -628,7 +628,7 @@ async function discoverViaRoute(
     }
 
     if ((fetched > 0 || categoryPages > 0) && gapMs > 0) await sleep(gapMs);
-    const res = await http(url, routeHeaders(route));
+    const res = await askPatiently(http, url, routeHeaders(route), route, sleep, deadlineAt);
     fetched++;
     onProgress?.(fetched, kept.size);
     if (!res.ok) {
@@ -683,6 +683,38 @@ async function discoverViaRoute(
  * sells several sizes it is the difference between a Buy link that opens the
  * 30ml and one that opens whichever size the shop shows first.
  */
+/** Bounds of the wait before the one retry of a 429 on a `patientOn429` route. */
+export const RETRY_WAIT_MIN_MS = 30_000;
+export const RETRY_WAIT_MAX_MS = 120_000;
+export const RETRY_WAIT_DEFAULT_MS = 60_000;
+
+/** How long to wait after a 429: what Retry-After asked, kept within bounds. */
+export function waitAfter429(retryAfterSeconds: number | undefined): number {
+  const asked = retryAfterSeconds === undefined ? RETRY_WAIT_DEFAULT_MS : retryAfterSeconds * 1000;
+  return Math.min(RETRY_WAIT_MAX_MS, Math.max(RETRY_WAIT_MIN_MS, asked));
+}
+
+/**
+ * One request. On a 429 from a `patientOn429` route, wait as the shop asked
+ * and ask once more (time allowing); any other answer, or a second 429, is
+ * returned as it came and the caller stops the shop as before.
+ */
+async function askPatiently(
+  http: Http,
+  url: string,
+  headers: Record<string, string>,
+  route: Pick<SitemapRoute, 'patientOn429'> | null | undefined,
+  sleep: (ms: number) => Promise<void>,
+  deadlineAt: number,
+): Promise<HttpResponse> {
+  const res = await http(url, headers);
+  if (res.status !== 429 || !route?.patientOn429) return res;
+  const wait = waitAfter429(res.retryAfterSeconds);
+  if (Date.now() + wait >= deadlineAt) return res;
+  await sleep(wait);
+  return http(url, headers);
+}
+
 export function cleanListingUrl(listingUrl: string, pageUrl: string): string {
   try {
     const l = new URL(listingUrl);
@@ -1042,7 +1074,7 @@ export async function crawlViaSitemap(
     }
 
     if (sampledUrls.length < SAMPLE_LIMIT) sampledUrls.push(url);
-    const res = await http(fetchUrl, apiReader ? { ...headers, accept: 'application/json' } : headers);
+    const res = await askPatiently(http, fetchUrl, apiReader ? { ...headers, accept: 'application/json' } : headers, route, sleep, deadlineAt);
     pagesFetched++;
     if (!refreshSet.has(canonicalPage(url)) && !isKnown(url)) discoveryFetched++;
     options.onProgress?.(pagesFetched, listings.length);

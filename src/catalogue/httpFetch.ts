@@ -88,7 +88,14 @@ export function createHttp(options: HttpOptions = {}): Http {
       // res.url is the address after redirects were followed, which is a
       // different fact from the one requested and the only one that can
       // answer "where does this link actually land". See HttpResponse.finalUrl.
-      return { status: res.status, body: decodeBody(bytes), ok: res.ok, finalUrl: res.url };
+      const asked = Number.parseInt(res.headers.get('retry-after') ?? '', 10);
+      return {
+        status: res.status,
+        body: decodeBody(bytes),
+        ok: res.ok,
+        finalUrl: res.url,
+        ...(Number.isFinite(asked) && asked >= 0 ? { retryAfterSeconds: asked } : {}),
+      };
     } catch (err) {
       // `TypeError: fetch failed` on its own says nothing about why. undici
       // carries the real reason on `cause`, and a crawl report that cannot

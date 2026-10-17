@@ -641,6 +641,13 @@ export interface CategoryWalk {
  */
 export interface SitemapRoute {
   /**
+   * A shop that rate limits (HTTP 429) after a few pages. On a 429 the crawl
+   * waits what Retry-After asked (60 s when it gave none, never under 30 s or
+   * over 120 s), asks once more, and stops the shop for this run if that one
+   * is refused too. Unset: the first 429 stops the shop.
+   */
+  patientOn429?: boolean;
+  /**
    * Category pages the shop itself files its fragrance range under, walked page
    * by page to find product pages. Unset for every shop whose sitemap is the
    * whole story. See `CategoryWalk`.

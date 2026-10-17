@@ -34,6 +34,8 @@ export interface HttpResponse {
    * case from a healthy one — only the address it settled on can.
    */
   finalUrl?: string;
+  /** Seconds the shop's Retry-After header asked us to wait (a 429 or 503), when it gave a number. */
+  retryAfterSeconds?: number;
 }
 
 export type Http = (url: string, headers: Record<string, string>) => Promise<HttpResponse>;
