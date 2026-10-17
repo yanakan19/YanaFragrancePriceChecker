@@ -1649,9 +1649,12 @@ await Promise.all(Array.from({ length: Math.min(concurrency, Math.max(1, shops.l
   // actorPartial above): Selfridges again, run #588, 60 re-priced of 293
   // held. Neither can have its whole held range re-priced, so both are
   // warned about by the freshness check, never failed on.
+  // A plain HTTP 401, 403, 407 or 429 in a shop's errors counts the same
+  // (Beauty Flash and Gorgeous Shop, 10 red runs from #1236: a 429 after two
+  // to five pages, 700+ listings left unread).
   const answered = new Set(
     report.current().shops
-      .filter((s) => s.tier !== 'none' && s.tier !== 'render' && !(s.refusals && s.refusals.length > 0))
+      .filter((s) => s.tier !== 'none' && s.tier !== 'render' && !(s.refusals && s.refusals.length > 0) && !refusalIn(s.errors))
       .map((s) => s.retailerId),
   );
   const measured = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
