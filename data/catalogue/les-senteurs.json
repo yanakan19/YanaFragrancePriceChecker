@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-17T03:37:37.014Z",
-  "seenAt": "2026-10-17T03:37:37.014Z",
+  "updatedAt": "2026-10-17T07:16:39.938Z",
+  "seenAt": "2026-10-17T07:16:39.938Z",
   "source": "live",
   "listings": [
     {
@@ -3326,7 +3326,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "YUMA – The Elixir of Balance . Balance is a state of being: grounded, calm, and conscious. Like the Swiss Alps, it rises above the clouds while remaining deeply rooted in the earth. It preserves the stillness of alpine lakes, the purity of the air, and the quiet strength of the mountains, as the scent of Swiss mint drifts through the alpine breeze. In this balance, nature and self become one. . YUMA, named after its key components, is a short form of Yuzu–Mint — a metaphor for freshness, clarity, and harmony.. . Fragrance Composition . Top Notes: Swiss mint, Peppermint, Yuzu, Bergamot. Heart Notes: Alpine breeze accord, Edelweiss, Ginger, Cashmeran. Base Notes: Dry amber, Vetiver, Musk, Patchouli.",
       "productType": "Fragrance",

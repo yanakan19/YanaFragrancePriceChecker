@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-17T04:24:57.501Z",
-  "seenAt": "2026-10-17T04:24:57.501Z",
+  "updatedAt": "2026-10-17T08:17:57.237Z",
+  "seenAt": "2026-10-17T08:17:57.237Z",
   "source": "live",
   "listings": [
     {
@@ -674,32 +674,6 @@
       "inStock": true,
       "sectionId": "house-direct",
       "description": "Surrati Luxury Oud . Luxury Oud is a premium fragrance that represents the pinnacle of Arabian perfumery. It is a deep, multifaceted scent designed to showcase the complexity of high-grade agarwood without the sharp \"medicinal\" edge found in lesser blends. By combining traditional oud with soft, resinous undertones, it creates an aura of prestige and timelessness, making it one of the most sought-after selections for formal occasions in the Middle East.. Fragrance Profile: A Rich Oriental-Woody scent characterized by its smooth, balsamic depth and earthy warmth.. . Key Notes: Features a heart of Premium Cambodian Oud , enriched with Damask Rose , Frankincense (Luban) , and a warm, golden Amber base.. . Best Use: Reserved for formal events, evening wear, and religious or cultural celebrations.. . Performance: Incredible longevity and a regal sillage that projects a sense of luxury and status.. . Vibe: Grand, traditional, warm, and authoritative.. . Target Audience: Ideal for those who appreciate the authentic, \"royal\" smell of traditional Arabian hospitality and luxury.. .",
-      "productType": null,
-      "nativePrice": {
-        "amount": 57.75,
-        "currency": "AED"
-      },
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-08-05T11:07:58.528Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "101044330",
-      "url": "https://surrati.ae/products/cuban-tobacco",
-      "rawTitle": "Cuban Tobacco",
-      "rawBrand": "Surrati Perfumes",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/WhatsAppImage2026-04-04at3.42.44PM.jpg?v=1775647158",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Surrati Cuban Tobacco . Cuban Tobacco is an intense, charismatic fragrance that captures the smoky, honeyed essence of a premium cigar lounge. It is a bold \"gourmand-tobacco\" scent that balances rugged masculinity with a refined, sweet smoothness. Known for its warmth and complexity, it is a statement fragrance that feels both cozy and powerful, making it a favorite for those who want a scent with a strong, distinctive character.. Fragrance Profile: A rich Amber-Woody composition with heavy smoky and sweet accords.. . Key Notes: A dominant Tobacco Leaf accord blended with Vanilla , Spices , and Cacao , anchored by a base of Dry Fruits and Woody notes .. . Best Use: Best suited for evening wear, winter months, or formal night-time events.. . Performance: Exceptional longevity and a warm, enveloping sillage that leaves a memorable trail.. . Vibe: Bold, sophisticated, warm, and mysterious.. . Target Audience: Ideal for those who enjoy \"darker\" scents like Tom Ford's Tobacco Vanille style—perfect for someone wanting a high-end, luxury feel.. . .",
       "productType": null,
       "nativePrice": {
         "amount": 57.75,
@@ -2801,6 +2775,33 @@
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "101044330",
+      "url": "https://surrati.ae/products/cuban-tobacco",
+      "rawTitle": "Cuban Tobacco",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/WhatsAppImage2026-04-04at3.42.44PM.jpg?v=1775647158",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Surrati Cuban Tobacco . Cuban Tobacco is an intense, charismatic fragrance that captures the smoky, honeyed essence of a premium cigar lounge. It is a bold \"gourmand-tobacco\" scent that balances rugged masculinity with a refined, sweet smoothness. Known for its warmth and complexity, it is a statement fragrance that feels both cozy and powerful, making it a favorite for those who want a scent with a strong, distinctive character.. Fragrance Profile: A rich Amber-Woody composition with heavy smoky and sweet accords.. . Key Notes: A dominant Tobacco Leaf accord blended with Vanilla , Spices , and Cacao , anchored by a base of Dry Fruits and Woody notes .. . Best Use: Best suited for evening wear, winter months, or formal night-time events.. . Performance: Exceptional longevity and a warm, enveloping sillage that leaves a memorable trail.. . Vibe: Bold, sophisticated, warm, and mysterious.. . Target Audience: Ideal for those who enjoy \"darker\" scents like Tom Ford's Tobacco Vanille style—perfect for someone wanting a high-end, luxury feel.. . .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 57.75,
+        "currency": "AED"
+      },
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-08-05T11:07:58.528Z",
+      "lastSeenAt": "2026-10-17T04:24:57.501Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-17T08:17:57.237Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null
