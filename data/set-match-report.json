@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 219,
+ "folded": 218,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -3260,38 +3260,6 @@
      "signature": "2x20fragrance",
      "shops": [
       "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616305439420",
-   "absorbed": [
-    "set-hugo-boss-boss-bottled-gift-set-50ml-edt-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305439420",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 50ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3616305439420",
-     "scent": "boss bottled",
-     "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-bottled-gift-set-50ml-edt-100ml-shower-gel",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 50ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
