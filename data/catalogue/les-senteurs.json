@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-16T23:46:30.535Z",
-  "seenAt": "2026-10-16T23:46:30.535Z",
+  "updatedAt": "2026-10-17T03:37:37.014Z",
+  "seenAt": "2026-10-17T03:37:37.014Z",
   "source": "live",
   "listings": [
     {
@@ -7880,7 +7880,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A Floral, Musky fragrance evoking endless love, imagined as the extension of a kiss by master perfumer Dominique Ropion for D'ORSAY.. Your search for eternal love is finally coming to an end. With this perfume, surrender to this radiant union, and celebrate the iris and musk intertwining of your two bodies and souls.. An intense and addictive scent imagined for him and her from 100% pure and natural ingredients, sourced with a strict ethic of total transparency.. . Tête: Pink Berry Extract, Amber Absolute Coeur : Jasmine Accord, Iris Concrete Fond: Patchouli Essence, Cashmeran .",
       "productType": "Fragrance",

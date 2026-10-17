@@ -1,7 +1,7 @@
 {
   "retailerId": "mykonos",
-  "updatedAt": "2026-10-17T00:50:25.390Z",
-  "seenAt": "2026-10-17T00:50:25.390Z",
+  "updatedAt": "2026-10-17T04:27:42.231Z",
+  "seenAt": "2026-10-17T04:27:42.231Z",
   "source": "live",
   "listings": [
     {
@@ -331,9 +331,10 @@
       "description": "Mykonos X SetiawanAde - Glitch Extrait de Parfum 50ml & 100ml Feel the rush of the future with Glitch. Glitch is made for those who thrive in the fast lane. It opens with a crisp, invigorating burst of citrus and fruity notes, setting the tone with vibrant freshness and energy. At its core, a refined blend of florals and pink pepper adds depth and character, balanced by a hint of vanilla for a subtle warmth. The scent finishes strong with a clean, woody base of white musk, cedarwood, moss, amber, and patchouli, leaving an unmistakable, confident trail. Glitch is the ultimate companion for those who live boldly and thrive in the electric pulse of modern life. Top Notes: Sicilian Bergamot, Apple, Grapefruit, Charred Pineapple. Middle Notes: Lavender, Artemisia, Lily of the Valley, Pink Pepper, Vanilla, Dried Jasmine. Base Notes: Patchouli, Vanilla, Musk No. BPOM: NA18250600204 . .",
       "productType": null,
       "nativePrice": {
-        "amount": 499000,
+        "amount": 239000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 499000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-08-05T11:11:16.884Z",
       "status": "active",
@@ -357,9 +358,10 @@
       "description": "Mykonos X SetiawanAde - Glitch Extrait de Parfum 50ml & 100ml Feel the rush of the future with Glitch. Glitch is made for those who thrive in the fast lane. It opens with a crisp, invigorating burst of citrus and fruity notes, setting the tone with vibrant freshness and energy. At its core, a refined blend of florals and pink pepper adds depth and character, balanced by a hint of vanilla for a subtle warmth. The scent finishes strong with a clean, woody base of white musk, cedarwood, moss, amber, and patchouli, leaving an unmistakable, confident trail. Glitch is the ultimate companion for those who live boldly and thrive in the electric pulse of modern life. Top Notes: Sicilian Bergamot, Apple, Grapefruit, Charred Pineapple. Middle Notes: Lavender, Artemisia, Lily of the Valley, Pink Pepper, Vanilla, Dried Jasmine. Base Notes: Patchouli, Vanilla, Musk No. BPOM: NA18250600204 . .",
       "productType": null,
       "nativePrice": {
-        "amount": 859000,
+        "amount": 399000,
         "currency": "IDR"
       },
+      "nativeWasPrice": 859000,
       "retailerId": "mykonos",
       "firstSeenAt": "2026-08-05T11:11:16.884Z",
       "status": "active",
