@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-10-17T07:16:39.938Z",
-  "seenAt": "2026-10-17T07:16:39.938Z",
+  "updatedAt": "2026-10-17T11:07:44.993Z",
+  "seenAt": "2026-10-17T11:07:44.993Z",
   "source": "live",
   "listings": [
     {
@@ -2268,7 +2268,7 @@
       "priceGbp": 3,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Yum Pistachio Gelato | 33 Eau de Parfum is a delicious explosion of irresistible and edible notes including pistachio, voluptuous whipped cream, roasted hazelnut, sweet rum, fluffy marshmallow, and fizzy cotton candy. A truly yummy fragrance that charms with an unforgettably intense, gourmand scent trail that will have you smelling good enough to eat..",
       "productType": "Fragrances",

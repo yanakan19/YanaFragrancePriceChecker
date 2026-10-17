@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-17T07:16:39.938Z",
-  "seenAt": "2026-10-17T07:16:39.938Z",
+  "updatedAt": "2026-10-17T11:07:44.993Z",
+  "seenAt": "2026-10-17T11:07:44.993Z",
   "source": "live",
   "listings": [
     {
@@ -15447,7 +15447,7 @@
       "priceGbp": 201,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Acqua di Parma’s Colonia Eau de Cologne is a timeless Italian classic. Citrus top notes of lemon and orange blend with lavender and rosemary for a fresh, elegant finish..",
       "productType": "Unisex Fragrance",
@@ -18230,7 +18230,7 @@
       "priceGbp": 125,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The First Eau de Parfum 100ml by Van Cleef & Arpels is a timeless floral fragrance infused with aldehydes, rose and jasmine. Elegant and refined, it captures the house’s classic Parisian femininity in every note..",
       "productType": "Women's Fragrances",

@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-17T07:16:39.938Z",
-  "seenAt": "2026-10-17T07:16:39.938Z",
+  "updatedAt": "2026-10-17T11:07:44.993Z",
+  "seenAt": "2026-10-17T11:07:44.993Z",
   "source": "live",
   "listings": [
     {
@@ -18690,7 +18690,7 @@
       "priceGbp": 55,
       "wasPriceGbp": 95,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Armani Stronger With You Intensely Eau de Parfum Spray 100ml Tester.",
       "productType": "Eau de Parfum",
@@ -25521,7 +25521,7 @@
       "priceGbp": 13.21,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Cosrx Advanced Snail Mucin Glass Glow Hydrogel Face Mask 34g.",
       "productType": "Face Mask",
