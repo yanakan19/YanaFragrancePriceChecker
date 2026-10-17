@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-17T15:00:08.527Z",
-  "seenAt": "2026-10-17T15:00:08.527Z",
+  "updatedAt": "2026-10-17T19:11:38.619Z",
+  "seenAt": "2026-10-17T19:11:38.619Z",
   "source": "live",
   "listings": [
     {
@@ -405,7 +405,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Indulge in the luxurious scent of Eclair lattafa perfumes. With top notes of Caramel, Milk, and Sugar, this fragrance will awaken your senses. The middle notes of Honey and White Flowers add a touch of sweetness, while the base notes of Vanilla, Praline, and Musk leave a warm and inviting aroma. Perfect for the sophisticated woman. .",
       "productType": null,

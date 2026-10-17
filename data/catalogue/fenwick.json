@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-17T15:00:08.527Z",
-  "seenAt": "2026-10-17T15:00:08.527Z",
+  "updatedAt": "2026-10-17T19:11:38.619Z",
+  "seenAt": "2026-10-17T19:11:38.619Z",
   "source": "live",
   "listings": [
     {
@@ -19403,7 +19403,7 @@
       "priceGbp": 130,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Angels' Share Eau de Parfum 30ml by Kilian Paris is a warm, gourmand fragrance inspired by the essence of aged cognac. Notes of oak, cinnamon and vanilla create depth and richness with a smooth, enveloping finish. A distinctive scent with enduring appeal..",
       "productType": "Unisex Fragrance",

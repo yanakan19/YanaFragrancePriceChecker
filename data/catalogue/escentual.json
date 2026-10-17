@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-17T15:00:08.527Z",
-  "seenAt": "2026-10-17T15:00:08.527Z",
+  "updatedAt": "2026-10-17T19:11:38.619Z",
+  "seenAt": "2026-10-17T19:11:38.619Z",
   "source": "live",
   "listings": [
     {
@@ -82696,8 +82696,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GUERLAIN_L_Heure_Bleue_1912_Eau_de_Parfum_Spray.png?v=1790260231",
-      "priceGbp": 88.67,
-      "wasPriceGbp": 133,
+      "priceGbp": 133,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
