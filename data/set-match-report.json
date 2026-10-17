@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 217,
+ "folded": 216,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1753,8 +1753,7 @@
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
       "fragrance-click",
-      "paco-perfumerias-uk",
-      "perfume-click"
+      "paco-perfumerias-uk"
      ]
     },
     {
@@ -4969,51 +4968,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003809318",
-   "absorbed": [
-    "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
-    "set-versace-eros-gift-set-2-x-30ml-edt-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003809318",
-     "brand": "Versace",
-     "name": "Eros Gift Set 2 x 30ml EDT Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003809318",
-     "scent": "eros",
-     "signature": "2x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
-     "brand": "Versace",
-     "name": "Eros Eau de Toilette Spray 2 x 30ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "eros",
-     "signature": "2x30fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-versace-eros-gift-set-2-x-30ml-edt-spray",
-     "brand": "Versace",
-     "name": "Eros Gift Set 2 x 30ml EDT Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "eros",
-     "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8011003831999",
    "absorbed": [
     "set-missoni-2015-gift-set-50ml-edt-50ml-body-lotion-50ml-shower-gel"
@@ -6429,6 +6383,38 @@
    ]
   },
   {
+   "canonical": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
+   "absorbed": [
+    "set-versace-eros-gift-set-2-x-30ml-edt-spray"
+   ],
+   "members": [
+    {
+     "id": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
+     "brand": "Versace",
+     "name": "Eros Eau de Toilette Spray 2 x 30ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "eros",
+     "signature": "2x30fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-versace-eros-gift-set-2-x-30ml-edt-spray",
+     "brand": "Versace",
+     "name": "Eros Gift Set 2 x 30ml EDT Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "eros",
+     "signature": "2x30fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-50ml-edp-50ml-body-lotion",
    "absorbed": [
     "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-edp-50ml-b-lotion-50ml"
@@ -6818,7 +6804,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 783320407277, 783320423444",
     "price spread 1.68 is over 1.5"
    ],
    "members": [
@@ -6832,18 +6817,6 @@
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-ean-0783320423444",
-     "brand": "Bvlgari",
-     "name": "Man Wood Essence Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0783320423444",
-     "scent": "essence man wood",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "perfume-click"
      ]
     },
     {
