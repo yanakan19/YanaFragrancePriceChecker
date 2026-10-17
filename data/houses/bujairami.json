@@ -1,9 +1,61 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-17T12:01:24.775Z",
-  "seenAt": "2026-10-17T12:01:24.775Z",
+  "updatedAt": "2026-10-17T16:05:18.858Z",
+  "seenAt": "2026-10-17T16:05:18.858Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "11021570638135-Default Title",
+      "url": "https://bujairami.ae/products/extra-pulse-inspired-by-myslf-le-parfum-ysl",
+      "rawTitle": "Extra Pulse Inspired by MYSLF Le Parfum YSL",
+      "rawBrand": "Bujairami UAE",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/2302-5_ccfe83d1-b02b-416a-8321-496db755055c.webp?v=1792240856",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A bold and elegant fragrance opening with spicy black pepper. The heart reveals the delicate floral sweetness of orange blossom, while woody accords and rich bourbon vanilla create a warm, smooth, and sensual finish.. Fragrance Notes . Top: Black Pepper. Heart: Orange Blossom. Base: Woody Accord, Bourbon Vanilla. Profile: Spicy • Floral • Woody • Sweet • Warm.",
+      "productType": null,
+      "nativePrice": {
+        "amount": 150,
+        "currency": "AED"
+      },
+      "retailerId": "bujairami",
+      "firstSeenAt": "2026-10-17T16:05:18.858Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "11021569491255-Default Title",
+      "url": "https://bujairami.ae/products/mohabbat-original-creation",
+      "rawTitle": "Mohabbat (Original Creation)",
+      "rawBrand": "Bujairami UAE",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/moha.webp?v=1792240449",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A sophisticated fragrance opening with sparkling bergamot, spicy pepper, juicy cassis, and tropical fruity notes. The heart blends elegant iris and jasmine with aromatic cardamom, delicate osmanthus, and earthy vetiver, while patchouli, sandalwood, musk, amber, and balsamic notes create a warm, rich, and sensual finish.. Fragrance Notes . Top: Bergamot, Pepper, Cassis, Tropical Fruity Notes. Heart: Iris, Jasmine, Cardamom, Osmanthus, Vetiver. Base: Patchouli, Sandalwood, Musk, Amber, Balsamic Notes. Profile: Fruity • Spicy • Floral • Woody • Amber • Musky.",
+      "productType": null,
+      "nativePrice": {
+        "amount": 150,
+        "currency": "AED"
+      },
+      "retailerId": "bujairami",
+      "firstSeenAt": "2026-10-17T16:05:18.858Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11019838783799-Default Title",
       "url": "https://bujairami.ae/products/gem-inspired-by-al-fareed-arabian-oud-extrait",

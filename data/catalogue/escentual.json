@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-17T11:07:44.993Z",
-  "seenAt": "2026-10-17T11:07:44.993Z",
+  "updatedAt": "2026-10-17T15:00:08.527Z",
+  "seenAt": "2026-10-17T15:00:08.527Z",
   "source": "live",
   "listings": [
     {
@@ -1785,7 +1785,7 @@
       "priceGbp": 235,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "\"Ormonde Man captures a hypnotic and mystical magic in a bottle! Usually, woody scents can feel traditional or quiet, but this extraordinary infusion of rare black hemlock, crisp juniper, and prized Oudh oil is purely luminous on the skin.\" — Escentual Beauty Team . . Why You'll Love Ormonde Jayne Ormonde Man:. It's a groundbreaking woody-chypre accord driven by unconventional ingredients, making you feel instantly sophisticated, suave, and full of character.. Ormonde Man offers an effortless elegance; its sultry, mystical warmth elevates your presence to one of true distinction.. Unconventional black hemlock and aromatic cardamom give the soft woody core a uniquely green, resinous intrigue.. Prized Oudh oil, rich cedar, and earth-bound vetiver lend the scent an unmatched, magnetic depth.. Fragrance lovers adore its striking contrast of bursting juniper, crushed coriander seeds, and deep, smoldering woods.. It's an olfactory homage to rarity and refinement; a modern, sophisticated statement on classic woody-chypre accords.. . What Does Ormonde Jayne Ormonde Man Smell Like?. Ormonde Man is a complex, sultry Eau de Parfum that opens with a radiant burst of juniper berry, zesty bergamot, pink pepper, cardamom, and coriander seeds, bringing an immediate, spicy-fresh radiance to the senses. Soon after spraying, an intriguing, mystical heart of rare black hemlock and precious Oudh oil emerges, setting the fragrance apart with an unmistakable aura of distinction. The fragrance then unfolds into a smooth, hypnotic base of vetiver, cedar, sandalwood, and musk, extending a soft, lingering warmth directly onto the skin.. . Fragrance Family: Woody . Top Notes: Juniper Berry, Bergamot, Pink Pepper, Cardamom, Coriander Seeds . Heart Notes: Oudh, Black Hemlock . Base Notes: Vetiver, Cedar, Sandalwood, Musk . . Why It's Escentual:. Ormonde Jayne created Ormonde Man to redefine woody fragrances through the lens of pure sophistication and rare botanicals. By pairing the world's most prized essence—Oudh oil—with hypnotic black hemlock, this scent captures an enigmatic, magnetic charm that feels both timeless and boundary-pushing.. Possessing an extraordinary, head-turning silage, Ormonde Man commands respect wherever it goes. While it can be worn as a trusted signature whenever you want to project effortless confidence, its rich hemlock and smouldering wood notes truly come into their own during cool autumn days, evening events, and major occasions after dark.. . The Best Way To Use It: . We also recommend the following perfume tips: . Target areas where the blood vessels are closest to the skin, allowing the fragrance to emanate. Common pulse points include the wrists, neck, behind the ears, and inner elbows. . Resist the urge to rub your wrists together after applying perfume. This can break down the fragrance molecules and alter the scent. . Hold the perfume bottle about 6–8 inches away from your skin when spraying. This ensures a more even distribution of the fragrance. . Keep your perfume in a cool, dark place, away from direct sunlight and temperature fluctuations. This helps maintain the integrity of the fragrance. . If your perfume fades throughout the day, consider reapplying to pulse points or areas where your skin is warm. .",
       "productType": "Fragrance",
@@ -43093,7 +43093,7 @@
       "priceGbp": 115,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Eau Parfumee The Blanc, launched in 2003, was conceived as a new olfactory adventure inspired by the spirit of daring, generosity and innovation at the heart of this iconic fragrance collection. Today, Bvlgari invites its clients to rediscover this timeless perfume creation through a new design, an upgraded formula featuring natural tea and a new conceptual story. Inspired by a dreamlike place where gems of nature spark the imagination, clients are welcome to experience Eau Parfumee's unique olfactive botanical harmonies inside the Botanical Garden. Eau Parfumee The Blanc Eau de Toilette traces a discreet path of serenity through this garden, unveiling the comforting olfactive botanical properties of white tea from China. With Eau Parfumee The Blanc, Master-Perfumer Jacques Cavallier captures the feeling of comfort offered by the most prestigious Chinese white teas in a woody floral musk fragrance that envelops the soul in a delicate cocoon of confidence and serenity. The exquisite white tea notes find their perfect alliance in a luminous accord of white musk, the olfactory signature of Bvlgari. The sensual, round, and clean accents of musk create a caressing effect that lasts. The silhouette of the flacon is inspired by the proud elegance of ancient Roman columns. The design is embellished by the iconic glass decollete, symbolizing a sensory experience as rich and intimate as wearing a jewellery creation. A crackled inlay adorns the beige gold cap and echoes the tradition of celadon ceramics originating in China. The front label is enriched with new hand-drawn botanical illustrations, meticulously crafted by a French botanist exclusively for Bvlgari and exquisitely embossed thanks to new selected paper made from hemp. .",
       "productType": "Fragrance",
@@ -144842,8 +144842,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/guerlain_mon_guerlain_perfumes_body_lotion_200ml.png?v=1729191269",
-      "priceGbp": 36.67,
-      "wasPriceGbp": 55,
+      "priceGbp": 55,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
