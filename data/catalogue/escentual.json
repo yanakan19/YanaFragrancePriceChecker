@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-18T07:15:13.126Z",
-  "seenAt": "2026-10-18T07:15:13.126Z",
+  "updatedAt": "2026-10-18T11:07:48.864Z",
+  "seenAt": "2026-10-18T11:07:48.864Z",
   "source": "live",
   "listings": [
     {
@@ -36880,8 +36880,8 @@
       "rawBrand": "GIVENCHY",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GIVENCHYL_InterditParfum35ml_c3d5a318-2e75-4b97-973b-a9143371728d.png?v=1754997933",
-      "priceGbp": 94.05,
-      "wasPriceGbp": 112,
+      "priceGbp": 112,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

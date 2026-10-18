@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-18T07:15:13.126Z",
-  "seenAt": "2026-10-18T07:15:13.126Z",
+  "updatedAt": "2026-10-18T11:07:48.864Z",
+  "seenAt": "2026-10-18T11:07:48.864Z",
   "source": "live",
   "listings": [
     {
@@ -106,7 +106,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Montblanc Legend Eau de Toilette 30ml. Key Features. ##features##. Iconic aromatic fougère fragrance for men.. Fresh blend of bergamot, lavender and pineapple leaf.. Sophisticated heart with apple, oakmoss and geranium.. Warm sandalwood and tonka bean base.. Perfect travel-friendly 30ml size.. Suitable for work, casual wear and evenings.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Montblanc Legend Eau de Toilette is a sophisticated men's fragrance that combines freshness, depth and modern masculinity. Opening with bergamot and lavender, it develops into a rich heart of apple and oakmoss before settling into smooth sandalwood and tonka bean. Elegant and versatile, it is ideal for everyday wear.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-bay",
-  "updatedAt": "2026-10-18T07:15:13.126Z",
-  "seenAt": "2026-10-18T07:15:13.126Z",
+  "updatedAt": "2026-10-18T11:07:48.864Z",
+  "seenAt": "2026-10-18T11:07:48.864Z",
   "source": "live",
   "listings": [
     {
@@ -330,7 +330,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "retailerId": "beauty-bay",
       "firstSeenAt": "2026-10-03T20:31:52.514Z",

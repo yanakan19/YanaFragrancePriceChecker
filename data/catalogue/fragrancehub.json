@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-18T07:15:13.126Z",
-  "seenAt": "2026-10-18T07:15:13.126Z",
+  "updatedAt": "2026-10-18T11:07:48.864Z",
+  "seenAt": "2026-10-18T11:07:48.864Z",
   "source": "live",
   "listings": [
     {
@@ -4338,7 +4338,7 @@
       "priceGbp": 54.99,
       "wasPriceGbp": 69.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Black Diamond Incense . Dark. Smoky. Addictive.. Black Diamond Incense is a bold oriental-woody fragrance that blends sacred smoke with creamy woods and deep amber warmth. It opens with fresh aquatic notes and juicy blackcurrant, sharpened by birch for a crisp, slightly leathery edge.. As it settles, rich incense and smooth vanilla melt into sandalwood, creating a warm, resinous heart that feels luxurious and mysterious. The base is where it truly shines — dense amber, smoke, leather and oud combine for a powerful, long-lasting trail that commands attention.. Deep, refined and unapologetically intense — made for evenings, special occasions, and those who prefer their scent to leave a statement.. Fragrance Notes Top: Aquatic Notes, Blackcurrant, Birch Heart: Incense, Vanilla, Sandalwood Base: Amber, Smoke, Leather, Oud.",
       "productType": null,
