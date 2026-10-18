@@ -37,10 +37,11 @@ export const isVideo = (name: string) => /\.(mp4|mov|webm)$/i.test(name);
  *   explainer-video  scripts/social-video-explainers.ts's video `video`
  *   launch-video     scripts/social-video-launch.ts's video `video`
  *   guess-video      scripts/social-video-guess.ts's video `video`: "puzzle" (from guess-9x16.html) or "reveal" (from check.json)
+ *   features-week    scripts/social-features-week.ts: the slides and the video of the 17 October post, from shots of the built page
  *   history          not drawable (drawn from a live page): only the file as first made,
  *                    from git history
  */
-export type PictureMake = 'svg' | 'html' | 'deal-video' | 'explainer-video' | 'launch-video' | 'guess-video' | 'history';
+export type PictureMake = 'svg' | 'html' | 'deal-video' | 'explainer-video' | 'launch-video' | 'guess-video' | 'features-week' | 'history';
 
 export interface Picture {
   file: string;

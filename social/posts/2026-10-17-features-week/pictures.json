@@ -1,0 +1,60 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-10-17-features-week . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "features-1-3x4.png",
+      "make": "features-week",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 171131,
+      "sha256": "506e7d5bd9dfe0536882ac99a75085c31e948b9ecd22e3266a50b2a53a329b66"
+    },
+    {
+      "file": "features-2-3x4.png",
+      "make": "features-week",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 167593,
+      "sha256": "1904184fbcc7328744aa0592a47468d637a40fa36c7f5a4d2ca0392db7b0b05c"
+    },
+    {
+      "file": "features-3-3x4.png",
+      "make": "features-week",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 181452,
+      "sha256": "2aeb3113081b3f7e7e9de4a7f631e53e19a4ae69263152051dd279bb402786a2"
+    },
+    {
+      "file": "features-4-3x4.png",
+      "make": "features-week",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 220691,
+      "sha256": "dd898a935e1b1b688a4d30daafb50397506d69c2a44304626a8bd58865c6565b"
+    },
+    {
+      "file": "features-5-3x4.png",
+      "make": "features-week",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 208565,
+      "sha256": "1e17c1d12bc64c8edb29650a09e0d54a94335933f4824a1f09dc15fa570b8db3"
+    },
+    {
+      "file": "features-6-3x4.png",
+      "make": "features-week",
+      "width": 1080,
+      "height": 1440,
+      "bytes": 108627,
+      "sha256": "7d9e938602b230d50ae51e80b41c70546bcbb2ad4ebff54b78561dfc3d61216c"
+    },
+    {
+      "file": "features-video-9x16.mp4",
+      "make": "features-week",
+      "seconds": 15.3,
+      "bytes": 2012415,
+      "sha256": "1bf635955b1840a118eac7d9991fcc8c4dca8106f3869ab767bcf960dcacbfe7"
+    }
+  ]
+}

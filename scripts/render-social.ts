@@ -25,6 +25,7 @@
  *   deal-video       the Deal of the Day video, from check.json's figures (dealVideoFromRecord)
  *   explainer-video  an informative video, from scripts/social-video-explainers.ts
  *   launch-video     a launch video, from scripts/social-video-launch.ts
+ *   features-week    the slides and video of the 17 October post, from scripts/social-features-week.ts
  *   guess-video      a Guess the Fragrance video, from scripts/social-video-guess.ts: "puzzle" from the
  *                    9:16 picture's HTML beside it, "reveal" from check.json
  *   history          drawn from a live page once and never again: only the file as first
@@ -59,6 +60,7 @@ import { renderVideo } from './social-video-render.js';
 import { DEAL_VIDEO, dealScenes, dealVideoFromRecord, esc, type DealVideoRecord } from './social-video-template.js';
 import { EXPLAINER_CSS, EXPLAINER_VIDEOS } from './social-video-explainers.js';
 import { LAUNCH_CSS, LAUNCH_VIDEOS } from './social-video-launch.js';
+import { drawFeaturesWeek } from './social-features-week.js';
 import { drawPuzzleVideo, drawRevealVideo } from './social-video-guess.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -126,6 +128,9 @@ async function withRetries<T>(what: string, run: () => Promise<T>, tries = 8): P
   }
 }
 
+/** The folders whose features-week pictures are drawn (or being drawn) in this run. */
+const featuresDrawn = new Map<string, Promise<unknown>>();
+
 async function draw(browser: () => Promise<Browser>, dir: string, outDir: string, p: Picture): Promise<string> {
   const out = join(outDir, p.file);
   if (p.make === 'svg' || p.make === 'html') {
@@ -159,6 +164,12 @@ async function draw(browser: () => Promise<Browser>, dir: string, outDir: string
     if (!v) throw new Error(`${p.file}: no launch video "${p.video}" in scripts/social-video-launch.ts`);
     await withRetries(p.file, () => renderVideo({ spec: v.spec, scenes: v.scenes(), outDir, file: p.file, extraCss: LAUNCH_CSS, log: () => {} }));
     return `drawn from scripts/social-video-launch.ts (${p.video})`;
+  }
+  if (p.make === 'features-week') {
+    // One pass draws the shots, every slide and the video of the folder; the other entries find them done.
+    featuresDrawn.set(outDir, featuresDrawn.get(outDir) ?? withRetries(p.file, () => drawFeaturesWeek(outDir)));
+    await featuresDrawn.get(outDir);
+    return 'drawn from scripts/social-features-week.ts (shots of the built page, then slides and video)';
   }
   if (p.make === 'guess-video') {
     if (p.video !== 'puzzle' && p.video !== 'reveal') throw new Error(`${p.file}: a guess-video is "puzzle" or "reveal", not "${p.video}"`);

@@ -32,7 +32,7 @@ const folders = [
   join(SOCIAL, 'highlights'),
 ];
 const name = (dir: string) => dir.slice(SOCIAL.length + 1);
-const MAKES = ['svg', 'html', 'deal-video', 'explainer-video', 'launch-video', 'guess-video', 'history'];
+const MAKES = ['svg', 'html', 'deal-video', 'explainer-video', 'launch-video', 'guess-video', 'features-week', 'history'];
 
 describe('pictures.json in every post folder', () => {
   for (const dir of folders) {

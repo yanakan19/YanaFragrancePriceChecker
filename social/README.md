@@ -71,6 +71,7 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | 2026-10-10 | `posts/2026-10-10-launch-us-video/` | Launch video: "We've launched in the US" (11.8 second 9:16 MP4, black theme, video template; one caption with a call to tag friends) |
 | 2026-10-11 | `posts/2026-10-11-launch-india-video/` | Launch video: "We've launched in India" (11.8 second 9:16 MP4, black theme, video template; one caption with a call to tag friends) |
 | 2026-10-05 | `posts/2026-10-05-hurry-deal-video/` | Hurry deal video: Dolce & Gabbana The One for Men 150ml, £59.95 against RRP £153 (10 second 9:16 MP4, real site UI) |
+| 2026-10-17 | `posts/2026-10-17-features-week/` | Features of the week: six black slides (3:4) and a 15 second 9:16 video of real screenshots (country menu, notes, search, Deals, Most Stocked); one caption. Remake with `npm run social:render` |
 | 2026-10-02 | `posts/2026-10-02-what-is-pricesniffs/` | Intro carousel: "What is PriceSniffs?" (4 slides, 3:4 post). Remake with `npx tsx scripts/social-intro-slides.ts` |
 | 2026-10-02 | `posts/2026-10-02-savings-example/` | Savings example carousel: Miss Dior, Selfridges vs Justmylook (6 slides, 3:4 post). Remake with `npx tsx scripts/social-savings-example.ts` (inverted theme, hand picked figures, reel safe) |
 | 2026-10-02 | `posts/2026-10-02-savings/` | How much could you save?: Creed Acqua Fiorentina, Allbeauty vs MyBeauty.Boutique (6 slides, 3:4 post) |

@@ -78,6 +78,7 @@ Thumbs.db
 !.claude/hooks/
 
 social/posts/*/_frames/
+social/posts/*/_shots/
 # Scratch work and the sample Guess the Fragrance puzzles (a puzzle's check.json holds the answer: never committed).
 /social/_today/
 # A social post's pictures and videos: "social" in scripts/generated-files.txt
