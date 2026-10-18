@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-17T08:38:31.361Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-18T08:30:44.735Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -164,6 +164,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "afnan|supremacysilver": ["","https://uk.afnan.com/products/supremacy-silver"],
   "afnan|supremacysilver|edp": ["","https://uk.afnan.com/products/supremacy-silver"],
   "afnan|supremacytapisrouge": ["","https://uk.afnan.com/products/supremacy-tapis-rouge"],
+  "afnan|supremacytapisrouge|disputed": ["","https://uk.afnan.com/products/supremacy-tapis-rouge"],
   "afnan|supremacytapisrouge|edp": ["","https://uk.afnan.com/products/supremacy-tapis-rouge"],
   "afnan|supremacytapisrouge|extrait": ["","https://uk.afnan.com/products/supremacy-tapis-rouge"],
   "afnan|tasneem": ["","https://uk.afnan.com/products/tasneem"],
@@ -3585,6 +3586,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "giorgioarmani|si|parfum": ["Giorgio-Armani/Si-Parfum-112375","https://www.giorgioarmanibeauty-usa.com/fragrances/womens-perfume/si/"],
   "giorgioarmani|strongerwithyou|edt": ["","https://www.giorgioarmanibeauty-usa.com/fragrances/view-all-fragrances/stronger-with-you-eau-de-toilette/A2061.html"],
   "gisada|ambassadora": ["","https://www.gisada.com/products/ambassadora"],
+  "gisada|ambassadoragold": ["","https://www.gisada.com/products/ambassadora-gold"],
+  "gisada|ambassadoragold|edp": ["","https://www.gisada.com/products/ambassadora-gold"],
   "gisada|ambassadora|edp": ["","https://www.gisada.com/products/ambassadora"],
   "gisada|ambassadorintense": ["","https://www.gisada.com/products/ambassador-intense"],
   "gisada|ambassadorintense|edp": ["","https://www.gisada.com/products/ambassador-intense"],
@@ -3595,6 +3598,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "gisada|donna": ["","https://www.gisada.com/products/donna"],
   "gisada|donna|edp": ["","https://www.gisada.com/products/donna"],
   "gisada|donna|edt": ["","https://www.gisada.com/products/donna"],
+  "gisada|gisadagold": ["","https://www.gisada.com/products/gold"],
+  "gisada|gisadagold|edp": ["","https://www.gisada.com/products/gold"],
   "gisada|titanium": ["","https://www.gisada.com/products/titanium"],
   "gisada|titanium|edp": ["","https://www.gisada.com/products/titanium"],
   "gisada|uomo": ["","https://www.gisada.com/products/uomo"],
@@ -5634,6 +5639,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "memoiredessens|mysterioustouch|edp": ["","https://memoiredessens.com/products/mysterious-touch-eau-de-parfum-100ml"],
   "memoiredessens|tasteofyou": ["","https://memoiredessens.com/products/taste-of-you"],
   "memoiredessens|tasteofyou|edp": ["","https://memoiredessens.com/products/taste-of-you"],
+  "memoparis|abudhabi|edp": ["","https://www.memoparis.com/products/abu-dhabi-eau-de-parfum-75ml"],
   "memoparis|africanleather|edp": ["","https://www.memoparis.com/products/african-leather-eau-de-parfum-75ml"],
   "memoparis|argentina|edp": ["","https://www.memoparis.com/products/argentina-eau-de-parfum-75ml"],
   "memoparis|capcamarat|edp": ["","https://www.memoparis.com/products/cap-camarat-eau-de-parfum-75ml"],
@@ -5641,6 +5647,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "memoparis|flam|edp": ["","https://www.memoparis.com/products/flam-eau-de-parfum-75ml"],
   "memoparis|frenchleather|edp": ["","https://www.memoparis.com/products/french-leather-eau-de-parfum-75ml"],
   "memoparis|ilhadomel|edp": ["","https://www.memoparis.com/products/ilha-do-mel-eau-de-parfum-75ml"],
+  "memoparis|indianleather|edp": ["","https://www.memoparis.com/products/indian-leather-eau-de-parfum-75ml"],
   "memoparis|inle|edp": ["","https://www.memoparis.com/products/inle-eau-de-parfum-75ml"],
   "memoparis|irishleather|edp": ["","https://www.memoparis.com/products/irish-leather-eau-de-parfum-75ml"],
   "memoparis|irishoud|edp": ["","https://www.memoparis.com/products/irish-oud-eau-de-parfum-75ml"],
@@ -5652,6 +5659,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "memoparis|odeonrosebud|edp": ["","https://www.memoparis.com/products/odeon-rosebud-eau-de-parfum-30ml"],
   "memoparis|odeon|edp": ["","https://www.memoparis.com/products/odeon-eau-de-parfum-75ml"],
   "memoparis|palaisbourbon|edp": ["","https://www.memoparis.com/products/palais-bourbon-eau-de-parfum-75ml"],
+  "memoparis|portobelloroad|edp": ["","https://www.memoparis.com/products/portobello-road-eau-de-parfum-75ml"],
   "memoparis|sicilianleather|edp": ["","https://www.memoparis.com/products/sicilian-leather-eau-de-parfum-75ml"],
   "memoparis|sintra|edp": ["","https://www.memoparis.com/products/sintra-eau-de-parfum-75ml"],
   "memoparis|tamarindo|edp": ["","https://www.memoparis.com/products/tamarindo-eau-de-parfum-75ml"],
@@ -6570,6 +6578,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rabanne|invictuseaudetoilette100mldeodorant150mleaudetoilette10ml": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/invictus-spray-deodorant-150ml--000000000065096983"],
   "rabanne|invictuseaudetoilette100mldeodorant150mleaudetoilette10ml|edt": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/invictus-spray-deodorant-150ml--000000000065096983"],
   "rabanne|invictuseaudetoilette100mldeodorant150mltravelspray10mlgiftset|edt": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/invictus-eau-de-toilette-100ml---deodorant-150ml---travel-spray-10ml-giftset--000000000065240007"],
+  "rabanne|invictuseaudetoilette50mldeodorant150mleaudetoilette10ml": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/invictus-spray-deodorant-150ml--000000000065096983"],
+  "rabanne|invictuseaudetoilette50mldeodorant150mleaudetoilette10ml|edt": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/invictus-spray-deodorant-150ml--000000000065096983"],
   "rabanne|invictuselixir": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/invictus-elixir--000000000065229792"],
   "rabanne|invictuselixir|parfum": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/invictus-elixir--000000000065229792"],
   "rabanne|invictusparfum": ["Rabanne/Invictus-18471","https://www.rabanne.com/uk/en_GB/fragrance/p/invictus--000000000065055742"],
@@ -6884,6 +6894,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rituals|theritualofayurvedahome|unstated": ["","https://www.rituals.com/en-gb/the-ritual-of-ayurveda-home-perfume-200ml-1120788.html"],
   "rituals|theritualofkarmahome": ["","https://www.rituals.com/en-gb/the-ritual-of-karma-home-perfume-200ml-1120791.html"],
   "rituals|theritualofkarmahome|unstated": ["","https://www.rituals.com/en-gb/the-ritual-of-karma-home-perfume-200ml-1120791.html"],
+  "rituals|theritualofsakurahome": ["","https://www.rituals.com/en-gb/the-ritual-of-sakura-home-perfume-200ml-1120792.html"],
+  "rituals|theritualofsakurahome|unstated": ["","https://www.rituals.com/en-gb/the-ritual-of-sakura-home-perfume-200ml-1120792.html"],
   "rituals|theritualofseshenhome": ["","https://www.rituals.com/en-gb/the-ritual-of-seshen-home-perfume-1120574.html"],
   "rituals|theritualofseshenhome|unstated": ["","https://www.rituals.com/en-gb/the-ritual-of-seshen-home-perfume-1120574.html"],
   "robertocavalli|femme": ["","https://www.robertocavalli.com/fr-be/femme/"],
@@ -7318,6 +7330,10 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "thierrymugler|alien|edp": ["Mugler/Alien-707",""],
   "thierrymugler|angelelixir": ["Mugler/Angel-Elixir-78581",""],
   "thierrymugler|angelelixir|edp": ["Mugler/Angel-Elixir-78581",""],
+  "thomaskosmala|aneverendinglove": ["","https://thomaskosmala.com/products/a-never-ending-love"],
+  "thomaskosmala|aneverendinglove|edp": ["","https://thomaskosmala.com/products/a-never-ending-love"],
+  "thomaskosmala|lightofgrace": ["","https://thomaskosmala.com/products/light-of-grace"],
+  "thomaskosmala|lightofgrace|edp": ["","https://thomaskosmala.com/products/light-of-grace"],
   "thomaskosmala|muskotone": ["","https://thomaskosmala.com/products/musk-otone"],
   "thomaskosmala|muskotone|edp": ["","https://thomaskosmala.com/products/musk-otone"],
   "todaytomorrowalways|amour|edp": ["","https://avon.uk.com/products/amour-eau-de-parfum-50ml"],
