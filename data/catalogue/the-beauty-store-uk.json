@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-17T19:11:38.619Z",
-  "seenAt": "2026-10-17T19:11:38.619Z",
+  "updatedAt": "2026-10-17T23:11:58.789Z",
+  "seenAt": "2026-10-17T23:11:58.789Z",
   "source": "live",
   "listings": [
     {
@@ -18552,7 +18552,7 @@
       "priceGbp": 35.5,
       "wasPriceGbp": 82,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Armani Code Eau de Toilette Refillable Spray 75ml Tester.",
       "productType": "Eau de Toilette",
@@ -21312,7 +21312,7 @@
       "priceGbp": 48.12,
       "wasPriceGbp": 74,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Jimmy Choo I Want Choo Forever Eau de Parfum 60ml.",
       "productType": "Eau de Parfum",
