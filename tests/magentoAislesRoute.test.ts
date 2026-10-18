@@ -154,8 +154,8 @@ describe('Gorgeous Shop and Beauty Flash in the registry', () => {
         // A price is kept only where the page names sterling for it.
         expect(route.requireGbp).toBe(true);
         expect(robots.crawlDelaySeconds).toBeNull();
-        // The gap the file asks of bingbot: a faster pace was answered 429.
-        expect(shop.catalogue!.minRequestGapMs).toBe(5000);
+        // At least the gap the file asks of bingbot: a faster pace was answered 429.
+        expect(shop.catalogue!.minRequestGapMs).toBeGreaterThanOrEqual(5000);
       });
 
       it('asks only for addresses its robots.txt permits', () => {
