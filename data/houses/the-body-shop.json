@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-18T15:59:44.839Z",
-  "seenAt": "2026-10-18T15:59:44.839Z",
+  "updatedAt": "2026-10-18T19:48:57.795Z",
+  "seenAt": "2026-10-18T19:48:57.795Z",
   "source": "live",
   "listings": [
     {
@@ -5350,7 +5350,7 @@
       "priceGbp": 14,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Tough day in (or out) the office? Run a bath or jump in the shower and lather up with our Sleep Relaxing Hair & Body Wash. With 100% natural essential oils..",
       "productType": "Shower Gels",

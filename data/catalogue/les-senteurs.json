@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-18T14:54:14.533Z",
-  "seenAt": "2026-10-18T14:54:14.533Z",
+  "updatedAt": "2026-10-18T18:41:46.985Z",
+  "seenAt": "2026-10-18T18:41:46.985Z",
   "source": "live",
   "listings": [
     {
@@ -22048,7 +22048,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Another Ropion extravaganza – equally suitable for men and women.. Here the gifted Ropion uses the highest concentration of Haitian vetiver in any modern perfume and heightens the dark green, spicy effect with bergamot, pink pepper, nutmeg, oakmoss and myrrh.. An audacious, stylish masterpiece and without doubt a future classic of the perfumer’s art.. Notes: Bitter orange, vetiver, sandalwood, oakmoss, amber .",
       "productType": "Fragrance",

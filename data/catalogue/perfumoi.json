@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-18T14:54:14.533Z",
-  "seenAt": "2026-10-18T14:54:14.533Z",
+  "updatedAt": "2026-10-18T18:41:46.985Z",
+  "seenAt": "2026-10-18T18:41:46.985Z",
   "source": "live",
   "listings": [
     {
@@ -1207,7 +1207,7 @@
       "rawBrand": "Tom Ford",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0937/0035/8473/files/111452437.png?v=1790779142",
-      "priceGbp": 129.99,
+      "priceGbp": 139.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

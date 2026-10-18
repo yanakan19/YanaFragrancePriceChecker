@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-18T14:54:14.533Z",
-  "seenAt": "2026-10-18T14:54:14.533Z",
+  "updatedAt": "2026-10-18T18:41:46.985Z",
+  "seenAt": "2026-10-18T18:41:46.985Z",
   "source": "live",
   "listings": [
     {
@@ -57179,7 +57179,7 @@
       "priceGbp": 28.99,
       "wasPriceGbp": 42,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Experience unparalleled hydration with Clinique Moisture Surge 100H Auto-Replenishing Hydrator. This advanced gel-cream delivers instant moisture, leaving your skin plump and refreshed for up to 100 hours. Infused with aloe bioferment and hyaluronic acid, it enhances the skin's natural moisture barrier, ensuring a radiant, dewy complexion. Perfect for all skin types, this lightweight formula absorbs quickly, providing a long-lasting hydration boost. Transform your skincare routine with Clinique’s innovation.. Benefits: Hydrates, soothes. Details: Deeply hydrates Gel moisturiser penetrates deep into skin's surface for deeply moisturising hydration.. Fights dehydration. Infused with a blend of vitamins C and E, the formula helps fight back against daily dehydrators — so your skin feels more resilient.. Soothes skin Skin feels soothed with hydration in 3 seconds, and it keeps on glowing.. Preps for makeup Lightweight, refreshing moisturiser with hyaluronic acid provides a smooth canvas for makeup application.. Free Of: Fragrance Oil Drying alcohol. How To Use: Use morning and night on clean skin. Can also be applied over makeup as a dewy highlighter. 5-minute face mask: Apply generously over skin. Tissue off. .",
       "productType": "Skin Care",
@@ -88026,7 +88026,7 @@
       "priceGbp": 20.99,
       "wasPriceGbp": 50,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Joop! Femme by Joop! is an amber woody fragrance for women. A luxurious and sensual fragrance. The combination of floral and oriental notes creates a mysterious cocktail that appeals to those you want to attract. Rose and jasmine are combined with a blend of lemony bergamot, neroli and seville orange. Evocative and exotic; it is alluring and provocative without being vulgar. A complex fragrance that suits the mature woman. Let it take you back to the 80's! Fragrance Type: Amber, Woody Fragrance Notes: - Top Notes: Aldehydes, Coriander, Fruity Notes, Bergamot, Lemon - Middle Notes: Jasmine, Orange Blossom, Rose, Lily-of-the-Valley - Base Notes: Civet, Sandalwood, Amber, Vanilla, Tonka Bean, Musk, Patchouli, Oakmoss, Cedar Launched: 1987.",
       "productType": "Women's Perfume",
