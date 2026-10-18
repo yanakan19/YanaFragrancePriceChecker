@@ -1,18 +1,18 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-17T23:06:30.647Z",
+  "builtAt": "2026-10-18T23:09:16.804Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "crawlMinutes": 40.43,
-  "harvestRanAt": "2026-10-17T22:26:04.283Z",
-  "listingsPriced": 23062,
-  "listingsKept": 16908,
+  "crawlMinutes": 40.39,
+  "harvestRanAt": "2026-10-18T22:28:52.562Z",
+  "listingsPriced": 23058,
+  "listingsKept": 16903,
   "staleAfterDays": 7,
-  "products": 15449,
+  "products": 15450,
   "productsWithTwoOrMoreShops": 2512,
   "shareWithTwoOrMoreShops": 0.163,
   "productsWithTwoOrMoreIndependentShops": 2512,
@@ -20,7 +20,7 @@
   "productsWithThreeOrMoreShops": 720,
   "medianPriceGap": 0.172,
   "listingBarcodeShare": 0.012,
-  "productsMatchingUkByBarcode": 104,
+  "productsMatchingUkByBarcode": 105,
   "shops": [
     {
       "id": "aar-fragrances",
@@ -44,7 +44,7 @@
     },
     {
       "id": "nykaa",
-      "products": 1586,
+      "products": 1587,
       "shared": 205
     },
     {
@@ -73,14 +73,14 @@
       "shared": 5
     }
   ],
-  "productsShown": 15308,
-  "productsWithUkPhoto": 2096,
-  "productsWithUkPhotoByBarcode": 95,
-  "productsWithUkPhotoByName": 2001,
+  "productsShown": 15309,
+  "productsWithUkPhoto": 2106,
+  "productsWithUkPhotoByBarcode": 96,
+  "productsWithUkPhotoByName": 2010,
   "listingsWithReference": 12461,
   "offersWithCorroboratedReference": 1515,
-  "deals": 496,
-  "shareWithUkPhoto": 0.137,
+  "deals": 495,
+  "shareWithUkPhoto": 0.138,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
