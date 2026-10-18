@@ -2,7 +2,7 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-17T23:06:30.647Z",
+ "builtAt": "2026-10-18T23:09:16.804Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
  "listingsWithReference": 12461,
  "offersWithCorroboratedReference": 1515,
@@ -1728,6 +1728,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-caneza-uomo-bold",
+   "price": 4450,
+   "delivered": false,
+   "wasPrice": 6500,
+   "percentOff": 31,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-giorgio-armani-acqua-di-gio-edt-100ml",
    "price": 5600,
    "delivered": false,
@@ -2499,16 +2509,6 @@
   },
   {
    "fragranceId": "aar-fragrances-caneza-uomo-3",
-   "price": 4875,
-   "delivered": false,
-   "wasPrice": 6500,
-   "percentOff": 25,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-caneza-uomo-bold",
    "price": 4875,
    "delivered": false,
    "wasPrice": 6500,
@@ -4763,16 +4763,6 @@
    "delivered": false,
    "wasPrice": 8550,
    "percentOff": 7,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-gucci-flora-gorgeous-gardenia-3-3-3-3-3-3",
-   "price": 11300,
-   "delivered": false,
-   "wasPrice": 12100,
-   "percentOff": 6,
    "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
