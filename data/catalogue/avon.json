@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-18T18:41:46.985Z",
-  "seenAt": "2026-10-18T18:41:46.985Z",
+  "updatedAt": "2026-10-18T22:42:23.406Z",
+  "seenAt": "2026-10-18T22:42:23.406Z",
   "source": "live",
   "listings": [
     {
@@ -28442,7 +28442,7 @@
       "priceGbp": 13,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Let your femininity flourish with the floral fragrance beauty of Cherish Eau de Parfum. Let your beauty shine bright with cherry blossom, musk and sandalwood.. . Product specification: . • Top note: cherry blossom. • Middle note: musk. • Base note: sandalwood. • 50ml.. . How to wear me: . Spray the gorgeous floral perfume onto your pulse points to make the sublime scent last even longer..",
       "productType": "FRAGRANCE",
