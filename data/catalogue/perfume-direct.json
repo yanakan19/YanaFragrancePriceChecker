@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-17T23:11:58.789Z",
-  "seenAt": "2026-10-17T23:11:58.789Z",
+  "updatedAt": "2026-10-18T03:07:44.435Z",
+  "seenAt": "2026-10-18T03:07:44.435Z",
   "source": "live",
   "listings": [
     {
@@ -5402,7 +5402,7 @@
       "priceGbp": 79.99,
       "wasPriceGbp": 115,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Dolce & Gabbana Light Blue Capri In Love for Men Gift Set captures the fresh, captivating spirit of the Mediterranean. The 100ml Eau de Parfum delivers a sophisticated blend of aromatic, spicy and woody accords, while the 10ml Light Blue Eau de Toilette is perfect for travel and refreshing on the go. A stylish fragrance duo ideal for gifting or holidays. . . Dolce & Gabbana Light Blue Capri In Love for Men: . Fruity, Woody . Fragrance Notes: . - Top notes: Black Pepper . - Middle notes: Fig . - Base notes: Patchouli . . Dolce & Gabbana Light Blue: . Floral, Fruity . Fragrance Notes: . - Top notes: Sicilian Citron, Bluebell, Granny Smith Apple . - Middle notes: Jasmine, Bamboo, White Rose . - Base notes: Cedarwood, Amber, Musk . . Gift Set Includes: . - 100ml Light Blue Capri In Love for Men EDP . - 10ml Light Blue EDT .",
       "productType": "Men's Aftershave",

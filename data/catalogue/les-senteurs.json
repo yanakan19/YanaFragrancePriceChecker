@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-17T23:11:58.789Z",
-  "seenAt": "2026-10-17T23:11:58.789Z",
+  "updatedAt": "2026-10-18T03:07:44.435Z",
+  "seenAt": "2026-10-18T03:07:44.435Z",
   "source": "live",
   "listings": [
     {
@@ -7972,7 +7972,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Andy Tauer says, \"L'oudh smells of a thousand things. I detect floral qualities in there, woody and animalic notes. Mushrooms, humid soil, the earth of a forest glade where I spent a lot of time as a boy, growing up in the Swiss countryside. This is an amazing scent of decaying wood, mushroom notes, warmth.\". A true collectible, created around a natural oudh extract from Laos. . Top Notes: Rose, Jasmine.. Heart Notes: Cistus Rock Rose, Cypriol, Styrax, Myrrh, Tobacco.. Base Notes: Vetiver, Patchouli, Oudh, Sandalwood..",
       "productType": "Fragrance",
