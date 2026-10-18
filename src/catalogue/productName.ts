@@ -1782,9 +1782,15 @@ export function brandTitleEndsWithHouse(title: string, candidates: (string | nul
 function stripGenuineConcentration(s: string, phrase: string): string {
   const global = new RegExp(`\\b${escapeRe(phrase)}\\b`, 'gi');
   const matches = [...s.matchAll(global)];
-  const genuine = matches.find((m) => !precededByElidedArticle(s, m.index!));
-  if (!genuine) return s;
-  return s.slice(0, genuine.index!) + s.slice(genuine.index! + genuine[0].length);
+  const genuine = matches.filter((m) => !precededByElidedArticle(s, m.index!));
+  if (genuine.length === 0) return s;
+  // A phrase the shop wrote twice ("Code Eau de Parfum Pour Homme Eau de Parfum
+  // Spray", Allbeauty) is its own restatement both times; left once, the product
+  // never met the same bottle that other shops call plain "Code".
+  const drop = genuine.length > 1 ? genuine : genuine.slice(0, 1);
+  let out = s;
+  for (const m of [...drop].reverse()) out = out.slice(0, m.index ?? 0) + out.slice((m.index ?? 0) + m[0].length);
+  return out;
 }
 
 /**
@@ -2287,10 +2293,10 @@ const NOISE_SEGMENT_AUDIENCE_TAIL_RE = /\s+for\s+(?:men|women|him|her|unisex)(?:
 
 /**
  * A trailing segment that is a release marker — "New 2023", "New 2026
- * Release", 4 live products across two shops. The literal word "new" is
- * required, so this can never reach a bare number segment.
+ * Release", "New Release 2023", "New Perfume Release 2023". The literal
+ * word "new" is required, so this can never reach a bare number segment.
  */
-const NOISE_SEGMENT_RELEASE_RE = /^new(?:\s+\d{4})?(?:\s+release)?$/i;
+const NOISE_SEGMENT_RELEASE_RE = /^new(?:\s+(?:perfume|fragrance))?(?:\s+\d{4})?(?:\s+release)?(?:\s+\d{4})?$/i;
 
 /**
  * A trailing segment that is a delivery offer — Perfumeo's page titles read

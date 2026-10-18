@@ -1839,3 +1839,23 @@ describe('displayName: audience phrases are written one way', () => {
     expect(displayName('Sample Scent for men 50ml Eau de Toilette', 'X', 'X')).toBe('Sample Scent For Men');
   });
 });
+
+describe('a release marker after a pipe is shop copy, not a name', () => {
+  it.each(['New 2023', 'New Release 2023', 'New Perfume Release 2023', 'New 2026 Release'])('drops "| %s"', (tail) => {
+    const name = displayName(`Sample House Moonlight Rose | ${tail} 75ml`, 'Sample House', 'Sample House');
+    expect(name).not.toContain('|');
+    expect(name).toContain('Moonlight Rose');
+  });
+  it('keeps a pipe segment that only starts with New', () => {
+    expect(displayName('Sample House Rose | New York 75ml', 'Sample House', 'Sample House')).toContain('New York');
+  });
+});
+
+describe('a concentration the shop wrote twice', () => {
+  it('comes off both times, so the bottle meets the same bottle another shop names plainly', () => {
+    expect(displayName('Armani Code Eau de Parfum Pour Homme Eau de Parfum Spray 75ml - 75ml', 'Armani', 'Armani')).toBe('Code Pour Homme');
+  });
+  it('still keeps the elided article form once', () => {
+    expect(displayName("Lancome Idole Nectar L'Eau de Parfum 50ml", 'Lancome', 'Lancome')).toContain("L'Eau de Parfum");
+  });
+});

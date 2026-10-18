@@ -91,6 +91,16 @@ describe('which old ids open which product', () => {
     expect(r.published).toEqual({});
   });
 
+  it('sends an id that leads into a closed loop to the page the loop members were decided onto', () => {
+    const r = settle({
+      previous: { x: 'a', a: 'b', b: 'a' },
+      successors: new Map([['a', 'z'], ['b', 'z']]),
+      live: new Set(['z']),
+    });
+    expect(r.published).toEqual({ a: 'z', b: 'z', x: 'z' });
+    expect(r.aliases).toEqual({ x: 'a', a: 'b', b: 'a' });
+  });
+
   it('never rewrites a recorded value when a new decision names another survivor; it links the dead end instead', () => {
     // a -> gone was recorded; `gone` is no page and no key. This build folded a into c.
     const r = settle({

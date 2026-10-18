@@ -267,6 +267,23 @@ export function settleIdAliases(input: SettleInput): SettleResult {
       const decided = successors.get(id);
       to = decided !== undefined && decided !== id && live.has(decided) ? decided : null;
     }
+    // An id that leads INTO such a loop (a third address folded onto one of its
+    // members) has no decision of its own either; it follows the chain and takes
+    // the first link this build knows a page for, so it is not left without a page.
+    if (to === null || to === id) {
+      const seen = new Set<string>([id]);
+      let at = aliases.get(id);
+      to = null;
+      while (at !== undefined && !seen.has(at)) {
+        seen.add(at);
+        const decided = successors.get(at);
+        if (decided !== undefined && decided !== id && live.has(decided)) {
+          to = decided;
+          break;
+        }
+        at = aliases.get(at);
+      }
+    }
     if (to === null || to === id) {
       unresolved++;
       continue;
