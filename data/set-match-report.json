@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 217,
+ "folded": 216,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1753,7 +1753,8 @@
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
       "fragrance-click",
-      "paco-perfumerias-uk"
+      "paco-perfumerias-uk",
+      "perfume-click"
      ]
     },
     {
@@ -4767,51 +4768,6 @@
    ]
   },
   {
-   "canonical": "set-ean-7640171196442",
-   "absorbed": [
-    "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-100ml-body-lotion-150ml",
-    "set-lalique-soleil-gift-set-100ml-edp-150ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-7640171196442",
-     "brand": "Lalique",
-     "name": "Soleil Gift Set 100ml EDP + 150ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "7640171196442",
-     "scent": "soleil",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-100ml-body-lotion-150ml",
-     "brand": "Lalique",
-     "name": "Soleil 2 Piece Gift Set: Eau de Parfum 100ml - Body Lotion 150ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "soleil",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-lalique-soleil-gift-set-100ml-edp-150ml-body-lotion",
-     "brand": "Lalique",
-     "name": "Soleil Gift Set 100ml Edp + 150ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "soleil",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-7640171199214",
    "absorbed": [
     "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-150ml",
@@ -6218,6 +6174,38 @@
      "signature": "1x125body|1x50fragrance",
      "shops": [
       "beauty-flash"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-100ml-body-lotion-150ml",
+   "absorbed": [
+    "set-lalique-soleil-gift-set-100ml-edp-150ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-100ml-body-lotion-150ml",
+     "brand": "Lalique",
+     "name": "Soleil 2 Piece Gift Set: Eau de Parfum 100ml - Body Lotion 150ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "soleil",
+     "signature": "1x100fragrance|1x150body",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-lalique-soleil-gift-set-100ml-edp-150ml-body-lotion",
+     "brand": "Lalique",
+     "name": "Soleil Gift Set 100ml Edp + 150ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "soleil",
+     "signature": "1x100fragrance|1x150body",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
