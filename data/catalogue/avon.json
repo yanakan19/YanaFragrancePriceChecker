@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-18T11:07:48.864Z",
-  "seenAt": "2026-10-18T11:07:48.864Z",
+  "updatedAt": "2026-10-18T14:54:14.533Z",
+  "seenAt": "2026-10-18T14:54:14.533Z",
   "source": "live",
   "listings": [
     {
@@ -27246,7 +27246,7 @@
       "priceGbp": 4.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: It's time to lower your budget, not your standards, and save £3.99 when you buy our Ultra Colour 60 Second Express Nail Enamel 10ml (price per 10ml = £4) vs Essie Expressie Quick Dry Nail Polish 10ml (normally £7.99*, price per 10ml = £7.99). Nail your look in 60 seconds with this new and improved, fast-drying nail colour. It’s the express mani (or pedi) that will give you fresh tips in no time. Try the 60 second switch up and change your 9-5 nude to a date night deep in no time. Production specification: ULTRA COLOUR now with more colour in every drop ULTRA ME SHADES 25 shades let you switch up your tips on the daily ULTRA FAST you’re dry and good to go in 60 seconds** How to use me: Sweep this colour, base and top coat in 1 over your nails with our exclusive Wide Express Domed brush, designed to deliver perfect full-coverage colour in 1 effortless coat – then wait 60 seconds (just enough time to catch up on your correspondence) and you’re good to go! *Price sourced at boots.com on 15.03.2023. **Based on a consumer science study on 24 participants.",
       "productType": "COLOR",

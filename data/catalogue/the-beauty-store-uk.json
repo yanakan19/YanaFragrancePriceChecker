@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-18T11:07:48.864Z",
-  "seenAt": "2026-10-18T11:07:48.864Z",
+  "updatedAt": "2026-10-18T14:54:14.533Z",
+  "seenAt": "2026-10-18T14:54:14.533Z",
   "source": "live",
   "listings": [
     {
@@ -911,7 +911,7 @@
       "priceGbp": 7.26,
       "wasPriceGbp": 24,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "bareMinerals Mineralist Hydra-Smoothing Lipstick. bareMinerals Mineralist Hydra-Smoothing Lipstick is a nourishing lipstick designed for smooth, soft colour with a natural look. It suits all skin tones thanks to a wide shade range, from everyday nudes to richer statement colours. Ideal for dry or normal lips, it combines colour with care. A great choice if you want comfort, hydration and easy wear from your Makeup routine.. The texture feels creamy and lightweight on the lips. It glides on easily and leaves a soft satin finish. The formula helps smooth the look of fine lines while keeping lips feeling hydrated throughout the day. Expect even colour payoff with a breathable feel. Shades range from soft pinks and warm nudes to deeper berry tones, making it easy to match your look.. Hydrating formula with naturally derived ingredients. Smooth, creamy texture for easy application. Soft satin finish with comfortable wear. Suitable for all skin tones and everyday use. This lipstick is made with a high percentage of naturally derived ingredients, including plant-based oils that help condition the lips. It is suitable for those who prefer cleaner beauty formulas without compromising on performance..",
       "productType": "Lipstick",

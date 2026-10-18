@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-18T11:07:48.864Z",
-  "seenAt": "2026-10-18T11:07:48.864Z",
+  "updatedAt": "2026-10-18T14:54:14.533Z",
+  "seenAt": "2026-10-18T14:54:14.533Z",
   "source": "live",
   "listings": [
     {
@@ -82282,8 +82282,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/guerlain_abielle_royale_day_cream_refill.png?v=1729191255",
-      "priceGbp": 70.67,
-      "wasPriceGbp": 106,
+      "priceGbp": 106,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-18T11:07:48.864Z",
-  "seenAt": "2026-10-18T11:07:48.864Z",
+  "updatedAt": "2026-10-18T14:54:14.533Z",
+  "seenAt": "2026-10-18T14:54:14.533Z",
   "source": "live",
   "listings": [
     {
@@ -336,7 +336,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Atlantis Extrait French Avenue 100ml combines citrus top notes of orange, mandarin, and lemon with a heart of watermelon and coconut. The fragrance concludes with base notes of ambergris, cacao, and amberwood, providing a balanced composition that offers both freshness and depth. .",
       "productType": null,
@@ -1141,7 +1141,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the refreshing blend of Italian Lemon, Sicilian Bergamot, and Star Anise in Rasasi Hawas Ice. With hints of Plum, Orange Blossom, and Cardamon, this Eau De Parfum for Men exudes a clean, crisp scent that is balanced by warm and earthy notes of Musk, Amber, Driftwood, and Moss. Elevate your fragrance game with Hawas Ice. .",
       "productType": null,

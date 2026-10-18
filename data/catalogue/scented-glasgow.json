@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-10-18T11:07:48.864Z",
-  "seenAt": "2026-10-18T11:07:48.864Z",
+  "updatedAt": "2026-10-18T14:54:14.533Z",
+  "seenAt": "2026-10-18T14:54:14.533Z",
   "source": "live",
   "listings": [
     {
@@ -1440,7 +1440,7 @@
       "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "(A Garment of) Heavy Water. Something on the horizon. A skin scent for dark clouds.. . Reality: Dried Tears, Rain Cloud, Artichoke, Seaweed Silk, Lily Petal Leather. . Materiality: Orris, Carrot Seed, Cypriol, Seaweed, Musk.",
       "productType": "Perfume",
