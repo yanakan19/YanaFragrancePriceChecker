@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 215,
+ "folded": 214,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -3325,38 +3325,6 @@
      "signature": "1x200fragrance|1x75deo",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616306129016",
-   "absorbed": [
-    "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616306129016",
-     "brand": "Chloé",
-     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306129016",
-     "scent": "l",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion",
-     "brand": "Chloé",
-     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "l",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
