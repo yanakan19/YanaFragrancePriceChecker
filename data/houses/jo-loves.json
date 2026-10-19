@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-19T15:46:57.152Z",
-  "seenAt": "2026-10-19T15:46:57.152Z",
+  "updatedAt": "2026-10-19T19:48:29.007Z",
+  "seenAt": "2026-10-19T19:48:29.007Z",
   "source": "live",
   "listings": [
     {
@@ -3602,7 +3602,7 @@
       "priceGbp": 35,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Easily replenish your Jo Loves A Fragrance Paintbrush with the Refill in Green Orange & Coriander, ensuring your favourite scent is always at hand.",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-19T14:40:52.656Z",
-  "seenAt": "2026-10-19T14:40:52.656Z",
+  "updatedAt": "2026-10-19T18:41:20.835Z",
+  "seenAt": "2026-10-19T18:41:20.835Z",
   "source": "live",
   "listings": [
     {
@@ -11744,7 +11744,7 @@
       "priceGbp": 230,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "In CÈDRE FIGALIA, perfumer Céline Perdriel selects three varieties of cedar, each bringing nuance and character to the fragrance. Cedar Virginia, with its subtle and elegant notes, Cedar Alaska, for its invigorating freshness, and Cedar Atlas, for its warm and enveloping aura. Masterpiece of balance and elegance, the combination of those three varieties blends harmoniously with the fig, meticulously crafted here in its entirety to capture the refreshing essence of its foliage as well as the delightful milky sweetness of its fruit.. The fragrance opens with uplifting notes of bergamot and basil, sparked by the spicy and woody facets of Jamaica pepper. In the middle, the vegetal notes of spinach and maté blend perfectly with the crisp and milky accords of the fig. All majestically carried by a sturdy, yet delicate base of cedar essence, bringing earthy depth and woody warmth to that sparkling vegetal blend.. Top Notes: Bergamot, Basil, Jamaica pepper Heart Notes: Spinach, Maté, Fig leaf Base Notes: Cedar wood, Milky fig notes, Dry wood .",
       "productType": "Fragrance",

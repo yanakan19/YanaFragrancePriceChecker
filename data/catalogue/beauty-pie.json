@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-19T14:40:52.656Z",
-  "seenAt": "2026-10-19T14:40:52.656Z",
+  "updatedAt": "2026-10-19T18:41:20.835Z",
+  "seenAt": "2026-10-19T18:41:20.835Z",
   "source": "live",
   "listings": [
     {
@@ -3970,7 +3970,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A concentrated serum like this, with 7% advanced pro collagen Matrixyl (R) peptides- would normally retail for about £100. But that’s not what you pay shopping warehouse-direct at Beauty Pie. “Shockingly Good.” “Witchcraft.” “A Face Lift In A Bottle.” That’s how people talk about our powerful anti-aging Flash Face Lift Intense Serum Superdrops . Formulated with two Matrixyl™ peptides plus Argireline®, this concentrated serum helps visibly lift and firm while reducing the appearance of fine lines, deep wrinkles and expression lines. It also supports cell longevity for a complexion that appears smoother, fresher and more youthful. .",
       "productType": "Skincare",
