@@ -88,7 +88,7 @@ import { rendererForShop, renderTierLabel } from '../src/catalogue/renderTier.js
 import { renderTargets } from '../src/catalogue/renderTargets.js';
 import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.js';
 import {
-  parseCursor, sweepOrder, withAttempt, withActorRender, lastActorRender, staleCursorIds,
+  parseCursor, sweepOrder, heavyFirst, shopsThatRanOutOfTime, withAttempt, withActorRender, lastActorRender, staleCursorIds,
   discoveryOffsetFor, withDiscoveryOffset, barcodeBackoffUntil, withBarcodeBackoff, BARCODE_BACKOFF_HOURS,
 } from '../src/catalogue/harvestCursor.js';
 import { SHOPIFY_MAX_PAGE } from '../src/catalogue/shopifyProductsCrawl.js';
@@ -460,9 +460,17 @@ if (askingAboutOneNamedShop && enabledShops.some((r) => !r.enabled)) {
 const neverLiveYet = (id: string) => store.read(id).source !== 'live';
 const cursorPath = resolve(root, 'data/harvest-cursor.json');
 let cursor = parseCursor(readFileIfPresent(cursorPath));
-const shops = sweepOrder(
-  enabledShops.map((r) => ({ ...r, neverLive: neverLiveYet(r.id) })),
-  cursor,
+// Longest-unasked-first says nothing about how long a shop takes. The shops
+// the last sweep stopped for time (still re-reading their due listings when
+// the clock ran out) start first, up to four, so they get their whole ceiling
+// instead of what is left of the sweep; see shopsThatRanOutOfTime. The report
+// on disk is still the previous run's: it is rewritten after this point.
+const shops = heavyFirst(
+  sweepOrder(
+    enabledShops.map((r) => ({ ...r, neverLive: neverLiveYet(r.id) })),
+    cursor,
+  ),
+  onlyShop ? new Set<string>() : shopsThatRanOutOfTime(readFileIfPresent(resolve(root, 'data/harvest-report.json'))),
 );
 
 // Stamps for shops this registry no longer sweeps. Reported rather than

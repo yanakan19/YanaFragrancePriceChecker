@@ -211,6 +211,63 @@ export function sweepOrder<T extends SweepCandidate>(
     .map((e) => e.shop);
 }
 
+/**
+ * How many slow shops may be started ahead of the rest.
+ *
+ * Half of the eight lanes at most, so a long shop can never take every lane
+ * from the shops behind it.
+ */
+export const MAX_HEAVY_FIRST = 4;
+
+/**
+ * The shops the last full sweep stopped for time: they still had listings to
+ * re-read when their own ceiling (or the sweep's deadline) came. Read from the
+ * previous data/harvest-report.json text; anything unreadable gives none.
+ *
+ * Run of 2026-10-19: John Lewis, Paco Perfumerias, Niche Beauty and
+ * Lookfantastic stopped early. Lookfantastic was started 26 minutes into the
+ * sweep, because the order is longest-unasked-first and says nothing about how
+ * long a shop takes, so the sweep's own deadline cut it with 607 shown prices
+ * over a day old. The shops that finish in seconds lose nothing by waiting a
+ * few seconds; the slow ones lose half an hour by waiting.
+ */
+export function shopsThatRanOutOfTime(reportText: string | null): Set<string> {
+  const out = new Set<string>();
+  if (!reportText) return out;
+  try {
+    const shops = (JSON.parse(reportText) as { shops?: unknown }).shops;
+    if (!Array.isArray(shops)) return out;
+    for (const s of shops) {
+      const entry = s as { retailerId?: unknown; errors?: unknown };
+      if (typeof entry.retailerId !== 'string' || !Array.isArray(entry.errors)) continue;
+      if (entry.errors.some((e) => typeof e === 'string' && /^stopped early: exceeded this shop's time budget/.test(e))) {
+        out.add(entry.retailerId);
+      }
+    }
+  } catch {
+    return new Set<string>();
+  }
+  return out;
+}
+
+/**
+ * A sweep order with up to MAX_HEAVY_FIRST of the slow shops moved to the
+ * front, in the order they already had. Everyone else keeps their place, so
+ * every shop is still asked once per sweep and none is dropped or repeated;
+ * only the start time of the slow ones changes. A sweep that has no slow shops
+ * on record is returned unchanged.
+ */
+export function heavyFirst<T extends { id: string }>(
+  ordered: readonly T[],
+  heavy: ReadonlySet<string>,
+  max: number = MAX_HEAVY_FIRST,
+): T[] {
+  const front = ordered.filter((s) => heavy.has(s.id)).slice(0, max);
+  if (front.length === 0) return [...ordered];
+  const moved = new Set(front.map((s) => s.id));
+  return [...front, ...ordered.filter((s) => !moved.has(s.id))];
+}
+
 /** A cursor with `id` marked as asked at `at`. Pure; the caller writes it. */
 export function withAttempt(cursor: HarvestCursor, id: string, at: string): HarvestCursor {
   return { ...cursor, attempted: { ...cursor.attempted, [id]: at } };
