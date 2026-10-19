@@ -1,7 +1,7 @@
 {
   "retailerId": "maison-asrar",
-  "updatedAt": "2026-10-19T07:44:16.560Z",
-  "seenAt": "2026-10-19T07:44:16.560Z",
+  "updatedAt": "2026-10-19T11:36:51.860Z",
+  "seenAt": "2026-10-19T11:36:51.860Z",
   "source": "live",
   "listings": [
     {
@@ -2137,7 +2137,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "8476378825016-Default Title",
+      "retailerSku": "2040728",
       "url": "https://maisonasrar.com/products/black-eau-de-perfum-100ml",
       "rawTitle": "BLACK",
       "rawBrand": "Maison Asrar",
@@ -2155,11 +2155,11 @@
         "currency": "AED"
       },
       "retailerId": "maison-asrar",
-      "firstSeenAt": "2026-08-05T11:07:51.683Z",
+      "firstSeenAt": "2026-10-19T11:36:51.860Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -3381,6 +3381,33 @@
       "firstSeenAt": "2026-08-05T11:07:51.683Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "8476378825016-Default Title",
+      "url": "https://maisonasrar.com/products/black-eau-de-perfum-100ml",
+      "rawTitle": "BLACK",
+      "rawBrand": "Maison Asrar",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0703/6000/6968/files/Black_Maison_Asrar_Perfume_White_Background_Bottle.webp?v=1787990924",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "\"Black\" is a perfume that belongs to the Fougère Oriental Woody fragrance family. Fougère fragrances typically include notes that are fresh, green, and often herbaceous, while oriental woody fragrances are known for their warm, spicy, and woody elements. This combination creates a unique and sophisticated scent profile.. It opens with an energetic burst of ginger and grapefruit, followed by a soothing blend of lavender and mint that evokes a sense of serenity. The heart of lavender and mint introduces a sense of calm and freshness, balancing the initial intensity. The base notes of cedarwood, tonka bean, and cashmeran provide a solid, grounding foundation, giving the scent depth and longevity.. Overall, \"Black\" is a complex and well-balanced fragrance that can be worn on various occasions, making it a versatile and captivating choice for those seeking a scent that is both distinctive and refined. .",
+      "productType": "Perfumes",
+      "nativePrice": {
+        "amount": 25,
+        "currency": "AED"
+      },
+      "retailerId": "maison-asrar",
+      "firstSeenAt": "2026-08-05T11:07:51.683Z",
+      "lastSeenAt": "2026-10-19T07:44:16.560Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-19T11:36:51.860Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

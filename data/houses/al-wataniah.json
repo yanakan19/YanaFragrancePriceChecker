@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-10-19T07:52:41.865Z",
-  "seenAt": "2026-10-19T07:52:41.865Z",
+  "updatedAt": "2026-10-19T11:45:43.060Z",
+  "seenAt": "2026-10-19T11:45:43.060Z",
   "source": "live",
   "listings": [
     {
@@ -2255,7 +2255,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Built around its fruity floral oriental character, Ameeri reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,
@@ -2579,7 +2579,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Built around its spicy woody oriental. character, Muheeb reveals a fresh, refined and bold signature designed to leave a lasting impression..",
       "productType": null,
