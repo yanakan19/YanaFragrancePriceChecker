@@ -261,7 +261,7 @@ describe('the service worker and the deploy still work with a 200 for each addre
     expect(wf).toContain('cmp demo/index.html demo/404.html');
     expect(wf).toContain('npx tsx scripts/build-route-pages.ts --check');
     expect(wf.indexOf('build-route-pages.ts --check')).toBeGreaterThan(wf.indexOf('cmp demo/index.html demo/404.html'));
-    expect(wf.indexOf('build-route-pages.ts --check')).toBeLessThan(wf.indexOf('upload-pages-artifact@v3'));
+    expect(wf.indexOf('build-route-pages.ts --check')).toBeLessThan(wf.indexOf('upload-pages-artifact@v'));
   });
 
   it('is built by npm run demo, last, after the sitemap it reads', () => {
@@ -273,6 +273,6 @@ describe('the service worker and the deploy still work with a 200 for each addre
 
   it('is uploaded with the rest: the deploy publishes the whole demo folder', () => {
     const wf = readFileSync(join(root, '.github/workflows/deploy-pages.yml'), 'utf8');
-    expect(wf).toMatch(/upload-pages-artifact@v3\s+timeout-minutes: \d+\s+with:\s+path: demo/);
+    expect(wf).toMatch(/upload-pages-artifact@v\d+\s+timeout-minutes: \d+\s+with:\s+path: demo/);
   });
 });
