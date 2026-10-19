@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-19T02:38:00.518Z",
-  "seenAt": "2026-10-19T02:38:00.518Z",
+  "updatedAt": "2026-10-19T06:48:00.703Z",
+  "seenAt": "2026-10-19T06:48:00.703Z",
   "source": "live",
   "listings": [
     {
@@ -86754,7 +86754,7 @@
       "priceGbp": 15.99,
       "wasPriceGbp": 29,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Discover timeless skin protection with Elizabeth Arden Eight Hour Cream Lightly Scented (50ml). This multi-purpose balm soothes, restores, and protects your skin for up to eight hours. Perfect for moisturising dry patches, calming minor irritations, and adding a radiant glow, it’s a must-have for every skincare routine. Enjoy the same iconic formula with a delicate fragrance, ensuring your skin feels as good as it looks.. Can be used head to toe: - Use on the face to seal in moisture - Moisturise lips - Tame brows - Deep condition hands - Relieve tired feet - Smooth your hairs dry ends - Create radiance on face, shoulders and collarbones - Protect skin from windburn, soothes minor burns, scrapes or abrasions .",
       "productType": "Skin Care",
