@@ -276,14 +276,14 @@ jobs:
           OVERRIDES: ${{ needs.decide.outputs.overrides }}
         run: node scripts/deploy-decision.mjs record demo/build-state.json
 
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
         timeout-minutes: 5
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         timeout-minutes: 10
         with:
           path: demo
 
       - id: deployment
         timeout-minutes: 10
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
