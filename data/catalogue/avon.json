@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-19T18:41:20.835Z",
-  "seenAt": "2026-10-19T18:41:20.835Z",
+  "updatedAt": "2026-10-19T22:41:03.993Z",
+  "seenAt": "2026-10-19T22:41:03.993Z",
   "source": "live",
   "listings": [
     {
@@ -2567,7 +2567,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Soft elegance.. A beige warm scarf easy to slip easily over the head on a chilly evening and to style with a variety of outfits..",
       "productType": "ACCESSORIES",

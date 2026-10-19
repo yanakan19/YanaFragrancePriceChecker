@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-10-19T18:41:20.835Z",
-  "seenAt": "2026-10-19T18:41:20.835Z",
+  "updatedAt": "2026-10-19T22:41:03.993Z",
+  "seenAt": "2026-10-19T22:41:03.993Z",
   "source": "live",
   "listings": [
     {
@@ -5603,7 +5603,7 @@
       "priceGbp": 29.25,
       "wasPriceGbp": 62,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Elegant fruity-floral Eau de Parfum with a sparkling gourmand base. Long-lasting fragrance designed for confident, everyday wear. Iconic diamond-inspired glass bottle, perfect for gifting. ##end-features##. Product description. A glamorous Eau de Parfum blending bright fruit, floral elegance, and sensual amber for a sophisticated, lasting impression. . Emporio Armani Diamonds Eau de Parfum is a radiant fragrance designed to embody the strength and allure of a modern woman. The scent opens with fresh and juicy lychee and raspberry, creating an inviting and uplifting start. At its heart, soft rose, freesia, and lily of the valley bring a timeless floral femininity, adding balance and depth to the sparkling fruits.. The base is warm and sensual, composed of amber, vetiver, cedarwood, and vanilla, creating a creamy and elegant finish that lingers beautifully. This sophisticated blend transitions seamlessly from day to night, making it versatile for both work and evening occasions. The diamond-cut glass bottle adds a luxurious touch, making this fragrance a stunning gift or a timeless addition to your collection. Its Eau de Parfum concentration ensures the fragrance lasts throughout the day with minimal reapplication, offering a perfect balance of glamour and wearability.. Features of Armani Emporio Diamonds EDP 50ml. Fragrance family: Fruity-Floral-Gourmand. Notes: Lychee, Raspberry, Rose, Freesia, Amber, Vanilla, Vetiver. 50 ml Eau de Parfum in a diamond-inspired luxury bottle. ##accordion-start##. Specifications. Type: Eau de Parfum (EDP). Volume: 50 ml. Fragrance family: Fruity-Floral-Gourmand. Top notes: Lychee, Raspberry. Heart notes: Rose, Freesia, Lily of the Valley. Base notes: Amber, Vanilla, Vetiver, Cedarwood. Bottle: Diamond-cut glass design. ##accordion-item-end##. Suitable for. Women seeking a versatile and elegant everyday fragrance. Evening occasions, gifting, or adding a touch of sophistication to your fragrance wardrobe. ##accordion-item-end##. Warnings and cautions. Flammable: keep away from heat, sparks, open flames and hot surfaces.. For external use only: avoid contact with eyes; if contact occurs, rinse thoroughly with water.. Discontinue use if irritation occurs and consult a pharmacist or healthcare professional if symptoms persist.. Keep out of the sight and reach of children; store upright in a cool, dry place away from direct sunlight.. ##accordion-item-end##. How to use. Spray lightly onto pulse points such as wrists, neck, and behind the ears from 15â€“20 cm away.. Do not rub wrists together, as this can alter the fragrance profile and reduce longevity.. Apply to moisturised skin for best performance and reapply as desired for an intensified scent trail.. ##accordion-item-end##. Ingredients. Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Coumarin, Geraniol, Citral, Benzyl Salicylate, and other fragrance components. Ingredients may vary by batch; always refer to packaging for the full and most up-to-date list.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -7026,7 +7026,7 @@
       "rawBrand": "Gucci",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/0155470.png?v=1785424546",
-      "priceGbp": 34.99,
+      "priceGbp": 54.5,
       "wasPriceGbp": 68,
       "promoEndsAt": null,
       "inStock": true,
