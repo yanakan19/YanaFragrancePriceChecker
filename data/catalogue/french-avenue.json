@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-10-19T10:37:35.525Z",
-  "seenAt": "2026-10-19T10:37:35.525Z",
+  "updatedAt": "2026-10-19T14:40:52.656Z",
+  "seenAt": "2026-10-19T14:40:52.656Z",
   "source": "live",
   "listings": [
     {
@@ -10,7 +10,7 @@
       "rawTitle": "Les Extraits Absolus Unknown ExDP 60ml",
       "rawBrand": "French Avenue",
       "ean": null,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_2501c2a6-5c17-45e0-b745-4d13ca1933f7.jpg?v=1792412058",
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -33,7 +33,7 @@
       "rawTitle": "Les Extraits Absolus Shadow ExDP 60ml",
       "rawBrand": "French Avenue",
       "ean": null,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_f138e791-7677-4f18-82e7-fa43bf245c1b.jpg?v=1792412132",
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -1045,7 +1045,7 @@
       "rawTitle": "Solitaire Extrait De Parfum 100ml",
       "rawBrand": "French Avenue UK",
       "ean": null,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_0ae1dbdd-0e3b-410a-b360-b6d318e5c80b.jpg?v=1792412187",
       "priceGbp": 40,
       "wasPriceGbp": null,
       "promoEndsAt": null,

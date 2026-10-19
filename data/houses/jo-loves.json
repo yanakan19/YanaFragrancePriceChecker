@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-19T11:45:50.235Z",
-  "seenAt": "2026-10-19T11:45:50.235Z",
+  "updatedAt": "2026-10-19T15:46:57.152Z",
+  "seenAt": "2026-10-19T15:46:57.152Z",
   "source": "live",
   "listings": [
     {
@@ -2429,7 +2429,7 @@
       "priceGbp": 100,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Enjoy long-lasting fragrance with our elegant reed diffusers, crafted for continuous scent release. These stylish essentials offer a flameless alternative for a zen-like home environment. Our newest fragrance to the collection is Amber Lime & Bergamot, inspired by the prestigious Concours d'Elegance at the Hurlingham Club, where vintage cars and flowing champagne create an unforgettable evening of elegance and celebration. Indulge in the warm, sexy, and elegant fragrance that evokes the extravagant parties of The Great Gatsby era and transport yourself to a world of timeless glamour. Exclusive to this diffuser set is the bespoke glass tortoiseshell diffuser sphere, beautifully crafted to seamlessly fit into your interior décor. Please note each item is hand-blown, so the shape may vary slightly from the product image. .",
       "productType": null,
@@ -2452,7 +2452,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Refresh your space with our Amber Lime & Bergamot diffuser refill, inspired by the elegance of the Concours d’Elegance. Simply top up your existing diffuser to enjoy its warm, sophisticated scent for longer - sustainably and effortlessly.",
       "productType": null,

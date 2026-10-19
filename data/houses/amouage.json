@@ -1,7 +1,7 @@
 {
   "retailerId": "amouage",
-  "updatedAt": "2026-10-19T11:45:44.281Z",
-  "seenAt": "2026-10-19T11:45:44.281Z",
+  "updatedAt": "2026-10-19T15:46:51.646Z",
+  "seenAt": "2026-10-19T15:46:51.646Z",
   "source": "live",
   "listings": [
     {
@@ -1060,32 +1060,6 @@
       "productType": "ESSENCE",
       "nativePrice": {
         "amount": 475,
-        "currency": "USD"
-      },
-      "retailerId": "amouage",
-      "firstSeenAt": "2026-08-05T18:12:05.174Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "92827",
-      "url": "https://amouage.com/products/womens-sampler-set-new",
-      "rawTitle": "Women's Sampler Set 6x2ml",
-      "rawBrand": "The House of Amouage",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/Woman_s_Coll_Sampler_Set_IN_2025_2.jpg?v=1760615139",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "An exclusive discovery sampler set containing six spray samples of the House of Amouage's Women's Collection. Designed as a luxury gift and a refined path into High Perfumery, this perfume discovery set unveils Guidance, Love Delight, Honour Woman, Overture Woman, Epic Woman and Existence.. Size: 6 x 2ml individual samples.",
-      "productType": "SET",
-      "nativePrice": {
-        "amount": 80,
         "currency": "USD"
       },
       "retailerId": "amouage",
@@ -2860,6 +2834,33 @@
       "firstSeenAt": "2026-08-05T18:12:05.174Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "92827",
+      "url": "https://amouage.com/products/womens-sampler-set-new",
+      "rawTitle": "Women's Sampler Set 6x2ml",
+      "rawBrand": "The House of Amouage",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/Woman_s_Coll_Sampler_Set_IN_2025_2.jpg?v=1760615139",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "An exclusive discovery sampler set containing six spray samples of the House of Amouage's Women's Collection. Designed as a luxury gift and a refined path into High Perfumery, this perfume discovery set unveils Guidance, Love Delight, Honour Woman, Overture Woman, Epic Woman and Existence.. Size: 6 x 2ml individual samples.",
+      "productType": "SET",
+      "nativePrice": {
+        "amount": 80,
+        "currency": "USD"
+      },
+      "retailerId": "amouage",
+      "firstSeenAt": "2026-08-05T18:12:05.174Z",
+      "lastSeenAt": "2026-10-19T11:45:44.281Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-19T15:46:51.646Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null
