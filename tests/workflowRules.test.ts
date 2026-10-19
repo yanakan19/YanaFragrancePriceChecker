@@ -235,6 +235,13 @@ describe('catalogue-daily.yml', () => {
     expect(crawl.body).toMatch(/\n {4}runs-on: ubuntu-\d\d\.\d\d\n/);
   });
 
+  it('pins every Linux job to a runner image, so a moving label cannot change the build (docs/FUTUREPROOFING-PLAN.md A2)', () => {
+    for (const f of files) {
+      const code = text(f).split('\n').filter((l) => !l.trimStart().startsWith('#')).join('\n');
+      expect(code, f).not.toMatch(/runs-on:\s*ubuntu-latest/);
+    }
+  });
+
   it('sizes the harvest deadline to the time the job has left', () => {
     const harvest = step('Harvest via sitemap');
     expect(harvest).toContain('RUN_MINUTES=$(scripts/harvest-minutes.sh)');

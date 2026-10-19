@@ -57,7 +57,7 @@ concurrency:
 
 jobs:
   recheck:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
 
     # See image-check.yml / scripts/signed-commit.sh: lets commit-and-push.sh

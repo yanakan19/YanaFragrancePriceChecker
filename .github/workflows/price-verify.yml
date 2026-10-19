@@ -137,7 +137,7 @@ concurrency:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Measured budget: 29 enabled retailers x a 240s per-shop cap is a 116
     # minute worst case in theory, but only shops that answer spend anything
     # near their cap. 45 minutes covers the realistic pass with room, and a

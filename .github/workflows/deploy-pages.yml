@@ -106,7 +106,7 @@ jobs:
   # compares with is fetched by scripts/deploy-decision.mjs itself (trees
   # only) when it is not the tip.
   decide:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     outputs:
       deploy: ${{ steps.decide.outputs.deploy }}
@@ -145,7 +145,7 @@ jobs:
   deploy:
     needs: decide
     if: needs.decide.outputs.deploy == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Only one deployment at a time. A deployment already running is left to
     # finish, and only the newest waiting one runs after it (GitHub keeps one
     # waiting job per group), which is GitHub's own advice for Pages:
