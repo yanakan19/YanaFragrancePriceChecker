@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-10-19T06:48:00.703Z",
-  "seenAt": "2026-10-19T06:48:00.703Z",
+  "updatedAt": "2026-10-19T10:37:35.525Z",
+  "seenAt": "2026-10-19T10:37:35.525Z",
   "source": "live",
   "listings": [
     {
@@ -3064,29 +3064,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "10030337458505-50ml",
-      "url": "https://scent-ed.com/products/blanc-sada",
-      "rawTitle": "Blanc Sada 50ml",
-      "rawBrand": "L'Entropiste",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0960/9458/5161/files/L_EntropisteBlancSada.jpg?v=1771071332",
-      "priceGbp": 185,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "shopify-products-json",
-      "description": "POWDERY WHITE FLORAL A tale of obsessive, forbidden love — where passion turns to madness. Rice powder and iris recall the porcelain face of the geisha, while lychee and straw evoke the scene of a crime that became legend. A sensual, provocative fragrance suspended between desire and danger. Rice Powder – Iris – Lychee – Straw – Vanilla.",
-      "productType": "Perfume",
-      "nativePrice": null,
-      "retailerId": "scented-glasgow",
-      "firstSeenAt": "2026-10-09T06:04:09.500Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "10030337458505-100ml",
       "url": "https://scent-ed.com/products/blanc-sada",
       "rawTitle": "Blanc Sada 100ml",
@@ -3107,6 +3084,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "10030337458505-50ml",
+      "url": "https://scent-ed.com/products/blanc-sada",
+      "rawTitle": "Blanc Sada 50ml",
+      "rawBrand": "L'Entropiste",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0960/9458/5161/files/L_EntropisteBlancSada.jpg?v=1771071332",
+      "priceGbp": 185,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "shopify-products-json",
+      "description": "POWDERY WHITE FLORAL A tale of obsessive, forbidden love — where passion turns to madness. Rice powder and iris recall the porcelain face of the geisha, while lychee and straw evoke the scene of a crime that became legend. A sensual, provocative fragrance suspended between desire and danger. Rice Powder – Iris – Lychee – Straw – Vanilla.",
+      "productType": "Perfume",
+      "nativePrice": null,
+      "retailerId": "scented-glasgow",
+      "firstSeenAt": "2026-10-09T06:04:09.500Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
