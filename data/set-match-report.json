@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 214,
+ "folded": 215,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2004,6 +2004,38 @@
      "signature": "1x60fragrance|1x7.5fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3386460148054",
+   "absorbed": [
+    "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-100ml-shower-gel-7-5ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460148054",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 100ml Shower Gel + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460148054",
+     "scent": "blanc explorer mont platinum",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-100ml-shower-gel-7-5ml-edp",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 100ml Shower Gel + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanc explorer mont platinum",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
@@ -5130,6 +5162,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003996209",
    "absorbed": [
     "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray"
@@ -6110,38 +6174,6 @@
      "signature": "1x125body|1x50fragrance",
      "shops": [
       "beauty-flash"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-100ml-body-lotion-150ml",
-   "absorbed": [
-    "set-lalique-soleil-gift-set-100ml-edp-150ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-lalique-soleil-2-piece-gift-set-eau-de-parfum-100ml-body-lotion-150ml",
-     "brand": "Lalique",
-     "name": "Soleil 2 Piece Gift Set: Eau de Parfum 100ml - Body Lotion 150ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "soleil",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-lalique-soleil-gift-set-100ml-edp-150ml-body-lotion",
-     "brand": "Lalique",
-     "name": "Soleil Gift Set 100ml Edp + 150ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "soleil",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -9315,37 +9347,6 @@
      "signature": "1x100body|1x60fragrance",
      "shops": [
       "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.56 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460156028",
-     "brand": "Jimmy Choo",
-     "name": "I Want Choo Forever Gift Set 100ml EDP + 7.5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3386460156028",
-     "scent": "choo forever i want",
-     "signature": "1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jimmy-choo-i-want-choo-forever-gift-set-100ml-edp-7-5ml-edp",
-     "brand": "Jimmy Choo",
-     "name": "I Want Choo Forever Gift Set 100ml EDP + 7.5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "choo forever i want",
-     "signature": "1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
