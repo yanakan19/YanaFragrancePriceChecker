@@ -1,6 +1,6 @@
 {
  "note": "Written by npm run catalogue:demo. The catalogue modules are built from exactly these data inputs (git blob ids), with this clock, wherever they are read (scripts/catalogueBuild.ts); never edit by hand.",
- "builtAt": "2026-10-19T11:46:08.325Z",
+ "builtAt": "2026-10-19T12:12:08.384Z",
  "files": {
   "data/better-photos.json": "2b1d444a22c4a7ef5db164a8f1d146e2c5881c04",
   "data/catalogue/al-haramain.json": "a4776ed3ede081793df589f918224a3580a314e4",
@@ -98,7 +98,7 @@
   "data/houses/surrati.json": "633e3520266931c417178d5525c618d89ec50cf1",
   "data/houses/swiss-arabian.json": "b9db2a65089440d8831e0e1ceae1a25228278eb7",
   "data/houses/the-body-shop.json": "0d8ca0150d63eb66a535ee35ae67aadd6711dc4e",
-  "data/id-aliases.json": "8df6425bcc1b90b1819a5db04bfa19fef4315015",
+  "data/id-aliases.json": "79b02d2e07d3a6df4478d528c892f677b605af25",
   "data/image-box-verdicts.json": "47e3bbdc74a7232db4b4e78801d89452195b2d07",
   "data/note-aliases.json": "7fc4b8f4ba71c29993580bd732815fe7a2d0b6b8",
   "data/note-not-a-note.json": "aed2513264555cf20392c82d0aa5098b1cfcc715",
