@@ -328,3 +328,4 @@ code tests/failureDigest.test.ts
 code tests/sizeReview.test.ts
 data tests/sizeReviewData.test.ts
 code tests/slowShopPace.test.ts
+code tests/nameReviewed.test.ts

@@ -23,6 +23,7 @@ import {
   withoutTravelSprayWords,
 } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
+import { NAME_VERIFIED } from './nameReviewed.js';
 import { decodeHtmlEntities } from './htmlEntities.js';
 import type { StoredListing } from './types.js';
 import { isReviewedOil } from './perfumeOil.js';
@@ -2482,9 +2483,12 @@ const DOUBLED_STRENGTH_WORD = /\b(by|intense|intensa|extreme|absolu|absolute|eli
  * and stays.
  */
 /** Seller and status wording a shop closes a title with: a closed list, never a wildcard. */
-const SELLER_TAILS = /(?:[\s,]+(?:FBF?\s*Fragrances(?:\s+Edition)?|Kenz\s+De|Bujairami\s+Sydney|Outlet2?|Final\s+Sale|GWP|BOGO)|\s*\((?:Discontinued|Unboxed|Pack\s+of\s+1)\))\s*$/i;
+const SELLER_TAILS = /(?:[\s,]+(?:FBF?\s*Fragrances(?:\s+Edition)?|Kenz\s+De|Bujairami\s+Sydney|Outlet\d*|Final\s+Sale|GWP|BOGO)|\s*\((?:Discontinued|Unboxed|Pack\s+of\s+1)\))\s*$/i;
 /** Houses whose shops append a bare "Perfume" to the name. */
 const PERFUME_TAIL_HOUSES = new Set(['lattafa', 'fragranceworld', 'ardalzaafaran', 'bujairami', 'rasasi', 'ajmal', 'khadlaj', 'maryaj', 'royalmirage']);
+/** "Perfume" in front of an audience label, unless it is part of a name ("Pocket Perfume", "Not a Perfume", "Solid Perfume"). */
+const PERFUME_BEFORE_AUDIENCE = /(\S+)\s+Perfume(?=\s+(?:for|pour)\s+(?:men|women|man|woman|him|her|unisex|homme|femme)\b)/gi;
+const PERFUME_IS_PART_OF_NAME = /^(?:pocket|solid|body|travel|mini|miniature|oil|my|a|your|the|this|that)$/i;
 const CREDIT_FILLER = new Set(['perfumes', 'perfume', 'parfums', 'parfum', 'fragrances', 'fragrance', 'paris', 'london', 'the', 'of']);
 
 /**
@@ -2502,6 +2506,8 @@ export function tidyLongName(name: string, brands: (string | null)[]): string {
     s = s.replace(/\s+\.(?=\s|$)/g, '').replace(/\s+\.\s*$/, '');
     s = s.replace(SELLER_TAILS, '').replace(/\b(Retail\s+Bottle)(\s+\1)+/gi, '$1').replace(/\s+Retail\s+Bottle\s*$/i, '');
     if (brands.some((b) => b !== null && PERFUME_TAIL_HOUSES.has(brandKey(b)))) s = s.replace(/(\S)\s+Perfume(?=(\s+(?:for|pour)\s+\S+(?:\s+(?:and|&)\s+\S+)?)?\s*$)/i, '$1');
+    // "Man Perfume For Men": a shop's template word in front of the audience label is noise for any house.
+    else s = s.replace(PERFUME_BEFORE_AUDIENCE, (m, w: string) => (PERFUME_IS_PART_OF_NAME.test(w) ? m : w));
     s = s.replace(/\b((?:for|pour)\s+(?:him|her|men|women|man|woman|unisex|homme|femme))\s+\1\b/i, '$1');
     s = s.trim();
     if (s === before) break;
@@ -2509,13 +2515,14 @@ export function tidyLongName(name: string, brands: (string | null)[]): string {
   // R1: "Gentleman by Givenchy for Men" is "Gentleman for Men".
   const houseWords = new Set<string>();
   for (const b of brands) if (b) for (const w of b.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/)) if (w) houseWords.add(w);
-  const credit = s.match(/^(.*?\S)(?:,)?\s+by\s+([A-Za-z0-9'\u2019.&-]+(?:\s+[A-Za-z0-9'\u2019.&-]+){0,4}?)(\s+(?:for|pour)\s+.*|\s+-.*)?$/i);
+  const credit = s.match(/^(.*?\S)(?:,)?\s+by\s+([A-Za-z0-9'\u2019.&!-]+(?:\s+[A-Za-z0-9'\u2019.&!-]+){0,4}?)(,?\s+(?:for|pour)\s+.*|,\s+\S.*|\s+-.*|\s+\(.*)?$/i);
   if (credit && houseWords.size > 0) {
     const words = credit[2]!.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
     const lead = credit[1]!.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
     const leadIsHouse = lead.length > 0 && lead.join('') === words.join('');
     if (words.length > 0 && !leadIsHouse && words.some((w) => houseWords.has(w)) && words.every((w) => houseWords.has(w) || CREDIT_FILLER.has(w))) {
-      s = `${credit[1]}${credit[3] ?? ''}`.trim();
+      // "Samba Red by Perfumer's Workshop, For Women" is "Samba Red For Women": the comma goes with the credit.
+      s = `${credit[1]}${(credit[3] ?? '').replace(/^,(?=\s+(?:for|pour)\s)/i, '')}`.trim();
     }
   }
   return s || name;
@@ -2537,6 +2544,7 @@ export function tidyNameEnds(name: string, house: string | null): string {
       s = `${apostrophe[1]} d'${house.trim()}`;
       break;
     }
+    s = s.replace(/\s+(?:ea|eau)\s+de\s+(?:parfume|perfum|perfume|toilet)\s*$/i, '');
     s = s.replace(/\s+\+\s*[A-Za-z]\s*$/, '').replace(/(\S)\s+(?:and|of|with)\s*$/i, '$1');
     const connector = s.match(/^(.*\S)\s+(?:de|du|des|di|del|d['\u2019])\s*$/i);
     if (connector) {
@@ -2602,6 +2610,22 @@ export function keepHouseWhenNameIsOnlyAWord(name: string, house: string | null)
   const bare = foldDiacritics(name).trim();
   if (!NAME_IS_ONLY_A_WORD.test(bare)) return name;
   return `${house.trim()} ${name}`;
+}
+
+const foldNameKey = (n: string): string => foldDiacritics(n).toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim();
+let reviewedRenames: Map<string, string> | null = null;
+/** A name checked against the web (nameReviewed.ts): the verified shorter name, or the name unchanged. */
+export function reviewedRename(name: string, brands: readonly (string | null)[]): string {
+  if (!reviewedRenames) {
+    reviewedRenames = new Map();
+    for (const e of NAME_VERIFIED) reviewedRenames.set(`${brandKey(e.brand)}|${foldNameKey(e.from)}`, e.to);
+  }
+  for (const b of brands) {
+    if (!b) continue;
+    const to = reviewedRenames.get(`${brandKey(b)}|${foldNameKey(name)}`);
+    if (to) return to;
+  }
+  return name;
 }
 
 export function displayName(
@@ -2945,7 +2969,7 @@ export function displayName(
   s = capitaliseDescriptiveWords(s);
   s = keepHouseWhenNameIsOnlyAWord(s, displayedBrand || brand);
 
-  const name = canonicalSeriesSpelling(s) || emptiedNameFallback(opener, brand, displayedBrand) || title;
+  const name = reviewedRename(canonicalSeriesSpelling(s), [displayedBrand, brand]) || emptiedNameFallback(opener, brand, displayedBrand) || title;
   return ownTravelSpray && !/\btravel spray$/i.test(name) ? `${name} Travel Spray` : name;
 }
 

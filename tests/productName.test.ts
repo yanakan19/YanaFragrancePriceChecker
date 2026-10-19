@@ -1811,6 +1811,16 @@ describe('displayName: noisy long names, phase A rules', () => {
     ['Vanilla on the Beach Eau de 100ml', 'Fien', 'Vanilla on the Beach'],
     ['Happy for Men for Men 100ml', 'Clinique', 'Happy For Men'],
     ['Eternity for Men . 100ml', 'Calvin Klein', 'Eternity For Men'],
+    ["Samba Red by Perfumer's Workshop, For Women", "Perfumer's Workshop", 'Samba Red For Women'],
+    ['Delina by Parfums de Marly, For Women Outlet3', 'Parfums de Marly', 'Delina For Women'],
+    ['Go by Joop! For Men 100ml', 'Joop!', 'Go For Men'],
+    ['Velvet Rose by Jo Malone, Intense For Unisex', 'Jo Malone', 'Velvet Rose, Intense For Unisex'],
+    ['Bvlgari Aqva Amara EDT Perfume For Men - 100ml', 'Bvlgari', 'Aqva Amara For Men'],
+    ['Yves Saint Laurent Kouros Silver EDT Perfume For Men - 100ml', 'Yves Saint Laurent', 'Kouros Silver For Men'],
+    ["Samba Red by Perfumer's Workshop, 3.3 oz Eau De Toilette Spray for Women", "Perfumer's Workshop", 'Samba Red For Women'],
+    ['Dahlia Divin Eau De Parfume', 'Givenchy', 'Dahlia Divin'],
+    ['Red Zx For Ever Eau De Perfum', 'Ramsons', 'Red Zx For Ever'],
+    ['Eternity For Women Outlet3', 'Calvin Klein', 'Eternity For Women'],
   ])('%s -> %s', (title, brand, expected) => {
     expect(name(title, brand)).toBe(expected);
   });
@@ -1820,6 +1830,10 @@ describe('displayName: noisy long names, phase A rules', () => {
     ['Eau de Rochas 100ml', 'Rochas', 'Eau de Rochas'],
     ['Chloe by Chloe Eau De Parfum Rollerball 10ml', 'Chloé', 'Chloe by Chloe Rollerball'],
     ['Gold Edition Eau de Parfum 100ml', 'Lattafa', 'Gold Edition'],
+    ['See by Chloé Eau de Parfum 50ml', 'Chloé', 'See by Chloé'],
+    ['Gucci by Gucci Pour Homme 100ml', 'Gucci', 'Gucci by Gucci Pour Homme'],
+    ['Club De Nuit Intense Man Perfume For Men 105ml', 'Armaf', 'Club De Nuit Intense Man For Men'],
+    ['Lattafa Pride Blue Sapphire 100ml', 'Lattafa', 'Pride Blue Sapphire'],
   ])('keeps the real name %s', (title, brand, expected) => {
     expect(name(title, brand)).toBe(expected);
   });
