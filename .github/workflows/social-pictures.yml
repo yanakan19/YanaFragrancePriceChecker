@@ -60,7 +60,7 @@ jobs:
     steps:
       # Commits and trees for the whole history, blobs on demand: the diff of
       # this push, and `--from-history`, which reads old pictures with git show.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         timeout-minutes: 10
         with:
           fetch-depth: 0
@@ -95,7 +95,7 @@ jobs:
           echo "folders=$folders" >> "$GITHUB_OUTPUT"
           if [ -z "$folders" ]; then echo "No post folder changed: nothing to draw." >> "$GITHUB_STEP_SUMMARY"; fi
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         if: steps.pick.outputs.folders != ''
         timeout-minutes: 5
         with:
@@ -115,7 +115,7 @@ jobs:
 
       # The videos are encoded with ffmpeg; the same static build the posts were
       # first made with (scripts/social-video-render.ts finds it through Python).
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         if: steps.pick.outputs.folders != ''
         timeout-minutes: 5
         with:
@@ -140,7 +140,7 @@ jobs:
       - id: upload
         if: ${{ !cancelled() && steps.pick.outputs.folders != '' }}
         timeout-minutes: 10
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: social-pictures-${{ github.run_number }}
           path: ${{ runner.temp }}/social-pictures

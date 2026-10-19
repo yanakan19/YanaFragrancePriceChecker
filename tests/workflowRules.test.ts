@@ -490,7 +490,7 @@ describe('social pictures', () => {
     expect(wf).toMatch(/\npermissions:\n {2}contents: read\n/);
     expect(wf).not.toMatch(/commit-and-push|git commit|contents: write|pages: write|upload-pages-artifact|deploy-pages/);
     const draw = at('scripts/render-social.ts --out');
-    const upload = at('actions/upload-artifact@v4');
+    const upload = at('actions/upload-artifact@v6');
     expect(draw, 'the drawing step').toBeGreaterThan(0);
     expect(upload, 'the upload').toBeGreaterThan(draw);
     expect(stepList[upload]).toContain('retention-days: 90');
