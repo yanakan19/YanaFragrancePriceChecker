@@ -1795,6 +1795,25 @@ function stripGenuineConcentration(s: string, phrase: string): string {
 }
 
 /**
+ * The generic word "Perfume" a shop adds ("Hawas Sapphire Perfume") comes off like any strength
+ * word, but not where it belongs to the name: "Pocket Perfume" (D.S. & Durga's line, "Pistachio
+ * Pocket Perfume"), "Not a Perfume", "I Don't Know What Pocket Perfume" keep it. The words that
+ * make it part of a name are PERFUME_IS_PART_OF_NAME.
+ */
+function stripGenericPerfumeWord(s: string): string {
+  const keep = (m: RegExpMatchArray): boolean => {
+    const before = s.slice(0, m.index ?? 0).match(/(\S+)\s+$/);
+    return before !== null && PERFUME_NAME_WORD.test(before[1]!);
+  };
+  const genuine = [...s.matchAll(/\bperfume\b/gi)].filter((m) => !precededByElidedArticle(s, m.index!) && !keep(m));
+  if (genuine.length === 0) return s;
+  const drop = genuine.length > 1 ? genuine : genuine.slice(0, 1);
+  let out = s;
+  for (const m of [...drop].reverse()) out = out.slice(0, m.index ?? 0) + out.slice((m.index ?? 0) + m[0].length);
+  return out;
+}
+
+/**
  * A separator character with nothing real left on the side that used to hold
  * the thing it was joining — because that thing was a size or a noise word
  * this same function already deleted a few lines above, or in
@@ -2488,6 +2507,12 @@ const SELLER_TAILS = /(?:[\s,]+(?:FBF?\s*Fragrances(?:\s+Edition)?|Kenz\s+De|Buj
 const PERFUME_TAIL_HOUSES = new Set(['lattafa', 'fragranceworld', 'ardalzaafaran', 'bujairami', 'rasasi', 'ajmal', 'khadlaj', 'maryaj', 'royalmirage']);
 /** "Perfume" in front of an audience label, unless it is part of a name ("Pocket Perfume", "Not a Perfume", "Solid Perfume"). */
 const PERFUME_BEFORE_AUDIENCE = /(\S+)\s+Perfume(?=\s+(?:for|pour)\s+(?:men|women|man|woman|him|her|unisex|homme|femme)\b)/gi;
+/** A lone word that needs the house after it to be a name: Miss Dior, Mon Guerlain, My Burberry. */
+const HOUSE_COMPLETES_THE_NAME = /^(?:my|mon|ma|mes|miss)$/i;
+/** The name in front of a repeated trailing house ends in a word that needs the house after it. */
+const HOUSE_REPEAT_KEEP = /(?:^|\s)(?:mon|ma|mes|my|la|le|les|l['\u2019]|de|du|des|di|del|d['\u2019]|d|the|of|by|for|pour|and|&|tonino)\s*$/i;
+/** The word before a generic "Perfume" that makes it part of a name ("Pocket Perfume", "Not a Perfume", "Memoirs of a Perfume Collector"). */
+const PERFUME_NAME_WORD = /^(?:pocket|my|your|the|this|that|a)$/i;
 const PERFUME_IS_PART_OF_NAME = /^(?:pocket|solid|body|travel|mini|miniature|oil|my|a|your|the|this|that)$/i;
 const CREDIT_FILLER = new Set(['perfumes', 'perfume', 'parfums', 'parfum', 'fragrances', 'fragrance', 'paris', 'london', 'the', 'of']);
 
@@ -2509,6 +2534,8 @@ export function tidyLongName(name: string, brands: (string | null)[]): string {
     // "Man Perfume For Men": a shop's template word in front of the audience label is noise for any house.
     else s = s.replace(PERFUME_BEFORE_AUDIENCE, (m, w: string) => (PERFUME_IS_PART_OF_NAME.test(w) ? m : w));
     s = s.replace(/\b((?:for|pour)\s+(?:him|her|men|women|man|woman|unisex|homme|femme))\s+\1\b/i, '$1');
+    // "Mood Unisex Fragrance", "Brit Women's Perfume": the generic noun after the audience word is the shop's template.
+    s = s.replace(/\b(unisex|men|women|man|woman|him|her|men['\u2019]s|women['\u2019]s)\s+(?:perfume|fragrance)\s*$/i, '$1');
     s = s.trim();
     if (s === before) break;
   }
@@ -2608,6 +2635,9 @@ export function calvinKleinLineName(name: string, brands: (string | null)[]): st
 export function keepHouseWhenNameIsOnlyAWord(name: string, house: string | null): string {
   if (!house) return name;
   const bare = foldDiacritics(name).trim();
+  // "Miss" after the house is "Miss Dior", "Franck Olivier Miss" is "Miss Franck Olivier": the word
+  // goes in front, the way the shops that keep the house write it.
+  if (HOUSE_COMPLETES_THE_NAME.test(bare)) return `${name} ${house.trim()}`;
   if (!NAME_IS_ONLY_A_WORD.test(bare)) return name;
   return `${house.trim()} ${name}`;
 }
@@ -2663,7 +2693,7 @@ export function displayName(
   }
   const matchedConcentration = concentrationMatch(title);
   if (matchedConcentration) {
-    s = stripGenuineConcentration(s, matchedConcentration);
+    s = /^perfume$/i.test(matchedConcentration) ? stripGenericPerfumeWord(s) : stripGenuineConcentration(s, matchedConcentration);
   }
   s = s
     // "Refillable Travel Spray, 3 x 20ml" (Chanel): the pack count goes with the
@@ -2848,6 +2878,10 @@ export function displayName(
     const credit = connectorCredit(before, closer);
     if (credit !== null) {
       closer = s.slice(credit);
+    } else if (HOUSE_COMPLETES_THE_NAME.test(before.trim())) {
+      // "Miss Dior", "Mon Guerlain", "My Burberry": the house is the second word of the name, and
+      // taking it off left "Miss", "Mon", "My" (22 live products on 2026-10-19).
+      closer = null;
     } else if ((TRAILING_CONNECTOR.test(before) && connectorBeforeHouse(title, closer)) || (/^by\s*$/i.test(before) && new RegExp(`\\bby\\s+${escapeRe(closer)}(?![A-Za-z0-9])`, 'i').test(title))) {
       s = houseNamedAfterConnector(beforeCloser, closer);
       // One spelling: "Bleu De CHANEL" is "Bleu de Chanel", "Terre D'Hermes" is "Terre d'Hermes".
@@ -2856,6 +2890,7 @@ export function displayName(
       closer = null;
     }
   }
+  const houseClosedTheTitle = closer !== null;
   if (closer) {
     s = s.slice(0, s.length - closer.length);
     // A shop that appends its own brand often prefixes that append with the
@@ -2868,7 +2903,7 @@ export function displayName(
     // in the name, where "Perfume" may be doing real work (see
     // CONCENTRATION_OIL's "Perfume Oil": that phrase's last word is "Oil",
     // not "Perfume", so this can never reach it).
-    s = s.replace(/\s+perfume\s*$/i, '');
+    s = s.replace(/(?<!\b(?:pocket|my|your|the|this|that|a))\s+perfume\s*$/i, '');
     // The connector that introduced the brand, now introducing nothing.
     //
     // "Flower by Kenzo" becomes "Flower by"; "K by Dolce & Gabbana" becomes
@@ -2889,6 +2924,21 @@ export function displayName(
     // once; removing more text off the end here can expose a fresh one
     // ("Name -" once "- Brand" is gone), so the same trim runs again.
     s = s.replace(/[\s,\-&|]+$/g, '');
+  }
+  // "House Name House": a shop that writes the house before and after the title it was given
+  // (Direct Cosmetics: "Jimmy Choo Illicit Flower Jimmy Choo Eau de Toilette Spray 100ml Jimmy
+  // Choo") leaves the house at the end of the name once the opener and the closer are off.
+  // The trailing repeat goes, unless the word in front of it makes it part of the name
+  // ("Mon Guerlain", "Terre d'Hermes"), what is left is one word ("Miss Vanderbilt", "Donna
+  // Gisada": the name may be house plus word, the shops decide in catalogue/nameConsensus) or the
+  // house is Calvin Klein (its CK line rule reads the house).
+  const calvinKlein = [displayedBrand, brand].some((b) => b !== null && brandKey(b) === 'calvinklein');
+  if (opener && houseClosedTheTitle && s) {
+    const repeat = brandTitleEnds(s, [displayedBrand, brand]);
+    if (repeat) {
+      const rest = s.slice(0, s.length - repeat.length).replace(/[\s,\-&|]+$/g, '');
+      if (rest && !calvinKlein && /\s/.test(rest) && !HOUSE_REPEAT_KEEP.test(rest) && !NAME_IS_ONLY_A_WORD.test(foldDiacritics(rest).trim())) s = rest;
+    }
   }
 
   // A fragrance named after its own house, the mirror-image half of this same

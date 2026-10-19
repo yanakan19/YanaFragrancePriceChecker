@@ -112,6 +112,7 @@ import {
   type ShopTitleAudience,
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
+import { consensusName } from '../src/catalogue/nameConsensus.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 import { pickBestNotes, proseTest, withoutProse, type NotANoteFile, type NoteCandidate } from '../src/catalogue/notesPick.js';
 import { applyNoteAliases, noteAliasMap, type NoteAliasFile } from '../src/catalogue/noteAliases.js';
@@ -316,6 +317,8 @@ function isHouseFragrance(l: StoredListing): boolean {
 
 /* ── gather ────────────────────────────────────────────────────────────────── */
 
+/** The name each offer's own title produced (a product's displayed name is chosen from them: nameConsensus.ts). */
+const offerDisplayName = new WeakMap<object, string>();
 interface Offer {
   retailerId: string;
   /**
@@ -1164,6 +1167,7 @@ for (const { retailer, listings } of eligible) {
       rawTitle: l.rawTitle,
     };
 
+    offerDisplayName.set(offer, displayedName);
     if (existing) {
       existing.offers.push(offer);
       if (labelled.audience) {
@@ -2011,6 +2015,31 @@ let mergedIntoDisputed = 0;
     collapseIndistinguishableRows();
   }
 }
+
+/* ── the name the shops agree on ───────────────────────────────────────────────
+   A product keeps the name its first listing gave it, an accident of file order:
+   "Jimmy Choo Rose Passion" over the four shops that write "Rose Passion". Once every
+   merge is done, a strict majority of the shops on a product (three at least) decides
+   the displayed name, among the names those shops' own titles produce, and never by
+   losing a series prefix, a strength word or an audience word (src/catalogue/nameConsensus.ts).
+   The id, the slug and the aliases are untouched: only the name moves. A name the house's
+   own shop gave (brand direct), a set and a name checked against the web (nameReviewed.ts)
+   are not reopened. */
+const consensusRenamed: { id: string; brand: string; from: string; to: string; shops: number }[] = [];
+for (const p of products.values()) {
+  if (p.giftSet !== null || p.offers.length < 3 || p.armafLine !== null) continue;
+  const votes = p.offers.flatMap((o) => {
+    const name = offerDisplayName.get(o);
+    return name === undefined ? [] : [{ shop: o.retailerId, name }];
+  });
+  const winner = consensusName(p.name, p.brand, votes);
+  if (winner === null) continue;
+  if (p.offers.some((o) => isBrandDirectOffer(o.retailerId, p.brand) && offerDisplayName.get(o) === p.name)) continue;
+  consensusRenamed.push({ id: p.id, brand: p.brand, from: p.name, to: winner, shops: new Set(votes.map((v) => v.shop)).size });
+  p.name = winner;
+}
+console.log(`Name consensus: ${consensusRenamed.length} products take the name most of their shops give.`);
+if (process.env.NAME_CONSENSUS_REPORT) writeFileSync(process.env.NAME_CONSENSUS_REPORT, JSON.stringify(consensusRenamed));
 
 /* ── which offers are the fragrance house's own ─────────────────────────────
    The strongest evidence about a bottle's RRP is what the company that makes

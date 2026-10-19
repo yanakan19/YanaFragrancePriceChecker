@@ -37,6 +37,8 @@ export const CHANGELOG: ChangelogEntry[] = [
         heading: 'Products and Matching',
         points: [
           'Cleaner names on 20 popular perfumes',
+          'Miss Dior, Mon Guerlain and My Burberry fixed',
+          'Shops now agree one name for each perfume',
         ],
       },
     ],
