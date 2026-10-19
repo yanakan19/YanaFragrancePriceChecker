@@ -22,6 +22,15 @@ export interface NameVote {
   name: string;
 }
 
+/**
+ * The shop whose titles repeat the house ("Head Head Attitude Homme ... Head"). Owner decision,
+ * 19 Oct 2026: a name that only this shop gives is not evidence, and one shop's noisy title never
+ * decides a name. The count already makes that so (a winner needs a strict majority of three
+ * shops at least, which always holds a second shop); the check below keeps it so if the count
+ * ever changes.
+ */
+export const NOISY_TITLE_SHOP = 'direct-cosmetics';
+
 const NOISE_WORDS = new Set(['perfume', 'perfumes', 'fragrance', 'fragrances', 'spray']);
 /** A majority never adds who the fragrance is for: the audience pass decided that name (audienceNames.ts). */
 const AUDIENCE_WORDS = new Set([
@@ -95,7 +104,13 @@ export function consensusName(current: string, brand: string, votes: readonly Na
     perShop.set(v.shop, m);
   }
   const ballots: string[] = [];
-  for (const m of perShop.values()) ballots.push([...m.entries()].sort((a, b) => b[1] - a[1] || byCodeUnit(a[0], b[0]))[0]![0]);
+  const voters = new Map<string, Set<string>>();
+  for (const [shop, m] of perShop) {
+    const name = [...m.entries()].sort((a, b) => b[1] - a[1] || byCodeUnit(a[0], b[0]))[0]![0];
+    ballots.push(name);
+    const key = fold(name).join(' ');
+    voters.set(key, (voters.get(key) ?? new Set<string>()).add(shop));
+  }
   if (ballots.length < 3) return null;
   const byKey = new Map<string, string[]>();
   for (const name of ballots) {
@@ -105,6 +120,8 @@ export function consensusName(current: string, brand: string, votes: readonly Na
   let winnerKey: string | null = null;
   for (const [key, names] of byKey) if (names.length * 2 > ballots.length) winnerKey = key;
   if (winnerKey === null) return null;
+  // A name only the noisy-title shop gives is not evidence.
+  if (![...(voters.get(winnerKey) ?? [])].some((shop) => shop !== NOISY_TITLE_SHOP)) return null;
   const currentKey = fold(current).join(' ');
   if (winnerKey === currentKey) return null;
   const house = fold(brand);

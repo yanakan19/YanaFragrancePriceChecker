@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { consensusName, type NameVote } from '../src/catalogue/nameConsensus.js';
+import { consensusName, NOISY_TITLE_SHOP, type NameVote } from '../src/catalogue/nameConsensus.js';
 import { displayName } from '../src/catalogue/productName.js';
 
 const votes = (...names: string[]): NameVote[] => names.map((name, i) => ({ shop: `shop-${i}`, name }));
@@ -88,5 +88,21 @@ describe('a real name that contains the word Perfume keeps it', () => {
     expect(displayName('Lattafa Mood Unisex Fragrance', 'Lattafa', 'Lattafa')).toBe('Mood Unisex');
     expect(displayName('Burberry Brit Womens Perfume', 'Burberry', 'Burberry')).toBe('Brit Womens');
     expect(displayName('Juliette Has a Gun Not a Perfume For Women', 'Juliette Has a Gun', 'Juliette Has a Gun')).toBe('Not a Perfume For Women');
+  });
+});
+
+describe('a name only Direct Cosmetics gives is not evidence (owner decision, 19 Oct 2026)', () => {
+  const dc = NOISY_TITLE_SHOP;
+  it('never lets Direct Cosmetics decide a name on its own', () => {
+    const only: NameVote[] = [{ shop: dc, name: 'Rose Passion' }, { shop: dc, name: 'Rose Passion' }, { shop: dc, name: 'Rose Passion' }];
+    expect(consensusName('Jimmy Choo Rose Passion', 'Jimmy Choo', only)).toBeNull();
+  });
+  it('does not let it win against the other shops', () => {
+    const v: NameVote[] = [{ shop: dc, name: 'Rose Passion' }, { shop: 'a', name: 'Jimmy Choo Rose Passion' }, { shop: 'b', name: 'Jimmy Choo Rose Passion' }];
+    expect(consensusName('Jimmy Choo Rose Passion', 'Jimmy Choo', v)).toBeNull();
+  });
+  it('still lets two shops that agree win, one of them Direct Cosmetics or not', () => {
+    const v: NameVote[] = [{ shop: dc, name: 'Rose Passion' }, { shop: 'a', name: 'Rose Passion' }, { shop: 'b', name: 'Jimmy Choo Rose Passion' }];
+    expect(consensusName('Jimmy Choo Rose Passion', 'Jimmy Choo', v)).toBe('Rose Passion');
   });
 });
