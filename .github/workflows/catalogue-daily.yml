@@ -292,7 +292,7 @@ jobs:
       # tests/crawlGuard.test.ts can hold it to its rules. Checking out that
       # one file, with no history and no other blobs, takes seconds: the
       # point of a separate guard job (cheap skipped ticks) still holds.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         timeout-minutes: 3
         with:
           sparse-checkout: scripts/crawl-guard.sh
@@ -511,7 +511,7 @@ jobs:
       - name: Note when the job started
         run: echo "JOB_STARTED_AT=$(date -u +%s)" >> "$GITHUB_ENV"
 
-      # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v4
+      # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v5
       # defaults to a shallow clone (depth 1) — fine for every other step
       # here, which only ever look at the working tree — but
       # scripts/build-price-history.ts replays the *entire* commit history of
@@ -520,12 +520,12 @@ jobs:
       # single commit, rebuild demo/priceHistory.generated.ts from just that
       # one point, and never accumulate history from here on — with no error,
       # nothing failing, just a chart that quietly never grows past one dot.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         timeout-minutes: 10
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         timeout-minutes: 5
         with:
           node-version: '22'
