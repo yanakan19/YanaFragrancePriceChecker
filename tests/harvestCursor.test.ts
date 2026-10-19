@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   parseCursor,
   sweepOrder,
+  heavyFirst,
+  shopsThatRanOutOfTime,
+  MAX_HEAVY_FIRST,
   staleCursorIds,
   withAttempt,
   withActorRender,
@@ -295,5 +298,49 @@ describe('actorRendered: the stamp a money bound reads', () => {
     );
     const order = sweepOrder([{ id: 'a', neverLive: false }, { id: 'b', neverLive: false }], cursor).map((s) => s.id);
     expect(order).toEqual(['b', 'a']);
+  });
+});
+
+describe('heavyFirst: slow shops start first, nobody is dropped', () => {
+  const ids = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'].map((id) => ({ id }));
+
+  it('moves the shops that ran out of time to the front, in their own order', () => {
+    const out = heavyFirst(ids, new Set(['g', 'c'])).map((s) => s.id);
+    expect(out.slice(0, 2)).toEqual(['c', 'g']);
+    expect(out.slice(2)).toEqual(['a', 'b', 'd', 'e', 'f', 'h', 'i']);
+  });
+
+  it('keeps every shop exactly once', () => {
+    const out = heavyFirst(ids, new Set(ids.map((s) => s.id))).map((s) => s.id);
+    expect([...out].sort()).toEqual(ids.map((s) => s.id).sort());
+  });
+
+  it('never starts more than the limit ahead of the rest', () => {
+    const out = heavyFirst(ids, new Set(ids.map((s) => s.id))).map((s) => s.id);
+    expect(out.slice(0, MAX_HEAVY_FIRST)).toEqual(ids.slice(0, MAX_HEAVY_FIRST).map((s) => s.id));
+    expect(out).toEqual(ids.map((s) => s.id));
+  });
+
+  it('changes nothing when no shop is on record as slow', () => {
+    expect(heavyFirst(ids, new Set()).map((s) => s.id)).toEqual(ids.map((s) => s.id));
+  });
+});
+
+describe('shopsThatRanOutOfTime reads the previous report', () => {
+  it('names the shops that stopped for their time budget and no others', () => {
+    const report = JSON.stringify({
+      shops: [
+        { retailerId: 'big', errors: ["stopped early: exceeded this shop's time budget"] },
+        { retailerId: 'small', errors: ['https://x.example/a: HTTP 404'] },
+        { retailerId: 'flaky', errors: ['stopped early: 5 pages in a row failed'] },
+      ],
+    });
+    expect([...shopsThatRanOutOfTime(report)]).toEqual(['big']);
+  });
+
+  it('gives none for a missing or unreadable report', () => {
+    expect(shopsThatRanOutOfTime(null).size).toBe(0);
+    expect(shopsThatRanOutOfTime('not json').size).toBe(0);
+    expect(shopsThatRanOutOfTime('{"shops":3}').size).toBe(0);
   });
 });
