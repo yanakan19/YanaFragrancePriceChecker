@@ -330,3 +330,4 @@ data tests/sizeReviewData.test.ts
 code tests/slowShopPace.test.ts
 code tests/nameReviewed.test.ts
 code tests/nameConsensus.test.ts
+code tests/weeklyHealth.test.ts
