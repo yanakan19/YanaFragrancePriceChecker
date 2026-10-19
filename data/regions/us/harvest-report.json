@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-10-18T12:13:54.813Z",
-  "minutes": 42.23,
+  "ranAt": "2026-10-19T15:02:33.890Z",
+  "minutes": 42.25,
   "dryRun": false,
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "listingsKept": 31311,
+  "listingsKept": 31175,
   "shops": [
     {
       "id": "perfumania",
@@ -46,12 +46,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 802,
-      "priced": 802,
-      "kept": 801,
-      "withBarcode": 314,
-      "pagesFetched": 367,
-      "seconds": 721,
+      "listingsRead": 757,
+      "priced": 757,
+      "kept": 751,
+      "withBarcode": 244,
+      "pagesFetched": 350,
+      "seconds": 722,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
@@ -59,7 +59,7 @@
       ],
       "diagnostics": [
         "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
-        "sitemap: 3469 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
+        "sitemap: 3465 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
       ]
     },
     {
@@ -73,7 +73,7 @@
       "kept": 706,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 13,
+      "seconds": 16,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -118,7 +118,7 @@
       "kept": 647,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 51,
+      "seconds": 50,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -143,8 +143,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 105,
-      "priced": 105,
+      "listingsRead": 102,
+      "priced": 102,
       "kept": 12,
       "withBarcode": 0,
       "pagesFetched": 4,
@@ -238,7 +238,7 @@
       "kept": 5107,
       "withBarcode": 4494,
       "pagesFetched": 26,
-      "seconds": 49,
+      "seconds": 50,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -253,7 +253,7 @@
       "kept": 4608,
       "withBarcode": 0,
       "pagesFetched": 23,
-      "seconds": 42,
+      "seconds": 41,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -268,7 +268,7 @@
       "kept": 4726,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 40,
+      "seconds": 39,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -283,7 +283,7 @@
       "kept": 511,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 17,
+      "seconds": 16,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -328,7 +328,7 @@
       "kept": 4880,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 42,
+      "seconds": 41,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -338,12 +338,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1482,
-      "priced": 706,
-      "kept": 706,
-      "withBarcode": 705,
-      "pagesFetched": 707,
-      "seconds": 2401,
+      "listingsRead": 1502,
+      "priced": 631,
+      "kept": 631,
+      "withBarcode": 631,
+      "pagesFetched": 632,
+      "seconds": 2402,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
         "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
@@ -351,7 +351,7 @@
       ],
       "diagnostics": [
         "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
-        "sitemap: 2898 product address(es) found, first read https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093"
+        "sitemap: 2899 product address(es) found, first read https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093"
       ]
     },
     {
@@ -360,12 +360,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 271,
-      "priced": 271,
-      "kept": 271,
-      "withBarcode": 245,
-      "pagesFetched": 447,
-      "seconds": 720,
+      "listingsRead": 260,
+      "priced": 260,
+      "kept": 260,
+      "withBarcode": 229,
+      "pagesFetched": 439,
+      "seconds": 722,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/: HTTP 404",
@@ -381,7 +381,7 @@
         "https://theperfumespot.com/sweet-like-candy-by-ariana-grande-3-4-oz-eau-de-parfum-spray-for-women-outlet2/: HTTP 404",
         "https://theperfumespot.com/versace-bright-crystal-absolu-by-versace-3-oz-eau-de-parfum-spray-for-women-unboxed-outlet/: HTTP 404",
         "https://theperfumespot.com/baccarat-rouge-540-by-maison-francis-kurkdjian-2-4-oz-extrait-de-parfum-spray-for-unisex-outlet/: HTTP 404",
-        "sitemap: 7352 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
+        "sitemap: 7353 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
       ]
     },
     {
