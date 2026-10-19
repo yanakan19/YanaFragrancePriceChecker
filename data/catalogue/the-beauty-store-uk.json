@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-18T22:42:23.406Z",
-  "seenAt": "2026-10-18T22:42:23.406Z",
+  "updatedAt": "2026-10-19T02:38:00.518Z",
+  "seenAt": "2026-10-19T02:38:00.518Z",
   "source": "live",
   "listings": [
     {
@@ -12595,7 +12595,7 @@
       "priceGbp": 3.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Jeanne Arthes Boum Sweet Lollipop Eau de Parfum Spray 100ml Tester NO BOX.",
       "productType": "Eau de Parfum",

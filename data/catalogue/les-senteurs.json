@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-18T22:42:23.406Z",
-  "seenAt": "2026-10-18T22:42:23.406Z",
+  "updatedAt": "2026-10-19T02:38:00.518Z",
+  "seenAt": "2026-10-19T02:38:00.518Z",
   "source": "live",
   "listings": [
     {
@@ -2935,7 +2935,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Every note a flirtation, it doesn’t speak - it seduces.. Deep, resinous and evocative. The scent unfolds like a backstage whisper, complex and intriguing. . Oud Liaisons is a study in contrasts - smoke and silk, power and grace, mystery and clarity. A fragrance that clings to the skin with elegant persistence, capturing the very essence of connection..",
       "productType": "Fragrance",
@@ -8317,7 +8317,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Raw Gold, a bold anthem of eternal youth, oscillating between innocence and temptation, where desire reigns supreme..",
       "productType": "Fragrance",

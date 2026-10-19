@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-18T22:42:23.406Z",
-  "seenAt": "2026-10-18T22:42:23.406Z",
+  "updatedAt": "2026-10-19T02:38:00.518Z",
+  "seenAt": "2026-10-19T02:38:00.518Z",
   "source": "live",
   "listings": [
     {
@@ -9605,7 +9605,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Marc Jacobs Daisy Eau de Toilette is a floral fragrance created for customers who enjoy a soft, elegant scent. It opens with a fresh and inviting first impression, develops into a graceful floral heart, and settles into a smooth lasting base. Suitable for everyday wear, this fragrance is a strong choice for anyone looking for a scent that feels confident and playful.. Why customers choose it . Well-suited for spring and everyday use. A great option for gifting or daily wear. Designed for customers who prefer floral scents.",
       "productType": "Eau de Toilette",
