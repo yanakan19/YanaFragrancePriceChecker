@@ -46,13 +46,31 @@ describe('reviewed names (nameReviewed.ts)', () => {
     const seen = new Set<string>();
     for (const e of NAME_VERIFIED) { const k = key(e.brand, e.from); expect(seen.has(k), k).toBe(false); seen.add(k); }
     for (const e of [...NAME_KEPT, ...NAME_UNRESOLVED]) { const k = key(e.brand, e.name); expect(seen.has(k), k).toBe(false); seen.add(k); }
-    for (const e of NAME_KEPT) expect(e.sources.length, e.name).toBeGreaterThanOrEqual(1);
+    for (const e of NAME_KEPT) {
+      // A family the owner settled needs no source; every other kept name has one.
+      if (e.decision) expect(e.decision, e.name).toMatch(/owner, \d{1,2} \w+ \d{4}/);
+      else expect(e.sources.length, e.name).toBeGreaterThanOrEqual(1);
+    }
   });
   it('is applied by displayName, and the shorter name is stable', () => {
     for (const e of NAME_VERIFIED) {
       // The name a shop title gives, run through displayName, is the verified one.
       expect(displayName(`${e.from} Eau de Parfum 100ml`, e.brand, e.brand), e.from).toBe(e.to);
       expect(displayName(`${e.to} Eau de Parfum 100ml`, e.brand, e.brand), e.to).toBe(e.to);
+    }
+  });
+});
+
+describe('a name only Direct Cosmetics gives is not evidence (owner decision, 19 Oct 2026)', () => {
+  it('settles those families as kept, each with the owner decision recorded', () => {
+    const settled = NAME_KEPT.filter((e) => e.decision);
+    expect(settled.length).toBeGreaterThan(0);
+    for (const e of settled) expect(e.evidence, e.name).toContain('only Direct Cosmetics differs');
+  });
+  it('leaves no unresolved family whose only difference is Direct Cosmetics, except where three shops or more write the shorter name', () => {
+    // Those few stay with the owner: the long name is Direct Cosmetics only and other shops agree on a shorter one.
+    for (const e of NAME_UNRESOLVED.filter((u) => u.why.startsWith('only Direct Cosmetics gives this name'))) {
+      expect(['Instinct David Beckham', 'Chantal Thomass Pink', 'Cabotine de Gres', 'Lacoste L.12.12 Rose Eau Fraiche', 'Florence Roberto Cavalli', 'Paco Rabanne'], e.name).toContain(e.name);
     }
   });
 });

@@ -147,6 +147,25 @@ Rules added (productName.ts, nameConsensus.ts, the catalogue build):
 Settled by data: 134 families kept (no shop other than Direct Cosmetics writes a shorter name), recorded in NAME_KEPT.
 Verified by search (two domains each, 7 searches): Rayhaan Pacific Aura, Italia, Pharaoh; Al Rehab Bakhour, Soft (all lose "Perfume"); Afnan Rare Passion (loses the leading house). Recorded in NAME_VERIFIED.
 
+### Decision: a name only Direct Cosmetics gives is not evidence (owner, 19 Oct 2026)
+
+33 of the 39 families that were unresolved because of Direct Cosmetics are settled as kept and moved to NAME_KEPT (reason: "only Direct Cosmetics differs; owner decision 19 Oct: one shop's noisy title is not evidence"; entries carry `decision`, so they need no web source). Nothing displayed changes: the names stay as they were. The one move the lists allow is from unresolved to the list of the decision, so a family stays in one list only.
+
+What was checked in the data first: in most of these families it is the long name (house inside) that comes from Direct Cosmetics, and the shorter one from one other shop (Debenhams for the five Head families, Le Jardin d'Amour and Mexx Summer Bliss) or from none. One shop against Direct Cosmetics is not evidence either way, so the name stays.
+
+Six families stay unresolved, for the owner, because the reverse also holds: the long name is Direct Cosmetics only and three or more other shops write the shorter one. A rename would be the right answer if the shorter name is a real name:
+
+| House | Name now | Shorter name the other shops write | Shops writing it |
+|---|---|---|---|
+| David Beckham | Instinct David Beckham | Instinct | 4 |
+| Chantal Thomass | Chantal Thomass Pink | Pink | 3 (and "Pink" alone is a generic word) |
+| Gres | Cabotine de Gres | Cabotine | 6 |
+| Lacoste | Lacoste L.12.12 Rose Eau Fraiche | L.12.12 Rose Eau Fraiche | 4 |
+| Roberto Cavalli | Florence Roberto Cavalli | Florence | 10 |
+| Rabanne | Paco Rabanne | Paco | 7 (the house is Paco Rabanne, so "Paco" alone is not a name) |
+
+Code: `consensusName` (nameConsensus.ts) now refuses a winning name that only `direct-cosmetics` gives (`NOISY_TITLE_SHOP`); the count already made that impossible (a winner needs a strict majority of three shops at least), the check keeps it so. The "House Name House" rule only trims the repeated house from the title of the shop that wrote it; it adds nothing and sets no name by itself, and a product listed by Direct Cosmetics and one other shop that disagree still takes the first listing's name (the other shop's name is not preferred, since one shop is not evidence either way). Tests: tests/nameConsensus.test.ts, tests/nameReviewed.test.ts.
+
 ### Renamed
 
 | House | Before | After |
@@ -158,31 +177,24 @@ Verified by search (two domains each, 7 searches): Rayhaan Pacific Aura, Italia,
 | Al Rehab | Soft Perfume | Soft |
 | Afnan | Afnan Rare Passion | Rare Passion |
 
-### Unresolved (109 families, nothing changes for them)
+### Unresolved (76 families, nothing changes for them)
 
-Most are Direct Cosmetics (which writes the house in its titles) against one other shop, or a house plus one generic word where the house is probably part of the name. Owner decision wanted: whether a name only Direct Cosmetics gives should count as evidence. Where the correct name needs words moved (Lattafa Pride "Nebras Perfume Lattafa Pride" should be "Pride Nebras"; Fragrance World "Hibiscus Magic Artisan Perfumery"; French Avenue "An Equestrian Series Della"), a deletion only rename cannot reach it.
+Most are Direct Cosmetics (which writes the house in its titles) against one other shop, or a house plus one generic word where the house is probably part of the name. Where the correct name needs words moved (Lattafa Pride "Nebras Perfume Lattafa Pride" should be "Pride Nebras"; Fragrance World "Hibiscus Magic Artisan Perfumery"; French Avenue "An Equestrian Series Della"), a deletion only rename cannot reach it.
 
 | House | Name now | Proposed (words deleted) | Why unresolved |
 |---|---|---|---|
 | Burberry | Burberry London | London | the shops split between the long and the short name; no source settles it |
-| Bentley | Bentley Azure | Azure | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Ted Baker | Ted Baker M | M | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Azzaro | Azzaro Pour Elle | Pour Elle | the shops split between the long and the short name; no source settles it |
-| Joop! | Joop Wow Women | Wow Women | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Louis Cardin | Louis Cardin Silver | Silver | the shops split between the long and the short name; no source settles it |
 | Baldessarini | Baldessarini Black | Black | the shops split between the long and the short name; no source settles it |
-| David Beckham | David Beckham Classic | Classic | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Franck Olivier | Miss Franck Olivier | Miss | the shops split between the long and the short name; no source settles it |
 | Guess | Guess Seductive | Seductive | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
-| Joop! | Joop Wow Homme | Wow Homme | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Kenzo | Kenzo Jungle Homme | Jungle Homme | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Montana | Montana Blu | Blu | the shops split between the long and the short name; no source settles it |
 | Guess | Guess Night | Night | the shops split between the long and the short name; no source settles it |
 | Guess | Guess Seductive Homme | Seductive Homme | the shops split between the long and the short name; no source settles it |
 | Jenny Glow | Jenny Glow Cologne | Cologne | the shops split between the long and the short name; no source settles it |
-| Lolita Lempicka | Lolita Lempicka (f) | (f) | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Alfa Romeo | Alfa Romeo Black | Black | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Alfa Romeo | Alfa Romeo Blue | Blue | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Chloé | Chloe by Chloe Rollerball | Chloe Rollerball | the shops split between the long and the short name; no source settles it |
 | Coach | Coach Dreams Sunset | Dreams Sunset | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Coach | Coach Platinum | Platinum | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
@@ -191,16 +203,12 @@ Most are Direct Cosmetics (which writes the house in its titles) against one oth
 | Fcuk | FCUK 3 | 3 | the shops split between the long and the short name; no source settles it |
 | Fcuk | FCUK Connect | Connect | the shops split between the long and the short name; no source settles it |
 | Guess | Guess by Marciano | Marciano | the shops split between the long and the short name; no source settles it |
-| Guess | Guess Seductive Homme Blue | Seductive Homme Blue | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Jenny Glow | Jenny Glow Blue | Blue | the shops split between the long and the short name; no source settles it |
 | Jenny Glow | Jenny Glow Noir | Noir | the shops split between the long and the short name; no source settles it |
-| Joop! | Joop Go Homme | Go Homme | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Lalique | L'Amour Lalique | L'Amour | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Lancaster | Eau de Lancaster | Eau | the shops split between the long and the short name; no source settles it |
 | Mustang | Mustang Blue | Blue | the shops split between the long and the short name; no source settles it |
 | Police | Police Sport | Sport | the shops split between the long and the short name; no source settles it |
-| Rabanne | Olympea Paco Rabanne | Olympea Paco | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Rapport | Rapport Sport | Sport | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Rochas | Byzance Rochas | Byzance | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Rochas | L'Homme Rochas | L'Homme | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Rochas | Mademoiselle Rochas | Mademoiselle | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
@@ -209,32 +217,20 @@ Most are Direct Cosmetics (which writes the house in its titles) against one oth
 | Antonio Banderas | Mediterraneo Antonio Banderas | Mediterraneo | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Bond No 9 | Bond No.9 Madison Square Park | Madison Square Park | the shops split between the long and the short name; no source settles it |
 | BWFH by Drake | Better World Fragrance House Summer Mink | Better World House Summer Mink | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
-| Chantal Thomass | Chantal Thomass Gold | Gold | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Chantal Thomass | Chantal Thomass Pink | Pink | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Charlie | Charlie Blue | Blue | the shops split between the long and the short name; no source settles it |
-| Cuba Paris | Cuba Paris Red | Red | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | DKNY | DKNY Gold | Gold | the shops split between the long and the short name; no source settles it |
 | Dolce & Gabbana | DOLCE&GABBANA Intenso | Intenso | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Elizabeth Arden | Green Tea Summer Fragrance | Green Tea Summer | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Fragrance World | Artisan Perfume Arabian Incense | Artisan Arabian Incense | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Fragrance World | Artisan Perfume Hibiscus Magic | Artisan Hibiscus Magic | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | French Avenue | Della Equestrian Series Perfume | Della Equestrian Series | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
-| Giorgio | Giorgio Classic | Classic | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Gres | Cabotine de Gres | Cabotine | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Guess | Guess Girl | Girl | the shops split between the long and the short name; no source settles it |
 | Guess | Guess Marciano | Marciano | the shops split between the long and the short name; no source settles it |
 | Gulf Orchid | Gulf Orchid Sweet Heaven | Sweet Heaven | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Hackett London | Hackett London Absolute | Absolute | the shops split between the long and the short name; no source settles it |
-| Head | Head Attitude Homme | Attitude Homme | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Head | Head Bliss Woman | Bliss Woman | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Head | Head Elite Pour Femme | Elite Pour Femme | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Head | Head Fire Pour Homme | Fire Pour Homme | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Head | Head Spark Pour Femme | Spark Pour Femme | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Hugo Boss | Hugo Boss The Collection Daring Saffiano | The Collection Daring Saffiano | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
-| Joop! | Joop Wow For Men | Wow For Men | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Karl Lagerfeld | Fleur de The Karl Lagerfeld | Fleur de | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Katy Perry | Indi Katy Perry | Indi | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Kenzo | Kenzo L'Eau Par Hyper Wave Femme | L'Eau Par Hyper Wave Femme | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Lacoste | Lacoste L.12.12 Rose Eau Fraiche | L.12.12 Rose Eau Fraiche | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Lattafa | Affection Perfume Lattafa Pride | Affection Lattafa Pride | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Lattafa | Al Areeq Gold Perfume By Lattafa Pride | Al Areeq Gold By Lattafa Pride | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
@@ -243,18 +239,12 @@ Most are Direct Cosmetics (which writes the house in its titles) against one oth
 | Lattafa | Vintage Radio Perfume by Lattafa Pride | Vintage Radio by Lattafa Pride | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Lattafa | Yara Pink Perfume - Women | Yara Pink - Women | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Le Falcone | Risala For You Perfume Niche Collection | Risala For You Niche Collection | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
-| Le Jardin | Le Jardin d'Amour | d'Amour | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Lolita Lempicka | Sweet Lolita Lempicka | Sweet | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Madonna | Bloom Madonna | Bloom | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
-| Mauboussin | Mauboussin Pour Elle | Pour Elle | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Mexx | Mexx Summer Bliss For Men | Summer Bliss For Men | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Moroccanoil | Fragrance L'Originale | L'Originale | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Moschino | Uomo Moschino | Uomo | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
-| Nicce | Nicce For Men and Beanie Hat | For Men and Beanie Hat | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Nicole Miller | Nicole Miller Black | Black | the shops split between the long and the short name; no source settles it |
-| Pepe Jeans | Pepe Jeans For Her Cocktail Edition | For Her Cocktail Edition | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Prada | Prada La Femme Water | La Femme Water | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
-| Rabanne | Phantom Paco Rabanne | Phantom Paco | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Rayhaan | Divine Perfume | Divine | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Rayhaan | Nocturno Perfume | Nocturno | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Rayhaan | Valhalla Perfume | Valhalla | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
@@ -265,10 +255,6 @@ Most are Direct Cosmetics (which writes the house in its titles) against one oth
 | Ted Baker | Mia Ted Baker | Mia | only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name |
 | Vanderbilt | Miss Vanderbilt | Miss | the shops split between the long and the short name; no source settles it |
 | Juliette Has a Gun | Not a Perfume For Women | Not a For Women | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
-| Cuba Paris | Cuba Paris Black | Black | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Cuba Paris | Cuba Paris Gold | Gold | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Cuba Paris | Cuba Paris Blue | Blue | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
-| Cuba Paris | Cuba Paris Night | Night | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Tous | Leau De Perfume | Leau | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
 | Rabanne | Paco Rabanne | Paco | only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name |
 | Unique’e Luxury | Unique'e Luxury Kutay | Kutay | "Perfume" or "Fragrance" is probably the shop's template word, but no second independent source was found |
