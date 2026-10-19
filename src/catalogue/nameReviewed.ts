@@ -20,6 +20,14 @@ export interface ReviewedName {
   sources: readonly string[];
   evidence: string;
 }
+/**
+ * A rename that only moves words (owner decision, 19 Oct 2026). `to` uses exactly the words of
+ * `from`, in a different order, and adds no word. The only word that may go is the house name,
+ * when `from` repeats it (the house is shown beside the name anyway). The target is the name the
+ * brand itself writes (its own page or a major retailer), with two independent domains agreeing,
+ * and a series prefix is kept. Checked by `isReorderOnly` and tests/nameReviewed.test.ts.
+ */
+export type ReorderedName = ReviewedName;
 export interface KeptName {
   brand: string;
   name: string;
@@ -59,6 +67,30 @@ export const NAME_VERIFIED: readonly ReviewedName[] = [
   {brand: "Al Rehab", from: "Soft Perfume", to: "Soft", on: "2026-10-19", sources: ["https://www.parfumo.com/Perfumes/Al_Rehab/Soft_Eau_de_Parfum", "https://skinsort.com/products/al-rehab/soft-eau-de-parfum/dupes"], evidence: "Parfumo and Skinsort name it \"Soft\" under Al Rehab; \"Perfume\" is a shop's template word"},
   {brand: "Afnan", from: "Afnan Rare Passion", to: "Rare Passion", on: "2026-10-19", sources: ["https://www.ulta.com/p/rare-passion-eau-de-parfum-mkt77009263?sku=77014597", "https://www.cosmetify.com/afnan-rare-passion-eau-de-parfum/"], evidence: "Ulta and Cosmetify title it \"Rare Passion\" under Afnan; the leading house is one shop's doubled brand"},
 ];
+
+/** Append only, like the other lists. Empty on 19 Oct 2026: see docs/NAME-VERIFICATION-2026-10-19.md, "Reordering". */
+export const NAME_REORDERED: readonly ReorderedName[] = [];
+
+const nameWords = (t: string): string[] =>
+  t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/&/g, ' and ').split(/[^a-z0-9]+/).filter(Boolean);
+
+/**
+ * Whether `to` is `from` with its words moved: the same words, a different order, nothing added,
+ * nothing dropped but the house name (one run of the house's words, if `from` holds it).
+ */
+export function isReorderOnly(from: string, to: string, house: string): boolean {
+  const a = nameWords(from);
+  const b = nameWords(to);
+  if (a.join(' ') === b.join(' ')) return false;
+  const sameWords = (x: string[], y: string[]) => x.length === y.length && [...x].sort().join(' ') === [...y].sort().join(' ');
+  if (sameWords(a, b)) return true;
+  const h = nameWords(house);
+  if (h.length === 0) return false;
+  for (let i = 0; i + h.length <= a.length; i++) {
+    if (h.every((w, j) => a[i + j] === w) && sameWords([...a.slice(0, i), ...a.slice(i + h.length)], b)) return true;
+  }
+  return false;
+}
 
 export const NAME_KEPT: readonly KeptName[] = [
   { brand: "Narciso Rodriguez", name: "Narciso Rodriguez For Her", on: "2026-10-19", sources: ["https://www.parfumdreams.co.uk/Narciso-Rodriguez/Womens-fragrances/for-her/Hair-Mist/index_21143.aspx#variation=20074"], evidence: "the house or the line is part of the fragrance's name (or the name is the house plus an audience label); the shops' titles show no cleaner variant" },

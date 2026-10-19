@@ -14,7 +14,7 @@
  * winner may add words. A family in nameReviewed.ts (verified, kept or unresolved) is never
  * reopened.
  */
-import { NAME_KEPT, NAME_UNRESOLVED, NAME_VERIFIED } from './nameReviewed.js';
+import { NAME_KEPT, NAME_REORDERED, NAME_UNRESOLVED, NAME_VERIFIED } from './nameReviewed.js';
 
 export interface NameVote {
   /** The shop. One shop is one vote, whatever number of its rows are on the product. */
@@ -80,7 +80,7 @@ function reviewedKey(brand: string, name: string): string {
 export function isReviewedFamily(brand: string, name: string): boolean {
   if (!reviewed) {
     reviewed = new Set();
-    for (const e of NAME_VERIFIED) reviewed.add(reviewedKey(e.brand, e.to));
+    for (const e of [...NAME_VERIFIED, ...NAME_REORDERED]) reviewed.add(reviewedKey(e.brand, e.to));
     for (const e of NAME_KEPT) reviewed.add(reviewedKey(e.brand, e.name));
     for (const e of NAME_UNRESOLVED) reviewed.add(reviewedKey(e.brand, e.name));
   }

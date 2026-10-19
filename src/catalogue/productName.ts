@@ -23,7 +23,7 @@ import {
   withoutTravelSprayWords,
 } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
-import { NAME_VERIFIED } from './nameReviewed.js';
+import { NAME_REORDERED, NAME_VERIFIED } from './nameReviewed.js';
 import { decodeHtmlEntities } from './htmlEntities.js';
 import type { StoredListing } from './types.js';
 import { isReviewedOil } from './perfumeOil.js';
@@ -2648,7 +2648,7 @@ let reviewedRenames: Map<string, string> | null = null;
 export function reviewedRename(name: string, brands: readonly (string | null)[]): string {
   if (!reviewedRenames) {
     reviewedRenames = new Map();
-    for (const e of NAME_VERIFIED) reviewedRenames.set(`${brandKey(e.brand)}|${foldNameKey(e.from)}`, e.to);
+    for (const e of [...NAME_VERIFIED, ...NAME_REORDERED]) reviewedRenames.set(`${brandKey(e.brand)}|${foldNameKey(e.from)}`, e.to);
   }
   for (const b of brands) {
     if (!b) continue;

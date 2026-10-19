@@ -166,6 +166,16 @@ Six families stay unresolved, for the owner, because the reverse also holds: the
 
 Code: `consensusName` (nameConsensus.ts) now refuses a winning name that only `direct-cosmetics` gives (`NOISY_TITLE_SHOP`); the count already made that impossible (a winner needs a strict majority of three shops at least), the check keeps it so. The "House Name House" rule only trims the repeated house from the title of the shop that wrote it; it adds nothing and sets no name by itself, and a product listed by Direct Cosmetics and one other shop that disagree still takes the first listing's name (the other shop's name is not preferred, since one shop is not evidence either way). Tests: tests/nameConsensus.test.ts, tests/nameReviewed.test.ts.
 
+### Reordering (owner decision, 19 Oct 2026)
+
+`NAME_REORDERED` (nameReviewed.ts) renames a name by moving its words. Rule, held by `isReorderOnly` and tests/nameReviewed.test.ts: the new name has exactly the words of the old one in a different order, adds none, and drops none except the house name when the old name repeats it; the target is the name the brand itself writes (its own page or a major retailer), two independent domains agree, series prefixes are kept. Same list rules as the others: append only, one list per family, applied by `displayName` (so every shop's title for it gets the new name and the listings join one product; ids, slugs and aliases are untouched).
+
+No entry was added, because none of the intended families passes the rule:
+- Lattafa Pride: the brand's own site (lattafa.com) writes the plain name, "Nebras", "Affection", "Artisan Ethnique", "La African Drummer", and files them under the Lattafa Pride collection. Retailers write "Lattafa Pride Nebras". "Pride Nebras" is not the brand's own name, and "Nebras Perfume Lattafa Pride" to "Pride Nebras" drops "Perfume" as well, so it is a deletion, not a move. The right target is "Nebras": about 50 Lattafa Pride products carry a "Perfume Lattafa Pride" or "by Lattafa Pride" tail from Emirates Oud and Opulensi titles and would need that deletion (a larger, separate job).
+- French Avenue: the brand's own shop writes "An Equestrian Series Della" (also Haydan, Olena, Pierce; Anabis and Bjutip agree). The catalogue holds "Della Equestrian Series Perfume" and "Haydan Equestrian Series" beside them as separate products. Reaching the brand's name adds "An" (and drops "Perfume"), which the rule forbids.
+- Fragrance World Artisan: no brand page was found and retailers disagree ("Artisan Perfume Hibiscus Magic", "Artisan Perfumery Hibiscus Magic", "Hibiscus Magic Artisan Perfumery").
+Owner decision wanted: allow the series word "An" and the template word "Perfume" in a reorder, and/or approve the "Perfume Lattafa Pride" tail deletion to the brand's plain names.
+
 ### Renamed
 
 | House | Before | After |

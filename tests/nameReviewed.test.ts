@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { NAME_KEPT, NAME_UNRESOLVED, NAME_VERIFIED } from '../src/catalogue/nameReviewed.js';
+import { NAME_KEPT, NAME_REORDERED, NAME_UNRESOLVED, NAME_VERIFIED, isReorderOnly } from '../src/catalogue/nameReviewed.js';
 import { displayName } from '../src/catalogue/productName.js';
 
 const words = (s: string): string[] =>
@@ -44,7 +44,7 @@ describe('reviewed names (nameReviewed.ts)', () => {
   it('lists a family once, and a verified name is not also kept or unresolved', () => {
     const key = (b: string, n: string) => `${words(b).join(' ')}|${words(n).join(' ')}`;
     const seen = new Set<string>();
-    for (const e of NAME_VERIFIED) { const k = key(e.brand, e.from); expect(seen.has(k), k).toBe(false); seen.add(k); }
+    for (const e of [...NAME_VERIFIED, ...NAME_REORDERED]) { const k = key(e.brand, e.from); expect(seen.has(k), k).toBe(false); seen.add(k); }
     for (const e of [...NAME_KEPT, ...NAME_UNRESOLVED]) { const k = key(e.brand, e.name); expect(seen.has(k), k).toBe(false); seen.add(k); }
     for (const e of NAME_KEPT) {
       // A family the owner settled needs no source; every other kept name has one.
@@ -71,6 +71,28 @@ describe('a name only Direct Cosmetics gives is not evidence (owner decision, 19
     // Those few stay with the owner: the long name is Direct Cosmetics only and other shops agree on a shorter one.
     for (const e of NAME_UNRESOLVED.filter((u) => u.why.startsWith('only Direct Cosmetics gives this name'))) {
       expect(['Instinct David Beckham', 'Chantal Thomass Pink', 'Cabotine de Gres', 'Lacoste L.12.12 Rose Eau Fraiche', 'Florence Roberto Cavalli', 'Paco Rabanne'], e.name).toContain(e.name);
+    }
+  });
+});
+
+describe('reordered names (NAME_REORDERED): the same words, moved', () => {
+  it('accepts words moved, with the house dropped only when the old name repeats it', () => {
+    expect(isReorderOnly('La African Drummer Lattafa Pride', 'Pride La African Drummer', 'Lattafa')).toBe(true);
+    expect(isReorderOnly('Nebras Pride', 'Pride Nebras', 'Lattafa')).toBe(true);
+  });
+  it('refuses a name that adds a word, drops another word, or only respells', () => {
+    // Adds "An" and drops "Perfume": a deletion or an addition, not a move.
+    expect(isReorderOnly('Della Equestrian Series Perfume', 'An Equestrian Series Della', 'French Avenue')).toBe(false);
+    expect(isReorderOnly('Nebras Perfume Lattafa Pride', 'Pride Nebras', 'Lattafa')).toBe(false);
+    expect(isReorderOnly('Nebras Pride', 'Nebras Pride', 'Lattafa')).toBe(false);
+    expect(isReorderOnly('Nebras Pride', 'Pride Nebras Elixir', 'Lattafa')).toBe(false);
+  });
+  it('holds every entry to the rule, with two sources on different domains', () => {
+    for (const e of NAME_REORDERED) {
+      expect(isReorderOnly(e.from, e.to, e.brand), `${e.from} -> ${e.to}`).toBe(true);
+      expect(e.sources.length, e.from).toBeGreaterThanOrEqual(2);
+      expect(new Set(e.sources.map(domain)).size, e.from).toBeGreaterThanOrEqual(2);
+      expect(displayName(`${e.from} Eau de Parfum 100ml`, e.brand, e.brand), e.from).toBe(e.to);
     }
   });
 });
