@@ -137,7 +137,7 @@ concurrency:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # Measured budget: 29 enabled retailers x a 240s per-shop cap is a 116
     # minute worst case in theory, but only shops that answer spend anything
     # near their cap. 45 minutes covers the realistic pass with room, and a
@@ -157,10 +157,10 @@ jobs:
       SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         timeout-minutes: 5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         timeout-minutes: 5
         with:
           node-version: '22'

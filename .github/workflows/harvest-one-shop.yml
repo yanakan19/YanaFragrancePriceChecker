@@ -75,9 +75,9 @@ jobs:
     steps:
       # Shallow on purpose. Nothing here replays commit history — that is
       # build-price-history.ts's need, and it does not run in this workflow.
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: '22'
           cache: npm

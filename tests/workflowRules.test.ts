@@ -235,6 +235,13 @@ describe('catalogue-daily.yml', () => {
     expect(crawl.body).toMatch(/\n {4}runs-on: ubuntu-\d\d\.\d\d\n/);
   });
 
+  it('pins every Linux job to a runner image, so a moving label cannot change the build (docs/FUTUREPROOFING-PLAN.md A2)', () => {
+    for (const f of files) {
+      const code = text(f).split('\n').filter((l) => !l.trimStart().startsWith('#')).join('\n');
+      expect(code, f).not.toMatch(/runs-on:\s*ubuntu-latest/);
+    }
+  });
+
   it('sizes the harvest deadline to the time the job has left', () => {
     const harvest = step('Harvest via sitemap');
     expect(harvest).toContain('RUN_MINUTES=$(scripts/harvest-minutes.sh)');
@@ -490,7 +497,7 @@ describe('social pictures', () => {
     expect(wf).toMatch(/\npermissions:\n {2}contents: read\n/);
     expect(wf).not.toMatch(/commit-and-push|git commit|contents: write|pages: write|upload-pages-artifact|deploy-pages/);
     const draw = at('scripts/render-social.ts --out');
-    const upload = at('actions/upload-artifact@v4');
+    const upload = at('actions/upload-artifact@v6');
     expect(draw, 'the drawing step').toBeGreaterThan(0);
     expect(upload, 'the upload').toBeGreaterThan(draw);
     expect(stepList[upload]).toContain('retention-days: 90');

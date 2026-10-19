@@ -78,7 +78,7 @@ concurrency:
 
 jobs:
   check:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     # The two sweeps asked for 20 minutes between them inside the old job. 40
     # gives each of them that with room to spare, and is still far under
     # anything that would matter here, since nothing else is waiting on this
@@ -97,10 +97,10 @@ jobs:
       SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         timeout-minutes: 5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         timeout-minutes: 5
         with:
           node-version: '22'
