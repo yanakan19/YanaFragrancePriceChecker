@@ -163,9 +163,18 @@ export function putPrideFirstOnPlainTwins<T extends { brand: string; name: strin
     if (m && key(m[1]!) !== '') bare.set(key(m[1]!), p.name.trim());
   }
   const renamed: T[] = [];
+  // A shop's shelf label ("For Men", "For Women", "For Unisex") is not part of the name: "Pride Nebras For
+  // Women" is "Pride Nebras" where the house sells that name without the label.
+  const shelfLabel = /\s+for\s+(?:men|women|unisex|him|her)$/i;
   for (const p of lattafa) {
-    if (/^pride\b/i.test(p.name.trim())) continue;
-    const to = bare.get(key(p.name));
+    const plain = p.name.trim();
+    const withoutLabel = plain.replace(shelfLabel, '');
+    if (/^pride\b/i.test(plain)) {
+      const same = withoutLabel !== plain ? bare.get(key(withoutLabel.replace(/^pride\s+/i, ''))) : undefined;
+      if (same !== undefined && same !== p.name && !shelfLabel.test(same)) { p.name = same; renamed.push(p); }
+      continue;
+    }
+    const to = bare.get(key(plain)) ?? (withoutLabel !== plain ? bare.get(key(withoutLabel)) : undefined);
     if (to !== undefined && to !== p.name) { p.name = to; renamed.push(p); }
   }
   return renamed;

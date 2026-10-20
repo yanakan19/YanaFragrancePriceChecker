@@ -3025,7 +3025,7 @@ export function displayName(
   s = capitaliseDescriptiveWords(s);
   s = keepHouseWhenNameIsOnlyAWord(s, displayedBrand || brand);
 
-  const name = reviewedRename(ownerSeriesName(canonicalSeriesSpelling(s), displayedBrand || brand), [displayedBrand, brand]) || emptiedNameFallback(opener, brand, displayedBrand) || title;
+  const name = reviewedRename(ownerSeriesName(withBrandSeries(canonicalSeriesSpelling(s), brand, title), displayedBrand || brand), [displayedBrand, brand]) || emptiedNameFallback(opener, brand, displayedBrand) || title;
   return ownTravelSpray && !/\btravel spray$/i.test(name) ? `${name} Travel Spray` : name;
 }
 
@@ -3099,6 +3099,19 @@ const SERIES_SPELLINGS: readonly { readonly canonical: string; readonly variants
   // name, with any of the three spellings and either quote character.
   { canonical: "Bade'e Al Oud", variants: /\bbad[e\u2019']*e?\s+al\s+oud\b/gi },
 ];
+
+/**
+ * Owner decision, 20 Oct 2026: a shop that files the series "Lattafa Pride" as the brand (or a title that opens
+ * with it) sells Lattafa's Pride series. The house is Lattafa (brandName.ts folds the spelling) and the name
+ * carries the series first, like every other Pride product: brand "Lattafa Pride" + "Nebras" is "Pride Nebras".
+ * "Pride of Lattafa" (Fakhar) is another name and is left alone, as is a name that already starts with Pride.
+ */
+export function withBrandSeries(name: string, rawBrand: string | null, title: string): string {
+  const filed = rawBrand && /^lattafa\s+pride$/i.test(rawBrand.replace(/[^A-Za-z ]+/g, ' ').replace(/\s+/g, ' ').trim());
+  if (!filed && !/^\s*lattafa\s+pride\b(?!\s+of\b)/i.test(title)) return name;
+  if (!name || /^pride\b/i.test(name) || /\bpride\b/i.test(name)) return name;
+  return `Pride ${name.replace(/\bperfumes?\b/gi, ' ').replace(/\s{2,}/g, ' ').trim()}`.trim();
+}
 
 /**
  * The name with any series in SERIES_SPELLINGS spelled its canonical way.

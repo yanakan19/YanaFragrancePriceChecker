@@ -243,6 +243,9 @@ export const BRAND_MERGES: readonly (readonly [from: string, to: string])[] = [
   // the same house with a trailing word one shop's feed added.
   ['Maison Francis Kurkdjian Paris', 'Maison Francis Kurkdjian'],
   ['Lattafa Perfume', 'Lattafa'],
+  // Owner decision, 20 Oct 2026: "Lattafa Pride" is a series of the house Lattafa, not a house. A shop that files
+  // it as the brand has its products shown under Lattafa with the series name first (productName.ts, prideSeriesBrand).
+  ['Lattafa Pride', 'Lattafa'],
   ['Dumont', 'Dumont Paris'],
   ['Versatile Paris', 'Versatile'],
   // The house's full name on one side and a shortened form on the other.

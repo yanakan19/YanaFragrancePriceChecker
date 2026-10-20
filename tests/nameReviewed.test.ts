@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { NAME_KEPT, NAME_REORDERED, NAME_UNRESOLVED, NAME_VERIFIED, OWNER_DECISION_SOURCE, isReorderOnly, ownerSeriesName, putPrideFirstOnPlainTwins } from '../src/catalogue/nameReviewed.js';
+import { knownAlias } from '../src/catalogue/brandName.js';
 import { displayName } from '../src/catalogue/productName.js';
 
 const words = (s: string): string[] =>
@@ -176,5 +177,27 @@ describe('the owner decisions of 20 Oct 2026: the Lattafa Pride line and the Fre
     expect(products.map((p) => p.name)).toEqual(['Pride Nebras', 'Pride Nebras', 'Pride Nebras', 'Khamrah', 'Nebras', 'Pride Oud']);
     const fa = (title: string) => displayName(title, 'French Avenue', 'French Avenue');
     expect(new Set(['An Equestrian Series Della Eau de Parfum 100ml', 'Della Equestrian Series Perfume 100ml EDP', 'French Avenue Della Eau de Parfum 100ml'].map(fa))).toEqual(new Set(['Della']));
+  });
+});
+
+describe('a shop that files "Lattafa Pride" as the brand (owner decision, 20 Oct 2026)', () => {
+  it('drops the shelf label from a Pride name when the house sells the name without it', () => {
+    const products = [
+      { brand: 'Lattafa', name: 'Pride Nebras' }, { brand: 'Lattafa', name: 'Pride Nebras For Women' },
+      { brand: 'Lattafa', name: 'Pride Taureau De Combat For Men' }, { brand: 'Lattafa', name: 'Taureau De Combat' },
+      { brand: 'Lattafa', name: 'Pride Oud For Men' },
+    ];
+    putPrideFirstOnPlainTwins(products);
+    expect(products.map((p) => p.name)).toEqual(['Pride Nebras', 'Pride Nebras', 'Pride Taureau De Combat For Men', 'Taureau De Combat', 'Pride Oud For Men']);
+  });
+  it('shows the house Lattafa and the series name first', () => {
+    expect(knownAlias('Lattafa Pride')).toBe('Lattafa');
+    expect(displayName('Nebras Elixir Perfume 100ml EDP for Unisex', 'Lattafa Pride', 'Lattafa')).toBe('Pride Nebras Elixir For Unisex');
+    expect(displayName('Lattafa Pride Eternal Oud Eau De Parfum 100ml', 'Lattafa Pride', 'Lattafa')).toBe('Pride Eternal Oud');
+  });
+  it('leaves names that already carry the series, Pride of Lattafa and other houses alone', () => {
+    expect(displayName('Pride Art of Universe 100ml Eau de Parfum for Men', 'Lattafa Pride', 'Lattafa')).toBe('Pride Art of Universe For Men');
+    expect(displayName('Fakhar Lattafa (Pride of Lattafa) Black Eau de Parfum 100ml', 'Lattafa', 'Lattafa')).toBe('Fakhar Lattafa (Pride of Lattafa) Black');
+    expect(displayName('Nebras Eau de Parfum 100ml', 'Lattafa', 'Lattafa')).toBe('Nebras');
   });
 });
