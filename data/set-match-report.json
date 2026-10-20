@@ -9893,7 +9893,8 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3614273624060, 3614274341195"
+    "two different barcodes: 3614273624060, 3614274341195",
+    "a shop lists more than one: paco-perfumerias-uk"
    ],
    "members": [
     {
@@ -9905,7 +9906,8 @@
      "scent": "luna ocean rossa",
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
-      "fragrance-click"
+      "fragrance-click",
+      "paco-perfumerias-uk"
      ]
     },
     {
