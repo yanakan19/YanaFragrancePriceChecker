@@ -721,6 +721,14 @@ export function trustworthyEan(l: EanListing, untrustworthy: ReadonlySet<string>
 export interface HouseStatement {
   key: string;
   stated: string;
+  /**
+   * A hand-reviewed statement (houseStrengthEvidence.ts: the brand's own page,
+   * read and recorded). A silent house listing of the same name and size does
+   * not veto it, because the reviewer looked at that page and found the bottle
+   * is one article (Zimaya's own shop writes "Sharaf The Club 100ml", the page
+   * behind it is tagged EDP). Two different stated strengths still cancel it.
+   */
+  reviewed?: boolean;
 }
 
 /**
@@ -746,18 +754,20 @@ export interface HouseStatement {
 export function settleHouseConcentrations(statements: Iterable<HouseStatement>): Map<string, string> {
   const seen = new Map<string, Set<string>>();
   const silent = new Set<string>();
-  for (const { key, stated } of statements) {
+  const reviewed = new Set<string>();
+  for (const { key, stated, reviewed: isReviewed } of statements) {
     if (stated.toLowerCase().trim() === NOT_STATED_MATCH_KEY) {
       silent.add(key);
       continue;
     }
+    if (isReviewed) reviewed.add(key);
     const set = seen.get(key);
     if (set) set.add(stated);
     else seen.set(key, new Set([stated]));
   }
   const settled = new Map<string, string>();
   for (const [key, set] of seen) {
-    if (set.size !== 1 || silent.has(key)) continue;
+    if (set.size !== 1 || (silent.has(key) && !reviewed.has(key))) continue;
     settled.set(key, [...set][0]!);
   }
   return settled;

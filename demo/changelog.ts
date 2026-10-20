@@ -30,6 +30,20 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.112.0',
+    date: '20 Oct 2026',
+    groups: [
+      {
+        heading: 'Products and Matching',
+        points: [
+          'Wrong strength labels fixed on 35 perfumes',
+          'Orto Parisi Cuoium now shows as one bottle',
+          'Clinique, Mykonos and Xerjoff listings joined',
+        ],
+      },
+    ],
+  },
+  {
     version: 'v3.111.0',
     date: '19 Oct 2026',
     groups: [

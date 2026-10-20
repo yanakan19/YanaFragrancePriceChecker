@@ -11468,6 +11468,10 @@ export const RETAILERS: readonly Retailer[] = [
     // Sandbox proof, 2026-10-09: `npm run harvest -- --shop=roullier-white --dry-run` read 252 priced listings, all in GBP; 217 of them pass the catalogue's own fragrance test and 139 of those are in stock.
     //
     // Affiliate: none found (WebSearch, 2026-10-09). Not applied to.
+    // Its vendor field says "PMD" (the importer) on 16 Orto Parisi and Nasomatto bottles whose titles
+    // name the house ("Orto Parisi - Cuoium (EdP) 50ml"); read as a brand it made a house "Pmd" and
+    // kept Cuoium apart from the real one (2026-10-20, docs/STRENGTH-REVIEW-2026-10-20.md).
+    vendorsNotBrands: ['PMD'],
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,

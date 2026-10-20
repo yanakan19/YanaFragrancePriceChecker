@@ -80,7 +80,77 @@ const fssa = (name: string, handle: string, sizesMl: number[]): HouseStrengthEvi
   readAt: OP_READ,
 });
 
+/**
+ * ── The 2026-10-20 strength review (docs/STRENGTH-REVIEW-2026-10-20.md) ──────
+ * Every fragrance shown in two or more strengths at one size, checked against
+ * the brand's own site. The entries below are the ones where the brand makes
+ * ONE strength and the other label is a shop's. The ones where the brand makes
+ * several are in strengthReviewed.ts and stay split. Append only.
+ *
+ * The brand's site was read as PriceSniffsBot or through a search of the brand's
+ * own domain on the day below (the quote says which); a house crawled into
+ * data/houses/ is quoted from the crawl's own read of its page.
+ */
+const REVIEW_DAY = '2026-10-20';
+const reviewed = (
+  brand: string,
+  names: readonly string[],
+  sizesMl: readonly number[],
+  concentration: string,
+  source: string,
+  quote: string,
+): HouseStrengthEvidence[] =>
+  names.map((name) => ({ brand, name, sizesMl, concentration, source, quote, readAt: REVIEW_DAY }));
+
+const myk = (name: string, handle: string, sizesMl: number[]): HouseStrengthEvidence => ({
+  brand: 'Mykonos',
+  name,
+  sizesMl,
+  concentration: 'Extrait de Parfum',
+  source: `https://officialmykonos.com/products/${handle}`,
+  quote: `house page title "Mykonos - ${name} Extrait de Parfum ${sizesMl.join('ml & ')}ml" (data/houses/mykonos.json, read by the house crawl)`,
+  readAt: REVIEW_DAY,
+});
+
+const REVIEWED_ONE_STRENGTH: readonly HouseStrengthEvidence[] = [
+  ...reviewed('Clinique', ['Happy Heart'], [50, 100], 'Eau de Parfum', 'https://www.clinique.com/product/1584/57547/fragrance/gifts/fragrance-gifts-sets/clinique-happy-hearttm-eau-de-parfum-spray', 'page title "Clinique Happy Heart Eau de Parfum Spray"; no Parfum of it on clinique.com or clinique.co.uk'),
+  ...reviewed('Clinique', ['Happy'], [30, 50, 100], 'Eau de Parfum', 'https://www.clinique.com/product/1579/5188/fragrance/clinique-happy/clinique-happy-eau-de-parfum-spray', 'page title "Clinique Happy Eau de Parfum - Women\'s Perfume"; the UK site calls the same spray "Perfume Spray"'),
+  ...reviewed('Clinique', ['Aromatics Elixir'], [25, 45, 100], 'Eau de Parfum', 'https://www.clinique.com/product/1584/5390/fragrance/gifts/fragrance-gifts-sets/aromatics-elixir-eau-de-parfum-spray', 'page title "Aromatics Elixir Eau de Parfum Spray" (clinique.co.uk: "Eau de Perfume Spray"); one product, 100 ml listed'),
+  ...reviewed('Zimaya', ['Sharaf The Club'], [100], 'Eau de Parfum', 'https://zimayaperfumes.com/products/sharaf-the-club-100ml', 'brand shop product sharaf-the-club-100ml tagged "EDP" (products.json read as PriceSniffsBot, robots.txt allows it); page title "Sharaf The Club EDP 100ml"'),
+  ...reviewed('Zimaya', ['Sharaf Blend'], [100], 'Eau de Parfum', 'https://zimayaperfumes.com/products/sharaf-blend-100ml', 'brand shop product sharaf-blend-100ml tagged "EDP" (products.json read as PriceSniffsBot); the Sharaf series page says each is an EDP'),
+  ...reviewed('Zimaya', ['Fatima'], [100], 'Eau de Parfum', 'https://zimayaperfumes.com/products/fatima-pink-100ml', 'brand shop product fatima-pink-100ml tagged "EDP" (products.json read as PriceSniffsBot); 92 of its 106 products are tagged EDP and none of this name is an Extrait'),
+  ...reviewed('Zimaya', ['Amber Is Great'], [100], 'Eau de Parfum', 'https://zimayaperfumes.com/products/amber-is-great-100ml', 'brand shop product amber-is-great-100ml tagged "EDP" (products.json read as PriceSniffsBot)'),
+  ...reviewed('Atelier des Ors', ['Blue Madeleine'], [100], 'Eau de Parfum', 'https://atelierdesors.com/products/blue-madeleine', 'brand shop product type "Eau de Parfum"; the shop lists no Extrait of this name (products.json read as PriceSniffsBot)'),
+  ...reviewed('Atelier des Ors', ['Noir By Night'], [100], 'Eau de Parfum', 'https://atelierdesors.com/products/noir-by-night', 'brand shop product type "Eau de Parfum"; the shop lists no Extrait of this name (products.json read as PriceSniffsBot)'),
+  myk('Inception', 'mykonos-inception-extrait-de-parfum-50ml', [50, 100]),
+  myk('California Blue', 'mykonos-california-blue-extrait-de-parfum-50ml', [50, 100]),
+  myk('Sorrento', 'mykonos-sorrento-extrait-de-parfum-50ml-100ml', [50, 100]),
+  myk('Glitch', 'mykonos-x-setiawanade-glitch-extrait-de-parfum-50ml', [50, 100]),
+  myk('Inferno', 'mykonos-inferno-extrait-de-parfum-100ml', [50, 100]),
+  myk('Marbella', 'mykonos-marbella-extrait-de-parfum-100ml', [50, 100]),
+  myk('Bonfire Vanilla', 'mykonos-bonfire-vanilla-extrait-de-parfum-50ml', [50]),
+  myk('Imperium', 'mykonos-imperium-extrait-de-parfum-100ml', [100]),
+  myk('Untamed', 'mykonos-untamed-extrait-de-parfum-100ml', [100]),
+  ...reviewed('Versace', ['Eros Najim'], [100], 'Parfum', 'https://www.versace.com/us/en/men/accessories/fragrances-body-care/eros-collection/', 'collection page lists "Eros Najim Parfum 100 ml" and no Eau de Parfum of it'),
+  ...reviewed('Rabanne', ['Lady Million Royal'], [30, 50, 80], 'Eau de Parfum', 'https://www.rabanne.com/ww/en/fragrance/p/lady-million-royal--000000000065190452', 'product page sold as Eau de Parfum; no Parfum of it on rabanne.com'),
+  ...reviewed('Parfums de Marly', ['Layton Exclusif'], [75, 125], 'Parfum', 'https://us.parfums-de-marly.com/products/layton-exclusif', 'product title "Layton Exclusif Parfum (75ml, 125ml)"; the house lists no Eau de Parfum of it'),
+  ...reviewed('Parfums de Marly', ['Pegasus Exclusif'], [75, 125], 'Parfum', 'https://us.parfums-de-marly.com/products/pegasus-exclusif', 'product title "Pegasus Exclusif Parfum (75ml, 125ml)"; the house lists no Eau de Parfum of it'),
+  ...reviewed('Burberry', ['My Burberry Black'], [90], 'Parfum', 'https://us.burberry.com/my-burberry-black-parfum-90ml-p40115491', 'product page "My Burberry Black Parfum 90ml"; the only My Burberry Black on burberry.com'),
+  ...reviewed('Cartier', ['Pasha de Cartier'], [50], 'Parfum', 'https://www.cartier.com/en-us/pasha-de-cartier-parfum.html', 'page "Pasha de Cartier Parfum"; the house lists no Eau de Parfum of it'),
+  ...reviewed('Xerjoff', ['Alexandria II'], [50, 100], 'Parfum', 'https://www.xerjoff.com/products/alexandria-ll-parfum', 'product address and title "Alexandria II, Parfum 50ml"'),
+  ...reviewed('Xerjoff', ['Cruz del Sur I'], [50, 100], 'Parfum', 'https://www.xerjoff.com/en-us/products/cruz-del-sur-l-parfum', 'product address "cruz-del-sur-l-parfum"; the house lists no Eau de Parfum of it'),
+  ...reviewed('Xerjoff', ['Pikovaya Dama'], [50, 100], 'Parfum', 'https://xerjoff.com/USA/1717-stone-label/249-pikovaya-damaparfum-50ml.html', 'product "Pikovaya Dama Parfum 50ml" and "Parfum 100ml"'),
+  ...reviewed('Jean Paul Gaultier', ['Scandal Absolu'], [30, 50, 80], 'Parfum', 'https://www.jeanpaulgaultier.com/ww/en/p/range-scandal/scandal-absolu-parfum-concentre-000000000065189841', 'product title "Scandal Absolu Parfum Concentre"; the house sells one Scandal Absolu'),
+  ...reviewed('Kilian', ["Angels' Share Paradis"], [30, 50], 'Extrait de Parfum', 'https://www.bykilian.com/angels-share-paradis', 'page describes Paradis as "the ultimate interpretation of Angels\' Share in an intense extrait de parfum"'),
+  ...reviewed('Initio Parfums Privés', ['LIFT ME UP'], [50, 90], 'Extrait de Parfum', 'https://us.initioparfums.com/products/lift-me-up', 'product sits in the house\'s "Extrait de Parfum" collection, 50 and 90 ml'),
+  ...reviewed('BDK Parfums', ['Pas ce Soir Extrait'], [100], 'Extrait de Parfum', 'https://bdkparfums.com/products/pas-ce-soir-extrait', 'house page title "Pas ce Soir - Extrait de Parfum 100ML" (data/houses/bdk-parfums.json, read by the house crawl)'),
+  ...reviewed('Goldfield & Banks', ['Silky Woods'], [100], 'Eau de Parfum', 'https://us.goldfieldandbanks.com/products/silky-woods', 'page title "Silky Woods Eau de Parfum"; the extrait of the name is the separate "Silky Woods Elixir"'),
+  ...reviewed('Goldfield & Banks', ['Tales of Amber'], [100], 'Extrait de Parfum', 'https://us.goldfieldandbanks.com/products/tales-of-amber', 'page describes it as an extrait de parfum, 30 percent essences, 100 ml'),
+  ...reviewed('Maison Crivelli', ['Patchouli Magnetik'], [50], 'Extrait de Parfum', 'https://maisoncrivelli.com/fr-fr/products/patchouli-magnetik', 'page title "Patchouli Magnetik extrait de parfum", 50 ml, 32 percent'),
+];
+
 export const HOUSE_STRENGTH_EVIDENCE: readonly HouseStrengthEvidence[] = [
+  ...REVIEWED_ONE_STRENGTH,
   orto('Bergamask', 'bergamask'),
   orto('Boccanera', 'boccanera'),
   orto('Brutus', 'brutus'),

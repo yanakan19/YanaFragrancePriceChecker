@@ -588,6 +588,7 @@ function isSelfVendored(rawBrand: string | null | undefined, retailer: Retailer)
   const core = shopNameCore(rawBrand);
   if (!core) return false;
   if (PLACEHOLDER_VENDOR_NAMES.has(core)) return true;
+  if (retailer.vendorsNotBrands?.some((v) => shopNameCore(v) === core)) return true;
   return core === shopNameCore(retailer.name) || core === shopNameCore(retailer.domain);
 }
 
@@ -1255,7 +1256,7 @@ for (const { retailer, listings } of eligible) {
    Runs here — after every product exists, before findDuplicateGroups — because
    both halves need it: the evidence has to be gathered across products, and
    changing a concentration after the merge would be too late to merge on. */
-const houseStatements: { key: string; stated: string }[] = [];
+const houseStatements: { key: string; stated: string; reviewed?: boolean }[] = [];
 for (const product of products.values()) {
   for (const offer of product.offers) {
     if (!isBrandDirectOffer(offer.retailerId, product.brand)) continue;
@@ -1272,6 +1273,7 @@ for (const e of HOUSE_STRENGTH_EVIDENCE) {
     houseStatements.push({
       key: concentrationBlindKey({ id: `evidence-${e.brand}-${e.name}-${size}`, brand: e.brand, name: e.name, concentration: '', sizeMl: size, ean: null }),
       stated: e.concentration,
+      reviewed: true,
     });
   }
 }

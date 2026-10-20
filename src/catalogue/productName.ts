@@ -60,7 +60,7 @@ import { evidencedStrength } from './unstatedStrengthEvidence.js';
  * own catalogue: 38+ titles hit this exact collision.
  */
 export const CONCENTRATION_SPECIFIC =
-  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|extrait de parfum|extrait de toilette|(?<!eau de )parfum extrait|extrait parfum|extract de parfum|extract parfum)\b/i;
+  /\b(eau de parfum|eau de perfume|eau de toilette|eau de cologne|eau fraiche|extrait de parfum|extrait de toilette|(?<!eau de )parfum extrait|extrait parfum|extract de parfum|extract parfum)\b/i;
 /**
  * Perfume oil, checked ahead of everything else because it is the one form
  * whose own name contains a weaker phrase that would otherwise claim it.
@@ -211,6 +211,8 @@ const CONCENTRATION_DISPLAY: Record<string, string> = {
   edp: 'Eau de Parfum', edt: 'Eau de Toilette', edc: 'Eau de Cologne',
   // French Avenue's own abbreviation for Extrait de Parfum, on its own UK shop.
   exdp: 'Extrait de Parfum',
+  // "Eau de Perfume Spray": Clinique UK's own name for its Eau de Parfum sprays (2026-10-20).
+  'eau de perfume': 'Eau de Parfum',
   'eau de parfum': 'Eau de Parfum', 'eau de toilette': 'Eau de Toilette',
   'eau de cologne': 'Eau de Cologne', 'eau fraiche': 'Eau Fraiche',
   'extrait de parfum': 'Extrait de Parfum', 'extrait de toilette': 'Extrait de Toilette',
@@ -656,6 +658,10 @@ export const CONCENTRATION_RESOLUTIONS: Readonly<Record<string, ConcentrationRes
 
   // ── Rabanne "Parfum" tier (see the general note above): each entry below
   // is unanimous or near-unanimous across independent, EAN-tied sources. ──
+  // Olympéa Absolu (the shops' "Olympea Absolu Intense"), reviewed 2026-10-20: rabanne.com sells it as
+  // "Parfum Intense" (the strength tier read as Parfum), 30 and 80 ml, and no Eau de Parfum of it.
+  '3349668641772': { concentration: 'Parfum', citation: 'Rabanne Olympéa Absolu 80ml: rabanne.com’s own page (rabanne.com/us/en_US/fragrance/p/olympea-absolu--000000000065215203) tags it "Parfum Intense"; allbeauty and john-lewis "Eau de Parfum" is the shops’ label; Escentual says Parfum Intense.' },
+  '3349668641765': { concentration: 'Parfum', citation: 'Rabanne Olympéa Absolu 50ml: same product line on rabanne.com ("Parfum Intense"); no Eau de Parfum of it on the brand site.' },
   '3349668641826': { concentration: 'Parfum', citation: 'Rabanne Invictus Victory Absolu 50ml: ShopSimon, Jomashop, eBay ("2025 ... ABSOLU Parfum INTENSE"), bestbrandsperfume all "Parfum(e Intense)"; no EDP claim found.' },
   '3349668641833': { concentration: 'Parfum', citation: 'Rabanne Invictus Victory Absolu 100ml: ShopSimon, Jomashop, eBay, news-parfums.com ("RABANNE PARFUM Invictus Victory Absolu"), ModeSens all "Parfum"; no EDP claim found.' },
   '3349668579822': { concentration: 'Parfum', citation: 'Rabanne 1 Million 50ml: upcitemdb.com’s independent EAN database names this exact barcode "1 Million Parfum Spray"; lojaglamourosa agrees.' },

@@ -780,6 +780,13 @@ export interface Retailer {
    */
   singleBrandOnly?: string;
   /**
+   * Vendor-field values this multi-brand shop uses for its supplier, not for
+   * the house (Roullier White tags 16 Orto Parisi and Nasomatto bottles "PMD",
+   * its importer). Such a value is never read as the brand: the brand is
+   * recovered from the title, exactly as for a shop that names itself.
+   */
+  vendorsNotBrands?: readonly string[];
+  /**
    * True only when everything this shop sells is a fragrance, so a listing of
    * its can be trusted as one even when its title carries no concentration
    * word.

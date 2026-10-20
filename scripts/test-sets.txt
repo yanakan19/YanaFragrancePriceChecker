@@ -294,6 +294,7 @@ code tests/sortLabels.test.ts
 code tests/sortLabelsBrowser.test.ts
 code tests/strategy.test.ts
 data tests/strengthNames.test.ts
+code tests/strengthReviewed.test.ts
 code tests/suggestions.test.ts
 code tests/testHygiene.test.ts
 code tests/thgPageStrength.test.ts
