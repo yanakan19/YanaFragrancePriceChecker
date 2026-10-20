@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-20T07:53:52.940Z",
-  "seenAt": "2026-10-20T07:53:52.940Z",
+  "updatedAt": "2026-10-20T11:33:46.137Z",
+  "seenAt": "2026-10-20T11:33:46.137Z",
   "source": "live",
   "listings": [
     {
@@ -56,7 +56,7 @@
       "rawTitle": "Christmas Trees Diffuser Refill (200ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/18-JL_Social-Shoot_Aug2025_0433_4x5_bfa03ff3-2b2f-4e68-8d26-38c1ff567440.jpg?v=1758799263",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/Xmas_Trees_diffuser_refill_2026.jpg?v=1792491109",
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -566,7 +566,7 @@
       "priceGbp": 32,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Immerse yourself in seven vibrant Jo Loves fragrances, where sparkling citrus, juicy fruits, fresh green accords and expressive florals come together in a collection full of colour and character. From uplifting daytime scents to more distinctive modern compositions, discover a fragrance for every mood and moment. Contents: Pomelo, White Rose & Lemon Leaves, Mango Thai Lime, Green Orange & Coriander, Pink Vetiver, No.42 The Flower Shop and Orange Butterflies. Please note the set will start dispatching after 9th October..",
       "productType": null,
