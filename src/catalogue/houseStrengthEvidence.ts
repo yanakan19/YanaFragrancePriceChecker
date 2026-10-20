@@ -203,9 +203,39 @@ const REVIEWED_SECOND_BATCH: readonly HouseStrengthEvidence[] = [
   ...reviewed2('J.U.S', ['Bloomastral'], [100], EDP2, 'https://jusparfums.com/en-int/products/bloomastral', 'product page filed under "Eaux de Parfum", 100 ml (found through a search of jusparfums.com)'),
 ];
 
+/**
+ * The third batch of the strength review (docs/STRENGTH-REVIEW-2026-10-20.md, "US and India"): bottles the US and
+ * India shops label "Eau de Cologne", "Not stated" or another strength that the brand's own page shows is made as
+ * one other strength. "Eau de Cologne" is a strength of its own (owner decision, 20 Oct 2026): a shop's label is
+ * corrected only by an entry like these, never folded into Eau de Toilette or Eau de Parfum. Append only.
+ */
+const REVIEWED_REGION_BATCH: readonly HouseStrengthEvidence[] = [
+  ...reviewed2('Al Haramain', ["L'Aventure Knight"], [100], EDP2, 'https://alharamainperfumes.co.uk/products/l-aventure-knight-spray-100ml', 'brand UK shop title "Al Haramain L\'Aventure Knight Eau de Parfum Spray for Men 100ml" (data/catalogue/al-haramain.json, read by the crawl)'),
+  ...reviewed2('Al Haramain', ['Opulent Saffron'], [100], EDP2, 'https://alharamainperfumes.co.uk/products/opulent-saffron-spray-100ml', 'brand UK shop title "Opulent Saffron Unisex Eau de Parfum 100ml" (data/catalogue/al-haramain.json, read by the crawl)'),
+  ...reviewed2('Al Haramain', ['Amber Oud Rouge'], [60], EDP2, 'https://alharamainperfumes.co.uk/products/haramain-amber-oud-rouge-edition-60ml-eau-de-parfumharamain-amber-oud-rouge-edition-spray-60ml', 'brand UK shop title "Al Haramain Amber Oud Rouge Edition Eau de Parfum" 60 ml (data/catalogue/al-haramain.json, read by the crawl)'),
+  ...reviewed2('Rasasi', ['Shuhrah Pour Homme'], [90], EDP2, 'https://www.rasasistore.co.uk/product/shuhrah-pour-homme', 'brand UK shop title "Shuhrah Pour Homme EDP 90ml" (data/catalogue/rasasi-uk-store.json, read by the crawl)'),
+  ...reviewed2('Rasasi', ['La Yuqawam Tobacco Blaze'], [75], EDP2, 'https://www.rasasistore.co.uk/product/la-yuqawam-tobacco-blaze', 'brand UK shop title "La Yuqawam Tobacco Blaze EDP 75ml" (data/catalogue/rasasi-uk-store.json, read by the crawl)'),
+  ...reviewed2('Rasasi', ['Hawas Black'], [100], EDP2, 'https://www.rasasistore.co.uk/product/hawas-black', 'brand UK shop title "Hawas Black EDP 100ml" (data/catalogue/rasasi-uk-store.json, read by the crawl)'),
+  ...reviewed2('Rasasi', ['La Yuqawam'], [75], EDP2, 'https://www.rasasistore.co.uk/product/la-yuqawam-pour-homme', 'brand UK shop title "La Yuqawam Pour Homme EDP 75ml" (data/catalogue/rasasi-uk-store.json, read by the crawl)'),
+  ...reviewed2('Hamidi', ['Addicted Silver For Men'], [120], EDP2, 'https://armaf.uk/products/hamidi-addicted-silver-eau-de-parfum-120ml', 'Armaf\'s own UK shop title "HAMIDI Addicted Silver Eau De Parfum 120ml" (data/catalogue/armaf.json, read by the crawl)'),
+  ...reviewed2('Parfums de Marly', ['Pegasus'], [75, 125, 200], EDP2, 'https://us.parfums-de-marly.com/products/pegasus', 'page title "Pegasus Eau de Parfum (75ml, 125ml, 200ml)"; the Parfum is the separate "Pegasus Exclusif" (found through a search of parfums-de-marly.com)'),
+  ...reviewed2('Parfums de Marly', ['Percival'], [125, 200], EDP2, 'https://ae.parfums-de-marly.com/products/percival', 'page title "Percival Eau de Parfum (125ml, 200ml)" (found through a search of parfums-de-marly.com)'),
+  ...reviewed2('Parfums de Marly', ['Layton'], [75, 125, 200], EDP2, 'https://us.parfums-de-marly.com/products/layton', 'page title "Layton Eau de Parfum (75ml, 125ml, 200ml)"; the Parfum is the separate "Layton Exclusif" (found through a search of parfums-de-marly.com)'),
+  ...reviewed2('Tom Ford', ['Tuscan Leather'], [50], EDP2, 'https://www.tomfordbeauty.com/products/tuscan-leather-eau-de-parfum', 'page title "Tuscan Leather Eau de Parfum", 1.7 fl oz (found through a search of tomfordbeauty.com)'),
+  ...reviewed2('Bvlgari', ['Man Glacial Essence'], [100], EDP2, 'https://www.bulgari.com/en-us/fragrances/mens/bvlgari-man-glacial-essence-eau-de-parfum-41194', 'page title "Bvlgari Man Glacial Essence Eau de Parfum", 3.4 oz / 100 ml (found through a search of bulgari.com)'),
+  ...reviewed2('Bvlgari', ['Man Terrae Essence'], [100], EDP2, 'https://bulgari.com/en-sg/fragrances/mens/bvlgari-man-terrae-essence-eau-de-parfum-41610', 'page title "Bvlgari Man Terrae Essence Eau De Parfum 3.4 oz/100 ml" (found through a search of bulgari.com)'),
+  ...reviewed2('Bvlgari', ['Man Rain Essence'], [100], EDP2, 'https://www.bulgari.com/en-us/fragrances/bvlgari-man/bvlgari-man-rain-essence-eau-de-parfum-42423', 'page title "Bvlgari Man Rain Essence Eau De Parfum" (found through a search of bulgari.com)'),
+  ...reviewed2('Montale', ['Arabians'], [100], EDP2, 'https://www.montaleparfums.com/en/oriental/241-arabians.html', 'page title "Arabians : Eau de Parfum", 100 ml (found through a search of montaleparfums.com)'),
+  ...reviewed2('Montale', ['Arabians Tonka'], [100], EDP2, 'https://www.montaleparfums.com/en/oriental/282-arabians-tonka.html', 'page title "Arabians Tonka : Eau de Parfum", 100 ml (found through a search of montaleparfums.com)'),
+  ...reviewed2('Jimmy Choo', ['Jimmy Choo Man'], [30, 50, 100], 'Eau de Toilette', 'https://us.jimmychoo.com/en/men/fragrance/man-100ml/jimmy-choo-man-eau-de-toilette-100ml-JCMAN100MLFSGY100544.html', 'product pages "Jimmy Choo MAN Eau De Toilette" 30, 50 and 100 ml (found through a search of jimmychoo.com)'),
+  ...reviewed2('Jimmy Choo', ['Man Intense'], [100], 'Eau de Toilette', 'https://us.jimmychoo.com/en/men/fragrance/man-intense-eau-de-toilette-100ml/jimmy-choo-man-intense-100ml-MINTENSE100MLFDBG101224.html', 'product address "man-intense-eau-de-toilette-100ml" (found through a search of jimmychoo.com)'),
+  ...reviewed2('Dior', ['Homme Sport'], [75, 125, 200], 'Eau de Toilette', 'https://www.dior.com/en_id/beauty/products/dior-homme-sport-Y0996476.html', 'page "Dior Homme Sport: The Brand New Eau de Toilette for Men", 75, 125 and 200 ml (found through a search of dior.com)'),
+];
+
 export const HOUSE_STRENGTH_EVIDENCE: readonly HouseStrengthEvidence[] = [
   ...REVIEWED_ONE_STRENGTH,
   ...REVIEWED_SECOND_BATCH,
+  ...REVIEWED_REGION_BATCH,
   orto('Bergamask', 'bergamask'),
   orto('Boccanera', 'boccanera'),
   orto('Brutus', 'brutus'),

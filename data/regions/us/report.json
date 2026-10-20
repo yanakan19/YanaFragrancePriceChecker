@@ -1,7 +1,7 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-19T15:44:49.639Z",
+  "builtAt": "2026-10-20T06:22:36.712Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
@@ -12,25 +12,25 @@
   "listingsPriced": 65779,
   "listingsKept": 31175,
   "staleAfterDays": 7,
-  "products": 22528,
-  "productsWithTwoOrMoreShops": 6500,
+  "products": 22481,
+  "productsWithTwoOrMoreShops": 6491,
   "shareWithTwoOrMoreShops": 0.289,
-  "productsWithTwoOrMoreIndependentShops": 2717,
+  "productsWithTwoOrMoreIndependentShops": 2726,
   "shareWithTwoOrMoreIndependentShops": 0.121,
-  "productsWithThreeOrMoreShops": 2410,
-  "medianPriceGap": 0.191,
+  "productsWithThreeOrMoreShops": 2419,
+  "medianPriceGap": 0.193,
   "listingBarcodeShare": 0.202,
-  "productsMatchingUkByBarcode": 2032,
+  "productsMatchingUkByBarcode": 2040,
   "shops": [
     {
       "id": "aedes",
       "products": 706,
-      "shared": 178
+      "shared": 185
     },
     {
       "id": "beauty-encounter",
       "products": 5079,
-      "shared": 1396
+      "shared": 1395
     },
     {
       "id": "beautyhabit",
@@ -40,7 +40,7 @@
     {
       "id": "bluemercury",
       "products": 645,
-      "shared": 297
+      "shared": 298
     },
     {
       "id": "ds-and-durga",
@@ -54,13 +54,13 @@
     },
     {
       "id": "fragrance-market",
-      "products": 4645,
-      "shared": 2692
+      "products": 4642,
+      "shared": 2700
     },
     {
       "id": "fragrance-outlet",
-      "products": 4433,
-      "shared": 3956
+      "products": 4431,
+      "shared": 3954
     },
     {
       "id": "indigo-perfumery",
@@ -69,13 +69,13 @@
     },
     {
       "id": "la-belle-perfumes",
-      "products": 4856,
-      "shared": 1346
+      "products": 4855,
+      "shared": 1347
     },
     {
       "id": "luckyscent",
       "products": 1320,
-      "shared": 279
+      "shared": 282
     },
     {
       "id": "maison-louis-marie",
@@ -85,12 +85,12 @@
     {
       "id": "microperfumes",
       "products": 510,
-      "shared": 331
+      "shared": 334
     },
     {
       "id": "ministry-of-scent",
       "products": 1646,
-      "shared": 419
+      "shared": 426
     },
     {
       "id": "parfums-raffy",
@@ -99,7 +99,7 @@
     },
     {
       "id": "perfumania",
-      "products": 4192,
+      "products": 4190,
       "shared": 3916
     },
     {
@@ -109,8 +109,8 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 553,
-      "shared": 223
+      "products": 548,
+      "shared": 220
     },
     {
       "id": "twisted-lily",
@@ -120,16 +120,16 @@
     {
       "id": "ulta",
       "products": 1134,
-      "shared": 316
+      "shared": 317
     }
   ],
-  "productsShown": 22406,
-  "productsWithUkPhoto": 4857,
-  "productsWithUkPhotoByBarcode": 1534,
-  "productsWithUkPhotoByName": 3323,
+  "productsShown": 22359,
+  "productsWithUkPhoto": 4854,
+  "productsWithUkPhotoByBarcode": 1545,
+  "productsWithUkPhotoByName": 3309,
   "listingsWithReference": 23552,
-  "offersWithCorroboratedReference": 6611,
-  "deals": 1088,
+  "offersWithCorroboratedReference": 6663,
+  "deals": 1093,
   "shareWithUkPhoto": 0.217,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",

@@ -37,6 +37,7 @@ export const CHANGELOG: ChangelogEntry[] = [
         heading: 'Products and Matching',
         points: [
           'Wrong strength labels fixed on 66 perfumes',
+          'Strength fixes also reach the US and India pages',
           'Orto Parisi Cuoium now shows as one bottle',
           'Clinique, Mykonos and Xerjoff listings joined',
           'Lattafa Pride perfumes now start with Pride',

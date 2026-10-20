@@ -150,3 +150,62 @@ Olfattivo Vanagloria (Bloom, Nicchia). Ex Nihilo The Hedonist (two barcodes).
 
 Cost: about 330,000 tokens for the 100 families (roughly 3,300 a family, because most brand sites answer only
 through a search and the rest needed their shop file read). 70 UK families still show two strengths at one size: the ones kept apart and the unresolved.
+
+## US and India (20 Oct 2026)
+
+Owner decision, 20 Oct 2026: Eau de Cologne is a strength of its own. It stays separate, it is never "unknown" and
+never folded into Eau de Toilette or Eau de Parfum. A shop's "Eau de Cologne" is corrected only where the
+brand's own site shows the product is not made as one (page, quote and day, the same rule as any merge).
+
+### How the region catalogues decide strength
+
+`src/catalogue/regionCatalogue.ts` reads each listing's strength with the UK reader (`concentrationOfListing`)
+and joins bottles of the same brand, name, size and strength. Until today none of the UK's reviewed answers
+reached it: `HOUSE_STRENGTH_EVIDENCE` (brand pages) and `CONCENTRATION_RESOLUTIONS` (barcodes) were applied only
+in `build-demo-catalogue.ts`. `applyReviewedStrengths` now applies both to the US and India builds. Brand
+evidence settles a bottle whatever a shop called it, Eau de Cologne included; a barcode resolution never
+replaces "Eau de Cologne". A shop's "For Men" or "For Women" after a name is read as a shelf label, except
+where the marked name is another bottle (Clinique Happy For Men is a cologne; Happy is the women's Eau de
+Parfum). Rebuilt with `build-region-catalogue.ts --region=us|in` (what the region crawls run; no crawl was run):
+27 US and 40 India bottles took the reviewed strength, 52 US and 13 India products joined another.
+
+### Size of the check
+
+- Adjacent strengths at one size (Eau de Parfum, Parfum, Extrait, Not stated): 261 US and 65 India families; 12 US
+  families carry two barcodes, one per strength (two real products).
+- Eau de Cologne: about 4,800 US listings read as cologne, 3,812 of them from two shops (Perfumania, Fragrance
+  Outlet) that write "Cologne" on any men's bottle ("Boss Bottled Night Cologne", "Millesime Imperial Cologne").
+  1,134 US families (and 4 India) show an Eau de Cologne beside another strength at one size; 875 have two or more
+  shops on the cologne side, 279 have two or more shops on both sides.
+- Each cologne label needs the brand's page. At about 3,300 tokens a family (a search of the brand's own domain, one page read), the 875
+  families with two or more shops are about 2.9 million tokens and the other 260 about 0.9 million; the 249 US
+  and 65 India adjacent families about 1.0 million. A brand whose own shop is a Shopify store answers all its
+  families at once (one polite read of `products.json`), which is why a brand by brand order is cheaper.
+
+### Done in this batch (about 40 families)
+
+Corrected from the brand's own page (entries in `houseStrengthEvidence.ts`, `REVIEWED_REGION_BATCH`): Al Haramain
+L'Aventure Knight, Opulent Saffron, Amber Oud Rouge (60 ml) and Rasasi Shuhrah Pour Homme, La Yuqawam Tobacco
+Blaze, Hawas Black, La Yuqawam (Eau de Parfum, from the brands' UK shops, which the crawl already holds); Hamidi
+Addicted Silver (Eau de Parfum); Parfums de Marly Pegasus, Percival, Layton (Eau de Parfum, the Parfum is the
+separate Exclusif); Tom Ford Tuscan Leather; Bvlgari Man Glacial, Terrae and Rain Essence; Montale Arabians and
+Arabians Tonka (Eau de Parfum); Jimmy Choo Man, Man Intense and Dior Homme Sport (Eau de Toilette). Those shops'
+"Cologne" labels on these bottles now read as the brand's strength and join the other shops' listings.
+
+Confirmed several strengths on a brand page, kept apart (`strengthReviewed.ts`): Bvlgari Man In Black, Tom Ford
+Noir Extreme, Grey Vetiver and Oud Wood (Eau de Parfum and Parfum), Lattafa Fakhar (Eau de Parfum and Extrait).
+Eau de Cologne labels on those four stay as they are; the brand's several strengths do not say which one a shop
+meant.
+
+Settled by house crawl or the UK lists with no new reading: Orto Parisi, Zimaya, Ahmed Al
+Maghribi, Xerjoff, Mykonos, Laurent Mazzone and the rest of the second batch now apply in both regions.
+
+### Unresolved (nothing changed)
+
+- Creed Aventus, Original Vetiver, Green Irish Tweed, Millesime Imperial, Virgin Island Water, Silver Mountain
+  Water: shops split between Eau de Cologne and Eau de Parfum, and creedboutique.com does not write the strength
+  on the product (type "Men's Fragrance"; the text calls Original Vetiver "cologne-like").
+- Escentric Molecules Cologne One: the brand writes Eau de Cologne itself, so the cologne label is right.
+- Everything else with Eau de Cologne beside Eau de Toilette or Eau de Parfum (Calvin Klein, Hugo Boss, Dior
+  Homme, Givenchy, Dunhill, Ralph Lauren, Guess, Coach and the rest) and the adjacent families of India
+  (Roja, Dior vials, Ralph Lauren, Gucci and others): not yet read, see the estimate above.

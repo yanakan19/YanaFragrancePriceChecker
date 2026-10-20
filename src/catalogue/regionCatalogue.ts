@@ -27,11 +27,12 @@ import type { RegionListing, RegionSnapshot } from './regionHarvest.js';
 import { asGateListing } from './regionHarvest.js';
 import { fragranceId, isCatalogueListing, sizeMl } from './fragranceId.js';
 import { findSameBottleGroups } from './audienceNames.js';
-import { untrustworthyEans, trustworthyEan, type MatchableProduct } from './productMatch.js';
-import { concentrationOfListing, displayName } from './productName.js';
+import { concentrationBlindKey, settleHouseConcentrations, untrustworthyEans, trustworthyEan, type MatchableProduct } from './productMatch.js';
+import { CONCENTRATION_RESOLUTIONS, concentrationOfListing, displayName } from './productName.js';
+import { HOUSE_STRENGTH_EVIDENCE } from './houseStrengthEvidence.js';
 import { ownSizeTitle } from './shopifyJson.js';
 import { nominalMlForOz, ouncesStated } from './ounceSizes.js';
-import { buildBrandCanon, recoverBrandFromTitle, tidyBrandSpelling } from './brandName.js';
+import { brandKey, buildBrandCanon, recoverBrandFromTitle, tidyBrandSpelling } from './brandName.js';
 import { decodeListingNames } from './htmlEntities.js';
 import { isGiftSet } from './giftSet.js';
 
@@ -132,6 +133,68 @@ export function regionMatchName(name: string): string {
   return who ? `${n} ${who}` : n;
 }
 
+
+/**
+ * The strengths the UK review settled from the brand's own page (houseStrengthEvidence.ts), by the key the UK build
+ * uses (brand, size, name words). A region's shops write the same bottle's strength their own way, so the same
+ * reviewed answer applies here (owner request, 20 Oct 2026).
+ */
+const REVIEWED_STRENGTHS: ReadonlyMap<string, string> = settleHouseConcentrations(
+  HOUSE_STRENGTH_EVIDENCE.flatMap((e) =>
+    e.sizesMl.map((size) => ({
+      key: concentrationBlindKey({ id: `evidence-${e.brand}-${e.name}-${size}`, brand: e.brand, name: e.name, concentration: '', sizeMl: size, ean: null }),
+      stated: e.concentration,
+      reviewed: true,
+    })),
+  ),
+);
+
+/**
+ * A shop's "For Unisex" or "For Men & Women" is not part of the name the review keyed on.
+ */
+const withoutWho = (name: string): string => name.replace(BOTH, ' ').replace(/\s+/g, ' ').trim();
+const withoutSex = (name: string): string => withoutWho(name).replace(FOR_WOMEN, ' ').replace(FOR_MEN, ' ').replace(/\s+/g, ' ').trim();
+
+/**
+ * Names whose "For Men" or "For Women" is another bottle than the plain name: Clinique Happy is the women's Eau de
+ * Parfum, Happy For Men a cologne. The review's answer for the plain name is never applied to the sex marked one.
+ */
+const SEX_MARKED_IS_ANOTHER_BOTTLE: ReadonlySet<string> = new Set(['clinique|happy']);
+
+/**
+ * Apply the UK's reviewed strengths to a region's bottles, in place. Two sources, both the UK's own:
+ *  - the brand's own page for a brand, name and size (`HOUSE_STRENGTH_EVIDENCE`): it settles the bottle whatever a
+ *    shop called it, "Eau de Cologne" included, because the brand's page shows the bottle is not made as a cologne.
+ *    A shop's "For Men" or "For Women" after the name is read as the shelf label it usually is, except where the
+ *    marked name is another bottle (`SEX_MARKED_IS_ANOTHER_BOTTLE`);
+ *  - the manufacturer's word for a barcode (`CONCENTRATION_RESOLUTIONS`), which never replaces "Eau de Cologne":
+ *    Eau de Cologne is a strength of its own (owner decision, 20 Oct 2026), and a label that says it is corrected
+ *    only by the brand's own site, never by resellers' agreement.
+ * Returns the number of products whose strength changed.
+ */
+export function applyReviewedStrengths(products: Iterable<RegionProduct>): { changed: number; fromCologne: number } {
+  let changed = 0;
+  let fromCologne = 0;
+  const keyOf = (p: RegionProduct, name: string): string => concentrationBlindKey({ ...p, name, concentration: '' });
+  for (const p of products) {
+    if (p.kind !== 'bottle' || p.brand === '') continue;
+    let reviewed = REVIEWED_STRENGTHS.get(keyOf(p, withoutWho(p.name)));
+    if (reviewed === undefined) {
+      const plain = withoutSex(p.name);
+      const marked = plain !== withoutWho(p.name);
+      const another = SEX_MARKED_IS_ANOTHER_BOTTLE.has(`${brandKey(p.brand)}|${plain.toLowerCase().replace(/[^a-z0-9]+/g, '')}`);
+      if (marked && !another) reviewed = REVIEWED_STRENGTHS.get(keyOf(p, plain));
+    }
+    const resolved = p.ean ? CONCENTRATION_RESOLUTIONS[p.ean.replace(/^ean-/, '')]?.concentration : undefined;
+    const truth = reviewed ?? (p.concentration === 'Eau de Cologne' ? undefined : resolved);
+    if (!truth || truth === p.concentration) continue;
+    if (p.concentration === 'Eau de Cologne') fromCologne++;
+    p.concentration = truth;
+    changed++;
+  }
+  return { changed, fromCologne };
+}
+
 export interface BuildRegionOptions {
   now: string;
   /** Shop id to display name, for the brand reader's refusal of the shop's own name. */
@@ -207,6 +270,8 @@ export function buildRegionCatalogue(
       offers: [offer],
     });
   }
+
+  applyReviewedStrengths(byId.values());
 
   // One bottle sold by several shops under different ids: the UK's own merge,
   // run on the match name (regionMatchName) and mapped back to the products.

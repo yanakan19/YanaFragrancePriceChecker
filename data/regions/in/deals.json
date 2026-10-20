@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-20T00:28:11.818Z",
+ "builtAt": "2026-10-20T06:22:51.769Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
  "listingsWithReference": 12469,
- "offersWithCorroboratedReference": 1517,
+ "offersWithCorroboratedReference": 1528,
  "deals": [
   {
    "fragranceId": "aar-fragrances-lalique-encre-noire-100ml",
@@ -354,6 +354,16 @@
    "wasPrice": 15950,
    "percentOff": 46,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-ahmed-al-maghribi-rose-noir",
+   "price": 3000,
+   "delivered": false,
+   "wasPrice": 5500,
+   "percentOff": 45,
+   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -1608,6 +1618,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-ahmed-al-maghribi-laathani",
+   "price": 5250,
+   "delivered": false,
+   "wasPrice": 7800,
+   "percentOff": 32,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-ajmal-oud-on-the-rocks",
    "price": 1475,
    "delivered": false,
@@ -2768,6 +2788,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-zimaya-sharaf-blend",
+   "price": 2650,
+   "delivered": false,
+   "wasPrice": 3500,
+   "percentOff": 24,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-burberry-my-burberry-parfum-90ml",
+   "price": 8250,
+   "delivered": false,
+   "wasPrice": 10950,
+   "percentOff": 24,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-gucci-flora-gorgeous-orchid-edp-w-100ml",
    "price": 10500,
    "delivered": false,
@@ -2782,16 +2822,6 @@
    "price": 6350,
    "delivered": false,
    "wasPrice": 8400,
-   "percentOff": 24,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-zimaya-sharaf-blend-edp-u-100ml",
-   "price": 2650,
-   "delivered": false,
-   "wasPrice": 3500,
    "percentOff": 24,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3408,6 +3438,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-o-parisi-boccanera-edp-unisex-50ml",
+   "price": 14900,
+   "delivered": false,
+   "wasPrice": 18600,
+   "percentOff": 19,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-zimaya-itqan-noir-edp-u-100ml",
    "price": 2990,
    "delivered": false,
@@ -3728,6 +3768,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-ajmal-amber-wood",
+   "price": 13088.9,
+   "delivered": false,
+   "wasPrice": 15400,
+   "percentOff": 15,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-armaf-club-de-nuit-maleka",
    "price": 5525,
    "delivered": false,
@@ -3842,6 +3892,16 @@
    "price": 6749,
    "delivered": false,
    "wasPrice": 7940,
+   "percentOff": 15,
+   "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-parfums-de-marly-layton-exclusif",
+   "price": 33915,
+   "delivered": false,
+   "wasPrice": 39900,
    "percentOff": 15,
    "retailerId": "perfume-network",
    "kind": "retailer",
@@ -4594,16 +4654,6 @@
    "wasPrice": 7500,
    "percentOff": 10,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-ahmed-al-maghribi-rose-noir",
-   "price": 3250,
-   "delivered": false,
-   "wasPrice": 3600,
-   "percentOff": 9,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },

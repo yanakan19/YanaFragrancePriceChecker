@@ -81,4 +81,10 @@ export const STRENGTHS_BRAND_MAKES_SEVERAL: readonly SeveralStrengths[] = [
   several('Dior', 'Sauvage Holiday Limited Edition Case', [EDP, P], 'https://www.dior.com/en_int/beauty/products/sauvage-parfum---limited-edition-Y4001166.html', 'separate 100 ml holiday case pages for the Eau de Parfum (Y4001161) and the Parfum (Y4001166)'),
   several('Yves Saint Laurent', "L'Homme", [EDP, P], 'https://www.yslbeauty.co.uk/fragrances/fragrances-for-him/l-homme/l-homme-le-parfum/WW-50565YSL.html', 'separate 100 ml pages "L\'Homme Eau de Parfum" (WW-50955YSL, 102 pounds) and "L\'Homme Le Parfum" (WW-50565YSL, 120 pounds)'),
   several('Balmain', 'Destin de Balmain', [EDP, P], 'https://www.balmainbeauty.com/destin-de-balmain', 'the brand site sells "Destin de Balmain Eau de Parfum" (10, 30, 50, 100 ml) and describes a separate "Destin de Balmain Parfum" (found through a search of balmainbeauty.com)'),
+  // US and India batch, 20 Oct 2026 (docs/STRENGTH-REVIEW-2026-10-20.md, "US and India").
+  several('Bvlgari', 'Man In Black', [EDP, P], 'https://www.bulgari.com/en-us/fragrances/bvlgari-man', 'the Bvlgari Man collection lists "Bvlgari Man In Black Eau De Parfum" (100 ml, 185 dollars) and a separate 100 ml Parfum (215 dollars)'),
+  several('Tom Ford', 'Noir Extreme', [EDP, P], 'https://www.tomfordbeauty.com/products/noir-extreme-eau-de-parfum', 'separate pages "Noir Extreme Eau de Parfum" (1.7 fl oz, 165 dollars) and a Noir Extreme Parfum (205 dollars)'),
+  several('Tom Ford', 'Grey Vetiver', [EDP, P], 'https://www.tomfordbeauty.com/products/grey-vetiver-parfum', 'separate pages "Grey Vetiver Eau de Parfum" and "Grey Vetiver Parfum"'),
+  several('Tom Ford', 'Oud Wood', [EDP, P], 'https://www.tomfordbeauty.com/products/oud-wood-eau-de-parfum', 'separate pages "Oud Wood Eau de Parfum" and "Oud Wood Parfum" (the UK list holds it as Private Blend Oud Wood)'),
+  several('Lattafa', 'Fakhar', [EDP, X], 'https://lattafa.com/product/fakhar-lattafa-extrait/', 'lattafa.com sells "Fakhar Lattafa Extrait" beside the Eau de Parfum Fakhar (data/houses/lattafa.json, read by the house crawl)'),
 ];
