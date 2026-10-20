@@ -113,6 +113,7 @@ import {
   reattachArmafLine,
 } from '../src/catalogue/productName.js';
 import { consensusName } from '../src/catalogue/nameConsensus.js';
+import { putPrideFirstOnPlainTwins } from '../src/catalogue/nameReviewed.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 import { pickBestNotes, proseTest, withoutProse, type NotANoteFile, type NoteCandidate } from '../src/catalogue/notesPick.js';
 import { applyNoteAliases, noteAliasMap, type NoteAliasFile } from '../src/catalogue/noteAliases.js';
@@ -1498,6 +1499,10 @@ function statedAudience(p: Product): Audience | null {
   for (const o of p.offers) for (const a of audiencesOf(readAudienceName(o.rawTitle))) heard.add(a);
   return heard.size === 1 ? [...heard][0]! : null;
 }
+// Owner decision 20 Oct 2026: a Lattafa listing without the Pride series is the same fragrance as the
+// one with it, and shows the same name, so the matching below joins them (nameReviewed.ts).
+const prideRenamed = putPrideFirstOnPlainTwins(products.values());
+console.log(`Lattafa Pride: ${prideRenamed.length} products written without the series take the series name.`);
 const duplicateGroups = findSameBottleGroups([...products.values()], { shopsOf, statedAudience });
 applyMerges(duplicateGroups);
 let mergedProducts = duplicateGroups.reduce((n, g) => n + g.absorbed.length, 0);

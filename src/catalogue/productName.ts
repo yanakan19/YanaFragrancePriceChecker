@@ -23,7 +23,7 @@ import {
   withoutTravelSprayWords,
 } from './fragranceId.js';
 import { brandKey, shopNameCore } from './brandName.js';
-import { NAME_REORDERED, NAME_VERIFIED } from './nameReviewed.js';
+import { NAME_REORDERED, NAME_VERIFIED, ownerSeriesName } from './nameReviewed.js';
 import { decodeHtmlEntities } from './htmlEntities.js';
 import type { StoredListing } from './types.js';
 import { isReviewedOil } from './perfumeOil.js';
@@ -3025,7 +3025,7 @@ export function displayName(
   s = capitaliseDescriptiveWords(s);
   s = keepHouseWhenNameIsOnlyAWord(s, displayedBrand || brand);
 
-  const name = reviewedRename(canonicalSeriesSpelling(s), [displayedBrand, brand]) || emptiedNameFallback(opener, brand, displayedBrand) || title;
+  const name = reviewedRename(ownerSeriesName(canonicalSeriesSpelling(s), displayedBrand || brand), [displayedBrand, brand]) || emptiedNameFallback(opener, brand, displayedBrand) || title;
   return ownTravelSpray && !/\btravel spray$/i.test(name) ? `${name} Travel Spray` : name;
 }
 

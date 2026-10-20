@@ -18,9 +18,32 @@ name: Tests
 #
 # The WebKit half of the layout tests has its own workflow
 # (layout-webkit.yml); here the browser tests run in Chromium.
+#
+# Two rules added 2026-10-20 (Tests #63 and #64 on 19 Oct were cancelled and
+# no code push got a complete run: the catalogue crawl pushes data every 30
+# minutes or less, and a newer push used to cancel the run in progress):
+#
+#  1. A push that changes only what the crawl writes does not start this
+#     workflow at all. GitHub skips a push when every changed file matches a
+#     negated pattern, so the list below is the "rebuild" and "incoming" paths
+#     of scripts/generated-files.txt (tests/workflowRules.test.ts checks that
+#     every one of them is in it, and that code, tests and workflows are not).
+#     A pull request always runs.
+#  2. A run is never cancelled part way by a later push: the group is the
+#     commit, so only a second run of the very same commit (a manual dispatch
+#     on top of a push) replaces the first.
 on:
   push:
     branches: [claude/scentday-retailer-registry-h92tth]
+    paths:
+      - '**'
+      # Crawl written data ("incoming" and "rebuild" in scripts/generated-files.txt).
+      - '!data/**'
+      - '!demo/*.generated.ts'
+      - '!docs/DELIVERY-RECHECK.md'
+      # Written by people and read by the tests: a change to them is a code change.
+      - 'data/note-*.json'
+      - 'data/fragrantica-link-audit.json'
   pull_request:
   workflow_dispatch:
 
@@ -28,7 +51,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: tests-${{ github.ref }}
+  group: tests-${{ github.sha }}
   cancel-in-progress: true
 
 jobs:

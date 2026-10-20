@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { NAME_KEPT, NAME_REORDERED, NAME_UNRESOLVED, NAME_VERIFIED, isReorderOnly } from '../src/catalogue/nameReviewed.js';
+import { NAME_KEPT, NAME_REORDERED, NAME_UNRESOLVED, NAME_VERIFIED, OWNER_DECISION_SOURCE, isReorderOnly, ownerSeriesName, putPrideFirstOnPlainTwins } from '../src/catalogue/nameReviewed.js';
 import { displayName } from '../src/catalogue/productName.js';
 
 const words = (s: string): string[] =>
@@ -23,8 +23,9 @@ describe('reviewed names (nameReviewed.ts)', () => {
       expect(isSubsequence(words(e.to), words(e.from)), `${e.from} -> ${e.to}`).toBe(true);
     }
   });
-  it('has two sources on different domains for every rename', () => {
+  it('has two sources on different domains for every rename, except one the owner decided', () => {
     for (const e of NAME_VERIFIED) {
+      if (e.decision) { expect(e.sources, e.from).toEqual([OWNER_DECISION_SOURCE]); continue; }
       expect(e.sources.length, e.from).toBeGreaterThanOrEqual(2);
       expect(new Set(e.sources.map(domain)).size, e.from).toBeGreaterThanOrEqual(2);
       expect(e.on).toMatch(/^\d{4}-\d{2}-\d{2}$/);
@@ -89,10 +90,91 @@ describe('reordered names (NAME_REORDERED): the same words, moved', () => {
   });
   it('holds every entry to the rule, with two sources on different domains', () => {
     for (const e of NAME_REORDERED) {
+      if (e.decision) continue; // the owner's decisions are held to their own rule below
       expect(isReorderOnly(e.from, e.to, e.brand), `${e.from} -> ${e.to}`).toBe(true);
       expect(e.sources.length, e.from).toBeGreaterThanOrEqual(2);
       expect(new Set(e.sources.map(domain)).size, e.from).toBeGreaterThanOrEqual(2);
       expect(displayName(`${e.from} Eau de Parfum 100ml`, e.brand, e.brand), e.from).toBe(e.to);
     }
+  });
+});
+
+describe('the owner decisions of 20 Oct 2026: the Lattafa Pride line and the French Avenue Equestrian Series', () => {
+  const sorted = (s: string) => [...words(s)].sort();
+  const isSubMultiset = (small: string[], big: string[]): boolean => {
+    const left = [...big];
+    for (const w of small) { const at = left.indexOf(w); if (at < 0) return false; left.splice(at, 1); }
+    return true;
+  };
+  it('lets an entry stand on the owner decision alone, and says so in the entry', () => {
+    const decided = [...NAME_VERIFIED, ...NAME_REORDERED].filter((e) => e.decision);
+    expect(decided.length).toBeGreaterThan(0);
+    for (const e of decided) {
+      expect(e.sources, e.from).toEqual([OWNER_DECISION_SOURCE]);
+      expect(e.decision, e.from).toMatch(/owner, \d{1,2} \w+ \d{4}/);
+      expect(e.on, e.from).toBe('2026-10-20');
+    }
+  });
+  it('a Pride entry keeps or moves words, puts Pride first, and adds none', () => {
+    const pride = NAME_REORDERED.filter((e) => e.decision);
+    expect(pride.length).toBeGreaterThanOrEqual(5);
+    for (const e of pride) {
+      expect(words(e.to)[0], e.to).toBe('pride');
+      expect(isSubMultiset(words(e.to), words(e.from)), `${e.from} -> ${e.to} adds a word`).toBe(true);
+      // Only "Perfume" and the house go.
+      const gone = sorted(e.from).filter((w) => !sorted(e.to).includes(w) || false);
+      for (const w of gone) expect(['perfume', 'lattafa', 'by'], `${e.from} loses ${w}`).toContain(w);
+    }
+  });
+  it('a Della entry only deletes words', () => {
+    const bare = NAME_VERIFIED.filter((e) => e.decision);
+    expect(bare.map((e) => e.to).sort()).toEqual(['Della', 'Haydan', 'Olena', 'Pierce']);
+    for (const e of bare) expect(isSubsequence(words(e.to), words(e.from)), `${e.from} -> ${e.to}`).toBe(true);
+  });
+  it('puts Pride first for every Lattafa Pride shape, whatever the shop writes', () => {
+    const same = (from: string, to: string) => expect(ownerSeriesName(from, 'Lattafa'), from).toBe(to);
+    same('Nebras Perfume Lattafa Pride', 'Pride Nebras');
+    same('Affection Perfume Lattafa Pride', 'Pride Affection');
+    same('Al Areeq Gold Perfume By Lattafa Pride', 'Pride Al Areeq Gold');
+    same('Queen of Arabia Perfume Lattafa Pride', 'Pride Queen of Arabia');
+    same('Vintage Radio By Lattafa Pride', 'Pride Vintage Radio');
+    same('Al Ameed Silver Perfume - Lattafa Pride', 'Pride Al Ameed Silver');
+    same('Eternal Oud - Lattafa Pride Elite Collection', 'Pride Eternal Oud');
+    same('Wajood - Lattafa Pride Elite Collection - Woody, Pepper, Sweet', 'Pride Wajood');
+    same('Tharwah Gold by Lattafa Pride Collection', 'Pride Tharwah Gold');
+    same('Lattafa Pride La Collection D\'antiquites 1886', 'Pride La Collection D\'antiquites 1886');
+    same('Affection 3 Piece Gift Set Lattafa Pride', 'Pride Affection 3 Piece Gift Set');
+    same('Queen Of Roses Pride', 'Pride Queen Of Roses');
+  });
+  it('leaves a name that is already Pride first, "Pride of Lattafa", other Lattafa lines and other houses alone', () => {
+    const keep = (name: string, house = 'Lattafa') => expect(ownerSeriesName(name, house), name).toBe(name);
+    keep('Pride Kashan');
+    expect(ownerSeriesName('Pride No.1 Gift Set 5X20ml EDP Lattafa', 'Lattafa')).toBe('Pride No.1 Gift Set 5X20ml EDP');
+    keep('Fakhar Lattafa (Pride of Lattafa) Black');
+    keep('Khamrah');
+    keep('Bade\'e Al Oud Noble Blush');
+    keep('The Pride of Armaf', 'Armaf');
+    keep('Nebras Perfume Lattafa Pride', 'Armaf');
+  });
+  it('gives the Equestrian Series the fragrance name alone, and leaves other French Avenue names alone', () => {
+    const f = (n: string) => ownerSeriesName(n, 'French Avenue');
+    expect(['An Equestrian Series Della', 'Della Equestrian Series Perfume', 'Della Equestrian Series'].map(f)).toEqual(['Della', 'Della', 'Della']);
+    expect(f('An Equestrian Series Pierce')).toBe('Pierce');
+    expect(f('Liquid Brun')).toBe('Liquid Brun');
+    expect(ownerSeriesName('Della Equestrian Series', 'Lattafa')).toBe('Della Equestrian Series');
+  });
+  it('joins listings written with and without the series: every shape ends in the same displayed name', () => {
+    const shown = (title: string) => displayName(title, 'Lattafa', 'Lattafa');
+    expect(new Set(['Nebras Lattafa Pride Eau de Parfum 100ml', 'Lattafa Pride Nebras Eau de Parfum 100ml', 'Nebras Perfume Lattafa Pride 100ml EDP'].map(shown))).toEqual(new Set(['Pride Nebras']));
+    // A name no listing writes with the series is left alone; one that does is taken by its plain twin.
+    const products = [
+      { brand: 'Lattafa', name: 'Pride Nebras' }, { brand: 'Lattafa', name: 'Nebras' }, { brand: 'Lattafa', name: 'nebras' },
+      { brand: 'Lattafa', name: 'Khamrah' }, { brand: 'Armaf', name: 'Nebras' }, { brand: 'Lattafa', name: 'Pride Oud' },
+    ];
+    const renamed = putPrideFirstOnPlainTwins(products);
+    expect(renamed.length).toBe(2);
+    expect(products.map((p) => p.name)).toEqual(['Pride Nebras', 'Pride Nebras', 'Pride Nebras', 'Khamrah', 'Nebras', 'Pride Oud']);
+    const fa = (title: string) => displayName(title, 'French Avenue', 'French Avenue');
+    expect(new Set(['An Equestrian Series Della Eau de Parfum 100ml', 'Della Equestrian Series Perfume 100ml EDP', 'French Avenue Della Eau de Parfum 100ml'].map(fa))).toEqual(new Set(['Della']));
   });
 });

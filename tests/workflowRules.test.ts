@@ -288,6 +288,35 @@ describe('tests.yml, the code and browser tests', () => {
     }
   });
 
+  // Tests #63 and #64 (19 October 2026) were cancelled by the crawl's data pushes, which arrive
+  // every 30 minutes or less, so a code push rarely got a complete run of its 15 to 20 minutes.
+  it('does not start for a push of crawl written data only, but does for code, tests, scripts and workflows', () => {
+    const block = /\n {2}push:\n(?: {4}.*\n)*? {4}paths:\n((?: {6}- .*\n)+)/.exec(`${t}\n`);
+    expect(block, 'a paths filter on push').not.toBeNull();
+    const paths = block![1]!.split('\n').map((l) => l.trim().replace(/^- '?|'$/g, '')).filter(Boolean);
+    expect(paths[0]).toBe('**');
+    // GitHub's filter: the last pattern that matches a file decides, ** crosses folders, * does not;
+    // the push runs when any changed file ends up included.
+    const glob = (p: string) => new RegExp(`^${p.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*\*/g, '\0').replace(/\*/g, '[^/]*').replace(/\0/g, '.*')}$`);
+    const rules = paths.map((p) => ({ neg: p.startsWith('!'), re: glob(p.replace(/^!/, '')) }));
+    const triggers = (file: string) => rules.reduce((on, r) => (r.re.test(file) ? !r.neg : on), false);
+    // Every path the crawl writes: a rebuild or incoming entry of the manifest (a folder by a file in it).
+    const crawl = readManifest().filter((e) => e.policy === 'rebuild' || e.policy === 'incoming')
+      .map((e) => (e.pattern.endsWith('/') ? `${e.pattern}x.json` : e.pattern.replace(/\*/g, 'x')));
+    expect(crawl.length).toBeGreaterThan(20);
+    for (const file of crawl) expect(triggers(file), `${file} would start the code tests`).toBe(false);
+    for (const file of ['src/catalogue/nameReviewed.ts', 'scripts/build-demo.ts', 'tests/workflowRules.test.ts', 'demo/app.ts',
+      'demo/changelog.ts', '.github/workflows/tests.yml', 'package.json', 'scripts/test-sets.txt', 'data/note-aliases.json']) {
+      expect(triggers(file), `${file} must start the code tests`).toBe(true);
+    }
+    expect(t).toMatch(/\n {2}pull_request:\n(?! {4}paths)/);
+  });
+
+  it('never cancels a run part way for a newer push: its group is the commit, so only the same commit replaces a run', () => {
+    expect(/\nconcurrency:\n {2}group: (.+)/.exec(t)?.[1]).toBe('tests-${{ github.sha }}');
+    expect(t).not.toContain('github.ref }}');
+  });
+
   it('builds the page, installs Chromium and runs the code set in chunks, each step capped', () => {
     expect(t).toMatch(/run: npm run test:code -- --shard \$\{\{ matrix\.shard \}\}\/4/);
     expect(t).toContain('shard: [1, 2, 3, 4]');
