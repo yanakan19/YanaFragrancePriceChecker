@@ -84,3 +84,69 @@ Molton Brown, Nobile 1942 and others), 261 US and 65 India families. At about 1,
 (one search per family, one brand site read per brand) that is roughly 200,000 tokens for the UK rest
 and 600,000 for US and India. The US list also needs one owner decision first: US shops label 1,156 US
 families "Eau de Cologne", which in American usage often means any men's fragrance, not a strength.
+
+## Second batch (UK, 20 Oct 2026)
+
+100 more UK families from the 552 list, the ones with two or more shops and the well known houses first. The
+method is the first batch's: barcodes first, then the brand's own site (its shop's `products.json` read as
+PriceSniffsBot after robots.txt, 2 s apart, at most 4 requests a host, or a search of the brand's own domain),
+a merge only with a quote and a day (`HOUSE_STRENGTH_EVIDENCE`), a family the brand makes in several
+strengths kept apart (`strengthReviewed.ts`). Result: 31 merged, 17 confirmed several on a brand page, 18 kept
+apart on retailer evidence only, 34 unresolved. (Guerlain L'Homme Ideal was already confirmed.)
+
+### Merged (brand makes one strength)
+
+Afnan 9pm Elixir and 9pm Night Out (Extrait de Parfum: the shop's variant reads "Extrait De Parfum / 100 ML /
+Unisex"). Ahmed Al Maghribi Rose Noir, Oud & Roses, Oud Lavender, Laathani, Black Fume, Opaline Wave (Eau de
+Parfum: the brand shop titles end "EDP", no Extrait listed). Laurent Mazzone Vol d'Hirondelle and Tauer L'Air du
+Jardin Cache ("Eau de parfum, concentrated at 25%"), J.U.S Bloomastral, Israel Philip Avignon and L'Orient (Eau
+de Parfum). Amouage Remain, Lustre and Reasons Essence (Parfum: the house's "Essence de Parfum", 30 percent),
+Amouage Love Delight (Eau de Parfum). Xerjoff Fars, XXY, Tony Iommi Monkey Special, NeoRio Orange and Pink
+(Parfum, product address and one product). French Avenue Noble Cedar and X Aromatix Carnal Desire (Extrait: the
+brand shop writes ExDP). Armani Stronger With You Absolutely, Bharara Viking Rio and Viking Kashmir (Parfum
+pages), Orebella Blooming Fire, Nightcap, Salted Muse, Window2Soul (Parfum; the catalogue files them under the
+brand "Unbranded", the entries are keyed on that).
+
+### Confirmed as several strengths on a brand page (stay split)
+
+Matiere Premiere Crystal Saffron, Radical Rose, Encens Suave, Falcon Leather, Santal Austral, Vanilla Powder (two
+barcodes per size; the shop lists Eau de Parfum and Extrait as two products). Houbigant Quelques Fleurs
+L'Original (Eau de Parfum, Extrait, Eau de Parfum Extreme) and Fougere Royale (Extrait, Eau de Parfum Extreme).
+Escentric Molecules Escentric 02 (Extrait beside the plain 100 ml). Essential Parfums Nice Bergamote, The Musc,
+Bois Imperial (2 ml sample of the Extrait and of the Eau de Parfum). Dior Miss Dior Roller-Pearl, Sauvage Limited
+Edition Case, Sauvage Holiday Limited Edition Case (separate Eau de Parfum and Parfum pages). YSL L'Homme (Le
+Parfum 120 pounds, Eau de Parfum 102 pounds). Balmain Destin de Balmain.
+
+### Kept apart on retailer evidence only (brand site not reached)
+
+Two retailers list the Eau de Parfum and the Extrait as separate product pages, so nothing was merged:
+Fugazzi Angel Dust, Orange Crush, Vanilla Haze (Bloom Perfumery, Nicchia Luxury; Sephora sells the Extrait at
+30 percent). Isabey Gardenia, Lys Noir, La Route d'Emeraude (Les Senteurs). Nobile 1942 Cafe Chantant, La Danza
+delle Libellule, Pontevecchio, Pontevecchio Woman (Nicchia). Pana Dora Onyx Black, Majestic Amber, Opuluxe (a
+barcode on the Eau de Parfum plus a Nicchia Extrait page). Room 1015 Cherry Punk, Akro Glow and East, Laboratorio
+Olfattivo Vanagloria (Bloom, Nicchia). Ex Nihilo The Hedonist (two barcodes).
+
+### For the owner (unclear, nothing changed)
+
+- Joop! Homme: joop.com sells 75 and 125 ml as "Homme Le Parfum", shops write Eau de Parfum; the page does not say
+  which strength "Le Parfum" is.
+- Kajal Kolada: the brand page is titled "XDP" and its address says extrait, but the tag says EDP.
+- Swiss Arabian Rose 01 (50 ml): text says "Extrait de Parfum", address says EDP, three shops say EDP. Musk 01:
+  the page names no strength.
+- Trudon Mortel Noir: filed under Eaux de Parfum, described as 27 percent. Azzaro Chrome (the brand sells Chrome
+  as Eau de Toilette and Chrome Extreme as Eau de Parfum). YSL Y Elixir. Armaf Club De Nuit Intense Man Limited
+  Edition (the shop has V1 and a "Pure Parfum V2" at 105 ml). Chantecaille Tiare and Fragrance du Bois Milano,
+  Secret Tryst (the brand names no strength). Molton Brown Wild Mint & Lavandin (the brand makes both an Eau de
+  Toilette and an Eau de Parfum, so the unstated listings cannot be assigned). Escentric Molecule 01 + Cistus
+  (the brand page names no strength; Nicchia calls it Eau de Toilette). Dior Sauvage for the Wild Limited
+  Edition and Miss Dior Holiday Limited Edition Case (no page found). Xerjoff NeoRio Yellow and Green (page does
+  not say). Ex Nihilo Blue Talisman and Outcast Blue (robots.txt of ex-nihilo-paris.com disallows our bot, so not
+  read).
+- Not reached, brand site unreachable or silent: Khadlaj Panache Angel Dust, Cloud Candy, Biscotti Date Toffee;
+  Mancera Red Tobacco Intense, Intense Cedrat Boise (pages exist, strength not stated in the search text);
+  Riiffs Zenith, Freeze; Thameen Diadem, The Hope (thameenlondon.com disallows our bot); Arabian Oud Kalemat,
+  Resala; Nikos Sculpture; Bujairami Miss Vanilla, Maison Asrar X Cal Cologne III Thriller, Rayhaan X Valhalla
+  (house crawl holds no strength).
+
+Cost: about 330,000 tokens for the 100 families (roughly 3,300 a family, because most brand sites answer only
+through a search and the rest needed their shop file read). 70 UK families still show two strengths at one size: the ones kept apart and the unresolved.

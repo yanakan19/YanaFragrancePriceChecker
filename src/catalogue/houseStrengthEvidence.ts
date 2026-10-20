@@ -149,8 +149,63 @@ const REVIEWED_ONE_STRENGTH: readonly HouseStrengthEvidence[] = [
   ...reviewed('Maison Crivelli', ['Patchouli Magnetik'], [50], 'Extrait de Parfum', 'https://maisoncrivelli.com/fr-fr/products/patchouli-magnetik', 'page title "Patchouli Magnetik extrait de parfum", 50 ml, 32 percent'),
 ];
 
+/**
+ * The second batch of the strength review (docs/STRENGTH-REVIEW-2026-10-20.md, "Second batch"): about 100 UK
+ * families, again settled by barcodes first and then by the brand's own site. The brand's shop was read as
+ * PriceSniffsBot on the day below (robots.txt first, 2 s gaps, at most 4 requests a host; the quote says whether it
+ * was the shop's products.json or a page found through a search of the brand's own domain). Append only.
+ */
+const REVIEW_DAY_2 = '2026-10-20';
+const reviewed2 = (
+  brand: string,
+  names: readonly string[],
+  sizesMl: readonly number[],
+  concentration: string,
+  source: string,
+  quote: string,
+): HouseStrengthEvidence[] =>
+  names.map((name) => ({ brand, name, sizesMl, concentration, source, quote, readAt: REVIEW_DAY_2 }));
+
+const EDP2 = 'Eau de Parfum';
+const AAM_QUOTE = (title: string): string => `brand shop product title "${title}"; the shop lists no Extrait of this name (products.json read as PriceSniffsBot, robots.txt allowed)`;
+
+const REVIEWED_SECOND_BATCH: readonly HouseStrengthEvidence[] = [
+  ...reviewed2('Afnan', ['9pm Elixir'], [100], 'Extrait de Parfum', 'https://afnan.com/products/9-pm-elixir', 'brand shop variant "Extrait De Parfum / 100 ML / Unisex", product tagged "extrait" (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Afnan', ['9pm Night Out'], [100], 'Extrait de Parfum', 'https://afnan.com/products/9pm-night-out', 'brand shop variant "Extrait De Parfum / 100 ML / Unisex", product tagged "extrait" (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Ahmed Al Maghribi', ['Rose Noir'], [75], EDP2, 'https://www.ahmedalmaghribi.uk/products/rose-noir', AAM_QUOTE('Rose Noir EDP 75ml')),
+  ...reviewed2('Ahmed Al Maghribi', ['Oud & Roses'], [60], EDP2, 'https://www.ahmedalmaghribi.uk/products/oud-roses', AAM_QUOTE('Oud & Roses EDP 60ml')),
+  ...reviewed2('Ahmed Al Maghribi', ['Oud Lavender'], [75], EDP2, 'https://www.ahmedalmaghribi.uk/products/oud-lavender', AAM_QUOTE('Oud Lavender EDP 75ml')),
+  ...reviewed2('Ahmed Al Maghribi', ['Laathani'], [80], EDP2, 'https://www.ahmedalmaghribi.uk/products/laathani', AAM_QUOTE('Laathani EDP 80ml')),
+  ...reviewed2('Ahmed Al Maghribi', ['Black fume'], [100], EDP2, 'https://www.ahmedalmaghribi.uk/products/black-fume', AAM_QUOTE('Black Fumes EDP 100ml')),
+  ...reviewed2('Ahmed Al Maghribi', ['Opaline Wave'], [100], EDP2, 'https://www.ahmedalmaghribi.uk/products/opaline-wave-edp-100ml', AAM_QUOTE('Opaline Wave EDP 100ml')),
+  ...reviewed2('Laurent Mazzone', ["Vol D'Hirondelle"], [100], EDP2, 'https://www.lmparfums.com/products/vol-d-hirondelle', 'brand shop product "VOL D\'HIRONDELLE" (100ml and 15ml), product type "Eaux de parfum" (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Tauer', ["L'Air du Jardin Caché"], [50], EDP2, 'https://tauerperfumes.com/products/lair-du-jardin-cache-50-ml', 'product text "Eau de parfum, concentrated at 25% fragrance oil", 50 ml, the only size (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Xerjoff', ['Fars'], [50], 'Parfum', 'https://xerjoff.com/products/fars-parfum', 'product address "fars-parfum", title "Fars", 50 ml; the house lists no Eau de Parfum of it (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Xerjoff', ['XXY'], [50, 100], 'Parfum', 'https://xerjoff.com/products/xxy-parfum', 'product address "xxy-parfum", title "XXY", 50 and 100 ml; the house lists no Eau de Parfum of it (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Xerjoff', ['Tony Iommi Monkey Special'], [50, 100], 'Parfum', 'https://xerjoff.com/products/tony-iommi-monkey-parfum', 'product address "tony-iommi-monkey-parfum", title "Tony Iommi Monkey Special", 50 and 100 ml; the house lists no Eau de Parfum of it (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Xerjoff', ['Duran Duran NeoRio Orange'], [50], 'Parfum', 'https://xerjoff.com/products/duran-duran-neorio-parfum-orange-flacon', 'product address "duran-duran-neorio-parfum-orange-flacon", 50 ml, one product (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Xerjoff', ['Duran Duran NeoRio Pink'], [50], 'Parfum', 'https://xerjoff.com/products/duran-duran-neorio-parfum-pink-flacon', 'product address "duran-duran-neorio-parfum-pink-flacon", 50 ml, one product (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Amouage', ['Remain Essence'], [100], 'Parfum', 'https://amouage.com/products/remain', 'product type "ESSENCE" (Essence de Parfum, "30% pure perfume oils"); no Eau de Parfum of it on amouage.com (data/houses/amouage.json and the shop\'s products.json)'),
+  ...reviewed2('Amouage', ['Lustre Essence'], [100], 'Parfum', 'https://amouage.com/products/new-lustre', 'one of The Amouage Essences, "30% pure perfume oils" (Essence de Parfum); no Eau de Parfum of it (data/houses/amouage.json)'),
+  ...reviewed2('Amouage', ['Reasons Essence'], [100], 'Parfum', 'https://amouage.com/products/new-reasons', 'one of The Amouage Essences, "30% pure perfume oils" (Essence de Parfum); no Eau de Parfum of it (data/houses/amouage.json)'),
+  ...reviewed2('Amouage', ['Love Delight'], [100], EDP2, 'https://amouage.com/products/100ml-love-delight', 'shop product type "EDP", "20% oil concentration", 100 ml; no Parfum of it (products.json of the Eaux de Parfum collection read as PriceSniffsBot)'),
+  ...reviewed2('Israel Philip', ['Avignon'], [100], EDP2, 'https://www.israelphilipfragrances.com/products/avignon-pour-homme', 'product text "Avignon by Israel Philip Fragrances is a bold, oriental Eau de Parfum for men"; one 100 ml product (products.json read as PriceSniffsBot)'),
+  ...reviewed2('Israel Philip', ["L'orient"], [100], EDP2, 'https://www.israelphilipfragrances.com/products/lorient-pour-femme', 'product text "L\'Orient by Israel Philip Fragrances is a fresh, tropical Eau de Parfum for women"; one 100 ml product (products.json read as PriceSniffsBot)'),
+  ...reviewed2('French Avenue', ['Noble Cedar'], [100], 'Extrait de Parfum', 'https://uk.shopfrenchavenue.com/products/noble-cedar-exdp-100ml', 'brand shop title "Noble Cedar ExDP 100ml" (ExDP is French Avenue\'s extrait mark); the only Noble Cedar in data/catalogue/french-avenue.json'),
+  ...reviewed2('French Avenue', ['X Aromatix Carnal Desire'], [100], 'Extrait de Parfum', 'https://uk.shopfrenchavenue.com/products/aromatix-carnal-desire-exdp-100ml', 'brand shop title "Aromatix Carnal Desire ExDP 100ml" (ExDP is French Avenue\'s extrait mark); the only one in data/catalogue/french-avenue.json'),
+  ...reviewed2('Giorgio Armani', ['Emporio Armani Stronger With You Absolutely'], [50], 'Parfum', 'https://www.armanibeauty.co.uk/perfume/mens-perfumes/stronger-with-you/emporio-armani-stronger-with-you-absolutely-parfum/ww-00424-arm.html', 'page title "Emporio Armani Stronger With You Absolutely Parfum", 50 ml (found through a search of armanibeauty.co.uk)'),
+  ...reviewed2('Bharara', ['Viking Rio'], [100], 'Parfum', 'https://www.bhararabeauty.com/products/bharara-viking-rio-3-4-parfum-spray', 'page title "Bharara Viking Rio Parfum Spray" (found through a search of bhararabeauty.com)'),
+  ...reviewed2('Bharara', ['Viking Kashmir'], [100], 'Parfum', 'https://www.bhararabeauty.com/products/bharara-viking-kashmir-3-4-parfum-spray', 'page title "Bharara Viking Kashmir Parfum Spray", 30 percent oil (found through a search of bhararabeauty.com)'),
+  ...reviewed2('Unbranded', ['Orebella Window2Soul'], [10, 50, 100], 'Parfum', 'https://orebella.com/products/window2soul', 'page title "WINDOW2SOUL PARFUM"; the house sells its five scents as "THE PARFUMS" (skin parfums, alcohol free) and none as an Eau de Parfum (found through a search of orebella.com)'),
+  ...reviewed2('Unbranded', ['Orebella Nightcap'], [10, 50, 100], 'Parfum', 'https://orebella.com/collections/the-parfums', 'the house\'s collection "THE PARFUMS" holds Nightcap beside Window2Soul PARFUM; none is sold as an Eau de Parfum (found through a search of orebella.com)'),
+  ...reviewed2('Unbranded', ['Orebella Blooming Fire'], [10, 50, 100], 'Parfum', 'https://orebella.com/collections/the-parfums', 'the house\'s collection "THE PARFUMS" holds Blooming Fire beside Window2Soul PARFUM; none is sold as an Eau de Parfum (found through a search of orebella.com)'),
+  ...reviewed2('Unbranded', ['Orebella Salted Muse'], [10, 50, 100], 'Parfum', 'https://orebella.com/collections/the-parfums', 'the house\'s collection "THE PARFUMS" holds Salted Muse beside Window2Soul PARFUM; none is sold as an Eau de Parfum (found through a search of orebella.com)'),
+  ...reviewed2('J.U.S', ['Bloomastral'], [100], EDP2, 'https://jusparfums.com/en-int/products/bloomastral', 'product page filed under "Eaux de Parfum", 100 ml (found through a search of jusparfums.com)'),
+];
+
 export const HOUSE_STRENGTH_EVIDENCE: readonly HouseStrengthEvidence[] = [
   ...REVIEWED_ONE_STRENGTH,
+  ...REVIEWED_SECOND_BATCH,
   orto('Bergamask', 'bergamask'),
   orto('Boccanera', 'boccanera'),
   orto('Brutus', 'brutus'),

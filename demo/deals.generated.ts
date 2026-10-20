@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-20T05:51:02.409Z";
+export const DEALS_GENERATED_AT = "2026-10-20T06:07:45.375Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -27482,6 +27482,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "emirates-oud-15515223228765-default-title",
+    "price": 31.98,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 20,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "emirates-oud-15879448133981-default-title",
+    "price": 42.49,
+    "delivered": true,
+    "wasPrice": 44.99,
+    "percentOff": 5,
+    "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6290171072607",
     "price": 26.75,
     "delivered": true,
@@ -27548,6 +27568,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 27,
     "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290360616490",
+    "price": 41.98,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 6,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290360615875",
+    "price": 35.99,
+    "delivered": true,
+    "wasPrice": 44.99,
+    "percentOff": 20,
+    "retailerId": "saad-fragrance",
     "kind": "retailer",
     "houseName": null
   },
@@ -30548,6 +30588,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 108,
     "percentOff": 25,
     "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8901360291515",
+    "price": 22.78,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8901360291812",
+    "price": 22.78,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -34122,12 +34182,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290360615875",
-    "price": 35.99,
+    "fragranceId": "ean-6290360616070",
+    "price": 49.98,
     "delivered": true,
-    "wasPrice": 44.99,
-    "percentOff": 20,
-    "retailerId": "saad-fragrance",
+    "wasPrice": 59.99,
+    "percentOff": 16,
+    "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290360617107",
+    "price": 35.98,
+    "delivered": true,
+    "wasPrice": 50,
+    "percentOff": 28,
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
@@ -35017,6 +35087,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 57.2,
     "percentOff": 58,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0850050062219",
+    "price": 42.1,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 59,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -36712,6 +36792,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "French Avenue"
   },
   {
+    "fragranceId": "ean-6298042003897",
+    "price": 44.99,
+    "delivered": true,
+    "wasPrice": 49.99,
+    "percentOff": 10,
+    "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6290360378411",
     "price": 23.98,
     "delivered": true,
@@ -36740,6 +36830,16 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "justmylook",
     "kind": "house",
     "houseName": "French Avenue"
+  },
+  {
+    "fragranceId": "beaute-boulevard-n9139214",
+    "price": 50.99,
+    "delivered": true,
+    "wasPrice": 62.92,
+    "percentOff": 18,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
   },
   {
     "fragranceId": "emirates-oud-15831431840093-default-title",
