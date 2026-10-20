@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-10-20T10:26:58.781Z",
-  "seenAt": "2026-10-20T10:26:58.781Z",
+  "updatedAt": "2026-10-20T14:10:25.792Z",
+  "seenAt": "2026-10-20T14:10:25.792Z",
   "source": "live",
   "listings": [
     {
@@ -681,7 +681,7 @@
       "priceGbp": 65,
       "wasPriceGbp": 74.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "In the heart of creative mastery, a world renowned perfumer Jorge Fernandez composed ''Arab Obaya'' as the embodiment of spirited authenticity. the tale begins with a radiant touch of Pineapple, echoing the first light of dawn over fields of pride. As time unfolds, luxurious leather emerges like a steadfast saddle, bestowing upon you a presence overflowing with confidence and majesty. At the conclusion of this olfactory epic, majestic oud reveals itself as an eternal legacy.. Softness at the beginning, softness in presence. . Top: Pineapple. Middle: Leather. Base: Oud.",
       "productType": null,
@@ -1256,7 +1256,7 @@
       "priceGbp": 4.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Pure Musk features sweet and soft white musk scents. This non offensive fragrance is ideal for every occasion.. Main accords: clean, sweet, white musk.",
       "productType": null,

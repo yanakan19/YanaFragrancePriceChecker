@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-20T10:26:58.781Z",
-  "seenAt": "2026-10-20T10:26:58.781Z",
+  "updatedAt": "2026-10-20T14:10:25.792Z",
+  "seenAt": "2026-10-20T14:10:25.792Z",
   "source": "live",
   "listings": [
     {
@@ -23106,7 +23106,7 @@
       "priceGbp": 32,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Burberry Goddess Amber Vanilla Eau de Parfum Intense is a rich and captivating women's fragrance with warm amber and vanilla notes. Presented in a convenient 10ml size, it's perfect for fragrance on the go..",
       "productType": "Women's Fragrances",

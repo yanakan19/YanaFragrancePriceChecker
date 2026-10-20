@@ -1,7 +1,7 @@
 {
   "retailerId": "al-haramain",
-  "updatedAt": "2026-10-20T10:26:58.781Z",
-  "seenAt": "2026-10-20T10:26:58.781Z",
+  "updatedAt": "2026-10-20T14:10:25.792Z",
+  "seenAt": "2026-10-20T14:10:25.792Z",
   "source": "live",
   "listings": [
     {
@@ -1900,7 +1900,7 @@
       "priceGbp": 12,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Haramain Oudi 12ml Concentrated Perfume Oil. Haramain Oudi is a concentrated perfume oil that opens with fresh, sweet, and rosy notes, creating a vibrant start. The heart reveals a rich blend of woody, citrus, and animalic accords, with a leathery, smoky allure that adds character. The base settles into warm, balsamic, musky, and ambery undertones, leaving an unforgettable impression of luxury. For those who appreciate timeless scents with a bold edge. . . . . . Fragrance notes: Top notes: Sweet Oudh, Rose, Diffusive Middle notes: Fresh, Woody, Citrus, Animalic, Leathery, Smoky Base notes: Labdanum, Balsamic, Musky, Ambery.",
       "productType": "ATTTAR / OIL",
