@@ -7855,6 +7855,38 @@
   },
   {
    "reasons": [
+    "two different barcodes: 783320423413, 783320424243",
+    "a shop lists more than one: perfume-click"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0783320423413",
+     "brand": "Bvlgari",
+     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Milk",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320423413",
+     "scent": "blossom delight goldea rose",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-0783320424243",
+     "brand": "Bvlgari",
+     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320424243",
+     "scent": "blossom delight goldea rose",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 2.12 is over 1.5"
    ],
    "members": [
@@ -10828,50 +10860,6 @@
   },
   {
    "reasons": [
-    "strengths differ: Eau de Parfum, Extrait de Parfum"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060905833429",
-     "brand": "Thameen",
-     "name": "The Cora Gift Set 50ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "5060905833429",
-     "scent": "cora",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-thameen-the-cora-2-piece-gift-set-extrait-de-parfum-50ml-body-lotion-100ml",
-     "brand": "Thameen",
-     "name": "The Cora 2 Piece Gift Set: Extrait de Parfum 50ml - Body Lotion 100ml",
-     "concentration": "Extrait de Parfum",
-     "ean": null,
-     "scent": "cora",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-thameen-the-cora-gift-set-50ml-edp-100ml-body-lotion",
-     "brand": "Thameen",
-     "name": "The Cora Gift Set 50ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "cora",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.12 is over 1.5"
    ],
    "members": [
@@ -12319,6 +12307,38 @@
      "signature": "1x10fragrance|1x?other",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Extrait de Parfum"
+   ],
+   "members": [
+    {
+     "id": "set-thameen-the-cora-2-piece-gift-set-extrait-de-parfum-50ml-body-lotion-100ml",
+     "brand": "Thameen",
+     "name": "The Cora 2 Piece Gift Set: Extrait de Parfum 50ml - Body Lotion 100ml",
+     "concentration": "Extrait de Parfum",
+     "ean": null,
+     "scent": "cora",
+     "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-thameen-the-cora-gift-set-50ml-edp-100ml-body-lotion",
+     "brand": "Thameen",
+     "name": "The Cora Gift Set 50ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "cora",
+     "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique"
      ]
     }
    ]
