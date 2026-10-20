@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-20T02:37:52.799Z",
-  "seenAt": "2026-10-20T02:37:52.799Z",
+  "updatedAt": "2026-10-20T06:46:53.347Z",
+  "seenAt": "2026-10-20T06:46:53.347Z",
   "source": "live",
   "listings": [
     {
@@ -14274,7 +14274,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Cosmic 2.0 by Kylie Jenner is a floral fragrance inspired by sunrise. It combines fruity notes of pear and pink pepper with vanilla orchid and lavender, creating a sweet and spicy scent. Warm amber emerges as it settles, adding a captivating touch..",
       "productType": "Women's Fragrances",
