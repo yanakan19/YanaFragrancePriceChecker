@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 215,
+ "folded": 216,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -4898,6 +4898,38 @@
      "signature": "1x100body|1x100fragrance",
      "shops": [
       "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003822195",
+   "absorbed": [
+    "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003822195",
+     "brand": "Versace",
+     "name": "Bright Crystal Absolu Gift Set 2 x 30ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003822195",
+     "scent": "absolu bright crystal",
+     "signature": "2x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp",
+     "brand": "Versace",
+     "name": "Bright Crystal Absolu Gift Set 2 x 30ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "absolu bright crystal",
+     "signature": "2x30fragrance",
+     "shops": [
       "mybeauty-boutique"
      ]
     }
