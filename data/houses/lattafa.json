@@ -1,7 +1,7 @@
 {
   "retailerId": "lattafa",
-  "updatedAt": "2026-10-19T23:42:09.922Z",
-  "seenAt": "2026-10-19T23:42:09.922Z",
+  "updatedAt": "2026-10-20T03:39:07.877Z",
+  "seenAt": "2026-10-20T03:39:07.877Z",
   "source": "live",
   "listings": [
     {
@@ -755,21 +755,18 @@
     },
     {
       "retailerSku": "31NE0008",
-      "url": "https://lattafa.com/product/lujain/",
-      "rawTitle": "Lujain",
+      "url": "https://lattafa.com/ar/product/%d9%84%d8%ac%d9%8a%d9%86/",
+      "rawTitle": "لجين",
       "rawBrand": null,
       "ean": null,
       "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/2-29.jpg",
-      "description": "Top: Pink Peppercorn, Rose Heart: Jasmine Sambac, Tuberose Base: Sandalwood, Tonka, Vanilla",
+      "description": "\"قمة: فلفل وردي، ورد قلب: ياسمين سامباك، توبروز قاعدة: خشب الصندل، حبة تونكا، فانيليا\"",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "inStock": true,
       "sectionId": "house-direct",
-      "rating": {
-        "value": 5,
-        "count": 1
-      },
+      "rating": null,
       "nativePrice": {
         "amount": 300,
         "currency": "AED"
@@ -883,6 +880,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-20T13:32:32.490Z",
+      "lastSeenAt": "2026-10-19T23:42:09.922Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -909,6 +907,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-20T13:32:32.490Z",
+      "lastSeenAt": "2026-10-19T23:42:09.922Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -935,6 +934,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-10-03T09:01:20.571Z",
+      "lastSeenAt": "2026-10-19T23:42:09.922Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
