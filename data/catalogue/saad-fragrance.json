@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-20T14:10:25.792Z",
-  "seenAt": "2026-10-20T14:10:25.792Z",
+  "updatedAt": "2026-10-20T18:11:51.850Z",
+  "seenAt": "2026-10-20T18:11:51.850Z",
   "source": "live",
   "listings": [
     {
@@ -37,7 +37,7 @@
       "priceGbp": 30.99,
       "wasPriceGbp": 36.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Afnan 9PM REBEL opens with a vibrant burst of mandarin, pineapple, and crisp Granny Smith apple that awakens the senses. The heart reveals a sophisticated blend of cedarwood, oakmoss, and creamy vanilla, creating depth and elegance. A luxurious base of caramel, dry woods, ambergris, and musk provides a warm, sensual finish that lingers beautifully throughout the day. This 100ml Eau De Parfum is a bold statement fragrance—perfect for those who embrace confidence and individuality. The perfect balance of fruity freshness and woody warmth makes it versatile enough for any occasion.",
       "productType": null,

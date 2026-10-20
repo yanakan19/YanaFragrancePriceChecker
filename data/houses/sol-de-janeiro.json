@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-20T15:17:58.286Z",
-  "seenAt": "2026-10-20T15:17:58.286Z",
+  "updatedAt": "2026-10-20T19:19:52.810Z",
+  "seenAt": "2026-10-20T19:19:52.810Z",
   "source": "live",
   "listings": [
     {
@@ -16707,7 +16707,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Experience ultimate firming & debloating benefits when you pair our new Bum Bum Body Firmeza Oil with our Firmeza Massage Tool.. . Simply apply the visibly firming, supremely nourishing body oil and use the tool to give yourself an easy at-home lymphatic drainage massage to reduce signs of bloating and promote visible firming benefits..",
       "productType": "bundle",

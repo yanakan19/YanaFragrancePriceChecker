@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-20T14:10:25.792Z",
-  "seenAt": "2026-10-20T14:10:25.792Z",
+  "updatedAt": "2026-10-20T18:11:51.850Z",
+  "seenAt": "2026-10-20T18:11:51.850Z",
   "source": "live",
   "listings": [
     {
@@ -1164,7 +1164,7 @@
       "priceGbp": 22,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "a { text-decoration: none; color: #464feb;\n}\ntr th, tr td { border: 1px solid #e6e6e6;\n}\ntr th { background-color: #f5f5f5;\n} a { text-decoration: none; color: #464feb;\n}\ntr th, tr td { border: 1px solid #e6e6e6;\n}\ntr th { background-color: #f5f5f5;\n} The vanity bag shape is having its moment – and the Viola Trend Vanity Bag is your way in. Crafted in quilted black fabric, this structured style draws on the luxury aesthetic of designer houses at an accessible price. Secure zip-top closure keeps your essentials safe and styled.. Why you'll love it On-trend vanity silhouette – the shape of the season Quilted black fabric with a luxe, designer-inspired finish Zip-top closure for secure, easy access Perfect for party season and beyond Compact yet surprisingly roomy. HOW TO : Carry by the short handle or style on the arm for an evening look.. The essentials:. Colour: Black. Dimensions: L18 x W8 x H13cm (short handle approx. 19cm). Materials: PU outer, polyester lining. .",
       "productType": "ACCESSORIES",
@@ -1226,7 +1226,7 @@
     {
       "retailerSku": "F1595768",
       "url": "https://avon.uk.com/products/velvet-seduction-shower-cream",
-      "rawTitle": "Velvet Seduction Shower Cream",
+      "rawTitle": "Senses Velvet Seduction Shower Cream 250ml",
       "rawBrand": "Senses",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0327/1498/1421/files/prod_1240803_1.jpg?v=1790342559",
@@ -1249,7 +1249,7 @@
     {
       "retailerSku": "F1595780",
       "url": "https://avon.uk.com/products/velvet-seduction-bubble-bath",
-      "rawTitle": "Velvet Seduction Bubble Bath",
+      "rawTitle": "Senses Velvet Seduction Bubble Bath 1L",
       "rawBrand": "Senses",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0327/1498/1421/files/prod_1240806_1.jpg?v=1790342339",
@@ -1272,7 +1272,7 @@
     {
       "retailerSku": "F1595771",
       "url": "https://avon.uk.com/products/velvet-seduction-body-mist",
-      "rawTitle": "Velvet Seduction Body Mist",
+      "rawTitle": "Senses Velvet Seduction Body Mist 100ml",
       "rawBrand": "Senses",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0327/1498/1421/files/prod_1240807_1.jpg?v=1790342215",
@@ -32536,7 +32536,7 @@
       "priceGbp": 20,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Wrap yourself in the fragrance that’s perfect for every occasion, the floral and oriental perfume of Little Black Dress Eau de Parfum. Elegant scents of beautiful honeysuckle, exotic ylang-ylang and sophisticated milkwood. Product specification: • Top note: honeysuckle. • Middle note: ylang-ylang. • Base note: milkwood. • 100ml. How to wear me: Feel your most confident whether you’re heading to the office, on the school run or for dinner with friends. Spritz the floral and oriental perfume onto your pulse points for the perfect final accessory. Make the scent last even longer by pairing with the matching body lotion.",
       "productType": "FRAGRANCE",

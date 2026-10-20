@@ -1,7 +1,7 @@
 {
   "retailerId": "zimaya",
-  "updatedAt": "2026-10-20T14:10:25.792Z",
-  "seenAt": "2026-10-20T14:10:25.792Z",
+  "updatedAt": "2026-10-20T18:11:51.850Z",
+  "seenAt": "2026-10-20T18:11:51.850Z",
   "source": "live",
   "listings": [
     {
@@ -60,7 +60,7 @@
       "priceGbp": 32,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Oscar Platinum is clean, fresh, and effortlessly modern. It opens with a bright, crisp energy that feels instantly uplifting, giving the fragrance a sharp and refined first impression. As it develops, it softens into a smooth, balanced heart that carries a quiet warmth. As it settles, a subtle woody trail lingers on the skin - elegant, long-lasting, and easy to wear. It leaves behind a refined presence that feels natural rather than loud. Simple, sophisticated, and quietly confident, Oscar Platinum is made for those who prefer understated impact over excess. TOP NOTES Vetiver – Black pepper – Pink Pepper – Basil MID NOTES Ginger – Grapefruit – Timur – Musk BASE NOTES Amber – Patchouli – Cedar.",
       "productType": "Perfume",

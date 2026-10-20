@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-10-20T14:10:25.792Z",
-  "seenAt": "2026-10-20T14:10:25.792Z",
+  "updatedAt": "2026-10-20T18:11:51.850Z",
+  "seenAt": "2026-10-20T18:11:51.850Z",
   "source": "live",
   "listings": [
     {
@@ -701,8 +701,8 @@
       "rawBrand": "Ibrahim Al Qurashi (IBRAQ)",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0993/0922/4284/files/IBRAQ_1.1-05_faa56cd0-854b-4118-afc4-65340f258d45.webp?v=1772281776",
-      "priceGbp": 34.99,
-      "wasPriceGbp": 39.99,
+      "priceGbp": 29.99,
+      "wasPriceGbp": 34.99,
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "shopify-products-json",
@@ -724,8 +724,8 @@
       "rawBrand": "Ibrahim Al Qurashi (IBRAQ)",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0993/0922/4284/files/IBRAQ_1.1-03_f251f4e2-da00-4d6c-b675-6d2f9a7270d2.webp?v=1772281775",
-      "priceGbp": 34.99,
-      "wasPriceGbp": 39.99,
+      "priceGbp": 29.99,
+      "wasPriceGbp": 34.99,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
