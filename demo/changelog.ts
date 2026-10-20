@@ -30,6 +30,20 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.112.0',
+    date: '20 Oct 2026',
+    groups: [
+      {
+        heading: 'Products and Matching',
+        points: [
+          'Lattafa Pride perfumes now start with Pride',
+          'French Avenue Equestrian Series use the plain name',
+          'Listings with and without the series now join',
+        ],
+      },
+    ],
+  },
+  {
     version: 'v3.111.0',
     date: '19 Oct 2026',
     groups: [

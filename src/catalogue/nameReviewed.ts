@@ -19,7 +19,15 @@ export interface ReviewedName {
   on: string;
   sources: readonly string[];
   evidence: string;
+  /**
+   * Set when the owner decided the name (20 Oct 2026): `sources` is then OWNER_DECISION_SOURCE
+   * and no web source is needed, but the rename keeps the same word rules (a deletion only for
+   * NAME_VERIFIED, words kept or moved and never added for NAME_REORDERED).
+   */
+  decision?: string;
 }
+/** The source of an entry the owner decided, in place of two web sources. */
+export const OWNER_DECISION_SOURCE = 'owner decision 2026-10-20';
 /**
  * A rename that only moves words (owner decision, 19 Oct 2026). `to` uses exactly the words of
  * `from`, in a different order, and adds no word. The only word that may go is the house name,
@@ -66,10 +74,102 @@ export const NAME_VERIFIED: readonly ReviewedName[] = [
   {brand: "Al Rehab", from: "Bakhour Perfume", to: "Bakhour", on: "2026-10-19", sources: ["https://www.parfumo.net/Perfumes/Al_Rehab/bakhour-eau-de-parfum", "https://www.cosmetify.com/al-rehab-al-rehab-bakhour-eau-de-parfum/"], evidence: "Parfumo and Cosmetify name it \"Bakhour\" under Al Rehab; \"Perfume\" is a shop's template word"},
   {brand: "Al Rehab", from: "Soft Perfume", to: "Soft", on: "2026-10-19", sources: ["https://www.parfumo.com/Perfumes/Al_Rehab/Soft_Eau_de_Parfum", "https://skinsort.com/products/al-rehab/soft-eau-de-parfum/dupes"], evidence: "Parfumo and Skinsort name it \"Soft\" under Al Rehab; \"Perfume\" is a shop's template word"},
   {brand: "Afnan", from: "Afnan Rare Passion", to: "Rare Passion", on: "2026-10-19", sources: ["https://www.ulta.com/p/rare-passion-eau-de-parfum-mkt77009263?sku=77014597", "https://www.cosmetify.com/afnan-rare-passion-eau-de-parfum/"], evidence: "Ulta and Cosmetify title it \"Rare Passion\" under Afnan; the leading house is one shop's doubled brand"},
+  { brand: "French Avenue", from: "Della Equestrian Series Perfume", to: "Della", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner chose the bare fragrance name for the Equestrian Series (the brand writes \"An Equestrian Series X\"); only words are deleted" },
+  { brand: "French Avenue", from: "Haydan Equestrian Series", to: "Haydan", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner chose the bare fragrance name for the Equestrian Series (the brand writes \"An Equestrian Series X\"); only words are deleted" },
+  { brand: "French Avenue", from: "Olena Equestrian Series", to: "Olena", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner chose the bare fragrance name for the Equestrian Series (the brand writes \"An Equestrian Series X\"); only words are deleted" },
+  { brand: "French Avenue", from: "Pierce Equestrian Series", to: "Pierce", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner chose the bare fragrance name for the Equestrian Series (the brand writes \"An Equestrian Series X\"); only words are deleted" },
 ];
 
-/** Append only, like the other lists. Empty on 19 Oct 2026: see docs/NAME-VERIFICATION-2026-10-19.md, "Reordering". */
-export const NAME_REORDERED: readonly ReorderedName[] = [];
+/**
+ * Append only, like the other lists. Empty on 19 Oct 2026; on 20 Oct 2026 the owner decided the Lattafa Pride
+ * line (every product, by the rule `ownerSeriesName` below: these are the families that stood in
+ * NAME_UNRESOLVED) : docs/NAME-VERIFICATION-2026-10-19.md, "Reordering".
+ */
+export const NAME_REORDERED: readonly ReorderedName[] = [
+  { brand: "Lattafa", from: "Affection Perfume Lattafa Pride", to: "Pride Affection", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner put the Pride series first and dropped \"Perfume\" and \"Lattafa\" (lattafa.com itself writes the plain name); no word is added" },
+  { brand: "Lattafa", from: "Al Areeq Gold Perfume By Lattafa Pride", to: "Pride Al Areeq Gold", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner put the Pride series first and dropped \"Perfume\" and \"Lattafa\" (lattafa.com itself writes the plain name); no word is added" },
+  { brand: "Lattafa", from: "Nebras Perfume Lattafa Pride", to: "Pride Nebras", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner put the Pride series first and dropped \"Perfume\" and \"Lattafa\" (lattafa.com itself writes the plain name); no word is added" },
+  { brand: "Lattafa", from: "Queen of Arabia Perfume Lattafa Pride", to: "Pride Queen of Arabia", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner put the Pride series first and dropped \"Perfume\" and \"Lattafa\" (lattafa.com itself writes the plain name); no word is added" },
+  { brand: "Lattafa", from: "Vintage Radio Perfume by Lattafa Pride", to: "Pride Vintage Radio", on: "2026-10-20", sources: [OWNER_DECISION_SOURCE], decision: "owner, 20 Oct 2026", evidence: "the owner put the Pride series first and dropped \"Perfume\" and \"Lattafa\" (lattafa.com itself writes the plain name); no word is added" },
+];
+
+/**
+ * The owner's series decisions of 20 Oct 2026, as rules, so every product of the line gets the
+ * name, not only the families listed above (docs/NAME-VERIFICATION-2026-10-19.md, "Reordering"):
+ *
+ *  - Lattafa Pride: the series goes first and "Lattafa" and "Perfume" go ("Nebras Perfume Lattafa
+ *    Pride" is "Pride Nebras"; "Vintage Radio By Lattafa Pride" is "Pride Vintage Radio"). Words
+ *    are kept or moved and none is added; the shop's "Elite Collection" tail and what follows it
+ *    (a list of notes) go with the series mark. "Pride of Lattafa" (Fakhar) is another name.
+ *  - French Avenue Equestrian Series: the fragrance's name alone ("Della", "Haydan", "Olena",
+ *    "Pierce"); "An", "Equestrian Series" and "Perfume" go.
+ *
+ * The name is returned as it came in for every other house and every other name.
+ */
+export function ownerSeriesName(name: string, house: string | null): string {
+  const h = house ? nameWords(house).join(' ') : '';
+  if (h === 'lattafa') return lattafaPrideFirst(name);
+  if (h === 'french avenue') return withoutEquestrianSeries(name);
+  return name;
+}
+
+const trimEnds = (t: string): string => t.replace(/^[\s,\-\u2013|&]+|[\s,\-\u2013|&]+$/g, '').replace(/\s{2,}/g, ' ');
+const dropPerfumeWord = (t: string): string => trimEnds(t.replace(/\bperfumes?\b/gi, ' '));
+
+function lattafaPrideFirst(name: string): string {
+  const t = name.trim();
+  if (!/\bpride\b/i.test(t) || /\bpride\s+of\b/i.test(t)) return name;
+  // "Lattafa Pride Nebras" (the house in front of the series): the house goes.
+  const lead = /^lattafa\s+pride\s+(.+)$/i.exec(t);
+  if (lead) return `Pride ${dropPerfumeWord(lead[1]!)}`;
+  // Already first: only a trailing house goes ("Pride No.1 Gift Set 5X20ml EDP Lattafa").
+  if (/^pride\b/i.test(t)) return t.replace(/\s+(?:by\s+)?lattafa$/i, '') || name;
+  const mid = /^(.*?)[\s,\-\u2013(]*(?:\bby\s+)?\blattafa\s+pride\b(.*)$/i.exec(name);
+  if (mid) {
+    const body = dropPerfumeWord(mid[1]!.replace(/\s+by\s*$/i, ''));
+    const rest = trimEnds(mid[2]!.replace(/^[\s\-\u2013)]*(?:elite\s+)?collection\b[\s\S]*$/i, ''));
+    if (!body) return name;
+    return `Pride ${body}${rest ? ` ${rest}` : ''}`;
+  }
+  // "Queen Of Roses Pride": the series mark alone at the end.
+  const tail = /^(.+?)\s+pride$/i.exec(name.trim());
+  if (tail) {
+    const body = dropPerfumeWord(tail[1]!);
+    return body ? `Pride ${body}` : name;
+  }
+  return name;
+}
+
+function withoutEquestrianSeries(name: string): string {
+  if (!/\bequestrian\s+series\b/i.test(name)) return name;
+  const body = dropPerfumeWord(name.replace(/\b(?:an\s+)?equestrian\s+series\b/gi, ' '));
+  return body || name;
+}
+
+/**
+ * The rest of the Lattafa Pride decision: a listing that does not write the series ("Nebras", the
+ * barcoded product five shops sell) is the same fragrance as "Pride Nebras", and the owner wants
+ * one product per fragrance. Run over the products before they are matched: every Lattafa product
+ * whose name is the bare name of a Lattafa product that does carry the series takes that name, so
+ * the matching joins them wherever size and strength agree. A name no listing writes with the
+ * series is left alone (Khamrah, Fakhar). Returns the products renamed.
+ */
+export function putPrideFirstOnPlainTwins<T extends { brand: string; name: string }>(products: Iterable<T>): T[] {
+  const lattafa = [...products].filter((p) => nameWords(p.brand).join(' ') === 'lattafa');
+  const key = (n: string) => nameWords(n).join(' ');
+  const bare = new Map<string, string>();
+  for (const p of lattafa) {
+    const m = /^pride\s+(.+)$/i.exec(p.name.trim());
+    if (m && key(m[1]!) !== '') bare.set(key(m[1]!), p.name.trim());
+  }
+  const renamed: T[] = [];
+  for (const p of lattafa) {
+    if (/^pride\b/i.test(p.name.trim())) continue;
+    const to = bare.get(key(p.name));
+    if (to !== undefined && to !== p.name) { p.name = to; renamed.push(p); }
+  }
+  return renamed;
+}
 
 const nameWords = (t: string): string[] =>
   t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/&/g, ' and ').split(/[^a-z0-9]+/).filter(Boolean);
@@ -385,7 +485,6 @@ export const NAME_UNRESOLVED: readonly UnresolvedName[] = [
   { brand: "Elizabeth Arden", name: "Green Tea Summer Fragrance", proposed: "Green Tea Summer", on: "2026-10-19", sources: ["https://www.beautybase.com/products/elizabeth-arden-green-tea-summer-fragrance-100ml-eau-de-toilette-spray"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
   { brand: "Fragrance World", name: "Artisan Perfume Arabian Incense", proposed: "Artisan Arabian Incense", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/artisan-perfume-arabian-incense-80ml-edp-fragrance-world"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
   { brand: "Fragrance World", name: "Artisan Perfume Hibiscus Magic", proposed: "Artisan Hibiscus Magic", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/artisan-perfume-hibiscus-magic-80ml-edp-fragrance-world"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
-  { brand: "French Avenue", name: "Della Equestrian Series Perfume", proposed: "Della Equestrian Series", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/della-an-equestrian-series-perfume-french-avenue"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
   { brand: "Gres", name: "Cabotine de Gres", proposed: "Cabotine", on: "2026-10-19", sources: [], why: "only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name" },
   { brand: "Guess", name: "Guess Girl", proposed: "Girl", on: "2026-10-19", sources: [], why: "the shops split between the long and the short name; no source settles it" },
   { brand: "Guess", name: "Guess Marciano", proposed: "Marciano", on: "2026-10-19", sources: [], why: "the shops split between the long and the short name; no source settles it" },
@@ -393,11 +492,6 @@ export const NAME_UNRESOLVED: readonly UnresolvedName[] = [
   { brand: "Hackett London", name: "Hackett London Absolute", proposed: "Absolute", on: "2026-10-19", sources: [], why: "the shops split between the long and the short name; no source settles it" },
   { brand: "Hugo Boss", name: "Hugo Boss The Collection Daring Saffiano", proposed: "The Collection Daring Saffiano", on: "2026-10-19", sources: [], why: "only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name" },
   { brand: "Lacoste", name: "Lacoste L.12.12 Rose Eau Fraiche", proposed: "L.12.12 Rose Eau Fraiche", on: "2026-10-19", sources: ["https://perfumedirect.com/products/lacoste-l-12-12-rose-eau-fraiche-eau-de-toilette-mens-aftershave-spray-100ml"], why: "only Direct Cosmetics gives this name and no other shop writes the same words; the house may be part of the name" },
-  { brand: "Lattafa", name: "Affection Perfume Lattafa Pride", proposed: "Affection Lattafa Pride", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/affection-perfume-100ml-edp-lattafa"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
-  { brand: "Lattafa", name: "Al Areeq Gold Perfume By Lattafa Pride", proposed: "Al Areeq Gold By Lattafa Pride", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/al-areeq-gold-perfume-100ml-edp-lattafa-pride", "https://opulensi.com/products/al-areeq-gold-perfume-100ml-edp-arabian-fragrance-safron-leather-black-tea-vanilla-musk"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
-  { brand: "Lattafa", name: "Nebras Perfume Lattafa Pride", proposed: "Nebras Lattafa Pride", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/nebras-perfume-100ml-edp-lattafa"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
-  { brand: "Lattafa", name: "Queen of Arabia Perfume Lattafa Pride", proposed: "Queen of Arabia Lattafa Pride", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/queen-of-arabia-lattafa-pride"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
-  { brand: "Lattafa", name: "Vintage Radio Perfume by Lattafa Pride", proposed: "Vintage Radio by Lattafa Pride", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/vintage-radio-perfume-100ml-edp-lattafa"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
   { brand: "Lattafa", name: "Yara Pink Perfume - Women", proposed: "Yara Pink - Women", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/yara-lattafa-perfume-100ml-perfume-spray-unisex-women-men-scent-floral-musky"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
   { brand: "Le Falcone", name: "Risala For You Perfume Niche Collection", proposed: "Risala For You Niche Collection", on: "2026-10-19", sources: ["https://emiratesoud.co.uk/products/risala-for-you-perfume-le-falcone"], why: "\"Perfume\" or \"Fragrance\" is probably the shop's template word, but no second independent source was found" },
   { brand: "Lolita Lempicka", name: "Sweet Lolita Lempicka", proposed: "Sweet", on: "2026-10-19", sources: ["https://www.scentsational.com/women-c2/lolita-lempicka-sweet-100ml-edp-s-p50498", "https://beautyencounter.com/products/sweet-by-lolita-lempicka-for-women-1"], why: "only one independent shop gives the shorter name and the longer one comes from Direct Cosmetics or one other shop; the house may be part of the name" },
