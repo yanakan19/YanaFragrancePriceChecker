@@ -1,7 +1,7 @@
 {
   "retailerId": "beaute-boulevard",
-  "updatedAt": "2026-10-20T18:11:51.850Z",
-  "seenAt": "2026-10-20T18:11:51.850Z",
+  "updatedAt": "2026-10-20T22:13:07.813Z",
+  "seenAt": "2026-10-20T22:13:07.813Z",
   "source": "live",
   "listings": [
     {
@@ -313,7 +313,7 @@
       "priceGbp": 44.99,
       "wasPriceGbp": 55,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Elemis Pro-Collagen Glow Boost Exfoliator 100ml is a premium skincare treatment designed to promote radiant, youthful-looking skin. This rich exfoliator is infused with key notes of rose and hibiscus, alongside Pro-Collagen Technology, to gently remove dead skin cells and reveal a smoother, brighter complexion.. Suitable for those seeking a gentle yet effective exfoliating experience, this product is perfect for individuals with dry or sensitive skin who still desire a radiant glow. Its sophisticated blend of ingredients works in harmony to leave the skin feeling soft, supple, and refreshed.. Experience the art of self-care with the Elemis Pro-Collagen Glow Boost Exfoliator, a testament to the brand's commitment to delivering exceptional skincare solutions. Discover Elemis at Beaute Boulevard to explore a curated selection of premium products that cater to your individual beauty needs..",
       "productType": "Cosmetics",

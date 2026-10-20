@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-10-20T18:11:51.850Z",
-  "seenAt": "2026-10-20T18:11:51.850Z",
+  "updatedAt": "2026-10-20T22:13:07.813Z",
+  "seenAt": "2026-10-20T22:13:07.813Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": "Storable Product",
@@ -37,7 +37,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": "Storable Product",
@@ -658,7 +658,7 @@
       "priceGbp": 40,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Liquid Brun – Limited Edition is a refined fougère-oriental fragrance wrapped in warm amber elegance. It opens with a fresh citrus lift blended with aromatic lavender and spicy cardamom, creating a clean yet captivating introduction. The heart reveals a smooth floral-woody balance of orange blossom, rose, and guaiacwood, adding depth and sophistication. The base settles into a rich, masculine trail of dry amber, vanilla, tonka bean, and oakmoss, delivering warmth, sensuality, and lasting presence. .",
       "productType": "Storable Product",
