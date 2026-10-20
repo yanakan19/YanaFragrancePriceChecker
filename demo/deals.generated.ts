@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-20T06:45:08.374Z";
+export const DEALS_GENERATED_AT = "2026-10-20T07:55:16.103Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -8363,11 +8363,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-5060426150678",
-    "price": 25.85,
+    "price": 23.39,
     "delivered": true,
     "wasPrice": 79,
-    "percentOff": 67,
-    "retailerId": "perfume-click",
+    "percentOff": 70,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -14303,10 +14303,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290171075073",
-    "price": 54.98,
+    "price": 51.94,
     "delivered": true,
     "wasPrice": 59.99,
-    "percentOff": 8,
+    "percentOff": 13,
     "retailerId": "fragrancehub",
     "kind": "retailer",
     "houseName": null
@@ -15483,10 +15483,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-5060103310609",
-    "price": 67.5,
+    "price": 75,
     "delivered": true,
     "wasPrice": 125,
-    "percentOff": 46,
+    "percentOff": 40,
     "retailerId": "john-lewis",
     "kind": "house",
     "houseName": "Escentric Molecules"
@@ -33882,6 +33882,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6297001571460",
+    "price": 39.98,
+    "delivered": true,
+    "wasPrice": 49.99,
+    "percentOff": 20,
+    "retailerId": "fragrancehub",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6287036280840",
     "price": 43.98,
     "delivered": true,
@@ -34673,11 +34683,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8033488151973",
-    "price": 278.05,
+    "price": 211.35,
     "delivered": true,
-    "wasPrice": 355.89,
-    "percentOff": 21,
-    "retailerId": "perfume-click",
+    "wasPrice": 380,
+    "percentOff": 44,
+    "retailerId": "debenhams",
     "kind": "retailer",
     "houseName": null
   },
