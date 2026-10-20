@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-20T06:22:51.769Z",
+ "builtAt": "2026-10-20T23:55:07.182Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 12469,
- "offersWithCorroboratedReference": 1528,
+ "listingsWithReference": 12505,
+ "offersWithCorroboratedReference": 1529,
  "deals": [
   {
    "fragranceId": "aar-fragrances-lalique-encre-noire-100ml",
@@ -588,6 +588,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-al-majed-oud-cuir",
+   "price": 5490,
+   "delivered": false,
+   "wasPrice": 9500,
+   "percentOff": 42,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-lattafa-musamam-white-intense",
    "price": 3750,
    "delivered": false,
@@ -938,6 +948,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-caneza-uomo-bold",
+   "price": 3990,
+   "delivered": false,
+   "wasPrice": 6500,
+   "percentOff": 38,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-mancera-coco-vanille",
    "price": 8700,
    "delivered": false,
@@ -1058,16 +1078,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-al-majed-oud-cuir",
-   "price": 5990,
-   "delivered": false,
-   "wasPrice": 9500,
-   "percentOff": 36,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-khadlaj-island-sun",
    "price": 3190,
    "delivered": false,
@@ -1138,7 +1148,7 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-burberry-weekend-w-100ml",
+   "fragranceId": "ean-5045252667484",
    "price": 4950,
    "delivered": false,
    "wasPrice": 7750,
@@ -1518,6 +1528,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-caneza-mezmar-men",
+   "price": 3990,
+   "delivered": false,
+   "wasPrice": 6000,
+   "percentOff": 33,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-elizabeth-arden-5th-avenue",
    "price": 3999,
    "delivered": false,
@@ -1729,16 +1749,6 @@
   },
   {
    "fragranceId": "aar-fragrances-afnan-lynked-freedom",
-   "price": 4450,
-   "delivered": false,
-   "wasPrice": 6500,
-   "percentOff": 31,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-caneza-uomo-bold",
    "price": 4450,
    "delivered": false,
    "wasPrice": 6500,
@@ -2468,16 +2478,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-caneza-mezmar-men",
-   "price": 4500,
-   "delivered": false,
-   "wasPrice": 6000,
-   "percentOff": 25,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-caneza-mezmar-mocha-blend",
    "price": 4500,
    "delivered": false,
@@ -2832,16 +2832,6 @@
    "price": 3990,
    "delivered": false,
    "wasPrice": 5200,
-   "percentOff": 23,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-ahmed-al-maghribi-ignite-oud",
-   "price": 3350,
-   "delivered": false,
-   "wasPrice": 4400,
    "percentOff": 23,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -4654,6 +4644,16 @@
    "wasPrice": 7500,
    "percentOff": 10,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-al-ezz-oud-hersh-2",
+   "price": 5650,
+   "delivered": false,
+   "wasPrice": 6250,
+   "percentOff": 9,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
