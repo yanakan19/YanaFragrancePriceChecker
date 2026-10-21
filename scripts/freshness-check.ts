@@ -15,7 +15,11 @@
  *   - exits 1 when a shop that answered this run (priced something, from its
  *     pages or its own catalogue feed, and refused no page) has more over 48h than a small
  *     tolerance allows, because that shop let us in and we still left its
- *     prices to age, which is the regression this exists to catch.
+ *     prices to age, which is the regression this exists to catch;
+ *   - judges a feed shop (affiliate feed, synced by the Awin step, never asked by
+ *     the sweep) the same way, by the age of its listings: a feed that stopped
+ *     syncing fails here, and `answered: no` says nothing about it. An import
+ *     shop (saved pages the owner imports) is only ever warned about.
  *
  * A shop that did not answer (it refused us, or the run never reached it) is
  * warned about but does not fail the check: that is a fact about the shop or
@@ -56,17 +60,23 @@ console.log(`  ${'shop'.padEnd(24)} ${'shown'.padStart(6)} ${'>24h'.padStart(6)}
 for (const [id, f] of Object.entries(report.freshness).sort(([a], [b]) => a.localeCompare(b))) {
   console.log(
     `  ${id.padEnd(24)} ${String(f.shown).padStart(6)} ${String(f.over24h).padStart(6)} ${String(f.over48h).padStart(6)}  ` +
-      `${(f.answered ? 'yes' : 'no').padEnd(8)}  ${f.oldestShownAt ?? '-'}`,
+      `${(f.source ?? (f.answered ? 'yes' : 'no')).padEnd(8)}  ${f.oldestShownAt ?? '-'}`,
   );
   if (f.over48h === 0) continue;
   const allowed = freshnessTolerance(f.shown);
-  if (f.answered && f.over48h > allowed) {
-    failing.push(`${id} (${f.over48h} of ${f.shown} shown listings over 48h, tolerance ${allowed})`);
-    console.log(`::error::${id} answered this harvest but ${f.over48h} of its ${f.shown} shown listings were last confirmed more than 48 hours ago.`);
+  // A feed shop is never asked by the sweep, so it is judged by its listings' age alone.
+  const judged = f.answered || f.source === 'feed';
+  if (judged && f.over48h > allowed) {
+    failing.push(`${id} (${f.over48h} of ${f.shown} shown listings over 48h, tolerance ${allowed}${f.source === 'feed' ? ', feed' : ''})`);
+    console.log(
+      f.source === 'feed'
+        ? `::error::${id} is read from a feed and ${f.over48h} of its ${f.shown} shown listings were last confirmed more than 48 hours ago: the feed sync is not keeping up.`
+        : `::error::${id} answered this harvest but ${f.over48h} of its ${f.shown} shown listings were last confirmed more than 48 hours ago.`,
+    );
   } else {
     console.log(
       `::warning::${id}: ${f.over48h} of ${f.shown} shown listings last confirmed more than 48 hours ago` +
-        (f.answered ? ` (within tolerance ${allowed})` : ' (shop did not answer this run)'),
+        (judged ? ` (within tolerance ${allowed})` : f.source === 'import' ? ' (owner import, saved pages)' : ' (shop did not answer this run)'),
     );
   }
 }

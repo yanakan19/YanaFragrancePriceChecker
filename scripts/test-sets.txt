@@ -340,3 +340,4 @@ code tests/weeklyHealth.test.ts
 code tests/regionStrengthReviewed.test.ts
 code tests/linkBrandPriority.test.ts
 code tests/regionColognePlaceholder.test.ts
+code tests/harvestFreshness.test.ts

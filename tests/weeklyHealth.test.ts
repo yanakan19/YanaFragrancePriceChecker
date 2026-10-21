@@ -36,6 +36,45 @@ describe('weekly health: shops', () => {
   });
 });
 
+describe('weekly health: feed and import shops, and shops the sweep did not reach', () => {
+  const h: HarvestLite = {
+    complete: true,
+    endedReason: 'deadline',
+    notReached: ['late'],
+    shops: [shop('swept')],
+    freshness: {
+      swept: { shown: 10, over48h: 0, answered: true },
+      silent: { shown: 30, over48h: 0, answered: false },
+      late: { shown: 40, over48h: 0, answered: false },
+      awin: { shown: 9000, over48h: 0, answered: false, source: 'feed' },
+      staleawin: { shown: 800, over48h: 120, answered: false, source: 'feed' },
+      saved: { shown: 0, over48h: 0, answered: false, source: 'import' },
+    },
+  };
+  const s = summariseShops(h);
+  it('does not call a feed or an import shop silent, and counts only swept shops as asked', () => {
+    expect(s.silent.map((x) => x.id)).toEqual(['silent']);
+    expect(s.total).toBe(3);
+    expect(s.answered).toBe(1);
+  });
+  it('does not call a shop silent that the sweep ran out of time before asking: it is listed as not reached', () => {
+    expect(s.silent.map((x) => x.id)).not.toContain('late');
+    expect(s.notReached).toEqual(['late']);
+  });
+  it('lists feed and import shops by their source, with the age of their listings', () => {
+    expect(s.feeds).toEqual([
+      { id: 'awin', source: 'feed', shown: 9000, over48h: 0 },
+      { id: 'staleawin', source: 'feed', shown: 800, over48h: 120 },
+      { id: 'saved', source: 'import', shown: 0, over48h: 0 },
+    ]);
+  });
+  it('raises a stale feed as a worst case, and never an import', () => {
+    const lines = worstCases({ shops: s, freshness: null, photos: null, links: null, deploy: null, crawl: null, runs: null });
+    expect(lines.some((l) => l.includes('staleawin') && l.includes('feed sync'))).toBe(true);
+    expect(lines.some((l) => l.includes('`awin`') || l.includes('`saved`'))).toBe(false);
+  });
+});
+
 describe('weekly health: runs', () => {
   const at = (m: number) => new Date(Date.UTC(2026, 9, 12, 8, m)).toISOString();
   const r = (conclusion: string, start: number, end: number, status = 'completed'): RunLite => ({ workflow: 'W', status, conclusion, startedAt: at(start), updatedAt: at(end) });

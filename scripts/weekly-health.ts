@@ -38,6 +38,8 @@ export interface FreshnessRow {
   over24h?: number;
   over48h: number;
   answered: boolean;
+  /** 'feed' or 'import' for a shop the sweep never asks (src/catalogue/harvestReport.ts ReportedFreshness). */
+  source?: 'feed' | 'import';
 }
 export interface HarvestLite {
   finishedAt?: string;
@@ -53,6 +55,8 @@ export interface ShopSummary {
   total: number;
   answered: number;
   silent: { id: string; shown: number }[];
+  /** Shops read from a feed or an import: judged by the age of their listings, never by whether the sweep got an answer. */
+  feeds: { id: string; source: 'feed' | 'import'; shown: number; over48h: number }[];
   timeBudget: string[];
   errored: { id: string; count: number; first: string }[];
   stale: { id: string; over48h: number; shown: number }[];
@@ -69,9 +73,16 @@ export const CRAWL_WORKFLOW = 'Catalogue crawl';
 export function summariseShops(report: HarvestLite): ShopSummary {
   const fresh = report.freshness ?? {};
   const ids = new Set<string>([...Object.keys(fresh), ...report.shops.map((s) => s.retailerId)]);
-  const silent = [...ids]
-    .filter((id) => fresh[id] && !fresh[id]!.answered)
+  const notReached = new Set(report.notReached ?? []);
+  const swept = [...ids].filter((id) => !fresh[id]?.source);
+  // A shop the sweep ran out of time before asking was not silent, it was not asked (that is its own line).
+  const silent = swept
+    .filter((id) => fresh[id] && !fresh[id]!.answered && !notReached.has(id))
     .map((id) => ({ id, shown: fresh[id]!.shown }))
+    .sort((a, b) => b.shown - a.shown);
+  const feeds = [...ids]
+    .filter((id) => fresh[id]?.source)
+    .map((id) => ({ id, source: fresh[id]!.source!, shown: fresh[id]!.shown, over48h: fresh[id]!.over48h }))
     .sort((a, b) => b.shown - a.shown);
   const timeBudget = report.shops.filter((s) => s.errors.some((e) => TIME_BUDGET.test(e))).map((s) => s.retailerId);
   const errored = report.shops
@@ -83,9 +94,10 @@ export function summariseShops(report: HarvestLite): ShopSummary {
     .map((id) => ({ id, over48h: fresh[id]!.over48h, shown: fresh[id]!.shown }))
     .sort((a, b) => b.over48h - a.over48h);
   return {
-    total: ids.size,
-    answered: [...ids].filter((id) => fresh[id]?.answered).length,
+    total: swept.length,
+    answered: swept.filter((id) => fresh[id]?.answered).length,
     silent,
+    feeds,
     timeBudget,
     errored,
     stale,
@@ -238,6 +250,9 @@ export function worstCases(input: WorstCaseInput, max = 12): string[] {
       if (x.shown > 0) add(100 + Math.min(9, x.shown / 1000), `Shop \`${x.id}\` did not answer the last harvest; ${x.shown} of its listings are shown from older reads.`);
       else add(45, `Shop \`${x.id}\` did not answer the last harvest (nothing of it is shown).`);
     }
+    for (const x of s.feeds ?? []) {
+      if (x.source === 'feed' && x.over48h > 0) add(90, `Feed shop \`${x.id}\` shows ${x.over48h} of ${x.shown} listings last confirmed over 48 hours ago: the feed sync is not keeping up.`);
+    }
     if (s.notReached.length) add(95, `${s.notReached.length} ${s.notReached.length === 1 ? 'shop' : 'shops'} not reached in the last sweep: ${s.notReached.map((id) => `\`${id}\``).join(', ')}.`);
     if (s.timeBudget.length) add(85, `${s.timeBudget.length} ${s.timeBudget.length === 1 ? 'shop' : 'shops'} stopped on the time budget, part of the listings unread: ${s.timeBudget.map((id) => `\`${id}\``).join(', ')}.`);
   }
@@ -385,9 +400,10 @@ export function render(input: RenderInput): string {
   } else {
     const s = input.shops;
     L.push(`Harvest finished ${input.harvest.finishedAt ?? 'unknown'}, ${input.harvest.complete ? 'complete' : 'NOT complete'} (${input.harvest.endedReason ?? 'no reason given'}).`);
-    L.push(`${s.answered} of ${s.total} shops answered. Not reached this sweep: ${list(s.notReached)}.`, '');
+    L.push(`${s.answered} of ${s.total} swept shops answered. Not reached this sweep: ${list(s.notReached)}.`, '');
     L.push('| Check | Shops |', '|---|---|');
     L.push(`| Did not answer (most listings first) | ${list(s.silent.map((x) => `${x.id} (${x.shown})`))} |`);
+    L.push(`| Feed and import shops (judged by the age of their listings, not by an answer) | ${list(s.feeds.map((x) => `${x.id} (${x.source}, ${x.shown} shown, ${x.over48h} over 48 h)`))} |`);
     L.push(`| Stopped on their time budget | ${list(s.timeBudget)} |`);
     L.push(`| Listings over 48 hours old | ${list(s.stale.map((x) => `${x.id} (${x.over48h} of ${x.shown})`))} |`, '');
     if (s.errored.length) {

@@ -153,6 +153,14 @@ export interface HarvestReport {
 
 export interface ReportedFreshness extends ShopFreshness {
   answered: boolean;
+  /**
+   * Where the shop's prices come from when it is not read page by page: 'feed'
+   * (an affiliate feed, synced by the Awin step) or 'import' (saved pages the
+   * owner imports). Such a shop is never asked by the sweep, so `answered` says
+   * nothing about it; it is judged by the age of its listings instead. Absent
+   * for a swept shop, and on reports written before 22 Oct 2026.
+   */
+  source?: 'feed' | 'import';
 }
 
 export interface HarvestReportWriter {

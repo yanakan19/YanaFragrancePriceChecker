@@ -29,10 +29,15 @@ export function answeredShopIds(shops: readonly ShopHarvestOutcome[]): Set<strin
   );
 }
 
+/** Where a shop's prices come from when the sweep does not read it: its adapter. */
+export function priceSourceOf(adapter: string | undefined): 'feed' | 'import' | undefined {
+  return adapter === 'affiliate-feed' ? 'feed' : adapter === 'owner-import' ? 'import' : undefined;
+}
+
 /** The table, from what is on disk now: `read` gives a shop's snapshot, `measured` the shops to measure. */
 export function freshnessTable(
   shops: readonly ShopHarvestOutcome[],
-  measured: readonly { id: string }[],
+  measured: readonly { id: string; adapter?: string }[],
   read: (id: string) => Pick<CatalogueSnapshot, 'source' | 'listings'>,
   now: Date = new Date(),
 ): Record<string, ReportedFreshness> {
@@ -41,7 +46,8 @@ export function freshnessTable(
   for (const r of measured) {
     const snap = read(r.id);
     if (snap.source !== 'live') continue;
-    table[r.id] = { ...shopFreshness(snap.listings, now), answered: answered.has(r.id) };
+    const source = priceSourceOf(r.adapter);
+    table[r.id] = { ...shopFreshness(snap.listings, now), answered: answered.has(r.id), ...(source ? { source } : {}) };
   }
   return table;
 }
