@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-21T03:58:11.714Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-21T08:38:51.049Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -3626,6 +3626,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "giorgioarmani|emporioarmanistrongerwithyou|parfum": ["Giorgio-Armani/Emporio-Armani-Stronger-With-You-Parfum-100895",""],
   "giorgioarmani|si": ["Giorgio-Armani/Si-18453","https://www.giorgioarmanibeauty-usa.com/fragrances/womens-perfume/si/"],
   "giorgioarmani|si|edp": ["Giorgio-Armani/Si-18453","https://www.giorgioarmanibeauty-usa.com/fragrances/womens-perfume/si/"],
+  "giorgioarmani|si|edt": ["Giorgio-Armani/Si-18453",""],
   "giorgioarmani|si|parfum": ["Giorgio-Armani/Si-Parfum-112375","https://www.giorgioarmanibeauty-usa.com/fragrances/womens-perfume/si/"],
   "giorgioarmani|strongerwithyou|edt": ["","https://www.giorgioarmanibeauty-usa.com/fragrances/view-all-fragrances/stronger-with-you-eau-de-toilette/A2061.html"],
   "gisada|ambassadora": ["","https://www.gisada.com/products/ambassadora"],
