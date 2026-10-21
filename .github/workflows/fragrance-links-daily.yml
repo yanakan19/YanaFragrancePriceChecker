@@ -2,9 +2,9 @@ name: Fragrance links daily
 
 # Finds direct links for each perfume's own page on its brand's official site
 # and on Fragrantica, 60 minutes a day (raised from 30 on 15 Oct 2026: 14 daily runs added about 18 Fragrantica and 139 official links a day), picking up where the previous day
-# stopped. Order: the perfumes shown first on the site (front page rail, Top
-# 50, deals), then the top of every brand, note and shop list, then the rest
-# by number of shops. See scripts/resolve-fragrance-links.ts.
+# stopped. Order (21 Oct 2026): the owner's priority brands in the owner's
+# order, most stocked first, then the rest most stocked first. See
+# src/catalogue/linkBrandPriority.ts and scripts/resolve-fragrance-links.ts.
 #
 # Perfumes without a found link keep the fallback (brand homepage, Fragrantica
 # search), so a short or failed run never breaks a page.

@@ -333,3 +333,4 @@ code tests/nameReviewed.test.ts
 code tests/nameConsensus.test.ts
 code tests/weeklyHealth.test.ts
 code tests/regionStrengthReviewed.test.ts
+code tests/linkBrandPriority.test.ts

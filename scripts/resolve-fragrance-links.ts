@@ -20,10 +20,13 @@
  * already done is skipped until --retry-days (default 60) have passed, and is
  * then re-checked only after every never-checked perfume has had its turn.
  *
- * Order (src/catalogue/linkPriority.ts): what the site shows first — the front
- * page rail, the Top 50, the deals page — then the leading entries of every
- * brand's, note's and shop's list round-robin, then everything else by number
- * of shop offers.
+ * Order (src/catalogue/linkBrandPriority.ts, since 2026-10-21): the owner's
+ * priority brands in the owner's order, each brand's perfumes most stocked first
+ * (shops listing it, then offers), then every other perfume most stocked first.
+ * Never checked comes before checked long enough ago to be re-checked
+ * (--retry-days), as before. --site-order restores the earlier order
+ * (src/catalogue/linkPriority.ts): what the site shows first, then the top of
+ * every brand's, note's and shop's list round-robin, then the rest by offers.
  *
  * It does not prompt, does not throw on network trouble (a 429, a challenge
  * page, a timeout or a dead host backs off and, if it persists, ends the run
@@ -122,6 +125,7 @@ import {
   type ReviewIndex,
 } from '../src/catalogue/fragranticaReview.js';
 import { checkOrder, checkState, interleave, priorityOrder, type CheckState } from '../src/catalogue/linkPriority.js';
+import { brandsFirstOrder, priorityBrandRank, PRIORITY_BRANDS } from '../src/catalogue/linkBrandPriority.js';
 import {
   compactTable,
   renderGeneratedModule,
@@ -173,6 +177,8 @@ const OPTS = {
   retryMisses: flag('retry-misses'),
   // Search only for the pages whose gender is not known yet, and do nothing else.
   genderOnly: flag('gender-only'),
+  // The order before 2026-10-21 (what the site shows first, then by offers) instead of the owner's brands first.
+  siteOrder: flag('site-order'),
 };
 
 const STARTED = Date.now();
@@ -240,20 +246,27 @@ interface Perfume {
   baseKey: string;
   /** Shop offers across every variant: the order we work in. */
   offers: number;
+  /** Distinct shops listing the perfume across its variants (the first thing the order looks at). */
+  shops: number;
   variants: Map<string, Variant>;
 }
 
 function loadPerfumes(): Perfume[] {
   const byBase = new Map<string, Perfume>();
   const genders = new Map<string, Set<'mens' | 'womens' | 'unisex'>>();
+  const shopsOf = new Map<string, Set<string>>();
   for (const e of CATALOGUE) {
     const baseKey = fragranceBaseKey(e.brand, e.name);
     let p = byBase.get(baseKey);
     if (!p) {
-      p = { brand: e.brand, name: e.name, baseKey, offers: 0, variants: new Map() };
+      p = { brand: e.brand, name: e.name, baseKey, offers: 0, shops: 0, variants: new Map() };
       byBase.set(baseKey, p);
     }
     p.offers += CRAWLED[e.id]?.length ?? 0;
+    const shops = shopsOf.get(baseKey) ?? new Set<string>();
+    for (const o of CRAWLED[e.id] ?? []) shops.add(o.retailerId);
+    shopsOf.set(baseKey, shops);
+    p.shops = shops.size;
     const key = fragranceLinkKey(e.brand, e.name, e.concentration);
     const v = p.variants.get(key) ?? { key, concentration: e.concentration, ids: [], gender: null };
     v.ids.push(e.id);
@@ -266,7 +279,7 @@ function loadPerfumes(): Perfume[] {
       v.gender = sharedGender(g ?? []);
     }
   }
-  return [...byBase.values()].sort((a, b) => b.offers - a.offers || a.baseKey.localeCompare(b.baseKey));
+  return [...byBase.values()].sort((a, b) => b.shops - a.shops || b.offers - a.offers || a.baseKey.localeCompare(b.baseKey));
 }
 
 const wantedOf = (p: Perfume, v: Variant): CheckedWanted => ({
@@ -720,7 +733,11 @@ function absorb(results: { url: string; title: string }[], p: Perfume): void {
 async function searchFragrantica(perfumes: Perfume[]): Promise<void> {
   const todo = checkOrder(perfumes.filter((p) => !hasFragrantica(p)), (p) => stateOf(p, 'fragrantica'));
   console.log(`fragrantica: ${todo.length} perfumes to search (of ${perfumes.length}); budget ${OPTS.minutes} min`);
+  const queued = todo.filter((p) => priorityBrandRank(p.brand) !== null && stateOf(p, 'fragrantica') === 'never').length;
+  console.log(`  ${queued} never searched perfumes of the priority brands; first in the queue: ${todo.slice(0, 5).map((p) => `${p.brand} ${p.name}`).join(', ')}`);
   let n = 0;
+  // Why a search ended as it did, for the log (the links file keeps only when it was tried).
+  const outcome = { found: 0, noResult: 0, noMatch: 0 };
   for (const p of todo) {
     if (queries >= OPTS.limit || timeUp()) break;
     if (resolveFromSeen(p, 'bing-seen') && hasFragrantica(p)) {
@@ -728,6 +745,7 @@ async function searchFragrantica(perfumes: Perfume[]): Promise<void> {
       continue;
     }
     let aborted = false;
+    let sawPage = false;
     for (const q of queriesFor(p)) {
       if (queries >= OPTS.limit || timeUp()) break;
       const results = await bing(q);
@@ -736,6 +754,7 @@ async function searchFragrantica(perfumes: Perfume[]): Promise<void> {
         break;
       }
       absorb(results, p);
+      if (results.some((r) => parseFragranticaUrl(r.url))) sawPage = true;
       // A page for this perfume may have come back in the results of an earlier
       // or a neighbouring query as well as this one.
       resolveFromSeen(p, 'bing-search');
@@ -752,11 +771,17 @@ async function searchFragrantica(perfumes: Perfume[]): Promise<void> {
     }
     for (const k of p.variants.keys()) markTried(k, 'fragrantica');
     n++;
+    if (hasFragrantica(p)) outcome.found++;
+    else if (sawPage) outcome.noMatch++;
+    else outcome.noResult++;
     if (n % 25 === 0) {
       await save();
       console.log(`  ${n} perfumes searched, ${queries} queries, ${coverageLine(perfumes)}`);
     }
   }
+  console.log(
+    `fragrantica search: ${n} perfumes, ${outcome.found} linked, ${outcome.noResult} no Fragrantica result, ${outcome.noMatch} results but none matched the rule`,
+  );
 }
 
 /**
@@ -892,6 +917,17 @@ function report(perfumes: Perfume[]): void {
     for (const m of [e.method.fragrantica, e.method.official]) if (m) methods.set(m, (methods.get(m) ?? 0) + 1);
   }
   console.log(`  by method               ${[...methods].map(([k, v]) => `${k}:${v}`).join('  ')}`);
+  console.log('  priority brands (Fragrantica direct / perfumes)');
+  const byRank = new Map<number, { f: number; n: number }>();
+  for (const p of perfumes) {
+    const r = priorityBrandRank(p.brand);
+    if (r === null) continue;
+    const row = byRank.get(r) ?? { f: 0, n: 0 };
+    row.n++;
+    if ([...p.variants.keys()].some((k) => links.entries[k]?.fragrantica)) row.f++;
+    byRank.set(r, row);
+  }
+  for (const [r, row] of [...byRank].sort((a, b) => a[0] - b[0])) console.log(`    ${PRIORITY_BRANDS[r]![0]}: ${row.f}/${row.n}`);
 }
 
 // ── main ───────────────────────────────────────────────────────────────────
@@ -980,7 +1016,9 @@ async function main(): Promise<void> {
     perfumes = perfumes.filter((p) => brandKey(p.brand) === bk || brandMatchesFolder(p.brand, OPTS.brand!));
     console.log(`restricted to ${OPTS.brand}: ${perfumes.length} perfumes`);
   }
-  perfumes = priorityOrder(perfumes, siteTiers());
+  // Default since 2026-10-21 (owner request): the priority brands first, most stocked first, then everything else
+  // most stocked first (src/catalogue/linkBrandPriority.ts). --site-order restores the earlier order.
+  perfumes = OPTS.siteOrder ? priorityOrder(perfumes, siteTiers()) : brandsFirstOrder(perfumes);
   console.log(`${perfumes.length} perfumes, ${perfumes.reduce((s, p) => s + p.variants.size, 0)} product variants`);
 
   if (OPTS.genderOnly) {
