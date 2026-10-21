@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { crawlViaSitemap, withTitleParts, cleanListingUrl, ROUTE_HEADERS } from '../src/catalogue/sitemapCrawl.js';
-import { parseListings, extractMicrodataProducts } from '../src/catalogue/jsonld.js';
+import { parseListings, extractMicrodataProducts, pageOgImage } from '../src/catalogue/jsonld.js';
 import { beautyBayApiUrl, parseBeautyBayProduct } from '../src/catalogue/beautyBayApi.js';
 import { NO_RESTRICTIONS, parseRobots } from '../src/catalogue/robots.js';
 import type { Http } from '../src/catalogue/attempt.js';
@@ -304,6 +304,37 @@ describe('parseListings: schema.org microdata', () => {
       microdata: true, requireGbp: true,
     });
     expect(l).toMatchObject({ rawTitle: 'Blanche', rawBrand: 'Byredo', priceGbp: 245, inStock: true, retailerSku: '303-019' });
+  });
+
+  // 22 Oct 2026: 0 of 3,106 Niche Beauty listings had a photo. Its pages mark the
+  // product up as microdata with no itemprop image; the picture is the page's og:image.
+  describe('the product picture of a microdata page', () => {
+    const product =
+      '<div id="products" itemscope="itemscope" itemtype="http://schema.org/Product">' +
+      '<span itemprop="name">Blanche</span><a itemprop="brand" href="/b"><span>Byredo</span></a>' +
+      '<div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer">' +
+      '<span itemprop="price" content="245.00">£ 245.00</span></div></div>';
+    const og = '<meta property="og:image" content="https://media.niche-beauty.com/images/generated/rdet/62/44/byredo-blanche.jpg" />';
+    const read = (html: string, microdata = true) =>
+      parseListings(html, { sectionId: 's', pageUrl: 'https://www.niche-beauty.com/en-gb/products/byredo-blanche/303-019', microdata, requireGbp: true })[0];
+
+    it('is the og:image when the markup names none', () => {
+      expect(read(`<head>${og}</head>${product}`)?.imageUrl).toBe('https://media.niche-beauty.com/images/generated/rdet/62/44/byredo-blanche.jpg');
+      expect(read(`<head><meta content="https://x.test/a.jpg?w=1&amp;h=2" property="og:image"></head>${product}`)?.imageUrl).toBe('https://x.test/a.jpg?w=1&h=2');
+    });
+
+    it('is the markup\'s own image when it names one', () => {
+      const own = product.replace('<span itemprop="name">', '<img itemprop="image" src="https://x.test/own.jpg" /><span itemprop="name">');
+      expect(read(`<head>${og}</head>${own}`)?.imageUrl).toBe('https://x.test/own.jpg');
+    });
+
+    it('is nothing when the page has no usable og:image, and a page read as JSON-LD is untouched', () => {
+      expect(read(product)?.imageUrl).toBeNull();
+      expect(read(`<head><meta property="og:image" content="/relative.jpg" /></head>${product}`)?.imageUrl).toBeNull();
+      expect(pageOgImage(`<meta property="og:image" content="javascript:alert(1)" />`)).toBeNull();
+      const ld = `<head>${og}<script type="application/ld+json">{"@type":"Product","name":"X","sku":"1","offers":{"@type":"Offer","price":"10","priceCurrency":"GBP"}}</script></head>`;
+      expect(parseListings(ld, { sectionId: 's', pageUrl: 'https://x.test/p/1', microdata: true })[0]?.imageUrl).toBeNull();
+    });
   });
 
   it('refuses a price printed in another currency', () => {

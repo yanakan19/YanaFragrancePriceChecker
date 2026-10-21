@@ -581,6 +581,22 @@ function offerCurrency(offer: JsonValue | null): string | null {
   return null;
 }
 
+/**
+ * The page's own picture of its product: `og:image`, as an absolute http(s)
+ * address, or null. Used only for a page read from microdata, where the markup
+ * does not carry the image as an `itemprop` (Niche Beauty's pages hold it in
+ * `<meta property="og:image">` and a plain `<img class="zoom">`, so 0 of 3,106
+ * listings had a photo until 22 Oct 2026). The picture stays the shop's own,
+ * hot linked, never copied.
+ */
+export function pageOgImage(html: string): string | null {
+  const m =
+    /<meta[^>]+property=["']og:image["'][^>]*content=["']([^"']+)["']/i.exec(html) ??
+    /<meta[^>]+content=["']([^"']+)["'][^>]*property=["']og:image["']/i.exec(html);
+  const url = m ? decodeEntities(m[1]!).trim() : '';
+  return /^https?:\/\/[^\s"'<>]+$/i.test(url) ? url : null;
+}
+
 /** `og:price:currency` or `product:price:currency`, where a page carries one. */
 export function pageCurrency(html: string): string | null {
   const m =
@@ -607,9 +623,12 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     // whose last path segment is "view.asp" for every product, so there the
     // query string is the identity, not the script name.
     const queryId = queryIdentity(options.pageUrl);
-    nodes = extractMicrodataProducts(html).map((n) =>
-      queryId && !ownIdentity(n) && !str(n['url']) ? { ...n, sku: queryId } : n,
-    ).flatMap((b) => flatten(b, [], options.pageUrl));
+    const picture = pageOgImage(html);
+    nodes = extractMicrodataProducts(html).map((n) => {
+      const withId = queryId && !ownIdentity(n) && !str(n['url']) ? { ...n, sku: queryId } : n;
+      // The product's picture is the page's og:image when the markup names none.
+      return picture && imageUrl(withId) === null ? { ...withId, image: picture } : withId;
+    }).flatMap((b) => flatten(b, [], options.pageUrl));
   }
   const listings: RawListing[] = [];
   const seen = new Set<string>();
