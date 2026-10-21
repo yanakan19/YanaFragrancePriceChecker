@@ -1,9 +1,35 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-21T18:14:24.310Z",
-  "seenAt": "2026-10-21T18:14:24.310Z",
+  "updatedAt": "2026-10-21T21:47:51.262Z",
+  "seenAt": "2026-10-21T21:47:51.262Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "SJ99035600",
+      "url": "https://soldejaneiro.com/products/sol-passport-sundays-in-rio-perfume-mist-90ml",
+      "rawTitle": "Sol Passport - Sunday's in Rio Perfume Mist (90ml)",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_SUNDAYS_RIO_90ML_OVERHEAD_1452X1452_77484f3a-9ded-4f4b-a9f6-88d00d7fae5e.jpg?v=1789592893",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": null,
+      "productType": "Passport Reward-dg",
+      "nativePrice": {
+        "amount": 26,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-09-20T07:31:27.206Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-10-21T21:47:51.262Z",
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "15436518621286-Default Title",
       "url": "https://soldejaneiro.com/products/the-limited-edition-drop",
@@ -18154,33 +18180,6 @@
       "delistedAt": "2026-10-16T21:07:41.522Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "SJ99035600",
-      "url": "https://soldejaneiro.com/products/sol-passport-sundays-in-rio-perfume-mist-90ml",
-      "rawTitle": "Sol Passport - Sunday's in Rio Perfume Mist (90ml)",
-      "rawBrand": "Sol de Janeiro",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_SUNDAYS_RIO_90ML_OVERHEAD_1452X1452_77484f3a-9ded-4f4b-a9f6-88d00d7fae5e.jpg?v=1789592893",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": null,
-      "productType": "Passport Reward-dg",
-      "nativePrice": {
-        "amount": 26,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-09-20T07:31:27.206Z",
-      "lastSeenAt": "2026-10-08T19:04:44.245Z",
-      "status": "delisted",
-      "delistedAt": "2026-10-08T23:03:23.899Z",
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
