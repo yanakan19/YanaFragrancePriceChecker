@@ -29,6 +29,7 @@
  * written by scripts/build-demo.ts.
  */
 // First, before anything reads the catalogue (see scripts/siteApply.ts).
+import { effectiveSlugs, type SlugFile } from '../src/catalogue/productSlug.js';
 import './siteApply.js';
 import '../demo/siteData.js';
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
@@ -171,7 +172,11 @@ function factsOf(site: RegionSite): RegionSiteFacts {
 function main(): void {
   rmSync(out, { recursive: true, force: true });
   mkdirSync(resolve(out, 'links'), { recursive: true });
-  const ukSlugs = (JSON.parse(readFileSync(resolve(root, 'data/product-slugs.json'), 'utf8')) as { slugs: Record<string, string> }).slugs;
+  const ukFile = JSON.parse(readFileSync(resolve(root, 'data/product-slugs.json'), 'utf8')) as SlugFile;
+  // The UK's published address of each product, plus every address a product moved away from
+  // (under a key that is no product id), so a region never gives out an address the UK holds.
+  const ukSlugs: Record<string, string> = { ...effectiveSlugs(ukFile.slugs, ukFile.renamed ?? {}) };
+  for (const id of Object.keys(ukFile.renamed ?? {})) if (ukFile.slugs[id] !== undefined) ukSlugs[`retired:${id}`] = ukFile.slugs[id]!;
   const now = new Date().toISOString();
   const sources: RegionLinkSource[] = [];
   const live = liveRegions();

@@ -7,6 +7,7 @@ import { DORMANT_PRODUCTS, ID_ALIASES, SLUG_ALIASES } from '../demo/dormant.gene
 import {
   RESERVED_WORDS,
   assignSlugs,
+  effectiveSlugs,
   isProductSlug,
   type SlugFile,
   type SlugProduct,
@@ -35,6 +36,8 @@ const products: SlugProduct[] = [
   })),
 ];
 
+const published = effectiveSlugs(file.slugs, file.renamed ?? {});
+
 describe('data/product-slugs.json, the committed slug map', () => {
   it('is a rebuild file, committed like data/id-aliases.json', () => {
     expect(policyOf('data/product-slugs.json', readManifest())).toBe('rebuild');
@@ -42,8 +45,9 @@ describe('data/product-slugs.json, the committed slug map', () => {
 
   it('gives every page of the site a slug, and the page carries it', () => {
     expect(CATALOGUE.length).toBeGreaterThan(1000);
-    for (const p of CATALOGUE) expect(file.slugs[p.id], p.id).toBe(p.slug);
-    for (const [id, d] of Object.entries(DORMANT_PRODUCTS)) expect(file.slugs[id], id).toBe(d.slug);
+    // The address a page carries is the one it was first given, or the clean one it moved to (file.renamed).
+    for (const p of CATALOGUE) expect(published[p.id], p.id).toBe(p.slug);
+    for (const [id, d] of Object.entries(DORMANT_PRODUCTS)) expect(published[id], id).toBe(d.slug);
   });
 
   it('holds only addresses of the right shape, none of them a reserved word, none given twice', () => {
@@ -82,8 +86,9 @@ describe('slugs of merged products', () => {
   const pages = new Set(products.map((p) => p.id));
 
   it('point at a page, are not the slug of any page, and are the slug of a product that left', () => {
-    const pageSlugs = new Set(products.map((p) => file.slugs[p.id]));
-    const holders = new Map(Object.entries(file.slugs).map(([id, slug]) => [slug, id] as const));
+    const pageSlugs = new Set(products.map((p) => published[p.id]));
+    // The address a product was first given, or the clean one it moved to: either way the holder is a product that left or one that was renamed.
+    const holders = new Map([...Object.entries(file.slugs), ...Object.entries(file.renamed ?? {})].map(([id, slug]) => [slug, id] as const));
     for (const [slug, to] of Object.entries(SLUG_ALIASES)) {
       expect(pages.has(to), `${slug} -> ${to}`).toBe(true);
       expect(pageSlugs.has(slug), slug).toBe(false);

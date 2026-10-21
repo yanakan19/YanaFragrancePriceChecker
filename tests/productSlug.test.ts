@@ -4,8 +4,12 @@ import {
   RESERVED_WORDS,
   assignSlugs,
   baseSlug,
+  effectiveSlugs,
   foldText,
+  hasEntityArtifact,
   isProductSlug,
+  renameEntitySlugs,
+  renamedAliases,
   slugAliases,
   strengthToken,
   volumePart,
@@ -337,5 +341,83 @@ describe('slugAliases', () => {
 
   it('leaves out an id that is a page again', () => {
     expect(slugAliases({ a: 'x_a_1ml' }, { a: 'b' }, () => true)).toEqual({});
+  });
+});
+
+// 2026-10-22: 229 UK addresses were made from text that still held an HTML entity.
+describe('an address never carries an HTML entity', () => {
+  const entities = ['Viktor &amp; Rolf', 'Viktor &#38; Rolf', "L&#039;Eau d&#039;Issey", 'Men&#x27;s', 'Roger &amp;amp; Gallet', 'A&nbsp;B', 'Sauvage &quot;Elixir&quot;'];
+
+  it('decodes the text before it is folded, so no new address names an entity', () => {
+    for (const text of entities) {
+      const slug = baseSlug(product({ id: 'x', brand: text, name: `${text} Eau` }));
+      expect(hasEntityArtifact(slug), `${text} -> ${slug}`).toBe(false);
+      expect(slug).not.toMatch(/(^|_)(amp|039|quot|nbsp|apos|x27)(_|$)/);
+    }
+    expect(baseSlug(product({ id: 'x', brand: 'Viktor &amp; Rolf', name: 'Flowerbomb' }))).toBe(baseSlug(product({ id: 'x', brand: 'Viktor & Rolf', name: 'Flowerbomb' })));
+    expect(foldText("L&#039;Eau d&#039;Issey")).toBe(foldText("L'Eau d'Issey"));
+  });
+
+  it('gives a fresh product with an entity in its text the clean address, through assignSlugs', () => {
+    const { slugs } = assignSlugs({}, [product({ id: 'a', brand: 'Dolce &amp; Gabbana', name: 'Light Blue', sizeMl: 50 })]);
+    expect(slugs.a).toBe('dolce_and_gabbana_light_blue_50ml');
+  });
+
+  it('recognises what an entity leaves in an address, and nothing else', () => {
+    for (const slug of ['viktor_and_amp_rolf_flowerbomb_50ml', 'issey_miyake_l_and_039_eau_50ml', 'a_and_quot_b_30ml']) expect(hasEntityArtifact(slug), slug).toBe(true);
+    for (const slug of ['dolce_and_gabbana_light_blue_50ml', 'amp_rolf_x_30ml', 'creed_and_039_x_1ml'.replace('_039', '_s039'), 'brand_candy_and_gabbana_30ml']) expect(hasEntityArtifact(slug), slug).toBe(false);
+  });
+
+  describe('renaming the addresses that already carry one', () => {
+    const slugs = { a: 'viktor_and_amp_rolf_flowerbomb_50ml', b: 'viktor_and_rolf_flowerbomb_100ml', c: 'dolce_and_039_x_30ml', gone: 'viktor_and_amp_rolf_old_30ml' };
+    const products = [
+      product({ id: 'a', brand: 'Viktor & Rolf', name: 'Flowerbomb', sizeMl: 50 }),
+      product({ id: 'b', brand: 'Viktor & Rolf', name: 'Flowerbomb', sizeMl: 100 }),
+      product({ id: 'c', brand: 'Dolce &#039;Gabbana', name: 'X', sizeMl: 30 }),
+    ];
+
+    it('gives a product with a page the address it would get now, once, and leaves the record alone', () => {
+      const r = renameEntitySlugs(slugs, {}, products.slice(0, 2));
+      expect(r.renamed).toEqual({ a: 'viktor_and_rolf_flowerbomb_50ml' });
+      expect(r.added).toEqual(['a']);
+      expect(effectiveSlugs(slugs, r.renamed)).toMatchObject({ a: 'viktor_and_rolf_flowerbomb_50ml', b: 'viktor_and_rolf_flowerbomb_100ml', gone: slugs.gone });
+    });
+
+    it('does not rename a product with no page (its address already redirects to the product that holds it)', () => {
+      expect(renameEntitySlugs(slugs, {}, products.slice(0, 2)).renamed).not.toHaveProperty('gone');
+    });
+
+    it('never changes an earlier rename, and never takes an address that is held, renamed or reserved', () => {
+      const first = renameEntitySlugs(slugs, { a: 'viktor_and_rolf_flowerbomb_edp_50ml' }, products.slice(0, 2));
+      expect(first.renamed.a).toBe('viktor_and_rolf_flowerbomb_edp_50ml');
+      expect(first.added).toEqual([]);
+      const taken = renameEntitySlugs({ ...slugs, other: 'viktor_and_rolf_flowerbomb_50ml' }, {}, products.slice(0, 1));
+      expect(taken.renamed.a).not.toBe('viktor_and_rolf_flowerbomb_50ml');
+      expect(taken.renamed.a).toMatch(/^viktor_and_rolf_flowerbomb_/);
+      const reserved = renameEntitySlugs(slugs, {}, products.slice(0, 1), new Set(['viktor_and_rolf_flowerbomb_50ml']));
+      expect(reserved.renamed.a).not.toBe('viktor_and_rolf_flowerbomb_50ml');
+    });
+
+    it('leaves a product alone whose own text still carries the entity: its new address would carry it too', () => {
+      const text = 'Viktor &amp;amp;amp;amp; Rolf';
+      // Decoding stops after three passes: this one still has an entity in it, and so has its address.
+      const stuck = [product({ id: 'a', brand: text, name: 'Flowerbomb', sizeMl: 50 })];
+      const r = renameEntitySlugs(slugs, {}, stuck);
+      for (const slug of Object.values(r.renamed)) expect(hasEntityArtifact(slug)).toBe(false);
+    });
+
+    it('makes the old address open the same product, and an address of a product folded since open the survivor', () => {
+      const r = renameEntitySlugs(slugs, {}, products.slice(0, 1));
+      const pages = new Set(['a', 'b']);
+      expect(renamedAliases(slugs, r.renamed, (id) => pages.has(id))).toEqual({ viktor_and_amp_rolf_flowerbomb_50ml: 'a' });
+      // Folded into b later: the new address is an alias of b as well.
+      expect(slugAliases(r.renamed, { a: 'b' }, (id) => id === 'b')).toEqual({ viktor_and_rolf_flowerbomb_50ml: 'b' });
+    });
+
+    it('is the same whatever order the products come in', () => {
+      const x = renameEntitySlugs(slugs, {}, [...products].reverse());
+      const y = renameEntitySlugs(slugs, {}, products);
+      expect(x.renamed).toEqual(y.renamed);
+    });
   });
 });

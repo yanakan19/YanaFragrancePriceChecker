@@ -247,6 +247,38 @@ Chloe") reviewed one at a time. What that does to an address:
   built from the region's own address memory. The region memories stay append
   only.
 
+### Addresses that carried an HTML entity (2026-10-22)
+
+Before the brand sweep of 11 October a shop's "Viktor &amp; Rolf" reached the
+slug maker with its entity, so 229 UK addresses read `viktor_and_amp_rolf_...`
+(155, from `&amp;`) or `issey_miyake_l_and_039_eau_d_and_039_issey_...` (74, from
+`&#039;`). The brand sweep fixed the text; the addresses, being append only, stayed.
+
+- **`foldText` decodes entities first**, so no new address can carry one
+  (`tests/productSlug.test.ts`), and `hasEntityArtifact` names what an entity
+  leaves in an address (`and_amp`, `and_039`, `and_quot`, ...).
+- **A product with a page whose recorded address carries one is renamed, once.**
+  `data/product-slugs.json` keeps `slugs` exactly as it was and gains a second
+  append only map, `renamed` (id to the clean address a new product with that
+  name would get now, never one anyone holds or has held). The published
+  address is `renamed[id] ?? slugs[id]` (`effectiveSlugs`); the old address is a
+  `SLUG_ALIASES` entry for that product (`renamedAliases`), so it opens the
+  product and the address bar is rewritten, as for a merged product. A rename
+  that its product is later folded away from becomes an alias of the survivor.
+  No file was added to the build record: the rename sits in the memory the
+  record already holds.
+- **Measured on the rebuilt data:** of the 229, 184 belonged to products that
+  were already folded into another and already redirected, 45 were live pages
+  and were renamed (for example `azzaro_wanted_by_night_and_039_18_100ml` became
+  `azzaro_wanted_by_night_18_100ml`). All 229 old addresses still open their
+  product and no published address carries an entity
+  (`tests/productSlugEntities.test.ts`). A renamed product's old address no
+  longer has a prerendered file, like any old address of a merged product, so it
+  reaches 404.html and the app opens the product; the sitemaps list the new one.
+- **Regions.** The US and India memories are their own (append only); one US
+  address carries an entity and is left as it is. A region never gives out an
+  address the UK holds or held (`retired:<id>` keys in `scripts/build-region-data.ts`).
+
 ## 4. Routing: no clash with the site's own routes
 
 The site's own routes are single words: `/search`, `/deals`, `/brands`,

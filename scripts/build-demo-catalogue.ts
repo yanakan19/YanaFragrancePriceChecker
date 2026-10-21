@@ -78,7 +78,9 @@ import {
   assertAppendOnly,
   type IdAliasFile,
 } from '../src/catalogue/idAliases.js';
-import { assignSlugs, slugAliases, type SlugFile, type SlugProduct } from '../src/catalogue/productSlug.js';
+import {
+  assignSlugs, effectiveSlugs, renameEntitySlugs, renamedAliases, slugAliases, type SlugFile, type SlugProduct,
+} from '../src/catalogue/productSlug.js';
 import { auditWasPrices } from '../src/catalogue/wasPriceCredibility.js';
 import {
   isFragrance,
@@ -2713,9 +2715,11 @@ const idAliasesOnDisk: Record<string, string> = { ...previousIdAliases };
 // its new keys are this build's own pages, which are never folded ids, so the
 // aliases come out the same.
 const productSlugsPath = resolve(dataRoot, 'data/product-slugs.json');
-const previousSlugs: Record<string, string> = existsSync(productSlugsPath)
-  ? (JSON.parse(readFileSync(productSlugsPath, 'utf8')) as SlugFile).slugs
-  : {};
+const slugFileOnDisk: SlugFile = existsSync(productSlugsPath)
+  ? (JSON.parse(readFileSync(productSlugsPath, 'utf8')) as SlugFile)
+  : { slugs: {} };
+const previousSlugs: Record<string, string> = slugFileOnDisk.slugs;
+const previousRenames: Record<string, string> = slugFileOnDisk.renamed ?? {};
 const wasPage = new Set<string>(Object.keys(previousSlugs));
 const seedFlag = process.argv.indexOf('--seed-ids');
 if (seedFlag >= 0) {
@@ -2774,11 +2778,21 @@ const slugProducts: SlugProduct[] = [
     giftSet: d.giftSet !== undefined,
   })),
 ];
-const slugResult = assignSlugs(previousSlugs, slugProducts);
-const productSlugs = slugResult.slugs;
+// A clean address a product moved to is held too: no new product is given it.
+const slugResult = assignSlugs(previousSlugs, slugProducts, new Set(Object.values(previousRenames)));
+// An address made from text that still held an HTML entity (viktor_and_amp_rolf_...)
+// is never changed in the record; the product is published at the clean address it
+// would get now and the old one redirects (src/catalogue/productSlug.ts, docs/PRODUCT-URLS.md).
+const renameResult = renameEntitySlugs(slugResult.slugs, previousRenames, slugProducts);
+const recordedSlugs = slugResult.slugs;
+const productSlugs = effectiveSlugs(recordedSlugs, renameResult.renamed);
 for (const [id, d] of Object.entries(dormantProducts)) d.slug = productSlugs[id]!;
 const pageIds = new Set(slugProducts.map((p) => p.id));
-const slugAliasMap = slugAliases(productSlugs, idAliases, (id) => pageIds.has(id));
+const slugAliasMap = {
+  ...slugAliases(recordedSlugs, idAliases, (id) => pageIds.has(id)),
+  ...slugAliases(renameResult.renamed, idAliases, (id) => pageIds.has(id)),
+  ...renamedAliases(recordedSlugs, renameResult.renamed, (id) => pageIds.has(id)),
+};
 
 const historyAliases: Record<string, string[]> = {};
 for (const p of ordered) {
@@ -3120,7 +3134,11 @@ export function isNewAt(productId: string, retailerId: string): boolean {
    stamp both modules carry (scripts/catalogueBuild.ts). A replay checks the
    memories against the committed ones and writes neither them nor the record. */
 const idAliasesText = `${JSON.stringify({ aliases: idAliasRecord }, null, 1)}\n`;
-const productSlugsText = `${JSON.stringify({ slugs: productSlugs }, null, 1)}\n`;
+const productSlugsText = `${JSON.stringify(
+  Object.keys(renameResult.renamed).length > 0 ? { slugs: recordedSlugs, renamed: renameResult.renamed } : { slugs: recordedSlugs },
+  null,
+  1,
+)}\n`;
 const memoriesAfter: Record<string, string> = {
   'data/id-aliases.json': idAliasesText,
   'data/product-slugs.json': productSlugsText,

@@ -20,6 +20,8 @@
  *     against the router's own tables).
  */
 
+import { decodeHtmlEntities } from './htmlEntities.js';
+
 /** The facts of a product a slug is built from. */
 export interface SlugProduct {
   id: string;
@@ -34,7 +36,15 @@ export interface SlugProduct {
 
 /** Id to slug: what data/product-slugs.json holds. */
 export interface SlugFile {
+  /** Id to the slug it was first given. Append only: never changed, never dropped. */
   slugs: Record<string, string>;
+  /**
+   * Id to the clean address a product moved to after its first one carried an
+   * HTML entity (`viktor_and_amp_rolf_...`). Append only like `slugs`: the old
+   * address stays in `slugs` and answers for the product (renamedAliases); the
+   * published address is `renamed[id] ?? slugs[id]` (effectiveSlugs).
+   */
+  renamed?: Record<string, string>;
 }
 
 /** The last part of every product slug: 100ml, 7p5ml, set or nosize. */
@@ -75,7 +85,9 @@ const HAND_FOLDED: Record<string, string> = {
  * 9 a single underscore. May be empty (a name with no Latin letter in it).
  */
 export function foldText(text: string): string {
-  return text
+  // An entity in shop text ("Viktor &amp; Rolf", "L&#039;Eau") is decoded first, so
+  // it never becomes "viktor_and_amp_rolf" or "l_and_039_eau" in an address.
+  return decodeHtmlEntities(text)
     .normalize('NFKD')
     .replace(/[̀-ͯ]/g, '')
     .toLowerCase()
@@ -340,6 +352,110 @@ export function slugAliases(
     // Aliases are settled to a page by the build, but follow a short chain anyway.
     for (let hop = 0; target !== undefined && !isPage(target) && hop < 12; hop++) target = idAliases[target];
     if (target !== undefined && isPage(target)) out[slugs[id]!] = target;
+  }
+  return out;
+}
+
+
+// ── An address that carries an HTML entity ───────────────────────────────────
+// Until the brand sweep of 11 Oct 2026 a shop's "Viktor &amp; Rolf" reached the
+// slug maker with its entity, and 229 UK addresses were made from it:
+// viktor_and_amp_rolf_flowerbomb_edp_50ml (155, "&amp;") and
+// issey_miyake_l_and_039_eau_d_and_039_issey_pour_femme_50ml (74, "&#039;").
+// An address is never changed (above), so these keep answering; each product
+// also gets the address a fresh product would get now, in `renamed`, and the
+// old one redirects to it like the address of a merged product. foldText
+// decodes entities now, so no new address can carry one.
+
+/**
+ * What an entity left in a slug: "&" is folded to "and", so `&amp;` reads
+ * "and_amp", `&#039;` reads "and_039", `&quot;` "and_quot".
+ */
+export const ENTITY_ARTIFACT = /(?:^|_)and_(?:amp|quot|nbsp|apos|lt|gt|039|x27|x26|x22)(?:_|$)/;
+
+/** True for a slug made from text that still held an HTML entity. */
+export function hasEntityArtifact(slug: string): boolean {
+  return ENTITY_ARTIFACT.test(slug);
+}
+
+export interface RenameResult {
+  /** Every rename so far: the earlier ones, unchanged, and the ones this build added. */
+  renamed: Record<string, string>;
+  /** The ids this build renamed. */
+  added: string[];
+}
+
+/**
+ * Gives each product whose recorded address carries an entity the address it
+ * would get as a new product, once. Never touches an earlier rename, never
+ * takes an address anyone holds (recorded, renamed or reserved), and leaves a
+ * product alone whose brand or name still carries the entity (its new address
+ * would carry it too). Only products with a page are renamed: `products`.
+ */
+export function renameEntitySlugs(
+  slugs: Readonly<Record<string, string>>,
+  renamed: Readonly<Record<string, string>>,
+  products: readonly SlugProduct[],
+  reserved: ReadonlySet<string> = new Set(),
+): RenameResult {
+  const candidates = products.filter((p) => {
+    const old = slugs[p.id];
+    return old !== undefined && hasEntityArtifact(old) && !Object.prototype.hasOwnProperty.call(renamed, p.id);
+  });
+  const out: Record<string, string> = { ...renamed };
+  const added: string[] = [];
+  if (candidates.length > 0) {
+    const taken = new Set<string>([...Object.values(slugs), ...Object.values(renamed), ...reserved]);
+    const { slugs: fresh } = assignSlugs({}, candidates, taken);
+    for (const p of candidates) {
+      const next = fresh[p.id];
+      if (next === undefined || hasEntityArtifact(next) || next === slugs[p.id]) continue;
+      out[p.id] = next;
+      added.push(p.id);
+    }
+  }
+  assertRenamesAppendOnly(renamed, out);
+  return { renamed: sortedByKey(out), added: added.sort() };
+}
+
+function sortedByKey(map: Readonly<Record<string, string>>): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const k of Object.keys(map).sort()) out[k] = map[k]!;
+  return out;
+}
+
+/** Throws if a rename was dropped or changed, or two ids share an address (renamed or recorded). */
+export function assertRenamesAppendOnly(previous: Readonly<Record<string, string>>, next: Readonly<Record<string, string>>): void {
+  const bad: string[] = [];
+  for (const [id, slug] of Object.entries(previous)) {
+    if (!Object.prototype.hasOwnProperty.call(next, id)) bad.push(`${id} lost`);
+    else if (next[id] !== slug) bad.push(`${id} ${slug} -> ${next[id]}`);
+  }
+  if (new Set(Object.values(next)).size !== Object.keys(next).length) bad.push('two ids renamed to one address');
+  if (bad.length) throw new Error(`the renamed addresses in data/product-slugs.json are append only: ${bad.slice(0, 5).join('; ')} (${bad.length} in all)`);
+}
+
+/** The address each id is published at: its rename when it has one, else the one it was first given. */
+export function effectiveSlugs(slugs: Readonly<Record<string, string>>, renamed: Readonly<Record<string, string>>): Record<string, string> {
+  const out: Record<string, string> = { ...slugs };
+  for (const [id, slug] of Object.entries(renamed)) if (Object.prototype.hasOwnProperty.call(slugs, id)) out[id] = slug;
+  return out;
+}
+
+/**
+ * The old address of every renamed product that has a page, and the id it opens.
+ * (An address of a renamed product that has been folded into another since is
+ * an alias of the survivor like any other: pass `renamed` to slugAliases.)
+ */
+export function renamedAliases(
+  slugs: Readonly<Record<string, string>>,
+  renamed: Readonly<Record<string, string>>,
+  isPage: (id: string) => boolean,
+): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const id of Object.keys(renamed).sort()) {
+    const old = slugs[id];
+    if (old !== undefined && isPage(id)) out[old] = id;
   }
   return out;
 }
