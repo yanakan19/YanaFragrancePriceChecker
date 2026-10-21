@@ -1,8 +1,10 @@
 name: Fragrance links daily
 
 # Finds direct links for each perfume's own page on its brand's official site
-# and on Fragrantica, 60 minutes a day (raised from 30 on 15 Oct 2026: 14 daily runs added about 18 Fragrantica and 139 official links a day), picking up where the previous day
-# stopped. Order (21 Oct 2026): the owner's priority brands in the owner's
+# and on Fragrantica, 30 minutes a day, picking up where the previous day
+# stopped. Bing's robots.txt now forbids /search for PriceSniffsBot, so until a
+# search API key exists the job only finds official site links (the owner may
+# add a key later). Order (21 Oct 2026): the owner's priority brands in the owner's
 # order, most stocked first, then the rest most stocked first. See
 # src/catalogue/linkBrandPriority.ts and scripts/resolve-fragrance-links.ts.
 #
@@ -15,7 +17,7 @@ on:
     inputs:
       minutes:
         description: 'Time budget in minutes'
-        default: '60'
+        default: '30'
 
 permissions:
   contents: write
@@ -35,7 +37,7 @@ concurrency:
 jobs:
   resolve:
     runs-on: ubuntu-24.04
-    timeout-minutes: 85
+    timeout-minutes: 55
     steps:
       - uses: actions/checkout@v5
         timeout-minutes: 5
@@ -55,8 +57,8 @@ jobs:
       # Exits 0 when the budget runs out, and on rate limits it backs off and
       # ends early rather than failing.
       - name: Resolve links
-        timeout-minutes: 70
-        run: npm run links:resolve -- --minutes ${{ inputs.minutes || '60' }}
+        timeout-minutes: 40
+        run: npm run links:resolve -- --minutes ${{ inputs.minutes || '30' }}
 
       # The crawl pushes to this branch most hours, so this run's three files
       # are laid on top of the newest commit rather than the one it started
