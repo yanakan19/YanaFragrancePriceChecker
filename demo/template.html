@@ -797,6 +797,35 @@
   input[type="search"]::placeholder { color: var(--faint); }
   input[type="search"]:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
 
+  /* Suggestions under the bar's search box (demo/searchSuggest.ts): a menu
+     surface like the account menu's, brands as text rows, fragrances as
+     compact rows with a small photo, the name and the price it starts from.
+     It fades in over --dur-2 and is gone at once; the reduced motion rule
+     strips the fade. Placed by script under the box, as wide as it. */
+  .suggest {
+    position: absolute; z-index: 30; box-sizing: border-box; max-width: 560px;
+    max-height: min(70vh, 480px); overflow-y: auto; overscroll-behavior: contain;
+    background: var(--surface); border: 1px solid var(--line-firm); border-radius: 14px;
+    box-shadow: var(--shadow-lift); padding: 6px;
+    animation: ps-fade var(--dur-2) var(--ease-standard) both;
+  }
+  .suggest[hidden] { display: none; }
+  .suggest-group + .suggest-group { margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--line); }
+  .suggest-opt {
+    display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 6px 10px;
+    border-radius: 10px; cursor: pointer; color: var(--ink);
+  }
+  .suggest-opt[aria-selected="true"] { background: var(--surface-2); box-shadow: inset 2px 0 0 var(--accent); }
+  @media (hover: hover) { .suggest-opt:hover { background: var(--surface-2); } }
+  .suggest-brand-name { flex: 1; min-width: 0; font-weight: 600; font-size: 15px; }
+  .suggest-kind { color: var(--faint); }
+  .suggest-product .art { width: 44px; border-radius: 8px; }
+  .suggest-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .suggest-name { font-weight: 600; font-size: 15px; line-height: 1.3; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .suggest-meta { color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .suggest-price { flex: none; font-weight: 700; font-size: 14px; color: var(--accent-ink); }
+  .suggest-price.none { color: var(--faint); font-weight: 600; }
+
   /* position:relative contains the visually hidden .sr span. Without a
      positioned ancestor it resolves against the viewport and can escape scroll
      clipping, dragging the page sideways. */

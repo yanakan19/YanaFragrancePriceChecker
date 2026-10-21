@@ -37,6 +37,7 @@ export const CHANGELOG: ChangelogEntry[] = [
         heading: 'New',
         points: [
           'Home tiles now appear at once on slow phones',
+          'Search suggests brands and fragrances as you type',
         ],
       },
       {
