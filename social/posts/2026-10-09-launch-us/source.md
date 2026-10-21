@@ -17,7 +17,7 @@ pictures are not committed (D28). Draw them with `npm run social:render -- socia
 | On the slide | Report field | Value |
 |---|---|---|
 | 20+ US shops compared | shops in `shops` with products, `shopsPriced` is 22 | 20 (22) |
-| 22,000+ products listed | `products` | 22,512 |
+| 20,000+ products listed | `products` | 22,512 |
 | 30,000+ shop prices | `listingsKept` | 30,534 |
 
 Decisions (nobody was asked, per the brief):

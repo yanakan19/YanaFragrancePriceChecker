@@ -40,7 +40,7 @@ describe('US launch video: what it says', () => {
   it('has the five scenes asked for, ending on the PriceSniffs mark with the address', () => {
     expect(scenes.map((s) => s.id)).toEqual(['launch', 'compare', 'shops', 'tag', 'outro']);
     const text = onScreen.join(' | ');
-    for (const piece of ['BETA', 'We’ve launched', 'in the', 'US', 'Compare perfume', 'prices from', '20+', 'US shops', '22,000+', 'products, in dollars', 'Tag your', 'friends', 'who’d love this', 'pricesniffs.space/us']) {
+    for (const piece of ['BETA', 'We’ve launched', 'in the', 'US', 'Compare perfume', 'prices from', '20+', 'US shops', '20,000+', 'products, in dollars', 'Tag your', 'friends', 'who’d love this', 'pricesniffs.space/us']) {
       expect(text, piece).toContain(piece);
     }
     expect(scenes[scenes.length - 1]!.html).toContain('pricesniffs.space/us');
@@ -57,9 +57,9 @@ describe('US launch video: what it says', () => {
 
   it('keeps the shop count and the product count to the figures the carousel used, rounded down', () => {
     expect(LAUNCH_US.shopsClaim).toBe('20+');
-    expect(LAUNCH_US.productsClaim).toBe('22,000+');
+    expect(LAUNCH_US.productsClaim).toBe('20,000+');
     expect(LAUNCH_US.minShops).toBe(20);
-    expect(LAUNCH_US.minProducts).toBe(22000);
+    expect(LAUNCH_US.minProducts).toBe(20000);
   });
 });
 

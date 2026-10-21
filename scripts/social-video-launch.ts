@@ -49,9 +49,9 @@ export const LAUNCH_US = {
   shopsClaim: '20+',
   /** The smallest number of US shops with products the claim needs. */
   minShops: 20,
-  productsClaim: '22,000+',
+  productsClaim: '20,000+',
   /** The smallest product count the claim needs. */
-  minProducts: 22000,
+  minProducts: 20000,
   /** Display names as in src/config/retailers.us.ts, with the report's ids. */
   shops: [
     { id: 'ulta', name: 'Ulta Beauty' },

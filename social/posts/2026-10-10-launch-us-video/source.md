@@ -18,7 +18,7 @@ adds both. It does not replace the carousel, and the carousel's caption is uncha
 | From | Scene | Shows |
 |---|---|---|
 | 0.0 | Launch (still until 0.8) | Wordmark, the US flag tile (`flagSvg('US')`, the same tile as the country menu), BETA tag, "We've launched in the US" |
-| 2.3 | Dissolve to compare | "Compare perfume prices from 20+ US shops", "22,000+ products, in dollars", "Prices before sales tax" |
+| 2.3 | Dissolve to compare | "Compare perfume prices from 20+ US shops", "20,000+ products, in dollars", "Prices before sales tax" |
 | 4.7 | Swipe to shops | "Some of the shops": Ulta Beauty, Bluemercury, Perfumania, Luckyscent, Beauty Encounter, Ministry of Scent, "And more. This is a beta." |
 | 7.0 | Dissolve to tag | An @ in a red ring, "Tag your friends who'd love this" |
 | 9.2 | Swipe to PriceSniffs | The mark, the wordmark and `pricesniffs.space/us`, held to 10.8, then the one second fade to the background at 11.8 |
@@ -34,18 +34,18 @@ Sans, no hyphens or dashes, British English.
 | On screen | Report field | Value on 10 Oct |
 |---|---|---|
 | 20+ US shops | shops in `shops` with products (`shopsPriced` and `shopsEnabled` are 22) | 20 (22) |
-| 22,000+ products | `products` | 23,229 |
+| 20,000+ products | `products` | 23,229 |
 
 Shop names (each is enabled in `src/config/retailers.us.ts` and has products in the report): Ulta Beauty (1,134),
 Bluemercury (645), Perfumania (4,197), Luckyscent (1,320), Beauty Encounter (5,079), Ministry of Scent (1,623).
 
 `tests/socialLaunchVideo.test.ts` holds the claims to those two sources: at least 20 shops with products, at
-least 22,000 products, every named shop switched on and present in the report, no switched off shop named
+least 20,000 products, every named shop switched on and present in the report, no switched off shop named
 (Jomashop, Dillard's, eCosmetics, Nordstrom), and the caption's figures equal to the video's.
 
 ## Decisions (nobody was asked, per the brief)
 
-* **Same figures as the carousel: "20+" and "22,000+".** Both are still true today (the report now holds 23,229
+* **Same figures as the carousel: "20+" and "20,000+".** Both are still true today (the report now holds 23,229
   products), so the video and the carousel agree. They are rounded down so they stay true as the crawl moves.
   "20+" is the shops with products, as on the carousel; the two priced shops with no kept listing (Imaginary
   Authors, Boy Smells) are not counted.
