@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-21T13:55:00.280Z",
-  "seenAt": "2026-10-21T13:55:00.280Z",
+  "updatedAt": "2026-10-21T18:14:28.661Z",
+  "seenAt": "2026-10-21T18:14:28.661Z",
   "source": "live",
   "listings": [
     {
@@ -4614,7 +4614,7 @@
       "priceGbp": 48,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Embrace the essence of Britain with our \"White Rose & Lemon Leaves\" Body Lotion, a fragrant fusion of the Norma Jean White Rose and zesty lemon leaves, symbolising resilience and innovation. Indulge in its nourishing blend of cocoa butter, almond, and grape seed oils while the captivating scent notes transport you through a floral and citrus journey. Elevate your daily routine with this luxurious moisturiser.",
       "productType": null,

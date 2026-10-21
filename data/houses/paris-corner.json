@@ -1,7 +1,7 @@
 {
   "retailerId": "paris-corner",
-  "updatedAt": "2026-10-21T13:51:57.043Z",
-  "seenAt": "2026-10-21T13:51:57.043Z",
+  "updatedAt": "2026-10-21T18:11:15.229Z",
+  "seenAt": "2026-10-21T18:11:15.229Z",
   "source": "live",
   "listings": [
     {
@@ -1078,32 +1078,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "58405",
-      "url": "https://pariscorner.ae/product/ministry-of-oud-maestros-symphony-100ml/",
-      "rawTitle": "MINISTRY OF OUD - MAESTRO'S SYMPHONY 100ML",
-      "rawBrand": "MINISTRY OF OUD",
-      "ean": null,
-      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2025/05/Maestros-Symphony.jpg",
-      "description": "Top Notes: Passionfruit, Saffron, Raspberry, Violette LeavesHeart Notes: Rose, Geranium, OsmanthusBase Notes: Vanilla, Leather, Patchouli, Olibanum",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 120,
-        "currency": "AED"
-      },
-      "retailerId": "paris-corner",
-      "firstSeenAt": "2026-08-05T11:11:10.449Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "56011",
       "url": "https://pariscorner.ae/product/strictly-oud-100ml/",
       "rawTitle": "STRICTLY OUD 100ML",
@@ -1521,6 +1495,33 @@
       "variantId": null
     },
     {
+      "retailerSku": "58405",
+      "url": "https://pariscorner.ae/product/ministry-of-oud-maestros-symphony-100ml/",
+      "rawTitle": "MINISTRY OF OUD - MAESTRO'S SYMPHONY 100ML",
+      "rawBrand": "MINISTRY OF OUD",
+      "ean": null,
+      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2025/05/Maestros-Symphony.jpg",
+      "description": "Top Notes: Passionfruit, Saffron, Raspberry, Violette LeavesHeart Notes: Rose, Geranium, OsmanthusBase Notes: Vanilla, Leather, Patchouli, Olibanum",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 120,
+        "currency": "AED"
+      },
+      "retailerId": "paris-corner",
+      "firstSeenAt": "2026-08-05T11:11:10.449Z",
+      "lastSeenAt": "2026-10-21T13:51:57.043Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
       "retailerSku": "58962",
       "url": "https://pariscorner.ae/product/papillon-des-vents-100ml/",
       "rawTitle": "PAPILLON DES VENTS 100ML",
@@ -1541,6 +1542,7 @@
       "nativeWasPrice": 120,
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-10-15T17:45:06.416Z",
+      "lastSeenAt": "2026-10-21T13:51:57.043Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1567,6 +1569,7 @@
       },
       "retailerId": "paris-corner",
       "firstSeenAt": "2026-10-21T13:22:10.643Z",
+      "lastSeenAt": "2026-10-21T13:51:57.043Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,

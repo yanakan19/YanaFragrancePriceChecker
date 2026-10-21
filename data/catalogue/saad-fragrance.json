@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-21T13:46:43.470Z",
-  "seenAt": "2026-10-21T13:46:43.470Z",
+  "updatedAt": "2026-10-21T18:04:25.347Z",
+  "seenAt": "2026-10-21T18:04:25.347Z",
   "source": "live",
   "listings": [
     {
@@ -497,7 +497,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": 64.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Blue oud Ibrahim al Qurashi (IBRAQ) 100ml Eau De Parfum blends Oud and Blue Lilies in the top notes for a fresh, woody opening. The heart features Leather and Patchouli, providing depth and earthiness, while Tobacco and Amber base notes offer lasting warmth and complexity. .",
       "productType": null,
@@ -1946,7 +1946,7 @@
       "priceGbp": 54.99,
       "wasPriceGbp": 74.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "REEF 33 White EDP 100ml Classic Perfume offers a structured olfactory experience. The top notes of Mulberry Fruit invigorate the senses, while the heart of Saffron introduces warmth and sophistication. Finally, the base of Oud provides a rich, lingering depth, making it a distinctive choice for any occasion. .",
       "productType": null,

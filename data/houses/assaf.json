@@ -1,9 +1,36 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-21T13:48:17.458Z",
-  "seenAt": "2026-10-21T13:48:17.458Z",
+  "updatedAt": "2026-10-21T18:05:54.485Z",
+  "seenAt": "2026-10-21T18:05:54.485Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "PKG-CHRB-SF-00082",
+      "url": "https://assaf.ae/products/challenge-collection",
+      "rawTitle": "Challenge Collection",
+      "rawBrand": "Assaf Trading LLC",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/image_2026-10-15_144933679.png?v=1792064976",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Challenge Box . In horse racing, victory is not determined by speed alone. Timing, consistency, knowing when to push forward and when to maintain your pace all make the difference at the finish line. . . This is the idea behind the Challenge box . Two fragrances that express the spirit of challenge in two distinct ways: Challenge with its warm, deep character, and Challenge Blue with its vibrant, open feel. The horse race featured on the box represents competition and the pursuit of reaching the finish line, because the real challenge is not how you start, but how you keep going until the end. . . The Challenge box brings together two fragrances under one concept, presented in a masculine set that combines strength, balance, and everyday versatility. Designed for daytime, evenings, and special occasions, both fragrances offer strong longevity and projection while maintaining the distinctive character of Challenge. . . Challenge - 100 ml . Challenge does not rely on intensity alone. Its character is built around a balance of freshness and warmth, making it a long-lasting men’s fragrance with strong projection for those looking for a distinctive men’s perfume . . . It opens with lively notes and a sharp, elegant touch before moving into a softer heart, where florals blend with tea to give this woody men’s fragrance a balanced sense of depth. As the fragrance develops, woods and incense come forward, revealing a warm woody fragrance with lasting presence on both skin and clothing. . . Challenge is suitable as an everyday men’s fragrance , as well as for work, meetings, and special occasions. It is an ideal choice for anyone looking for a highly projecting men’s fragrance that combines confidence, calmness, and lasting performance. . . Top Notes: Bergamot - Sage - Pepper . Heart Notes: Rose - Jasmine - Tea . Base Notes: Guaiac Wood - Styrax - Incense . . Challenge Blue - 100 ml . Challenge Blue presents a more vibrant and open character, balancing freshness and warmth in a versatile composition. It is made for those looking for a long-lasting men’s fragrance with strong projection and an easy to wear, distinctive style. . . It opens with an energetic feel and prominent spices, followed by a softer combination of floral and fruity notes, before revealing the warmth of amber and vanilla. . . Challenge Blue is suitable for everyday wear, work, meetings, and special occasions, with long-lasting performance and noticeable projection. An ideal choice for those who prefer a warm and projecting men’s fragrance with a modern, balanced character. . . Top Notes: Ginger - Cardamom - Pepper . Heart Notes: Orange Blossom - Peach - Lily of the Valley . Base Notes: Dry Amber - Ambergris - Vanilla . . The Art of Gifting . Challenge box comes in a distinctive design inspired by horse racing and the spirit of challenge, bringing together two fragrances with different yet complementary characters. It is presented in elegant packaging with a gift bag , making it a ready-to-give and refined choice for a variety of occasions. .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 185,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 499,
+      "retailerId": "assaf",
+      "firstSeenAt": "2026-10-21T18:05:54.485Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11200658636967-Default Title",
       "url": "https://assaf.ae/products/مجموعة-حصرية",
@@ -73,7 +100,7 @@
       "description": ". . RISK Collection . The RISK Collection was created for those who see every choice as an opportunity to discover something different. Bringing together Risk Comete and Lure Risk , the collection presents two distinct fragrance personalities, each with its own character, yet both united by the same spirit of boldness, individuality, and the desire to go beyond the familiar . . . . . . Lure Risk . Irresistible Allure . LURE RISK was born from an idea built around the balance between attraction and mystery. It is a fragrance that does not try to be loud or overly complex; instead, it relies on a soft, magnetic presence that gradually draws you in until it becomes part of the atmosphere. From the very beginning of its development, the vision was to create a scent that feels captivating and easy to connect with, while still carrying a distinctive character that leaves a clear impression without ever feeling excessive. . Fragrance Composition: . Top Notes: Ginger, Pear . Heart Notes: Orange Blossom . Base Notes: Amber, Musk . . . . . . Risk Comete . The Beauty of Risk . When boldness becomes a style, Risk Comete reveals a character that never goes unnoticed. A fragrance that brings together confidence and elegance, with a boldness that never feels excessive and a refined presence without pretension. Not every risk is meant to be avoided; some bold choices are simply worth taking. . . Fragrance Composition: . Top Notes: Pear, Nuts . Heart Notes: Lily of the Valley, Coconut, Rose . Base Notes: Musk, Sandalwood . . . . . . Presenting . The RISK Collection comes in an elegant box with a bold visual identity, featuring an equestrian-inspired illustration with striking red details that reflect the character of the collection. The design balances simplicity and boldness, giving the set a distinctive presence that makes it ideal for both personal use and gifting . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 196.96,
+        "amount": 204,
         "currency": "AED"
       },
       "nativeWasPrice": 799,
@@ -97,10 +124,10 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 229,
+        "amount": 239,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -124,10 +151,10 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 199,
+        "amount": 165,
         "currency": "AED"
       },
       "nativeWasPrice": 349,
@@ -154,7 +181,7 @@
       "description": "Exclusive Offer for the 96th Saudi National Day . Get Frankel Black Elixir 200ml + Frankel Imagination 100ml + Frankel Silver Elixir 100ml . For only AED 196 . Frankel Black Elixir 200ml . Frankel Black Elixir embodies concentrated power in a deeper, richer composition, crafted to create a commanding presence with a luxurious character worthy of those who are accustomed to being at the forefront.. A Composition That Commands Attention from the Very First Moment . The fragrance opens with notes of lemon and iris , creating an introduction that balances radiance and sophistication. It then deepens into a vibrant heart where violet, basil, and vetiver blend together to give the fragrance a richer green dimension.. Finally, it settles into a warm base of amber, vanilla, cedarwood, and musk , creating an intense trail and long-lasting presence that remains for hours.. Top Notes: Lemon, Iris. Heart Notes: Violet, Basil, Vetiver. Base Notes: Amber, Vanilla, Cedarwood, Musk. Frankel Silver Elixir 100ml . Freshness You Can Experience . Frankel Silver Elixir embodies powerful presence through a fresh and contemporary approach, crafted to give you an allure that begins with freshness and is strengthened by confidence. Its balanced composition brings together purity and power in striking harmony.. A Fragrance Journey That Reflects Your Presence . The fragrance opens with bright citrus notes of orange and sweet lemon , delivering an immediate feeling of freshness and purity. It then transitions into a soft green heart combining green tea and blackcurrant , adding refreshing depth with a distinctive character.. Finally, it settles into a creamy, aromatic base of petitgrain, geranium, sandalwood, and musk , giving it elegant longevity and a confident trail that lasts.. Top Notes: Orange, Sweet Lemon. Heart Notes: Green Tea, Blackcurrant. Base Notes: Petitgrain, Geranium, Sandalwood, Musk. Frankel Imagination 100ml . A Fantasy Beyond Imagination . Its story begins with a refreshing citrus touch of orange, sweet lemon, pink pepper, and mandarin . This vibrant opening leads to a rich heart of black tea, blackcurrant, lavender, nutmeg, and cinnamon — creating a captivating scent that leaves a lasting impression.. Finally, the fragrance settles into a luxurious woody base of patchouli and guaiac wood . Together, these notes create a scent full of confidence and elegance throughout the day.. Top Notes: Orange, Sweet Lemon, Pink Pepper, Mandarin. Heart Notes: Black Tea, Blackcurrant, Lavender, Nutmeg, Cinnamon. Base Notes: Patchouli, Guaiac Wood. Assaf Sunglasses . Assaf Summer Sunglasses — more than just sunglasses. . Meaning in every detail. Luxury in every reflection.. A luxury that is seen, not spoken. . Designed for those who are unlike anyone else, for those who walk into a room and effortlessly capture attention with their presence.. The frame is a work of art, while the lenses make a statement—bringing together boldness and sophistication .. The sunglasses are certified according to the required standards and specifications, ensuring the required quality and compliance with safety standards.. Featuring UV-protection lenses to help protect against ultraviolet rays..",
       "productType": null,
       "nativePrice": {
-        "amount": 196,
+        "amount": 206,
         "currency": "AED"
       },
       "nativeWasPrice": 799,
@@ -178,10 +205,10 @@
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 96.96,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -208,7 +235,7 @@
       "description": "Exclusive Offer for the 96th Saudi National Day . Get Frankel Battle 100ml + Frankel Imagination 100ml . For only AED 96 . Frankel Battle 100ml . For those who face challenges and shine in the midst of the battle. . A fragrance where luxury meets boldness, and sophistication meets mystery, in a luxurious oriental woody composition.. The journey begins with rich oud blended with soft fruity notes.. The heart then reveals jasmine, narcissus, and centifolia , enriched with amber, resin, and incense .. It finally settles into patchouli and frankincense , leaving behind an unforgettable trail.. Frankel Imagination 100ml . Its story begins with a refreshing citrus touch of orange, sweet lemon, pink pepper, and mandarin . This vibrant opening leads to a rich heart of black tea, blackcurrant, lavender, nutmeg, and cinnamon — creating a captivating scent that leaves a lasting impression.. Finally, the fragrance settles into a luxurious woody base of patchouli and guaiac wood . Together, these notes create a scent full of confidence and elegance throughout the day.. Top Notes: Orange, Sweet Lemon, Pink Pepper, Mandarin. Heart Notes: Black Tea, Blackcurrant, Lavender, Nutmeg, Cinnamon. Base Notes: Patchouli, Guaiac Wood. Order the Frankel Battle + Frankel Imagination Offer now . And get both for only AED 96 .",
       "productType": null,
       "nativePrice": {
-        "amount": 96.96,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -235,7 +262,7 @@
       "description": "Exclusive Offer for the 96th Saudi National Day . Get Frankel Storm 100ml + Frankel Imagination 100ml . For only AED 96 . Frankel Storm 100ml . The Storm Before the Presence . A luxurious men's fragrance that opens with a bright freshness of bergamot and orange blossom , then reveals a heart of patchouli and iris .. It settles into a base of warm leather and vetiver , giving the fragrance long-lasting performance and a refined woody character.. A composition that brings together freshness and elegance in one distinctive experience.. Frankel Imagination 100ml . Its story begins with a refreshing citrus touch of orange, sweet lemon, pink pepper, and mandarin . This vibrant opening leads to a rich heart of black tea, blackcurrant, lavender, nutmeg, and cinnamon — creating a captivating scent that leaves a lasting impression.. Finally, the fragrance settles into a luxurious woody base of patchouli and guaiac wood . Together, these notes create a scent full of confidence and elegance throughout the day.. Top Notes: Orange, Sweet Lemon, Pink Pepper, Mandarin. Heart Notes: Black Tea, Blackcurrant, Lavender, Nutmeg, Cinnamon. Base Notes: Patchouli, Guaiac Wood. Order the Frankel Storm + Frankel Imagination Offer now . And get both for only AED 96 .",
       "productType": null,
       "nativePrice": {
-        "amount": 96.96,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -289,7 +316,7 @@
       "description": "Exclusive Offer for the 96th Saudi National Day . Get Alexandria 100ml + Wild Pegasus 100ml . For only AED 96 . Alexandria 100ml . A fragrance that embodies the balance between tranquility and depth. . Its elegant composition creates a distinctive presence without being overwhelming.. Inspired by a classic character with a contemporary spirit, Alexandria brings together clarity and depth to create a confident and composed presence.. A refined and well-balanced choice for everyday wear, work, and casual occasions.. Wild Pegasus 100ml . A fragrance that embodies elegance without boundaries, . where strength and mystery come together in a composition that goes beyond the ordinary.. The journey begins with Italian bergamot and pink pepper , followed by a heart of rose, jasmine, and orange blossom .. It then settles into a rich base of amber, sandalwood, patchouli, and vanilla .. A fragrance that reflects strength and freedom , designed for both men and women .. Order the Alexandria + Wild Pegasus Offer now . And get both for only AED 96 .",
       "productType": null,
       "nativePrice": {
-        "amount": 96.96,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -316,7 +343,7 @@
       "description": "Exclusive Offer for the 96th Saudi National Day . Get Lady Supreme 100ml + Beauty Powder . For only AED 96 . Lady Supreme 100ml . A morning fragrance for women that captures the freshness of new beginnings and the elegance of a graceful, understated presence. . It gives you a feeling of freshness and confidence from the very first moment, making it the perfect companion for every day.. Part of Assaf’s best-selling Lady Collection , renowned for its captivating appeal and distinctive character among women’s fragrances.. Beauty Powder . A touch of softness and freshness to accompany you wherever you go. . Its captivating fragrance gives you a refreshing and confident feeling, leaving you beautifully scented with a soft, feminine touch.. Order the Lady Supreme + Beauty Powder Offer now . And get both for only AED 96 .",
       "productType": null,
       "nativePrice": {
-        "amount": 96.96,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -343,7 +370,7 @@
       "description": "Exclusive Offer for the 96th Saudi National Day . Get Elizabeth 100ml + Beauty Powder . For only AED 96 . Elizabeth 100ml . The royal signature of the Victorian fragrance collection. . The fragrance opens with vibrant notes of orange, mandarin, and peach .. At the heart, delicate notes of jasmine, white flowers, and strawberry unfold beautifully.. It then settles into a sophisticated base of musk, amber, patchouli, and cedarwood , creating a luxurious sensory experience with a distinctly royal character and an unforgettable presence.. Beauty Powder . A touch of softness and freshness to accompany you wherever you go. . Its captivating fragrance gives you a refreshing and confident feeling, leaving your skin delicately scented with a beautiful, feminine touch.. Order the Elizabeth + Beauty Powder Offer now . And get both for only AED 96 .",
       "productType": null,
       "nativePrice": {
-        "amount": 96.96,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -397,7 +424,7 @@
       "description": "Exclusive Offer for the 96th Saudi National Day . Get: . Pink Queen 200ml + Dangerous 200ml + Gris Éric 200ml . For only AED 196 . Pink Queen 200ml . In a world filled with captivating colors and enchanting scents, Pink Queen tells the story of a strong woman who shines with her charm and femininity. With this fragrance, become a queen wherever you go.. The fragrance blends femininity and sophistication in a perfectly balanced composition. It opens with refreshing notes of citrusy bergamot and delicate rose, followed by peony at the heart, enhanced by a warm and sweet touch of caramel. At the base, the warmth of vanilla blends with alluring musk, creating a soft, sensual scent that lingers beautifully.. Dangerous 200ml . In a world filled with secrets and challenges, Dangerous Arooqit emerges as a masterpiece inspired by the legendary racehorse Arrogate.. Its composition opens with orange, bergamot, pink pepper, and peach. At the heart, orange blossom harmonizes beautifully with sandalwood, before settling into a warm and deep base of amber, vanilla, musk, and cedarwood.. A fragrance that embodies strength, boldness, and mystery, giving you a sense of confidence, presence, and superiority.. Gris Éric 200ml . A true olfactory expression of the celebrations and vibrant, unforgettable moments in your life.. This elegant, multifaceted composition combines jasmine, bergamot, and fresh woody notes, complemented by creamy sandalwood that adds a velvety character to the fragrance. Patchouli blends with oakmoss to enhance its warmth, depth, and intensity.. An ideal fragrance for men and women seeking the highest levels of elegance.. Order the Pink Queen + Dangerous + Gris Éric Offer now . And get all three for only AED 196 .",
       "productType": null,
       "nativePrice": {
-        "amount": 196.96,
+        "amount": 206.96,
         "currency": "AED"
       },
       "nativeWasPrice": 799,
@@ -421,7 +448,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
         "amount": 209,
@@ -451,7 +478,7 @@
       "description": "Assaf’s Latest Summer Release. . With the very first spray, Shift takes you away from the heat of the day and into a world of freshness and vitality.. A refreshing opening bursting with energy is followed by clean, modern notes that give you the feeling of stepping into another place—where the air is cooler, the atmosphere is lighter, and summer feels even better.. Shift is the fragrance that changes your mood before it changes your scent…. Because every spray is a shift. From heat to freshness, and from routine to a feeling of being truly alive.. Top Notes: Pineapple, Blackcurrant, Grapefruit, Pink Pepper, Lemon, and Bergamot. Heart Notes: Cardamom, Cinnamon, and Ginger. Base Notes: Vetiver and Patchouli.",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 299,
@@ -478,7 +505,7 @@
       "description": ". .",
       "productType": null,
       "nativePrice": {
-        "amount": 149,
+        "amount": 159,
         "currency": "AED"
       },
       "nativeWasPrice": 299,
@@ -505,7 +532,7 @@
       "description": ". . هوك بلو.. خُطّاف يخطف الأنظار . استوحى العطر اسمه من كلمة \"هوك\" (Hook) التي ترمز إلى الجاذبية وقوة التأثير، فهو عطر صُمم ليأسر الحواس منذ اللحظة الأولى، ويمنحك حضورًا يلفت الانتباه بثقة وأناقة. أما لمسة \"بلو\" فتجسد صفاء البحر، وبرودة النسيم، والانتعاش الذي يمنحك شعورًا دائمًا بالحيوية والانطلاق. . . . . هوك بلو جاذبية لا متناهية . هوك بلو عطر صيفي، بتجربة تعكس روح الانتعاش والثقة والجاذبية في كل رشة. صُمم بعناية للرجل العصري الذي يبحث عن حضور مميز يلفت الأنظار دون تكلف، ويترك انطباعًا يدوم في الذاكرة. وهو كما الخُطاف بنهايته الطُعم الذي يلفت الأنظار ويجذب الأخطار. تبدأ رحلته بنفحات منعشة تبعث على الحيوية، ثم تتناغم مكوناته لتمنحك إحساسًا بالنظافة والأناقة طوال اليوم، ليصبح خيارك المثالي في الأجواء الصيفية والدافئة. . . . . التركيبة العطرية . الافتتاحية: الهيل والبرغموت والكمثرى. مما يجعله مزيج منعش وفاكهي بتوازن حرارة التوابل. . القلب: اللافندر والباتشولي والكمون. بطابع عشبي عميق . القاعدة: نجيل الهند وخشب الأرز وخشب الصندل. ختام خشبي غني ومكثف يمنح العطر ثباتاً وفخامة. . المزيج بين المكونات والتدرج هو مايمنح العطر الانتعاش والعمق مع الختام الخشبي الذي يعطي العطر توازناً مدروس بدقة. . . . تصميم العطار دومينيك روبيون . .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 299,
@@ -559,7 +586,7 @@
       "description": "The Summer Explosion. . When the summer heat reaches its peak, Boom Blue comes to change everything. An explosion of freshness begins with the very first spray, delivering an instant feeling of coolness and vitality—as if you’ve stepped away from the scorching summer heat and into a refreshing sea breeze.. The fragrance opens with bright, energetic notes bursting with vitality, before revealing a clean, modern heart that reflects elegance and confidence. It then settles into a smooth base that gives you a long-lasting presence for hours without losing its refreshing character. Designed to accompany you through long summer days, it leaves you feeling refreshed and renewed every time you wear it.. Boom Blue is more than just a summer fragrance—it’s a complete experience of freshness and strength. A scent that captures attention from the very first moment and leaves an unforgettable impression wherever you go. Whether you’re at the beach, on a trip, or going through a busy day, it gives you exactly what you’re looking for: lightness, purity, and unwavering confidence.. Every spray of Boom Blue is a declaration of a new beginning… and every summer deserves to begin with an explosion of freshness.. Fragrance Size: 200 ml. Fragrance Type: Men’s. Top Notes: Pear, Apple, Cumin. Heart Notes: Labdanum, Orange Blossom, Patchouli. Base Notes: Vetiver, Amber, Sandalwood.",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 299,
@@ -586,7 +613,7 @@
       "description": "When danger becomes a style, Risk Comete speaks for itself. This is not a fragrance that stays in the background. It is bold without noise, refined without hesitation. Not every risk is avoided. Some are chosen.. Risk Comete opens with pears and nuts, creating a smooth sweetness wrapped in warmth. The pear feels bright and inviting, while the nutty note adds depth from the first spray. It is an opening that feels confident and deliberate.. The heart is shaped by rose, coconut, and lily of the valley as the fragrance intensifies. The fragrance seems unique rather than cliched because of the coconut's creamy texture and the flowers' beauty and tenderness. In the realm of high-end fragrances, Risk Comete stands out because of its harmony between delicate richness and flowery clarity.. The base settles into musk and sandalwood. Clean, warm, and steady, this dry down lingers with quiet strength. It is the kind of long-lasting perfume that leaves a refined trail without overwhelming the room.. For people who don't mind being in the spotlight, Risk Comete comes in a 150 ml spray bottle. Its elegant yet bold, distinctive perfume is appropriate for both evening and daily wear. This mixture intentionally creates that contrast if you are drawn to high-end scents that blend strength and gentleness.. Specifications. What’s inside the box: . Risk Comete perfume bottle. Bottle size: 150 ml. Application type: Spray. . FAQs. Is Risk Comete appropriate for daily use? . Yes, it is suitable for everyday use and sophisticated enough for special evenings.. Does this scent last a long time? . Although the lifetime may differ based on skin type and environment, it is intended to provide long-lasting performance.. For whom is Risk Comete most appropriate? . It is perfect for anyone who likes a scent that is simultaneously bold, self-assured, and subtly sophisticated.. Explore the entire Assaf perfume line to discover more unique scents and choose the one that complements your personal style..",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 135,
         "currency": "AED"
       },
       "nativeWasPrice": 400,
@@ -613,7 +640,7 @@
       "description": ". إيرور 404 . الصفحة التي طلبتها غير موجودة، إلا في عسَاف . عطر جديد بهذه العظمة، عسَاف فقط القادر على صنعه. . . نعلم أنك بحثت كثيرًا عن أفضل عطر صيفي . شيء يلفت الانتباه من أول حضور، . يعبر عنك، ويتركك في الذاكرة بعد كل لقاء؛ . لكن كل محاولات البحث كانت تنتهي بـ 404. . . إيرور 404 من عسَاف . تركيبة صيفية منعشة، جريئة، وخارجة عن المتوقع، . صُممت لتعبر عنك، . لتكون الاستثناء، لا الاختيار المعتاد. . . . تركيبة العطر . النوتات العليا: برغموت، جريب فروت، لايم، ماندارين . النوتات الوسطى: ياسمين، أوليبانوم، كاسيس، خشب الأرز . النوتات الأساسية: عنبر، باتشولي، خشب الأرز، فانيليا، طحلب البلوط .",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 399,
@@ -637,7 +664,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
         "amount": 175,
@@ -667,7 +694,7 @@
       "description": "Order your own Bank Lady perfume and you can try it for two years with Assaf's special guarantee , which allows you to return the bottle if you don't like it, regardless of the quantity used, if necessary , and get your money back. . . Made for the soft feminine , to make her more feminine. . . Sources of inspiration and naming . Named Pink Lady because it has the power to attract everything you desire , this fragrance has a long-lasting, feminine, and intimate effect , characterized by endlessly exciting notes that combine a romantic and mischievous character. This gentle atmosphere inspired Assaf's perfumer to create a mysterious, romantic fragrance that blends with the skin. He crafted a scent that oscillates between sensuality and complexity, charming and full of emotions. . . The composition . Pink Lady is alluring , A feminine fragrance that embodies the contrasts between ingredients to reveal innovative olfactory sensations. An exciting fragrance that captures the essence of timeless perfumes and their natural splendor in an innovative style. The floral composition with a feminine character has been reworked into white flowers exuded with a blend of patchouli and vanilla notes. With a fresh new touch of orange blossom bud and bergamot. . . Size: 200 ml . Fragrance gender: women . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto warmer areas of the skin (neck and wrists). .",
       "productType": null,
       "nativePrice": {
-        "amount": 139,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 399,
@@ -694,7 +721,7 @@
       "description": ". .",
       "productType": null,
       "nativePrice": {
-        "amount": 100,
+        "amount": 110,
         "currency": "AED"
       },
       "nativeWasPrice": 175,
@@ -721,7 +748,7 @@
       "description": "مس أروقيت ديفا . لكل لحظة حضور . عطرٌ صُمّم ليمنح كل ظهورٍ حضورًا ينسجم مع الأناقة الأنثوية، في تركيبةٍ متوازنة تعبّر عن الرقي والثقة، وترافق المرأة التي تختار تفاصيلها بعناية. يأتي مس أروقيت ديفا امتدادًا لمجموعة مس أروقيت ، ليقدّم تجربة عطرية تحتفي بجمال الحضور في كل مناسبة. . . . . الفكرة . استُلهم مس أروقيت ديفا من اللحظة التي يكتمل فيها الحضور؛ حين تجتمع الأناقة مع الثقة، وتتحول التفاصيل إلى جزءٍ من الهوية. صُممت تركيبته لترافق هذه اللحظات برائحة تحمل طابعًا أنثويًا راقيًا ينسجم مع مختلف المناسبات. . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 139,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -775,7 +802,7 @@
       "description": ". اديكت بلو . لن ترغب في التوقف .. . . بعض الروائح تلفت الانتباه للحظات، وأخرى تتحول إلى عادة يصعب الاستغناء عنها. أديكت بلو ينتمي إلى الفئة الثانية، عطر صُمم ليترك أثره منذ اللحظة الأولى، ويمنح صاحبه تجربة تتكرر برغبة لا بقرار. يجسد أديكت بلو مفهوم الجاذبية العصرية من خلال تركيبة تجمع بين الانتعاش والحضور والدفء، لتقدم شخصية رجالية متوازنة تعرف كيف تفرض نفسها دون مبالغة. . لا تريد تركه . يفتتح العطر رحلته بنفحات البرغموت والبرتقال، في بداية مشرقة وحيوية تمنح إحساسًا بالنقاء والطاقة. ثم يتطور إلى قلب أكثر أناقة بفضل إبرة الراعي وزهر البرتقال، قبل أن يستقر على قاعدة من العنبر الجاف وحبوب التونكا التي تضيف عمقًا ولمسة دافئة، لتعطي العطر الرائحة إدمانية لا يمكن الاستغناء عنها في أي مناسبة . . . . . . . . شخصية يصعب نسيانها . أديكت بلو ليس عطرًا صيفيًا تقليديًا يعتمد على الانتعاش وحده، بل يجمع بين الحيوية والرقي في توازن يمنحه حضورًا واضحًا وشخصية مستقلة. عطر للرجل الذي يترك أثره دون ضجيج، ويعرف أن التفاصيل الصغيرة هي ما تصنع الفرق. . التركيبة العطرية . المقدمة: البرغموت، البرتقال . القلب: إبرة الراعي، زهر البرتقال . القاعدة: العنبر الجاف، حبوب التونكا . . . التصنيف : . الفئة : رجالي . الطابع : فاخر - أنيق - عنبري . الثبات : طويل . الفوحان : واضح و متوازن . الاستخدام : الأمسيات و المناسبات الخاصة . . . . بتوقيع المصمم جوردي فيرنانديز . . من خلال أديكت بلو، يقدم جوردي فيرنانديز رؤية عطرية تجمع بين البساطة والأناقة. تركيبة تبدأ بإشراقة حمضية منعشة وتتطور إلى قاعدة دافئة ومتوازنة، لتمنح تجربة عطرية عصرية لا مثيل لها، تجعلك لا تستطيع التوقف بعد النفحة الأولى. . . لماذا أديكت بلو؟ . • يجمع بين الانتعاش الصيفي والعمق العصري في تركيبة واحدة. . • يمنح حضورًا أنيقًا يناسب مختلف الأوقات. . • تركيبة متوازنة تجمع بين الحمضيات واللمسات العنبرية الدافئة. . • بتوقيع المصمم الإسباني جوردي فيرنانديز، أحد أبرز الأسماء في عالم صناعة العطور. . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 135,
         "currency": "AED"
       },
       "nativeWasPrice": 285,
@@ -802,10 +829,9 @@
       "description": ". . . . . . . . . . Valkyrie by Assaf embodies the spirit of the legendary female warrior through a design defined by strength, confidence, and enduring elegance. Crafted from premium genuine leather with refined diamond quilting, the collection is elevated by polished gold-tone metal accents that give each bag a distinctive identity and unmistakable presence. . Its visual identity is built on the harmony between the depth of the quilted leather and the brilliance of the gold-tone details, creating a structured silhouette that is equally suited to everyday sophistication and special occasions.. Specifications. Signature: A polished gold-tone horseshoe emblem sits at the center of the front, serving as the collection's iconic signature while symbolizing strength, resilience, and the heritage of horsemanship.. Material: Premium genuine leather with an elegant diamond-quilted pattern that offers a luxurious texture and refined finish.. Craftsmanship: Precision stitching with meticulously finished edges, reflecting exceptional quality and ensuring long-lasting durability.. Structure: A structured rectangular silhouette that maintains the bag's form while emphasizing its clean, architectural lines.. Handle: A sturdy genuine leather top handle designed to provide a comfortable and secure grip.. Closure: Smooth dual metal zipper with a practical gold-tone finish for effortless access.. Hardware: Carefully polished gold-tone metal details that complement the horseshoe emblem and reinforce the collection's distinctive visual identity..",
       "productType": null,
       "nativePrice": {
-        "amount": 259,
+        "amount": 569,
         "currency": "AED"
       },
-      "nativeWasPrice": 569,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -829,10 +855,9 @@
       "description": ". . . . . . . . . . Valkyrie by Assaf is a collection inspired by the spirit of the legendary female warrior, expressing confidence, strength, and timeless presence. Crafted from premium genuine leather with an elegant diamond-quilted finish, each piece is complemented by polished gold-tone hardware that creates a distinctive identity and an unmistakable character. . . . . . . . The collection's visual identity is defined by the harmonious balance between the rich texture of quilted leather and the brilliance of its gold-tone details, resulting in a structured silhouette that transitions effortlessly from everyday wear to special occasions.. Specifications. Signature Emblem: A polished gold-tone horseshoe logo sits proudly at the center of the front, serving as the collection's iconic signature while symbolizing strength, stability, and the enduring spirit of horsemanship.. Material: Premium genuine leather with a refined diamond-quilted pattern that delivers a luxurious texture and sophisticated appearance.. Craftsmanship: Precision stitching with carefully finished edges, reflecting exceptional craftsmanship and ensuring long-lasting durability.. Structure: A structured rectangular silhouette that maintains the bag's shape while emphasizing its clean, architectural design.. Handle: A sturdy genuine leather top handle designed for a comfortable grip and secure carrying.. Closure: Smooth dual metal zipper with a polished gold-tone finish for effortless functionality.. Hardware: Carefully polished gold-tone metal accents that complement the horseshoe emblem and reinforce the collection's distinctive visual identity.. .",
       "productType": null,
       "nativePrice": {
-        "amount": 259,
+        "amount": 569,
         "currency": "AED"
       },
-      "nativeWasPrice": 569,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -856,10 +881,9 @@
       "description": ". . . . . . . . Valkyrie by Assaf presents a design that embodies the spirit of the legendary female warrior with unmistakable strength and a commanding presence. The collection is crafted from premium genuine leather with refined diamond quilting, complemented by polished gold-tone metal accents that give the bag a distinctive character and an instantly recognizable identity. . Its visual identity is built on a carefully balanced contrast between the depth of the quilted leather and the brilliance of the gold-tone details, resulting in a structured silhouette that suits both everyday wear and special occasions.. Specifications. Signature Emblem: A polished gold-tone horseshoe-shaped metal logo sits prominently at the center of the front, serving as the collection's iconic symbol and representing strength and steadfastness inspired by the world of horsemanship.. Material: Premium genuine leather with an elegant diamond-quilted pattern, offering a luxurious texture and refined appearance.. Stitching: Precision stitching with carefully finished edges that reflects exceptional craftsmanship and ensures lasting durability.. Structure: A structured rectangular silhouette that maintains the bag's shape while emphasizing its clean, architectural design.. Handle: A sturdy genuine leather top handle that provides a comfortable grip and secure carrying experience.. Closure: A smooth dual metal zipper with a polished gold-tone finish for practical and effortless access.. Metal Hardware: Carefully polished gold-tone hardware that complements the horseshoe emblem and reinforces the collection's distinctive visual identity.. .",
       "productType": null,
       "nativePrice": {
-        "amount": 259,
+        "amount": 569,
         "currency": "AED"
       },
-      "nativeWasPrice": 569,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -910,7 +934,7 @@
       "description": "سترايك بلاك . . أفضل عطر صيفي في العالم . . صُمم سترايك بلاك ليجسد مفهومًا جديدًا للعطر الصيفي؛ عطر يستلهم شخصيته من الصحراء السعودية، ويترجمها إلى تجربة عطرية بمعايير عالمية. بدأت فكرته من رحلة بترولاين الممتدة من شرق المملكة إلى غربها، حيث تتحول قسوة الطبيعة إلى مصدرٍ للإلهام، ويتحول الامتداد إلى رمزٍ للحضور والثبات. . . وجاءت النتيجة عطرًا يجمع بين الانتعاش والعمق، ليمنح صاحبه حضورًا يليق بالصيف الخليجي، وشخصية تترك أثرها منذ اللحظة الأولى. . المصمم . . جان كريستوف هيرو . يحمل سترايك بلاك توقيع العطار الفرنسي جان كريستوف هيرو ، أحد أبرز الأسماء في صناعة العطور العالمية، وصاحب الإسهامات في تطوير عددٍ من أشهر العطور المعاصرة، من بينها كريد أفينتوس . . وجاء اختياره بعد منافسة بين نخبة من كبار صناع العطور، ليقود تطوير تركيبة تعكس رؤية عساف لعطر صيفي يولد من البيئة السعودية، ويُصاغ وفق أعلى معايير صناعة العطور العالمية. . الاستلهام . . من النفود إلى النفوذ . في الصحراء تُختبر القدرة على الاستمرار. . ومن امتداد بترولاين الذي يعبر رمال النفود السعودي، استلهمت عساف فكرة سترايك بلاك؛ عطر يجسد الطموح السعودي في الوصول من الجذور المحلية إلى الحضور العالمي. رحلة تبدأ من الصحراء، وتحمل معها روح المكان، لتصل إلى تركيبة عطرية تعبر الحدود. . الهرم العطري . الافتتاحية . البرغموت • الجريب فروت • الكشمش الأسود . افتتاحية مشرقة تنطلق بحيوية الحمضيات، يعززها الكشمش الأسود ليمنح العطر بداية نابضة بالانتعاش والطاقة. . القلب . الأناناس • القرفة • الأترنج • الهيل . قلب عطري متوازن، يجمع بين حيوية الفاكهة ودفء التوابل، ليكشف عن شخصية آسرة تتطور مع مرور الوقت. . القاعدة . الفلفل الوردي • الباتشولي • الفيتيفر . قاعدة خشبية أنيقة ترتكز على الفيتيفر والباتشولي، يرافقها الفلفل الوردي ليمنح العطر عمقًا وثباتًا وبصمة رجالية تدوم. . تفاصيل العطر . الفئة: رجالي . الطابع: حمضي • فاكهي • خشبي • متبّل . المناسبات: العمل • السفر • المناسبات • الاستخدام اليومي . الفصول: الصيف • الربيع . المصمم: جان كريستوف هيرو . السعة: 125 مل . صناعة: عساف – المملكة العربية السعودية .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 135,
         "currency": "AED"
       },
       "nativeWasPrice": 309,
@@ -934,7 +958,7 @@
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
         "amount": 10,
@@ -990,7 +1014,7 @@
       "description": "A perfume made to shine! . . Order your Crown Spirit perfume, as you can try it for two years with Asaf’s special guarantee, which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary, and get your money back.. . Crown Spirit Perfume - 100 ml. . Sources of inspiration and naming: . Crown Spirit perfume, the perfume of the brilliant personality that seeks to spread creativity everywhere it steps. The name was inspired by the creative spirit that enchants everyone with its creativity and brilliance.. . Composition: . Its components are expertly woven and have a pure and intense character. Components have been blended to create a unique and distinctive scent, most notably:. Top notes: black grape, bergamot, rose.. Heart notes: guaiac wood, jasmine, patchouli.. Base notes: Amber, Cedarwood, Musk. . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the fragrance directly onto the warmer areas of the skin (neck and wrists). .",
       "productType": "women",
       "nativePrice": {
-        "amount": 99,
+        "amount": 49,
         "currency": "AED"
       },
       "nativeWasPrice": 225.22,
@@ -1043,7 +1067,7 @@
       "description": ". .",
       "productType": null,
       "nativePrice": {
-        "amount": 187,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 400,
@@ -1070,7 +1094,7 @@
       "description": ". .",
       "productType": null,
       "nativePrice": {
-        "amount": 198.95,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 400,
@@ -1097,7 +1121,7 @@
       "description": ". .",
       "productType": null,
       "nativePrice": {
-        "amount": 256.52,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 347.83,
@@ -1178,7 +1202,7 @@
       "description": ". يشبهك… هادئ، أنيق، واثق . . يفتتح العطر بنفحاتٍ مشرقة من البرغموت والحمضيات تمنح إحساسًا فوريًا بالنقاء والانتعاش، قبل أن تتكشف طبقات أكثر نعومة في القلب حيث يمتزج الياسمين مع العنبر الجاف ليصنعا دفئًا هادئًا بطابعٍ متوازن وأنيق . . ثم يستقر في الختام على قاعدة من خشب الصندل والمسك تمنح العطر ثباتًا ناعمًا وأثرًا نظيفًا يرافقك طوال اليوم . . . المكونات العليا: . البرغموت، الحمضيات . . المكونات الوسطى: . العنبر الجاف، الياسمين . . المكونات الأساسية: . خشب الصندل، المسك . .",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 85,
         "currency": "AED"
       },
       "nativeWasPrice": 199,
@@ -1340,7 +1364,7 @@
       "description": ". .",
       "productType": null,
       "nativePrice": {
-        "amount": 205,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 400,
@@ -1421,7 +1445,7 @@
       "description": "Garden Rose perfume - 200 ml . . Garden Rose is a fragrance that takes you on a journey into a flowering garden early in the morning, where the pleasant and refreshing scents of roses are spreading..This fragrance is distinguished by its unique composition that combines the freshness of fruits and the sweetness of flowers . The perfume begins with the scent of bergamot and lemon to create that refreshing scent for the most beautiful beginning, and is characterized by roses and cedarwood to form that wooden mixture and the feminine scent of flowers, and ends with the scent of musk and patchouli to combine that elegant, creamy scent . . Top notes: bergamot, lemon, pink pepper . Middle notes: cedarwood, roses . Base notes: vanilla, musk, patchouli, sandalwood .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 135,
         "currency": "AED"
       },
       "nativeWasPrice": 299,
@@ -1448,7 +1472,7 @@
       "description": "Order your Happy Moment Perfume with Assaf’s exclusive guarantee, which allows you to return the bottle if you do not like it — regardless of the quantity used. If necessary, you’ll receive a full refund.. Create Your Happy Moments. A fragrance designed to accompany your most beautiful moments and fill them with elegance and joy.. The Composition. Happy Moments is a fragrance crafted to create unforgettable memories with its effortlessly charming composition.. The scent opens with a fresh and radiant blend of Italian bergamot and black currant.. At the heart of the fragrance lies a captivating floral bouquet of ylang-ylang and jasmine blossoms, adding softness and femininity.. The base settles beautifully with warm vanilla and soft musk, leaving an elegant and attractive impression.. Perfume Size: 200 ml Fragrance Type: Women. Warranty & The Art of Applying Perfume. For a longer-lasting and more intense fragrance experience, and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto warmer areas of the skin, such as the neck and wrists..",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 59,
         "currency": "AED"
       },
       "nativeWasPrice": 249,
@@ -1502,7 +1526,7 @@
       "description": "Frankel Silver. Created for those with a strong desire for confidence, power, and attraction, Frankel Silver delivers a fresh and exceptional fragrance experience.. Now available in a larger size due to customer demand.. Composition. Its story begins with refreshing citrus notes of orange and sweet lemon. This vibrant opening leads to a heart of green tea and black currant, creating a pure and captivating scent that leaves a lasting impression.. The fragrance then settles into a smooth and elegant base of petitgrain, galbanum, sandalwood, and musk. Together, these notes create an atmosphere of endless confidence throughout the day.. Size: 100 ml. Warranty & The Art of Applying Perfume. For a longer-lasting and more intense fragrance experience, and to fully enjoy the rich notes of the perfume, it is best to spray it directly onto warmer areas of the skin, such as the neck and wrists..",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 199,
@@ -1610,7 +1634,7 @@
       "description": "Order your SAVAGE perfume and you can try it for two years with Asaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used if necessary , and get the money back. . . SAVAGE is a new journey in the world of perfumes! . . Sources of inspiration and naming . Savage is a journey in a bottle, capturing the magic of the wild and the power of nature. Imagine yourself in the heart of a dense green forest, where you meet the brightness of the sun and the breezes of the wind flow through the leaves of the trees.. . The composition . . . Perfume size: 50 ml . Fragrance type: Men . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists). .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 100,
+        "amount": 85,
         "currency": "AED"
       },
       "retailerId": "assaf",
@@ -1663,7 +1687,7 @@
       "description": "مس اروقيت .. عطر ليس للجميع - 25 مل . نسخة مس أروقيت ال 25 مل \"بخاخ\" تناسب التنقل . . فــي عــالـــم الـعطــور، حيـــث يلـتــقــــي الإبـــداع بـالحــكـــايـــات الأســطــوريـــة، يـنـبــثـــق عطــر مــــــــس أروقـــــــيــــــــت كتحفة فنية مستلهمة من اسم خيل سباق يرمز إلى القوة والسرعة. . . التركيبة: . الجريب فروت والبرغموت، اليلانج يلانج مع ياسمين السامباك الهندي ، تتفتح معه زهور الورد الدمشقي التركي. . .",
       "productType": null,
       "nativePrice": {
-        "amount": 49,
+        "amount": 59,
         "currency": "AED"
       },
       "nativeWasPrice": 115,
@@ -1717,7 +1741,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 199,
+        "amount": 259,
         "currency": "AED"
       },
       "nativeWasPrice": 650,
@@ -1930,7 +1954,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
         "amount": 99,
@@ -1960,7 +1984,7 @@
       "description": "عطر \"فرانكل باتل\" (Frankel Battle).. حين يتحول العطر إلى قصيدة تُروى على بشرتك . \"لأولئك الذين لا يمرون مرور الكرام.. بل يتركون أثراً لا يُمحى\" . فلسفة العطر: عطرٌ يتحدث بلغةٍ لا تُقال، بل تُحس. عندما تلتقي الفخامة بالجرأة، والرقي بالغموض، يولد \"فرانكل باتل\". عطرٌ لا يشبه غيره، لأنه كُتب بلغة العود، عُزف على أوتار الزهور الشرقية، وسُكب فوق تفاصيل حكايا دافئة.. الرحلة العطرية (Frankel Battle): بتوقيع أنامل المصمم العالمي دومينيك مولهاوزن ، يأخذك العطر في رحلة أسطورية:. الهمسة الأولى: يهمس لك بعبير العود الفاخر الممتزج بنفحات الفاكهة الناعمة .. افتتاحية تشبه مقدمة أسطورة قديمة تُروى في حضرة الملوك.. الهارموني الساحر: يمتد الأثر بهدوء آسر ليكشف عن تناغم زهري شرقي مذهل؛ حيث تتراقص أزهار الياسمين الدافئ، النرجس الناعم، وزهرة السنتيفوليا على أنغام العنبر، الراتنج، والبخور .. القلب الأرستقراطي: تتجلى في الأعماق الأخشاب العميقة ، حيث تتسلل نفحات الباتشولي واللبان في مزيج يجمع بين سحر الشرق وغموض الأرستقراطية.. \"فرانكل باتل\" ليس مجرد عطر.. إنه حكاية عطرية تبدأ بهمسة، وتبقى أثراً خالداً في الذاكرة. . . تفاصيل الملحمة العطرية: . المصمم: دومينيك مولهاوزن (Dominik Mühlhausen).. الطابع: شرقي - خشبي - فاخر.. الإحساس: فخامة، غموض، وتميز مطلق.. 🛡️ الضمان الذهبي من \"عساف\": . اطلب \"فرانكل باتل\" الآن، وعِش التجربة في منزلك لـ 7 أيام كاملة. نمنحك \"ضمان عساف الخاص\" الذي يتيح لك استرجاع العطر واسترداد كامل المبلغ، بغض النظر عن الكمية المستخدمة ، إذا لم يلامس العطر روحك. لأننا نثق أن \"باتل\" هو اختيار الصفوة..",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 199,
@@ -2011,10 +2035,10 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 79,
+        "amount": 89,
         "currency": "AED"
       },
       "nativeWasPrice": 359,
@@ -2038,7 +2062,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
         "amount": 49,
@@ -2122,7 +2146,7 @@
       "description": ". . كولكشن الفصل التالي من عساف يقدّم رؤية معاصرة للساعة الكلاسيكية، حيث يلتقي التصميم المتوازن مع التفاصيل الدقيقة التي تعكس هوية واضحة وأداء عملي. يعتمد الكولكشن على خطوط نظيفة وهيكل متناسق يمنح الساعة حضورًا هادئًا يناسب الاستخدام اليومي والمناسبات الرسمية.. تصميم الساعات في هذا الكولكشن يركز على إبراز جمال الميناء وتناسق العناصر المعدنية المحيطة به، مع إطار محزز يضيف عمقًا بصريًا ويعزز الطابع الكلاسيكي للتصميم. كما تتكامل هذه التفاصيل مع سوار معدني متوازن يمنح الساعة ثباتًا وأناقة في آنٍ واحد.. تتميّز ساعات الكولكشن بعرض اليوم باللغة العربية إلى جانب التاريخ، وهو عنصر يضيف بعدًا عمليًا وثقافيًا في الوقت نفسه، ويمنح الساعة طابعًا مختلفًا ضمن الساعات الكلاسيكية المعاصرة.. . . . Harun Grey . وصف الساعة – هارون قري . الهيكل: هيكل مصنوع من خليط معدني متين بتصميم متوازن يمنح الساعة حضورًا أنيقًا على المعصم.. الإطار: إطار محيط بالميناء بتشطيب محزز يضيف عمقًا بصريًا ويبرز تفاصيل الساعة.. الميناء: ميناء بلون رمادي أنيق يعكس هدوء التصميم الكلاسيكي ويمنح الساعة طابعًا عصريًا متوازنًا.. المؤشرات: مؤشرات معدنية واضحة تسهّل قراءة الوقت وتنسجم مع لون الميناء.. عرض اليوم والتاريخ: نافذة لعرض التاريخ عند موضع الساعة الثالثة مع عرض اليوم باللغة العربية في أعلى الميناء.. الحركة: حركة VJ45 الدقيقة التي تمنح الساعة أداءً ثابتًا في الاستخدام اليومي.. الزجاج: زجاج معدني مقاوم للخدوش يحافظ على وضوح الميناء ويحمي تفاصيل الساعة.. السوار: سوار معدني مصنوع من فولاذ 304L المقاوم للتآكل يمنح الساعة متانة وأناقة تدوم طويلًا.. الإغلاق: مشبك فراشة معدني يوفّر ثباتًا محكمًا وسهولة في الارتداء.. المقاس: . حجم الهيكل: 36 × 43.5 مم . مقاس السوار: 19 × 15 مم . . . . تجربة الاقتناء . تصل ساعة هارون قري داخل علبة عساف الأنيقة، مع تنسيق داخلي يحافظ على الساعة ويبرز حضورها منذ اللحظة الأولى لفتح الصندوق. التفاصيل الداخلية تعكس عناية العلامة بتقديم القطع بأسلوب متكامل يليق بالتصميم.. . . . تجربة الاستخدام . يمنح السوار المعدني للساعة ثباتًا وراحة أثناء الاستخدام اليومي، بينما يضيف الميناء الرمادي لمسة من الهدوء والأناقة التي تناسب مختلف الإطلالات.. وجود عرض اليوم والتاريخ يضيف بعدًا عمليًا يساعد في متابعة الوقت بسهولة، بينما تحافظ حركة الساعة الدقيقة على أداء مستقر يدوم طويلًا.. .",
       "productType": null,
       "nativePrice": {
-        "amount": 209,
+        "amount": 306.96,
         "currency": "AED"
       },
       "nativeWasPrice": 495,
@@ -2149,7 +2173,7 @@
       "description": ". . . كولكشن الفصل التالي من عساف يقدّم رؤية مختلفة للساعة الكلاسيكية المعاصرة. تصميم يعتمد على التوازن بين الحضور الهادئ والتفاصيل الدقيقة، حيث تأتي الساعة بهيكل متناسق وخطوط واضحة تمنحها شخصية راقية تناسب الاستخدام اليومي والمناسبات الرسمية.. تعتمد هوية الكولكشن على إبراز جمال التفاصيل الدقيقة؛ إطار مصقول يحيط بواجهة الساعة، وميناء غني بالألوان العميقة يمنح الساعة حضورًا بصريًا واضحًا. كما تتكامل عناصر التصميم مع سوار معدني متوازن يمنح الساعة ثباتًا وأناقة في آنٍ واحد.. تتميّز ساعات هذا الكولكشن بعرض التاريخ واسم اليوم باللغة العربية، ما يضيف بعدًا عمليًا وثقافيًا يعكس هوية التصميم ويمنح الساعة طابعًا مختلفًا ضمن الساعات الكلاسيكية المعاصرة.. . . . Harun Gourmand . المواصفات . الهيكل: هيكل مصنوع من خليط معدني متين بتصميم متوازن يمنح الساعة حضورًا واضحًا على المعصم.. الإطار: إطار محيط بالميناء بتشطيب محزز يضيف عمقًا بصريًا ويبرز تفاصيل التصميم.. الميناء: ميناء بلون أحمر عميق يعكس شخصية جريئة ومتوازنة، مع مؤشرات معدنية واضحة تسهّل قراءة الوقت.. عرض التاريخ: نافذة تاريخ عند موضع الساعة الثالثة مع عرض اليوم باللغة العربية، تضيف بُعدًا عمليًا للتصميم.. الحركة: حركة VJ45 المعروفة بدقتها وثبات أدائها في الاستخدام اليومي.. الزجاج: زجاج معدني مقاوم للخدوش يحافظ على وضوح الميناء ويحمي تفاصيل الساعة.. السوار: سوار معدني مصنوع من فولاذ 304L المقاوم للتآكل يمنح الساعة متانة وأناقة تدوم طويلًا.. المشبك: إغلاق بفراشة معدنية يمنح الساعة ثباتًا محكمًا مع سهولة في الارتداء.. المقاس: . حجم الهيكل: 36 × 43.5 مم . مقاس السوار: 19 × 15 مم . . تجربة الاقتناء . تصل ساعة هارون قورمند داخل علبة عساف الأنيقة، حيث يبرز التنظيم الداخلي والتشطيب الدقيق ليعكس هوية العلامة في تقديم القطع المصممة بعناية. كل تفصيلة في العلبة تحافظ على الساعة وتبرز حضورها منذ اللحظة الأولى لفتح الصندوق.. . . . تجربة الاستخدام . تصميم الساعة يمنح توازنًا بين الراحة والحضور. السوار المعدني يتكيف مع المعصم بسهولة، بينما يضيف الميناء الأحمر العميق لمسة شخصية مميزة تناسب الإطلالات اليومية والرسمية.. وجود عرض اليوم والتاريخ يضيف بعدًا عمليًا يساعد في متابعة الوقت والتاريخ بسرعة، بينما يضمن هيكل الساعة المعدني وحركتها الدقيقة تجربة استخدام مستقرة تدوم طويلًا.. .",
       "productType": null,
       "nativePrice": {
-        "amount": 209,
+        "amount": 309,
         "currency": "AED"
       },
       "nativeWasPrice": 495,
@@ -2176,7 +2200,7 @@
       "description": ". . الفصل التالي . كولكشن الفصل التالي من عساف يعكس مفهوم الساعة الكلاسيكية المعاصرة التي تجمع بين البساطة والدقة في التصميم. يعتمد الكولكشن على إبراز التفاصيل الدقيقة التي تمنح الساعة حضورًا هادئًا ومتوازنًا، مع هيكل مصقول وخطوط واضحة تعكس روح الأناقة اليومية.. تتميّز ساعات هذا الكولكشن بإطار محزز يحيط بالميناء ويضيف عمقًا بصريًا يعزز الطابع الكلاسيكي للتصميم، بينما يأتي الميناء بألوان عميقة تمنح الساعة شخصية واضحة على المعصم. كما يتكامل التصميم مع عرض اليوم باللغة العربية إلى جانب التاريخ، ليضيف بُعدًا عمليًا وثقافيًا يعكس هوية الساعة.. يجمع الكولكشن بين العناصر المعدنية المتقنة والسوار الجلدي الكلاسيكي، ليقدّم ساعة تناسب الإطلالات الرسمية واليومية في آنٍ واحد.. . . . Harun Black . المواصفات . الهيكل : هيكل مصنوع من خليط معدني متين بتصميم متوازن يمنح الساعة حضورًا أنيقًا على المعصم.. الإطار : إطار محيط بالميناء بتشطيب محزز يبرز تفاصيل التصميم ويضيف طابعًا كلاسيكيًا مميزًا.. الميناء : ميناء بلون أسود عميق يمنح الساعة حضورًا قويًا ويعزز وضوح المؤشرات.. المؤشرات : مؤشرات معدنية مصقولة بتصميم واضح يسهّل قراءة الوقت.. عرض اليوم والتاريخ : نافذة لعرض التاريخ عند موضع الساعة الثالثة مع عرض اليوم باللغة العربية في أعلى الميناء.. الحركة : حركة VJ45 الدقيقة التي توفر أداءً ثابتًا في الاستخدام اليومي.. الزجاج : زجاج معدني مقاوم للخدوش يحافظ على وضوح الميناء ويحمي تفاصيل الساعة.. السوار : سوار من الجلد الطبيعي بتشطيب مضغوط يمنح الساعة طابعًا كلاسيكيًا مريحًا أثناء الاستخدام.. الإغلاق : إبزيم معدني متين يمنح السوار ثباتًا وأمانًا على المعصم.. المقاس :. حجم الهيكل : 36 × 43.5 مم. مقاس السوار: 19 × 15 مم. . . . تجربة الاقتناء . تصل ساعة هارون بلاك داخل علبة عساف الأنيقة المصممة لحفظ الساعة وتقديمها بطريقة تعكس هوية العلامة في التفاصيل الراقية. تنظيم العلبة الداخلي يبرز الساعة منذ اللحظة الأولى لفتح الصندوق.. . . . تجربة الاستخدام . السوار الجلدي يمنح الساعة راحة وثباتًا أثناء الاستخدام اليومي، بينما يضيف الميناء الأسود لمسة كلاسيكية تناسب مختلف الإطلالات.. وجود عرض اليوم والتاريخ يضيف وظيفة عملية تساعد على متابعة الوقت والتاريخ بسهولة، بينما تضمن حركة الساعة الدقيقة أداءً ثابتًا يدوم طويلًا.. .",
       "productType": null,
       "nativePrice": {
-        "amount": 239,
+        "amount": 339,
         "currency": "AED"
       },
       "nativeWasPrice": 495,
@@ -2203,7 +2227,7 @@
       "description": "الفصل التالي . كولكشن الفصل التالي من عساف يعكس مفهوم الساعة الكلاسيكية المعاصرة التي تجمع بين البساطة والدقة في التصميم. يعتمد الكولكشن على إبراز التفاصيل الدقيقة التي تمنح الساعة حضورًا هادئًا ومتوازنًا، مع هيكل مصقول وخطوط واضحة تعكس روح الأناقة اليومية.. تتميّز ساعات هذا الكولكشن بإطار محزز يحيط بالميناء ويضيف عمقًا بصريًا يعزز الطابع الكلاسيكي للتصميم، بينما يأتي الميناء بألوان عميقة تمنح الساعة شخصية واضحة على المعصم. كما يتكامل التصميم مع عرض اليوم باللغة العربية إلى جانب التاريخ، ليضيف بُعدًا عمليًا وثقافيًا يعكس هوية الساعة.. يجمع الكولكشن بين العناصر المعدنية المتقنة والسوار الجلدي الكلاسيكي، ليقدّم ساعة تناسب الإطلالات الرسمية واليومية في آنٍ واحد.. . . . Harun Brown . المواصفات . الهيكل : هيكل مصنوع من خليط معدني متين بتصميم متوازن يمنح الساعة حضورًا أنيقًا على المعصم.. الإطار : إطار محيط بالميناء بتشطيب محزز يبرز تفاصيل التصميم ويضيف طابعًا كلاسيكيًا مميزًا.. الميناء : ميناء بلون بني عميق يمنح الساعة حضورًا قويًا ويعزز وضوح المؤشرات.. المؤشرات : مؤشرات معدنية مصقولة بتصميم واضح يسهّل قراءة الوقت.. عرض اليوم والتاريخ : نافذة لعرض التاريخ عند موضع الساعة الثالثة مع عرض اليوم باللغة العربية في أعلى الميناء.. الحركة : حركة VJ45 الدقيقة التي توفر أداءً ثابتًا في الاستخدام اليومي.. الزجاج : زجاج معدني مقاوم للخدوش يحافظ على وضوح الميناء ويحمي تفاصيل الساعة.. السوار : سوار من الجلد بتشطيب مضغوط يمنح الساعة طابعًا كلاسيكيًا مريحًا أثناء الاستخدام.. الإغلاق : إبزيم معدني متين يمنح السوار ثباتًا وأمانًا على المعصم.. المقاس :. حجم الهيكل : 36 × 43.5 مم. مقاس السوار: 19 × 15 مم. . . . تجربة الاقتناء . تصل ساعة هارون براون داخل علبة عساف الأنيقة المصممة لحفظ الساعة وتقديمها بطريقة تعكس هوية العلامة في التفاصيل الراقية. تنظيم العلبة الداخلي يبرز الساعة منذ اللحظة الأولى لفتح الصندوق.. . . . تجربة الاستخدام . السوار الجلدي يمنح الساعة راحة وثباتًا أثناء الاستخدام اليومي، بينما يضيف الميناء البني لمسة كلاسيكية تناسب مختلف الإطلالات.. وجود عرض اليوم يضيف وظيفة عملية تساعد على متابعة الوقت والتاريخ بسهولة، بينما تضمن حركة الساعة الدقيقة أداءً ثابتًا يدوم طويلًا.. .",
       "productType": null,
       "nativePrice": {
-        "amount": 239,
+        "amount": 306.96,
         "currency": "AED"
       },
       "nativeWasPrice": 495,
@@ -2230,7 +2254,7 @@
       "description": ". . كولكشن نيو شابتر من عساف يجسد بداية مختلفة في تصميم الساعات، حيث يلتقي الطابع التقني مع الجرأة الهندسية في ساعة تحمل حضورًا بصريًا واضحًا. يعتمد التصميم على خطوط حادة وهيكل قوي يمنح الساعة شخصية معاصرة مستوحاة من عالم السرعة والهندسة الحديثة.. يتميّز الكولكشن بإطار مصنوع من ألياف الكربون يضيف خفة وقوة في آنٍ واحد، بينما يظهر الميناء متعدد الطبقات بتفاصيل هندسية دقيقة تمنح الساعة عمقًا بصريًا واضحًا وتكوينًا بصريًا غنيًا بالتفاصيل. تتكامل المؤشرات المعدنية والعقارب الواضحة مع هذا التصميم لتمنح قراءة دقيقة للوقت داخل ميناء يجمع بين الفن الهندسي والطابع الميكانيكي.. يكتمل التصميم مع سوار سيليكون مرن يمنح الساعة راحة وثباتًا على المعصم، ما يجعلها مناسبة للاستخدام اليومي والإطلالات الرياضية العصرية. كولكشن نيو شابتر يعكس رؤية تصميمية جديدة في ساعات عساف، حيث يجتمع الابتكار مع الأداء في قطعة واحدة.. . . . وصف الساعة – نيو شابتر . الهيكل: . هيكل متين مصنوع من معدن Alloy يمنح الساعة قوة وثباتًا مع تصميم هندسي واضح المعالم.. الإطار: . إطار من ألياف الكربون يضيف خفة ومتانة ويعزز الطابع التقني المعاصر للساعة.. الميناء: . ميناء متعدد الطبقات بتفاصيل ميكانيكية وزخارف هندسية تمنح الساعة عمقًا بصريًا مميزًا.. المؤشرات والعقارب: . مؤشرات وعقارب معدنية واضحة تسهّل قراءة الوقت وسط تفاصيل التصميم.. الحركة: . حركة 2035 المعروفة بثبات الأداء ودقة قياس الوقت.. الزجاج: . زجاج معدني مقوّى يحافظ على وضوح الميناء ويحمي الساعة من الاستخدام اليومي.. السوار: . سوار سيليكون مرن يوفر راحة وثباتًا على المعصم أثناء الاستخدام.. الإغلاق: . مشبك هيدروليكي يمنح الساعة تثبيتًا آمنًا وسهولة في الارتداء.. المقاس: . حجم الهيكل: 38.7 × 47.5 مم . مقاس السوار: 22 × 18 مم . . . . تجربة الاقتناء . تصل ساعة نيو شابتر داخل علبة عساف الأنيقة المصممة بعناية، مع تنسيق داخلي يحافظ على الساعة ويبرز تصميمها منذ اللحظة الأولى لفتح الصندوق.. . . . تجربة الاستخدام . يوفر السوار السيليكوني مرونة وراحة أثناء الاستخدام اليومي، بينما يمنح الهيكل القوي والإطار الكربوني حضورًا واضحًا على المعصم. الميناء متعدد الطبقات يضيف طابعًا بصريًا مختلفًا يجعل الساعة قطعة مميزة ضمن الإطلالة اليومية..",
       "productType": null,
       "nativePrice": {
-        "amount": 259,
+        "amount": 306.96,
         "currency": "AED"
       },
       "nativeWasPrice": 495,
@@ -2283,7 +2307,7 @@
       "description": ". . كولكشن بروميس من عساف يجسد مفهوم الساعة التي تجمع بين الحضور الكلاسيكي والدقة الميكانيكية. تصميم يعتمد على نقاء الخطوط وتوازن التفاصيل، حيث يأتي الهيكل المصنوع من فولاذ 316L مع إطار متناسق يحيط بالميناء ليمنح الساعة حضورًا هادئًا وأنيقًا على المعصم.. تعتمد ساعات هذا الكولكشن على ميناء بتشطيب Sun Dial يعكس الضوء بانسيابية ليمنح الساعة عمقًا بصريًا يتغير مع الحركة، بينما تضيف المؤشرات المعدنية المصقولة لمسة فاخرة تعزز وضوح قراءة الوقت.. تجمع ساعات بروميس بين التصميم المتوازن والحركة الميكانيكية الدقيقة، ما يجعلها خيارًا مناسبًا لمن يبحث عن ساعة كلاسيكية تجمع بين الأداء العملي والأناقة اليومية. يتكامل التصميم مع سوار فولاذي متين يمنح الساعة ثباتًا وأناقة تناسب الإطلالات الرسمية واليومية في آنٍ واحد.. . Promise . وصف الساعة – بروميس . الهيكل: . هيكل مصنوع من فولاذ 316L عالي الجودة يمنح الساعة متانة واضحة ومقاومة عالية للتآكل.. الإطار: . إطار يجمع بين الفولاذ والألمنيوم بتصميم مرقم يعزز الطابع الرياضي ويضيف بعدًا بصريًا مميزًا للساعة.. الميناء: . ميناء بتشطيب Enamel Dial يمنح الساعة عمقًا بصريًا واضحًا وتفاصيل دقيقة تعزز حضور التصميم.. المؤشرات والعقارب: . مؤشرات معدنية واضحة وعقارب مصممة لتسهيل قراءة الوقت بسرعة ودقة.. عرض التاريخ: . نافذة تاريخ عملية تضيف بعدًا وظيفيًا للاستخدام اليومي.. الحركة: . حركة 2115 Calendar Movement الدقيقة التي توفر أداءً ثابتًا وموثوقًا.. الزجاج: . زجاج Sapphire مقاوم للخدوش يحافظ على وضوح الميناء ويحمي تفاصيل الساعة.. السوار: . سوار فولاذي مصنوع من 316L Steel يمنح الساعة ثباتًا وأناقة رياضية متوازنة.. الإغلاق: . مشبك احترافي من فولاذ 316L يوفر ثباتًا وأمانًا أثناء الاستخدام.. مقاومة الماء: . حتى 10 ATM لتناسب الاستخدام اليومي والأنشطة المختلفة.. المقاس: . حجم الهيكل: 37.5 × 45.7 مم . مقاس السوار: 20 × 16 مم . . . . تجربة الاقتناء . تصل ساعة بروميس داخل علبة عساف الأنيقة المصممة بعناية، مع تنسيق داخلي يحافظ على الساعة ويبرز حضورها منذ اللحظة الأولى لفتح الصندوق.. . . . تجربة الاستخدام . يوفر السوار الفولاذي توازنًا بين المتانة والراحة، بينما يمنح الإطار الرياضي والميناء الواضح تجربة قراءة دقيقة وسريعة للوقت. التصميم المتوازن يجعل الساعة مناسبة للإطلالات اليومية والأنشطة المختلفة، مع حضور قوي يبرز هوية الساعة على المعصم..",
       "productType": null,
       "nativePrice": {
-        "amount": 685,
+        "amount": 806.96,
         "currency": "AED"
       },
       "nativeWasPrice": 1150,
@@ -2310,7 +2334,7 @@
       "description": ". . . كولكشن بروميس من عساف يجسد مفهوم الساعة التي تجمع بين الحضور الكلاسيكي والدقة الميكانيكية. تصميم يعتمد على نقاء الخطوط وتوازن التفاصيل، حيث يأتي الهيكل المصنوع من فولاذ 316L مع إطار متناسق يحيط بالميناء ليمنح الساعة حضورًا هادئًا وأنيقًا على المعصم.. تعتمد ساعات هذا الكولكشن على ميناء بتشطيب Sun Dial يعكس الضوء بانسيابية ليمنح الساعة عمقًا بصريًا يتغير مع الحركة، بينما تضيف المؤشرات المعدنية المصقولة لمسة فاخرة تعزز وضوح قراءة الوقت.. تجمع ساعات بروميس بين التصميم المتوازن والحركة الميكانيكية الدقيقة، ما يجعلها خيارًا مناسبًا لمن يبحث عن ساعة كلاسيكية تجمع بين الأداء العملي والأناقة اليومية. يتكامل التصميم مع سوار فولاذي متين يمنح الساعة ثباتًا وأناقة تناسب الإطلالات الرسمية واليومية في آنٍ واحد.. . Promise . وصف الساعة – بروميس . الهيكل: . هيكل مصنوع من فولاذ 316L عالي الجودة يمنح الساعة متانة واضحة ومقاومة عالية للتآكل.. الإطار: . إطار يجمع بين الفولاذ والألمنيوم بتصميم مرقم يعزز الطابع الرياضي ويضيف بعدًا بصريًا مميزًا للساعة.. الميناء: . ميناء بتشطيب Enamel Dial يمنح الساعة عمقًا بصريًا واضحًا وتفاصيل دقيقة تعزز حضور التصميم.. المؤشرات والعقارب: . مؤشرات معدنية واضحة وعقارب مصممة لتسهيل قراءة الوقت بسرعة ودقة.. عرض التاريخ: . نافذة تاريخ عملية تضيف بعدًا وظيفيًا للاستخدام اليومي.. الحركة: . حركة 2115 Calendar Movement الدقيقة التي توفر أداءً ثابتًا وموثوقًا.. الزجاج: . زجاج Sapphire مقاوم للخدوش يحافظ على وضوح الميناء ويحمي تفاصيل الساعة.. السوار: . سوار فولاذي مصنوع من 316L Steel يمنح الساعة ثباتًا وأناقة رياضية متوازنة.. الإغلاق: . مشبك احترافي من فولاذ 316L يوفر ثباتًا وأمانًا أثناء الاستخدام.. مقاومة الماء: . حتى 10 ATM لتناسب الاستخدام اليومي والأنشطة المختلفة.. المقاس: . حجم الهيكل: 37.5 × 45.7 مم . مقاس السوار: 20 × 16 مم . . . . تجربة الاقتناء . تصل ساعة بروميس داخل علبة عساف الأنيقة المصممة بعناية، مع تنسيق داخلي يحافظ على الساعة ويبرز حضورها منذ اللحظة الأولى لفتح الصندوق.. . . . تجربة الاستخدام . يوفر السوار الفولاذي توازنًا بين المتانة والراحة، بينما يمنح الإطار الرياضي والميناء الواضح تجربة قراءة دقيقة وسريعة للوقت. التصميم المتوازن يجعل الساعة مناسبة للإطلالات اليومية والأنشطة المختلفة، مع حضور قوي يبرز هوية الساعة على المعصم..",
       "productType": null,
       "nativePrice": {
-        "amount": 685,
+        "amount": 806.96,
         "currency": "AED"
       },
       "nativeWasPrice": 1150,
@@ -2337,7 +2361,7 @@
       "description": ". . . كولكشن بروميس من عساف يجسد مفهوم الساعة التي تجمع بين الحضور الكلاسيكي والدقة الميكانيكية. تصميم يعتمد على نقاء الخطوط وتوازن التفاصيل، حيث يأتي الهيكل المصنوع من فولاذ 316L مع إطار متناسق يحيط بالميناء ليمنح الساعة حضورًا هادئًا وأنيقًا على المعصم.. تعتمد ساعات هذا الكولكشن على ميناء بتشطيب Sun Dial يعكس الضوء بانسيابية ليمنح الساعة عمقًا بصريًا يتغير مع الحركة، بينما تضيف المؤشرات المعدنية المصقولة لمسة فاخرة تعزز وضوح قراءة الوقت.. تجمع ساعات بروميس بين التصميم المتوازن والحركة الميكانيكية الدقيقة، ما يجعلها خيارًا مناسبًا لمن يبحث عن ساعة كلاسيكية تجمع بين الأداء العملي والأناقة اليومية. يتكامل التصميم مع سوار فولاذي متين يمنح الساعة ثباتًا وأناقة تناسب الإطلالات الرسمية واليومية في آنٍ واحد.. . Promise . وصف الساعة – بروميس . الهيكل: . هيكل مصنوع من فولاذ 316L عالي الجودة يمنح الساعة متانة واضحة ومقاومة عالية للتآكل.. الإطار: . إطار يجمع بين الفولاذ والألمنيوم بتصميم مرقم يعزز الطابع الرياضي ويضيف بعدًا بصريًا مميزًا للساعة.. الميناء: . ميناء بتشطيب Enamel Dial يمنح الساعة عمقًا بصريًا واضحًا وتفاصيل دقيقة تعزز حضور التصميم.. المؤشرات والعقارب: . مؤشرات معدنية واضحة وعقارب مصممة لتسهيل قراءة الوقت بسرعة ودقة.. عرض التاريخ: . نافذة تاريخ عملية تضيف بعدًا وظيفيًا للاستخدام اليومي.. الحركة: . حركة 2115 Calendar Movement الدقيقة التي توفر أداءً ثابتًا وموثوقًا.. الزجاج: . زجاج Sapphire مقاوم للخدوش يحافظ على وضوح الميناء ويحمي تفاصيل الساعة.. السوار: . سوار فولاذي مصنوع من 316L Steel يمنح الساعة ثباتًا وأناقة رياضية متوازنة.. الإغلاق: . مشبك احترافي من فولاذ 316L يوفر ثباتًا وأمانًا أثناء الاستخدام.. مقاومة الماء: . حتى 10 ATM لتناسب الاستخدام اليومي والأنشطة المختلفة.. المقاس: . حجم الهيكل: 37.5 × 45.7 مم . مقاس السوار: 20 × 16 مم . . تجربة الاقتناء . تصل ساعة بروميس داخل علبة عساف الأنيقة المصممة بعناية، مع تنسيق داخلي يحافظ على الساعة ويبرز حضورها منذ اللحظة الأولى لفتح الصندوق.. . تجربة الاستخدام . يوفر السوار الفولاذي توازنًا بين المتانة والراحة، بينما يمنح الإطار الرياضي والميناء الواضح تجربة قراءة دقيقة وسريعة للوقت. التصميم المتوازن يجعل الساعة مناسبة للإطلالات اليومية والأنشطة المختلفة، مع حضور قوي يبرز هوية الساعة على المعصم..",
       "productType": null,
       "nativePrice": {
-        "amount": 685,
+        "amount": 885,
         "currency": "AED"
       },
       "nativeWasPrice": 1150,
@@ -2364,7 +2388,7 @@
       "description": "كولكشن بروميس من عساف يجسد مفهوم الساعة التي تجمع بين الحضور الكلاسيكي والدقة الميكانيكية. تصميم يعتمد على نقاء الخطوط وتوازن التفاصيل، حيث يأتي الهيكل المصنوع من فولاذ 316L مع إطار متناسق يحيط بالميناء ليمنح الساعة حضورًا هادئًا وأنيقًا على المعصم.. تعتمد ساعات هذا الكولكشن على ميناء بتشطيب Sun Dial يعكس الضوء بانسيابية ليمنح الساعة عمقًا بصريًا يتغير مع الحركة، بينما تضيف المؤشرات المعدنية المصقولة لمسة فاخرة تعزز وضوح قراءة الوقت.. تجمع ساعات بروميس بين التصميم المتوازن والحركة الميكانيكية الدقيقة، ما يجعلها خيارًا مناسبًا لمن يبحث عن ساعة كلاسيكية تجمع بين الأداء العملي والأناقة اليومية. يتكامل التصميم مع سوار فولاذي متين يمنح الساعة ثباتًا وأناقة تناسب الإطلالات الرسمية واليومية في آنٍ واحد.. . . . Promise . وصف الساعة – بروميس . الهيكل : هيكل مصنوع من فولاذ 316L عالي الجودة يمنح الساعة متانة وأناقة تدوم طويلًا.. الإطار : إطار معدني متناسق من فولاذ 316L يحيط بالميناء ويبرز تفاصيل التصميم.. الميناء : ميناء بتشطيب Sun Dial يمنح الساعة انعكاسًا بصريًا متغيرًا مع الضوء ويضيف عمقًا إلى التصميم.. المؤشرات والعقارب : مؤشرات وعقارب معدنية مصقولة تعزز وضوح قراءة الوقت وتمنح الساعة طابعًا كلاسيكيًا راقيًا.. عرض التاريخ : نافذة تاريخ تضيف وظيفة عملية لمتابعة التاريخ بسهولة.. الحركة : حركة 2315 Calendar الدقيقة التي تمنح الساعة أداءً ثابتًا وموثوقًا.. الزجاج : زجاج Sapphire مقاوم للخدوش يحافظ على وضوح الميناء ويحمي تفاصيل الساعة.. السوار: سوار فولاذي مصنوع من 316L يمنح الساعة ثباتًا وأناقة كلاسيكية.. الإغلاق : مشبك احترافي من فولاذ 316L بتصميم متين يضمن ثبات الساعة وسهولة ارتدائها.. مقاومة الماء : حتى 10 ATM لتناسب الاستخدام اليومي.. المقاس :. حجم الهيكل: 36 × 46 مم. مقاس السوار: 21 × 17 مم. .",
       "productType": null,
       "nativePrice": {
-        "amount": 339,
+        "amount": 439,
         "currency": "AED"
       },
       "nativeWasPrice": 495,
@@ -2391,7 +2415,7 @@
       "description": "اختيار يعزّز حضورك من أول لحظة، توباكو بلاك من عساف يفتتح بنفحات الزعفران والتفاح مع لمسة ورد تعطي انطباعًا غنيًا وواضحًا، يتشكّل القلب حول الفلفل مع طابع حلو يضيف توازنًا عطريا فريدا، وترتكز التركيبــة علـــى قاعــدة مــــــــن الطـــحالــب وخشــــب الأرز والفانيليا والعنبر ما يمنح العطر ثباتًا ممتدًا ورائحة مستقرة تحافظ على وضوحها مع مرور الوقت، في بناء عطري متماسك يعكس أسلوبًا هادئًا وحضورًا ثابتًا . المقدمة : زعفران، تفاح، ورد. القلب : فلفل، طابع حلو. القاعدة : طحالب، خشب الأرز، فانيليا، عنبر. . التصنيف العطري : خشبي، مسكي. الأداء : ثبات طويل، فوحان عالي. الاستخدام: المساء والمناسبات. . .",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 375,
@@ -2418,7 +2442,7 @@
       "description": "عطر يواكب حضورك في مختلف الأوقات، توباكو ريج 32 من عساف يبدأ بنفحات البرغموت والزعفران يمنحك شعورًا بالنظافة والنقاء، يتكوّن القلب من خشب الأرز مع لمسة فاكهية تضيف بُعدًا جديدا للعطر، بقاعدة ترتكز على العنبر الجاف وخشب الصندل تمنح العطر ثباتًا متدرّجًا ورائحة تزداد وضوحًا مع الوقت، في تركيبة متوازنة تحافظ على حضورهــــــــا مـــــــــــــــــــــن البداية حتى النهاية، . . المقدمة : برغموت، زعفران . القلب : خشب الأرز، فواكه مُحلّاة . القاعدة : عنبر جاف، خشب الصندل . . لتصنيف العطري : خشبي، فاكهي، حلو . الأداء : ثبات جيد، فوحان متوسط إلى عالٍ . الاستخدام : يومي ومناسبات . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 375,
@@ -2445,7 +2469,7 @@
       "description": "إذا كنت تبحث عن ثبات يتخطى الحدود المعتادة بسعر منافس، فهذا العطر هو رفيقك القادم انسجام اللبان مع التبــــغ يمنحك إحساسًـــــا فريدًا بالهدوء والعمق ، كأنك تعود إلى جذورك الأولى بكل أناقة ليس مجرد عطر … بل هالة من البخور الأخشاب، والتبغ ، تلتف حولك و ترافقك أينما ذهبت لأيام ، مانحةً إياك حضورًا يسبقك ويترك أثرًا لا يُنسى . المقدمة : بربرغموت، فلفل وردي، لبان، توت، تبغ . القلب : ورد، نجيل الهند الرملي، خشب الصندل . القاعدة : زعفران، جلد الغزال، حمض ميستيكال، خشب أكيجالا . . لتصنيف العطري : توباكو جام يأتي بتركيز زيوت ٪60 . الأداء : دهن عطر\" بخاخ، وهذا ما يمنحه ثبات الـ 3 أيام . الاستخدام : للمناسبات المسائية والأجواء الباردة . .",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 169,
         "currency": "AED"
       },
       "nativeWasPrice": 375,
@@ -2472,7 +2496,7 @@
       "description": "بتوقيع حميد مراتي كاشاني . أحد أبرز صُنّاع العطور المعاصرين، بأسلوب يجمع بين الدقة والوضوح في بناء التركيبة . . فرانكل إليسيوم يقدّم تركيبة متوازنة تبدأ بانتعاش فوري، ثم تتدرّج بثبات إلى عمق أنيق يعكس شخصية مرتّبة وواثقة. عطر يجمع بين الحيوية والهدوء، ويمنحك حضورًا مستمرًا يناسب تفاصيل يومك من البداية حتى النهاية . . FRANKEL ELYSIUM . من أول رشة..يدوم الانطباع . . منعش، حيوي، متوازن، واثق . . مناسب للاستخدام اليومي، أوقات العمل، والخروجات، ويبرز حضوره في الأجواء الدافئة والمعتدلة . . تركيبة متقنة تبدأ بانتعاش لافت وتستقر على قاعدة ثابتة، تمنحك حضورًا متوازنًا يعكس ذوقك بثقة . . . الافتتاحية: . . فلفل وردي مدغشقر، فلفل وردي برازيلي، ليمون مكسيكي، تفاح، جالبانوم افتتاحية منعشة بنفحات حمضية مشرقة ولمسة خضراء تضيف حيوية مباشرة. . . القلب: . . زعتر أحمر، عرعر، شيح . قلب عطري متوازن يميل للطابع العشبي، يضيف تفرّدًا ووضوحًا في الهوية. . . القاعدة: . . أمبروكس سوبر، فيتيفر هايتي، سيبريول، هيلفيتوليد، أمبريتوليد قاعدة خشبية مسكية بامتداد ناعم وثبات متدرّج يرافقك طوال اليوم. . .",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 375,
@@ -2499,7 +2523,7 @@
       "description": ". بتوقيع جوردي فيرنانديز . أحد أبرز صانعي العطور عالميًا عُرف بقدرته على ابتكار تركيباتٍ تحمل شخصيةً واضحة وتوازنًا دقيقًا بين العمق والوضوح، مع خبرة واسعة في صياغة العطور ذات الطابع القوي والفاخر. . . اختيار التحدّي . عطرٌ يجسّد معنى التحدّي في تركيبةٍ متوازنة تجمع بين الحمضيات والأخشاب والنفحات العطرية الدافئة، ليقدّم رائحةً تنبض بالثقة وتعكس شخصيةً لا تعرف إلا التقدّم. . . تركيبة العطر . يفتتح العطر بنفحات البرغموت والميرمية والفلفل في بدايةٍ تجمع بين الحيوية والحدة الأنيقة، قبل أن يتجلّى في قلبه الورد والياسمين والشاي ليمنحه توازنًا ناعمًا وعمقًا عطريًا متدرجًا، ثم يستقر على قاعدة من خشب الغاياك والستايراكس والبخور لتمنحه طابعًا خشبيًا دافئًا وأثرًا غنيًا يدوم. . . الافتتاحية: . برغموت، ميرمية، فلفل. . القلب: . ورد، ياسمين، شاي. . القاعدة: . خشب الغاياك، ستايراكس، بخور.",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 375,
@@ -2526,7 +2550,7 @@
       "description": ". .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 139,
         "currency": "AED"
       },
       "nativeWasPrice": 326.09,
@@ -2658,10 +2682,10 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 550,
@@ -2688,7 +2712,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 685,
+        "amount": 885,
         "currency": "AED"
       },
       "nativeWasPrice": 1350,
@@ -2715,7 +2739,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 685,
+        "amount": 885,
         "currency": "AED"
       },
       "nativeWasPrice": 1350,
@@ -2742,7 +2766,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 405,
+        "amount": 639,
         "currency": "AED"
       },
       "nativeWasPrice": 1375,
@@ -2769,10 +2793,9 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 760,
+        "amount": 1510,
         "currency": "AED"
       },
-      "nativeWasPrice": 1500,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -2796,7 +2819,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 685,
+        "amount": 785,
         "currency": "AED"
       },
       "nativeWasPrice": 1650,
@@ -2850,7 +2873,7 @@
       "description": ". . ساعة فنتج قرين وايت - أول ساعة نسائية من عساف بتصميم مستطيل بقياس 16 × 42 ملم يبرز أناقة المعصم بخطوط واضحة ومتناسقة، مصنوعة من الستانلس ستيل عالي الجودة مع تشطيب مصقول يمنح الساعة حضورًا راقيًا دون تكلف، مقاومة للماء حتى 30 مترًا لتناسب نمط الحياة اليومي، مزودة بحركة دقيقة تضمن ثبات الأداء، وسوار معدني بتصميم هندسي متكرر يعكس هوية الكولكشن ويجمع بين الراحة والجمال. . . . المواصفات . القياس: 16 × 42 ملم . . الخامة: ستانلس ستيل . . الزجاج: مقوّى . . مقاومة الماء: 30 متر . . الحركة: Quartz . . السوار: ستانلس ستيل .",
       "productType": null,
       "nativePrice": {
-        "amount": 249,
+        "amount": 359,
         "currency": "AED"
       },
       "nativeWasPrice": 599,
@@ -2877,7 +2900,7 @@
       "description": ". . ساعة فنتج بينك - أول ساعة نسائية من عساف بتصميم مستطيل بقياس 16 × 42 ملم يبرز أناقة المعصم بخطوط واضحة ومتناسقة، مصنوعة من الستانلس ستيل عالي الجودة مع تشطيب مصقول يمنح الساعة حضورًا راقيًا دون تكلف، مقاومة للماء حتى 30 مترًا لتناسب نمط الحياة اليومي، مزودة بحركة دقيقة تضمن ثبات الأداء، وسوار معدني بتصميم هندسي متكرر يعكس هوية الكولكشن ويجمع بين الراحة والجمال. . . . المواصفات . القياس: 16 × 42 ملم . . الخامة: ستانلس ستيل . . الزجاج: مقوّى . . مقاومة الماء: 30 متر . . الحركة: Quartz . . السوار: ستانلس ستيل . .",
       "productType": null,
       "nativePrice": {
-        "amount": 259,
+        "amount": 369,
         "currency": "AED"
       },
       "nativeWasPrice": 599,
@@ -2904,7 +2927,7 @@
       "description": ". . ساعة فنتج سكاي - أول ساعة نسائية من عساف بتصميم مستطيل بقياس 16 × 42 ملم يبرز أناقة المعصم بخطوط واضحة ومتناسقة، مصنوعة من الستانلس ستيل عالي الجودة مع تشطيب مصقول يمنح الساعة حضورًا راقيًا دون تكلف، مقاومة للماء حتى 30 مترًا لتناسب نمط الحياة اليومي، مزودة بحركة دقيقة تضمن ثبات الأداء، وسوار معدني بتصميم هندسي متكرر يعكس هوية الكولكشن ويجمع بين الراحة والجمال. . . . المواصفات . القياس: 16 × 42 ملم . . الخامة: ستانلس ستيل . . الزجاج: مقوّى . . مقاومة الماء: 30 متر . . الحركة: Quartz . . السوار: ستانلس ستيل .",
       "productType": null,
       "nativePrice": {
-        "amount": 239,
+        "amount": 359,
         "currency": "AED"
       },
       "nativeWasPrice": 599,
@@ -3066,7 +3089,7 @@
       "description": "Order your own Forever Her perfume, as you can try it for Seven days with Assaf’s special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary , and get the amount refunded to you. . . Forever Her, it represents the eternal and unforgettable aromatic experience! . . Sources of inspiration and naming . Forever Her perfume is like an eternal promise that will never let you down, embodied in every spray, combining lasting attraction as it represents a journey that carries lasting attraction and passion across time and space . . . The composition . At first, Forever Here draws you in with a fresh and radiant top note. Here, almond, mandarin and bergamot dance in musical harmony, as if to transport you to a bright morning full of hope and joy. Almond adds a touch of warmth and sweetness, while mandarin and bergamot bring a touch of luxury and freshness, as if to open new doors to a world of limitless possibilities.. Over time, the fragrance evolves into its pulsating heart. Here, ylang-ylang, peony and rose blossoms unfold to create a romantic and elegant canvas. The floral scent envelops you with a sweet delicacy, as if you were in a flower garden in bloom in spring. These notes add emotional depth to the fragrance, giving you a feeling of comfort and tranquility, as if you were under the bright moonlight on a quiet night.. Finally, the fragrance concludes with a sparkling conclusion, where vanilla, benzoin, and tonka bean intertwine in an exciting harmony. This warm and attractive base enhances the intimacy of the fragrance, as if you are lying in a warm and comfortable embrace, surrounded by the magic of authenticity and magnificence. Vanilla adds a touch of quiet sweetness, while benzoin and tonka bean add depth and mystery, making every moment with “Forever Here” a moment that transcends time.. “Forever Here” is the embodiment of eternal presence, accompanying you like a gentle shadow, inspiring and embracing you with its enchanting scent, making every moment a memorable one.. . . Perfume size: 50 ml . Fragrance type: Unisex . . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists). .",
       "productType": "women",
       "nativePrice": {
-        "amount": 49,
+        "amount": 85,
         "currency": "AED"
       },
       "retailerId": "assaf",
@@ -3092,7 +3115,7 @@
       "description": "اطلب عطر فرانكل سيلفر الخاص بك حيث انه يمكنك تجربته لمدة سبع أيام بضمان عساف الخاص ، مما يتيح لك إعادة الزجاجة في حال لم تنال اعجابك مهما كانت الكمية المستخدمة إذا لزم الأمر ، وإعادة المبلغ لك. . . صنع هذا العطر لرغبة ملحة بالقوة والجاذبية هو تحضير روائح منعشة خارجية للعطر . . تم توفيره بحجم أكبر نظرًا لطلب العملاء . . . التركيبة : . تبدأ قصته من اللمسة الحامضية للبرتقال والليمون الحلو وهذه الرائحة المنعشة تأخذك الى رائحة قلبية من الشاي الأخضر و الزبيب الأسود ليبهر الجميع بعبقه النقي , ليكتشفون أساسه الكريمي و العشبي من البتيت غرين والجابانيوم وخشب الصندل والمسك , عندما تتجمع هذه التركبية تتكون ثقه لامتناهيه في جميع أوقات اليوم .. . الحجم 200 مل . . الضمان وفن وضع العطور : . للحصول على عبير أكثر ثباتًا وفوحانًا والاستمتاع بنفحات العطر الغنية بالكامل، يفضل رش العطر مباشرة على مناطق البشرة الأكثر دفئًا (العنق والمعصمين). .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 139,
         "currency": "AED"
       },
       "nativeWasPrice": 450,
@@ -3119,7 +3142,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 535,
@@ -3200,7 +3223,7 @@
       "description": "Bonjour Perfume – 100 ml . A fragrance created to make you feel the charm of French mornings wherever you are. Start your day the French way, with the enchanting spirit of Paris at dawn.. At the heart of this beauty, you’ll find yourself breathing in the scent of life, feeling as though you are part of an artistic painting that renews itself every day.. The fragrance opens with neroli and orange blossom , creating a magical blend of freshness and sweetness. Bright citrus notes meet delicate floral nuances, forming a perfect balance that inspires comfort and serenity.. The middle notes of violet and jasmine enhance this refined blend with soft femininity and floral elegance. This combination creates a classic and sophisticated scent, adding a graceful touch and leaving an unforgettable impression.. It settles into a warm base of musk and sandalwood , a charming blend that combines woody depth with musky softness. This comforting finish feels like a warm embrace on a cool morning, completing a truly unique olfactory experience.. Top Notes: Neroli, Orange Blossom, Almond. Middle Notes: Violet, Jasmine. Base Notes: Musk, Sandalwood.",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 139,
         "currency": "AED"
       },
       "nativeWasPrice": 250,
@@ -3227,7 +3250,7 @@
       "description": "Assaf is considered one of the few brands in the fragrance market of Saudi Arabia and the Middle East that has succeeded in delivering high quality with consistent standards, without associating it with a high price. Assaf has adopted a clear and defined approach: refined compositions, a distinct identity, and fair value in exchange for unmatched quality.. No Comment comes within the Next Chapter collection — a line that represents a more mature phase in the brand’s journey, where the focus shifts toward purity and precision in composition, while giving perfumers greater creative space to craft balanced scents without commercial constraints. The fragrance comes with a 35% concentration , a high concentration that directly reflects on longevity, depth, and sustained performance. It is presented as a fragrance release of elevated purity.. . The fragrance opens with a clear amber presence — warm and stable — followed by structured aromatic notes that add clarity and cleanliness. Carefully measured fresh spicy nuances emerge without sharpness or aggressiveness, giving the opening a calculated balance.. As the fragrance develops, the scent gradually settles, and warm spicy notes appear calmly, while woods reinforce the structure and provide evident continuity. The transition between stages is smooth and progressive, reflecting the perfumer’s role in controlling the olfactory rhythm without abrupt or artificial shifts.. In the base, vanilla appears with a light, indirect touch alongside balsamic nuances that add measured warmth, with a subtle acidic trace that maintains balance and prevents the scent from becoming heavy. The sweetness remains restrained and stays in the background without dominating the overall structure.. . What distinguishes the Assaf experience in general — and No Comment within Next Chapter in particular — is that the quality delivered rivals major international brands, and even surpasses them when considering value for money. At this point, Assaf positions itself in direct comparison with the largest global brands, where the difference becomes clear in favor of a high-concentration fragrance with evident olfactory purity, offered at a fair price that does not rely solely on a name.. No Comment reflects Assaf’s philosophy of respecting the role of perfumers and presenting a fragrance built on quality and composition before anything else. A clear, balanced, high-purity fragrance… No Comment..",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 149,
         "currency": "AED"
       },
       "nativeWasPrice": 250,
@@ -3335,7 +3358,7 @@
       "description": ". . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 535,
@@ -3578,7 +3601,7 @@
       "description": "Order your Frankel Blue 30 Elixir perfume now, as you can try it for seven days with the exclusive Assaf guarantee, which allows you to return the bottle if it does not meet your liking, regardless of how much has been used if necessary , and receive a full refund.. Frankel Blue – Now with Elixir 30% concentration and stronger projection than ever. . A perfume that goes beyond the limits of scent… awakens the senses and gives you a new dimension of confidence.. Frankel Blue 30% Elixir is not an ordinary fragrance; it is an invitation to imagine who you are, and then become it.. It is the perfume that begins in your mind, then appears in your presence, and settles in the memory of those around you.. You cannot imagine its scent!. Frankel Imagination Elixir – New With higher concentration and stronger projection!. Composition: . Its story begins with the citrusy touch of orange , sweet lemon , pink pepper , and mandarin , creating a refreshing scent that leads to a heart of black tea , black currant , lavender , nutmeg , and cinnamon , dazzling everyone with its pure aroma.. The fragrance then reveals its luxurious woody base of patchouli and guaiac wood . When these notes come together, they create unlimited confidence at all times of the day .. Perfume size: 200 ml Gender: Men. Guarantee & Fragrance Application Tips: . For longer-lasting projection and to enjoy the full richness of the fragrance, it is recommended to spray the perfume directly on the warmest areas of the skin ( neck and wrists )..",
       "productType": "man",
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -3605,7 +3628,7 @@
       "description": "Order your Frankel Black Elixir 30 perfume now, as you can try it for seven days with the exclusive Assaf guarantee, which allows you to return the bottle if it does not meet your expectations regardless of how much has been used , and receive a full refund.. Frankel Perfume – Now with Elixir 30% concentration and stronger projection than ever. . The 30% Elixir concentration makes every spray an unforgettable story, and its high projection asserts its presence wherever you go.. When a scent speaks of a man, it speaks of Frankel Aventus .. The projection of Frankel Black Elixir does not go unnoticed…. From the very first spray, its aroma penetrates with strength and elegance, filling the surroundings and announcing your presence with absolute confidence.. It is not just a momentary projection, but a lasting fragrance that precedes you with every step, attracting attention wherever you go.. Whether you are in a formal meeting, a special occasion, or even passing by… the fragrance asserts itself and leaves a mark in memory.. The fragrance of the confident man. The bold man. A summer fragrance with a captivating effect that does not fade over time.. FRANKEL BLACK features a carefully crafted composition with a pure and intense character. It is a men’s fragrance that reflects boldness and self-confidence.. Inspiration and Naming . Frankel is the fragrance of the man who sets the rules and does not intend to break them. Its composition reveals a personality that asserts itself independently, and the spirit of a man who chooses his own destiny.. The fragrance’s name is inspired by the horse Frankel , who participated in 14 races since birth and, surprisingly, won all of them.. Composition . Frankel has a cool freshness. Its top notes highlight the enchanting iris and refreshing lemon , while the heart contains violet and basil with hints of vetiver (aromatic Indian grass) , giving you invigorating nuances.. Then the fragrance unfolds into a wonderful harmony enhanced with amber, vanilla, cedarwood, and musk . The aroma of these rich and strong notes spreads, leaving a dense trail everywhere.. Guarantee and Fragrance Application Tips . For more lasting projection and to enjoy the full richness of the fragrance notes, it is recommended to spray the perfume directly on the warmest areas of the skin ( neck and wrists )..",
       "productType": "man",
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -3659,7 +3682,7 @@
       "description": ". . . . . .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 159,
+        "amount": 306.96,
         "currency": "AED"
       },
       "nativeWasPrice": 850,
@@ -3713,7 +3736,7 @@
       "description": ". . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 525,
@@ -3740,7 +3763,7 @@
       "description": ". . . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 259,
         "currency": "AED"
       },
       "nativeWasPrice": 645,
@@ -3902,7 +3925,7 @@
       "description": ". . . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 645,
@@ -3983,7 +4006,7 @@
       "description": ". . . . . .",
       "productType": "women",
       "nativePrice": {
-        "amount": 159,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 535,
@@ -4091,7 +4114,7 @@
       "description": ". . . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 525,
@@ -4253,7 +4276,7 @@
       "description": ". . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 835,
@@ -4280,7 +4303,7 @@
       "description": ". . . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 159,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 450,
@@ -4469,7 +4492,7 @@
       "description": "Order your Frankel perfume and you can try it for Seven days with Asaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary , and get the money back. . . . The fragrance of the confident man. The bold. A summery fragrance with a magical effect. It does not lose its effect with the passage of time. . FRANKEL AVENTUS is a sophisticated composition with a pure and intense character. It is a masculine fragrance that expresses boldness and self-confidence. . . Sources of inspiration and naming . Frankel is the fragrance of a man who sets the rules and does not break them. Its composition reveals a personality that imposes itself with independence, and the spirit of a man who chooses his own destiny. The name of the fragrance was inspired by the horse Frankel, who participated in 14 races since his birth and, ironically, won them all. . . Frankel Aventus - 100 ml . . The composition . Frankel is characterized by its coolness. Its top notes highlight the alluring scent of iris and refreshing lemon, while the heart of the fragrance contains the scent of violet and basil with hints of vetiver to provide you with refreshing scents, then the scent extends to reveal a wonderful harmony enhanced by amber, vanilla, cedarwood and musk . The scent of these rich and powerful scents spreads to leave an intense effect everywhere. . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the fragrance directly onto the warmer areas of the skin (neck and wrists). . .",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 125,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -4496,7 +4519,7 @@
       "description": ". .",
       "productType": "women",
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 199,
@@ -4523,7 +4546,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 119.6,
         "currency": "AED"
       },
       "nativeWasPrice": 450,
@@ -4550,7 +4573,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 169,
         "currency": "AED"
       },
       "nativeWasPrice": 400,
@@ -4658,7 +4681,7 @@
       "description": "Order your NO CHANCE perfume and you can try it for Seven days with Asaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary , and get the money back. . . . Sources of inspiration and naming . NO CHANCE is a bold assertion of strength and presence, embodying the spirit of challenge and adventure in every spritz. This fragrance is not just a perfume; it is a statement that you make between luxury and boldness, creating an aura of confidence around you, reaching the heart of every moment you live.. . The composition . When you open a bottle of NO CHANCE, you are greeted with exhilarating notes of bergamot, lemon and grapefruit, as if you are walking through a garden full of fruitful trees exuding freshness. This refreshing start brings with it a morning glow, as citrusy lemon blends with aromatic bergamot to create an exciting experience of freshness, as if you are welcoming a new day with a dose of energy and vitality.. Over time, the fragrance begins to reveal its sophisticated heart, where notes of pink pepper, neroli and lily of the valley stand out. Here, the journey turns into a more profound experience, as pink pepper enhances a touch of spice and boldness, while neroli adds a touch of elegance and calm, and lily of the valley adds a touch of delicacy. This combination reveals a complex character, combining strength and softness in a smooth and attractive way.. Finally, the fragrance reaches its powerful base, where the scents of cedarwood, musk, and moss are revealed in an exciting harmony. This base reflects the depth and strength of the fragrance, as if you are walking a long path full of experiences, where the woody scents and musk add a touch of authenticity and solidity, while the moss adds an element of familiarity and comfort. This conclusion enhances the brilliance of the fragrance and gives you a lasting sense of confidence.. \"No Chance\" is the perfect companion for anyone who seeks distinction and excitement in every step they take. Wear it as your personal fragrance, and step confidently on your distinctive path, where your presence is clear and there is no room for ignoring.. . . Perfume size: 50 ml . Fragrance type: Unisex . . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists). .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 96,
+        "amount": 85,
         "currency": "AED"
       },
       "nativeWasPrice": 175,
@@ -4682,7 +4705,7 @@
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": "unisex",
       "nativePrice": {
         "amount": 49,
@@ -4766,7 +4789,7 @@
       "description": ". . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 250,
@@ -4793,7 +4816,7 @@
       "description": "Order your Queen perfume and you can try it for Seven days with Assaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary , and get the money back. . . The scent of your luxurious perfume illuminates the endless horizon. . . Composition : Where the horizon stretches to infinity, an extraordinary journey begins: captivating and exhilarating. This is where everything begins, and everything is born anew in a timeless olfactory composition. We present to you one of the most refined compositions in the world of perfumery, the chypre, to enhance its base notes and give them a magical brilliance. The fragrance blends the prominent scent of jasmine with the aromatic ylang-ylang, which transforms into patchouli and combines with it in the light. Woody notes and vetiver intensify the body of the fragrance to reveal the scent of patchouli, while the fresh and pure scent of Paraguayan tea enhances the green character of this exquisitely crafted fragrance. This fragrance is the epitome of elegance. . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists). .",
       "productType": "women",
       "nativePrice": {
-        "amount": 50,
+        "amount": 59,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -4901,7 +4924,7 @@
       "description": ". Pegasus Oil – the pulse of life every second . Life is only moments...And Biasus Oil . She was born to be celebrated, not to be counted. . Every scorpion in it does not indicate time, but rather a pulse within you that does not stop, the dream that you have not forgotten, the passion that resides in you every morning. . Tempus Vita A watch that doesn't watch time... Rather, it encourages you to live it, with a vibrant design and precision that resembles the regularity of a heart that knows what it wants. . It's not just a tool, it's a message on your wrist: that life is not what we wait for... but what we choose at every moment. . Wear Pegasus Oil, and don't let time pass... Rather, walk with him, with strength and gratitude. . . Made to embody elegance and precision: . An elegant, dorable alloy body, it gives the watch a sophisticated precence and lasting stringth. . elegant framemade of the same alloy,with a finish That Reflects luxury in every detail. . High quality tempered glas made of solid metal matrial, skrach resistant and transeparent with exceptional clarity. . Rubber bracelet. . .",
       "productType": null,
       "nativePrice": {
-        "amount": 185,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 650,
@@ -4928,7 +4951,7 @@
       "description": ". . براون هاف مون . حين يمرّ القمر بلحظة توازن… وتكتسيها الأرض بدفء الأرض. . ليست ساعة... بل لحظة زمنية مجسّدة، منتصف القمر، منتصف الحكاية، عندما لا يكتمل النور، ولا يغيب تمامًا، بل يبقى عالقًا في المنتصف... في انتظار أن تمضي أو تعود. . براون هاف مون تجسيد لدفء الطبيعة… لون التراب بعد المطر، خشب الأشجار في عمق الغابة، والقهوة حين تُسكب على مهل في صباحٍ خريفي. . عقاربها تمضي بثقة، كأنها تسير فوق أرضٍ تعرفها جيدًا، لا استعجال، لا ضجيج، فقط وعيٌ عميق بأن كل لحظة لها وقتها. . هي ليست ساعة من ضوء، ولا ساعة من ظلام...بل ساعة من عمق ، من تأمل ، من هوية لا تحتاج إلى الصراخ . . ارتدِ براون هاف مون ، ودع الزمن يمضي كما تمضي الطبيعة... ببطء، بثقة، وبجمالٍ لا يحتاج إلى تفسير. . . صُنعت لتجسّد الأناقة والدقة: . هيكل أنيق من السبائك المعدنية المتينة، يمنح الساعة حضورًا راقيًا وقوة تدوم. . إطار أنيق من نفس السبيكة، بتشطيب يعكس الفخامة في كل تفصيلة. . قلب نابض بدقة سويسرية مع حركة Rhonda 708 الموثوقة، لترافقك بثقة في كل لحظة. . زجاج مقوّى عالي الجودة من مادة معدنية صلبة، مقاوم للخدوش وشفاف بصفاء استثنائي. . سوار مصنوع من أفخر أنواع الجلود الطبيعية تلفّ معصمك براحة ورقي لا يُضاهى. . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 305,
+        "amount": 405,
         "currency": "AED"
       },
       "nativeWasPrice": 750,
@@ -4955,7 +4978,7 @@
       "description": ". تويست أوف نيتشر . حين تلتفّ الطبيعة حول الزمن، لتخلق لحظة لا تُنسى. . ليست ساعةً فحسب،بل خفقة من نسيم الجبال،ولمسة من جذورٍ تمتد في العمق،همسة من ورقٍ يتمايل، ونبض من حجرٍ صامتٍ لكنه صادق. . تويست أوف نيتشر . سيمفونية من العناصر...الريح، والخشب، والضوء، تُترجم إلى تصميم يتنفس الحياة، ويحمل على معصمك جوهر الطبيعة في أدق لحظاتها. . في كل التفافٍ من عقاربها،تدور الفصول، تتفتح زهرة، ويولد من الزمن شعور. . ارتدِ تويست أوف نيتشر ،ولا تُراقب مرور الوقت، بل عش اتصاله العميق بالأرض... وبك. . . صُنعت لتجسّد الأناقة والدقة: . هيكل أنيق من السبائك المعدنية المتينة، يمنح الساعة حضورًا راقيًا وقوة تدوم. . إطار أنيق من نفس السبيكة، بتشطيب يعكس الفخامة في كل تفصيلة. . حركة يابانية. زجاج مقوّى عالي الجودة من مادة معدنية صلبة، مقاوم للخدوش وشفاف بصفاء استثنائي. . سوار مصنوع من المغناطيس سهل الأستخدام ، يلفّ معصمك براحة ورقي لا يُضاهى. . تويست أوف نيتشر — حين يلتقي التصميم بالفن، والدقة بالتميّز. . صُمّمت ساعة تويست أوف نيتشر لتجمع بين الحضور الجريء والدقة العملية، في هيكلٍ أنيق يجسّد فخامة التصميم العصري. . بإطارها المعدني المتين وأبعادها المتوازنة (36.2 × 48.0 ملم)، تتناسب الساعة بانسيابية مع المعصم، مانحةً مرتديها لمسة من الثقة والرقي.. حركة موثوقة: تعتمد الساعة على حركة PC 21S اليابانية الدقيقة، لضمان أداء ثابت ووقت يُعتمد عليه. . مقاومة للماء حتى 3 ضغط جوي (ATM): لتواكب أسلوب حياتك اليومي دون قلق. . فتحة مينا مربعة (26.4 × 26.4 ملم): تمنح تصميم الساعة تفرّدًا عصريًا ولمسة جمالية مميزة. . سوار بعرض 20 ملم: مصنوع من مواد مختارة بعناية لتوفير الراحة والمتانة، سواء اخترت النسخة الكلاسيكية أو الأنيقة. . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 305,
+        "amount": 185,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -4982,7 +5005,7 @@
       "description": ". بيقاسوس بلو – حين يسطع الزمن . في كل لحظة…تشرق بيقاسوس بلو كضوءٍ خافت في عتمة الوقت، لا تصرخ بالحضور… بل تهمس بالفخامة. . ليست مجرد ساعة، بل نقطة التقاء بين النور والزمن ، حيث يتوقف الصمت ليسمع دقّة، وحيث كل ثانية… تشبه انعكاس الضوء على وجه الحقيقة. . بيقاسوس بلو وليدة لحظة نادرة، لحظة لا تُقاس بالدقائق، بل تُقاس بما تتركه خلفها من أثر. . في تصميمها، وضوح لا يُفسر، وأناقة لا تُقارن، وفي حضورها، هيبة النور حين يمرّ على معدنٍ صُقِلَ بالذوق. . ارتدِ بيقاسوس بلو ، ودع الزمن يدور… لكن على إيقاعك. . . صُنعت لتجسّد الأناقة والدقة: . هيكل أنيق من السبائك المعدنية المتينة، يمنح الساعة حضورًا راقيًا وقوة تدوم. . إطار أنيق من نفس السبيكة، بتشطيب يعكس الفخامة في كل تفصيلة. . زجاج مقوّى عالي الجودة من مادة معدنية صلبة، مقاوم للخدوش وشفاف بصفاء استثنائي. . سوار مطاطي. . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 185,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 475,
@@ -5009,7 +5032,7 @@
       "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 350,
@@ -5087,13 +5110,12 @@
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": null,
       "nativePrice": {
-        "amount": 305,
+        "amount": 509,
         "currency": "AED"
       },
-      "nativeWasPrice": 400,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5171,7 +5193,7 @@
       "description": "Order your own Tobacco Jam perfume and you can try it for seven days with Asaf's special guarantee, which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary, and get your money back.. . Tobacco Jam… . Not like any tobacco perfume you've ever heard of! . . Sources of inspiration and naming . This fragrance was created to be the impossible combination in tobacco fragrances, the biggest inspiration in creating this fragrance was…. To make the best tobacco perfume in the world!. . The composition . A formula that defies the impossible, and puts you confidently in front of the spotlight. The fragrance opens with refreshing notes of bergamot and lavender, and the heart of the fragrance is dominated by amber and patchouli, until the secret of luxury appears in the base of the fragrance with vanilla and tobacco!. . Size: 100 ml. Fragrance type: Unisex. . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists)..",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 115,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 249,
@@ -5225,7 +5247,7 @@
       "description": "The “Endless River” watch is more than just a timekeeping tool; it is an immersive experience that carries the magic of emerald and the beauty of nature. This watch is designed to be a living expression of elegance, strength, and uniqueness, embodying a story of distinction and beauty in every detail. With each passing moment, Endless River adds a touch of luxury to your wrist, capturing attention with its precise details and harmonious colors. The green dial is the heart of the Endless River watch — shimmering in a rich, deep emerald hue that reflects light differently depending on the viewing angle.. Technical Specifications: Case: Dimensions of 38.5mm width and 45.0mm height, offering a balanced design that perfectly combines style and comfort. This size is carefully selected and unmatched in the watch world, fitting all wrist sizes with ease. Glass: Curved front glass adds a luxurious feel and enhances scratch resistance. Made from durable mineral crystal, it guarantees high quality and exceptional clarity. Movement: Powered by a Japanese quartz movement known for its precision and reliability. Battery-operated, it ensures highly accurate timekeeping with lifetime usability and a 3-year battery warranty. Strap: Crafted from 303L stainless steel with polished and brushed finishes, providing excellent durability and corrosion resistance. The strap is 20mm wide at the case, tapering to 18mm at the clasp, ensuring perfect comfort and a sleek look. Additional Features: Water resistant up to 30 meters, making it the ideal companion for your daily adventures..",
       "productType": "man",
       "nativePrice": {
-        "amount": 305,
+        "amount": 285,
         "currency": "AED"
       },
       "nativeWasPrice": 599,
@@ -5252,7 +5274,7 @@
       "description": "Order your own Wild Big Ass perfume and you can try it for Seven days with Asaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary , and get the money back. . . You can't defeat him. . You will find him always winning in every situation! . . Sources of inspiration and naming . Wild Pegasus, a perfume that makes you always victorious, as the name inspired by it, the name of the perfume is inspired by the legendary horse \"Pegasus\", a horse from Greek mythology, a horse known that if it entered any battle it would not be defeated! . . . The composition . It is a fragrance that embodies the legendary and magical spirit of this imaginary wild horse. . The fragrance opens with a fresh and bright touch of refreshing Italian bergamot and sweet lemon blossom blended with a light smoky scent of frankincense and delicate fruity notes of apple. . At the heart of the fragrance, a charming floral bouquet unfolds with soft orange blossom and romantic rose scent, blended with touches of warm caramel, vibrant cinnamon and aromatic cardamom from Guatemala. . The base of the fragrance is elegantly and attractively established with a bouquet of rich and beloved vanilla, with warm touches of ambrox, precious woods and warm and affectionate musk, which gives the fragrance a long-lasting depth and warmth. . . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the fragrance directly onto the warmer areas of the skin (neck and wrists). .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 59,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 175,
@@ -5360,10 +5382,9 @@
       "description": "اطلب عطر اونست الخاص بك حيث انه يمكنك تجربته لمدة سبع أيام بضمان عساف الخاص ، مما يتيح لك إعادة الزجاجة في حال لم تنال اعجابك مهما كانت الكمية المستخدمة إذا لزم الأمر ، وإعادة المبلغ لك. . . . عطر اونست - 200 مل . . تتفتح الزهور مع شروق الشمس..وفي بداية الصباح تبدأ رائحة الزهور بالانتشار في أول العطر لتصنع لك لك رائحة زهرية جذابة ينتصفها زهرة البرتقال والياسمين لأحساس بالانتعاش بأول الصباح وتننتهي بخشب التونكا والفانيليا لتضيف شيئاً من الرائحة . الكريمية الدافئة . . التركيبة: . المكونات العليا:البرغموت,اللوز . المكونات الوسطى:الياسمين,زهرة البرتقال,الورود . المكونات الأساسية:التونكا,الفانيليا .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 185,
         "currency": "AED"
       },
-      "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "status": "active",
@@ -5495,7 +5516,7 @@
       "description": "اطلب عطر فرانكل ستورم الخاص بك حيث انه يمكنك تجربته لمدة سبع أيام بضمان عساف الخاص ، مما يتيح لك إعادة الزجاجة في حال لم تنال اعجابك مهما كانت الكمية المستخدمة إذا لزم الأمر ، وإعادة المبلغ لك. . . فرانكل استورم . . هو ليس مجرّد عبير...إنه عاصفة تنبع من السكون،همسةٌ تتقد بالغموض، وصوتٌ خفيٌّ من أناقة لا تُروّض. . فرانكل استورم،حين تجتمع الرياح والنار والماءفي زجاجة، تولد أسطورة لا تُكرَّر. . يفتتح العطر بندى البرغموت والبرتقال، كأن السماء تتهيأ للمطر،لكن بدلاً من الغيوم، يُمطرك وهجُ العطر بإثارةٍ لا تهدأ. . يتغلغل القلب بنفحات الباتشولي ،والسوسن.. يوحي بالقوة والثبات،كجبلٍ يعانق العاصفة ولا ينكسر. . أما القاعدة، فهي الأرض بعد المطر، الجلود الدافئة ،نجيل الهند ، يركون لمسة لا تُنسى، كأثر قدمٍ تركها المغامر في الرمل قبل أن تمحوها الريح. . فرانكل استورم... . عطرٌ لمن يؤمن أن الجاذبية لا تحتاج إلى ضجيج، وأن الهيبة تولد أحيانًا من الصمت، وأحيانًا من العاصفة. . . . حجم العبوة:100مل. جنس العطر: رجالي.",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 199,
@@ -5576,7 +5597,7 @@
       "description": ". . . شنطة عسّاف الرجالية – رفيقتك بصمت وأناقة. . في زحام الأيام، وفي رحلاتك اليومية أو الاستثنائية، تبقى شنطة عسّاك شاهدة على التفاصيل الصغيرة... التي تُكمل حضورك.. صُمّمت لتحتوي دون أن تتكلف، ولترافقك دون أن تفرض نفسها، متينة كالعزم، أنيقة كالصمت،صغيرة في حجمها... كبيرة في أثرها.. شنطة عسّاف الرجالية …. اسمٌ يحمل دعاءً،وحقيبة تحمل ما تحتاجه دون زيادة ولا نقصان. رفيقة درب، لا تسأل كثيرًا، لكنها جاهزة لكل شيء.. ارتدها بأناقة… وخذها معك.. . التفاصيل الفنية: . النوع: شنطة رجالية متعددة الاستخدام. الاستخدام: مثالية للسفر، التخييم، النادي الرياضي، أو الاستخدام اليومي. اللون: كحلي كلاسيكي. السحاب: عالي الجودة، انسيابي الحركة. المقبض الجانبي: عملي لسهولة الحمل والتنقل. الحجم: مدمجة وخفيفة، تتسع للاحتياجات اليومية. . .",
       "productType": null,
       "nativePrice": {
-        "amount": 59,
+        "amount": 75,
         "currency": "AED"
       },
       "nativeWasPrice": 199,
@@ -5630,7 +5651,7 @@
       "description": ". اليقنس ليذر قولد . ليست مجرد ساعة… بل تحفة فنية تجمع بين سحر الزمن وفخامة التفاصيل. . ميناؤها الذهبي يلمع كـ شمس المساء ، يختبئ خلفه سرٌّ من الهيبة والرقي، وسوارها الجلدي الأنيق يلف معصمك كأنّه عناق دافئ للأناقة . . كل دقيقة تمر معها تتحول إلى لحظة استثنائية ، فهي ساعة تعكس شخصية قوية، وذوقًا رفيعًا يعرف كيف يوازن بين الفخامة والعملية . . إنها ليست أداة لقياس الوقت فقط، بل لغة فاخرة تترجم حضورك … ومعها يصبح كل ظهور لك رواية من الجمال. . . صُنعت لتجسّد الأناقة والدقة: . هيكل أنيق من السبائك المعدنية المتينة، يمنح الساعة حضورًا راقيًا وقوة تدوم. . إطار أنيق من نفس السبيكة، بتشطيب يعكس الفخامة في كل تفصيلة. . حركة يابانية. زجاج مقوّى عالي الجودة من مادة معدنية صلبة، مقاوم للخدوش وشفاف بصفاء استثنائي. . سوار مصنوع من أفخر أنواع الجلود الطبيعية تلفّ معصمك براحة ورقي لا يُضاهى. . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 305,
+        "amount": 405,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -5684,7 +5705,7 @@
       "description": ". . .",
       "productType": null,
       "nativePrice": {
-        "amount": 205,
+        "amount": 106.96,
         "currency": "AED"
       },
       "nativeWasPrice": 400,
@@ -5792,7 +5813,7 @@
       "description": "اطلب عطر ليدي الخاص بك حيث انه يمكنك تجربته لمدة سبع أيام بضمان عساف الخاص ، مما يتيح لك إعادة الزجاجة في حال لم تنال اعجابك مهما كانت الكمية المستخدمة إذا لزم الأمر ، وإعادة المبلغ لك. . . ليدي - 200 مل. كأنها همسةُ نسيمٍ في صباحٍ هادئ، أو لمسةُ حريرٍ على بشرةٍ مخملية، يأتي ليدي ليجسد جوهر الأنوثة في أبهى صورها. إنه العطر الذي لا يُشبه سواه، يروي قصة امرأةٍ تُضيء حضورها بهالةٍ من الرقي والسحر، تترك أثرًا لا يُنسى أينما حلّت. . تبدأ رحلته بنفحاتٍ مشرقة من البرغموت وزهر البرتقال، كابتسامةٍ دافئة تلامس القلب. ثم يتراقص قلب العطر بين بتلات الورد والياسمين، حيث تُزهر الرومانسية بكل تفاصيلها، قبل أن يستقر العطر على قاعدةٍ آسرة من الفانيليا الناعمة والمسك الأبيض، كعناقٍ طويل يبقى عابقًا في الذاكرة. . ليدي.. ليس مجرد عطر، بل قصيدةُ أنوثة تُروى بالرائحة، وسحرٌ يليق بالمرأة التي تعرف أن حضورها هو سر الجاذبية الحقيقية. . التركيبة . المكونات العليا:الليمون،البرتقال . المكونات الوسطى:الورود،الياسمين،زهرة البرتقال . المكونات الأساسية:خشب الكشمير،المسك،خشب الصندل،خشب الأرز،الفانيليا . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 249,
@@ -5819,7 +5840,7 @@
       "description": "Order your First Knight perfume and try it for seven days with Assaf's guarantee, which allows you to return the bottle if you don't like it, regardless of how much you've used, and get your money back.. As if the night whispers its first secrets, First Night comes to you as a fragrance that tells the story of dreamy beginnings... One spray is like the first glance between two lovers, where the fragrance of lavender blends with the softness of bergamot to create a note of mystery and attraction.. The fragrance opens with refreshing orange notes, like a shy breeze touching the flowers of the night, then its heart penetrates deep into jasmine, immersed in enchanting orchid touches, taking you to a world of dreamy romance. The base leaves a velvety trail of vanilla and tonka bean, like the memory of an unforgettable night.. It is not just a fragrance, but a promise of a story that begins at sunset and does not end at sunrise.. . Composition:. Top notes: lavender, mandarin, orange, bergamot. Middle notes: orange blossom, jasmine, orchid. Base notes: vanilla, tonka bean, amber. . Size: 150 ml. Fragrance gender: Women .",
       "productType": "women",
       "nativePrice": {
-        "amount": 125,
+        "amount": 105,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -5927,7 +5948,7 @@
       "description": "A perfume made to shine! . . Order your CROWN SPIRIT perfume, as you can try it for Seven days with Assaf’s special guarantee, which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary, and get your money back.. . . Sources of inspiration and naming: . CROWN SPIRIT perfume, the perfume of the brilliant personality that seeks to spread creativity everywhere it steps. The name was inspired by the creative spirit that enchants everyone with its creativity and brilliance.. . Composition: . Its components are expertly woven and have a pure and intense character. Components have been blended to create a unique and distinctive scent, most notably:. Top notes: black grape, bergamot, rose.. Heart notes: guaiac wood, jasmine, patchouli.. Base notes: Amber, Cedarwood, Musk. . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists). . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 99,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -5954,7 +5975,7 @@
       "description": ". . اطلب عطر أروقيت يفوريا الآن، وتمتّع بتجربته لمدة سبع أيام كاملة مع ضمان عساف الخاص، مما يتيح لك إعادة الزجاجة واسترجاع المبلغ كاملاً حتى لو كانت فارغة، إذا لم ينل إعجابك.. . أروقيت يفوريا — إصدارٌ جديد يتجاوز التعريفات…. . ليس مجرد عطر، بل حالة. شعورٌ لا يُشبَه، ولا يُشبه أحدًا. يولد في اللحظة، ويكبر في الأثر. لكل من لا يريد أن يُحاصر بهوية، بل يصنع هويته كل يوم، على طريقته، بنبضه، بصمته، بصوته.. . يفوريا لا يسألك من أنت، بل يخبرك بما يمكن أن تكون عليه. يفتح الأبواب لكل الإحتمالات — يُلغي الخطوط بين الأنثوي والرجولي، بين الرقة والحدة، بين الحضور والصمت.. . نفحاته الأولى تشبه لحظة الانجذاب الأولى… سريعة، عميقة، لا تُفسَّر. ثم يمتد على الجلد كما يمتد الأثر بعد لحظة صدق — يتسلل، يكتشف، يستقر.. . إنه العطر الذي لا يحتاج لأن يصرّح… فقط أن يكون.. . يفوريا. لمن يرى نفسه خارج القوالب، ولمن يعرف أن التفرد ليس في التميّز عن الآخرين… بل في الجرأة أن تكون كما أنت. . تركيبة العطر:. مقدمة العطر : البرغموت، اليوسفي، زنبق الوادي. قلب العطر : العنبر الجاف، الباتشولي. قاعدة العطر : مسك، فانيليا. .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 375,
@@ -5981,7 +6002,7 @@
       "description": ". كما ينطلق الحصان الأسطوري \"فرانكل\" بخفة وقوة لا تُقهر،. ينطلق عطر Frankel Chill في أجواء الصيف بنفحات لا تُنسى تمزج بين الانتعاش والنقاء والجرأة.. في أول لحظة، تنبعث روائح الكشمش الأسود والأترج في توليفة مفعمة بالحيوية، تشبه نسمة صباحٍ نقيّة تهب على ساحلٍ أزرق.. هذا العطر يعكس روح التجدد والانطلاق، تمامًا كخيل لم يعرف الهزيمة يومًا.. صنعه خبير العطور بإلهام من الطبيعة الخالصة، مبتعدًا عن النغمات الصناعية، ليمنحنا تجربة عطريّة نابضة بالحياة.. تتفتح طبقات العطر بنكهات الليمون والبرتقال، وتنساب برقة مع لمسات من النعناع الطازج والريحان وبذور الكزبرة، تتوازن مع عبق الأمبريت الدافئ، لتمنحك شعورًا بالسكينة والاتزان وسط زخم الحياة.. إنه أكثر من عطر صيفي، إنه دعوة لاستنشاق الحرية، ومرافقة \"فرانكل\" في رحلة لا حدود لها نحو الأفق.",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 149,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -6035,7 +6056,7 @@
       "description": "اطلب عطر كينق انيبل الخاص بك حيث انه يمكنك تجربته لمدة سبع أيام بضمان عساف الخاص ، مما يتيح لك إعادة الزجاجة في حال لم تنال اعجابك مهما كانت الكمية المستخدمة إذا لزم الأمر ، وإعادة المبلغ لك. . يأتي الآن بناء على طلباتكم بحجم أكبر! . كينق . عطر كينق هو أكثر من مجرد اسم، إنه بيان. إنه يعكس شخصية قوية، وثقة بالنفس، ويسعى إلى ترك انطباع لا يُنسى. يتميز بتركيبة فريدة تعكس القوة والفخامة. عطر كينق هو تجسيد للأناقة والقوة، مصمم ليعكس شخصية الرجل الواثق والطموح. وصُنع للرجل الذي يسعى للتميز ويعبر عن ثقته وجاذبيته في كل مناسبة. . . تركيبة العطر . عطر كينق يبدأ برحلة منعشة من البرغموت واللافندر، وينتقل بسلاسة إلى قلب دافئ من الباتشولي والعنبر، لينتهي بلمسة ساحرة من الفانيليا والتوباكو. هذا المزيج العطري يقدم تجربة حسية متكاملة، تجمع بين الانتعاش والرقي والجاذبية. . المكونات العليا: البرغموت، اللافندر . المكونات الوسطى: الباتشولي، العنبر . المكونات الأساسية: الفانيليا، التوباكو . . حجم العطر: 150 مل . جنس العطر: رجالي . .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 250,
@@ -6062,7 +6083,7 @@
       "description": "Order your Pegasus Proino 150 ml as you can try it for seven days with Asaf's special guarantee, allowing you to return the bottle if you are not satisfied, regardless of the amount used if necessary, and get your money back.. It now comes in a larger size due to your requests! . Pegasus Proino - 150 ml Like a cloud of purity embracing the horizon, Pegasus Proino carries within it a hidden magic that combines authenticity and modernity, where strength meets luxury in a harmony that tells a story of prestige and allure. Ingredients: mandarin, orange, peach, strawberry, jasmine, amber, patchouli, sandalwood.. .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 185,
         "currency": "AED"
       },
       "nativeWasPrice": 250,
@@ -6089,7 +6110,7 @@
       "description": "اطلب بيقاسوس بخور 100 مل الخاص بك حيث انه يمكنك تجربته لمدة سبع أيام بضمان عساف الخاص، مما يتيح لك إعادة الزجاجة في حال لم تنال اعجابك مهما كانت الكمية المستخدمة إذا لزم الأمر، وإعادة المبلغ لك.. . يأتي الآن بحجم أكبر نظرًا لطلباتكم !. . بيقاسوس بخور - 150 مل. كأنه جناحٌ يحلّق بك إلى عوالم من الفخامة والغموض، حيث تلتقي الأسطورة بالعبير في رقصةٍ لا تنتهي. بيقاسوس بخور ليس مجرد عطر، بل قصيدة تُكتب بنفحات البخور الفاخر.. . المكونات: الزعفران،الهيل،القرفة ، الورود،خشب الصندل،العود ، العنبر،المسك،الجلود. .",
       "productType": null,
       "nativePrice": {
-        "amount": 99,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 255,
@@ -6143,7 +6164,7 @@
       "description": ". . اطلب عطر عود بيقاسوس الخاص بك حيث انه يمكنك تجربته لمدة سنتين بضمان عساف الخاص، مما يتيح لك إعادة الزجاجة في حال لم تنال اعجابك مهما كانت الكمية المستخدمة إذا لزم الأمر، وإعادة المبلغ لك. . . . عود بيقاسوس – 150 مل . قصيدة العود الذي يحلّق بك إلى عوالم الأسطورة… رحلة من عبق الأصالة وجلال الحرية، حيث يمتطي العطر جناحي بيقاسوس لينثر سحره على بشرتك.. . في مستهل الحكاية، يتقدّم العود بجلاله العميق، محاطًا بلمحات دافئة من التوابل، كأنها شرارة النور في بداية الرحلة…. وفي القلب، تتماوج الأخشاب النادرة مع لمسات دخانية خفيفة، تتداخل كالخيول الجامحة في ساحة أسطورية، تحمل القوة والهيبة في كل نفحة…. . عود بيقاسوس ليس مجرد عطر، بل أسطورة معلّقة في الهواء… بين الأرض والسماء، بين الخيال والواقع… حيث كل رشةٍ انطلاقة، وكل نفحةٍ جناح يعلو بك نحو الأفق. .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 169,
         "currency": "AED"
       },
       "nativeWasPrice": 255,
@@ -6170,7 +6191,7 @@
       "description": ". اطلب وايلد بيقاسوس 150 مل الخاص بك حيث انه يمكنك تجربته لمدة سبع أيام بضمان عساف الخاص، مما يتيح لك إعادة الزجاجة في حال لم تنال اعجابك مهما كانت الكمية المستخدمة إذا لزم الأمر، وإعادة المبلغ لك.. . يأتي الآن بحجم أكبر نظرًا لطلباتكم !. . بيقاسوس وايلد - 150 مل. كأنه عاصفةٌ من الأناقة تنطلق بلا قيود، يحمل بيقاسوس وايلد في طيّاته جوهر الحرية المطلقة، حيث تمتزج القوة بالغموض في توليفةٍ آسرة لا تعرف الحدود.. . المكونات : البرغموت الإيطالي،الفلفل الوردي، الورود،الياسمين،.زهرة البرتقال، العنبر،خشب الصندل،الباتشولي،الفانيليا. .",
       "productType": null,
       "nativePrice": {
-        "amount": 125,
+        "amount": 139,
         "currency": "AED"
       },
       "nativeWasPrice": 255,
@@ -6197,7 +6218,7 @@
       "description": ". .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 125,
+        "amount": 119.6,
         "currency": "AED"
       },
       "nativeWasPrice": 399,
@@ -6224,7 +6245,7 @@
       "description": ". . . . . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 209,
+        "amount": 185,
         "currency": "AED"
       },
       "nativeWasPrice": 399,
@@ -6386,7 +6407,7 @@
       "description": ". . .",
       "productType": "women",
       "nativePrice": {
-        "amount": 99,
+        "amount": 105,
         "currency": "AED"
       },
       "nativeWasPrice": 172.99,
@@ -6518,10 +6539,10 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 99,
+        "amount": 100,
         "currency": "AED"
       },
       "nativeWasPrice": 172.99,
@@ -6703,7 +6724,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": "women",
       "nativePrice": {
         "amount": 99,
@@ -6730,10 +6751,10 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": "women",
       "nativePrice": {
-        "amount": 99,
+        "amount": 49,
         "currency": "AED"
       },
       "nativeWasPrice": 259,
@@ -6757,7 +6778,7 @@
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "house-direct",
-      "description": null,
+      "description": ".",
       "productType": "women",
       "nativePrice": {
         "amount": 99,
@@ -6787,7 +6808,7 @@
       "description": "A perfume made to steal the spotlight from those around you , it comes in a 100 ml bottle. . . Sources of inspiration and naming . Wild Colt is a fragrance for the confident. Its composition reveals a unique and radiant personality, a spirit that chooses to prove itself. The name of the fragrance is inspired by wildness, as it makes others feel your presence even if you never speak. . . The composition . Its components are expertly woven and have a pure and intense character. Wilde denotes boldness and self-confidence. . . Ingredients mixed to create a unique, distinctive scent, most notably: . \"Veterindian , Oud, Frankincense, Davana, Leather.\" . . Size: 100 ml . Fragrance type: Unisex . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the fragrance directly onto the warmer areas of the skin (neck and wrists). . .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 99,
+        "amount": 95,
         "currency": "AED"
       },
       "nativeWasPrice": 172.99,
@@ -6868,7 +6889,7 @@
       "description": ".",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 125,
+        "amount": 99,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -6976,7 +6997,7 @@
       "description": ". .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -7003,7 +7024,7 @@
       "description": "Order your Nomad perfume and you can try it for Seven days with Assaf’s special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary , and get the money back. . . To the lovers of overwhelming presence without dispute. . . The composition . Nomad brings you the sense of limitlessness in one of the most legendary ingredients in perfumery, Oud. We have combined this revolutionary and exquisite material with a touch of benzoin and notes of wild berries. In the distance, threads of smoke from the incense float towards the sky. Oud has never been so legendary. . . Size: 200 ml. Fragrance type: Unisex. . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists). .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -7030,7 +7051,7 @@
       "description": ". Hamidi Marati is one of the best designers in the world. . . It is an olfactory expression of the celebrations and the special noisy days in your life. . . Sources of inspiration and naming . It is certainly not just a fragrance, but the result of the best performance you can get. The abundance of ingredients inspired this composition that blends jasmine and bergamot with moist woody scents. The color turns into a symbolic and immortal fragrance. This vibrant scent is multifaceted and effortlessly elegant. Creamy sandalwood adds a velvety character to the scent and excites everyone around you. It is the perfect choice for men and women looking for the highest levels of elegance. The harmony of patchouli with oak increases the warmth and strength of the scent to complete the warm epic of the fragrance.. . The composition . Sandalwood, amber, cedar, bergamot, patchouli, oak moss, rose. . . Size: 200 ml . Fragrance type: Unisex . . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists). . .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -7084,7 +7105,7 @@
       "description": "Order your own MISS SAKURA perfume , as you can try it for Seven days with Assaf’s special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary , and get your money back. . . The only perfume that can translate your feelings . . Sources of inspiration and naming . This perfume was created for an urgent desire to restore the magic of women's lives and to make them see the bright colors of love. It is a perfume that captivates the senses and leaves an irresistible effect.. . The composition . In the most beautiful days of spring, I found the cute cherry blossom. Despite its small size, it releases a beautiful fragrance and leaves an unforgettable impression. At the end of the fragrance comes the scent of musk and jasmine in a 200 ml bottle. The two components that merge and produce a soft and calm scent.. . Size: 200 ml. Fragrance type: Women. . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists)..",
       "productType": "women",
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -7111,7 +7132,7 @@
       "description": "Welcome back again . Order your Wild Colt perfume and you can try it for Seven days with Asaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used if necessary , and get the amount refunded to you. . . A perfume made to steal the spotlight from those around you , it comes in a very large 200ml bottle. . . Sources of inspiration and naming . Wild Colt is a fragrance for the confident. Its composition reveals a unique and radiant personality, a spirit that chooses to prove itself. The name of the fragrance is inspired by wildness, as it makes others feel your presence even if you never speak.. . The composition . Its components are expertly woven and have a pure and intense character. Wilde denotes boldness and self-confidence. . Ingredients mixed to create a unique, distinctive scent, most notably:. \"Veterindian , Oud, Frankincense, Davana, Leather.\". . Size: 200ml. Fragrance type: Unisex. the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the fragrance directly onto the warmer areas of the skin (neck and wrists). .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 125,
+        "amount": 109,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
@@ -7138,7 +7159,7 @@
       "description": ".",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 99,
+        "amount": 59,
         "currency": "AED"
       },
       "nativeWasPrice": 149.99,
@@ -7165,7 +7186,7 @@
       "description": "Wild Colt Tobacco – Feel Like a Leader Every occasion becomes a battlefield — and you are its fearless commander. Wild Colt Tobacco gives you dominance, elegance, and undeniable presence. It transports you into a paradoxical realm — where authority meets refinement, and strength comes wrapped in sophistication. Within seconds of releasing its scent… you own the room. Fragrance Composition A journey into a different world: Jasmine and Neroli mark the captivating calm of the beginning. Rose and Peach define the heart, where charm and elegance blossom. Sandalwood, Amber, and Leather create a luxurious finish — bold, lasting, unforgettable. Golden Guarantee Because we value every taste, this fragrance comes with a special 2-year guarantee. You can return the bottle and receive a full refund — no matter how much you've used — if it doesn't meet your expectations..",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 99,
+        "amount": 105,
         "currency": "AED"
       },
       "nativeWasPrice": 175,
@@ -7273,7 +7294,7 @@
       "description": "Order your own Arooqet Girl perfume now, as you can try any of our perfumes for Seven days with Assaf’s special guarantee, which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary, and we will refund you the amount.. . Aroquette Girl - 200 ml. . In a world where light and shadow dance, Arrogate Girl emerges as a timeless masterpiece inspired by the legendary racehorse Arrogate. This fragrance is the embodiment of the power and splendor of the horse that has captivated minds and hearts with its amazing performance and unparalleled speed.. . The composition. Opening: Your adventure with Arrogate Girl begins with the first touch of purity, as fresh grapefruit, Italian bergamot, orange and mandarin oils release a vibrant scent. These scents invigorate the senses as if you are on a racetrack under the morning sun, where racehorses take their first steps with a promising freshness, spreading the scent of freshness and joy everywhere.. Heart: As the fragrance develops, its rich heart opens up to you. Caramelized caramel harmonizes with the breezes of Spanish cedar, creating a sweet and deep blend that expresses luxury. Jasmine and orange blossom meet with gardenia and lily of the valley to form a floral garden that radiates luxury and beauty, as if you are walking in a wonderful garden decorated with the colors and hues of flowers.. Base: Your aromatic journey ends with the strength and power of the amazing base of the fragrance. Super ambrox harmonizes with Haitian vetiver, sandalwood, musk, and cedarwood, to create a rich and deep scent that lingers in the memory for a long time. A touch of vanilla adds a warm and soft touch, as if it were the bright ending that crowned every journey, imbued with an atmosphere of luxury and unforgettable elegance.. . Perfume size: 200 ml. Fragrance type: Women.",
       "productType": "women",
       "nativePrice": {
-        "amount": 125,
+        "amount": 209,
         "currency": "AED"
       },
       "nativeWasPrice": 499,
@@ -7354,7 +7375,7 @@
       "description": "Pink Queen – 200ml Wherever you go, you reign — Pink Queen. Inspiration & Naming The name Pink Queen was inspired by the perfect harmony of elegance and allure that defines this fragrance. In a world filled with colors and scents, Pink Queen tells the story of a powerful woman who shines with charm and femininity. With this fragrance, you become the queen of every room you enter. Fragrance Composition Top Notes: Bergamot, Rose Heart Notes: Peony, Caramel Base Notes: Vanilla, Musk Size: 200ml For: Women.",
       "productType": "women",
       "nativePrice": {
-        "amount": 125,
+        "amount": 129,
         "currency": "AED"
       },
       "nativeWasPrice": 275,
