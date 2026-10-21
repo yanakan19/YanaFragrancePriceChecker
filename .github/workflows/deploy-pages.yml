@@ -254,7 +254,7 @@ jobs:
           # its sitemap, from the same build as the UK page.
           for r in us in; do
             test -s "demo/$r/index.html"
-            cmp "demo/$r/index.html" "demo/$r/404.html"
+            # Its 404.html is the page without its first screen: firstScreen.ts --check above.
             grep -q '<urlset' "demo/sitemap-$r.xml"
           done
           ls -la demo/index.html demo/404.html demo/sitemap*.xml demo/data demo/us/data demo/in/data
