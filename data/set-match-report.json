@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 217,
+ "folded": 218,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -5239,6 +5239,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003996209",
    "absorbed": [
     "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray"
@@ -6900,6 +6932,51 @@
   },
   {
    "reasons": [
+    "two different barcodes: 783320423413, 783320424243",
+    "a shop lists more than one: perfume-click",
+    "price spread 1.60 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-bvlgari-rose-goldea-blossom-delight-gift-set-50ml-edp-75ml-body-milk-50ml-edp",
+     "brand": "Bvlgari",
+     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Milk 50ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blossom delight goldea rose",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    },
+    {
+     "id": "set-ean-0783320423413",
+     "brand": "Bvlgari",
+     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Milk",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320423413",
+     "scent": "blossom delight goldea rose",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-0783320424243",
+     "brand": "Bvlgari",
+     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320424243",
+     "scent": "blossom delight goldea rose",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.56 is over 1.5"
    ],
    "members": [
@@ -7882,38 +7959,6 @@
      "signature": "1x100fragrance|1x125body",
      "shops": [
       "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 783320423413, 783320424243",
-    "a shop lists more than one: perfume-click"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0783320423413",
-     "brand": "Bvlgari",
-     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Milk",
-     "concentration": "Eau de Parfum",
-     "ean": "0783320423413",
-     "scent": "blossom delight goldea rose",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-0783320424243",
-     "brand": "Bvlgari",
-     "name": "Rose Goldea Blossom Delight Gift Set 50ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0783320424243",
-     "scent": "blossom delight goldea rose",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "perfume-click"
      ]
     }
    ]
@@ -9265,6 +9310,49 @@
   },
   {
    "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460133647",
+     "brand": "Rochas",
+     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460133647",
+     "scent": "girl",
+     "signature": "1x100wash|1x60fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-rochas-girl-2-piece-gift-set-eau-de-toilette-60ml-shower-gel-100ml",
+     "brand": "Rochas",
+     "name": "Girl 2 Piece Gift Set: Eau de Toilette 60ml - Shower Gel 100ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "girl",
+     "signature": "1x100wash|1x60fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-rochas-girl-gift-set-60ml-edt-100ml-shower-gel",
+     "brand": "Rochas",
+     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "girl",
+     "signature": "1x100wash|1x60fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3386460139045, 3386460147927"
    ],
    "members": [
@@ -9820,6 +9908,37 @@
      "shops": [
       "paco-perfumerias-uk",
       "perfume-direct"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.75 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222118709",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Gift Set 100ml EDT + 25ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222118709",
+     "scent": "d eau issey l",
+     "signature": "1x100fragrance|1x25fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-25ml-edt",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Gift Set 100ml EDT + 25ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau issey l",
+     "signature": "1x100fragrance|1x25fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
@@ -12255,37 +12374,6 @@
   },
   {
    "reasons": [
-    "price spread 2.08 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-rochas-girl-2-piece-gift-set-eau-de-toilette-60ml-shower-gel-100ml",
-     "brand": "Rochas",
-     "name": "Girl 2 Piece Gift Set: Eau de Toilette 60ml - Shower Gel 100ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "girl",
-     "signature": "1x100wash|1x60fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-rochas-girl-gift-set-60ml-edt-100ml-shower-gel",
-     "brand": "Rochas",
-     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "girl",
-     "signature": "1x100wash|1x60fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.59 is over 1.5"
    ],
    "members": [
@@ -12372,7 +12460,6 @@
      "scent": "cora",
      "signature": "1x100body|1x50fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
