@@ -1,7 +1,7 @@
 {
   "retailerId": "paris-corner",
-  "updatedAt": "2026-10-21T11:42:01.330Z",
-  "seenAt": "2026-10-21T11:42:01.330Z",
+  "updatedAt": "2026-10-21T13:22:10.643Z",
+  "seenAt": "2026-10-21T13:22:10.643Z",
   "source": "live",
   "listings": [
     {
@@ -1156,32 +1156,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "56033",
-      "url": "https://pariscorner.ae/product/oud-royal-100ml/",
-      "rawTitle": "OUD ROYAL 100ML",
-      "rawBrand": "MINISTRY OF OUD",
-      "ean": null,
-      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2024/12/OUD-ROYAL-POSTER-scaled.jpg",
-      "description": "Top notes : Pink Pepper, Lemon and Sicilian Bergamot. Middle notes : Cedar, Angelica and Galbanum. Base notes : Sandalwood, Agarwood (Oud) and Musk. Oud Royal is a fragrance that exudes regality and refinement, capturing the essence of timeless elegance. From the lively opening to the complex heart and the enduring base, each note is a testament to the artistry of scent, creating an experience that is truly royal. Indulge in the opulence of Oud Royal and let its luxurious aura envelop you.",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 75,
-        "currency": "AED"
-      },
-      "retailerId": "paris-corner",
-      "firstSeenAt": "2026-08-05T11:11:10.449Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "56040",
       "url": "https://pariscorner.ae/product/greatest-100ml/",
       "rawTitle": "GREATEST 100ML",
@@ -1571,6 +1545,59 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "58764",
+      "url": "https://pariscorner.ae/product/minya-caramel-dulce-100ml/",
+      "rawTitle": "MINYA CARAMEL DULCE 100ML",
+      "rawBrand": "PARIS CORNER",
+      "ean": null,
+      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2025/07/MINYA-CARAMEL-DULCE.png",
+      "description": "TOP NOTES: POP CORN, BUTTERHEART NOTES: CHESNUT, CHOCOLATE, BENZOINBASE NOTES: CARAMEL, VANILLA, BROWN SUGAR MINIYA Caramel Dulce is an indulgent gourmand fragrance that opens with the unexpected warmth of buttery popcorn, instantly evoking the cozy sweetness of a cinema treat. As it settles, a decadent heart of creamy orris, roasted chestnut, and rich chocolate melts into comforting benzoin. The base lingers with velvety caramel, soft vanilla, and golden brown sugar — creating a sensual trail that’s both nostalgic and delicious. This scent wraps you in a cocoon of edible warmth, like a dessert dream bottled to perfection. Ideal for those who crave sweetness with sophistication.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 95,
+        "currency": "AED"
+      },
+      "retailerId": "paris-corner",
+      "firstSeenAt": "2026-10-21T13:22:10.643Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "56033",
+      "url": "https://pariscorner.ae/product/oud-royal-100ml/",
+      "rawTitle": "OUD ROYAL 100ML",
+      "rawBrand": "MINISTRY OF OUD",
+      "ean": null,
+      "imageUrl": "https://pariscorner.ae/wp-content/uploads/2024/12/OUD-ROYAL-POSTER-scaled.jpg",
+      "description": "Top notes : Pink Pepper, Lemon and Sicilian Bergamot. Middle notes : Cedar, Angelica and Galbanum. Base notes : Sandalwood, Agarwood (Oud) and Musk. Oud Royal is a fragrance that exudes regality and refinement, capturing the essence of timeless elegance. From the lively opening to the complex heart and the enduring base, each note is a testament to the artistry of scent, creating an experience that is truly royal. Indulge in the opulence of Oud Royal and let its luxurious aura envelop you.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 75,
+        "currency": "AED"
+      },
+      "retailerId": "paris-corner",
+      "firstSeenAt": "2026-08-05T11:11:10.449Z",
+      "lastSeenAt": "2026-10-21T11:42:01.330Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
