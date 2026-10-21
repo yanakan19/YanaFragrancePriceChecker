@@ -9,11 +9,14 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const built = existsSync(resolve(root, 'demo/index.html'));
 
 /**
- * The home page's Most Stocked block, checked on the built page (owner's
- * request, 2026-10-04):
- *   - on a phone it is one horizontal rail that can be swiped to its very end,
- *     with the last tile whole and the page itself never scrolling sideways;
- *   - on a desktop window the twelve tiles sit in a centred grid;
+ * The home page's Most Stocked block, checked on the built page:
+ *   - one row of tiles at every width (owner, 21 Oct 2026): as many whole
+ *     tiles as fit across the section (a tile is at least 150px, gaps 12px),
+ *     never a second row, never a row that scrolls sideways, and the page
+ *     itself never scrolling sideways; the tiles that do not fit are out of
+ *     the layout and the tab order, not merely clipped;
+ *   - on a desktop window the row sits centred, four or six tiles wide
+ *     (owner request, 2026-10-04);
  *   - the link under the heading reads "See All", not a count.
  */
 describe.skipIf(!built)('Most Stocked on the home page', () => {
@@ -32,43 +35,43 @@ describe.skipIf(!built)('Most Stocked on the home page', () => {
   });
 
   interface RailProbe {
-    tiles: number;
+    inMarkup: number;
+    shown: number;
+    rows: number;
+    railWidth: number;
     scrollWidth: number;
     clientWidth: number;
-    scrollLeft: number;
-    railLeft: number;
-    railRight: number;
-    lastLeft: number;
-    lastRight: number;
     firstLeft: number;
-    rows: number;
-    perFirstRow: number;
+    lastRight: number;
+    hiddenFocusable: number;
     pageScrollWidth: number;
     innerWidth: number;
   }
 
   const probe = (page: Page): Promise<RailProbe> =>
     page.evaluate(`(() => {
-      const rail = document.querySelector('.pop-rail');
-      const boxes = [...rail.children].map((el) => el.getBoundingClientRect());
-      const r = rail.getBoundingClientRect();
-      const tops = boxes.map((b) => Math.round(b.top));
+      const rail = document.querySelector('.pop-section .pop-rail');
+      const items = [...rail.children];
+      const shown = items.filter((el) => getComputedStyle(el).display !== 'none');
+      const boxes = shown.map((el) => el.getBoundingClientRect());
+      const hidden = items.filter((el) => getComputedStyle(el).display === 'none');
       return {
-        tiles: boxes.length,
+        inMarkup: items.length,
+        shown: shown.length,
+        rows: new Set(boxes.map((b) => Math.round(b.top))).size,
+        railWidth: rail.getBoundingClientRect().width,
         scrollWidth: rail.scrollWidth,
         clientWidth: rail.clientWidth,
-        scrollLeft: rail.scrollLeft,
-        railLeft: r.left,
-        railRight: r.right,
         firstLeft: boxes[0].left,
-        lastLeft: boxes[boxes.length - 1].left,
         lastRight: boxes[boxes.length - 1].right,
-        rows: new Set(tops).size,
-        perFirstRow: tops.filter((t) => t === tops[0]).length,
+        hiddenFocusable: hidden.flatMap((el) => [...el.querySelectorAll('button, a')]).filter((b) => b.offsetParent !== null).length,
         pageScrollWidth: document.documentElement.scrollWidth,
         innerWidth: window.innerWidth,
       };
     })()`) as Promise<RailProbe>;
+
+  /** How many tiles of at least 150px, 12px apart, fit across `width`: the rule the stylesheet's steps follow. */
+  const fit = (width: number): number => Math.max(2, Math.min(12, Math.floor((Math.round(width) + 12) / 162)));
 
   async function openHome(width: number, touch: boolean, theme: 'dark' | 'light' = 'dark'): Promise<{ page: Page; close: () => Promise<void> }> {
     const ctx = await browser.newContext({ viewport: { width, height: 800 }, hasTouch: touch, isMobile: touch });
@@ -79,75 +82,43 @@ describe.skipIf(!built)('Most Stocked on the home page', () => {
     return { page, close: () => ctx.close() };
   }
 
-  for (const width of [375, 390]) {
-    it(`is a rail at ${width} wide that swipes to the end, last tile whole, page not scrolling sideways`, async () => {
-      const { page, close: done } = await openHome(width, true);
-      const start = await probe(page);
-      expect(start.tiles).toBe(12);
-      // A rail, not a wrapped grid: one row, and wider than what is shown.
-      expect(start.rows).toBe(1);
-      expect(start.scrollWidth).toBeGreaterThan(start.clientWidth);
-      expect(start.scrollLeft).toBe(0);
-      expect(await page.$eval('.pop-rail', (el) => getComputedStyle(el).overflowX)).toBe('auto');
-      expect(await page.$eval('.pop-rail', (el) => getComputedStyle(el).scrollSnapType)).toContain('x');
+  const oneRow = (p: RailProbe): void => {
+    expect(p.inMarkup).toBeGreaterThan(p.shown);
+    expect(p.shown).toBe(fit(p.railWidth));
+    expect(p.rows).toBe(1);
+    expect(p.scrollWidth).toBeLessThanOrEqual(p.clientWidth);
+    expect(p.hiddenFocusable).toBe(0);
+    expect(p.pageScrollWidth).toBeLessThanOrEqual(p.innerWidth);
+  };
 
-      // A real touch swipe moves the rail and not the page.
-      const cdp = await page.context().newCDPSession(page);
-      await page.evaluate(`document.querySelector('.pop-rail').scrollIntoView({ block: 'center' })`);
-      const box = (await page.locator('.pop-rail').boundingBox())!;
-      const y = box.y + 120;
-      const swipe = async (): Promise<void> => {
-        await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: width - 30, y }] });
-        for (let k = 1; k <= 10; k++) {
-          await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: width - 30 - k * 28, y }] });
-        }
-        await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-        await page.waitForTimeout(120);
-      };
-      await swipe();
-      expect((await probe(page)).scrollLeft).toBeGreaterThan(0);
-
-      // And enough of them reach the very end, with the last tile whole on
-      // screen and the right gutter after it.
-      for (let i = 0; i < 14; i++) await swipe();
-      await page.waitForFunction(() => {
-        const r = document.querySelector('.pop-rail') as HTMLElement;
-        return Math.abs(r.scrollLeft - (r.scrollWidth - r.clientWidth)) < 1;
-      });
-      const end = await probe(page);
-      expect(end.scrollLeft + end.clientWidth).toBeGreaterThanOrEqual(end.scrollWidth - 1);
-      expect(end.lastLeft).toBeGreaterThanOrEqual(end.railLeft);
-      expect(end.lastRight).toBeLessThanOrEqual(end.railRight - 12);
-      expect(end.pageScrollWidth).toBeLessThanOrEqual(end.innerWidth);
-      expect(await page.evaluate('window.scrollX')).toBe(0);
+  for (const [width, touch] of [[375, true], [390, true], [768, true], [1280, true]] as const) {
+    it(`is one row of the tiles that fit at ${width} wide on a touch screen, nothing scrolling sideways`, async () => {
+      const { page, close: done } = await openHome(width, touch);
+      const p = await probe(page);
+      oneRow(p);
+      // Whole tiles inside the page's gutters.
+      expect(p.firstLeft).toBeGreaterThanOrEqual(12);
+      expect(p.lastRight).toBeLessThanOrEqual(p.innerWidth - 12);
       await done();
     }, 90_000);
   }
 
-  it('centres the twelve tiles as two rows of six at 1280 wide, with no sideways scroll', async () => {
+  it('centres one row of six at 1280 wide on a desktop, with no sideways scroll', async () => {
     const { page, close: done } = await openHome(1280, false);
     const p = await probe(page);
-    expect(p.tiles).toBe(12);
-    expect(p.rows).toBe(2);
-    expect(p.perFirstRow).toBe(6);
-    // Nothing to scroll: the whole grid is in view.
-    expect(p.scrollWidth).toBeLessThanOrEqual(p.clientWidth);
+    oneRow(p);
+    expect(p.shown).toBe(6);
     // Centred: the space left of the first tile equals the space right of the last.
-    const left = p.firstLeft;
-    const right = p.innerWidth - Math.max(...(await page.$$eval('.pop-rail > *', (els) => els.map((e) => e.getBoundingClientRect().right))));
-    expect(Math.abs(left - right)).toBeLessThanOrEqual(1);
-    expect(left).toBeGreaterThan(40);
-    expect(p.pageScrollWidth).toBeLessThanOrEqual(p.innerWidth);
+    expect(Math.abs(p.firstLeft - (p.innerWidth - p.lastRight))).toBeLessThanOrEqual(1);
+    expect(p.firstLeft).toBeGreaterThan(40);
     await done();
   }, 90_000);
 
-  it('keeps the grid centred on a narrower desktop window, in rows of four', async () => {
+  it('keeps one centred row of four on a narrower desktop window', async () => {
     const { page, close: done } = await openHome(1000, false);
     const p = await probe(page);
-    expect(p.perFirstRow).toBe(4);
-    expect(p.rows).toBe(3);
-    expect(p.scrollWidth).toBeLessThanOrEqual(p.clientWidth);
-    expect(p.pageScrollWidth).toBeLessThanOrEqual(p.innerWidth);
+    oneRow(p);
+    expect(p.shown).toBe(4);
     await done();
   }, 90_000);
 
