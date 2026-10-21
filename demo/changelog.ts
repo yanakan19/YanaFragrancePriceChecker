@@ -44,6 +44,7 @@ export const CHANGELOG: ChangelogEntry[] = [
         heading: 'Products and Matching',
         points: [
           'US Cologne labels no longer split one perfume',
+          'US bottles now show their real strength',
         ],
       },
     ],

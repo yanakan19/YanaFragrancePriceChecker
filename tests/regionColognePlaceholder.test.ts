@@ -2,15 +2,15 @@
 // its "Cologne" or "Eau de Cologne" reads as strength not stated, another strength in the title wins, and every
 // other shop keeps Eau de Cologne.
 import { describe, expect, it } from 'vitest';
-import { buildRegionCatalogue, withoutColognePlaceholder } from '../src/catalogue/regionCatalogue.js';
+import { buildRegionCatalogue, strengthOfFlaggedShopType, withoutColognePlaceholder } from '../src/catalogue/regionCatalogue.js';
 import type { RegionListing, RegionSnapshot } from '../src/catalogue/regionHarvest.js';
 import { US_RETAILERS } from '../src/config/retailers.us.js';
 
 const NOW = '2026-10-21T12:00:00.000Z';
 let n = 0;
-const row = (title: string, brand: string, price: number, ean: string | null = null): RegionListing => ({
+const row = (title: string, brand: string, price: number, ean: string | null = null, productType: string | null = null): RegionListing => ({
   retailerSku: `sku-${++n}`, url: `https://shop.example/${n}`, rawTitle: title, rawBrand: brand, ean, price, wasPrice: null,
-  inStock: true, sectionId: 's', firstSeenAt: NOW, lastSeenAt: NOW, status: 'active',
+  inStock: true, productType, sectionId: 's', firstSeenAt: NOW, lastSeenAt: NOW, status: 'active',
 });
 const snap = (id: string, listings: RegionListing[]): RegionSnapshot => ({ retailerId: id, region: 'US', currency: 'USD', updatedAt: NOW, complete: true, listings });
 const build = (snaps: RegionSnapshot[]) => buildRegionCatalogue(snaps, {
@@ -65,6 +65,30 @@ describe('a shop whose Cologne is not a strength', () => {
     ]);
     expect(p).toHaveLength(1);
     expect(p[0]!.offers).toHaveLength(2);
+  });
+
+  it('reads the strength from the shop\'s own product type when the title states none', () => {
+    const p = build([snap('flagged', [row('Hugo Boss Bottled Night Cologne 3.4 oz.', 'Hugo Boss', 50, null, 'Eau De Toilette')])]);
+    expect(p[0]!.concentration).toBe('Eau de Toilette');
+    expect(p[0]!.name).toBe('Bottled Night');
+  });
+
+  it('lets the title strength win over the product type', () => {
+    const p = build([snap('flagged', [row('Paco Rabanne Invictus Eau de Parfum Cologne 100ml', 'Paco Rabanne', 60, null, 'Eau De Toilette')])]);
+    expect(p[0]!.concentration).toBe('Eau de Parfum');
+  });
+
+  it('does not take Cologne or Eau de Cologne, or a type with no strength, from the product type of a flagged shop', () => {
+    for (const type of ['Cologne', 'Eau De Cologne', 'Eau de Cologne', 'Gift Set', '', null]) {
+      const p = build([snap('flagged', [row('Hugo Boss Bottled Night Cologne 100ml', 'Hugo Boss', 50, null, type)])]);
+      expect(p[0]!.concentration, String(type)).toBe('Not stated');
+    }
+    expect(strengthOfFlaggedShopType('Cologne')).toBe('Not stated');
+  });
+
+  it('ignores the product type at a shop that is not flagged', () => {
+    const p = build([snap('other', [row('Hugo Boss Bottled Night Cologne 100ml', 'Hugo Boss', 50, null, 'Eau De Toilette')])]);
+    expect(p[0]!.concentration).toBe('Eau de Cologne');
   });
 
   it('takes only the word out of a title', () => {

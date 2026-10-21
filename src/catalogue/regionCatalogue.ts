@@ -28,7 +28,7 @@ import { asGateListing } from './regionHarvest.js';
 import { fragranceId, isCatalogueListing, sizeMl } from './fragranceId.js';
 import { findSameBottleGroups } from './audienceNames.js';
 import { concentrationBlindKey, settleHouseConcentrations, untrustworthyEans, trustworthyEan, type MatchableProduct } from './productMatch.js';
-import { CONCENTRATION_RESOLUTIONS, concentrationOfListing, displayName } from './productName.js';
+import { CONCENTRATION_NOT_STATED, CONCENTRATION_RESOLUTIONS, concentration, concentrationOfListing, displayName } from './productName.js';
 import { HOUSE_STRENGTH_EVIDENCE } from './houseStrengthEvidence.js';
 import { ownSizeTitle } from './shopifyJson.js';
 import { nominalMlForOz, ouncesStated } from './ounceSizes.js';
@@ -208,6 +208,25 @@ export function withoutColognePlaceholder(title: string): string {
     .trim();
 }
 
+/**
+ * The strength a flagged shop (`cologneWordIsNotAStrength`) states in its own product type field, for a listing whose
+ * title states none: "Eau De Toilette" on "Boss Bottled Night Cologne". A type of "Cologne" or "Eau de Cologne" is the
+ * shop's placeholder again, not a strength, so it reads as not stated; so does a type that names no strength
+ * ("Gift Set"). A strength the title states always wins over this (the caller asks only when the title states none).
+ */
+export function strengthOfFlaggedShopType(productType: string | null | undefined): string {
+  const t = (productType ?? '').trim();
+  if (!t) return CONCENTRATION_NOT_STATED;
+  const stated = concentration(t);
+  return stated === 'Eau de Cologne' ? CONCENTRATION_NOT_STATED : stated;
+}
+
+/** A flagged shop's listing: the strength its title states, else the one its own product type states. */
+function strengthOfFlaggedListing(title: string, productType: string | null | undefined): string {
+  const fromTitle = concentrationOfListing(title, null);
+  return fromTitle !== CONCENTRATION_NOT_STATED ? fromTitle : strengthOfFlaggedShopType(productType);
+}
+
 export interface BuildRegionOptions {
   now: string;
   /** Shop id to display name, for the brand reader's refusal of the shop's own name. */
@@ -264,7 +283,8 @@ export function buildRegionCatalogue(
     if (ean) withBarcode++;
     const format = options.formatWords?.get(shopId);
     const formatted = format ? l.rawTitle.replace(new RegExp(`\\s*-?\\s*${format}`, 'gi'), ' ').replace(/\s+/g, ' ').trim() : l.rawTitle;
-    const title = ownSizeTitle(options.cologneNotAStrength?.has(shopId) ? withoutColognePlaceholder(formatted) : formatted);
+    const flagged = options.cologneNotAStrength?.has(shopId) === true;
+    const title = ownSizeTitle(flagged ? withoutColognePlaceholder(formatted) : formatted);
     const rawBrand = brandOfRow[rowIndex]!;
     const brand = rawBrand === '' ? '' : (canon.get(rawBrand) ?? tidyBrandSpelling(rawBrand));
     const offer: RegionOffer = options.withListingDetail
@@ -280,7 +300,7 @@ export function buildRegionCatalogue(
       kind: isGiftSet(gate) ? 'set' : 'bottle',
       brand,
       name: displayName(title, rawBrand || null, brand || null),
-      concentration: concentrationOfListing(title, null),
+      concentration: flagged ? strengthOfFlaggedListing(title, l.productType) : concentrationOfListing(title, null),
       sizeMl: regionSizeMl(title),
       ean,
       offers: [offer],
