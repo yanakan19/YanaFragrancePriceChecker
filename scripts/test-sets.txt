@@ -152,6 +152,7 @@ code tests/marketProbe.test.ts
 code tests/marquee.test.ts
 code tests/moneyGuard.test.ts
 code tests/monogramContrast.test.ts
+code tests/mostPopular.test.ts
 code tests/mostStocked.test.ts
 code tests/mostStockedRail.test.ts
 code tests/motion.test.ts

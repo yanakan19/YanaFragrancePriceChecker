@@ -56,6 +56,18 @@ export const LIST_SORT_OPTIONS: SortOption<ListSort>[] = [
   { value: 'size-high', label: 'Largest to Smallest Size' },
 ];
 
+/**
+ * What browse and search can be ordered by where the country's shops publish
+ * review counts (demo/mostPopular.ts): every BrowseSort, and the reviews
+ * ranking the home page's Most Popular row opens at its See All. Not part of
+ * BrowseSort, which the Explore tabs share: a set or an oil is not ranked by
+ * reviews anywhere.
+ */
+export type SearchSort = BrowseSort | 'reviewed';
+
+/** The one order SearchSort adds: most reviewed first (demo/mostPopular.ts sortByReviews). */
+export const REVIEWED_SORT_OPTION: SortOption<'reviewed'> = { value: 'reviewed', label: 'Most to Least Reviewed' };
+
 /** Browse and search: the stock ranking first, because it is what the list already did. */
 export const BROWSE_SORT_OPTIONS: SortOption<BrowseSort>[] = [
   { value: 'stocked', label: 'Most to Least Stocked' },

@@ -10,7 +10,7 @@ import { renderRoutePage } from '../scripts/routePages.js';
 const hrefs = {
   productHref: (id: string) => `/p_${id}`,
   brandHref: (brand: string) => `/brands/${brand.toLowerCase().replace(/[^a-z]+/g, '-')}`,
-  browseHref: () => '/search',
+  browseHref: (sort?: string) => (sort ? `/search?sort=${sort}` : '/search'),
 };
 
 const HOME = `
@@ -25,6 +25,12 @@ const HOME = `
       <button type="button" class="phead-brand" data-brand="Dolce &amp; Gabbana">Dolce &amp; Gabbana</button>
       <button class="tile-body" data-frag="abc123"><span class="amt">from £10.00</span></button>
     </div></li></ul>
+  </section>
+  <section class="pop-section pop-reviewed">
+    <button class="link-btn see-top" data-browse="reviewed">See All</button>
+    <ul class="pop-rail"><li class="pop-item"><div class="tile">
+      <button class="tile-body" data-frag="def456"><span class="amt">from £12.00</span></button>
+    </div></li></ul>
   </section><div class="ps-ad ps-ad-home"><ins class="adsbygoogle"></ins></div>
   <div class="bottom-split"><section class="updates-section">History</section></div>`;
 
@@ -38,8 +44,9 @@ const DOC = `<!doctype html>
 describe('the first screen taken from the home view', () => {
   const screen = firstScreenFrom(HOME, hrefs);
 
-  it('ends with the Most Stocked section: the ad slot and everything under it stay the app’s', () => {
+  it('ends with the last row of tiles (Most Stocked, then Most Popular): the ad slot and everything under it stay the app’s', () => {
     expect(screen).toContain('class="pop-rail"');
+    expect(screen).toContain('data-frag="def456"');
     expect(screen).not.toContain('adsbygoogle');
     expect(screen).not.toContain('updates-section');
     expect(screen.endsWith('</section></div>')).toBe(true);
@@ -59,6 +66,8 @@ describe('the first screen taken from the home view', () => {
     // The brand is read unescaped and written back escaped.
     expect(screen).toContain('data-brand="Dolce &amp; Gabbana" data-href="/brands/dolce-gabbana"');
     expect(screen).toContain('data-browse data-href="/search"');
+    // A row's See All in that row's own order.
+    expect(screen).toContain('data-browse="reviewed" data-href="/search?sort=reviewed"');
   });
 
   it('refuses a home view without a Most Stocked section', () => {

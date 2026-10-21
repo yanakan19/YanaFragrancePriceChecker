@@ -57,6 +57,7 @@ import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import { BOT_NAME, BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { availabilityHeading, offerGroups, offersInPageOrder, offerAge } from './offerGroups.js';
 import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
+import { byReviews, mostPopularRail, sortByReviews } from './mostPopular.js';
 import { bestDealPerScent, onePerScent, sizesTogether } from './oneScent.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { noStockLabel, rowStockMarks } from './stockLabels.js';
@@ -77,8 +78,8 @@ import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { GIFT_SET_BAND, VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
 import {
-  BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, SORT_LEAD,
-  sortFragrances, sortNotes, type BrowseSort, type ListSort, type NoteSort,
+  BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, REVIEWED_SORT_OPTION, SORT_LEAD,
+  sortFragrances, sortNotes, type ListSort, type NoteSort, type SearchSort,
 } from './listSort.js';
 import { pricePerMl, pricePerMlLabel, slugOf } from './tabFacets.js';
 import { otherOilSizes, shopTitleOf, siblingSets, sprayVersion, valueLine } from './setPage.js';
@@ -154,7 +155,7 @@ import {
 } from './regionPreference.js';
 import { flagSvg } from './flags.js';
 import { ABOUT } from './legal.js';
-import { liveCounts } from './data.js';
+import { liveCounts, reviewsOf } from './data.js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, setTargetPrice, type WishlistEntry } from './wishlist.js';
 import { groupWishlist, type WishlistGroup } from '../src/services/wishlistResolve.js';
 import { fetchPriceAlerts, setPriceAlerts, unsubscribe } from './priceAlerts.js';
@@ -233,7 +234,7 @@ const state = {
   noteDetailSort: 'az' as ListSort,
   // Browse and search. Defaults to the order this list already arrived in, so
   // the control's existence changes nothing until a reader uses it.
-  browseSort: 'stocked' as BrowseSort,
+  browseSort: 'stocked' as SearchSort,
   brandDetailSort: 'az' as ListSort,
   retailerDetailSort: 'az' as ListSort,
 
@@ -330,7 +331,7 @@ interface ListSnapshot {
   noteSort: NoteSort;
   noteLayer: NoteLayerFilter;
   noteDetailSort: ListSort;
-  browseSort: BrowseSort;
+  browseSort: SearchSort;
   brandDetailSort: ListSort;
   retailerDetailSort: ListSort;
   /** The Oils and Sets tabs' own search, sort and filters (demo/tabPanels.ts). */
@@ -467,6 +468,19 @@ const TIER_LABEL: Record<RetailerTier, string> = {
 // and the full list behind See All); the rule and the rail itself live in demo/mostStocked.ts,
 // where tests/mostStocked.test.ts holds them to the real catalogue.
 const POPULAR = mostStockedRail(BY_POPULARITY);
+
+// The Most Popular row under it: ranked by the reviews the shops publish,
+// leaving out every scent the Most Stocked row shows (demo/mostPopular.ts
+// says why reviews, and tests/mostPopular.test.ts holds the rule). Empty for
+// a country whose shops publish no review counts, which then has no row and
+// no reviews sort. Worked out on first use, not while the bundle loads.
+let reviewedRanking: DemoFragrance[] | null = null;
+const MOST_REVIEWED = (): DemoFragrance[] => (reviewedRanking ??= byReviews(BY_POPULARITY, reviewsOf));
+let reviewedRail: DemoFragrance[] | null = null;
+const REVIEWED_RAIL = (): DemoFragrance[] => (reviewedRail ??= mostPopularRail(MOST_REVIEWED(), POPULAR));
+/** The sorts browse and search offer here: the reviews order only where the shops publish reviews. */
+const searchSortOptions = (): { value: SearchSort; label: string }[] =>
+  MOST_REVIEWED().length > 0 ? [BROWSE_SORT_OPTIONS[0]!, REVIEWED_SORT_OPTION, ...BROWSE_SORT_OPTIONS.slice(1)] : BROWSE_SORT_OPTIONS;
 
 /**
  * Prices come from the catalogue crawl and the affiliate feed, never from a
@@ -1084,8 +1098,8 @@ function listSortControl(id: string, current: ListSort): string {
  * BrowseSort — so a reader who never opens this control sees exactly the page
  * they saw before it existed.
  */
-function browseSortControl(current: BrowseSort): string {
-  return sortControl('browse-sort', 'Fragrances', ICON_SORT, BROWSE_SORT_OPTIONS, current);
+function browseSortControl(current: SearchSort): string {
+  return sortControl('browse-sort', 'Fragrances', ICON_SORT, searchSortOptions(), current);
 }
 
 /**
@@ -1645,6 +1659,29 @@ function regionTaxNoteText(): string {
   return tax ? ` ${esc(tax)}` : '';
 }
 
+/**
+ * The Most Popular row, directly under Most Stocked (owner request, 21 Oct
+ * 2026): the same one row of tiles, ranked by the reviews the shops publish,
+ * with no scent the row above shows. No medals: they mark the Most Stocked
+ * ranking. Nothing at all where the country's shops publish no reviews.
+ */
+function mostPopularHtml(): string {
+  const rail = REVIEWED_RAIL();
+  if (rail.length === 0) return '';
+  return `
+
+    <section class="pop-section pop-reviewed">
+      <div class="section-head">
+        <h2 class="t-section">Most Popular</h2>
+        <button class="link-btn see-top" data-browse="reviewed" aria-label="See all, most popular">See All <span aria-hidden="true">→</span></button>
+      </div>
+      <p class="pop-note t-caption">By reviews at the shops we compare</p>
+      <ul class="pop-rail">
+        ${rail.map((f) => fragranceTile(f, { rail: true })).join('')}
+      </ul>
+    </section>`;
+}
+
 function homeView(): string {
   return `
     <section class="intro">
@@ -1677,7 +1714,7 @@ function homeView(): string {
       <ul class="pop-rail">
         ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true, eager: i < railEagerCount() })).join('')}
       </ul>
-    </section>${adSlotHtml('home')}
+    </section>${mostPopularHtml()}${adSlotHtml('home')}
 
     <!-- The suggestion form that used to sit beside this moved to its own
          page, Suggestions in the account menu (owner request, 2026-10-04). -->
@@ -1829,10 +1866,16 @@ function browseView(): string {
   // on the whole ranking: sorting by price lists the cheapest of all of them,
   // not the cheapest of a first fifty.
   const isTop = isMostStockedList();
-  const list = state.browseSort === 'stocked' ? (isTop ? faceted : sizesTogether(faceted)) : sortFragrances(faceted, state.browseSort);
+  const list =
+    state.browseSort === 'stocked'
+      ? isTop ? faceted : sizesTogether(faceted)
+      : state.browseSort === 'reviewed'
+        ? sortByReviews(faceted, reviewsOf)
+        : sortFragrances(faceted, state.browseSort);
+  const reviewedTop = isTop && state.browseSort === 'reviewed';
   const title =
     state.brand ??
-    (state.query.trim() ? `Results for "${state.query.trim()}"` : isTop ? `Most stocked` : `All Fragrances`);
+    (state.query.trim() ? `Results for "${state.query.trim()}"` : reviewedTop ? `Most popular` : isTop ? `Most stocked` : `All Fragrances`);
 
   return `
     <button class="back" data-back-home>Back</button>
@@ -1843,6 +1886,10 @@ function browseView(): string {
              brand and name. A brand's own store does not count. One line per perfume, in its most stocked size;
              sets and oils have their own tabs under Explore. This shows how widely a fragrance is stocked, not
              how well it sells.</p>`
+        : reviewedTop
+          ? `<p class="panel-note t-body">Ranked by reviews: the most reviews any one of our shops publishes for
+               each one, then by how widely it is stocked. Fragrances no shop reviews follow, most stocked first. One
+               line per perfume; sets and oils have their own tabs under Explore.</p>`
         : isTop
           ? `<p class="panel-note t-body">Every fragrance in the Most Stocked ranking, in the order you chose. One
                line per perfume; sets and oils have their own tabs under Explore.</p>`
@@ -6411,7 +6458,7 @@ interface ListSortSlot {
 }
 
 const LIST_SORT_SLOTS: Partial<Record<RouteName, ListSortSlot>> = {
-  search: { get: () => state.browseSort, set: (v) => { state.browseSort = v as BrowseSort; }, values: BROWSE_SORT_OPTIONS.map((o) => o.value), fallback: 'stocked' },
+  search: { get: () => state.browseSort, set: (v) => { state.browseSort = v as SearchSort; }, get values() { return searchSortOptions().map((o) => o.value); }, fallback: 'stocked' },
   deals: { get: () => state.dealSort, set: (v) => { state.dealSort = v as DealSort; }, values: DEAL_SORT_OPTIONS.map((o) => o.value), fallback: 'discount' },
   brand: { get: () => state.brandDetailSort, set: (v) => { state.brandDetailSort = v as ListSort; }, values: LIST_SORT_OPTIONS.map((o) => o.value), fallback: 'az' },
   retailer: { get: () => state.retailerDetailSort, set: (v) => { state.retailerDetailSort = v as ListSort; }, values: LIST_SORT_OPTIONS.map((o) => o.value), fallback: 'az' },
@@ -8589,8 +8636,12 @@ function init(): void {
       return;
     }
 
-    if (t.closest('[data-browse]')) {
+    const browse = t.closest('[data-browse]');
+    if (browse) {
       state.brand = null;
+      // Each home row's See All opens the full list in that row's own order:
+      // Most Popular's by reviews, Most Stocked's (no value) by stock.
+      state.browseSort = browse.getAttribute('data-browse') === 'reviewed' ? 'reviewed' : 'stocked';
       go('browse');
       return;
     }
@@ -8693,7 +8744,7 @@ function init(): void {
     else if (id === 'deal-sort') state.dealSort = value as DealSort;
     else if (id === 'note-sort') state.noteSort = value as NoteSort;
     else if (id === 'note-layer') state.noteLayer = value as NoteLayerFilter;
-    else if (id === 'browse-sort') state.browseSort = value as BrowseSort;
+    else if (id === 'browse-sort') state.browseSort = value as SearchSort;
     else if (id === 'note-detail-sort') state.noteDetailSort = value as ListSort;
     else if (id === 'brand-detail-sort') state.brandDetailSort = value as ListSort;
     else if (id === 'retailer-detail-sort') state.retailerDetailSort = value as ListSort;
@@ -9004,7 +9055,7 @@ interface FirstScreenHook {
   home: () => string;
   productHref: (id: string) => string;
   brandHref: (brand: string) => string;
-  browseHref: () => string;
+  browseHref: (sort?: string) => string;
 }
 const firstScreenHook = (globalThis as { __psFirstScreen?: (hook: FirstScreenHook) => void }).__psFirstScreen;
 if (firstScreenHook) {
@@ -9014,7 +9065,7 @@ if (firstScreenHook) {
     home: homeView,
     productHref: (id) => routeToPath({ name: 'fragrance', param: id, query: {} }),
     brandHref: (brand) => routeToPath({ name: 'brand', param: slugify(brand), query: {} }),
-    browseHref: () => routeToPath({ name: 'search', param: '', query: {} }),
+    browseHref: (sort) => routeToPath({ name: 'search', param: '', query: sort && sort !== 'stocked' ? { sort } : {} }),
   });
 }
 

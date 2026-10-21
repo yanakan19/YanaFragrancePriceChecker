@@ -12,8 +12,8 @@
  *     dist-demo/<r>/bundle.js) with its own data, run here outside a browser
  *     with FIRST_SCREEN_GLOBAL set (demo/app.ts hands it homeView), so the
  *     markup is the app's own to the byte, prices, money and words included;
- *   - cut after the Most Stocked rail (the ad slot and everything under it
- *     are left to the app), with `data-href` on its buttons so a tap before
+ *   - cut after the rows of tiles (Most Stocked, and Most Popular where the
+ *     country has one; the ad slot and everything under it are left to the app), with `data-href` on its buttons so a tap before
  *     the app has started opens the product's, the brand's or the list's own
  *     page instead of doing nothing;
  *   - kept in a <template> with a small script after it that puts it in place
@@ -43,7 +43,8 @@ export interface FirstScreenHook {
   home: () => string;
   productHref: (id: string) => string;
   brandHref: (brand: string) => string;
-  browseHref: () => string;
+  /** The full list's address, in `sort`'s order when a home row names one (data-browse="reviewed"). */
+  browseHref: (sort?: string) => string;
 }
 
 const BEGIN = '<!--first-screen-->';
@@ -69,7 +70,10 @@ const escapeAttr = (s: string): string =>
 export function firstScreenFrom(homeHtml: string, hook: Omit<FirstScreenHook, 'home'>): string {
   const start = homeHtml.indexOf('<section class="pop-section">');
   if (start < 0) throw new Error('firstScreen: the home view has no Most Stocked section');
-  const end = homeHtml.indexOf('</section>', start);
+  // The rows of tiles under the banner (Most Stocked, and Most Popular where
+  // the country has one) all belong to the first screen: cut after the last.
+  const last = homeHtml.lastIndexOf('<section class="pop-section');
+  const end = homeHtml.indexOf('</section>', last);
   if (end < 0) throw new Error('firstScreen: the Most Stocked section is not closed');
   const body = homeHtml
     .slice(0, end + '</section>'.length)
@@ -78,7 +82,8 @@ export function firstScreenFrom(homeHtml: string, hook: Omit<FirstScreenHook, 'h
     .trim()
     .replace(/data-frag="([^"]*)"/g, (_m, id: string) => `data-frag="${id}" data-href="${escapeAttr(hook.productHref(unescapeAttr(id)))}"`)
     .replace(/data-brand="([^"]*)"/g, (_m, brand: string) => `data-brand="${brand}" data-href="${escapeAttr(hook.brandHref(unescapeAttr(brand)))}"`)
-    .replace(/data-browse(?=[\s>])/g, `data-browse data-href="${escapeAttr(hook.browseHref())}"`);
+    .replace(/data-browse(?:="([^"]*)")?(?=[\s>])/g, (_m, sort: string | undefined) =>
+      sort ? `data-browse="${sort}" data-href="${escapeAttr(hook.browseHref(unescapeAttr(sort)))}"` : `data-browse data-href="${escapeAttr(hook.browseHref())}"`);
   if (/<script|<template|<!--/i.test(body)) throw new Error('firstScreen: the first screen may carry no script, template or comment');
   return `<div class="ps-stagger" data-first-screen>${body}</div>`;
 }

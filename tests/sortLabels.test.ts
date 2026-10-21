@@ -3,7 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
-  BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, OIL_SORT_OPTIONS,
+  BRAND_SORT_OPTIONS, BROWSE_SORT_OPTIONS, REVIEWED_SORT_OPTION, DEAL_SORT_OPTIONS, LIST_SORT_OPTIONS, NOTE_SORT_OPTIONS, OIL_SORT_OPTIONS,
   SET_SORT_OPTIONS, SORT_LEAD,
 } from '../demo/listSort.js';
 import { WISHLIST_SORTS, wishlistSortsFor } from '../src/services/accountMenu.js';
@@ -22,6 +22,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
  */
 const CONTROLS: Record<string, { label: string }[]> = {
   'search, brand, note and shop pages, Most Stocked (browse)': BROWSE_SORT_OPTIONS,
+  'search and browse where the shops publish reviews': [...BROWSE_SORT_OPTIONS, REVIEWED_SORT_OPTION],
   'Explore Sets': SET_SORT_OPTIONS,
   'Explore Oils': OIL_SORT_OPTIONS,
   'brand, note and shop detail lists': LIST_SORT_OPTIONS,

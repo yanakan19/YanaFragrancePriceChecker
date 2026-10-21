@@ -75,10 +75,12 @@ describe.skipIf(!built)('the home page’s first screen', () => {
         await page.waitForSelector('#view [data-first-screen] .tile', { timeout: 15_000 });
         const before = await firstScreenTiles(page);
         expect(before.length, 'a rail of tiles').toBeGreaterThanOrEqual(4);
-        // One row of the tiles that fit (two at 390 wide), the first ones; the rest wait in the markup.
+        // Each row shows the tiles that fit (two at 390 wide), its first ones; the rest wait in the markup.
         const shownBefore = before.filter((t) => t.shown).length;
         expect(shownBefore).toBeGreaterThanOrEqual(2);
-        expect(before.slice(0, shownBefore).every((t) => t.shown)).toBe(true);
+        const perRail = (await page.evaluate(`[...document.querySelectorAll('#view [data-first-screen] .pop-rail')].map((r) =>
+          [...r.querySelectorAll('.tile-body')].map((b) => b.getBoundingClientRect().height > 40))`)) as boolean[][];
+        for (const flags of perRail) expect(flags.indexOf(false) === -1 || flags.slice(flags.indexOf(false)).every((f) => !f)).toBe(true);
         for (const t of before) expect([...new Set(t.price.match(/[£$₹]/g))], t.price).toEqual([c.symbol]);
         expect(await page.locator('#view > .boot').count(), 'the outline gave way').toBe(0);
         expect(await page.evaluate(`document.documentElement.hasAttribute('data-app-ready')`)).toBe(false);

@@ -122,6 +122,29 @@ describe.skipIf(!built)('Most Stocked on the home page', () => {
     await done();
   }, 90_000);
 
+  it('puts Most Popular directly under it where the shops publish reviews: one row, no perfume of the row above, See All opening the reviews order', async () => {
+    const { page, close: done } = await openHome(390, true);
+    const rows = (await page.evaluate(`[...document.querySelectorAll('#view .pop-section')].map((s) => ({
+      heading: s.querySelector('h2').textContent.trim(),
+      ids: [...s.querySelectorAll('.pop-rail .tile-body')].map((b) => b.getAttribute('data-frag')),
+      names: [...s.querySelectorAll('.pop-rail .tile-body')].map((b) => b.getAttribute('aria-label')),
+      tops: [...s.querySelectorAll('.pop-rail > li')].filter((li) => getComputedStyle(li).display !== 'none').map((li) => Math.round(li.getBoundingClientRect().top)),
+    }))`)) as { heading: string; ids: string[]; names: string[]; tops: number[] }[];
+    expect(rows[0]!.heading).toBe('Most Stocked');
+    if (rows.length > 1) {
+      expect(rows).toHaveLength(2);
+      expect(rows[1]!.heading).toBe('Most Popular');
+      expect(new Set(rows[1]!.tops).size).toBe(1);
+      expect(rows[1]!.tops.length).toBe(rows[0]!.tops.length);
+      for (const id of rows[1]!.ids) expect(rows[0]!.ids).not.toContain(id);
+      await page.click('.pop-reviewed .see-top');
+      await page.waitForSelector('#view .page-head h1');
+      expect(await page.textContent('#view .page-head h1')).toBe('Most popular');
+      expect(new URL(page.url()).searchParams.get('sort')).toBe('reviewed');
+    }
+    await done();
+  }, 90_000);
+
   it('says "See All" under the heading, never a count', async () => {
     const { page, close: done } = await openHome(390, true);
     const label = (await page.textContent('.pop-section .see-top'))?.replace(/\s+/g, ' ').trim();

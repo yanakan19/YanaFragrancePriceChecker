@@ -416,13 +416,15 @@ describe('placements in demo/app.ts', () => {
     for (const g of grids) expect(g).toContain('withGridAds(');
   });
 
-  it('the home banner sits directly after the Most Stocked section, and nowhere else on the page', () => {
+  it('the home banner sits directly after the rows of tiles (Most Stocked, then Most Popular), and nowhere else on the page', () => {
     const home = app.slice(app.indexOf('function homeView()'), app.indexOf('/* ── browse ──'));
     expect(home.match(/adSlotHtml\('home'\)/g)).toHaveLength(1);
     const popStart = home.indexOf('<section class="pop-section">');
     const popEnd = home.indexOf('</section>', popStart) + '</section>'.length;
-    // Straight after the closing tag, so with ads off not one character is added.
-    expect(home.slice(popEnd, popEnd + "${adSlotHtml('home')}".length)).toBe("${adSlotHtml('home')}");
+    // Straight after the closing tag and the Most Popular row (an empty
+    // string where a country has none), so with ads off not one character is added.
+    const after = "${mostPopularHtml()}${adSlotHtml('home')}";
+    expect(home.slice(popEnd, popEnd + after.length)).toBe(after);
     expect(home.indexOf("adSlotHtml('home')")).toBeLessThan(home.indexOf('class="bottom-split"'));
     expect(home.indexOf("adSlotHtml('home')")).toBeGreaterThan(home.indexOf('class="pop-rail"'));
   });

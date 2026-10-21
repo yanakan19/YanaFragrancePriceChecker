@@ -8,6 +8,7 @@ import type { OilFacts } from '../src/catalogue/perfumeOil.js';
 import type { GiftSetRecord } from '../src/catalogue/giftSet.js';
 import { isTooOldToShow, showableListingCount } from '../src/services/priceService.js';
 import { CATALOGUE, CRAWLED, NOTE_ALIASES, type Notes as CatalogueNotes } from './catalogue.generated.js';
+import { reviewCount } from './mostPopular.js';
 import { DEALS_RAW, DEALS_GENERATED_AT as DEALS_GENERATED_AT_RAW } from './deals.generated.js';
 
 /**
@@ -380,6 +381,18 @@ export const BY_POPULARITY: DemoFragrance[] = [...DEMO_FRAGRANCES].sort((a, b) =
   if (nameDiff !== 0) return nameDiff;
   return compareVariants(a, b);
 });
+
+/**
+ * The largest review count any one shop publishes for a product, 0 when none
+ * does: what the home page's Most Popular row ranks on (demo/mostPopular.ts
+ * says why, and why it is the largest and not the sum). Read once per product.
+ */
+const REVIEWS = new Map<string, number>();
+export function reviewsOf(id: string): number {
+  let n = REVIEWS.get(id);
+  if (n === undefined) REVIEWS.set(id, (n = reviewCount(CRAWLED[id])));
+  return n;
+}
 
 /** Lowest listed price for a fragrance, before delivery. Infinity when unlisted. */
 export function lowestPrice(id: string): number {

@@ -87,7 +87,7 @@ describe.skipIf(!built)('ad spacers on the built site', () => {
         expect(await count(page, 'script[src*="googlesyndication"]')).toBe(0);
         expect(await count(page, 'meta[name="robots"]')).toBe(0);
         // The home page still reads Most Stocked, then the update history.
-        expect(await page.evaluate(`document.querySelector('.pop-section').nextElementSibling.className`)).toBe('bottom-split');
+        expect(await page.evaluate(`[...document.querySelectorAll('.pop-section')].pop().nextElementSibling.className`)).toBe('bottom-split');
         await page.goto(`http://127.0.0.1:${port}/search`, { waitUntil: 'load' });
         await waitForApp(page);
         expect(await count(page, '.ps-ad')).toBe(0);
@@ -167,7 +167,7 @@ describe.skipIf(!built)('ad spacers on the built site', () => {
     it('puts the home banner directly under Most Stocked, as wide as its grid on desktop and the full column on a phone', async () => {
       const wide = await open('/?adpreview=1', 1280);
       const sizes = (await wide.page.evaluate(`(() => {
-        const sec = document.querySelector('.pop-section');
+        const sec = [...document.querySelectorAll('.pop-section')].pop();
         const ad = document.querySelector('.ps-ad-home');
         const rail = document.querySelector('.pop-rail');
         const r = ad.getBoundingClientRect();
