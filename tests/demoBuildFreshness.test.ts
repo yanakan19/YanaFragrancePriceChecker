@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { computeDemoInputsHash, readStampedHash } from '../scripts/demoInputsHash.js';
 import { staleReason } from '../scripts/ensure-demo-built.js';
+import { withoutFirstScreen } from '../scripts/firstScreen.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -88,13 +89,15 @@ describe('demo build freshness', () => {
     expect(files).toContain('demo/template.html');
   });
 
-  it('demo/404.html is byte-identical to demo/index.html', () => {
+  it('demo/404.html is byte-identical to demo/index.html without its first screen', () => {
     // build-demo.ts writes the same standalone document to both paths on
     // purpose (see its own header: GitHub Pages serves 404.html for every
     // in-app route, and there must be no difference for a deep link to hit).
     // A stray hand-edit of only one of the two would defeat that, quietly.
+    // The one difference is the home page's first screen (scripts/firstScreen.ts),
+    // which only the home address shows.
     const index = readFileSync(resolve(root, 'demo/index.html'), 'utf8');
     const notFound = readFileSync(resolve(root, 'demo/404.html'), 'utf8');
-    expect(notFound).toBe(index);
+    expect(notFound).toBe(withoutFirstScreen(index));
   });
 });

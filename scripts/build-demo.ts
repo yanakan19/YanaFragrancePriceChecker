@@ -78,6 +78,7 @@ import {
 } from '../demo/head.js';
 import { hreflangAlternates, liveRegions, setActiveRegionForBuild, type RegionConfig } from '../src/config/regions.js';
 import { regionDispatchScript, regionFilePath, regionRestoreScript, regionTemplate } from './regionPages.js';
+import { prerenderHome, withFirstScreen } from './firstScreen.js';
 import { HOME_STATIC_MARKER, homeStaticHtml } from './staticContent.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -320,7 +321,10 @@ const standalone = documentFor({
   loader: loaderScript(dataFiles, lazyFiles),
   body: pageBody,
 });
-writeGenerated(root, 'demo/index.html', standalone);
+// The home page alone carries its first screen, drawn by the bundle it ships
+// (scripts/firstScreen.ts); 404.html and every copy made from it do not.
+const ukHome = withFirstScreen(standalone, prerenderHome(resolve(root, 'dist-demo'), '/'), '/');
+writeGenerated(root, 'demo/index.html', ukHome);
 
 // GitHub Pages serves 404.html for any path that is not a real file, which is
 // every in-app route: /brands, /fragrance/ean-123 and so on exist only inside
@@ -379,12 +383,13 @@ function publishRegion(region: RegionConfig): { index: number; files: number } {
     loader: loaderScript(eager, onDemand),
     body: regionBody,
   });
-  writeGenerated(root, `demo/${r}/index.html`, doc);
+  const regionHome = withFirstScreen(doc, prerenderHome(dist, `/${r}/`), `/${r}/`);
+  writeGenerated(root, `demo/${r}/index.html`, regionHome);
   // Pages answers a deep link under /us/ with the root 404.html (the UK page),
   // whose first script hands the address to /us/ (scripts/regionPages.ts). This
   // copy is for a host that serves a folder's own 404.html.
   writeGenerated(root, `demo/${r}/404.html`, doc);
-  return { index: doc.length, files: eager.length + onDemand.length };
+  return { index: regionHome.length, files: eager.length + onDemand.length };
 }
 
 for (const region of liveRegions()) {
@@ -403,7 +408,7 @@ const adsTxtBody = adsTxt();
 if (adsTxtBody) writeGenerated(root, 'demo/ads.txt', adsTxtBody);
 else if (existsSync(adsTxtPath)) rmSync(adsTxtPath);
 
-console.log(`demo/index.html          ${(standalone.length / 1024).toFixed(1)} kB`);
+console.log(`demo/index.html          ${(ukHome.length / 1024).toFixed(1)} kB (with its first screen)`);
 console.log(`demo/404.html            ${(standalone.length / 1024).toFixed(1)} kB (deep-link fallback)`);
 for (const f of [...dataFiles, ...lazyFiles]) {
   const onDemand = lazyFiles.includes(f as LazyDataFile) ? ' (on demand)' : '';

@@ -49,6 +49,7 @@ import { listRoutePaths, matchRoute, type Route, type RouteName } from '../demo/
 import { DEFAULT_REGION, regionPath, setActiveRegionForBuild, type RegionConfig } from '../src/config/regions.js';
 import { referencedDataFiles } from './dataFiles.js';
 import { readStampedHash } from './demoInputsHash.js';
+import { withoutFirstScreen } from './firstScreen.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
 
 /** Pages of one thing among many: never given a file of their own (see the header). */
@@ -181,7 +182,8 @@ export function renderRoutePage(shell: string, tags: HeadTags, options: { altern
   const description = escapeAttr(tags.description);
   const canonical = escapeAttr(tags.canonical);
   // The home page's alternates come off; this address's go in beside its canonical.
-  let html = shell.replace(ALTERNATE_LINES, '');
+  // Only the home page shows the home page's first screen (scripts/firstScreen.ts).
+  let html = withoutFirstScreen(shell).replace(ALTERNATE_LINES, '');
   html = swap(html, /<title>[^<]*<\/title>/, `<title>${escapeAttr(tags.title)}</title>`, '<title>');
   html = swap(html, /<meta name="description" content="[^"]*" \/>/, `<meta name="description" content="${description}" />`, 'meta description');
   html = swap(html, /<link rel="canonical" href="[^"]*" \/>/, `<link rel="canonical" href="${canonical}" />${options.alternates === false ? '' : alternateLinks(tags)}`, 'canonical link');

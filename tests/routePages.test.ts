@@ -21,6 +21,7 @@ import { policyOf } from '../scripts/generatedFiles.js';
 import { referencedDataFiles } from '../scripts/dataFiles.js';
 import { readStampedHash } from '../scripts/demoInputsHash.js';
 import { renderRoutePage, routePageProblems, routePages, sitemapPaths } from '../scripts/routePages.js';
+import { hasFirstScreen, withoutFirstScreen } from '../scripts/firstScreen.js';
 import { SITE_URL, headFor } from '../demo/head.js';
 import { basePath, listRoutePaths, matchRoute, rootWords } from '../demo/router.js';
 import { liveRegions } from '../src/config/regions.js';
@@ -160,7 +161,8 @@ describe('the built folder', () => {
       expect(referencedDataFiles(html).sort(), page.file).toEqual(referencedDataFiles(index).sort());
       // Everything from the first script on (the data loader, the bundle, the body) is the page's own.
       const tail = (s: string) => s.slice(s.indexOf('<script>'));
-      expect(tail(html).replace(/<title>[^<]*<\/title>/, ''), page.file).toBe(tail(index).replace(/<title>[^<]*<\/title>/, ''));
+      // The home page's first screen (scripts/firstScreen.ts) is the home page's alone.
+      expect(tail(html).replace(/<title>[^<]*<\/title>/, ''), page.file).toBe(tail(withoutFirstScreen(index)).replace(/<title>[^<]*<\/title>/, ''));
       // The router reads location.pathname on boot, so the file's own address must open its own view.
       expect(matchRoute(page.path).name, page.file).not.toBe('notFound');
       // The loader fetches its data from the site root from any depth (loaderScript in scripts/dataFiles.ts).
@@ -168,8 +170,9 @@ describe('the built folder', () => {
     }
   });
 
-  it('keeps 404.html for the rest, byte for byte the page, so an unknown address still says Page not found', () => {
-    expect(read('404.html')).toBe(index);
+  it('keeps 404.html for the rest, byte for byte the page without its first screen, so an unknown address still says Page not found', () => {
+    expect(hasFirstScreen(index)).toBe(true);
+    expect(read('404.html')).toBe(withoutFirstScreen(index));
     for (const rel of ['not-a-page.html', 'about/nothing.html', 'developer.html', 'explore.html', 'gift-sets.html', 'brands/no-such-brand-anywhere.html']) {
       expect(existsSync(join(demo, rel)), rel).toBe(false);
     }
@@ -258,9 +261,9 @@ describe('the service worker and the deploy still work with a 200 for each addre
 
   it('is checked by the deploy workflow before it uploads, after the page copy check', () => {
     const wf = readFileSync(join(root, '.github/workflows/deploy-pages.yml'), 'utf8');
-    expect(wf).toContain('cmp demo/index.html demo/404.html');
+    expect(wf).toContain('npx tsx scripts/firstScreen.ts --check');
     expect(wf).toContain('npx tsx scripts/build-route-pages.ts --check');
-    expect(wf.indexOf('build-route-pages.ts --check')).toBeGreaterThan(wf.indexOf('cmp demo/index.html demo/404.html'));
+    expect(wf.indexOf('build-route-pages.ts --check')).toBeGreaterThan(wf.indexOf('npx tsx scripts/firstScreen.ts --check'));
     expect(wf.indexOf('build-route-pages.ts --check')).toBeLessThan(wf.indexOf('upload-pages-artifact@v'));
   });
 

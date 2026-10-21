@@ -4,6 +4,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { basePath } from '../demo/router.js';
+import { withoutFirstScreen } from '../scripts/firstScreen.js';
 import {
   APP_READY_ATTR,
   BLOBS_GLOBAL,
@@ -165,8 +166,8 @@ describe('the built page and its data folder', () => {
     expect(onDisk).toEqual([...referenced].sort());
   });
 
-  it('is served identically at every deep link (404.html is the same document)', () => {
-    expect(readFileSync(resolve(root, 'demo/404.html'), 'utf8')).toBe(html);
+  it('is served identically at every deep link (404.html is the same document, without the home page’s first screen)', () => {
+    expect(readFileSync(resolve(root, 'demo/404.html'), 'utf8')).toBe(withoutFirstScreen(html));
   });
 });
 

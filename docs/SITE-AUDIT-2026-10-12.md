@@ -825,3 +825,47 @@ minifier orders its names differently), which gives the bundle a new hash and so
 page and the inline copy in `dist-demo/artifact.html`. The browser tests that read the built site (leaf pages,
 product addresses, region switch and its cache, region rails, list filters, price history) pass on the new build.
 `tests/compileDemo.test.ts` holds the rules.
+
+## 21 Oct 2026: the home page's first screen, drawn at build time
+
+**Measured first** (the 13 Oct method: `demo/` built by `npm run demo`, served gzipped on a local port the way Pages
+answers, Chromium through `launchChromium`, 390 wide, CPU 4x, 1.6 Mbps down and 150 ms round trip, service worker
+blocked so every run is a first visit; shop photos answered locally with a 1 pixel image so the internet is not
+measured; "first tiles" is the first frame with a Most Stocked tile laid out by the stylesheet):
+
+| Page | Bytes before the app starts (gzip) | First tiles | App ready | JS heap after start |
+|---|---|---|---|---|
+| UK home `/` | 5,181 kB | 31.0, 31.1 s | 31.0 s | 70 to 76 MB |
+| `/us/` | 2,262 kB | 14.1 s | 14.1 s | 29 MB |
+| `/in/` | 1,825 kB | 10.8 s | 10.8 s | 26 MB |
+
+The catalogue alone is 4,699 kB of the UK's 5,181 (it grew from 4,200 since 13 Oct). Nothing was drawn but the grey
+outline until every eager data file was in, because the app draws the home page from the whole catalogue.
+
+**Design, and why not the slim index again.** The 13 Oct no go stands: a slimmer first load saves at most 30% and
+changes every synchronous reader of the catalogue. This change does not touch the data path at all. The home page's
+top (hero, banner, the twelve Most Stocked tiles) is drawn **at build time by the shipped bundle itself**
+(`scripts/firstScreen.ts` runs `dist-demo/bundle.js`, or a region's, in a Node `vm` with its own data and a
+handful of browser objects; `demo/app.ts` hands the build `homeView` through a global a browser never has), so
+the markup is the app's own: same tiles, prices, money and words for the UK, US and India. It is cut after the
+Most Stocked rail (the ad slot and everything under it stay the app's), kept in a `<template>` in the home
+documents only (`demo/index.html`, `demo/us/index.html`, `demo/in/index.html`), and a small script puts it in the
+outline's place only on the home address itself. 404.html, the route pages and the 35,000 prerendered pages are
+copies of the home document and never carry it (`renderRoutePage` strips it; 20 kB a page would have cost
+700 MB). The app then loads exactly as before and replaces the screen with its own first render, without the
+entrance animation over what is already showing. A tap on a tile, a brand or See All before the app is ready
+opens that page's own address (the product's prerendered page answers at once). The prices are the build's,
+as on the prerendered product pages; the app's render at the visitor's own clock replaces them seconds later.
+Offline, the service worker's copy of the home document answers every address: the script's address check
+keeps the home tiles off any other page. The deploy checks the home copies with `npx tsx scripts/firstScreen.ts --check` (it replaced `cmp demo/index.html demo/404.html`); `tests/firstScreen.test.ts` holds the rules and `tests/firstScreenBrowser.test.ts` the built pages (tiles before any data, the app taking over, each country's own data only, a tap before the app opens a 200 page, no other address showing the tiles, offline). The deploy grows by 80 kB (20.7 kB UK, 30.5 kB US, 29.3 kB India; 579.1 MB of the 700 MB budget after).
+
+**After** (same method):
+
+| Page | Bytes before first tiles | First tiles | App ready | JS heap |
+|---|---|---|---|---|
+| UK home `/` | 72 to 144 kB | 0.8 to 2.0 s | 30.7 to 30.9 s (unchanged) | 75 to 90 MB (unchanged) |
+| `/us/` | 92 kB | 1.6 s | 13.7 s | 30 to 40 MB |
+| `/in/` | 81 kB | 1.7 s | 10.7 s | 24 MB |
+
+What stays slow is the app being ready (search, filters, a list): the same 5 MB as before. Making that faster
+is the route aware loader the 13 Oct section describes, still its own task.

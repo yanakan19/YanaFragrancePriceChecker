@@ -384,7 +384,7 @@ describe('deploy-pages.yml', () => {
     expect(upload, 'the upload').toBeGreaterThan(check);
     expect(at('actions/deploy-pages')).toBeGreaterThan(upload);
     expect(stepList[check]).toContain('test -s demo/index.html');
-    expect(stepList[check]).toContain('cmp demo/index.html demo/404.html');
+    expect(stepList[check]).toContain('npx tsx scripts/firstScreen.ts --check');
     expect(stepList[upload]).toContain('path: demo');
   });
 

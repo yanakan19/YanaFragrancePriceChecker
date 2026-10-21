@@ -3278,6 +3278,9 @@
     background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--ink) 6%, transparent), transparent);
     animation: ps-sweep 1.2s ease-in-out 250ms 6 both;
   }
+  /* The home page's first screen (scripts/firstScreen.ts), drawn at build time in
+     the outline's place until the app replaces it: a screen tall, as the outline is. */
+  [data-first-screen] { min-height: 100vh; }
   .static-intro { padding: 24px 0 0; max-width: 62ch; }
   .static-intro p { margin: 0 0 12px; }
   .static-intro .t-section { margin: 20px 0 8px; }

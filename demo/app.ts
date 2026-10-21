@@ -7474,7 +7474,10 @@ function render(mode: 'enter' | 'update' = 'enter'): void {
   // one rise per block is the whole rule. Home is the exception: its blocks
   // arrive 30ms apart (.ps-stagger, behaviour 2) instead, still one level.
   const enter = state.view === 'home' ? 'ps-stagger' : 'ps-rise';
-  $('#view').innerHTML = `<div${mode === 'enter' ? ` class="${enter}"` : ''}>${body}</div>`;
+  // The home page's first screen (scripts/firstScreen.ts) is already showing
+  // what this draws, so it is not brought in a second time.
+  const shown = state.view === 'home' && $('#view').querySelector('[data-first-screen]') !== null;
+  $('#view').innerHTML = `<div${mode === 'enter' && !shown ? ` class="${enter}"` : ''}>${body}</div>`;
 
   // The Notes tab's sticky bar marks the group in view (no op elsewhere).
   mountNoteGroupSpy();
@@ -8919,6 +8922,29 @@ function init(): void {
     priceHistory.load().catch(() => {
       // Nothing to show yet: a product page asks again, and says so if it fails.
     });
+  });
+}
+
+// Build time only: scripts/firstScreen.ts runs this very bundle outside a
+// browser with FIRST_SCREEN_GLOBAL set, takes the home page as it is drawn
+// here and writes its top into the home documents (demo/index.html,
+// demo/<r>/index.html), so a first visit paints the home tiles before the
+// price data is in. A browser never has the global: for a visitor this does nothing.
+interface FirstScreenHook {
+  home: () => string;
+  productHref: (id: string) => string;
+  brandHref: (brand: string) => string;
+  browseHref: () => string;
+}
+const firstScreenHook = (globalThis as { __psFirstScreen?: (hook: FirstScreenHook) => void }).__psFirstScreen;
+if (firstScreenHook) {
+  // As init() does before anything draws, so a product's address is its slug.
+  setProductSlugLookup(slugOfProduct);
+  firstScreenHook({
+    home: homeView,
+    productHref: (id) => routeToPath({ name: 'fragrance', param: id, query: {} }),
+    brandHref: (brand) => routeToPath({ name: 'brand', param: slugify(brand), query: {} }),
+    browseHref: () => routeToPath({ name: 'search', param: '', query: {} }),
   });
 }
 

@@ -9,6 +9,7 @@ import { runInNewContext } from 'node:vm';
 import { describe, expect, it } from 'vitest';
 import { referencedDataFiles } from '../scripts/dataFiles.js';
 import { readStampedHash } from '../scripts/demoInputsHash.js';
+import { hasFirstScreen, withoutFirstScreen } from '../scripts/firstScreen.js';
 import { REGION_PATH_PARAM, regionDispatchScript, regionFilePath, regionRestoreScript, regionTemplate } from '../scripts/regionPages.js';
 import { regionPagesToWrite } from '../scripts/build-route-pages.js';
 import { REPO_ROOT } from '../scripts/generatedFiles.js';
@@ -102,7 +103,9 @@ describe.skipIf(!built)('the built region pages', () => {
     expect(liveRegions().map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
     for (const r of REGIONS) {
       const page = read(`${r.pathPrefix}/index.html`);
-      expect(read(`${r.pathPrefix}/404.html`), r.id).toBe(page);
+      // Its deep link copy is the page without the home page's first screen (scripts/firstScreen.ts).
+      expect(hasFirstScreen(page), r.id).toBe(true);
+      expect(read(`${r.pathPrefix}/404.html`), r.id).toBe(withoutFirstScreen(page));
       expect(readStampedHash(page), r.id).toBe(readStampedHash(uk));
       expect(page, r.id).toContain(`<html lang="${r.locale}">`);
       expect(page, r.id).toContain(`<link rel="canonical" href="${SITE_URL}/${r.pathPrefix}/" />`);
@@ -125,7 +128,7 @@ describe.skipIf(!built)('the built region pages', () => {
     expect(uk).not.toMatch(/"(us|in)\/data\//);
     expect(files.some((f) => f.startsWith('data/regions.'))).toBe(true);
     expect(uk).toContain(`<script>${regionDispatchScript(['us', 'in'])}</script>`);
-    expect(read('404.html')).toBe(uk);
+    expect(read('404.html')).toBe(withoutFirstScreen(uk));
   });
 
   it('writes a route page for each fixed address inside each region, with the region\'s tags', () => {

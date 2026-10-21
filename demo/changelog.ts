@@ -34,6 +34,12 @@ export const CHANGELOG: ChangelogEntry[] = [
     date: '21 Oct 2026',
     groups: [
       {
+        heading: 'New',
+        points: [
+          'Home tiles now appear at once on slow phones',
+        ],
+      },
+      {
         heading: 'Products and Matching',
         points: [
           'US Cologne labels no longer split one perfume',

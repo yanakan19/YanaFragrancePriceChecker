@@ -88,6 +88,8 @@ code tests/endlessLists.test.ts
 code tests/exploreFragrances.test.ts
 code tests/feedPriceRepair.test.ts
 data tests/findDuplicates.test.ts
+code tests/firstScreen.test.ts
+code tests/firstScreenBrowser.test.ts
 code tests/footerBrowser.test.ts
 code tests/footerLinks.test.ts
 code tests/fragranceFilter.test.ts

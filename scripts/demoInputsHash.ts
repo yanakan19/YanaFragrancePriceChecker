@@ -96,6 +96,8 @@ const EXTRA_INPUTS = [
   'scripts/regionPages.ts',
   // The UK home page's static content for a reader without the script (13 Oct 2026).
   'scripts/staticContent.ts',
+  // The home pages' first screen, drawn by the bundle at build time (21 Oct 2026).
+  'scripts/firstScreen.ts',
 ];
 
 /**
