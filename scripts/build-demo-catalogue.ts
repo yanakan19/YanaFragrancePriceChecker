@@ -119,7 +119,10 @@ import { putPrideFirstOnPlainTwins } from '../src/catalogue/nameReviewed.js';
 import { parseNotes } from '../src/catalogue/notesParse.js';
 import { pickBestNotes, proseTest, withoutProse, type NotANoteFile, type NoteCandidate } from '../src/catalogue/notesPick.js';
 import { applyNoteAliases, noteAliasMap, type NoteAliasFile } from '../src/catalogue/noteAliases.js';
-import { pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions } from '../src/catalogue/pickImage.js';
+import {
+  LAST_RESORT_IMAGE_RETAILERS, SMALL_PHOTO_LONG_EDGE, THUMBNAIL_IMAGE_RETAILERS, pickImage, upgradeImageResolution, type ImageBoxVerdict, type ImageDimensions,
+} from '../src/catalogue/pickImage.js';
+import { distinctSizePhotos } from '../src/catalogue/sizePhotos.js';
 import { betterPhotoFor, type BetterPhoto } from '../src/catalogue/betterPhotos.js';
 import { bottleScaleStyle, type SilhouetteBox } from '../src/catalogue/bottleScale.js';
 import { rejectPlaceholderImage } from '../src/catalogue/placeholderImage.js';
@@ -2804,8 +2807,31 @@ const crawledAt =
   ordered.flatMap((p) => p.offers.map((o) => o.fetchedAt)).sort().at(-1) ??
   new Date(0).toISOString();
 
+/* ── one picture for every size ─────────────────────────────────────────────
+   Each product's photo is chosen on its own, so sizes that take it from the
+   same shop can show the identical picture (Lookfantastic's Rabanne 1 Million
+   Night Elixir 50ml and 100ml). Where several sizes of one fragrance show the
+   same picture and another shop has a different photo of that exact size, that
+   size takes it; otherwise it keeps what it has (src/catalogue/sizePhotos.ts).
+   The other shop's photo must be one pickImage could choose on its own merits:
+   not a thumbnail shop, not measured small, not a box beside the bottle. */
+const chosenImages = new Map<string, string | null>(
+  ordered.map((p) => [p.id, pickImage(p.offers, now, imageBoxVerdicts, imageDimensions)] as const),
+);
+const sizePhotoResult = distinctSizePhotos(ordered, chosenImages, {
+  eligible: (o) => {
+    if (o.imageUrl === null) return false;
+    if (THUMBNAIL_IMAGE_RETAILERS.has(o.retailerId) || LAST_RESORT_IMAGE_RETAILERS.has(o.retailerId)) return false;
+    if (imageBoxVerdicts.get(o.imageUrl) === 'boxed') return false;
+    const dims = imageDimensions.get(o.imageUrl);
+    return !(dims && Math.max(dims.width, dims.height) < SMALL_PHOTO_LONG_EDGE);
+  },
+  pick: (offers) => pickImage(offers, now, imageBoxVerdicts, imageDimensions),
+});
+const sizePhotoChanges = sizePhotoResult.changed.length;
+
 const catalogue = ordered.map((p) => {
-  const image = pickImage(p.offers, now, imageBoxVerdicts, imageDimensions);
+  const image = sizePhotoResult.picks.get(p.id) ?? null;
   return {
     id: p.id,
     slug: productSlugs[p.id]!,
@@ -3216,6 +3242,7 @@ console.log(
     ? `catalogue replayed from ${CATALOGUE_RECORD} (clock ${buildRecord.builtAt}); the address memories are unchanged`
     : `${CATALOGUE_RECORD} written (clock ${buildRecord.builtAt}, ${Object.keys(buildRecord.files).length} data inputs)`,
 );
+console.log(`size photos: ${sizePhotoChanges} products took another shop's photo of their own size because the sizes of their fragrance showed one picture (src/catalogue/sizePhotos.ts)`);
 console.log(
   `product addresses: ${slugResult.stats.kept} kept, ${slugResult.stats.fresh} given ` +
     `(${slugResult.stats.plain} plain, ${slugResult.stats.withStrength} with the strength, ${slugResult.stats.withVersion} with a version), ` +

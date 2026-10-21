@@ -342,3 +342,4 @@ code tests/linkBrandPriority.test.ts
 code tests/regionColognePlaceholder.test.ts
 code tests/harvestFreshness.test.ts
 data tests/productSlugEntities.test.ts
+code tests/sizePhotos.test.ts
