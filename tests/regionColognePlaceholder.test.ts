@@ -22,8 +22,8 @@ const strengthAt = (products: ReturnType<typeof build>, shop: string, name: RegE
   products.find((p) => p.offers.some((o) => o.shopId === shop) && name.test(p.name))?.concentration;
 
 describe('a shop whose Cologne is not a strength', () => {
-  it('is flagged in the registry for Perfumania and Fragrance Outlet only', () => {
-    expect(US_RETAILERS.filter((s) => s.cologneWordIsNotAStrength).map((s) => s.id).sort()).toEqual(['fragrance-outlet', 'perfumania']);
+  it('is flagged in the registry for Perfumania, Fragrance Outlet and Fragrance Market only', () => {
+    expect(US_RETAILERS.filter((s) => s.cologneWordIsNotAStrength).map((s) => s.id).sort()).toEqual(['fragrance-market', 'fragrance-outlet', 'perfumania']);
   });
 
   it('reads Cologne and Eau de Cologne as strength not stated, and keeps the name', () => {

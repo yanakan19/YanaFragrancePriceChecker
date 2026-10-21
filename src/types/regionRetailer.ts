@@ -202,7 +202,7 @@ export interface RegionRetailer {
    */
   catalogueGroup?: string;
   /**
-   * The shop writes "Cologne" on its bottles whatever their strength (Perfumania and Fragrance Outlet label every
+   * The shop writes "Cologne" on its bottles whatever their strength (Perfumania, Fragrance Outlet and Fragrance Market label every
    * men's bottle so, about 3,800 of the US shops' 4,800 cologne listings). For this shop a "Cologne" or "Eau de
    * Cologne" word in a title is not a strength: the listing is read as strength not stated, unless the title states
    * another strength (EDT, EDP, Parfum), which then wins. Owner decision, 21 Oct 2026. Other shops keep Eau de Cologne.
