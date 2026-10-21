@@ -8,6 +8,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { policyOf, readManifest, REPO_ROOT } from '../scripts/generatedFiles.js';
+import { HARVEST_GROUPS, METERED_GROUP } from '../src/catalogue/harvestGroups.js';
 
 const DIR = join(REPO_ROOT, '.github/workflows');
 const files = readdirSync(DIR).filter((f) => f.endsWith('.yml'));
@@ -173,8 +174,11 @@ describe('catalogue-daily.yml', () => {
     expect(step('Commit synced Awin feeds')).toContain("steps.awin.outcome == 'success'");
     expect(step('Commit the shipping report')).toContain("steps.shipping.outcome == 'success'");
     expect(step('Undo an Awin sync that did not finish')).toContain("steps.awin.outcome == 'failure'");
+    // Noted in `prepare` (the stages run there), failed in `crawl` once the harvest is safe.
+    const note = step('Note whether a periodic stage failed');
+    for (const id of ['shipping', 'commit_shipping', 'awin', 'commit_awin']) expect(note).toContain(`steps.${id}.outcome`);
     const fail = step('Fail the run if a periodic stage failed');
-    for (const id of ['shipping', 'commit_shipping', 'awin', 'commit_awin']) expect(fail).toContain(`steps.${id}.outcome == 'failure'`);
+    expect(fail).toContain("needs.prepare.outputs.periodic_failed == 'true'");
     expect(fail).toContain('exit 1');
   });
 
@@ -244,7 +248,9 @@ describe('catalogue-daily.yml', () => {
 
   it('sizes the harvest deadline to the time the job has left', () => {
     const harvest = step('Harvest via sitemap');
-    expect(harvest).toContain('RUN_MINUTES=$(scripts/harvest-minutes.sh)');
+    expect(harvest).toContain('RUN_MINUTES=$(JOB_LIMIT_MIN=80 RESERVE_MIN=12 MAX_MIN=62 scripts/harvest-minutes.sh)');
+    // The limit given to the script is the sweep job's own.
+    expect(jobs('catalogue-daily.yml').find((j) => j.name === 'sweep')!.body).toContain('timeout-minutes: 80');
     expect(harvest).toContain('--run-minutes="$RUN_MINUTES"');
     expect(step('Note when the job started')).toContain('JOB_STARTED_AT=');
   });
@@ -262,6 +268,71 @@ describe('catalogue-daily.yml', () => {
     expect(daily).toContain('run: bash scripts/crawl-guard.sh');
     // The dispatch form's own defaults must not leak into a tick.
     expect(step('Harvest via sitemap')).toContain("--max=${{ (env.SCHEDULED != 'true' && inputs.harvest_max) || '70' }}");
+  });
+});
+
+
+// 2026-10-22: the crawl in four jobs (see the comment above `prepare` in the workflow).
+describe('catalogue-daily.yml, the sweep in parallel groups', () => {
+  const daily = text('catalogue-daily.yml');
+  const job = (name: string) => jobs('catalogue-daily.yml').find((j) => j.name === name)!;
+  const groups = HARVEST_GROUPS;
+
+  it('has prepare, sweep, houses and crawl, in that order of needs', () => {
+    expect(jobs('catalogue-daily.yml').map((j) => j.name)).toEqual(['guard', 'prepare', 'sweep', 'houses', 'crawl']);
+    expect(`\n${job('prepare').body}`).toMatch(/\n {4}needs: guard\n/);
+    expect(`\n${job('sweep').body}`).toMatch(/\n {4}needs: prepare\n/);
+    expect(`\n${job('houses').body}`).toMatch(/\n {4}needs: prepare\n/);
+    expect(`\n${job('crawl').body}`).toMatch(/\n {4}needs: \[prepare, sweep, houses\]\n/);
+  });
+
+  it('runs one sweep job per group of src/catalogue/harvestGroups.ts, each told its group, none failing the others', () => {
+    const sweep = job('sweep').body;
+    expect(sweep).toMatch(new RegExp(`\\n {8}group: \\[${Array.from({ length: groups }, (_, g) => g).join(', ')}\\]\\n`));
+    expect(sweep).toContain('fail-fast: false');
+    expect(sweep).toContain(`--group=\${{ matrix.group }}/${groups}`);
+    expect(sweep).toContain('actions/upload-artifact@v6');
+  });
+
+  it('keeps the sweep and the houses off the branch: read only, no commit, no push, and not in the catalogue group the merge holds', () => {
+    for (const name of ['sweep', 'houses']) {
+      const body = job(name).body;
+      expect(body, name).toMatch(/\n {4}permissions:\n {6}contents: read\n/);
+      expect(body, name).not.toContain('commit-and-push.sh');
+      expect(body, name).not.toMatch(/\bgit (push|commit)\b/);
+      expect(groupOf('catalogue-daily.yml', body) ?? '', name).not.toBe('catalogue');
+    }
+    // Two runs never sweep the same group side by side.
+    expect(`\n${job('sweep').body}`).toContain('\n    concurrency:\n      group: catalogue-sweep-${{ matrix.group }}\n      cancel-in-progress: false\n');
+  });
+
+  it('commits only from prepare and crawl, both in the catalogue group, and the harvest is committed once, after the merge', () => {
+    expect(groupOf('catalogue-daily.yml', job('prepare').body)).toBe('catalogue');
+    expect(groupOf('catalogue-daily.yml', job('crawl').body)).toBe('catalogue');
+    const crawl = job('crawl').body;
+    const at = (needle: string) => crawl.indexOf(needle);
+    expect(at('scripts/harvest-merge.ts')).toBeGreaterThan(0);
+    expect(at('actions/download-artifact@')).toBeGreaterThan(0);
+    expect(at('actions/download-artifact@')).toBeLessThan(at('scripts/harvest-merge.ts'));
+    expect(at('scripts/harvest-merge.ts')).toBeLessThan(at('- name: Commit harvested prices'));
+    expect(crawl.match(/- name: Commit harvested prices/g)).toHaveLength(1);
+    expect(job('sweep').body + job('houses').body + job('prepare').body).not.toContain('Commit harvested prices');
+    // The data tests and the freshness check stay, after the commits.
+    expect(at('npm run test:data')).toBeGreaterThan(at('- name: Commit rebuilt app'));
+    expect(at('scripts/freshness-check.ts')).toBeGreaterThan(0);
+  });
+
+  it('offers the paid tiers to the metered group only, and leaves per host pacing and the shop time budget to the harvest as before', () => {
+    const harvest = job('sweep').body;
+    expect(harvest).toContain(`if [ "\${{ matrix.group }}" != "${METERED_GROUP}" ]; then`);
+    expect(harvest).toContain('--concurrency=8');
+    expect(harvest).toContain('--run-minutes="$RUN_MINUTES"');
+  });
+
+  it('gives each job a limit that fits the slowest piece with room, and the whole chain stays inside the three hour ticks', () => {
+    const limit = (name: string) => Number(/\n {4}timeout-minutes: (\d+)\n/.exec(`\n${job(name).body}`)![1]);
+    expect(limit('sweep')).toBeGreaterThanOrEqual(70);
+    expect(limit('prepare') + limit('sweep') + limit('crawl')).toBeLessThanOrEqual(180);
   });
 });
 

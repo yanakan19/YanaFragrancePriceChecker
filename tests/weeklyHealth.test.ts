@@ -119,6 +119,9 @@ describe('weekly health: deploy size and crawl time', () => {
     const yaml = 'jobs:\n  a:\n    timeout-minutes: 5\n    steps:\n      - run: x\n        timeout-minutes: 300\n  b:\n    timeout-minutes: 120\n';
     expect(crawlLimitFrom(yaml)).toBe(120);
     expect(crawlLimitFrom('jobs: {}')).toBeNull();
+    // Split into jobs run one after another (the sweep groups run side by side as one): their limits add.
+    const split = 'jobs:\n  guard:\n    timeout-minutes: 5\n  prepare:\n    timeout-minutes: 45\n    steps:\n      - run: x\n        timeout-minutes: 300\n  sweep:\n    timeout-minutes: 80\n  houses:\n    timeout-minutes: 40\n  crawl:\n    timeout-minutes: 55\n';
+    expect(crawlLimitFrom(split)).toBe(180);
   });
   it('finds the slowest completed run of the crawl, a cancelled one included', () => {
     const at = (m: number) => new Date(Date.UTC(2026, 9, 12, 8, m)).toISOString();

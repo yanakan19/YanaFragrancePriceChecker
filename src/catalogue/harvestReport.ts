@@ -95,6 +95,8 @@ export interface ShopHarvestOutcome {
    * on shops that never reach that stage.
    */
   refreshed?: { platform: string | null; fromFeed: number; due: number; gone: number; note?: string };
+  /** Wall seconds the shop took, from being picked up to being recorded. Absent on reports before 22 Oct 2026. */
+  seconds?: number;
   finishedAt: string;
 }
 
@@ -141,6 +143,12 @@ export interface HarvestReport {
    * report written before this field existed, or by a run that was killed.
    */
   freshness?: Record<string, ReportedFreshness>;
+  /**
+   * The sweep run as parallel groups (src/catalogue/harvestGroups.ts): each
+   * group's start, end and length in minutes, so the run's summary can say how
+   * long each took. Absent on a report from a single job sweep.
+   */
+  groups?: import('./harvestGroups.js').ReportedGroup[];
 }
 
 export interface ReportedFreshness extends ShopFreshness {

@@ -113,6 +113,7 @@ code tests/guessFragranceMask.test.ts
 code tests/guessFragranceVideo.test.ts
 data tests/guessFragrancePick.test.ts
 code tests/harvestCursor.test.ts
+code tests/harvestGroups.test.ts
 code tests/harvestMinutes.test.ts
 code tests/harvestReport.test.ts
 data tests/head.test.ts

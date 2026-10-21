@@ -46,6 +46,8 @@ export interface HarvestLite {
   notReached?: string[];
   shops: ShopRow[];
   freshness: Record<string, FreshnessRow>;
+  /** The sweep's parallel groups (src/catalogue/harvestGroups.ts), when it ran as groups. */
+  groups?: { group: number; minutes: number | null; shops: number; stoppedOnBudget: string[] }[];
 }
 export interface ShopSummary {
   total: number;
@@ -173,8 +175,19 @@ export interface DeploySize {
   builtAt?: string;
 }
 
-/** The crawl job's time limit: the largest job level `timeout-minutes` in its workflow file. Pure. */
+/**
+ * The crawl's time limit: the limits of the jobs it runs one after another added
+ * (prepare, the sweep groups, crawl: since 22 Oct 2026 the sweep is its own job,
+ * src/catalogue/harvestGroups.ts), or, for a workflow of one job, the largest job level `timeout-minutes`. Pure.
+ */
 export function crawlLimitFrom(workflowYaml: string): number | null {
+  const of = (job: string): number | null => {
+    const block = new RegExp(`^ {2}${job}:\\n([\\s\\S]*?)(?=^ {2}[A-Za-z0-9_-]+:\\n|(?![\\s\\S]))`, 'm').exec(workflowYaml)?.[1];
+    const m = block ? /^ {4}timeout-minutes: *(\d+)/m.exec(block) : null;
+    return m ? Number(m[1]) : null;
+  };
+  const chain = ['prepare', 'sweep', 'crawl'].map(of);
+  if (chain.every((n): n is number => n !== null)) return chain.reduce((a, b) => a + b, 0);
   const limits = [...workflowYaml.matchAll(/^ {4}timeout-minutes: *(\d+)/gm)].map((m) => Number(m[1]));
   return limits.length ? Math.max(...limits) : null;
 }
@@ -423,12 +436,16 @@ export function render(input: RenderInput): string {
   const c = input.crawl;
   if (!c || !c.slowest) L.push('Slowest crawl run: none this week, or the Actions API could not be read.', '');
   else L.push(`Slowest crawl run: ${Math.round(c.slowest.minutes)} minutes${c.limit ? ` of its ${c.limit} minute limit (${pct(c.slowest.minutes / c.limit)})` : ''}, started ${c.slowest.startedAt}, ${c.slowest.conclusion ?? 'unknown'}.`, '');
+  const groups = input.harvest?.groups;
+  if (groups?.length) {
+    L.push(`Sweep groups in the last sweep: ${groups.map((g) => `group ${g.group} ${g.minutes ?? '?'} min for ${g.shops} shops${g.stoppedOnBudget.length ? ` (${g.stoppedOnBudget.length} stopped on their time budget)` : ''}`).join('; ')}. Rebalance with \`npx tsx scripts/harvest-groups.ts --write\` when one takes a quarter longer than the other.`, '');
+  }
 
   L.push('## Workflows (last 7 days, completed runs)', '');
   if (!input.runs) {
     L.push('The Actions API could not be read.', '');
   } else {
-    L.push('Minutes are from run start to last update, cancelled and skipped runs left out. The crawl job limit is 120 minutes: act when a longest figure passes 100.', '');
+    L.push('Minutes are from run start to last update, cancelled and skipped runs left out. The crawl runs as a chain of jobs (prepare, sweep groups side by side, crawl); act when a longest figure passes 100.', '');
     L.push('| Workflow | Runs | Failed | Cancelled | Median | 90th | Longest |', '|---|---|---|---|---|---|---|');
     for (const r of input.runs) L.push(`| ${r.workflow} | ${r.runs} | ${r.failed} | ${r.cancelled} | ${r.medianMin} | ${r.p90Min} | ${r.maxMin}${r.maxMin >= 100 ? ' (over 100)' : ''} |`);
     L.push('');

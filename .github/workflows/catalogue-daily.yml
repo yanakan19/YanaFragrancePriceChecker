@@ -319,7 +319,31 @@ jobs:
           REF: ${{ github.ref_name }}
         run: bash scripts/crawl-guard.sh
 
-  crawl:
+  # ── The crawl in four jobs (22 Oct 2026) ────────────────────────────────────
+  # One job did everything and took 101 minutes of its 120 on the slowest run: the
+  # shop sweep alone was lane bound at 56 minutes (26,900 shop-seconds over eight
+  # lanes), ten shops stopped on their own time budget, and the Awin sync or the
+  # shipping stage added up to 27 minutes in front of it.
+  #
+  #   prepare   the tests, the periodic stages and their commits (the old job up to the sweep)
+  #   sweep     two jobs side by side, each a fixed half of the shops (src/catalogue/harvestGroups.ts);
+  #             they change nothing on the branch, they hand their files over as an artifact
+  #   houses    the houses harvest, beside the sweep, handed over the same way
+  #   crawl     merges the artifacts (scripts/harvest-merge.ts), commits once, rebuilds, runs the
+  #             data tests and the freshness check: the rest of the old job, unchanged
+  #
+  # Commit safety. Only `prepare` and `crawl` hold the `catalogue` concurrency group and only they
+  # push, through scripts/commit-and-push.sh. The sweep jobs run between them without the group, so
+  # a commit from another workflow (the image check, a photo run, a dispatch) can land meanwhile:
+  # the merge applies a shop's snapshot only when nothing changed that file since the sweep job
+  # started, and says so when it does not. Scheduled ticks cannot overlap (the guard skips while an
+  # older run is going). A merge job that GitHub cancels while it waits for the group can be re-run
+  # by hand: the artifacts stay for three days.
+  #
+  # Politeness is unchanged: a shop is in exactly one group, so one job asks it, at its registry and
+  # robots.txt gap, and shops that share a host share a group. Only group 0 is offered the paid
+  # tiers, so the Apify spend per run is what one job could spend.
+  prepare:
     needs: guard
     # `always()` overrides the default implicit success() gate that `needs`
     # adds — load-bearing here: if `guard` fails outright (a runner
@@ -344,6 +368,17 @@ jobs:
       # get cancelled ahead of, a real harvest already running.
       group: catalogue
       cancel-in-progress: false
+    outputs:
+      periodic_failed: ${{ steps.periodic.outputs.failed }}
+      # A job's `if` cannot read `env`, so the sweep jobs ask this instead of
+      # repeating `inputs.harvest || github.event_name == 'schedule' ...`.
+      harvest_wanted: ${{ steps.wanted.outputs.harvest }}
+    # ── History of the single job's limit (written before the split) ─────────
+    # Everything below up to `timeout-minutes` was written for the one job that
+    # also swept the shops, with a 75, then 100, then 120 minute limit. The
+    # figures are what the pieces were measured at; the limit of this job is
+    # the periodic stages' worst case (2 minutes setup, shipping 9, the Awin
+    # sync up to 30, tests and probes), with room.
     # Measured from the runs themselves, not guessed. Every number below is a
     # step duration read off the GitHub jobs API.
     #
@@ -477,7 +512,7 @@ jobs:
     # decides how often a run ends green instead of a harmless "cancelled"
     # during the rebuild. Shrink or split a stage that outgrows its budget;
     # don't chase this number for that.
-    timeout-minutes: 120
+    timeout-minutes: 45
 
     # ── The signed-commit attempt ────────────────────────────────────────────
     # Job-level rather than per-step because scripts/commit-and-push.sh is
@@ -506,10 +541,6 @@ jobs:
       SCHEDULED: ${{ github.event_name == 'schedule' || inputs.scheduled_tick == true }}
 
     steps:
-      # scripts/harvest-minutes.sh sizes the harvest's deadline to what is
-      # left of this job's 120 minutes, which needs the moment it began.
-      - name: Note when the job started
-        run: echo "JOB_STARTED_AT=$(date -u +%s)" >> "$GITHUB_ENV"
 
       # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v5
       # defaults to a shallow clone (depth 1) — fine for every other step
@@ -969,6 +1000,108 @@ jobs:
             "TikTok probe: what the Affiliate API answered $(date -u +%Y-%m-%d)" \
             data/tiktok
 
+      # The periodic stages (shipping discovery, the Awin sync and their
+      # commits) run with continue-on-error so that one of them failing can
+      # never cost the sweep after it. Their failures still turn the run red,
+      # in the `crawl` job, once the harvest is safe (the step there reads this).
+      - name: Note whether a harvest is wanted
+        id: wanted
+        run: echo "harvest=${{ inputs.harvest || env.SCHEDULED == 'true' }}" >> "$GITHUB_OUTPUT"
+
+      - name: Note whether a periodic stage failed
+        id: periodic
+        if: ${{ !cancelled() }}
+        run: |
+          if [ "${{ steps.shipping.outcome }}" = "failure" ] || [ "${{ steps.commit_shipping.outcome }}" = "failure" ] \
+            || [ "${{ steps.awin.outcome }}" = "failure" ] || [ "${{ steps.commit_awin.outcome }}" = "failure" ]; then
+            echo "failed=true" >> "$GITHUB_OUTPUT"
+            echo "A periodic stage failed: shipping ${{ steps.shipping.outcome }} (commit ${{ steps.commit_shipping.outcome }}), Awin ${{ steps.awin.outcome }} (commit ${{ steps.commit_awin.outcome }})."
+          else
+            echo "failed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  # One half of the shop sweep. Reads the repository, writes nothing to the branch
+  # (scripts/harvest-pack.ts hands the changed snapshots, the cursor and the report
+  # to the merge in `crawl`). fail-fast is off: one group failing must not cost the
+  # other's hour of harvesting. `--group` is src/catalogue/harvestGroups.ts' table.
+  sweep:
+    needs: prepare
+    if: ${{ always() && needs.prepare.result == 'success' && needs.prepare.outputs.harvest_wanted == 'true' }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    # One run's group 1 at a time, whatever else is running: two runs (a dispatch
+    # beside a tick) must not ask the same shops side by side. Not the `catalogue`
+    # group, which this job must not hold (the groups would queue behind each other).
+    concurrency:
+      group: catalogue-sweep-${{ matrix.group }}
+      cancel-in-progress: false
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [0, 1]
+    # 62 minutes of sweep (the old deadline was 56 for all the shops) and each shop's
+    # ceiling 50 (was 40), inside the step's 70 and this job's 80; the artifact upload
+    # follows. Run time per group was measured in the last sweep at 225 minutes of
+    # shop time each, 28 minutes over eight lanes, and the slow shops take their ceiling.
+    timeout-minutes: 80
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+      # A scheduled tick, or an outside scheduler's dispatch standing in for
+      # one (scheduled_tick); see `prepare`.
+      SCHEDULED: ${{ github.event_name == 'schedule' || inputs.scheduled_tick == true }}
+
+    steps:
+      # scripts/harvest-minutes.sh sizes the harvest's deadline to what is
+      # left of this job's 80 minutes, which needs the moment it began.
+      - name: Note when the job started
+        run: echo "JOB_STARTED_AT=$(date -u +%s)" >> "$GITHUB_ENV"
+
+      # The branch as it is now, with what `prepare` just committed (the default
+      # ref is the commit that started the run, which does not have it). One
+      # commit deep: this job never reads history, and the merge compares
+      # against the commit it started from by name.
+      - uses: actions/checkout@v5
+        timeout-minutes: 10
+        with:
+          ref: ${{ github.ref_name }}
+
+
+      - uses: actions/setup-node@v5
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      # Retried with backoff (scripts/retry.sh): a registry blip here used to
+      # cost the whole run. npm ci starts from an empty node_modules each time.
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      # Chromium for the local render tier — the free replacement for the Apify
+      # actor, see src/catalogue/localBrowser.ts. Playwright was already a
+      # dependency (scripts/generate-og-preview.ts drives it for the site's own
+      # preview image); this installs the browser binary it needs, which the
+      # runner does not ship.
+      #
+      # --with-deps because a bare ubuntu runner is missing several shared
+      # libraries Chromium links against, and --only-shell because nothing here
+      # needs a headed browser. Roughly a minute, cached between runs by the
+      # setup-node npm cache above only for the npm half — the browser download
+      # is its own ~120 MB and is not cached, which is the price of the tier
+      # and still cheaper than the alternative it replaces.
+      #
+      # continue-on-error: a runner that cannot install a browser should lose
+      # the render tier, not the harvest. localBrowser.ts reports an
+      # unavailable browser per URL rather than throwing, so the run degrades
+      # to the free routes exactly as it did before this tier existed.
+      - name: Install Chromium for the local render tier
+        continue-on-error: true
+        timeout-minutes: 10
+        run: scripts/retry.sh 2 npx playwright install --with-deps --only-shell chromium
+
       # "Top Deals Today" used to be built HERE, near the top of the run and
       # ahead of the harvest, on its own 5-hour age gate. It is now built in
       # "Rebuild the app from harvested prices" below, straight after
@@ -1106,7 +1239,7 @@ jobs:
         id: harvest
         if: ${{ inputs.harvest || env.SCHEDULED == 'true' }}
         continue-on-error: true
-        timeout-minutes: 60
+        timeout-minutes: 70
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
@@ -1120,7 +1253,7 @@ jobs:
           # inside the job's 120 minutes (scripts/harvest-minutes.sh). Too
           # little left and the harvest is skipped, with an error, rather
           # than cut off mid commit by the job limit (run #180).
-          if ! RUN_MINUTES=$(scripts/harvest-minutes.sh); then
+          if ! RUN_MINUTES=$(JOB_LIMIT_MIN=80 RESERVE_MIN=12 MAX_MIN=62 scripts/harvest-minutes.sh); then
             exit 1
           fi
           # ── Why the metered tiers are not offered on every run ─────────────
@@ -1153,7 +1286,11 @@ jobs:
           case "$LAST" in ''|*[!0-9]*) LAST=0 ;; esac
           AGE=$(( NOW - LAST ))
           METERED=""
-          if [ "${{ inputs.allow_metered }}" = "true" ]; then
+          if [ "${{ matrix.group }}" != "0" ]; then
+            # Only group 0 is offered the paid tiers (src/catalogue/harvestGroups.ts
+            # METERED_GROUP), so a run spends what one job could, not twice it.
+            echo "Metered tiers NOT offered: this is group ${{ matrix.group }}; only group 0 may spend."
+          elif [ "${{ inputs.allow_metered }}" = "true" ]; then
             METERED="--allow-metered"
             echo "Metered tiers offered: asked for explicitly by dispatch."
           elif [ "$SCHEDULED" = "true" ] && [ "$AGE" -ge 72000 ]; then
@@ -1219,10 +1356,62 @@ jobs:
             --refresh-after-hours=12 \
             --concurrency=8 \
             --run-minutes="$RUN_MINUTES" \
-            --shop-minutes=40 \
+            --shop-minutes=50 \
+            --group=${{ matrix.group }}/2 \
             ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
             ${{ inputs.harvest_gap_min && format('--gap-min={0}', inputs.harvest_gap_min) || '' }} \
             $METERED
+
+      # Hands the changed files to the merge, whatever the harvest did: a group
+      # that stopped on its deadline or exited non-zero has still stored the
+      # shops it finished, one file each.
+      - name: Hand the sweep over to the merge
+        if: ${{ !cancelled() }}
+        timeout-minutes: 5
+        run: npx tsx scripts/harvest-pack.ts sweep ${{ matrix.group }} handover
+
+      - uses: actions/upload-artifact@v6
+        if: ${{ !cancelled() }}
+        timeout-minutes: 10
+        with:
+          name: harvest-${{ matrix.group }}
+          path: handover
+          retention-days: 3
+          if-no-files-found: error
+
+  # The Middle Eastern houses, beside the sweep (they share no host with it and
+  # write only data/houses and the sourcing report). Never fails the run: a house
+  # refusing us is a fact to record, as before.
+  houses:
+    needs: prepare
+    if: ${{ always() && needs.prepare.result == 'success' && needs.prepare.outputs.harvest_wanted == 'true' }}
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    timeout-minutes: 40
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+      # A scheduled tick, or an outside scheduler's dispatch standing in for
+      # one (scheduled_tick); see `prepare`.
+      SCHEDULED: ${{ github.event_name == 'schedule' || inputs.scheduled_tick == true }}
+
+    steps:
+      - uses: actions/checkout@v5
+        timeout-minutes: 10
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-node@v5
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
 
       # The Middle Eastern houses sell direct rather than through the UK shops
       # above, so nothing in the sitemap harvest reaches them. This reads their
@@ -1245,8 +1434,94 @@ jobs:
       - name: Harvest houses direct
         if: ${{ inputs.harvest || env.SCHEDULED == 'true' }}
         continue-on-error: true
-        timeout-minutes: 15
+        timeout-minutes: 20
         run: npm run houses
+
+      - name: Hand the houses over to the merge
+        if: ${{ !cancelled() }}
+        timeout-minutes: 5
+        run: npx tsx scripts/harvest-pack.ts houses handover
+
+      - uses: actions/upload-artifact@v6
+        if: ${{ !cancelled() }}
+        timeout-minutes: 10
+        with:
+          name: harvest-houses
+          path: handover
+          retention-days: 3
+          if-no-files-found: error
+
+  # The merge, the one commit of the harvest, the rebuild, the data tests and the
+  # freshness check. Holds the `catalogue` group like `prepare`: nothing but these two
+  # jobs pushes from this workflow. Runs only when `prepare` went through (its tests
+  # gate the harvest as they always did); a failed periodic stage is reported here.
+  crawl:
+    needs: [prepare, sweep, houses]
+    if: ${{ always() && needs.prepare.result == 'success' }}
+    runs-on: ubuntu-24.04
+    concurrency:
+      group: catalogue
+      cancel-in-progress: false
+    # Checkout and install 3 minutes, merge 1, commit 1, rebuild 3 to 6, data tests 5,
+    # freshness 1 (run #1560); 55 minutes is three times that, with the step caps' worst
+    # case (rebuild 25, data tests 12) still fitting.
+    timeout-minutes: 55
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+      # A scheduled tick, or an outside scheduler's dispatch standing in for
+      # one (scheduled_tick); see `prepare`.
+      SCHEDULED: ${{ github.event_name == 'schedule' || inputs.scheduled_tick == true }}
+
+    steps:
+      # fetch-depth: 0 is load-bearing: scripts/build-price-history.ts replays the
+      # whole commit history of data/catalogue (see `prepare`). The branch as it is
+      # now, not the commit that started the run: `prepare` pushed after that.
+      - uses: actions/checkout@v5
+        timeout-minutes: 10
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      # Only the render capture dispatch renders pages in this job.
+      - name: Install Chromium for the local render tier
+        if: ${{ inputs.capture_render_shop != '' }}
+        continue-on-error: true
+        timeout-minutes: 10
+        run: scripts/retry.sh 2 npx playwright install --with-deps --only-shell chromium
+
+      - uses: actions/download-artifact@v7
+        if: ${{ !cancelled() && (inputs.harvest || env.SCHEDULED == 'true') && (needs.sweep.result == 'success' || needs.sweep.result == 'failure') }}
+        continue-on-error: true
+        timeout-minutes: 10
+        with:
+          path: shards
+          pattern: harvest-*
+
+      # What the groups found, into this checkout, ready for the commit below.
+      # A group that failed leaves its shops with their previous prices and first
+      # in line next run; a shop changed on the branch since its group started is
+      # not overwritten (scripts/harvest-merge.ts). continue-on-error as the old
+      # harvest step had it: the steps after it publish what there is.
+      - name: Merge the sweep groups
+        id: harvest
+        if: ${{ !cancelled() && (inputs.harvest || env.SCHEDULED == 'true') && (needs.sweep.result == 'success' || needs.sweep.result == 'failure') }}
+        continue-on-error: true
+        timeout-minutes: 10
+        run: |
+          npx tsx scripts/harvest-merge.ts shards ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }}
+
+
 
       # ── Split from the rebuild, 2026-08-26 ──────────────────────────────
       # This used to be the second half of a step named "Commit harvested
@@ -1281,7 +1556,7 @@ jobs:
       # to the same never-live-then-registry order, and starve the same
       # eleven shops it starved before — the rotation would be decorative.
       - name: Commit harvested prices
-        if: ${{ inputs.harvest || env.SCHEDULED == 'true' }}
+        if: ${{ (inputs.harvest || env.SCHEDULED == 'true') && steps.harvest.conclusion != 'skipped' }}
         timeout-minutes: 15
         run: |
           ./scripts/commit-and-push.sh \
@@ -1309,9 +1584,9 @@ jobs:
       # `outcome` rather than `conclusion`: continue-on-error rewrites
       # conclusion to success, and outcome is what still holds the real result.
       - name: Note an incomplete harvest
-        if: ${{ !cancelled() && (inputs.harvest || env.SCHEDULED == 'true') && steps.harvest.outcome == 'failure' }}
+        if: ${{ !cancelled() && (inputs.harvest || env.SCHEDULED == 'true') && (steps.harvest.outcome == 'failure' || needs.sweep.result == 'failure' || needs.houses.result == 'failure') }}
         run: |
-          echo "::warning::The sitemap harvest did not run to completion — it hit its 60 minute cap or exited non-zero. Whatever it had already stored per shop has been committed by the step above; the shops it did not reach keep their previous prices and are picked up by the next run. Check the harvest step's log for where it stopped."
+          echo "::warning::The sitemap harvest did not run to completion — a sweep group (sweep ${{ needs.sweep.result }}, houses ${{ needs.houses.result }}, merge ${{ steps.harvest.outcome }}) hit its cap or exited non-zero. Whatever it had already stored per shop has been committed by the step above; the shops it did not reach keep their previous prices and are picked up by the next run. Check the harvest step's log for where it stopped."
 
       # ── The rebuild and its own commit, after the raw data is already safe ──
       # Split out of what used to be a single "Commit harvested prices" step,
@@ -1695,14 +1970,15 @@ jobs:
             data/catalogue $REBUILT
 
       # The periodic stages (shipping discovery, the Awin sync and their
-      # commits) run with continue-on-error so that one of them failing can
-      # never cost the harvest after it. Their failures still turn the run
-      # red, here, once the harvest is safe.
+      # commits) ran in `prepare` with continue-on-error so that one of them
+      # failing could never cost the harvest after it. Their failures still turn
+      # the run red, here, once the harvest is safe.
       - name: Fail the run if a periodic stage failed
-        if: ${{ !cancelled() && (steps.shipping.outcome == 'failure' || steps.commit_shipping.outcome == 'failure' || steps.awin.outcome == 'failure' || steps.commit_awin.outcome == 'failure') }}
+        if: ${{ !cancelled() && needs.prepare.outputs.periodic_failed == 'true' }}
         run: |
-          echo "::error::A periodic stage failed: shipping discovery ${{ steps.shipping.outcome }}, its commit ${{ steps.commit_shipping.outcome }}; Awin sync ${{ steps.awin.outcome }}, its commit ${{ steps.commit_awin.outcome }}. The harvest after them still ran; see those steps' logs."
+          echo "::error::A periodic stage failed (see the Note whether a periodic stage failed step of the prepare job for which). The harvest after them still ran; see those steps' logs."
           exit 1
+
 
       # A data test that fails (or hangs past its cap) turns the run red here,
       # once the harvest and the rebuilt page are safe. The step above it

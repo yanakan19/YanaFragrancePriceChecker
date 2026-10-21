@@ -101,6 +101,8 @@ import type { ReportedFreshness } from '../src/catalogue/harvestReport.js';
 import type { RawListing, StoredListing } from '../src/catalogue/types.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { NOTHING_HARVESTED } from './harvestExit.js';
+import { groupAssignment, parseGroupArg } from '../src/catalogue/harvestGroups.js';
+import { freshnessTable } from '../src/catalogue/harvestFreshness.js';
 
 /** A file that may not exist yet, as text. Absence is not an error here. */
 function readFileIfPresent(path: string): string | null {
@@ -120,6 +122,11 @@ function arg(name: string): string | null {
 
 const maxPages = Number.parseInt(arg('max') ?? '40', 10);
 const onlyShop = arg('shop');
+// One group of the sweep (src/catalogue/harvestGroups.ts), e.g. --group=1/2: only
+// the shops the plan puts in that group are asked. The crawl workflow runs the
+// groups as parallel jobs and merges them (scripts/harvest-merge.ts), so this run
+// leaves the freshness table and the checks over the whole catalogue to the merge.
+const groupArg = parseGroupArg(arg('group'));
 // Debug and local runs only: how many product files one run may read for barcodes,
 // in place of the shop's own `barcodeFromProductJs.maxPerRun`.
 const barcodesMaxArg = arg('barcodes-max') ? Number.parseInt(arg('barcodes-max')!, 10) : null;
@@ -427,7 +434,8 @@ const askingAboutOneNamedShop = onlyShop !== null && dryRun;
 // workflow sets SITE_OVERRIDES_FETCH=1; if it cannot be read, nothing is
 // skipped, which is how the crawl ran before the dashboard existed.
 const removedShops = await removedShopsForCrawl();
-const enabledShops = RETAILERS.filter(
+const groupOfShop = groupArg ? groupAssignment() : null;
+const enabledShopsOfAllGroups = RETAILERS.filter(
   (r) =>
     (r.enabled || askingAboutOneNamedShop) &&
     r.adapter !== 'affiliate-feed' &&
@@ -435,6 +443,17 @@ const enabledShops = RETAILERS.filter(
     !removedShops.has(r.id) &&
     (!onlyShop || r.id === onlyShop),
 );
+const enabledShops = groupArg && groupOfShop
+  ? enabledShopsOfAllGroups.filter((r) => groupOfShop.get(r.id) === groupArg.group)
+  : enabledShopsOfAllGroups;
+if (groupArg) {
+  console.log(`group    ${groupArg.group} of ${groupArg.of}: ${enabledShops.length} of ${enabledShopsOfAllGroups.length} shops`);
+  // A one shop dispatch names a shop of one group; the other groups have nothing to ask.
+  if (enabledShops.length === 0) {
+    console.log('Nothing in this group to ask; exiting 0.');
+    process.exit(0);
+  }
+}
 
 if (askingAboutOneNamedShop && enabledShops.some((r) => !r.enabled)) {
   console.log(`${onlyShop} is disabled in the registry; asking anyway because this is a dry run that writes nothing.\n`);
@@ -479,7 +498,7 @@ const shops = heavyFirst(
 // and dropping their stamps would send the whole catalogue to the front of the
 // next run. See staleCursorIds' own comment.
 if (!onlyShop) {
-  const stale = staleCursorIds(cursor, shops.map((r) => r.id));
+  const stale = staleCursorIds(cursor, enabledShopsOfAllGroups.map((r) => r.id));
   if (stale.length > 0) {
     console.log(`harvest cursor holds ${stale.length} id(s) no longer swept: ${stale.join(', ')}`);
   }
@@ -1444,6 +1463,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
       gone: goneUrls.length + movedUrls.length,
       ...(feedNote ? { note: feedNote } : {}),
     },
+    seconds: Math.round((Date.now() - shopStartedAt) / 1000),
     finishedAt: new Date().toISOString(),
   });
 
@@ -1648,30 +1668,11 @@ await Promise.all(Array.from({ length: Math.min(concurrency, Math.max(1, shops.l
 // covers shops this run did not reach as well as the ones it did, and the
 // affiliate feed shops this harvest never asks (their prices come from the
 // Awin sync step).
-{
+if (!groupArg) {
   const nowDate = new Date();
-  // A shop that refused any page this run is a shop refusing us, even where
-  // another page answered (Selfridges, run #577: page one rendered, pages 2
-  // to 5 refused). So is a shop only the render tier reaches, which reads
-  // the first page of each section and nothing else, by design (see
-  // actorPartial above): Selfridges again, run #588, 60 re-priced of 293
-  // held. Neither can have its whole held range re-priced, so both are
-  // warned about by the freshness check, never failed on.
-  // A plain HTTP 401, 403, 407 or 429 in a shop's errors counts the same
-  // (Beauty Flash and Gorgeous Shop, 10 red runs from #1236: a 429 after two
-  // to five pages, 700+ listings left unread).
-  const answered = new Set(
-    report.current().shops
-      .filter((s) => s.tier !== 'none' && s.tier !== 'render' && !(s.refusals && s.refusals.length > 0) && !refusalIn(s.errors))
-      .map((s) => s.retailerId),
-  );
+  // Which shops answered, and the table: src/catalogue/harvestFreshness.ts.
   const measured = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
-  const freshness: Record<string, ReportedFreshness> = {};
-  for (const r of measured) {
-    const snap = store.read(r.id);
-    if (snap.source !== 'live') continue;
-    freshness[r.id] = { ...shopFreshness(snap.listings, nowDate), answered: answered.has(r.id) };
-  }
+  const freshness = freshnessTable(report.current().shops, measured, (id) => store.read(id), nowDate);
   report.setFreshness(freshness);
   console.log(`\nFreshness after this run (shown listings by age of last confirmed price)`);
   console.log(`  ${'shop'.padEnd(24)} ${'shown'.padStart(6)} ${'>24h'.padStart(6)} ${'>48h'.padStart(6)}  answered`);
