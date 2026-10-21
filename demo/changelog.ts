@@ -30,6 +30,18 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.113.0',
+    date: '21 Oct 2026',
+    groups: [
+      {
+        heading: 'Products and Matching',
+        points: [
+          'US Cologne labels no longer split one perfume',
+        ],
+      },
+    ],
+  },
+  {
     version: 'v3.112.0',
     date: '20 Oct 2026',
     groups: [

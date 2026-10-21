@@ -234,6 +234,7 @@ export function regionBuild(inputs: RegionInputs, now: string, ukIds?: ReadonlyS
     ...(ukIds ? { ukIds } : {}),
     groups: new Map(shops.filter((s) => s.catalogueGroup).map((s) => [s.id, s.catalogueGroup!])),
     formatWords: new Map(shops.filter((s) => s.titleMustMatch).map((s) => [s.id, s.titleMustMatch!])),
+    cologneNotAStrength: new Set(shops.filter((s) => s.cologneWordIsNotAStrength).map((s) => s.id)),
     notHouse: new Map(shops.filter((s) => s.vendorNotHouse?.length).map((s) => [s.id, new Set(s.vendorNotHouse!.map((v) => v.toLowerCase()))])),
     withListingDetail: true,
   });
