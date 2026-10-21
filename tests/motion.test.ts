@@ -14,9 +14,10 @@ import { contrastBetween } from '../demo/contrast.js';
  *     top, left or a shadow, which make the browser lay out or repaint);
  *   - reduced motion ends every animation at once, and stops every looping
  *     one outright, by name;
- *   - the moving gradient (ps-drift) is on the three tiles the owner allowed
- *     and nowhere else: the home title tile, the top deal, the primary button
- *     on hover.
+ *   - the moving gradient (ps-drift) is on the two tiles the owner allowed
+ *     and nowhere else: the top deal and the primary button on hover (the
+ *     home title tile that also drifted is gone, owner, 21 Oct 2026: the hero
+ *     sits on the plain page ground).
  */
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const template = readFileSync(resolve(root, 'demo/template.html'), 'utf8');
@@ -173,15 +174,14 @@ describe('the moving gradient', () => {
     for (const s of uses) expect(s, `${s}s`).toBeLessThanOrEqual(20);
   });
 
-  it('runs only on the three allowed tiles', () => {
+  it('runs only on the two allowed tiles', () => {
     const drifting = rules()
       .filter((r) => /animation(?:-name)?\s*:\s*ps-drift\b/.test(r.decls))
       .map((r) => r.selector);
     expect(drifting.sort()).toEqual(['.contact-send:hover:not(:active)::before', '.ps-drift::before']);
-    // The class itself: the home title tile, and the top deal.
+    // The class itself: the top deal only.
     const inApp = [...app.matchAll(/ps-drift/g)].length;
-    expect(inApp).toBe(2);
-    expect(app).toMatch(/<section class="intro ps-drift">/);
+    expect(inApp).toBe(1);
     expect(app).toMatch(/opts\?\.top \? ' tile-top ps-drift' : ''/);
     expect(app).toMatch(/top: i === 0 && state\.dealSort === 'discount'/);
     // Nowhere else in the page's markup or code.
@@ -209,10 +209,12 @@ describe('the moving gradient', () => {
     }
   });
 
-  it('never sits behind the title tile\'s words: each line carries the plain page ground', () => {
-    const ground = rules().find((r) => r.selector.replace(/\s+/g, ' ') === '.intro .hero-wordmark, .intro .hero-mission, .intro .hero-fresh');
-    expect(ground?.decls).toMatch(/background:\s*var\(--bg\)/);
-    expect(ground?.decls).toMatch(/box-shadow:[^;]*var\(--bg\)/);
-    expect(ground?.decls).not.toMatch(/animation|transition/);
+  it('leaves the home hero on the plain page ground: no tile, border or ground behind its words', () => {
+    expect(app).toMatch(/<section class="intro">/);
+    const hero = rules().filter((x) => /(^|[\s,])\.intro\b|\.hero-(wordmark|mission|fresh)\b/.test(x.selector));
+    expect(hero.length).toBeGreaterThan(2);
+    for (const r of hero) {
+      expect(r.decls, r.selector).not.toMatch(/background|border(?!-radius)|box-shadow|--drift-|animation/);
+    }
   });
 });

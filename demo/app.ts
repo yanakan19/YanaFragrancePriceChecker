@@ -1647,7 +1647,7 @@ function regionTaxNoteText(): string {
 
 function homeView(): string {
   return `
-    <section class="intro ps-drift">
+    <section class="intro">
       <div class="hero-logo">
         <!-- The site name is the home page's one level-one heading; every
              other view's title carries .t-page as an h1 of its own. The class

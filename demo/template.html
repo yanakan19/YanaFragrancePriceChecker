@@ -842,16 +842,12 @@
   ul.listing, ul.offers { list-style: none; margin: 0; padding: 0; }
 
   /* ── intro / hero ──────────────────────────────────────────────────────── */
-  /* The title tile (owner, 10 Oct 2026): its ground drifts (behaviour 9), and each line of the greeting carries the plain page ground with a soft edge, so the words keep the contrast they had. */
-  .intro {
-    --drift-a: var(--bg); --drift-b: var(--accent-sf); --drift-c: var(--surface-2);
-    margin-top: 12px; padding: 28px 16px 26px;
-    border: 1px solid var(--line); border-radius: 16px;
-  }
-  .intro .hero-wordmark, .intro .hero-mission, .intro .hero-fresh {
-    width: fit-content; max-width: 90%; margin-inline: auto;
-    background: var(--bg); border-radius: 6px; box-shadow: 0 0 22px 14px var(--bg);
-  }
+  /* The hero sits on the plain page ground (owner, 21 Oct 2026): the title
+     tile that used to frame it, with its drifting gradient and the soft
+     ground behind each line, is gone. The space above the title and under
+     the last line is even, so the block stays centred between the bar and
+     the banner. */
+  .intro { margin-top: 12px; padding: 22px 0 24px; }
   .hero-logo { text-align: center; position: relative; }
   /* The hero has no entrance of its own: it is the first block of the home stagger. */
 
@@ -3110,7 +3106,7 @@
      grid instead of a single column, and a two column detail view. Everything
      here hangs off [data-layout="desktop"], set on <html> by demo/app.ts, a
      name distinct from data-mode (the colour theme) on purpose. */
-  :root[data-layout="desktop"] .intro { padding-top: 56px; }
+  :root[data-layout="desktop"] .intro { padding-top: 40px; padding-bottom: 32px; }
   :root[data-layout="desktop"] .hero-wordmark { font-size: 46px; }
   /* The page itself now runs edge to edge, but a line of prose stretched
      across a whole ultrawide window stops being readable, so the mission
