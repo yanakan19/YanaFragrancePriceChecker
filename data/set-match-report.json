@@ -195,38 +195,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0085715329707",
-   "absorbed": [
-    "set-guess-seductive-homme-blue-gift-set-edt-50ml-body-spray-226ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085715329707",
-     "brand": "Guess",
-     "name": "Seductive Homme Blue Gift Set 50ml EDT + 226ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "0085715329707",
-     "scent": "blue homme seductive",
-     "signature": "1x226body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-guess-seductive-homme-blue-gift-set-edt-50ml-body-spray-226ml",
-     "brand": "Guess",
-     "name": "Seductive Homme Blue Gift Set EDT 50ml + Body Spray 226ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "blue homme seductive",
-     "signature": "1x226body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0085715952172",
    "absorbed": [
     "set-dkny-be-delicious-gift-set-30ml-be-delicious-edp-30ml-fresh-blossom-edp"
@@ -5207,6 +5175,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003996209",
    "absorbed": [
     "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray"
@@ -7743,6 +7743,49 @@
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "homme seductive",
+     "signature": "1x226body|1x50fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.80 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715329707",
+     "brand": "Guess",
+     "name": "Seductive Homme Blue Gift Set 50ml EDT + 226ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "0085715329707",
+     "scent": "blue homme seductive",
+     "signature": "1x226body|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-085715329707",
+     "brand": "Guess",
+     "name": "Seductive Homme Blue Eau De Toilette 50ml & Body Spray 226ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "085715329707",
+     "scent": "blue homme seductive",
+     "signature": "1x226body|1x50fragrance",
+     "shops": [
+      "beautybase"
+     ]
+    },
+    {
+     "id": "set-guess-seductive-homme-blue-gift-set-edt-50ml-body-spray-226ml",
+     "brand": "Guess",
+     "name": "Seductive Homme Blue Gift Set EDT 50ml + Body Spray 226ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "blue homme seductive",
      "signature": "1x226body|1x50fragrance",
      "shops": [
       "the-beauty-store-uk"
