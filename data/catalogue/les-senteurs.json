@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-21T06:35:57.021Z",
-  "seenAt": "2026-10-21T06:35:57.021Z",
+  "updatedAt": "2026-10-21T10:38:16.874Z",
+  "seenAt": "2026-10-21T10:38:16.874Z",
   "source": "live",
   "listings": [
     {
@@ -379,7 +379,7 @@
       "rawBrand": "Farina 1709",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/2213/5535/files/farina-1709-eau-de-cologne_84fd4223-2015-40ca-9c59-aba7b8051648.png?v=1791454836",
-      "priceGbp": 78,
+      "priceGbp": 90,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": false,

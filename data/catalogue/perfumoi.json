@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-21T06:35:57.021Z",
-  "seenAt": "2026-10-21T06:35:57.021Z",
+  "updatedAt": "2026-10-21T10:38:16.874Z",
+  "seenAt": "2026-10-21T10:38:16.874Z",
   "source": "live",
   "listings": [
     {
@@ -10847,7 +10847,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Diesel Fuel for Life Pour Femme Eau De Parfum Spray is a floral fragrance created for customers who enjoy a soft, elegant scent. It opens with a fresh and light impression, develops into a graceful floral heart, and settles into a smooth lasting base. Suitable for everyday wear, this fragrance is a strong choice for anyone looking for a scent that feels refined and modern.. Why customers choose it . Well-suited for spring and summer seasons. A great option for daily wear or gifting. Designed for customers who prefer floral and fresh scents.",
       "productType": "Eau de Parfum",
