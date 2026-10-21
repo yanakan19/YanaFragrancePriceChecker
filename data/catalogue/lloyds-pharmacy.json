@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-10-20T22:13:07.813Z",
-  "seenAt": "2026-10-20T22:13:07.813Z",
+  "updatedAt": "2026-10-21T02:07:18.403Z",
+  "seenAt": "2026-10-21T02:07:18.403Z",
   "source": "live",
   "listings": [
     {
@@ -816,7 +816,7 @@
       "rawBrand": "Yardley",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/0166477.png?v=1785426872",
-      "priceGbp": 10,
+      "priceGbp": 16.75,
       "wasPriceGbp": 25,
       "promoEndsAt": null,
       "inStock": true,
@@ -839,7 +839,7 @@
       "rawBrand": "Yardley",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/0166476.png?v=1785426505",
-      "priceGbp": 10,
+      "priceGbp": 16.75,
       "wasPriceGbp": 25,
       "promoEndsAt": null,
       "inStock": true,
@@ -6891,7 +6891,7 @@
       "priceGbp": 24.95,
       "wasPriceGbp": 72,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Dynamic Eau de Toilette for men with a fresh spicy-woody scent. Features orange, cinnamon, and musk for a vibrant, masculine fragrance. 100 ml sleek spherical bottle design for a modern aesthetic. ##end-features##. Product description. An energetic Eau de Toilette that blends citrus, spice, and woods for a confident and invigorating men’s fragrance. . Hugo Boss Boss In Motion Eau de Toilette is a modern, dynamic scent designed for the man who thrives on movement and energy. It opens with a burst of bright orange and bergamot, delivering a fresh, zesty start that instantly awakens the senses. The heart of pepper, cinnamon, and nutmeg introduces a warm spiciness, adding depth and masculine character to the fragrance.. The base of sandalwood, musk, and vetiver provides a smooth, sensual finish that lingers beautifully on the skin. Perfect for everyday wear or active lifestyles, Boss In Motion is versatile, long-lasting, and effortlessly stylish. Its Eau de Toilette concentration ensures a balanced fragrance experience—vibrant yet refined. Presented in a unique 100 ml spherical bottle, this scent is a bold statement piece for any modern man’s grooming collection.. Features of Hugo Boss Boss In Motion EDT 100ml. Fragrance family: Spicy-Woody. Notes: Orange, Bergamot, Pepper, Cinnamon, Nutmeg, Sandalwood, Musk, Vetiver. 100 ml spherical silver bottle with minimalist branding. ##accordion-start##. Specifications. Type: Eau de Toilette (EDT). Volume: 100 ml. Fragrance family: Spicy-Woody. Top notes: Orange, Bergamot. Heart notes: Pepper, Cinnamon, Nutmeg. Base notes: Sandalwood, Musk, Vetiver. Bottle: Unique spherical silver bottle with embossed Hugo Boss logo. ##accordion-item-end##. Suitable for. Men seeking a fresh and spicy everyday fragrance with a modern edge. Casual wear, work, evening occasions, and gifting. ##accordion-item-end##. Warnings and cautions. Flammable: keep away from heat, sparks, open flames and hot surfaces.. For external use only: avoid contact with eyes; if contact occurs, rinse thoroughly with water.. Discontinue use if irritation occurs and consult a pharmacist or healthcare professional if symptoms persist.. Keep out of the sight and reach of children; store upright in a cool, dry place away from direct sunlight.. ##accordion-item-end##. How to use. Hold the bottle 15–20 cm away and spray lightly onto pulse points, including wrists, neck, and behind the ears.. Allow the fragrance to settle naturally; avoid rubbing wrists together to preserve scent integrity.. Reapply as needed to maintain a vibrant, confident fragrance throughout the day.. ##accordion-item-end##. Ingredients. Alcohol Denat., Parfum (Fragrance), Aqua (Water), Limonene, Linalool, Citronellol, Coumarin, Geraniol, Citral, Benzyl Salicylate, and other fragrance components. Ingredients may vary by batch; always refer to packaging for the most accurate and up-to-date list.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",

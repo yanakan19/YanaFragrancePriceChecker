@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-20T23:19:28.908Z",
+  "checkedAt": "2026-10-21T03:18:24.512Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -210,12 +210,11 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "robots.txt unreachable at https://arabiyatprestige.shop and https://www.arabiyatprestige.shop — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "a separate arabiyatprestigeus.com exists for the US market; no UK-specific storefront was found",
-        "no listings retrieved from the storefront on this run"
+        "a separate arabiyatprestigeus.com exists for the US market; no UK-specific storefront was found"
       ]
     },
     {

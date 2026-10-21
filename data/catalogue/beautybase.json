@@ -1,7 +1,7 @@
 {
   "retailerId": "beautybase",
-  "updatedAt": "2026-10-20T22:13:07.813Z",
-  "seenAt": "2026-10-20T22:13:07.813Z",
+  "updatedAt": "2026-10-21T02:07:18.403Z",
+  "seenAt": "2026-10-21T02:07:18.403Z",
   "source": "live",
   "listings": [
     {
@@ -68089,8 +68089,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-10T22:35:31.778Z",
       "lastSeenAt": "2026-10-20T14:10:25.792Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-10-21T02:07:18.403Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -68112,8 +68112,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-09T12:46:11.571Z",
       "lastSeenAt": "2026-10-20T14:10:25.792Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-10-21T02:07:18.403Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -68135,8 +68135,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-08T10:31:17.299Z",
       "lastSeenAt": "2026-10-20T14:10:25.792Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-10-21T02:07:18.403Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -68158,8 +68158,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-08T10:31:17.299Z",
       "lastSeenAt": "2026-10-20T14:10:25.792Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-10-21T02:07:18.403Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null

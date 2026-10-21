@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-20T22:13:07.813Z",
-  "seenAt": "2026-10-20T22:13:07.813Z",
+  "updatedAt": "2026-10-21T02:07:18.403Z",
+  "seenAt": "2026-10-21T02:07:18.403Z",
   "source": "live",
   "listings": [
     {
@@ -3556,7 +3556,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Swiss Arabian Shaghaf Nectar Blush Eau de Parfum 75ml . A delicate, luminous fragrance that blooms from sparkling orchard fruits into a soft floral heart, settling into a warm, powdery embrace. Tender, romantic, and effortlessly feminine.. Top Notes: Yuzu, Pear, Apple, Elderflower, Blackcurrant Heart Notes: Gardenia, Orange Blossom, Magnolia, Watery Notes, Cedarwood Base Notes: Tonka Bean, Patchouli, Peru Balsam, Vanilla, Musk.",
       "productType": null,

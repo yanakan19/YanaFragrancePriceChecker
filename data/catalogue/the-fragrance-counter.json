@@ -1,9 +1,32 @@
 {
   "retailerId": "the-fragrance-counter",
-  "updatedAt": "2026-10-20T22:13:07.813Z",
+  "updatedAt": "2026-10-21T02:07:18.403Z",
   "seenAt": "2026-10-20T22:13:07.813Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "LG132400",
+      "url": "https://www.thefragrancecounter.co.uk/armani-stronger-with-you-parfum-gift-set-100ml.html",
+      "rawTitle": "Armani Stronger With You Parfum Gift Set 100ml",
+      "rawBrand": "Armani",
+      "ean": "3614274693553",
+      "imageUrl": "https://www.thefragrancecounter.co.uk/user/products/large/armanistrongerwithyouparfumsetcontents.jpg",
+      "description": "Shop Giorgio Armani Stronger With You Parfum 100ml Gift Set online. A premium men�s fragrance gift set with fast UK delivery.",
+      "priceGbp": 120,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-10-21T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "sitemap",
+      "rating": null,
+      "retailerId": "the-fragrance-counter",
+      "firstSeenAt": "2026-10-21T02:07:18.403Z",
+      "lastSeenAt": "2026-10-21T02:07:18.403Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "CH019A01",
       "url": "https://www.thefragrancecounter.co.uk/jimmy-choo-man-aqua-eau-de-toilette-100ml.html",
