@@ -256,6 +256,8 @@ data tests/routePages.test.ts
 data tests/sameFragranceNames.test.ts
 code tests/saveBookmarklet.test.ts
 code tests/scentsationalRoute.test.ts
+code tests/searchSuggest.test.ts
+code tests/searchSuggestBrowser.test.ts
 code tests/selfridgesRsc.test.ts
 code tests/serviceWorker.test.ts
 code tests/setFacets.test.ts

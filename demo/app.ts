@@ -93,7 +93,8 @@ import {
 } from './filterUi.js';
 import { isOil, isSet } from './productKind.js';
 import { COUNTS } from './counts.js';
-import { countsPhrase, intentOf, leadingKind, rankSearch, searchMatches, searchText } from './searchIntent.js';
+import { countsPhrase, intentOf, leadingKind, prepareSearch, rankSearch, searchMatches, searchRank, searchText } from './searchIntent.js';
+import { mountSuggest, suggestionsFor, type SuggestBrand } from './searchSuggest.js';
 import {
   PER_ROW_CHOICES, PER_ROW_DEFAULT, clampPerRow, gridWidthFor, perRowChoicesFor,
 } from './tileDensity.js';
@@ -1558,6 +1559,54 @@ function gridEagerCount(): number {
 /** The same for the home page's horizontal rail: as many 172px cards as fit. */
 function railEagerCount(): number {
   return Math.max(1, Math.ceil(window.innerWidth / 172));
+}
+
+/* ── search suggestions ──────────────────────────────────────────────────── */
+
+let suggestBrandList: SuggestBrand[] | null = null;
+/** Every brand with bottles listed, and how many: the brands the box suggests (demo/searchSuggest.ts). */
+function suggestBrands(): SuggestBrand[] {
+  if (!suggestBrandList) {
+    const counts = new Map<string, number>();
+    for (const f of BY_POPULARITY) if (!isSet(f) && !isOil(f)) counts.set(f.brand, (counts.get(f.brand) ?? 0) + 1);
+    suggestBrandList = [...counts].map(([name, count]) => ({ name, count }));
+  }
+  return suggestBrandList;
+}
+
+let searchPrepared = false;
+/**
+ * Once, when the search box first gets the focus: each product's folded text and
+ * words, in slices of a few thousand between which a key press is handled, so the
+ * first letter typed does not wait for all of them (demo/searchIntent.ts prepareSearch).
+ */
+function prepareSearchSoon(): void {
+  if (searchPrepared) return;
+  searchPrepared = true;
+  let i = 0;
+  const slice = (): void => {
+    const end = Math.min(i + 2000, BY_POPULARITY.length);
+    for (; i < end; i++) {
+      const f = BY_POPULARITY[i]!;
+      prepareSearch(f.brand, f.name, f.concentration);
+    }
+    if (i < BY_POPULARITY.length) window.setTimeout(slice, 0);
+  };
+  window.setTimeout(slice, 0);
+}
+
+/** A fragrance's row in the suggestions: a small photo, the name, brand and size, and the price it starts from. */
+function suggestRowHtml(f: DemoFragrance): string {
+  const rows = rowsFor(f);
+  const best = bestOffer(rows);
+  const price = !best
+    ? `<span class="suggest-price none">${esc(noStockLabel(rows))}</span>`
+    : best.deliveredPriceGbp !== null
+      ? `<span class="suggest-price">from ${formatMoney(best.deliveredPriceGbp)}</span>`
+      : `<span class="suggest-price">${formatMoney(best.itemPriceGbp)}</span>`;
+  return `${productArt(f.photoUrl, 'sm', '', f.imageTransform, { eager: true })}
+    <span class="suggest-text"><span class="suggest-name">${esc(f.name)}</span><span class="suggest-meta t-caption">${esc(f.brand)}, ${esc(shortConcentration(f.concentration))} ${esc(sizeLabel(f))}</span></span>
+    ${price}`;
 }
 
 /* ── home ────────────────────────────────────────────────────────────────── */
@@ -7829,11 +7878,32 @@ function init(): void {
   // Typing replaces rather than pushes: one history entry per keystroke would
   // make Back a character-by-character undo of the search box, and leaving the
   // search would take a dozen presses to escape.
+  // Suggestions under the box (demo/searchSuggest.ts), from the very search
+  // the line above has just run: no second pass over the catalogue.
+  const suggestList = mountSuggest<DemoFragrance>($('#search') as HTMLInputElement, {
+    suggest: (q) => {
+      const ranked = state.view === 'browse' && state.query === q && q.trim() ? visibleFragrances() : [];
+      const top = ranked[0];
+      return suggestionsFor(q, ranked, suggestBrands(), top ? searchRank(top.brand, top.name, q) : 4);
+    },
+    productRow: (f) => ({ id: f.id, label: `${f.brand} ${f.name}, ${sizeLabel(f)} ${f.concentration}`, html: suggestRowHtml(f) }),
+    openBrand: (brand) => {
+      state.brandProfile = brand;
+      go('brand');
+    },
+    openProduct: (id) => {
+      state.fragranceId = id;
+      go('detail');
+    },
+  });
+
+  $('#search').addEventListener('focus', prepareSearchSoon);
   $('#search').addEventListener('input', (e) => {
     state.query = (e.target as HTMLInputElement).value;
     state.view = 'browse';
     render();
     syncUrl('replace');
+    suggestList.refresh();
   });
 
   const goHome = () => {
