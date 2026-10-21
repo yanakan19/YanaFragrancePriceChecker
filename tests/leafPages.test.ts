@@ -1,11 +1,13 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   DEPLOY_BUDGET_BYTES, LEAF_MANIFEST, LEAF_PAGE_MAX_BYTES, NOTE_MIN_FRAGRANCES, deployBytes, fileForAddress, isPageOrSitemap,
-  jsonLdOf, leafPageProblems, leafProblems, renderLeafPage, sitemapAddresses, sitemapProblems, type LeafManifest,
+  jsonLdOf, leafPageProblems, leafProblems, renderLeafPage, sitemapAddresses, sitemapProblems, splitBoot, type LeafManifest,
 } from '../scripts/leafPages.js';
+import { loaderScript } from '../scripts/dataFiles.js';
+import { siteHeadScript } from '../scripts/siteBuild.js';
 import { SITE_URL } from '../demo/head.js';
 import { readStampedHash } from '../scripts/demoInputsHash.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
@@ -108,6 +110,56 @@ describe('the rules, on a made up page', () => {
   });
 });
 
+describe('the shared boot', () => {
+  const loader = loaderScript([{ path: 'data/catalogue.0123456789abcdef.json', start: 0 }, { path: 'data/deals.0123456789abcdef.json', start: 5 }], [{ name: 'notes', path: 'data/notes.0123456789abcdef.json' }]);
+  const site = siteHeadScript({ stats: true, overrides: [], source: 'file' });
+  const early = [
+    "<script>document.documentElement.classList.add('js')</script>",
+    '<!-- a comment between them -->',
+    "<script>(function(){var d=document.documentElement,m=null,l=null;d.setAttribute('data-layout',l)})()</script>",
+  ].join('\n');
+  const worker = "<script>\n  // register it\n  if ('serviceWorker' in navigator) {\n    window.addEventListener('load', () => { Promise.resolve(window.__psReady); });\n  }\n</script>";
+  const shell = [
+    '<head>',
+    '<script>window.__psRegion = 1;</script>',
+    `<script>${loader}</script>`,
+    `<script>${site}</script>`,
+    '<title>PriceSniffs</title>',
+    early,
+    '<link rel="stylesheet" href="/assets/app.0123456789abcdef.css" />',
+    '<main id="view"><section class="static-intro"><h1>Home</h1></section></main>',
+    '<script src="/assets/app.0123456789abcdef.js"></script>',
+    worker,
+    '</html>',
+    '',
+  ].join('\n');
+
+  it('moves the scripts every page repeats into one file named for its bytes, in their order, and keeps the page\'s own file lists inline', () => {
+    const split = splitBoot(shell);
+    expect(split.asset).toMatch(/^assets\/boot\.[0-9a-f]{16}\.js$/);
+    expect(split.shell).toContain(`<script src="/${split.asset}"`);
+    expect(split.shell).toContain('<script>window.__psFiles=[[["data/catalogue.0123456789abcdef.json",0],["data/deals.0123456789abcdef.json",5]],{"notes":"data/notes.0123456789abcdef.json"}]</script>');
+    for (const gone of ['__psRegion', 'new Promise', '__psSite', "classList.add('js')", 'data-layout', "'serviceWorker'"]) expect(split.shell, gone).not.toContain(gone);
+    const order = ['__psRegion', 'window.__psFiles', '__psSite', "classList.add('js')", 'data-layout', "'serviceWorker'"].map((t) => split.code.indexOf(t));
+    expect(order.every((i) => i >= 0)).toBe(true);
+    expect([...order].sort((a, b) => a - b)).toEqual(order);
+    expect(split.shell).toContain('<title>PriceSniffs</title>');
+    expect(split.shell).toContain('<script src="/assets/app.0123456789abcdef.js"></script>');
+  });
+
+  it('is still a script that parses, and its loader waits for the same data as the inline one', () => {
+    const { code } = splitBoot(shell);
+    expect(() => new Function(code)).not.toThrow();
+    expect(code).toContain('window.__psReady = Promise.all(files.map');
+  });
+
+  it('refuses a shell it does not understand instead of writing pages that never start', () => {
+    expect(() => splitBoot(shell.replace(`<script>${loader}</script>`, ''))).toThrow(/no data loader/);
+    expect(() => splitBoot(shell.replace(worker, ''))).toThrow(/service worker/);
+    expect(() => splitBoot(shell.replace("<script>document.documentElement.classList.add('js')</script>\n", ''))).toThrow(/early class scripts/);
+  });
+});
+
 describe.skipIf(!built)('the built site', () => {
   it('lists in its sitemaps only addresses that have a file of their own, so each answers 200', () => {
     expect(sitemapProblems(demo)).toEqual([]);
@@ -125,6 +177,19 @@ describe.skipIf(!built)('the built site', () => {
     const problems = leafProblems(demo, manifest());
     expect(problems.slice(0, 20)).toEqual([]);
   }, 300_000);
+
+  it('repeats no script in the pages: each carries its file lists and one tag for the shared boot, not the loader, the region hand off or the live list', () => {
+    const m = manifest();
+    expect(m.boot).toMatch(/^assets\/boot\.[0-9a-f]{16}\.js$/);
+    expect(readdirSync(resolve(demo, 'assets')).filter((f) => f.startsWith('boot.'))).toEqual([m.boot!.slice('assets/'.length)]);
+    for (const p of m.pages.filter((_, i) => i % 97 === 0)) {
+      const html = readFileSync(resolve(demo, p.file), 'utf8');
+      const inline = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((x) => x[1]!).join('');
+      expect(html, p.path).toContain(`<script src="/${m.boot}"`);
+      expect(inline.length, p.path).toBeLessThan(1500);
+      expect(html, p.path).not.toContain('window.__psReady');
+    }
+  });
 
   it('keeps the whole deploy output inside its budget', () => {
     const bytes = deployBytes(demo);

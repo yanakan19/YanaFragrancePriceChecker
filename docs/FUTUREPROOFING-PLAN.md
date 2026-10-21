@@ -15,7 +15,7 @@ Effort: S under an hour, M a few hours, L a day or more. Who: **agent** or
 
 | Fact | Value | Where |
 |---|---|---|
-| Deploy output against the budget | 574.9 MB of 700 MB (82%), 35,715 prerendered pages; Pages' own limit is 1 GB | `scripts/build-leaf-pages.ts --check`, `DEPLOY_BUDGET_BYTES` in `scripts/leafPages.ts:65` |
+| Deploy output against the budget | 574.9 MB of 700 MB (82%), 35,715 prerendered pages; Pages' own limit is 1 GB. **21 Oct: 617.7 MB live, 470.8 MB after the shared boot (see "Deploy size, 21 October" below)** | `scripts/build-leaf-pages.ts --check`, `DEPLOY_BUDGET_BYTES` in `scripts/leafPages.ts:65` |
 | Growth rate used in the docs | about 3% a month, so the 700 MB budget is reached in about 7 months, after which low importance pages are dropped by design | FM 58 |
 | `.git` on the agents' machine | 2.5 GB (1.88 GiB packed, 529 MiB loose, 29 MiB repack garbage), 2,815 commits | `git count-objects -vH` |
 | `data/` | 289 MB; `data/catalogue` 194 MB, `data/regions` 45 MB; biggest single files `image-box-verdicts.json` 15 MB, `fragrantica-link-audit.json` 8.4 MB, `price-history-checkpoint.json` 6.1 MB, `image-link-report.json` 5.9 MB, `product-slugs.json` 3.3 MB | `ls -lS data` |
@@ -29,6 +29,52 @@ Effort: S under an hour, M a few hours, L a day or more. Who: **agent** or
 | `npm audit` | production: 0. All: 6 (1 high, 2 critical, 3 moderate), in the test runner chain (`vitest` 2, `vite`, `esbuild`), dev only | `npm audit` |
 | Runtime | Node 22.22 locally and in 19 workflow steps (`node-version: '22'`); `@types/node` is ^26 | `package.json`, workflows |
 | Dependabot | no `.github/dependabot.yml`; alerts are OS 7e step 2 (owner) | `.github/` |
+
+## Deploy size, 21 October 2026
+
+The weekly summary showed 617.2 MB of 700 MB while a local build had measured
+579 MB (575 MB on 19 Oct). All figures are MiB (1,048,576 bytes), as the
+summary and `build-leaf-pages.ts` print them; the live `build-state.json`
+said `deployBytes` 647,706,915, which is 617.7.
+
+**The gap (38 MB) was one script.** The deploy builds with
+`SITE_OVERRIDES_FETCH=1`, which puts the live hidden and removed list fetch
+(`siteHeadScript`, `scripts/siteBuild.ts`) inline in the head of every page:
+1,111 bytes on each of 35,864 pages is 40 MB. A local build leaves it out. A
+local build with `SITE_OVERRIDES_FILE` set to `{"stats":true,"overrides":[]}`
+reproduced the deploy byte for byte (647,706,915). Both measures count the
+same files (`deployFiles` and `folderBytes` skip dotfiles and `.ts`).
+
+**Where the bytes were** (deploy shaped build): prerendered pages in the root
+477.5, `data/` 65.4 (catalogue 37.7, price history 24.4), `us/` 20.3,
+`brands/` 17.2, `in/` 15.6, `notes/` 10.7, sitemap 5.0, the rest under 4.
+Most of a 17.6 kB product page (Creed Aventus) was the same on every page: 7.2 kB of the 13.3 kB it is now.
+
+**What was cut: the scripts every leaf page repeated** (region hand off, data
+loader, live list, the two class scripts, service worker registration, about
+5.4 kB) are now one file, `assets/boot.<hash>.js` (7.1 kB), loaded by a
+script tag in the same place in the head, so it runs before anything is drawn
+as before. A page keeps one inline line with its own data file lists
+(`window.__psFiles`), so it still names every data file for the service
+worker (`demo/sw.js` reads the page's text) and `build-leaf-pages.ts --check`
+still compares them to the home page. The home page, `404.html`, the region
+pages and the 141 route pages are unchanged byte for byte (except the build
+stamp). Code: `splitBoot` in `scripts/leafPages.ts`, `SHARED_LOADER` in
+`scripts/dataFiles.ts`; tests in `tests/leafPages.test.ts`.
+
+| | Before | After |
+|---|---|---|
+| Deploy output (deploy shaped build) | 617.7 MB (88% of 700) | 470.8 MB (67%) |
+| Pages in the root (35,864 prerendered, 2 home pages) | 477.5 MB, 14.5 kB per prerendered page | 338.5 MB, 10.3 kB per prerendered page |
+| Headroom to the budget | 82 MB, about 4.5 months at 3% a month | 229 MB, about 16 months |
+
+Cost: on a first visit the data fetch starts when the boot file arrives (a
+request made in parallel with the stylesheet) instead of when the head is
+parsed; a repeat visit takes it from the cache. If the file cannot load the
+page reloads once, then shows its plain content (no `js` class is set).
+Nothing a visitor or a search engine uses was removed: the sitemap still lists
+35,907 addresses that each have a file, and the pages keep the same title,
+canonical, JSON-LD and content.
 
 ## Ranked plan
 

@@ -185,20 +185,8 @@ export function hashedDataPath(name: string, content: string | Buffer): string {
   return `data/${name}.${createHash('sha256').update(content).digest('hex').slice(0, 16)}.json`;
 }
 
-/**
- * The inline <head> script. Resolves each path against the app's base, never
- * the current URL: a deep link like /brands/lattafa is served this same
- * document through 404.html, and a relative `data/…` would resolve to
- * /brands/data/…, which the host answers with that HTML fallback. Same
- * derivation as basePath() in demo/router.ts and the service worker's
- * registration in demo/template.html; tests/demoDataFiles.test.ts pins all
- * three together.
- */
-export function loaderScript(files: DataFile[], lazy: LazyDataFile[] = []): string {
-  return `(function () {
-  var files = ${JSON.stringify(files.map((f) => [f.path, f.start]))};
-  var lazy = ${JSON.stringify(Object.fromEntries(lazy.map((f) => [f.name, f.path])))};
-  var path = location.pathname;
+/** The loader after its two lists: what loaderScript and SHARED_LOADER have in common. */
+const LOADER_REST = `  var path = location.pathname;
   var idx = path.indexOf('/index.html');
   var base = idx >= 0 ? path.slice(0, idx + 1) : '/';
   // Parsing ~20 MB of JSON holds the main thread for a second or more on a
@@ -261,7 +249,37 @@ export function loaderScript(files: DataFile[], lazy: LazyDataFile[] = []): stri
     window.${BLOBS_GLOBAL} = blobs;
   });
 })();`;
+
+/**
+ * The inline <head> script. Resolves each path against the app's base, never
+ * the current URL: a deep link like /brands/lattafa is served this same
+ * document through 404.html, and a relative `data/…` would resolve to
+ * /brands/data/…, which the host answers with that HTML fallback. Same
+ * derivation as basePath() in demo/router.ts and the service worker's
+ * registration in demo/template.html; tests/demoDataFiles.test.ts pins all
+ * three together.
+ */
+export function loaderScript(files: DataFile[], lazy: LazyDataFile[] = []): string {
+  return `(function () {
+  var files = ${JSON.stringify(files.map((f) => [f.path, f.start]))};
+  var lazy = ${JSON.stringify(Object.fromEntries(lazy.map((f) => [f.name, f.path])))};
+${LOADER_REST}`;
 }
+
+/** The global a prerendered page's inline line sets for the shared loader: [files, lazy] (scripts/leafPages.ts splitBoot). */
+export const FILES_GLOBAL = '__psFiles';
+
+/**
+ * The same loader for a prerendered leaf page (scripts/leafPages.ts): its two
+ * lists come from the page (window.__psFiles, which also keeps every data file
+ * named in the page's own text for the service worker), the rest is this one
+ * file shared by every page (assets/boot.<hash>.js), not repeated in each.
+ */
+export const SHARED_LOADER = `(function () {
+  var cfg = window.${FILES_GLOBAL};
+  var files = cfg[0];
+  var lazy = cfg[1];
+${LOADER_REST}`;
 
 /**
  * The bundle, run once the loader has resolved. An exception thrown by the

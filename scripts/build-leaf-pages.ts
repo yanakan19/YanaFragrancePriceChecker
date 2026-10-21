@@ -26,7 +26,7 @@ import { fileURLToPath } from 'node:url';
 import { writeGenerated } from './generatedFiles.js';
 import {
   DEPLOY_BUDGET_BYTES, LATER_FILES_RESERVE_BYTES, LEAF_MANIFEST, deployBytes, deployFiles, isPageOrSitemap, leafCandidates,
-  leafProblems, renderLeafPage, sitemapProblems, staleLeafFiles, type LeafKind, type LeafManifest, type LeafPage,
+  leafProblems, renderLeafPage, sitemapProblems, splitBoot, staleBootFiles, staleLeafFiles, type LeafKind, type LeafManifest, type LeafPage,
 } from './leafPages.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -52,7 +52,12 @@ function check(): void {
 
 function build(): void {
   const started = Date.now();
-  const shell = readFileSync(resolve(demo, 'index.html'), 'utf8');
+  // The inline scripts every page repeats become one shared file (scripts/leafPages.ts splitBoot).
+  const split = splitBoot(readFileSync(resolve(demo, 'index.html'), 'utf8'));
+  const shell = split.shell;
+  mkdirSync(resolve(demo, 'assets'), { recursive: true });
+  for (const f of staleBootFiles(resolve(demo, 'assets'), split.asset)) rmSync(resolve(demo, 'assets', f), { force: true });
+  writeGenerated(root, `demo/${split.asset}`, split.code);
   const { candidates } = leafCandidates();
 
   // What is already committed to the deploy, before this step's pages and the
@@ -91,7 +96,7 @@ function build(): void {
   const stale = staleLeafFiles(demo, made);
   for (const f of stale) rmSync(resolve(demo, f), { force: true });
 
-  const manifest: LeafManifest = { budgetBytes: DEPLOY_BUDGET_BYTES, bytes, pages: written, skipped, candidates: all };
+  const manifest: LeafManifest = { budgetBytes: DEPLOY_BUDGET_BYTES, bytes, pages: written, skipped, candidates: all, boot: split.asset };
   mkdirSync(resolve(root, 'dist-demo'), { recursive: true });
   writeFileSync(resolve(root, LEAF_MANIFEST), JSON.stringify(manifest));
 

@@ -53,7 +53,7 @@ import { enabledRetailers } from '../src/config/retailers.js';
 import { noteSlug } from '../src/catalogue/noteName.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
 import { slugify } from '../demo/router.js';
-import { referencedAssetFiles, referencedDataFiles } from './dataFiles.js';
+import { FILES_GLOBAL, SHARED_LOADER, hashedAssetPath, referencedAssetFiles, referencedDataFiles } from './dataFiles.js';
 import { readStampedHash } from './demoInputsHash.js';
 import { renderRoutePage } from './routePages.js';
 import {
@@ -107,6 +107,8 @@ export interface LeafManifest {
   skipped: Record<LeafKind, number>;
   /** How many of each kind there were to write. */
   candidates: Record<LeafKind, number>;
+  /** The shared boot file every page loads (assets/boot.<hash>.js), written beside the pages. */
+  boot?: string;
 }
 
 /** Plain path segments only: the file name comes from the address. */
@@ -221,6 +223,80 @@ function withoutComments(html: string): string {
     .replace(/<!--[\s\S]*?-->\s*/g, '')
     .replace(/(<script>)([\s\S]*?)(<\/script>)/g, (_m, open: string, code: string, close: string) => `${open}${code.replace(/^[ \t]*\/\/.*\n/gm, '')}${close}`);
   return html.slice(0, at) + body;
+}
+
+/**
+ * ── The shared boot (21 Oct 2026) ───────────────────────────────────────────
+ * The home page's shell carries about 5 kB of inline script that is the same
+ * on every page: the region hand off, the data loader, the live list (in the
+ * deploy build), the two early class scripts and the service worker
+ * registration. Repeated in 35,000 pages that was 190 MB of the 617 MB the
+ * deploy weighed on 21 Oct (the live list alone was 40 MB, which is why a
+ * local build measured 579 MB and the deploy 617 MB). A leaf page keeps only
+ * its own two file lists (inline, so the page still names every data file for
+ * the service worker) and loads the rest as one shared file,
+ * assets/boot.<hash>.js, in the same place in the head, so it runs before
+ * anything is drawn exactly as the inline scripts did.
+ */
+const HEAD_SCRIPTS = /((?:<script>[\s\S]*?<\/script>\n)+)(?=<title>)/;
+const EARLY_SCRIPTS = /<script>document\.documentElement\.classList\.add\('js'\)<\/script>\n|<script>\(function\(\)\{var d=document\.documentElement,m=null[\s\S]*?<\/script>\n/g;
+const WORKER_SCRIPT = /<script>\n(?: {2}\/\/[^\n]*\n)* {2}if \('serviceWorker' in navigator\) \{[\s\S]*?<\/script>\n/;
+const LOADER_LISTS = /^\(function \(\) \{\n {2}var files = (.+);\n {2}var lazy = (.+);\n/;
+
+/** Run if the shared boot cannot load: reload once (a page older than the deploy), then show the plain content. */
+const BOOT_ERROR = `sessionStorage.getItem('pricesniffs.dataReload')||(sessionStorage.setItem('pricesniffs.dataReload','1'),location.reload())`;
+
+export interface BootSplit {
+  /** The shell with its inline scripts replaced by the page's own file lists and one script tag for the shared file. */
+  shell: string;
+  /** The shared file's code. */
+  code: string;
+  /** Its published path: assets/boot.<hash>.js. */
+  asset: string;
+}
+
+/** Splits the shared inline scripts out of the built home page. Throws when the shell is not shaped as expected. */
+export function splitBoot(shell: string): BootSplit {
+  const head = HEAD_SCRIPTS.exec(shell);
+  if (!head) throw new Error('leafPages: no inline scripts before <title> in demo/index.html');
+  const parts: string[] = [];
+  let lists = '';
+  let sawLoader = false;
+  for (const m of head[1]!.matchAll(/<script>([\s\S]*?)<\/script>\n/g)) {
+    const code = m[1]!;
+    const l = LOADER_LISTS.exec(code);
+    if (l) {
+      if (sawLoader) throw new Error('leafPages: two data loaders in demo/index.html');
+      sawLoader = true;
+      if (code.slice(l[0].length) !== SHARED_LOADER.slice(SHARED_LOADER.indexOf('  var path = location.pathname;'))) {
+        throw new Error('leafPages: the data loader in demo/index.html is not the one scripts/dataFiles.ts SHARED_LOADER is built from');
+      }
+      lists = `<script>window.${FILES_GLOBAL}=[${l[1]},${l[2]}]</script>\n`;
+      parts.push(SHARED_LOADER);
+    } else {
+      parts.push(code);
+    }
+  }
+  if (!sawLoader) throw new Error('leafPages: no data loader in demo/index.html');
+  let html = shell.replace(HEAD_SCRIPTS, () => '@@BOOT@@');
+  const early = [...html.matchAll(EARLY_SCRIPTS)].map((m) => m[0]);
+  if (early.length !== 2) throw new Error(`leafPages: expected the two early class scripts in demo/index.html, found ${early.length}`);
+  for (const e of early) parts.push(e.replace(/^<script>|<\/script>\n$/g, ''));
+  html = html.replace(EARLY_SCRIPTS, () => '');
+  const worker = WORKER_SCRIPT.exec(html);
+  if (!worker) throw new Error('leafPages: no service worker registration in demo/index.html');
+  parts.push(worker[0].replace(/^<script>\n|<\/script>\n$/g, ''));
+  html = html.replace(WORKER_SCRIPT, () => '');
+  const code = `${parts.join(';\n')}\n`;
+  const asset = hashedAssetPath('boot', 'js', code);
+  html = html.replace('@@BOOT@@', () => `${lists}<script src="/${asset}" onerror="${BOOT_ERROR}"></script>\n`);
+  return { shell: html, code, asset };
+}
+
+/** Deletes the boot files of earlier builds from an assets folder. */
+export function staleBootFiles(assetsDir: string, keep: string): string[] {
+  if (!existsSync(assetsDir)) return [];
+  return readdirSync(assetsDir).filter((f) => /^boot\.[0-9a-f]{16}\.js$/.test(f) && `assets/${f}` !== keep);
 }
 
 /** A page from the built home page, with the address's own tags and content. */
@@ -356,7 +432,14 @@ export function leafPageProblems(page: LeafPage, html: string, shell: { stamp: s
 export function leafProblems(demoDir: string, manifest: LeafManifest): string[] {
   const problems: string[] = [];
   const index = readFileSync(join(demoDir, 'index.html'), 'utf8');
-  const shell = { stamp: readStampedHash(index), files: [...referencedDataFiles(index), ...referencedAssetFiles(index)].sort().join(',') };
+  // A page names the same data and code files as the home page, plus the shared boot file (the loader's code) in place of the home page's inline one.
+  const boot = manifest.boot;
+  const shell = { stamp: readStampedHash(index), files: [...referencedDataFiles(index), ...referencedAssetFiles(index), ...(boot ? [boot] : [])].sort().join(',') };
+  if (boot) {
+    const bootPath = join(demoDir, boot);
+    if (!existsSync(bootPath)) problems.push(`demo/${boot} is missing, so no prerendered page would start`);
+    else if (!readFileSync(bootPath, 'utf8').includes('__psReady')) problems.push(`demo/${boot} holds no data loader`);
+  }
   for (const page of manifest.pages) {
     const path = join(demoDir, page.file);
     if (!existsSync(path)) {
