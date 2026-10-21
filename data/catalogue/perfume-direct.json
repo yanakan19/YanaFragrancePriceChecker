@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-21T02:07:18.403Z",
-  "seenAt": "2026-10-21T02:07:18.403Z",
+  "updatedAt": "2026-10-21T06:35:57.021Z",
+  "seenAt": "2026-10-21T06:35:57.021Z",
   "source": "live",
   "listings": [
     {
@@ -67073,7 +67073,7 @@
       "priceGbp": 30.99,
       "wasPriceGbp": 80,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Boucheron Jaipur Homme is an oriental-spicy fragrance for men. Opening the door to the Far East Jaipur Homme creates a sensuous and magical journey. This fascinating scent combines notes of cardamom, lime, cinnamon, jasmine, tonka bean and cedar.. Fragrance Type: . Oriental Fragrance Notes: - Top notes: Cardamom, Lime, Lemon, Bergamot - Middle notes: Cinnamon, Carnation, Jasmine, Rose - Base notes: Benzoin, Tonka Bean, Patchouli, Cedar. Launched: . 1998.",
       "productType": "Men's Aftershave",
