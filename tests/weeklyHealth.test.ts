@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { pingSupabase, render, summariseRuns, summariseShops, supabaseConfigFrom, type HarvestLite, type RunLite } from '../scripts/weekly-health.js';
+import {
+  CRAWL_WORKFLOW, crawlLimitFrom, pingSupabase, render, slowestRun, summariseFreshness, summariseLinks, summarisePhotos, summariseRuns, summariseShops, supabaseConfigFrom, worstCases,
+  type HarvestLite, type ProductLite, type RunLite, type WorstCaseInput,
+} from '../scripts/weekly-health.js';
 
 const shop = (id: string, errors: string[] = [], priced = 5) => ({ retailerId: id, priced, errorCount: errors.length, errors });
 const harvest: HarvestLite = {
@@ -60,5 +63,120 @@ describe('weekly health: supabase read', () => {
     const md = render({ shops: summariseShops(harvest), harvest, runs: [], ping: { status: null }, now: new Date('2026-10-19T00:00:00Z') });
     expect(md).toContain('Supabase dashboard');
     expect(md).toContain('Written to the job summary only');
+  });
+});
+
+describe('weekly health: price freshness per shop', () => {
+  const f = summariseFreshness({
+    freshness: {
+      fresh: { shown: 100, over24h: 0, over48h: 0, answered: true },
+      day: { shown: 50, over24h: 40, over48h: 0, answered: true },
+      old: { shown: 10, over24h: 6, over48h: 5, answered: true },
+      empty: { shown: 0, over24h: 0, over48h: 0, answered: false },
+      legacy: { shown: 20, over48h: 2, answered: true },
+    },
+  });
+  it('gives shares of the shown listings, the stalest by 48 hours first, then by 24 hours', () => {
+    expect(f.map((x) => x.id)).toEqual(['old', 'legacy', 'day', 'fresh']);
+    expect(f[0]).toMatchObject({ share48: 0.5, share24: 0.6 });
+  });
+  it('leaves out a shop with nothing shown, and counts a 48 hour old listing as over 24 hours where the report has no 24 hour count', () => {
+    expect(f.some((x) => x.id === 'empty')).toBe(false);
+    expect(f.find((x) => x.id === 'legacy')).toMatchObject({ over24h: 2, share24: 0.1 });
+  });
+});
+
+const product = (brand: string, name: string, shops: string[], hasPhoto = true, fragranticaDirect = true): ProductLite => ({ brand, name, shops, hasPhoto, fragranticaDirect });
+
+describe('weekly health: photos and links', () => {
+  const products = [
+    product('A', 'One', ['s1', 's2', 's3'], false, false),
+    product('B', 'Two', ['s1', 's2']),
+    product('C', 'Three', ['s1', 's1'], false),
+    product('D', 'Four', ['s2'], true, false),
+  ];
+  it('counts products without a photo per shop, the shop with most first, a shop listed twice counted once', () => {
+    const p = summarisePhotos(products);
+    expect(p).toMatchObject({ products: 4, withoutPhoto: 2 });
+    expect(p.perShop[0]).toEqual({ id: 's1', listed: 3, withoutPhoto: 2 });
+    expect(p.perShop.map((x) => x.id)).toEqual(['s1', 's2', 's3']);
+  });
+  it('names the most stocked products without a photo, most shops first, one per scent, up to the limit', () => {
+    expect(summarisePhotos([...products, product('A', 'One', ['s9'], false)]).mostStocked.filter((x) => x.name === 'One')).toHaveLength(1);
+    expect(summarisePhotos(products).mostStocked).toEqual([{ brand: 'A', name: 'One', shops: 3 }, { brand: 'C', name: 'Three', shops: 1 }]);
+    expect(summarisePhotos(products, 1).mostStocked).toHaveLength(1);
+  });
+  it('checks the links of the most stocked only, and lists those on the fallback search', () => {
+    expect(summariseLinks(products, 2)).toEqual({ checked: 2, fallback: [{ brand: 'A', name: 'One', shops: 3 }] });
+    expect(summariseLinks(products).fallback.map((x) => x.name)).toEqual(['One', 'Four']);
+    // One per scent: a second size of One is not a second product of the 200.
+    expect(summariseLinks([products[0]!, product('A', 'One', ['s9'], true, false), products[1]!], 2).checked).toBe(2);
+  });
+});
+
+describe('weekly health: deploy size and crawl time', () => {
+  it('reads the crawl job limit as the largest job level timeout in its workflow', () => {
+    const yaml = 'jobs:\n  a:\n    timeout-minutes: 5\n    steps:\n      - run: x\n        timeout-minutes: 300\n  b:\n    timeout-minutes: 120\n';
+    expect(crawlLimitFrom(yaml)).toBe(120);
+    expect(crawlLimitFrom('jobs: {}')).toBeNull();
+  });
+  it('finds the slowest completed run of the crawl, a cancelled one included', () => {
+    const at = (m: number) => new Date(Date.UTC(2026, 9, 12, 8, m)).toISOString();
+    const runs: RunLite[] = [
+      { workflow: CRAWL_WORKFLOW, status: 'completed', conclusion: 'success', startedAt: at(0), updatedAt: at(50) },
+      { workflow: CRAWL_WORKFLOW, status: 'completed', conclusion: 'cancelled', startedAt: at(0), updatedAt: at(119) },
+      { workflow: 'Other', status: 'completed', conclusion: 'success', startedAt: at(0), updatedAt: at(500) },
+      { workflow: CRAWL_WORKFLOW, status: 'in_progress', conclusion: null, startedAt: at(0), updatedAt: at(200) },
+    ];
+    expect(slowestRun(runs, CRAWL_WORKFLOW)).toMatchObject({ minutes: 119, conclusion: 'cancelled' });
+    expect(slowestRun([], CRAWL_WORKFLOW)).toBeNull();
+  });
+});
+
+describe('weekly health: the worst cases', () => {
+  const base: WorstCaseInput = { shops: null, freshness: null, photos: null, links: null, deploy: null, crawl: null, runs: null };
+  it('says so when nothing is over its line', () => {
+    expect(worstCases(base)).toEqual([]);
+  });
+  it('ranks a shop that did not answer above a deploy or a crawl near its limit, failures, stale prices, photos and links', () => {
+    const lines = worstCases({
+      shops: summariseShops(harvest),
+      freshness: summariseFreshness({ freshness: { ...harvest.freshness, b: { shown: 20, over24h: 5, over48h: 3, answered: true } } }),
+      photos: { products: 100, withoutPhoto: 40, perShop: [{ id: 'p', listed: 100, withoutPhoto: 40 }], mostStocked: [] },
+      links: { checked: 200, fallback: [{ brand: 'A', name: 'One', shops: 3 }] },
+      deploy: { bytes: 620e6, budget: 700e6 },
+      crawl: { slowest: { minutes: 110, startedAt: 'x', conclusion: 'success' }, limit: 120 },
+      runs: [{ workflow: 'W', runs: 10, failed: 2, cancelled: 0, medianMin: 1, p90Min: 1, maxMin: 1 }],
+    });
+    const at = (needle: string) => lines.findIndex((l) => l.includes(needle));
+    expect(at('`c` did not answer')).toBe(0);
+    expect(at('`d` did not answer')).toBe(1);
+    expect(lines.filter((l) => l.includes('time budget')), 'one line for every shop stopped on its budget').toHaveLength(1);
+    for (const [higher, lower] of [
+      ['did not answer', 'time budget'],
+      ['time budget', 'deploy output'],
+      ['time budget', 'slowest crawl'],
+      ['deploy output', 'failed 2'],
+      ['slowest crawl', 'failed 2'],
+      ['failed 2', 'over 48 hours'],
+      ['over 48 hours', 'no photo'],
+      ['no photo', 'Fragrantica search'],
+    ] as [string, string][]) expect(at(higher), `${higher} above ${lower}`).toBeLessThan(at(lower));
+  });
+  it('puts a few old listings in a big shop last', () => {
+    const lines = worstCases({ ...base, freshness: summariseFreshness({ freshness: { big: { shown: 5000, over24h: 3, over48h: 3, answered: true }, half: { shown: 10, over24h: 6, over48h: 0, answered: true } } }) });
+    expect(lines.findIndex((l) => l.includes('`big`'))).toBeGreaterThan(lines.findIndex((l) => l.includes('`half`')));
+  });
+  it('leaves out what is well inside its line, and keeps to the limit', () => {
+    const lines = worstCases({ ...base, deploy: { bytes: 300e6, budget: 700e6 }, crawl: { slowest: { minutes: 60, startedAt: 'x', conclusion: 'success' }, limit: 120 } });
+    expect(lines).toEqual([]);
+    const many = worstCases({ ...base, shops: { ...summariseShops(harvest), silent: Array.from({ length: 30 }, (_, i) => ({ id: `s${i}`, shown: 10 })) } }, 5);
+    expect(many).toHaveLength(5);
+  });
+  it('heads the summary', () => {
+    const md = render({ shops: summariseShops(harvest), harvest, runs: [], ping: { status: 200 }, now: new Date('2026-10-19T00:00:00Z'), freshness: summariseFreshness(harvest) });
+    expect(md.indexOf('## Worst cases')).toBeLessThan(md.indexOf('## Shops'));
+    expect(md).toContain('1. Shop `c` did not answer');
+    expect(md).toContain('## Price freshness per shop');
   });
 });

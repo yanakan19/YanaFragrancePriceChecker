@@ -45,7 +45,7 @@
  */
 import { createHash } from 'node:crypto';
 import { execFileSync } from 'node:child_process';
-import { appendFileSync, readFileSync, writeFileSync } from 'node:fs';
+import { appendFileSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -226,13 +226,29 @@ export function gitChangedPaths(from, to, { cwd = ROOT, deepen = 200, tries = 3 
   return out.split('\n').filter(Boolean);
 }
 
+/** Bytes under a folder, without dotfiles and .ts sources: scripts/leafPages.ts deployFiles' rule. */
+export function folderBytes(dir) {
+  let n = 0;
+  for (const name of readdirSync(dir)) {
+    if (name.startsWith('.')) continue;
+    const full = join(dir, name);
+    const st = statSync(full);
+    if (st.isDirectory()) n += folderBytes(full);
+    else if (!name.endsWith('.ts')) n += st.size;
+  }
+  return n;
+}
+
 async function main() {
   const [command, file] = process.argv.slice(2);
   const tip = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8' }).trim();
   if (command === 'record') {
     const overrides = process.env.OVERRIDES || 'unreachable';
-    writeFileSync(file, `${JSON.stringify({ commit: tip, overrides, builtAt: new Date().toISOString() }, null, 2)}\n`);
-    console.log(`deploy-decision: recorded ${tip.slice(0, 8)}, overrides ${overrides.slice(0, 19)} in ${file}`);
+    // The size of what is published, as scripts/leafPages.ts deployBytes counts it,
+    // for the weekly health summary (scripts/weekly-health.ts) to read off the live site.
+    const deployBytes = folderBytes(dirname(file));
+    writeFileSync(file, `${JSON.stringify({ commit: tip, overrides, builtAt: new Date().toISOString(), deployBytes }, null, 2)}\n`);
+    console.log(`deploy-decision: recorded ${tip.slice(0, 8)}, overrides ${overrides.slice(0, 19)}, ${(deployBytes / 1e6).toFixed(1)} MB in ${file}`);
     return;
   }
   if (command !== 'decide') throw new Error('usage: deploy-decision.mjs decide | record <file>');

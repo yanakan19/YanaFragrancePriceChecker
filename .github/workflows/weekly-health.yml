@@ -1,10 +1,14 @@
 name: Weekly health
 
-# Once a week, write a health summary into the job summary: which shops
-# answered the last harvest (and which hit their time budget, errored or still
-# show listings over 48 hours old), how every workflow did over the last 7 days
-# (runs, failures, median / 90th / longest minutes), and whether the Supabase
-# project answers a read (which also keeps a free project from pausing).
+# Once a week, write a health summary into the job summary, headed by a ranked
+# list of the worst cases: which shops answered the last harvest (and which were
+# not reached, hit their time budget or errored), each shop's share of listings
+# over 24 and 48 hours old, products with no photo, the most stocked products
+# whose Fragrantica link is the fallback search, the deploy output against its
+# budget (read off the live build-state.json), the slowest crawl run against its
+# limit, how every workflow did over the last 7 days (runs, failures, median /
+# 90th / longest minutes), and whether the Supabase project answers a read
+# (which also keeps a free project from pausing).
 # Code: scripts/weekly-health.ts, tested in tests/weeklyHealth.test.ts.
 # Plan: docs/FUTUREPROOFING-PLAN.md C1, A6, E1.
 #
@@ -24,7 +28,7 @@ permissions:
 jobs:
   summary:
     runs-on: ubuntu-24.04
-    timeout-minutes: 10
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         timeout-minutes: 5
@@ -38,6 +42,12 @@ jobs:
       - name: Install dependencies
         timeout-minutes: 5
         run: scripts/retry.sh 3 npm ci
+
+      # The catalogue module the photo and link checks read (not committed;
+      # replayed from the committed snapshots and build record, as the deploy does).
+      - name: Build the catalogue
+        timeout-minutes: 8
+        run: npx tsx scripts/ensure-catalogue-built.ts
 
       - name: Write the weekly summary
         timeout-minutes: 5
