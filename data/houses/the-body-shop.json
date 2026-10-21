@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-21T13:25:21.194Z",
-  "seenAt": "2026-10-21T13:25:21.194Z",
+  "updatedAt": "2026-10-21T13:54:58.273Z",
+  "seenAt": "2026-10-21T13:54:58.273Z",
   "source": "live",
   "listings": [
     {
@@ -1272,7 +1272,7 @@
     {
       "retailerSku": "1078240",
       "url": "https://www.thebodyshop.com/products/ultimate-matcha-collection",
-      "rawTitle": "Ultimate Matcha Collection",
+      "rawTitle": "Ultimate Matcha & White Chocolate Collection",
       "rawBrand": "The Body Shop",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/Q42026_Bundles_ECOM_PDPimage2000x2000px_MachaRange_setof5.png?v=1791475076",
@@ -1281,7 +1281,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Give the gift of Zen with our limited edition Ultimate Whipped Matcha Collection. Pamper your skin, with Matcha. . .",
+      "description": "Give the gift of Zen with our limited edition Ultimate Matcha & White Chocolate Collection. Pamper your skin, with Matcha & White Chocolate. .",
       "productType": "Bath and Body gifts",
       "nativePrice": null,
       "retailerId": "the-body-shop",
@@ -1295,7 +1295,7 @@
     {
       "retailerSku": "1049482",
       "url": "https://www.thebodyshop.com/products/matcha-essentials",
-      "rawTitle": "Matcha Essentials",
+      "rawTitle": "Matcha & White Chocolate Essentials",
       "rawBrand": "The Body Shop",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1049482_G3ESSENTIALSMATCHAXM26A0X_HERO_FAFAFA_INAKUPS103.jpg?v=1790614205",

@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-21T10:38:16.874Z",
-  "seenAt": "2026-10-21T10:38:16.874Z",
+  "updatedAt": "2026-10-21T13:46:43.470Z",
+  "seenAt": "2026-10-21T13:46:43.470Z",
   "source": "live",
   "listings": [
     {
@@ -10157,7 +10157,7 @@
       "priceGbp": 6.5,
       "wasPriceGbp": 13,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "It's superbly-smooth, creamy, with intense colour laydown, genius glide, and precision payoff for shaping, refining and defining. Enriched with moisturising Jojoba Oil. Long-lasting, non-drying gel formula. Wear it alone or as a stay-all-day base under lipstick or gloss. The perfect instant update..",
       "productType": "Makeup",

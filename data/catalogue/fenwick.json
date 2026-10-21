@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-21T10:38:16.874Z",
-  "seenAt": "2026-10-21T10:38:16.874Z",
+  "updatedAt": "2026-10-21T13:46:43.470Z",
+  "seenAt": "2026-10-21T13:46:43.470Z",
   "source": "live",
   "listings": [
     {
@@ -14090,7 +14090,7 @@
       "priceGbp": 105,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Miu Miu Miutine Eau De Parfum 50ml offers a feminine blend of wild strawberry, vanilla, and brown sugar. With warm floral notes of gardenia and patchouli, it delivers a distinctive and daring fragrance for confident wearers. .",
       "productType": "Women's Fragrances",
