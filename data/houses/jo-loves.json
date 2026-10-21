@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-21T11:45:12.541Z",
-  "seenAt": "2026-10-21T11:45:12.541Z",
+  "updatedAt": "2026-10-21T13:25:22.624Z",
+  "seenAt": "2026-10-21T13:25:22.624Z",
   "source": "live",
   "listings": [
     {
@@ -4683,7 +4683,7 @@
       "priceGbp": 39,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Discover the scent of your dreams with Jo Loves Pomelo Bath & Shower Gel! Inspired by sun-kissed beaches and creative bliss, this luxurious formula gently cleanses and nourishes your skin, leaving it delicately fragranced with a captivating blend of rose, pomelo, vetiver, clove, patchouli, and suede. Indulge in a moment of pure relaxation and let the scent of holidays, sun, and water transport you to your own personal paradise. Experience the joy of creativity and the comfort of home with every use.",
       "productType": null,

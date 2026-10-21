@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-21T11:45:11.250Z",
-  "seenAt": "2026-10-21T11:45:11.250Z",
+  "updatedAt": "2026-10-21T13:25:21.194Z",
+  "seenAt": "2026-10-21T13:25:21.194Z",
   "source": "live",
   "listings": [
     {
@@ -1226,7 +1226,7 @@
     {
       "retailerSku": "1022493",
       "url": "https://www.thebodyshop.com/products/matcha-body-care-collection",
-      "rawTitle": "Matcha Body Care Collection",
+      "rawTitle": "Matcha & White Chocolate Body Care Collection",
       "rawBrand": "The Body Shop",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/Q42026_Bundles_ECOM_PDPimage2000x2000px_MachaRange_setof3.png?v=1791478249",
@@ -1235,7 +1235,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Slather on the joy of self-care with our limited edition Matcha Body Care Collection. Wrap yourself in the uplifting scent of Whipped Matcha & White Chocolate, blending fresh matcha notes with creamy white chocolate for a truly indulgent treat. . .",
+      "description": "Slather on the joy of self-care with our limited edition Matcha & White Chocolate Body Care Collection. Wrap yourself in the uplifting scent of Whipped Matcha & White Chocolate, blending fresh matcha notes with creamy white chocolate for a truly indulgent treat. . .",
       "productType": "Bath and Body gifts",
       "nativePrice": null,
       "retailerId": "the-body-shop",
@@ -6431,7 +6431,7 @@
       "priceGbp": 1,
       "wasPriceGbp": 3,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Shop our Small Gift Bag and create your own special gift, filled with all their favourite beauty treats..",
       "productType": "Gift Bags and Boxes",

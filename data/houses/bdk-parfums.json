@@ -1,9 +1,35 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-10-21T11:45:08.591Z",
-  "seenAt": "2026-10-21T11:45:08.591Z",
+  "updatedAt": "2026-10-21T13:25:18.033Z",
+  "seenAt": "2026-10-21T13:25:18.033Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "BDKDECC8X2",
+      "url": "https://bdkparfums.com/products/coffret-decouverte-medium",
+      "rawTitle": "Coffret à composer - Exploration",
+      "rawBrand": "BDK Parfums",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/LaDecouverteParsiennenew_5.jpg?v=1696605711",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Composez votre coffret de 8 échantillons 2ml (5 + 3 offerts) . En complément de votre coffret, recevez un bon digital de 40 € à valoir sur votre prochaine commande d'un parfum 100ml ou plus. .",
+      "productType": "Product Bundle",
+      "nativePrice": {
+        "amount": 40,
+        "currency": "EUR"
+      },
+      "retailerId": "bdk-parfums",
+      "firstSeenAt": "2026-08-05T18:12:06.629Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-10-21T13:25:18.033Z",
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
     {
       "retailerSku": "BDKDECC15X2",
       "url": "https://bdkparfums.com/products/coffret-a-composer-immersion-copie",
@@ -3979,32 +4005,6 @@
       "delistedAt": "2026-10-12T10:25:37.799Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "BDKDECC8X2",
-      "url": "https://bdkparfums.com/products/coffret-decouverte-medium",
-      "rawTitle": "Coffret à composer - Exploration 8x2ml",
-      "rawBrand": "BDK Parfums",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/LaDecouverteParsiennenew_5.jpg?v=1696605711",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Composez votre coffret de 8 échantillons 2ml (5 + 3 offerts) . En complément de votre coffret, recevez un bon digital de 40 € à valoir sur votre prochaine commande d'un parfum 100ml ou plus. .",
-      "nativePrice": {
-        "amount": 40,
-        "currency": "EUR"
-      },
-      "retailerId": "bdk-parfums",
-      "firstSeenAt": "2026-08-05T18:12:06.629Z",
-      "lastSeenAt": "2026-09-23T12:49:05.461Z",
-      "status": "delisted",
-      "delistedAt": "2026-09-28T02:01:51.877Z",
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
       "variantId": null
     }
   ],
