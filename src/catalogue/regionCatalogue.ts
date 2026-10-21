@@ -195,6 +195,19 @@ export function applyReviewedStrengths(products: Iterable<RegionProduct>): { cha
   return { changed, fromCologne };
 }
 
+/**
+ * A title from a shop whose "Cologne" is not a strength (`RegionRetailer.cologneWordIsNotAStrength`), with the word
+ * taken out, so the strength is read from what else the title states (EDT, EDP, Parfum) and is "Not stated" when it
+ * states none, and the name meets the same bottle at the shops that do not write it.
+ */
+export function withoutColognePlaceholder(title: string): string {
+  return title
+    .replace(/\b(?:eau\s+de\s+)?colognes?\b/gi, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/\s+([,.)])/g, '$1')
+    .trim();
+}
+
 export interface BuildRegionOptions {
   now: string;
   /** Shop id to display name, for the brand reader's refusal of the shop's own name. */
@@ -206,6 +219,8 @@ export interface BuildRegionOptions {
   notHouse?: ReadonlyMap<string, ReadonlySet<string>>;
   /** Shop id to its `titleMustMatch`: words that name the shop's format, not the perfume, taken out of the name. */
   formatWords?: ReadonlyMap<string, string>;
+  /** Shops whose `cologneWordIsNotAStrength` is set: their "Cologne" is read as strength not stated. */
+  cologneNotAStrength?: ReadonlySet<string>;
   /** Carry each offer's listing (`RegionOffer.detail`) for the page build. Off for the dry run files. */
   withListingDetail?: boolean;
 }
@@ -248,7 +263,8 @@ export function buildRegionCatalogue(
     const ean = trustworthyEan({ retailerId: shopId, ean: l.ean, rawTitle: l.rawTitle }, untrustworthy);
     if (ean) withBarcode++;
     const format = options.formatWords?.get(shopId);
-    const title = ownSizeTitle(format ? l.rawTitle.replace(new RegExp(`\\s*-?\\s*${format}`, 'gi'), ' ').replace(/\s+/g, ' ').trim() : l.rawTitle);
+    const formatted = format ? l.rawTitle.replace(new RegExp(`\\s*-?\\s*${format}`, 'gi'), ' ').replace(/\s+/g, ' ').trim() : l.rawTitle;
+    const title = ownSizeTitle(options.cologneNotAStrength?.has(shopId) ? withoutColognePlaceholder(formatted) : formatted);
     const rawBrand = brandOfRow[rowIndex]!;
     const brand = rawBrand === '' ? '' : (canon.get(rawBrand) ?? tidyBrandSpelling(rawBrand));
     const offer: RegionOffer = options.withListingDetail

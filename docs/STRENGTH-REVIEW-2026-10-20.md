@@ -209,3 +209,13 @@ Maghribi, Xerjoff, Mykonos, Laurent Mazzone and the rest of the second batch now
 - Everything else with Eau de Cologne beside Eau de Toilette or Eau de Parfum (Calvin Klein, Hugo Boss, Dior
   Homme, Givenchy, Dunhill, Ralph Lauren, Guess, Coach and the rest) and the adjacent families of India
   (Roja, Dior vials, Ralph Lauren, Gucci and others): not yet read, see the estimate above.
+
+## Cologne at Perfumania and Fragrance Outlet (21 Oct 2026)
+
+Owner decision: Eau de Cologne stays a strength of its own, except at the two US shops that write "Cologne" on every
+men's bottle. Their registry entries carry `cologneWordIsNotAStrength: true`
+(`RegionRetailer`, `src/config/retailers.us.ts`); the region build (`withoutColognePlaceholder`,
+`regionCatalogue.ts`) takes the word out of those shops' titles, so the listing reads strength not stated unless the
+title states another strength (EDT, EDP, Parfum), which wins. The name loses the word too, so the bottle meets the
+other shops' listing of the same name. A future shop is flagged the same way. Rule test:
+`tests/regionColognePlaceholder.test.ts`.

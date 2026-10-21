@@ -53,6 +53,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://perfumania.com/',
     tiers: ['designer', 'mideast'],
     catalogueGroup: SAME_CATALOGUE_PERFUMANIA,
+    // Owner decision 2026-10-21: this shop writes "Cologne" on every men's bottle whatever its strength.
+    cologneWordIsNotAStrength: true,
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
@@ -513,6 +515,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     homepage: 'https://www.fragranceoutlet.com/',
     tiers: ['designer', 'mideast'],
     catalogueGroup: SAME_CATALOGUE_PERFUMANIA,
+    // Owner decision 2026-10-21: this shop writes "Cologne" on every men's bottle whatever its strength.
+    cologneWordIsNotAStrength: true,
     enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
