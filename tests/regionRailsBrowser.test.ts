@@ -58,7 +58,7 @@ describe.skipIf(!built)('each country\'s rails on the built page', () => {
 
   for (const site of SITES) {
     it(`${site.id}: Most Stocked names only its own shops, in ${site.symbol}`, async () => {
-      const rail = await read(site, '/', '.pop-rail li:has(.tile)');
+      const rail = await read(site, '/', '.pop-section:not(.pop-reviewed) .pop-rail li:has(.tile)');
       expect(rail).toHaveLength(12);
       for (const t of rail) {
         expect(site.shops.has(t.shop), `${t.shop} on the ${site.id} rail`).toBe(true);

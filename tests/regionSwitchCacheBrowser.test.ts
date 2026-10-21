@@ -78,7 +78,7 @@ describe.skipIf(!built)('switching country with the service worker installed', (
     await page.waitForTimeout(300);
     return (await page.evaluate(`({
       path: location.pathname,
-      tiles: [...document.querySelectorAll('.pop-rail li .tile')].map((t) => ({
+      tiles: [...document.querySelectorAll('.pop-section:not(.pop-reviewed) .pop-rail li .tile')].map((t) => ({
         shop: (t.querySelector('.sold-by span')?.textContent ?? '').trim().replace(/^(from|at) /, ''),
         price: (t.querySelector('.tile-price')?.textContent ?? '').replace(/\\s+/g, ' '),
       })),
