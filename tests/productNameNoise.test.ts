@@ -95,7 +95,7 @@ describe('product names carry no shop descriptor rubbish', () => {
    * admitted. Held to Kayali's own brand so the shape cannot excuse a
    * reseller's "Name | Note" layout anywhere else.
    */
-  const KAYALI_PIPE_NAMES = /^[^|]+\s\|\s\d{2}(?: Intense)?$/;
+  const KAYALI_PIPE_NAMES = /^[^|]+\s\|\s\d{2,3}(?: Intense| Limited Edition)?$/;
 
   /**
    * (1c) VERIFIED REAL, 2026-10-03. Kayali's own sets, kept whole as gift
@@ -309,6 +309,8 @@ describe('no bottle appears twice because a shop added a descriptor', () => {
           if (shorter === longer) continue;
           const base = words(shorter.name);
           if (base.size >= extra.size) continue;
+          // A limited edition is its own bottle, not a shop's descriptor (Kayali Yum Vanilla Cupcake | 108 and its Limited Edition, 22 Oct 2026).
+          if (/limited edition/i.test(longer.name) && !/limited edition/i.test(shorter.name)) continue;
           if ([...base].some((w) => !extra.has(w))) continue;
           if ([...extra].some((w) => !base.has(w) && !segment.has(w))) continue;
           offenders.push(`${longer.brand}: ${JSON.stringify(shorter.name)} vs ${JSON.stringify(longer.name)}`);
