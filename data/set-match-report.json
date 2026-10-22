@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 216,
+ "folded": 220,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1083,6 +1083,38 @@
    ]
   },
   {
+   "canonical": "set-ean-0888066163538",
+   "absorbed": [
+    "set-tom-ford-lost-cherry-gift-set-50ml-edp-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0888066163538",
+     "brand": "Tom Ford",
+     "name": "Lost Cherry Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0888066163538",
+     "scent": "cherry lost",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-tom-ford-lost-cherry-gift-set-50ml-edp-10ml-edp",
+     "brand": "Tom Ford",
+     "name": "Lost Cherry Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "cherry lost",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0888066167055",
    "absorbed": [
     "set-tom-ford-cafe-rose-eau-de-parfum-50ml-fragrance-gift-set"
@@ -1111,6 +1143,38 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0888066167123",
+   "absorbed": [
+    "set-tom-ford-f-fabulous-gift-set-50ml-edp-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0888066167123",
+     "brand": "Tom Ford",
+     "name": "F****** Fabulous Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0888066167123",
+     "scent": "f fabulous",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-tom-ford-f-fabulous-gift-set-50ml-edp-10ml-edp",
+     "brand": "Tom Ford",
+     "name": "F****** Fabulous Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "f fabulous",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -2024,6 +2088,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3423222092900",
+   "absorbed": [
+    "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222092900",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set 125ml EDT + 50ml Shower Gel + 50ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222092900",
+     "scent": "d eau homme issey l pour",
+     "signature": "1x125fragrance|1x50body|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set EDT 125ml + S/Gel 50ml + A/Balm 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau homme issey l pour",
+     "signature": "1x125fragrance|1x50body|1x50wash",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3423222092924",
    "absorbed": [
     "set-issey-miyake-a-drop-d-issey-gift-set-50ml-edp-50ml-hand-cream"
@@ -2086,6 +2182,38 @@
      "signature": "1x50fragrance|1x50wash",
      "shops": [
       "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3423222119683",
+   "absorbed": [
+    "set-issey-miyake-l-eau-d-issey-pour-homme-3-piece-gift-set-eau-de-toilette-125ml-shower-gel-50ml-eau-de-toilette-10ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222119683",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set 125ml EDT + 50ml Shower Gel + 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222119683",
+     "scent": "d eau homme issey l pour",
+     "signature": "1x10fragrance|1x125fragrance|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-3-piece-gift-set-eau-de-toilette-125ml-shower-gel-50ml-eau-de-toilette-10ml",
+     "brand": "Issey Miyake",
+     "name": "L'eau D'issey Pour Homme 3 Piece Gift Set: Eau De Toilette 125ml - Shower Gel 50ml - Eau De Toilette 10ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau homme issey l pour",
+     "signature": "1x10fragrance|1x125fragrance|1x50wash",
+     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -3862,39 +3990,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5054076514003",
-   "absorbed": [
-    "set-jasper-conran-man-gift-set-100ml-edt-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5054076514003",
-     "brand": "Jasper Conran",
-     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "5054076514003",
-     "scent": "man",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jasper-conran-man-gift-set-100ml-edt-100ml-shower-gel",
-     "brand": "Jasper Conran",
-     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "man",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5056446640541",
    "absorbed": [
     "set-charlotte-tilbury-charlotte-s-fragrance-collection-of-emotions-perfume-travel-trio-fragrance-gift-set"
@@ -4886,6 +4981,38 @@
      "signature": "1x100body|1x100fragrance",
      "shops": [
       "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003822195",
+   "absorbed": [
+    "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003822195",
+     "brand": "Versace",
+     "name": "Bright Crystal Absolu Gift Set 2 x 30ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003822195",
+     "scent": "absolu bright crystal",
+     "signature": "2x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp",
+     "brand": "Versace",
+     "name": "Bright Crystal Absolu Gift Set 2 x 30ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "absolu bright crystal",
+     "signature": "2x30fragrance",
+     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -7081,7 +7208,7 @@
   },
   {
    "reasons": [
-    "two different barcodes: 5050456005697, 5050456009404",
+    "two different barcodes: 5050456005697, 5050456009404, 5050456013074",
     "a shop lists more than one: perfume-click",
     "price spread 1.63 is over 1.5"
    ],
@@ -7113,13 +7240,12 @@
     {
      "id": "set-ean-5050456005697",
      "brand": "Cerruti",
-     "name": "1881 Pour Homme Giftset 100ml EDT Spray+ 150ml Deo Spray",
+     "name": "1881 Pour Homme Eau De Toilette Men's Aftershave Gift Set (100ml Spray + 150ml Deodorant Spray)",
      "concentration": "Eau de Toilette",
      "ean": "5050456005697",
      "scent": "1881 homme pour",
      "signature": "1x100fragrance|1x150deo",
      "shops": [
-      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -7135,6 +7261,18 @@
       "paco-perfumerias-uk",
       "perfume-click",
       "scentstore"
+     ]
+    },
+    {
+     "id": "set-ean-5050456013074",
+     "brand": "Cerruti",
+     "name": "1881 Pour Homme Giftset 100ml EDT Spray+ 150ml Deo Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "5050456013074",
+     "scent": "1881 homme pour",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "perfume-click"
      ]
     }
    ]
@@ -8425,37 +8563,6 @@
      "signature": "1x15fragrance|1x200body",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.63 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017013869",
-     "brand": "Ellen Tracy",
-     "name": "Sensational Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0849017013869",
-     "scent": "sensational",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ellen-tracy-sensational-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Ellen Tracy",
-     "name": "Sensational Gift Set 100ml Edp + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "sensational",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -10899,6 +11006,39 @@
      "signature": "1x100wash|1x50fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Eau de Toilette",
+    "two different barcodes: 5060103310838, 5060103310845",
+    "a shop lists more than one: perfume-click"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060103310838",
+     "brand": "Escentric Molecules",
+     "name": "Discovery Set 5 x 8.5ml EDT Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "5060103310838",
+     "scent": "discovery",
+     "signature": "5x8.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-5060103310845",
+     "brand": "Escentric Molecules",
+     "name": "Discovery Set 5 x 8.5ml EDP Spray",
+     "concentration": "Eau de Parfum",
+     "ean": "5060103310845",
+     "scent": "discovery",
+     "signature": "5x8.5fragrance",
+     "shops": [
+      "perfume-click"
      ]
     }
    ]
