@@ -1,36 +1,36 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-21T16:53:16.291Z",
+  "builtAt": "2026-10-22T13:57:16.623Z",
   "published": true,
   "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 22,
   "shopsPriced": 22,
-  "crawlMinutes": 42.18,
-  "harvestRanAt": "2026-10-21T13:17:13.034Z",
-  "listingsPriced": 65997,
-  "listingsKept": 31290,
+  "crawlMinutes": 42.28,
+  "harvestRanAt": "2026-10-22T13:14:59.349Z",
+  "listingsPriced": 66082,
+  "listingsKept": 31368,
   "staleAfterDays": 7,
-  "products": 20645,
-  "productsWithTwoOrMoreShops": 6497,
+  "products": 20590,
+  "productsWithTwoOrMoreShops": 6482,
   "shareWithTwoOrMoreShops": 0.315,
-  "productsWithTwoOrMoreIndependentShops": 2718,
-  "shareWithTwoOrMoreIndependentShops": 0.132,
-  "productsWithThreeOrMoreShops": 3912,
+  "productsWithTwoOrMoreIndependentShops": 2702,
+  "shareWithTwoOrMoreIndependentShops": 0.131,
+  "productsWithThreeOrMoreShops": 3908,
   "medianPriceGap": 0.325,
-  "listingBarcodeShare": 0.201,
-  "productsMatchingUkByBarcode": 2045,
+  "listingBarcodeShare": 0.199,
+  "productsMatchingUkByBarcode": 2034,
   "shops": [
     {
       "id": "aedes",
-      "products": 705,
+      "products": 710,
       "shared": 185
     },
     {
       "id": "beauty-encounter",
-      "products": 5082,
-      "shared": 1385
+      "products": 5081,
+      "shared": 1380
     },
     {
       "id": "beautyhabit",
@@ -70,7 +70,7 @@
     {
       "id": "la-belle-perfumes",
       "products": 4857,
-      "shared": 1354
+      "shared": 1348
     },
     {
       "id": "luckyscent",
@@ -84,12 +84,12 @@
     },
     {
       "id": "microperfumes",
-      "products": 508,
-      "shared": 340
+      "products": 507,
+      "shared": 339
     },
     {
       "id": "ministry-of-scent",
-      "products": 1647,
+      "products": 1646,
       "shared": 424
     },
     {
@@ -104,13 +104,13 @@
     },
     {
       "id": "sol-de-janeiro",
-      "products": 242,
+      "products": 243,
       "shared": 2
     },
     {
       "id": "the-perfume-spot",
-      "products": 497,
-      "shared": 174
+      "products": 413,
+      "shared": 150
     },
     {
       "id": "twisted-lily",
@@ -120,17 +120,17 @@
     {
       "id": "ulta",
       "products": 1133,
-      "shared": 314
+      "shared": 309
     }
   ],
-  "productsShown": 20523,
-  "productsWithUkPhoto": 4950,
-  "productsWithUkPhotoByBarcode": 1548,
-  "productsWithUkPhotoByName": 3402,
-  "listingsWithReference": 23554,
-  "offersWithCorroboratedReference": 11437,
-  "deals": 1852,
-  "shareWithUkPhoto": 0.241,
+  "productsShown": 20468,
+  "productsWithUkPhoto": 4948,
+  "productsWithUkPhotoByBarcode": 1542,
+  "productsWithUkPhotoByName": 3406,
+  "listingsWithReference": 23552,
+  "offersWithCorroboratedReference": 11429,
+  "deals": 1855,
+  "shareWithUkPhoto": 0.242,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
