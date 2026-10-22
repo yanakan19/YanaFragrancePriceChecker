@@ -1131,3 +1131,141 @@ holds no offers), `tests/regionRailsBrowser.test.ts` (on the built page, each co
 Stocked and Deals tiles name only its own shops and show only £, $ or ₹), and the worker's tests
 in `tests/demoDataFiles.test.ts` and `tests/serviceWorker.test.ts` (its country list is the
 config's). No UK data file changed.
+
+## Canada (22 October 2026)
+
+Owner request: a Canadian version of the site at `/ca/`, on the same principles as the US and
+India betas. This section is the plan; the build follows it in the same change. Everything below
+about shops was measured on 22 October 2026 as PriceSniffsBot (`PriceSniffsBot/0.2`, robots.txt
+first, one request per question, nothing retried in another disguise; D23).
+
+### How the US and India were built, and what Canada reuses
+
+The country is data, not logic. One row in `src/config/regions.ts` (`REGION_CONFIGS`) names the
+country, its currency, how money is written, the address prefix, the tax model, the delivery
+words and the legal variant; everything else reads it. Canada needs a fourth row and the pieces
+that were still written for two countries:
+
+| Piece | What it does today | Canada |
+|---|---|---|
+| `src/config/regions.ts` | `RegionId`, `LegalVariant`, the config rows, `REGION_WELCOME_ON` (off since 13 Oct, so no pop-up), the saved choice (`REGION_STORAGE_KEY`), the menu | add `'CA'`, `'ca'` legal variant, `name: 'Canada'`, CAD, `$`, `en-CA`, prefix `ca`, time zones `America/Toronto`, `America/Vancouver`, `America/Halifax`, `America/Edmonton` and the other Canadian zones; the menu lists live regions, so the entry appears by itself. Time zones are matched by prefix, and `America/` already means the US, so the Canadian zones are listed and matched first (`suggestRegionForTimeZone` takes the first match: Canada goes before the US in the list order after the UK, so a Toronto visitor is not offered the US) |
+| `src/types/regionRetailer.ts`, `src/config/retailers.<r>.ts`, `src/config/regionRetailers.ts` | a region shop's shape, the registry and the crawl config | `RegionCurrency` gains `'CAD'`, `CA_TAX_NOTE`, `src/config/retailers.ca.ts`, `REGION_CRAWL.CA` |
+| `src/catalogue/regionHarvest.ts` | one shop read once, the shop's own currency kept, never converted | unchanged (generic); Open Graph currency words gain `cad` and `CA$` |
+| `src/catalogue/regionCatalogue.ts`, `scripts/build-region-catalogue.ts` | products from the snapshots, `regionMatchName`, the UK picture and UK notes borrowed by match (`regionUkPhotos.ts`), `applyReviewedStrengths`, `cologneWordIsNotAStrength` | unchanged (generic by folder); Canadian shops carry `cologneWordIsNotAStrength` only if the crawl shows the pattern |
+| `.github/workflows/catalogue-us.yml`, `catalogue-in.yml` | the daily crawl, commits `data/regions/<r>/` only | `catalogue-ca.yml`, same shape |
+| `scripts/build-region-data.ts`, `scripts/bundle-region.ts`, `scripts/regionPages.ts`, `scripts/build-route-pages.ts`, `scripts/build-sitemap.ts`, `scripts/firstScreen.ts` | loop over `liveRegions()`: the region's bundle, its data files, `demo/<r>/index.html`, route pages, `sitemap-<r>.xml`, the prerendered first screen | no change: they pick Canada up from the config |
+| `demo/sw.js` | one offline page and one data folder per country (`REGION_PREFIXES`) | add `'ca'`, rename the shell cache so old caches are dropped |
+| Most Stocked, Deals, Most Popular | read the region's own catalogue, deals and shop registry in the region bundle; Most Popular hides itself where there are no review counts | automatic; a guard test covers the fourth country |
+| Beta line, `shopsAdjective`, `priceTaxNote`, `totalTaxLabel` | the sentence "Canadian prices are in beta" and "before tax" wording | `src/services/regionText.ts` gets the `'sales-tax-at-checkout'`-like model for Canada (own model value `sales-tax-at-checkout` is reused with Canada's words: GST, HST or PST) |
+| `demo/flags.ts`, `demo/legalRegion.ts`, `demo/legal.ts` | the flag tile, the regional legal pages | maple leaf flag, `caPages` |
+| `demo/ageConfirm.ts` | India only: "I am 18 or over" at sign up | stays India only (Canada has no such rule in the plan; the privacy law review below decides) |
+| `supabase/migrations/0009_profile_region.sql` | the profile's saved country is limited to the known codes | new `0011_profile_region_ca.sql` adds `'CA'` (owner runs it; until then a signed in Canadian visitor's choice stays in the browser only, and the page already copes with a failed save) |
+| tests | `regionConfig`, `regions`, `regionRetailers`, `regionPages`, `regionWelcome`, `regionText`, `workflowRules`, `regionRails` and others | updated to four countries; a new `regionCa.test.ts` holds the Canada rules |
+
+### Shops: who was asked, what they said
+
+Every row is one polite request each for `robots.txt`, the home page and `/products.json?limit=…`
+(Shopify) as PriceSniffsBot. Currency was read from `Shopify.currency` on the home page and from
+`/meta.json` (`country CA`, `currency CAD`), or from the JSON-LD `priceCurrency`. Canadian shelf
+prices are shown before sales tax (GST, HST or PST, set by province), the same convention as the
+US pages.
+
+| Shop | robots.txt for PriceSniffsBot | How prices are read | Currency | Verdict |
+|---|---|---|---|---|
+| Discount Fragrances (discountfragrances.ca, Edmonton) | 200, `User-agent: *` allows `/`, disallows cart, checkout, account | Shopify `/products.json` | CAD, rate 1.0, `/meta.json` CA | **in**. Free shipping over $129, delivery 1 to 5 business days after 2 days to ship (its FAQ) |
+| Perfume Online (perfumeonline.ca, Whitby) | 200, same rules | Shopify `/products.json` | CAD, rate 1.0 | **in**. Delivery terms not found cheaply |
+| Fragrance Canada (fragrancecanada.ca, Scarborough) | 200, same rules | Shopify `/products.json`, states a compare at price | CAD, rate 1.0 | **in** |
+| Fragrance Online Co. (fragranceonlineco.ca, Richmond Hill) | 200, same rules | Shopify `/products.json`, compare at price | CAD, rate 1.0 | **in**. Middle Eastern ranges (Arabiyat, Ahmed Al Maghribi, Ibrahim Al Qurashi) |
+| Maximum Fragrance (maximumfragrance.ca, Mississauga) | 200, `*` allows; the 10 second Crawl-delay is for other named bots only | Shopify `/products.json` | CAD, rate 1.0 | **in**. Free shipping over $149 (announcement bar) |
+| Perfume Factory (perfumefactory.ca, Niagara-on-the-Lake) | 200, same rules | Shopify `/products.json`; body care types excluded | CAD, rate 1.0 | **in** |
+| H Parfums (hparfums.com, Montreal) | 200, same rules | Shopify `/products.json`; candles excluded | CAD, rate 1.0 | **in**. Niche. Free shipping over $150 (its shipping page). English pages are read; no French page is built |
+| Parfum Exquis (parfumexquis.com, Montreal) | 200, same rules | Shopify `/products.json`; sets, candles, tea, jewellery excluded | CAD, rate 1.0 | **in**. Niche (Parfums de Marly, Tiziana Terenzi) |
+| Niche Essence (nicheessence.com, Toronto) | 200, `*` allows (the host answers `www.`) | Shopify `/products.json`; its 3 ml samples and bath and body excluded | CAD, rate 1.0 | **in**. Niche (Amouage, Xerjoff, Initio) |
+| Perfume Plus (perfumeplus.ca) | 200, `*` allows `/`; Crawl-delay only for dotbot and AhrefsBot | `store-products-sitemap.xml` (about 175 products) then each page's JSON-LD `Product` | CAD in `priceCurrency` | **in**, the one sitemap shop. A Wix store |
+| FragranceBuy.ca | 403 for the bot on robots.txt, the home page and products.json | none | n/a | **refused**, left out (no evasion) |
+| Ace Gifts Plus (acegiftsplus.ca) | 403 on every request | none | n/a | **refused** |
+| Sephora Canada (sephora.com/ca) | 403 on robots.txt and the home page | none | n/a | **refused** |
+| Holt Renfrew | 403 on every request | none | n/a | **refused** |
+| Simons | 403 on every request | none | n/a | **refused** |
+| London Drugs | 403 on every request | none | n/a | **refused** |
+| Shoppers Drug Mart and Pharmaprix | robots.txt 200 and allows `*`, but the home page answers the bot 403 | none | n/a | **refused** (the wall, not the file, decides) |
+| Walmart.ca | robots.txt 200, home page redirects to a block page | none | n/a | **refused** |
+| SSENSE | robots.txt 200, home page 403 | none | n/a | **refused** |
+| Costco.ca | robots.txt 200 allows; fragrance is a few warehouse lines | pages need script; no sitemap route | CAD | left out: nothing worth reading |
+| Rexall, Jean Coutu, Well.ca | robots.txt 200 and allow `*` (Rexall asks Crawl-delay 5; Jean Coutu disallows `page=` URLs; Well.ca blocks only named bots) | no feed found; product pages not probed | CAD | **not wired in round 1**: drugstores with small fragrance ranges; a product page probe is the next step |
+| Authentic Perfume Store (authenticperfumestore.com) | 200 | Shopify, but `Shopify.currency` CAD at rate 1.43 on its global market, so the CAD figure is a conversion | CAD converted | **left out**: the currency rule (the shop's own price, never a conversion) |
+| TheFragranceShop.ca | 200 | sitemap dated 2020 to 2021, product page 404 | n/a | left out: stale |
+| Murale, Perfume Shoppe, Niche Perfumes and others | certificate expired, connection reset or parked domain | none | n/a | left out |
+| Hudson's Bay (closed 1 June 2025) and Saks Canada (closed 2025), Nordstrom Canada (closed 2023) | n/a | n/a | n/a | closed chains: left out |
+
+Ten shops are in, nine Shopify and one sitemap shop. Brand sites in Canada (Lattafa, Armaf, French
+Avenue, Afnan, Rasasi) were not found as separate Canadian storefronts that state prices to the
+bot; the Middle Eastern ranges come through Fragrance Online Co., Discount Fragrances, Perfume
+Online and Fragrance Canada. Shopify's `agents.md` and UCP notes in these shops' robots.txt are for
+agents buying on a shopper's behalf; the crawler reads public pages only, as it does for every
+Shopify shop in the US list.
+
+### Prices, tax and wording
+
+CAD only, never a conversion: a shop is read only when its storefront states CAD at rate 1
+(`regionStorefrontCurrency`). Amounts are written `$1,299.00` as in the US; because `$` also means US
+dollars, the Canadian pages say "Canadian dollars" in words (the target price field, the beta line,
+the tax note, the legal pages), the menu and the header button show the code CAD beside the name, and
+the Canada flag and name sit on the country menu of all four sites. Size units: millilitres (the
+Canadian label). Reference price name: "list price" would not be the shop's word, so the compare at
+price is called MSRP as in the US. The note under a total: "Price before tax. GST, HST or PST is
+added at checkout and depends on your province." Delivery is standard delivery only, quoted from
+the shop's own page where cheap to find, `unverified` otherwise.
+
+### Language, privacy and legal (needs the owner's legal review)
+
+The site is English only. **Quebec's Charter of the French Language (Bill 96)** expects commercial
+websites aimed at Quebec to be available in French; two shops in the list are Montreal shops. The
+beta is English with no Quebec targeting, and whether a French version or a notice is needed is a
+question for the owner's lawyer. Canadian privacy law (**PIPEDA**, and **Quebec Law 25**, which
+adds consent, a privacy officer and rules on sending data abroad) applies to accounts, saved
+fragrances and price alert emails (kept by Supabase and Resend outside Canada). The Canadian legal
+pages in `demo/legalRegion.ts` are plain and short, say what is kept and where, and carry the same
+reminder as the US and India pages: reviewed by a lawyer before any money is earned in Canada. CASL
+(Canada's anti spam law) matters for price drop emails: they are sent only to people who ask for
+them, and every one says how to stop; the review confirms that is enough. Nothing earns money on
+`/ca/`: no affiliate code on any link, no personalised ads.
+
+### Affiliate programmes (for later, no sign up)
+
+The owner decided on 9 October 2026 that no programme is joined for now, and nothing here changes
+that. For when it is: Sephora Canada and L'Occitane Canada are listed on FlexOffers; Lancome is
+listed on Impact and Estee Lauder on Rakuten Advertising (all third party listings, not checked
+with the networks). The Canadian independents above run their own Shopify stores and would be
+approached directly. Canada would also need an affiliate disclosure under the Competition Bureau's
+rules, in the same place as the UK and US wording.
+
+### Crawl slot and cost
+
+`catalogue-ca.yml` runs once a day at **05:27 UTC** (01:27 in Toronto). The UK crawl fires at :15
+and :45 every hour, so no hour is free of it; 05:27 is off the hour, the half hour and the UK's
+minutes, the US crawl is at 07:52 (about 42 minutes, 80 minute cap, so Canada, capped the same,
+ends before it starts) and India at 20:22. The deploy check at :07 and :37 follows each finished
+crawl. The workflow commits only `data/regions/ca/` through `scripts/commit-and-push.sh`, in its
+own concurrency group `catalogue-ca` (no other workflow commits that folder, as for the US and
+India). Estimated crawl: nine Shopify shops read whole at 1.5 seconds a request plus Perfume Plus
+(175 pages), well inside the 80 minute cap.
+
+### Deploy size
+
+Now about 471 of 700 MB. A region adds its data files, a bundle and its route pages and no leaf
+pages (the US and India are not prerendered): the US folder is 27 MB of source data for 20,500
+products and India 18 MB. Canada, with ten shops of a few thousand listings each, is expected at
+10 to 25 MB of source data and about 30 to 60 MB of deploy, so roughly 500 to 530 MB. The deploy's
+`build-leaf-pages.ts --check` enforces `DEPLOY_BUDGET_BYTES`; the figure after the first deploy is
+recorded under "Build record" below.
+
+### Guards
+
+`tests/regionCa.test.ts`: Canada's shops are CAD only, carry the Canadian tax note, no affiliate
+field, no id used by another country, a reason for every shop that is off, and the refused shops
+are off; the config has four live regions in order with the right currency, prefix and menu entry;
+Canadian time zones suggest Canada and not the US; the workflow has its own slot, group and commit
+folder; the service worker lists the country; the sitemap for Canada lists only addresses that
+answer 200. The existing guards (`regionRails`, `regionRailsBrowser`, `regionSwitchCacheBrowser`,
+`workflowRules`, `regionConfig`) are widened to four countries.
