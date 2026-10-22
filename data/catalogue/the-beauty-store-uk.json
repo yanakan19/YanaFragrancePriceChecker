@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-22T01:13:15.955Z",
-  "seenAt": "2026-10-22T01:13:15.955Z",
+  "updatedAt": "2026-10-22T04:58:15.660Z",
+  "seenAt": "2026-10-22T04:58:15.660Z",
   "source": "live",
   "listings": [
     {
@@ -13998,7 +13998,7 @@
       "priceGbp": 1.99,
       "wasPriceGbp": 5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "L.A. Girl Matte Flat Velvet Lipstick is rich in pigment and filled with moisture for a flat velvet finish. The bold shade provides rich, intense color in a flat finish for all day wear. The long wearing formula goes on as a high pigmented liquid and dries to a flat matte finish. Leaving lips colored in gorgeous velvety perfection that last and lasts.",
       "productType": "Lipstick",
