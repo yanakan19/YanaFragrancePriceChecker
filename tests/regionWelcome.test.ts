@@ -194,9 +194,10 @@ describe('what the pop-up holds', () => {
       ['GB', '/', 'en-GB'],
       ['US', '/us/', 'en-US'],
       ['IN', '/in/', 'en-IN'],
+      ['CA', '/ca/', 'en-CA'],
     ]);
-    expect(html.match(/<svg class="flag"/g)).toHaveLength(3);
-    for (const t of ['United Kingdom', 'United States', 'India', '£', '$', '₹', 'GBP', 'USD', 'INR']) expect(html).toContain(t);
+    expect(html.match(/<svg class="flag"/g)).toHaveLength(4);
+    for (const t of ['United Kingdom', 'United States', 'India', 'Canada', '£', '$', '₹', 'GBP', 'USD', 'INR', 'CAD']) expect(html).toContain(t);
   });
 
   it('marks and focuses the time zone suggestion', () => {
@@ -225,14 +226,28 @@ describe('0009_profile_region.sql', () => {
     expect(code).not.toMatch(/\bdefault\b/);
   });
 
-  it('allows only the three regions the config knows, without failing on a re-run', () => {
+  it('allowed the first three regions, without failing on a re-run (Canada came with 0011)', () => {
     expect(code).toMatch(/drop constraint if exists profiles_region_known;/);
     expect(code).toMatch(/check \(region is null or region in \('GB', 'US', 'IN'\)\) not valid;/);
+  });
+
+  it('deletes, drops and grants nothing', () => {
+    expect(code).not.toMatch(/\b(delete|truncate|drop table|drop column|grant|revoke|update)\b/i);
+  });
+});
+
+describe('0011_profile_region_ca.sql', () => {
+  const sql = readFileSync(new URL('../supabase/migrations/0011_profile_region_ca.sql', import.meta.url), 'utf8');
+  const code = sql.replace(/--.*$/gm, '');
+
+  it('allows exactly the regions the config knows, without failing on a re-run', () => {
+    expect(code).toMatch(/drop constraint if exists profiles_region_known;/);
+    expect(code).toMatch(/\) not valid;/);
     const codes = /region in \(([^)]+)\)/.exec(code)![1]!.split(',').map((s) => s.trim().replace(/'/g, ''));
     expect(codes).toEqual(REGION_CONFIGS.map((r) => r.id));
   });
 
-  it('deletes, drops and grants nothing', () => {
+  it('deletes, drops and grants nothing but the old constraint', () => {
     expect(code).not.toMatch(/\b(delete|truncate|drop table|drop column|grant|revoke|update)\b/i);
   });
 });

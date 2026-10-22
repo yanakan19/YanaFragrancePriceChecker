@@ -72,18 +72,19 @@ deploy    demo/dormant.generated.ts           npm run catalogue:demo (scripts/bu
 deploy    demo/index.html                     npm run demo (scripts/build-demo.ts)
 deploy    demo/404.html                       npm run demo (scripts/build-demo.ts)
 deploy    demo/data/                          npm run demo (scripts/build-demo.ts), content-hashed, old files deleted
-deploy    demo/assets/                        npm run demo (scripts/build-demo.ts): the page's code and styles, content-hashed (assets/app.<hash>.js|css), old files deleted; demo/us/assets and demo/in/assets likewise
+deploy    demo/assets/                        npm run demo (scripts/build-demo.ts): the page's code and styles, content-hashed (assets/app.<hash>.js|css), old files deleted; demo/us/assets, demo/in/assets and demo/ca/assets likewise
 deploy    demo/brands/                        npm run demo (scripts/build-leaf-pages.ts): /brands/<slug>, one prerendered page per brand
 deploy    demo/retailers/                     npm run demo (scripts/build-leaf-pages.ts): /retailers/<id>, one prerendered page per shop with prices
 deploy    demo/ads.txt                        npm run demo (scripts/build-demo.ts), from demo/ads.ts
-deploy    demo/sitemap.xml                    npm run demo (scripts/build-sitemap.ts): since the public beta (2026-10-09) the index of the three below
-deploy    demo/sitemap-*.xml                  npm run demo (scripts/build-sitemap.ts): one per live region, sitemap-gb.xml (every UK address), sitemap-us.xml, sitemap-in.xml
+deploy    demo/sitemap.xml                    npm run demo (scripts/build-sitemap.ts): since the public beta (2026-10-09) the index of the four below
+deploy    demo/sitemap-*.xml                  npm run demo (scripts/build-sitemap.ts): one per live region, sitemap-gb.xml (every UK address), sitemap-us.xml, sitemap-in.xml, sitemap-ca.xml
 # The region pages (public beta since 2026-10-09, docs/INTERNATIONAL-PLAN.md): each live
 # region's page, deep link fallback, content-hashed data files and route pages in its
 # own folder, built from data/regions/<r>/ by scripts/build-region-data.ts and
 # scripts/bundle-region.ts (scratch output in dist-demo/, never committed).
 deploy    demo/us/                            npm run demo (scripts/build-demo.ts, scripts/build-route-pages.ts): /us/, its data files and its route pages
 deploy    demo/in/                            npm run demo (scripts/build-demo.ts, scripts/build-route-pages.ts): /in/, its data files and its route pages
+deploy    demo/ca/                            npm run demo (scripts/build-demo.ts, scripts/build-route-pages.ts): /ca/ (public beta since 2026-10-22), its data files and its route pages
 # A page of its own for every fixed address (/about is demo/about.html), so the host
 # answers 200 and not the 404.html fallback: scripts/build-route-pages.ts, last step
 # of npm run demo; the addresses come from the router's list routes and the sitemap
@@ -155,7 +156,7 @@ incoming  data/price-verification-report.json npm run price:verify
 incoming  data/delivery-recheck-report.json   npm run delivery:recheck
 incoming  docs/DELIVERY-RECHECK.md            npm run delivery:recheck
 
-# ── catalogue-us.yml, catalogue-in.yml: the region crawls (docs/INTERNATIONAL-PLAN.md, Phase 1; daily since the beta) ──
+# ── catalogue-us.yml, catalogue-in.yml, catalogue-ca.yml: the region crawls (docs/INTERNATIONAL-PLAN.md, Phase 1; daily since the beta) ──
 # Each region's crawl writes and commits only its own folder: its snapshots
 # (catalogue/<shop>.json), its harvest report, its catalogue, price history,
 # report and product addresses. No UK path, no page. So the region crawls and the
@@ -168,10 +169,13 @@ incoming  docs/DELIVERY-RECHECK.md            npm run delivery:recheck
 # by the region's crawl.
 incoming  data/regions/us/product-slugs.json  scripts/build-region-catalogue.ts --region=us (catalogue-us.yml), append only, reads its own last copy
 incoming  data/regions/in/product-slugs.json  scripts/build-region-catalogue.ts --region=in (catalogue-in.yml), append only, reads its own last copy
+incoming  data/regions/ca/product-slugs.json  scripts/build-region-catalogue.ts --region=ca (catalogue-ca.yml), append only, reads its own last copy
 # Each region's Today's Deals as the page shows them (the UK's deal rules on the shops' own
 # stated reference prices, src/catalogue/regionDeals.ts): written by the same crawl, with the
 # counts of listings carrying a reference price, corroborated references and deals.
 incoming  data/regions/us/deals.json          scripts/build-region-catalogue.ts --region=us (catalogue-us.yml)
 incoming  data/regions/in/deals.json          scripts/build-region-catalogue.ts --region=in (catalogue-in.yml)
+incoming  data/regions/ca/deals.json          scripts/build-region-catalogue.ts --region=ca (catalogue-ca.yml)
 incoming  data/regions/us/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=us (catalogue-us.yml)
 incoming  data/regions/in/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=in (catalogue-in.yml)
+incoming  data/regions/ca/                    scripts/region-harvest.ts and scripts/build-region-catalogue.ts --region=ca (catalogue-ca.yml)

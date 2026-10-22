@@ -19,7 +19,7 @@ import { resendProvider } from '../src/alerts/provider.js';
 import { DEFAULT_FROM } from '../src/alerts/config.js';
 
 export const DEFAULT_TO = 'yanakan19@gmail.com';
-export const SITE_URLS = ['https://pricesniffs.space/', 'https://pricesniffs.space/us/', 'https://pricesniffs.space/in/'];
+export const SITE_URLS = ['https://pricesniffs.space/', 'https://pricesniffs.space/us/', 'https://pricesniffs.space/in/', 'https://pricesniffs.space/ca/'];
 export const WINDOW_HOURS = 24;
 /** A scheduled run can start late (queueing, dropped ticks); a tick this recent is not yet missed. */
 export const GRACE_HOURS = 2;

@@ -30,6 +30,19 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.114.0',
+    date: '22 Oct 2026',
+    groups: [
+      {
+        heading: 'New',
+        points: [
+          'Canada site in beta, with prices in CAD',
+          'Canada added to the country menu',
+        ],
+      },
+    ],
+  },
+  {
     version: 'v3.113.0',
     date: '21 Oct 2026',
     groups: [

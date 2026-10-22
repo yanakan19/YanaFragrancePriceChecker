@@ -9,7 +9,7 @@ delivery included.
   `/in/` (public beta since 9 October 2026; 20 and 10 shops). Plan:
   [docs/INTERNATIONAL-PLAN.md](docs/INTERNATIONAL-PLAN.md).
 - **The crawls** (`.github/workflows/catalogue-daily.yml` for the UK, several
-  times a day; `catalogue-us.yml` and `catalogue-in.yml` once a day) harvest
+  times a day; `catalogue-us.yml`, `catalogue-in.yml` and `catalogue-ca.yml` once a day) harvest
   each shop's own listings, rebuild the catalogue and commit it.
 - **The site** (`demo/`) is built from that catalogue at deploy time and
   published to GitHub Pages (`deploy-pages.yml`).

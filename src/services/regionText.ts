@@ -1,15 +1,16 @@
 /**
- * The words, sizes and notes that differ between the UK, the US and India
+ * The words, sizes and notes that differ between the UK, the US, India and Canada
  * (docs/INTERNATIONAL-PLAN.md sections 4 and 6; owner decision 7 of 9 October
  * 2026: British English everywhere, with US terms only where the meaning
  * changes). Every function here returns exactly what the UK site has always
  * printed when the region is the UK, so no UK page changes by a byte.
  *
- *   - sizes: "100ml" in the UK and India; "3.4 fl oz (100 ml)" in the US,
+ *   - sizes: "100ml" in the UK, India and Canada; "3.4 fl oz (100 ml)" in the US,
  *     using the nominal bottle table for the ounces (3.4, not 3.38);
  *   - words: shipping for delivery, "shipped" for a delivered total, MSRP or
  *     MRP for RRP, ZIP code or PIN code for postcode;
- *   - notes: "before sales tax" in the US, GST included and MRP in India, and
+ *   - notes: "before sales tax" in the US, "before tax" (GST, HST or PST) in
+ *     Canada, GST included and MRP in India, and
  *     India's cash on delivery footnote (a fee never priced in);
  *   - the beta line and the freshness line a beta region's home page shows.
  *
@@ -92,6 +93,7 @@ export function localWords(text: string, region: RegionConfig = activeRegion()):
 export function priceTaxNote(region: RegionConfig = activeRegion()): string | null {
   switch (region.taxModel) {
     case 'sales-tax-at-checkout':
+      if (region.id === 'CA') return 'Prices are in Canadian dollars (CA$) and before tax. GST, HST or PST is added at checkout and depends on your province.';
       return 'Prices are before sales tax. Sales tax is added at checkout and depends on your state and ZIP code.';
     case 'gst-included-mrp':
       return 'Prices include GST. MRP is the maximum retail price printed on the pack, and no shop may charge more.';
@@ -104,7 +106,7 @@ export function priceTaxNote(region: RegionConfig = activeRegion()): string | nu
 export function totalTaxLabel(region: RegionConfig = activeRegion()): string {
   switch (region.taxModel) {
     case 'sales-tax-at-checkout':
-      return 'before sales tax';
+      return region.id === 'CA' ? 'before tax' : 'before sales tax';
     case 'gst-included-mrp':
       return 'incl. GST';
     case 'vat-included':

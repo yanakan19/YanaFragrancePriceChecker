@@ -11,11 +11,12 @@ import type { RegionCode, RegionCurrency, RegionRetailer } from '../types/region
 import { regionById } from './regions.js';
 import { US_RETAILERS } from './retailers.us.js';
 import { IN_RETAILERS } from './retailers.in.js';
+import { CA_RETAILERS } from './retailers.ca.js';
 
 export interface RegionCrawlConfig {
   id: RegionCode;
   /** The data folder under data/regions/, and the address prefix the plan gives the region. */
-  folder: 'us' | 'in';
+  folder: 'us' | 'in' | 'ca';
   currency: RegionCurrency;
 }
 
@@ -28,18 +29,20 @@ function crawlConfig(id: RegionCode): RegionCrawlConfig {
 export const REGION_CRAWL: Readonly<Record<RegionCode, RegionCrawlConfig>> = {
   US: crawlConfig('US'),
   IN: crawlConfig('IN'),
+  CA: crawlConfig('CA'),
 };
 
 export const REGION_RETAILERS: Readonly<Record<RegionCode, readonly RegionRetailer[]>> = {
   US: US_RETAILERS,
   IN: IN_RETAILERS,
+  CA: CA_RETAILERS,
 };
 
-/** The region named by a folder or code ('us', 'US', 'in', 'IN'), or null. */
+/** The region named by a folder or code ('us', 'US', 'in', 'IN', 'ca', 'CA'), or null. */
 export function regionFromArg(arg: string | null | undefined): RegionCrawlConfig | null {
   if (!arg) return null;
   const up = arg.toUpperCase();
-  return up === 'US' || up === 'IN' ? REGION_CRAWL[up] : null;
+  return up === 'US' || up === 'IN' || up === 'CA' ? REGION_CRAWL[up] : null;
 }
 
 export function regionRetailer(region: RegionCode, id: string): RegionRetailer | undefined {

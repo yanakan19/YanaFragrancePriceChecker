@@ -1,6 +1,6 @@
 /**
- * The US and Indian versions of the legal pages (docs/INTERNATIONAL-PLAN.md
- * section 5; the `legal: 'us' | 'in'` hook in src/config/regions.ts). Public
+ * The US, Indian and Canadian versions of the legal pages (docs/INTERNATIONAL-PLAN.md
+ * section 5; the `legal: 'us' | 'in' | 'ca'` hook in src/config/regions.ts). Public
  * beta since 9 October 2026. Plain and short on purpose: the owner has these
  * read by a lawyer before any money is earned in either country (owner
  * decision 8, docs/OWNER-STEPS.md), and until then nothing on these pages earns
@@ -39,6 +39,9 @@ export interface RegionLegalContext {
 
 /** When these words were last changed. */
 export const REGION_LEGAL_UPDATED = '9 October 2026';
+
+/** The Canadian pages were written on 22 October 2026. */
+export const REGION_LEGAL_UPDATED_CA = '22 October 2026';
 
 function usPages(c: RegionLegalContext): RegionLegalPage[] {
   const updated = `<p class="meta">Last updated ${REGION_LEGAL_UPDATED}. The US pages are in beta.</p>`;
@@ -296,9 +299,152 @@ function inPages(c: RegionLegalContext): RegionLegalPage[] {
   ];
 }
 
+function caPages(c: RegionLegalContext): RegionLegalPage[] {
+  const updated = `<p class="meta">Last updated ${REGION_LEGAL_UPDATED_CA}. The Canadian pages are in beta and are being reviewed by a lawyer.</p>`;
+  return [
+    {
+      id: 'how-it-works',
+      title: 'How PriceSniffs Works in Canada',
+      short: 'How It Works',
+      body: `
+      <p>PriceSniffs compares fragrance prices across ${c.coverage} Canadian shops, in
+      Canadian dollars, so you can see what a bottle costs before you buy it. The
+      Canadian pages are in beta, in English only, with fewer shops than the UK
+      site for now.</p>
+      <h2 class="t-section">Prices Are Checked Daily</h2>
+      <p>We read each shop's own public listings once a day, and only where the
+      shop allows it. No price is typed in by hand. Every listing says when we
+      last looked.</p>
+      <h2 class="t-section">Shipping Is Counted, Tax Is Not</h2>
+      <p>Where a shop publishes its standard shipping charge and the spend for
+      free shipping, we add them to the price. Prices are shown before tax. GST,
+      HST or PST is added at checkout and depends on your province, so we do not
+      guess it. Shipping to the territories and remote areas can cost more.</p>
+      <h2 class="t-section">What Cheapest Means</h2>
+      <p>The lowest total, price plus standard shipping, among bottles in stock.
+      A shop that does not state its shipping is never called cheapest.</p>
+      <h2 class="t-section">Position Is Not for Sale</h2>
+      <p>Results are ordered by stock and then by price. No shop can pay to
+      appear higher.</p>`,
+    },
+    {
+      id: 'affiliate',
+      title: 'Affiliate Disclosure',
+      short: 'Affiliate Disclosure',
+      body: `
+      <p>No Canadian shop listed here pays us anything today. Every link to a
+      Canadian shop is the shop's own address, with no tracking code, and earns
+      nothing.</p>
+      <h2 class="t-section">If That Changes</h2>
+      <p>If we join a shop's affiliate programme, every link to that shop will
+      be marked "Affiliate Link" on the shop's row, next to the link, before you
+      click, as the Competition Bureau's guidance on online endorsements asks. It
+      would cost you nothing and would never change the order of results, which is
+      decided by stock and by price alone.</p>
+      ${updated}`,
+    },
+    {
+      id: 'privacy',
+      title: 'Privacy Notice',
+      short: 'Privacy',
+      body: `
+      <aside class="summary-box" aria-labelledby="privacy-summary">
+        <h2 class="t-section" id="privacy-summary">In Short</h2>
+        <ul>
+          <li>While you browse we count page views and clicks through to shops:
+          the page, the hour and your country, with no cookie and no IP address
+          kept.</li>
+          <li>Beyond that, only what you choose to send: your email and password
+          if you open an account, the fragrances you save and any target price.</li>
+          <li>We do not sell or share your personal information, and no ad on
+          this site is personalised.</li>
+        </ul>
+      </aside>
+      <h2 class="t-section">Who Is Responsible</h2>
+      <p>${c.companyName} is run by ${c.legalName}, a sole trader in the United
+      Kingdom, who is responsible for the personal information described here.
+      Write to <a href="mailto:${c.email}">${c.email}</a> about anything on this
+      page, including a request to see, correct or delete your information, or to
+      withdraw a consent.</p>
+      <h2 class="t-section">Your Consent</h2>
+      <p>We collect an email address and password only when you open an account,
+      and a saved fragrance or target price only when you save one. Price drop
+      emails are sent only to people who ask for them, say who sent them and how
+      to stop them, and stop when you do. You can delete your account at any time
+      from your profile, which removes what we hold.</p>
+      <h2 class="t-section">Canada and Quebec</h2>
+      <p>This notice is written for the federal Personal Information Protection and
+      Electronic Documents Act and for Quebec's Act respecting the protection of
+      personal information in the private sector. Your information is kept outside
+      Canada (see below). We do not track you across other sites, and we honour the
+      Global Privacy Control signal. If we change what we collect, this page will
+      say so first.</p>
+      <h2 class="t-section">Children</h2>
+      <p>The site is not aimed at children and we do not knowingly collect their
+      data.</p>
+      <h2 class="t-section">Where Data Is Kept</h2>
+      <p>Pages are served by GitHub Pages. Accounts, saved fragrances and the
+      visit counts are kept by Supabase. Price drop emails, if you ask for them,
+      are sent by Resend. These services keep data outside Canada.</p>
+      ${updated}`,
+    },
+    {
+      id: 'terms',
+      title: 'Terms of Use',
+      short: 'Terms',
+      body: `
+      <p>Using PriceSniffs means accepting these terms.</p>
+      <h2 class="t-section">Who Runs This Site</h2>
+      ${c.businessDetails}
+      <h2 class="t-section">What PriceSniffs Is</h2>
+      <p>An information service. We do not sell fragrance, take payments or ship
+      parcels. A purchase is a contract between you and the shop, on its terms.</p>
+      <h2 class="t-section">Prices</h2>
+      <p>Prices are collected daily from ${c.shopCount} Canadian shops and can change at
+      any moment. They are shown in Canadian dollars and before tax, which the shop
+      adds at checkout. Shipping is worked out from each shop's published terms and
+      may miss a promotion or a surcharge.
+      <strong>Always check the price on the shop's own site before you buy.</strong></p>
+      <p>We are not liable for losses caused by a price, shipping charge or stock
+      figure being wrong or out of date, except where the law does not let us
+      exclude liability. Nothing here limits your rights as a consumer.</p>
+      <h2 class="t-section">The Shops We List</h2>
+      <p>Listing a shop is not an endorsement. We cannot guarantee the
+      authenticity of goods anyone else sells.</p>
+      <h2 class="t-section">Photographs</h2>
+      <p>A product picture on the Canadian pages is shown from the shop's own page,
+      or from the matching product on the UK site, and belongs to its owner. Where
+      none can be shown a plain marker stands in its place.</p>
+      <h2 class="t-section">Language</h2>
+      <p>The site is in English only for now.</p>
+      <h2 class="t-section">Our Content and the Law</h2>
+      <p>The design, wording and data compilations belong to ${c.legalName}.
+      Brand and product names belong to their owners and identify products only.
+      These terms are governed by the law of England and Wales, without taking
+      away any right you have as a consumer where you live.</p>
+      ${updated}`,
+    },
+    {
+      id: 'refunds',
+      title: 'Refunds and Returns',
+      short: 'Refunds',
+      body: `
+      <p>PriceSniffs sells nothing, so there is nothing to refund here. The shop
+      you buy from takes your money, ships the parcel and handles any return or
+      refund, under its own returns policy and the consumer law of your province.
+      Check a shop's returns policy before you open a bottle you may want to
+      send back.</p>
+      <p>If a price, shipping charge or stock figure shown here was wrong, tell us
+      at <a href="mailto:${c.email}">${c.email}</a> and we will check it.</p>
+      ${updated}`,
+    },
+  ];
+}
+
 /** The pages a region replaces, by id; empty for the UK, whose pages are demo/legal.ts's own. */
 export function regionLegalPages(variant: LegalVariant, c: RegionLegalContext): RegionLegalPage[] {
   if (variant === 'us') return usPages(c);
   if (variant === 'in') return inPages(c);
+  if (variant === 'ca') return caPages(c);
   return [];
 }

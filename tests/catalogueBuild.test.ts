@@ -181,7 +181,7 @@ describe('where the modules are built', () => {
     const ensureAt = deploy.indexOf('run: npx tsx scripts/ensure-catalogue-built.ts');
     expect(ensureAt).toBeGreaterThan(0);
     expect(ensureAt).toBeLessThan(deploy.indexOf('run: npm run demo'));
-    for (const r of ['us', 'in']) {
+    for (const r of ['us', 'in', 'ca']) {
       const wf = read(`.github/workflows/catalogue-${r}.yml`);
       const at = wf.indexOf('run: npx tsx scripts/ensure-catalogue-built.ts');
       expect(at, r).toBeGreaterThan(0);

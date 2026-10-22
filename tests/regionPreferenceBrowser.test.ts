@@ -109,7 +109,7 @@ describe.skipIf(!built)('the Country row and the remembered country', () => {
 
   for (const width of [320, 390, 1280]) {
     for (const mode of ['light', 'dark'] as const) {
-      it(`at ${width}px (${mode}): three countries drawn like the pop-up, the current one marked, fits, axe clean`, async () => {
+      it(`at ${width}px (${mode}): four countries drawn like the pop-up, the current one marked, fits, axe clean`, async () => {
         const { context, page } = await open('/account?regionwelcome=preview', { width, mode, account: reader() });
         try {
           await page.waitForSelector('.acct-country', { timeout: 15_000 });
@@ -135,6 +135,7 @@ describe.skipIf(!built)('the Country row and the remembered country', () => {
             ['GB', 'United Kingdom £ GBP', 1],
             ['US', 'United States $ USD', 1],
             ['IN', 'India ₹ INR', 1],
+            ['CA', 'Canada $ CAD', 1],
           ]);
           // Nothing saved anywhere: the region the page is in is the one marked.
           expect(await pressed(page)).toEqual(['GB']);

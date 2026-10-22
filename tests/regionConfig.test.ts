@@ -33,6 +33,7 @@ import { RESERVED_WORDS } from '../src/catalogue/productSlug.js';
 
 const US = regionById('US')!;
 const IN = regionById('IN')!;
+const CA = regionById('CA')!;
 const GB = regionById('GB')!;
 
 /** Runs `fn` with `region` live or not, then puts it back. */
@@ -53,9 +54,9 @@ const withOff = <T>(region: RegionConfig, fn: () => T): T => withLiveSet(region,
 afterEach(() => resetActiveRegionForTests());
 
 describe('the regions', () => {
-  it('are the United Kingdom, the United States and India, in that order (owner decision 3)', () => {
-    expect(REGION_CONFIGS.map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
-    expect(REGION_CONFIGS.map((r) => r.name)).toEqual(['United Kingdom', 'United States', 'India']);
+  it('are the United Kingdom, the United States, India and Canada, in that order (owner decision 3)', () => {
+    expect(REGION_CONFIGS.map((r) => r.id)).toEqual(['GB', 'US', 'IN', 'CA']);
+    expect(REGION_CONFIGS.map((r) => r.name)).toEqual(['United Kingdom', 'United States', 'India', 'Canada']);
   });
 
   it('hold each one\'s currency, symbol, locale, units and address prefix', () => {
@@ -63,6 +64,7 @@ describe('the regions', () => {
       ['GBP', '£', 'en-GB', 'en-GB', 'ml', ''],
       ['USD', '$', 'en-US', 'en-US', 'floz-and-ml', 'us'],
       ['INR', '₹', 'en-IN', 'en-IN', 'ml', 'in'],
+      ['CAD', '$', 'en-CA', 'en-CA', 'ml', 'ca'],
     ]);
   });
 
@@ -71,13 +73,14 @@ describe('the regions', () => {
       ['uk', 'vat-included', 'RRP', 'delivery', 'postcode', false],
       ['us', 'sales-tax-at-checkout', 'MSRP', 'shipping', 'ZIP code', false],
       ['in', 'gst-included-mrp', 'MRP', 'delivery', 'PIN code', true],
+      ['ca', 'sales-tax-at-checkout', 'MSRP', 'shipping', 'postal code', false],
     ]);
   });
 
-  it('has all three live since the public beta of 9 October 2026, the US and India in beta', () => {
-    expect(liveRegions().map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
-    expect(REGION_CONFIGS.map((r) => [r.id, r.live, r.beta])).toEqual([['GB', true, false], ['US', true, true], ['IN', true, true]]);
-    expect(REGION_CONFIGS.map((r) => r.shopsAdjective)).toEqual(['UK', 'US', 'Indian']);
+  it('has all four live (the UK, the US and India since the public beta of 9 October 2026, Canada since 22 October 2026), the other three in beta', () => {
+    expect(liveRegions().map((r) => r.id)).toEqual(['GB', 'US', 'IN', 'CA']);
+    expect(REGION_CONFIGS.map((r) => [r.id, r.live, r.beta])).toEqual([['GB', true, false], ['US', true, true], ['IN', true, true], ['CA', true, true]]);
+    expect(REGION_CONFIGS.map((r) => r.shopsAdjective)).toEqual(['UK', 'US', 'Indian', 'Canadian']);
     expect(DEFAULT_REGION).toBe(GB);
   });
 
@@ -99,11 +102,11 @@ describe('the regions', () => {
   });
 
   it('is the UK on every address while a region is switched off', () => {
-    withOff(US, () => withOff(IN, () => {
-      for (const p of ['/', '/us/', '/us/deals', '/in', '/in/creed_aventus_100ml', '/deals']) {
+    withOff(US, () => withOff(IN, () => withOff(CA, () => {
+      for (const p of ['/', '/us/', '/us/deals', '/in', '/in/creed_aventus_100ml', '/ca/', '/ca/deals', '/deals']) {
         expect(splitRegionPrefix(p)).toEqual({ region: GB, rest: p });
       }
-    }));
+    })));
   });
 });
 
@@ -146,7 +149,7 @@ describe('addresses inside a region', () => {
     expect(regionPath(US, '/deals')).toBe('/us/deals');
     expect(regionPath(US, '/')).toBe('/us/');
     expect(regionPath(IN, '/creed_aventus_100ml')).toBe('/in/creed_aventus_100ml');
-    expect(REGION_CONFIGS.map(regionHome)).toEqual(['/', '/us/', '/in/']);
+    expect(REGION_CONFIGS.map(regionHome)).toEqual(['/', '/us/', '/in/', '/ca/']);
   });
 
   it('answers /us/ addresses as a page not found while the US is switched off', () => {
@@ -190,19 +193,19 @@ describe('addresses inside a region', () => {
   });
 
   it('keeps the region prefixes out of the product slugs', () => {
-    for (const w of ['us', 'in', 'uk']) expect(RESERVED_WORDS).toContain(w);
-    for (const w of rootWords()) expect(['us', 'in', 'uk']).not.toContain(w);
+    for (const w of ['us', 'in', 'ca', 'uk']) expect(RESERVED_WORDS).toContain(w);
+    for (const w of rootWords()) expect(['us', 'in', 'ca', 'uk']).not.toContain(w);
   });
 });
 
 describe('canonical and hreflang', () => {
   it('declares no hreflang while only the UK is live, so no page head changes', () => {
-    withOff(US, () => withOff(IN, () => {
+    withOff(US, () => withOff(IN, () => withOff(CA, () => {
       expect(hreflangAlternates(SITE_URL, '/deals')).toEqual([]);
       const tags = headFor({ route: { name: 'deals', param: '', query: {} } });
       expect(tags.canonical).toBe(`${SITE_URL}/deals`);
       expect(hreflangFor(tags)).toEqual([]);
-    }));
+    })));
   });
 
   it('names every live region and x-default (the UK page) on a page every region has', () => {
@@ -210,10 +213,11 @@ describe('canonical and hreflang', () => {
       { hreflang: 'en-GB', href: `${SITE_URL}/deals` },
       { hreflang: 'en-US', href: `${SITE_URL}/us/deals` },
       { hreflang: 'en-IN', href: `${SITE_URL}/in/deals` },
+      { hreflang: 'en-CA', href: `${SITE_URL}/ca/deals` },
       { hreflang: 'x-default', href: `${SITE_URL}/deals` },
     ]);
     const tags = headFor({ route: { name: 'deals', param: '', query: {} } });
-    expect(hreflangFor(tags).map((l) => l.hreflang)).toEqual(['en-GB', 'en-US', 'en-IN', 'x-default']);
+    expect(hreflangFor(tags).map((l) => l.hreflang)).toEqual(['en-GB', 'en-US', 'en-IN', 'en-CA', 'x-default']);
     // A page kept out of search engines declares none.
     expect(hreflangFor({ ...tags, noindex: true })).toEqual([]);
   });
@@ -269,6 +273,10 @@ describe('the time zone suggestion', () => {
     expect(suggestRegionForTimeZone('Pacific/Honolulu')?.id).toBe('US');
     expect(suggestRegionForTimeZone('Asia/Kolkata')?.id).toBe('IN');
     expect(suggestRegionForTimeZone('Asia/Calcutta')?.id).toBe('IN');
+    // A Canadian zone is Canada's even though 'America/' means the US.
+    for (const z of ['America/Toronto', 'America/Vancouver', 'America/Edmonton', 'America/Halifax', 'America/St_Johns', 'America/Winnipeg']) {
+      expect(suggestRegionForTimeZone(z)?.id, z).toBe('CA');
+    }
     expect(suggestRegionForTimeZone('Europe/Paris')).toBeNull();
     expect(suggestRegionForTimeZone('')).toBeNull();
     expect(suggestRegionForTimeZone(null)).toBeNull();

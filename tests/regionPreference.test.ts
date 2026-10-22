@@ -30,7 +30,8 @@ import { buildDataExport } from '../src/services/accountMenu.js';
 const GB = regionById('GB')!;
 const US = regionById('US')!;
 const IN = regionById('IN')!;
-const ALL = [GB, US, IN] as const;
+const CA = regionById('CA')!;
+const ALL = [GB, US, IN, CA] as const;
 
 describe('when anything is remembered at all', () => {
   it('only once a second region is live', () => {
@@ -268,8 +269,9 @@ describe('the Country row on the profile page (countryRowHtml)', () => {
       ['GB', 'false'],
       ['US', 'true'],
       ['IN', 'false'],
+      ['CA', 'false'],
     ]);
-    expect(html.match(/<svg class="flag"/g)).toHaveLength(3);
+    expect(html.match(/<svg class="flag"/g)).toHaveLength(4);
     for (const r of REGION_CONFIGS) {
       expect(html).toContain(`<span class="region-welcome-name">${r.name}</span> <span class="region-welcome-cur"><span aria-hidden="true">${r.currencySymbol}</span> ${r.currency}</span>`);
     }
@@ -285,7 +287,7 @@ describe('the Country row on the profile page (countryRowHtml)', () => {
 
   it('disables every button while a choice is being saved, and says so', () => {
     const busy = countryRowHtml({ choices: ALL, current: 'GB', tickIcon: '', busy: true });
-    expect(busy.match(/ disabled>/g)).toHaveLength(3);
+    expect(busy.match(/ disabled>/g)).toHaveLength(4);
     expect(busy).toContain('Saving your country.');
     expect(html).not.toContain(' disabled');
   });

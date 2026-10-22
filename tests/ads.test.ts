@@ -539,11 +539,11 @@ describe('the consent message (Google Privacy & messaging)', () => {
   });
 
   it.skipIf(!existsSync(resolve(root, 'demo/index.html')) || ADS_ON)('the built pages, as committed, load nothing from Google and show no consent link', () => {
-    for (const f of ['demo/index.html', 'demo/about.html', 'demo/us/index.html', 'demo/in/index.html']) {
+    for (const f of ['demo/index.html', 'demo/about.html', 'demo/us/index.html', 'demo/in/index.html', 'demo/ca/index.html']) {
       if (!existsSync(resolve(root, f))) continue;
       const page = read(f);
       // The page's code is a file of its own since 13 Oct 2026 (assets/app.<hash>.js).
-      const code = [...page.matchAll(/assets\/app\.[0-9a-f]{16}\.js/g)].map((m) => read(`demo/${f.startsWith('demo/us/') ? 'us/' : f.startsWith('demo/in/') ? 'in/' : ''}${m[0]}`)).join('\n');
+      const code = [...page.matchAll(/assets\/app\.[0-9a-f]{16}\.js/g)].map((m) => read(`demo/${f.startsWith('demo/us/') ? 'us/' : f.startsWith('demo/in/') ? 'in/' : f.startsWith('demo/ca/') ? 'ca/' : ''}${m[0]}`)).join('\n');
       const html = `${page}\n${code}`;
       // Real markup only: the bundled app code holds these words as inert strings.
       const scripts = [...html.matchAll(/<script[^>]*\ssrc="([^"]*)"/g)].map((m) => m[1]);

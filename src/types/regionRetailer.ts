@@ -36,7 +36,7 @@ import type { RegionId } from '../config/regions.js';
 export type RegionCode = Exclude<RegionId, 'GB'>;
 
 /** The shop's own currency, as the shop states it. Never a conversion. */
-export type RegionCurrency = 'USD' | 'INR';
+export type RegionCurrency = 'USD' | 'INR' | 'CAD';
 
 /** The page a delivery figure was read off, and the sentence it came from. */
 export interface RegionDeliverySource {
@@ -208,6 +208,15 @@ export interface RegionRetailer {
    * another strength (EDT, EDP, Parfum), which then wins. Owner decision, 21 Oct 2026. Other shops keep Eau de Cologne.
    */
   cologneWordIsNotAStrength?: boolean;
+  /**
+   * Ask the home page for the shop's own market with Shopify's standard selector, `country=CA`. Four Canadian
+   * Shopify shops answer a US caller in the market of its address (USD at a conversion rate, whatever the
+   * language header) unless the market is named; with `?country=CA` they quote Canadian dollars at rate 1, as they
+   * do to a visitor in Canada, and the currency rule then accepts them. The same query is added to
+   * every products.json page, since two of them convert their catalogue into the caller's market too
+   * (Niche Essence, Parfum Exquis: 0.71 of the Canadian price without it). The same selector the UK crawl uses (`?country=GB`); nothing about who is asking changes.
+   */
+  marketQuery?: string;
   delivery: RegionDelivery;
   /**
    * What the shelf price includes, in the plan's words (section 4): US prices
@@ -227,3 +236,6 @@ export const US_TAX_NOTE = 'Price before sales tax. Sales tax is added at checko
 
 /** Indian shelf prices include GST and may not exceed the printed MRP. */
 export const IN_TAX_NOTE = 'Price includes GST.';
+
+/** Canadian shelf prices are before sales tax (GST, HST or PST, which depend on the province). */
+export const CA_TAX_NOTE = 'Price before tax. GST, HST or PST is added at checkout and depends on your province.';

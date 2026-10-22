@@ -94,7 +94,7 @@ describe('scripts/generated-files.txt', () => {
     expect(deploy.map((e) => e.pattern)).toEqual([
       'demo/catalogue.generated.ts', 'demo/dormant.generated.ts',
       'demo/index.html', 'demo/404.html', 'demo/data/', 'demo/assets/', 'demo/brands/', 'demo/retailers/', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
-      'demo/us/', 'demo/in/',
+      'demo/us/', 'demo/in/', 'demo/ca/',
       'demo/*.html', 'demo/about/', 'demo/legal/', 'demo/account/', 'demo/notes/', 'demo/guides/', 'demo/note-icons/h/',
     ]);
     for (const e of deploy) {
@@ -168,7 +168,7 @@ describe('scripts/generated-files.txt', () => {
     expect(bash(['paths', 'deploy']).split(' ')).toEqual([
       'demo/catalogue.generated.ts', 'demo/dormant.generated.ts',
       'demo/index.html', 'demo/404.html', 'demo/data', 'demo/assets', 'demo/brands', 'demo/retailers', 'demo/ads.txt', 'demo/sitemap.xml', 'demo/sitemap-*.xml',
-      'demo/us', 'demo/in',
+      'demo/us', 'demo/in', 'demo/ca',
       'demo/*.html', 'demo/about', 'demo/legal', 'demo/account', 'demo/notes', 'demo/guides', 'demo/note-icons/h',
     ]);
   });

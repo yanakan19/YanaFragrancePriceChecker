@@ -31,8 +31,11 @@ function regionModule(prefix: string): { CRAWLED: Record<string, { retailerId: s
 }
 const US = regionById('US')!;
 const IN = regionById('IN')!;
+const CA = regionById('CA')!;
 const GB = regionById('GB')!;
-const REGIONS = [US, IN];
+const REGIONS = [US, IN, CA];
+// A country whose first crawl has not committed data yet has no products, notes or photos to check (Canada, 22 Oct 2026, until its first run).
+const DATA_REGIONS = REGIONS.filter((r) => existsSync(join(REPO_ROOT, 'data', 'regions', r.pathPrefix, 'catalogue.json')));
 
 /** Runs a head script against a stand-in address; answers where it sent the page and what it set. */
 function runScript(script: string, href: string): { replaced: string | null; state: string | null; fetchStubbed: boolean; flag: unknown } {
@@ -52,7 +55,7 @@ function runScript(script: string, href: string): { replaced: string | null; sta
 }
 
 describe('the deep link hand off (scripts/regionPages.ts)', () => {
-  const dispatch = regionDispatchScript(['us', 'in']);
+  const dispatch = regionDispatchScript(['us', 'in', 'ca']);
 
   it('hands a US or Indian deep link to that region\'s page, starting none of the UK page\'s data', () => {
     const r = runScript(dispatch, 'https://pricesniffs.space/us/creed_aventus_100ml?x=1#top');
@@ -93,6 +96,7 @@ describe('the deep link hand off (scripts/regionPages.ts)', () => {
     expect(us).toContain('href="https://x.example/"');
     expect(us).toContain('Compare Fragrance Prices at US Shops');
     expect(regionTemplate(template, IN)).toContain('Compare Fragrance Prices at Indian Shops');
+    expect(regionTemplate(template, CA)).toContain('Compare Fragrance Prices at Canadian Shops');
   });
 });
 
@@ -100,7 +104,7 @@ describe.skipIf(!built)('the built region pages', () => {
   const uk = read('index.html');
 
   it('builds both regions: a page and its deep link copy each, from the same build as the UK page', () => {
-    expect(liveRegions().map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
+    expect(liveRegions().map((r) => r.id)).toEqual(['GB', 'US', 'IN', 'CA']);
     for (const r of REGIONS) {
       const page = read(`${r.pathPrefix}/index.html`);
       // Its deep link copy is the page without the home page's first screen (scripts/firstScreen.ts).
@@ -125,9 +129,9 @@ describe.skipIf(!built)('the built region pages', () => {
   it('keeps the UK page on its own data, plus the regions lookup, and hands region deep links on', () => {
     const files = referencedDataFiles(uk);
     expect(files.every((f) => existsSync(join(demo, f))), 'every UK data file is in demo/data').toBe(true);
-    expect(uk).not.toMatch(/"(us|in)\/data\//);
+    expect(uk).not.toMatch(/"(us|in|ca)\/data\//);
     expect(files.some((f) => f.startsWith('data/regions.'))).toBe(true);
-    expect(uk).toContain(`<script>${regionDispatchScript(['us', 'in'])}</script>`);
+    expect(uk).toContain(`<script>${regionDispatchScript(['us', 'in', 'ca'])}</script>`);
     expect(read('404.html')).toBe(withoutFirstScreen(uk));
   });
 
@@ -160,7 +164,7 @@ describe.skipIf(!built)('the built region pages', () => {
     // Every address in it, found once. This test used to ask `ukText.includes(...)` for each picture (about
     // 12 minutes over the whole UK file, most of what the crawl's 15 minute test step spent).
     const ukImages = new Set(ukText.match(/"https:\/\/(?:[^"\\]|\\.)*"/g));
-    for (const r of REGIONS) {
+    for (const r of DATA_REGIONS) {
       const catalogueFile = referencedDataFiles(read(`${r.pathPrefix}/index.html`)).find((f) => f.startsWith('data/catalogue.'))!;
       const blobs = JSON.parse(read(`${r.pathPrefix}/${catalogueFile}`)) as unknown[];
       const products = blobs.find((b): b is { id: string; image: string | null }[] => Array.isArray(b) && b.length > 100 && typeof (b[0] as { slug?: unknown })?.slug === 'string')!;
@@ -197,13 +201,13 @@ describe.skipIf(!built)('the sitemaps', () => {
   it('are an index of one sitemap per region, which robots.txt names', () => {
     const locs = [...index.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
     expect(index).toContain('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
-    expect(locs).toEqual([`${SITE_URL}/sitemap-gb.xml`, `${SITE_URL}/sitemap-us.xml`, `${SITE_URL}/sitemap-in.xml`]);
-    for (const f of ['sitemap-gb.xml', 'sitemap-us.xml', 'sitemap-in.xml']) expect(existsSync(join(demo, f)), f).toBe(true);
+    expect(locs).toEqual([`${SITE_URL}/sitemap-gb.xml`, `${SITE_URL}/sitemap-us.xml`, `${SITE_URL}/sitemap-in.xml`, `${SITE_URL}/sitemap-ca.xml`]);
+    for (const f of ['sitemap-gb.xml', 'sitemap-us.xml', 'sitemap-in.xml', 'sitemap-ca.xml']) expect(existsSync(join(demo, f)), f).toBe(true);
     expect(read('robots.txt')).toContain(`Sitemap: ${SITE_URL}/sitemap.xml`);
   });
 
   it('list each region\'s addresses inside its prefix, under the 50,000 limit', () => {
-    for (const r of REGIONS) {
+    for (const r of DATA_REGIONS) {
       const xml = read(`sitemap-${r.pathPrefix}.xml`);
       const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!);
       // Since 13 Oct 2026 a sitemap lists only addresses that answer 200: a region's
@@ -215,13 +219,13 @@ describe.skipIf(!built)('the sitemaps', () => {
       expect(locs, r.id).toContain(`${SITE_URL}/${r.pathPrefix}/`);
       expect(locs, r.id).toContain(`${SITE_URL}/${r.pathPrefix}/notes`);
     }
-    expect([...gb.matchAll(/<loc>([^<]+)<\/loc>/g)].every((m) => !/^https:\/\/[^/]+\/(us|in)\//.test(m[1]!))).toBe(true);
+    expect([...gb.matchAll(/<loc>([^<]+)<\/loc>/g)].every((m) => !/^https:\/\/[^/]+\/(us|in|ca)\//.test(m[1]!))).toBe(true);
   });
 
   it('carry hreflang alternates where a page exists in more than one region, x-default the UK page', () => {
     expect(gb).toContain('xmlns:xhtml="http://www.w3.org/1999/xhtml"');
     const home = /<url><loc>https:\/\/pricesniffs\.space\/<\/loc>.*?<\/url>/.exec(gb)![0];
-    for (const h of ['en-GB', 'en-US', 'en-IN', 'x-default']) expect(home, h).toContain(`hreflang="${h}"`);
+    for (const h of ['en-GB', 'en-US', 'en-IN', 'en-CA', 'x-default']) expect(home, h).toContain(`hreflang="${h}"`);
     // An alternate only between listed addresses (13 Oct 2026): every href an
     // alternate names is itself in one of the sitemaps, so it answers 200.
     const listed = new Set([gb, ...REGIONS.map((r) => read(`sitemap-${r.pathPrefix}.xml`))].flatMap((x) => [...x.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]!)));

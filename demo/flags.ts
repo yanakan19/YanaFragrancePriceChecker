@@ -30,6 +30,10 @@ const PANELS: Record<RegionId, string> = {
     '<rect y="13.33" width="30" height="6.67" fill="#138808"/>' +
     '<circle cx="15" cy="10" r="2.4" fill="none" stroke="#000080" stroke-width=".7"/>' +
     '<circle cx="15" cy="10" r=".6" fill="#000080"/>',
+  CA:
+    '<rect width="30" height="20" fill="#fff"/>' +
+    '<rect width="7.5" height="20" fill="#D52B1E"/><rect x="22.5" width="7.5" height="20" fill="#D52B1E"/>' +
+    '<path d="M15 3.2 16.4 6.2 18.4 5.4 17.8 9.2 20.2 7.6 19.6 10.4 21 10.9 18.2 13.1 18.5 14.3 15.5 13.8V17h-1v-3.2l-3 .5.3-1.2L9 10.9l1.4-.5-.6-2.8 2.4 1.6-.6-3.8 2 .8z" fill="#D52B1E"/>',
 };
 
 /** The flag for a region, 20px wide, hidden from assistive technology. */

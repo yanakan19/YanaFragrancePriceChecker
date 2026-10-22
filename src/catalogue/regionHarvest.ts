@@ -41,7 +41,7 @@ import { BOT_HEADERS } from './botIdentity.js';
 import { decodeHtmlEntities } from './htmlEntities.js';
 import { probeRobots } from './robotsSource.js';
 import { isAllowed, type RobotsRules } from './robots.js';
-import { fetchStorefrontCurrency, type StorefrontCurrency } from './shopCurrency.js';
+import { fetchStorefrontCurrency, readStorefrontCurrency, type StorefrontCurrency } from './shopCurrency.js';
 import { crawlViaShopifyProducts } from './shopifyProductsCrawl.js';
 import { crawlViaSitemap } from './sitemapCrawl.js';
 import { cleanBarcode } from './barcode.js';
@@ -145,6 +145,28 @@ export function recordingHttp(http: Http, sink: string[], max = 6): Http {
     }
     return res;
   };
+}
+
+/**
+ * What a Shopify storefront quotes when asked for its own market by Shopify's standard selector
+ * (`/?country=CA`, the way the UK crawl asks `?country=GB`), for a shop that answers a request from a US address
+ * in the market of that address (USD at a conversion rate) unless told the market. `/meta.json` is read as
+ * ever; only the home page is asked with the query. The products.json walk is unchanged: it carries each
+ * product's base price, whichever market the home page shows.
+ */
+export async function fetchStorefrontCurrencyForMarket(
+  origin: string,
+  query: string,
+  http: Http,
+  headers: Record<string, string>,
+  gapMs: number,
+  sleep: (ms: number) => Promise<void>,
+): Promise<StorefrontCurrency> {
+  const base = origin.replace(/\/+$/, '');
+  const meta = await http(`${base}/meta.json`, headers);
+  await sleep(gapMs);
+  const home = await http(`${base}/?${query}`, headers);
+  return readStorefrontCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null);
 }
 
 /**
@@ -360,7 +382,7 @@ export function reconcileRegion(
   return out.sort((a, b) => a.retailerSku.localeCompare(b.retailerSku));
 }
 
-const OG_CURRENCY: Record<string, string> = { inr: 'INR', rupee: 'INR', rupees: 'INR', rs: 'INR', '₹': 'INR', usd: 'USD', '$': 'USD', gbp: 'GBP', '£': 'GBP' };
+const OG_CURRENCY: Record<string, string> = { inr: 'INR', rupee: 'INR', rupees: 'INR', rs: 'INR', '₹': 'INR', usd: 'USD', cad: 'CAD', 'ca$': 'CAD', 'c$': 'CAD', '$': 'USD', gbp: 'GBP', '£': 'GBP' };
 
 function metaContent(html: string, property: string): string | null {
   const esc = property.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -558,7 +580,9 @@ export async function harvestRegionShop(options: RegionHarvestOptions): Promise<
       return { report, snapshot: null };
     }
     await sleep(gapMs);
-    const storefront = await fetchStorefrontCurrency(origin, http, headers);
+    const storefront = shop.marketQuery
+      ? await fetchStorefrontCurrencyForMarket(origin, shop.marketQuery, http, headers, gapMs, sleep)
+      : await fetchStorefrontCurrency(origin, http, headers);
     const verdict = regionStorefrontCurrency(storefront, shop.currency);
     report.currency = verdict.reason;
     report.pagesFetched += 2;
@@ -580,6 +604,7 @@ export async function harvestRegionShop(options: RegionHarvestOptions): Promise<
       // The region's currency, settled above; never the UK market search.
       currency: { ...storefront, isSterling: false, reason: verdict.reason },
       resolveUkMarket: false,
+      ...(shop.marketQuery ? { marketQuery: shop.marketQuery } : {}),
       deadlineAt,
       onProgress: (pages, found) => { if (pages % 5 === 0) log(`${shop.id}: ${pages} page(s), ${found} listing(s)`); },
     });

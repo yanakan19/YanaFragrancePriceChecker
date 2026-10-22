@@ -9,7 +9,8 @@
  * sits at the root of the site, exactly as before. The United States (`/us/`)
  * and India (`/in/`) are live as a public beta since 9 October 2026 (owner
  * decision: run the beta on the numbers measured that day, the plan's quarter
- * bar waived; docs/INTERNATIONAL-PLAN.md, "Public beta, 9 October 2026").
+ * bar waived; docs/INTERNATIONAL-PLAN.md, "Public beta, 9 October 2026"), and
+ * Canada (`/ca/`) since 22 October 2026 (docs/INTERNATIONAL-PLAN.md, "Canada").
  *
  * Kept free of the DOM and of the catalogue, so Node scripts, the price alert
  * emails and the tests can all read it. The menu (demo/app.ts), the flags
@@ -18,10 +19,10 @@
  * it; tests/regionConfig.test.ts pins it.
  */
 
-export type RegionId = 'GB' | 'US' | 'IN';
+export type RegionId = 'GB' | 'US' | 'IN' | 'CA';
 
 /** Which variant of the disclosure, privacy and terms text a country gets (docs/LEGAL.md). */
-export type LegalVariant = 'uk' | 'us' | 'in';
+export type LegalVariant = 'uk' | 'us' | 'in' | 'ca';
 
 /** Whether the shelf price includes tax, and so what a delivered total means (plan section 4). */
 export type TaxModel = 'vat-included' | 'sales-tax-at-checkout' | 'gst-included-mrp';
@@ -30,7 +31,7 @@ export interface DeliveryModel {
   /** The word for getting the bottle to the door. */
   word: 'delivery' | 'shipping';
   /** What the local address code is called. */
-  postcodeWord: 'postcode' | 'ZIP code' | 'PIN code';
+  postcodeWord: 'postcode' | 'ZIP code' | 'PIN code' | 'postal code';
   /** India: a cash on delivery fee is a footnote, never priced in. */
   codFootnote: boolean;
 }
@@ -38,19 +39,19 @@ export interface DeliveryModel {
 export interface RegionConfig {
   id: RegionId;
   /** The name as the menu and the welcome pop-up show it. */
-  name: 'United Kingdom' | 'United States' | 'India';
+  name: 'United Kingdom' | 'United States' | 'India' | 'Canada';
   /** The flag drawn beside the name (demo/flags.ts). */
   flag: RegionId;
   /** ISO 4217, as shown in the menu and read out. */
-  currency: 'GBP' | 'USD' | 'INR';
+  currency: 'GBP' | 'USD' | 'INR' | 'CAD';
   /** The symbol written before an amount. */
   currencySymbol: '£' | '$' | '₹';
   /** The currency's name in a sentence or a field label ("Target price in pounds"). */
-  currencyName: 'pounds' | 'dollars' | 'rupees';
+  currencyName: 'pounds' | 'dollars' | 'rupees' | 'Canadian dollars';
   /** Intl locale for numbers and dates. */
-  locale: 'en-GB' | 'en-US' | 'en-IN';
+  locale: 'en-GB' | 'en-US' | 'en-IN' | 'en-CA';
   /** The hreflang this region's pages declare once more than one is live. */
-  hreflang: 'en-GB' | 'en-US' | 'en-IN';
+  hreflang: 'en-GB' | 'en-US' | 'en-IN' | 'en-CA';
   /**
    * How an amount is written. The United Kingdom keeps exactly what the site
    * has always printed, two decimals and no thousands separator (£1299.00),
@@ -61,8 +62,8 @@ export interface RegionConfig {
   /** Sizes in ml, or US fluid ounces beside ml ("3.4 fl oz (100 ml)"; owner decision 7). */
   units: 'ml' | 'floz-and-ml';
   /** The first segment of every address in this region; empty for the UK at the root. */
-  pathPrefix: '' | 'us' | 'in';
-  /** True once the region's pages are built and shown. All three since 9 Oct 2026. */
+  pathPrefix: '' | 'us' | 'in' | 'ca';
+  /** True once the region's pages are built and shown. The UK, the US and India since 9 Oct 2026, Canada since 22 Oct 2026. */
   live: boolean;
   /**
    * A public beta: the menu says "(Beta)" after the name and the region's
@@ -70,7 +71,7 @@ export interface RegionConfig {
    */
   beta: boolean;
   /** How the shops are named in a sentence: "UK shops", "US shops", "Indian shops". */
-  shopsAdjective: 'UK' | 'US' | 'Indian';
+  shopsAdjective: 'UK' | 'US' | 'Indian' | 'Canadian';
   /** Time zone names that suggest this region in the welcome pop-up. */
   timeZones: readonly string[];
   /** The reference price's local name. */
@@ -144,6 +145,33 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
     taxModel: 'gst-included-mrp',
     delivery: { word: 'delivery', postcodeWord: 'PIN code', codFootnote: true },
     legal: 'in',
+  },
+  {
+    id: 'CA',
+    name: 'Canada',
+    flag: 'CA',
+    currency: 'CAD',
+    currencySymbol: '$',
+    currencyName: 'Canadian dollars',
+    locale: 'en-CA',
+    hreflang: 'en-CA',
+    money: { fractionDigits: 2, grouping: true },
+    units: 'ml',
+    pathPrefix: 'ca',
+    live: true,
+    beta: true,
+    shopsAdjective: 'Canadian',
+    timeZones: [
+      'America/Toronto', 'America/Vancouver', 'America/Edmonton', 'America/Winnipeg', 'America/Halifax', 'America/St_Johns',
+      'America/Regina', 'America/Moncton', 'America/Glace_Bay', 'America/Goose_Bay', 'America/Iqaluit', 'America/Whitehorse',
+      'America/Yellowknife', 'America/Inuvik', 'America/Dawson', 'America/Dawson_Creek', 'America/Fort_Nelson', 'America/Cambridge_Bay',
+      'America/Rankin_Inlet', 'America/Resolute', 'America/Swift_Current', 'America/Thunder_Bay', 'America/Nipigon', 'America/Rainy_River',
+      'Canada/',
+    ],
+    referencePriceName: 'MSRP',
+    taxModel: 'sales-tax-at-checkout',
+    delivery: { word: 'shipping', postcodeWord: 'postal code', codFootnote: false },
+    legal: 'ca',
   },
 ];
 
@@ -233,7 +261,10 @@ export function setActiveRegionForBuild(region: RegionConfig | null): void {
  */
 export function suggestRegionForTimeZone(timeZone: string | null | undefined): RegionConfig | null {
   if (!timeZone) return null;
-  return REGION_CONFIGS.find((r) => r.timeZones.some((z) => (z.endsWith('/') ? timeZone.startsWith(z) : timeZone === z))) ?? null;
+  // A named zone beats a prefix: 'America/' means the US, but America/Toronto is Canada's.
+  const exact = REGION_CONFIGS.find((r) => r.timeZones.some((z) => !z.endsWith('/') && timeZone === z));
+  if (exact) return exact;
+  return REGION_CONFIGS.find((r) => r.timeZones.some((z) => z.endsWith('/') && timeZone.startsWith(z))) ?? null;
 }
 
 /**

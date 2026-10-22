@@ -20,7 +20,7 @@
  * is pre-cached, served and pruned exactly the same way.
  *
  * One worker, at the site's root, serves every country: the UK at the root and
- * each other country under its own folder (/us/, /in/; src/config/regions.ts),
+ * each other country under its own folder (/us/, /in/, /ca/; src/config/regions.ts),
  * whose document names its own data files (us/data/<module>.<hash>.json). So
  * nothing a country's page shows can come from another's cache (owner rule,
  * 10 Oct 2026: Most Stocked, Deals and every count use the country's own shops
@@ -67,13 +67,13 @@ const SHELL = [
 const DATA_FILE = /data\/[A-Za-z]+\.[0-9a-f]{16}\.json/g;
 // The folders of the other countries' sites (src/config/regions.ts pathPrefix);
 // tests/serviceWorker.test.ts holds the list to the config.
-const REGION_PREFIXES = ['us', 'in'];
+const REGION_PREFIXES = ['us', 'in', 'ca'];
 // A data file's path as a document names it, with its country's folder when it has one.
 const REGION_DATA_FILE = new RegExp(`(?:\\b(${REGION_PREFIXES.join('|')})\\/)?${DATA_FILE.source}`, 'g');
 // The same for the code and styles a document names (from the site root: /us/assets/...).
 const REGION_ASSET_FILE = new RegExp(`(?:\\b(?:${REGION_PREFIXES.join('|')})\\/)?${ASSET_FILE.source}`, 'g');
 
-/** The country an address inside the worker's scope belongs to: 'us', 'in', or '' for the UK. */
+/** The country an address inside the worker's scope belongs to: 'us', 'in', 'ca', or '' for the UK. */
 function regionOfUrl(href) {
   const scope = new URL(self.registration.scope).pathname;
   const path = new URL(href, self.registration.scope).pathname;

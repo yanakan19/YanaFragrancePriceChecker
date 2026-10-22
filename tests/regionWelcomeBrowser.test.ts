@@ -97,8 +97,8 @@ describe.skipIf(!built)('Select your country', () => {
         expect(await page.evaluate(`!!document.getElementById('region-btn')`), 'the country menu').toBe(true);
       }
       expect(await stored(page)).toBeNull();
-      // The home page exists in all three countries: en-GB, en-US, en-IN and x-default.
-      expect(await page.evaluate(`document.querySelectorAll('link[rel="alternate"][hreflang]').length`), 'hreflang').toBe(4);
+      // The home page exists in all four countries: en-GB, en-US, en-IN, en-CA and x-default.
+      expect(await page.evaluate(`document.querySelectorAll('link[rel="alternate"][hreflang]').length`), 'hreflang').toBe(5);
     } finally {
       await context.close();
     }
@@ -174,6 +174,7 @@ describe.skipIf(!built)('Select your country', () => {
             ['GB', '/', 'United Kingdom £ GBP'],
             ['US', '/us/', 'United States $ USD Suggested'],
             ['IN', '/in/', 'India ₹ INR'],
+            ['CA', '/ca/', 'Canada $ CAD'],
           ]);
           expect(d.login).toBe("or log in, we'll remember your preference");
           expect(d.loginHref).toBe('/account');

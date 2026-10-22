@@ -1,0 +1,120 @@
+name: Catalogue crawl CA
+
+# The Canada crawl (docs/INTERNATIONAL-PLAN.md, "Canada"). It reads the Canadian shops in
+# src/config/retailers.ca.ts as PriceSniffsBot, robots.txt first (D23), keeps prices in
+# CAD as each shop states them, builds the region's catalogue, price history,
+# report and product addresses, and commits data/regions/ca/ and nothing else.
+#
+# Public beta since 22 October 2026: the deploy builds the /ca/ pages from that
+# folder (scripts/build-region-data.ts), so a finished run of this workflow starts
+# the deploy check (deploy-pages.yml, workflow_run), which deploys when the run
+# committed region data (scripts/deploy-decision.mjs counts data/regions/).
+#
+# Schedule: once a day at 05:27 UTC (01:27 in Toronto), since the beta of 22 October 2026. Off the
+# hour and the half hour, and away from the UK crawl's ticks (catalogue-daily.yml
+# fires at :15 and :45 of every hour) and from the other regions' crawls (the US at
+# 07:52, which this one, capped at 80 minutes, ends before; India at 20:22). GitHub drops some scheduled ticks; a missed
+# day costs nothing a later run does not make up (listings count for 7 days,
+# src/catalogue/regionCatalogue.ts REGION_STALE_DAYS), and the run can be started
+# by hand or by the outside scheduler (workflow_dispatch, docs/OWNER-STEPS.md).
+#
+# Its own concurrency group, catalogue-ca: it commits only data/regions/ca/, a
+# path no other workflow commits, so it never races the UK crawl or the other
+# regions (tests/workflowRules.test.ts). It pushes only through
+# scripts/commit-and-push.sh.
+
+on:
+  schedule:
+    - cron: '27 5 * * *'
+  workflow_dispatch:
+    inputs:
+      harvest_max:
+        description: 'New product pages a sitemap shop may read this run (Shopify shops read their whole /products.json regardless).'
+        type: string
+        default: '250'
+      shop_minutes:
+        description: 'Wall clock minutes per shop.'
+        type: string
+        default: '12'
+      commit:
+        description: 'Commit data/regions/ca/. Turn off to look only.'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogue-ca
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 80
+
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
+
+    steps:
+      - uses: actions/checkout@v5
+        timeout-minutes: 5
+
+      - uses: actions/setup-node@v5
+        timeout-minutes: 5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        timeout-minutes: 10
+        run: scripts/retry.sh 3 npm ci
+
+      # The UK catalogue module, which the region build reads for each bottle's
+      # UK picture, is not committed since 2026-10-10: it is replayed here from
+      # the UK crawl's committed inputs and build record, byte for byte the
+      # UK crawl's (scripts/ensure-catalogue-built.ts). Before the harvest, so
+      # a checkout that cannot build it stops in a minute, not after the crawl.
+      - name: Build the UK catalogue module
+        timeout-minutes: 10
+        run: npx tsx scripts/ensure-catalogue-built.ts
+
+      - name: Test the region harvest before crawling
+        timeout-minutes: 10
+        run: npx vitest run tests/regionRetailers.test.ts tests/regionHarvest.test.ts tests/regionCatalogue.test.ts
+
+      - name: Harvest the Canadian shops
+        timeout-minutes: 52
+        env:
+          HARVEST_MAX: ${{ inputs.harvest_max || '250' }}
+          SHOP_MINUTES: ${{ inputs.shop_minutes || '12' }}
+          # Nykaa answers with response headers larger than Node's 16 KB default
+          # (undici HeadersOverflowError on the first India run, 2026-10-09). This
+          # only lets our client read the answer the shop sends; nothing it is
+          # sent changes.
+          NODE_OPTIONS: --max-http-header-size=131072
+        run: npx tsx scripts/region-harvest.ts --region=ca --max="$HARVEST_MAX" --shop-minutes="$SHOP_MINUTES" --run-minutes=48 --concurrency=4
+
+      - name: Build the Canadian catalogue, price history, report and product addresses
+        timeout-minutes: 10
+        run: npx tsx scripts/build-region-catalogue.ts --region=ca
+
+      - name: Show the report
+        timeout-minutes: 2
+        run: |
+          {
+            echo '## Canada crawl'
+            echo '```json'
+            node -e "const r=require('./data/regions/ca/report.json'); delete r.shops; console.log(JSON.stringify(r,null,2))"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Commit the Canadian data
+        timeout-minutes: 10
+        # A scheduled run has no inputs, and always commits.
+        if: ${{ github.event_name == 'schedule' || inputs.commit }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "CA crawl: region data $(date -u +%Y-%m-%dT%H:%MZ)" \
+            data/regions/ca

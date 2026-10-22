@@ -80,7 +80,7 @@ on:
   workflow_run:
     # The US and Indian crawls since the public beta (9 Oct 2026): their data is
     # the /us/ and /in/ pages' (scripts/build-region-data.ts).
-    workflows: ['Catalogue crawl', 'Fragrance links daily', 'Catalogue crawl US', 'Catalogue crawl IN']
+    workflows: ['Catalogue crawl', 'Fragrance links daily', 'Catalogue crawl US', 'Catalogue crawl IN', 'Catalogue crawl CA']
     types: [completed]
   # A second path for the dashboard's list and a retry of a failed deploy
   # (finished crawl runs are the first). Off the hour and half hour, when
@@ -257,7 +257,7 @@ jobs:
             # Its 404.html is the page without its first screen: firstScreen.ts --check above.
             grep -q '<urlset' "demo/sitemap-$r.xml"
           done
-          ls -la demo/index.html demo/404.html demo/sitemap*.xml demo/data demo/us/data demo/in/data
+          ls -la demo/index.html demo/404.html demo/sitemap*.xml demo/data demo/us/data demo/in/data demo/ca/data
 
       # What this deployment is built from, published beside the page for the
       # next run's `decide` job: the commit checked out above and the hidden

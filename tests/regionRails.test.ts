@@ -28,15 +28,16 @@ import { dealFor } from '../scripts/social-deal-of-day.js';
  */
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const UK_SHOPS = new Set(RETAILERS.map((r) => r.id));
-const REGIONS: RegionCode[] = ['US', 'IN'];
+const REGIONS: RegionCode[] = ['US', 'IN', 'CA'];
 const regionShops = (r: RegionCode) => new Set(REGION_RETAILERS[r].map((s) => s.id));
 const ALL_REGION_SHOPS = new Set(REGIONS.flatMap((r) => [...regionShops(r)]));
-const SYMBOL: Record<'GB' | RegionCode, string> = { GB: '£', US: '$', IN: '₹' };
+const SYMBOL: Record<'GB' | RegionCode, string> = { GB: '£', US: '$', IN: '₹', CA: '$' };
 
 describe('the shop registries never share an id', () => {
   it('a UK shop id is never a US or Indian one, nor a US one an Indian one', () => {
     for (const r of REGIONS) for (const id of regionShops(r)) expect(UK_SHOPS.has(id), `${r} ${id}`).toBe(false);
     for (const id of regionShops('US')) expect(regionShops('IN').has(id), id).toBe(false);
+    for (const id of regionShops('CA')) expect(regionShops('US').has(id) || regionShops('IN').has(id), id).toBe(false);
   });
 });
 
@@ -102,7 +103,10 @@ describe('the country menu\'s lookup of the other countries', () => {
   });
 });
 
-describe.each(REGIONS)('the %s site', (region) => {
+// A country whose first crawl has not committed data yet has no site to check (Canada, 22 Oct 2026, until its first run).
+const CRAWLED_REGIONS = REGIONS.filter((r) => existsSync(resolve(root, `data/regions/${REGION_CRAWL[r].folder}/catalogue.json`)));
+
+describe.each(CRAWLED_REGIONS)('the %s site', (region) => {
   const site = buildRegionSite(readRegionInputs(root, region), {}, '2026-10-10T12:00:00Z', CATALOGUE, (id) => RETAILERS.find((r) => r.id === id)?.name);
   const own = regionShops(region);
   const config = regionById(region)!;

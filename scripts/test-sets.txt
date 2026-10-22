@@ -344,3 +344,5 @@ code tests/regionColognePlaceholder.test.ts
 code tests/harvestFreshness.test.ts
 data tests/productSlugEntities.test.ts
 code tests/sizePhotos.test.ts
+code tests/regionCa.test.ts
+data tests/regionCaSitemap.test.ts

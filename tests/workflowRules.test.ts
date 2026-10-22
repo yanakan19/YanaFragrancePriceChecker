@@ -466,8 +466,8 @@ describe('deploy-pages.yml', () => {
   });
 
   it('deploys after every crawl and links run, and on any push that can change the page, src/ included', () => {
-    expect(deploy).toContain("workflows: ['Catalogue crawl', 'Fragrance links daily', 'Catalogue crawl US', 'Catalogue crawl IN']");
-    for (const f of ['catalogue-daily.yml', 'fragrance-links-daily.yml', 'catalogue-us.yml', 'catalogue-in.yml']) {
+    expect(deploy).toContain("workflows: ['Catalogue crawl', 'Fragrance links daily', 'Catalogue crawl US', 'Catalogue crawl IN', 'Catalogue crawl CA']");
+    for (const f of ['catalogue-daily.yml', 'fragrance-links-daily.yml', 'catalogue-us.yml', 'catalogue-in.yml', 'catalogue-ca.yml']) {
       const name = /^name: (.+)$/m.exec(text(f))![1]!;
       expect(deploy, f).toContain(`'${name}'`);
     }
@@ -488,10 +488,11 @@ describe('deploy-pages.yml', () => {
   });
 });
 
-describe('catalogue-us.yml and catalogue-in.yml, the region crawls (daily since the public beta of 9 Oct 2026)', () => {
+describe('catalogue-us.yml, catalogue-in.yml and catalogue-ca.yml, the region crawls (daily since the public betas)', () => {
   const regions = [
     { file: 'catalogue-us.yml', folder: 'us', group: 'catalogue-us' },
     { file: 'catalogue-in.yml', folder: 'in', group: 'catalogue-in' },
+    { file: 'catalogue-ca.yml', folder: 'ca', group: 'catalogue-ca' },
   ];
   const cronOf = (f: string): string[] => [...text(f).matchAll(/\n {4}- cron: '([^']+)'/g)].map((m) => m[1]!);
 
@@ -508,9 +509,9 @@ describe('catalogue-us.yml and catalogue-in.yml, the region crawls (daily since 
       expect(['0', '30'], `${file} is off the hour and half hour`).not.toContain(minute);
       expect(ukMinutes.has(minute!), `${file} is off the UK crawl's minutes`).toBe(false);
       hours.push(hour!);
-      expect(text(file), `${file} says when its schedule started`).toContain('since the beta of 9 October 2026');
+      expect(text(file), `${file} says when its schedule started`).toMatch(/since the beta of (9|22) October 2026/);
     }
-    expect(new Set(hours).size, 'the two regions at different hours').toBe(2);
+    expect(new Set(hours).size, 'the three regions at different hours').toBe(3);
   });
 
   // Nykaa answers with headers over Node's 16 KB default (undici

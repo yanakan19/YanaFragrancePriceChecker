@@ -175,6 +175,12 @@ export interface ShopifyProductsCrawlOptions {
    */
   resolveUkMarket?: boolean;
   /**
+   * A market query added to every products.json page (`country=CA`), for a region shop whose catalogue is
+   * converted into the market of the caller's address unless the market is named (Niche Essence and
+   * Parfum Exquis quote a US runner 0.71 of their Canadian prices). Omitted for every UK shop.
+   */
+  marketQuery?: string;
+  /**
    * Wall clock this walk must stop by (epoch ms). Checked between pages; a
    * walk stopped by it is not `complete`.
    */
@@ -217,6 +223,7 @@ export async function crawlViaShopifyProducts(
   const readOptions = { acceptConvertedSterling: retailer.convertedSterlingAccepted !== undefined };
   let currency = options.currency ?? (await fetchStorefrontCurrency(origin, http, headers, readOptions));
   let market = originMarket(origin);
+  if (options.marketQuery) market = { ...market, query: options.marketQuery, why: 'the shop\'s own market, named' };
 
   // Pounds, but for another country's market. A shop on Shopify Markets can
   // quote a non-UK market in sterling at rate 1 and still charge it a

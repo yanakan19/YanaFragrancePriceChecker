@@ -28,7 +28,7 @@ function arg(name: string): string | null {
 
 const region = regionFromArg(arg('region'));
 if (!region) {
-  console.error('usage: region-harvest.ts --region=us|in [--shop=<id>] [--dry-run] [--max=250] [--shop-minutes=12] [--concurrency=3]');
+  console.error('usage: region-harvest.ts --region=us|in|ca [--shop=<id>] [--dry-run] [--max=250] [--shop-minutes=12] [--concurrency=3]');
   process.exit(2);
 }
 const onlyShop = arg('shop');

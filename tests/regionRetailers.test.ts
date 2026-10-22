@@ -8,11 +8,11 @@ import { describe, expect, it } from 'vitest';
 import { REGION_CONFIGS } from '../src/config/regions.js';
 import { REGION_CRAWL, REGION_RETAILERS, regionFromArg } from '../src/config/regionRetailers.js';
 import { RETAILERS } from '../src/config/retailers.js';
-import { IN_TAX_NOTE, US_TAX_NOTE } from '../src/types/regionRetailer.js';
+import { CA_TAX_NOTE, IN_TAX_NOTE, US_TAX_NOTE } from '../src/types/regionRetailer.js';
 import { sellsOnlyFragrance } from '../src/catalogue/fragranceId.js';
 import { REPO_ROOT } from '../scripts/generatedFiles.js';
 
-const ALL = [...REGION_RETAILERS.US, ...REGION_RETAILERS.IN];
+const ALL = [...REGION_RETAILERS.US, ...REGION_RETAILERS.IN, ...REGION_RETAILERS.CA];
 
 describe('region registries', () => {
   it('give every shop an id no UK shop or other region shop uses, and one domain each', () => {
@@ -34,6 +34,11 @@ describe('region registries', () => {
       expect(r.region, r.id).toBe('IN');
       expect(r.currency, r.id).toBe(REGION_CRAWL.IN.currency);
       expect(r.taxNote, r.id).toBe(IN_TAX_NOTE);
+    }
+    for (const r of REGION_RETAILERS.CA) {
+      expect(r.region, r.id).toBe('CA');
+      expect(r.currency, r.id).toBe(REGION_CRAWL.CA.currency);
+      expect(r.taxNote, r.id).toBe(CA_TAX_NOTE);
     }
   });
 
@@ -110,6 +115,8 @@ describe('region registries', () => {
   it('read the region from a folder or code', () => {
     expect(regionFromArg('us')?.id).toBe('US');
     expect(regionFromArg('IN')?.folder).toBe('in');
+    expect(regionFromArg('ca')?.id).toBe('CA');
+    expect(regionFromArg('CA')?.folder).toBe('ca');
     expect(regionFromArg('gb')).toBeNull();
   });
 
@@ -118,7 +125,7 @@ describe('region registries', () => {
       const cfg = REGION_CONFIGS.find((c) => c.id === r.id)!;
       expect(cfg.currency, r.id).toBe(r.currency);
       expect(cfg.pathPrefix, r.id).toBe(r.folder);
-      // Live as a public beta since 9 October 2026 (the pages at /us/ and /in/).
+      // Live as a public beta (the pages at /us/, /in/ and /ca/).
       expect(cfg.live, r.id).toBe(true);
       expect(cfg.beta, r.id).toBe(true);
     }

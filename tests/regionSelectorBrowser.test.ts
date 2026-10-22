@@ -24,9 +24,9 @@ const built = existsSync(resolve(root, 'demo/index.html'));
 type Mode = 'dark' | 'light';
 
 // Trimmed to three on 9 October 2026 (owner decision 3, docs/INTERNATIONAL-PLAN.md),
-// the US and India live in beta the same day.
-const NAMES = ['United Kingdom', 'United States (Beta)', 'India (Beta)'];
-const CODES = ['GBP', 'USD', 'INR'];
+// the US and India live in beta the same day; Canada joined on 22 October 2026.
+const NAMES = ['United Kingdom', 'United States (Beta)', 'India (Beta)', 'Canada (Beta)'];
+const CODES = ['GBP', 'USD', 'INR', 'CAD'];
 
 describe.skipIf(!built)('the country and currency selector', () => {
   let browser: Browser;
@@ -161,13 +161,13 @@ describe.skipIf(!built)('the country and currency selector', () => {
           }))`)) as { name: string; code: string; checked: string; disabled: string | null; tabindex: string; note: string | null; text: string; flag: number; tick: number }[];
           expect(items.map((i) => i.name)).toEqual(NAMES);
           expect(items.map((i) => i.code)).toEqual(CODES);
-          expect(items.map((i) => i.disabled), 'every country can be chosen').toEqual([null, null, null]);
-          expect(items.map((i) => i.checked)).toEqual(['true', 'false', 'false']);
-          expect(items.map((i) => i.note)).toEqual([null, null, null]);
-          expect(items.map((i) => i.text.includes('Coming Soon'))).toEqual([false, false, false]);
-          expect(items.map((i) => i.tabindex), 'only the choice made is a Tab stop').toEqual(['0', '-1', '-1']);
-          expect(items.map((i) => i.flag)).toEqual([1, 1, 1]);
-          expect(items.map((i) => i.tick), 'a tick on the current choice only').toEqual([1, 0, 0]);
+          expect(items.map((i) => i.disabled), 'every country can be chosen').toEqual([null, null, null, null]);
+          expect(items.map((i) => i.checked)).toEqual(['true', 'false', 'false', 'false']);
+          expect(items.map((i) => i.note)).toEqual([null, null, null, null]);
+          expect(items.map((i) => i.text.includes('Coming Soon'))).toEqual([false, false, false, false]);
+          expect(items.map((i) => i.tabindex), 'only the choice made is a Tab stop').toEqual(['0', '-1', '-1', '-1']);
+          expect(items.map((i) => i.flag)).toEqual([1, 1, 1, 1]);
+          expect(items.map((i) => i.tick), 'a tick on the current choice only').toEqual([1, 0, 0, 0]);
           // No hyphens or dashes in anything shown.
           for (const i of items) expect(i.text, i.text).not.toMatch(/[-‐-―−]/);
 
@@ -220,12 +220,14 @@ describe.skipIf(!built)('the country and currency selector', () => {
           expect(await focusedId(page)).toBe('US');
           await page.keyboard.press('ArrowDown');
           expect(await focusedId(page)).toBe('IN');
+          await page.keyboard.press('ArrowDown');
+          expect(await focusedId(page)).toBe('CA');
           await page.keyboard.press('End');
-          expect(await focusedId(page)).toBe('IN');
+          expect(await focusedId(page)).toBe('CA');
           await page.keyboard.press('ArrowDown');
           expect(await focusedId(page)).toBe('GB');
           await page.keyboard.press('ArrowUp');
-          expect(await focusedId(page)).toBe('IN');
+          expect(await focusedId(page)).toBe('CA');
           await page.keyboard.press('Home');
           expect(await focusedId(page)).toBe('GB');
 
@@ -237,7 +239,7 @@ describe.skipIf(!built)('the country and currency selector', () => {
           // The menu button pattern: ArrowUp opens on the last item.
           await page.keyboard.press('ArrowUp');
           expect(await expanded(page, '#region-btn')).toBe('true');
-          expect(await focusedId(page)).toBe('IN');
+          expect(await focusedId(page)).toBe('CA');
           await page.keyboard.press('Escape');
 
           // Enter on the UK item closes it and nothing changes.

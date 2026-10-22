@@ -81,6 +81,7 @@ export const NAMES_ONLY: Record<string, string> = {
   'tests/generatedFiles.test.ts': 'checks the manifest of generated files in scratch repositories',
   'tests/deployDecision.test.ts': 'reads deploy-pages.yml; the paths are inputs to the decision',
   'tests/commitAndPush.test.ts': 'runs the push script in scratch repositories',
+  'tests/regionCa.test.ts': 'reads the Canada workflow, the service worker and the manifest of generated files; the data paths are names it checks',
   'tests/harvestGroups.test.ts': 'merges the sweep groups in scratch repositories; the data paths are names it places',
 };
 

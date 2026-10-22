@@ -1381,3 +1381,26 @@ it brought new prices.
    networks) are for later (decision 6).
 
 - D.S. & Durga, Imaginary Authors, Beautyhabit, Maison Louis Marie and Ellis Brooklyn are US only (in dollars, 9 Oct 2026). If you want them on the UK site, a basket check must first confirm each checkout charges pounds (Nicchia precedent); until then they stay off the UK site.
+
+### Canada beta (22 October 2026): the steps only you can do
+
+The Canada site (`/ca/`, `docs/INTERNATIONAL-PLAN.md`, "Canada") is built and crawled daily. These
+are yours:
+
+1. **Run `supabase/migrations/0011_profile_region_ca.sql`** in the Supabase SQL Editor (safe to run
+   twice; it only adds `'CA'` to the list of countries a profile may hold). Until you do, a signed in
+   visitor who chooses Canada keeps the choice in their browser only; nothing else is affected.
+2. **Before any money is earned in Canada**, have the Canadian legal pages reviewed:
+   pricesniffs.space/ca/about/legal (words in `demo/legalRegion.ts`, `caPages`). Questions for the
+   lawyer: (a) **Quebec's Charter of the French Language (Bill 96)** and whether a site with Montreal
+   shops needs a French version or notice; (b) **PIPEDA and Quebec Law 25** (consent, a privacy
+   officer, personal data kept outside Canada by Supabase, Resend and GitHub Pages); (c) **CASL**
+   for price drop emails; (d) the Competition Bureau's wording for an affiliate disclosure. Nothing
+   earns money on `/ca/` today: no affiliate code on any link, no personalised ads.
+3. **Affiliate sign ups for Canada are for later** (decision 6), nothing to do now. When you do:
+   the Canadian independents (their own Shopify stores) are approached directly; Sephora Canada and
+   L'Occitane Canada are listed on FlexOffers, Lancome on Impact and Estee Lauder on Rakuten
+   Advertising (third party listings, not checked with the networks).
+4. Add `https://pricesniffs.space/ca/` as a URL prefix property in Google Search Console if you want
+   Canadian searches on their own, and submit nothing else: `sitemap.xml` already names
+   `sitemap-ca.xml`.

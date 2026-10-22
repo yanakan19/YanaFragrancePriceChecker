@@ -13,18 +13,18 @@ import { flagSvg } from '../demo/flags.js';
  */
 
 describe('the region list', () => {
-  it('is United Kingdom, United States (Beta), India (Beta), in that order', () => {
-    expect(REGIONS.map((r) => r.name)).toEqual(['United Kingdom', 'United States (Beta)', 'India (Beta)']);
+  it('is United Kingdom, United States (Beta), India (Beta), Canada (Beta), in that order', () => {
+    expect(REGIONS.map((r) => r.name)).toEqual(['United Kingdom', 'United States (Beta)', 'India (Beta)', 'Canada (Beta)']);
     expect(BETA).toBe('Beta');
-    expect(REGIONS.map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
+    expect(REGIONS.map((r) => r.id)).toEqual(['GB', 'US', 'IN', 'CA']);
   });
 
   it('pairs each with its currency', () => {
-    expect(REGIONS.map((r) => `${r.name} ${r.currency}`)).toEqual(['United Kingdom GBP', 'United States (Beta) USD', 'India (Beta) INR']);
+    expect(REGIONS.map((r) => `${r.name} ${r.currency}`)).toEqual(['United Kingdom GBP', 'United States (Beta) USD', 'India (Beta) INR', 'Canada (Beta) CAD']);
   });
 
-  it('makes all three regions choosable, the UK first and current on a UK address', () => {
-    expect(REGIONS.filter((r) => r.available).map((r) => r.id)).toEqual(['GB', 'US', 'IN']);
+  it('makes all four regions choosable, the UK first and current on a UK address', () => {
+    expect(REGIONS.filter((r) => r.available).map((r) => r.id)).toEqual(['GB', 'US', 'IN', 'CA']);
     expect(REGIONS.filter((r) => !r.available).map((r) => r.id)).toEqual([]);
     expect(CURRENT_REGION).toBe(REGIONS[0]);
     expect(CURRENT_REGION.currency).toBe('GBP');
