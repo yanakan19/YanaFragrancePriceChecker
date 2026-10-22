@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-21T08:38:51.049Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-22T09:08:01.305Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -3680,6 +3680,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "givenchy|gentlemanreserveprivee|edp": ["Givenchy/Gentleman-Eau-de-Parfum-Reserve-Privee-71272",""],
   "givenchy|gentlemansociety": ["Givenchy/Gentleman-Society-78639","https://www.givenchybeauty.com/int/en/p/gentleman-society-F10100192.html"],
   "givenchy|gentlemansocietyambree|edp": ["Givenchy/Gentleman-Society-Eau-de-Parfum-Ambree-101102",""],
+  "givenchy|gentlemansocietyeaudeparfum100mlspraygiftset|edp": ["","https://www.givenchybeauty.com/us/p/gentleman-society-eau-de-parfum---gift-set-P183621.html"],
   "givenchy|gentlemansocietyeaudeparfum60mlholidayfragrancegiftset|edp": ["","https://www.givenchybeauty.com/gb/p/gentleman-society-eau-de-parfum---holiday-gift-set-F70000465.html"],
   "givenchy|gentlemansocietyeaudeparfumsport100mlholidayfragrancegiftset|edp": ["","https://www.givenchybeauty.com/gb/p/gentleman-society-eau-de-parfum-sport---holiday-gift-set-F70000456.html"],
   "givenchy|gentlemansocietysport": ["","https://www.givenchybeauty.com/gb/p/gentleman-society-sport-F10100346.html"],
@@ -4552,6 +4553,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "kayali|yumpistachiogelato33whippedlayered|unstated": ["","https://uk.kayali.com/products/yum-pistachio-gelato-33-whipped-layered"],
   "kayali|yumpistachiogelato33|edp": ["","https://uk.kayali.com/products/yum-pistachio-gelato-33"],
   "kayali|yumpistachiogelato33|unstated": ["","https://uk.kayali.com/products/yum-pistachio-gelato-33"],
+  "kayali|yumvanillacupcake108limitededition|edp": ["","https://uk.kayali.com/products/yum-vanilla-cupcake-108-limited-edition"],
+  "kayali|yumvanillacupcake108|edp": ["","https://uk.kayali.com/products/yum-vanilla-cupcake-108"],
   "khadlaj|caffelatteedp|extrait": ["","https://www.khadlaj-perfumes.co.uk/products/caffe-latte-100-ml-extrait-de-parfum-spray"],
   "khadlaj|caffelatte|extrait": ["","https://www.khadlaj-perfumes.co.uk/products/caffe-latte-100-ml-extrait-de-parfum-spray"],
   "khadlaj|creamvelvet": ["Khadlaj-Perfumes/Cream-Velvet-102358",""],
@@ -5786,11 +5789,13 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "millerharris|celadon|edp": ["","https://www.millerharris.com/products/celadon-eau-de-parfum"],
   "millerharris|coeurdejardinunisex|edp": ["","https://www.millerharris.com/products/coeur-de-jardin-eau-de-parfum"],
   "millerharris|coeurdejardin|edp": ["","https://www.millerharris.com/products/coeur-de-jardin-eau-de-parfum"],
+  "millerharris|danceamongstthelaceunisex|edp": ["","https://www.millerharris.com/products/dance-amongst-the-lace-eau-de-parfum"],
   "millerharris|etuinoir|edp": ["","https://www.millerharris.com/products/etui-noir-eau-de-parfum"],
   "millerharris|feuillesdetabac|edp": ["","https://www.millerharris.com/products/feuilles-de-tabac-eau-de-parfum"],
   "millerharris|hydrafigue|edp": ["","https://www.millerharris.com/products/hydra-figue-eau-de-parfum"],
   "millerharris|lafeuilleunisex|edp": ["","https://www.millerharris.com/products/la-feuille-eau-de-parfum"],
   "millerharris|lafumeealexandrie|edp": ["","https://www.millerharris.com/products/la-fumee-alexandrie-eau-de-parfum"],
+  "millerharris|lairderienunisex|edp": ["","https://www.millerharris.com/products/lair-de-rien-eau-de-parfum"],
   "millerharris|leatherrouge|edp": ["","https://www.millerharris.com/products/leather-rouge-eau-de-parfum"],
   "millerharris|lecedreunisex|edp": ["","https://www.millerharris.com/products/le-cedre-eau-de-parfum"],
   "millerharris|legato|edp": ["","https://www.millerharris.com/products/legato-eau-de-parfum"],
@@ -6757,6 +6762,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ralphlauren|polored|parfum": ["Ralph-Lauren/Polo-Red-Parfum-79161","https://www.ralphlauren.com/men-accessories-fragrance/r/polo-red"],
   "ralphlauren|romance": ["Ralph-Lauren/Romance-825",""],
   "ralphlauren|romance|edp": ["Ralph-Lauren/Romance-825","https://www.ralphlauren.com/women-accessories-fragrance/romance-eau-de-parfum/1347.html"],
+  "ralphlauren|romance|parfum": ["-",""],
   "rance1795|desiree|edp": ["","https://rance1795.com/products/desiree-edp"],
   "rance1795|eaudefrance|edt": ["","https://rance1795.com/products/eau-de-france-edt"],
   "rance1795|eaudelacouronne|edt": ["","https://rance1795.com/products/eau-de-la-couronne-edt"],
@@ -7503,6 +7509,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "velixir|icarus|edp": ["","https://velixirparfums.com/products/icarus"],
   "velixir|orion": ["","https://velixirparfums.com/products/orion"],
   "velixir|orion|edp": ["","https://velixirparfums.com/products/orion"],
+  "velixir|paladin": ["","https://velixirparfums.com/products/paladin"],
+  "velixir|paladin|edp": ["","https://velixirparfums.com/products/paladin"],
   "versace|bluejeans": ["Versace/Blue-Jeans-637",""],
   "versace|bluejeans|edt": ["Versace/Blue-Jeans-637",""],
   "versace|brightcrystal": ["Versace/Bright-Crystal-632","https://www.versace.com/us/en/women/accessories/fragrances-body-care/bright-crystal/"],
