@@ -116,7 +116,7 @@ const report = {
   currency: region.currency,
   builtAt: now,
   published: true,
-  note: `Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /${region.folder}/ pages are built from these files at deploy time.`,
+  note: `Public beta (docs/INTERNATIONAL-PLAN.md): the /${region.folder}/ pages are built from these files at deploy time.`,
   shopsWired: shops.length,
   shopsEnabled: shops.filter((s) => s.enabled).length,
   shopsPriced: harvest?.shopsPriced ?? null,

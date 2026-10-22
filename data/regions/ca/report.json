@@ -1,9 +1,9 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-10-22T17:26:14.215Z",
+  "builtAt": "2026-10-22T17:45:26.128Z",
   "published": true,
-  "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
+  "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 10,
   "shopsPriced": 10,
@@ -74,9 +74,9 @@
     }
   ],
   "productsShown": 26608,
-  "productsWithUkPhoto": 4644,
+  "productsWithUkPhoto": 4645,
   "productsWithUkPhotoByBarcode": 499,
-  "productsWithUkPhotoByName": 4145,
+  "productsWithUkPhotoByName": 4146,
   "listingsWithReference": 10792,
   "offersWithCorroboratedReference": 3222,
   "deals": 1084,

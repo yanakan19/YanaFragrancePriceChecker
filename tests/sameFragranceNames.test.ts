@@ -255,7 +255,7 @@ describe("Scent Warehouse's closing label", () => {
 });
 
 interface Named extends MatchableProduct { offers?: { shopId: string }[] }
-const region = (folder: 'us' | 'in'): Named[] =>
+const region = (folder: 'us' | 'in' | 'ca'): Named[] =>
   (JSON.parse(readFileSync(new URL(`../data/regions/${folder}/catalogue.json`, import.meta.url), 'utf8')) as { products: Named[] }).products.filter(
     (p) => (p as { kind?: string }).kind !== 'set',
   );
@@ -269,7 +269,7 @@ describe('the catalogues as built', () => {
     expect(left.map((g) => [g.canonical, ...g.absorbed].map((p) => `${p.brand} | ${p.name} ${p.concentration} ${p.sizeMl}`))).toEqual([]);
   });
 
-  for (const [label, folder] of [['US', 'us'], ['India', 'in']] as const) {
+  for (const [label, folder] of [['US', 'us'], ['India', 'in'], ['Canada', 'ca']] as const) {
     it(`have none in the ${label} catalogue either`, () => {
       const proxies = region(folder)
         .filter((p) => p.brand !== '')

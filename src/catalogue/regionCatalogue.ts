@@ -32,7 +32,7 @@ import { CONCENTRATION_NOT_STATED, CONCENTRATION_RESOLUTIONS, concentration, con
 import { HOUSE_STRENGTH_EVIDENCE } from './houseStrengthEvidence.js';
 import { ownSizeTitle } from './shopifyJson.js';
 import { nominalMlForOz, ouncesStated } from './ounceSizes.js';
-import { brandKey, buildBrandCanon, recoverBrandFromTitle, tidyBrandSpelling } from './brandName.js';
+import { BRAND_LEGACY_ADDRESSES, brandGroupKey, brandKey, buildBrandCanon, recoverBrandFromTitle, tidyBrandSpelling } from './brandName.js';
 import { decodeListingNames } from './htmlEntities.js';
 import { isGiftSet } from './giftSet.js';
 
@@ -93,6 +93,13 @@ export interface RegionMeasures {
 
 /** Days after which a listing no longer counts, the UK's own window (offerAge.ts). */
 export const REGION_STALE_DAYS = 7;
+
+/**
+ * The spellings the UK has retired (BRAND_LEGACY_ADDRESSES) by their group key, to the house's current spelling. A
+ * country whose shops all write the old one ("DS & Durga", "Comme des Garcons": the first Canadian crawl, 22 Oct
+ * 2026) has no current spelling in its own data for the canon to choose, so the retired one came back as a brand.
+ */
+const CURRENT_SPELLING = new Map(BRAND_LEGACY_ADDRESSES.map(([legacy, current]) => [brandGroupKey(legacy), current]));
 
 function brandOf(l: RegionListing, confirmed: ReadonlySet<string>, shopName: string, notHouse?: ReadonlySet<string>): string {
   if (l.rawBrand && l.rawBrand.trim() && !notHouse?.has(l.rawBrand.trim().toLowerCase())) return l.rawBrand.trim();
@@ -286,7 +293,8 @@ export function buildRegionCatalogue(
     const flagged = options.cologneNotAStrength?.has(shopId) === true;
     const title = ownSizeTitle(flagged ? withoutColognePlaceholder(formatted) : formatted);
     const rawBrand = brandOfRow[rowIndex]!;
-    const brand = rawBrand === '' ? '' : (canon.get(rawBrand) ?? tidyBrandSpelling(rawBrand));
+    const canonical = rawBrand === '' ? '' : (canon.get(rawBrand) ?? tidyBrandSpelling(rawBrand));
+    const brand = CURRENT_SPELLING.get(brandGroupKey(canonical)) ?? canonical;
     const offer: RegionOffer = options.withListingDetail
       ? { shopId, price: l.price, inStock: l.inStock, detail: { url: l.url, title: l.rawTitle, wasPrice: l.wasPrice, firstSeenAt: l.firstSeenAt, lastSeenAt: l.lastSeenAt, ...(l.availability === 'preOrder' ? { preOrder: true as const } : {}), ...(l.imageUrl ? { imageUrl: l.imageUrl } : {}) } }
       : { shopId, price: l.price, inStock: l.inStock };

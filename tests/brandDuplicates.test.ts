@@ -20,13 +20,14 @@ import { BRAND_ALIAS_SLUGS, matchRoute, slugify } from '../demo/router.js';
  */
 
 interface Named { brand: string; name: string }
-const region = (folder: 'us' | 'in'): Named[] =>
+const region = (folder: 'us' | 'in' | 'ca'): Named[] =>
   (JSON.parse(readFileSync(new URL(`../data/regions/${folder}/catalogue.json`, import.meta.url), 'utf8')) as { products: Named[] }).products;
 
 const CATALOGUES: Record<string, Named[]> = {
   UK: CATALOGUE,
   US: region('us'),
   India: region('in'),
+  Canada: region('ca'),
 };
 
 describe('brandGroupKey', () => {

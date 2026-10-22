@@ -131,7 +131,7 @@ describe.skipIf(!built)('the built US and India pages', () => {
   const aliasVariants = (): Set<string> =>
     new Set((JSON.parse(readFileSync(resolve(REPO_ROOT, 'data/note-aliases.json'), 'utf8')) as { aliases: { variant: string }[] }).aliases.map((a) => noteMergeKey(a.variant)));
 
-  for (const prefix of ['us', 'in']) {
+  for (const prefix of ['us', 'in', 'ca']) {
     it(`/${prefix}/ shows notes with the UK shop credit on some products, and they are alias folded`, () => {
       const blobs = dataOf(prefix, 'catalogue') as unknown[];
       const entries: { slug: string; notes: null | { top: string[]; middle: string[]; base: string[]; source: { retailerId: string; url: string; retailerName?: string } | null } }[] = [];
