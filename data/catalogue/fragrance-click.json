@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-10-22T01:07:44.980Z",
-  "seenAt": "2026-10-22T01:07:44.980Z",
+  "updatedAt": "2026-10-22T08:38:00.109Z",
+  "seenAt": "2026-10-22T08:38:00.109Z",
   "source": "live",
   "listings": [
     {
@@ -11819,28 +11819,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "3137370302131",
-      "url": "https://www.awin1.com/pclick.php?p=44252956268&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/nina-ricci-l-air-du-temps-100ml-eau-de-parfum.html",
-      "rawTitle": "Nina Ricci L'Air Du Temps 100ml Eau de Parfum",
-      "rawBrand": "Nina Ricci",
-      "ean": "3137370302131",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370302131.png",
-      "priceGbp": 51.95,
-      "wasPriceGbp": 106,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "awin-feed",
-      "description": "Nina Ricci L'Air Du Temps has built a reputation as a elegant eau de parfum that stands out in Nina's collection. An elegant fragrance that combines fresh floral notes with a warm, sophisticated base.The opening burst of Bergamot, Citrus gives way to Jasmine, Rose fairly quickly. What lingers is the base combination of Vanilla, Musk, which is really where this fragrance lives most of the day.At 100ml, there's enough here to last through consistent wear without needing to restock every few weeks. The eau de parfum concentration means it projects well without being overwhelming in close quarters.Fragrance Notes:Top Notes: Bergamot, Citrus, Fresh floralsMiddle Notes: Jasmine, Rose, Floral bouquetBase Notes: Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "3137370207054",
       "url": "https://www.awin1.com/pclick.php?p=46119126347&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/nina-ricci-l-air-du-temps-50ml-eau-de-parfum.html",
@@ -18878,6 +18856,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3137370302131",
+      "url": "https://www.awin1.com/pclick.php?p=44252956268&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/nina-ricci-l-air-du-temps-100ml-eau-de-parfum.html",
+      "rawTitle": "Nina Ricci L'Air Du Temps 100ml Eau de Parfum",
+      "rawBrand": "Nina Ricci",
+      "ean": "3137370302131",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370302131.png",
+      "priceGbp": 51.95,
+      "wasPriceGbp": 106,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "awin-feed",
+      "description": "Nina Ricci L'Air Du Temps has built a reputation as a elegant eau de parfum that stands out in Nina's collection. An elegant fragrance that combines fresh floral notes with a warm, sophisticated base.The opening burst of Bergamot, Citrus gives way to Jasmine, Rose fairly quickly. What lingers is the base combination of Vanilla, Musk, which is really where this fragrance lives most of the day.At 100ml, there's enough here to last through consistent wear without needing to restock every few weeks. The eau de parfum concentration means it projects well without being overwhelming in close quarters.Fragrance Notes:Top Notes: Bergamot, Citrus, Fresh floralsMiddle Notes: Jasmine, Rose, Floral bouquetBase Notes: Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-10-22T01:07:44.980Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-22T08:38:00.109Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
