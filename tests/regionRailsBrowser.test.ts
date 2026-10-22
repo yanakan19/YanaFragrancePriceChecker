@@ -9,7 +9,7 @@ import { REGION_RETAILERS } from '../src/config/regionRetailers.js';
 import { stubSupabase } from './support/fakeAccount.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const built = ['index.html', 'us/index.html', 'in/index.html'].every((f) => existsSync(resolve(root, 'demo', f)));
+const built = ['index.html', 'us/index.html', 'in/index.html', 'ca/index.html'].every((f) => existsSync(resolve(root, 'demo', f)));
 
 /**
  * Owner rule, 10 October 2026: on the built page, each country's Most Stocked
@@ -20,6 +20,7 @@ const SITES = [
   { id: 'GB', prefix: '', symbol: '£', shops: new Set(RETAILERS.map((r) => r.name)) },
   { id: 'US', prefix: '/us', symbol: '$', shops: new Set(REGION_RETAILERS.US.map((s) => s.name)) },
   { id: 'IN', prefix: '/in', symbol: '₹', shops: new Set(REGION_RETAILERS.IN.map((s) => s.name)) },
+  { id: 'CA', prefix: '/ca', symbol: '$', shops: new Set(REGION_RETAILERS.CA.map((s) => s.name)) },
 ] as const;
 const SYMBOLS = /[£$₹]/g;
 

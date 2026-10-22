@@ -7,7 +7,7 @@ import { launchChromium, startDemoServer, waitForApp } from '../scripts/a11y-aud
 import { stubSupabase } from './support/fakeAccount.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const built = existsSync(resolve(root, 'demo/us/index.html')) && existsSync(resolve(root, 'demo/in/index.html'));
+const built = existsSync(resolve(root, 'demo/us/index.html')) && existsSync(resolve(root, 'demo/in/index.html')) && existsSync(resolve(root, 'demo/ca/index.html'));
 
 /**
  * The Deals tab of the US (/us/deals) and India (/in/deals) beta sites on the
@@ -52,7 +52,7 @@ describe.skipIf(!built)('the Deals tab on the region sites', () => {
     return out;
   }
 
-  for (const [path, word, symbol, badSymbol] of [['/us/deals', 'MSRP', '$', '£'], ['/in/deals', 'MRP', '₹', '£']] as const) {
+  for (const [path, word, symbol, badSymbol] of [['/us/deals', 'MSRP', '$', '£'], ['/in/deals', 'MRP', '₹', '£'], ['/ca/deals', 'MSRP', '$', '£']] as const) {
     it(`${path}: the Beta line stays; fewer than six deals say so; any tile uses ${symbol} and ${word}`, async () => {
       const r = await dealsPage(path);
       expect(r.beta).toContain('in beta');

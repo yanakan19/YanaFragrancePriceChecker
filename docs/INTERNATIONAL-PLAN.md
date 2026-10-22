@@ -1269,3 +1269,52 @@ Canadian time zones suggest Canada and not the US; the workflow has its own slot
 folder; the service worker lists the country; the sitemap for Canada lists only addresses that
 answer 200. The existing guards (`regionRails`, `regionRailsBrowser`, `regionSwitchCacheBrowser`,
 `workflowRules`, `regionConfig`) are widened to four countries.
+
+### Build record, 22 October 2026 (Canada)
+
+**First crawl** (`catalogue-ca.yml`, run by hand with `workflow_dispatch` at 17:12 UTC, 12.7 minutes,
+committed `data/regions/ca/`): 10 shops read and priced, 46,649 listings priced, 36,569 kept, **26,608
+products**, 6,355 at two or more shops (23.9%, just under the plan's quarter bar, so the go/no go line in
+the report says no; the bar was waived for the other betas too), 1,084 deals from the shops' own stated
+reference prices, 1,701 products matched to a UK product by barcode, 4,644 with a UK photo and 3,082 with UK
+notes borrowed. Shops by products: Maximum Fragrance 9,565, PerfumeOnline.ca 13,401, Fragrance Canada 5,827,
+Parfum Exquis 2,991, Niche Essence 1,246, Discount Fragrances 858, Fragrance Online Co. 785, H Parfums 703,
+Perfume Factory 669, Perfume Plus 2. Perfume Plus (Wix) names no size in most product titles, so 2 of the
+first 250 pages kept; it stays on, at its 2 second gap, until a day's report says otherwise.
+
+**What the first look found, and what changed because of it.**
+- Four Shopify shops (Fragrance Online Co., Maximum Fragrance, Parfum Exquis, Niche Essence) answer a US
+  caller in the market of its address: USD at rate 0.71, whatever the Accept-Language header says
+  (any value, or none sent by undici's default). Two of them (Niche Essence, Parfum Exquis) also convert
+  `products.json` itself, so a Canadian price of $30.00 read as $21.40 under the caller's market. The
+  currency rule would have refused all four. They now ask for their own market with Shopify's standard
+  selector, `?country=CA` (the UK crawl asks `?country=GB` the same way), on the home page check and on every
+  `products.json` page (`marketQuery`, `src/types/regionRetailer.ts`). Checked after: the first page's
+  prices equal the Canadian list (30.00, 540.00, 345.00, 25.00 at Niche Essence), not the converted one. The
+  other five Shopify shops return the same prices with or without it.
+- A shop that writes a house's retired spelling ("DS & Durga", "Comme des Garcons") was the only spelling in
+  Canada's data, so the retired one came back as a brand (tests/brandDuplicates.test.ts caught it). A region
+  catalogue now maps a retired spelling (`BRAND_LEGACY_ADDRESSES`) to the current one; the US and India
+  catalogues are unchanged by it.
+- A region's tests that read its crawl (`regionRails`, `regionPages`) skip a country whose first crawl has not
+  committed data, so the UK crawl's data tests cannot fail in the hours between the push and the first run.
+- The push deployed `/ca/` before its data existed (about 20 minutes of a page with no products); the first
+  crawl's own deploy filled it. A new region should be pushed switched on only right before its crawl.
+
+**Deploy size.** `demo/leaf` pages 362.9 MB plus 125.4 MB of other files, **488.3 of 700 MB** (the figure
+before Canada was about 471); Canada's share is about 17 MB (its folder holds 10 data files and its route
+pages). `build-leaf-pages.ts --check` passed in the deploy.
+
+**Live.** `https://pricesniffs.space/ca/` answers 200 with 26,608 products in CAD; `sitemap-ca.xml` lists 43
+fixed addresses, each a file of its own, and the sitemap index names it. The country menu lists Canada (Beta)
+CAD, after India, on the UK, US, India and Canadian sites. Most Stocked on `/ca/` names only Canadian shops
+and shows only `$` (tests/regionRailsBrowser.test.ts); switching between the countries with the service worker
+installed, online and with the destination page's request dropped, shows the destination's own shops
+(tests/regionSwitchCacheBrowser.test.ts, now eight switches including Canada). The UK, US and India pages
+are built by the same code as before; the UK catalogue module's bytes differ only in the code hash its header
+carries.
+
+**Left for later.** A French site or notice for Quebec (owner, with the lawyer); a delivery term for the six
+shops where none was found cheaply; logos (initials show for now); a product page probe of Rexall, Jean Coutu
+and Well.ca; the 18 or over tick stays India only unless the legal review asks for it in Canada; the Supabase
+migration `0011_profile_region_ca.sql` for the owner to run.

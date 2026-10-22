@@ -11,7 +11,7 @@ import { REGION_RETAILERS } from '../src/config/regionRetailers.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const demo = resolve(root, 'demo');
-const built = ['index.html', 'us/index.html', 'in/index.html', 'sw.js'].every((f) => existsSync(resolve(demo, f)));
+const built = ['index.html', 'us/index.html', 'in/index.html', 'ca/index.html', 'sw.js'].every((f) => existsSync(resolve(demo, f)));
 
 /**
  * The owner's report of 10 October 2026: on the US site, they switched to the
@@ -29,6 +29,7 @@ const COUNTRIES = {
   GB: { path: '/', symbol: '£', shops: new Set(RETAILERS.map((r) => r.name)) },
   US: { path: '/us/', symbol: '$', shops: new Set(REGION_RETAILERS.US.map((s) => s.name)) },
   IN: { path: '/in/', symbol: '₹', shops: new Set(REGION_RETAILERS.IN.map((s) => s.name)) },
+  CA: { path: '/ca/', symbol: '$', shops: new Set(REGION_RETAILERS.CA.map((s) => s.name)) },
 } as const;
 type Country = keyof typeof COUNTRIES;
 
@@ -100,7 +101,7 @@ describe.skipIf(!built)('switching country with the service worker installed', (
     await Promise.all([page.waitForURL((u) => u.pathname === COUNTRIES[to].path, { timeout: 30_000 }), page.click(`[data-region="${to}"]`)]);
   }
 
-  const pairs: [Country, Country][] = [['US', 'GB'], ['GB', 'US'], ['IN', 'GB'], ['GB', 'IN']];
+  const pairs: [Country, Country][] = [['US', 'GB'], ['GB', 'US'], ['IN', 'GB'], ['GB', 'IN'], ['CA', 'GB'], ['GB', 'CA'], ['CA', 'US'], ['US', 'CA']];
   for (const [from, to] of pairs) {
     it(`${from} to ${to}: the ${to} home shows ${to} shops, online and when the network drops its page`, async () => {
       const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
@@ -154,7 +155,7 @@ describe.skipIf(!built)('switching country with the service worker installed', (
         await page.waitForFunction(`location.pathname !== ${JSON.stringify(COUNTRIES[to].path)}`, null, { timeout: 10_000 });
         const productPath = (await page.evaluate('location.pathname')) as string;
         if (to !== 'GB') expect(productPath.startsWith(COUNTRIES[to].path)).toBe(true);
-        else expect(/^\/(us|in)\//.test(productPath)).toBe(false);
+        else expect(/^\/(us|in|ca)\//.test(productPath)).toBe(false);
       } finally {
         dropping = null;
         await context.close();
