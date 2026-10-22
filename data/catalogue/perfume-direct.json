@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-21T21:38:54.976Z",
-  "seenAt": "2026-10-21T21:38:54.976Z",
+  "updatedAt": "2026-10-22T01:13:15.338Z",
+  "seenAt": "2026-10-22T01:13:15.338Z",
   "source": "live",
   "listings": [
     {
@@ -43318,7 +43318,7 @@
       "priceGbp": 13.99,
       "wasPriceGbp": 18,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Sarah Jessica Parker Lovely Lights Eau de Parfum captures the essence of elegance and sophistication. This women's perfume spray offers a radiant blend of floral and woody notes, creating a warm and inviting aroma. With its subtle allure and lasting fragrance, Lovely Lights is perfect for both day and evening wear. Encased in an exquisite bottle, it makes a delightful addition to any fragrance collection, offering timeless charm and grace. . . Fragrance Type: . White Floral, Musky . . Fragrance Notes: . - Top notes: Neroli, Honeysuckle, Mandarin Orange . - Middle notes: Gardenia, Jasmine, Cashmeran . - Base notes: Musk, Amber, Sandalwood . . Launched: . 2022 .",
       "productType": "Women's Perfume",
