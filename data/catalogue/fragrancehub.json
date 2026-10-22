@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-22T09:05:02.290Z",
-  "seenAt": "2026-10-22T09:05:02.290Z",
+  "updatedAt": "2026-10-22T12:49:31.457Z",
+  "seenAt": "2026-10-22T12:49:31.457Z",
   "source": "live",
   "listings": [
     {
@@ -6569,7 +6569,7 @@
       "priceGbp": 37.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The notes infuse sweet floral to a heavy musky fragrance from top to bottom while the hypnotic colour of this flask moves from pastel lavender to midnight black from bottom to top, exhibiting the mesmerizing beauty of opposites. The dynamic head note of Turkish rose sprinkled with tangy lemon and radiant peony is like a lush garden awakened in spring. This transitions to serene white flowers and musky agarwood, embodying the essence of a fragrant lily blooming on a damp moss-covered branch.. Top Notes : Floral (Turkish rose, lavender, lemon, peony). Middle Notes: Sweet (sandalwood, white flowers, frankincense). Base Notes: Musky (agarwood, guaiac wood, oak moss, Musk, amber).",
       "productType": null,

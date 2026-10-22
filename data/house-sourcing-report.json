@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-22T09:14:35.568Z",
+  "checkedAt": "2026-10-22T13:00:43.107Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,7 +58,7 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "GBP",
+      "currency": "CNY",
       "listings": 507,
       "pricedInGbp": 0,
       "withPhoto": 484,
@@ -66,7 +66,8 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "prices are in CNY, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -75,10 +76,12 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 275,
+      "listings": 249,
       "pricedInGbp": 0,
-      "withPhoto": 274,
-      "errors": [],
+      "withPhoto": 248,
+      "errors": [
+        "https://assaf.ae/products.json?limit=250&page=2: HTTP 503"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Assaf Trading LLC, UAE. A second domain (3saf.com) also brands itself Assaf — not confirmed as the same storefront before trusting its listings",
@@ -89,12 +92,14 @@
       "houseId": "gulf-orchid",
       "name": "Gulf Orchid",
       "origin": "https://shop-gulforchid.com",
-      "routeUsed": "shopify-products-json",
+      "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 251,
+      "listings": 59,
       "pricedInGbp": 0,
-      "withPhoto": 251,
-      "errors": [],
+      "withPhoto": 59,
+      "errors": [
+        "https://shop-gulforchid.com/products.json?limit=250&page=1: HTTP 503"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest",
@@ -140,7 +145,7 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
+      "currency": "USD",
       "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 59,
@@ -149,7 +154,7 @@
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -511,9 +516,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 427,
-      "pricedInGbp": 427,
-      "withPhoto": 427,
+      "listings": 388,
+      "pricedInGbp": 388,
+      "withPhoto": 388,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

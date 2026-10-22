@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-22T09:05:02.290Z",
-  "seenAt": "2026-10-22T09:05:02.290Z",
+  "updatedAt": "2026-10-22T12:49:31.457Z",
+  "seenAt": "2026-10-22T12:49:31.457Z",
   "source": "live",
   "listings": [
     {
@@ -11,7 +11,7 @@
       "rawBrand": "Armaf",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0820/7997/3699/files/IMG-6301.jpg?v=1792574959",
-      "priceGbp": 44.99,
+      "priceGbp": 41.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
       "inStock": true,

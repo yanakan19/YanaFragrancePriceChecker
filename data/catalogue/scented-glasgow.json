@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-10-22T09:05:02.290Z",
-  "seenAt": "2026-10-22T09:05:02.290Z",
+  "updatedAt": "2026-10-22T12:49:31.457Z",
+  "seenAt": "2026-10-22T12:49:31.457Z",
   "source": "live",
   "listings": [
     {
@@ -3326,7 +3326,7 @@
       "priceGbp": 120,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Rum, Roasted nut, Cocoa powder, Caramel fudge, Fig, Tobacco leaf, Styrax, Musk, Ambergris .",
       "productType": "Perfume",
@@ -6523,7 +6523,7 @@
       "priceGbp": 105,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The nape of the neck, the idealized scent at a lover and a lost embrace. PEAU is based on Roman Emperor Hadrian's memories of Antinoös, his lost lover. To evoke the contours of his idealized body, salty, peppery and musky notes blend in to evoke intimacy, life and the idealized memory of skin. With main notes of: Ambergris, clean musk accord, clary sage, white pepper from India, labdanum derivatives and okoume wood from Gabon. . . AD 134, Villa Adriana, Tivoli, Italy. . Such was the love emperor Hadrian had for his favorite Antinoös, that he commissioned thousands of sculptures to memorialize him after his demise. Like the contours of a statue, the physical and spiritual presence of the body is likewise defined by a fragrant silhouette. Here is the emperor recalling his lover: the touch and smell of him, the warm redolence of skin, the soft musk at the nape of the neck. Paying tribute to the beloved, like Hadrian did Antinoös, this fragrance captures the memory of skin, conjuring intimacy and closeness, and living in our hearts and minds as an idealized scent.. Developed with Rodrigo Flores-Roux . . Top Notes: Ambergris accord, Proprietary musk accord, Clary sage. . Heart Notes: White pepper from India, Coriander seed, Sargassum. . Base Notes: Leather-like labdanum derivatives, Okoume wood from Gabon, Ambermax. . Inspired by history and curated by Carlos Huber, a Mexican-born architect, restoration expert and fragrance designer, ARQUISTE® Parfumeur is a scent collection transporting you to evocative moments and historical sites. . Each scent restores a particular olfactive experience using rare ingredients identified through meticulous research. .",
       "productType": "Perfume",
