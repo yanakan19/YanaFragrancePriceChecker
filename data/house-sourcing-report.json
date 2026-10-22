@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-22T13:00:43.107Z",
+  "checkedAt": "2026-10-22T16:58:55.076Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -76,12 +76,10 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 249,
+      "listings": 250,
       "pricedInGbp": 0,
-      "withPhoto": 248,
-      "errors": [
-        "https://assaf.ae/products.json?limit=250&page=2: HTTP 503"
-      ],
+      "withPhoto": 249,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Assaf Trading LLC, UAE. A second domain (3saf.com) also brands itself Assaf — not confirmed as the same storefront before trusting its listings",
@@ -92,14 +90,12 @@
       "houseId": "gulf-orchid",
       "name": "Gulf Orchid",
       "origin": "https://shop-gulforchid.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 59,
+      "listings": 251,
       "pricedInGbp": 0,
-      "withPhoto": 59,
-      "errors": [
-        "https://shop-gulforchid.com/products.json?limit=250&page=1: HTTP 503"
-      ],
+      "withPhoto": 251,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest",
@@ -145,7 +141,7 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "USD",
+      "currency": "AED",
       "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 59,
@@ -154,7 +150,7 @@
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -244,9 +240,9 @@
       "origin": "https://bujairami.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 104,
+      "listings": 109,
       "pricedInGbp": 0,
-      "withPhoto": 104,
+      "withPhoto": 109,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -479,9 +475,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 697,
+      "listings": 703,
       "pricedInGbp": 0,
-      "withPhoto": 697,
+      "withPhoto": 703,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

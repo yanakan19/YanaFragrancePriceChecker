@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-22T13:00:42.670Z",
-  "seenAt": "2026-10-22T13:00:42.670Z",
+  "updatedAt": "2026-10-22T16:58:54.339Z",
+  "seenAt": "2026-10-22T16:58:54.339Z",
   "source": "live",
   "listings": [
     {
@@ -3326,7 +3326,7 @@
       "priceGbp": 320,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Introducing the ideal luxury gift for couples embarking on a new journey together. Our exclusive Jo Loves wicker hamper is overflowing with scented delights, showcasing our beloved fragrances White Rose & Lemon Leaves and Fig Trees. Housed in a stunning and reusable hamper. Hamper Contents: White Rose & Lemon Leaves Bath Cologne 200ml White Rose & Lemon Leaves Bath & Shower Gel 275ml White Rose & Lemon Leaves Body Lotion 275ml White Rose & Lemon Leaves Home Candle 185g Fig Trees Fragrance Diffuser 200ml",
       "productType": null,
@@ -3349,7 +3349,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Embrace luxury with our Bath & Shower Gel and White Rose & Lemon Leaves Body Lotion. The gel, infused with Norma Jean White Rose, Peppered Citrus, and Cedarwood, soothes with Aloe Leaf Juice. Our lotion, a fragrant fusion of white rose and lemon leaves, nourishes with cocoa butter, almond, and grape seed oils. Elevate your routine with this indulgent floral and citrus journey, symbolising resilience and innovation.",
       "productType": null,
