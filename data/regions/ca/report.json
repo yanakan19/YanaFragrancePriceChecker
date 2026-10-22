@@ -1,0 +1,89 @@
+{
+  "region": "CA",
+  "currency": "CAD",
+  "builtAt": "2026-10-22T17:26:14.215Z",
+  "published": true,
+  "note": "Public beta since 9 Oct 2026 (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
+  "shopsWired": 19,
+  "shopsEnabled": 10,
+  "shopsPriced": 10,
+  "crawlMinutes": 12.65,
+  "harvestRanAt": "2026-10-22T17:13:34.291Z",
+  "listingsPriced": 46649,
+  "listingsKept": 36569,
+  "staleAfterDays": 7,
+  "products": 26608,
+  "productsWithTwoOrMoreShops": 6355,
+  "shareWithTwoOrMoreShops": 0.239,
+  "productsWithTwoOrMoreIndependentShops": 6355,
+  "shareWithTwoOrMoreIndependentShops": 0.239,
+  "productsWithThreeOrMoreShops": 2177,
+  "medianPriceGap": 0.224,
+  "listingBarcodeShare": 0.254,
+  "productsMatchingUkByBarcode": 1701,
+  "shops": [
+    {
+      "id": "discount-fragrances-ca",
+      "products": 858,
+      "shared": 641
+    },
+    {
+      "id": "fragrance-canada",
+      "products": 5827,
+      "shared": 3461
+    },
+    {
+      "id": "fragrance-online-co",
+      "products": 785,
+      "shared": 472
+    },
+    {
+      "id": "h-parfums",
+      "products": 703,
+      "shared": 124
+    },
+    {
+      "id": "maximum-fragrance",
+      "products": 9565,
+      "shared": 4397
+    },
+    {
+      "id": "niche-essence",
+      "products": 1246,
+      "shared": 413
+    },
+    {
+      "id": "parfum-exquis",
+      "products": 2991,
+      "shared": 392
+    },
+    {
+      "id": "perfume-factory-ca",
+      "products": 669,
+      "shared": 511
+    },
+    {
+      "id": "perfume-plus-ca",
+      "products": 2,
+      "shared": 0
+    },
+    {
+      "id": "perfumeonline-ca",
+      "products": 13401,
+      "shared": 5383
+    }
+  ],
+  "productsShown": 26608,
+  "productsWithUkPhoto": 4644,
+  "productsWithUkPhotoByBarcode": 499,
+  "productsWithUkPhotoByName": 4145,
+  "listingsWithReference": 10792,
+  "offersWithCorroboratedReference": 3222,
+  "deals": 1084,
+  "shareWithUkPhoto": 0.175,
+  "goNoGo": {
+    "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
+    "meetsBar": false,
+    "measuredOn": "shareWithTwoOrMoreIndependentShops (sister shops on one catalogue counted once)"
+  }
+}
