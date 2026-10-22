@@ -1,9 +1,35 @@
 {
   "retailerId": "rayhaan",
-  "updatedAt": "2026-10-22T05:01:27.473Z",
-  "seenAt": "2026-10-22T05:01:27.473Z",
+  "updatedAt": "2026-10-22T09:08:32.040Z",
+  "seenAt": "2026-10-22T09:08:32.040Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "6297001571477",
+      "url": "https://rayhaanperfumes.com/products/palawan",
+      "rawTitle": "Palawan",
+      "rawBrand": "Rayhaan Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0589/3849/0927/files/webisteproductsize.png?v=1792648915",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "description": "Inspired by the tropical character and islands of the Philippines - Palawan. An epic collaboration between Noel Thomas and Rayhaan. Calamansi at the heart. Palawan in spirit. A fresh new signature has arrived - Palawan .",
+      "productType": "Unisex",
+      "nativePrice": {
+        "amount": 120,
+        "currency": "AED"
+      },
+      "retailerId": "rayhaan",
+      "firstSeenAt": "2026-10-22T09:08:32.040Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "6297001571460",
       "url": "https://rayhaanperfumes.com/products/vantage",

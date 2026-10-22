@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-22T04:58:15.660Z",
-  "seenAt": "2026-10-22T04:58:15.660Z",
+  "updatedAt": "2026-10-22T09:07:20.180Z",
+  "seenAt": "2026-10-22T09:07:20.180Z",
   "source": "live",
   "listings": [
     {
@@ -140567,7 +140567,7 @@
       "priceGbp": 11.66,
       "wasPriceGbp": 17.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Treat minor irritations with the Uriage Bariederm Repairing Cica-Cream with Copper-Zinc, a treatment cream for weakened skin that's suitable for the whole family.. Whether your little one has a small bump or graze, or you're aiming to heal tattoos, Uriage's cream can be used on both the face and body to soothe, protect and repair.. The cream acts like a bandage; it insulates the affected area to protect against further irritation using Uriage's exclusive, Poly-2P patent. This sits alongside another innovative patented complex, GF-Repair, which stimulates growth factors to promote skin repair.. Irritation is effectively soothed as D-Panthenol eases sensations of discomfort, while Uriage's purifying Thermal Water, zinc oxide and copper gluconate offer an anti-irritation effect, so skin feels calm and comfortable after use.. Why We Love It . This repairing cream is the perfect multitasker; you'll want to keep in your first aid box, your handbag, and - if you're a parent - it's even handy to keep one stored in your pram or push chair. The nourishing cream offers a number of benefits; it can be used to ease nappy rash, treat skin after a dermo-cosmetic procedure, or to calm mosquito bites. And some people even find that this soft, blendable cream even helps with their eczema!. How To Use It . Apply twice daily to clean skin.. Works Well With . Uriage's caring Bariederm range is designed for skin that suffers with irritation, so why not check it out?. Values . Hypoallergenic. Fragrance-free, preservative-free..",
       "productType": "Skincare",
@@ -156713,7 +156713,7 @@
       "priceGbp": 47,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Immerse yourself in the scent of summer with the Nuxe Prodigieux Le Parfum, a radiant floral Eau de Parfum with the same fragrance as Nuxe's iconic Huile Prodigieuse Dry Oil.. The Story Behind Nuxe Prodigieux Le Parfum . Expertly capturing the essence of a warm summer evening, the radiant fragrance blends together white florals with warm sands and cosy gourmands for truly sun-drenched scent.. Launched in 2012 from the nose of Serge Majoullier, the feminine perfume opens with the white floral note of orange blossom, with subtle hints of bergamot and tangerine tinging the petals with freshness. The elegant heart of rose, gardenia and magnolia creates a beautiful bouquet that's light, feminine and perfect for the brighter seasons.. The dry down of the Eau de Parfum blends together warm sands with cosy vanilla and exotic coconut milk. Truly bottling the spirit of the beach, the creamy base lingers seductively on the skin and epitomises all of the tropical scents we associate with summer.. Nuxe Prodigieux Le Parfum Smells Similar To . If you love the cult-classic Huile Prodigieuse oil, then the Nuxe Prodigieux fragrance is for you. Just like the oil, the carefree and laidback scent harnesses the same warmth and radiance that will transport the senses to a sunny beach or lounging by the pool. Whether you're going on holiday or just wish you were, the Nuxe Prodigieux Le Parfum is as blissful and sensual as a cocktail in the sun and as luxurious as the legendary oil itself.. About Nuxe Prodigieux Le Parfum's Bottle . Held in a tall, elegant glass, the bottle is simplistic yet sophisticated. The ombre amber-bronze echoes the warm shades of the sun and the radiant scent within, expertly reflecting the warmth of the sun setting in the evening.. Why We Love It . It's no secret that we're obsessed (like the rest of the world) with Nuxe's iconic dry oil, so we love the fact that we can experience the same beautiful aroma in an Eau de Parfum.. The floral scent is incredibly wearable and would be the perfect fragrance to take you from day-to-night as the floral notes make it lighthearted enough for the daytime, while the sultry base offers the sensuality that we look for in an evening scent.. How To Use It . Spritz the Eau de Parfum on the pulse points. Layer up the scent by using the Nuxe Huile Prodigieuse Dry Oil first to intensify and prolong this warm aroma.. Works Well With . Make sure you explore the full Nuxe Prodigieux collection to further lose yourself in this tantalising scent and experience it in even more sensorial formulas, such as a shower oil and a body lotion.. The notes in Nuxe Prodigieux Le Parfum are . Top Notes: Orange Blossom, Bergamot, Tangerine.. Heart Notes: Rose, Gardenia, Magnolia.. Base Notes: Warm Sand, Coconut Milk, Vanilla.. Values . 88% natural origin ingredients, non-photosensitising..",
       "productType": "Fragrance",
@@ -173730,8 +173730,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/guerlain_vetiver_eau_de_toilette_spray_150ml.png?v=1729190320",
-      "priceGbp": 82.67,
-      "wasPriceGbp": 124,
+      "priceGbp": 124,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
