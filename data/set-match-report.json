@@ -924,7 +924,6 @@
      "scent": "gorgeous",
      "signature": "1x100body|1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -3332,8 +3331,7 @@
   {
    "canonical": "set-ean-3616306129016",
    "absorbed": [
-    "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion",
-    "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion-50ml-edp"
+    "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion"
    ],
    "members": [
     {
@@ -3358,18 +3356,6 @@
      "signature": "1x100body|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion-50ml-edp",
-     "brand": "Chloé",
-     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion 50ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "l",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -6063,6 +6049,38 @@
    ]
   },
   {
+   "canonical": "set-hugo-boss-boss-the-scent-eau-de-toilette-for-him-50ml-fragrance-gift-set",
+   "absorbed": [
+    "set-hugo-boss-boss-the-scent-gift-set-50ml-edt-150ml-deodorant-spray"
+   ],
+   "members": [
+    {
+     "id": "set-hugo-boss-boss-the-scent-eau-de-toilette-for-him-50ml-fragrance-gift-set",
+     "brand": "Hugo Boss",
+     "name": "BOSS The Scent Eau de Toilette For Him 50ml Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "boss scent",
+     "signature": "1x150deo|1x50fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-hugo-boss-boss-the-scent-gift-set-50ml-edt-150ml-deodorant-spray",
+     "brand": "Hugo Boss",
+     "name": "Boss The Scent Gift Set 50ml EDT - 150ml Deodorant Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "boss scent",
+     "signature": "1x150deo|1x50fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-jo-malone-london-festive-cologne-duo",
    "absorbed": [
     "set-jo-malone-london-festive-cologne-duo-fragrance-gift-set"
@@ -7067,6 +7085,18 @@
     "price spread 1.63 is over 1.5"
    ],
    "members": [
+    {
+     "id": "set-cerruti-1881-pour-homme-gift-set-100ml-edt-spray-150ml-deo-spray",
+     "brand": "Cerruti",
+     "name": "1881 Pour Homme Gift Set 100ml EDT Spray+ 150ml Deo Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "1881 homme pour",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    },
     {
      "id": "set-cerruti-1881-pour-homme-giftset-100ml-edt-spray-150ml-deo-spray",
      "brand": "Cerruti",
@@ -9009,12 +9039,13 @@
     {
      "id": "set-ean-3349668613601",
      "brand": "Rabanne",
-     "name": "Paco Rabanne 1 Million Men's Aftershave Gift Set (50ml EDT + 100ml Shower Gel)",
+     "name": "Paco Rabanne 1 Million Eau De Toilette 50ml Spray Set",
      "concentration": "Eau de Toilette",
      "ean": "3349668613601",
      "scent": "1 million paco rabanne",
      "signature": "1x100wash|1x50fragrance",
      "shops": [
+      "paco-perfumerias-uk",
       "perfume-direct"
      ]
     },
@@ -9888,37 +9919,6 @@
      "shops": [
       "paco-perfumerias-uk",
       "perfume-direct"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.75 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222118709",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Gift Set 100ml EDT + 25ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3423222118709",
-     "scent": "d eau issey l",
-     "signature": "1x100fragrance|1x25fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-25ml-edt",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Gift Set 100ml EDT + 25ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d eau issey l",
-     "signature": "1x100fragrance|1x25fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -11303,6 +11303,18 @@
      "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-versace-yellow-diamond-gift-set-90ml-edt-100ml-body-lotion-100ml-shower-gel-5ml-edt",
+     "brand": "Versace",
+     "name": "Yellow Diamond Gift Set 90ml EDT + 100ml Body Lotion + 100ml Shower Gel + 5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "diamond yellow",
+     "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
