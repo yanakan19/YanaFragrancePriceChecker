@@ -1,9 +1,35 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-22T16:51:10.843Z",
-  "seenAt": "2026-10-22T16:51:10.843Z",
+  "updatedAt": "2026-10-22T20:19:31.673Z",
+  "seenAt": "2026-10-22T20:19:31.673Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "WT-ASF-0001",
+      "url": "https://assaf.ae/products/haroon-watch",
+      "rawTitle": "HAROON WATCH WATCH",
+      "rawBrand": "Assaf",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/2d87054f-3cc3-4d44-8f9c-22ff52f8349f-800x1000-LUSzGRSqjjvvQBTSfj0WDMDZsWsP8YSCOXGJYWe2.jpg?v=1741869117",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Order your Haroun watch and you can try it for four months with Asaf's special guarantee, which allows you to return the watch if you are not satisfied or for any other reason. . . . . The \"Harun\" watch features a design inspired by the Abbasid Caliph Harun, as its shape symbolizes strength. The hour hand represents the Arab swords, which Muslims fought with in the Abbasid era under the leadership of Caliph Harun! . . The hour hand is inspired by polished Arab swords, reflecting our Arab identity, craftsmanship and high skill, adding a touch of luxury and tradition. As for the seconds hand, its design is inspired by horse jumping barriers, which are part of our brand identity, and the battles fought by Caliph Harun in the Abbasid era, adding a touch of dynamism and movement, and reflecting the spirit of competition and challenge associated with that era. . . . . . . Technical Specifications: . Watch Case: Dimensions 38.5mm wide and 45.0mm high, the watch offers a balanced design that combines style and comfort. This size was carefully chosen, unlike any other in the world of watches, to fit all wrist sizes! . . Glass: The front glass is curved, adding a luxurious touch and enhancing its scratch resistance. Made of durable mineral crystal, the glass ensures high quality and perfect clarity! . . Movement: Haroun watch is powered by a Japanese movement, known for its accuracy and reliability. This movement is battery operated, ensuring high accuracy in timekeeping, and is valid for life with a three-year battery warranty. . . Bracelet: Made of 303L stainless steel, the bracelet features a polished and hammered finish, providing great durability and corrosion resistance. Measuring 20mm wide at the box and tapering to 18mm at the clasp, the bracelet ensures optimal comfort and a stylish look. . . Additional Features: The watch is water resistant up to 30 meters underwater, making it the perfect companion for your everyday adventures. . . The watch comes in a beautiful packaging, perfect for gifting! . .",
+      "productType": "man",
+      "nativePrice": {
+        "amount": 305,
+        "currency": "AED"
+      },
+      "retailerId": "assaf",
+      "firstSeenAt": "2026-10-22T20:19:31.673Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11242658136231-Default Title",
       "url": "https://assaf.ae/products/aura-trio-collection",
@@ -6736,8 +6762,9 @@
       "nativeWasPrice": 172.99,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
-      "status": "active",
-      "delistedAt": null,
+      "lastSeenAt": "2026-10-22T16:51:10.843Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-22T20:19:31.673Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null
