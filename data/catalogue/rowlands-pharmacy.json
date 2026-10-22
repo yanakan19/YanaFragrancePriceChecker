@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-22T12:48:30.475Z",
-  "seenAt": "2026-10-22T12:48:30.475Z",
+  "updatedAt": "2026-10-22T16:49:39.788Z",
+  "seenAt": "2026-10-22T16:49:39.788Z",
   "source": "live",
   "listings": [
     {
@@ -474,7 +474,7 @@
       "priceGbp": 14.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Britney Spears Midnight Fantasy Eau de Parfum 100ml. Key Features. ##features##. Captivating fruity floral fragrance for women.. Features black cherry, plum and raspberry notes.. Floral heart with orchid, iris and freesia.. Warm base of vanilla, amber and musk.. Ideal for evening wear and special occasions.. Signature Midnight Fantasy bottle design.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Britney Spears Midnight Fantasy Eau de Parfum is an enchanting fragrance inspired by mystery and romance. Bursting with juicy black cherry, plum and raspberry, it unfolds into elegant floral notes before settling into a sensual base of amber, musk and vanilla. Perfect for those who enjoy sweet, feminine fragrances with a seductive twist.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -612,7 +612,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Paco Rabanne Pour Homme Eau de Toilette 100ml. Key Features. ##features##. Classic aromatic fragrance for men.. Features rosemary, sage and rosewood notes.. Heart of lavender and geranium.. Rich base of moss, honey, amber and musk.. Timeless masculine scent first launched in 1973.. Ideal signature fragrance for everyday wear.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Paco Rabanne Pour Homme Eau de Toilette is a timeless men's fragrance that combines aromatic herbs, fresh florals and warm woods. Sophisticated and masculine, it balances freshness with depth to create a refined scent that has remained popular for generations.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. Alcohol Denat., Aqua/Water, Parfum/Fragrance, Limonene, Linalool, Citronellol, Coumarin, Geraniol, Citral, Eugenol.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
