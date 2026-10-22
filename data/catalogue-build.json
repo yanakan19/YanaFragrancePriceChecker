@@ -1,6 +1,6 @@
 {
  "note": "Written by npm run catalogue:demo. The catalogue modules are built from exactly these data inputs (git blob ids), with this clock, wherever they are read (scripts/catalogueBuild.ts); never edit by hand.",
- "builtAt": "2026-10-21T22:23:59.070Z",
+ "builtAt": "2026-10-22T01:09:05.505Z",
  "files": {
   "data/better-photos.json": "2b1d444a22c4a7ef5db164a8f1d146e2c5881c04",
   "data/catalogue/al-haramain.json": "bc32aa18f6bc3e74b29e8e8486ca500b058c6e52",
@@ -22,7 +22,7 @@
   "data/catalogue/escentric-molecules.json": "be05c069086768216c49e2e88ddc40a5a4b8f56d",
   "data/catalogue/escentual.json": "366837b623417c0036a4d3dd8949868d3146a147",
   "data/catalogue/fenwick.json": "129286f7deaf889f0dbd4ee6d1729079eff988cd",
-  "data/catalogue/fragrance-click.json": "f639c41a873f517995413eafb1180ba4707a07a2",
+  "data/catalogue/fragrance-click.json": "cf587d155304bb790e337f62f12b2330fb792801",
   "data/catalogue/fragrancehub.json": "eb6645b0d55323bfa28bf4c677ce54abe1848658",
   "data/catalogue/french-avenue.json": "c4e2c6e834b0470f78a0274e449c318461d92244",
   "data/catalogue/glorious-beauty.json": "fd3c57c8cacd87d012875e38f745ebd0ac9778e4",
@@ -40,7 +40,7 @@
   "data/catalogue/lookfantastic.json": "d8796cbf565658eb80e926addb502704edc24b40",
   "data/catalogue/manchester-ouds.json": "54736ba9aac1a7d7de2037c3e1407defa0c456a6",
   "data/catalogue/marks-and-spencer.json": "8c26c98a68acf2832d14b15465225e97f42b7d6c",
-  "data/catalogue/mybeauty-boutique.json": "9a694d44b789ea476a00634c30f6cf08d2ea637a",
+  "data/catalogue/mybeauty-boutique.json": "a495dbb7c7b0ad8f4f383ed100cf7c344e5e67ed",
   "data/catalogue/nicchia-luxury-uk.json": "58295dc66f1a798ca7ec5e94b72016cf3f7001e6",
   "data/catalogue/niche-beauty-uk.json": "9ffa13783a598921317e8d50e821689948135fb9",
   "data/catalogue/notino-uk.json": "6351e2d0a69449b72e0e949ec539454c187ec519",
