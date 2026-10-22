@@ -9,7 +9,7 @@ import {
 } from '../src/catalogue/fragranceId.js';
 import { giftSetId, isGiftSet } from '../src/catalogue/giftSet.js';
 import { concentrationOfListing, displayName } from '../src/catalogue/productName.js';
-import { findDuplicateGroups, matchKey, type MatchableProduct } from '../src/catalogue/productMatch.js';
+import { findDuplicateGroups, matchKey, putKayaliScentsUnderOneName, type MatchableProduct } from '../src/catalogue/productMatch.js';
 import { titleWithPageStrength } from '../src/catalogue/productPageStrength.js';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
@@ -241,5 +241,45 @@ describe('a set of minis is a gift set, never one bottle', () => {
   it('a strength read from a page is never written into a set, so a set\'s id does not move', () => {
     const set = kayali('KYSET', 'Dreamy Obsession Miniature Set 4 x 10ml', 88, { productType: 'Sets' });
     expect(fragranceId(set)).toBe('set-dreamy-obsession-miniature-set-4-x-10ml');
+  });
+});
+
+describe('one Kayali perfume carries one name at every size', () => {
+  const row = (id: string, name: string, sizeMl: number | null, over: Partial<MatchableProduct & { giftSet: unknown }> = {}) => ({
+    id,
+    brand: 'Kayali',
+    name,
+    concentration: 'Eau de Parfum',
+    sizeMl,
+    ean: null,
+    ...over,
+  });
+
+  it('gives a size only a reseller sells the name the other sizes carry, and moves nothing else', () => {
+    const full = row('a', 'Vanilla Royale Sugared Patchouli | 64 Intense', 50);
+    const mini = row('b', 'Vanilla Royale Sugared Patchouli | 64 Intense', 10);
+    const sample = row('c', 'Vanilla Royale Sugared Patchouli 64', 1.5);
+    const renamed = putKayaliScentsUnderOneName([full, mini, sample]);
+    expect(renamed).toEqual([sample]);
+    expect(sample.name).toBe(full.name);
+    expect(sample.id).toBe('c');
+    expect(full.name).toBe('Vanilla Royale Sugared Patchouli | 64 Intense');
+  });
+
+  it('leaves alone a rename that would give the perfume two products of one size', () => {
+    const full = row('a', 'Eden Sparkling Lychee | 39', 50);
+    const twin = row('b', 'Eden Sparkling Lychee 39', 50);
+    expect(putKayaliScentsUnderOneName([full, twin])).toEqual([]);
+    expect(twin.name).toBe('Eden Sparkling Lychee 39');
+  });
+
+  it('adopts no name where no spelling prints the number, nor across strengths, houses, gift sets or different numbers', () => {
+    const bare = [row('a', 'Eden Sparkling Lychee', 50), row('b', 'Eden Sparkling Lychee', 10)];
+    expect(putKayaliScentsUnderOneName(bare)).toEqual([]);
+    const extrait = row('c', 'Eden Sparkling Lychee', 10, { concentration: 'Extrait de Parfum' });
+    const other = row('d', 'Club De Nuit 39', 10, { brand: 'Armaf' });
+    const set = row('e', 'Eden Sparkling Lychee 39', null, { giftSet: {} });
+    const clash = [row('f', 'Eden Sparkling Lychee | 39', 50), row('g', 'Eden Sparkling Lychee 40', 10)];
+    expect(putKayaliScentsUnderOneName([row('h', 'Eden Sparkling Lychee | 39', 50), extrait, other, set, ...clash])).toEqual([]);
   });
 });

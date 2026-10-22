@@ -55,6 +55,7 @@ import {
   concentrationBlindKey,
   settleHouseConcentrations,
   findDuplicateGroups,
+  putKayaliScentsUnderOneName,
   matchKey,
   isBarcode,
   rawTitlesAgree,
@@ -2027,6 +2028,10 @@ let mergedIntoDisputed = 0;
     collapseIndistinguishableRows();
   }
 }
+
+// One Kayali perfume carries one name at every size, also at a size only a reseller sells (productMatch.ts).
+const kayaliRenamed = putKayaliScentsUnderOneName(products.values());
+console.log(`Kayali: ${kayaliRenamed.length} products take the name their perfume's other sizes carry.`);
 
 /* ── the name the shops agree on ───────────────────────────────────────────────
    A product keeps the name its first listing gave it, an accident of file order:

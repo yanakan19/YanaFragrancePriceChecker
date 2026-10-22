@@ -543,6 +543,60 @@ function numberedScent(p: MatchableProduct): { key: string; number: string | nul
 }
 
 /**
+ * One Kayali perfume, one name, at every size. The pass above joins a scent only
+ * where two shops sell it at the SAME size, so a size only a reseller carries
+ * (Cult Beauty's 1.5ml sample "Vanilla Royale Sugared Patchouli 64", with no
+ * "Intense" and no pipe) kept the reseller's own title while the other sizes of
+ * the perfume carried the house's "Vanilla Royale Sugared Patchouli | 64
+ * Intense": one perfume shown as two products and its sizes never grouped. It
+ * broke tests/kayaliCatalogue.test.ts in every full crawl from 21 Oct 2026, the
+ * run after that sample was first harvested.
+ *
+ * Over the settled products: Kayali bottles of one strength whose words agree
+ * once the two digit number, "Intense" and "Vacay" are set aside (numberedScent's
+ * rule, kept to the same narrow house) and that carry exactly one number between
+ * them take the fullest name that prints the number. Nothing is renamed that
+ * would give two products of the family one size, a gift set or an unsized row
+ * is left alone, and a family with no printed number has no name to adopt.
+ * Only the name moves: the id, the slug and the aliases stay. Returns the
+ * products renamed.
+ */
+export function putKayaliScentsUnderOneName<
+  T extends MatchableProduct & { giftSet?: unknown },
+>(products: Iterable<T>): T[] {
+  const families = new Map<string, T[]>();
+  for (const p of products) {
+    if (brandKey(p.brand) !== NUMBERED_SCENT_HOUSE || p.sizeMl === null || (p.giftSet ?? null) !== null) continue;
+    const words = titleWords(p.name);
+    const rest = [...new Set(words.filter((w) => !SCENT_NUMBER.test(w) && !SCENT_SHOP_WORDS.has(w)))].sort();
+    if (rest.length === 0) continue;
+    const key = [p.concentration.toLowerCase().trim(), rest.join(' ')].join('|');
+    families.set(key, [...(families.get(key) ?? []), p]);
+  }
+  const renamed: T[] = [];
+  const fullness = (name: string) => name.replace(/\bintense\b/gi, '').length;
+  for (const members of families.values()) {
+    if (new Set(members.map((p) => p.name)).size < 2) continue;
+    const numberOf = (name: string) => titleWords(name).filter((w) => SCENT_NUMBER.test(w));
+    const numbers = new Set(members.flatMap((p) => numberOf(p.name)));
+    if (numbers.size !== 1 || members.some((p) => new Set(numberOf(p.name)).size > 1)) continue;
+    const named = members.filter((p) => numberOf(p.name).length > 0);
+    const count = (name: string) => members.filter((p) => p.name === name).length;
+    const to = [...new Set(named.map((p) => p.name))].sort(
+      (a, b) => fullness(b) - fullness(a) || count(b) - count(a) || (a < b ? -1 : 1),
+    )[0]!;
+    const taken = new Set(members.filter((p) => p.name === to).map((p) => p.sizeMl));
+    for (const p of members.filter((m) => m.name !== to).sort((a, b) => a.sizeMl! - b.sizeMl!)) {
+      if (taken.has(p.sizeMl)) continue;
+      taken.add(p.sizeMl);
+      p.name = to;
+      renamed.push(p);
+    }
+  }
+  return renamed;
+}
+
+/**
  * A listing carrying enough to ask untrustworthyEans' question: which shop,
  * what code, what it called the product. A subset of StoredListing (see
  * fragranceId.ts) so this file does not need to import that type just to
