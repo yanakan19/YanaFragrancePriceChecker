@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-20T23:55:07.182Z",
+ "builtAt": "2026-10-22T00:07:21.837Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 12505,
- "offersWithCorroboratedReference": 1529,
+ "listingsWithReference": 12520,
+ "offersWithCorroboratedReference": 1532,
  "deals": [
   {
    "fragranceId": "aar-fragrances-lalique-encre-noire-100ml",
@@ -33,16 +33,6 @@
    "delivered": false,
    "wasPrice": 6600,
    "percentOff": 57,
-   "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-rasasi-hawas-tropical",
-   "price": 2900,
-   "delivered": false,
-   "wasPrice": 6600,
-   "percentOff": 56,
    "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
@@ -2338,16 +2328,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-rayhaan-elixir",
-   "price": 2590,
-   "delivered": false,
-   "wasPrice": 3500,
-   "percentOff": 26,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-salvatore-ferragamo-acqua-essenziale-blu",
    "price": 5399,
    "delivered": false,
@@ -2668,6 +2648,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-jimmy-choo-illicit-flower-edt-100ml",
+   "price": 5322.9,
+   "delivered": false,
+   "wasPrice": 7150,
+   "percentOff": 25,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-prada-paradigme-edp-m-100ml",
    "price": 9450,
    "delivered": false,
@@ -2898,6 +2888,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-rasasi-hawas-tropical",
+   "price": 3250,
+   "delivered": false,
+   "wasPrice": 4250,
+   "percentOff": 23,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-rayhaan-nocturno",
    "price": 2750,
    "delivered": false,
@@ -2942,6 +2942,16 @@
    "price": 3490,
    "delivered": false,
    "wasPrice": 4500,
+   "percentOff": 22,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-guerlain-lhomme-ideal-extreme",
+   "price": 9450,
+   "delivered": false,
+   "wasPrice": 12250,
    "percentOff": 22,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3258,16 +3268,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-terre-dhermes-edt-200ml",
-   "price": 12500,
-   "delivered": false,
-   "wasPrice": 15800,
-   "percentOff": 20,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-versace-bright-crystal-1-1-1-1-1",
    "price": 8400,
    "delivered": false,
@@ -3452,6 +3452,16 @@
    "price": 3825,
    "delivered": false,
    "wasPrice": 4700,
+   "percentOff": 18,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-al-ezz-oud-hersh-lahab",
+   "price": 5250,
+   "delivered": false,
+   "wasPrice": 6450,
    "percentOff": 18,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3998,16 +4008,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-alhambra-porto-neroli",
-   "price": 2150,
-   "delivered": false,
-   "wasPrice": 2500,
-   "percentOff": 14,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-armaf-club-de-nuit-milestone-1",
    "price": 4293,
    "delivered": false,
@@ -4258,16 +4258,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-lattafa-ajwad-1",
-   "price": 2200,
-   "delivered": false,
-   "wasPrice": 2500,
-   "percentOff": 12,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-rasasi-wow-woody-for-men",
    "price": 2400,
    "delivered": false,
@@ -4468,16 +4458,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-guerlain-lhomme-ideal-extreme",
-   "price": 11025,
-   "delivered": false,
-   "wasPrice": 12250,
-   "percentOff": 10,
-   "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-guerlain-shalimar",
    "price": 13500,
    "delivered": false,
@@ -4644,6 +4624,16 @@
    "wasPrice": 7500,
    "percentOff": 10,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfume-network-7113410347183-100ml",
+   "price": 6187.5,
+   "delivered": false,
+   "wasPrice": 6875,
+   "percentOff": 10,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },

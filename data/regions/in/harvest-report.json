@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-20T23:14:42.017Z",
-  "minutes": 40.41,
+  "ranAt": "2026-10-21T23:26:57.679Z",
+  "minutes": 40.39,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 15327,
+  "listingsKept": 16969,
   "shops": [
     {
       "id": "nykaa",
@@ -15,12 +15,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 933,
-      "priced": 933,
-      "kept": 924,
-      "withBarcode": 215,
-      "pagesFetched": 946,
-      "seconds": 2401,
+      "listingsRead": 915,
+      "priced": 915,
+      "kept": 904,
+      "withBarcode": 213,
+      "pagesFetched": 928,
+      "seconds": 2402,
       "currency": "JSON-LD offers named: INR",
       "errors": [
         "https://www.nykaa.com/police-to-be-the-queen-eau-de-parfum/p/196293: HTTP 404",
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/carolina-herrera-good-girl-blush-eau-de-parfum-roller-ball/p/9680432: HTTP 404",
         "https://www.nykaa.com/fw-faun-walk-passion-bomb-by-faunwalk-similar-to-bombshell-long-lasting-women-perfume/p/17109806: HTTP 404",
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
-        "sitemap: 3159 product address(es) found, first read https://www.nykaa.com/burberry-weekend-for-women-eau-de-parfum/p/467427"
+        "sitemap: 3136 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -61,23 +61,14 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6029,
-      "priced": 6029,
-      "kept": 4954,
+      "listingsRead": 7861,
+      "priced": 7861,
+      "kept": 6594,
       "withBarcode": 0,
-      "pagesFetched": 27,
-      "seconds": 168,
+      "pagesFetched": 35,
+      "seconds": 108,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": [
-        "https://perfumepalace.in/products.json?limit=250&page=25: HTTP 500"
-      ],
-      "diagnostics": [
-        "https://perfumepalace.in/products.json?limit=250&page=3: HTTP 500",
-        "https://perfumepalace.in/products.json?limit=250&page=21: HTTP 500",
-        "https://perfumepalace.in/products.json?limit=250&page=22: HTTP 500",
-        "https://perfumepalace.in/products.json?limit=250&page=25: HTTP 500",
-        "https://perfumepalace.in/products.json?limit=250&page=25: HTTP 500"
-      ]
+      "errors": []
     },
     {
       "id": "fridaycharm",
@@ -85,12 +76,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7582,
-      "priced": 7582,
-      "kept": 6351,
+      "listingsRead": 7599,
+      "priced": 7599,
+      "kept": 6366,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 82,
+      "seconds": 78,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -105,7 +96,7 @@
       "kept": 1901,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 24,
+      "seconds": 22,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -115,18 +106,18 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 703,
-      "priced": 703,
-      "kept": 651,
+      "listingsRead": 710,
+      "priced": 710,
+      "kept": 658,
       "withBarcode": 0,
-      "pagesFetched": 704,
-      "seconds": 2401,
+      "pagesFetched": 711,
+      "seconds": 2402,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2298 product address(es)"
+        "sitemap: 2301 product address(es)"
       ]
     },
     {
@@ -140,7 +131,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 8,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -195,8 +186,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 416,
-      "priced": 416,
+      "listingsRead": 417,
+      "priced": 417,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
@@ -210,12 +201,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 673,
-      "priced": 632,
+      "listingsRead": 676,
+      "priced": 635,
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 13,
+      "seconds": 11,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
