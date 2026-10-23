@@ -413,3 +413,36 @@ describe('parseNotes: the base tier behind a trailing heading (owner request, 6 
     expect(parseNotes('Base notes: Perfect for spring and summer evenings.')).toBeNull();
   });
 });
+
+describe('parseNotes: tiers written compactly, without the word "notes" after each label (23 Oct 2026)', () => {
+  it('reads Escentual\'s dash form', () => {
+    expect(parseNotes('A fresh scent. Notes: Top - Santos Coffee, Italian Lemon Heart - Green Cardamom Base - Vetiver.')).toEqual({
+      top: ['Santos Coffee', 'Italian Lemon'],
+      middle: ['Green Cardamom'],
+      base: ['Vetiver'],
+    });
+  });
+
+  it('reads the colon form under a Fragrance Notes heading and Avon\'s Bottom tier', () => {
+    expect(parseNotes('Fragrance Notes . Top: Blackcurrant, Rose & Lemon Middle: Apple, Coriander Base: Sandalwood, Vanilla.')).toEqual({
+      top: ['Blackcurrant', 'Rose', 'Lemon'],
+      middle: ['Apple', 'Coriander'],
+      base: ['Sandalwood', 'Vanilla'],
+    });
+    expect(parseNotes('Top: Neroli, Freesia . Middle: Hibiscus . Bottom: Silk Musks . Why you will love it: one spritz')).toMatchObject({
+      top: ['Neroli', 'Freesia'],
+      middle: ['Hibiscus'],
+      base: ['Silk Musks'],
+    });
+  });
+
+  it('needs two tiers labelled that way, and never infers a tier from prose', () => {
+    expect(parseNotes('Top: hair care that lasts all day, with a rich formula.')).toBeNull();
+    expect(parseNotes('Base - coat for nails. Top - coat for shine.')).toBeNull();
+    expect(parseNotes('A fresh opening of lemon with a heart of jasmine and a base of musk.')).toBeNull();
+  });
+
+  it('leaves the ordinary labelled form as it was', () => {
+    expect(parseNotes('Top notes: Bergamot. Middle notes: Rose. Base notes: Musk.')).toEqual({ top: ['Bergamot'], middle: ['Rose'], base: ['Musk'] });
+  });
+});

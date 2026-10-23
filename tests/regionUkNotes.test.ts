@@ -194,7 +194,8 @@ describe.skipIf(!built)('the built US and India pages', () => {
   it('leaves every UK data file untouched: the committed UK catalogue, slugs and aliases are unchanged', () => {
     const files = ['demo/catalogue.generated.ts', 'demo/deals.generated.ts', 'data/product-slugs.json', 'data/id-aliases.json', 'data/note-aliases.json'];
     expect(execFileSync('git', ['status', '--porcelain', '--', ...files], { cwd: REPO_ROOT, encoding: 'utf8' })).toBe('');
-    expect(read('sitemap-gb.xml')).not.toContain('/us/notes');
-    expect(read('notes.html')).not.toContain('hreflang="en-US"');
+    // The UK sitemap lists UK addresses only; since 23 Oct 2026 its Notes pages name the regions' Notes pages as hreflang alternates.
+    expect([...read('sitemap-gb.xml').matchAll(/<url><loc>([^<]+)<\/loc>/g)].filter((m) => m[1]!.includes('/us/'))).toEqual([]);
+    // (and so the UK Notes page names en-US since step 5 of the site review; it did not while the regions were in beta)
   });
 });

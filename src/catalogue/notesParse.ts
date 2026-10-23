@@ -74,8 +74,49 @@ const decodeEntities = (s: string): string =>
     .replace(/&(?:amp;)+/gi, '&')
     .replace(/&rsquo;|&lsquo;|&#8217;|&#8216;/gi, "'");
 
+/**
+ * A pyramid written compactly, with the tier names alone as labels and a colon
+ * or a dash after each, with or without a "Notes" heading before them:
+ *
+ *   "Notes: Top - Santos Coffee, Italian Lemon Heart - Green Cardamom Base - Vetiver."  (Escentual)
+ *   "Fragrance Notes . Top: Blackcurrant, Rose & Lemon Middle: Apple Base: Vanilla"   (Roullier White)
+ *   "Top: Sparkling Bergamot, Rosewood . Middle: Magnolia, Honey . Bottom: Pearl Musk" (Avon, Beauty Base, Armaf)
+ *
+ * The labelled reader below wants the word "notes" after each tier ("Top
+ * notes:"). Here the same facts are spelled out, only shorter, so each tier
+ * label is rewritten into the form the reader already trusts and the one
+ * reader does the rest, with every rule it has (shape, prose, field labels).
+ * Nothing is inferred: the first label must be Top or Head followed by a colon
+ * or a dash, and at least two different tiers must be labelled that way, so a
+ * stray "Base - coat" or "Top: hair care" never qualifies.
+ * Added 23 Oct 2026 (docs/SITE-REVIEW-2026-10-23.md, row 6).
+ */
+const COMPACT_START = /\b(?:top|head)\s*[:\-\u2013\u2014]\s*(?=\S)/i;
+const COMPACT_TIER = /\b(top|head|heart|middle|base|bottom)\s*[:\-\u2013\u2014]\s*(?=\S)/gi;
+
+export function compactTiersToLabelled(description: string): string | null {
+  const start = COMPACT_START.exec(description);
+  if (!start) return null;
+  const rest = description.slice(start.index);
+  const seen = new Set<string>();
+  const rewritten = rest.replace(COMPACT_TIER, (_m, tier: string) => {
+    const t = tier.toLowerCase();
+    const name = t === 'top' || t === 'head' ? 'top' : t === 'heart' || t === 'middle' ? 'middle' : 'base';
+    seen.add(name);
+    return `${name === 'top' ? 'Top' : name === 'middle' ? 'Middle' : 'Base'} notes: `;
+  });
+  return seen.size >= 2 ? rewritten : null;
+}
+
 export function parseNotes(descriptionRaw: string | null | undefined): ParsedNotes | null {
   if (!descriptionRaw) return null;
+  const labelled = parseLabelledNotes(descriptionRaw);
+  if (labelled) return labelled;
+  const compact = compactTiersToLabelled(decodeEntities(descriptionRaw));
+  return compact ? parseLabelledNotes(compact) : null;
+}
+
+function parseLabelledNotes(descriptionRaw: string): ParsedNotes | null {
   const description = decodeEntities(descriptionRaw);
 
   // Each section runs until the next label or the end of the copy. Feeds

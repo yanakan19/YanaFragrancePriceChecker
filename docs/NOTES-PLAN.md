@@ -192,3 +192,14 @@ flower) and accords, listed as `keepApart` pairs the tests protect. An old
 `NOTE_ALIASES`, read by `noteForAddress`). Adding a pair: append to the file,
 run `tests/noteAliases.test.ts`, then `npm run catalogue:demo` and commit the
 rebuilt `demo/catalogue.generated.ts`.
+
+## Compact tier labels (23 Oct 2026)
+
+`parseNotes` also reads a pyramid whose tiers are labelled without the word
+"notes": "Notes: Top - A, B Heart - C Base - D", "Fragrance Notes . Top: A
+Middle: B Base: C", "Top: A . Middle: B . Bottom: C". The tier labels are
+rewritten to "Top notes:", "Middle notes:" and "Base notes:" and the one
+labelled reader does the rest, so every shape and prose rule still applies. It
+needs a Top or Head label with a colon or dash and at least two labelled tiers.
+Products with notes: 14,425 to 14,809 of 34,376. The 500 most stocked products
+without notes have prose copy only at every shop and stay without.

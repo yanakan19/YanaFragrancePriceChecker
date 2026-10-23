@@ -62,6 +62,7 @@ export const CHANGELOG: ChangelogEntry[] = [
           'US, India and Canada sites out of beta',
           'Most Popular row in every country',
           'Tidier home, tiles, footer and updates',
+          'Photos and notes for more UK products',
         ],
       },
       {

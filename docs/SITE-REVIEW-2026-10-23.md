@@ -108,7 +108,7 @@ from is the file or pipeline that would carry the fix.
 ## Not done here, and why
 
 - Region product pages are still not prerendered; their brand and shop pages
-  are since 24 Oct (see "Filled in" below), so the region sitemaps list the
+  are since 23 Oct (see "Filled in" below), so the region sitemaps list the
   fixed pages, brands and shops only. (Written on 23 Oct: none of the three
   were prerendered and the sitemaps held 43 fixed pages each.) The UK's 36,307 pages use
   481 MB of the 700 MB deploy budget; the regions' 64,000 products at the
@@ -119,7 +119,7 @@ from is the file or pipeline that would carry the fix.
   sites.
 - The welcome pop up is left as it is (owner decision pending, AdSense).
 
-## Filled in (24 Oct 2026, from the Missing information table)
+## Filled in (23 Oct 2026, from the Missing information table)
 
 Each row: what was done, the count before and after.
 
@@ -129,3 +129,5 @@ Each row: what was done, the count before and after.
 | Not done here, 1 | Region brand and shop pages | US, India and Canada sitemaps: 43 fixed pages each | Brand and shop pages answer 200 in all three (`scripts/build-region-leaf-pages.ts`, `scripts/regionLeafPages.ts`): US 1,261, India 548, Canada 854 pages, 22.4 MB in all; the sitemaps list 1,304, 591 and 897 addresses, only those with a file; the deploy is 505 MB of the 700 MB budget; each region's boot scripts are one shared file like the UK's |
 | 9 | UK products with no photo | 989 of 34,376 shown: 788 from four shops whose images were stored and loading but which had no `imageBasis` (Niche Beauty UK, Scentsational, Beauty Flash, Gorgeous Shop; D24 covers every shop that supplies a photo), 201 where the shop gave no image URL | 214 (0.6%): `imageBasis` added to the four with the D24 owner decision comment; two more exact placeholder URLs rejected, each fetched once and viewed (Niche Beauty UK's site banner on 82 listings, Scentsational's "No image available" on 5). 201 remain with no image URL given: Perfume Click 127 (Awin feed carries none; `npm run photos:better` reads its product page but is on no schedule and is limited to 5 pages a task here), Beauty Base 61 (new Shopify products with no image yet, checked on one product page), Parfumdreams, The Beauty Store UK, The Perfume Closet and a few more |
 | 12 | UK brands with no logo | 1,040 of 1,254 brands (214 have one) | 1,035 (219 have one): the top 200 houses still without a logo were worked by the 2026-10-12 method (docs/LOGOS-PLAN.md section 12): 81 have an official site in `BRAND_SITES`, 59 of them were decided before, 24 probed, 5 shipped (Ramon Monegal, Gisada, Rance 1795, Oud Elixir, Sospiro), the rest refused or unusable with reasons in the header of demo/brandLogos.ts. 119 of the 200 have no official site on record and keep initials (no domain guessed) |
+| 6 | UK products with no notes | 19,951 of 34,376 (58%); 584 of the 5,139 stocked by four or more shops | 19,567 (57%); 567 of those 5,139. The parser now also reads tiers labelled without the word "notes" ("Top - X Heart - Y Base - Z", "Top: X Middle: Y Bottom: Z", Escentual, Roullier White, Avon, Beauty Base, John Lewis, Les Senteurs and more): `compactTiersToLabelled` in src/catalogue/notesParse.ts, two tiers at least, every existing shape and prose rule still applied, +384 products (14,425 to 14,809 with notes). The 500 most stocked without notes were checked one by one: all 500 have a description at some shop and none has a labelled list, only prose ("built around Ambroxan", "opens with green notes of grapefruit"), so they stay empty; reading prose stays rejected (docs/NOTES-PLAN.md), and a page fetch finds no more (Escentual's page and product JSON carry no notes field, checked on one product). 567 remain with four or more shops. Cost: about 200 tokens a product for the parser route; a source outside the shops' own copy (a brand page, five requests a host a task) is about 3,000 to 5,000 tokens a product with a yield of one in three at best, since most houses refuse the bot (Guerlain, Tom Ford, Acqua di Parma, Hermes' robots.txt) |
+| 10, 11 | UK shops with no standard delivery cost; no logo | 5 and 8 | unchanged, re-read on 23 Oct: the five (Niche Beauty UK, Space NK, Opulensi, The Perfume Closet, Sainte Cellier) publish no flat rate at all ("calculated at checkout"; Sainte Cellier's terms are under a path robots.txt disallows), so `standardGbp` stays null by design and the free-over thresholds and windows already recorded stay; the eight logo shops were probed again and declare the same unusable marks (a 32px icon, a bare letter, a 12 to 1 wordmark, light ink), Liberty London's headers still overflow the client |
