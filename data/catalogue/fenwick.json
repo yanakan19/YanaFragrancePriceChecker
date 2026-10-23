@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-23T03:47:39.405Z",
-  "seenAt": "2026-10-23T03:47:39.405Z",
+  "updatedAt": "2026-10-23T07:43:29.394Z",
+  "seenAt": "2026-10-23T07:43:29.394Z",
   "source": "live",
   "listings": [
     {
@@ -10042,7 +10042,7 @@
       "priceGbp": 375,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Experience the powerful character of Maison Crivelli Oud Stallion Extrait De Parfum. Rich and concentrated, this sophisticated unisex fragrance offers an expressive scent with striking depth and a polished contemporary finish..",
       "productType": "Unisex Fragrance",

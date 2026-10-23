@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-23T03:47:39.405Z",
-  "seenAt": "2026-10-23T03:47:39.405Z",
+  "updatedAt": "2026-10-23T07:43:29.394Z",
+  "seenAt": "2026-10-23T07:43:29.394Z",
   "source": "live",
   "listings": [
     {
@@ -2544,7 +2544,7 @@
       "priceGbp": 50,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The fragrance opens with a delicious blend of biscuit and caramel, creating a warm, sugary introduction that feels instantly inviting and mouth-watering.. At the heart, milk, honey, white sugar, and tonka bean bring a creamy, smooth and slightly powdery sweetness. This layer gives the fragrance its signature lactonic richness — soft, warm, and incredibly addictive.. As the scent settles, the base of white musk, vanilla, praline, and amber creates a deep, long-lasting finish. Creamy vanilla and praline add dessert-like richness, while musk and amber keep it smooth, warm, and perfectly balanced.. Perfect for those who love sweet, gourmand fragrances with creamy vanilla, caramel, and a milky depth.. Top Notes: Biscuit, Caramel Middle Notes: Milk, Honey, White Sugar, Tonka Bean Base Notes: White Musk, Vanilla, Praline, Amber.",
       "productType": null,

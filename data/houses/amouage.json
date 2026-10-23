@@ -1,7 +1,7 @@
 {
   "retailerId": "amouage",
-  "updatedAt": "2026-10-23T03:55:49.939Z",
-  "seenAt": "2026-10-23T03:55:49.939Z",
+  "updatedAt": "2026-10-23T07:52:43.945Z",
+  "seenAt": "2026-10-23T07:52:43.945Z",
   "source": "live",
   "listings": [
     {
@@ -42,7 +42,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Endowing its wearer with a haunting allure, the Honour Woman Hair Perfume enhances its lasting signature. The addition of Frankincense oil from Oman magnifies the Jasmine, Tuberose and Gardenia of Honour Woman Eau de Parfum, lending it an even greater sense of drama. . Size: 50ml. About the fragrance Honour Woman . A white floral fragrance inspired by the tragic predicament of Madame Butterfly. In honour of truth and beauty, her poetic love and sorrow echo eternally.. Discover The Full Collection .",
+      "description": "Endowing its wearer with a haunting allure, the Honour Woman Hair Perfume enhances its lasting signature. The addition of Frankincense oil from Oman magnifies the Jasmine, Tuberose and Gardenia of Honour Woman Eau de Parfum, lending it an even greater sense of drama.. Size: 50ml. About the fragrance Honour Woman . A white floral fragrance inspired by the tragic predicament of Madame Butterfly. In honour of truth and beauty, her poetic love and sorrow echo eternally.. Discover The Full Collection .",
       "productType": "BODY",
       "nativePrice": {
         "amount": 130,
@@ -68,7 +68,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Lightweight and indulgent, the Honour Woman Body Lotion is comforting, leaving the skin soft and delicately moisturised. The addition of Frankincense oil from Oman underlines the deeper, more soulful aspects of Honour Woman Eau de Parfum – especially the Amber and Opoponax – to create a profoundly indulgent wearing experience.. Size: 360ml. About the fragrance Honour Woman . A white floral fragrance inspired by the tragic predicament of Madame Butterfly. In honour of truth and beauty, her poetic love and sorrow echo eternally.. Discover The Full Collection .",
+      "description": "Lightweight and indulgent, the Honour Woman Body Lotion is comforting, leaving the skin soft and delicately moisturised. The addition of Frankincense oil from Oman underlines the deeper, more soulful aspects of Honour Woman Eau de Parfum – especially the Amber and Opoponax – to create a profoundly indulgent wearing experience.. Size: 360ml. About the fragrance Honour Woman . A white floral fragrance inspired by the tragic predicament of Madame Butterfly. In honour of truth and beauty, her poetic love and sorrow echo eternally.. Discover The Full Collection .",
       "productType": "BODY",
       "nativePrice": {
         "amount": 130,
@@ -146,7 +146,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Lightweight and luxurious, the Love Delight Woman Body Lotion is comforting, leaving the skin soft and delicately moisturised.. The addition of Frankincense oil from Oman brings out the more floral and gourmand facets of Love Delight Eau de Parfum – notably the almond and cherry-like elements of Heliotrope – to create a sense of indulgent luxuriousness.. . Size: 360ml. About the fragrance: . The interplay of delicate florals and irresistible treats, radiance and insouciance. Love Delight is an invitation to savour every moment of indulgence.. Discover The Full Collection .",
+      "description": "Lightweight and luxurious, the Love Delight Woman Body Lotion is comforting, leaving the skin soft and delicately moisturised.. The addition of Frankincense oil from Oman brings out the more floral and gourmand facets of Love Delight Eau de Parfum – notably the almond and cherry-like elements of Heliotrope – to create a sense of indulgent luxuriousness.. . Size: 360ml. About the fragrance: . The interplay of delicate florals and irresistible treats, radiance and insouciance. Love Delight is an invitation to savour every moment of indulgence.. Discover The Full Collection .",
       "productType": "BODY",
       "nativePrice": {
         "amount": 130,
@@ -2822,7 +2822,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Reflection opens with a lush green freshness reminiscent of morning dew in the springtime. A sophisticated bouquet of white flowers crowns the fragrance with richness and depth while embracing musks and woods wrapped with warm amber notes conferring a magic aura to the skin. . . 20% oil concentration, 6 weeks ageing: 3 weeks maceration, 3 weeks maturation .",
       "productType": "EDP",

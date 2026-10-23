@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-23T03:47:39.405Z",
-  "seenAt": "2026-10-23T03:47:39.405Z",
+  "updatedAt": "2026-10-23T07:43:29.394Z",
+  "seenAt": "2026-10-23T07:43:29.394Z",
   "source": "live",
   "listings": [
     {
@@ -39481,7 +39481,7 @@
       "priceGbp": 33.99,
       "wasPriceGbp": 80,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Dolce & Gabbana Dolce Blue Jasmine Eau de Parfum is a vibrant and elegant women’s fragrance inspired by the Mediterranean. Centered around the rare blue jasmine flower, it opens with sparkling citrus notes and evolves into a heart of delicate florals. Soft musk and warm woods create a lasting, feminine base. Fresh, luminous, and uplifting, this perfume is perfect for everyday wear, leaving a graceful and memorable trail wherever you go. . . Fragrance Type: . White Floral. Woody . . Fragrance Notes: . - Top notes: Fig . - Middle notes: Jasmine Sambac . - Base notes: Cedarwood . . Launched: . 2024 .",
       "productType": "Women's Perfume",

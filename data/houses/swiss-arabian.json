@@ -1,7 +1,7 @@
 {
   "retailerId": "swiss-arabian",
-  "updatedAt": "2026-10-23T03:54:25.136Z",
-  "seenAt": "2026-10-23T03:54:25.136Z",
+  "updatedAt": "2026-10-23T07:51:18.884Z",
+  "seenAt": "2026-10-23T07:51:18.884Z",
   "source": "live",
   "listings": [
     {
@@ -579,7 +579,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "MUSK 07 - 75 ML OUD 07 - 75 ML.",
+      "description": "MUSK 07 - 50 ML OUD 07 - 50 ML.",
       "productType": null,
       "nativePrice": {
         "amount": 105,
@@ -606,7 +606,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "ROSE 01 - 75 ML TOBACCO 01 - 75 ML.",
+      "description": "ROSE 01 - 50 ML TOBACCO 01 - 50 ML.",
       "productType": null,
       "nativePrice": {
         "amount": 105,
