@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-23T15:51:26.033Z",
-  "seenAt": "2026-10-23T15:51:26.033Z",
+  "updatedAt": "2026-10-23T19:33:26.481Z",
+  "seenAt": "2026-10-23T19:33:26.481Z",
   "source": "live",
   "listings": [
     {
@@ -3257,7 +3257,7 @@
       "priceGbp": 375,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Discover Amber Lime & Bergamot Luxury Candle, a captivating candle inspired by the glamour of the Hurlingham Club's Concours d’Elegance. Crafted with care in England, this artisan-scented candle in hand-blown glass evokes the elegance of vintage cars, champagne, and summer sunsets. Indulge in the alluring scent notes of bergamot, white amber, cedarwood, lime, suede and patchouli and let the warm, sexy ambience transport you to a night of unforgettable decadence. This candle burns for approximately 200 hours, filling your space with a captivating fragrance that captures the essence of Amber, Lime & Bergamot.",
       "productType": null,

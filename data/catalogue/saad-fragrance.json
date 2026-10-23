@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-23T15:49:35.454Z",
-  "seenAt": "2026-10-23T15:49:35.454Z",
+  "updatedAt": "2026-10-23T19:28:47.743Z",
+  "seenAt": "2026-10-23T19:28:47.743Z",
   "source": "live",
   "listings": [
     {
@@ -1624,7 +1624,7 @@
       "priceGbp": 33.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Indulge in the captivating scent of Passion by Azhrance Perfume. With a blend of juicy pear, sweet blackcurrant, and exotic lychee, this fragrance is sure to leave a lasting impression. Notes of jasmine, coconut, and vanilla add a sensual touch, making this the perfect choice for any occasion. Feel confident and alluring with Passion..",
       "productType": "Eau De Parfum",
@@ -2015,7 +2015,7 @@
       "priceGbp": 25.19,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". . . . Experience the complex composition of Leather Ahmed al Maghribi, a unisex perfume featuring a dynamic interplay of citrus zest and saffron in the top notes. The heart reveals a floral blend of iris and jasmine, leading to a warm base of leather, cedar, and vetiver. This fragrance offers a sophisticated scent profile suitable for various occasions. .",
       "productType": null,

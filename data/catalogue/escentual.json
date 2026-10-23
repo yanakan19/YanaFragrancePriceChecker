@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-23T15:39:37.996Z",
-  "seenAt": "2026-10-23T15:39:37.996Z",
+  "updatedAt": "2026-10-23T19:22:04.661Z",
+  "seenAt": "2026-10-23T19:22:04.661Z",
   "source": "live",
   "listings": [
     {
@@ -28994,7 +28994,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "SVR Ampoule Hydra Plumping Anti-Wrinkle Serum . A deeply hydrating serum that plumps, repairs, and soothes. It provides a highly concentrated burst of moisture to visibly smooth fine lines. . Give your skin the ultimate hydrating treatment. We've expertly selected the SVR Ampoule Hydra Serum for its incredible plumping and repairing power. It's a trusted, highly concentrated solution (with Vitamin B3 and Hyaluronic Acid) that works fast, bringing immediate comfort and a visible plumping effect to even the most sensitive skin. This is intensive hydration you can rely on.. Perfect for anyone struggling with dehydrated, tight skin, fine lines, or sensitivity. This refreshing serum sinks in to deeply hydrate and strengthen the skin's barrier. You'll feel instant comfort and long-lasting hydration, leaving your skin plump, smooth, and resilient.. It's the perfect daily hydration boost. A true bathroom-shelf essential for a plump, healthy-looking complexion.. Why We Love It . This isn't just a serum; it's a 'glass of water' for your skin! We love how its concentrated Vitamin B3 and Hyaluronic Acid formula instantly plumps fine lines and calms sensitivity. It's a true skin-saver!. Values . Dermatologist-Tested. Suitable for Sensitive Skin. Anti-Wrinkle Plumping. Skin Repair. Highly Concentrated. Contains Vitamin B3 Hyaluronic Acid. Non-Comedogenic.",
       "productType": "Skincare",
@@ -108804,7 +108804,7 @@
       "priceGbp": 37,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "'˜'Achieve 12 hours of plush, lightweight and high-pigment colour with the GIVENCHY Le Rouge Sheer Velvet lipstick.'' - Darcey, Escentual Beauty Team.. . Why you'll love GIVENCHY Le Rouge Sheer Velvet: . Sheer matte lipstick with a soft blurred finish.. 12 hours of comfort and wear.. Enriched with vitamin E and mango butter for up to 24 hours' hydration.. Held in a luxurious velvet case adorned with the iconic GIVENCHY emblem.. Refillable design.. . Why it's Escentual: . Whether you love a deep orange or a soft nude, each GIVENCHY Le Rouge Sheer Velvet lipstick provides up to 12 hours of comfortable, long-wearing colour - and with an array of versatile shades to choose from, you're sure to find your perfect match! The glide-on formula is enriched with nourishing mango butter for up to 24 hours of hydration, while vitamin E forms a protective barrier across your lips. If you're looking for a long-lasting matte finish that leaves your pout feeling hydrated throughout the day, Le Rouge Sheer Velvet is the one for you.. Le Rouge Sheer Velvet is not only effective, but it also looks and feels good too! The plush, buttery texture glides across the lips with ease, while the soft blurring finish leaves your pout looking full with an enhancing pop of colour. But that's not all; the lipstick is also housed within a crushed velvet case that's adorned with the iconic GIVENCHY logo - it's the perfect addition to any premium makeup collection. Plus, the revolutionary refillable design is ideal for any eco-conscious makeup lover who's still looking for a touch of luxury; it makes it easier to enjoy your favourite shade or mix up your hues while staying loyal to your existing velvet case.. . The Best Way To Use It: . Start by applying GIVENCHY Le Rouge to your upper lip, outlining the cupid's bow before continuing with the lower lip. To accentuate the blurred effect, lightly blot the lipstick by gently tapping with your finger.. . The Sustainable Side: . Le Rouge has a refillable design, so you can switch and swap your shades or replace your favourite lipstick once you've reached the end.. .",
       "productType": "Makeup",
@@ -139437,8 +139437,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/guerlain_l_instant_homme_de_guerlain_eau_de_parfum_spray_100ml.png?v=1729190282",
-      "priceGbp": 81.33,
-      "wasPriceGbp": 122,
+      "priceGbp": 122,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

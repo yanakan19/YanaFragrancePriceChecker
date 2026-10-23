@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-23T15:49:35.454Z",
-  "seenAt": "2026-10-23T15:49:35.454Z",
+  "updatedAt": "2026-10-23T19:28:47.743Z",
+  "seenAt": "2026-10-23T19:28:47.743Z",
   "source": "live",
   "listings": [
     {
@@ -8709,7 +8709,7 @@
       "priceGbp": 20.99,
       "wasPriceGbp": 38,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About the Product: Experience the iconic freshness of Calvin Klein CK One Gift Set, featuring a 50ml Eau de Toilette and a 100ml Shower Gel. This timeless unisex fragrance blends crisp citrus, green tea and soft musk for a clean, refreshing scent that suits any occasion. The matching shower gel gently cleanses while leaving skin lightly fragranced, making this versatile set an ideal gift for anyone who loves effortless everyday freshness.. Fragrance Type: Fruity. Fragrance Notes: - Top notes: Pineapple, Green Notes, Mandarin Orange, Papaya, Bergamot, Cardamom, Lemon - Middle notes: Nutmeg, Violet, Orris Root, Jasmine, Lily-of-the-Valley, Rose, Freesia - Base notes: Sandalwood, Amber, Musk, Cedar, Oakmoss, Green Tea, Green Notes. Launched: 1994. Gift Set Includes: - 50ml EDT - 100ml Shower gel.",
       "productType": "Unisex Perfume",
@@ -88802,7 +88802,7 @@
       "priceGbp": 33.99,
       "wasPriceGbp": 78,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Azzaro pour Homme by Azzaro is an aromatic fougere fragrance for men. A fragrance that celebrates life containing raw ingredients adding a vibrant and opulent touch to the classic fragrance. A timeless woody scent with a lively and powerful trail. The man who wears this scent is charismatic and youthful in his demeanour. A man who practices self-care, keeps fit and looks well for his age. Fragrance Type: Aromatic, Fougere Fragrance Notes: - Top notes: Lavender, Anise, Lemon, Caraway, Basil, Bergamot, Clary Sage, Iris - Middle notes: Vetiver, Sandalwood, Patchouli, Cedar, Juniper Berries, Cardamom - Base notes: Oakmoss, Leather, Amber, Musk, Tonka Bean Launched: 1978.",
       "productType": "Men's Aftershave",
