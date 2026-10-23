@@ -199,7 +199,7 @@ export function headFor(input: HeadInput): HeadTags {
   const region = activeRegion();
   if (region.id === 'GB') return tags;
   const description = input.route.name === 'home'
-    ? `${SHARE_TITLE}. Fragrance prices from ${region.shopsAdjective} shops, compared${region.beta ? ', in beta' : ''}.`
+    ? `${SHARE_TITLE}. Fragrance prices from ${region.shopsAdjective} shops, compared.`
     : localWords(tags.description, region);
   return { ...tags, description };
 }

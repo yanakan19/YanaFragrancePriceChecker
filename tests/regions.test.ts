@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { BETA, COMING_SOON, CURRENT_REGION, REGIONS, regionButtonLabel } from '../src/services/regions.js';
+import { COMING_SOON, CURRENT_REGION, REGIONS, regionButtonLabel } from '../src/services/regions.js';
 import { flagSvg } from '../demo/flags.js';
 
 /**
@@ -13,14 +13,13 @@ import { flagSvg } from '../demo/flags.js';
  */
 
 describe('the region list', () => {
-  it('is United Kingdom, United States (Beta), India (Beta), Canada (Beta), in that order', () => {
-    expect(REGIONS.map((r) => r.name)).toEqual(['United Kingdom', 'United States (Beta)', 'India (Beta)', 'Canada (Beta)']);
-    expect(BETA).toBe('Beta');
+  it('is United Kingdom, United States, India, Canada, in that order', () => {
+    expect(REGIONS.map((r) => r.name)).toEqual(['United Kingdom', 'United States', 'India', 'Canada']);
     expect(REGIONS.map((r) => r.id)).toEqual(['GB', 'US', 'IN', 'CA']);
   });
 
   it('pairs each with its currency', () => {
-    expect(REGIONS.map((r) => `${r.name} ${r.currency}`)).toEqual(['United Kingdom GBP', 'United States (Beta) USD', 'India (Beta) INR', 'Canada (Beta) CAD']);
+    expect(REGIONS.map((r) => `${r.name} ${r.currency}`)).toEqual(['United Kingdom GBP', 'United States USD', 'India INR', 'Canada CAD']);
   });
 
   it('makes all four regions choosable, the UK first and current on a UK address', () => {
@@ -49,7 +48,7 @@ describe('the region list', () => {
 
   it('names the region and its currency for a screen reader', () => {
     expect(regionButtonLabel()).toBe('Region and currency: United Kingdom, GBP');
-    expect(regionButtonLabel(REGIONS[1])).toBe('Region and currency: United States (Beta), USD');
+    expect(regionButtonLabel(REGIONS[1])).toBe('Region and currency: United States, USD');
   });
 });
 

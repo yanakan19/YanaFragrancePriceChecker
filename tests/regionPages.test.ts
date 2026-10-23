@@ -97,6 +97,10 @@ describe('the deep link hand off (scripts/regionPages.ts)', () => {
     expect(us).toContain('Compare Fragrance Prices at US Shops');
     expect(regionTemplate(template, IN)).toContain('Compare Fragrance Prices at Indian Shops');
     expect(regionTemplate(template, CA)).toContain('Compare Fragrance Prices at Canadian Shops');
+    // The footer's commission line is the UK's; a region's says what is true there.
+    const footer = '<p class="footer-note">Some links earn us a commission. It never changes the order.</p>';
+    expect(regionTemplate(footer, GB)).toBe(footer);
+    expect(regionTemplate(footer, US)).toBe('<p class="footer-note">No shop pays for its place in the results.</p>');
   });
 });
 
@@ -150,11 +154,11 @@ describe.skipIf(!built)('the built region pages', () => {
     expect(read('deals.html')).toContain(`<link rel="alternate" hreflang="en-US" href="${SITE_URL}/us/deals" />`);
     expect(read('us/deals.html')).toContain(`<link rel="alternate" hreflang="en-GB" href="${SITE_URL}/deals" />`);
     expect(read('us/deals.html')).toContain(`<link rel="alternate" hreflang="x-default" href="${SITE_URL}/deals" />`);
-    // The beta regions' Notes tab shows the matching UK products' notes, so it is indexed (canonical in the region);
-    // the UK's declares no alternates (its page and sitemap stay as they were).
+    // A region's Notes tab shows the matching UK products' notes, so it is indexed (canonical in the region),
+    // and since the beta ended (23 Oct 2026) the four Notes pages name each other.
     expect(read('us/notes.html')).not.toContain('<meta name="robots" content="noindex');
     expect(read('us/notes.html')).toContain(`<link rel="canonical" href="${SITE_URL}/us/notes" />`);
-    expect(read('notes.html')).not.toContain('hreflang="en-US"');
+    expect(read('notes.html')).toContain(`<link rel="alternate" hreflang="en-US" href="${SITE_URL}/us/notes" />`);
   });
 
   it('shows a UK listing\'s picture on a matching bottle, else a shop\'s own hot-linked photo, never a file of ours, and lists only that region\'s shops', () => {

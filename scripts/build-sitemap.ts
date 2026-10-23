@@ -72,7 +72,7 @@ import { SITE_URL } from '../demo/head.js';
 import { CONTENT_PATHS, GUIDES_PATH, HOW_WE_CHECK } from '../demo/guideList.js';
 import { existsSync, readFileSync } from 'node:fs';
 import { NOTE_GROUP_IDS } from '../src/catalogue/noteGroups.js';
-import { liveRegions, regionHasFixedPage, regionPath, type RegionConfig, type RegionId } from '../src/config/regions.js';
+import { liveRegions, regionPath, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import type { RegionSiteFacts } from './build-region-data.js';
 import { LEAF_MANIFEST, type LeafManifest } from './leafPages.js';
 
@@ -262,11 +262,10 @@ if (entries.length > 50000) {
 const seen = new Set<string>();
 const unique = entries.filter((e) => (seen.has(e.loc) ? false : (seen.add(e.loc), true)));
 
-// ── The region pages (public beta) ────────────────────────────────────────
+// ── The region pages ──────────────────────────────────────────────────────
 // Each live region but the UK, from the facts its page build wrote. The fixed
-// pages are the UK's own list, under the region's prefix, except the ones a
-// beta region does not offer (regionHasFixedPage: Notes), except Notes itself
-// once the region's products show the notes of the UK products they match.
+// pages are the UK's own list, under the region's prefix; Notes and its group
+// pages once the region's products show the notes of the UK products they match.
 const regionSitemaps: { region: RegionConfig; facts: RegionSiteFacts; entries: Entry[] }[] = [];
 for (const region of liveRegions()) {
   if (region.pathPrefix === '') continue;
@@ -284,8 +283,8 @@ for (const region of liveRegions()) {
   for (const e of fixed) {
     // Notes and the note group pages: offered once the region has products showing a matching UK
     // product's notes, a group page only if the region has a note in that group.
-    if (!regionHasFixedPage(region, e.loc)) {
-      const isGroup = e.loc.startsWith('/notes/group/');
+    const isGroup = e.loc.startsWith('/notes/group/');
+    if (e.loc === '/notes' || isGroup) {
       if (!((e.loc === '/notes' || isGroup) && facts.withNotes > 0)) continue;
       if (isGroup && !regionNoteGroups.includes(e.loc.slice('/notes/group/'.length))) continue;
     }
@@ -324,8 +323,7 @@ function holders(loc: string): Holder[] {
     return out;
   }
   if (GB && ukFixed.has(loc)) out.push({ id: 'GB', region: GB, path: loc });
-  // Notes has no hreflang alternates yet: that would change the UK's own sitemap and page tags.
-  for (const r of regionSitemaps) if (regionHasFixedPage(r.region, loc) && r.entries.some((e) => e.loc === loc)) out.push({ id: r.region.id, region: r.region, path: loc });
+  for (const r of regionSitemaps) if (r.entries.some((e) => e.loc === loc)) out.push({ id: r.region.id, region: r.region, path: loc });
   return out;
 }
 

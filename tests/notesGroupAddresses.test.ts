@@ -10,7 +10,6 @@ import { describe, expect, it } from 'vitest';
 import { NOTE_GROUP_IDS } from '../src/catalogue/noteGroups.js';
 import { headFor, SITE_URL } from '../demo/head.js';
 import { matchRoute, routeToPath } from '../demo/router.js';
-import { regionHasFixedPage, liveRegions } from '../src/config/regions.js';
 import { sitemapPaths } from '../scripts/routePages.js';
 
 const demo = resolve(dirname(fileURLToPath(import.meta.url)), '../demo');
@@ -65,10 +64,3 @@ describe('UK sitemap (run npm run demo first)', () => {
   });
 });
 
-describe('beta regions', () => {
-  it('have no group pages while their shops publish no notes', () => {
-    for (const r of liveRegions().filter((x) => x.beta)) {
-      for (const id of NOTE_GROUP_IDS) expect(regionHasFixedPage(r, `/notes/group/${id}`)).toBe(false);
-    }
-  });
-});

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { regionById } from '../src/config/regions.js';
 import { formatMoney, formatMoneyShort } from '../src/services/money.js';
 import {
-  betaLine, codFootnote, fluidOunces, formatSize, freshnessLine, localWords, priceTaxNote, regionDate, totalTaxLabel,
+  codFootnote, fluidOunces, formatSize, freshnessLine, localWords, priceTaxNote, regionDate, totalTaxLabel,
 } from '../src/services/regionText.js';
 import { menuName } from '../src/services/regions.js';
 import { regionShipping, regionShopAsRetailer, regionShopsAsRetailers } from '../src/config/regionShops.js';
@@ -86,16 +86,13 @@ describe('words', () => {
     expect(codFootnote(GB)).toBeNull();
   });
 
-  it('marks the beta regions, in the menu and in a line under the header, and dates each region\'s way', () => {
-    expect(betaLine(US)).toBe('US prices are in beta: fewer shops than the UK site for now.');
-    expect(betaLine(IN)).toBe('Indian prices are in beta: fewer shops than the UK site for now.');
-    expect(betaLine(GB)).toBeNull();
-    expect([GB, US, IN].map(menuName)).toEqual(['United Kingdom', 'United States (Beta)', 'India (Beta)']);
+  it('names each region plainly in the menu (no beta since 23 Oct 2026), and dates each region\'s way', () => {
+    expect([GB, US, IN].map(menuName)).toEqual(['United Kingdom', 'United States', 'India']);
     expect(regionDate('2026-10-09T06:27:43.741Z', US)).toBe('Oct 9, 2026');
     expect(regionDate('2026-10-09', IN)).toBe('9 Oct 2026');
     expect(freshnessLine('2026-10-09T06:27:43.741Z', US)).toBe('Prices checked daily. Last checked Oct 9, 2026.');
     // The site's copy rule: no hyphens or dashes in what a reader sees.
-    for (const s of [betaLine(US)!, betaLine(IN)!, priceTaxNote(US)!, priceTaxNote(IN)!, codFootnote(IN)!]) expect(s).not.toMatch(/[-‐-―−]/);
+    for (const s of [priceTaxNote(US)!, priceTaxNote(IN)!, codFootnote(IN)!]) expect(s).not.toMatch(/[-‐-―−]/);
   });
 });
 

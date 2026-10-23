@@ -125,9 +125,8 @@ describe('region registries', () => {
       const cfg = REGION_CONFIGS.find((c) => c.id === r.id)!;
       expect(cfg.currency, r.id).toBe(r.currency);
       expect(cfg.pathPrefix, r.id).toBe(r.folder);
-      // Live as a public beta (the pages at /us/, /in/ and /ca/).
+      // Live (the pages at /us/, /in/ and /ca/).
       expect(cfg.live, r.id).toBe(true);
-      expect(cfg.beta, r.id).toBe(true);
     }
   });
   it('keep the five US dollar Shopify shops on the US site only, in dollars (9 Oct 2026)', () => {

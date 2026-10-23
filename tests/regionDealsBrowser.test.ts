@@ -53,11 +53,11 @@ describe.skipIf(!built)('the Deals tab on the region sites', () => {
   }
 
   for (const [path, word, symbol, badSymbol] of [['/us/deals', 'MSRP', '$', '£'], ['/in/deals', 'MRP', '₹', '£'], ['/ca/deals', 'MSRP', '$', '£']] as const) {
-    it(`${path}: the Beta line stays; fewer than six deals say so; any tile uses ${symbol} and ${word}`, async () => {
+    it(`${path}: no beta line; fewer than six deals say so; any tile uses ${symbol} and ${word}`, async () => {
       const r = await dealsPage(path);
-      expect(r.beta).toContain('in beta');
-      if (r.tiles < 6) expect(r.line).toContain('Not many deals yet in the beta.');
-      else expect(r.line).not.toContain('Not many deals yet');
+      expect(r.beta).toBe('');
+      if (r.tiles < 6) expect(r.line).toContain('Only a few deals so far.');
+      else expect(r.line).not.toContain('Only a few deals');
       if (r.tiles > 0) {
         expect(r.prices).toContain(symbol);
         expect(r.prices).not.toContain(badSymbol);
@@ -67,9 +67,9 @@ describe.skipIf(!built)('the Deals tab on the region sites', () => {
     }, 60_000);
   }
 
-  it('the UK Deals page never carries the beta line', async () => {
+  it('the UK Deals page never says it has few deals', async () => {
     const r = await dealsPage('/deals');
-    expect(r.line).not.toContain('Not many deals yet');
+    expect(r.line).not.toContain('Only a few deals');
     expect(r.beta).toBe('');
   }, 60_000);
 });

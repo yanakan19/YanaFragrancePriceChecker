@@ -195,14 +195,14 @@ describe('Today\'s Deals built for a region from the snapshots', () => {
 });
 
 describe('a region with few deals says so', () => {
-  it('says "Not many deals yet in the beta." under six deals in a beta region, and nothing in the UK or with six', () => {
+  it('says "Only a few deals so far." under six deals in a region, and nothing in the UK or with six', () => {
     expect(REGION_MIN_DEALS).toBe(6);
     const us = regionById('US')!;
     const inr = regionById('IN')!;
     const gb = regionById('GB')!;
     for (const n of [0, 1, 5]) {
-      expect(sparseDealsLine(n, us)).toBe('Not many deals yet in the beta.');
-      expect(sparseDealsLine(n, inr)).toBe('Not many deals yet in the beta.');
+      expect(sparseDealsLine(n, us)).toBe('Only a few deals so far.');
+      expect(sparseDealsLine(n, inr)).toBe('Only a few deals so far.');
       expect(sparseDealsLine(n, gb)).toBeNull();
     }
     expect(sparseDealsLine(6, us)).toBeNull();

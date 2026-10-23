@@ -65,11 +65,6 @@ export interface RegionConfig {
   pathPrefix: '' | 'us' | 'in' | 'ca';
   /** True once the region's pages are built and shown. The UK, the US and India since 9 Oct 2026, Canada since 22 Oct 2026. */
   live: boolean;
-  /**
-   * A public beta: the menu says "(Beta)" after the name and the region's
-   * pages carry a line saying it has fewer shops than the UK site for now.
-   */
-  beta: boolean;
   /** How the shops are named in a sentence: "UK shops", "US shops", "Indian shops". */
   shopsAdjective: 'UK' | 'US' | 'Indian' | 'Canadian';
   /** Time zone names that suggest this region in the welcome pop-up. */
@@ -96,7 +91,6 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
     units: 'ml',
     pathPrefix: '',
     live: true,
-    beta: false,
     shopsAdjective: 'UK',
     timeZones: ['Europe/London', 'Europe/Belfast', 'Europe/Guernsey', 'Europe/Jersey', 'Europe/Isle_of_Man'],
     referencePriceName: 'RRP',
@@ -117,7 +111,6 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
     units: 'floz-and-ml',
     pathPrefix: 'us',
     live: true,
-    beta: true,
     shopsAdjective: 'US',
     timeZones: ['America/', 'Pacific/Honolulu', 'US/'],
     referencePriceName: 'MSRP',
@@ -138,7 +131,6 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
     units: 'ml',
     pathPrefix: 'in',
     live: true,
-    beta: true,
     shopsAdjective: 'Indian',
     timeZones: ['Asia/Kolkata', 'Asia/Calcutta'],
     referencePriceName: 'MRP',
@@ -159,7 +151,6 @@ export const REGION_CONFIGS: readonly RegionConfig[] = [
     units: 'ml',
     pathPrefix: 'ca',
     live: true,
-    beta: true,
     shopsAdjective: 'Canadian',
     timeZones: [
       'America/Toronto', 'America/Vancouver', 'America/Edmonton', 'America/Winnipeg', 'America/Halifax', 'America/St_Johns',
@@ -268,22 +259,12 @@ export function suggestRegionForTimeZone(timeZone: string | null | undefined): R
 }
 
 /**
- * Whether a region offers one of the fixed pages (home, Deals, Brands and the
- * rest) to search engines. Every region does, except that a beta region's
- * Notes page and note group pages carry no hreflang alternates (they would
- * change the UK's own tags). A region's own sitemap does list them once its
- * products show UK notes (scripts/build-sitemap.ts).
- */
-export function regionHasFixedPage(region: RegionConfig, path: string): boolean {
-  return !(region.beta && (path === '/notes' || path.startsWith('/notes/group/')));
-}
-
-/**
  * hreflang alternates for an unprefixed path: one per live region that has
  * the page, plus x-default (the UK page, only when the UK has it). Empty when
  * fewer than two regions have the page, since a page with no other version has
  * nothing to declare. `has` names the regions that have this page; left out,
- * every live region that offers that fixed page does (regionHasFixedPage).
+ * every live region does: every region offers every fixed page (the US,
+ * India and Canada left their public beta on 23 Oct 2026).
  * A product or a brand is passed the regions that sell it.
  */
 export function hreflangAlternates(
@@ -292,7 +273,7 @@ export function hreflangAlternates(
   has?: ReadonlySet<RegionId> | readonly RegionId[],
 ): { hreflang: string; href: string }[] {
   const wanted = has ? new Set(has) : null;
-  const live = liveRegions().filter((r) => (wanted ? wanted.has(r.id) : regionHasFixedPage(r, path)));
+  const live = liveRegions().filter((r) => (wanted ? wanted.has(r.id) : true));
   if (live.length < 2) return [];
   return [
     ...live.map((r) => ({ hreflang: r.hreflang, href: `${siteUrl}${regionPath(r, path)}` })),

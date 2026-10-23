@@ -144,7 +144,7 @@ import { REGIONS, CURRENT_REGION, regionButtonLabel, type Region } from '../src/
 import { ageConfirmHtml, needsAgeConfirmation, AGE_CONFIRM_ERROR_TITLE, AGE_CONFIRM_ERROR_MESSAGE } from './ageConfirm.js';
 import { activeRegion, liveRegions, regionById, regionHome, regionPath, splitRegionPrefix, suggestRegionForTimeZone, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import { BAR_DISMISSED_KEY, barRegion, barText, leafAlternates, switchNeedsLinks, switchTarget, type RegionLinks, type SwitchFrom } from './regionSwitch.js';
-import { betaLine, codFootnote, formatSize, localWords, priceTaxNote, sparseDealsLine } from '../src/services/regionText.js';
+import { codFootnote, formatSize, localWords, priceTaxNote, sparseDealsLine } from '../src/services/regionText.js';
 import {
   WELCOME_PREVIEW_PARAM, browserTimeZone, clearPendingRegion, closeRegionWelcome, hasStoredSession, openRegionWelcome, previewChoices, readStoredChoice, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
   type StoredRegionChoice,
@@ -3369,7 +3369,7 @@ function dealsPanel(): string {
     filterControls(sharedFilterContext(DEAL_FACETS, views, filtered.length, ['Deal', 'Deals'])),
   );
 
-  // A beta region with fewer than six real deals says so, plainly: the few that
+  // A region with fewer than six real deals says so, plainly: the few that
   // exist are listed below it, and nothing is added to fill the page.
   const sparse = sparseDealsLine(sorted.length);
   if (sparse && sorted.length === 0) {
@@ -5324,22 +5324,6 @@ function initRegionBar(): void {
   });
 }
 
-/**
- * The beta line a beta region's pages carry under the top bar ("US prices are
- * in beta: fewer shops than the UK site for now"). Nothing on the UK site.
- */
-function renderBetaLine(): void {
-  const host = document.getElementById('beta-line');
-  const line = betaLine();
-  if (!host) return;
-  if (!line) {
-    host.hidden = true;
-    return;
-  }
-  host.hidden = false;
-  host.innerHTML = `<p class="beta-line-text"><span class="beta-pill">Beta</span> ${esc(line)}</p>`;
-}
-
 /* ── "Select your country" and the remembered country ───────────────────────
    demo/regionWelcome.ts (the pop-up) and demo/regionPreference.ts (what is
    remembered, where, and when the bare home page moves). Off while the UK is
@@ -5574,7 +5558,31 @@ function notFoundView(): string {
  * are ABOUT in demo/legal.ts; the three numbers are counted from the listings
  * by liveCounts() in demo/data.ts, never typed.
  */
+/**
+ * The About words for the country the page is in: the UK's as written, and in
+ * the US, India and Canada the same four cards in that country's terms (its
+ * shops, its currency, shipping, its tax note) with the affiliate card saying
+ * what is true there today: no shop pays us anything (demo/legalRegion.ts).
+ */
+function aboutWords(): Pick<typeof ABOUT, 'why' | 'how'> {
+  const r = activeRegion();
+  if (r.id === 'GB') return ABOUT;
+  const adj = r.shopsAdjective;
+  const tax = priceTaxNote();
+  const card = (title: string): string => ABOUT.how.find((c) => c.title === title)?.body ?? '';
+  return {
+    why: localWords(ABOUT.why.replace('compares UK shops', `compares ${adj} shops`)),
+    how: [
+      { title: 'Prices', body: `${localWords(card('Prices'))}${tax ? ` ${tax}` : ''}` },
+      { title: 'Shops', body: `Established ${adj} shops that sell to ${adj} customers and show their prices in ${r.currencyName}. Marketplaces where the seller can change are left out.` },
+      { title: 'Cheapest', body: localWords(card('Cheapest')) },
+      { title: 'Affiliate Links', body: `No ${adj} shop pays us anything today, and no shop can pay for a place in the results.` },
+    ],
+  };
+}
+
 function aboutView(): string {
+  const words = aboutWords();
   const live = liveCounts();
   const stat = (value: number, label: string, key: string) =>
     `<div class="about-stat" data-stat="${key}"><dt class="t-caption">${label}</dt><dd>${value.toLocaleString('en-GB')}</dd></div>`;
@@ -5584,7 +5592,7 @@ function aboutView(): string {
       <div class="about-hero">
         <section class="about-why" aria-labelledby="about-why-title">
           <h2 class="t-section" id="about-why-title">Why I Built This</h2>
-          ${ABOUT.why}
+          ${words.why}
         </section>
         <dl class="about-stats" aria-label="The site today">
           ${stat(live.shops, 'Shops With Current Prices', 'shops')}
@@ -5598,7 +5606,7 @@ function aboutView(): string {
 
       <h2 class="t-section">How It Works</h2>
       <ul class="about-cards">
-        ${ABOUT.how.map((c) => `<li class="about-card"><h3 class="about-card-title">${esc(c.title)}</h3><p>${esc(c.body)}</p></li>`).join('')}
+        ${words.how.map((c) => `<li class="about-card"><h3 class="about-card-title">${esc(c.title)}</h3><p>${esc(c.body)}</p></li>`).join('')}
       </ul>
       <p class="about-more"><button type="button" class="link-btn" data-page="how-it-works">More on How It Works</button>
         <button type="button" class="link-btn" data-page="affiliate">Affiliate Disclosure</button>
@@ -7893,7 +7901,6 @@ function init(): void {
   };
   currentUser().then(handleAuthUser);
   startRegionWelcome();
-  renderBetaLine();
   initRegionBar();
   // Fires on every sign in, sign out and token refresh, including the tab
   // that just followed a verification link back in — see its own comment in

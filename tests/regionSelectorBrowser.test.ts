@@ -14,8 +14,8 @@ const built = existsSync(resolve(root, 'demo/index.html'));
  * The country and currency selector in the top bar (owner's request,
  * 2026-10-05), on the built page: it sits just left of the account button,
  * the bar still fits at every phone width and on a tablet and a desktop in
- * both themes, the menu opens and closes by mouse and keyboard, the US and
- * India (live in beta since 9 October 2026) are named "(Beta)" and open the
+ * both themes, the menu opens and closes by mouse and keyboard, the US, India
+ * and Canada (out of beta since 23 October 2026) are named plainly and open the
  * same page in that country, and choosing the country the page is in changes
  * nothing. The list's data is tests/regions.test.ts; where a switch goes is
  * tests/regionSwitch.test.ts.
@@ -25,7 +25,7 @@ type Mode = 'dark' | 'light';
 
 // Trimmed to three on 9 October 2026 (owner decision 3, docs/INTERNATIONAL-PLAN.md),
 // the US and India live in beta the same day; Canada joined on 22 October 2026.
-const NAMES = ['United Kingdom', 'United States (Beta)', 'India (Beta)', 'Canada (Beta)'];
+const NAMES = ['United Kingdom', 'United States', 'India', 'Canada'];
 const CODES = ['GBP', 'USD', 'INR', 'CAD'];
 
 describe.skipIf(!built)('the country and currency selector', () => {
@@ -333,8 +333,8 @@ describe.skipIf(!built)('the country and currency selector', () => {
       await waitForApp(page);
       expect(await page.evaluate(`localStorage.getItem('pricesniffs.region')`)).toBe('US');
       expect(await page.evaluate(`document.documentElement.lang`)).toBe('en-US');
-      expect(await page.evaluate(`document.querySelector('#region-btn').getAttribute('aria-label')`)).toBe('Region and currency: United States (Beta), USD');
-      expect(await page.evaluate(`document.querySelector('#beta-line').textContent`)).toContain('US prices are in beta: fewer shops than the UK site for now.');
+      expect(await page.evaluate(`document.querySelector('#region-btn').getAttribute('aria-label')`)).toBe('Region and currency: United States, USD');
+      expect(await page.evaluate(`document.querySelector('#beta-line')`)).toBeNull();
       // The Most Stocked tiles' prices (the update history further down quotes UK prices in its own words).
       const prices = (await page.evaluate(`Array.from(document.querySelectorAll('.pop-rail .amt')).map((e) => e.textContent.trim()).slice(0, 20)`)) as string[];
       expect(prices.length).toBeGreaterThan(0);

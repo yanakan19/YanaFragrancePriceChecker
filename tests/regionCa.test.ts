@@ -7,7 +7,7 @@ import { REGION_CONFIGS, liveRegions, regionById, regionHome, splitRegionPrefix,
 import { REGION_CRAWL, REGION_RETAILERS } from '../src/config/regionRetailers.js';
 import { CA_TAX_NOTE } from '../src/types/regionRetailer.js';
 import { formatMoney } from '../src/services/money.js';
-import { betaLine, formatSize, localWords, priceTaxNote, totalTaxLabel } from '../src/services/regionText.js';
+import { formatSize, localWords, priceTaxNote, totalTaxLabel } from '../src/services/regionText.js';
 import { regionLegalPages } from '../demo/legalRegion.js';
 import { flagSvg } from '../demo/flags.js';
 import { REGIONS } from '../src/services/regions.js';
@@ -18,9 +18,9 @@ const shops = REGION_RETAILERS.CA;
 const read = (p: string) => readFileSync(resolve(root, p), 'utf8');
 
 describe('Canada in the country config', () => {
-  it('is a live beta region at /ca/ with Canadian dollars, written the US way and in millilitres', () => {
+  it('is a live region at /ca/ with Canadian dollars, written the US way and in millilitres', () => {
     expect(CA.name).toBe('Canada');
-    expect(CA.live && CA.beta).toBe(true);
+    expect(CA.live).toBe(true);
     expect(CA.currency).toBe('CAD');
     expect(CA.pathPrefix).toBe('ca');
     expect(regionHome(CA)).toBe('/ca/');
@@ -33,7 +33,7 @@ describe('Canada in the country config', () => {
 
   it('is on the country menu of every site, with its code beside the name, and has a flag', () => {
     const menu = REGIONS.find((r) => r.id === 'CA')!;
-    expect(menu.name).toBe('Canada (Beta)');
+    expect(menu.name).toBe('Canada');
     expect(menu.currency).toBe('CAD');
     expect(menu.available).toBe(true);
     expect(flagSvg('CA')).toContain('<svg class="flag"');
@@ -51,7 +51,6 @@ describe('Canada in the country config', () => {
     expect(priceTaxNote(CA)).toMatch(/GST, HST or PST/);
     expect(priceTaxNote(CA)).not.toMatch(/ZIP|state/);
     expect(totalTaxLabel(CA)).toBe('before tax');
-    expect(betaLine(CA)).toMatch(/^Canadian prices are in beta/);
     expect(localWords('Delivery to your postcode, RRP', CA)).toBe('Shipping to your postal code, MSRP');
     expect(CA_TAX_NOTE).toMatch(/GST, HST or PST/);
   });

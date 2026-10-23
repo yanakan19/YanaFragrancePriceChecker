@@ -96,6 +96,12 @@ export function regionTemplate(template: string, region: RegionConfig): string {
     )
     .replace(
       /Some shop links are affiliate links: if you buy after following one, the shop may pay us a commission, at no extra cost to you\. It never changes the order of results\./,
-      `No ${adj} shop pays us anything today, and no shop can pay for a place in the results. ${region.beta ? `${adj} prices are in beta: fewer shops than the UK site for now.` : ''}`.trim(),
+      `No ${adj} shop pays us anything today, and no shop can pay for a place in the results.`,
+    )
+    // The footer's line on every page: true for the UK, where some links earn a
+    // commission; no shop in this region pays anything (demo/legalRegion.ts).
+    .replace(
+      '<p class="footer-note">Some links earn us a commission. It never changes the order.</p>',
+      '<p class="footer-note">No shop pays for its place in the results.</p>',
     );
 }

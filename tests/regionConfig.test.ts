@@ -10,7 +10,6 @@ import {
   regionById,
   regionHome,
   regionPath,
-  regionHasFixedPage,
   resetActiveRegionForTests,
   setActiveRegionForBuild,
   splitRegionPrefix,
@@ -77,9 +76,10 @@ describe('the regions', () => {
     ]);
   });
 
-  it('has all four live (the UK, the US and India since the public beta of 9 October 2026, Canada since 22 October 2026), the other three in beta', () => {
+  it('has all four live (the UK, the US and India since the public beta of 9 October 2026, Canada since 22 October 2026), none in beta since 23 October 2026', () => {
     expect(liveRegions().map((r) => r.id)).toEqual(['GB', 'US', 'IN', 'CA']);
-    expect(REGION_CONFIGS.map((r) => [r.id, r.live, r.beta])).toEqual([['GB', true, false], ['US', true, true], ['IN', true, true], ['CA', true, true]]);
+    expect(REGION_CONFIGS.map((r) => [r.id, r.live])).toEqual([['GB', true], ['US', true], ['IN', true], ['CA', true]]);
+    expect(REGION_CONFIGS.some((r) => 'beta' in r)).toBe(false);
     expect(REGION_CONFIGS.map((r) => r.shopsAdjective)).toEqual(['UK', 'US', 'Indian', 'Canadian']);
     expect(DEFAULT_REGION).toBe(GB);
   });
@@ -231,10 +231,8 @@ describe('canonical and hreflang', () => {
     // Sold in the US and India but not the UK: no x-default, which is the UK page.
     expect(hreflangAlternates(SITE_URL, '/brands/rasasi', ['US', 'IN']).map((l) => l.hreflang)).toEqual(['en-US', 'en-IN']);
     expect(hreflangAlternates(SITE_URL, '/x_y_100ml', ['US'])).toEqual([]);
-    // The beta regions' Notes tab carries no hreflang alternates (it would change the UK's own tags); it is indexed in the region.
-    expect(regionHasFixedPage(US, '/notes')).toBe(false);
-    expect(regionHasFixedPage(GB, '/notes')).toBe(true);
-    expect(hreflangAlternates(SITE_URL, '/notes')).toEqual([]);
+    // Every region offers Notes since the beta ended (23 Oct 2026), so it carries all four and x-default.
+    expect(hreflangAlternates(SITE_URL, '/notes').map((l) => l.hreflang)).toEqual(['en-GB', 'en-US', 'en-IN', 'en-CA', 'x-default']);
   });
 
   it('gives each region its own canonical, never another region\'s', () => {

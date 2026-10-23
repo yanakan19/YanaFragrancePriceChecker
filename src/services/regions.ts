@@ -5,8 +5,8 @@
  * Kingdom, the United States and India, in that order (owner decision 3,
  * 9 October 2026; Germany, France and Italy left the menu until they are
  * planned). A region that is not live yet is greyed out with a plain "Coming
- * Soon" and no date, and cannot be chosen. A region in public beta (the United
- * States and India since 9 October 2026) is named with "(Beta)" after it.
+ * Soon" and no date, and cannot be chosen. Every live region is named plainly
+ * (the public beta of the US, India and Canada ended on 23 October 2026).
  * Choosing the region the page is already in changes nothing: no cookie, no
  * storage, no price moves. Kept free
  * of the DOM so the order, the currencies and the disabled flags are pinned
@@ -20,7 +20,7 @@ export type { RegionId } from '../config/regions.js';
 
 export interface Region {
   id: RegionId;
-  /** The name as the menu shows it: "United States (Beta)" for a region in beta. */
+  /** The name as the menu shows it. */
   name: string;
   /** The ISO 4217 currency code, as shown and as read out. */
   currency: string;
@@ -35,12 +35,9 @@ export interface Region {
 /** The one description a region that cannot be chosen yet carries. */
 export const COMING_SOON = 'Coming Soon';
 
-/** What a region in public beta carries after its name. */
-export const BETA = 'Beta';
-
-/** The name as the menu shows it: the region's name, with "(Beta)" while it is in beta. */
+/** The name as the menu shows it. */
 export function menuName(c: RegionConfig): string {
-  return c.beta ? `${c.name} (${BETA})` : c.name;
+  return c.name;
 }
 
 function toRegion(c: RegionConfig): Region {

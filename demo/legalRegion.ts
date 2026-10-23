@@ -1,7 +1,7 @@
 /**
  * The US, Indian and Canadian versions of the legal pages (docs/INTERNATIONAL-PLAN.md
  * section 5; the `legal: 'us' | 'in' | 'ca'` hook in src/config/regions.ts). Public
- * beta since 9 October 2026. Plain and short on purpose: the owner has these
+ * since 9 October 2026, Canada since 22 October, full sites since 23 October 2026. Plain and short on purpose: the owner has these
  * read by a lawyer before any money is earned in either country (owner
  * decision 8, docs/OWNER-STEPS.md), and until then nothing on these pages earns
  * anything: no shop link carries an affiliate code and no ad is personalised.
@@ -38,13 +38,13 @@ export interface RegionLegalContext {
 }
 
 /** When these words were last changed. */
-export const REGION_LEGAL_UPDATED = '9 October 2026';
+export const REGION_LEGAL_UPDATED = '23 October 2026';
 
 /** The Canadian pages were written on 22 October 2026. */
-export const REGION_LEGAL_UPDATED_CA = '22 October 2026';
+export const REGION_LEGAL_UPDATED_CA = '23 October 2026';
 
 function usPages(c: RegionLegalContext): RegionLegalPage[] {
-  const updated = `<p class="meta">Last updated ${REGION_LEGAL_UPDATED}. The US pages are in beta.</p>`;
+  const updated = `<p class="meta">Last updated ${REGION_LEGAL_UPDATED}.</p>`;
   return [
     {
       id: 'how-it-works',
@@ -52,8 +52,7 @@ function usPages(c: RegionLegalContext): RegionLegalPage[] {
       short: 'How It Works',
       body: `
       <p>PriceSniffs compares fragrance prices across ${c.coverage} US shops, in
-      dollars, so you can see what a bottle costs before you buy it. The US
-      pages are in beta: fewer shops than the UK site for now.</p>
+      dollars, so you can see what a bottle costs before you buy it.</p>
       <h2 class="t-section">Prices Are Checked Daily</h2>
       <p>We read each shop's own public listings once a day, and only where the
       shop allows it. No price is typed in by hand. Every listing says when we
@@ -146,8 +145,9 @@ function usPages(c: RegionLegalContext): RegionLegalPage[] {
       <p>Listing a shop is not an endorsement. We cannot guarantee the
       authenticity of goods anyone else sells.</p>
       <h2 class="t-section">Photographs</h2>
-      <p>The US pages show no shop's product photographs for now: a plain marker
-      stands in their place.</p>
+      <p>A product picture on the US pages is shown from the shop's own page, or
+      from the matching product on the UK site, and belongs to its owner. Where
+      none can be shown a plain marker stands in its place.</p>
       <h2 class="t-section">Our Content and the Law</h2>
       <p>The design, wording and data compilations belong to ${c.legalName}.
       Brand and product names belong to their owners and identify products only.
@@ -173,7 +173,7 @@ function usPages(c: RegionLegalContext): RegionLegalPage[] {
 }
 
 function inPages(c: RegionLegalContext): RegionLegalPage[] {
-  const updated = `<p class="meta">Last updated ${REGION_LEGAL_UPDATED}. The Indian pages are in beta.</p>`;
+  const updated = `<p class="meta">Last updated ${REGION_LEGAL_UPDATED}.</p>`;
   return [
     {
       id: 'how-it-works',
@@ -181,8 +181,7 @@ function inPages(c: RegionLegalContext): RegionLegalPage[] {
       short: 'How It Works',
       body: `
       <p>PriceSniffs compares fragrance prices across ${c.coverage} Indian shops, in
-      rupees, so you can see what a bottle costs before you buy it. The Indian
-      pages are in beta: fewer shops than the UK site for now.</p>
+      rupees, so you can see what a bottle costs before you buy it.</p>
       <h2 class="t-section">Prices Are Checked Daily</h2>
       <p>We read each shop's own public listings once a day, and only where the
       shop allows it. No price is typed in by hand. Every listing says when we
@@ -274,8 +273,9 @@ function inPages(c: RegionLegalContext): RegionLegalPage[] {
       <p>Listing a shop is not an endorsement. We cannot guarantee the
       authenticity of goods anyone else sells.</p>
       <h2 class="t-section">Photographs</h2>
-      <p>The Indian pages show no shop's product photographs for now: a plain
-      marker stands in their place.</p>
+      <p>A product picture on the Indian pages is shown from the shop's own page,
+      or from the matching product on the UK site, and belongs to its owner.
+      Where none can be shown a plain marker stands in its place.</p>
       <h2 class="t-section">Our Content and the Law</h2>
       <p>The design, wording and data compilations belong to ${c.legalName}.
       Brand and product names belong to their owners and identify products only.
@@ -300,7 +300,7 @@ function inPages(c: RegionLegalContext): RegionLegalPage[] {
 }
 
 function caPages(c: RegionLegalContext): RegionLegalPage[] {
-  const updated = `<p class="meta">Last updated ${REGION_LEGAL_UPDATED_CA}. The Canadian pages are in beta and are being reviewed by a lawyer.</p>`;
+  const updated = `<p class="meta">Last updated ${REGION_LEGAL_UPDATED_CA}.</p>`;
   return [
     {
       id: 'how-it-works',
@@ -309,8 +309,7 @@ function caPages(c: RegionLegalContext): RegionLegalPage[] {
       body: `
       <p>PriceSniffs compares fragrance prices across ${c.coverage} Canadian shops, in
       Canadian dollars, so you can see what a bottle costs before you buy it. The
-      Canadian pages are in beta, in English only, with fewer shops than the UK
-      site for now.</p>
+      Canadian pages are in English only.</p>
       <h2 class="t-section">Prices Are Checked Daily</h2>
       <p>We read each shop's own public listings once a day, and only where the
       shop allows it. No price is typed in by hand. Every listing says when we

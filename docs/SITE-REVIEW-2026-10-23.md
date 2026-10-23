@@ -61,6 +61,11 @@ catalogue file (17 MB) at a 4x slowed CPU on this machine; neither moved
 beyond run to run noise. Search typing still costs one results render
 (about 1 s at 4x) when a pause in typing lets it run; making that render
 itself incremental is the next step.
+| US, India, Canada | "Beta" pill and line under the header, "(Beta)" in the country menu, "in beta" in the home page description, the About static text and the legal pages, "Not many deals yet in the beta." | All gone: the `beta` flag is out of `src/config/regions.ts`, the menu names each country plainly; a region with few deals says "Only a few deals so far." | step 5 |
+| Notes, all four | The regions' Notes pages carried no hreflang alternates while in beta | The four Notes pages and their group pages name each other (43 fixed pages with alternates per sitemap, was 26) | step 5 |
+| About, US, India, Canada | "It compares UK shops", "Established UK shops ... in pounds", and an affiliate card that is untrue there | The four cards in the country's terms: its shops and currency, shipping, its tax note, and "No US shop pays us anything today" | step 5 |
+| Footer, US, India, Canada | "Some links earn us a commission" where no shop pays anything | "No shop pays for its place in the results." | step 5 |
+| Legal, US and India | "The US pages show no shop's product photographs for now" (they do, from the shop or the matching UK product) | Says where a picture comes from, as Canada's does; "Last updated 23 October 2026" | step 5 |
 
 ## Copy changes
 
@@ -99,3 +104,15 @@ from is the file or pipeline that would carry the fix.
 | 12 | UK brands with no logo | 1,038 of 1,252 brands (214 have one) | Brands list and brand pages show initials | `demo/brandLogos.ts` |
 | 13 | Legal Notice: no postal address, no ICO registration decision | 2 facts | Legal Notice, "Who Runs This Site" | owner (docs/OWNER-STEPS.md) |
 | 14 | Two shop counts that disagree: the Legal Notice says prices come from "63 shops", About says "62 shops with current prices" | 1 | Legal Notice and About | the Legal Notice counts enabled shops, About counts shops with a current listing; one wording should say which |
+
+## Not done here, and why
+
+- Region product, brand and shop pages are still not prerendered, so the
+  region sitemaps list their 43 fixed pages only. The UK's 36,307 pages use
+  481 MB of the 700 MB deploy budget; the regions' 64,000 products at the
+  UK's 12 kB a page would not fit. Their 2,600 brand and 41 shop pages
+  (about 40 MB) would, and are the next step for Search Console
+  (`scripts/build-leaf-pages.ts` renders UK pages only today).
+- The guides are written for UK buyers and are shown unchanged on the region
+  sites.
+- The welcome pop up is left as it is (owner decision pending, AdSense).

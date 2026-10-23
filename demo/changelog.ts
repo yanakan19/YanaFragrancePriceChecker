@@ -49,16 +49,17 @@ export const CHANGELOG: ChangelogEntry[] = [
     version: 'v3.115.0',
     date: '23 Oct 2026',
     highlights: [
+      'US, India and Canada sites out of beta',
       'Most Popular row in every country',
       'Tidier home, tiles, footer and updates',
       'Three more Indian shops added',
       'Dillards added to the US site',
-      'Delivery terms for five more Canadian shops',
     ],
     groups: [
       {
-        heading: 'Design',
+        heading: 'New',
         points: [
+          'US, India and Canada sites out of beta',
           'Most Popular row in every country',
           'Tidier home, tiles, footer and updates',
         ],
