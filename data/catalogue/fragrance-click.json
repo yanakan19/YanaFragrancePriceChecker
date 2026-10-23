@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-10-22T23:37:53.325Z",
-  "seenAt": "2026-10-22T23:37:53.325Z",
+  "updatedAt": "2026-10-23T07:37:59.716Z",
+  "seenAt": "2026-10-23T07:37:59.716Z",
   "source": "live",
   "listings": [
     {
@@ -13051,28 +13051,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "3349668617067",
-      "url": "https://www.awin1.com/pclick.php?p=44089042247&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/paco-rabanne-1-million-royal-200ml-eau-de-parfum.html",
-      "rawTitle": "Paco Rabanne 1 Million Royal 200ml Eau de Parfum",
-      "rawBrand": "Paco Rabanne",
-      "ean": "3349668617067",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1164.jpg",
-      "priceGbp": 107.95,
-      "wasPriceGbp": 142,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "Paco Rabanne 1 Million Royal has built a reputation as a elegant eau de parfum that stands out in Paco's collection. An elegant fragrance that combines fresh floral notes with a warm, sophisticated base.From initial spray to dry down, this moves from Bergamot, Citrus through Jasmine, Rose, finally resting on Vanilla, Musk. The progression feels natural rather than abrupt.At 200ml, there's enough here to last through consistent wear without needing to restock every few weeks. The eau de parfum concentration means it projects well without being overwhelming in close quarters.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "3349668550654",
       "url": "https://www.awin1.com/pclick.php?p=46119126352&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/paco-rabanne-black-xs-100ml-eau-de-toilette.html",
@@ -19296,6 +19274,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3349668617067",
+      "url": "https://www.awin1.com/pclick.php?p=44089042247&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/paco-rabanne-1-million-royal-200ml-eau-de-parfum.html",
+      "rawTitle": "Paco Rabanne 1 Million Royal 200ml Eau de Parfum",
+      "rawBrand": "Paco Rabanne",
+      "ean": "3349668617067",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1164.jpg",
+      "priceGbp": 107.95,
+      "wasPriceGbp": 142,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "Paco Rabanne 1 Million Royal has built a reputation as a elegant eau de parfum that stands out in Paco's collection. An elegant fragrance that combines fresh floral notes with a warm, sophisticated base.From initial spray to dry down, this moves from Bergamot, Citrus through Jasmine, Rose, finally resting on Vanilla, Musk. The progression feels natural rather than abrupt.At 200ml, there's enough here to last through consistent wear without needing to restock every few weeks. The eau de parfum concentration means it projects well without being overwhelming in close quarters.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-10-22T23:37:53.325Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-23T07:37:59.716Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
