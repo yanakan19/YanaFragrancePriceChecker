@@ -122,7 +122,13 @@ export function audienceFreeKey(p: MatchableProduct): string | null {
 export function audienceFamilyKey(p: MatchableProduct): string | null {
   const { rest } = readAudienceName(p.name);
   if (!/[a-z0-9]/i.test(rest)) return null;
-  return matchKey({ ...p, name: rest, sizeMl: 0, concentration: '', ean: null });
+  // The product's own strength stays in while the key is made, because it is what takes a strength word out of the name
+  // ("Guidance 46 Extrait" is "Guidance 46" at Extrait de Parfum); the strength part of the key is blanked after, so the
+  // family still spans every strength. Blanking it first left "extrait" in the name, put "Guidance 46 Extrait Unisex" in a
+  // family of its own away from "Guidance 46 Woman", and a family with no gendered member read as "unisex only"
+  // (the UK data test failed on that pair from 22 Oct 2026).
+  const [brand, , , words = ''] = matchKey({ ...p, name: rest, sizeMl: 0, ean: null }).split('|');
+  return [brand, '0', '', words].join('|');
 }
 
 /**

@@ -73,6 +73,17 @@ describe('reading who a name is for', () => {
     expect(audienceFreeKey(edp)).not.toBe(audienceFreeKey({ ...edp, sizeMl: 50 }));
     expect(audienceFamilyKey(edp)).toBe(audienceFamilyKey({ ...edp, concentration: 'Eau de Toilette', sizeMl: 50 }));
   });
+
+  it('keeps one family when a shop writes the strength into the name (Guidance 46 beside Guidance 46 Extrait Unisex)', () => {
+    // 22 Oct 2026: "Extrait" was left in the family name, so "Guidance 46 Extrait Unisex" had a family of its own with no
+    // gendered member, and the data test read it as a unisex name beside the plain one although "Guidance 46 Woman" exists.
+    const fam = (name: string) => audienceFamilyKey(product({ id: name, name, brand: 'Amouage', concentration: 'Extrait de Parfum', sizeMl: 100 }));
+    expect(fam('Guidance 46 Extrait Unisex')).toBe(fam('Guidance 46'));
+    expect(fam('Guidance 46 Woman')).toBe(fam('Guidance 46'));
+    expect(fam('Guidance 46 Extrait Unisex')).not.toBe(fam('Guidance Capitolo III'));
+    const edp = product({ id: 'e', name: 'Hawas Eau de Parfum For Him', brand: 'Rasasi', concentration: 'Eau de Parfum' });
+    expect(audienceFamilyKey(edp)).toBe(audienceFamilyKey({ ...edp, name: 'Hawas', concentration: 'Eau de Toilette', sizeMl: 50 }));
+  });
 });
 
 describe('what is merged, and on what evidence', () => {
