@@ -74,3 +74,28 @@ itself incremental is the next step.
 | 404 | There is nothing at /x. It may be a fragrance or a shop we no longer list. Try one of these. | Nothing at /x. It may be a fragrance or shop we no longer list. |
 | Guides | Where do our prices come from? Read how we check prices. | Read how we check prices. For shops: how our bot works. |
 | Sign in | Forgot Your Password | Forgot Password |
+
+## Missing information
+
+Counted on 23 Oct 2026 from the built site (UK: `demo/data.ts`, the
+registry in `src/config/retailers.ts`; US, India, Canada:
+`data/regions/<r>/catalogue.json` and `src/config/regionShops.ts`), ranked by
+how visible the gap is. For a research agent to fill next; where it comes
+from is the file or pipeline that would carry the fix.
+
+| Rank | What is missing | Count | Where a visitor sees it | Where it comes from |
+| --- | --- | --- | --- | --- |
+| 1 | US, India and Canada shops with no standard delivery cost on record, so their tiles say "Shipping Not Stated" and they are never ranked cheapest | US 16 of 21 shops with listings, India 7 of 10, Canada 10 of 10 | Every tile and offer row of those shops; the Canada home's Most Stocked row shows the note on four of six tiles | `delivery` in `src/config/retailers.us.ts`, `retailers.in.ts`, `retailers.ca.ts` (the beta agent's files) |
+| 2 | Region shops with no delivery window | US 18 of 21, India 10 of 10, Canada 6 of 10 | Shop pages ("Arrives in about ...") | same files, `delivery.estimatedDays` |
+| 3 | Region shops with no logo (initials shown) | US 16 of 21 (Perfumania, Luckyscent, Twisted Lily, Indigo Perfumery, Bluemercury, Maison Louis Marie, Sol de Janeiro, Beauty Encounter, Fragrance Outlet, Fragrance Market, MicroPerfumes, Parfums Raffy, La Belle Perfumes, Ulta Beauty, The Perfume Spot, Dillard's); India 5 of 10 (Nykaa, FridayCharm, AAR Fragrances, Naso Profumi, The Man Company); Canada 4 of 10 (PerfumeOnline.ca, Fragrance Online Co., Niche Essence, Perfume Plus) | Shops list, shop pages, offer rows | `logo` / `squareLogo` in the region registries; `scripts/logo-probe.ts` |
+| 4 | Region products with no photo at all | US 83 (0.4%), India 628 (4.1%, all AAR Fragrances), Canada 1,144 (4.3%, mostly Maximum Fragrance) | Tiles and product pages show the empty well | docs/BETA-SCORECARD-2026-10-23.md section on photos; the shop readers' `imageUrl` |
+| 5 | No review counts from any US, Indian or Canadian shop | all three countries | The Most Popular row ranks by how many shops stock a bottle there, not by reviews (labelled) | the region readers keep `rating: null` (`scripts/regionSite.ts`); a shop's JSON-LD `aggregateRating` would give it |
+| 6 | UK products with no notes | 19,860 of 34,270 listed (58%); none of the top 100 | Product pages have no notes block; note pages and filters miss them | the shops' own descriptions (`src/catalogue`), Fragrantica pages once linked |
+| 7 | UK products with no Fragrantica page of their own (the link opens a search) | 33,151 of 34,270 (only 1,119 have a checked page) | "Search Fragrantica" on product pages | `data/fragrance-links.json` (`npm run links:resolve`) |
+| 8 | UK products with no link to the brand's own page | 9,983 of 34,270 (24,287 have one) | No "Official Site" link | `demo/brandSites.ts`, `data/fragrance-links.json` |
+| 9 | UK products with no photo | 983 of 34,270 (2.9%); none of the top 100 | Empty well on tiles and product pages; some shops send a "No image available" picture of their own (Niche Beauty UK), which shows as if it were a photo | `npm run photos:coverage`, `scripts/better-photos.ts` |
+| 10 | UK shops with no standard delivery cost | 5 of 62 (Niche Beauty UK, Space NK, Opulensi, The Perfume Closet, Sainte Cellier) | "Delivery Not Stated" on their prices | `shipping` in `src/config/retailers.ts`; `npm run shipping:discover` |
+| 11 | UK shops with no logo | 8 of 62 (Beauty Pie, PerfumeUK, Liberty London, Rasasi UK Store, Glossier UK, Beauté Boulevard, Roullier White, Scented) | Shops list and shop pages show initials | `logo` in `src/config/retailers.ts`; `scripts/logo-probe.ts` |
+| 12 | UK brands with no logo | 1,038 of 1,252 brands (214 have one) | Brands list and brand pages show initials | `demo/brandLogos.ts` |
+| 13 | Legal Notice: no postal address, no ICO registration decision | 2 facts | Legal Notice, "Who Runs This Site" | owner (docs/OWNER-STEPS.md) |
+| 14 | Two shop counts that disagree: the Legal Notice says prices come from "63 shops", About says "62 shops with current prices" | 1 | Legal Notice and About | the Legal Notice counts enabled shops, About counts shops with a current listing; one wording should say which |
