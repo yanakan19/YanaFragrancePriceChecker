@@ -121,7 +121,7 @@ describe('price per ml', () => {
 
   it('is offered on Oils only, with both ends named, and the size sorts beside it', () => {
     const labels = OIL_SORT_OPTIONS.map((o) => o.label);
-    expect(labels).toContain('Lowest to Highest Per Ml');
+    expect(labels).toContain('Lowest to Highest per ml');
     expect(labels).toContain('Smallest to Largest Size');
     expect(labels).toContain('Largest to Smallest Size');
     tabs.reset('sets');

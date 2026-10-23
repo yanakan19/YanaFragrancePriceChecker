@@ -1722,7 +1722,7 @@ function homeView(): string {
            listed on that page and in the footer; the home page no longer
            lists them. In a region the link keeps the region's prefix. -->
       <section class="guides-section" aria-label="Guides and methods">
-        <a class="guides-btn" href="${regionPath(activeRegion(), GUIDES_PATH)}" data-goto="guides">Read our Guides and Methods <span aria-hidden="true">→</span></a>
+        <a class="guides-btn" href="${regionPath(activeRegion(), GUIDES_PATH)}" data-goto="guides">Guides and how we check prices <span aria-hidden="true">→</span></a>
       </section>
       <section class="updates-section">
         <h2 class="t-section">Update History</h2>
@@ -3804,7 +3804,7 @@ function brandView(): string {
           site
             ? `<a class="brand-site-link" href="${esc(site.url)}" target="_blank" rel="noopener nofollow">
                  <span class="control-ico">${ICON_EXTERNAL}</span>
-                 <span>Open Brand Website</span>
+                 <span>Brand Website</span>
                  <span class="brand-site-flag ${site.uk ? 'is-uk' : 'is-nonuk'}">${site.uk ? 'UK Site' : 'Overseas Site'}</span>
                </a>`
             : `<p class="org-hero-domain dimmer t-caption">Official site not yet confirmed</p>`

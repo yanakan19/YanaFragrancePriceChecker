@@ -58,7 +58,7 @@ export const GUIDES: readonly GuideInfo[] = [
   },
   {
     slug: 'compare-perfume-prices-per-ml',
-    title: 'Comparing Perfume Prices Per Ml',
+    title: 'Comparing Perfume Prices per ml',
     description:
       'A bigger bottle is not always the better buy. The one sum that compares any two sizes fairly, and why delivery can change the answer on small orders.',
     summary: 'The one sum that shows which size is the better buy.',

@@ -28,6 +28,13 @@ home pages to one structure.
 | Settings | "Use System Setting" wrapped on two lines at 390 | "System" | step 1 |
 | Footer, every page | Two left aligned rows of eight links, a long commission line | One centred row: About, How it works, Contact, Legal; "Some links earn us a commission. It never changes the order." | step 1 |
 | About | Link row mixed underlined links and plain buttons | One style; Design System moved here from the footer | step 1 |
+| Home | "Read our Guides and Methods" in a rounded bordered box with an arrow | A quiet text link, "Guides and how we check prices", underlined on hover | step 2 |
+| Product, brand and shop pages | Official Site, Fragrantica, Open Brand Website and Reviews on Trustpilot as bordered pills | Plain links with their external icon; "Brand Website" | step 2 |
+| Product page | RRP and Cheapest Price in red and green bordered boxes | The same two tinted panels without the border | step 2 |
+| About | The opening text, six numbers and four cards each in a bordered box | Text and numbers on the page, numbers split by hairlines, cards as plain columns | step 2 |
+| Legal Notice | Contents as six bordered pills | A row of text links | step 2 |
+| Guides | Every guide a bordered card that lifted on hover | A list: title link and line, hairline between | step 2 |
+| Guides, oils sort | "Prices Per Ml", "Lowest to Highest Per Ml" | "per ml" | step 2 |
 
 ## Copy changes
 

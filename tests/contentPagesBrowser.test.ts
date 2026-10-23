@@ -125,7 +125,7 @@ describe.skipIf(!built)('guides and the price checking page on the built site', 
     // (owner request, 9 Oct 2026). The guides and the method page are one step on.
     expect(await page.$$eval('.guides-section .guide-card', (els) => els.length)).toBe(0);
     expect(await page.$$eval('.guides-section a', (els) => els.map((e) => [e.getAttribute('href'), e.textContent?.replace(/\s+/g, ' ').trim()]))).toEqual([
-      [GUIDES_PATH, 'Read our Guides and Methods →'],
+      [GUIDES_PATH, 'Guides and how we check prices →'],
     ]);
     await page.click('.guides-section a.guides-btn');
     await page.waitForFunction((p) => location.pathname === p, GUIDES_PATH);

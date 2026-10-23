@@ -102,7 +102,7 @@ export const OIL_SORT_OPTIONS: SortOption<TabSort>[] = [
   { value: 'price-high', label: 'Highest to Lowest Price' },
   { value: 'size-low', label: 'Smallest to Largest Size' },
   { value: 'size-high', label: 'Largest to Smallest Size' },
-  { value: 'ml-low', label: 'Lowest to Highest Per Ml' },
+  { value: 'ml-low', label: 'Lowest to Highest per ml' },
 ];
 
 /**

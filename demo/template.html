@@ -1845,18 +1845,19 @@
      sort/filter controls (.control) above, so it reads as one more control
      rather than a plain text link — but a fixed destination rather than a
      dropdown, so its own class rather than a literal reuse of .control. */
+  /* A plain link since 23 Oct 2026 (owner: fewer boxes): the icon says it
+     leaves the site, the underline comes on hover. */
   .brand-site-link {
-    display: inline-flex; align-items: center; gap: 7px; margin-top: 10px;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-    padding: 8px 13px 8px 10px; text-decoration: none;
-    font: inherit; font-size: 13px; font-weight: 600; color: var(--ink);
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 10px;
+    background: none; border: 0; border-radius: 4px;
+    min-height: 32px; padding: 0 2px; text-decoration: none;
+    font: inherit; font-size: 13.5px; font-weight: 600; color: var(--accent-ink);
     transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
   }
   .brand-site-link .control-ico { transition: color var(--dur-fast) var(--ease-out); }
   .brand-site-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {
-    .brand-site-link:hover { border-color: var(--accent); color: var(--accent); }
-    .brand-site-link:hover .control-ico { color: var(--accent); }
+    .brand-site-link:hover { text-decoration: underline; text-underline-offset: 3px; }
   }
 
   /* Official Site + Fragrantica, under a fragrance's own title block. Same
@@ -1870,7 +1871,7 @@
      deliberate line, where a single left-aligned one would read as a
      leftover. */
   .frag-links-row {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px;
     justify-content: center;
   }
   .frag-links-row .brand-site-link { margin-top: 10px; }
@@ -2427,7 +2428,7 @@
   .price-box {
     flex: 1 1 0; min-width: 0; max-width: 280px;
     padding: 16px 8px 17px;
-    border-radius: 16px; border: 1px solid var(--accent);
+    border-radius: 14px; border: 1px solid transparent;
     background: var(--accent-sf);
   }
   .price-box-label { margin: 0; color: var(--accent-ink); }
@@ -2440,7 +2441,7 @@
      the palette block at the top of this file. Red stays on the left box
      because red here is the brand accent and never means "bad" — the note at
      the top of this file. */
-  .price-box--best { border-color: var(--ok); background: var(--ok-sf); }
+  .price-box--best { background: var(--ok-sf); }
   .price-box--best .price-box-label,
   .price-box--best .price-box-amount { color: var(--ok); }
   /* `.price-box-caveat` lived here until 2026-08-26: the "too close to call"
@@ -3631,35 +3632,31 @@
      other document keeps does not apply to it); on a phone it stacks. */
   :root[data-layout="desktop"] .doc.about-doc { max-width: none; }
   .about-hero { display: grid; gap: 12px; margin: 0 0 6px; }
-  .about-why {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-    padding: 16px 16px 4px; min-width: 0;
-  }
+  /* No boxes on About (owner, 23 Oct 2026): text, numbers and short columns on the page itself. */
+  .about-why { padding: 4px 0 0; min-width: 0; }
   .doc .about-why h2 { margin: 0 0 8px; }
   .doc .about-why p { font-size: 17px; line-height: 1.5; color: var(--ink); margin: 0 0 12px; }
   .about-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; }
   .about-stat {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-    padding: 10px 10px 12px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; min-width: 0;
+    border-top: 1px solid var(--line);
+    padding: 10px 0 8px; display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 2px; min-width: 0;
   }
   .about-stat dd { margin: 0; font-size: 22px; font-weight: 750; letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
   .about-stat dt { color: var(--ink-2); line-height: 1.3; }
   @media (max-width: 400px) { .about-stat dd { font-size: 18px; } }
   /* Text on the left, the three numbers stacked on the right. */
   :root[data-layout="desktop"] .about-hero { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; }
-  :root[data-layout="desktop"] .about-why { padding: 24px 28px 12px; }
+  :root[data-layout="desktop"] .about-why { padding: 8px 24px 0 0; }
   :root[data-layout="desktop"] .doc .about-why p { font-size: 24px; line-height: 1.4; letter-spacing: -.01em; max-width: 34em; }
-  :root[data-layout="desktop"] .about-stats { grid-template-columns: minmax(0, 1fr); grid-auto-rows: 1fr; }
-  :root[data-layout="desktop"] .about-stat { padding: 14px 18px; flex-direction: row-reverse; align-items: baseline; justify-content: flex-end; gap: 12px; }
+  :root[data-layout="desktop"] .about-stats { grid-template-columns: minmax(0, 1fr); align-content: start; }
+  :root[data-layout="desktop"] .about-stat { padding: 12px 0; flex-direction: row-reverse; align-items: baseline; justify-content: flex-end; gap: 12px; }
   :root[data-layout="desktop"] .about-stat dd { font-size: 28px; }
   :root[data-layout="desktop"] .about-stat dt { font-size: 14px; }
   .doc ul.about-cards {
     list-style: none; padding: 0; margin: 0 0 8px;
     display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 10px;
   }
-  .doc .about-card {
-    margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px;
-  }
+  .doc .about-card { margin: 0; padding: 4px 0; }
   .about-card-title { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--ink); }
   .doc .about-card p { margin: 0; font-size: 13.5px; }
   .about-more { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 0; }
@@ -3674,13 +3671,12 @@
   .about-foot .foot-legal { margin-top: 0; }
 
   /* ── Legal Notice (2026-10-06): the legal pages as sections of one page ── */
-  .notice-toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0; }
+  .notice-toc { display: flex; flex-wrap: wrap; gap: 0 20px; margin: 14px 0 0; }
   .doc a.notice-toc-link {
-    display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; box-sizing: border-box;
-    border: 1px solid var(--line); border-radius: 999px; background: var(--surface);
-    color: var(--ink); font-size: 13.5px; font-weight: 600; text-decoration: none;
+    display: inline-flex; align-items: center; min-height: 36px; box-sizing: border-box;
+    color: var(--accent-ink); font-size: 14px; font-weight: 600; text-decoration: none;
   }
-  .doc a.notice-toc-link:hover { border-color: var(--line-firm); }
+  .doc a.notice-toc-link:hover { text-decoration: underline; text-underline-offset: 3px; }
   .doc a.notice-toc-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .notice-section {
     margin-top: 36px; padding-top: 6px; border-top: 1px solid var(--line);
@@ -3704,36 +3700,33 @@
   .doc .content-more li { margin: 0; }
   .doc .content-more a { display: inline-flex; align-items: center; min-height: 44px; }
   .doc ul.guide-cards, ul.guide-cards--home {
-    list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 10px;
+    list-style: none; padding: 0; margin: 16px 0; display: grid; gap: 4px;
   }
-  .guide-card { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px 14px 12px; }
+  /* A plain list since 23 Oct 2026 (owner: fewer boxes): each guide's title
+     is the link, its line under it, a hairline between them. */
+  .guide-card { margin: 0; padding: 2px 0 12px; border-bottom: 1px solid var(--line); position: relative; }
   .doc .guide-card-title { font: 700 16px/1.3 var(--font-sans); margin: 0; }
-  .doc .guide-card-title a { display: flex; align-items: center; min-height: 44px; padding: 8px 0 4px; box-sizing: border-box; color: var(--ink); }
-  .doc .guide-card p { margin: 0; }
-  /* The whole card is the link, so it lifts like a tile. */
-  .guide-card { position: relative; transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
-  .doc .guide-card-title a::after { content: ''; position: absolute; inset: 0; border-radius: 12px; }
+  .doc .guide-card-title a { display: flex; align-items: center; min-height: 44px; padding: 8px 0 4px; box-sizing: border-box; color: var(--ink); text-decoration: none; }
+  .doc .guide-card-title a::after { content: ''; position: absolute; inset: 0; }
   .doc .guide-card-title a:focus-visible { outline: none; }
-  .guide-card:has(a:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; transform: translateY(-2px); border-color: var(--line-firm); }
+  .guide-card:has(a:focus-visible) { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
   @media (hover: hover) and (pointer: fine) {
-    .guide-card:hover { transform: translateY(-2px); border-color: var(--line-firm); box-shadow: var(--shadow-lift); }
+    .guide-card:hover .guide-card-title a { color: var(--accent-ink); text-decoration: underline; text-underline-offset: 3px; }
   }
+  .doc .guide-card p { margin: 0; }
   /* A guide's words arrive after its heading (a lazy file) and fade up. */
   .content-body { animation: ps-fade var(--dur) var(--ease-out) backwards; }
   /* Home: one slim secondary button to the guides index (owner request,
      9 Oct 2026). Secondary rank (surface-2, firm edge), one line from 320 up. */
-  .bottom-split .guides-section { margin-bottom: 32px; }
+  .bottom-split .guides-section { margin-bottom: 16px; }
+  /* A quiet section link since 23 Oct 2026 (owner: the rounded box with an
+     arrow looked generic): accent text, underlined on hover. */
   .guides-btn {
-    display: flex; align-items: center; justify-content: center; gap: 6px;
-    min-height: 44px; padding: 8px 14px; box-sizing: border-box; width: 100%;
-    background: var(--surface-2); border: 1px solid var(--line-firm); border-radius: 12px;
-    color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap;
-    transition: transform var(--dur-1) var(--ease-standard), background-color var(--dur-2) var(--ease-standard),
-                border-color var(--dur-2) var(--ease-standard);
+    display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+    color: var(--accent-ink); font-size: 14.5px; font-weight: 600; text-decoration: none;
   }
-  .guides-btn:active { transform: scale(.985); transition-timing-function: var(--ease-exit); }
-  .guides-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  @media (min-width: 640px) { .guides-btn { width: auto; display: inline-flex; padding-inline: 22px; } }
+  .guides-btn:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .guides-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 
   /* Account page: the change-password fold and the sign out / delete row. */
   .account-more { margin: 4px 0 18px; }
