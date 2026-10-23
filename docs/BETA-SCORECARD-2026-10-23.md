@@ -264,3 +264,93 @@ Ulta, Perfume Spot and Luckyscent, (2) affiliate feeds (owner), (3) Luckyscent s
 
 Measurement scripts are not committed (scratchpad only); they call `readRegionInputs`, `regionProducts`,
 `duplicateKey` and `strengthBlindKey` and are reproducible from the lines above.
+
+## Outcome 23 to 24 Oct
+
+Work done on 23 Oct 2026 against the fix lists above, one task at a time, each pushed with its Deploy green. Re-measured the same
+way as the scorecard (`readRegionInputs` and the region catalogue build over the committed region data, UK photos by the region
+build's own match; the same script reproduces the scorecard's US, India and Canada figures to within a product). Canada is measured on the
+23 Oct 12:07 UTC crawl, **the US on the 23 Oct 12:54 UTC crawl (its first with Dillard's, the longer budgets and Luckyscent's strengths; green, 57 minutes)**.
+**India is still the 22 Oct 23:27 UTC crawl: the 20:22 UTC run had not started when this was written, so none of the India changes is in its numbers**;
+re-measure India on 24 Oct and the others on 26 Oct. Where a delivery or logo count moved after my own work, another session's commit of 19:36 UTC
+(delivery terms for five shops, a Dillard's logo) is in the count and is named so.
+
+| | US `/us/` | India `/in/` | Canada `/ca/` |
+| --- | --- | --- | --- |
+| 2+ independent shops (bar 25%) | **13.8%** (3,071 of 22,259), was 13.1% | 16.6% (2,554 of 15,341), not yet re-crawled | **23.7%** (6,303 of 26,603), was 23.9% |
+| 3+ independent shops | 718, was 568 | 728, not yet re-crawled | 2,212 (was 2,177) |
+| "Not stated" strength (bar 5%) | **4.2%** (932), was 8.1% | 4.6% (703), not yet re-crawled | **17.1%** (4,554), was 31.1% |
+| Names with a trailing "(M)", "(W)", "(U)" | 1 | 1 | **19** (was 4,571), the tag stays only where it tells two bottles apart |
+| Products with no photo | 0.4% (82), was 83 | 4.1% (627 of 628, not yet re-crawled) | 4.1% (1,099), was 4.3% |
+| Delivery terms confirmed (shops with listings) | 9 of 21, was 8 of 20 (Dillard's is now priced and unread; the other session's delivery commit is in this count) | 5 of 10, was 3 of 10 (from the other session's delivery commit, not from my work) | **8 of 10**, was 3 of 10 |
+| Shop logos (shops with listings) | 6 of 21, was 5 of 20 (Dillard's, the other session) | 5 of 10, unchanged | **6 of 10**, was 0 of 10 |
+| Shops with prices | 21 (Dillard's added) | 10 | 10 |
+
+What the US crawl did: Dillard's 1,252 listings kept (one per size, 1,000 pages read in 40 minutes), Luckyscent 2,339 kept (866 before; 2,101
+seconds, 1,168 pages), Ulta 924 (703), The Perfume Spot 540 (262). The US stayed far from the quarter, as the scorecard said: the sister shops
+and the big discounters are what is missing.
+
+**Estimate for India (a harvest of the three new shops alone, read and discarded, not committed):** Scentido, Maison des Parfums and Scentira
+took the region from 15,340 to 18,266 products and from 16.5% to 17.8% at two or more shops; Nykaa and AAR now run 55 minutes instead of 40 and
+AAR's pages carry their `og:image`, so the 628 products without a photo fill over the next runs.
+
+### Task 1, Canada
+
+- **The scheduled crawl did fire.** GitHub started the 05:27 UTC tick at 10:22 UTC (run 39938628435, green), five hours late; the scorecard
+  was written at 08:30, before it. Nothing in the workflow was wrong (active, cron valid, no guard skip). One extra manual run on 23 Oct
+  12:04 UTC after the fixes, green.
+- **Strength from the product type** (`strengthFromProductType`, `strengthOfShopType`): on for Maximum Fragrance and Parfum Exquis.
+  **Not on for H Parfums**: its type is "Parfum" on 712 of 714 products, a category (it sits on "Rouge Smoking Extrait" and on products whose
+  page says eau de parfum), so reading it as a strength would have labelled the whole shop wrongly. Eau de Cologne stays its own strength;
+  a bare "Cologne" or "Perfume & Cologne" type is a category. "Not stated" fell from 31.1% to 17.1%. **Honest cost: the share at two or
+  more shops fell 0.2 points (23.9% to 23.7%)**, because 135 bottles that used to meet through "Not stated" now carry a strength that the
+  shops state differently (Maximum Fragrance's type against another shop's title); the bar of 25% is still about 340 products away.
+- **Audience tags** (`stripAudienceTags`): a closing "(M)", "(W)", "(U)", "(Men)", "(Women)", "(Unisex)" is taken off the display name unless
+  another product of the same brand, strength and size has the same name without it (then the tag is what tells them apart and stays).
+  The match name already ignored the tag, so this changes what is shown, not which shops meet. The region data has no audience field.
+- **Delivery**: five shops read from their own policy pages (Perfume Online, Fragrance Canada, Fragrance Online Co, Parfum Exquis,
+  Niche Essence), sentences quoted. Perfume Factory (an empty shipping policy) and Perfume Plus (a script drawn page) stay unverified.
+- **Logos**: six shops (Discount Fragrances, Fragrance Canada, Maximum Fragrance, Perfume Factory, H Parfums, Parfum Exquis); four stay on
+  initials with a reason each (`docs/LOGOS-PLAN.md` section 11). The test that refused a logo address containing "google" now judges the host and
+  folder, because Parfum Exquis names its own file `for_google2.png`.
+
+### Task 2, India
+
+- Nykaa and AAR Fragrances: 40 to 55 minutes each at the same 2 second gap, 1,400 new pages a run; the India crawl's harvest limit is 64
+  minutes in a 90 minute job (70 minute step). `tests/regionHarvest.test.ts` now holds the margins for the US and India workflows.
+- AAR: `readOgProductPage` keeps `og:image` (https only), and a stored listing with no picture is read once more after the due pages.
+- Perfume Network: the 503 was the shop's, on its last page (a request from here a few minutes later answered 200). The shared Shopify walk
+  now asks a failing page four times in all (waits of 15, 45 and 90 seconds, longer where `Retry-After` asks, up to 120 seconds), then leaves
+  that page out and reads the rest, and a second failing page ends the walk; a walk with a page left out is not marked complete.
+- Research round: found by search and read as PriceSniffsBot (robots.txt first): Scentido, Maison des Parfums (mdpindia.com), Scentira added
+  (Shopify, INR, robots allow `/products.json`). Passed over: Belvish (every product carries the vendor "Belvish", no house), Perfumers Club (one
+  house, 46 products), Perfume Hut and Karat Bros (not Shopify, no product data), Perfumery.co.in (own blends), Perfume Culture and Splash
+  Fragrance (the connection was refused at the TLS handshake from here; not worked around).
+
+### Task 3, US
+
+- **Dillard's** is on: robots.txt allows `/p/` and the sitemap; each page lists every size as an offer of one AggregateOffer with the size only in
+  the offer's checkout address, now read per size (`offersFromAggregate`). A dry run read 8 pages into 9 listings in 22 seconds. Its shipping
+  page is script drawn and stays unread.
+- Ulta 40 to 55 minutes, The Perfume Spot 12 to 25, Luckyscent 12 to 35, same gaps; US harvest limit 64 minutes in a 90 minute job.
+- **Luckyscent strengths**: its pages print "Concentration" beside "Extrait" (or Eau de Parfum and so on) in the product facts, not in the
+  structured data; read off the page the walk fetches anyway (`strengthFromPageField`), put into a title that states none.
+
+### Task 4, UK red runs
+
+- The runs that failed (#1664, #1673, #1683, #1692, #1700, the full crawls, three to four hours apart) failed in the data tests, not in a crawl step.
+  #1664 had four failing files (`fragranceLinks`, `fragranticaGender`, `fragranticaLinkData`, `sameFragranceNames`: the new products of that night
+  before their link data); from #1683 on only `sameFragranceNames` stayed red: "Amouage | Guidance 46 Extrait Unisex | Guidance 46".
+- Root cause in `audienceFamilyKey` (`src/catalogue/audienceNames.ts`): the strength was blanked before the name was cut, so a name carrying
+  the strength word ("Extrait") fell into a family of its own, away from the gendered sibling "Guidance 46 Woman"; the family then read as
+  unisex only and the guard saw an unmerged pair. The key now keeps the strength while it cuts the name and blanks it after. Replayed the
+  catalogue with and without the change: the build record and every memory file are identical, so no generated file needed to be committed. The guard
+  itself is untouched. Rule test added in `tests/sameFragranceNames.test.ts`.
+- **A second red cause, found by the check**: the first full crawl after the fix (#1700, 23 Oct 15:05 UTC) failed in a different file,
+  `tests/contentPages.test.ts`: another session's site review had retitled a guide "Comparing Perfume Prices per ml" (lower case unit, on purpose,
+  commit 53b47e0c) and the Title Case check had no place for "per" or a unit symbol. The check now lets `per` and `ml`, `cl`, `oz`, `g`, `kg` stay
+  lower case and still catches any other lower case word (rule test in the same file); the heading was left as written.
+- **Green**: the next full crawl, #1711 (started 19:15 UTC, all of guard, prepare, houses, both sweeps and crawl succeeded, 20:39 UTC). Runs #1664, #1673,
+  #1683, #1692 and #1700 were the red full ones, each failing in the `crawl` job after the data had been committed; the guard only runs in between
+  were green throughout. Only the logs of #1664, #1683 and #1700 were read; #1673 and #1692 were not read one by one.
+- The `Tests` workflow was red on three of my pushes at "Install Chromium for the browser tests" (the Ubuntu apt mirror was too slow; the step timed out at 10 minutes), not at a test; the run on the later push is separate.
