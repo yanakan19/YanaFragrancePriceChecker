@@ -72,7 +72,10 @@ const NOT_OUR_TONE: readonly RegExp[] = [
 ];
 
 /** Words a Title Case heading keeps in lower case, unless one starts the heading. */
-const SMALL_WORDS = new Set(['a', 'an', 'and', 'as', 'at', 'by', 'for', 'in', 'of', 'on', 'or', 'the', 'to', 'vs']);
+const SMALL_WORDS = new Set(['a', 'an', 'and', 'as', 'at', 'by', 'for', 'in', 'of', 'on', 'or', 'per', 'the', 'to', 'vs']);
+
+/** A unit symbol is written in lower case in a Title Case heading ("Comparing Perfume Prices per ml", site review 23 Oct 2026). */
+const UNIT_SYMBOLS = new Set(['ml', 'cl', 'oz', 'g', 'kg']);
 
 /** The words of a heading that break Title Case: a lower case word that is not a small word, or a small word capitalised mid heading. */
 function titleCaseSlips(heading: string): string[] {
@@ -81,10 +84,20 @@ function titleCaseSlips(heading: string): string[] {
     .map((w) => w.replace(/[,.:?]$/, ''))
     .filter((w, i) => {
       if (!/^[a-z]/i.test(w)) return false;
-      if (/^[a-z]/.test(w)) return !SMALL_WORDS.has(w);
+      if (/^[a-z]/.test(w)) return !SMALL_WORDS.has(w) && !UNIT_SYMBOLS.has(w);
       return i > 0 && SMALL_WORDS.has(w.toLowerCase());
     });
 }
+
+describe('the Title Case check itself', () => {
+  it('lets "per" and a unit symbol stay in lower case, and still catches any other lower case word', () => {
+    expect(titleCaseSlips('Comparing Perfume Prices per ml')).toEqual([]);
+    expect(titleCaseSlips('Lowest to Highest per ml')).toEqual([]);
+    expect(titleCaseSlips('Comparing perfume Prices per ml')).toEqual(['perfume']);
+    expect(titleCaseSlips('Prices Per ml')).toEqual(['Per']);
+    expect(titleCaseSlips('How We Compare prices')).toEqual(['prices']);
+  });
+});
 
 /** Whether a text names this, as a whole name: "Boots" but not "boots" inside a word. */
 function names(text: string, name: string): boolean {
