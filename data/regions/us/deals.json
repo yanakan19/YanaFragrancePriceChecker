@@ -2,10 +2,10 @@
  "region": "US",
  "currency": "USD",
  "referencePriceName": "MSRP",
- "builtAt": "2026-10-22T13:57:16.623Z",
+ "builtAt": "2026-10-23T13:51:33.485Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 23552,
- "offersWithCorroboratedReference": 11429,
+ "listingsWithReference": 23548,
+ "offersWithCorroboratedReference": 11508,
  "deals": [
   {
    "fragranceId": "fragrance-market-1000011493",
@@ -292,16 +292,6 @@
    "price": 8.99,
    "delivered": false,
    "wasPrice": 39,
-   "percentOff": 76,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-111731153",
-   "price": 14.45,
-   "delivered": false,
-   "wasPrice": 62,
    "percentOff": 76,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -728,6 +718,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-1497168",
+   "price": 37.45,
+   "delivered": false,
+   "wasPrice": 144,
+   "percentOff": 73,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0088300106752",
    "price": 33.9,
    "delivered": false,
@@ -744,6 +744,16 @@
    "wasPrice": 100,
    "percentOff": 73,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3252550812573",
+   "price": 28.9,
+   "delivered": false,
+   "wasPrice": 109,
+   "percentOff": 73,
+   "retailerId": "beauty-encounter",
    "kind": "retailer",
    "houseName": null
   },
@@ -944,16 +954,6 @@
    "wasPrice": 105,
    "percentOff": 73,
    "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-111081058",
-   "price": 37.45,
-   "delivered": false,
-   "wasPrice": 144,
-   "percentOff": 73,
-   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -1498,16 +1498,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "beauty-encounter-m10211",
-   "price": 27,
-   "delivered": false,
-   "wasPrice": 91,
-   "percentOff": 70,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "beauty-encounter-m10521",
    "price": 38.8,
    "delivered": false,
@@ -1518,7 +1508,17 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-2071405295",
+   "fragranceId": "dillards-1071258",
+   "price": 29.9,
+   "delivered": false,
+   "wasPrice": 100,
+   "percentOff": 70,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0020714052959",
    "price": 25,
    "delivered": false,
    "wasPrice": 85,
@@ -1718,16 +1718,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-111081157",
-   "price": 29.9,
-   "delivered": false,
-   "wasPrice": 100,
-   "percentOff": 70,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-111090057",
    "price": 24.9,
    "delivered": false,
@@ -1874,16 +1864,6 @@
    "wasPrice": 55,
    "percentOff": 70,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "la-belle-perfumes-hap34sw",
-   "price": 31.9,
-   "delivered": false,
-   "wasPrice": 108,
-   "percentOff": 70,
-   "retailerId": "beauty-encounter",
    "kind": "retailer",
    "houseName": null
   },
@@ -2188,16 +2168,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-hap17spw",
-   "price": 25.9,
-   "delivered": false,
-   "wasPrice": 85,
-   "percentOff": 69,
-   "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0020714881429",
    "price": 33.9,
    "delivered": false,
@@ -2382,16 +2352,6 @@
    "price": 34.9,
    "delivered": false,
    "wasPrice": 110,
-   "percentOff": 68,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-212178155",
-   "price": 24.95,
-   "delivered": false,
-   "wasPrice": 80,
    "percentOff": 68,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -2678,22 +2638,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0608940566947",
-   "price": 21.9,
+   "fragranceId": "dillards-6189941",
+   "price": 46.9,
    "delivered": false,
-   "wasPrice": 65,
+   "wasPrice": 140,
    "percentOff": 66,
    "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "ean-3252550812573",
-   "price": 35,
+   "fragranceId": "ean-0608940566947",
+   "price": 21.9,
    "delivered": false,
-   "wasPrice": 105,
+   "wasPrice": 65,
    "percentOff": 66,
-   "retailerId": "la-belle-perfumes",
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -2842,16 +2802,6 @@
    "price": 24.95,
    "delivered": false,
    "wasPrice": 75,
-   "percentOff": 66,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013402",
-   "price": 46.9,
-   "delivered": false,
-   "wasPrice": 140,
    "percentOff": 66,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -3038,7 +2988,7 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-2071415689",
+   "fragranceId": "ean-0020714156893",
    "price": 34.95,
    "delivered": false,
    "wasPrice": 100,
@@ -3728,12 +3678,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "beauty-encounter-givhom34m",
-   "price": 44,
+   "fragranceId": "dillards-2201158",
+   "price": 43.8,
    "delivered": false,
-   "wasPrice": 120,
+   "wasPrice": 119,
    "percentOff": 63,
-   "retailerId": "la-belle-perfumes",
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -3958,16 +3908,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-111070167",
-   "price": 43.8,
-   "delivered": false,
-   "wasPrice": 119,
-   "percentOff": 63,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-111071152",
    "price": 28.8,
    "delivered": false,
@@ -4104,6 +4044,16 @@
    "wasPrice": 160,
    "percentOff": 62,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8819621",
+   "price": 56,
+   "delivered": false,
+   "wasPrice": 150,
+   "percentOff": 62,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -4258,16 +4208,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101048063",
-   "price": 56,
-   "delivered": false,
-   "wasPrice": 150,
-   "percentOff": 62,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-111070153",
    "price": 34.8,
    "delivered": false,
@@ -4353,6 +4293,26 @@
    "delivered": false,
    "wasPrice": 40,
    "percentOff": 62,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-6877523",
+   "price": 61.9,
+   "delivered": false,
+   "wasPrice": 159,
+   "percentOff": 61,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0020714997298",
+   "price": 24.95,
+   "delivered": false,
+   "wasPrice": 65,
+   "percentOff": 61,
    "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
@@ -4588,16 +4548,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101403152",
-   "price": 24.95,
-   "delivered": false,
-   "wasPrice": 65,
-   "percentOff": 61,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-101726053",
    "price": 33,
    "delivered": false,
@@ -4642,16 +4592,6 @@
    "price": 27,
    "delivered": false,
    "wasPrice": 70,
-   "percentOff": 61,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-111905157",
-   "price": 61.9,
-   "delivered": false,
-   "wasPrice": 159,
    "percentOff": 61,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -4928,6 +4868,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-101214055",
+   "price": 64.95,
+   "delivered": false,
+   "wasPrice": 165,
+   "percentOff": 60,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-101334155",
    "price": 54,
    "delivered": false,
@@ -4952,6 +4902,16 @@
    "price": 23,
    "delivered": false,
    "wasPrice": 58,
+   "percentOff": 60,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-111455157",
+   "price": 54.95,
+   "delivered": false,
+   "wasPrice": 140,
    "percentOff": 60,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -4984,6 +4944,16 @@
    "wasPrice": 76,
    "percentOff": 60,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-212178155",
+   "price": 22,
+   "delivered": false,
+   "wasPrice": 55,
+   "percentOff": 60,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -5028,6 +4998,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-2148842",
+   "price": 45.85,
+   "delivered": false,
+   "wasPrice": 112,
+   "percentOff": 59,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-6387947",
+   "price": 38,
+   "delivered": false,
+   "wasPrice": 94,
+   "percentOff": 59,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0737052972268",
    "price": 36.95,
    "delivered": false,
@@ -5062,16 +5052,6 @@
    "price": 48,
    "delivered": false,
    "wasPrice": 118,
-   "percentOff": 59,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000000388",
-   "price": 45.85,
-   "delivered": false,
-   "wasPrice": 112,
    "percentOff": 59,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -5238,16 +5218,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014561",
-   "price": 48.99,
-   "delivered": false,
-   "wasPrice": 120,
-   "percentOff": 59,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014667",
    "price": 64,
    "delivered": false,
@@ -5313,6 +5283,16 @@
    "delivered": false,
    "wasPrice": 98,
    "percentOff": 59,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2562959",
+   "price": 73.7,
+   "delivered": true,
+   "wasPrice": 178,
+   "percentOff": 58,
    "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
@@ -5412,16 +5392,6 @@
    "price": 61.95,
    "delivered": false,
    "wasPrice": 150,
-   "percentOff": 58,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000002924",
-   "price": 73.7,
-   "delivered": true,
-   "wasPrice": 178,
    "percentOff": 58,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -5648,6 +5618,66 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-0556986",
+   "price": 57.99,
+   "delivered": false,
+   "wasPrice": 137,
+   "percentOff": 57,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1428225",
+   "price": 44.95,
+   "delivered": false,
+   "wasPrice": 106,
+   "percentOff": 57,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1886073",
+   "price": 54.95,
+   "delivered": false,
+   "wasPrice": 128,
+   "percentOff": 57,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4471577",
+   "price": 60,
+   "delivered": false,
+   "wasPrice": 142,
+   "percentOff": 57,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4668449",
+   "price": 44.98,
+   "delivered": false,
+   "wasPrice": 107,
+   "percentOff": 57,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-6127060",
+   "price": 46,
+   "delivered": false,
+   "wasPrice": 108,
+   "percentOff": 57,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3360377002968",
    "price": 59,
    "delivered": false,
@@ -5728,16 +5758,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000002755",
-   "price": 44.98,
-   "delivered": false,
-   "wasPrice": 107,
-   "percentOff": 57,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000004290",
    "price": 39.95,
    "delivered": false,
@@ -5784,16 +5804,6 @@
    "wasPrice": 63,
    "percentOff": 57,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000006232",
-   "price": 46,
-   "delivered": false,
-   "wasPrice": 108,
-   "percentOff": 57,
-   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -5858,16 +5868,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000012928",
-   "price": 44.95,
-   "delivered": false,
-   "wasPrice": 106,
-   "percentOff": 57,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000013068",
    "price": 54.5,
    "delivered": false,
@@ -5892,16 +5892,6 @@
    "price": 29.99,
    "delivered": false,
    "wasPrice": 70,
-   "percentOff": 57,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000014679",
-   "price": 57.99,
-   "delivered": false,
-   "wasPrice": 137,
    "percentOff": 57,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -5934,16 +5924,6 @@
    "wasPrice": 120,
    "percentOff": 57,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-101289053",
-   "price": 60,
-   "delivered": false,
-   "wasPrice": 142,
-   "percentOff": 57,
-   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -5982,16 +5962,6 @@
    "price": 35.95,
    "delivered": false,
    "wasPrice": 84,
-   "percentOff": 57,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-111858357",
-   "price": 54.95,
-   "delivered": false,
-   "wasPrice": 128,
    "percentOff": 57,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -6062,6 +6032,36 @@
    "price": 29,
    "delivered": false,
    "wasPrice": 66,
+   "percentOff": 56,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1005120",
+   "price": 35,
+   "delivered": false,
+   "wasPrice": 80,
+   "percentOff": 56,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1691721",
+   "price": 49.95,
+   "delivered": false,
+   "wasPrice": 116,
+   "percentOff": 56,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8402554",
+   "price": 64.9,
+   "delivered": false,
+   "wasPrice": 150,
    "percentOff": 56,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -6152,16 +6152,6 @@
    "price": 48.68,
    "delivered": false,
    "wasPrice": 113,
-   "percentOff": 56,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000000686",
-   "price": 64.9,
-   "delivered": false,
-   "wasPrice": 150,
    "percentOff": 56,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -6328,16 +6318,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101214055",
-   "price": 57,
-   "delivered": false,
-   "wasPrice": 132,
-   "percentOff": 56,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-111406057",
    "price": 79.95,
    "delivered": true,
@@ -6362,16 +6342,6 @@
    "price": 22.95,
    "delivered": false,
    "wasPrice": 53,
-   "percentOff": 56,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-202735058",
-   "price": 49.95,
-   "delivered": false,
-   "wasPrice": 116,
    "percentOff": 56,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -6434,6 +6404,16 @@
    "wasPrice": 142,
    "percentOff": 55,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3614273185875",
+   "price": 54,
+   "delivered": false,
+   "wasPrice": 120,
+   "percentOff": 55,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -6878,22 +6858,42 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-2194469",
+   "price": 49.95,
+   "delivered": false,
+   "wasPrice": 110,
+   "percentOff": 54,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2804085",
+   "price": 64.95,
+   "delivered": false,
+   "wasPrice": 142,
+   "percentOff": 54,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8060940",
+   "price": 51.45,
+   "delivered": false,
+   "wasPrice": 112,
+   "percentOff": 54,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3346138900087",
    "price": 71,
    "delivered": true,
    "wasPrice": 156,
    "percentOff": 54,
    "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3386460101035",
-   "price": 57,
-   "delivered": false,
-   "wasPrice": 125,
-   "percentOff": 54,
-   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -6949,19 +6949,9 @@
   },
   {
    "fragranceId": "fragrance-market-1000000738",
-   "price": 42,
+   "price": 44.95,
    "delivered": false,
-   "wasPrice": 92,
-   "percentOff": 54,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000000754",
-   "price": 51.45,
-   "delivered": false,
-   "wasPrice": 112,
+   "wasPrice": 99,
    "percentOff": 54,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -6972,16 +6962,6 @@
    "price": 74.9,
    "delivered": true,
    "wasPrice": 165,
-   "percentOff": 54,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000004341",
-   "price": 64.95,
-   "delivered": false,
-   "wasPrice": 142,
    "percentOff": 54,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -7138,16 +7118,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-111858353",
-   "price": 49.95,
-   "delivered": false,
-   "wasPrice": 110,
-   "percentOff": 54,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-202849155",
    "price": 29.98,
    "delivered": false,
@@ -7214,6 +7184,16 @@
    "wasPrice": 545,
    "percentOff": 53,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2196222",
+   "price": 49,
+   "delivered": false,
+   "wasPrice": 106,
+   "percentOff": 53,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -7478,16 +7458,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013977",
-   "price": 49,
-   "delivered": false,
-   "wasPrice": 106,
-   "percentOff": 53,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000015417",
    "price": 54,
    "delivered": false,
@@ -7578,12 +7548,42 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-0308750",
+   "price": 61.95,
+   "delivered": false,
+   "wasPrice": 130,
+   "percentOff": 52,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4471576",
+   "price": 49.9,
+   "delivered": false,
+   "wasPrice": 105,
+   "percentOff": 52,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0031655513034",
    "price": 66.9,
    "delivered": true,
    "wasPrice": 142,
    "percentOff": 52,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0850049716178",
+   "price": 57,
+   "delivered": false,
+   "wasPrice": 119,
+   "percentOff": 52,
+   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -7652,16 +7652,6 @@
    "price": 55,
    "delivered": false,
    "wasPrice": 115,
-   "percentOff": 52,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000000737",
-   "price": 49.9,
-   "delivered": false,
-   "wasPrice": 105,
    "percentOff": 52,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -7788,16 +7778,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013096",
-   "price": 61.95,
-   "delivered": false,
-   "wasPrice": 130,
-   "percentOff": 52,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000013221",
    "price": 79,
    "delivered": true,
@@ -7888,6 +7868,36 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-1873373",
+   "price": 82.8,
+   "delivered": true,
+   "wasPrice": 170,
+   "percentOff": 51,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4471587",
+   "price": 89,
+   "delivered": true,
+   "wasPrice": 182,
+   "percentOff": 51,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-7678482",
+   "price": 64.95,
+   "delivered": false,
+   "wasPrice": 134,
+   "percentOff": 51,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0085715004192",
    "price": 27.95,
    "delivered": false,
@@ -7904,16 +7914,6 @@
    "wasPrice": 130,
    "percentOff": 51,
    "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-0783320971563",
-   "price": 80,
-   "delivered": false,
-   "wasPrice": 165,
-   "percentOff": 51,
-   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -7942,6 +7942,26 @@
    "price": 73,
    "delivered": false,
    "wasPrice": 150,
+   "percentOff": 51,
+   "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3770000002164",
+   "price": 56,
+   "delivered": false,
+   "wasPrice": 115,
+   "percentOff": 51,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-6294015132120",
+   "price": 34,
+   "delivered": false,
+   "wasPrice": 70,
    "percentOff": 51,
    "retailerId": "la-belle-perfumes",
    "kind": "retailer",
@@ -8138,32 +8158,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101289057",
-   "price": 89,
-   "delivered": true,
-   "wasPrice": 182,
-   "percentOff": 51,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-101925356",
    "price": 73.95,
    "delivered": true,
    "wasPrice": 153,
    "percentOff": 51,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-111455157",
-   "price": 53,
-   "delivered": false,
-   "wasPrice": 110,
-   "percentOff": 51,
-   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -8193,6 +8193,46 @@
    "delivered": false,
    "wasPrice": 67,
    "percentOff": 51,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "beauty-encounter-m10641",
+   "price": 38.9,
+   "delivered": false,
+   "wasPrice": 78,
+   "percentOff": 50,
+   "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4807264",
+   "price": 53.95,
+   "delivered": false,
+   "wasPrice": 110,
+   "percentOff": 50,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-7166222",
+   "price": 74.95,
+   "delivered": true,
+   "wasPrice": 150,
+   "percentOff": 50,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8924120",
+   "price": 54.95,
+   "delivered": false,
+   "wasPrice": 110,
+   "percentOff": 50,
    "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
@@ -8250,6 +8290,16 @@
   {
    "fragranceId": "ean-3616302022489",
    "price": 74.95,
+   "delivered": true,
+   "wasPrice": 150,
+   "percentOff": 50,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3770000002157",
+   "price": 74.85,
    "delivered": true,
    "wasPrice": 150,
    "percentOff": 50,
@@ -8332,16 +8382,6 @@
    "price": 78.95,
    "delivered": true,
    "wasPrice": 158,
-   "percentOff": 50,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000002518",
-   "price": 74.85,
-   "delivered": true,
-   "wasPrice": 150,
    "percentOff": 50,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -8512,16 +8552,6 @@
    "price": 38.8,
    "delivered": false,
    "wasPrice": 78,
-   "percentOff": 50,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013301",
-   "price": 74.95,
-   "delivered": true,
-   "wasPrice": 150,
    "percentOff": 50,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -8708,40 +8738,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-111859253",
-   "price": 54.95,
-   "delivered": false,
-   "wasPrice": 110,
-   "percentOff": 50,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-111860253",
-   "price": 53.95,
-   "delivered": false,
-   "wasPrice": 110,
-   "percentOff": 50,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-202920",
    "price": 45,
    "delivered": false,
    "wasPrice": 90,
-   "percentOff": 50,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-212190063",
-   "price": 31.95,
-   "delivered": false,
-   "wasPrice": 65,
    "percentOff": 50,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -8808,20 +8808,50 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0783320403903",
-   "price": 47.9,
-   "delivered": false,
-   "wasPrice": 94,
+   "fragranceId": "dillards-1202033",
+   "price": 68,
+   "delivered": true,
+   "wasPrice": 134,
    "percentOff": 49,
-   "retailerId": "beauty-encounter",
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "ean-3346130490685",
-   "price": 66.9,
-   "delivered": true,
-   "wasPrice": 133,
+   "fragranceId": "dillards-7039924",
+   "price": 68,
+   "delivered": false,
+   "wasPrice": 135,
+   "percentOff": 49,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-7308529",
+   "price": 59,
+   "delivered": false,
+   "wasPrice": 116,
+   "percentOff": 49,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8111977",
+   "price": 64.95,
+   "delivered": false,
+   "wasPrice": 128,
+   "percentOff": 49,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0783320403903",
+   "price": 47.9,
+   "delivered": false,
+   "wasPrice": 94,
    "percentOff": 49,
    "retailerId": "beauty-encounter",
    "kind": "retailer",
@@ -8948,16 +8978,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000011922",
-   "price": 68,
-   "delivered": true,
-   "wasPrice": 134,
-   "percentOff": 49,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000012825",
    "price": 87.95,
    "delivered": true,
@@ -8968,40 +8988,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013373",
-   "price": 68,
-   "delivered": false,
-   "wasPrice": 135,
-   "percentOff": 49,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000013410",
    "price": 32.95,
    "delivered": false,
    "wasPrice": 65,
-   "percentOff": 49,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013422",
-   "price": 59,
-   "delivered": false,
-   "wasPrice": 116,
-   "percentOff": 49,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013425",
-   "price": 64.95,
-   "delivered": false,
-   "wasPrice": 128,
    "percentOff": 49,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -9038,6 +9028,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-111025152",
+   "price": 22.21,
+   "delivered": false,
+   "wasPrice": 44,
+   "percentOff": 49,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-111159254",
    "price": 14.95,
    "delivered": false,
@@ -9052,16 +9052,6 @@
    "price": 32.8,
    "delivered": false,
    "wasPrice": 65,
-   "percentOff": 49,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-212749153",
-   "price": 51.8,
-   "delivered": false,
-   "wasPrice": 103,
    "percentOff": 49,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -9214,6 +9204,16 @@
    "wasPrice": 185,
    "percentOff": 48,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000002265",
+   "price": 36,
+   "delivered": false,
+   "wasPrice": 70,
+   "percentOff": 48,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -9378,6 +9378,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-101772157",
+   "price": 52.85,
+   "delivered": false,
+   "wasPrice": 103,
+   "percentOff": 48,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-111003057",
    "price": 94.9,
    "delivered": true,
@@ -9478,6 +9488,56 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-0290406",
+   "price": 87.45,
+   "delivered": true,
+   "wasPrice": 165,
+   "percentOff": 47,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1008120",
+   "price": 58,
+   "delivered": false,
+   "wasPrice": 111,
+   "percentOff": 47,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-6895458",
+   "price": 74.8,
+   "delivered": true,
+   "wasPrice": 142,
+   "percentOff": 47,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8095522",
+   "price": 78,
+   "delivered": true,
+   "wasPrice": 148,
+   "percentOff": 47,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8345586",
+   "price": 45,
+   "delivered": false,
+   "wasPrice": 85,
+   "percentOff": 47,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0730870196885",
    "price": 54.9,
    "delivered": true,
@@ -9528,6 +9588,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3701415903432",
+   "price": 225,
+   "delivered": false,
+   "wasPrice": 430,
+   "percentOff": 47,
+   "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-6085010044712",
    "price": 37,
    "delivered": false,
@@ -9564,16 +9634,6 @@
    "wasPrice": 130,
    "percentOff": 47,
    "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000001124",
-   "price": 108,
-   "delivered": true,
-   "wasPrice": 204,
-   "percentOff": 47,
-   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -9668,16 +9728,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000009351",
-   "price": 87.45,
-   "delivered": true,
-   "wasPrice": 165,
-   "percentOff": 47,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000009925",
    "price": 10.95,
    "delivered": false,
@@ -9692,16 +9742,6 @@
    "price": 16.95,
    "delivered": false,
    "wasPrice": 32,
-   "percentOff": 47,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013409",
-   "price": 78,
-   "delivered": true,
-   "wasPrice": 148,
    "percentOff": 47,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -9788,16 +9828,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101837052",
-   "price": 45,
-   "delivered": false,
-   "wasPrice": 85,
-   "percentOff": 47,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-111197157",
    "price": 74.95,
    "delivered": true,
@@ -9828,22 +9858,32 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-inips304su",
-   "price": 225,
-   "delivered": false,
-   "wasPrice": 430,
-   "percentOff": 47,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "beauty-encounter-m12663",
    "price": 64.9,
    "delivered": true,
    "wasPrice": 122,
    "percentOff": 46,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8009087",
+   "price": 26.8,
+   "delivered": false,
+   "wasPrice": 50,
+   "percentOff": 46,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0783320971563",
+   "price": 89,
+   "delivered": true,
+   "wasPrice": 165,
+   "percentOff": 46,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -10048,16 +10088,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101901055",
-   "price": 26.8,
-   "delivered": false,
-   "wasPrice": 50,
-   "percentOff": 46,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-101925254",
    "price": 55.4,
    "delivered": false,
@@ -10148,6 +10178,36 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-0519563",
+   "price": 84.95,
+   "delivered": true,
+   "wasPrice": 155,
+   "percentOff": 45,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4272754",
+   "price": 98.4,
+   "delivered": true,
+   "wasPrice": 181,
+   "percentOff": 45,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8402533",
+   "price": 54.95,
+   "delivered": false,
+   "wasPrice": 100,
+   "percentOff": 45,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3386460149358",
    "price": 44,
    "delivered": false,
@@ -10188,16 +10248,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000004388",
-   "price": 98.4,
-   "delivered": true,
-   "wasPrice": 181,
-   "percentOff": 45,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000006540",
    "price": 36.51,
    "delivered": false,
@@ -10232,16 +10282,6 @@
    "price": 96.8,
    "delivered": true,
    "wasPrice": 178,
-   "percentOff": 45,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013968",
-   "price": 84.95,
-   "delivered": true,
-   "wasPrice": 155,
    "percentOff": 45,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -10298,16 +10338,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101010062",
-   "price": 54.95,
-   "delivered": false,
-   "wasPrice": 100,
-   "percentOff": 45,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-101073062",
    "price": 30,
    "delivered": false,
@@ -10354,6 +10384,36 @@
    "wasPrice": 64,
    "percentOff": 45,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1812582",
+   "price": 83,
+   "delivered": true,
+   "wasPrice": 150,
+   "percentOff": 44,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-6581226",
+   "price": 63.95,
+   "delivered": false,
+   "wasPrice": 116,
+   "percentOff": 44,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-7950824",
+   "price": 88.7,
+   "delivered": true,
+   "wasPrice": 160,
+   "percentOff": 44,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -10442,16 +10502,6 @@
    "price": 59.95,
    "delivered": false,
    "wasPrice": 108,
-   "percentOff": 44,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000002265",
-   "price": 39.8,
-   "delivered": false,
-   "wasPrice": 72,
    "percentOff": 44,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -10588,16 +10638,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014664",
-   "price": 83,
-   "delivered": true,
-   "wasPrice": 150,
-   "percentOff": 44,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014714",
    "price": 16,
    "delivered": false,
@@ -10648,31 +10688,31 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-202733159",
-   "price": 63.95,
-   "delivered": false,
-   "wasPrice": 116,
-   "percentOff": 44,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-212859267",
-   "price": 88.7,
-   "delivered": true,
-   "wasPrice": 160,
-   "percentOff": 44,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-outlet-1000001179",
    "price": 57.95,
    "delivered": false,
    "wasPrice": 105,
    "percentOff": 44,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1873447",
+   "price": 74.7,
+   "delivered": true,
+   "wasPrice": 132,
+   "percentOff": 43,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2328448",
+   "price": 75.95,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 43,
    "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
@@ -10848,16 +10888,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013763",
-   "price": 75.95,
-   "delivered": true,
-   "wasPrice": 135,
-   "percentOff": 43,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014659",
    "price": 74.95,
    "delivered": true,
@@ -10954,6 +10984,26 @@
    "wasPrice": 490,
    "percentOff": 42,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1731335",
+   "price": 97,
+   "delivered": true,
+   "wasPrice": 170,
+   "percentOff": 42,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-3937536",
+   "price": 189.95,
+   "delivered": true,
+   "wasPrice": 330,
+   "percentOff": 42,
+   "retailerId": "perfumania",
    "kind": "retailer",
    "houseName": null
   },
@@ -11088,16 +11138,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014287",
-   "price": 97,
-   "delivered": true,
-   "wasPrice": 170,
-   "percentOff": 42,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014376",
    "price": 98,
    "delivered": true,
@@ -11114,16 +11154,6 @@
    "wasPrice": 70,
    "percentOff": 42,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000015145",
-   "price": 189.95,
-   "delivered": true,
-   "wasPrice": 330,
-   "percentOff": 42,
-   "retailerId": "perfumania",
    "kind": "retailer",
    "houseName": null
   },
@@ -11153,6 +11183,16 @@
    "delivered": false,
    "wasPrice": 35,
    "percentOff": 42,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-3339859",
+   "price": 99,
+   "delivered": true,
+   "wasPrice": 170,
+   "percentOff": 41,
    "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
@@ -11308,16 +11348,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014863",
-   "price": 99,
-   "delivered": true,
-   "wasPrice": 170,
-   "percentOff": 41,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-101628155",
    "price": 54.8,
    "delivered": false,
@@ -11358,22 +11388,32 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-outlet-212860252",
-   "price": 35,
+   "fragranceId": "beauty-encounter-givhom34m",
+   "price": 44.9,
    "delivered": false,
-   "wasPrice": 60,
-   "percentOff": 41,
-   "retailerId": "microperfumes",
+   "wasPrice": 75,
+   "percentOff": 40,
+   "retailerId": "beauty-encounter",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-106750791",
-   "price": 245,
-   "delivered": false,
-   "wasPrice": 410,
+   "fragranceId": "dillards-0311279",
+   "price": 99,
+   "delivered": true,
+   "wasPrice": 165,
    "percentOff": 40,
-   "retailerId": "la-belle-perfumes",
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4272701",
+   "price": 89.8,
+   "delivered": true,
+   "wasPrice": 150,
+   "percentOff": 40,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -11438,6 +11478,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3701415900882",
+   "price": 245,
+   "delivered": false,
+   "wasPrice": 410,
+   "percentOff": 40,
+   "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-6290171070184",
    "price": 29.99,
    "delivered": false,
@@ -11482,16 +11532,6 @@
    "price": 79.7,
    "delivered": true,
    "wasPrice": 133,
-   "percentOff": 40,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000004562",
-   "price": 89.8,
-   "delivered": true,
-   "wasPrice": 150,
    "percentOff": 40,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -11582,16 +11622,6 @@
    "price": 99.95,
    "delivered": true,
    "wasPrice": 169,
-   "percentOff": 40,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000014023",
-   "price": 99,
-   "delivered": true,
-   "wasPrice": 165,
    "percentOff": 40,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -11768,20 +11798,20 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-0057850199",
-   "price": 249,
+   "fragranceId": "dillards-2787968",
+   "price": 104,
    "delivered": true,
-   "wasPrice": 410,
+   "wasPrice": 172,
    "percentOff": 39,
    "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-0057850216",
-   "price": 232,
+   "fragranceId": "dillards-4115703",
+   "price": 253,
    "delivered": false,
-   "wasPrice": 385,
+   "wasPrice": 420,
    "percentOff": 39,
    "retailerId": "la-belle-perfumes",
    "kind": "retailer",
@@ -11804,6 +11834,36 @@
    "wasPrice": 110,
    "percentOff": 39,
    "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578500861",
+   "price": 232,
+   "delivered": false,
+   "wasPrice": 385,
+   "percentOff": 39,
+   "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578521002",
+   "price": 249,
+   "delivered": true,
+   "wasPrice": 410,
+   "percentOff": 39,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3701415901438",
+   "price": 225,
+   "delivered": false,
+   "wasPrice": 370,
+   "percentOff": 39,
+   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -11908,16 +11968,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014611",
-   "price": 104,
-   "delivered": true,
-   "wasPrice": 172,
-   "percentOff": 39,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014721",
    "price": 34.99,
    "delivered": false,
@@ -11978,16 +12028,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-inicge304su",
-   "price": 253,
-   "delivered": false,
-   "wasPrice": 420,
-   "percentOff": 39,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "beauty-encounter-m10011",
    "price": 61,
    "delivered": false,
@@ -11998,12 +12038,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-0057850304",
-   "price": 254,
+   "fragranceId": "dillards-4879815",
+   "price": 89.8,
    "delivered": true,
-   "wasPrice": 410,
+   "wasPrice": 145,
    "percentOff": 38,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8186961",
+   "price": 120,
+   "delivered": true,
+   "wasPrice": 195,
+   "percentOff": 38,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -12022,6 +12072,16 @@
    "price": 104.31,
    "delivered": true,
    "wasPrice": 170,
+   "percentOff": 38,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578503046",
+   "price": 254,
+   "delivered": true,
+   "wasPrice": 410,
    "percentOff": 38,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -12108,30 +12168,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013647",
-   "price": 120,
-   "delivered": true,
-   "wasPrice": 195,
-   "percentOff": 38,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000013751",
    "price": 74.95,
    "delivered": true,
    "wasPrice": 122,
-   "percentOff": 38,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013762",
-   "price": 89.8,
-   "delivered": true,
-   "wasPrice": 145,
    "percentOff": 38,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -12288,20 +12328,40 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-0057850218",
-   "price": 230,
-   "delivered": true,
-   "wasPrice": 370,
-   "percentOff": 37,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "bluemercury-8806602395",
    "price": 149,
    "delivered": true,
    "wasPrice": 240,
+   "percentOff": 37,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1224788",
+   "price": 98,
+   "delivered": true,
+   "wasPrice": 157,
+   "percentOff": 37,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1884236",
+   "price": 86.45,
+   "delivered": true,
+   "wasPrice": 139,
+   "percentOff": 37,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-3875761",
+   "price": 129,
+   "delivered": true,
+   "wasPrice": 205,
    "percentOff": 37,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -12324,6 +12384,26 @@
    "wasPrice": 72,
    "percentOff": 37,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3614274024753",
+   "price": 85,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 37,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578502186",
+   "price": 230,
+   "delivered": true,
+   "wasPrice": 370,
+   "percentOff": 37,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -12538,40 +12618,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014339",
-   "price": 98,
-   "delivered": true,
-   "wasPrice": 157,
-   "percentOff": 37,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000014405",
-   "price": 86.45,
-   "delivered": true,
-   "wasPrice": 139,
-   "percentOff": 37,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014683",
    "price": 27.7,
    "delivered": false,
    "wasPrice": 44,
-   "percentOff": 37,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000014761",
-   "price": 129,
-   "delivered": true,
-   "wasPrice": 205,
    "percentOff": 37,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -12664,6 +12714,16 @@
    "wasPrice": 330,
    "percentOff": 36,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8411061869376",
+   "price": 75,
+   "delivered": false,
+   "wasPrice": 119,
+   "percentOff": 36,
+   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -12838,6 +12898,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-7983973",
+   "price": 82,
+   "delivered": true,
+   "wasPrice": 128,
+   "percentOff": 35,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3360372100515",
    "price": 64.95,
    "delivered": false,
@@ -12884,16 +12954,6 @@
    "wasPrice": 240,
    "percentOff": 35,
    "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000008720",
-   "price": 82,
-   "delivered": true,
-   "wasPrice": 128,
-   "percentOff": 35,
-   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -13018,16 +13078,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-111076055",
-   "price": 55.95,
-   "delivered": false,
-   "wasPrice": 87,
-   "percentOff": 35,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-212475210",
    "price": 19.45,
    "delivered": false,
@@ -13044,6 +13094,26 @@
    "wasPrice": 360,
    "percentOff": 34,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1192045",
+   "price": 89,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 34,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8187011",
+   "price": 99.9,
+   "delivered": true,
+   "wasPrice": 153,
+   "percentOff": 34,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -13148,16 +13218,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013646",
-   "price": 99.9,
-   "delivered": true,
-   "wasPrice": 153,
-   "percentOff": 34,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000013651",
    "price": 118,
    "delivered": true,
@@ -13228,16 +13288,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000015150",
-   "price": 89,
-   "delivered": true,
-   "wasPrice": 135,
-   "percentOff": 34,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000015371",
    "price": 85,
    "delivered": true,
@@ -13288,6 +13338,66 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-2195993",
+   "price": 89.95,
+   "delivered": true,
+   "wasPrice": 136,
+   "percentOff": 33,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2207197",
+   "price": 89.95,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 33,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2927371",
+   "price": 125,
+   "delivered": true,
+   "wasPrice": 189,
+   "percentOff": 33,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-3875848",
+   "price": 199,
+   "delivered": true,
+   "wasPrice": 300,
+   "percentOff": 33,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8118645",
+   "price": 94,
+   "delivered": true,
+   "wasPrice": 142,
+   "percentOff": 33,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-9278683",
+   "price": 108.8,
+   "delivered": true,
+   "wasPrice": 164,
+   "percentOff": 33,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3349668508488",
    "price": 89.95,
    "delivered": true,
@@ -13328,30 +13438,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000001071",
-   "price": 108.8,
-   "delivered": true,
-   "wasPrice": 164,
-   "percentOff": 33,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000005011",
    "price": 54,
    "delivered": false,
    "wasPrice": 81,
-   "percentOff": 33,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000008793",
-   "price": 89.95,
-   "delivered": true,
-   "wasPrice": 135,
    "percentOff": 33,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -13478,16 +13568,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013978",
-   "price": 89.95,
-   "delivered": true,
-   "wasPrice": 136,
-   "percentOff": 33,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014095",
    "price": 126.8,
    "delivered": true,
@@ -13522,6 +13602,16 @@
    "price": 109,
    "delivered": true,
    "wasPrice": 165,
+   "percentOff": 33,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000014206",
+   "price": 149,
+   "delivered": true,
+   "wasPrice": 224,
    "percentOff": 33,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -13568,16 +13658,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014762",
-   "price": 199,
-   "delivered": true,
-   "wasPrice": 300,
-   "percentOff": 33,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014819",
    "price": 19.99,
    "delivered": false,
@@ -13598,32 +13678,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000015261",
-   "price": 125,
-   "delivered": true,
-   "wasPrice": 189,
-   "percentOff": 33,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-101737058",
    "price": 83.95,
    "delivered": true,
    "wasPrice": 126,
    "percentOff": 33,
    "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-111123057",
-   "price": 94,
-   "delivered": true,
-   "wasPrice": 142,
-   "percentOff": 33,
-   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -13644,6 +13704,16 @@
    "wasPrice": 460,
    "percentOff": 32,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-7200498",
+   "price": 115,
+   "delivered": false,
+   "wasPrice": 170,
+   "percentOff": 32,
+   "retailerId": "parfums-raffy",
    "kind": "retailer",
    "houseName": null
   },
@@ -13754,16 +13824,6 @@
    "wasPrice": 25,
    "percentOff": 32,
    "retailerId": "fragrance-outlet",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000004894",
-   "price": 115,
-   "delivered": false,
-   "wasPrice": 170,
-   "percentOff": 32,
-   "retailerId": "parfums-raffy",
    "kind": "retailer",
    "houseName": null
   },
@@ -13928,16 +13988,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-0057850245",
-   "price": 162,
-   "delivered": true,
-   "wasPrice": 235,
-   "percentOff": 31,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "bluemercury-0844025168",
    "price": 185,
    "delivered": true,
@@ -13978,6 +14028,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0888066094177",
+   "price": 177,
+   "delivered": true,
+   "wasPrice": 260,
+   "percentOff": 31,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0890766253006",
    "price": 319.95,
    "delivered": true,
@@ -14004,6 +14064,16 @@
    "wasPrice": 180,
    "percentOff": 31,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578502452",
+   "price": 162,
+   "delivered": true,
+   "wasPrice": 235,
+   "percentOff": 31,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -14278,6 +14348,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-0370067",
+   "price": 114.45,
+   "delivered": true,
+   "wasPrice": 164,
+   "percentOff": 30,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-9637823",
+   "price": 94.9,
+   "delivered": true,
+   "wasPrice": 136,
+   "percentOff": 30,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0850039151019",
    "price": 80.5,
    "delivered": false,
@@ -14314,6 +14404,16 @@
    "wasPrice": 65,
    "percentOff": 30,
    "retailerId": "parfums-raffy",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578500014",
+   "price": 259,
+   "delivered": true,
+   "wasPrice": 375,
+   "percentOff": 30,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -14358,30 +14458,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000002506",
-   "price": 114.45,
-   "delivered": true,
-   "wasPrice": 164,
-   "percentOff": 30,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000004286",
    "price": 84,
    "delivered": true,
    "wasPrice": 120,
-   "percentOff": 30,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000004331",
-   "price": 94.9,
-   "delivered": true,
-   "wasPrice": 136,
    "percentOff": 30,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -14578,12 +14658,42 @@
    "houseName": null
   },
   {
-   "fragranceId": "microperfumes-mp-6948-075",
-   "price": 259,
+   "fragranceId": "dillards-0914907",
+   "price": 111,
    "delivered": true,
-   "wasPrice": 375,
-   "percentOff": 30,
+   "wasPrice": 157,
+   "percentOff": 29,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-1812583",
+   "price": 128,
+   "delivered": true,
+   "wasPrice": 182,
+   "percentOff": 29,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2787949",
+   "price": 144,
+   "delivered": true,
+   "wasPrice": 205,
+   "percentOff": 29,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4894931",
+   "price": 95,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 29,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -14708,16 +14818,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013644",
-   "price": 111,
-   "delivered": true,
-   "wasPrice": 157,
-   "percentOff": 29,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000013917",
    "price": 105.9,
    "delivered": true,
@@ -14742,16 +14842,6 @@
    "price": 139,
    "delivered": true,
    "wasPrice": 196,
-   "percentOff": 29,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000014198",
-   "price": 128,
-   "delivered": true,
-   "wasPrice": 182,
    "percentOff": 29,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -14808,16 +14898,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014944",
-   "price": 95,
-   "delivered": true,
-   "wasPrice": 135,
-   "percentOff": 29,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-101741367",
    "price": 95.45,
    "delivered": true,
@@ -14844,6 +14924,16 @@
    "wasPrice": 345,
    "percentOff": 28,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-6815434",
+   "price": 129,
+   "delivered": true,
+   "wasPrice": 180,
+   "percentOff": 28,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -15088,16 +15178,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013671",
-   "price": 129,
-   "delivered": true,
-   "wasPrice": 180,
-   "percentOff": 28,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000013799",
    "price": 93,
    "delivered": true,
@@ -15178,6 +15258,36 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-0370401",
+   "price": 92,
+   "delivered": true,
+   "wasPrice": 127,
+   "percentOff": 27,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-3932024",
+   "price": 210,
+   "delivered": true,
+   "wasPrice": 290,
+   "percentOff": 27,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-7039890",
+   "price": 99.95,
+   "delivered": true,
+   "wasPrice": 138,
+   "percentOff": 27,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0890766421009",
    "price": 289.9,
    "delivered": true,
@@ -15248,20 +15358,20 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000002505",
-   "price": 92,
-   "delivered": true,
-   "wasPrice": 127,
-   "percentOff": 27,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000002862",
    "price": 118,
    "delivered": true,
    "wasPrice": 162,
+   "percentOff": 27,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000004149",
+   "price": 95.45,
+   "delivered": true,
+   "wasPrice": 132,
    "percentOff": 27,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -15358,16 +15468,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000013374",
-   "price": 99.95,
-   "delivered": true,
-   "wasPrice": 138,
-   "percentOff": 27,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000013800",
    "price": 119,
    "delivered": true,
@@ -15428,22 +15528,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-3156022",
+   "price": 99.95,
+   "delivered": true,
+   "wasPrice": 136,
+   "percentOff": 26,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-7035710",
+   "price": 139.95,
+   "delivered": true,
+   "wasPrice": 190,
+   "percentOff": 26,
+   "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614272761537",
    "price": 99,
    "delivered": true,
    "wasPrice": 135,
    "percentOff": 26,
    "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000001904",
-   "price": 98.95,
-   "delivered": true,
-   "wasPrice": 134,
-   "percentOff": 26,
-   "retailerId": "perfumania",
    "kind": "retailer",
    "houseName": null
   },
@@ -15502,16 +15612,6 @@
    "price": 50.65,
    "delivered": false,
    "wasPrice": 69,
-   "percentOff": 26,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013095",
-   "price": 99.95,
-   "delivered": true,
-   "wasPrice": 136,
    "percentOff": 26,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -15628,22 +15728,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-0057850325",
-   "price": 264,
-   "delivered": true,
-   "wasPrice": 355,
-   "percentOff": 25,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0888066000062",
    "price": 105,
    "delivered": true,
    "wasPrice": 140,
    "percentOff": 25,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578502407",
+   "price": 264,
+   "delivered": true,
+   "wasPrice": 355,
+   "percentOff": 25,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -15708,16 +15808,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014327",
-   "price": 86,
-   "delivered": true,
-   "wasPrice": 115,
-   "percentOff": 25,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014579",
    "price": 21.5,
    "delivered": false,
@@ -15768,12 +15858,32 @@
    "houseName": null
   },
   {
-   "fragranceId": "beautyhabit-49410",
-   "price": 220,
+   "fragranceId": "dillards-0476881",
+   "price": 73,
    "delivered": true,
-   "wasPrice": 290,
+   "wasPrice": 97,
    "percentOff": 24,
-   "retailerId": "beautyhabit",
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-3730437",
+   "price": 89,
+   "delivered": true,
+   "wasPrice": 118,
+   "percentOff": 24,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-9279396",
+   "price": 140,
+   "delivered": true,
+   "wasPrice": 185,
+   "percentOff": 24,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -15798,12 +15908,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000000562",
-   "price": 89,
+   "fragranceId": "ean-3700578512000",
+   "price": 276,
    "delivered": true,
-   "wasPrice": 118,
+   "wasPrice": 365,
    "percentOff": 24,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3760035450986",
+   "price": 220,
+   "delivered": true,
+   "wasPrice": 290,
+   "percentOff": 24,
+   "retailerId": "beautyhabit",
    "kind": "retailer",
    "houseName": null
   },
@@ -15898,26 +16018,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014517",
-   "price": 140,
-   "delivered": true,
-   "wasPrice": 185,
-   "percentOff": 24,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000015006",
-   "price": 73,
-   "delivered": true,
-   "wasPrice": 97,
-   "percentOff": 24,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000015220",
    "price": 57,
    "delivered": false,
@@ -15928,12 +16028,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-pardmo42sm",
-   "price": 276,
+   "fragranceId": "dillards-0476773",
+   "price": 103.95,
    "delivered": true,
-   "wasPrice": 365,
-   "percentOff": 24,
-   "retailerId": "microperfumes",
+   "wasPrice": 136,
+   "percentOff": 23,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-3730403",
+   "price": 72.95,
+   "delivered": true,
+   "wasPrice": 95,
+   "percentOff": 23,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -15982,16 +16092,6 @@
    "price": 73.85,
    "delivered": true,
    "wasPrice": 96,
-   "percentOff": 23,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000004607",
-   "price": 72.95,
-   "delivered": true,
-   "wasPrice": 95,
    "percentOff": 23,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -16088,16 +16188,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014288",
-   "price": 103.95,
-   "delivered": true,
-   "wasPrice": 136,
-   "percentOff": 23,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014958",
    "price": 22.99,
    "delivered": false,
@@ -16134,6 +16224,16 @@
    "wasPrice": 320,
    "percentOff": 22,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8123720",
+   "price": 104.95,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 22,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -16248,22 +16348,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-0057850215",
-   "price": 197,
-   "delivered": true,
-   "wasPrice": 250,
-   "percentOff": 21,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0850034671741",
    "price": 375,
    "delivered": true,
    "wasPrice": 475,
    "percentOff": 21,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578500885",
+   "price": 197,
+   "delivered": true,
+   "wasPrice": 250,
+   "percentOff": 21,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -16414,6 +16514,46 @@
    "wasPrice": 250,
    "percentOff": 20,
    "retailerId": "beautyhabit",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-0673335",
+   "price": 87.45,
+   "delivered": true,
+   "wasPrice": 110,
+   "percentOff": 20,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2421020",
+   "price": 235,
+   "delivered": true,
+   "wasPrice": 295,
+   "percentOff": 20,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-2896321",
+   "price": 119,
+   "delivered": true,
+   "wasPrice": 149,
+   "percentOff": 20,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8111262",
+   "price": 119,
+   "delivered": true,
+   "wasPrice": 150,
+   "percentOff": 20,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -16648,52 +16788,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101461053",
-   "price": 119,
-   "delivered": true,
-   "wasPrice": 149,
-   "percentOff": 20,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-101733157",
-   "price": 119,
-   "delivered": true,
-   "wasPrice": 150,
-   "percentOff": 20,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-101771159",
-   "price": 87.45,
-   "delivered": true,
-   "wasPrice": 110,
-   "percentOff": 20,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-111179056",
-   "price": 56.95,
-   "delivered": false,
-   "wasPrice": 72,
-   "percentOff": 20,
-   "retailerId": "fragrance-outlet",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-212045258",
    "price": 19.94,
    "delivered": true,
    "wasPrice": 25,
    "percentOff": 20,
    "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4802304",
+   "price": 89,
+   "delivered": true,
+   "wasPrice": 110,
+   "percentOff": 19,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -16818,16 +16928,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000015235",
-   "price": 89,
-   "delivered": true,
-   "wasPrice": 110,
-   "percentOff": 19,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000015243",
    "price": 92.9,
    "delivered": true,
@@ -16854,16 +16954,6 @@
    "wasPrice": 120,
    "percentOff": 19,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "bluemercury-0057850244",
-   "price": 196,
-   "delivered": true,
-   "wasPrice": 240,
-   "percentOff": 18,
-   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -16898,12 +16988,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3700578502483",
+   "price": 196,
+   "delivered": true,
+   "wasPrice": 240,
+   "percentOff": 18,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-8005610521220",
    "price": 68.63,
    "delivered": true,
    "wasPrice": 84,
    "percentOff": 18,
    "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8057509460127",
+   "price": 131,
+   "delivered": true,
+   "wasPrice": 160,
+   "percentOff": 18,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -16978,22 +17088,22 @@
    "houseName": null
   },
   {
+   "fragranceId": "bluemercury-8806615204",
+   "price": 116,
+   "delivered": true,
+   "wasPrice": 140,
+   "percentOff": 17,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0844061018129",
    "price": 28.95,
    "delivered": false,
    "wasPrice": 35,
    "percentOff": 17,
    "retailerId": "fragrance-outlet",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-8435137749607",
-   "price": 112,
-   "delivered": true,
-   "wasPrice": 136,
-   "percentOff": 17,
-   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -17108,6 +17218,66 @@
    "houseName": null
   },
   {
+   "fragranceId": "dillards-2896374",
+   "price": 189,
+   "delivered": true,
+   "wasPrice": 225,
+   "percentOff": 16,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-3372851",
+   "price": 137,
+   "delivered": true,
+   "wasPrice": 165,
+   "percentOff": 16,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4428284",
+   "price": 149.95,
+   "delivered": true,
+   "wasPrice": 180,
+   "percentOff": 16,
+   "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4802359",
+   "price": 113.95,
+   "delivered": true,
+   "wasPrice": 136,
+   "percentOff": 16,
+   "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4864987",
+   "price": 137.95,
+   "delivered": true,
+   "wasPrice": 165,
+   "percentOff": 16,
+   "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-4870446",
+   "price": 114.95,
+   "delivered": true,
+   "wasPrice": 138,
+   "percentOff": 16,
+   "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614273672412",
    "price": 113.95,
    "delivered": true,
@@ -17124,16 +17294,6 @@
    "wasPrice": 99,
    "percentOff": 16,
    "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000002760",
-   "price": 189,
-   "delivered": true,
-   "wasPrice": 225,
-   "percentOff": 16,
-   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -17258,26 +17418,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014850",
-   "price": 171.95,
-   "delivered": true,
-   "wasPrice": 205,
-   "percentOff": 16,
-   "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000014909",
-   "price": 137,
-   "delivered": true,
-   "wasPrice": 165,
-   "percentOff": 16,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014910",
    "price": 175.95,
    "delivered": true,
@@ -17298,26 +17438,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000015099",
-   "price": 114.95,
-   "delivered": true,
-   "wasPrice": 138,
-   "percentOff": 16,
-   "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000015100",
-   "price": 137.95,
-   "delivered": true,
-   "wasPrice": 165,
-   "percentOff": 16,
-   "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000015182",
    "price": 171.95,
    "delivered": true,
@@ -17328,30 +17448,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000015236",
-   "price": 113.95,
-   "delivered": true,
-   "wasPrice": 136,
-   "percentOff": 16,
-   "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000015237",
    "price": 120.95,
    "delivered": true,
    "wasPrice": 145,
-   "percentOff": 16,
-   "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000015238",
-   "price": 149.95,
-   "delivered": true,
-   "wasPrice": 180,
    "percentOff": 16,
    "retailerId": "perfumania",
    "kind": "retailer",
@@ -17608,17 +17708,7 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3760269849549",
-   "price": 54.95,
-   "delivered": false,
-   "wasPrice": 64,
-   "percentOff": 14,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000000520",
+   "fragranceId": "dillards-2896341",
    "price": 154,
    "delivered": true,
    "wasPrice": 180,
@@ -17628,10 +17718,40 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000002714",
+   "fragranceId": "dillards-6714651",
+   "price": 154,
+   "delivered": true,
+   "wasPrice": 180,
+   "percentOff": 14,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-8001178",
    "price": 109,
    "delivered": true,
    "wasPrice": 128,
+   "percentOff": 14,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3348901250153",
+   "price": 111,
+   "delivered": true,
+   "wasPrice": 130,
+   "percentOff": 14,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3760269849549",
+   "price": 54.95,
+   "delivered": false,
+   "wasPrice": 64,
    "percentOff": 14,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -17682,16 +17802,6 @@
    "price": 23.95,
    "delivered": false,
    "wasPrice": 28,
-   "percentOff": 14,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-101040057",
-   "price": 154,
-   "delivered": true,
-   "wasPrice": 180,
    "percentOff": 14,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -17908,6 +18018,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3760035450184",
+   "price": 203,
+   "delivered": true,
+   "wasPrice": 230,
+   "percentOff": 11,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-6291107450438",
    "price": 17.8,
    "delivered": false,
@@ -17978,12 +18098,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-106750740",
-   "price": 369,
-   "delivered": false,
-   "wasPrice": 410,
+   "fragranceId": "dillards-8002528",
+   "price": 134.45,
+   "delivered": true,
+   "wasPrice": 150,
    "percentOff": 10,
-   "retailerId": "la-belle-perfumes",
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -18008,20 +18128,20 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-6290360598888",
-   "price": 44.99,
+   "fragranceId": "ean-3700578520661",
+   "price": 369,
    "delivered": false,
-   "wasPrice": 50,
+   "wasPrice": 410,
    "percentOff": 10,
-   "retailerId": "fragrance-market",
+   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000001150",
-   "price": 134.45,
-   "delivered": true,
-   "wasPrice": 150,
+   "fragranceId": "ean-6290360598888",
+   "price": 44.99,
+   "delivered": false,
+   "wasPrice": 50,
    "percentOff": 10,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -18083,6 +18203,16 @@
    "delivered": true,
    "wasPrice": 140,
    "percentOff": 10,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "dillards-6351122",
+   "price": 439,
+   "delivered": true,
+   "wasPrice": 485,
+   "percentOff": 9,
    "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
@@ -18248,16 +18378,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "bluemercury-0057850437",
-   "price": 243,
-   "delivered": true,
-   "wasPrice": 260,
-   "percentOff": 6,
-   "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0690251009435",
    "price": 69.9,
    "delivered": true,
@@ -18282,6 +18402,16 @@
    "price": 177,
    "delivered": true,
    "wasPrice": 190,
+   "percentOff": 6,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578504371",
+   "price": 243,
+   "delivered": true,
+   "wasPrice": 260,
    "percentOff": 6,
    "retailerId": "microperfumes",
    "kind": "retailer",
@@ -18334,6 +18464,16 @@
    "wasPrice": 160,
    "percentOff": 6,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700559613627",
+   "price": 170,
+   "delivered": true,
+   "wasPrice": 180,
+   "percentOff": 5,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -18412,6 +18552,16 @@
    "price": 33.9,
    "delivered": true,
    "wasPrice": 36,
+   "percentOff": 5,
+   "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-outlet-212860252",
+   "price": 64.9,
+   "delivered": true,
+   "wasPrice": 69,
    "percentOff": 5,
    "retailerId": "perfumania",
    "kind": "retailer",
