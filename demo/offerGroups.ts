@@ -65,7 +65,7 @@ export function offersInPageOrder(groups: OfferGroups): PresentedOffer[] {
  */
 export function availabilityHeading(groups: Pick<OfferGroups, 'delivered' | 'plusDelivery'>): string {
   const n = groups.delivered.length + groups.plusDelivery.length;
-  return n > 0 ? `Available at (${n} ${n === 1 ? 'Shop' : 'Shops'})` : '';
+  return n > 0 ? `Available at ${n} ${n === 1 ? 'Shop' : 'Shops'}` : '';
 }
 
 /**

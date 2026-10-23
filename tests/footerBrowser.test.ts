@@ -44,11 +44,6 @@ describe.skipIf(!built)('the footer and the page without JavaScript, on the buil
   }
 
   const here = (page: Page): Promise<string> => page.evaluate(() => location.pathname + location.hash);
-  const inView = (page: Page, selector: string): Promise<boolean> =>
-    page.evaluate((sel) => {
-      const r = document.querySelector(sel)!.getBoundingClientRect();
-      return r.top >= 0 && r.top < window.innerHeight;
-    }, selector);
 
   // The same links on every kind of page, none of them pushing the page sideways.
   for (const width of [320, 390, 1280]) {
@@ -83,14 +78,19 @@ describe.skipIf(!built)('the footer and the page without JavaScript, on the buil
     expect(await page.locator('#contact').textContent()).toBe('Contact Us');
     await page.waitForFunction(() => {
       const r = document.getElementById('contact')!.getBoundingClientRect();
-      return r.top >= 0 && r.top < 200;
+      // Near the top, or as near as the page can scroll (the section is near the page's end).
+      const atEnd = scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+      return r.top >= 0 && (r.top < 200 || (atEnd && r.top < innerHeight - 40));
     });
     expect(await page.$('#contact-form')).not.toBeNull();
     // Clicking it again, on the page itself, still lands there without a new history entry.
     const before = await page.evaluate(() => history.length);
     await page.evaluate(() => window.scrollTo({ top: 0 }));
     await page.click('.site-footer a[href="/about#contact"]');
-    await page.waitForFunction(() => document.getElementById('contact')!.getBoundingClientRect().top < 200);
+    await page.waitForFunction(() => {
+      const top = document.getElementById('contact')!.getBoundingClientRect().top;
+      return top < 200 || (scrollY + innerHeight >= document.documentElement.scrollHeight - 2 && top < innerHeight - 40);
+    });
     expect(await page.evaluate(() => history.length)).toBe(before);
     await page.context().close();
   }, 60_000);
@@ -99,7 +99,10 @@ describe.skipIf(!built)('the footer and the page without JavaScript, on the buil
     const page = await open('/about#contact', 390);
     await page.waitForFunction(() => {
       const el = document.getElementById('contact');
-      return !!el && el.getBoundingClientRect().top >= 0 && el.getBoundingClientRect().top < 200;
+      if (!el) return false;
+      const top = el.getBoundingClientRect().top;
+      const atEnd = scrollY + innerHeight >= document.documentElement.scrollHeight - 2;
+      return top >= 0 && (top < 200 || (atEnd && top < innerHeight - 40));
     });
     expect(await here(page)).toBe('/about#contact');
     await page.context().close();
@@ -107,24 +110,29 @@ describe.skipIf(!built)('the footer and the page without JavaScript, on the buil
 
   it('opens Privacy at its section of the Legal Notice, and Legal Notice at the top', async () => {
     const page = await open('/brands', 1280);
-    await page.click('.site-footer a[href="/about/legal#privacy"]');
+    await page.click('.site-footer a[href="/about/legal"]');
+    await page.waitForFunction(() => location.pathname === '/about/legal');
+    await page.click('.notice-toc a[href="/about/legal#privacy"]');
     await page.waitForFunction(() => location.pathname === '/about/legal' && location.hash === '#privacy');
     await page.waitForFunction(() => document.activeElement?.id === 'notice-privacy');
-    expect(await inView(page, '#notice-privacy')).toBe(true);
+    await page.waitForFunction(() => {
+      const r = document.querySelector('#notice-privacy')!.getBoundingClientRect();
+      return r.top >= 0 && r.top < window.innerHeight;
+    });
     await page.click('.site-footer a[href="/about/legal"]');
     await page.waitForFunction(() => location.pathname === '/about/legal' && scrollY === 0);
     await page.context().close();
   }, 60_000);
 
-  it('opens About and the bot page in place, and the design system as before', async () => {
+  it('opens About and the guides in place, and the design system from About', async () => {
     const page = await open('/deals', 1280);
-    await page.click('.site-footer a[href="/about/bot"]');
-    await page.waitForFunction(() => location.pathname === '/about/bot');
+    await page.click('.site-footer a[href="/guides"]');
+    await page.waitForFunction(() => location.pathname === '/guides');
     expect(await page.evaluate(() => document.querySelector('#view h1')?.textContent?.length ?? 0)).toBeGreaterThan(0);
     await page.click('.site-footer a[href="/about"]');
     await page.waitForFunction(() => location.pathname === '/about');
     expect((await page.textContent('#view h1'))?.trim()).toBe('About PriceSniffs');
-    await page.click('.site-footer a[href="/design"]');
+    await page.click('#view a[href="/design"]');
     await page.waitForFunction(() => location.pathname === '/design');
     await page.context().close();
   }, 60_000);

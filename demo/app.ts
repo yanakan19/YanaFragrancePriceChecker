@@ -57,7 +57,7 @@ import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import { BOT_NAME, BOT_USER_AGENT } from '../src/catalogue/botIdentity.js';
 import { availabilityHeading, offerGroups, offersInPageOrder, offerAge } from './offerGroups.js';
 import { mostStockedRail, rankedInMostStocked } from './mostStocked.js';
-import { byReviews, mostPopularRail, sortByReviews } from './mostPopular.js';
+import { byReviews, mostPopularRail, nextMostStockedRail, sortByReviews } from './mostPopular.js';
 import { bestDealPerScent, onePerScent, sizesTogether } from './oneScent.js';
 import type { PresentedOffer } from '../src/types/offer.js';
 import { noStockLabel, rowStockMarks } from './stockLabels.js';
@@ -111,7 +111,7 @@ import {
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, legalPage, legalNoticeSections, isLegalNoticeId } from './legal.js';
 import { CHANGELOG } from './changelog.js';
-import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS, CRAWLED_AT } from './catalogue.generated.js';
+import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
 import { fetchLazyFile, priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
 import { dormant, dormantEntry, idForSlug, movedTo } from './dormantStore.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
@@ -144,7 +144,7 @@ import { REGIONS, CURRENT_REGION, regionButtonLabel, type Region } from '../src/
 import { ageConfirmHtml, needsAgeConfirmation, AGE_CONFIRM_ERROR_TITLE, AGE_CONFIRM_ERROR_MESSAGE } from './ageConfirm.js';
 import { activeRegion, liveRegions, regionById, regionHome, regionPath, splitRegionPrefix, suggestRegionForTimeZone, type RegionConfig, type RegionId } from '../src/config/regions.js';
 import { BAR_DISMISSED_KEY, barRegion, barText, leafAlternates, switchNeedsLinks, switchTarget, type RegionLinks, type SwitchFrom } from './regionSwitch.js';
-import { betaLine, codFootnote, formatSize, freshnessLine, localWords, priceTaxNote, sparseDealsLine } from '../src/services/regionText.js';
+import { betaLine, codFootnote, formatSize, localWords, priceTaxNote, sparseDealsLine } from '../src/services/regionText.js';
 import {
   WELCOME_PREVIEW_PARAM, browserTimeZone, clearPendingRegion, closeRegionWelcome, hasStoredSession, openRegionWelcome, previewChoices, readStoredChoice, readStoredRegion, saveStoredRegion, welcomeAction, welcomeEnabled,
   type StoredRegionChoice,
@@ -1447,15 +1447,17 @@ function fragranceTile(
   // click and keyboard target, and a button cannot contain another button.
   // `top`: the one tile on the site that carries the drifting gradient ring,
   // the first deal on Deals in its default order (demo/template.html .tile-top).
+  // The rank sits in the tile's top corner, beside the brand, never on the
+  // photo (owner review, 23 Oct 2026: the disc covered the bottle's corner).
   return `<li${opts?.rail ? ' class="pop-item"' : ''}>
-    <div class="tile${opts?.top ? ' tile-top ps-drift' : ''}">
+    <div class="tile${opts?.top ? ' tile-top ps-drift' : ''}${medal ? ' tile-ranked' : ''}">
+      ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most stocked"><span class="medal-disc">${opts!.rank! + 1}</span></span>` : ''}
       ${brandButton(f.brand)}
       <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}${opts?.tier ? `, ${esc(opts.tier)}` : ''}">
         ${productHead(f)}
         ${opts?.tier ? `<span class="tile-tier t-eyebrow">${esc(opts.tier)}</span>` : ''}
         ${setTileLine(f)}${oilTileLine(f)}
         <span class="tile-art">
-          ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular"><span class="medal-disc">${opts!.rank! + 1}</span></span>` : ''}
           ${f.giftSet && !f.photoUrl ? setContentsArt(f.giftSet) : productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`, f.imageTransform, { eager: opts?.eager === true })}
         </span>
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
@@ -1630,15 +1632,6 @@ const MEDALS = ['gold', 'silver', 'bronze'] as const;
 /** Built once: both inputs are fixed for the life of the bundle. */
 const MARQUEE = marqueeHtml(marqueePhrases(COUNTS.products, COVERAGE).map((p) => localWords(p)));
 
-/**
- * A beta region's home page (/us/, /in/): when its prices were last read, from
- * its own build. Nothing on the UK home, whose trust lines the owner took off
- * on 2026-10-04 (the banner says it).
- */
-function regionHeroLines(): string {
-  if (!activeRegion().beta) return '';
-  return `\n      <p class="hero-fresh t-caption">${esc(freshnessLine(CRAWLED_AT))}</p>`;
-}
 
 /**
  * Under a US or Indian price list: what the prices include (plan section 4).
@@ -1663,19 +1656,24 @@ function regionTaxNoteText(): string {
  * The Most Popular row, directly under Most Stocked (owner request, 21 Oct
  * 2026): the same one row of tiles, ranked by the reviews the shops publish,
  * with no scent the row above shows. No medals: they mark the Most Stocked
- * ranking. Nothing at all where the country's shops publish no reviews.
+ * ranking. Where the country's shops publish no reviews it ranks the next
+ * houses by how many shops stock them, and says so (demo/mostPopular.ts
+ * nextMostStockedRail), so every country's home has the same rows.
  */
+let stockedRail: DemoFragrance[] | null = null;
 function mostPopularHtml(): string {
-  const rail = REVIEWED_RAIL();
+  const reviewed = REVIEWED_RAIL();
+  const ranksReviews = reviewed.length > 0;
+  const rail = ranksReviews ? reviewed : (stockedRail ??= nextMostStockedRail(BY_POPULARITY, POPULAR));
   if (rail.length === 0) return '';
   return `
 
-    <section class="pop-section pop-reviewed">
+    <section class="pop-section pop-reviewed home-block">
       <div class="section-head">
         <h2 class="t-section">Most Popular</h2>
-        <button class="link-btn see-top" data-browse="reviewed" aria-label="See all, most popular">See All <span aria-hidden="true">→</span></button>
+        <button class="link-btn see-top" ${ranksReviews ? 'data-browse="reviewed"' : 'data-browse'} aria-label="See all, most popular">See All <span aria-hidden="true">→</span></button>
       </div>
-      <p class="pop-note t-caption">By reviews at the shops we compare</p>
+      <p class="pop-note t-caption">${ranksReviews ? 'By shop reviews' : 'By how many shops stock it'}</p>
       <ul class="pop-rail">
         ${rail.map((f) => fragranceTile(f, { rail: true })).join('')}
       </ul>
@@ -1699,14 +1697,14 @@ function homeView(): string {
            prices are checked, no promoted listings, the database count) are
            gone on the owner's request, 2026-10-04: the banner under the hero
            already says all of it, and says it once. -->
-      <p class="hero-mission">${esc(localWords(`See what a fragrance really costs across ${COVERAGE} UK shops, delivery included.`))}</p>${regionHeroLines()}
+      <p class="hero-mission">${esc(localWords(`See what a fragrance really costs across ${COVERAGE} UK shops, delivery included.`))}</p>
     </section>
 
     <!-- The scrolling word banner, full width, directly under the hero. Its
          phrases and why each is true live in demo/marquee.ts. -->
     ${MARQUEE}
 
-    <section class="pop-section">
+    <section class="pop-section home-block">
       <div class="section-head">
         <h2 class="t-section">Most Stocked</h2>
         <button class="link-btn see-top" data-browse>See All <span aria-hidden="true">→</span></button>
@@ -1718,7 +1716,7 @@ function homeView(): string {
 
     <!-- The suggestion form that used to sit beside this moved to its own
          page, Suggestions in the account menu (owner request, 2026-10-04). -->
-    <div class="bottom-split">
+    <div class="bottom-split home-block">
       <!-- Guides and methods: ONE slim button to the guides index (owner
            request, 9 Oct 2026). The guides, and How We Check Prices, are
            listed on that page and in the footer; the home page no longer
@@ -1882,17 +1880,13 @@ function browseView(): string {
     <div class="page-head"><h1 class="t-page">${esc(title)}</h1><span class="count t-count">${list.length}</span></div>
     ${
       isTop && state.browseSort === 'stocked'
-        ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops stock each one, then by
-             brand and name. A brand's own store does not count. One line per perfume, in its most stocked size;
-             sets and oils have their own tabs under Explore. This shows how widely a fragrance is stocked, not
-             how well it sells.</p>`
+        ? `<p class="panel-note t-body">By how many of our ${SHOP_COUNT} shops stock it (brand stores not counted), then A to Z.
+             One line per perfume. Sets and oils are under Explore.</p>`
         : reviewedTop
-          ? `<p class="panel-note t-body">Ranked by reviews: the most reviews any one of our shops publishes for
-               each one, then by how widely it is stocked. Fragrances no shop reviews follow, most stocked first. One
-               line per perfume; sets and oils have their own tabs under Explore.</p>`
+          ? `<p class="panel-note t-body">By the most reviews at any one shop, then by stock. One line per perfume.
+               Sets and oils are under Explore.</p>`
         : isTop
-          ? `<p class="panel-note t-body">Every fragrance in the Most Stocked ranking, in the order you chose. One
-               line per perfume; sets and oils have their own tabs under Explore.</p>`
+          ? `<p class="panel-note t-body">One line per perfume. Sets and oils are under Explore.</p>`
           : ''
     }
     ${
@@ -2174,7 +2168,9 @@ function unavailableShopsLine(shops: Retailer[]): string {
         ? `<button type="button" class="unavail-shop" data-retailer="${esc(r.id)}">${esc(r.name)}</button>`
         : `<span class="unavail-shop-plain">${esc(r.name)}</span>`,
     )
-    .join(', ');
+    // Each name keeps its comma on its own line, so no line starts with one.
+    .map((h, i, all) => `<span class="unavail-item">${h}${i < all.length - 1 ? ',' : ''}</span>`)
+    .join(' ');
   return `<p class="unavail-shops t-caption">${names}</p>`;
 }
 
@@ -3309,7 +3305,9 @@ function brandsPanel(): string {
   let out = '';
   let current = '';
   for (const b of list) {
-    const initial = (b[0] ?? '').toUpperCase();
+    // Every brand that starts with a digit under one break, not one per digit.
+    const first = (b[0] ?? '').toUpperCase();
+    const initial = /[0-9]/.test(first) ? '0 to 9' : first;
     if (initial !== current) {
       current = initial;
       out += `<li class="alpha-break" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
@@ -3437,7 +3435,7 @@ function dealsPanel(): string {
     });
 
   return `${controls}${sparse ? `<p class="empty-note t-body">${esc(sparse)}</p>` : ''}
-    <p class="panel-note t-body">${esc(localWords("Savings are against the shop's own published RRP, or the maker's own price where the maker sells it here. Prices include delivery where the shop states it. One deal per perfume, at its best size."))}${regionTaxNoteText()}</p>
+    <p class="panel-note t-body">${esc(localWords("Savings against the shop's RRP, or the maker's own price. Delivery included where stated. One deal per perfume."))}${regionTaxNoteText()}</p>
     <ul class="tile-grid">${chunked(withGridAds(filtered, dealTile), (item, i) => item(i))}</ul>`;
 }
 
@@ -3739,7 +3737,7 @@ function retailerView(): string {
         ? `<p class="empty-note t-body">We have no prices from ${esc(r.name)} checked in the last ${HIDE_OFFER_AFTER_DAYS} days, so none are shown.</p>`
         : `${
             filtered.length > 0
-              ? `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'} Here</p>`
+              ? `<p class="gone-head t-eyebrow">${list.length.toLocaleString('en-GB')} ${list.length === 1 ? 'Fragrance' : 'Fragrances'}</p>`
               : ''
           }
     ${tabsLine((c) => `${r.name} also has ${c} here`, { shop: r.id })}
@@ -3831,7 +3829,7 @@ function brandView(): string {
     ${tabsLine((c) => `${b} also has ${c}`, { brand: b })}
     ${
       list.length > 0
-        ? `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'}</p>
+        ? `<p class="gone-head t-eyebrow">${list.length.toLocaleString('en-GB')} ${list.length === 1 ? 'Fragrance' : 'Fragrances'}</p>
            ${controls}
            ${fragranceList(list, 'We have no listings from this brand yet.')}`
         : houseItems.length === 0 && tabCount('sets', { brand: b }) + tabCount('oils', { brand: b }) === 0
@@ -4001,7 +3999,7 @@ function noteView(): string {
         .map((l) => {
           const count = fragrancesWithNote(state.noteName, l).length;
           const on = state.noteLayer === l;
-          return `<button class="note-chip${on ? ' on' : ''}" data-note-layer="${l}" aria-pressed="${on}">${LAYER_LABEL[l]} &middot; ${count}</button>`;
+          return `<button class="note-chip${on ? ' on' : ''}" data-note-layer="${l}" aria-pressed="${on}">${LAYER_LABEL[l]} &middot; ${count.toLocaleString('en-GB')}</button>`;
         })
         .join('')
     : '';
@@ -4011,7 +4009,7 @@ function noteView(): string {
   return `
     ${noteHeroHtml(state.noteName, facts, all.length, layerChips, env)}
     ${relatedNotesHtml(facts, data, counts, env)}
-    <p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'Fragrance' : 'Fragrances'}${state.noteLayer === 'any' ? '' : ` with ${esc(titleCase(state.noteName))} as a ${LAYER_LABEL[state.noteLayer].toLowerCase()} note`}</p>
+    <p class="gone-head t-eyebrow">${list.length.toLocaleString('en-GB')} ${list.length === 1 ? 'Fragrance' : 'Fragrances'}${state.noteLayer === 'any' ? '' : ` with ${esc(titleCase(state.noteName))} as a ${LAYER_LABEL[state.noteLayer].toLowerCase()} note`}</p>
     ${controls}
     ${fragranceList(list, 'Nothing matches that filter.', (f) => ({ tier: tierLabel(f.notes, state.noteName) }))}`;
 }
@@ -4122,7 +4120,7 @@ function houseCard(p: (typeof HOUSE_PRODUCTS)[number]): string {
 const MODE_OPTIONS: { id: DisplayMode; label: string }[] = [
   { id: 'dark', label: 'Dark' },
   { id: 'light', label: 'Light' },
-  { id: 'system', label: 'Use System Setting' },
+  { id: 'system', label: 'System' },
 ];
 
 const CONTACT_TYPES = ['An Issue', 'A Suggestion', 'A Promotional Enquiry', 'Something Else'] as const;
@@ -4771,7 +4769,7 @@ function accountGate(signedOut: { heading: string; note: string }): string | nul
         }
       </form>
 
-      ${!signUpTab ? `<button class="link-btn" id="auth-forgot">Forgot Your Password</button>` : ''}
+      ${!signUpTab ? `<button class="link-btn" id="auth-forgot">Forgot Password</button>` : ''}
 
       ${state.authResetSent ? `<p class="contact-confirm">If that address has an account, a reset link is on its way.</p>` : ''}
     </article>`;
@@ -5565,10 +5563,9 @@ function notFoundView(): string {
   return `
     <article class="doc">
       <h1 class="t-page">Page Not Found</h1>
-      <p class="t-body">There is nothing at
+      <p class="t-body">Nothing at
         ${path && path !== '/' ? `<code>${esc(path)}</code>` : 'that address'}.
-        It may be a fragrance or a shop we no longer list.</p>
-      <p class="t-body">Try one of these.</p>
+        It may be a fragrance or shop we no longer list.</p>
       <p class="notfound-links">
         <button class="link-btn" data-goto="home">Home</button>
         <button class="link-btn" data-goto="browse">Search ${COUNTS.bottles.toLocaleString('en-GB')} Fragrances</button>
@@ -5616,7 +5613,8 @@ function aboutView(): string {
       <p class="about-more"><button type="button" class="link-btn" data-page="how-it-works">More on How It Works</button>
         <button type="button" class="link-btn" data-page="affiliate">Affiliate Disclosure</button>
         <a class="link-btn" href="${HOW_WE_CHECK.path}" data-goto="howWeCheck">How We Check Prices</a>
-        <a class="link-btn" href="${GUIDES_PATH}" data-goto="guides">Perfume Guides</a></p>
+        <a class="link-btn" href="${GUIDES_PATH}" data-goto="guides">Guides</a>
+        <a class="link-btn" href="/design" data-goto="design">Design System</a></p>
 
       <div class="about-lower">
         <section aria-labelledby="about-who-title">

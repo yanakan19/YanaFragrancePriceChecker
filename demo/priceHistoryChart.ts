@@ -472,7 +472,7 @@ function priceHistoryBody(
   const labelStep = Math.max(1, Math.ceil(lastIndex / (MAX_LABELS - 1)));
   const labelIndices = new Set<number>();
   for (let i = 0; i <= lastIndex; i += labelStep) {
-    if (i === 0 || lastIndex - i >= labelStep * 0.6) labelIndices.add(i);
+    if (i === 0 || lastIndex - i >= labelStep * 0.85) labelIndices.add(i);
   }
   labelIndices.add(lastIndex);
   const xAxis = [...labelIndices]

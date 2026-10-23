@@ -99,3 +99,18 @@ export function sortByReviews<T extends Pick<DemoFragrance, 'id'>>(list: readonl
     .sort((a, b) => b.n - a.n || a.i - b.i)
     .map((x) => x.f);
 }
+
+/**
+ * Where the shops publish no review counts (the US, India and Canada today),
+ * the row still appears, so every country's home page has the same sections
+ * (owner request, 23 Oct 2026), ranked on the one honest signal those
+ * countries have: how many of their shops stock a bottle. It takes the next
+ * houses down the Most Stocked ranking, one bottle each, leaving out every
+ * house and scent the Most Stocked row already shows, and its note says what
+ * it ranks on. `byPopularity` is the Most Stocked order.
+ */
+export function nextMostStockedRail<T extends Ranked>(byPopularity: readonly T[], shownAbove: readonly Ranked[], n = 12): T[] {
+  const brandsAbove = new Set(shownAbove.map((f) => f.brand));
+  const rest = onePerScent(byPopularity.filter((f) => rankedInMostStocked(f) && !brandsAbove.has(f.brand)));
+  return mostPopularRail(rest, shownAbove, n);
+}

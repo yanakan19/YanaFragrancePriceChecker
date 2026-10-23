@@ -156,7 +156,7 @@ describe.skipIf(!built)('sets and oils one line away from the bottle lists', () 
     try {
       expect(await page.locator('#view .tabs-line').count()).toBe(0);
       const note = await page.locator('#view .panel-note').first().innerText();
-      expect(note).toMatch(/sets and oils have their own tabs under Explore/);
+      expect(note).toMatch(/Sets and oils are under Explore/);
     } finally {
       await ctx.close();
     }
@@ -206,7 +206,7 @@ describe.skipIf(!built)('sets and oils one line away from the bottle lists', () 
     expect(BY_POPULARITY.filter((f) => isSet(f) && shopIdsOf(f.id).includes('perfume-click')).length).toBe(sets);
     const { page, ctx } = await open('/retailers/perfume-click');
     try {
-      expect(await page.locator('#view .gone-head').first().innerText()).toBe(`${bottles} Fragrances Here`);
+      expect(await page.locator('#view .gone-head').first().innerText()).toBe(`${bottles.toLocaleString('en-GB')} Fragrances`);
       expect(await line(page)).toBe(
         `Perfume Click also has ${phrase(sets, 'Set', 'Sets')}${oils > 0 ? ` and ${phrase(oils, 'Oil', 'Oils')}` : ''} here: See Sets${oils > 0 ? ', See Oils' : ''}`,
       );

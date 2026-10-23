@@ -41,27 +41,21 @@ export interface FooterGroup {
 }
 
 export const FOOTER_GROUPS: readonly FooterGroup[] = [
+  // One short row since 23 Oct 2026 (owner review): How it works opens the
+  // guides, which list How We Check Prices and the bot page; Legal opens the
+  // legal notice, whose contents list starts with privacy; the design system
+  // is linked from the About page instead.
   {
-    label: 'About PriceSniffs',
+    label: 'Site',
     links: [
       { label: 'About', href: '/about', view: 'about' },
-      { label: 'How We Check Prices', href: '/about/how-we-check-prices', view: 'howWeCheck' },
-      { label: 'Guides', href: '/guides', view: 'guides' },
-      { label: 'How the Bot Works', href: '/about/bot', view: 'botPage' },
-    ],
-  },
-  {
-    label: 'Help and legal',
-    links: [
+      { label: 'How it works', href: '/guides', view: 'guides' },
       { label: 'Contact', href: '/about#contact', view: 'about', anchor: 'contact' },
-      { label: 'Legal Notice', href: '/about/legal', view: 'legalNotice' },
-      { label: 'Privacy', href: '/about/legal#privacy', view: 'legalNotice', anchor: 'privacy' },
-      { label: 'Design System', href: '/design', view: 'design' },
+      { label: 'Legal', href: '/about/legal', view: 'legalNotice' },
     ],
   },
 ];
 
-/** Every footer link, in reading order. The ads only link (consentLinkHtml) is not in it. */
 export const FOOTER_LINKS: readonly FooterLink[] = FOOTER_GROUPS.flatMap((g) => g.links);
 
 /** Where the build writes the footer in demo/template.html. */

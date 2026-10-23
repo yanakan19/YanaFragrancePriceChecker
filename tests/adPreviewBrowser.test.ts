@@ -87,7 +87,7 @@ describe.skipIf(!built)('ad spacers on the built site', () => {
         expect(await count(page, 'script[src*="googlesyndication"]')).toBe(0);
         expect(await count(page, 'meta[name="robots"]')).toBe(0);
         // The home page still reads Most Stocked, then the update history.
-        expect(await page.evaluate(`[...document.querySelectorAll('.pop-section')].pop().nextElementSibling.className`)).toBe('bottom-split');
+        expect(await page.evaluate(`[...document.querySelectorAll('.pop-section')].pop().nextElementSibling.className`)).toBe('bottom-split home-block');
         await page.goto(`http://127.0.0.1:${port}/search`, { waitUntil: 'load' });
         await waitForApp(page);
         expect(await count(page, '.ps-ad')).toBe(0);
@@ -180,7 +180,7 @@ describe.skipIf(!built)('ad spacers on the built site', () => {
         };
       })()`)) as { next: boolean; after: string; adW: number; railW: number; gap: number; wellH: number };
       expect(sizes.next).toBe(true);
-      expect(sizes.after).toBe('bottom-split');
+      expect(sizes.after).toBe('bottom-split home-block');
       // About the width of six tiles: 6 x 168 + 5 x 12.
       expect(sizes.adW).toBe(1068);
       expect(Math.abs(sizes.adW - sizes.railW)).toBeLessThanOrEqual(2);

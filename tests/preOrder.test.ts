@@ -409,7 +409,7 @@ describe('a pre-order on the product page', () => {
   });
 
   it('is not counted in the "Available at" heading', () => {
-    expect(availabilityHeading(groups)).toBe('Available at (2 Shops)');
+    expect(availabilityHeading(groups)).toBe('Available at 2 Shops');
     expect(availabilityHeading(offerGroups(buildComparison([offer('bloom-perfumery', 250, 'preOrder')], { now: at })))).toBe('');
   });
 

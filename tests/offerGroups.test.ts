@@ -64,9 +64,9 @@ describe('offerGroups', () => {
   });
 
   it('counts every listed buyable row in the Available at heading', () => {
-    expect(availabilityHeading(groups)).toBe('Available at (5 Shops)');
+    expect(availabilityHeading(groups)).toBe('Available at 5 Shops');
     const one = buildComparison([offer('perfumeo', 24.99, 5)], { now });
-    expect(availabilityHeading(offerGroups(one))).toBe('Available at (1 Shop)');
+    expect(availabilityHeading(offerGroups(one))).toBe('Available at 1 Shop');
     const soldOut = buildComparison([offer('perfumeo', 24.99, 1, 'outOfStock')], { now });
     expect(availabilityHeading(offerGroups(soldOut))).toBe('');
   });

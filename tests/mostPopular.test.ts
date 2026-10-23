@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { BY_POPULARITY, reviewsOf } from '../demo/data.js';
-import { byReviews, mostPopularRail, reviewCount, sortByReviews } from '../demo/mostPopular.js';
+import { byReviews, mostPopularRail, nextMostStockedRail, reviewCount, sortByReviews } from '../demo/mostPopular.js';
 import { mostStockedRail, rankedInMostStocked } from '../demo/mostStocked.js';
 import { scentKey } from '../demo/oneScent.js';
 
@@ -55,6 +55,12 @@ describe('the Most Popular ranking', () => {
 
   it('is empty, so the row is not drawn, where no shop publishes a review count', () => {
     expect(mostPopularRail(byReviews(stocked, () => 0), [], 12)).toEqual([]);
+  });
+
+  it('where no shop publishes reviews, takes the next houses by stock: no house or scent of the row above, one per house, no oils or sets', () => {
+    const above = [bottle('a50', 'A', 'One')];
+    expect(nextMostStockedRail(stocked, above, 12).map((f) => f.id)).toEqual(['b', 'c', 'f']);
+    expect(nextMostStockedRail(stocked, above, 2).map((f) => f.id)).toEqual(['b', 'c']);
   });
 
   it('the full list puts the most reviewed first and keeps the list order for ties and the unreviewed', () => {

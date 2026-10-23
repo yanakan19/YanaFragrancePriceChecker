@@ -34,6 +34,13 @@ export const CHANGELOG: ChangelogEntry[] = [
     date: '23 Oct 2026',
     groups: [
       {
+        heading: 'Design',
+        points: [
+          'Most Popular row in every country',
+          'Tidier home, tiles and footer',
+        ],
+      },
+      {
         heading: 'Canada',
         points: [
           'Strengths read from shop product types',

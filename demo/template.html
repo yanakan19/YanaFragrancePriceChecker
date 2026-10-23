@@ -859,7 +859,6 @@
     color: var(--ink); text-align: center; letter-spacing: -.01em;
   }
   /* A beta region's home: when its prices were last read (demo/app.ts regionHeroLines). */
-  .hero-fresh { margin: 8px auto 0; width: 90%; text-align: center; color: var(--ink-2); }
   /* ── marquee ───────────────────────────────────────────────────────────────
      The scrolling word banner under the hero (demo/marquee.ts), ported from
      the owner's other site. Every colour is one of this site's own tokens,
@@ -1022,8 +1021,7 @@
     .update-points li { white-space: normal; overflow: visible; text-overflow: clip; }
   }
 
-  :root[data-layout="desktop"] .bottom-split .updates-section { max-width: 640px; margin-inline: auto; }
-  /* One section-heading treatment, replacing three that had drifted apart
+    /* One section-heading treatment, replacing three that had drifted apart
      (uppercase-tracked, 17px bold, accent-underlined). Sentence case at
      15px/600, no rule and no accent: separation between blocks is space --
      32px above, 16px below -- never decoration. The markup already reads
@@ -1211,16 +1209,20 @@
      the disc and the ribbon paint, never the .medal box. The look is quieter
      too: a thin inner ring in place of the heavy white halo, shorter and
      narrower ribbon tails, and tabular figures so 1, 2 and 3 sit centred. */
+  /* In the tile's top left corner, level with the brand pill (owner review,
+     23 Oct 2026: on the photo it covered the bottle). A ranked tile's brand
+     pill keeps clear of it on both sides, so the pill stays centred. */
   .medal {
-    --medal-size: 24px;
-    position: absolute; top: -3px; right: -3px; z-index: 2;
+    --medal-size: 22px;
+    position: absolute; top: 9px; left: 10px; z-index: 2;
     width: var(--medal-size); height: var(--medal-size);
     font-weight: 700; line-height: 1;
     font-size: calc(var(--medal-size) * 0.48);
     font-variant-numeric: tabular-nums;
     color: var(--medal-on);
   }
-  :root[data-layout="desktop"] .medal { --medal-size: 30px; }
+  :root[data-layout="desktop"] .medal { --medal-size: 24px; }
+  .tile-ranked .phead-brand { max-width: calc(100% - 2 * (var(--medal-size, 24px) + 6px)); }
   /* The disc is its own element so it paints over the ribbon tails. */
   .medal-disc {
     position: relative; z-index: 1;
@@ -1232,16 +1234,7 @@
       0 0 0 1.5px #fff,
       0 1px 2px rgba(0, 0, 0, .3);
   }
-  .medal::before,
-  .medal::after {
-    content: ""; position: absolute;
-    top: calc(var(--medal-size) * 0.62);
-    width: calc(var(--medal-size) * 0.26); height: calc(var(--medal-size) * 0.68);
-    background: var(--medal-bg); filter: brightness(0.78);
-    clip-path: polygon(0 0, 100% 0, 100% 70%, 50% 100%, 0 70%);
-  }
-  .medal::before { left: calc(var(--medal-size) * 0.18); transform: rotate(-12deg); transform-origin: top center; }
-  .medal::after  { right: calc(var(--medal-size) * 0.18); transform: rotate(12deg); transform-origin: top center; }
+  /* No ribbon tails since 23 Oct 2026: beside the brand pill a plain disc reads cleaner. */
   /* Flat, and from tokens. */
   .medal.gold   { --medal-bg: var(--rank-1); --medal-on: var(--rank-1-on); }
   .medal.silver { --medal-bg: var(--rank-2); --medal-on: var(--rank-2-on); }
@@ -1291,7 +1284,7 @@
      like every other card in the app, instead of pinning its own colours and
      drifting from them. */
   .tile {
-    width: 100%; display: flex; flex-direction: column; gap: 6px;
+    position: relative; width: 100%; display: flex; flex-direction: column; gap: 6px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
     padding: 12px 13px 14px; color: var(--ink);
     transition: border-color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
@@ -1451,13 +1444,15 @@
     letter-spacing: .01em;
   }
   .tile-price .amt { font-size: 15.5px; }
+  /* Where any tile in a row of tiles carries the delivery note, every price
+     keeps room for it, so the prices line up across the row. */
+  .pop-rail:has(.amt-note) .tile-price, .tile-grid:has(.amt-note) .tile-price { min-height: 36px; }
   .tile-price .amt.none { color: var(--faint); font-weight: 600; font-size: 13.5px; }
   /* "delivery not stated" under a tile price. Quiet, but present: the number
      above it is an item price where every other tile shows a delivered one,
      and leaving that unsaid is what would be dishonest. */
   .tile-price .amt-note {
-    font-size: 10.5px; font-weight: 600; color: var(--faint);
-    letter-spacing: .01em;
+    font-size: 11px; font-weight: 400; color: var(--faint);
   }
   .tile-price .was {
     font-size: 11px; font-weight: 600; color: var(--faint);
@@ -1495,8 +1490,13 @@
      .sold-by would clip it, so the tail is drawn outside the padding box and
      the clip is scoped to the label text instead. */
   .sold-by { overflow: visible; }
+  /* The whole shop name, on two lines where it needs them (owner review,
+     23 Oct 2026: "from Maximum Fra..." hid which shop it was). A name that
+     still does not fit in two lines is clamped at the end of the second. */
   .sold-by > span {
-    display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+    overflow: hidden; white-space: normal; text-align: center; line-height: 1.25;
+    overflow-wrap: anywhere;
   }
   .sold-by::before {
     content: ""; position: absolute; top: -3px; left: 50%; margin-left: -3.5px;
@@ -2017,6 +2017,8 @@
   .nt-item { flex: 0 0 calc((100% - 12px) / 2); min-width: 0; }
   :root[data-layout="desktop"] .nt-item { flex-basis: calc((100% - 36px) / 4); }
   .nt-grid .grid-more { flex: 0 0 100%; }
+  /* Small tiles start at the left edge, so a short last row does not float in the middle. */
+  .nt-grid-sm { justify-content: flex-start; }
   .nt-grid-sm .nt-item, :root[data-layout="desktop"] .nt-grid-sm .nt-item { flex: 0 0 calc((100% - 24px) / 3); max-width: 160px; }
   .note-tile-sm { aspect-ratio: 1 / 1; padding: 8px 6px; }
   .note-tile-sm .note-tile-art img { max-height: 64px; }
@@ -2719,6 +2721,7 @@
      only thing that tells the two apart. */
   .unavail-shop-plain { color: inherit; }
 
+  .unavail-item { white-space: nowrap; }
   .gone-head {
     margin: 32px 0 16px; padding-top: 16px; border-top: 1px solid var(--line);
   }
@@ -2984,6 +2987,10 @@
   .seg-icon svg { display: block; }
 
   .settings-note { margin: 12px 0 0; text-align: center; }
+  /* Sign in: the tabs as wide as the form under them, the button full width
+     so it lines up with the fields and the centred links (owner review, 23 Oct 2026). */
+  .settings-doc > .seg { width: 100%; max-width: 360px; margin-top: 14px; box-sizing: border-box; }
+  .settings-doc .contact-form .contact-send { align-self: stretch; justify-content: center; }
 
   .contact-form {
     width: 100%; max-width: 360px; margin-top: 12px;
@@ -3105,15 +3112,19 @@
      page's (owner request, 2026-10-04); the one row rule above then shows
      four or six. Under 900px, whatever the layout setting, the section
      takes the full column as it does on a phone. */
+  /* Every home section under the banner (the rows, the update history, the
+     guides link) shares this one column, so they all start on the same left
+     edge (owner review, 23 Oct 2026: the guides link sat at the page's edge
+     and the update history in a narrower column of its own). */
   @media (min-width: 900px) {
-    :root[data-layout="desktop"] .pop-section {
+    :root[data-layout="desktop"] .home-block {
       --pop-cols: 4;
       max-width: calc(var(--pop-cols) * 168px + (var(--pop-cols) - 1) * 12px);
       margin-inline: auto;
     }
   }
   @media (min-width: 1160px) {
-    :root[data-layout="desktop"] .pop-section { --pop-cols: 6; }
+    :root[data-layout="desktop"] .home-block { --pop-cols: 6; }
   }
 
   /* Desktop takes the reader's chosen column count literally: equal tracks
@@ -3247,14 +3258,16 @@
     border-top: 1px solid var(--line);
     font-size: 12.5px; color: var(--faint);
   }
-  .footer-nav { display: flex; flex-direction: column; gap: 0; }
+  /* Centred, one short row (owner review, 23 Oct 2026). */
+  .site-footer { text-align: center; }
+  .footer-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 18px; }
   .footer-list {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 18px;
     list-style: none; margin: 0; padding: 0;
   }
   .footer-link {
     display: inline-flex; align-items: center; min-height: 32px;
-    color: var(--ink-2); text-decoration: none; font-size: 13px; font-weight: 600;
+    color: var(--ink-2); text-decoration: none; font-size: 13px; font-weight: 500;
   }
   .footer-link:hover, .footer-link:focus-visible { color: var(--accent-ink); text-decoration: underline; }
   .footer-note { margin: 6px 0 0; font-size: 12px; line-height: 1.5; color: var(--faint); }
@@ -3650,6 +3663,9 @@
   .about-card-title { margin: 0 0 4px; font-size: 15px; font-weight: 700; color: var(--ink); }
   .doc .about-card p { margin: 0; font-size: 13.5px; }
   .about-more { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 14px 0 0; }
+  /* Buttons and links in one row read alike: no underline until hovered. */
+  .about-more .link-btn { text-decoration: none; }
+  .about-more .link-btn:hover { text-decoration: underline; }
   .about-lower { display: grid; gap: 0 40px; }
   :root[data-layout="desktop"] .about-lower { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
   .about-foot { margin-top: 28px; padding-top: 6px; border-top: 1px solid var(--line); }
@@ -3857,7 +3873,7 @@
 
   <footer class="site-footer">
     <!--__FOOTER_LINKS__-->
-    <p class="footer-note">Some shop links earn us a commission, at no cost to you. It never changes the order of results.</p>
+    <p class="footer-note">Some links earn us a commission. It never changes the order.</p>
   </footer>
 </div>
 

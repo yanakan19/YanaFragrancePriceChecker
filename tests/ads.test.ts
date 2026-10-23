@@ -186,7 +186,7 @@ describe('ads switched on, with a test id', () => {
     // The same numbers the Most Stocked section uses.
     const template = read('demo/template.html');
     expect(template).toContain('max-width: calc(var(--pop-cols) * 168px + (var(--pop-cols) - 1) * 12px);');
-    expect(template).toMatch(/min-width: 1160px\) \{\s*:root\[data-layout="desktop"\] \.pop-section \{ --pop-cols: 6; \}/);
+    expect(template).toMatch(/min-width: 1160px\) \{\s*:root\[data-layout="desktop"\] \.home-block \{ --pop-cols: 6; \}/);
   });
 });
 
@@ -419,13 +419,13 @@ describe('placements in demo/app.ts', () => {
   it('the home banner sits directly after the rows of tiles (Most Stocked, then Most Popular), and nowhere else on the page', () => {
     const home = app.slice(app.indexOf('function homeView()'), app.indexOf('/* ── browse ──'));
     expect(home.match(/adSlotHtml\('home'\)/g)).toHaveLength(1);
-    const popStart = home.indexOf('<section class="pop-section">');
+    const popStart = home.indexOf('<section class="pop-section home-block">');
     const popEnd = home.indexOf('</section>', popStart) + '</section>'.length;
     // Straight after the closing tag and the Most Popular row (an empty
     // string where a country has none), so with ads off not one character is added.
     const after = "${mostPopularHtml()}${adSlotHtml('home')}";
     expect(home.slice(popEnd, popEnd + after.length)).toBe(after);
-    expect(home.indexOf("adSlotHtml('home')")).toBeLessThan(home.indexOf('class="bottom-split"'));
+    expect(home.indexOf("adSlotHtml('home')")).toBeLessThan(home.indexOf('class="bottom-split'));
     expect(home.indexOf("adSlotHtml('home')")).toBeGreaterThan(home.indexOf('class="pop-rail"'));
   });
 

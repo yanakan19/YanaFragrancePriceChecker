@@ -27,7 +27,9 @@ const mainBlock = (): string => template.slice(MAIN_START, template.indexOf('</m
 describe('footer links: one list, all known to the router', () => {
   it('has the links the plan asks for', () => {
     const hrefs = FOOTER_LINKS.map((l) => l.href);
-    for (const want of ['/about', '/about#contact', '/about/legal', '/about/legal#privacy', '/about/bot', '/about/how-we-check-prices', '/guides']) {
+    // One short row since 23 Oct 2026: How it works (the guides, which link the
+    // price checking and bot pages) and Legal (privacy is its second section).
+    for (const want of ['/about', '/about#contact', '/about/legal', '/guides']) {
       expect(hrefs, `the footer lacks ${want}`).toContain(want);
     }
   });
@@ -78,8 +80,8 @@ describe('footer markup', () => {
     }
   });
 
-  it('keeps the link the About tests and visitors already know: Legal Notice first of its kind', () => {
-    expect(html).toContain('<a class="footer-link" href="/about/legal" data-goto="legalNotice">Legal Notice</a>');
+  it('keeps one link to the Legal Notice', () => {
+    expect(html).toContain('<a class="footer-link" href="/about/legal" data-goto="legalNotice">Legal</a>');
   });
 
   it('is written into the template at one placeholder, inside the footer and outside <main>', () => {

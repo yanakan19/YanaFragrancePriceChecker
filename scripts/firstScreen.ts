@@ -68,7 +68,7 @@ const escapeAttr = (s: string): string =>
  * wraps a view, plus data-first-screen.
  */
 export function firstScreenFrom(homeHtml: string, hook: Omit<FirstScreenHook, 'home'>): string {
-  const start = homeHtml.indexOf('<section class="pop-section">');
+  const start = homeHtml.indexOf('<section class="pop-section');
   if (start < 0) throw new Error('firstScreen: the home view has no Most Stocked section');
   // The rows of tiles under the banner (Most Stocked, and Most Popular where
   // the country has one) all belong to the first screen: cut after the last.
@@ -138,6 +138,17 @@ export function hasFirstScreen(doc: string): boolean {
  * dependency on the browser shows up as a failed build, never as a wrong page.
  */
 export function prerenderHome(dist: string, path: string): string {
+  const hook = homeHook(dist, path);
+  return firstScreenFrom(hook.home(), hook);
+}
+
+/** The whole home view a built bundle draws (not cut to the first screen), for tests/homeSections.test.ts. */
+export function homeViewHtml(dist: string, path: string): string {
+  return homeHook(dist, path).home();
+}
+
+/** Runs the bundle as prerenderHome says, and returns the hook it hands over. */
+function homeHook(dist: string, path: string): FirstScreenHook {
   const manifest = JSON.parse(readFileSync(resolve(dist, 'data-files.json'), 'utf8')) as DataManifest;
   const blobs: unknown[] = [];
   for (const g of manifest.groups) {
@@ -185,7 +196,7 @@ export function prerenderHome(dist: string, path: string): string {
   sandbox.self = context;
   vm.runInContext(readFileSync(resolve(dist, 'bundle.js'), 'utf8'), context, { filename: resolve(dist, 'bundle.js') });
   if (!hook) throw new Error(`firstScreen: ${dist}/bundle.js did not hand over its home view (demo/app.ts, ${FIRST_SCREEN_GLOBAL})`);
-  return firstScreenFrom(hook.home(), hook);
+  return hook;
 }
 
 /**

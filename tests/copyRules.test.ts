@@ -123,7 +123,7 @@ describe('the legal and affiliate statements stay where docs/LEGAL.md puts them'
 
   it('states the affiliate terms in the footer of every page, word for word', () => {
     expect(template).toContain(
-      '<p class="footer-note">Some shop links earn us a commission, at no cost to you. It never changes the order of results.</p>',
+      '<p class="footer-note">Some links earn us a commission. It never changes the order.</p>',
     );
   });
 

@@ -151,7 +151,7 @@ export function guidesIndexHtml(): string {
         </li>`,
         ).join('')}
       </ul>
-      <p class="t-body">Where do our prices come from? Read ${link(HOW_WE_CHECK.path, 'how we check prices')}.</p>
+      <p class="t-body">Read ${link(HOW_WE_CHECK.path, 'how we check prices')}. For shops: ${link('/about/bot', 'how our bot works')}.</p>
     </article>`;
 }
 
