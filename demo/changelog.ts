@@ -42,6 +42,13 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Shop logos for six Canadian shops',
         ],
       },
+      {
+        heading: 'India',
+        points: [
+          'Three more Indian shops added',
+          'Photos for more AAR Fragrances products',
+        ],
+      },
     ],
   },
   {

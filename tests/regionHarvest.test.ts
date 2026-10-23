@@ -272,13 +272,33 @@ describe('the size an Ulta page gives its selected sku', () => {
     expect(ulta.sizeFromProductGroup).toBe(true);
   });
 
-  it('gives the slow one page per request shops more time, never a shorter gap', () => {
+  it('gives the slow one page per request shops more time, never a shorter gap, and the time fits the crawl\'s own limit', () => {
+    const regionOf = (id: string) => (REGION_RETAILERS.US.some((r) => r.id === id) ? 'us' : 'in');
     for (const id of ['ulta', 'nykaa', 'aar-fragrances']) {
       const shop = [...REGION_RETAILERS.US, ...REGION_RETAILERS.IN].find((r) => r.id === id)!;
       expect(shop.pageBudget, id).toBeDefined();
-      expect(shop.pageBudget!.minutes, id).toBeLessThanOrEqual(45);
       expect(shop.minRequestGapMs, id).toBeGreaterThanOrEqual(1500);
+      const flow = readFileSync(join(process.cwd(), '.github/workflows', `catalogue-${regionOf(id)}.yml`), 'utf8');
+      const run = Number(/--run-minutes=(\d+)/.exec(flow)![1]);
+      const job = Number(/^    timeout-minutes: (\d+)$/m.exec(flow)![1]);
+      const step = Number(/Harvest the \w+ shops\n\s+timeout-minutes: (\d+)/.exec(flow)![1]);
+      // The shop's time never exceeds the run's, the harvest step outlasts the run, and the job keeps at least
+      // 20 minutes for the install, the catalogue replay, the tests and the build around the harvest.
+      expect(shop.pageBudget!.minutes, id).toBeLessThanOrEqual(run);
+      expect(step, id).toBeGreaterThan(run);
+      expect(job - step, id).toBeGreaterThanOrEqual(20);
     }
+  });
+
+  it('keeps the page of an og:image shop as the shop\'s own hot linked picture', () => {
+    const html = (img: string) => `<html><head><meta property="og:title" content="X" />${img}</head><body><h1>Lattafa Dynasty EDP 100ml</h1></body></html>`;
+    const at = 'https://www.aarfragrances.com/product/a';
+    expect(readOgProductPage(html('<meta property="og:image" content="https://www.aarfragrances.com/public/uploads/all/a.jpg" />'), at, 'og')!.imageUrl)
+      .toBe('https://www.aarfragrances.com/public/uploads/all/a.jpg');
+    expect(readOgProductPage(html('<meta content="/public/uploads/all/b.jpg" property="og:image">'), at, 'og')!.imageUrl)
+      .toBe('https://www.aarfragrances.com/public/uploads/all/b.jpg');
+    expect(readOgProductPage(html('<meta property="og:image" content="http://www.aarfragrances.com/a.jpg" />'), at, 'og')!.imageUrl).toBeNull();
+    expect(readOgProductPage(html(''), at, 'og')!.imageUrl).toBeNull();
   });
 
   it('records Purplle as refused to the runner, not worked around', () => {

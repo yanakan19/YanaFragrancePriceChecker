@@ -1,0 +1,91 @@
+{
+ "readAt": "2026-10-23",
+ "source": "https://mdpindia.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 9490933842174,
+   "title": "Nuwa",
+   "handle": "nuwa-1",
+   "vendor": "Roja London",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 48937694068990,
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "sku": "ROJA-RD3131",
+     "price": "40500.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9490943934718,
+   "title": "Serenity Blend",
+   "handle": "serenity-blend",
+   "vendor": "Roja London",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 48937739845886,
+     "title": "100ml",
+     "option1": "100ml",
+     "option2": null,
+     "sku": "ROJA-RD3103",
+     "price": "40500.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9490925682942,
+   "title": "Portobello Road",
+   "handle": "portobello-road",
+   "vendor": "Memo Paris",
+   "product_type": "Eau de Parfum",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 48937652879614,
+     "title": "30ml",
+     "option1": "30ml",
+     "option2": null,
+     "sku": "MEM-MMEDP30PO",
+     "price": "17700.00",
+     "compare_at_price": null,
+     "available": true
+    },
+    {
+     "id": 48937652912382,
+     "title": "75ml",
+     "option1": "75ml",
+     "option2": null,
+     "sku": "MEM-MMEDP75PO",
+     "price": "29000.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

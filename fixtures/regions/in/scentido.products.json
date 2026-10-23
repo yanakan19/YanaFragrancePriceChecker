@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-23",
+ "source": "https://scentido.com/products.json?limit=250",
+ "products": [
+  {
+   "id": 7258663682233,
+   "title": "I - Woody Floral",
+   "handle": "i-woody-floral",
+   "vendor": "Clive Christian",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Quantity",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 42064101900473,
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "sku": "652638012827",
+     "price": "36600.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 7258663715001,
+   "title": "V - Amber Fougere",
+   "handle": "v-amber-fougere",
+   "vendor": "Clive Christian",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Quantity",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 42064101933241,
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "sku": "652638014616",
+     "price": "36600.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 9452042649885,
+   "title": "1872 Feminine (Copy)",
+   "handle": "1872-feminine-copy",
+   "vendor": "Clive Christian",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Quantity",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 48839251231005,
+     "title": "50 ml",
+     "option1": "50 ml",
+     "option2": null,
+     "sku": "652638014333",
+     "price": "37800.00",
+     "compare_at_price": null,
+     "available": true
+    }
+   ]
+  }
+ ]
+}

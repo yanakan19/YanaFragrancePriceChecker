@@ -395,6 +395,20 @@ function metaContent(html: string, property: string): string | null {
 const decodeEntities = decodeHtmlEntities;
 
 /**
+ * The page's own `og:image` (the shop's picture of the bottle, hot linked, never copied; `imageBasis` on the shop), as an
+ * absolute https address; null when the page declares none or the address is not https.
+ */
+export function ogImageOf(html: string, pageUrl: string): string | null {
+  const raw = metaContent(html, 'og:image') ?? metaContent(html, 'og:image:secure_url');
+  if (!raw) return null;
+  try {
+    return shopImageUrl(new URL(decodeEntities(raw).trim(), pageUrl).href);
+  } catch {
+    return null;
+  }
+}
+
+/**
  * One product page that states its price only in Open Graph product tags
  * (`og:price:amount` "₹5,000.00", `product:price:currency` "Rupee") and its
  * name in its one <h1> (AAR Fragrances). The currency word is mapped to its
@@ -418,7 +432,7 @@ export function readOgProductPage(html: string, url: string, sectionId: string):
     rawTitle: title,
     rawBrand: null,
     ean: null,
-    imageUrl: null,
+    imageUrl: ogImageOf(html, url),
     priceGbp: null,
     wasPriceGbp: null,
     promoEndsAt: null,
@@ -451,7 +465,12 @@ async function crawlOgShop(
   const cutoff = Date.parse(o.now) - o.refreshAfterHours * 3_600_000;
   const fresh = urls.filter((u) => !stored.has(u));
   const due = urls.filter((u) => stored.has(u) && Date.parse(stored.get(u)!) < cutoff).sort((a, b) => stored.get(a)!.localeCompare(stored.get(b)!));
-  const plan = [...fresh.slice(0, o.maxPages), ...due];
+  // A stored listing that has no picture yet is read once more (after the due ones, so the clock cuts it first): the pages
+  // now state their og:image, and a listing read before that has none.
+  const dueSet = new Set(due);
+  const inSitemap = new Set(urls);
+  const noPicture = (o.previous?.listings ?? []).filter((l) => l.status === 'active' && !l.imageUrl && !dueSet.has(l.url) && inSitemap.has(l.url)).map((l) => l.url);
+  const plan = [...fresh.slice(0, o.maxPages), ...due, ...noPicture];
   const listings: RawListing[] = [];
   let fetched = 1;
   let failedInARow = 0;

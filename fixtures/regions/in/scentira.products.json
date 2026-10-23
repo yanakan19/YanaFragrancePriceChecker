@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-10-23",
+ "source": "https://scentira.in/products.json?limit=250",
+ "products": [
+  {
+   "id": 7663466643534,
+   "title": "Lattafa Yara Attar Perfume Oil for Woman",
+   "handle": "lattafa-yara-attar-perfume-oil-for-woman",
+   "vendor": "Lattafa",
+   "product_type": "",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 42721912815694,
+     "title": "Retail Bottle (20 mL)",
+     "option1": "Retail Bottle (20 mL)",
+     "option2": null,
+     "sku": "LAT-YAP-OIL-20",
+     "price": "1849.00",
+     "compare_at_price": "2499.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8049314463822,
+   "title": "Colour Me Sky Blue Eau de Parfum",
+   "handle": "colour-me-sky-blue-eau-de-parfum",
+   "vendor": "Colour Me",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 44269682524238,
+     "title": "Retail Bottle (50 mL)",
+     "option1": "Retail Bottle (50 mL)",
+     "option2": null,
+     "sku": "CM-SKYBLUE-EDP-50",
+     "price": "699.00",
+     "compare_at_price": "899.00",
+     "available": true
+    }
+   ]
+  },
+  {
+   "id": 8037767708750,
+   "title": "Creed Aventus Cologne Eau de Parfum – Official Vial (1.7 mL)",
+   "handle": "creed-aventus-cologne-eau-de-parfum-official-vial-1-7-ml",
+   "vendor": "Creed",
+   "product_type": "Perfume",
+   "options": [
+    {
+     "name": "Size",
+     "position": 1
+    }
+   ],
+   "variants": [
+    {
+     "id": 44219755921486,
+     "title": "Official Vial (1.7 mL)",
+     "option1": "Official Vial (1.7 mL)",
+     "option2": null,
+     "sku": "CRE-AC-EDP-1P7V",
+     "price": "799.00",
+     "compare_at_price": "1099.00",
+     "available": true
+    }
+   ]
+  }
+ ]
+}

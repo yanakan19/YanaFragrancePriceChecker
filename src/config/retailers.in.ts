@@ -21,6 +21,9 @@ import { IN_TAX_NOTE, type RegionRetailer } from '../types/regionRetailer.js';
 
 const CHECKED = '2026-10-09';
 
+/** The second research round of 23 October 2026 (docs/BETA-SCORECARD-2026-10-23.md), shops found by search and read as PriceSniffsBot. */
+const FOUND = '2026-10-23';
+
 const SHOPIFY_INR = 'Shopify.currency {"active":"INR","rate":"1.0"}, /meta.json currency INR';
 
 /** Part payments, add ons, rewards and quick commerce bundles, not a bottle to buy on its own. */
@@ -62,7 +65,9 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     // Round 2: its JSON-LD sku and mpn are the bottle's barcode on many pages (6293708700035).
     // All seven product sitemaps are read (3,069 perfume addresses, 2026-10-09);
     // what limits it is one product page per request: 295 in 14 minutes.
-    pageBudget: { minutes: 40, newPages: 1000 },
+    // 23 Oct 2026: 40 to 55 minutes at the same 2 second gap (1,649 of 3,069 addresses were read, 751 not re-seen): about 1,300
+    // pages a run; the crawl's run limit is 64 minutes (catalogue-in.yml, tests/regionHarvest.test.ts).
+    pageBudget: { minutes: 55, newPages: 1400 },
     skuIsBarcode: true,
     minRequestGapMs: 2000,
     delivery: {
@@ -223,8 +228,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
       product: '^https://www\\.aarfragrances\\.com/product/[^/?#]+$',
       exclude: '(?:decant|sample|gift-card)',
     },
-    // 2,281 product addresses; 266 read in 14 minutes on the second run.
-    pageBudget: { minutes: 40, newPages: 1000 },
+    // 2,281 product addresses; 266 read in 14 minutes on the second run. 40 to 55 minutes on 23 Oct 2026 (1,586 not re-seen).
+    pageBudget: { minutes: 55, newPages: 1400 },
     minRequestGapMs: 2000,
     delivery: unverified('Not read.'),
     taxNote: IN_TAX_NOTE,
@@ -500,6 +505,88 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     },
     taxNote: IN_TAX_NOTE,
     checked: `${CHECKED}: robots.txt 200; home 200 (gulabsinghjohrimal.com redirects to .co.in); /products.json 200; ${SHOPIFY_INR}, Shopify.country IN.`,
+  },
+  {
+    id: 'scentido',
+    name: 'Scentido',
+    region: 'IN',
+    currency: 'INR',
+    domain: 'scentido.com',
+    homepage: 'https://scentido.com/',
+    tiers: ['niche', 'designer'],
+    enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
+    route: { kind: 'shopify' },
+    minRequestGapMs: 2000,
+    excludeProductTypes: [...NOT_FOR_SALE_TYPES, 'Candle', 'Oil', 'Discovery Set', 'Gift Cards', 'Bundle'],
+    delivery: unverified('Its /policies/ pages are disallowed by its robots.txt and no /pages/ shipping page was found, so none was read.'),
+    taxNote: IN_TAX_NOTE,
+    checked: `${FOUND}: found by a search for Indian niche perfume shops; robots.txt 200 (User-agent * allows /products.json; the Crawl-delay lines belong to other named bots); home 200; /products.json 200 (about 650 KB a page, 32 houses in the first 250); ${SHOPIFY_INR}, Shopify.country IN.`,
+  },
+  {
+    id: 'maison-des-parfums-in',
+    name: 'Maison des Parfums',
+    region: 'IN',
+    currency: 'INR',
+    domain: 'mdpindia.com',
+    homepage: 'https://mdpindia.com/',
+    tiers: ['niche', 'designer'],
+    enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
+    // Its product type names the strength on nearly every bottle ("Eau De Parfum", "EDP", "Eau de Toilette") and its titles do not.
+    strengthFromProductType: true,
+    route: { kind: 'shopify' },
+    minRequestGapMs: 2000,
+    excludeProductTypes: [...NOT_FOR_SALE_TYPES, 'Body Lotion', 'Bath & Shower Gel', 'Body Shower Gel'],
+    delivery: {
+      standard: 0,
+      freeOver: null,
+      estimatedDays: null,
+      verifiedAt: FOUND,
+      confidence: 'confirmed',
+      source: {
+        url: 'https://mdpindia.com/policies/shipping-policy',
+        quote: 'Maison Des Parfums does not levy any shipping & handling charges.',
+        readAt: FOUND,
+      },
+      notes: 'Free shipping on every order. The page says most orders are dispatched within 5 to 7 business days (a dispatch time, not a delivery window), so no window is recorded.',
+    },
+    taxNote: IN_TAX_NOTE,
+    checked: `${FOUND}: found by a search for Indian niche perfume shops (Delhi and Mumbai boutiques); robots.txt 200 (stock); home 200; /products.json 200 (about 800 KB a page, 33 houses in the first 250); ${SHOPIFY_INR}, Shopify.country IN.`,
+  },
+  {
+    id: 'scentira',
+    name: 'Scentira',
+    region: 'IN',
+    currency: 'INR',
+    domain: 'scentira.in',
+    homepage: 'https://scentira.in/',
+    tiers: ['niche', 'designer', 'mideast'],
+    enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
+    route: { kind: 'shopify' },
+    minRequestGapMs: 2000,
+    excludeProductTypes: [...NOT_FOR_SALE_TYPES, 'Bundle', 'Sample', 'Full Size', 'product'],
+    // Its own decants and bundles carry the vendor "Scentira" (86 of the first 250): the shop's name, not a house.
+    vendorNotHouse: ['Scentira'],
+    delivery: {
+      standard: null,
+      freeOver: null,
+      estimatedDays: [3, 5],
+      verifiedAt: FOUND,
+      confidence: 'unverified',
+      source: {
+        url: 'https://scentira.in/policies/shipping-policy',
+        quote: 'Standard Delivery: Expect your order to arrive within 3-5 business days.',
+        readAt: FOUND,
+      },
+      notes: 'A window and no figure: the cost is worked out from the order weight and place and is not stated, and the cart offers free shipping above a threshold the policy page does not state.',
+    },
+    taxNote: IN_TAX_NOTE,
+    checked: `${FOUND}: found by a search for Indian perfume shops; robots.txt 200 (stock); home 200; /products.json 200 (about 1.6 MB a page, 55 vendors in the first 250); ${SHOPIFY_INR}, Shopify.country IN.`,
   },
   {
     id: 'kannauj-attar',

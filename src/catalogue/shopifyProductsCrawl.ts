@@ -150,6 +150,25 @@ export const SHOPIFY_MAX_PAGE = 100;
  */
 export const SERVER_ERROR_RETRY_MS = 15_000;
 
+/**
+ * The asks that follow a server error, each after its own wait, longer each time (23 Oct 2026). Perfume Network answered
+ * the last page of its catalogue with HTTP 503 on a run and the same page with 200 a few minutes later, so one ask after
+ * 15 seconds was not enough there. The wait is the one the shop asked for in `Retry-After` where it gave a number, kept
+ * between the step's own wait and `SERVER_ERROR_RETRY_MAX_MS`. Four asks of one page in all, at most.
+ */
+export const SERVER_ERROR_RETRY_WAITS_MS: readonly number[] = [SERVER_ERROR_RETRY_MS, 45_000, 90_000];
+export const SERVER_ERROR_RETRY_MAX_MS = 120_000;
+
+/** Wait before a retry: the step's own wait, or what the shop's Retry-After asked when that is longer, never above the cap. */
+export function waitAfterServerError(step: number, retryAfterSeconds: number | undefined): number {
+  const own = SERVER_ERROR_RETRY_WAITS_MS[Math.min(step, SERVER_ERROR_RETRY_WAITS_MS.length - 1)]!;
+  const asked = retryAfterSeconds === undefined ? 0 : retryAfterSeconds * 1000;
+  return Math.min(SERVER_ERROR_RETRY_MAX_MS, Math.max(own, asked));
+}
+
+/** A page (after the first) that still answers with a server error after its asks is left out, the walk goes on; a second such page ends the walk. */
+export const SERVER_ERROR_SKIPPED_PAGES_MAX = 2;
+
 export interface ShopifyProductsCrawlOptions {
   retailer: Retailer;
   http: Http;
@@ -213,6 +232,7 @@ export async function crawlViaShopifyProducts(
   let isShopify = true;
   let complete = false;
   let retriedPages = 0;
+  let skippedPages = 0;
 
   // Asked before the catalogue is read, not after, so there is never a moment
   // where a converted price list has been parsed as pounds and is waiting to
@@ -311,9 +331,22 @@ export async function crawlViaShopifyProducts(
     // The second ask is not counted as a page: `maxPages` is the catalogue's own
     // page cap, and a retry is not a page of it.
     if (res.status >= 500 && res.status <= 599) {
-      await sleep(SERVER_ERROR_RETRY_MS);
       retriedPages++;
-      res = await http(url, marketHeaders);
+      for (let step = 0; step < SERVER_ERROR_RETRY_WAITS_MS.length; step++) {
+        const wait = waitAfterServerError(step, res.retryAfterSeconds);
+        if (options.deadlineAt !== undefined && Date.now() + wait >= options.deadlineAt) break;
+        await sleep(wait);
+        res = await http(url, marketHeaders);
+        if (!(res.status >= 500 && res.status <= 599)) break;
+      }
+    }
+
+    if (page > 1 && res.status >= 500 && res.status <= 599 && skippedPages + 1 < SERVER_ERROR_SKIPPED_PAGES_MAX) {
+      // The shop is having a bad few minutes on this page: say so, leave the page out and read the next one.
+      errors.push(`${url}: HTTP ${res.status}${res.error ? ` ${res.error}` : ''} (page left out after ${SERVER_ERROR_RETRY_WAITS_MS.length + 1} asks)`);
+      skippedPages++;
+      if (options.gapMs > 0 && pagesFetched < maxPages) await sleep(options.gapMs);
+      continue;
     }
 
     if (!res.ok) {
@@ -372,6 +405,6 @@ export async function crawlViaShopifyProducts(
   // not a complete read of anything a caller may act on.
   return {
     listings, pagesFetched, errors, isShopify, currency, market, retriedPages,
-    complete: complete && isShopify && currency.isSterling,
+    complete: complete && skippedPages === 0 && isShopify && currency.isSterling,
   };
 }

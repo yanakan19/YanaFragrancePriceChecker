@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { buildRegionCatalogue, stripAudienceTags, strengthOfShopType, withoutAudienceTag } from '../src/catalogue/regionCatalogue.js';
 import type { RegionListing, RegionSnapshot } from '../src/catalogue/regionHarvest.js';
 import { CA_RETAILERS } from '../src/config/retailers.ca.js';
+import { IN_RETAILERS } from '../src/config/retailers.in.js';
 
 const NOW = '2026-10-23T12:00:00.000Z';
 let n = 0;
@@ -57,6 +58,12 @@ describe('strength read from the shop\'s product type', () => {
   it('is set on Maximum Fragrance and Parfum Exquis, whose types state strengths, and not on H Parfums, whose type is a category', () => {
     const set = CA_RETAILERS.filter((s) => s.strengthFromProductType).map((s) => s.id).sort();
     expect(set).toEqual(['maximum-fragrance', 'parfum-exquis']);
+  });
+});
+
+describe('the Indian shop that states strength in its type', () => {
+  it('is Maison des Parfums only', () => {
+    expect(IN_RETAILERS.filter((s) => s.strengthFromProductType).map((s) => s.id)).toEqual(['maison-des-parfums-in']);
   });
 });
 

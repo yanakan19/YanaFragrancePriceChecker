@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { crawlViaShopifyProducts, SERVER_ERROR_RETRY_MS } from '../src/catalogue/shopifyProductsCrawl.js';
+import { crawlViaShopifyProducts, SERVER_ERROR_RETRY_MAX_MS, SERVER_ERROR_RETRY_MS, waitAfterServerError } from '../src/catalogue/shopifyProductsCrawl.js';
 import { NO_RESTRICTIONS } from '../src/catalogue/robots.js';
 import type { Retailer } from '../src/types/retailer.js';
 import type { Http } from '../src/catalogue/attempt.js';
@@ -129,24 +129,64 @@ describe('crawlViaShopifyProducts: a server error is asked about once more', () 
     expect(sleeps.filter((ms) => ms === SERVER_ERROR_RETRY_MS)).toHaveLength(1);
   });
 
-  it('asks a failing page only once more, then ends the walk with the error and keeps what it read', async () => {
+  it('asks a failing page again after longer and longer waits, and carries on when a later answer is good', async () => {
+    const sleeps: number[] = [];
+    let failures = 0;
+    const http: Http = async (url) => {
+      const p = pageOf(url);
+      if (p === 2 && failures < 3) { failures++; return { status: 503, ok: false, body: '' }; }
+      return { status: 200, ok: true, body: p <= 2 ? page([p]) : page([]) };
+    };
+    const result = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 10, gapMs: 0, sleep: async (ms) => { sleeps.push(ms); }, currency: STERLING,
+    });
+    expect(result.listings.map((l) => l.retailerSku)).toEqual(['sku-1', 'sku-2']);
+    expect(result.errors).toEqual([]);
+    expect(result.complete).toBe(true);
+    expect(sleeps).toEqual([15_000, 45_000, 90_000]);
+  });
+
+  it('honours Retry-After when it asks for longer than the step, within the cap', () => {
+    expect(waitAfterServerError(0, undefined)).toBe(15_000);
+    expect(waitAfterServerError(0, 60)).toBe(60_000);
+    expect(waitAfterServerError(1, 5)).toBe(45_000);
+    expect(waitAfterServerError(2, 3600)).toBe(SERVER_ERROR_RETRY_MAX_MS);
+  });
+
+  it('asks a failing page four times in all, then leaves it out politely and reads the rest, but not as a complete read', async () => {
     const asked: number[] = [];
     const http: Http = async (url) => {
       const p = pageOf(url);
       asked.push(p);
       if (p === 2) return { status: 503, ok: false, body: '' };
-      return { status: 200, ok: true, body: page([p]) };
+      return { status: 200, ok: true, body: p <= 3 ? page([p]) : page([]) };
     };
 
     const result = await crawlViaShopifyProducts({
       retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 10, gapMs: 0, sleep: async () => {}, currency: STERLING,
     });
 
-    expect(asked).toEqual([1, 2, 2]);
-    expect(result.listings).toHaveLength(1);
+    expect(asked).toEqual([1, 2, 2, 2, 2, 3, 4]);
+    expect(result.listings.map((l) => l.retailerSku)).toEqual(['sku-1', 'sku-3']);
     expect(result.errors).toHaveLength(1);
     expect(result.errors[0]).toMatch(/page=2.*HTTP 503/);
     expect(result.retriedPages).toBe(1);
+    expect(result.complete).toBe(false);
+  });
+
+  it('ends the walk when a second page also fails, and when the first page fails', async () => {
+    const asked: number[] = [];
+    const http: Http = async (url) => {
+      const p = pageOf(url);
+      asked.push(p);
+      if (p === 1 || p === 2 || p === 3) return p === 1 ? { status: 200, ok: true, body: page([1]) } : { status: 503, ok: false, body: '' };
+      return { status: 200, ok: true, body: page([p]) };
+    };
+    const result = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: 10, gapMs: 0, sleep: async () => {}, currency: STERLING,
+    });
+    expect(asked).toEqual([1, 2, 2, 2, 2, 3, 3, 3, 3]);
+    expect(result.errors).toHaveLength(2);
     expect(result.complete).toBe(false);
   });
 

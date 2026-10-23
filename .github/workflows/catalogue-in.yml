@@ -51,7 +51,7 @@ concurrency:
 jobs:
   crawl:
     runs-on: ubuntu-24.04
-    timeout-minutes: 80
+    timeout-minutes: 90
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -85,7 +85,7 @@ jobs:
         run: npx vitest run tests/regionRetailers.test.ts tests/regionHarvest.test.ts tests/regionCatalogue.test.ts
 
       - name: Harvest the IN shops
-        timeout-minutes: 52
+        timeout-minutes: 70
         env:
           HARVEST_MAX: ${{ inputs.harvest_max || '250' }}
           SHOP_MINUTES: ${{ inputs.shop_minutes || '12' }}
@@ -94,7 +94,7 @@ jobs:
           # only lets our client read the answer the shop sends; nothing it is
           # sent changes.
           NODE_OPTIONS: --max-http-header-size=131072
-        run: npx tsx scripts/region-harvest.ts --region=in --max="$HARVEST_MAX" --shop-minutes="$SHOP_MINUTES" --run-minutes=48 --concurrency=4
+        run: npx tsx scripts/region-harvest.ts --region=in --max="$HARVEST_MAX" --shop-minutes="$SHOP_MINUTES" --run-minutes=64 --concurrency=4
 
       - name: Build the IN catalogue, price history, report and product addresses
         timeout-minutes: 10
