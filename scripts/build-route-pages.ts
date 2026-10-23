@@ -27,7 +27,7 @@ import { existsSync, readFileSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { COUNTS } from '../demo/counts.js';
-import { SHOP_COUNT } from '../demo/catalogue.generated.js';
+import { shopsShowingPrices } from '../demo/data.js';
 import { legalPage } from '../demo/legal.js';
 import { policyOf, writeGenerated } from './generatedFiles.js';
 import {
@@ -49,7 +49,7 @@ const demo = resolve(root, 'demo');
 /** The facts the app gives headFor for these pages (headInputForState in demo/app.ts). */
 export const HEAD_FACTS: HeadFacts = {
   productCount: COUNTS.bottles,
-  retailerCount: SHOP_COUNT,
+  retailerCount: shopsShowingPrices(),
   legalTitle: (id) => legalPage(id)?.title,
   noteGroupName: (id) => NOTE_GROUP_NAMES.get(id),
 };

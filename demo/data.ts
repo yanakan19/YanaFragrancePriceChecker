@@ -499,16 +499,51 @@ export function countLive(
   enabledShopIds: ReadonlySet<string>,
   now: Date = new Date(),
 ): LiveCounts {
-  const shops = new Set<string>();
+  const { shopIds, offers } = liveShopOffers(offersByProduct, productIds, enabledShopIds, now);
+  return { shops: shopIds.size, fragrances: productIds.length, offers };
+}
+
+/** The ids of the switched on shops with a current price, and how many current offers they hold. */
+function liveShopOffers(
+  offersByProduct: Readonly<Record<string, readonly { retailerId: string; fetchedAt: string }[]>>,
+  productIds: readonly string[],
+  enabledShopIds: ReadonlySet<string>,
+  now: Date,
+): { shopIds: Set<string>; offers: number } {
+  const shopIds = new Set<string>();
   let offers = 0;
   for (const id of productIds) {
     for (const o of offersByProduct[id] ?? []) {
       if (!enabledShopIds.has(o.retailerId) || isTooOldToShow(o.fetchedAt, now)) continue;
       offers++;
-      shops.add(o.retailerId);
+      shopIds.add(o.retailerId);
     }
   }
-  return { shops: shops.size, fragrances: productIds.length, offers };
+  return { shopIds, offers };
+}
+
+let liveShopIdsCache: ReadonlySet<string> | null = null;
+
+/**
+ * THE shop count's one source (23 Oct 2026): the switched on shops that show a
+ * current price. The home page, the About numbers, the Legal Notice, the page
+ * descriptions and the Most Stocked note all count this set, so no two pages
+ * can give two numbers (the Legal Notice said 63, switched on, while About said
+ * 62, showing prices). tests/shopCount.test.ts holds it.
+ */
+export function liveShopIds(): ReadonlySet<string> {
+  liveShopIdsCache ??= liveShopOffers(
+    CRAWLED,
+    DEMO_FRAGRANCES.map((f) => f.id),
+    new Set(RETAILERS.filter((r) => r.enabled).map((r) => r.id)),
+    new Date(),
+  ).shopIds;
+  return liveShopIdsCache;
+}
+
+/** How many shops show a current price: the one number every page states. */
+export function shopsShowingPrices(): number {
+  return liveShopIds().size;
 }
 
 let liveCountsCache: LiveCounts | null = null;

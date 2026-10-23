@@ -111,7 +111,7 @@ import {
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, legalPage, legalNoticeSections, isLegalNoticeId } from './legal.js';
 import { CHANGELOG, homeHighlights } from './changelog.js';
-import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
+import { offersFor, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
 import { fetchLazyFile, priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
 import { dormant, dormantEntry, idForSlug, movedTo } from './dormantStore.js';
 import type { DormantEntry } from '../src/catalogue/dormantProducts.js';
@@ -155,7 +155,7 @@ import {
 } from './regionPreference.js';
 import { flagSvg } from './flags.js';
 import { ABOUT } from './legal.js';
-import { liveCounts, reviewsOf } from './data.js';
+import { liveCounts, reviewsOf, shopsShowingPrices } from './data.js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, setTargetPrice, type WishlistEntry } from './wishlist.js';
 import { groupWishlist, type WishlistGroup } from '../src/services/wishlistResolve.js';
 import { fetchPriceAlerts, setPriceAlerts, unsubscribe } from './priceAlerts.js';
@@ -1870,7 +1870,7 @@ function browseView(): string {
     <div class="page-head"><h1 class="t-page">${esc(title)}</h1><span class="count t-count">${list.length}</span></div>
     ${
       isTop && state.browseSort === 'stocked'
-        ? `<p class="panel-note t-body">By how many of our ${SHOP_COUNT} shops stock it (brand stores not counted), then A to Z.
+        ? `<p class="panel-note t-body">By how many of our ${shopsShowingPrices()} shops stock it (brand stores not counted), then A to Z.
              One line per perfume. Sets and oils are under Explore.</p>`
         : reviewedTop
           ? `<p class="panel-note t-body">By the most reviews at any one shop, then by stock. One line per perfume.
@@ -6413,7 +6413,7 @@ function headInputForState(): HeadInput {
     case 'explore':
       return route.name === 'notesGroup'
         ? groupHeadInput(route)
-        : { route, productCount: COUNTS.bottles, retailerCount: SHOP_COUNT };
+        : { route, productCount: COUNTS.bottles, retailerCount: shopsShowingPrices() };
 
     // 'Developer' only once the signed in account is the owner's; until then
     // the tab says Page not found, the same as the page (demo/developer.ts).
@@ -6432,7 +6432,7 @@ function headInputForState(): HeadInput {
       return {
         route,
         productCount: COUNTS.bottles,
-        retailerCount: SHOP_COUNT,
+        retailerCount: shopsShowingPrices(),
       };
   }
 }

@@ -349,3 +349,4 @@ data tests/regionCaSitemap.test.ts
 code tests/regionStrengthAndAudienceTags.test.ts
 code tests/regionPageReaders.test.ts
 code tests/homeSections.test.ts
+code tests/shopCount.test.ts

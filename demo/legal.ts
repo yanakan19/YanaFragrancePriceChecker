@@ -59,7 +59,7 @@
  */
 import { RETAILERS } from '../src/config/retailers.js';
 import { BRAND_LOGOS } from './brandLogos.js';
-import { SHOP_COUNT } from './catalogue.generated.js';
+import { liveShopIds } from './data.js';
 import { shopsPhrase } from './head.js';
 import { ADS_ON, ADS_SWITCHED_ON } from './ads.js';
 import { formatMoneyShort } from '../src/services/money.js';
@@ -68,12 +68,19 @@ import { regionChoiceOn } from './regionPreference.js';
 import { regionLegalPages } from './legalRegion.js';
 import { BAR_DISMISSED_KEY } from './regionSwitch.js';
 
-/** Shops we actually fetch from today, as opposed to entries in the registry. */
-const ENABLED = RETAILERS.filter((r) => r.enabled);
+/**
+ * Shops that show prices today: switched on in the registry and holding a
+ * current listing (liveShopIds, demo/data.ts, the one source of the shop count
+ * on every page). A shop that is switched on but has no current price yet is
+ * not counted anywhere, so the Legal Notice, About and the home page agree.
+ */
+const ENABLED = RETAILERS.filter((r) => r.enabled && liveShopIds().has(r.id));
+/** Every switched on shop, for the facts that are about the registry's records (logos, photo grounds), not the count shoppers see. */
+const SWITCHED_ON = RETAILERS.filter((r) => r.enabled);
 /** The same count, for the home page's one sentence about what the site covers. */
 export const ENABLED_SHOP_COUNT = ENABLED.length;
 /** Coverage as shoppers see it ("more than 30"): shops that show prices today, rounded down. */
-export const COVERAGE = shopsPhrase(Math.min(ENABLED.length, SHOP_COUNT));
+export const COVERAGE = shopsPhrase(ENABLED.length);
 /** Researched but not switched on, usually pending a delivery cost or a route. */
 const SWITCHED_OFF = RETAILERS.filter((r) => !r.enabled);
 /** Programmes actually approved, so a link genuinely earns commission. */
@@ -148,7 +155,7 @@ const membershipExample = (): string => {
 const DELIVERY_CONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'confirmed');
 const DELIVERY_UNCONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'unverified');
 /** Shops whose photographs are shown on a stated licence or their own storefront, versus a bare hotlink. */
-const IMAGE_SHOPS = ENABLED.filter((r) => r.affiliate.imageBasis != null);
+const IMAGE_SHOPS = SWITCHED_ON.filter((r) => r.affiliate.imageBasis != null);
 const IMAGE_LICENSED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis !== 'hotlink-unlicensed');
 const IMAGE_HOTLINKED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis === 'hotlink-unlicensed');
 
@@ -157,7 +164,7 @@ const IMAGE_HOTLINKED = IMAGE_SHOPS.filter((r) => r.affiliate.imageBasis === 'ho
  *  brand in demo/brandLogos.ts, split by whether we host the file ourselves
  *  (commons-public-domain, under demo/logos/) or hot-link it from the
  *  owner's own server (everything else). */
-const LOGO_RETAILERS = ENABLED.filter((r) => r.logo != null);
+const LOGO_RETAILERS = SWITCHED_ON.filter((r) => r.logo != null);
 const LOGO_BRANDS = Object.values(BRAND_LOGOS);
 const LOGO_TOTAL = LOGO_RETAILERS.length + LOGO_BRANDS.length;
 const LOGO_PUBLIC_DOMAIN =
@@ -168,7 +175,7 @@ const LOGO_SUPPLIED =
   LOGO_RETAILERS.filter((r) => r.logo!.basis === 'owner-supplied').length +
   LOGO_BRANDS.filter((l) => l.basis === 'owner-supplied').length;
 /** A shop with no logo of its own, whose name is shown in plain type instead, if it is on the site. */
-const PLAIN_TYPE_SHOP = ENABLED.find((r) => r.id === 'manchester-ouds' && r.logo?.basis === 'owner-supplied');
+const PLAIN_TYPE_SHOP = SWITCHED_ON.find((r) => r.id === 'manchester-ouds' && r.logo?.basis === 'owner-supplied');
 
 /**
  * What the privacy, cookie and affiliate pages say about display advertising,
@@ -457,7 +464,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       more than one priced at £26.</p>
 
       <h2 class="t-section">Which Delivery Charges We Have Checked</h2>
-      <p>Of the ${ENABLED.length} shops switched on today, ${DELIVERY_CONFIRMED.length}
+      <p>Of the ${ENABLED.length} shops showing prices today, ${DELIVERY_CONFIRMED.length}
       have had their delivery charge read off their own delivery page or checked
       by hand in their own basket:
       ${DELIVERY_CONFIRMED.map((r) => r.name).join(', ')}.</p>
