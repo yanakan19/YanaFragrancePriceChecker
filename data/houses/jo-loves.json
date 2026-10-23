@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-23T07:52:48.469Z",
-  "seenAt": "2026-10-23T07:52:48.469Z",
+  "updatedAt": "2026-10-23T11:48:05.084Z",
+  "seenAt": "2026-10-23T11:48:05.084Z",
   "source": "live",
   "listings": [
     {
@@ -2360,7 +2360,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Ignite your senses with our sophisticated Home Candle, a warm and smoky fragrance that transports you to a cozy evening by the fireplace. Crafted by hand in England using high-quality ingredients, this artisan candle in hand-blown glass will captivate you for up to 37.5 hours, filling your space with notes of wood fire, cedar oil, guaiac wood oil, and black leather. Experience the perfect ambiance for relaxation and indulgence. .",
       "productType": null,
@@ -2475,7 +2475,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Ignite the night with Amber Lime & Bergamot, a creation by the Scent Maverick inspired by the glamour of the Hurlingham Club’s Concours d’Elegance. Notes of bergamot, white amber, lime, and patchouli shimmer like vintage chrome beneath golden light. Hand‑crafted in England, this candle fills the air with warmth and sensuality - the scent of champagne moments and endless summer nights.",
       "productType": null,

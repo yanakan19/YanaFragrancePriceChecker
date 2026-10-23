@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-23T07:43:29.394Z",
-  "seenAt": "2026-10-23T07:43:29.394Z",
+  "updatedAt": "2026-10-23T11:38:33.469Z",
+  "seenAt": "2026-10-23T11:38:33.469Z",
   "source": "live",
   "listings": [
     {
@@ -19932,7 +19932,7 @@
       "priceGbp": 105,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Si Nude Bloom Eau de Parfum 50ml by Giorgio Armani is a delicate floral fragrance defined by soft, radiant notes. Elegant and modern, it brings a light yet lasting scent to the skin. A refined fragrance to enhance your everyday collection..",
       "productType": "Women's Fragrances",
@@ -24647,7 +24647,7 @@
       "priceGbp": 105,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A rich and elegant floral fragrance that reimagines Chloé's signature rose with deeper, more intense notes. Beautifully balanced and long-lasting, it leaves a sophisticated trail from day to evening..",
       "productType": "Women's Fragrances",

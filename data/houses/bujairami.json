@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-23T07:49:25.427Z",
-  "seenAt": "2026-10-23T07:49:25.427Z",
+  "updatedAt": "2026-10-23T11:45:03.173Z",
+  "seenAt": "2026-10-23T11:45:03.173Z",
   "source": "live",
   "listings": [
     {
@@ -1336,13 +1336,13 @@
       "rawTitle": "Red Eclipse Inspired By Scarlet Sands Ex Nihilo",
       "rawBrand": "Bujairami Perfumes UAE",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/2302-47.webp?v=1787125153",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/red.png?v=1792753035",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
-      "description": "Top Notes: Raspberry, Mandarin Orange. Heart Notes: Freesia, Orange Blossom, Jasmine. Base Notes: Akigalawood®, Vanilla, Amber.",
+      "description": "A vibrant and elegant fragrance opening with juicy raspberry and sparkling mandarin orange. The heart blooms with delicate freesia, orange blossom, and jasmine, while Akigalawood®, vanilla, and amber create a warm, smooth, and alluring finish.. Fragrance Notes . Top: Raspberry, Mandarin Orange. Heart: Freesia, Orange Blossom, Jasmine. Base: Akigalawood®, Vanilla, Amber. Profile: Fruity • Floral • Sweet • Woody • Warm.",
       "productType": null,
       "nativePrice": {
         "amount": 150,
