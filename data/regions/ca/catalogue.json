@@ -1,7 +1,7 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-10-23T11:39:26.323Z",
+  "builtAt": "2026-10-23T12:15:02.566Z",
   "products": [
     {"id":"discount-fragrances-ca-alfred-sung-hei-edt-bottle","kind":"bottle","brand":"Alfred Sung","name":"Hei","concentration":"Eau de Toilette","sizeMl":50,"ean":null,"offers":[{"shopId":"discount-fragrances-ca","price":17.5,"inStock":true},{"shopId":"fragrance-canada","price":17.95,"inStock":true},{"shopId":"perfumeonline-ca","price":19.75,"inStock":false},{"shopId":"maximum-fragrance","price":19.92,"inStock":true},{"shopId":"perfume-factory-ca","price":29.95,"inStock":true}]},
     {"id":"discount-fragrances-ca-slqugt0008","kind":"bottle","brand":"Lattafa","name":"Ana Abiyedh","concentration":"Eau de Parfum","sizeMl":60,"ean":null,"offers":[{"shopId":"perfumeonline-ca","price":19.65,"inStock":true},{"shopId":"discount-fragrances-ca","price":20.98,"inStock":true},{"shopId":"maximum-fragrance","price":24.92,"inStock":true},{"shopId":"fragrance-canada","price":27.95,"inStock":true}]},

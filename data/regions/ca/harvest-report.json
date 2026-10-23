@@ -1,13 +1,13 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "ranAt": "2026-10-23T10:24:29.902Z",
-  "minutes": 12.98,
+  "ranAt": "2026-10-23T12:07:04.650Z",
+  "minutes": 7.95,
   "dryRun": false,
   "shopsWired": 19,
   "shopsEnabled": 10,
   "shopsPriced": 10,
-  "listingsKept": 36569,
+  "listingsKept": 36571,
   "shops": [
     {
       "id": "discount-fragrances-ca",
@@ -20,7 +20,7 @@
       "kept": 865,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 15,
+      "seconds": 13,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -35,7 +35,7 @@
       "kept": 13639,
       "withBarcode": 0,
       "pagesFetched": 45,
-      "seconds": 98,
+      "seconds": 75,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -50,7 +50,7 @@
       "kept": 6020,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 50,
+      "seconds": 36,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -80,7 +80,7 @@
       "kept": 9586,
       "withBarcode": 9273,
       "pagesFetched": 34,
-      "seconds": 66,
+      "seconds": 64,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -95,7 +95,7 @@
       "kept": 693,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 14,
+      "seconds": 13,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -125,7 +125,7 @@
       "kept": 3009,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 21,
+      "seconds": 19,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -140,7 +140,7 @@
       "kept": 1254,
       "withBarcode": 0,
       "pagesFetched": 11,
-      "seconds": 31,
+      "seconds": 28,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -150,18 +150,16 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 172,
-      "priced": 172,
-      "kept": 0,
+      "listingsRead": 176,
+      "priced": 176,
+      "kept": 2,
       "withBarcode": 0,
-      "pagesFetched": 172,
-      "seconds": 720,
+      "pagesFetched": 176,
+      "seconds": 423,
       "currency": "JSON-LD offers named: CAD",
-      "errors": [
-        "stopped early: exceeded this shop's time budget"
-      ],
+      "errors": [],
       "diagnostics": [
-        "sitemap: 176 product address(es) found, first read https://www.perfumeplus.ca/product-page/juliette-has-a-gun-not-a-perfume"
+        "sitemap: 176 product address(es) found, first read https://www.perfumeplus.ca/product-page/my-burberry-black-parfum-edition-for-woman-90ml"
       ]
     },
     {
