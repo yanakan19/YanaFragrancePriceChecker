@@ -1390,6 +1390,7 @@ are yours:
 1. **Run `supabase/migrations/0011_profile_region_ca.sql`** in the Supabase SQL Editor (safe to run
    twice; it only adds `'CA'` to the list of countries a profile may hold). Until you do, a signed in
    visitor who chooses Canada keeps the choice in their browser only; nothing else is affected.
+   **Done 23 October 2026, through your Supabase connector:** migration 0011 was applied to the live project (in its migration history as `0011_profile_region_ca`); nothing left to do for step 1.
 2. **Before any money is earned in Canada**, have the Canadian legal pages reviewed:
    pricesniffs.space/ca/about/legal (words in `demo/legalRegion.ts`, `caPages`). Questions for the
    lawyer: (a) **Quebec's Charter of the French Language (Bill 96)** and whether a site with Montreal
