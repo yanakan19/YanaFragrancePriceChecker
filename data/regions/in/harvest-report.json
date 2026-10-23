@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-21T23:26:57.679Z",
-  "minutes": 40.39,
+  "ranAt": "2026-10-22T23:27:51.840Z",
+  "minutes": 40.88,
   "dryRun": false,
   "shopsWired": 16,
   "shopsEnabled": 13,
   "shopsPriced": 13,
-  "listingsKept": 16969,
+  "listingsKept": 16680,
   "shops": [
     {
       "id": "nykaa",
@@ -15,11 +15,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 915,
-      "priced": 915,
-      "kept": 904,
-      "withBarcode": 213,
-      "pagesFetched": 928,
+      "listingsRead": 908,
+      "priced": 908,
+      "kept": 898,
+      "withBarcode": 212,
+      "pagesFetched": 921,
       "seconds": 2402,
       "currency": "JSON-LD offers named: INR",
       "errors": [
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/carolina-herrera-good-girl-blush-eau-de-parfum-roller-ball/p/9680432: HTTP 404",
         "https://www.nykaa.com/fw-faun-walk-passion-bomb-by-faunwalk-similar-to-bombshell-long-lasting-women-perfume/p/17109806: HTTP 404",
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
-        "sitemap: 3136 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
+        "sitemap: 3138 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -66,9 +66,13 @@
       "kept": 6594,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 108,
+      "seconds": 147,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://perfumepalace.in/products.json?limit=250&page=14: HTTP 503",
+        "https://perfumepalace.in/products.json?limit=250&page=22: HTTP 503"
+      ]
     },
     {
       "id": "fridaycharm",
@@ -76,14 +80,17 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7599,
-      "priced": 7599,
-      "kept": 6366,
+      "listingsRead": 7609,
+      "priced": 7609,
+      "kept": 6374,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 78,
+      "seconds": 104,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://www.fridaycharm.com/products.json?limit=250&page=17: HTTP 503"
+      ]
     },
     {
       "id": "perfume-network",
@@ -91,14 +98,21 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2166,
-      "priced": 2166,
-      "kept": 1901,
+      "listingsRead": 1841,
+      "priced": 1841,
+      "kept": 1599,
       "withBarcode": 0,
-      "pagesFetched": 10,
-      "seconds": 22,
+      "pagesFetched": 9,
+      "seconds": 50,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "errors": [
+        "https://www.perfumenetwork.in/products.json?limit=250&page=7: HTTP 503"
+      ],
+      "diagnostics": [
+        "https://www.perfumenetwork.in/products.json?limit=250&page=4: HTTP 503",
+        "https://www.perfumenetwork.in/products.json?limit=250&page=7: HTTP 503",
+        "https://www.perfumenetwork.in/products.json?limit=250&page=7: HTTP 503"
+      ]
     },
     {
       "id": "aar-fragrances",
@@ -106,18 +120,18 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 710,
-      "priced": 710,
-      "kept": 658,
+      "listingsRead": 721,
+      "priced": 721,
+      "kept": 669,
       "withBarcode": 0,
-      "pagesFetched": 711,
-      "seconds": 2402,
+      "pagesFetched": 722,
+      "seconds": 2403,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2301 product address(es)"
+        "sitemap: 2305 product address(es)"
       ]
     },
     {
@@ -141,12 +155,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 1331,
-      "priced": 1257,
+      "listingsRead": 1334,
+      "priced": 1260,
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 15,
+      "seconds": 17,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -176,7 +190,7 @@
       "kept": 27,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 8,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -191,9 +205,12 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 22,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://discoverpilgrim.com/products.json?limit=250&page=1: HTTP 503"
+      ]
     },
     {
       "id": "the-man-company",
@@ -206,9 +223,12 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
-      "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "seconds": 14,
+      "currency": "the storefront publishes INR at rate 1",
+      "errors": [],
+      "diagnostics": [
+        "https://www.themancompany.com/meta.json: HTTP 503"
+      ]
     },
     {
       "id": "ustraa",
@@ -255,7 +275,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 12,
+      "seconds": 13,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
