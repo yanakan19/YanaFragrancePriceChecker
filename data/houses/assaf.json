@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-23T11:40:13.089Z",
-  "seenAt": "2026-10-23T11:40:13.089Z",
+  "updatedAt": "2026-10-23T15:42:22.029Z",
+  "seenAt": "2026-10-23T15:42:22.029Z",
   "source": "live",
   "listings": [
     {
@@ -1681,7 +1681,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Discovery Box . A curated collection of 8 of Assaf’s best-selling fragrances, presented in elegant packaging that's perfect for gifting.. Fragrances included: . Pink Lady – 25 ml. . Miss Sakura – 25 ml. . Morning Girl – 25 ml. . Grace Eric – 25 ml. . Miss Grace – 25 ml. . Frankel Silver – 25 ml. . Frankel Aventus – 25 ml. . Tobacco Jam – 25 ml. .",
       "productType": null,

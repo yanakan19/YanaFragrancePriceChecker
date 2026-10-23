@@ -99,6 +99,39 @@
    ]
   },
   {
+   "canonical": "set-bruno-banani-magnetic-woman-gift-set-30ml-edp-50ml-shower-gel",
+   "absorbed": [
+    "set-bruno-banani-magnetic-woman-gift-set-edp-spray-30ml-shower-gel-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-bruno-banani-magnetic-woman-gift-set-30ml-edp-50ml-shower-gel",
+     "brand": "Bruno Banani",
+     "name": "Magnetic Woman Gift Set 30ml EDP + 50ml Shower Gel",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "magnetic woman",
+     "signature": "1x30fragrance|1x50wash",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-bruno-banani-magnetic-woman-gift-set-edp-spray-30ml-shower-gel-50ml",
+     "brand": "Bruno Banani",
+     "name": "Magnetic Woman Gift Set EDP Spray 30ml + Shower Gel 50ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "magnetic woman",
+     "signature": "1x30fragrance|1x50wash",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-dear-polly-eau-de-parfum-3-x-10ml",
    "absorbed": [
     "set-dear-polly-eau-de-parfum-3x10-ml"
@@ -3282,52 +3315,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3616305260987",
-   "absorbed": [
-    "set-bruno-banani-magnetic-woman-gift-set-30ml-edp-50ml-shower-gel",
-    "set-bruno-banani-magnetic-woman-gift-set-edp-spray-30ml-shower-gel-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305260987",
-     "brand": "Bruno Banani",
-     "name": "Magnetic Woman Gift Set 30ml EDP + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305260987",
-     "scent": "magnetic woman",
-     "signature": "1x30fragrance|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-bruno-banani-magnetic-woman-gift-set-30ml-edp-50ml-shower-gel",
-     "brand": "Bruno Banani",
-     "name": "Magnetic Woman Gift Set 30ml EDP + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "magnetic woman",
-     "signature": "1x30fragrance|1x50wash",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-bruno-banani-magnetic-woman-gift-set-edp-spray-30ml-shower-gel-50ml",
-     "brand": "Bruno Banani",
-     "name": "Magnetic Woman Gift Set EDP Spray 30ml + Shower Gel 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "magnetic woman",
-     "signature": "1x30fragrance|1x50wash",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3616305266804",
    "absorbed": [
     "set-gucci-miniature-gift-set-2-x-5ml-bloom-edp-2-x-5ml-flora-edp"
@@ -5351,6 +5338,38 @@
      "signature": "1x50?|1x50body|1x50fragrance|1x?wash",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
