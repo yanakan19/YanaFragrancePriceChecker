@@ -6820,15 +6820,9 @@ export const RETAILERS: readonly Retailer[] = [
     // shop's own Crawl-delay of 2 s (the harvest takes the larger of that and
     // its 1.5 s default).
     catalogue: null,
-    affiliate: {
-      ...awinRequested(),
-      // Images are hot-linked from this shop's own servers with no licence
-      // obtained — see the ImageBasis doc comment. Nothing is copied or
-      // rehosted, and every image sits beside a link sending the reader to buy
-      // from them. Unset this the moment they object or block hot-linking.
-      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
-      imageBasis: 'hotlink-unlicensed',
-    },
+    // No imageBasis on purpose: tests/regionShopPhotos.test.ts lists Scentsational among the shops outside the owner's
+    // photo decision of 9 Oct 2026. Its photos (about 130 products have no other) wait for the owner to say yes (docs/SITE-REVIEW-2026-10-23.md).
+    affiliate: { ...awinRequested() },
   },
   {
     id: 'beauty-the-shop-uk',

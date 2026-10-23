@@ -1034,3 +1034,7 @@ adding to `BRAND_SITES` (about two searches a house), which is the next step if
 the owner wants more, with an expected yield near one logo in five. The refusals
 and rejections, with reasons, are in the header of `demo/brandLogos.ts` and held
 by `tests/brandLogos.test.ts`.
+
+**Region shops, 23 Oct 2026.** The US and India shops were probed again (`--region=us|in --no-social --save=`). One
+shipped: Dillard's wordmark (`dimg.dillards.com`, its own domain, 136 by 53). Every other candidate was the file section
+10 already refused. Perfumania's wordmark is still served from a third party CDN (bc0a.com).

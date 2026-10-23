@@ -157,7 +157,19 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     // 926 of its listings carry the vendor "Seema Mehra", a person, not a house
     // ("Lattafa 24 Carat White Gold Eau De Parfum 100ml", read 2026-10-09).
     vendorNotHouse: ['Seema Mehra'],
-    delivery: unverified('Its cart says "Shipping Charges Calculated on checkout"; no delivery page answered at the usual addresses.'),
+    delivery: {
+      standard: 0,
+      freeOver: null,
+      estimatedDays: [2, 7],
+      verifiedAt: '2026-10-23',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://perfumepalace.in/policies/shipping-policy',
+        quote: 'We Provide Free Shipping on all Orders. We usually deliver in 2 to 7 working days',
+        readAt: '2026-10-23',
+      },
+      notes: 'The shop\'s cart template still prints "Shipping Charges Calculated on checkout" beside a zero subtotal; its shipping policy page is the term quoted.',
+    },
     taxNote: IN_TAX_NOTE,
     checked: `${CHECKED}: robots.txt 200 (stock); home 200; /products.json 200; ${SHOPIFY_INR} (Shopify.country US to a US caller, still INR at rate 1.0).`,
   },
@@ -175,7 +187,19 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
-    delivery: unverified('No delivery page answered at the usual Shopify addresses.'),
+    delivery: {
+      standard: null,
+      freeOver: 1500,
+      estimatedDays: null,
+      verifiedAt: '2026-10-23',
+      confidence: 'unverified',
+      source: {
+        url: 'https://www.fridaycharm.com/pages/shipping-information',
+        quote: 'Free shipping - On all orders over Rs 1500/-',
+        readAt: '2026-10-23',
+      },
+      notes: 'The same page says "We have standard Free shipping For All Orders" beside the Rs 1500 banner, so the two disagree and no charge below the threshold is recorded. Dispatch is within 1 to 2 business days; no delivery window is stated.',
+    },
     taxNote: IN_TAX_NOTE,
     checked: `${CHECKED}: robots.txt 200; home 200; /products.json 200 (about 2.5 MB a page); ${SHOPIFY_INR}, Shopify.country IN.`,
   },
@@ -231,7 +255,19 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     // 2,281 product addresses; 266 read in 14 minutes on the second run. 40 to 55 minutes on 23 Oct 2026 (1,586 not re-seen).
     pageBudget: { minutes: 55, newPages: 1400 },
     minRequestGapMs: 2000,
-    delivery: unverified('Not read.'),
+    delivery: {
+      standard: 0,
+      freeOver: null,
+      estimatedDays: [3, 10],
+      verifiedAt: '2026-10-23',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.aarfragrances.com/shipping-policy',
+        quote: 'All orders will be delivered by approx. 3-10 days across India (Subjected to the location). All products listed are ready to dispatch with free shipping charges*.',
+        readAt: '2026-10-23',
+      },
+      notes: 'The asterisk: for a few regions served only by premium couriers the shop may ask a nominal charge after the order when the total is under 500 INR. Dispatch is within 24 to 48 hours.',
+    },
     taxNote: IN_TAX_NOTE,
     checked:
       '2026-10-09 (round 2): robots.txt 200 (78 B, Disallow empty); home 200; a product page 200 with og:price tags and no JSON-LD. ' +
@@ -403,7 +439,19 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
-    delivery: unverified('No shipping page answered at the usual Shopify addresses.'),
+    delivery: {
+      standard: null,
+      freeOver: 399,
+      estimatedDays: null,
+      verifiedAt: '2026-10-23',
+      confidence: 'unverified',
+      source: {
+        url: 'https://www.themancompany.com/pages/faqs',
+        quote: 'Add Products worth ₹399 to avail shipping at Free',
+        readAt: '2026-10-23',
+      },
+      notes: 'Read from the cart drawer on its FAQ page, not from a delivery policy; the drawer also prints a Shipping line of ₹50 beside Free, but not as a rate below the threshold, so no standard charge is recorded.',
+    },
     taxNote: IN_TAX_NOTE,
     checked: `${CHECKED}: robots.txt 200; home 200; /products.json 200; ${SHOPIFY_INR}, Shopify.country IN (Shopify, though the candidates pass recorded it as custom).`,
   },

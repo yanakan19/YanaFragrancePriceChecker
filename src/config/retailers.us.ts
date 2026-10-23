@@ -613,7 +613,20 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,
     vendorIsShop: true,
-    delivery: unverified('Not read by this pass: /pages/shipping redirects to the home page. Round 2 recorded free Standard on $75 or more and $7.95 below from its own page; to be re-read before the beta.'),
+    delivery: {
+      standard: 7.95,
+      freeOver: 75,
+      freeOverInclusive: true,
+      estimatedDays: [2, 10],
+      verifiedAt: '2026-10-23',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://parfumsraffy.com/policies/shipping-policy',
+        quote: 'Domestic (United States) Shipping: Standard - FREE on orders $75+ $0.00; Economy Standard (orders <$75) $7.95; West Coast: 2-5 business days, East Coast: 5-10 business days',
+        readAt: '2026-10-23',
+      },
+      notes: 'The window is the shop\'s West Coast to East Coast range, counted from the carrier accepting the parcel; packing and handoff take up to 4 business days before that. Faster UPS services ($28.95 to $79.95) are not standard delivery.',
+    },
     taxNote: US_TAX_NOTE,
     checked: `${CHECKED}: robots.txt 200; home 200; /products.json 200; ${SHOPIFY_USD}. Its vendor is always "Parfums Raffy"; the house is in the title.`,
   },
@@ -776,6 +789,15 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     offersFromAggregate: true,
     // About 1,700 fragrance pages at a 2 second gap: read over several runs, never ahead of the crawl's run limit.
     pageBudget: { minutes: 40, newPages: 1000 },
+    // Logo read 2026-10-23 from the shop's own homepage by scripts/logo-probe.ts (docs/LOGOS-PLAN.md section 12); hot linked, never copied.
+    logo: {
+      src: 'https://dimg.dillards.com/is/image/DillardsZoom/dillards-full-logo',
+      shape: 'wordmark',
+      ink: 'dark',
+      basis: 'own-site-declared',
+      source: 'https://www.dillards.com/',
+      readAt: '2026-10-23',
+    },
     route: {
       kind: 'sitemap',
       sitemapRoute: {
