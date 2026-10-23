@@ -7491,6 +7491,14 @@ function findInFilter(box: HTMLInputElement): void {
  * content entering a view, and replaying it on every filter tap made the whole
  * page flicker and cost a full animation pass each time.
  */
+/** How long the search box waits for the next key before it draws the results. */
+const SEARCH_SETTLE_MS = 120;
+
+/** Runs `fn` once the frame in hand has painted, so a tap's own feedback shows before a heavy view is drawn. */
+function afterPaint(fn: () => void): void {
+  requestAnimationFrame(() => window.setTimeout(fn, 0));
+}
+
 function render(mode: 'enter' | 'update' = 'enter'): void {
   resetChunkedLists();
   refreshFacetAttrs();
@@ -7933,12 +7941,21 @@ function init(): void {
   });
 
   $('#search').addEventListener('focus', prepareSearchSoon);
+  // The letter typed paints at once; the results follow once typing pauses
+  // for SEARCH_SETTLE_MS, so a run of keys costs one results render, not one
+  // each (owner, 23 Oct 2026: on a slow phone each key waited for a whole
+  // results render, about 2 s of input delay at 4x CPU slowdown).
+  let searchRender = 0;
   $('#search').addEventListener('input', (e) => {
     state.query = (e.target as HTMLInputElement).value;
     state.view = 'browse';
-    render();
-    syncUrl('replace');
-    suggestList.refresh();
+    window.clearTimeout(searchRender);
+    searchRender = window.setTimeout(() => {
+      if (state.view !== 'browse') return;
+      render();
+      syncUrl('replace');
+      suggestList.refresh();
+    }, SEARCH_SETTLE_MS);
   });
 
   const goHome = () => {
@@ -8335,8 +8352,11 @@ function init(): void {
 
     const card = t.closest('[data-frag]');
     if (card) {
-      state.fragranceId = card.getAttribute('data-frag')!;
-      go('detail');
+      const id = card.getAttribute('data-frag')!;
+      afterPaint(() => {
+        state.fragranceId = id;
+        go('detail');
+      });
       return;
     }
 
@@ -8630,7 +8650,8 @@ function init(): void {
       // Each home row's See All opens the full list in that row's own order:
       // Most Popular's by reviews, Most Stocked's (no value) by stock.
       state.browseSort = browse.getAttribute('data-browse') === 'reviewed' ? 'reviewed' : 'stocked';
-      go('browse');
+      // The press paints before the long list is drawn (see the search box).
+      afterPaint(() => go('browse'));
       return;
     }
 

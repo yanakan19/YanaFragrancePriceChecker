@@ -128,7 +128,7 @@ describe.skipIf(!built)('every sort control on the built page', () => {
       expect(`${s.lead} ${s.selected}`, where).toMatch(/^Sort By: \S.* to \S/);
       // Every option names both ends and none repeats the prefix.
       for (const o of s.options) {
-        expect(o, `${where}: ${o}`).toMatch(/^[A-Z]\S*( [A-Za-z]\S*)* to [A-Z]\S*( [A-Z]\S*)*$/);
+        expect(o, `${where}: ${o}`).toMatch(/^[A-Z]\S*( [A-Za-z]\S*)* to [A-Z]\S*( (?:[A-Z]\S*|per ml))*$/);
         expect(o).not.toMatch(/[-‐-―−]|^Sort/);
       }
       // "Sort By" is read once, and the name starts with the visible words.

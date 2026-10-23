@@ -49,6 +49,9 @@ describe.skipIf(!built)('search suggestions as you type', () => {
     await page.fill('#search', '');
     await page.click('#search');
     await page.keyboard.type(text, { delay: 20 });
+    // The results, and the suggestions drawn from them, follow once typing
+    // pauses (demo/app.ts SEARCH_SETTLE_MS): wait for the address to carry the words.
+    await page.waitForFunction((t) => new URLSearchParams(location.search).get('q') === t, text, { timeout: 10_000 });
     await page.waitForFunction(`(() => { const p = document.getElementById('search-suggest'); return p && !p.hidden; })()`, null, { timeout: 10_000 });
     await page.waitForTimeout(150);
   }

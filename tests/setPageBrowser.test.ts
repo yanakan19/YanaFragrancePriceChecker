@@ -169,8 +169,10 @@ describe.skipIf(!built)('set and oil pages on the built site', () => {
       const spray = page.locator('.oil-block [data-frag]', { hasText: 'The spray version' });
       expect(await spray.count()).toBe(1);
       await spray.click();
-      await page.waitForTimeout(500);
       const sprayProduct = sprayVersion(oilWithSpray)!;
+      // A tap paints its own press first and opens the page in the next task (demo/app.ts afterPaint).
+      await page.waitForFunction((want) => location.pathname === want, pathOf(sprayProduct).replace(/\?.*$/, ''), { timeout: 10_000 });
+      await page.waitForTimeout(300);
       expect(new URL(page.url()).pathname).toBe(pathOf(sprayProduct).replace(/\?.*$/, ''));
       expect(await page.locator('.oil-block').count()).toBe(0);
     } finally {

@@ -36,6 +36,31 @@ home pages to one structure.
 | Guides | Every guide a bordered card that lifted on hover | A list: title link and line, hairline between | step 2 |
 | Guides, oils sort | "Prices Per Ml", "Lowest to Highest Per Ml" | "per ml" | step 2 |
 | Home | Update history a long column (up to twelve points a day, under group headings) that scrolled inside a box | A row of days that scrolls sideways and snaps a day at a time, about four across on a desktop and one and a half on a phone; each day shows at most five points, its `highlights` or its first points (demo/changelog.ts `homeHighlights`, held by tests/changelog.test.ts) | step 3 |
+| Home, lists | Tapping See All or a tile froze the page with no feedback: 1.55 s and 4.9 s of input delay on a phone at 4x CPU slowdown | The press paints first, the next page is drawn in the next task (`afterPaint`) | step 4 |
+| Search box | Each key waited for a whole results render: 2.3 s input delay | The letter paints at once; results follow once typing pauses for 120 ms, one render per run of keys | step 4 |
+| Every photo | Photos popped in as they arrived | They fade in (220 ms, the site's easing) inside a well that already holds their square; off under reduced motion | step 4 |
+| Links on a phone | The browser's grey tap flash, no press state on plain links | Tap flash off; every plain link dims for the press | step 4 |
+
+## Smoothness, measured
+
+A Pixel 5 profile in the pinned Chromium, CPU slowed 4x through CDP, served
+as GitHub Pages serves the site (`startPagesServer`), median of three runs.
+First tiles: when the first tile or offer row is in the page. CLS: layout
+shift over the load and three seconds after. Input delay: the longest
+interaction (Event Timing) for the action named.
+
+| Page and action | First tiles before | after | CLS before | after | Input delay before | after |
+| --- | --- | --- | --- | --- | --- | --- |
+| Home, tap See All | 336 ms | 316 ms | 0.000 | 0.000 | 1,552 ms | 48 ms |
+| Home, tap the first tile | 339 ms | 333 ms | 0.000 | 0.000 | 4,896 ms | 48 ms |
+| Search, type "dior sau" | 8,136 ms | 8,423 ms | 0.000 | 0.000 | 2,272 ms | 1,168 ms |
+| Product, tap This Year | 14,217 ms | 13,888 ms | 0.000 | 0.000 | 80 ms | 88 ms |
+
+The search page's first tiles and the product page's wait on the whole
+catalogue file (17 MB) at a 4x slowed CPU on this machine; neither moved
+beyond run to run noise. Search typing still costs one results render
+(about 1 s at 4x) when a pause in typing lets it run; making that render
+itself incremental is the next step.
 
 ## Copy changes
 

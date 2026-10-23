@@ -52,8 +52,9 @@ describe('every sort option names both ends of its order', () => {
           const at = words.indexOf('to');
           expect(at, `${label}: something before "to"`).toBeGreaterThan(0);
           expect(words.length - at - 1, `${label}: something after "to"`).toBeGreaterThan(0);
-          // Title Case: every word but "to" starts with a capital.
-          for (const w of words) if (w !== 'to') expect(w, label).toMatch(/^[A-Z]/);
+          // Title Case: every word but "to" starts with a capital; a unit
+          // keeps its own case ("per ml", 23 Oct 2026).
+          for (const w of words) if (w !== 'to' && w !== 'per' && w !== 'ml') expect(w, label).toMatch(/^[A-Z]/);
           // No hyphens or dashes of any kind.
           expect(label).not.toMatch(/[-‐-―−]/);
           // The prefix is the control's fixed label, never inside an option, or it would read twice.

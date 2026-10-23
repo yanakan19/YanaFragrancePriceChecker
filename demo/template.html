@@ -1126,6 +1126,20 @@
     animation: ps-sweep 1.2s ease-in-out 250ms infinite both;
   }
   .art.art-ready::before, .art.art-failed::before { content: none; }
+  /* A photo fades in once it has arrived rather than popping in line by line
+     (owner, 23 Oct 2026). Only once the app runs, whose load listener marks
+     the well ready: the build's first screen draws before that listener
+     exists, so its photos are never hidden. The well holds its square either
+     way, so nothing moves. */
+  html[data-app-ready] #view .art-img { opacity: 0; transition: opacity var(--dur) var(--ease-out); }
+  html[data-app-ready] #view .art-ready > .art-img { opacity: 1; }
+  /* Tap feedback on a phone: the browser's grey flash is off, and every
+     plain link dims for the length of the press instead. */
+  a, button { -webkit-tap-highlight-color: transparent; }
+  .link-btn, .guides-btn, .brand-site-link, .footer-link, .notice-toc-link, .unavail-shop {
+    transition: opacity var(--dur-1) var(--ease-standard);
+  }
+  .link-btn:active, .guides-btn:active, .brand-site-link:active, .footer-link:active, .notice-toc-link:active, .unavail-shop:active { opacity: .55; }
   /* Fixed, not theme-driven: the placeholder sits inside a tile that is
      always white now, so it needs a colour that reads the same way whichever
      mode the rest of the page is in. Background matches the tile itself
