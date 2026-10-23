@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-23T00:09:17.651Z",
-  "seenAt": "2026-10-23T00:09:17.651Z",
+  "updatedAt": "2026-10-23T03:47:39.298Z",
+  "seenAt": "2026-10-23T03:47:39.298Z",
   "source": "live",
   "listings": [
     {
@@ -22393,7 +22393,7 @@
       "priceGbp": 24.3,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Lattafa Pride Peace Love Eau de Parfum 100ml.",
       "productType": "Eau de Parfum",
