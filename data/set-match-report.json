@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 222,
+ "folded": 223,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1974,6 +1974,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3386460148054",
+   "absorbed": [
+    "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-100ml-shower-gel-7-5ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460148054",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 100ml Shower Gel + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460148054",
+     "scent": "blanc explorer mont platinum",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-100ml-shower-gel-7-5ml-edp",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 100ml Shower Gel + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanc explorer mont platinum",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3386460155991",
    "absorbed": [
     "set-jimmy-choo-jimmy-choo-gift-set-100ml-edp-100ml-body-lotion-7-5ml-edp"
@@ -2332,6 +2364,7 @@
      "signature": "1x100fragrance|1x75body",
      "shops": [
       "fragrance-click",
+      "paco-perfumerias-uk",
       "perfume-click",
       "perfume-direct"
      ]
@@ -4174,12 +4207,13 @@
     {
      "id": "set-ted-baker-kasia-cracker-gift-set-15ml-edt-8ml-lipgloss",
      "brand": "Ted Baker",
-     "name": "Kasia Cracker Gift Set 15ml EDT + 8ml Lipgloss",
+     "name": "Kasia Cracker Gift Set 15ml Edt + 8ml Lipgloss",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "cracker kasia lipgloss",
      "signature": "1x15fragrance|1x8fragrance",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
@@ -7279,18 +7313,6 @@
    ],
    "members": [
     {
-     "id": "set-cerruti-1881-pour-homme-gift-set-100ml-edt-spray-150ml-deo-spray",
-     "brand": "Cerruti",
-     "name": "1881 Pour Homme Gift Set 100ml EDT Spray+ 150ml Deo Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "1881 homme pour",
-     "signature": "1x100fragrance|1x150deo",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
      "id": "set-cerruti-1881-pour-homme-giftset-100ml-edt-spray-150ml-deo-spray",
      "brand": "Cerruti",
      "name": "1881 Pour Homme Giftset 100ml EDT Spray+ 150ml Deo Spray",
@@ -7370,37 +7392,6 @@
      "signature": "3x20fragrance",
      "shops": [
       "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.64 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-chloe-nomade-gift-set-75ml-edp-5ml-edp-100ml-body-lotion",
-     "brand": "Chloé",
-     "name": "Nomade Gift Set 75ml EDP + 5ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "nomade",
-     "signature": "1x100body|1x5fragrance|1x75fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
-     "id": "set-ean-3616306129009",
-     "brand": "Chloé",
-     "name": "Nomade Gift Set 75ml EDP + 5ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306129009",
-     "scent": "nomade",
-     "signature": "1x100body|1x5fragrance|1x75fragrance",
-     "shops": [
-      "perfume-click"
      ]
     }
    ]
@@ -9238,6 +9229,40 @@
   },
   {
    "reasons": [
+    "strengths differ: Eau de Toilette, Parfum",
+    "two different barcodes: 3349668613960, 3349668635474",
+    "a shop lists more than one: paco-perfumerias-uk",
+    "price spread 1.59 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668613960",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Phantom Eau de Toilette 100ml Spray 3 Pcs Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668613960",
+     "scent": "paco phantom rabanne",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3349668635474",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Phantom Parfum 100ml Spray 3pc Set",
+     "concentration": "Parfum",
+     "ean": "3349668635474",
+     "scent": "paco phantom rabanne",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3349668625284, 3349668628650"
    ],
    "members": [
@@ -9901,37 +9926,6 @@
      "ean": null,
      "scent": "d eau homme issey l pour vetiver",
      "signature": "1x50fragrance|2x50wash",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.97 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222106461",
-     "brand": "Issey Miyake",
-     "name": "L'eau d'Issey Gift Set 100ml EDT + 50ml Body Lotion + 10ml Purse Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "3423222106461",
-     "scent": "d eau issey l",
-     "signature": "1x100fragrance|1x10travel|1x50body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-50ml-body-lotion-10ml-purse-spray",
-     "brand": "Issey Miyake",
-     "name": "L'eau D'issey Gift Set 100ml Edt + 50ml Body Lotion + 10ml Purse Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d eau issey l",
-     "signature": "1x100fragrance|1x10travel|1x50body",
      "shops": [
       "beaute-boulevard"
      ]
@@ -10788,7 +10782,6 @@
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x?deo",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -11542,18 +11535,6 @@
      "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-versace-yellow-diamond-gift-set-90ml-edt-100ml-body-lotion-100ml-shower-gel-5ml-edt",
-     "brand": "Versace",
-     "name": "Yellow Diamond Gift Set 90ml EDT + 100ml Body Lotion + 100ml Shower Gel + 5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "diamond yellow",
-     "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
