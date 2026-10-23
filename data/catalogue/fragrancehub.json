@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-22T20:18:06.874Z",
-  "seenAt": "2026-10-22T20:18:06.874Z",
+  "updatedAt": "2026-10-23T00:05:37.638Z",
+  "seenAt": "2026-10-23T00:05:37.638Z",
   "source": "live",
   "listings": [
     {
@@ -1256,7 +1256,7 @@
       "priceGbp": 35,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Velixir Asteria Eau de Parfum . Sunlight, captured. Asteria opens like the first light of morning — a vivid burst of blood orange and mandarin, brightened by crisp lemon and refined bergamot. At its heart, creamy tiare flower unfurls, soft and sun-warmed, evoking distant shores and the stillness of golden hour. As it settles, powdery musk wraps around smooth sandalwood, leaving a trail that feels clean, intimate, and quietly luxurious — the kind of warmth that lingers long after you've left the room. . Effortless yet unforgettable. A scent for those who carry brightness with them. . Top Notes: Blood Orange, Mandarin Orange, Lemon, Bergamot Middle Notes: Tiare Flower Base Notes: Powdery Notes, Musk, Sandalwood.",
       "productType": null,
@@ -6937,7 +6937,7 @@
       "priceGbp": 36.95,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the ultimate in sophistication with Armaf Club De Nuit Untold Eau de Parfum. This luxurious fragrance features top notes of saffron and jasmine, followed by middle notes of amberwood and ambergris, and base notes of fir resin and cedar. The result is a sophisticated and long-lasting citrus woody scent that is perfect for the modern man who wants to make a statement.. Notes: . Top Notes: Saffron and Jasmine. Middle Notes: Amberwood and Ambergris. Base Notes: Fir Resin and Cedar.",
       "productType": null,
