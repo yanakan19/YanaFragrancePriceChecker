@@ -1326,3 +1326,9 @@ product type (`strengthFromProductType`) is on for Maximum Fragrance and Parfum 
 the tag is what tells two bottles apart (`stripAudienceTags`). Delivery terms were read for five more shops (eight of ten confirmed);
 Perfume Factory (an empty shipping policy) and Perfume Plus (a script drawn page) stay unverified. Six shops have a logo
 (`docs/LOGOS-PLAN.md` section 11).
+
+**23 Oct 2026, US beta fixes.** Dillard's is on: its pages list every size as an offer of one AggregateOffer, the size only in each
+offer's checkout address, and the region harvest now reads one listing per size from the page it fetched (`offersFromAggregate`).
+robots.txt allows `/p/` and the sitemap; its shipping page is script drawn and stays unread. Luckyscent's strength is read from the
+"Concentration" field of its product facts (`strengthFromPageField`). Ulta, The Perfume Spot and Luckyscent have longer budgets at the
+same gaps; both the US and India crawls now run 64 minutes of harvest inside a 90 minute job (`tests/regionHarvest.test.ts` holds the margins).

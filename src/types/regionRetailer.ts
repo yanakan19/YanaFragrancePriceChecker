@@ -189,6 +189,19 @@ export interface RegionRetailer {
    */
   sizeFromProductGroup?: boolean;
   /**
+   * The page prints every size as an offer of one AggregateOffer (`offers.offers[]`), each naming its size only in its
+   * `checkoutPageURLTemplate` ("...&field2=Size:3.3 oz.") and its own sku in `itemOffered` (Dillard's). The region harvest reads
+   * those offers off the page it fetched and makes one listing per size (`aggregateOfferListings` in
+   * src/catalogue/regionHarvest.ts); the page's own product id is not a barcode and is not kept as one.
+   */
+  offersFromAggregate?: boolean;
+  /**
+   * The page prints the strength in a labelled field of its product facts ("Concentration" then "Extrait", Luckyscent), and
+   * its titles do not. The region harvest reads the value off the page it fetched anyway and puts the strength into the title
+   * of a listing that states none (`pageFieldStrength`, `titleWithPageStrength`).
+   */
+  strengthFromPageField?: string;
+  /**
    * The Shopify `vendor` is the shop, not the house (Parfums Raffy), so it is
    * not stored as the brand; the region build reads the house from the title
    * against the houses the region's other shops name.

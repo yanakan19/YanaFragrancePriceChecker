@@ -48,6 +48,8 @@ import { cleanBarcode } from './barcode.js';
 import { parsePrice } from './jsonld.js';
 import { isCatalogueListing } from './fragranceId.js';
 import { rejectPlaceholderImage } from './placeholderImage.js';
+import { titleWithPageStrength } from './productPageStrength.js';
+import { CONCENTRATION_NOT_STATED, concentration } from './productName.js';
 
 /** A conversion this close to 1 is the theme's own rounding (shopCurrency.ts uses the same). */
 const RATE_EPSILON = 0.005;
@@ -323,6 +325,90 @@ export function productGroupSizes(html: string): Map<string, string> {
     visit(data);
   }
   return out;
+}
+
+/** One size of a product whose page lists every size as an offer of one AggregateOffer. */
+export interface AggregateOffer {
+  sku: string;
+  size: string;
+  price: number;
+  currency: string;
+  inStock: boolean | null;
+}
+
+/**
+ * The offers of a page's schema.org Product whose `offers` is an AggregateOffer with an `offers[]` list (Dillard's): the size
+ * from the `Size:` of each offer's `checkoutPageURLTemplate`, the sku from its `itemOffered`, the price and currency it states.
+ * An empty list when the page has none, or when any offer lacks a size, a sku or a price: nothing is guessed.
+ */
+export function aggregateOfferListings(html: string): AggregateOffer[] {
+  for (const m of html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    let data: unknown;
+    try { data = JSON.parse(m[1]!); } catch { continue; }
+    const nodes: Record<string, unknown>[] = [];
+    const visit = (node: unknown): void => {
+      if (Array.isArray(node)) { node.forEach(visit); return; }
+      if (!node || typeof node !== 'object') return;
+      nodes.push(node as Record<string, unknown>);
+      const g = (node as Record<string, unknown>)['@graph'];
+      if (g) visit(g);
+    };
+    visit(data);
+    for (const n of nodes) {
+      const agg = n['offers'] as Record<string, unknown> | undefined;
+      const list = agg && !Array.isArray(agg) && Array.isArray(agg['offers']) ? (agg['offers'] as Record<string, unknown>[]) : null;
+      if (!list || list.length === 0) continue;
+      const out: AggregateOffer[] = [];
+      for (const o of list) {
+        const template = typeof o?.['checkoutPageURLTemplate'] === 'string' ? o['checkoutPageURLTemplate'] : '';
+        const size = /[?&]field2=Size:([^&]+)/i.exec(template)?.[1];
+        const offered = o?.['itemOffered'] as Record<string, unknown> | undefined;
+        const sku = typeof offered?.['sku'] === 'string' || typeof offered?.['sku'] === 'number' ? String(offered['sku']) : null;
+        const price = parsePrice(String(o?.['price'] ?? ''));
+        const currency = typeof o?.['priceCurrency'] === 'string' ? o['priceCurrency'] : '';
+        if (!size || !sku || price === null || !currency) return [];
+        const avail = String(o?.['availability'] ?? '');
+        out.push({
+          sku,
+          size: decodeURIComponent(size.replace(/\+/g, ' ')).trim(),
+          price,
+          currency,
+          inStock: /InStock/i.test(avail) ? true : /OutOfStock|SoldOut|Discontinued/i.test(avail) ? false : null,
+        });
+      }
+      if (new Set(out.map((x) => x.sku)).size !== out.length) return [];
+      return out;
+    }
+  }
+  return [];
+}
+
+/**
+ * A page-level listing replaced by one listing per size the page offers, each with its own sku, price and stock and the size
+ * after the name ("Lacoste L.12.12 Bleu Eau de Parfum 3.3 oz."). No barcode is carried: the page's product id is not one.
+ */
+export function listingsPerOffer(base: RawListing, offers: readonly AggregateOffer[]): RawListing[] {
+  return offers.map((o) => ({
+    ...base,
+    retailerSku: o.sku,
+    rawTitle: withVariantSize(base.rawTitle, o.size),
+    ean: null,
+    inStock: o.inStock ?? base.inStock,
+    nativePrice: { amount: o.price, currency: o.currency },
+  }));
+}
+
+/**
+ * The strength a page prints in a labelled field of its product facts ("Concentration" beside "Extrait"), in the catalogue's
+ * spelling, or null when the page has no such field or its value names no strength ("Perfume Oil").
+ */
+export function pageFieldStrength(html: string, label: string): string | null {
+  const esc = label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const m = new RegExp(`>\\s*${esc}\\s*</div>\\s*<div[^>]*>\\s*(?:<a[^>]*>)?\\s*([^<]{2,40}?)\\s*<`, 'i').exec(html);
+  if (!m) return null;
+  const value = decodeEntities(m[1]!).trim();
+  const s = /^extrait$/i.test(value) ? 'Extrait de Parfum' : concentration(value);
+  return s === CONCENTRATION_NOT_STATED ? null : s;
 }
 
 /** A title with the size the page gives its sku added, where the title states none. */
@@ -652,10 +738,21 @@ export async function harvestRegionShop(options: RegionHarvestOptions): Promise<
     for (const l of options.previous?.listings ?? []) if (l.status === 'active') known.set(l.url, l.lastSeenAt);
     // Ulta: the size of each sku, read off every page as it is fetched.
     const sizes = new Map<string, string>();
-    const pageHttp: Http = shop.sizeFromProductGroup
+    // Dillard's: the offers of each page (one per size), and Luckyscent: the strength each page prints, both read off the page
+    // as it is fetched, so no page is asked for twice.
+    const offersOfPage = new Map<string, AggregateOffer[]>();
+    const strengthOfPage = new Map<string, string>();
+    const pageHttp: Http = shop.sizeFromProductGroup || shop.offersFromAggregate || shop.strengthFromPageField
       ? async (url, h) => {
         const res = await http(url, h);
-        if (res.ok && !/\.xml(?:$|\?)/i.test(url)) for (const [k, v] of productGroupSizes(res.body)) sizes.set(k, v);
+        if (res.ok && !/\.xml(?:$|\?)/i.test(url)) {
+          if (shop.sizeFromProductGroup) for (const [k, v] of productGroupSizes(res.body)) sizes.set(k, v);
+          if (shop.offersFromAggregate) offersOfPage.set(url, aggregateOfferListings(res.body));
+          if (shop.strengthFromPageField) {
+            const st = pageFieldStrength(res.body, shop.strengthFromPageField);
+            if (st) strengthOfPage.set(url, st);
+          }
+        }
         return res;
       }
       : http;
@@ -675,6 +772,19 @@ export async function harvestRegionShop(options: RegionHarvestOptions): Promise<
       onProgress: (pages, found) => { if (pages % 25 === 0) log(`${shop.id}: ${pages} request(s), ${found} listing(s)`); },
     });
     raw = shop.sizeFromProductGroup ? walk.listings.map((l) => ({ ...l, rawTitle: withVariantSize(l.rawTitle, sizes.get(l.retailerSku)) })) : walk.listings;
+    if (shop.offersFromAggregate) {
+      raw = raw.flatMap((l) => {
+        const offers = offersOfPage.get(l.url) ?? [];
+        return offers.length > 0 ? listingsPerOffer(l, offers) : [l];
+      });
+    }
+    if (shop.strengthFromPageField) {
+      // Only a title that states no strength takes the page's; a strength the title states always wins.
+      raw = raw.map((l) => {
+        const st = strengthOfPage.get(l.url);
+        return st && concentration(l.rawTitle) === CONCENTRATION_NOT_STATED ? { ...l, rawTitle: titleWithPageStrength(l.rawTitle, st) } : l;
+      });
+    }
     report.pagesFetched += walk.pagesFetched + (walk.categoryPagesFetched ?? 0);
     report.errors.push(...walk.errors.slice(0, 5));
     complete = walk.fetchedEveryDiscovered === true;

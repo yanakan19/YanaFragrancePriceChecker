@@ -49,6 +49,13 @@ export const CHANGELOG: ChangelogEntry[] = [
           'Photos for more AAR Fragrances products',
         ],
       },
+      {
+        heading: 'United States',
+        points: [
+          'Dillards added to the US site',
+          'Strengths for more Luckyscent perfumes',
+        ],
+      },
     ],
   },
   {

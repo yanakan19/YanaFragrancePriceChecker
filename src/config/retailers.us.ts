@@ -131,6 +131,11 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
         requireGbp: true,
       },
     },
+    // 23 Oct 2026: 12 to 35 minutes at the same 1.5 second gap (it stopped on the 12 minute default after 395 pages).
+    pageBudget: { minutes: 35, newPages: 1200 },
+    // Its pages print the strength in the product facts ("Concentration" beside "Extrait"); its titles name none (856 listings were
+    // "Not stated"). Read off the page the walk fetches anyway (strengthFromPageField, src/catalogue/regionHarvest.ts).
+    strengthFromPageField: 'Concentration',
     minRequestGapMs: 1500,
     delivery: unverified('Its delivery terms sit under /policies/, which its robots.txt disallows; not read.'),
     taxNote: US_TAX_NOTE,
@@ -698,8 +703,9 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     },
     // Its priced Product names no size; the page's ProductGroup does, per sku.
     sizeFromProductGroup: true,
-    // Pages are about 1.4 MB: 187 read in 12 minutes on the second run, 178 priced.
-    pageBudget: { minutes: 40, newPages: 900 },
+    // Pages are about 1.4 MB: 187 read in 12 minutes on the second run, 178 priced. 40 to 55 minutes on 23 Oct 2026 (703 pages kept,
+    // stopped early of about 2,812 addresses), the same 2 second gap; the crawl's run limit is 64 minutes (catalogue-us.yml).
+    pageBudget: { minutes: 55, newPages: 1300 },
     minRequestGapMs: 2000,
     delivery: unverified('Its shipping help page did not answer the bot (no response) on 2026-10-09; not read.'),
     taxNote: US_TAX_NOTE,
@@ -732,6 +738,8 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
         requireGbp: true,
       },
     },
+    // 23 Oct 2026: 12 to 25 minutes at the same 2 second gap (it stopped on the 12 minute default with 182 listings not re-seen).
+    pageBudget: { minutes: 25, newPages: 700 },
     minRequestGapMs: 2000,
     delivery: {
       standard: null,
@@ -760,11 +768,14 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     domain: 'www.dillards.com',
     homepage: 'https://www.dillards.com/',
     tiers: ['designer'],
-    enabled: false,
+    enabled: true,
     // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
     imageBasis: 'hotlink-unlicensed',
-    blockedReason:
-      'Readable (robots.txt allows /p/, sitemap_beauty_1.xml lists about 1,700 fragrance pages, JSON-LD in USD), but each page holds every size in one AggregateOffer and states the size only inside checkoutPageURLTemplate; the shared JSON-LD reader returns one unsized listing a page (Lacoste L.12.12 Bleu EDP $106, read 2026-10-09). Needs a reader of its offers[] before it can be priced per bottle.',
+    // Each page lists every size as an offer of one AggregateOffer, the size only in each offer's checkoutPageURLTemplate: read per size
+    // (offersFromAggregate, aggregateOfferListings in src/catalogue/regionHarvest.ts). Wired 23 Oct 2026.
+    offersFromAggregate: true,
+    // About 1,700 fragrance pages at a 2 second gap: read over several runs, never ahead of the crawl's run limit.
+    pageBudget: { minutes: 40, newPages: 1000 },
     route: {
       kind: 'sitemap',
       sitemapRoute: {
@@ -776,9 +787,9 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
       },
     },
     minRequestGapMs: 2000,
-    delivery: unverified('Not read.'),
+    delivery: unverified('Its shipping page is drawn by script and none of the /c/ addresses tried (shipping, shipping-information, shipping-policy) answered 200; not read.'),
     taxNote: US_TAX_NOTE,
-    checked: `${CHECKED}: robots.txt 200 (493 B); sitemap read; a product page read.`,
+    checked: `${CHECKED}: robots.txt 200 (493 B; User-agent * allows /p/ and the sitemap); sitemap read; a product page read. 2026-10-23: asked again as PriceSniffsBot, the page's JSON-LD AggregateOffer lists each size (Lacoste L.12.12 Bleu EDP, 3.3 oz, USD 106.00, sku 6512984).`,
   },
   {
     id: 'ecosmetics',
