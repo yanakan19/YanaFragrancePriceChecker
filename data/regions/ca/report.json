@@ -1,18 +1,18 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-10-22T17:45:26.128Z",
+  "builtAt": "2026-10-23T10:37:29.606Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 10,
   "shopsPriced": 10,
-  "crawlMinutes": 12.65,
-  "harvestRanAt": "2026-10-22T17:13:34.291Z",
-  "listingsPriced": 46649,
+  "crawlMinutes": 12.98,
+  "harvestRanAt": "2026-10-23T10:24:29.902Z",
+  "listingsPriced": 46647,
   "listingsKept": 36569,
   "staleAfterDays": 7,
-  "products": 26608,
+  "products": 26610,
   "productsWithTwoOrMoreShops": 6355,
   "shareWithTwoOrMoreShops": 0.239,
   "productsWithTwoOrMoreIndependentShops": 6355,
@@ -20,7 +20,7 @@
   "productsWithThreeOrMoreShops": 2177,
   "medianPriceGap": 0.224,
   "listingBarcodeShare": 0.254,
-  "productsMatchingUkByBarcode": 1701,
+  "productsMatchingUkByBarcode": 1708,
   "shops": [
     {
       "id": "discount-fragrances-ca",
@@ -34,12 +34,12 @@
     },
     {
       "id": "fragrance-online-co",
-      "products": 785,
+      "products": 788,
       "shared": 472
     },
     {
       "id": "h-parfums",
-      "products": 703,
+      "products": 702,
       "shared": 124
     },
     {
@@ -73,14 +73,14 @@
       "shared": 5383
     }
   ],
-  "productsShown": 26608,
-  "productsWithUkPhoto": 4645,
-  "productsWithUkPhotoByBarcode": 499,
-  "productsWithUkPhotoByName": 4146,
-  "listingsWithReference": 10792,
+  "productsShown": 26610,
+  "productsWithUkPhoto": 4676,
+  "productsWithUkPhotoByBarcode": 507,
+  "productsWithUkPhotoByName": 4169,
+  "listingsWithReference": 10796,
   "offersWithCorroboratedReference": 3222,
-  "deals": 1084,
-  "shareWithUkPhoto": 0.175,
+  "deals": 1083,
+  "shareWithUkPhoto": 0.176,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
