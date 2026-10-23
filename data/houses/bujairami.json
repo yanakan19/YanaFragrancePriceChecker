@@ -1,9 +1,35 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-23T11:45:03.173Z",
-  "seenAt": "2026-10-23T11:45:03.173Z",
+  "updatedAt": "2026-10-23T15:48:14.080Z",
+  "seenAt": "2026-10-23T15:48:14.080Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "11031760011575-Default Title",
+      "url": "https://bujairami.ae/products/suns-out-inspired-by-my-way-sunny-vanilla-giorgio-armani",
+      "rawTitle": "Suns Out Inspired By My Way Sunny Vanilla Giorgio Armani",
+      "rawBrand": "Bujairami UAE",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/water.png?v=1792757261",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A radiant floral fragrance opening with juicy pineapple and sparkling bergamot. The heart blends creamy tuberose with elegant jasmine, while vanilla and musk create a smooth, warm, and sensual finish.. Fragrance Notes. Top: Pineapple, Bergamot. Heart: Tuberose, Jasmine. Base: Vanilla, Musk. Profile: Fruity • Floral • Creamy • Sweet • Musky.",
+      "productType": null,
+      "nativePrice": {
+        "amount": 150,
+        "currency": "AED"
+      },
+      "retailerId": "bujairami",
+      "firstSeenAt": "2026-10-23T15:48:14.080Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11028929511735-Default Title",
       "url": "https://bujairami.ae/products/pulse-intense-inspired-by-myslf-eau-de-toilette-intense-yves-saint-laurent",
@@ -300,7 +326,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A fresh and elegant fragrance opening with sparkling bergamot and airy aldehydes. The heart blooms with jasmine, mock orange, and sweet pea, while white musk and sandalwood create a soft, creamy, and refined finish.. Fragrance Notes . Top: Aldehydes, Bergamot. Heart: Jasmine, Mock Orange, Sweet Pea. Base: White Musk, Sandalwood. Profile: Fresh • Floral • Clean • Musky • Woody.",
       "productType": null,

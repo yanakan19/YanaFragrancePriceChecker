@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-23T11:38:33.469Z",
-  "seenAt": "2026-10-23T11:38:33.469Z",
+  "updatedAt": "2026-10-23T15:49:35.454Z",
+  "seenAt": "2026-10-23T15:49:35.454Z",
   "source": "live",
   "listings": [
     {
@@ -10617,7 +10617,7 @@
       "priceGbp": 69,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Tom Ford Tobacco Chocolat Eau de Parfum brings together the rich character suggested by tobacco and chocolate in an indulgent fragrance composition. Deep and sophisticated, the scent is designed to create a warm, distinctive and memorable impression..",
       "productType": "Women's Fragrances",

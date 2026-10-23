@@ -1,7 +1,7 @@
 {
   "retailerId": "swiss-arabian",
-  "updatedAt": "2026-10-23T11:46:37.161Z",
-  "seenAt": "2026-10-23T11:46:37.161Z",
+  "updatedAt": "2026-10-23T15:49:53.193Z",
+  "seenAt": "2026-10-23T15:49:53.193Z",
   "source": "live",
   "listings": [
     {
@@ -4214,7 +4214,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "PMUS107301",
+      "retailerSku": "PMUS107301N",
       "url": "https://swissarabian.com/products/private-musk-cpo-12ml",
       "rawTitle": "PRIVATE MUSK",
       "rawBrand": "Swiss Arabian",
@@ -4232,11 +4232,11 @@
         "currency": "USD"
       },
       "retailerId": "swiss-arabian",
-      "firstSeenAt": "2026-08-05T18:10:51.641Z",
+      "firstSeenAt": "2026-10-23T15:49:53.193Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -4651,6 +4651,33 @@
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "PMUS107301",
+      "url": "https://swissarabian.com/products/private-musk-cpo-12ml",
+      "rawTitle": "PRIVATE MUSK",
+      "rawBrand": "Swiss Arabian",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Top-angle_4ac8a12c-f9bc-48df-92b4-1f157c5ba45b.webp?v=1783337291",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Private Musk was inspired by the unique locket of memories that only fragrance can evoke, helping you revisit them in your dreams with a small secret smile. Private Musk is blended using the most precious ingredients. Designed to warm up a winter night, it blossoms on the skin with the scent of saffron strands, delicate orange flower and jasmine. The flowers melt like sugared petals into delectable caramel and candy floss, with mouth-watering vivacity. Taking you to a golden sunset of intimacy scented with silky white amber and earthy oak moss, Private Musk will stay with you long after your perfect moments are locked in your memory. Private Musk comes in a 12ml rollerball for easy application. It is a unisex fragrance. The scent of a memory..",
+      "productType": null,
+      "nativePrice": {
+        "amount": 33,
+        "currency": "USD"
+      },
+      "retailerId": "swiss-arabian",
+      "firstSeenAt": "2026-08-05T18:10:51.641Z",
+      "lastSeenAt": "2026-10-23T11:46:37.161Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-23T15:49:53.193Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null
