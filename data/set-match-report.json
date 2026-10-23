@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 222,
+ "folded": 220,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1143,39 +1143,6 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0888066167055",
-   "absorbed": [
-    "set-tom-ford-cafe-rose-eau-de-parfum-50ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0888066167055",
-     "brand": "Tom Ford",
-     "name": "Cafe Rose Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0888066167055",
-     "scent": "cafe rose",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click",
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-tom-ford-cafe-rose-eau-de-parfum-50ml-fragrance-gift-set",
-     "brand": "Tom Ford",
-     "name": "Café Rose Eau de Parfum 50ml Fragrance Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "cafe rose",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -3817,38 +3784,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3660732641499",
-   "absorbed": [
-    "set-giorgio-armani-acqua-di-gio-gift-set-30ml-edt-30ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3660732641499",
-     "brand": "Giorgio Armani",
-     "name": "Acqua Di Gio Gift Set 30ml EDT + 30ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3660732641499",
-     "scent": "acqua di gio",
-     "signature": "2x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-giorgio-armani-acqua-di-gio-gift-set-30ml-edt-30ml-edt",
-     "brand": "Giorgio Armani",
-     "name": "Acqua Di Gio Gift Set 30ml EDT + 30ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "acqua di gio",
-     "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3760269842038",
    "absorbed": [
     "set-lolita-lempicka-mon-premier-gift-set-50ml-edp-75ml-body-lotion"
@@ -5073,38 +5008,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003822195",
-   "absorbed": [
-    "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003822195",
-     "brand": "Versace",
-     "name": "Bright Crystal Absolu Gift Set 2 x 30ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003822195",
-     "scent": "absolu bright crystal",
-     "signature": "2x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp",
-     "brand": "Versace",
-     "name": "Bright Crystal Absolu Gift Set 2 x 30ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "absolu bright crystal",
-     "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8011003831999",
    "absorbed": [
     "set-missoni-2015-gift-set-50ml-edt-50ml-body-lotion-50ml-shower-gel"
@@ -6007,6 +5910,38 @@
      "signature": "1x10fragrance|1x200fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8435415092760",
+   "absorbed": [
+    "set-jean-paul-gaultier-miniatures-for-him-gift-set-7ml-le-male-edt-7ml-le-beau-edt-7ml-scandal-pour-homme-edt-7ml-le-male-elixir-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415092760",
+     "brand": "Jean Paul Gaultier",
+     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8435415092760",
+     "scent": "beau elixir homme le male pour scandal",
+     "signature": "1x7fragrance|3x7fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-miniatures-for-him-gift-set-7ml-le-male-edt-7ml-le-beau-edt-7ml-scandal-pour-homme-edt-7ml-le-male-elixir-edp",
+     "brand": "Jean Paul Gaultier",
+     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "beau elixir homme le male pour scandal",
+     "signature": "1x7fragrance|3x7fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -12041,51 +11976,6 @@
       "fragrance-click",
       "paco-perfumerias-uk",
       "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "strengths differ: Eau de Parfum, Eau de Toilette",
-    "two different barcodes: 8435415092760, 8435415115926",
-    "a shop lists more than one: perfume-click"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415092760",
-     "brand": "Jean Paul Gaultier",
-     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415092760",
-     "scent": "beau elixir homme le male pour scandal",
-     "signature": "1x7fragrance|3x7fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-8435415115926",
-     "brand": "Jean Paul Gaultier",
-     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir Parfum",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415115926",
-     "scent": "beau elixir homme le male pour scandal",
-     "signature": "1x7fragrance|3x7fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-miniatures-for-him-gift-set-7ml-le-male-edt-7ml-le-beau-edt-7ml-scandal-pour-homme-edt-7ml-le-male-elixir-edp",
-     "brand": "Jean Paul Gaultier",
-     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "beau elixir homme le male pour scandal",
-     "signature": "1x7fragrance|3x7fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
