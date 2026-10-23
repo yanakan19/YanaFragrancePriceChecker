@@ -1496,6 +1496,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3346470148949",
    "absorbed": [
     "set-guerlain-shalimar-gift-set-50ml-edp-75ml-body-lotion-5ml-edp"
@@ -3328,38 +3360,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3616305447609",
-   "absorbed": [
-    "set-gucci-flora-gorgeous-gardenia-eau-de-parfum-gift-set-50ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305447609",
-     "brand": "Gucci",
-     "name": "Flora Gorgeous Gardenia Eau de Parfum Women's Perfume Gift Set (50ml) with 10ml EDT",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305447609",
-     "scent": "flora gardenia gorgeous",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-gucci-flora-gorgeous-gardenia-eau-de-parfum-gift-set-50ml-edp-10ml-edp",
-     "brand": "Gucci",
-     "name": "Flora Gorgeous Gardenia Eau de Parfum Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "flora gardenia gorgeous",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3616305821065",
    "absorbed": [
     "set-marc-jacobs-miniature-gift-set-5ml-perfect-edp-4ml-daisy-wild-edp-4ml-daisy-eau-so-fresh-edt-4ml-daisy-edt"
@@ -4115,6 +4115,38 @@
      "signature": "2x15fragrance|2x50wash",
      "shops": [
       "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5060523018031",
+   "absorbed": [
+    "set-ted-baker-kasia-cracker-gift-set-15ml-edt-8ml-lipgloss"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060523018031",
+     "brand": "Ted Baker",
+     "name": "Kasia Cracker Gift Set 15ml EDT + 8ml Lipgloss",
+     "concentration": "Eau de Toilette",
+     "ean": "5060523018031",
+     "scent": "cracker kasia lipgloss",
+     "signature": "1x15fragrance|1x8fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ted-baker-kasia-cracker-gift-set-15ml-edt-8ml-lipgloss",
+     "brand": "Ted Baker",
+     "name": "Kasia Cracker Gift Set 15ml EDT + 8ml Lipgloss",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cracker kasia lipgloss",
+     "signature": "1x15fragrance|1x8fragrance",
+     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -5252,38 +5284,6 @@
      "signature": "1x50?|1x50body|1x50fragrance|1x?wash",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003907106",
-   "absorbed": [
-    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003907106",
-     "brand": "Versace",
-     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
-     "concentration": "Parfum",
-     "ean": "8011003907106",
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
-     "brand": "Versace",
-     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
-     "concentration": "Parfum",
-     "ean": null,
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -8452,7 +8452,7 @@
   },
   {
    "reasons": [
-    "price spread 2.28 is over 1.5"
+    "price spread 1.90 is over 1.5"
    ],
    "members": [
     {
@@ -9719,7 +9719,7 @@
    "reasons": [
     "two different barcodes: 3423222092528, 3423222110857, 3423222133849",
     "a shop lists more than one: allbeauty, perfume-click",
-    "price spread 1.86 is over 1.5"
+    "price spread 1.98 is over 1.5"
    ],
    "members": [
     {
@@ -9876,7 +9876,7 @@
   {
    "reasons": [
     "two different barcodes: 3423222106577, 3423222119706",
-    "price spread 2.45 is over 1.5"
+    "price spread 2.86 is over 1.5"
    ],
    "members": [
     {
@@ -9902,6 +9902,7 @@
      "signature": "1x50fragrance|1x50wash",
      "shops": [
       "fragrance-click",
+      "paco-perfumerias-uk",
       "perfume-click"
      ]
     },
@@ -10944,6 +10945,38 @@
      "signature": "1x100fragrance|1x10fragrance|1x75body",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3616307511278, 3616307511285",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616307511278",
+     "brand": "Jil Sander",
+     "name": "Sun Eau de Toilette Spray Eau de Toilette 75 ml + Shower Gel 75 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "3616307511278",
+     "scent": "1 stk sun",
+     "signature": "1x75fragrance|1x75wash",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3616307511285",
+     "brand": "Jil Sander",
+     "name": "Sun Men Eau de Toilette Spray Eau de Toilette Spray 75 ml + Shower Gel 75 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "3616307511285",
+     "scent": "1 stk sun",
+     "signature": "1x75fragrance|1x75wash",
+     "shops": [
+      "parfumdreams-uk"
      ]
     }
    ]
@@ -12211,6 +12244,37 @@
      "signature": "8x1.5fragrance",
      "shops": [
       "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "a shop lists more than one: marks-and-spencer"
+   ],
+   "members": [
+    {
+     "id": "set-eau-de-toilette-trio-30ml",
+     "brand": "Discover",
+     "name": "Eau de Toilette Trio 30ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "trio",
+     "signature": "1x30fragrance|3p",
+     "shops": [
+      "marks-and-spencer"
+     ]
+    },
+    {
+     "id": "set-eau-de-toilette-trio-set-30ml",
+     "brand": "Discover",
+     "name": "Eau De Toilette Trio Set 30ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "trio",
+     "signature": "1x30fragrance|3p",
+     "shops": [
+      "marks-and-spencer"
      ]
     }
    ]
