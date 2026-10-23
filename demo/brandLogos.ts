@@ -136,6 +136,28 @@ import type { LogoRef } from '../src/types/retailer.js';
  *   - not the house's own: Jovan (its site is Coty's, so the mark is Coty's; Coty
  *     itself shipped), Aigner (its declared logo is served from aignerimage.de,
  *     not its own domain).
+ *
+ * ── The 2026-10-23 pass: the top 200 houses still without a logo ────────────
+ * Of the 200 houses with the most products and no logo (Unbranded and the
+ * houses decided above included), 81 have an official site in BRAND_SITES and 59
+ * of those were decided in the passes above. The 27 left (24 probed: three were
+ * left out as decided under another spelling or a retailer's page) were probed
+ * the same way (`scripts/logo-probe.ts --no-social`, robots.txt first, one request
+ * per host per 2s) and **5 shipped**, each drawn at 42 and 56px on white and
+ * on dark from the exact bytes: Ramon Monegal, Gisada, Rance 1795, Oud Elixir,
+ * Sospiro (all dark ink wordmarks on the white tile). The other 119 of the 200
+ * have no official site in BRAND_SITES, so nothing was asked and they keep the
+ * monogram; no domain was guessed.
+ *
+ * Left on initials: Granado, Laurelle Parfums, Phlur (homepage 403), Cyrus
+ * (homepage 404), Nylaa and Reebok (robots.txt 403 and 503), MCM (robots.txt
+ * disallows its icons), Christina Aguilera (declares nothing); Thomas Kosmala,
+ * d'Annam and Atralia (a 32px icon only); Velixir (light ink, vanishes on white),
+ * Prime Collection (a 90 KB JPEG on its own white ground), Rituals (an 83 KB SVG
+ * and a 16px icon), L'Artisan Parfumeur (its icons answer an HTML page), Alwataniah
+ * (thin Arabic calligraphy that cannot be read at the size drawn); Sistelle (its
+ * only wordmark is Paris Bleu's, another house), Today Tomorrow Always and Far
+ * Away (Avon's favicon, the parent's mark).
  */
 export const BRAND_LOGOS: Record<string, LogoRef> = {
   // ── Own site declared (42) ──────────────────────────────────────────────
@@ -1895,6 +1917,47 @@ export const BRAND_LOGOS: Record<string, LogoRef> = {
     basis: 'own-site-declared',
     source: 'https://www.victorinox.com/en-GB/Products/Fragrances/c/FRA_AllProducts/',
     readAt: '2026-10-12',
+  },
+  'ramon monegal': {
+    src: 'https://monegalperfumes.com/wp-content/uploads/2026/04/logo-monegal-perfumes.svg',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://ramonmonegal.com/',
+    readAt: '2026-10-23',
+  },
+  gisada: {
+    src: 'https://www.gisada.com/cdn/shop/files/Gisada_Logo_Black_v2.0_1.png?v=1745104282&width=300',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://www.gisada.com/en-us',
+    readAt: '2026-10-23',
+  },
+  // Filed under "rance": the key drops the digits of "Rance 1795".
+  rance: {
+    src: 'https://rance1795.com/cdn/shop/files/rance_logo.svg?v=1718109808',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://rance1795.com/',
+    readAt: '2026-10-23',
+  },
+  'oud elixir': {
+    src: 'https://oudelixir.com/cdn/shop/files/OUD-ELIXIR-LOGO---black.png?v=1742955537&width=500',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://oudelixir.com/',
+    readAt: '2026-10-23',
+  },
+  sospiro: {
+    src: 'https://sospirointernational.com/cdn/shop/files/Artboard_1_1_f842c701-d21a-42a1-a061-a08fca7f224f.svg?v=1770791811',
+    shape: 'wordmark',
+    ink: 'dark',
+    basis: 'own-site-declared',
+    source: 'https://sospirointernational.com/',
+    readAt: '2026-10-23',
   },
 };
 

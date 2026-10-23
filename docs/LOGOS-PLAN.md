@@ -1017,3 +1017,20 @@ the exact bytes fetched; the rules are those of section 10 (`tests/regionRetaile
 **Kept on initials, 4 shops**: Perfume Online (its wordmark is served from `cdn.shopify.com`, a third party host; its own icon is
 16px), Fragrance Online Co (the mark is unreadable at 42px), Niche Essence (light gold ink, which the white tile cannot show),
 Perfume Plus (a 16px Wix icon).
+
+## 12. The top 200 houses without a logo, 23 Oct 2026
+
+From docs/SITE-REVIEW-2026-10-23.md, "Missing information" row 12. Same method as
+sections 8 and 9, over the 200 houses with the most products and no logo on that
+day (1,040 of 1,254 UK brands had none). 81 have an official site in
+`BRAND_SITES`; 59 of those were decided in the earlier passes (the header of
+`demo/brandLogos.ts` names each and why), so 24 were probed
+(`scripts/logo-probe.ts --no-social`, robots.txt first, one request per host per
+2 s) and the candidates drawn at 42 and 56px on white and on dark from the exact
+bytes. **5 shipped**: Ramon Monegal, Gisada, Rance 1795, Oud Elixir, Sospiro,
+all dark ink wordmarks on the white tile (219 brand keys now). The 119 houses of
+the 200 with no official site on record keep initials: finding their sites means
+adding to `BRAND_SITES` (about two searches a house), which is the next step if
+the owner wants more, with an expected yield near one logo in five. The refusals
+and rejections, with reasons, are in the header of `demo/brandLogos.ts` and held
+by `tests/brandLogos.test.ts`.

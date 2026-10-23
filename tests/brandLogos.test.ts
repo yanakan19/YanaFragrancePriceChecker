@@ -44,6 +44,7 @@ const DECLARED_ASSET_HOSTS = new Set([
   'www.lattafa-usa.com', // Lattafa's own US site; brand site is lattafa.com
   'www.bgstatic.net', // Perfume Click's own asset host: perfume-click.co.uk declares its favicon there (2026-10-03)
   'us.thebeautystore.com', // The Beauty Store's own US storefront, declared by thebeautystore.com
+  'monegalperfumes.com', // Ramon Monegal's own site, which ramonmonegal.com sends to: it declares its wordmark there (2026-10-23)
   'cdn.notinoimg.com', // Notino's own image host: notino.co.uk declares its apple touch icon there (2026-10-12)
 ]);
 
@@ -481,6 +482,16 @@ describe('houses the 2026-10-12 pass looked at and left on their initials', () =
     'Loewe', 'Van Cleef & Arpels', 'Jaguar', 'Bentley', 'Louis Vuitton', 'Mercedes-Benz', 'David Beckham', 'Replay',
     'Revlon', 'Chopard', 'Elizabeth Taylor', 'Jo Loves', 'Lamborghini', 'Tonino Lamborghini', 'Giardino Benessere',
     'Louis Varel', 'Annayake', 'La Perla', 'Roger & Gallet', 'Ex Nihilo', 'Jovan', 'Aigner',
+  ])('%s', (brand) => {
+    expect(logoFor(brand)).toBeNull();
+  });
+});
+
+/** The 2026-10-23 pass looked at these houses and left them on their initials, each for a reason in the header of demo/brandLogos.ts. */
+describe('houses the 2026-10-23 pass looked at and left on their initials', () => {
+  it.each([
+    'Granado', 'Laurelle Parfums', 'Phlur', 'Cyrus', 'Nylaa', 'Reebok', 'MCM', 'Christina Aguilera', 'Thomas Kosmala', "d'Annam",
+    'Atralia', 'Velixir', 'Prime Collection', 'Rituals', "L'Artisan Parfumeur", 'Alwataniah', 'Sistelle', 'Today Tomorrow Always', 'Far Away',
   ])('%s', (brand) => {
     expect(logoFor(brand)).toBeNull();
   });
