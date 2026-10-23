@@ -245,6 +245,9 @@ jobs:
           # every sitemap address a real file (so it answers 200), and the
           # deploy output under its budget (scripts/leafPages.ts).
           npx tsx scripts/build-leaf-pages.ts --check
+          # The US, Indian and Canadian brand and shop pages likewise
+          # (scripts/regionLeafPages.ts).
+          npx tsx scripts/build-region-leaf-pages.ts --check
           # demo/sitemap.xml is the index of one sitemap per region (public
           # beta, 2026-10-09): the UK's, the US's and India's.
           test -s demo/sitemap.xml

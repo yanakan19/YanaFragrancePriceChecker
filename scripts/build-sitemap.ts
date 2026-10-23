@@ -293,9 +293,20 @@ for (const region of liveRegions()) {
     if (e.loc === '/deals' && facts.deals === 0) continue;
     list.push({ ...e, lastmod: e.loc === '/deals' || e.loc === '/' ? day : e.lastmod });
   }
-  // The region's product, brand and shop pages are not prerendered (the UK's
-  // fill the deploy budget, scripts/leafPages.ts): they answer 404 with the
-  // app inside, so they are not listed. They still open for a visitor.
+  // The region's product pages are not prerendered (the UK's fill the deploy
+  // budget, scripts/leafPages.ts): they answer 404 with the app inside, so
+  // they are not listed. Its brand and shop pages are (scripts/regionLeafPages.ts),
+  // and only the ones that were written are listed, the same rule as the UK's.
+  const leafFile = resolve(root, 'dist-demo/regions', region.pathPrefix, 'leaf-pages.json');
+  if (!existsSync(leafFile)) {
+    console.error(`::error::${leafFile} is missing: run scripts/build-region-leaf-pages.ts first (npm run demo does).`);
+    process.exit(1);
+  }
+  const regionLeaf = JSON.parse(readFileSync(leafFile, 'utf8')) as { pages: { kind: string; path: string }[] };
+  for (const p of regionLeaf.pages) {
+    // The page's address is /us/brands/x; the entry is the region-less /brands/x (urlset adds the prefix).
+    list.push({ loc: p.path.slice(region.pathPrefix.length + 1), lastmod: day, changefreq: 'weekly' });
+  }
   const regionSeen = new Set<string>();
   regionSitemaps.push({ region, facts, entries: list.filter((e) => (regionSeen.has(e.loc) ? false : (regionSeen.add(e.loc), true))) });
 }
@@ -387,8 +398,8 @@ for (const r of regionSitemaps) {
   const out = urlset(r.region, r.entries);
   writeGenerated(root, `demo/sitemap-${r.region.pathPrefix}.xml`, out.xml);
   written.push({ file: `sitemap-${r.region.pathPrefix}.xml`, lastmod: r.facts.crawledAt.slice(0, 10) });
-  console.log(`demo/sitemap-${r.region.pathPrefix}.xml  ${r.entries.length} URLs  (the fixed pages; its ${r.facts.productPages.length} products, ` +
-    `${r.facts.brandSlugs.length} brands and ${r.facts.shops.length} shops are not prerendered and not listed; ${out.withAlternates} with hreflang alternates)`);
+  console.log(`demo/sitemap-${r.region.pathPrefix}.xml  ${r.entries.length} URLs  (the fixed pages and the brand and shop pages written; its ${r.facts.productPages.length} products ` +
+    `are not prerendered and not listed; ${out.withAlternates} with hreflang alternates)`);
 }
 // The index robots.txt names (Sitemap: https://pricesniffs.space/sitemap.xml).
 writeGenerated(root, 'demo/sitemap.xml', [

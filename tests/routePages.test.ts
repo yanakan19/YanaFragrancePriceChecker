@@ -188,9 +188,14 @@ describe('the built folder', () => {
     // Since 13 Oct 2026 each priced UK product, brand, shop and well stocked note has a page of its own.
     const leafPath = join(root, 'dist-demo/leaf-pages.json');
     const leaves = existsSync(leafPath) ? (JSON.parse(readFileSync(leafPath, 'utf8')) as { pages: { file: string }[] }).pages.map((p) => p.file) : [];
-    const expected = new Set(['index.html', '404.html', 'template.html', ...pages.map((p) => p.file), ...regionShells, ...regionPagesToWrite().map((p) => p.file), ...leaves]);
+    // Since 23 Oct 2026 each region's brand and shop pages too (scripts/regionLeafPages.ts).
+    const regionLeaves = liveRegions().filter((r) => r.pathPrefix !== '').flatMap((r) => {
+      const path = join(root, 'dist-demo/regions', r.pathPrefix, 'leaf-pages.json');
+      return existsSync(path) ? (JSON.parse(readFileSync(path, 'utf8')) as { pages: { file: string }[] }).pages.map((p) => p.file) : [];
+    });
+    const expected = new Set(['index.html', '404.html', 'template.html', ...pages.map((p) => p.file), ...regionShells, ...regionPagesToWrite().map((p) => p.file), ...leaves, ...regionLeaves]);
     expect(files.filter((f) => !expected.has(f)), 'html files in demo/ that are not the page, a route page or a prerendered page').toEqual([]);
-    expect(files.length - leaves.length).toBeLessThan(60 * liveRegions().length);
+    expect(files.length - leaves.length - regionLeaves.length).toBeLessThan(60 * liveRegions().length);
   });
 
   it('is listed by the sitemap: every indexable route page, and none that asks not to be indexed', () => {

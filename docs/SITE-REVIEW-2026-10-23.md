@@ -107,8 +107,10 @@ from is the file or pipeline that would carry the fix.
 
 ## Not done here, and why
 
-- Region product, brand and shop pages are still not prerendered, so the
-  region sitemaps list their 43 fixed pages only. The UK's 36,307 pages use
+- Region product pages are still not prerendered; their brand and shop pages
+  are since 24 Oct (see "Filled in" below), so the region sitemaps list the
+  fixed pages, brands and shops only. (Written on 23 Oct: none of the three
+  were prerendered and the sitemaps held 43 fixed pages each.) The UK's 36,307 pages use
   481 MB of the 700 MB deploy budget; the regions' 64,000 products at the
   UK's 12 kB a page would not fit. Their 2,600 brand and 41 shop pages
   (about 40 MB) would, and are the next step for Search Console
@@ -116,3 +118,12 @@ from is the file or pipeline that would carry the fix.
 - The guides are written for UK buyers and are shown unchanged on the region
   sites.
 - The welcome pop up is left as it is (owner decision pending, AdSense).
+
+## Filled in (24 Oct 2026, from the Missing information table)
+
+Each row: what was done, the count before and after.
+
+| Rank | What | Before | After |
+| --- | --- | --- | --- |
+| 14 | One shop count | Legal Notice 63 (switched on), About 62 (showing prices) | Every page states `shopsShowingPrices()` (demo/data.ts, `liveShopIds`): the shops switched on that hold a current price. Legal Notice, About, home description, marquee, Most Stocked note and the page descriptions all read it; `tests/shopCount.test.ts` fails if two differ or a page types a count |
+| Not done here, 1 | Region brand and shop pages | US, India and Canada sitemaps: 43 fixed pages each | Brand and shop pages answer 200 in all three (`scripts/build-region-leaf-pages.ts`, `scripts/regionLeafPages.ts`): US 1,261, India 548, Canada 854 pages, 22.4 MB in all; the sitemaps list 1,304, 591 and 897 addresses, only those with a file; the deploy is 505 MB of the 700 MB budget; each region's boot scripts are one shared file like the UK's |

@@ -11,6 +11,7 @@ import { siteHeadScript } from '../scripts/siteBuild.js';
 import { SITE_URL } from '../demo/head.js';
 import { readStampedHash } from '../scripts/demoInputsHash.js';
 import { isProductSlug } from '../src/catalogue/productSlug.js';
+import { liveRegions } from '../src/config/regions.js';
 
 /**
  * A real page, answering 200, for each priced UK product, brand, shop and
@@ -181,7 +182,13 @@ describe.skipIf(!built)('the built site', () => {
   it('repeats no script in the pages: each carries its file lists and one tag for the shared boot, not the loader, the region hand off or the live list', () => {
     const m = manifest();
     expect(m.boot).toMatch(/^assets\/boot\.[0-9a-f]{16}\.js$/);
-    expect(readdirSync(resolve(demo, 'assets')).filter((f) => f.startsWith('boot.'))).toEqual([m.boot!.slice('assets/'.length)]);
+    // The UK's boot file and one for each region (scripts/build-region-leaf-pages.ts).
+    const boots = new Set([m.boot!.slice('assets/'.length)]);
+    for (const r of liveRegions().filter((x) => x.pathPrefix !== '')) {
+      const regionManifest = resolve(root, 'dist-demo/regions', r.pathPrefix, 'leaf-pages.json');
+      if (existsSync(regionManifest)) boots.add((JSON.parse(readFileSync(regionManifest, 'utf8')) as { boot: string }).boot.slice('assets/'.length));
+    }
+    expect(readdirSync(resolve(demo, 'assets')).filter((f) => f.startsWith('boot.')).sort()).toEqual([...boots].sort());
     for (const p of m.pages.filter((_, i) => i % 97 === 0)) {
       const html = readFileSync(resolve(demo, p.file), 'utf8');
       const inline = [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)].map((x) => x[1]!).join('');
