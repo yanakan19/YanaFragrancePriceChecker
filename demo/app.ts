@@ -110,7 +110,7 @@ import {
 } from './msrpComparison.js';
 import { pickReferencePrice } from './referencePrice.js';
 import { COMPANY, legalPage, legalNoticeSections, isLegalNoticeId } from './legal.js';
-import { CHANGELOG } from './changelog.js';
+import { CHANGELOG, homeHighlights } from './changelog.js';
 import { offersFor, SHOP_COUNT, HOUSE_PRODUCTS, HISTORY_ALIASES, OLDER_OFFERS } from './catalogue.generated.js';
 import { fetchLazyFile, priceHistory, prefetchWhenIdle, type PriceHistoryData } from './priceHistoryStore.js';
 import { dormant, dormantEntry, idForSlug, movedTo } from './dormantStore.js';
@@ -1726,29 +1726,19 @@ function homeView(): string {
       </section>
       <section class="updates-section">
         <h2 class="t-section">Update History</h2>
-        <!-- The list scrolls on desktop (max-height in the stylesheet), and a
-             region that scrolls must be reachable from the keyboard or its
-             lower entries are unreachable without a mouse: tabindex="0" puts
-             it in the tab order, and the label says what the reader has
-             landed on. axe scrollable-region-focusable, 2026-09-06. -->
-        <ul class="updates-list" tabindex="0" aria-label="Update history">
+        <!-- One short column per day in a row that scrolls sideways (owner
+             request, 23 Oct 2026), each with at most five of the day's
+             points (demo/changelog.ts homeHighlights). A region that scrolls
+             must be reachable from the keyboard: tabindex="0" puts it in the
+             tab order, and the label says what the reader has landed on. -->
+        <ol class="updates-row" tabindex="0" aria-label="Update history">
           ${CHANGELOG.map(
-            (entry) => `<li class="update-entry">
-                <p class="update-head">
-                  <span class="update-version">${esc(entry.version)}</span>
-                  <span class="update-date">${esc(entry.date)}</span>
-                </p>
-                ${entry.groups
-                  .map(
-                    (group) => `<h3 class="update-group">${esc(group.heading)}</h3>
-                <ul class="update-points">
-                  ${group.points.map((p) => `<li>${esc(p)}</li>`).join('')}
-                </ul>`,
-                  )
-                  .join('')}
+            (entry) => `<li class="update-day">
+                <p class="update-head"><span class="update-version">${esc(entry.version)}</span> <span class="update-date">${esc(entry.date)}</span></p>
+                <ul class="update-points">${homeHighlights(entry).map((p) => `<li>${esc(p)}</li>`).join('')}</ul>
               </li>`,
           ).join('')}
-        </ul>
+        </ol>
       </section>
     </div>`;
 }

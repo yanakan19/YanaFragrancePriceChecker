@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CHANGELOG } from '../demo/changelog.js';
+import { CHANGELOG, HOME_POINTS, homeHighlights } from '../demo/changelog.js';
 import { changelogDateFieldToIsoDays } from '../src/changelog/changelogSuggest.js';
 
 /** Hyphen, hyphen variants, en and em dashes, minus and figure dashes. */
@@ -54,6 +54,18 @@ describe('update history shown on the home page', () => {
         // Only major changes get a line: a busy day folds related changes
         // together or drops the least noticeable, it does not grow the entry.
         expect(total, 'too many points in one day').toBeLessThanOrEqual(MAX_POINTS_PER_ENTRY);
+      });
+
+      it(`shows at most ${HOME_POINTS} points on the home page, each one of its own`, () => {
+        const points = entry.groups.flatMap((g) => g.points);
+        if (entry.highlights) {
+          expect(entry.highlights.length).toBeGreaterThanOrEqual(1);
+          expect(entry.highlights.length).toBeLessThanOrEqual(HOME_POINTS);
+          expect(new Set(entry.highlights).size, 'a highlight named twice').toBe(entry.highlights.length);
+          for (const h of entry.highlights) expect(points, `highlight "${h}" is not one of the day's points`).toContain(h);
+        }
+        const shown = homeHighlights(entry);
+        expect(shown.length).toBe(Math.min(HOME_POINTS, entry.highlights?.length ?? points.length));
       });
 
       it('uses no hyphens or dashes', () => {

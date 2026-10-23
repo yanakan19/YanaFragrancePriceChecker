@@ -35,6 +35,7 @@ home pages to one structure.
 | Legal Notice | Contents as six bordered pills | A row of text links | step 2 |
 | Guides | Every guide a bordered card that lifted on hover | A list: title link and line, hairline between | step 2 |
 | Guides, oils sort | "Prices Per Ml", "Lowest to Highest Per Ml" | "per ml" | step 2 |
+| Home | Update history a long column (up to twelve points a day, under group headings) that scrolled inside a box | A row of days that scrolls sideways and snaps a day at a time, about four across on a desktop and one and a half on a phone; each day shows at most five points, its `highlights` or its first points (demo/changelog.ts `homeHighlights`, held by tests/changelog.test.ts) | step 3 |
 
 ## Copy changes
 

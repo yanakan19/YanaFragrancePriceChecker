@@ -15,6 +15,12 @@
  * page cuts longer lines short), no hyphens or dashes, and a date such as
  * "6 Oct 2026". Entries from 1 Oct 2026 on cover a single day; the older
  * ones written before the rule may cover a range, such as "27 to 31 Aug 2026".
+ *
+ * The home page shows each day as one short column in a row, with at most
+ * HOME_POINTS of its points (owner request, 23 Oct 2026): the entry's
+ * `highlights` where it names them (each one of its own points, in the order
+ * to show), else its first points in reading order. So put the points a
+ * visitor cares most about first, or name them in `highlights`.
  */
 
 export interface ChangelogGroup {
@@ -26,18 +32,35 @@ export interface ChangelogEntry {
   version: string;
   date: string;
   groups: ChangelogGroup[];
+  /** The points the home page shows for this day, most prominent first: at most HOME_POINTS, each one of the entry's own points. */
+  highlights?: string[];
+}
+
+/** How many of a day's points the home page shows. */
+export const HOME_POINTS = 5;
+
+/** What the home page shows for a day: its highlights, else its first points in reading order. */
+export function homeHighlights(entry: ChangelogEntry): string[] {
+  return (entry.highlights ?? entry.groups.flatMap((g) => g.points)).slice(0, HOME_POINTS);
 }
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
     version: 'v3.115.0',
     date: '23 Oct 2026',
+    highlights: [
+      'Most Popular row in every country',
+      'Tidier home, tiles, footer and updates',
+      'Three more Indian shops added',
+      'Dillards added to the US site',
+      'Delivery terms for five more Canadian shops',
+    ],
     groups: [
       {
         heading: 'Design',
         points: [
           'Most Popular row in every country',
-          'Tidier home, tiles and footer',
+          'Tidier home, tiles, footer and updates',
         ],
       },
       {

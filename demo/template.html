@@ -972,56 +972,38 @@
     margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line);
   }
 
-  .updates-section h2 { margin: 0 0 16px; }
-  .updates-list {
-    list-style: none; margin: 0; padding: 0 4px 0 0; display: flex; flex-direction: column; gap: 16px;
-    overflow-y: auto; overscroll-behavior: contain;
+  .updates-section h2 { margin: 0 0 12px; }
+  /* A row of days, newest first, that scrolls sideways (owner request,
+     23 Oct 2026): each day a short column of at most five points, a hairline
+     on its left as the old list had, about four columns across the home
+     column on a desktop and one and a half on a phone, so the next day shows
+     at the edge and says there is more. Snaps a column at a time. */
+  .updates-row {
+    list-style: none; margin: 0; padding: 0 0 10px;
+    display: grid; grid-auto-flow: column; grid-auto-columns: minmax(220px, 62%);
+    gap: 0; overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: 0;
     scrollbar-width: thin; scrollbar-color: var(--line-firm) transparent;
   }
-  .updates-list::-webkit-scrollbar { width: 6px; }
-  .updates-list::-webkit-scrollbar-track { background: transparent; }
-  .updates-list::-webkit-scrollbar-thumb { background: var(--line-firm); border-radius: 3px; }
-  .updates-list::-webkit-scrollbar-thumb:hover { background: var(--faint); }
-  /* The list scrolls inside a fixed height so it never runs unbounded. */
-  .updates-list { max-height: 420px; }
-  :root[data-layout="desktop"] .updates-list { max-height: 480px; }
-  /* A neutral rail, not an accent-tinted one. Each entry already names its
-     own version in --accent; a coloured bar beside it was the same emphasis
-     twice, and an accent stripe down a list is decoration rather than
-     information. The rail stays because a run of releases genuinely is a
-     thread, and a hairline says so without competing. */
-  .update-entry {
-    border-left: 2px solid var(--line); padding: 12px 0 12px 14px;
-    position: relative;
+  @media (min-width: 640px) { .updates-row { grid-auto-columns: calc((100% - 1px) / 3); } }
+  @media (min-width: 1000px) { .updates-row { grid-auto-columns: calc((100% - 1px) / 4); } }
+  .updates-row::-webkit-scrollbar { height: 6px; }
+  .updates-row::-webkit-scrollbar-thumb { background: var(--line-firm); border-radius: 3px; }
+  .updates-row:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 4px; }
+  .update-day {
+    scroll-snap-align: start; min-width: 0;
+    border-left: 1px solid var(--line); padding: 2px 16px 4px 14px;
   }
-  .update-head { margin: 0 0 6px; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .update-head { margin: 0 0 8px; display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
   .update-version { font-weight: 800; font-size: 13px; color: var(--accent); letter-spacing: 0.02em; }
-  .update-date { font-size: 11px; color: var(--faint); font-weight: 500; }
-  /* One entry per day (owner, 2026-10-06), its changes under a few headed
-     groups: the group heading is the bold line, the points sit under it. */
-  .update-group { margin: 10px 0 6px; font-weight: 700; font-size: 13px; line-height: 1.4; }
-  .update-head + .update-group { margin-top: 0; }
+  .update-date { font-size: 12px; color: var(--faint); font-weight: 500; }
   .update-points {
-    margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 5px;
-    font-size: 12px; color: var(--ink-2); line-height: 1.5;
+    margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px;
+    font-size: 12.5px; color: var(--ink-2); line-height: 1.4;
   }
   .update-points li { margin: 0; }
-  /* No bullet dots: the points are indented under their group heading. (They
-     used to be hidden only because the one line clip below cut the outside
-     marker off, which stopped working once a point may wrap.) */
-  .update-points li::marker { content: ''; }
-  /* One line per point (owner, 2026-10-01): each entry is short by rule
-     (tests/changelog.test.ts), and anything longer is cut with an ellipsis
-     rather than wrapping. */
-  .update-group, .update-points li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  /* On the narrowest phones (320px) about forty characters fit, so a point
-     near the fifty character cap would lose its ending. Let it wrap there
-     instead of cutting a sentence short. */
-  @media (max-width: 370px) {
-    .update-points li { white-space: normal; overflow: visible; text-overflow: clip; }
-  }
 
-    /* One section-heading treatment, replacing three that had drifted apart
+  /* One section-heading treatment, replacing three that had drifted apart
      (uppercase-tracked, 17px bold, accent-underlined). Sentence case at
      15px/600, no rule and no accent: separation between blocks is space --
      32px above, 16px below -- never decoration. The markup already reads
