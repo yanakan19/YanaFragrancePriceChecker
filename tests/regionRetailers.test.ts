@@ -153,7 +153,7 @@ describe('region registries', () => {
 
 });
 
-// Shop logos for the US and India (owner said yes, 13 Oct 2026; docs/LOGOS-PLAN.md section 10).
+// Shop logos for the US, India and Canada (owner said yes, 13 Oct 2026; docs/LOGOS-PLAN.md sections 10 and 11).
 // Same rules as a UK shop (tests/brandLogos.test.ts): only what the shop's own site declares,
 // hot linked from its own domain, drawn on the white tile (never light ink), a recorded date.
 describe('region shop logos', () => {
@@ -161,6 +161,8 @@ describe('region shop logos', () => {
     ([['logo', r.logo], ['squareLogo', r.squareLogo]] as const).filter(([, l]) => l != null).map(([f, l]) => [`${r.id}:${f}`, r, l!] as const),
   );
   const root = (host: string) => host.toLowerCase().split('.').slice(-2).join('.');
+  // Maximum Fragrance's .ca page itself declares its logo on its sibling .com address of the same Shopify store (read 23 Oct 2026).
+  const OWN_SIBLING_DOMAIN: Record<string, string> = { 'maximum-fragrance': 'maximumfragrance.com' };
 
   it('is not empty', () => {
     expect(withLogo.length).toBeGreaterThan(0);
@@ -170,12 +172,16 @@ describe('region shop logos', () => {
     expect(r.enabled).toBe(true);
     expect(logo.basis).toBe('own-site-declared');
     expect(logo.src.startsWith('https://')).toBe(true);
-    expect(root(new URL(logo.src).host), `${r.id} logo host`).toBe(root(r.domain));
+    expect(root(new URL(logo.src).host), `${r.id} logo host`).toBe(root(OWN_SIBLING_DOMAIN[r.id] ?? r.domain));
     expect(logo.source).toBe(r.homepage);
     expect(logo.readAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     expect(['square', 'wordmark']).toContain(logo.shape);
     expect(logo.ink, 'light ink is not drawn on the white tile').not.toBe('light');
-    expect(logo.src).not.toMatch(/og[-_]?image|wikipedia|wikimedia|google|clearbit|brandfetch|logo\.dev/i);
+    expect(logo.src).not.toMatch(/og[-_]?image/i);
+    // A logo service or a wiki is refused by its host or folder; the shop's own file name may say anything
+    // (Parfum Exquis names its own icon "for_google2.png"), and the host rule above already pins the domain.
+    const url = new URL(logo.src);
+    expect(url.host + url.pathname.replace(/[^/]*$/, '')).not.toMatch(/wikipedia|wikimedia|google|clearbit|brandfetch|logo\.dev/i);
   });
 
   it('keeps a squareLogo square', () => {
@@ -188,7 +194,10 @@ describe('region shop logos', () => {
     // another brand's (the VLCC manifest icon of Ustraa is not used).
     for (const id of ['luckyscent', 'twisted-lily', 'indigo-perfumery', 'bluemercury', 'maison-louis-marie', 'sol-de-janeiro', 'beauty-encounter',
       'fragrance-outlet', 'fragrance-market', 'microperfumes', 'parfums-raffy', 'la-belle-perfumes', 'the-perfume-spot', 'perfumania',
-      'ulta', 'nykaa', 'fridaycharm', 'aar-fragrances', 'naso-profumi', 'the-man-company']) {
+      'ulta', 'nykaa', 'fridaycharm', 'aar-fragrances', 'naso-profumi', 'the-man-company',
+      // Canada, 23 Oct 2026: Perfume Online (wordmark on cdn.shopify.com, a third party host; its own icon is 16px), Fragrance
+      // Online Co (mark unreadable at 42px), Niche Essence (light gold ink), Perfume Plus (a 16px Wix icon).
+      'perfumeonline-ca', 'fragrance-online-co', 'niche-essence', 'perfume-plus-ca']) {
       expect(ALL.find((r) => r.id === id)?.logo, id).toBeUndefined();
     }
   });

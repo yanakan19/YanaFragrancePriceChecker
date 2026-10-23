@@ -1318,3 +1318,11 @@ carries.
 shops where none was found cheaply; logos (initials show for now); a product page probe of Rexall, Jean Coutu
 and Well.ca; the 18 or over tick stays India only unless the legal review asks for it in Canada; the Supabase
 migration `0011_profile_region_ca.sql` for the owner to run.
+
+**23 Oct 2026, beta fixes** (`docs/BETA-SCORECARD-2026-10-23.md`). The first scheduled crawl did fire, late: GitHub started the
+05:27 UTC tick at 10:22 UTC (run 39938628435, green); the scorecard was measured at 08:30, before it. Strength from the shop's own
+product type (`strengthFromProductType`) is on for Maximum Fragrance and Parfum Exquis; H Parfums stays off because its type is
+"Parfum" on 712 of 714 products (a category, not a strength). A closing "(M)", "(W)", "(U)" tag is taken off a display name unless
+the tag is what tells two bottles apart (`stripAudienceTags`). Delivery terms were read for five more shops (eight of ten confirmed);
+Perfume Factory (an empty shipping policy) and Perfume Plus (a script drawn page) stay unverified. Six shops have a logo
+(`docs/LOGOS-PLAN.md` section 11).

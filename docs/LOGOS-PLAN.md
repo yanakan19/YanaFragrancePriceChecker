@@ -1002,3 +1002,18 @@ on white and on dark from the exact bytes fetched.
 - Served from a third party host: Perfumania (its wordmark sits on a Bluecore CDN).
 - Homepage answered 503: Nykaa.
 - Ustraa's manifest icons are another company's mark (VLCC) and were not used; its apple touch icon was.
+
+## 11. Canada shops, 23 Oct 2026
+
+`scripts/logo-probe.ts --region=ca --no-social --save=<dir>` probed the 10 enabled Canadian shops, as PriceSniffsBot,
+robots.txt first, two seconds between requests to a host. Every candidate was drawn at 42 and 56px on white and on dark from
+the exact bytes fetched; the rules are those of section 10 (`tests/regionRetailers.test.ts`).
+
+**Added, 6 shops** (hot linked from the shop's own domain, none copied): Discount Fragrances (wordmark), Fragrance Canada
+(wordmark; the 440px file its own homepage loads, its declared 2522px original is 1.3 MB), Maximum Fragrance (wordmark; its
+`.ca` page declares the file on its sibling `maximumfragrance.com`, the same Shopify store), Perfume Factory (wordmark), H Parfums
+(180px apple touch icon, dark ink), Parfum Exquis (180px apple touch icon).
+
+**Kept on initials, 4 shops**: Perfume Online (its wordmark is served from `cdn.shopify.com`, a third party host; its own icon is
+16px), Fragrance Online Co (the mark is unreadable at 42px), Niche Essence (light gold ink, which the white tile cannot show),
+Perfume Plus (a 16px Wix icon).

@@ -215,6 +215,37 @@ export function withoutColognePlaceholder(title: string): string {
     .trim();
 }
 
+/** A closing audience tag a shop adds to a name: "(M)", "(W)", "(U)", "(Men)", "(Women)", "(Unisex)", also run together "(W)(M)". */
+const AUDIENCE_TAIL = /(?:\s*\(\s*(?:m|w|u|men|women|unisex|ladies)\s*\))+\s*$/i;
+
+/** The name without its closing audience tag(s): "Guilty (W)" is "Guilty". A name with no such tag is returned as it is. */
+export function withoutAudienceTag(name: string): string {
+  return name.replace(AUDIENCE_TAIL, '').trim();
+}
+
+/**
+ * Takes a closing audience tag off the display name of a product (Fragrance Canada writes "(M)", "(W)" or "(U)" after
+ * 3,150 of its titles; the tag is the shop's label, not part of the perfume's name), unless the tag is what tells two
+ * products apart: when another product of the same brand, strength and size has the same name without its tag (Guilty
+ * "(W)" and Guilty "(M)", two bottles with two barcodes), the tag stays on both so the audience still shows. The match
+ * name already ignores the tag (`regionMatchName`), so this changes what is shown, not which shops meet. Returns how many
+ * names it changed.
+ */
+export function stripAudienceTags(products: Pick<RegionProduct, 'brand' | 'name' | 'concentration' | 'sizeMl'>[]): number {
+  const keyOf = (p: Pick<RegionProduct, 'brand' | 'name' | 'concentration' | 'sizeMl'>) =>
+    [p.brand.toLowerCase(), withoutAudienceTag(p.name).toLowerCase().replace(/\s+/g, ' '), p.concentration, p.sizeMl ?? ''].join('|');
+  const sharing = new Map<string, number>();
+  for (const p of products) sharing.set(keyOf(p), (sharing.get(keyOf(p)) ?? 0) + 1);
+  let changed = 0;
+  for (const p of products) {
+    const bare = withoutAudienceTag(p.name);
+    if (bare === p.name || bare === '' || sharing.get(keyOf(p)) !== 1) continue;
+    p.name = bare;
+    changed++;
+  }
+  return changed;
+}
+
 /**
  * The strength a flagged shop (`cologneWordIsNotAStrength`) states in its own product type field, for a listing whose
  * title states none: "Eau De Toilette" on "Boss Bottled Night Cologne". A type of "Cologne" or "Eau de Cologne" is the
@@ -228,10 +259,27 @@ export function strengthOfFlaggedShopType(productType: string | null | undefined
   return stated === 'Eau de Cologne' ? CONCENTRATION_NOT_STATED : stated;
 }
 
+/**
+ * The strength a shop that states it in its product type (`RegionRetailer.strengthFromProductType`) gives a listing whose
+ * title states none. "Eau De Parfum Intense" is Eau de Parfum; Eau de Cologne is a strength of its own; a bare "Cologne" or
+ * "Perfume & Cologne" is the shop's category and reads as not stated, like a type naming no strength ("Gift Set").
+ */
+export function strengthOfShopType(productType: string | null | undefined): string {
+  const t = (productType ?? '').trim();
+  if (!t || /^(?:perfume\s*&\s*)?colognes?$/i.test(t)) return CONCENTRATION_NOT_STATED;
+  return concentration(t);
+}
+
 /** A flagged shop's listing: the strength its title states, else the one its own product type states. */
 function strengthOfFlaggedListing(title: string, productType: string | null | undefined): string {
   const fromTitle = concentrationOfListing(title, null);
   return fromTitle !== CONCENTRATION_NOT_STATED ? fromTitle : strengthOfFlaggedShopType(productType);
+}
+
+/** A listing's strength: the title's, else (for a shop that states it in its product type) the type's. */
+function strengthOfListing(title: string, shopType: string | null): string {
+  const fromTitle = concentrationOfListing(title, null);
+  return fromTitle !== CONCENTRATION_NOT_STATED || shopType === null ? fromTitle : strengthOfShopType(shopType);
 }
 
 export interface BuildRegionOptions {
@@ -247,6 +295,8 @@ export interface BuildRegionOptions {
   formatWords?: ReadonlyMap<string, string>;
   /** Shops whose `cologneWordIsNotAStrength` is set: their "Cologne" is read as strength not stated. */
   cologneNotAStrength?: ReadonlySet<string>;
+  /** Shops whose `strengthFromProductType` is set: a title that states no strength takes the one the shop's product type states. */
+  strengthFromType?: ReadonlySet<string>;
   /** Carry each offer's listing (`RegionOffer.detail`) for the page build. Off for the dry run files. */
   withListingDetail?: boolean;
 }
@@ -308,7 +358,9 @@ export function buildRegionCatalogue(
       kind: isGiftSet(gate) ? 'set' : 'bottle',
       brand,
       name: displayName(title, rawBrand || null, brand || null),
-      concentration: flagged ? strengthOfFlaggedListing(title, l.productType) : concentrationOfListing(title, null),
+      concentration: flagged
+        ? strengthOfFlaggedListing(title, l.productType)
+        : strengthOfListing(title, options.strengthFromType?.has(shopId) === true ? (l.productType ?? '') : null),
       sizeMl: regionSizeMl(title),
       ean,
       offers: [offer],
@@ -353,6 +405,7 @@ export function buildRegionCatalogue(
     }
     return { ...p, offers: [...best.values()].sort((a, b) => a.price - b.price || a.shopId.localeCompare(b.shopId)) };
   }).sort((a, b) => a.id.localeCompare(b.id));
+  stripAudienceTags(products);
 
   const multi = products.filter((p) => p.offers.length >= 2);
   const sourceOf = (shopId: string) => options.groups?.get(shopId) ?? shopId;

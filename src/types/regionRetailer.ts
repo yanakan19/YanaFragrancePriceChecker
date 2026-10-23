@@ -209,6 +209,14 @@ export interface RegionRetailer {
    */
   cologneWordIsNotAStrength?: boolean;
   /**
+   * The shop's own product type field states the strength ("Eau De Parfum", "Extrait De Parfum"), and its titles do not
+   * (Maximum Fragrance, Parfum Exquis). For a listing whose title states no strength the strength is read from the type
+   * (`strengthOfShopType` in src/catalogue/regionCatalogue.ts); a strength the title states always wins. Eau de Cologne
+   * stays a strength of its own, but a bare "Cologne" or "Perfume & Cologne" is a category, not a strength. Not set where
+   * the type is a category for every listing (H Parfums writes "Parfum" on all 712 of its products).
+   */
+  strengthFromProductType?: boolean;
+  /**
    * Ask the home page for the shop's own market with Shopify's standard selector, `country=CA`. Four Canadian
    * Shopify shops answer a US caller in the market of its address (USD at a conversion rate, whatever the
    * language header) unless the market is named; with `?country=CA` they quote Canadian dollars at rate 1, as they
