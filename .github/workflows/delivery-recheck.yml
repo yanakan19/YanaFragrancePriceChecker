@@ -68,10 +68,10 @@ jobs:
       SIGNED_COMMITS: ${{ vars.SIGNED_COMMITS }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 5
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         timeout-minutes: 5
         with:
           node-version: '22'
@@ -110,7 +110,7 @@ jobs:
       # updates it; otherwise opens one.
       - name: Open or update this month's issue
         if: ${{ steps.recheck.outputs.changed == 'yes' && (github.event_name == 'schedule' || (inputs.commit_report && inputs.shop == '')) }}
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');

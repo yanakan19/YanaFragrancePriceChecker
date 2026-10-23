@@ -112,7 +112,7 @@ jobs:
       deploy: ${{ steps.decide.outputs.deploy }}
       overrides: ${{ steps.decide.outputs.overrides }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 5
         with:
           ref: ${{ github.event.workflow_run.head_branch || github.ref }}
@@ -176,14 +176,14 @@ jobs:
       # touched their source (`git log -1 -- <path>`, scripts/build-sitemap.ts),
       # which needs commits and trees but no old blobs. A shallow clone would
       # date every one of them today.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 10
         with:
           ref: ${{ github.event.workflow_run.head_branch || github.ref }}
           fetch-depth: 0
           filter: blob:none
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         timeout-minutes: 5
         with:
           node-version: '22'

@@ -292,7 +292,7 @@ jobs:
       # tests/crawlGuard.test.ts can hold it to its rules. Checking out that
       # one file, with no history and no other blobs, takes seconds: the
       # point of a separate guard job (cheap skipped ticks) still holds.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 3
         with:
           sparse-checkout: scripts/crawl-guard.sh
@@ -551,12 +551,12 @@ jobs:
       # single commit, rebuild demo/priceHistory.generated.ts from just that
       # one point, and never accumulate history from here on — with no error,
       # nothing failing, just a chart that quietly never grows past one dot.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 10
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         timeout-minutes: 5
         with:
           node-version: '22'
