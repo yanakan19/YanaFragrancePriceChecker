@@ -6012,7 +6012,15 @@ export const RETAILERS: readonly Retailer[] = [
         'pending.',
     },
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'nicchia-luxury-uk',
@@ -6533,7 +6541,15 @@ export const RETAILERS: readonly Retailer[] = [
       // delay for "*", and the route waits out a 429 once (patientOn429).
       minRequestGapMs: 8000,
     },
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'beauty-flash',
@@ -6667,7 +6683,15 @@ export const RETAILERS: readonly Retailer[] = [
       // delay for "*", and the route waits out a 429 once (patientOn429).
       minRequestGapMs: 8000,
     },
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'scentsational',
@@ -6796,7 +6820,15 @@ export const RETAILERS: readonly Retailer[] = [
     // shop's own Crawl-delay of 2 s (the harvest takes the larger of that and
     // its 1.5 s default).
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'beauty-the-shop-uk',

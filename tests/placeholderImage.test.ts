@@ -101,7 +101,11 @@ describe('PLACEHOLDER_IMAGE_URLS', () => {
     // tripwire: adding an entry means adding the evidence for it to the
     // module header, the way the existing entry records its 70x70 grey
     // camera icon. Update this test alongside, deliberately.
-    expect([...PLACEHOLDER_IMAGE_URLS]).toEqual([AWIN_NO_IMAGE]);
+    expect([...PLACEHOLDER_IMAGE_URLS]).toEqual([
+      AWIN_NO_IMAGE,
+      'https://media.niche-beauty.com/images/logos/share.jpg',
+      'https://www.scentsational.com/images/no_image.jpg',
+    ]);
   });
 
   it('is stored lower-cased, since that is the form lookups compare against', () => {

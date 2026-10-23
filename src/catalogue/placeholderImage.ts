@@ -26,6 +26,9 @@
  * image on the site, and by a factor of 70: the next-most-repeated displayed
  * photo appears 5 times.
  *
+ * Added 2026-10-24 (evidence beside each entry below): Niche Beauty UK's site
+ * banner and Scentsational's own no-image graphic.
+ *
  * ── What was checked and deliberately NOT added ────────────────────────────
  * The same 2026-09-09 pass counted every `imageUrl` across all of
  * data/catalogue/*.json (51,474 distinct URLs) on the reasoning that a real
@@ -64,6 +67,13 @@
  */
 export const PLACEHOLDER_IMAGE_URLS: ReadonlySet<string> = new Set([
   'https://images2.productserve.com/noimage.gif',
+  // 2026-10-24, fetched once each (robots.txt read first) and viewed:
+  // Niche Beauty UK's site banner (1300x907, a shelf of bottles with no product
+  // in focus) sent as the picture of 82 listings that have none of their own.
+  'https://media.niche-beauty.com/images/logos/share.jpg',
+  // Scentsational's own "NO IMAGE AVAILABLE" graphic (2000x2000, its logo under
+  // the words) on 5 listings.
+  'https://www.scentsational.com/images/no_image.jpg',
 ]);
 
 /**
