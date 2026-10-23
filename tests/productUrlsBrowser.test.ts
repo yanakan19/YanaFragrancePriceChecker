@@ -213,6 +213,8 @@ describe.skipIf(!built)('product addresses in the page', () => {
     const id = (await page.locator('#view .pop-item .tile-body').first().getAttribute('data-frag'))!;
     const frag = fragranceById(id)!;
     await page.locator('#view .pop-item .tile-body').first().click();
+    // The tap paints its press first and opens the page in the next task (demo/app.ts afterPaint).
+    await page.waitForFunction((p) => location.pathname === p, `/${frag.slug}`, { timeout: 10_000 });
     await page.waitForSelector('#view .phead-name');
     expect(await pathname(page)).toBe(`/${frag.slug}`);
     expect(await canonical(page)).toBe(`${SITE_URL}/${frag.slug}`);
