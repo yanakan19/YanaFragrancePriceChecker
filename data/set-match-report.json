@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 220,
+ "folded": 221,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -3780,6 +3780,38 @@
      "signature": "1x125fragrance|1x15fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3660732641499",
+   "absorbed": [
+    "set-giorgio-armani-acqua-di-gio-gift-set-30ml-edt-30ml-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3660732641499",
+     "brand": "Giorgio Armani",
+     "name": "Acqua Di Gio Gift Set 30ml EDT + 30ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3660732641499",
+     "scent": "acqua di gio",
+     "signature": "2x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-giorgio-armani-acqua-di-gio-gift-set-30ml-edt-30ml-edt",
+     "brand": "Giorgio Armani",
+     "name": "Acqua Di Gio Gift Set 30ml EDT + 30ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "acqua di gio",
+     "signature": "2x30fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -11434,37 +11466,6 @@
   },
   {
    "reasons": [
-    "price spread 1.59 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003906819",
-     "brand": "Versace",
-     "name": "Yellow Diamond Gift Set 90ml EDT + 100ml Body Lotion + 100ml Shower Gel + 5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003906819",
-     "scent": "diamond yellow",
-     "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-yellow-diamond-4-piece-gift-set-eau-de-toilette-90ml-shower-gel-100ml-body-lotion-100ml-eau-de-toilette-5ml",
-     "brand": "Versace",
-     "name": "Yellow Diamond 4 Piece Gift Set: Eau De Toilette 90ml - Shower Gel 100ml - Body Lotion 100ml - Eau De Toilette 5ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "diamond yellow",
-     "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.69 is over 1.5"
    ],
    "members": [
@@ -11643,8 +11644,7 @@
      "signature": "1x100fragrance|3p",
      "shops": [
       "fragrance-click",
-      "paco-perfumerias-uk",
-      "perfume-click"
+      "paco-perfumerias-uk"
      ]
     },
     {
