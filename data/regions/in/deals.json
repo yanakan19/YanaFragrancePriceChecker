@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-24T00:09:15.220Z",
+ "builtAt": "2026-10-24T23:29:10.749Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 13530,
- "offersWithCorroboratedReference": 2183,
+ "listingsWithReference": 13645,
+ "offersWithCorroboratedReference": 2196,
  "deals": [
   {
    "fragranceId": "aar-fragrances-lalique-encre-noire-100ml",
@@ -54,6 +54,16 @@
    "wasPrice": 6600,
    "percentOff": 57,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-rasasi-hawas-men",
+   "price": 2990,
+   "delivered": true,
+   "wasPrice": 6799,
+   "percentOff": 56,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -138,6 +148,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-fragrance-world-urban-man-paradise",
+   "price": 1839,
+   "delivered": false,
+   "wasPrice": 3690,
+   "percentOff": 50,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-franck-oliver-pure-addiction",
    "price": 2475,
    "delivered": true,
@@ -184,16 +204,6 @@
    "wasPrice": 10000,
    "percentOff": 50,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-afnan-historic-doria",
-   "price": 3150,
-   "delivered": true,
-   "wasPrice": 6200,
-   "percentOff": 49,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -274,6 +284,36 @@
    "wasPrice": 8000,
    "percentOff": 47,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-kohl-luminous",
+   "price": 2629,
+   "delivered": false,
+   "wasPrice": 4999,
+   "percentOff": 47,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-portrait-azure",
+   "price": 2629,
+   "delivered": false,
+   "wasPrice": 4999,
+   "percentOff": 47,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-ramad-3",
+   "price": 2629,
+   "delivered": false,
+   "wasPrice": 5000,
+   "percentOff": 47,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -438,16 +478,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-mykonos-sorrento-extrait-de-parfum-u-50ml",
-   "price": 2250,
-   "delivered": true,
-   "wasPrice": 4200,
-   "percentOff": 46,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-versace-bright-crystal-parfum-w-90ml",
    "price": 8490,
    "delivered": true,
@@ -484,6 +514,16 @@
    "wasPrice": 11000,
    "percentOff": 45,
    "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-hypnotic-oud",
+   "price": 3519,
+   "delivered": false,
+   "wasPrice": 6500,
+   "percentOff": 45,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -554,6 +594,16 @@
    "wasPrice": 10800,
    "percentOff": 45,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-zimaya-reserved-oud",
+   "price": 1649,
+   "delivered": false,
+   "wasPrice": 3000,
+   "percentOff": 45,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -648,6 +698,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-khadlaj-zayaan-gold",
+   "price": 2490,
+   "delivered": true,
+   "wasPrice": 4500,
+   "percentOff": 44,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-lattafa-ana-abiyedh-rouge",
    "price": 1950,
    "delivered": false,
@@ -672,6 +732,16 @@
    "price": 9400,
    "delivered": true,
    "wasPrice": 17000,
+   "percentOff": 44,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-mykonos-reflection-50ml",
+   "price": 2150,
+   "delivered": true,
+   "wasPrice": 3850,
    "percentOff": 44,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -838,6 +908,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-afnan-tribute-blue",
+   "price": 3749,
+   "delivered": false,
+   "wasPrice": 6500,
+   "percentOff": 42,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-al-majed-oud-cuir",
    "price": 5490,
    "delivered": true,
@@ -862,6 +942,36 @@
    "price": 5490,
    "delivered": true,
    "wasPrice": 9500,
+   "percentOff": 42,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-aariz-intense",
+   "price": 4879,
+   "delivered": false,
+   "wasPrice": 8499,
+   "percentOff": 42,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-ishatar-citrus-oud",
+   "price": 3749,
+   "delivered": false,
+   "wasPrice": 6499,
+   "percentOff": 42,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-khadlaj-island-sun",
+   "price": 2890,
+   "delivered": true,
+   "wasPrice": 5000,
    "percentOff": 42,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -908,6 +1018,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-zimaya-tiramisu-caramel-edp-u-100ml",
+   "price": 1999,
+   "delivered": false,
+   "wasPrice": 3499,
+   "percentOff": 42,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-armaf-club-de-nuit-precieux-iv",
    "price": 5250,
    "delivered": true,
@@ -932,16 +1052,6 @@
    "price": 2950,
    "delivered": true,
    "wasPrice": 5000,
-   "percentOff": 41,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-mykonos-reflection-50ml",
-   "price": 2250,
-   "delivered": true,
-   "wasPrice": 3850,
    "percentOff": 41,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -1002,16 +1112,6 @@
    "price": 2400,
    "delivered": false,
    "wasPrice": 4000,
-   "percentOff": 40,
-   "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-ajmal-shiro",
-   "price": 2100,
-   "delivered": false,
-   "wasPrice": 3500,
    "percentOff": 40,
    "retailerId": "perfume-network",
    "kind": "retailer",
@@ -1098,16 +1198,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-lattafa-atheeri",
-   "price": 3573.9,
-   "delivered": true,
-   "wasPrice": 6050,
-   "percentOff": 40,
-   "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-lattafa-yara-2",
    "price": 2500,
    "delivered": false,
@@ -1148,20 +1238,20 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-rasasi-hawas-ice",
-   "price": 3300,
+   "fragranceId": "aar-fragrances-mykonos-slow-living-3",
+   "price": 2979,
    "delivered": false,
-   "wasPrice": 5500,
+   "wasPrice": 4999,
    "percentOff": 40,
-   "retailerId": "perfume-network",
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-rasasi-hawas-men",
-   "price": 3000,
+   "fragranceId": "aar-fragrances-rasasi-hawas-ice",
+   "price": 3300,
    "delivered": false,
-   "wasPrice": 5000,
+   "wasPrice": 5500,
    "percentOff": 40,
    "retailerId": "perfume-network",
    "kind": "retailer",
@@ -1184,16 +1274,6 @@
    "wasPrice": 4150,
    "percentOff": 40,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-afnan-supremacy-silver-edp-100ml",
-   "price": 3250,
-   "delivered": false,
-   "wasPrice": 5500,
-   "percentOff": 40,
-   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -1268,6 +1348,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-khadlaj-shiyaaka-shadow",
+   "price": 2890,
+   "delivered": true,
+   "wasPrice": 4800,
+   "percentOff": 39,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-mancera-cedrat-boise-1",
    "price": 8650,
    "delivered": true,
@@ -1294,6 +1384,16 @@
    "wasPrice": 4699,
    "percentOff": 39,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-9178079658230-100ml",
+   "price": 2399,
+   "delivered": false,
+   "wasPrice": 3990,
+   "percentOff": 39,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -1328,12 +1428,62 @@
    "houseName": null
   },
   {
+   "fragranceId": "nykaa-burbe00000302",
+   "price": 9599,
+   "delivered": false,
+   "wasPrice": 15950,
+   "percentOff": 39,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "perfume-network-8676170956975-100ml",
    "price": 3500,
    "delivered": false,
    "wasPrice": 5750,
    "percentOff": 39,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-afnan-historic-doria",
+   "price": 3059,
+   "delivered": false,
+   "wasPrice": 4999,
+   "percentOff": 38,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-afnan-historic-sahara",
+   "price": 2990,
+   "delivered": true,
+   "wasPrice": 4900,
+   "percentOff": 38,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-afnan-lynked-forever",
+   "price": 3990,
+   "delivered": true,
+   "wasPrice": 6500,
+   "percentOff": 38,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-afnan-rare-reef",
+   "price": 2990,
+   "delivered": true,
+   "wasPrice": 4900,
+   "percentOff": 38,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -1378,6 +1528,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-mykonos-california-blue",
+   "price": 3250,
+   "delivered": true,
+   "wasPrice": 5250,
+   "percentOff": 38,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-mykonos-slow-living-edp-50ml",
    "price": 2250,
    "delivered": true,
@@ -1414,16 +1574,6 @@
    "wasPrice": 7590,
    "percentOff": 38,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-swiss-arabian-shaghaf-oud-1",
-   "price": 3399,
-   "delivered": false,
-   "wasPrice": 5500,
-   "percentOff": 38,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -1528,6 +1678,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-mykonos-sorrento-extrait-de-parfum-u-100ml",
+   "price": 3099,
+   "delivered": true,
+   "wasPrice": 5000,
+   "percentOff": 38,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-parfums-de-marly-habdan-edp-men-125ml",
    "price": 17999,
    "delivered": true,
@@ -1548,10 +1708,30 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-marasi-for-him",
+   "price": 3569,
+   "delivered": false,
+   "wasPrice": 5750,
+   "percentOff": 37,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-initio-atomic-rose",
    "price": 21300,
    "delivered": true,
    "wasPrice": 34000,
+   "percentOff": 37,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-khadlaj-island-3",
+   "price": 2490,
+   "delivered": true,
+   "wasPrice": 4000,
    "percentOff": 37,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -1594,6 +1774,16 @@
    "wasPrice": 7590,
    "percentOff": 37,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-afnan-supremacy-silver-edp-100ml",
+   "price": 3149,
+   "delivered": false,
+   "wasPrice": 4999,
+   "percentOff": 37,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -1658,12 +1848,32 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-khadlaj-island-sun",
-   "price": 3190,
+   "fragranceId": "aar-fragrances-khadlaj-island-vanilla-dunes",
+   "price": 2550,
    "delivered": true,
-   "wasPrice": 5000,
+   "wasPrice": 4000,
    "percentOff": 36,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-khadlaj-panache-angel-dust",
+   "price": 3490,
+   "delivered": true,
+   "wasPrice": 5500,
+   "percentOff": 36,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-lattafa-angham-3",
+   "price": 2549,
+   "delivered": false,
+   "wasPrice": 3990,
+   "percentOff": 36,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -1694,6 +1904,16 @@
    "wasPrice": 13400,
    "percentOff": 36,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-nusuk-raheeq",
+   "price": 3199,
+   "delivered": false,
+   "wasPrice": 4999,
+   "percentOff": 36,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -1778,26 +1998,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-afnan-historic-sahara",
-   "price": 3150,
-   "delivered": true,
-   "wasPrice": 4900,
-   "percentOff": 35,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-afnan-portrait-revival",
-   "price": 4499,
-   "delivered": true,
-   "wasPrice": 6999,
-   "percentOff": 35,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-ajmal-musk-silk-supreme",
    "price": 2145,
    "delivered": true,
@@ -1864,6 +2064,26 @@
    "wasPrice": 3500,
    "percentOff": 35,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-mykonos-inception-3",
+   "price": 3250,
+   "delivered": true,
+   "wasPrice": 5000,
+   "percentOff": 35,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-mykonos-monaco-royale",
+   "price": 3759,
+   "delivered": false,
+   "wasPrice": 5799,
+   "percentOff": 35,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -2258,32 +2478,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-afnan-rare-reef",
-   "price": 3250,
-   "delivered": true,
-   "wasPrice": 4900,
-   "percentOff": 33,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-arabiyat-prestige-marwa-extrait",
    "price": 3999,
    "delivered": false,
    "wasPrice": 5999,
    "percentOff": 33,
    "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-armaf-club-de-nuit-bling-3",
-   "price": 4490,
-   "delivered": true,
-   "wasPrice": 6750,
-   "percentOff": 33,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -2328,16 +2528,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-fragrance-world-urban-man-paradise",
-   "price": 2450,
-   "delivered": false,
-   "wasPrice": 3690,
-   "percentOff": 33,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-lattafa-atlas",
    "price": 2990,
    "delivered": true,
@@ -2374,6 +2564,16 @@
    "wasPrice": 10800,
    "percentOff": 33,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-zimaya-sharaf-blend",
+   "price": 1999,
+   "delivered": false,
+   "wasPrice": 3000,
+   "percentOff": 33,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -2538,6 +2738,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-riiffs-wonder-of-you-femme",
+   "price": 1619,
+   "delivered": false,
+   "wasPrice": 2399,
+   "percentOff": 32,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-versace-the-dreamer",
    "price": 5250,
    "delivered": true,
@@ -2618,6 +2828,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "perfume-network-7015682310319-150ml",
+   "price": 4759,
+   "delivered": false,
+   "wasPrice": 7000,
+   "percentOff": 32,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-afnan-lynked-freedom",
    "price": 4450,
    "delivered": true,
@@ -2634,16 +2854,6 @@
    "wasPrice": 8200,
    "percentOff": 31,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-khadlaj-karus-blu-spice",
-   "price": 2650,
-   "delivered": true,
-   "wasPrice": 3850,
-   "percentOff": 31,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -2778,46 +2988,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-afnan-tribute-blue",
-   "price": 4190,
-   "delivered": true,
-   "wasPrice": 5999,
-   "percentOff": 30,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-arabiyat-prestige-kohl-luminous",
-   "price": 3499,
-   "delivered": false,
-   "wasPrice": 4999,
-   "percentOff": 30,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-arabiyat-prestige-portrait-azure",
-   "price": 3499,
-   "delivered": false,
-   "wasPrice": 4999,
-   "percentOff": 30,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-arabiyat-prestige-ramad-3",
-   "price": 3499,
-   "delivered": false,
-   "wasPrice": 5000,
-   "percentOff": 30,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-arabiyat-prestige-ramad-oriental",
    "price": 3499,
    "delivered": false,
@@ -2908,16 +3078,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-khadlaj-panache-angel-dust",
-   "price": 3850,
-   "delivered": true,
-   "wasPrice": 5500,
-   "percentOff": 30,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-lattafa-pride-shaheen-gold",
    "price": 3150,
    "delivered": false,
@@ -2932,26 +3092,6 @@
    "price": 2450,
    "delivered": true,
    "wasPrice": 3500,
-   "percentOff": 30,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-mykonos-california-blue",
-   "price": 3490,
-   "delivered": true,
-   "wasPrice": 5000,
-   "percentOff": 30,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-mykonos-inception-3",
-   "price": 3490,
-   "delivered": true,
-   "wasPrice": 5000,
    "percentOff": 30,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3004,16 +3144,6 @@
    "wasPrice": 7800,
    "percentOff": 30,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-9282296381686-100ml",
-   "price": 3490,
-   "delivered": true,
-   "wasPrice": 5000,
-   "percentOff": 30,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -3082,16 +3212,6 @@
    "price": 2250,
    "delivered": true,
    "wasPrice": 3250,
-   "percentOff": 30,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-mykonos-sorrento-extrait-de-parfum-u-100ml",
-   "price": 3490,
-   "delivered": true,
-   "wasPrice": 5000,
    "percentOff": 30,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3248,16 +3368,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-rayhaan-vantage-edp-m-100ml",
-   "price": 2990,
-   "delivered": true,
-   "wasPrice": 4250,
-   "percentOff": 29,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-tf-neroli-portofino-edp-100ml",
    "price": 23650,
    "delivered": true,
@@ -3318,6 +3428,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-lattafa-atheeri",
+   "price": 4343.9,
+   "delivered": true,
+   "wasPrice": 6050,
+   "percentOff": 28,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-lattafa-fakhar-platin",
    "price": 2499,
    "delivered": false,
@@ -3368,22 +3488,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-s-f-uomo-urban-feel-edt-men-50ml-2",
-   "price": 5499,
+   "fragranceId": "fridaycharm-mykonos-sorrento-extrait-de-parfum-u-50ml",
+   "price": 2150,
    "delivered": true,
-   "wasPrice": 7740,
+   "wasPrice": 3000,
    "percentOff": 28,
    "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-zimaya-tiramisu-caramel-edp-u-100ml",
-   "price": 2499,
-   "delivered": false,
-   "wasPrice": 3499,
+   "fragranceId": "fridaycharm-s-f-uomo-urban-feel-edt-men-50ml-2",
+   "price": 5499,
+   "delivered": true,
+   "wasPrice": 7740,
    "percentOff": 28,
-   "retailerId": "scentira",
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -3498,6 +3618,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-riiffs-freeze-in-flames",
+   "price": 3889,
+   "delivered": false,
+   "wasPrice": 5399,
+   "percentOff": 27,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-riiffs-goodness-oud",
+   "price": 2239,
+   "delivered": false,
+   "wasPrice": 3099,
+   "percentOff": 27,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-rochas-moustache-edp",
    "price": 6850,
    "delivered": true,
@@ -3568,22 +3708,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-riiffs-la-matiere-extrait-de-parfum-u-100ml",
+   "price": 1879,
+   "delivered": false,
+   "wasPrice": 2599,
+   "percentOff": 27,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-riiffs-taif-extrait-de-parfum-u-100ml",
+   "price": 2449,
+   "delivered": false,
+   "wasPrice": 3399,
+   "percentOff": 27,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-alhambra-rose-petals",
    "price": 1850,
    "delivered": true,
    "wasPrice": 2500,
    "percentOff": 26,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-arabiyat-prestige-marasi-for-him",
-   "price": 4199,
-   "delivered": false,
-   "wasPrice": 5750,
-   "percentOff": 26,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -3618,6 +3768,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-dumont-nitro-blue",
+   "price": 2549,
+   "delivered": false,
+   "wasPrice": 3490,
+   "percentOff": 26,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-lattafa-fire-on-ice",
+   "price": 2549,
+   "delivered": false,
+   "wasPrice": 3490,
+   "percentOff": 26,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-rayhaan-elixir",
    "price": 2590,
    "delivered": true,
@@ -3644,16 +3814,6 @@
    "wasPrice": 12600,
    "percentOff": 26,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-zimaya-reserved-oud",
-   "price": 2199,
-   "delivered": false,
-   "wasPrice": 3000,
-   "percentOff": 26,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -3718,20 +3878,20 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-arabiyat-blueberry-musk",
-   "price": 2249,
-   "delivered": true,
-   "wasPrice": 2999,
+   "fragranceId": "aar-fragrances-afnan-portrait-revival",
+   "price": 3599,
+   "delivered": false,
+   "wasPrice": 4799,
    "percentOff": 25,
-   "retailerId": "fridaycharm",
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-arabiyat-hypnotic-oud",
-   "price": 3749,
+   "fragranceId": "aar-fragrances-arabiyat-blueberry-musk",
+   "price": 2249,
    "delivered": true,
-   "wasPrice": 4999,
+   "wasPrice": 2999,
    "percentOff": 25,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3868,12 +4028,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-mykonos-inception-50ml",
-   "price": 2250,
-   "delivered": true,
-   "wasPrice": 3000,
+   "fragranceId": "aar-fragrances-mykonos-glitch-100ml",
+   "price": 3739,
+   "delivered": false,
+   "wasPrice": 5000,
    "percentOff": 25,
-   "retailerId": "fridaycharm",
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -3964,6 +4124,16 @@
    "wasPrice": 9995,
    "percentOff": 25,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-jean-paul-gaultier-scandal-edt-m-100ml",
+   "price": 6589,
+   "delivered": false,
+   "wasPrice": 8830,
+   "percentOff": 25,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -4078,6 +4248,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-ajmal-shiro",
+   "price": 2069,
+   "delivered": false,
+   "wasPrice": 2750,
+   "percentOff": 24,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-arabiyat-prestige-mahd-al-dhahab",
    "price": 3790,
    "delivered": true,
@@ -4114,6 +4294,26 @@
    "wasPrice": 12900,
    "percentOff": 24,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-lattafa-ana-abiyedh-leather",
+   "price": 1729,
+   "delivered": false,
+   "wasPrice": 2300,
+   "percentOff": 24,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-lattafa-khamrah-dukhan",
+   "price": 3400,
+   "delivered": false,
+   "wasPrice": 4499,
+   "percentOff": 24,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -4218,16 +4418,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "nykaa-burbe00000302",
-   "price": 11999,
-   "delivered": false,
-   "wasPrice": 15950,
-   "percentOff": 24,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-afnan-mystique-bouquet",
    "price": 3990,
    "delivered": true,
@@ -4258,32 +4448,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-arabiyat-aariz-intense",
-   "price": 6499,
-   "delivered": false,
-   "wasPrice": 8499,
-   "percentOff": 23,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-arabiyat-prestige-ishatar-citrus-oud",
-   "price": 4999,
-   "delivered": false,
-   "wasPrice": 6499,
-   "percentOff": 23,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-azzaro-chrome-legend",
    "price": 4200,
    "delivered": true,
    "wasPrice": 5500,
    "percentOff": 23,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-french-avenue-cocoa-morado",
+   "price": 2599,
+   "delivered": false,
+   "wasPrice": 3409,
+   "percentOff": 23,
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -4418,6 +4598,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-rayhaan-vantage-edp-m-100ml",
+   "price": 3250,
+   "delivered": true,
+   "wasPrice": 4250,
+   "percentOff": 23,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-ajmal-silver-shade",
    "price": 1703.9,
    "delivered": true,
@@ -4452,6 +4642,16 @@
    "price": 7250,
    "delivered": true,
    "wasPrice": 9330,
+   "percentOff": 22,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-mykonos-imperium",
+   "price": 3890,
+   "delivered": true,
+   "wasPrice": 5000,
    "percentOff": 22,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -4504,16 +4704,6 @@
    "wasPrice": 11500,
    "percentOff": 22,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-khadlaj-nafais-sharq-edp-u-100ml",
-   "price": 2699,
-   "delivered": false,
-   "wasPrice": 3499,
-   "percentOff": 22,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -4578,6 +4768,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-mykonos-conquer",
+   "price": 3350,
+   "delivered": true,
+   "wasPrice": 4250,
+   "percentOff": 21,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-tom-ford-oud-wood",
    "price": 23900,
    "delivered": true,
@@ -4628,16 +4828,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-lattafa-ekhtiari-edp-u-100ml",
-   "price": 1790,
-   "delivered": false,
-   "wasPrice": 2290,
-   "percentOff": 21,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-mfk-oud-satin-mood-edp-70ml",
    "price": 23500,
    "delivered": true,
@@ -4664,16 +4854,6 @@
    "wasPrice": 10000,
    "percentOff": 21,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-afnan-lynked-forever",
-   "price": 3950,
-   "delivered": false,
-   "wasPrice": 4999,
-   "percentOff": 20,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -4768,6 +4948,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-khadlaj-karus-blu-spice",
+   "price": 2519,
+   "delivered": false,
+   "wasPrice": 3150,
+   "percentOff": 20,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-maison-asrar-muharib",
    "price": 4350,
    "delivered": true,
@@ -4788,30 +4978,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-mykonos-imperium",
-   "price": 3990,
-   "delivered": true,
-   "wasPrice": 5000,
-   "percentOff": 20,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-mykonos-utopia",
    "price": 3999,
    "delivered": false,
    "wasPrice": 5000,
-   "percentOff": 20,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-nusuk-raheeq",
-   "price": 3990,
-   "delivered": false,
-   "wasPrice": 4999,
    "percentOff": 20,
    "retailerId": "scentira",
    "kind": "retailer",
@@ -4858,6 +5028,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-riiffs-tanzanite-amber",
+   "price": 1999,
+   "delivered": false,
+   "wasPrice": 2499,
+   "percentOff": 20,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-swiss-arabian-shaghaf-oud-1",
+   "price": 2719,
+   "delivered": false,
+   "wasPrice": 3399,
+   "percentOff": 20,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-versace-bright-crystal-1-1-1-1-1",
    "price": 8400,
    "delivered": false,
@@ -4894,16 +5084,6 @@
    "wasPrice": 13600,
    "percentOff": 20,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-9178079658230-100ml",
-   "price": 3190,
-   "delivered": false,
-   "wasPrice": 3990,
-   "percentOff": 20,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -4962,6 +5142,16 @@
    "price": 8650,
    "delivered": true,
    "wasPrice": 10900,
+   "percentOff": 20,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-khadlaj-nafais-sharq-edp-u-100ml",
+   "price": 2490,
+   "delivered": true,
+   "wasPrice": 3150,
    "percentOff": 20,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -5118,16 +5308,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-arabiyat-prestige-kohl-opulence",
-   "price": 4099,
-   "delivered": false,
-   "wasPrice": 4999,
-   "percentOff": 18,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-azzaro-wanted-4-3",
    "price": 6150,
    "delivered": true,
@@ -5152,6 +5332,16 @@
    "price": 7950,
    "delivered": true,
    "wasPrice": 9800,
+   "percentOff": 18,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-khadlaj-sawaar-vanille-blanc",
+   "price": 3650,
+   "delivered": true,
+   "wasPrice": 4500,
    "percentOff": 18,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -5194,16 +5384,6 @@
    "wasPrice": 4250,
    "percentOff": 18,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-mykonos-monaco-royale",
-   "price": 4699,
-   "delivered": false,
-   "wasPrice": 5799,
-   "percentOff": 18,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -5334,16 +5514,6 @@
    "wasPrice": 4000,
    "percentOff": 17,
    "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-mykonos-conquer",
-   "price": 3490,
-   "delivered": true,
-   "wasPrice": 4250,
-   "percentOff": 17,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -5484,16 +5654,6 @@
    "wasPrice": 8990,
    "percentOff": 16,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-zimaya-sharaf-blend",
-   "price": 2499,
-   "delivered": false,
-   "wasPrice": 3000,
-   "percentOff": 16,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -5718,12 +5878,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-riiffs-freeze-in-flames",
-   "price": 4450,
-   "delivered": true,
-   "wasPrice": 5250,
+   "fragranceId": "aar-fragrances-paris-corner-taskeen-caramel-cascade",
+   "price": 1359,
+   "delivered": false,
+   "wasPrice": 1599,
    "percentOff": 15,
-   "retailerId": "fridaycharm",
+   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -5858,16 +6018,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-riiffs-taif-extrait-de-parfum-u-100ml",
-   "price": 2889,
-   "delivered": true,
-   "wasPrice": 3399,
-   "percentOff": 15,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-ysl-myslf-le-parfum-m-100ml",
    "price": 13100,
    "delivered": true,
@@ -5898,6 +6048,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-al-haramain-laventure-intense",
+   "price": 4249,
+   "delivered": false,
+   "wasPrice": 4990,
+   "percentOff": 14,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-armaf-club-de-nuit-bling-3",
+   "price": 3999,
+   "delivered": false,
+   "wasPrice": 4699,
+   "percentOff": 14,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-armaf-club-de-nuit-milestone-1",
    "price": 4293,
    "delivered": true,
@@ -5908,10 +6078,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-dumont-nitro-blue",
-   "price": 2990,
+   "fragranceId": "aar-fragrances-khadlaj-karus-secret-musk",
+   "price": 3399,
    "delivered": false,
-   "wasPrice": 3490,
+   "wasPrice": 3990,
    "percentOff": 14,
    "retailerId": "scentira",
    "kind": "retailer",
@@ -5934,16 +6104,6 @@
    "wasPrice": 3500,
    "percentOff": 14,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-lattafa-fire-on-ice",
-   "price": 2990,
-   "delivered": false,
-   "wasPrice": 3490,
-   "percentOff": 14,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -6204,26 +6364,6 @@
    "wasPrice": 5099,
    "percentOff": 12,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-lattafa-angham-3",
-   "price": 3050,
-   "delivered": true,
-   "wasPrice": 3500,
-   "percentOff": 12,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-mykonos-glitch-100ml",
-   "price": 4399,
-   "delivered": false,
-   "wasPrice": 5000,
-   "percentOff": 12,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -6558,16 +6698,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-riiffs-goodness-oud",
-   "price": 2789,
-   "delivered": false,
-   "wasPrice": 3099,
-   "percentOff": 10,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-riiffs-la-femme-bloom",
    "price": 1979,
    "delivered": false,
@@ -6614,16 +6744,6 @@
    "wasPrice": 2399,
    "percentOff": 10,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-riiffs-wonder-of-you-femme",
-   "price": 2159,
-   "delivered": false,
-   "wasPrice": 2399,
-   "percentOff": 10,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -6708,16 +6828,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-riiffs-la-matiere-extrait-de-parfum-u-100ml",
-   "price": 2339,
-   "delivered": false,
-   "wasPrice": 2599,
-   "percentOff": 10,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-tf-black-orchd-edp-50ml",
    "price": 20160,
    "delivered": false,
@@ -6742,16 +6852,6 @@
    "price": 6750,
    "delivered": false,
    "wasPrice": 7500,
-   "percentOff": 10,
-   "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "perfume-network-7015682310319-150ml",
-   "price": 5715,
-   "delivered": false,
-   "wasPrice": 6350,
    "percentOff": 10,
    "retailerId": "perfume-network",
    "kind": "retailer",
@@ -7188,16 +7288,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-french-avenue-cocoa-morado",
-   "price": 3239,
-   "delivered": false,
-   "wasPrice": 3409,
-   "percentOff": 4,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-mancera-aoud-lemon-mint",
    "price": 9500,
    "delivered": true,
@@ -7212,6 +7302,16 @@
    "price": 8800,
    "delivered": true,
    "wasPrice": 9130,
+   "percentOff": 3,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-mykonos-dreamscape-extrait-de-parfum-u-100ml",
+   "price": 3150,
+   "delivered": true,
+   "wasPrice": 3250,
    "percentOff": 3,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -7272,16 +7372,6 @@
    "price": 4950,
    "delivered": true,
    "wasPrice": 5099,
-   "percentOff": 2,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-jean-paul-gaultier-scandal-edt-m-100ml",
-   "price": 6900,
-   "delivered": true,
-   "wasPrice": 7100,
    "percentOff": 2,
    "retailerId": "fridaycharm",
    "kind": "retailer",
