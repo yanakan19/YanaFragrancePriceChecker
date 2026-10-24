@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-22T23:27:51.840Z",
-  "minutes": 40.88,
+  "ranAt": "2026-10-23T23:13:52.717Z",
+  "minutes": 55.37,
   "dryRun": false,
-  "shopsWired": 16,
-  "shopsEnabled": 13,
-  "shopsPriced": 13,
-  "listingsKept": 16680,
+  "shopsWired": 19,
+  "shopsEnabled": 16,
+  "shopsPriced": 16,
+  "listingsKept": 21674,
   "shops": [
     {
       "id": "nykaa",
@@ -15,12 +15,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 908,
-      "priced": 908,
-      "kept": 898,
-      "withBarcode": 212,
-      "pagesFetched": 921,
-      "seconds": 2402,
+      "listingsRead": 1269,
+      "priced": 1269,
+      "kept": 1258,
+      "withBarcode": 211,
+      "pagesFetched": 1283,
+      "seconds": 3300,
       "currency": "JSON-LD offers named: INR",
       "errors": [
         "https://www.nykaa.com/police-to-be-the-queen-eau-de-parfum/p/196293: HTTP 404",
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/carolina-herrera-good-girl-blush-eau-de-parfum-roller-ball/p/9680432: HTTP 404",
         "https://www.nykaa.com/fw-faun-walk-passion-bomb-by-faunwalk-similar-to-bombshell-long-lasting-women-perfume/p/17109806: HTTP 404",
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
-        "sitemap: 3138 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
+        "sitemap: 3144 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -61,17 +61,16 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7861,
-      "priced": 7861,
-      "kept": 6594,
+      "listingsRead": 7863,
+      "priced": 7863,
+      "kept": 6596,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 147,
+      "seconds": 122,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": [],
       "diagnostics": [
-        "https://perfumepalace.in/products.json?limit=250&page=14: HTTP 503",
-        "https://perfumepalace.in/products.json?limit=250&page=22: HTTP 503"
+        "https://perfumepalace.in/products.json?limit=250&page=33: HTTP 500"
       ]
     },
     {
@@ -80,17 +79,14 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7609,
-      "priced": 7609,
-      "kept": 6374,
+      "listingsRead": 7615,
+      "priced": 7615,
+      "kept": 6379,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 104,
+      "seconds": 75,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": [],
-      "diagnostics": [
-        "https://www.fridaycharm.com/products.json?limit=250&page=17: HTTP 503"
-      ]
+      "errors": []
     },
     {
       "id": "perfume-network",
@@ -98,21 +94,14 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1841,
-      "priced": 1841,
-      "kept": 1599,
+      "listingsRead": 2168,
+      "priced": 2168,
+      "kept": 1902,
       "withBarcode": 0,
-      "pagesFetched": 9,
-      "seconds": 50,
+      "pagesFetched": 10,
+      "seconds": 21,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": [
-        "https://www.perfumenetwork.in/products.json?limit=250&page=7: HTTP 503"
-      ],
-      "diagnostics": [
-        "https://www.perfumenetwork.in/products.json?limit=250&page=4: HTTP 503",
-        "https://www.perfumenetwork.in/products.json?limit=250&page=7: HTTP 503",
-        "https://www.perfumenetwork.in/products.json?limit=250&page=7: HTTP 503"
-      ]
+      "errors": []
     },
     {
       "id": "aar-fragrances",
@@ -120,12 +109,12 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 721,
-      "priced": 721,
-      "kept": 669,
+      "listingsRead": 987,
+      "priced": 987,
+      "kept": 935,
       "withBarcode": 0,
-      "pagesFetched": 722,
-      "seconds": 2403,
+      "pagesFetched": 988,
+      "seconds": 3301,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -156,11 +145,11 @@
       "singleBrand": true,
       "status": "priced",
       "listingsRead": 1334,
-      "priced": 1260,
+      "priced": 1262,
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 17,
+      "seconds": 18,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -175,7 +164,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -190,7 +179,7 @@
       "kept": 27,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 8,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -205,12 +194,9 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 22,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": [],
-      "diagnostics": [
-        "https://discoverpilgrim.com/products.json?limit=250&page=1: HTTP 503"
-      ]
+      "errors": []
     },
     {
       "id": "the-man-company",
@@ -223,11 +209,11 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 14,
-      "currency": "the storefront publishes INR at rate 1",
+      "seconds": 120,
+      "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": [],
       "diagnostics": [
-        "https://www.themancompany.com/meta.json: HTTP 503"
+        "https://www.themancompany.com/products.json?limit=250&page=2: HTTP 503"
       ]
     },
     {
@@ -241,7 +227,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 12,
-      "seconds": 36,
+      "seconds": 37,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
@@ -275,7 +261,52 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 13,
+      "seconds": 14,
+      "currency": "the storefront publishes INR at rate 1, settles in INR",
+      "errors": []
+    },
+    {
+      "id": "scentido",
+      "name": "Scentido",
+      "route": "shopify",
+      "singleBrand": false,
+      "status": "priced",
+      "listingsRead": 578,
+      "priced": 542,
+      "kept": 150,
+      "withBarcode": 0,
+      "pagesFetched": 6,
+      "seconds": 15,
+      "currency": "the storefront publishes INR at rate 1, settles in INR",
+      "errors": []
+    },
+    {
+      "id": "maison-des-parfums-in",
+      "name": "Maison des Parfums",
+      "route": "shopify",
+      "singleBrand": false,
+      "status": "priced",
+      "listingsRead": 1725,
+      "priced": 1711,
+      "kept": 1452,
+      "withBarcode": 0,
+      "pagesFetched": 9,
+      "seconds": 22,
+      "currency": "the storefront publishes INR at rate 1, settles in INR",
+      "errors": []
+    },
+    {
+      "id": "scentira",
+      "name": "Scentira",
+      "route": "shopify",
+      "singleBrand": false,
+      "status": "priced",
+      "listingsRead": 6701,
+      "priced": 6564,
+      "kept": 2456,
+      "withBarcode": 0,
+      "pagesFetched": 10,
+      "seconds": 26,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
