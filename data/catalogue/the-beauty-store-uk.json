@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-24T18:08:54.461Z",
-  "seenAt": "2026-10-24T18:08:54.461Z",
+  "updatedAt": "2026-10-24T21:44:46.705Z",
+  "seenAt": "2026-10-24T21:44:46.705Z",
   "source": "live",
   "listings": [
     {
@@ -19219,7 +19219,7 @@
       "priceGbp": 15.5,
       "wasPriceGbp": 69,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Cacharel Anais Anais Eau de Toilette Spray 100ml Unwrapped.",
       "productType": "Eau de Toilette",
@@ -20231,7 +20231,7 @@
       "priceGbp": 12.1,
       "wasPriceGbp": 30,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Chopard Pink Wish Eau de Toilette Spray 30ml.",
       "productType": "Eau de Toilette",

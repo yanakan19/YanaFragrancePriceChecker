@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-24T18:08:54.461Z",
-  "seenAt": "2026-10-24T18:08:54.461Z",
+  "updatedAt": "2026-10-24T21:44:46.705Z",
+  "seenAt": "2026-10-24T21:44:46.705Z",
   "source": "live",
   "listings": [
     {
@@ -25981,7 +25981,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The scent of the American prairies, coffee on a camp fire, tobacco smoke, fresh woods, and seasoned leather. A perfume of infinite adventure and the blue grass plains of Kentucky. Geranium, carrot seed and clary sage are a prelude to smoky leather, cistus, jasmine and vetiver which deepen into rich myrrh, tonka and sandalwood.. . Top Notes: Carrot Seeds, Geranium, Clary sage Heart Notes: Jasmine, Leather, Labdanum Base Notes: Sandalwood, Tonka Bean, Vetiver, Myrrh .",
       "productType": "Fragrance",
