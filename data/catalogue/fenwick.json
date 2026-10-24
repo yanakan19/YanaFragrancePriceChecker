@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-24T10:38:21.822Z",
-  "seenAt": "2026-10-24T10:38:21.822Z",
+  "updatedAt": "2026-10-24T14:22:47.204Z",
+  "seenAt": "2026-10-24T14:22:47.204Z",
   "source": "live",
   "listings": [
     {
@@ -9283,7 +9283,7 @@
       "priceGbp": 220,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the distinctive character of Maison Crivelli Safran Secret Extrait De Parfum. Rich and expressive, this concentrated unisex fragrance offers a sophisticated scent experience with lasting depth and a refined contemporary finish..",
       "productType": "Unisex Fragrance",

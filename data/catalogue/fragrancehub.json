@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-24T10:38:21.822Z",
-  "seenAt": "2026-10-24T10:38:21.822Z",
+  "updatedAt": "2026-10-24T14:22:47.204Z",
+  "seenAt": "2026-10-24T14:22:47.204Z",
   "source": "live",
   "listings": [
     {
@@ -5810,7 +5810,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Vanilla Aura glows with citrus brightness before melting into ribbons of caramel and molten chocolate, resting on a veil of amber, sandalwood, and vanilla. Each note moves like light over silk — serene, golden, unforgettable. A fragrance of quiet strength and luminous grace.. Family: Gourmand Sweet. Top Notes: Bergamot, Lemon, Lily of the Valley Heart Notes: Caramel, Vanilla, Chocolate Base Notes: Amber, Sandalwood, Tonka, Vanilla .",
       "productType": null,
@@ -7181,7 +7181,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "9850204193097-Default Title",
+      "retailerSku": "AMBEREMPIRE",
       "url": "https://fragrancehub.co.uk/products/french-avenue-amber-empire-eau-de-parfum-100ml",
       "rawTitle": "French Avenue Amber Empire Eau de Parfum 100ml",
       "rawBrand": "French Avenue",
@@ -7196,11 +7196,11 @@
       "productType": null,
       "nativePrice": null,
       "retailerId": "fragrancehub",
-      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "firstSeenAt": "2026-10-24T14:22:47.204Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -13248,6 +13248,30 @@
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "9850204193097-Default Title",
+      "url": "https://fragrancehub.co.uk/products/french-avenue-amber-empire-eau-de-parfum-100ml",
+      "rawTitle": "French Avenue Amber Empire Eau de Parfum 100ml",
+      "rawBrand": "French Avenue",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/www.imperian.co.uk_2_b1354d31-1052-4956-b97a-169dfdd064dd.png?v=1759485916",
+      "priceGbp": 31.5,
+      "wasPriceGbp": 49.99,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "shopify-products-json",
+      "description": "The first smell is an oriental harmony with creamy woods and a hint of sweetness. Vanilla wood and cashmere wood wrap around the senses, and a hint of liquorous harmony gives the opening a silky, rich texture that makes it nearly taste like food.. As the top phase settles, the heart shows its depth. Cedarwood provides clarity and structure, amber gives warmth and a resinous glow, and cane sugar adds a sweet softness. It connects the richness and the woods together in a beautifully balanced way.. In the dry-down, musk and tonka beans give the perfume a soft, warm finish. Labdanum provides resinous amber depth, while sandalwood adds creamy milky woods. All of these notes are grounded to make sure the scent stays close to the skin, turning into a sophisticated, soothing trail that lasts.. Top Notes: Oriental Accord, Cashmere Wood, Vanilla Wood, Liquorous Accord Middle Notes: Cedarwood, Amber, Cane Sugar Base Notes: Musk, Tonka Beans, Labdanum, Sandalwood.",
+      "productType": null,
+      "nativePrice": null,
+      "retailerId": "fragrancehub",
+      "firstSeenAt": "2026-08-20T12:29:13.346Z",
+      "lastSeenAt": "2026-10-24T10:38:21.822Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-24T14:22:47.204Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

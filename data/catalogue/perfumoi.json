@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-24T10:38:21.822Z",
-  "seenAt": "2026-10-24T10:38:21.822Z",
+  "updatedAt": "2026-10-24T14:22:47.204Z",
+  "seenAt": "2026-10-24T14:22:47.204Z",
   "source": "live",
   "listings": [
     {
@@ -1118,7 +1118,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Oscar De La Renta Oscar Eau de Toilette is a floral fragrance created for customers who enjoy a soft and elegant scent. It opens with a fresh, graceful floral heart that develops into a smooth base with subtle woodiness. Suitable for everyday wear, this scent feels confident and refined.. Why customers choose it . Well-suited for daily use and special occasions. A great option for gifting and everyday wear. Designed for customers who prefer floral and woody scents.",
       "productType": "Eau de Toilette",

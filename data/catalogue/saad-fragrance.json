@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-24T10:38:21.822Z",
-  "seenAt": "2026-10-24T10:38:21.822Z",
+  "updatedAt": "2026-10-24T14:22:47.204Z",
+  "seenAt": "2026-10-24T14:22:47.204Z",
   "source": "live",
   "listings": [
     {
@@ -658,7 +658,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Kaaf Ahmed al Maghribi 100ml Extrait de Parfum combines red fruits, watermelon, lavender, and Sicilian orange top notes with a floral heart of lotus, jasmine, and lily of the valley, balanced by a sea accord. Its base features sandalwood, ambroxan, and white musk, contributing to lasting depth and sillage. .",
       "productType": null,
