@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-24T14:29:45.296Z",
-  "seenAt": "2026-10-24T14:29:45.296Z",
+  "updatedAt": "2026-10-24T18:20:26.728Z",
+  "seenAt": "2026-10-24T18:20:26.728Z",
   "source": "live",
   "listings": [
     {
@@ -4729,7 +4729,7 @@
       "priceGbp": 58,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Rediscover your creativity with Jo Loves Pomelo fragrance, inspired by the sparkling waters and lemongrass broth of Parrot Cay Island, reminding you that your creativity has always been by your side. Refill your Pomelo Body Lotion bottle and embrace sustainable luxury.",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-24T14:22:47.204Z",
-  "seenAt": "2026-10-24T14:22:47.204Z",
+  "updatedAt": "2026-10-24T18:09:00.962Z",
+  "seenAt": "2026-10-24T18:09:00.962Z",
   "source": "live",
   "listings": [
     {
@@ -34,7 +34,7 @@
       "rawBrand": "Lebonheur",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0820/7997/3699/files/IMG-6341.png?v=1792674115",
-      "priceGbp": 34.99,
+      "priceGbp": 36.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
       "inStock": true,
@@ -405,7 +405,7 @@
       "priceGbp": 36.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Le bonheur black cavalier VI Eau de Parfum (100ml) combines fresh ginger and bergamot with herbal sage and violet, resting on a base of sandalwood, cedarwood, and patchouli. Crafted by perfumer Jordi Fernández, this composition offers a balanced, long-lasting scent profile. .",
       "productType": null,

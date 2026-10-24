@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-24T14:18:21.229Z",
-  "seenAt": "2026-10-24T14:18:21.229Z",
+  "updatedAt": "2026-10-24T18:08:54.461Z",
+  "seenAt": "2026-10-24T18:08:54.461Z",
   "source": "live",
   "listings": [
     {
@@ -13975,7 +13975,7 @@
       "priceGbp": 1.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Body Collection Skin Perfecting Primer. Achieve a flawless complexion with the Body Collection Skin Perfecting Primer . This exceptional primer is designed to create the perfect canvas for your makeup, enhancing its wear and longevity. Enriched with skin-loving ingredients, it smooths out imperfections and minimizes the appearance of pores, giving your skin a radiant boost. Whether you're preparing for a special event or just want to elevate your everyday look, this primer is your go-to solution.. The Body Collection Skin Perfecting Primer has a lightweight formula that glides on effortlessly, ensuring a seamless application. Its versatile nature makes it suitable for all skin types, providing hydration while controlling shine. With this primer, you can enjoy a more even skin tone and a soft-focus effect that lasts throughout the day.. Make your makeup last longer and look fresher with the Body Collection Skin Perfecting Primer . Say goodbye to touch-ups and hello to a complexion that glows. Perfect for both everyday wear and special occasions, this primer is a must-have in your beauty arsenal..",
       "productType": "Foundation Primer",
@@ -19127,7 +19127,7 @@
       "priceGbp": 60,
       "wasPriceGbp": 109,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Carolina Herrera Bad Boy Cobalt Elixir Eau de Parfum Spray 100ml Tester.",
       "productType": "Eau de Parfum",
