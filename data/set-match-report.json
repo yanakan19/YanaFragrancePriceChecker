@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 220,
+ "folded": 219,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -5781,38 +5781,6 @@
      "ean": null,
      "scent": "girl good",
      "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8411061134597",
-   "absorbed": [
-    "set-carolina-herrera-very-good-girl-gift-set-80ml-edp-100ml-body-lotion-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8411061134597",
-     "brand": "Carolina Herrera",
-     "name": "Very Good Girl Gift Set 80ml EDP + 100ml Body Lotion + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8411061134597",
-     "scent": "girl good very",
-     "signature": "1x100body|1x10fragrance|1x80fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-very-good-girl-gift-set-80ml-edp-100ml-body-lotion-10ml-edp",
-     "brand": "Carolina Herrera",
-     "name": "Very Good Girl Gift Set 80ml EDP + 100ml Body Lotion + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "girl good very",
-     "signature": "1x100body|1x10fragrance|1x80fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
