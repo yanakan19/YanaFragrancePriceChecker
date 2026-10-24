@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-23T19:28:47.743Z",
-  "seenAt": "2026-10-23T19:28:47.743Z",
+  "updatedAt": "2026-10-23T23:30:23.337Z",
+  "seenAt": "2026-10-23T23:30:23.337Z",
   "source": "live",
   "listings": [
     {
@@ -310,7 +310,7 @@
       "rawBrand": "Rasasi",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Hawas-Boa-Perfume-100ml-EDP-Rasasi-199368954.jpg?v=1791031032",
-      "priceGbp": 44.99,
+      "priceGbp": 36.95,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
       "inStock": true,
@@ -2403,7 +2403,7 @@
       "rawBrand": "French Avenue",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Liquid-Brun-Limited-Edition-Extrait-De-Parfum-150ml-French-Avenue-179672418.jpg?v=1767969487",
-      "priceGbp": 39.95,
+      "priceGbp": 44.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
       "inStock": true,
@@ -6753,7 +6753,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Tobacco 01 is the first Extrait De Parfum from the Heritage Collection. This fragrance has an intoxicating sillage and comes in a newly designed packaging that reflects luxury and refined charm. We re-imagined Tobacco to be sweeter, with notes of Plum, Apple and Honey and with a smooth blend of spicy notes of Pink Pepper and Labdanum. As the scent evolves, the heart notes of, Amber, Ylang Ylang, and Patchouli add depth and an exotic allure. The base notes of Musk, Cashmere, Honey, Vanilla, Sandalwood, and Tobacco create a foundation of luxurious richness creating robust character throughout.. Top Notes: Plum, Apple, Cumin, Pink pepper, Liquorice Mid Notes: Labdanum, Amber, Ylang ylang, Patchouli Base Notes: Musk, Cashmere, Honey, Vanilla, Sandalwood, Tobacco.",
       "productType": null,

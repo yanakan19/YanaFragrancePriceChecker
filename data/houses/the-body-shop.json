@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-23T19:33:24.462Z",
-  "seenAt": "2026-10-23T19:33:24.462Z",
+  "updatedAt": "2026-10-23T23:36:42.190Z",
+  "seenAt": "2026-10-23T23:36:42.190Z",
   "source": "live",
   "listings": [
     {
@@ -5327,7 +5327,7 @@
       "priceGbp": 1,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Treat the fragrance lover in your life to a gift with a personal touch, with our Full Flowers Fragrance Box..",
       "productType": "Gift Bags and Boxes",

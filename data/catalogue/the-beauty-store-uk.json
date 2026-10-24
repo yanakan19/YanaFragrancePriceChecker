@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-23T19:22:04.661Z",
-  "seenAt": "2026-10-23T19:22:04.661Z",
+  "updatedAt": "2026-10-23T23:35:34.875Z",
+  "seenAt": "2026-10-23T23:35:34.875Z",
   "source": "live",
   "listings": [
     {
@@ -16873,7 +16873,7 @@
       "priceGbp": 13.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Elizabeth Arden Flawless Finish Correcting and Highlighting Perfector Pen 2ml - Shade 3.",
       "productType": "Highlighter",
@@ -38608,7 +38608,7 @@
       "priceGbp": 11.4,
       "wasPriceGbp": 35,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Sjp Lovely 2Pc Candle Set, 30Ml. Transform your space with the enchanting Sjp Lovely 2Pc Candle Set, 30Ml . This exquisite candle duo not only fills your room with delightful fragrances but also adds an elegant touch to your decor. Each candle is crafted to release soothing scents that create a calming atmosphere, perfect for relaxation or entertaining guests.. Made from high-quality materials, the Sjp Lovely 2Pc Candle Set, 30Ml features beautifully designed holders, making them a stylish addition to any setting. Light them up to experience the harmonious blend of floral notes and warm undertones, ensuring that your home always smells inviting.. Whether you’re looking to unwind after a long day or set the mood for a special occasion, the Sjp Lovely 2Pc Candle Set, 30Ml is your go-to choice. Ideal as a gift or a personal treat, these candles promise to elevate your sensory experience..",
       "productType": "Gift Set",
@@ -43530,7 +43530,7 @@
       "priceGbp": 12.37,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Biotherm Biomains Age Delaying Hand & Nail Treatment 100ml.",
       "productType": "Hand & Nail Treatment",

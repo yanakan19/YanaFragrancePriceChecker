@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-23T19:22:04.661Z",
-  "seenAt": "2026-10-23T19:22:04.661Z",
+  "updatedAt": "2026-10-23T23:35:34.875Z",
+  "seenAt": "2026-10-23T23:35:34.875Z",
   "source": "live",
   "listings": [
     {
@@ -31616,7 +31616,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Recharge your hair with moisture and nutrients with our Absolute Nourishment Treatment Mask. Infused with a blend of argan and coconut oils it leaves hair feeling soft, silky and smooth.. . Product specification: . • Formulated with argan and coconut oils. • Part of the Advance Techniques Absolute Nourishment collection. • Size: 375ml.. . How to use me: . Apply to wet hair and leave on for 5 minutes. Rinse well and style as usual..",
       "productType": "TOILETRIES",
