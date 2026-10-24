@@ -1,7 +1,7 @@
 {
   "retailerId": "beaute-boulevard",
-  "updatedAt": "2026-10-24T03:13:06.057Z",
-  "seenAt": "2026-10-24T03:13:06.057Z",
+  "updatedAt": "2026-10-24T06:43:25.645Z",
+  "seenAt": "2026-10-24T06:43:25.645Z",
   "source": "live",
   "listings": [
     {
@@ -2544,7 +2544,7 @@
       "priceGbp": 25.99,
       "wasPriceGbp": 36,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Experience the timeless elegance of Mäurer & Wirtz 4711 Eau De Cologne , a fragrance that transcends generations with its refreshing and invigorating spirit. Encased in a sleek 100ml spray, this iconic scent effortlessly blends tradition with modernity, awakening your senses with every spritz.. Delight in the luminous top notes of sparkling citrus fruits, where zesty bergamot and vibrant lemon intertwine to create a radiant burst of energy. At its heart, subtle floral nuances of lavender and rosemary evoke a serene, uplifting mood, inviting calm confidence and sophistication. The subtle warmth of spicy and woody undertones gently lingers, leaving a trail that is both crisp and captivating.. This eau de cologne embodies a personality that is crisp, refreshing, and undeniably charismatic — perfect for those who appreciate classic refinement with a contemporary edge. Whether starting your day or refreshing your spirit, Mäurer & Wirtz 4711 is an exquisite companion that celebrates the art of living beautifully.. ```",
       "productType": "Cosmetics",

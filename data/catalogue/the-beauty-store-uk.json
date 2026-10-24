@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-24T03:13:06.057Z",
-  "seenAt": "2026-10-24T03:13:06.057Z",
+  "updatedAt": "2026-10-24T06:43:25.645Z",
+  "seenAt": "2026-10-24T06:43:25.645Z",
   "source": "live",
   "listings": [
     {
@@ -1992,7 +1992,7 @@
       "priceGbp": 9.99,
       "wasPriceGbp": 47,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Joop! Homme Wild Eau de Toilette Spray 75ml.",
       "productType": "Eau de Toilette",

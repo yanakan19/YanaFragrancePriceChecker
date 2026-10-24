@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-24T03:13:08.087Z",
-  "seenAt": "2026-10-24T03:13:08.087Z",
+  "updatedAt": "2026-10-24T06:43:43.034Z",
+  "seenAt": "2026-10-24T06:43:43.034Z",
   "source": "live",
   "listings": [
     {
@@ -11951,7 +11951,7 @@
       "priceGbp": 62,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Ferragamo’s Sublime Leather Eau de Parfum 50ml blends rich amber tones with smoky leather for a sensual finish. Intense and layered, it creates depth and warmth. A refined fragrance crafted for confident, lasting wear..",
       "productType": "Women's Fragrances",
