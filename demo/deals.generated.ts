@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-24T21:41:01.069Z";
+export const DEALS_GENERATED_AT = "2026-10-24T22:36:03.378Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -4972,7 +4972,7 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "beauty-flash-htg1601694",
+    "fragranceId": "beauty-flash-mgl1601052",
     "price": 39.46,
     "delivered": true,
     "wasPrice": 69,
@@ -10593,11 +10593,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460127073",
-    "price": 32.75,
+    "price": 30.98,
     "delivered": true,
     "wasPrice": 57,
-    "percentOff": 42,
-    "retailerId": "perfume-click",
+    "percentOff": 45,
+    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -25092,6 +25092,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-9369999068233",
+    "price": 117.49,
+    "delivered": true,
+    "wasPrice": 220.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-7640111494027",
     "price": 15.3,
     "delivered": true,
@@ -31858,16 +31868,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 22,
     "percentOff": 40,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-9369999068233",
-    "price": 117.49,
-    "delivered": true,
-    "wasPrice": 220.99,
-    "percentOff": 46,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -42148,16 +42148,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 29.95,
     "percentOff": 40,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6299800203221",
-    "price": 34.99,
-    "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 18,
-    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
