@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-24T06:43:43.034Z",
-  "seenAt": "2026-10-24T06:43:43.034Z",
+  "updatedAt": "2026-10-24T10:38:21.822Z",
+  "seenAt": "2026-10-24T10:38:21.822Z",
   "source": "live",
   "listings": [
     {
@@ -21197,7 +21197,7 @@
       "priceGbp": 165,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Absolus Allegoria Tabac Sahara Eau de Parfum 125ml by Guerlain is an intense fragrance blending tobacco warmth with smooth woody depth. Presented in a larger format, it’s designed for those drawn to bold, lasting signatures. An exceptional addition to the Allegoria universe..",
       "productType": "Women's Fragrances",
