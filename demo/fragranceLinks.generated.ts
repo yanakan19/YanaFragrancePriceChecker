@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-23T08:38:29.440Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-24T08:10:50.974Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -2064,6 +2064,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "byredo|mojaveghost|edp": ["Byredo/Mojave-Ghost-27040","https://www.byredo.com/us_en/p/mojave-ghost-eau-de-parfum"],
   "byredo|roseofnomansland": ["Byredo/Rose-Of-No-Man-s-Land-31931",""],
   "byredo|roseofnomanslandabsolu": ["Byredo/Rose-of-No-Man-s-Land-Absolu-108422",""],
+  "byredo|roseofnomanslandabsoluunisex": ["Byredo/Rose-of-No-Man-s-Land-Absolu-108422",""],
+  "byredo|roseofnomanslandabsoluunisex|edp": ["Byredo/Rose-of-No-Man-s-Land-Absolu-108422",""],
   "byredo|roseofnomanslandabsolu|parfum": ["Byredo/Rose-of-No-Man-s-Land-Absolu-108422",""],
   "byredo|roseofnomansland|edp": ["Byredo/Rose-Of-No-Man-s-Land-31931","https://www.byredo.com/us_en/rose-of-no-mans-land-eau-de-parfum-50ml"],
   "cacharel|anaisanais": ["Cacharel/Anais-Anais-236",""],
@@ -5434,6 +5436,10 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "maisonalhambra|athena|edp": ["","https://maisonalhambra.co/product/maison-alhambra-athena/"],
   "maisonalhambra|brightpeach": ["","https://maisonalhambra.co/product/maison-alhambra-bright-peach/"],
   "maisonalhambra|brightpeach|edp": ["","https://maisonalhambra.co/product/maison-alhambra-bright-peach/"],
+  "maisonalhambra|celeste": ["","https://maisonalhambra.co/product/maison-alhambra-celeste/"],
+  "maisonalhambra|celeste|edp": ["","https://maisonalhambra.co/product/maison-alhambra-celeste/"],
+  "maisonalhambra|decadentdream": ["","https://maisonalhambra.co/product/maison-alhambra-decadent-dream/"],
+  "maisonalhambra|decadentdream|edp": ["","https://maisonalhambra.co/product/maison-alhambra-decadent-dream/"],
   "maisonalhambra|decadentwonder": ["","https://maisonalhambra.co/product/decadent-wonder/"],
   "maisonalhambra|decadentwonder|edp": ["","https://maisonalhambra.co/product/decadent-wonder/"],
   "maisonalhambra|extravagantlover": ["","https://maisonalhambra.co/product/extravagant-lover/"],
@@ -5468,8 +5474,12 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "maisonalhambra|lavoie|edp": ["","https://maisonalhambra.co/product/la-voie/"],
   "maisonalhambra|leonie": ["","https://maisonalhambra.co/product/maison-alhambra-leonie/"],
   "maisonalhambra|leonie|edp": ["","https://maisonalhambra.co/product/maison-alhambra-leonie/"],
+  "maisonalhambra|loudh": ["","https://maisonalhambra.co/product/maison-alhambra-loudh/"],
+  "maisonalhambra|loudh|edp": ["","https://maisonalhambra.co/product/maison-alhambra-loudh/"],
   "maisonalhambra|lovelycherie": ["","https://maisonalhambra.co/product/maison-alhambra-lovely-cherie/"],
   "maisonalhambra|lovelycherie|edp": ["","https://maisonalhambra.co/product/maison-alhambra-lovely-cherie/"],
+  "maisonalhambra|opulenceleather": ["","https://maisonalhambra.co/product/maison-alhambra-opulence-leather/"],
+  "maisonalhambra|opulenceleather|edp": ["","https://maisonalhambra.co/product/maison-alhambra-opulence-leather/"],
   "maisonalhambra|perseus": ["","https://maisonalhambra.co/product/maison-alhambra-perseus/"],
   "maisonalhambra|perseus|edp": ["","https://maisonalhambra.co/product/maison-alhambra-perseus/"],
   "maisonalhambra|philospura": ["","https://maisonalhambra.co/product/maison-alhambra-philos-pura/"],
@@ -5486,6 +5496,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "maisonalhambra|salvo|edp": ["","https://maisonalhambra.co/product/maison-alhambra-salvo/"],
   "maisonalhambra|sugarmecandyfloss": ["","https://maisonalhambra.co/product/sugar-me-candy-floss/"],
   "maisonalhambra|sugarmecandyfloss|edp": ["","https://maisonalhambra.co/product/sugar-me-candy-floss/"],
+  "maisonalhambra|trueword": ["","https://maisonalhambra.co/product/maison-alhambra-true-word/"],
+  "maisonalhambra|trueword|edp": ["","https://maisonalhambra.co/product/maison-alhambra-true-word/"],
   "maisonalhambra|yeah": ["","https://maisonalhambra.co/product/maison-alhambra-yeah/"],
   "maisonalhambra|yeah|edp": ["","https://maisonalhambra.co/product/maison-alhambra-yeah/"],
   "maisonalhambra|yourtouch": ["","https://maisonalhambra.co/product/maison-alhambra-your-touch/"],
@@ -7417,11 +7429,14 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "thameen|constellationdiamond|extrait": ["","https://thameenfragrance.com/products/constellation-diamond-50ml-extrait-de-parfum"],
   "thameen|greenpearlunisex|extrait": ["","https://thameenfragrance.com/products/green-pearl-50ml-extrait-de-parfum"],
   "thameen|greenpearl|extrait": ["","https://thameenfragrance.com/products/green-pearl-50ml-extrait-de-parfum"],
+  "thameen|noorolaintaifunisex|extrait": ["","https://thameenfragrance.com/products/noorolain-taif-10ml-extrait-de-parfum"],
   "thameen|noorolaintaif|extrait": ["","https://thameenfragrance.com/products/noorolain-taif-10ml-extrait-de-parfum"],
   "thameen|opaline|extrait": ["","https://thameenfragrance.com/products/opaline-50ml-extrait-de-parfum"],
   "thameen|peacockthroneunisex|extrait": ["","https://thameenfragrance.com/products/peacock-throne-10ml-extrait-de-parfum"],
   "thameen|peacockthrone|extrait": ["","https://thameenfragrance.com/products/peacock-throne-10ml-extrait-de-parfum"],
+  "thameen|peregrinaunisex|extrait": ["","https://thameenfragrance.com/products/peregrina-50ml-extrait-de-parfum"],
   "thameen|peregrina|extrait": ["","https://thameenfragrance.com/products/peregrina-50ml-extrait-de-parfum"],
+  "thameen|regentleatherunisex|extrait": ["","https://thameenfragrance.com/products/regent-leather-50ml-extrait-de-parfum"],
   "thameen|regentleather|extrait": ["","https://thameenfragrance.com/products/regent-leather-50ml-extrait-de-parfum"],
   "thameen|riviereunisex|extrait": ["","https://thameenfragrance.com/products/riviere-50ml-extrait-de-parfum"],
   "thameen|riviere|extrait": ["","https://thameenfragrance.com/products/riviere-50ml-extrait-de-parfum"],
