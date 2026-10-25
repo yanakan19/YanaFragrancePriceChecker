@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-25T05:42:08.920Z";
+export const DEALS_GENERATED_AT = "2026-10-25T09:32:22.295Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -4952,7 +4952,7 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "beauty-flash-mgl1601052",
+    "fragranceId": "beauty-flash-htg1601694",
     "price": 39.46,
     "delivered": true,
     "wasPrice": 69,
@@ -8638,16 +8638,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 69,
     "percentOff": 41,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3360372013648",
-    "price": 46.98,
-    "delivered": true,
-    "wasPrice": 52,
-    "percentOff": 9,
-    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -38198,16 +38188,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 310,
     "percentOff": 16,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "mybeauty-boutique-shopify-gb-8338197676169-44927034425481",
-    "price": 19.44,
-    "delivered": true,
-    "wasPrice": 27,
-    "percentOff": 28,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
