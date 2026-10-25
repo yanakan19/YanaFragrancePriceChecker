@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-25T12:12:43.020Z",
-  "seenAt": "2026-10-25T12:12:43.020Z",
+  "updatedAt": "2026-10-25T15:38:46.489Z",
+  "seenAt": "2026-10-25T15:38:46.489Z",
   "source": "live",
   "listings": [
     {
@@ -267,7 +267,7 @@
       "priceGbp": 14.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Davidoff Cool Water Eau de Toilette 75ml. Key Features. ##features##. Iconic men's fragrance inspired by freshness and the ocean.. Aromatic aquatic scent with mint, lavender and sandalwood notes.. Clean, masculine fragrance suitable for everyday wear.. Refreshing scent profile ideal for work, leisure and special occasions.. Long-standing bestselling Davidoff fragrance.. 75ml bottle offers excellent everyday value.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Experience the timeless freshness of Davidoff Cool Water Eau de Toilette. This iconic men's fragrance combines invigorating mint, lavender and marine-inspired notes with a masculine base of sandalwood, cedarwood and musk. Fresh, clean and effortlessly wearable, Cool Water remains a classic choice for men seeking a crisp everyday fragrance that never goes out of style.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. . ##accordion-item-end##. ##accordion-item-start##. Patient Information Leaflet. ##leaflet##. ##accordion-item-end##. ##accordion-item-start##. Age Restricted Product. Purchasing this product online is only suitable for those aged 18 years and over. If you are under 18 years of age and wish to purchase this product, please visit your local Rowlands Pharmacy and speak with a pharmacist in store.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -428,7 +428,7 @@
       "priceGbp": 14.99,
       "wasPriceGbp": 17,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein CK One Eau de Toilette 50ml. Key Features. ##features##. Iconic unisex fragrance loved worldwide.. Fresh citrus aromatic scent profile.. Contains notes of bergamot, pineapple, green tea and musk.. Suitable for men and women.. Ideal everyday fragrance for casual wear.. Compact 50ml bottle perfect for travel.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Calvin Klein CK One Eau de Toilette is a pioneering unisex fragrance that blends refreshing citrus fruits with green tea, delicate florals and warm musk. Clean, modern and universally appealing, CK One remains one of the most recognisable fragrances for everyday wear.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

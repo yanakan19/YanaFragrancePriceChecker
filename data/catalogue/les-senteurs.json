@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-25T12:12:43.020Z",
-  "seenAt": "2026-10-25T12:12:43.020Z",
+  "updatedAt": "2026-10-25T15:38:46.489Z",
+  "seenAt": "2026-10-25T15:38:46.489Z",
   "source": "live",
   "listings": [
     {
@@ -28304,7 +28304,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A fabulous sensual fragrance inspired by the silky sun-warmed fur of a beautiful Bengal cat. Top notes of Turkish rose lead into a very rich heart of melting orris butter mixed with vanilla and wild honey; the base contains Indian sandalwood, sweet myrrh and labdanum. Hyper-addictive and voluptuous this perfume is enveloping, embracing and exceedingly erotic..",
       "productType": "Fragrance",
