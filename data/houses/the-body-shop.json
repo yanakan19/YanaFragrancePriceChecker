@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-24T21:54:42.482Z",
-  "seenAt": "2026-10-24T21:54:42.482Z",
+  "updatedAt": "2026-10-25T01:20:27.343Z",
+  "seenAt": "2026-10-25T01:20:27.343Z",
   "source": "live",
   "listings": [
     {
@@ -957,7 +957,7 @@
       "priceGbp": 18,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Their hands will love the three little beauties inside our Hand Care Trio Gift Set. .",
       "productType": "Bath and Body gifts",

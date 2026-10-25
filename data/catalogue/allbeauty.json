@@ -1,7 +1,7 @@
 {
   "retailerId": "allbeauty",
-  "updatedAt": "2026-10-24T21:45:00.308Z",
-  "seenAt": "2026-10-24T21:45:00.308Z",
+  "updatedAt": "2026-10-25T01:08:47.909Z",
+  "seenAt": "2026-10-25T01:08:47.909Z",
   "source": "live",
   "listings": [
     {
@@ -4415,7 +4415,7 @@
       "priceGbp": 112.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "allbeauty",
