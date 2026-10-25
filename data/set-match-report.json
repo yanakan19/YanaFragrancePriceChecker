@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 220,
+ "folded": 219,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -5993,39 +5993,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8435415112925",
-   "absorbed": [
-    "set-jean-paul-gaultier-le-male-gift-set-75ml-edt-75ml-all-over-shower-gel-christmas-edition"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415112925",
-     "brand": "Jean Paul Gaultier",
-     "name": "Le Male Gift Set 75ml EDT + 75ml All Over Shower Gel (Christmas Edition)",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415112925",
-     "scent": "all christmas edition le male over",
-     "signature": "1x75fragrance|1x75wash",
-     "shops": [
-      "perfume-click",
-      "perfumeuk"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-le-male-gift-set-75ml-edt-75ml-all-over-shower-gel-christmas-edition",
-     "brand": "Jean Paul Gaultier",
-     "name": "Le Male Gift Set 75ml EDT + 75ml All Over Shower Gel (Christmas Edition)",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "all christmas edition le male over",
-     "signature": "1x75fragrance|1x75wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8436581946246",
    "absorbed": [
     "set-reebok-cool-your-body-women-gift-set-100ml-edt-150ml-body-spray"
@@ -9003,13 +8970,12 @@
     {
      "id": "set-ean-3349668628728",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Lady Million Gift Set 80ml EDP + 20ml EDP",
+     "name": "Paco Rabanne Lady Million Women's Perfume Gift Set (80ml EDP + 20ml EDP)",
      "concentration": "Eau de Parfum",
      "ean": "3349668628728",
      "scent": "lady million paco rabanne",
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
-      "perfume-click",
       "perfume-direct"
      ]
     }
@@ -10643,37 +10609,6 @@
      "signature": "1x100wash|1x50fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 3616305254719, 3616305965417"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305254719",
-     "brand": "Joop!",
-     "name": "Homme Eau de Toilette Men's Aftershave Gift Set Spray (75ml) with 75ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3616305254719",
-     "scent": "homme",
-     "signature": "1x75fragrance|1x75wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3616305965417",
-     "brand": "Joop!",
-     "name": "Homme Gift Set 75ml EDT + 75ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3616305965417",
-     "scent": "homme",
-     "signature": "1x75fragrance|1x75wash",
-     "shops": [
-      "perfume-click"
      ]
     }
    ]
