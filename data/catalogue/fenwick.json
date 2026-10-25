@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-25T08:38:33.328Z",
-  "seenAt": "2026-10-25T08:38:33.328Z",
+  "updatedAt": "2026-10-25T12:12:54.257Z",
+  "seenAt": "2026-10-25T12:12:54.257Z",
   "source": "live",
   "listings": [
     {
@@ -3188,7 +3188,7 @@
       "priceGbp": 90,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Coach Gold Parfum is a striking and radiant fragrance for women, featuring a blend of warm vanilla, almond blossom, and sparkling fruits to create a luminous golden scent. It begins with inviting vanilla and golden amber, followed by gentle floral notes of sweet almond blossom and rose water, and finishes with vibrant, sparkling hints of bergamot and pink peppercorn.. .",
       "productType": "Women's Fragrances",

@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-10-25T08:38:33.328Z",
-  "seenAt": "2026-10-25T08:38:33.328Z",
+  "updatedAt": "2026-10-25T12:12:54.257Z",
+  "seenAt": "2026-10-25T12:12:54.257Z",
   "source": "live",
   "listings": [
     {
@@ -704,7 +704,7 @@
       "priceGbp": 3,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Creamy, decadent, and sweet, Boujee Kitty Caramel Milk | 22 Eau de Parfum is a triple-dose caramel fragrance , purr- fect for gourmand lover s ! . . This perfume opens with m outhwatering notes of salted caramel and silky caramel milk blended with rich white chocolate and vanilla caviar at the heart . As it dries down , it reveals a decadent scent cloud of caramel santal and soft musk that’s so indulgent it’s almost edible. . .",
       "productType": "Fragrances",

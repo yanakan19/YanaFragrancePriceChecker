@@ -1,12 +1,12 @@
 {
   "retailerId": "mykonos",
-  "updatedAt": "2026-10-25T08:44:37.009Z",
-  "seenAt": "2026-10-25T08:44:37.009Z",
+  "updatedAt": "2026-10-25T12:20:28.331Z",
+  "seenAt": "2026-10-25T12:20:28.331Z",
   "source": "live",
   "listings": [
     {
       "retailerSku": "SLOW-50ML-1",
-      "url": "https://officialmykonos.com/products/mykonos-slow-living-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-slow-living-edp-50ml",
       "rawTitle": "Mykonos - Slow Living EDP 50ml & Extrait de Parfum 100ml Slow living 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -32,7 +32,7 @@
     },
     {
       "retailerSku": "SLOW-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-slow-living-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-slow-living-edp-50ml",
       "rawTitle": "Mykonos - Slow Living EDP 50ml & Extrait de Parfum 100ml Slow Living 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -58,7 +58,7 @@
     },
     {
       "retailerSku": "CONSTANTINE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-constantine-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-constantine-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Constantine Extrait de Parfum 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -84,7 +84,7 @@
     },
     {
       "retailerSku": "MARBELLA-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-marbella-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-marbella-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Marbella Extrait de Parfum 50ml & 100ml Marbella 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -110,7 +110,7 @@
     },
     {
       "retailerSku": "MARBELLA-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-marbella-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-marbella-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Marbella Extrait de Parfum 50ml & 100ml Marbella 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -136,7 +136,7 @@
     },
     {
       "retailerSku": "UNTAMED-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-untamed-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-untamed-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Untamed Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -162,7 +162,7 @@
     },
     {
       "retailerSku": "NAUTILUS-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-nautilus-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-nautilus-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Nautilus Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -188,7 +188,7 @@
     },
     {
       "retailerSku": "INFERNO-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-inferno-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-inferno-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Inferno Extrait de Parfum 50ml & 100ml Inferno 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -214,7 +214,7 @@
     },
     {
       "retailerSku": "INFERNO-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-inferno-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-inferno-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Inferno Extrait de Parfum 50ml & 100ml Inferno 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -240,7 +240,7 @@
     },
     {
       "retailerSku": "IMPERIUM-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-imperium-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-imperium-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Imperium Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -266,7 +266,7 @@
     },
     {
       "retailerSku": "XOXO-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-xoxo-rosy-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-xoxo-rosy-edp-50ml",
       "rawTitle": "Mykonos - Xoxo Rosy EDP 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -292,7 +292,7 @@
     },
     {
       "retailerSku": "INVADE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-x-setiawanade-invade-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-x-setiawanade-invade-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos x SetiawanAde - Invade Extrait de Parfum 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -318,7 +318,7 @@
     },
     {
       "retailerSku": "GLITCH-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-x-setiawanade-glitch-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-x-setiawanade-glitch-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos x SetiawanAde - Glitch Extrait de Parfum 50ml & 100ml Glitch 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -344,7 +344,7 @@
     },
     {
       "retailerSku": "GLITCH-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-x-setiawanade-glitch-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-x-setiawanade-glitch-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos x SetiawanAde - Glitch Extrait de Parfum 50ml & 100ml Glitch 100ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -370,7 +370,7 @@
     },
     {
       "retailerSku": "MYEGO-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-x-alterego-myego-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-x-alterego-myego-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos x AlterEgo - MyEgo Extrait de Parfum 50ml & 100ml MyEgo 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -396,7 +396,7 @@
     },
     {
       "retailerSku": "MYEGO-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-x-alterego-myego-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-x-alterego-myego-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos x AlterEgo - MyEgo Extrait de Parfum 50ml & 100ml MyEgo 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -422,7 +422,7 @@
     },
     {
       "retailerSku": "EMPIRE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-x-rrq-empire-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-x-rrq-empire-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos x RRQ - Empire Extrait de Parfum 50ml & 100ml Empire 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -448,7 +448,7 @@
     },
     {
       "retailerSku": "EMPIRE-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-x-rrq-empire-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-x-rrq-empire-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos x RRQ - Empire Extrait de Parfum 50ml & 100ml Empire 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -474,7 +474,7 @@
     },
     {
       "retailerSku": "VERVE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-verve-extrait-de-parfum-when-in-paris-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-verve-extrait-de-parfum-when-in-paris-edp-50ml",
       "rawTitle": "Mykonos - Verve Extrait de Parfum 50ml Verve 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -500,7 +500,7 @@
     },
     {
       "retailerSku": "VC-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-vanilla-clouds-extrait-de-parfum-50ml-1",
+      "url": "https://www.officialmykonos.com/products/mykonos-vanilla-clouds-extrait-de-parfum-50ml-1",
       "rawTitle": "Mykonos - Vanilla Clouds Extrait de Parfum 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -526,7 +526,7 @@
     },
     {
       "retailerSku": "STILETTOS-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-stilettos-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-stilettos-edp-50ml",
       "rawTitle": "Mykonos - Stilettos EDP 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -552,7 +552,7 @@
     },
     {
       "retailerSku": "UTOP-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-utopia-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-utopia-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Utopia Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -578,7 +578,7 @@
     },
     {
       "retailerSku": "RENTO-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-sorrento-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sorrento-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Sorrento Extrait de Parfum 50ML & 100ml Sorrento 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -604,7 +604,7 @@
     },
     {
       "retailerSku": "RENTO-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-sorrento-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sorrento-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Sorrento Extrait de Parfum 50ML & 100ml Sorrento 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -630,7 +630,7 @@
     },
     {
       "retailerSku": "SPARK-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-sparkling-rose-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sparkling-rose-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Sparkling Rosé Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -656,7 +656,7 @@
     },
     {
       "retailerSku": "SENJA-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-senja-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-senja-edp-50ml",
       "rawTitle": "Mykonos - Senja Extrait de Parfum 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -682,7 +682,7 @@
     },
     {
       "retailerSku": "SILENT-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-silent-whisper-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-silent-whisper-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Silent Whisper Extrait de Parfum 50ml & 100ml Silent Whisper 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -708,7 +708,7 @@
     },
     {
       "retailerSku": "SILENT-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-silent-whisper-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-silent-whisper-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Silent Whisper Extrait de Parfum 50ml & 100ml Silent Whisper 100ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -734,7 +734,7 @@
     },
     {
       "retailerSku": "SATIN-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-satin-blanc-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-satin-blanc-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Satin Blanc Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -760,7 +760,7 @@
     },
     {
       "retailerSku": "DARK-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Dark Secret",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -786,7 +786,7 @@
     },
     {
       "retailerSku": "SATIN-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Satin Blanc",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -812,7 +812,7 @@
     },
     {
       "retailerSku": "SPARKLING-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Sparkling rose",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -838,7 +838,7 @@
     },
     {
       "retailerSku": "SANSA-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Sansa",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -864,7 +864,7 @@
     },
     {
       "retailerSku": "MUSK-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Musk aura",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -890,7 +890,7 @@
     },
     {
       "retailerSku": "BLACK-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Black Opera",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -916,7 +916,7 @@
     },
     {
       "retailerSku": "MOROCCAN-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Moroccan Vanilla",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -942,7 +942,7 @@
     },
     {
       "retailerSku": "AFFAIR-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Affair",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -968,7 +968,7 @@
     },
     {
       "retailerSku": "UTOPIA-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Utopia",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -994,7 +994,7 @@
     },
     {
       "retailerSku": "TEA-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Tea Poetry",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1020,7 +1020,7 @@
     },
     {
       "retailerSku": "HAWAIIAN-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Hawaiian Crush",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1046,7 +1046,7 @@
     },
     {
       "retailerSku": "OTR-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML On the Rocks",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1072,7 +1072,7 @@
     },
     {
       "retailerSku": "ISPAHAN-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Royal Ispahan",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1098,7 +1098,7 @@
     },
     {
       "retailerSku": "CRIMSON-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Crimson",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1124,7 +1124,7 @@
     },
     {
       "retailerSku": "CALI-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML California",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1151,7 +1151,7 @@
     },
     {
       "retailerSku": "CALIBLUE-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML California Blue",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1178,7 +1178,7 @@
     },
     {
       "retailerSku": "PENTHOUSE-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Penthouse",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1205,7 +1205,7 @@
     },
     {
       "retailerSku": "MR-15ML",
-      "url": "https://officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-sansa-edp-travel-size-15ml",
       "rawTitle": "Mykonos - Travel Size 15ML Monaco Royale",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1232,7 +1232,7 @@
     },
     {
       "retailerSku": "REFLECTION-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-reflection-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-reflection-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Reflection Extrait de Parfum 50ml & 100ml Reflection 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1259,7 +1259,7 @@
     },
     {
       "retailerSku": "REFLECTION-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-reflection-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-reflection-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Reflection Extrait de Parfum 50ml & 100ml Reflection 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1285,7 +1285,7 @@
     },
     {
       "retailerSku": "ISPAHAN-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-royal-ispahan-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-royal-ispahan-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Royal Ispahan Extrait de Parfum 50ml & 100ml Royal Ispahan 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1311,7 +1311,7 @@
     },
     {
       "retailerSku": "ISPAHAN-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-royal-ispahan-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-royal-ispahan-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Royal Ispahan Extrait de Parfum 50ml & 100ml Royal Ispahan 100ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1337,7 +1337,7 @@
     },
     {
       "retailerSku": "RELIXIR-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-reflection-elixir-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-reflection-elixir-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Reflection Elixir Extrait de Parfum 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1363,7 +1363,7 @@
     },
     {
       "retailerSku": "PINK-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-pink-beach-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-pink-beach-edp-50ml",
       "rawTitle": "Mykonos - Pink Beach EDP 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1389,7 +1389,7 @@
     },
     {
       "retailerSku": "PDROPS-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-pink-drops-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-pink-drops-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Pink Drops Extrait de Parfum 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1415,7 +1415,7 @@
     },
     {
       "retailerSku": "PENTHOUSE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-penthouse-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-penthouse-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Penthouse Extrait de Parfum 50ml & 100ml Penthouse 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1441,7 +1441,7 @@
     },
     {
       "retailerSku": "PENTHOUSE-100",
-      "url": "https://officialmykonos.com/products/mykonos-penthouse-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-penthouse-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Penthouse Extrait de Parfum 50ml & 100ml Penthouse 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1467,7 +1467,7 @@
     },
     {
       "retailerSku": "PARADISE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-paradise-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-paradise-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Paradise Extrait de Parfum 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1493,7 +1493,7 @@
     },
     {
       "retailerSku": "OTR-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-on-the-rocks-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-on-the-rocks-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - On The Rocks Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1519,7 +1519,7 @@
     },
     {
       "retailerSku": "MUSK-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-musk-aura-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-musk-aura-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Musk Aura Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1545,7 +1545,7 @@
     },
     {
       "retailerSku": "MV-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-moroccan-vanilla-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-moroccan-vanilla-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Moroccan Vanilla Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1571,7 +1571,7 @@
     },
     {
       "retailerSku": "MAYFAIR-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-mayfair-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-mayfair-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Mayfair Extrait de Parfum 50ml & 100ml Mayfair 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1597,7 +1597,7 @@
     },
     {
       "retailerSku": "MAYFAIR-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-mayfair-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-mayfair-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Mayfair Extrait de Parfum 50ml & 100ml Mayfair 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1623,7 +1623,7 @@
     },
     {
       "retailerSku": "MILK-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-milk-drops-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-milk-drops-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Milk Drops Extrait de Parfum 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1649,7 +1649,7 @@
     },
     {
       "retailerSku": "MR-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-monaco-royale-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-monaco-royale-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Monaco Royale Extrait de Parfum 50ml & 100ml Monaco Royale 50Ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1675,7 +1675,7 @@
     },
     {
       "retailerSku": "MR-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-monaco-royale-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-monaco-royale-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Monaco Royale Extrait de Parfum 50ml & 100ml Monaco Royale 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1701,7 +1701,7 @@
     },
     {
       "retailerSku": "INCEPTION-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-inception-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-inception-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Inception Extrait de Parfum 50ml & 100ml Inception 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1727,7 +1727,7 @@
     },
     {
       "retailerSku": "INCEPTION-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-inception-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-inception-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Inception Extrait de Parfum 50ml & 100ml Inception 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1754,7 +1754,7 @@
     },
     {
       "retailerSku": "MATCHA-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-matcha-latte-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-matcha-latte-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Matcha Latte Extrait de Parfum 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1780,7 +1780,7 @@
     },
     {
       "retailerSku": "LUMI-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-luminos-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-luminos-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Luminos Extrait de Parfum 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1806,7 +1806,7 @@
     },
     {
       "retailerSku": "HAWAI-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-hawaiian-crush-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-hawaiian-crush-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Hawaiian Crush Extrait de Parfum 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1832,7 +1832,7 @@
     },
     {
       "retailerSku": "ENCH-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-enchanted-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-enchanted-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Enchanted Extrait de Parfum 50ml & 100ml Enchanted 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1858,7 +1858,7 @@
     },
     {
       "retailerSku": "ENCH-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-enchanted-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-enchanted-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Enchanted Extrait de Parfum 50ml & 100ml Enchanted 100ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1884,7 +1884,7 @@
     },
     {
       "retailerSku": "DS-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-dark-secret-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-dark-secret-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Dark Secret Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1910,7 +1910,7 @@
     },
     {
       "retailerSku": "DREAM-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-dreamscape-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-dreamscape-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Dreamscape Extrait de Parfum 50ml & 100ml Dreamscape 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1936,7 +1936,7 @@
     },
     {
       "retailerSku": "DREAM-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-dreamscape-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-dreamscape-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Dreamscape Extrait de Parfum 50ml & 100ml Dreamscape 100ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -1962,7 +1962,7 @@
     },
     {
       "retailerSku": "CONQUER-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-conquer-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-conquer-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Conquer Extrait de Parfum 50ml & 100ml Conquer-100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -1988,7 +1988,7 @@
     },
     {
       "retailerSku": "CONQUER-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-conquer-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-conquer-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Conquer Extrait de Parfum 50ml & 100ml Conquer-50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -2014,7 +2014,7 @@
     },
     {
       "retailerSku": "CRIMSON-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-crimson-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-crimson-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Crimson Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -2040,7 +2040,7 @@
     },
     {
       "retailerSku": "COCONUT-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-coconut-dreams-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-coconut-dreams-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Coconut Dreams Extrait de Parfum 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2066,7 +2066,7 @@
     },
     {
       "retailerSku": "COOKIE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-caramel-fudge-cookie-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-caramel-fudge-cookie-edp-50ml",
       "rawTitle": "Mykonos - Caramel Fudge Cookie EDP 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2092,7 +2092,7 @@
     },
     {
       "retailerSku": "CALI-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-california-signature-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-california-signature-50ml",
       "rawTitle": "Mykonos - California Extrait de Parfum 50ml & 100ml California 50ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -2119,7 +2119,7 @@
     },
     {
       "retailerSku": "CALI-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-california-signature-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-california-signature-50ml",
       "rawTitle": "Mykonos - California Extrait de Parfum 50ml & 100ml California 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -2145,7 +2145,7 @@
     },
     {
       "retailerSku": "CAFE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-cafe-drops-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-cafe-drops-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Cafe Drops Extrait de Parfum 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2171,7 +2171,7 @@
     },
     {
       "retailerSku": "CALICLUB-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-california-club-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-california-club-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - California Club Extrait de Parfum 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2197,7 +2197,7 @@
     },
     {
       "retailerSku": "CALIBLUE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-california-blue-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-california-blue-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - California Blue Extrait de Parfum 50ml & 100ml California Blue 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2224,7 +2224,7 @@
     },
     {
       "retailerSku": "CALIBLUE-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-california-blue-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-california-blue-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - California Blue Extrait de Parfum 50ml & 100ml California Blue 100ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2250,7 +2250,7 @@
     },
     {
       "retailerSku": "BLACK-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-black-opera-extrait-de-parfum-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-black-opera-extrait-de-parfum-100ml",
       "rawTitle": "Mykonos - Black Opera Extrait de Parfum 100ml",
       "rawBrand": "MYKONOS",
       "ean": null,
@@ -2276,7 +2276,7 @@
     },
     {
       "retailerSku": "BONFIRE-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-bonfire-vanilla-extrait-de-parfum-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-bonfire-vanilla-extrait-de-parfum-50ml",
       "rawTitle": "Mykonos - Bonfire Vanilla Extrait de Parfum 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2302,7 +2302,7 @@
     },
     {
       "retailerSku": "BABY-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-baby-love-edp-50ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-baby-love-edp-50ml",
       "rawTitle": "Mykonos - Baby Love EDP 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2328,7 +2328,7 @@
     },
     {
       "retailerSku": "APHRO-50ML",
-      "url": "https://officialmykonos.com/products/mykonos-aphrodite-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-aphrodite-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Aphrodite Extrait de Parfum 50ml & 100ml Aphrodite 50ml",
       "rawBrand": "Mykonos",
       "ean": null,
@@ -2354,7 +2354,7 @@
     },
     {
       "retailerSku": "APHRO-100ML",
-      "url": "https://officialmykonos.com/products/mykonos-aphrodite-extrait-de-parfum-50ml-100ml",
+      "url": "https://www.officialmykonos.com/products/mykonos-aphrodite-extrait-de-parfum-50ml-100ml",
       "rawTitle": "Mykonos - Aphrodite Extrait de Parfum 50ml & 100ml Aphrodite 100ml",
       "rawBrand": "Mykonos",
       "ean": null,

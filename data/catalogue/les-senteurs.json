@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-25T08:38:47.068Z",
-  "seenAt": "2026-10-25T08:38:47.068Z",
+  "updatedAt": "2026-10-25T12:12:43.020Z",
+  "seenAt": "2026-10-25T12:12:43.020Z",
   "source": "live",
   "listings": [
     {
@@ -7811,7 +7811,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A unisex Woody, Spicy Perfume Extract imagined as a love potion by Julien Rasquinet for D'ORSAY.. Oak and Cedar reignite the embers of the day, while Cardamom and Clove add extra spice to the evening. Incense Crush is a Perfume Extract that opens up the chakras, reveals our power of seduction and inexorably attracts others..",
       "productType": "Fragrance",
