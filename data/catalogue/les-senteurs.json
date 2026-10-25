@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-25T15:38:46.489Z",
-  "seenAt": "2026-10-25T15:38:46.489Z",
+  "updatedAt": "2026-10-25T19:18:31.126Z",
+  "seenAt": "2026-10-25T19:18:31.126Z",
   "source": "live",
   "listings": [
     {
@@ -31639,7 +31639,7 @@
       "priceGbp": 165,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The first fragrance from this house 'Lahore' marks the city of the perfumer's father. A city full of culture and warmth, a city with many layers and facets and a fascinating history. The scent therefore has been curated with the name in mind. Opening with saffron and pushing through with woody notes Lahore is a fragrance for any occasion. The addition of pure Assam Aoud and Samrat Aoud allows for the magic of this ingredient to transport one as far as the olfactory system will allow.. Labdanum graces the scent body and texture. A hint of combined with some beautiful musks make up the base.. Welcome to Lahore. Welcome to Opulence.. Top Notes: Saffron, Pink Pepper, Cinnamon Heart Notes: Hay Base Notes: Patchouli, Cypriol, Vetiver, Leather, Vanilla, Labdanum, Amber, Benzoin, Oud .",
       "productType": "Fragrance",

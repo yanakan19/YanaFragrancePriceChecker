@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-10-25T15:38:26.228Z",
-  "seenAt": "2026-10-25T15:38:26.228Z",
+  "updatedAt": "2026-10-25T19:18:34.352Z",
+  "seenAt": "2026-10-25T19:18:34.352Z",
   "source": "live",
   "listings": [
     {
@@ -2153,7 +2153,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Create a beautiful, intense and long-lasting scentscape with Oudgasm Vanilla Oud | 36 Perfumed Oud Wood. Also known as “bakhoor”, these perfumed oud wood chips produce an enticingly rich fragrance that balances the sublime beauty and comfort of our hero note vanilla, the warmth and spice of saffron, the sweetness of praline and the magic of oud..",
       "productType": "Home Fragrance",

@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-25T15:38:26.228Z",
-  "seenAt": "2026-10-25T15:38:26.228Z",
+  "updatedAt": "2026-10-25T19:18:34.352Z",
+  "seenAt": "2026-10-25T19:18:34.352Z",
   "source": "live",
   "listings": [
     {
@@ -2107,7 +2107,7 @@
       "priceGbp": 17.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Elizabeth Arden Blue Grass Eau de Parfum is an eau de parfum created for customers who enjoy a classic floral aldehydic scent. It opens with a fresh, sparkling impression, develops into a soft floral heart, and settles into a warm, woody base. Suitable for everyday wear or special occasions, this fragrance is a strong choice for anyone looking for a scent that feels elegant and timeless.. Why customers choose it ● Well-suited for spring and autumn ● A great option for daily wear or gifting ● Designed for customers who prefer floral aldehydic scents.",
       "productType": "Eau de Parfum",

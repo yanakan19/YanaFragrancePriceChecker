@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-25T15:38:46.489Z",
-  "seenAt": "2026-10-25T15:38:46.489Z",
+  "updatedAt": "2026-10-25T19:18:31.126Z",
+  "seenAt": "2026-10-25T19:18:31.126Z",
   "source": "live",
   "listings": [
     {
@@ -7098,7 +7098,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Effortless and quietly seductive, this roll-on deodorant amplifies your natural magnetism and subtle, irresistible charm. .",
       "productType": "FRAGRANCE",
