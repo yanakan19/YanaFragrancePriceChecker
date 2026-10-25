@@ -2,7 +2,7 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-24T23:29:10.749Z",
+ "builtAt": "2026-10-25T23:33:46.832Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
  "listingsWithReference": 13645,
  "offersWithCorroboratedReference": 2196,
@@ -2838,16 +2838,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-afnan-lynked-freedom",
-   "price": 4450,
-   "delivered": true,
-   "wasPrice": 6500,
-   "percentOff": 31,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-giorgio-armani-acqua-di-gio-edt-100ml",
    "price": 5600,
    "delivered": false,
@@ -3994,16 +3984,6 @@
    "wasPrice": 12100,
    "percentOff": 25,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-gucci-intense-oud",
-   "price": 11500,
-   "delivered": true,
-   "wasPrice": 15500,
-   "percentOff": 25,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },

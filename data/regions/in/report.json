@@ -1,26 +1,26 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-24T23:29:10.749Z",
+  "builtAt": "2026-10-25T23:33:46.832Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 16,
-  "shopsPriced": 16,
-  "crawlMinutes": 55.38,
-  "harvestRanAt": "2026-10-24T22:33:47.000Z",
-  "listingsPriced": 32591,
-  "listingsKept": 21636,
+  "shopsPriced": 15,
+  "crawlMinutes": 55.43,
+  "harvestRanAt": "2026-10-25T22:38:20.239Z",
+  "listingsPriced": 32129,
+  "listingsKept": 21565,
   "staleAfterDays": 7,
-  "products": 18295,
-  "productsWithTwoOrMoreShops": 3253,
+  "products": 18298,
+  "productsWithTwoOrMoreShops": 3256,
   "shareWithTwoOrMoreShops": 0.178,
-  "productsWithTwoOrMoreIndependentShops": 3253,
+  "productsWithTwoOrMoreIndependentShops": 3256,
   "shareWithTwoOrMoreIndependentShops": 0.178,
   "productsWithThreeOrMoreShops": 1061,
-  "medianPriceGap": 0.218,
+  "medianPriceGap": 0.219,
   "listingBarcodeShare": 0.01,
-  "productsMatchingUkByBarcode": 105,
+  "productsMatchingUkByBarcode": 107,
   "shops": [
     {
       "id": "aar-fragrances",
@@ -49,8 +49,8 @@
     },
     {
       "id": "nykaa",
-      "products": 1589,
-      "shared": 259
+      "products": 1595,
+      "shared": 262
     },
     {
       "id": "perfume-network",
@@ -60,7 +60,7 @@
     {
       "id": "perfume-palace",
       "products": 6563,
-      "shared": 2085
+      "shared": 2087
     },
     {
       "id": "scentido",
@@ -70,7 +70,7 @@
     {
       "id": "scentira",
       "products": 2456,
-      "shared": 737
+      "shared": 738
     },
     {
       "id": "the-man-company",
@@ -88,13 +88,13 @@
       "shared": 5
     }
   ],
-  "productsShown": 18157,
-  "productsWithUkPhoto": 2555,
-  "productsWithUkPhotoByBarcode": 96,
+  "productsShown": 18160,
+  "productsWithUkPhoto": 2556,
+  "productsWithUkPhotoByBarcode": 97,
   "productsWithUkPhotoByName": 2459,
   "listingsWithReference": 13645,
   "offersWithCorroboratedReference": 2196,
-  "deals": 741,
+  "deals": 739,
   "shareWithUkPhoto": 0.141,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",

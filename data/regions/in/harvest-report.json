@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-24T22:33:47.000Z",
-  "minutes": 55.38,
+  "ranAt": "2026-10-25T22:38:20.239Z",
+  "minutes": 55.43,
   "dryRun": false,
   "shopsWired": 19,
   "shopsEnabled": 16,
-  "shopsPriced": 16,
-  "listingsKept": 21636,
+  "shopsPriced": 15,
+  "listingsKept": 21565,
   "shops": [
     {
       "id": "nykaa",
@@ -15,12 +15,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1247,
-      "priced": 1247,
-      "kept": 1235,
-      "withBarcode": 210,
-      "pagesFetched": 1262,
-      "seconds": 3301,
+      "listingsRead": 1283,
+      "priced": 1283,
+      "kept": 1270,
+      "withBarcode": 208,
+      "pagesFetched": 1299,
+      "seconds": 3302,
       "currency": "JSON-LD offers named: INR",
       "errors": [
         "https://www.nykaa.com/police-to-be-the-queen-eau-de-parfum/p/196293: HTTP 404",
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/carolina-herrera-good-girl-blush-eau-de-parfum-roller-ball/p/9680432: HTTP 404",
         "https://www.nykaa.com/fw-faun-walk-passion-bomb-by-faunwalk-similar-to-bombshell-long-lasting-women-perfume/p/17109806: HTTP 404",
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
-        "sitemap: 3136 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
+        "sitemap: 3131 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -66,7 +66,7 @@
       "kept": 6617,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 91,
+      "seconds": 107,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -81,7 +81,7 @@
       "kept": 6382,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 71,
+      "seconds": 65,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -96,7 +96,7 @@
       "kept": 1902,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 21,
+      "seconds": 22,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -106,12 +106,12 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 947,
-      "priced": 947,
-      "kept": 895,
+      "listingsRead": 991,
+      "priced": 991,
+      "kept": 939,
       "withBarcode": 0,
-      "pagesFetched": 948,
-      "seconds": 3302,
+      "pagesFetched": 992,
+      "seconds": 3304,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -146,7 +146,7 @@
       "kept": 327,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 14,
+      "seconds": 15,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -161,7 +161,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -191,7 +191,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -206,7 +206,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 10,
+      "seconds": 9,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -221,7 +221,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 12,
-      "seconds": 35,
+      "seconds": 34,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
@@ -264,15 +264,17 @@
       "name": "Scentido",
       "route": "shopify",
       "singleBrand": false,
-      "status": "priced",
-      "listingsRead": 578,
-      "priced": 542,
-      "kept": 150,
+      "status": "refused",
+      "listingsRead": 0,
+      "priced": 0,
+      "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 6,
-      "seconds": 12,
-      "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "pagesFetched": 0,
+      "seconds": 0,
+      "currency": "",
+      "errors": [
+        "robots.txt disallows /products.json"
+      ]
     },
     {
       "id": "maison-des-parfums-in",
@@ -285,7 +287,7 @@
       "kept": 1452,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 21,
+      "seconds": 20,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -300,7 +302,7 @@
       "kept": 2457,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 23,
+      "seconds": 26,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
