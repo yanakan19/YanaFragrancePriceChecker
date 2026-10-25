@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-25T04:48:18.018Z",
-  "seenAt": "2026-10-25T04:48:18.018Z",
+  "updatedAt": "2026-10-25T08:38:47.068Z",
+  "seenAt": "2026-10-25T08:38:47.068Z",
   "source": "live",
   "listings": [
     {
@@ -177919,7 +177919,7 @@
       "priceGbp": 15.26,
       "wasPriceGbp": 22.9,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Made from 99% ingredients of natural origin, this water infused with micelles is ideal for women in a hurry.. It eliminates make-up and impurities on the face and eyes in a single step.. Enriched with watercress extract and organic orange blossom floral water, it rids the skin of pollution particles and restores softness. Its minimalist formula respects the balance of the eyes and soothes the most sensitive skin.. Bottle containing 50% recycled plastic.. Results: . Effectively eliminates foundation, lipstick and mascara - 100%*. Rids the skin of pollutant particles - 100%*. Soothes and softens - 100%*. Tested under dermatological & ophthalmological control.. *Use test carried out on 20 volunteers. Applied twice a day for 4 weeks. % of volunteers who noticed the effect..",
       "productType": "Skincare",

@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-25T04:48:22.870Z",
-  "seenAt": "2026-10-25T04:48:22.870Z",
+  "updatedAt": "2026-10-25T08:38:33.328Z",
+  "seenAt": "2026-10-25T08:38:33.328Z",
   "source": "live",
   "listings": [
     {
@@ -16166,7 +16166,7 @@
       "priceGbp": 64.99,
       "wasPriceGbp": 88,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Diesel Only The Brave Eau de Parfum is a bold and powerful fragrance created for confident, determined men. This intense scent blends fresh citrus notes with warm amber, spicy accords, and rich woods, creating a masculine fragrance that is both energetic and long-lasting. Perfect for day or night, it leaves a strong, memorable impression and embodies courage, strength, and modern masculine style. . . Fragrance Type: . Aromatic, Lavender . . Fragrance Notes: . Top Notes: Coriander, Mandarin, Lemon . Middle Notes: Lavender, Clary Sage . Base Notes: Sage, Gourmand Accord . . Launched: . 2025 .",
       "productType": "Men's Aftershave",
@@ -18005,7 +18005,7 @@
       "priceGbp": 43.99,
       "wasPriceGbp": 52,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Ralph Lauren Safari Eau de Toilette is a classic, adventurous fragrance for men, inspired by the spirit of the wild. Crisp citrus and aromatic herbs open the scent, leading into a warm, woody heart of oakmoss and jasmine. A rich base of leather and sandalwood adds depth and masculinity, creating a long-lasting, sophisticated trail. Perfect for daytime wear or casual evenings, Safari embodies confidence, freedom, and timeless elegance. . . Fragrance Type: . Aromatic, Woody . . Fragrance Notes: . Top notes: Aldehydes, Artemisia, Coriander, Lavender, Green Notes, Neroli, Bergamot, Lemon . Middle notes: Cyclamen, Carnation, Cinnamon, Tarragon, Jasmine, Rose . Base notes: Leather, Sandalwood, Amber, Patchouli, Musk, Oakmoss, Cedar . . Launched: . 1992 .",
       "productType": "Men's Aftershave",
