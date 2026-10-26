@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-26T17:57:54.548Z",
-  "seenAt": "2026-10-26T17:57:54.548Z",
+  "updatedAt": "2026-10-26T21:39:08.924Z",
+  "seenAt": "2026-10-26T21:39:08.924Z",
   "source": "live",
   "listings": [
     {
@@ -3257,7 +3257,7 @@
       "priceGbp": 46,
       "wasPriceGbp": 68,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The A Drop D Issey Eau de Parfum 30ml by Issey Miyake is a fresh, modern floral fragrance with delicate musky undertones. Designed to reveal a soft yet distinctive scent, it offers a luminous and contemporary finish. A refined fragrance to elevate your collection..",
       "productType": "Women's Fragrances",
