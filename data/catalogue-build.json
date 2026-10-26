@@ -1,6 +1,6 @@
 {
  "note": "Written by npm run catalogue:demo. The catalogue modules are built from exactly these data inputs (git blob ids), with this clock, wherever they are read (scripts/catalogueBuild.ts); never edit by hand.",
- "builtAt": "2026-10-26T07:29:07.044Z",
+ "builtAt": "2026-10-26T10:08:45.286Z",
  "files": {
   "data/better-photos.json": "2b1d444a22c4a7ef5db164a8f1d146e2c5881c04",
   "data/catalogue/al-haramain.json": "21ddb08c6aae33be6c22bb2e7c4372648d80bf43",
@@ -40,7 +40,7 @@
   "data/catalogue/lookfantastic.json": "b14ddcbdc90d7b3e411f98d7d68e324523d5a8d0",
   "data/catalogue/manchester-ouds.json": "62b027b083472adf1a72b7ed71e2a85c5bde7bd4",
   "data/catalogue/marks-and-spencer.json": "3669c749bebe8c1f961b53723760ebb55fa797a2",
-  "data/catalogue/mybeauty-boutique.json": "80a2598907f38ce640263fc5d3f5583d88212609",
+  "data/catalogue/mybeauty-boutique.json": "2aceabb6610acd2ad6bfd5542c0fc72299c37d7c",
   "data/catalogue/nicchia-luxury-uk.json": "9813de9487521fabfcaae4adb8c42cfa8cd98471",
   "data/catalogue/niche-beauty-uk.json": "d0ceffd40d456dbcdac81ba6b308fe44ff88dc07",
   "data/catalogue/notino-uk.json": "6351e2d0a69449b72e0e949ec539454c187ec519",
@@ -48,7 +48,7 @@
   "data/catalogue/oud-arabian.json": "f7db5459f63cdf7ecb2ef18f81a4881c28e8ee87",
   "data/catalogue/paco-perfumerias-uk.json": "31820ec01f6dc73c38621142c30fbe51ba39baba",
   "data/catalogue/parfumdreams-uk.json": "6869a45b721db78d6d15d47dbc09c81f0f15f276",
-  "data/catalogue/perfume-click.json": "c6ecfc9eb9bf1519f7cea532bc4ca8644154c2a7",
+  "data/catalogue/perfume-click.json": "941475db71d95ff4987956df11931c7a82f5f51d",
   "data/catalogue/perfume-closet.json": "f159cd84598e5c117e6e6b15fd1049963d673f8a",
   "data/catalogue/perfume-direct.json": "066102d2fb098ad750d8cd90ecc27088606e5137",
   "data/catalogue/perfume-market-uk.json": "2259ad05e5cbc53c1fcfe9dbedf6482e6fb18475",
@@ -98,10 +98,10 @@
   "data/houses/surrati.json": "8f1332366a4e9d1dc8c437104814f882aebb7295",
   "data/houses/swiss-arabian.json": "04361b44d58bf0ea020d1ce11bb036b9e540092c",
   "data/houses/the-body-shop.json": "2cd318557498ace37dc4d2fda2e592e91f6b4d1e",
-  "data/id-aliases.json": "97821730257f92580d01ed441d866e045670f25f",
+  "data/id-aliases.json": "ddf6456d8cf1a56664f57568dd5c9dd1c0d3ec7e",
   "data/image-box-verdicts.json": "3d59e45c321535663c741905710c616f7d15883d",
   "data/note-aliases.json": "7fc4b8f4ba71c29993580bd732815fe7a2d0b6b8",
   "data/note-not-a-note.json": "aed2513264555cf20392c82d0aa5098b1cfcc715",
-  "data/product-slugs.json": "3f591fd4867a548f1e9a95e68c1f2fda9096d684"
+  "data/product-slugs.json": "ab1d142e2298a7d4aac365875be23c3133bc49f2"
  }
 }

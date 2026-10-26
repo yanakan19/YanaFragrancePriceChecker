@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 219,
+ "folded": 218,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2542,38 +2542,6 @@
      "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3432240505866",
-   "absorbed": [
-    "set-cartier-rivieres-de-cartier-discovery-set-100ml-insouciance-edt-10ml-allegresse-edt-10ml-luxuriance-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3432240505866",
-     "brand": "Cartier",
-     "name": "Rivières de Cartier Discovery Set 100ml Insouciance EDT + 10ml Allégresse EDT + 10ml Luxuriance EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3432240505866",
-     "scent": "allegresse cartier de discovery insouciance luxuriance rivieres",
-     "signature": "1x100fragrance|2x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cartier-rivieres-de-cartier-discovery-set-100ml-insouciance-edt-10ml-allegresse-edt-10ml-luxuriance-edt",
-     "brand": "Cartier",
-     "name": "Rivières de Cartier Discovery Set 100ml Insouciance EDT + 10ml Allégresse EDT + 10ml Luxuriance EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "allegresse cartier de discovery insouciance luxuriance rivieres",
-     "signature": "1x100fragrance|2x10fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -7197,6 +7165,37 @@
   },
   {
    "reasons": [
+    "price spread 1.52 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-cartier-rivieres-de-cartier-discovery-set-100ml-insouciance-edt-10ml-allegresse-edt-10ml-luxuriance-edt",
+     "brand": "Cartier",
+     "name": "Rivières de Cartier Discovery Set 100ml Insouciance EDT + 10ml Allégresse EDT + 10ml Luxuriance EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "allegresse cartier de discovery insouciance luxuriance rivieres",
+     "signature": "1x100fragrance|2x10fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    },
+    {
+     "id": "set-ean-3432240505866",
+     "brand": "Cartier",
+     "name": "Rivières de Cartier Discovery Set 100ml Insouciance EDT + 10ml Allégresse EDT + 10ml Luxuriance EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3432240505866",
+     "scent": "allegresse cartier de discovery insouciance luxuriance rivieres",
+     "signature": "1x100fragrance|2x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 5050456005697, 5050456009404, 5050456013074",
     "a shop lists more than one: perfume-click",
     "price spread 1.63 is over 1.5"
@@ -7941,7 +7940,7 @@
   },
   {
    "reasons": [
-    "price spread 2.63 is over 1.5"
+    "price spread 2.70 is over 1.5"
    ],
    "members": [
     {
@@ -8577,7 +8576,7 @@
   },
   {
    "reasons": [
-    "price spread 1.63 is over 1.5"
+    "price spread 1.79 is over 1.5"
    ],
    "members": [
     {
@@ -11118,7 +11117,7 @@
   },
   {
    "reasons": [
-    "price spread 2.06 is over 1.5"
+    "price spread 2.81 is over 1.5"
    ],
    "members": [
     {
