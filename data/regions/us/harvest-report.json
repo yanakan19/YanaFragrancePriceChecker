@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-10-25T12:48:58.087Z",
-  "minutes": 57.15,
+  "ranAt": "2026-10-26T14:37:19.626Z",
+  "minutes": 57.46,
   "dryRun": false,
   "shopsWired": 26,
   "shopsEnabled": 23,
   "shopsPriced": 23,
-  "listingsKept": 34799,
+  "listingsKept": 34805,
   "shops": [
     {
       "id": "perfumania",
@@ -20,7 +20,7 @@
       "kept": 4374,
       "withBarcode": 0,
       "pagesFetched": 21,
-      "seconds": 36,
+      "seconds": 40,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -46,12 +46,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2496,
-      "priced": 2496,
-      "kept": 2475,
-      "withBarcode": 884,
-      "pagesFetched": 1158,
-      "seconds": 2100,
+      "listingsRead": 2607,
+      "priced": 2607,
+      "kept": 2569,
+      "withBarcode": 902,
+      "pagesFetched": 1218,
+      "seconds": 2101,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
@@ -67,7 +67,7 @@
         "https://www.luckyscent.com/products/akatsuki-by-tada-parfumeur: HTTP 404",
         "https://www.luckyscent.com/products/aoud-extraordinaire-by-roja-parfums: HTTP 404",
         "https://www.luckyscent.com/products/no02-le-long-fond-eau-de-parfum-by-maison-louis-marie: HTTP 404",
-        "sitemap: 3455 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
+        "sitemap: 3454 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
       ]
     },
     {
@@ -81,7 +81,7 @@
       "kept": 712,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 15,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -96,7 +96,7 @@
       "kept": 183,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 14,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -111,7 +111,7 @@
       "kept": 543,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 12,
+      "seconds": 13,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -126,7 +126,7 @@
       "kept": 644,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 51,
+      "seconds": 52,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -141,7 +141,7 @@
       "kept": 856,
       "withBarcode": 0,
       "pagesFetched": 28,
-      "seconds": 61,
+      "seconds": 72,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -151,12 +151,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 108,
-      "priced": 108,
+      "listingsRead": 107,
+      "priced": 107,
       "kept": 12,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -201,7 +201,7 @@
       "kept": 42,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -231,7 +231,7 @@
       "kept": 354,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -246,7 +246,7 @@
       "kept": 5111,
       "withBarcode": 4498,
       "pagesFetched": 26,
-      "seconds": 44,
+      "seconds": 56,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -261,7 +261,7 @@
       "kept": 4616,
       "withBarcode": 0,
       "pagesFetched": 23,
-      "seconds": 41,
+      "seconds": 44,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -276,7 +276,7 @@
       "kept": 4732,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 39,
+      "seconds": 44,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -291,7 +291,7 @@
       "kept": 508,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 17,
+      "seconds": 18,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -306,7 +306,7 @@
       "kept": 307,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 16,
+      "seconds": 19,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -336,7 +336,7 @@
       "kept": 4880,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 42,
+      "seconds": 64,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -346,11 +346,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2111,
-      "priced": 947,
-      "kept": 946,
-      "withBarcode": 946,
-      "pagesFetched": 950,
+      "listingsRead": 2068,
+      "priced": 912,
+      "kept": 911,
+      "withBarcode": 910,
+      "pagesFetched": 915,
       "seconds": 3301,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
@@ -363,7 +363,7 @@
         "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
         "https://www.ulta.com/p/euphoria-eau-de-parfum-VP10888?sku=2118557: HTTP 404",
         "https://www.ulta.com/p/euphoria-eau-de-parfum-VP10888?sku=2118558: HTTP 404",
-        "sitemap: 2938 product address(es) found, first read https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093"
+        "sitemap: 2941 product address(es) found, first read https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093"
       ]
     },
     {
@@ -372,11 +372,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 592,
-      "priced": 592,
+      "listingsRead": 581,
+      "priced": 581,
       "kept": 546,
       "withBarcode": 467,
-      "pagesFetched": 781,
+      "pagesFetched": 769,
       "seconds": 1502,
       "currency": "JSON-LD offers named: USD",
       "errors": [
@@ -402,20 +402,18 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1380,
-      "priced": 1377,
-      "kept": 1267,
-      "withBarcode": 15,
-      "pagesFetched": 1005,
-      "seconds": 2400,
+      "listingsRead": 1233,
+      "priced": 1227,
+      "kept": 1214,
+      "withBarcode": 11,
+      "pagesFetched": 859,
+      "seconds": 2403,
       "currency": "JSON-LD offers named: USD",
       "errors": [
-        "https://www.dillards.com/p/guerlain-shalimar-eau-de-parfum-spray/502417851: HTTP 404",
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "https://www.dillards.com/p/guerlain-shalimar-eau-de-parfum-spray/502417851: HTTP 404",
-        "sitemap: 1654 product address(es) found, first read https://www.dillards.com/p/givenchy-eaudemoiselle-eau-florale-eau-de-toilette/518984263"
+        "sitemap: 1649 product address(es) found, first read https://www.dillards.com/p/givenchy-eaudemoiselle-eau-florale-eau-de-toilette/518984263"
       ]
     },
     {
