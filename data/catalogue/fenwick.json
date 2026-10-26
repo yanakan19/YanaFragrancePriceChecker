@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-26T02:47:39.781Z",
-  "seenAt": "2026-10-26T02:47:39.781Z",
+  "updatedAt": "2026-10-26T06:29:49.339Z",
+  "seenAt": "2026-10-26T06:29:49.339Z",
   "source": "live",
   "listings": [
     {
@@ -727,7 +727,7 @@
       "priceGbp": 102,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "An ambery-musky fragrance that captures the essence of St. Moritz. A luminous and enveloping winter-inspired scent that invites you to embark on a journey and soak in the beauty of a winter's day.",
       "productType": "Men's Fragrances",

@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-10-26T02:43:13.641Z",
-  "seenAt": "2026-10-26T02:43:13.641Z",
+  "updatedAt": "2026-10-26T06:36:20.066Z",
+  "seenAt": "2026-10-26T06:36:20.066Z",
   "source": "live",
   "listings": [
     {
@@ -2544,7 +2544,7 @@
       "priceGbp": 280,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Limited Edition Parfum. Iris Altesse is iris at its most luminous, effervescent and vividly extravagant. At the heart of this millésime creation lies Danner & Flemming’s rare Bavarian Iris pallida, harvested by hand and overdosed far beyond traditional perfumery levels. Its powdery radiance forms a floating, weightless core: soft like silk, bright like early May rain.. Around it blooms a champagne shimmer of jasmine sambac, orange blossom and tuberose absolutes, their florals glowing with airy opulence. A lift of bergamot, pink pepper CO₂ and green notes keeps the composition lively and modern, while a subtle thread of patchouli adds quiet sophistication at the base.. The result is a fragrance that feels both classic and cosmopolitan. An elegant portrait of savoir vivre rendered in iris and light.. Composition Highlights: . Bergamot Oil, Pink Pepper CO₂, Cassis. 2.6% Bavarian Iris Pallida Butter & Extract, Jasmine Sambac Absolute, Orange Blossom Absolute, Tuberose Absolute. Patchouli Oil. Perfumer: Antoine Lie, 2025.",
       "productType": "EXTRAIT DE PARFUM",
