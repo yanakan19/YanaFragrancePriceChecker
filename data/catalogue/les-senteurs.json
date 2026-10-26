@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-25T23:13:06.657Z",
-  "seenAt": "2026-10-25T23:13:06.657Z",
+  "updatedAt": "2026-10-26T02:43:13.641Z",
+  "seenAt": "2026-10-26T02:43:13.641Z",
   "source": "live",
   "listings": [
     {
@@ -7673,7 +7673,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Ambre des Abysses is part of La Collection Orientale, released in 2023 by Houbigant Paris. . This collection will take you on a journey to the mysterious lands of the Orient through woody, ambery and aromatic notes. Only the most noble raw materials have been meticulously selected to create these unique fragrances, in accordance with Houbigant’s savoir-faire. This collection is dedicated to those who wish to wear fragrances with a strong character, daring and contrasting. . Dive into the depths of the abyss to discover the beauty hidden in the immensity. This slightly woody fragrance is an unexpected combination of sumptuous amber nuances and the freshness of aromatic notes. .",
       "productType": "Fragrance",
