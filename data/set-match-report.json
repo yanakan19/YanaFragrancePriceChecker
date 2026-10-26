@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 217,
+ "folded": 216,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -293,33 +293,33 @@
    ]
   },
   {
-   "canonical": "set-ean-0085805377519",
+   "canonical": "set-ean-0085805377441",
    "absorbed": [
-    "set-elizabeth-arden-green-tea-gift-set-100ml-edt-100ml-green-tea-honey-drops-body-cream"
+    "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel"
    ],
    "members": [
     {
-     "id": "set-ean-0085805377519",
+     "id": "set-ean-0085805377441",
      "brand": "Elizabeth Arden",
-     "name": "Green Tea Gift Set 100ml EDT + 100ml Green Tea Honey Drops Body Cream",
+     "name": "Red Door Gift Set 100ml EDT + 100ml Shower Gel + 100ml Body Lotion",
      "concentration": "Eau de Toilette",
-     "ean": "0085805377519",
-     "scent": "drops green honey tea",
-     "signature": "1x100body|1x100fragrance",
+     "ean": "0085805377441",
+     "scent": "door red",
+     "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
       "perfume-click"
      ]
     },
     {
-     "id": "set-elizabeth-arden-green-tea-gift-set-100ml-edt-100ml-green-tea-honey-drops-body-cream",
+     "id": "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel",
      "brand": "Elizabeth Arden",
-     "name": "Green Tea Gift Set 100ml EDT + 100ml Green Tea Honey Drops Body Cream",
+     "name": "Red Door Eau de Toilette Women's Gift Set Perfume Spray (100ml) with 100ml Body Lotion & 100ml Shower Gel",
      "concentration": "Eau de Toilette",
      "ean": null,
-     "scent": "drops green honey tea",
-     "signature": "1x100body|1x100fragrance",
+     "scent": "door red",
+     "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
-      "mybeauty-boutique"
+      "perfume-direct"
      ]
     }
    ]
@@ -1719,8 +1719,7 @@
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
       "fragrance-click",
-      "paco-perfumerias-uk",
-      "perfume-click"
+      "paco-perfumerias-uk"
      ]
     },
     {
@@ -4260,38 +4259,6 @@
      "signature": "1x100fragrance|1x150body|1x150wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-5060524511401",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511401",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Fearless Gift Set 30ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511401",
-     "scent": "cr7 fearless",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
-     "brand": "Cristiano Ronaldo",
-     "name": "Cr7 Fearless 2 Piece Gift Set: Eau de Toilette 30ml - Shower Gel 150ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 fearless",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -7908,6 +7875,51 @@
   },
   {
    "reasons": [
+    "strengths differ: Eau de Parfum, Eau de Toilette",
+    "two different barcodes: 85805258757, 85805377519",
+    "a shop lists more than one: perfume-click"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085805258757",
+     "brand": "Elizabeth Arden",
+     "name": "Green Tea Gift Set 100ml EDP + 100ml Green Tea Honey Drops Body Cream",
+     "concentration": "Eau de Parfum",
+     "ean": "0085805258757",
+     "scent": "drops green honey tea",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-0085805377519",
+     "brand": "Elizabeth Arden",
+     "name": "Green Tea Gift Set 100ml EDT + 100ml Green Tea Honey Drops Body Cream",
+     "concentration": "Eau de Toilette",
+     "ean": "0085805377519",
+     "scent": "drops green honey tea",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-elizabeth-arden-green-tea-gift-set-100ml-edt-100ml-green-tea-honey-drops-body-cream",
+     "brand": "Elizabeth Arden",
+     "name": "Green Tea Gift Set 100ml EDT + 100ml Green Tea Honey Drops Body Cream",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "drops green honey tea",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 2.70 is over 1.5"
    ],
    "members": [
@@ -8988,6 +9000,37 @@
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3349668608096, 3349668656608"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668608096",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Eau De Toilette 100ml Spray + 150ml Deo + 10ml Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668608096",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10?|1x150deo",
+     "shops": [
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3349668656608",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus 100ml Eau De Toilette + 150ml Deo + 10ml Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668656608",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x10?|1x150deo",
+     "shops": [
+      "fragrance-click"
      ]
     }
    ]
@@ -10380,7 +10423,7 @@
   {
    "reasons": [
     "two different barcodes: 3616304197918, 3616306127968",
-    "price spread 1.60 is over 1.5"
+    "price spread 1.92 is over 1.5"
    ],
    "members": [
     {
@@ -10406,6 +10449,7 @@
      "shops": [
       "beautybase",
       "direct-cosmetics",
+      "fragrance-click",
       "paco-perfumerias-uk"
      ]
     }
@@ -10723,8 +10767,7 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3616305278319, 3616305447685",
-    "price spread 1.60 is over 1.5"
+    "two different barcodes: 3616305278319, 3616305447685"
    ],
    "members": [
     {
@@ -10744,12 +10787,13 @@
     {
      "id": "set-ean-3616305447685",
      "brand": "Gucci",
-     "name": "Flora Gorgeous Orchid Women's Perfume Gift Set (50ml EDP + 10ml EDP)",
+     "name": "Flora Gorgeous Orchid Gift Set 50ml EDP + 10ml EDP",
      "concentration": "Eau de Parfum",
      "ean": "3616305447685",
      "scent": "flora gorgeous orchid",
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
+      "perfume-click",
       "perfume-direct"
      ]
     }
