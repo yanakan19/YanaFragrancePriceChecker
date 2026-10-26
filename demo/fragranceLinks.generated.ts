@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-25T08:26:51.733Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-26T08:56:38.172Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -4198,6 +4198,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "initioparfumsprives|paragonunisex|extrait": ["","https://initioparfums.com/products/paragon"],
   "initioparfumsprives|paragon|extrait": ["","https://initioparfums.com/products/paragon"],
   "initioparfumsprives|powerself": ["","https://initioparfums.com/products/power-self"],
+  "initioparfumsprives|powerselfunisex": ["","https://initioparfums.com/products/power-self"],
+  "initioparfumsprives|powerselfunisex|edp": ["","https://initioparfums.com/products/power-self"],
   "initioparfumsprives|powerself|extrait": ["","https://initioparfums.com/products/power-self"],
   "initioparfumsprives|psychedeliclove": ["","https://initioparfums.com/products/psychedelic-love"],
   "initioparfumsprives|psychedelicloveunisex": ["","https://initioparfums.com/products/psychedelic-love"],
