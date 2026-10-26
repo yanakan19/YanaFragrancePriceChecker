@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-26T10:12:33.240Z",
-  "seenAt": "2026-10-26T10:12:33.240Z",
+  "updatedAt": "2026-10-26T14:08:41.020Z",
+  "seenAt": "2026-10-26T14:08:41.020Z",
   "source": "live",
   "listings": [
     {
@@ -175,7 +175,7 @@
       "priceGbp": 42.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Mykonos California Blue 100ml Extrait de Parfum combines aromatic aquatic elements with a balanced composition of lavender, grapefruit, and pear. Its marine and floral middle notes add freshness, while caramel, woody notes, and moss provide depth, supporting a long-lasting and nuanced scent suitable for all genders. .",
       "productType": null,

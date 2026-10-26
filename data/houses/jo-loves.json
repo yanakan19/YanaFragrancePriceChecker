@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-26T10:23:18.599Z",
-  "seenAt": "2026-10-26T10:23:18.599Z",
+  "updatedAt": "2026-10-26T14:19:16.531Z",
+  "seenAt": "2026-10-26T14:19:16.531Z",
   "source": "live",
   "listings": [
     {
@@ -2337,7 +2337,7 @@
       "priceGbp": 39,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Indulge in Jo's love letter to herself with the Jo by Jo Loves Bath & Shower Gel, a luxurious daily cleanser infused with sparkling citrus notes and soothing Aloe Leaf Juice, perfect for a refreshing and aromatic experience. Jo's everyday go-to fragrance, which she affectionately refers to it as 'Parfum Jo.' Her olfactory signature, it's as synonymous with her as the iconic Red Dot.",
       "productType": null,

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-26T10:23:20.173Z",
+  "checkedAt": "2026-10-26T14:19:16.984Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 507,
+      "listings": 414,
       "pricedInGbp": 0,
-      "withPhoto": 484,
-      "errors": [],
+      "withPhoto": 392,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -174,9 +176,9 @@
       "origin": "https://rayhaanperfumes.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 43,
+      "listings": 45,
       "pricedInGbp": 0,
-      "withPhoto": 43,
+      "withPhoto": 45,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -325,9 +327,9 @@
       "origin": "https://dumontparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 177,
+      "listings": 178,
       "pricedInGbp": 0,
-      "withPhoto": 177,
+      "withPhoto": 178,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -345,9 +347,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "https://www.alrehab.com/products.json?limit=250&page=1: HTTP 403",
-        "https://www.alrehab.com/sitemap.xml: HTTP 403"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-10-26T10:12:34.865Z",
-  "seenAt": "2026-10-26T10:12:34.865Z",
+  "updatedAt": "2026-10-26T14:08:53.577Z",
+  "seenAt": "2026-10-26T14:08:53.577Z",
   "source": "live",
   "listings": [
     {
@@ -4844,7 +4844,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Alcohol-free Extrait Absolu. . Les Indémodables' latest olfactory gem: the ‘Vanille Havane’ Roll-On in a 10 ml format, an unprecedented sensory experience that encompasses the richness and elegance of the brand's best-selling fragrance Vanille Havane at an extravagant 40% dosage in an alcohol-free formula.. On the skin, it reveals a more creamy, powdery olfactive profile, emphasizing the overdose of vanilla absolute, vanilla infusion, and the ultrasonic cocoa extract..",
       "productType": "EXTRAIT DE PARFUM",
