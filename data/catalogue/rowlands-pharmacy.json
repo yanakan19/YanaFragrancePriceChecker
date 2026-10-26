@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-25T19:18:31.126Z",
-  "seenAt": "2026-10-25T19:18:31.126Z",
+  "updatedAt": "2026-10-25T23:13:06.657Z",
+  "seenAt": "2026-10-25T23:13:06.657Z",
   "source": "live",
   "listings": [
     {
@@ -1049,7 +1049,7 @@
       "priceGbp": 7.99,
       "wasPriceGbp": 26,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Euphoria For Men EDT Spray 20ml. Key Features. ##features##. Woody aromatic fragrance for men. Long-lasting, sophisticated scent. Compact 20ml – perfect for travel. Ideal for evening or daily wear. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Experience the bold and sophisticated scent of Calvin Klein Euphoria For Men, a distinctive eau de toilette designed for modern men. This fragrance blends fresh spices with woody undertones, delivering a confident and long-lasting signature scent. The fragrance opens with ginger and pepper notes, followed by a heart of sage and cedar leaf, finishing with warm amber and patchouli for a rich masculine base. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists and neck.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. Flammable liquid and vapour; avoid contact with eyes and flames; external use only.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
