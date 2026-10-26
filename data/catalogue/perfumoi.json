@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-26T06:29:49.339Z",
-  "seenAt": "2026-10-26T06:29:49.339Z",
+  "updatedAt": "2026-10-26T10:12:33.240Z",
+  "seenAt": "2026-10-26T10:12:33.240Z",
   "source": "live",
   "listings": [
     {
@@ -1463,7 +1463,7 @@
       "priceGbp": 62.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Acqua di Parma Colonia is a fresh Eau de Cologne designed for customers who enjoy a clean and uplifting scent. It opens with bright citrus notes of lemon, sweet orange, and Calabrian bergamot, developing into a balanced heart of lavender, Bulgarian rose, verbena, and rosemary, before settling into an earthy base. Suitable for everyday and daytime wear, this fragrance feels modern and refreshing.. Why customers choose it . Well-suited for warmer weather and daytime occasions. A great option for daily wear and work environments. Designed for customers who prefer fresh and floral scents.",
       "productType": "Cologne",

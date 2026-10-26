@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-26T06:29:49.339Z",
-  "seenAt": "2026-10-26T06:29:49.339Z",
+  "updatedAt": "2026-10-26T10:12:33.240Z",
+  "seenAt": "2026-10-26T10:12:33.240Z",
   "source": "live",
   "listings": [
     {
@@ -1316,7 +1316,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "192716",
+      "retailerSku": "65498",
       "url": "https://beautypie.com/products/awesome-bronze-sun-kissed-self-tanning-drops",
       "rawTitle": "Awesome Bronze Gradual Self-Tanning Drops",
       "rawBrand": "Beauty Pie",
@@ -1325,17 +1325,17 @@
       "priceGbp": 22,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Want instant ‘been on a holiday’ face? These genius sun-kissing drops contain natural DHA with Hyaluronic Acid, prebiotic Banana Flower Extract, resurfacing Red Seaweed (to prevent any streaks), plus super nutrient Spirulina AP, Amino Acids and Oligopeptides. Just massage a few drops onto a well cleansed and exfoliated face (we like to do it after dinner) and watch a gorgeous glow-y tan develop. Apply before loading on your serum and/or night cream..",
       "productType": "Skincare",
       "nativePrice": null,
       "retailerId": "beauty-pie",
-      "firstSeenAt": "2026-10-03T06:48:32.122Z",
+      "firstSeenAt": "2026-10-26T10:12:33.240Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -13363,6 +13363,30 @@
       "firstSeenAt": "2026-10-03T06:48:32.122Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "192716",
+      "url": "https://beautypie.com/products/awesome-bronze-sun-kissed-self-tanning-drops",
+      "rawTitle": "Awesome Bronze Gradual Self-Tanning Drops",
+      "rawBrand": "Beauty Pie",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/NEW_PLP_BRONZING_DROPS.jpg?v=1782416925",
+      "priceGbp": 22,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "shopify-products-json",
+      "description": "Want instant ‘been on a holiday’ face? These genius sun-kissing drops contain natural DHA with Hyaluronic Acid, prebiotic Banana Flower Extract, resurfacing Red Seaweed (to prevent any streaks), plus super nutrient Spirulina AP, Amino Acids and Oligopeptides. Just massage a few drops onto a well cleansed and exfoliated face (we like to do it after dinner) and watch a gorgeous glow-y tan develop. Apply before loading on your serum and/or night cream..",
+      "productType": "Skincare",
+      "nativePrice": null,
+      "retailerId": "beauty-pie",
+      "firstSeenAt": "2026-10-03T06:48:32.122Z",
+      "lastSeenAt": "2026-10-26T06:29:49.339Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-26T10:12:33.240Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

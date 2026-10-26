@@ -1,7 +1,7 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-10-26T06:37:57.201Z",
-  "seenAt": "2026-10-26T06:37:57.201Z",
+  "updatedAt": "2026-10-26T10:21:53.988Z",
+  "seenAt": "2026-10-26T10:21:53.988Z",
   "source": "live",
   "listings": [
     {
@@ -3393,32 +3393,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "3760060761255",
-      "url": "https://dumontparfums.com/products/jus-d-amour",
-      "rawTitle": "Jus D' Amour 100ml",
-      "rawBrand": "Maxo Parfum",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/products/JusDAmour_PourFemme_2.jpg?v=1751434228",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Jus D' Amour is a captivating perfume that embodies the essence of a lush garden, combining a variety of scents into one exquisite fragrance. With its blend of blood orange, nectarine, lotus, water lily, coconut musk, it enchants and attracts attention. Fragrance Notes: . Top Notes: ORANGE, NECTARINE. Heart Notes: LOTUS, STAR APPLE, RASPBERRY, WATER LILY. Base Notes: MUSK, SANDALWOOD, COCONUT.",
-      "productType": "Perfume",
-      "nativePrice": {
-        "amount": 95,
-        "currency": "AED"
-      },
-      "retailerId": "dumont",
-      "firstSeenAt": "2026-08-05T18:10:57.418Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "3760060761729",
       "url": "https://dumontparfums.com/products/encore-vision",
       "rawTitle": "Encore Vision 100ml",
@@ -4636,6 +4610,33 @@
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3760060761255",
+      "url": "https://dumontparfums.com/products/jus-d-amour",
+      "rawTitle": "Jus D' Amour 100ml",
+      "rawBrand": "Maxo Parfum",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/products/JusDAmour_PourFemme_2.jpg?v=1751434228",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Jus D' Amour is a captivating perfume that embodies the essence of a lush garden, combining a variety of scents into one exquisite fragrance. With its blend of blood orange, nectarine, lotus, water lily, coconut musk, it enchants and attracts attention. Fragrance Notes: . Top Notes: ORANGE, NECTARINE. Heart Notes: LOTUS, STAR APPLE, RASPBERRY, WATER LILY. Base Notes: MUSK, SANDALWOOD, COCONUT.",
+      "productType": "Perfume",
+      "nativePrice": {
+        "amount": 95,
+        "currency": "AED"
+      },
+      "retailerId": "dumont",
+      "firstSeenAt": "2026-08-05T18:10:57.418Z",
+      "lastSeenAt": "2026-10-26T06:37:57.201Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-26T10:21:53.988Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

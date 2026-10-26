@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-26T06:39:22.424Z",
-  "seenAt": "2026-10-26T06:39:22.424Z",
+  "updatedAt": "2026-10-26T10:23:18.599Z",
+  "seenAt": "2026-10-26T10:23:18.599Z",
   "source": "live",
   "listings": [
     {
@@ -2314,7 +2314,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Immerse yourself in Jo's personal scent with the Jo by Jo Loves Bath & Shower Gel and Body Lotion. The gel, infused with sparkling citrus and Aloe Leaf Juice, offers a refreshing cleanse. Our lotion, a love letter to Jo's signature scent, blends grapefruit, orange, lime, spearmint, black pepper, and more, leaving your skin smooth with cocoa butter, almond, grape seed oil, and vitamin E. Experience Jo's past, present, and future in every indulgent application. Jo's everyday go-to fragrance, which she affectionately refers to it as 'Parfum Jo.' Her olfactory signature, it's as synonymous with her as the iconic Red Dot.",
       "productType": null,
