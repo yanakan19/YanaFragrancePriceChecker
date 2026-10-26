@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-26T14:19:16.531Z",
-  "seenAt": "2026-10-26T14:19:16.531Z",
+  "updatedAt": "2026-10-26T18:07:30.530Z",
+  "seenAt": "2026-10-26T18:07:30.530Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Envelop your home in the quiet luxury of Christmas morning. The Christmas Trees Room Spray blends aromatic pine, encens, and warm clove, wrapped in rich cedar and amber - evoking the elegance of freshly cut evergreens and softly falling snow. A single spritz transforms the air into pure festive sophistication.",
       "productType": null,
@@ -2452,7 +2452,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Refresh your space with our Amber Lime & Bergamot diffuser refill, inspired by the elegance of the Concours d’Elegance. Simply top up your existing diffuser to enjoy its warm, sophisticated scent for longer - sustainably and effortlessly.",
       "productType": null,
@@ -2475,7 +2475,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Ignite the night with Amber Lime & Bergamot, a creation by the Scent Maverick inspired by the glamour of the Hurlingham Club’s Concours d’Elegance. Notes of bergamot, white amber, lime, and patchouli shimmer like vintage chrome beneath golden light. Hand‑crafted in England, this candle fills the air with warmth and sensuality - the scent of champagne moments and endless summer nights.",
       "productType": null,

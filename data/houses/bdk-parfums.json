@@ -1,13 +1,13 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-10-26T14:19:13.039Z",
-  "seenAt": "2026-10-26T14:19:13.039Z",
+  "updatedAt": "2026-10-26T18:07:25.313Z",
+  "seenAt": "2026-10-26T18:07:25.313Z",
   "source": "live",
   "listings": [
     {
       "retailerSku": "BDKDECC8X2",
       "url": "https://bdkparfums.com/products/coffret-decouverte-medium",
-      "rawTitle": "Coffret à composer - Exploration",
+      "rawTitle": "Coffret à composer - Exploration 8x2ml",
       "rawBrand": "BDK Parfums",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/LaDecouverteParsiennenew_5.jpg?v=1696605711",

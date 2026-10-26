@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-26T14:19:16.984Z",
+  "checkedAt": "2026-10-26T18:07:31.376Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,17 +58,16 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "GBP",
-      "listings": 414,
+      "currency": "SEK",
+      "listings": 507,
       "pricedInGbp": 0,
-      "withPhoto": 392,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 484,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "prices are in SEK, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -142,7 +141,7 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
+      "currency": "USD",
       "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 59,
@@ -151,7 +150,7 @@
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -476,9 +475,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 699,
+      "listings": 701,
       "pricedInGbp": 0,
-      "withPhoto": 699,
+      "withPhoto": 701,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

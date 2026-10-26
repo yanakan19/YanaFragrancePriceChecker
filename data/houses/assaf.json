@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-26T14:11:28.219Z",
-  "seenAt": "2026-10-26T14:11:28.219Z",
+  "updatedAt": "2026-10-26T17:59:01.064Z",
+  "seenAt": "2026-10-26T17:59:01.064Z",
   "source": "live",
   "listings": [
     {
@@ -3496,7 +3496,7 @@
       "description": ". .",
       "productType": "women",
       "nativePrice": {
-        "amount": 109,
+        "amount": 145,
         "currency": "AED"
       },
       "nativeWasPrice": 199,
