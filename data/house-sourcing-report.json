@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-27T01:54:28.813Z",
+  "checkedAt": "2026-10-27T05:52:21.874Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -141,10 +141,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 59,
+      "listings": 48,
       "pricedInGbp": 0,
-      "withPhoto": 58,
-      "errors": [],
+      "withPhoto": 48,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -257,7 +259,7 @@
       "currency": null,
       "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 25,
+      "withPhoto": 37,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
@@ -323,16 +325,20 @@
       "houseId": "dumont",
       "name": "Dumont Paris",
       "origin": "https://dumontparfums.com",
-      "routeUsed": "shopify-products-json",
+      "routeUsed": null,
       "currency": "AED",
-      "listings": 178,
+      "listings": 0,
       "pricedInGbp": 0,
-      "withPhoto": 178,
-      "errors": [],
+      "withPhoto": 0,
+      "errors": [
+        "https://dumontparfums.com/products.json?limit=250&page=1: HTTP 503",
+        "https://dumontparfums.com/sitemap_products_1.xml?from=8222548754742&amp;to=15419208728886: HTTP 503"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "dumontparis.com is the brand site and dumontparfums.com the shop; this points at the shop because that is what carries prices, but the relationship between the two was not confirmed",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "prices are in AED, not GBP — needs a UK price source before these are comparable",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {

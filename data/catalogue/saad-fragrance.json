@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-27T01:44:31.869Z",
-  "seenAt": "2026-10-27T01:44:31.869Z",
+  "updatedAt": "2026-10-27T05:41:48.294Z",
+  "seenAt": "2026-10-27T05:41:48.294Z",
   "source": "live",
   "listings": [
     {
@@ -681,7 +681,7 @@
       "priceGbp": 35.99,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rose Noir by Ahmed Al Maghribi is a Floral fragrance for women. Top notes are Ginger, Jasmine and Sicilian Orange; middle notes are Vanilla Bean, Powdery Notes and Sea Notes; base notes are Musk, Cashmeran, Sandalwood and Ambergris.. .",
       "productType": null,
