@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 218,
+ "folded": 219,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -4201,6 +4201,38 @@
    ]
   },
   {
+   "canonical": "set-ean-5060524511258",
+   "absorbed": [
+    "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060524511258",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Eau De Toilette 100ml, Body Spray 150ml & Shower Gel 150ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "5060524511258",
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "beautybase"
+     ]
+    },
+    {
+     "id": "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-5060524511272",
    "absorbed": [
     "set-cristiano-ronaldo-cr7-play-it-cool-gift-set-100ml-edt-spray-150ml-shower-gel-150ml-body-spray"
@@ -7330,49 +7362,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 5060524511258, 5060524511739"
-   ],
-   "members": [
-    {
-     "id": "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-ean-5060524511258",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Eau De Toilette 100ml, Body Spray 150ml & Shower Gel 150ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511258",
-     "scent": "cr7",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "beautybase"
-     ]
-    },
-    {
-     "id": "set-ean-5060524511739",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511739",
-     "scent": "cr7",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.50 is over 1.5"
    ],
    "members": [
@@ -9464,7 +9453,7 @@
   },
   {
    "reasons": [
-    "price spread 2.08 is over 1.5"
+    "price spread 2.16 is over 1.5"
    ],
    "members": [
     {
@@ -9664,12 +9653,13 @@
     {
      "id": "set-ean-3386460156004",
      "brand": "Jimmy Choo",
-     "name": "I Want Choo Eau de Parfum Women's Perfume Gift Set (60ml) with 100ml Body Lotion",
+     "name": "I Want Choo Gift Set 60ml EDP + 100ml Body Lotion",
      "concentration": "Eau de Parfum",
      "ean": "3386460156004",
      "scent": "choo i want",
      "signature": "1x100body|1x60fragrance",
      "shops": [
+      "perfume-click",
       "perfume-direct"
      ]
     },
