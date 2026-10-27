@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-27T05:41:50.389Z",
-  "seenAt": "2026-10-27T05:41:50.389Z",
+  "updatedAt": "2026-10-27T09:18:29.681Z",
+  "seenAt": "2026-10-27T09:18:29.681Z",
   "source": "live",
   "listings": [
     {
@@ -2567,7 +2567,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Soft elegance.. A beige warm scarf easy to slip easily over the head on a chilly evening and to style with a variety of outfits..",
       "productType": "ACCESSORIES",
@@ -31915,7 +31915,7 @@
       "priceGbp": 16,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: The small things are made to last, so treat yourself to the loving fruity and floral fragrance of Lov U Eau de Parfum. Real romance happens every day with juicy raspberry, beautiful rose and warm cashmere wood. Product specification: • Top note: raspberry. • Middle note: rose. • Base note: cashmere woods. • 50ml. How to wear me: Spritz the joyful perfume onto your pulse points and discover the romantic, fruity and floral scent throughout the day.",
       "productType": "FRAGRANCE",
