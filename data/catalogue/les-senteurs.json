@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-27T13:09:24.560Z",
-  "seenAt": "2026-10-27T13:09:24.560Z",
+  "updatedAt": "2026-10-27T17:07:16.502Z",
+  "seenAt": "2026-10-27T17:07:16.502Z",
   "source": "live",
   "listings": [
     {
@@ -8202,7 +8202,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Andy Tauer says, \"L'oudh smells of a thousand things. I detect floral qualities in there, woody and animalic notes. Mushrooms, humid soil, the earth of a forest glade where I spent a lot of time as a boy, growing up in the Swiss countryside. This is an amazing scent of decaying wood, mushroom notes, warmth.\". A true collectible, created around a natural oudh extract from Laos. . Top Notes: Rose, Jasmine.. Heart Notes: Cistus Rock Rose, Cypriol, Styrax, Myrrh, Tobacco.. Base Notes: Vetiver, Patchouli, Oudh, Sandalwood..",
       "productType": "Fragrance",
@@ -14458,7 +14458,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "This intense, hazy vanilla extract plunges us deep into the mysteries of the abyss and universe. The gravitational force of spices carries patchouli and white musk essences in its wake. A constellation of woody notes then appears, revealing the solar aura of majestic, incandescent vanilla.. Top Notes: Bergamot, Elemi Heart Notes: Cinnamon, Fir Balsam, Labdanum Base notes: Patchouli, Vanilla, Caramel, Ambroxan, White Musks .",
       "productType": "Fragrance",
@@ -26073,7 +26073,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The scent of the American prairies, coffee on a camp fire, tobacco smoke, fresh woods, and seasoned leather. A perfume of infinite adventure and the blue grass plains of Kentucky. Geranium, carrot seed and clary sage are a prelude to smoky leather, cistus, jasmine and vetiver which deepen into rich myrrh, tonka and sandalwood.. . Top Notes: Carrot Seeds, Geranium, Clary sage Heart Notes: Jasmine, Leather, Labdanum Base Notes: Sandalwood, Tonka Bean, Vetiver, Myrrh .",
       "productType": "Fragrance",

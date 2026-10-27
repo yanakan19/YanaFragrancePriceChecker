@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-27T13:21:04.798Z",
+  "checkedAt": "2026-10-27T17:16:56.473Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,9 +59,9 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 462,
+      "listings": 385,
       "pricedInGbp": 0,
-      "withPhoto": 440,
+      "withPhoto": 369,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -143,10 +143,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
+      "listings": 52,
       "pricedInGbp": 0,
-      "withPhoto": 59,
-      "errors": [],
+      "withPhoto": 51,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -257,9 +259,9 @@
       "origin": "https://maisonalhambra.co",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 60,
+      "listings": 47,
       "pricedInGbp": 0,
-      "withPhoto": 37,
+      "withPhoto": 47,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
