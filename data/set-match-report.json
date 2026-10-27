@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 217,
+ "folded": 216,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1117,38 +1117,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0888066163538",
-   "absorbed": [
-    "set-tom-ford-lost-cherry-gift-set-50ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0888066163538",
-     "brand": "Tom Ford",
-     "name": "Lost Cherry Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0888066163538",
-     "scent": "cherry lost",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-tom-ford-lost-cherry-gift-set-50ml-edp-10ml-edp",
-     "brand": "Tom Ford",
-     "name": "Lost Cherry Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "cherry lost",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0888066167123",
    "absorbed": [
     "set-tom-ford-f-fabulous-gift-set-50ml-edp-10ml-edp"
@@ -1719,7 +1687,8 @@
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
       "fragrance-click",
-      "paco-perfumerias-uk"
+      "paco-perfumerias-uk",
+      "perfume-click"
      ]
     },
     {
