@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-10-27T09:13:31.284Z",
-  "seenAt": "2026-10-27T09:13:31.284Z",
+  "updatedAt": "2026-10-27T13:09:30.291Z",
+  "seenAt": "2026-10-27T13:09:30.291Z",
   "source": "live",
   "listings": [
     {
@@ -1049,7 +1049,7 @@
       "priceGbp": 28.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "This is a timeless, ageless, gender-neutral slice of citrus perfection and epitomises the sunny, energising approach to fragrances of the countries based around the Mediterranean. The scent explodes from the bottle, it is dazzling, vibrant and sunny. It refreshes and makes one feel alive. One of the finest examples of a classic citrus fragrance ever conceived, Lawrence stocked it from the launch of Roullier White in 2005 until the brand became unavailable in the UK in 2020.. Fragrance Notes . Lemons, Rosemary, Bergamot Oranges, Geranium and Eucalyptus.. Fragrance House . In the late 1800's, three cousins, Herminio, Berlarmino and Emilio travelled to Madrid looking for work and found it in a friend's drugstore. When the owner retired they took over the shop and built a reputation as fine fragrance merchants, moving to No2 Sevila Street where the business remains to this day. The brand's first creation, 'Agua de Colonia Concentrada', was launched in 1912 and the scent is now produced, to the same formula, by the 4th generation of the family.. 150ml Spray Bottle. .",
       "productType": "Perfume",
@@ -1923,7 +1923,7 @@
       "priceGbp": 20,
       "wasPriceGbp": 30,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "This is one of my favourite fragrance families - the fern is, of course, a concept rather than a scent, denoting a soft, shaded, green smell. This is achieved here with mint and basil, lemon and bergamot plus a fantastic geranium heart (earth and citrus if you fondle a leaf). The base is quite something too, with vanilla and tonka adding their creaminess over a delicious sandalwood. Again this is bright and refreshing, but less boisterous and more mellow than the Green Tea!. For long walks in the park, relaxing and contemplation!. 250 ml.",
       "productType": "Perfume",

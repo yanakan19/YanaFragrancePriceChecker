@@ -1,7 +1,7 @@
 {
   "retailerId": "amouage",
-  "updatedAt": "2026-10-27T09:23:08.703Z",
-  "seenAt": "2026-10-27T09:23:08.703Z",
+  "updatedAt": "2026-10-27T13:20:56.867Z",
+  "seenAt": "2026-10-27T13:20:56.867Z",
   "source": "live",
   "listings": [
     {
@@ -1444,7 +1444,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "An exclusive discovery sampler set , containing six spray samples of the House of Amouage's Men's Collection. The curated selection includes: Reflection Man , Interlude Man , Purpose , Meander , Royal Tobacco and Epic Man .. Size: 6 x 2ml individual samples.",
       "productType": "SET",

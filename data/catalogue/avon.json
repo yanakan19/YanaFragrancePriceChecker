@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-27T09:18:29.681Z",
-  "seenAt": "2026-10-27T09:18:29.681Z",
+  "updatedAt": "2026-10-27T13:09:24.560Z",
+  "seenAt": "2026-10-27T13:09:24.560Z",
   "source": "live",
   "listings": [
     {
@@ -8938,7 +8938,7 @@
       "priceGbp": 9,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "This elegant plaster pomander paired with soothing lavender essential oil is designed to help you relax and unwind. Hang it in your bathroom, bedroom or wardrobe, or let it double as a stylish decorative accent. A beautiful way to refresh your surroundings and your mood..",
       "productType": "HOME DECOR",
