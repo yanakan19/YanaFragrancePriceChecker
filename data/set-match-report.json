@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 214,
+ "folded": 217,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -295,7 +295,8 @@
   {
    "canonical": "set-ean-0085805377441",
    "absorbed": [
-    "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel"
+    "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel",
+    "set-elizabeth-arden-red-door-gift-set-100ml-edt-100ml-shower-gel-100ml-body-lotion"
    ],
    "members": [
     {
@@ -320,6 +321,18 @@
      "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
       "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-elizabeth-arden-red-door-gift-set-100ml-edt-100ml-shower-gel-100ml-body-lotion",
+     "brand": "Elizabeth Arden",
+     "name": "Red Door Gift Set 100ml EDT - 100ml Shower Gel - 100ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "door red",
+     "signature": "1x100body|1x100fragrance|1x100wash",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
@@ -1460,6 +1473,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -3280,6 +3325,38 @@
      "signature": "3x10fragrance",
      "shops": [
       "perfume-market-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3616305631961",
+   "absorbed": [
+    "set-marc-jacobs-perfect-gift-set-100ml-edp-75ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616305631961",
+     "brand": "Marc Jacobs",
+     "name": "Perfect Gift Set 100ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3616305631961",
+     "scent": "perfect",
+     "signature": "1x100fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-marc-jacobs-perfect-gift-set-100ml-edp-75ml-body-lotion",
+     "brand": "Marc Jacobs",
+     "name": "Perfect Gift Set 100ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "perfect",
+     "signature": "1x100fragrance|1x75body",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
@@ -7159,37 +7236,6 @@
   },
   {
    "reasons": [
-    "price spread 1.64 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-chloe-nomade-gift-set-75ml-edp-5ml-edp-100ml-body-lotion",
-     "brand": "Chloé",
-     "name": "Nomade Gift Set 75ml EDP + 5ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "nomade",
-     "signature": "1x100body|1x5fragrance|1x75fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
-     "id": "set-ean-3616306129009",
-     "brand": "Chloé",
-     "name": "Nomade Gift Set 75ml EDP + 5ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306129009",
-     "scent": "nomade",
-     "signature": "1x100body|1x5fragrance|1x75fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.65 is over 1.5"
    ],
    "members": [
@@ -9893,6 +9939,38 @@
   },
   {
    "reasons": [
+    "price spread 1.70 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222108373",
+     "brand": "Narciso Rodriguez",
+     "name": "All Of Me Gift Set 30ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3423222108373",
+     "scent": "all me",
+     "signature": "1x30fragrance|1x50body",
+     "shops": [
+      "perfume-click",
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-narciso-rodriguez-all-of-me-gift-set-30ml-edp-50ml-body-lotion",
+     "brand": "Narciso Rodriguez",
+     "name": "All Of Me Gift Set 30ml EDP - 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "all me",
+     "signature": "1x30fragrance|1x50body",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.79 is over 1.5"
    ],
    "members": [
@@ -10618,6 +10696,7 @@
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x?deo",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -10704,7 +10783,8 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3616305278319, 3616305447685"
+    "two different barcodes: 3616305278319, 3616305447685",
+    "price spread 1.85 is over 1.5"
    ],
    "members": [
     {
@@ -10732,6 +10812,18 @@
      "shops": [
       "perfume-click",
       "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-gucci-flora-gorgeous-orchid-gift-set-50ml-edp-10ml-edp",
+     "brand": "Gucci",
+     "name": "Flora Gorgeous Orchid Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "flora gorgeous orchid",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
