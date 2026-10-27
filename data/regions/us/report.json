@@ -1,26 +1,26 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-26T15:34:47.797Z",
+  "builtAt": "2026-10-27T14:37:50.034Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 23,
   "shopsPriced": 23,
-  "crawlMinutes": 57.46,
-  "harvestRanAt": "2026-10-26T14:37:19.626Z",
-  "listingsPriced": 69605,
-  "listingsKept": 34805,
+  "crawlMinutes": 57.39,
+  "harvestRanAt": "2026-10-27T13:40:25.872Z",
+  "listingsPriced": 69501,
+  "listingsKept": 34608,
   "staleAfterDays": 7,
-  "products": 22581,
-  "productsWithTwoOrMoreShops": 6815,
+  "products": 22593,
+  "productsWithTwoOrMoreShops": 6818,
   "shareWithTwoOrMoreShops": 0.302,
-  "productsWithTwoOrMoreIndependentShops": 3114,
+  "productsWithTwoOrMoreIndependentShops": 3116,
   "shareWithTwoOrMoreIndependentShops": 0.138,
-  "productsWithThreeOrMoreShops": 4039,
-  "medianPriceGap": 0.308,
+  "productsWithThreeOrMoreShops": 4037,
+  "medianPriceGap": 0.309,
   "listingBarcodeShare": 0.199,
-  "productsMatchingUkByBarcode": 2176,
+  "productsMatchingUkByBarcode": 2185,
   "shops": [
     {
       "id": "aedes",
@@ -29,12 +29,12 @@
     },
     {
       "id": "beauty-encounter",
-      "products": 5082,
-      "shared": 1412
+      "products": 5095,
+      "shared": 1413
     },
     {
       "id": "beautyhabit",
-      "products": 856,
+      "products": 855,
       "shared": 232
     },
     {
@@ -44,8 +44,8 @@
     },
     {
       "id": "dillards",
-      "products": 1271,
-      "shared": 454
+      "products": 1279,
+      "shared": 455
     },
     {
       "id": "ds-and-durga",
@@ -54,7 +54,7 @@
     },
     {
       "id": "ellis-brooklyn",
-      "products": 42,
+      "products": 43,
       "shared": 0
     },
     {
@@ -74,8 +74,8 @@
     },
     {
       "id": "la-belle-perfumes",
-      "products": 4857,
-      "shared": 1397
+      "products": 4858,
+      "shared": 1401
     },
     {
       "id": "luckyscent",
@@ -90,7 +90,7 @@
     {
       "id": "microperfumes",
       "products": 507,
-      "shared": 350
+      "shared": 353
     },
     {
       "id": "ministry-of-scent",
@@ -114,7 +114,7 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 553,
+      "products": 550,
       "shared": 204
     },
     {
@@ -124,18 +124,18 @@
     },
     {
       "id": "ulta",
-      "products": 1133,
+      "products": 1132,
       "shared": 346
     }
   ],
-  "productsShown": 22459,
-  "productsWithUkPhoto": 5415,
-  "productsWithUkPhotoByBarcode": 1656,
-  "productsWithUkPhotoByName": 3759,
-  "listingsWithReference": 23574,
-  "offersWithCorroboratedReference": 11532,
-  "deals": 1854,
-  "shareWithUkPhoto": 0.241,
+  "productsShown": 22471,
+  "productsWithUkPhoto": 5431,
+  "productsWithUkPhotoByBarcode": 1663,
+  "productsWithUkPhotoByName": 3768,
+  "listingsWithReference": 23593,
+  "offersWithCorroboratedReference": 11539,
+  "deals": 1863,
+  "shareWithUkPhoto": 0.242,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
