@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-25T23:33:46.832Z",
+ "builtAt": "2026-10-27T00:51:57.175Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 13645,
- "offersWithCorroboratedReference": 2196,
+ "listingsWithReference": 13669,
+ "offersWithCorroboratedReference": 2204,
  "deals": [
   {
    "fragranceId": "aar-fragrances-lalique-encre-noire-100ml",
@@ -148,6 +148,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-ahmed-al-maghribi-marj-3",
+   "price": 4000,
+   "delivered": false,
+   "wasPrice": 8000,
+   "percentOff": 50,
+   "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-fragrance-world-urban-man-paradise",
    "price": 1839,
    "delivered": false,
@@ -258,16 +268,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-lattafa-his-confession",
-   "price": 3250,
-   "delivered": true,
-   "wasPrice": 6350,
-   "percentOff": 48,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-rasasi-hawas-la-mer",
    "price": 3350,
    "delivered": true,
@@ -284,16 +284,6 @@
    "wasPrice": 8000,
    "percentOff": 47,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-arabiyat-prestige-kohl-luminous",
-   "price": 2629,
-   "delivered": false,
-   "wasPrice": 4999,
-   "percentOff": 47,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -448,6 +438,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-lattafa-his-confession",
+   "price": 3500,
+   "delivered": false,
+   "wasPrice": 6500,
+   "percentOff": 46,
+   "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-lattafa-the-kingdom-3",
    "price": 2700,
    "delivered": false,
@@ -524,16 +524,6 @@
    "wasPrice": 6500,
    "percentOff": 45,
    "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-bentley-for-men-absolute",
-   "price": 4999,
-   "delivered": true,
-   "wasPrice": 9100,
-   "percentOff": 45,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -1348,6 +1338,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-bentley-for-men-absolute",
+   "price": 3999,
+   "delivered": true,
+   "wasPrice": 6600,
+   "percentOff": 39,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-khadlaj-shiyaaka-shadow",
    "price": 2890,
    "delivered": true,
@@ -1918,6 +1918,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-rasasi-hawas-venom",
+   "price": 3500,
+   "delivered": false,
+   "wasPrice": 5500,
+   "percentOff": 36,
+   "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-swiss-arabian-rose-01",
    "price": 4850,
    "delivered": true,
@@ -1932,16 +1942,6 @@
    "price": 4850,
    "delivered": true,
    "wasPrice": 7590,
-   "percentOff": 36,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-versace-eros-edp-200ml",
-   "price": 9200,
-   "delivered": true,
-   "wasPrice": 14400,
    "percentOff": 36,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -2132,6 +2132,16 @@
    "price": 2250,
    "delivered": true,
    "wasPrice": 3500,
+   "percentOff": 35,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-rasasi-hawas-boa",
+   "price": 4850,
+   "delivered": true,
+   "wasPrice": 7500,
    "percentOff": 35,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -2798,6 +2808,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-guess-girl-l-edt-100ml",
+   "price": 2689,
+   "delivered": true,
+   "wasPrice": 4000,
+   "percentOff": 32,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-nishane-ani-without-cellophane",
    "price": 19200,
    "delivered": true,
@@ -2834,6 +2854,16 @@
    "wasPrice": 7000,
    "percentOff": 32,
    "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-afnan-lynked-freedom",
+   "price": 4450,
+   "delivered": true,
+   "wasPrice": 6500,
+   "percentOff": 31,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -3238,6 +3268,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-arabiyat-prestige-kohl-luminous",
+   "price": 2459,
+   "delivered": false,
+   "wasPrice": 3499,
+   "percentOff": 29,
+   "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-bvlgari-man-in-black-1",
    "price": 8999,
    "delivered": false,
@@ -3264,16 +3304,6 @@
    "wasPrice": 4250,
    "percentOff": 29,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-rasasi-hawas-venom",
-   "price": 3900,
-   "delivered": false,
-   "wasPrice": 5500,
-   "percentOff": 29,
-   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -4104,6 +4134,16 @@
    "wasPrice": 9995,
    "percentOff": 25,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-gucci-guilty-pf-edt-90ml",
+   "price": 9900,
+   "delivered": true,
+   "wasPrice": 13255,
+   "percentOff": 25,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -5038,6 +5078,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-versace-eros-edp-200ml",
+   "price": 12320,
+   "delivered": false,
+   "wasPrice": 15400,
+   "percentOff": 20,
+   "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-versace-eros-energy",
    "price": 12320,
    "delivered": false,
@@ -5608,16 +5658,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-givenchy-gentleman-reserve-privee-3",
-   "price": 9900,
-   "delivered": true,
-   "wasPrice": 11850,
-   "percentOff": 16,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-john-varvatos-artisan-pure",
    "price": 5450,
    "delivered": true,
@@ -5774,6 +5814,16 @@
    "wasPrice": 2525,
    "percentOff": 15,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-guerlain-lhomme-ideal-edp",
+   "price": 10300,
+   "delivered": true,
+   "wasPrice": 12250,
+   "percentOff": 15,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -6912,6 +6962,16 @@
    "price": 2950,
    "delivered": true,
    "wasPrice": 3250,
+   "percentOff": 9,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-ahmed-al-maghribi-ighraa-edp-m-100ml",
+   "price": 2499,
+   "delivered": true,
+   "wasPrice": 2750,
    "percentOff": 9,
    "retailerId": "fridaycharm",
    "kind": "retailer",
