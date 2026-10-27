@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-10-27T06:35:37.627Z";
+export const DEALS_GENERATED_AT = "2026-10-27T09:10:28.901Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -962,16 +962,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3607349764289",
-    "price": 29.95,
-    "delivered": true,
-    "wasPrice": 62,
-    "percentOff": 51,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3607342221208",
     "price": 53.95,
     "delivered": true,
@@ -1428,6 +1418,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 24.99,
     "percentOff": 20,
     "retailerId": "perfume-closet",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3607349764289",
+    "price": 36.5,
+    "delivered": true,
+    "wasPrice": 73,
+    "percentOff": 50,
+    "retailerId": "lloyds-pharmacy",
     "kind": "retailer",
     "houseName": null
   },
@@ -40448,16 +40448,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 90,
     "percentOff": 43,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460082181",
-    "price": 36.48,
-    "delivered": true,
-    "wasPrice": 54.99,
-    "percentOff": 33,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
