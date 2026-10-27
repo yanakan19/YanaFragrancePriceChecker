@@ -1,18 +1,18 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-10-26T11:30:41.415Z",
+  "builtAt": "2026-10-27T11:00:36.675Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 10,
   "shopsPriced": 10,
-  "crawlMinutes": 7.06,
-  "harvestRanAt": "2026-10-26T11:23:36.842Z",
-  "listingsPriced": 46702,
-  "listingsKept": 36619,
+  "crawlMinutes": 12.31,
+  "harvestRanAt": "2026-10-27T10:48:17.203Z",
+  "listingsPriced": 46709,
+  "listingsKept": 36628,
   "staleAfterDays": 7,
-  "products": 26631,
+  "products": 26638,
   "productsWithTwoOrMoreShops": 6310,
   "shareWithTwoOrMoreShops": 0.237,
   "productsWithTwoOrMoreIndependentShops": 6310,
@@ -24,8 +24,8 @@
   "shops": [
     {
       "id": "discount-fragrances-ca",
-      "products": 875,
-      "shared": 656
+      "products": 879,
+      "shared": 658
     },
     {
       "id": "fragrance-canada",
@@ -34,7 +34,7 @@
     },
     {
       "id": "fragrance-online-co",
-      "products": 796,
+      "products": 795,
       "shared": 471
     },
     {
@@ -44,17 +44,17 @@
     },
     {
       "id": "maximum-fragrance",
-      "products": 9573,
+      "products": 9578,
       "shared": 4425
     },
     {
       "id": "niche-essence",
-      "products": 1257,
+      "products": 1255,
       "shared": 423
     },
     {
       "id": "parfum-exquis",
-      "products": 3004,
+      "products": 3007,
       "shared": 365
     },
     {
@@ -73,13 +73,13 @@
       "shared": 5341
     }
   ],
-  "productsShown": 26631,
-  "productsWithUkPhoto": 5588,
+  "productsShown": 26638,
+  "productsWithUkPhoto": 5597,
   "productsWithUkPhotoByBarcode": 1451,
-  "productsWithUkPhotoByName": 4137,
-  "listingsWithReference": 10819,
-  "offersWithCorroboratedReference": 3292,
-  "deals": 1086,
+  "productsWithUkPhotoByName": 4146,
+  "listingsWithReference": 10818,
+  "offersWithCorroboratedReference": 3293,
+  "deals": 1084,
   "shareWithUkPhoto": 0.21,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",

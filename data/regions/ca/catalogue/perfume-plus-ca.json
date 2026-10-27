@@ -2,10 +2,10 @@
   "retailerId": "perfume-plus-ca",
   "region": "CA",
   "currency": "CAD",
-  "updatedAt": "2026-10-26T11:23:36.842Z",
+  "updatedAt": "2026-10-27T10:48:17.203Z",
   "complete": true,
   "listings": [
-    {"retailerSku":"house-of-viva-la-juicy-3-piece-travel-spray-set","url":"https://www.perfumeplus.ca/product-page/house-of-viva-la-juicy-3-piece-travel-spray-set","rawTitle":"HOUSE OF VIVA LA JUICY 3-PIECE TRAVEL SPRAY SET","rawBrand":"Juicy Couture","ean":null,"price":34.95,"wasPrice":null,"inStock":true,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-22T17:13:34.291Z","lastSeenAt":"2026-10-26T11:23:36.842Z","status":"active"},
-    {"retailerSku":"jean-paul-gaultier-madame-for-woman","url":"https://www.perfumeplus.ca/product-page/jean-paul-gaultier-madame-for-woman","rawTitle":"JEAN PAUL GAULTIER  MADAME FOR WOMAN GIFT SET","rawBrand":"Jean Paul Gaultier","ean":null,"price":120,"wasPrice":null,"inStock":true,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-22T17:13:34.291Z","lastSeenAt":"2026-10-26T11:23:36.842Z","status":"active"}
+    {"retailerSku":"house-of-viva-la-juicy-3-piece-travel-spray-set","url":"https://www.perfumeplus.ca/product-page/house-of-viva-la-juicy-3-piece-travel-spray-set","rawTitle":"HOUSE OF VIVA LA JUICY 3-PIECE TRAVEL SPRAY SET","rawBrand":"Juicy Couture","ean":null,"price":34.95,"wasPrice":null,"inStock":true,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-22T17:13:34.291Z","lastSeenAt":"2026-10-27T10:48:17.203Z","status":"active"},
+    {"retailerSku":"jean-paul-gaultier-madame-for-woman","url":"https://www.perfumeplus.ca/product-page/jean-paul-gaultier-madame-for-woman","rawTitle":"JEAN PAUL GAULTIER  MADAME FOR WOMAN GIFT SET","rawBrand":"Jean Paul Gaultier","ean":null,"price":120,"wasPrice":null,"inStock":true,"productType":null,"sectionId":"sitemap","firstSeenAt":"2026-10-22T17:13:34.291Z","lastSeenAt":"2026-10-27T10:48:17.203Z","status":"active"}
   ]
 }
