@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-26T08:56:38.172Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-27T09:01:53.993Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -6906,6 +6906,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rayhaan|elixirperfume": ["","https://rayhaanperfumes.com/products/elixir"],
   "rayhaan|elixirperfume|edp": ["","https://rayhaanperfumes.com/products/elixir"],
   "rayhaan|elixir|edp": ["","https://rayhaanperfumes.com/products/elixir"],
+  "rayhaan|equinox": ["","https://rayhaanperfumes.com/products/equinox"],
+  "rayhaan|equinox|edp": ["","https://rayhaanperfumes.com/products/equinox"],
   "rayhaan|imperia": ["","https://rayhaanperfumes.com/products/imperia"],
   "rayhaan|imperiaintense": ["","https://rayhaanperfumes.com/products/imperia-intense"],
   "rayhaan|imperiaintense|edp": ["","https://rayhaanperfumes.com/products/imperia-intense"],
@@ -6974,6 +6976,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rayhaan|valhallaperfume": ["","https://rayhaanperfumes.com/products/rayhaan-valhalla"],
   "rayhaan|valhallaperfume|edp": ["","https://rayhaanperfumes.com/products/rayhaan-valhalla"],
   "rayhaan|valhalla|edp": ["","https://rayhaanperfumes.com/products/rayhaan-valhalla"],
+  "rayhaan|vanillavibe": ["","https://rayhaanperfumes.com/products/vanilla-vibe"],
+  "rayhaan|vanillavibe|edp": ["","https://rayhaanperfumes.com/products/vanilla-vibe"],
   "rayhaan|vantage": ["","https://rayhaanperfumes.com/products/vantage"],
   "rayhaan|vantageperfume": ["","https://rayhaanperfumes.com/products/vantage"],
   "rayhaan|vantageperfume|edp": ["","https://rayhaanperfumes.com/products/vantage"],
@@ -7428,6 +7432,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "swissarabian|spiritofvalencia|extrait": ["","https://swissarabian.com/products/spirit-of-valencia"],
   "swissarabian|swissarabianshaghafamberinfusion": ["","https://swissarabian.com/products/shaghaf-amber-infusion"],
   "swissarabian|swissarabianshaghafamberinfusion|edp": ["","https://swissarabian.com/products/shaghaf-amber-infusion"],
+  "swissarabian|swissarabianshaghafformen": ["","https://swissarabian.com/products/shaghaf-for-men"],
+  "swissarabian|swissarabianshaghafformen|edp": ["","https://swissarabian.com/products/shaghaf-for-men"],
   "swissarabian|tobacco01": ["","https://swissarabian.com/products/tobacco-01"],
   "swissarabian|tobacco01|extrait": ["","https://swissarabian.com/products/tobacco-01"],
   "swissarabian|valencia": ["","https://swissarabian.com/products/valencia"],
