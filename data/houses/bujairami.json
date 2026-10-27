@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-26T21:45:31.234Z",
-  "seenAt": "2026-10-26T21:45:31.234Z",
+  "updatedAt": "2026-10-27T01:51:20.062Z",
+  "seenAt": "2026-10-27T01:51:20.062Z",
   "source": "live",
   "listings": [
     {
@@ -404,7 +404,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A bold and sophisticated fragrance opening with spicy saffron, vibrant pink pepper, and fresh bergamot. The heart blends green violet leaf with rich leather and elegant rose, while patchouli, oak, and vanilla bean create a warm, earthy, and sensual finish.. Fragrance Notes . Top: Saffron, Pink Pepper, Bergamot. Heart: Violet Leaf, Leather, Rose. Base: Patchouli, Oak, Vanilla Bean. Profile: Spicy • Woody • Leather • Floral • Warm.",
       "productType": null,

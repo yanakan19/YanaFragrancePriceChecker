@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-26T21:48:28.303Z",
-  "seenAt": "2026-10-26T21:48:28.303Z",
+  "updatedAt": "2026-10-27T01:54:23.563Z",
+  "seenAt": "2026-10-27T01:54:23.563Z",
   "source": "live",
   "listings": [
     {
@@ -17851,7 +17851,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Get the scoop! Our once limited edition Brazilian Bum Bum Surfboard Spatula is now available to catch every wave of Brazilian Bum Bum Cream. . Here by popular demand and designed to scoop every last drop of this delicious cult fave body treat. Essential and adorable. . .",
       "productType": "Merch",

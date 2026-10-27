@@ -1,7 +1,7 @@
 {
   "retailerId": "glossier-uk",
-  "updatedAt": "2026-10-26T21:42:55.827Z",
-  "seenAt": "2026-10-26T21:42:55.827Z",
+  "updatedAt": "2026-10-27T01:44:36.109Z",
+  "seenAt": "2026-10-27T01:44:36.109Z",
   "source": "live",
   "listings": [
     {
@@ -129,7 +129,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": "Fragrance",
