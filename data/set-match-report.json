@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 218,
+ "folded": 215,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2625,38 +2625,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3614273888547",
-   "absorbed": [
-    "set-giorgio-armani-code-gift-set-15ml-code-edt-15ml-code-edp-15ml-code-parfum-15ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614273888547",
-     "brand": "Giorgio Armani",
-     "name": "Code Gift Set 15ml Code EDT + 15ml Code EDP + 15ml Code Parfum",
-     "concentration": "Eau de Parfum",
-     "ean": "3614273888547",
-     "scent": "code",
-     "signature": "1x15fragrance|1x15fragrance|1x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-giorgio-armani-code-gift-set-15ml-code-edt-15ml-code-edp-15ml-code-parfum-15ml",
-     "brand": "Giorgio Armani",
-     "name": "Code Gift Set 15ml Code EDT + 15ml Code EDP + 15ml Code Parfum 15ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "code",
-     "signature": "1x15fragrance|1x15fragrance|1x15fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3614274091007",
    "absorbed": [
     "set-cacharel-anais-anais-l-original-gift-set-100ml-edt-2-x-50ml-body-lotion"
@@ -3422,38 +3390,6 @@
      "signature": "1x200fragrance|1x75deo",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616306129016",
-   "absorbed": [
-    "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616306129016",
-     "brand": "Chloé",
-     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306129016",
-     "scent": "l",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion",
-     "brand": "Chloé",
-     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "l",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -4225,38 +4161,6 @@
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "cr7",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-5060524511272",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-play-it-cool-gift-set-100ml-edt-spray-150ml-shower-gel-150ml-body-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511272",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Play It Cool Gift Set 100ml EDT Spray + 150ml Shower Gel +150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511272",
-     "scent": "cool cr7 it play",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-play-it-cool-gift-set-100ml-edt-spray-150ml-shower-gel-150ml-body-spray",
-     "brand": "Cristiano Ronaldo",
-     "name": "Cr7 Play It Cool Gift Set 100ml Edt Spray + 150ml Shower Gel +150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cool cr7 it play",
      "signature": "1x100fragrance|1x150body|1x150wash",
      "shops": [
       "mybeauty-boutique"
@@ -8952,12 +8856,13 @@
     {
      "id": "set-ean-3349668628728",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Lady Million Women's Perfume Gift Set (80ml EDP + 20ml EDP)",
+     "name": "Paco Rabanne Lady Million Gift Set 80ml EDP + 20ml EDP",
      "concentration": "Eau de Parfum",
      "ean": "3349668628728",
      "scent": "lady million paco rabanne",
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
+      "perfume-click",
       "perfume-direct"
      ]
     }
