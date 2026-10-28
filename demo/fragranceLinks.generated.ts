@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-27T09:01:53.993Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-28T09:43:00.931Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -346,7 +346,6 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "alharamain|amberoudprivateeditionunisexperfumegiftset75ml30ml250ml|unstated": ["","https://alharamainperfumes.co.uk/products/amber-oud-private-edition-gift-set-edp-75ml-edp-30ml-frarance-mist-250ml"],
   "alharamain|amberoudprivateedition|edp": ["","https://alharamainperfumes.co.uk/products/al-haramain-amber-oud-private-edition-60ml-eau-de-parfum"],
   "alharamain|amberoudrougeeditionforwomen|edp": ["","https://alharamainperfumes.co.uk/products/haramain-amber-oud-rouge-edition-60ml-eau-de-parfumharamain-amber-oud-rouge-edition-spray-60ml"],
-  "alharamain|amberoudrubyedition": ["","https://alharamainperfumes.co.uk/products/al-haramain-amber-oud-ruby-edition-60ml-spray"],
   "alharamain|amberoudrubyeditionunisexperfumegiftset75ml30ml200ml|unstated": ["","https://alharamainperfumes.co.uk/products/amber-oud-ruby-edition-perfume-gift-set"],
   "alharamain|amberoudrubyeditionunisexperfumegiftset75ml30ml250ml|unstated": ["","https://alharamainperfumes.co.uk/products/haramain-amber-oud-gold-edition-gift-set-edp-75ml-edp-30ml-frarance-mist-250ml-copy"],
   "alharamain|amberoudrubyeditionunisex|edp": ["","https://alharamainperfumes.co.uk/products/al-haramain-amber-oud-ruby-edition-60ml-spray"],
@@ -3032,6 +3031,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "escentricmolecules|escentric01scentbodygiftset|unstated": ["","https://escentric.com/products/e01-body-care-gift-set"],
   "escentricmolecules|escentric01travelbodygiftset|unstated": ["","https://escentric.com/products/e01-portable-body-care-gift-set"],
   "escentricmolecules|escentric01unisex": ["","https://www.escentric.com/products/escentric-01-100ml"],
+  "escentricmolecules|escentric01unisex|edp": ["","https://www.escentric.com/products/escentric-01-100ml"],
   "escentricmolecules|escentric01unisex|edt": ["","https://www.escentric.com/products/escentric-01-100ml"],
   "escentricmolecules|escentric01|edt": ["","https://escentric.com/products/escentric-01-200ml"],
   "escentricmolecules|escentric01|unstated": ["","https://escentric.com/products/escentric-01-30ml-refill"],
@@ -3117,6 +3117,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "escentricmolecules|molecule01patchouli|unstated": ["","https://escentric.com/products/molecule-01-patchouli"],
   "escentricmolecules|molecule01portable|unstated": ["","https://escentric.com/products/molecule-01-30ml-cased"],
   "escentricmolecules|molecule01unisex": ["","https://www.escentric.com/products/molecule-01-100ml"],
+  "escentricmolecules|molecule01unisex|edp": ["","https://www.escentric.com/products/molecule-01-100ml"],
   "escentricmolecules|molecule01unisex|edt": ["","https://www.escentric.com/products/molecule-01-100ml"],
   "escentricmolecules|molecule01|edt": ["","https://escentric.com/products/molecule-01-200ml"],
   "escentricmolecules|molecule01|unstated": ["","https://escentric.com/products/molecule-01-30ml-refill"],
@@ -3742,6 +3743,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "givenchy|linterditeaudeparfum50mlholidayfragrancegiftset|edp": ["","https://www.givenchybeauty.com/gb/p/l-interdit-eau-de-parfum---holiday-gift-set-P183649.html"],
   "givenchy|linterditeaudeparfum50mlspraygiftset": ["","https://www.givenchybeauty.com/int/en/p/l-interdit---gift-set-F70000252.html"],
   "givenchy|linterditeaudeparfum50mlspraygiftset|edp": ["","https://www.givenchybeauty.com/int/en/p/l-interdit---gift-set-F70000252.html"],
+  "givenchy|linterditeaudeparfum80mlgiftset|edp": ["","https://www.givenchybeauty.com/us/p/l-interdit-eau-de-parfum-gift-set-F70000276.html"],
   "givenchy|linterditeaudeparfumrouge50mlholidayfragrancegiftset|edp": ["","https://www.givenchybeauty.com/us/p/l-interdit-eau-de-parfum-rouge---holiday-gift-set-P183662.html"],
   "givenchy|linterditeaudeparfumspray50mlgiftset50ml": ["","https://www.givenchybeauty.com/int/en/p/l-interdit---gift-set-F70000252.html"],
   "givenchy|linterditeaudeparfumspray50mlgiftset50ml|edp": ["","https://www.givenchybeauty.com/int/en/p/l-interdit---gift-set-F70000252.html"],
