@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-28T18:18:24.287Z",
-  "seenAt": "2026-10-28T18:18:24.287Z",
+  "updatedAt": "2026-10-28T22:09:33.841Z",
+  "seenAt": "2026-10-28T22:09:33.841Z",
   "source": "live",
   "listings": [
     {
@@ -543,7 +543,7 @@
       "priceGbp": 30.99,
       "wasPriceGbp": 37.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Shiyaka Sky Khadlaj 100ml Eau De Parfum features a citrus opening with Bergamot, Verbena, and Mandarin, transitioning to floral heart notes of Neroli, Orange Blossom, Geranium, and Green Accord. The fragrance settles on a warm base of Musk, Ambroxan, Vetiver, and Sandalwood for lasting depth. .",
       "productType": null,
@@ -957,7 +957,7 @@
       "priceGbp": 32.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Afnan Rare Reef 100ml unisex perfume combines citrus top notes with herbal and floral middle notes, supported by a warm, musky base. Its balanced composition offers a complex scent profile suitable for diverse environments and prolonged wear. .",
       "productType": null,

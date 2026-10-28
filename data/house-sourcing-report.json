@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-28T18:30:03.738Z",
+  "checkedAt": "2026-10-28T22:21:59.930Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -89,12 +89,14 @@
       "houseId": "gulf-orchid",
       "name": "Gulf Orchid",
       "origin": "https://shop-gulforchid.com",
-      "routeUsed": "shopify-products-json",
+      "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 251,
+      "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 251,
-      "errors": [],
+      "withPhoto": 60,
+      "errors": [
+        "https://shop-gulforchid.com/products.json?limit=250&page=1: HTTP 503"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest",
@@ -528,9 +530,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 195,
-      "pricedInGbp": 195,
-      "withPhoto": 194,
+      "listings": 196,
+      "pricedInGbp": 196,
+      "withPhoto": 195,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
