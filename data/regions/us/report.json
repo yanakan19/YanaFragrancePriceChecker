@@ -1,26 +1,26 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-27T14:37:50.034Z",
+  "builtAt": "2026-10-28T15:32:14.510Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 23,
   "shopsPriced": 23,
-  "crawlMinutes": 57.39,
-  "harvestRanAt": "2026-10-27T13:40:25.872Z",
-  "listingsPriced": 69501,
-  "listingsKept": 34608,
+  "crawlMinutes": 57.55,
+  "harvestRanAt": "2026-10-28T14:34:41.168Z",
+  "listingsPriced": 69346,
+  "listingsKept": 34506,
   "staleAfterDays": 7,
-  "products": 22593,
+  "products": 22587,
   "productsWithTwoOrMoreShops": 6818,
   "shareWithTwoOrMoreShops": 0.302,
-  "productsWithTwoOrMoreIndependentShops": 3116,
+  "productsWithTwoOrMoreIndependentShops": 3117,
   "shareWithTwoOrMoreIndependentShops": 0.138,
   "productsWithThreeOrMoreShops": 4037,
   "medianPriceGap": 0.309,
   "listingBarcodeShare": 0.199,
-  "productsMatchingUkByBarcode": 2185,
+  "productsMatchingUkByBarcode": 2186,
   "shops": [
     {
       "id": "aedes",
@@ -79,7 +79,7 @@
     },
     {
       "id": "luckyscent",
-      "products": 2582,
+      "products": 2577,
       "shared": 491
     },
     {
@@ -90,7 +90,7 @@
     {
       "id": "microperfumes",
       "products": 507,
-      "shared": 353
+      "shared": 354
     },
     {
       "id": "ministry-of-scent",
@@ -128,13 +128,13 @@
       "shared": 346
     }
   ],
-  "productsShown": 22471,
-  "productsWithUkPhoto": 5431,
-  "productsWithUkPhotoByBarcode": 1663,
-  "productsWithUkPhotoByName": 3768,
-  "listingsWithReference": 23593,
-  "offersWithCorroboratedReference": 11539,
-  "deals": 1863,
+  "productsShown": 22465,
+  "productsWithUkPhoto": 5427,
+  "productsWithUkPhotoByBarcode": 1658,
+  "productsWithUkPhotoByName": 3769,
+  "listingsWithReference": 23594,
+  "offersWithCorroboratedReference": 11540,
+  "deals": 1859,
   "shareWithUkPhoto": 0.242,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
