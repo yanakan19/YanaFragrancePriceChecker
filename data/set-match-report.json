@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 216,
+ "folded": 217,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2593,6 +2593,39 @@
    ]
   },
   {
+   "canonical": "set-ean-3614228832915",
+   "absorbed": [
+    "set-hugo-boss-the-scent-eau-de-toilette-50ml-duo-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614228832915",
+     "brand": "Hugo Boss",
+     "name": "The Scent 50ml Eau de Toilette Duo Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3614228832915",
+     "scent": "duo scent",
+     "signature": "1x50fragrance|2p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-hugo-boss-the-scent-eau-de-toilette-50ml-duo-set",
+     "brand": "Hugo Boss",
+     "name": "The Scent Eau de Toilette 50ml Duo Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "duo scent",
+     "signature": "1x50fragrance|2p",
+     "shops": [
+      "perfume-market-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3614273670012",
    "absorbed": [
     "set-cacharel-yes-i-am-delicious-gift-set-50ml-edp-10ml-edp"
@@ -5164,6 +5197,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907069",
+   "absorbed": [
+    "set-versace-eros-gift-set-100ml-edp-5ml-edp-150ml-bath-and-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907069",
+     "brand": "Versace",
+     "name": "Eros Gift Set 100ml EDP + 5ml EDP + 150ml Bath and Shower Gel",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003907069",
+     "scent": "eros",
+     "signature": "1x100fragrance|1x150?|1x5fragrance|1x?wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-gift-set-100ml-edp-5ml-edp-150ml-bath-and-shower-gel",
+     "brand": "Versace",
+     "name": "Eros Gift Set 100ml EDP + 5ml EDP + 150ml Bath and Shower Gel",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "eros",
+     "signature": "1x100fragrance|1x150?|1x5fragrance|1x?wash",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003907106",
    "absorbed": [
     "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
@@ -6046,38 +6111,6 @@
      "signature": "2x50fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-hugo-boss-boss-the-scent-eau-de-toilette-for-him-50ml-fragrance-gift-set",
-   "absorbed": [
-    "set-hugo-boss-boss-the-scent-gift-set-50ml-edt-150ml-deodorant-spray"
-   ],
-   "members": [
-    {
-     "id": "set-hugo-boss-boss-the-scent-eau-de-toilette-for-him-50ml-fragrance-gift-set",
-     "brand": "Hugo Boss",
-     "name": "BOSS The Scent Eau de Toilette For Him 50ml Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "boss scent",
-     "signature": "1x150deo|1x50fragrance",
-     "shops": [
-      "john-lewis"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-the-scent-gift-set-50ml-edt-150ml-deodorant-spray",
-     "brand": "Hugo Boss",
-     "name": "Boss The Scent Gift Set 50ml EDT - 150ml Deodorant Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "boss scent",
-     "signature": "1x150deo|1x50fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
