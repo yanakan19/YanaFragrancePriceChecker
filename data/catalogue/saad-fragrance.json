@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-28T07:14:22.524Z",
-  "seenAt": "2026-10-28T07:14:22.524Z",
+  "updatedAt": "2026-10-28T11:11:52.115Z",
+  "seenAt": "2026-10-28T11:11:52.115Z",
   "source": "live",
   "listings": [
     {
@@ -428,7 +428,7 @@
       "priceGbp": 36.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Le bonheur black cavalier VI Eau de Parfum (100ml) combines fresh ginger and bergamot with herbal sage and violet, resting on a base of sandalwood, cedarwood, and patchouli. Crafted by perfumer Jordi Fernández, this composition offers a balanced, long-lasting scent profile. .",
       "productType": null,
@@ -2981,7 +2981,7 @@
       "priceGbp": 41.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Experience the luxurious blend of oud, leather, and saffron in Alf Escalo's Extrait de Parfum. With notes of amber and metallic, this fragrance is perfect for both men and women, adding a touch of sophistication to any occasion. Elevate your scent game with Alf Escalo 50ml EDP..",
       "productType": "Extrait De Parfum",

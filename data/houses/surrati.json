@@ -1,9 +1,35 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-28T07:19:03.840Z",
-  "seenAt": "2026-10-28T07:19:03.840Z",
+  "updatedAt": "2026-10-28T11:16:56.201Z",
+  "seenAt": "2026-10-28T11:16:56.201Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "101044330",
+      "url": "https://surrati.ae/products/cuban-tobacco",
+      "rawTitle": "Cuban Tobacco",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/WhatsAppImage2026-04-04at3.42.44PM.jpg?v=1775647158",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Surrati Cuban Tobacco . Cuban Tobacco is an intense, charismatic fragrance that captures the smoky, honeyed essence of a premium cigar lounge. It is a bold \"gourmand-tobacco\" scent that balances rugged masculinity with a refined, sweet smoothness. Known for its warmth and complexity, it is a statement fragrance that feels both cozy and powerful, making it a favorite for those who want a scent with a strong, distinctive character.. Fragrance Profile: A rich Amber-Woody composition with heavy smoky and sweet accords.. . Key Notes: A dominant Tobacco Leaf accord blended with Vanilla , Spices , and Cacao , anchored by a base of Dry Fruits and Woody notes .. . Best Use: Best suited for evening wear, winter months, or formal night-time events.. . Performance: Exceptional longevity and a warm, enveloping sillage that leaves a memorable trail.. . Vibe: Bold, sophisticated, warm, and mysterious.. . Target Audience: Ideal for those who enjoy \"darker\" scents like Tom Ford's Tobacco Vanille style—perfect for someone wanting a high-end, luxury feel.. . .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 57.75,
+        "currency": "AED"
+      },
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-08-05T11:07:58.528Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-10-28T11:16:56.201Z",
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
     {
       "retailerSku": "101044333",
       "url": "https://surrati.ae/products/jewel-140-ml-opulent-spray-heritage-collection",
@@ -1396,33 +1422,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "101044335",
-      "url": "https://surrati.ae/products/honey-oud-140-ml-marina-spray-heritage-collection",
-      "rawTitle": "Honey Oud",
-      "rawBrand": "Surrati Perfumes",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/3_1.jpg?v=1729596657",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Honey Oud 140 ml - Marina Spray Heritage Collection . Experience the ultimate sophistication with Marina 140 ml - Honey Oud Spray from the Heritage Collection. This blend of woody scents exudes elegance and strength, making it perfect for men and women. Indulge in the luxurious aroma of honey and oud, lasting all day with just a few sprays..",
-      "productType": "Unisex Perfume",
-      "nativePrice": {
-        "amount": 84,
-        "currency": "AED"
-      },
-      "nativeWasPrice": 168,
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-08-05T11:07:58.528Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "101025211",
       "url": "https://surrati.ae/products/musk-al-bait-25-ml",
       "rawTitle": "Musk al Bait 25 Ml",
@@ -2594,6 +2593,34 @@
       "variantId": null
     },
     {
+      "retailerSku": "101044335",
+      "url": "https://surrati.ae/products/honey-oud-140-ml-marina-spray-heritage-collection",
+      "rawTitle": "Honey Oud",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/3_1.jpg?v=1729596657",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Honey Oud 140 ml - Marina Spray Heritage Collection . Experience the ultimate sophistication with Marina 140 ml - Honey Oud Spray from the Heritage Collection. This blend of woody scents exudes elegance and strength, making it perfect for men and women. Indulge in the luxurious aroma of honey and oud, lasting all day with just a few sprays..",
+      "productType": "Unisex Perfume",
+      "nativePrice": {
+        "amount": 84,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 168,
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-08-05T11:07:58.528Z",
+      "lastSeenAt": "2026-10-28T07:19:03.840Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-28T11:16:56.201Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
       "retailerSku": "101044357",
       "url": "https://surrati.ae/products/atlantis",
       "rawTitle": "Atlantis",
@@ -2782,33 +2809,6 @@
       "lastSeenAt": "2026-10-25T08:41:52.821Z",
       "status": "delisted",
       "delistedAt": "2026-10-25T12:17:37.288Z",
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "101044330",
-      "url": "https://surrati.ae/products/cuban-tobacco",
-      "rawTitle": "Cuban Tobacco",
-      "rawBrand": "Surrati Perfumes",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/WhatsAppImage2026-04-04at3.42.44PM.jpg?v=1775647158",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Surrati Cuban Tobacco . Cuban Tobacco is an intense, charismatic fragrance that captures the smoky, honeyed essence of a premium cigar lounge. It is a bold \"gourmand-tobacco\" scent that balances rugged masculinity with a refined, sweet smoothness. Known for its warmth and complexity, it is a statement fragrance that feels both cozy and powerful, making it a favorite for those who want a scent with a strong, distinctive character.. Fragrance Profile: A rich Amber-Woody composition with heavy smoky and sweet accords.. . Key Notes: A dominant Tobacco Leaf accord blended with Vanilla , Spices , and Cacao , anchored by a base of Dry Fruits and Woody notes .. . Best Use: Best suited for evening wear, winter months, or formal night-time events.. . Performance: Exceptional longevity and a warm, enveloping sillage that leaves a memorable trail.. . Vibe: Bold, sophisticated, warm, and mysterious.. . Target Audience: Ideal for those who enjoy \"darker\" scents like Tom Ford's Tobacco Vanille style—perfect for someone wanting a high-end, luxury feel.. . .",
-      "productType": null,
-      "nativePrice": {
-        "amount": 57.75,
-        "currency": "AED"
-      },
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-08-05T11:07:58.528Z",
-      "lastSeenAt": "2026-10-17T04:24:57.501Z",
-      "status": "delisted",
-      "delistedAt": "2026-10-17T08:17:57.237Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-28T07:25:35.057Z",
+  "checkedAt": "2026-10-28T11:23:02.693Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 507,
+      "listings": 235,
       "pricedInGbp": 0,
-      "withPhoto": 484,
-      "errors": [],
+      "withPhoto": 225,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -140,7 +142,7 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
+      "currency": "USD",
       "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 59,
@@ -149,7 +151,7 @@
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -273,9 +275,9 @@
       "origin": "https://swissarabian.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 177,
+      "listings": 295,
       "pricedInGbp": 0,
-      "withPhoto": 177,
+      "withPhoto": 295,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -325,9 +327,9 @@
       "origin": "https://dumontparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 178,
+      "listings": 174,
       "pricedInGbp": 0,
-      "withPhoto": 178,
+      "withPhoto": 174,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -408,9 +410,9 @@
       "origin": "https://www.reef-parfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 38,
+      "listings": 40,
       "pricedInGbp": 0,
-      "withPhoto": 38,
+      "withPhoto": 40,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
@@ -528,9 +530,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 195,
-      "pricedInGbp": 195,
-      "withPhoto": 194,
+      "listings": 194,
+      "pricedInGbp": 194,
+      "withPhoto": 193,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

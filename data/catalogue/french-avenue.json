@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-10-28T07:14:29.129Z",
-  "seenAt": "2026-10-28T07:14:29.129Z",
+  "updatedAt": "2026-10-28T11:12:13.276Z",
+  "seenAt": "2026-10-28T11:12:13.276Z",
   "source": "live",
   "listings": [
     {
@@ -1208,7 +1208,7 @@
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_30_119af50e-a703-451d-9431-1f9a1c27ea38.jpg?v=1767346255",
       "priceGbp": 40,
-      "wasPriceGbp": 45,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-28T07:22:10.457Z",
-  "seenAt": "2026-10-28T07:22:10.457Z",
+  "updatedAt": "2026-10-28T11:19:54.391Z",
+  "seenAt": "2026-10-28T11:19:54.391Z",
   "source": "live",
   "listings": [
     {
@@ -1366,7 +1366,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A vibrant and elegant fragrance opening with juicy raspberry and sparkling mandarin orange. The heart blooms with delicate freesia, orange blossom, and jasmine, while Akigalawood®, vanilla, and amber create a warm, smooth, and alluring finish.. Fragrance Notes . Top: Raspberry, Mandarin Orange. Heart: Freesia, Orange Blossom, Jasmine. Base: Akigalawood®, Vanilla, Amber. Profile: Fruity • Floral • Sweet • Woody • Warm.",
       "productType": null,

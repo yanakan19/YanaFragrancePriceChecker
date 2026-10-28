@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-28T07:14:22.524Z",
-  "seenAt": "2026-10-28T07:14:22.524Z",
+  "updatedAt": "2026-10-28T11:11:52.115Z",
+  "seenAt": "2026-10-28T11:11:52.115Z",
   "source": "live",
   "listings": [
     {
@@ -1072,7 +1072,7 @@
       "priceGbp": 259,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Creed Aventus Eau de Parfum is an eau de parfum created for customers who enjoy a fresh, fruity woody scent. It opens with a bright citrus and fruity impression, develops into a refined aromatic heart, and settles into a smooth, smoky woody base. Suitable for everyday wear, business settings, or special occasions, this fragrance is a strong choice for anyone looking for a scent that feels confident, modern, and sophisticated. . Why customers choose it . ● Well-suited for spring and autumn . ● A great option for daily wear, formal occasions, or gifting . ● Designed for customers who prefer fresh fruity, smoky, and woody scents.",
       "productType": "Eau de Parfum",

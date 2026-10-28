@@ -1,9 +1,35 @@
 {
   "retailerId": "reef",
-  "updatedAt": "2026-10-28T07:25:25.734Z",
-  "seenAt": "2026-10-28T07:25:25.734Z",
+  "updatedAt": "2026-10-28T11:22:54.083Z",
+  "seenAt": "2026-10-28T11:22:54.083Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "P1421972",
+      "url": "https://www.reef-parfum.com/en/product/reef-21-unisex-woody-fragrance/",
+      "rawTitle": "Reef 21 | Unisex Woody Fragrance, 100 ml | Made in K.S.A.",
+      "rawBrand": null,
+      "ean": "6287036280871",
+      "imageUrl": "https://www.reef-parfum.com/wp-content/uploads/2026/06/parfum-reef-parfum-21.jpg",
+      "description": "Discover Reef 21: red berries, cedarwood, and patchouli in a modern, intense, woody unisex eau de parfum, 100 ml.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 89.9,
+        "currency": "EUR"
+      },
+      "retailerId": "reef",
+      "firstSeenAt": "2026-10-28T11:22:54.083Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "P1426118",
       "url": "https://www.reef-parfum.com/en/product/reef-1-woody-womens-fragrance/",
