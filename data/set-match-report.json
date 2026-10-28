@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 214,
+ "folded": 216,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -5198,6 +5198,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003997114",
    "absorbed": [
     "set-versace-versense-gift-set-2-x-30ml-edt-spray"
@@ -5675,6 +5707,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8411061135013",
+   "absorbed": [
+    "set-carolina-herrera-good-girl-miniature-fragrance-gift-set-3-x-7ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8411061135013",
+     "brand": "Carolina Herrera",
+     "name": "Good Girl Eau De Parfum 3 x 7ml Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061135013",
+     "scent": "girl good",
+     "signature": "3x7fragrance",
+     "shops": [
+      "beautybase"
+     ]
+    },
+    {
+     "id": "set-carolina-herrera-good-girl-miniature-fragrance-gift-set-3-x-7ml",
+     "brand": "Carolina Herrera",
+     "name": "Good Girl Miniature Fragrance Gift Set, 3 x 7ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "girl good",
+     "signature": "3x7fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8411061152720",
    "absorbed": [
     "set-carolina-herrera-la-bomba-eau-de-parfum-50ml-10ml"
@@ -5689,7 +5753,8 @@
      "scent": "bomba la",
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
-      "allbeauty"
+      "allbeauty",
+      "beautybase"
      ]
     },
     {
