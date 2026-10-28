@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 212,
+ "folded": 214,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1473,6 +1473,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -4067,6 +4099,39 @@
      "ean": null,
      "scent": "amelia",
      "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5060524511241",
+   "absorbed": [
+    "set-cristiano-ronaldo-cr7-origins-gift-set-30ml-edt-spray-150ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060524511241",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Origins Eau De Toilette 30ml & Shower Gel 150ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "5060524511241",
+     "scent": "cr7 origins",
+     "signature": "1x150wash|1x30fragrance",
+     "shops": [
+      "beautybase",
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-cristiano-ronaldo-cr7-origins-gift-set-30ml-edt-spray-150ml-shower-gel",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Origins Gift Set 30ml EDT Spray + 150ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 origins",
+     "signature": "1x150wash|1x30fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -7133,38 +7198,6 @@
      "signature": "3p",
      "shops": [
       "armaf"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.50 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-cristiano-ronaldo-cr7-origins-gift-set-30ml-edt-spray-150ml-shower-gel",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Origins Gift Set 30ml EDT Spray + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 origins",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-ean-5060524511241",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Origins Eau De Toilette 30ml & Shower Gel 150ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511241",
-     "scent": "cr7 origins",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "beautybase",
-      "parfumdreams-uk"
      ]
     }
    ]
