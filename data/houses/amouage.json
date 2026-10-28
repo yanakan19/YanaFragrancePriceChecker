@@ -1,9 +1,35 @@
 {
   "retailerId": "amouage",
-  "updatedAt": "2026-10-28T03:50:03.530Z",
-  "seenAt": "2026-10-28T03:50:03.530Z",
+  "updatedAt": "2026-10-28T07:25:28.662Z",
+  "seenAt": "2026-10-28T07:25:28.662Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "12668",
+      "url": "https://amouage.com/products/love-delight-giftset",
+      "rawTitle": "Love Delight Gift Set 100ml",
+      "rawBrand": "The House of Amouage",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/LoveDelightgiftset.png?v=1769429586",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "The interplay of delicate florals and irresistible treats, radiance and insouciance. Love Delight is an invitation to savour every moment of indulgence. . 20% oil concentration, 7 weeks ageing: 4 weeks maceration, 3 weeks maturation. . This beautifully presented Gift Set includes: . 1 x 100ml Love Delight Eau de Parfum. 1 x 60ml Love Delight Bath & Shower Gel. 1 x 60ml Love Delight Body Lotion.",
+      "productType": "EDP",
+      "nativePrice": {
+        "amount": 395,
+        "currency": "USD"
+      },
+      "retailerId": "amouage",
+      "firstSeenAt": "2026-08-05T18:12:05.174Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-10-28T07:25:28.662Z",
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
     {
       "retailerSku": "14100",
       "url": "https://amouage.com/products/purpose-body-lotion",
@@ -3154,32 +3180,6 @@
       "lastSeenAt": "2026-09-18T10:54:11.445Z",
       "status": "delisted",
       "delistedAt": "2026-09-18T15:30:09.828Z",
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "12668",
-      "url": "https://amouage.com/products/love-delight-giftset",
-      "rawTitle": "Love Delight Gift Set 100ml",
-      "rawBrand": "The House of Amouage",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/LoveDelightgiftset.png?v=1769429586",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "The interplay of delicate florals and irresistible treats, radiance and insouciance. Love Delight is an invitation to savour every moment of indulgence. . 20% oil concentration, 7 weeks ageing: 4 weeks maceration, 3 weeks maturation. . This beautifully presented Gift Set includes: . 1 x 100ml Love Delight Eau de Parfum. 1 x 60ml Love Delight Bath & Shower Gel. 1 x 60ml Love Delight Body Lotion.",
-      "nativePrice": {
-        "amount": 395,
-        "currency": "USD"
-      },
-      "retailerId": "amouage",
-      "firstSeenAt": "2026-08-05T18:12:05.174Z",
-      "lastSeenAt": "2026-09-18T06:00:16.307Z",
-      "status": "delisted",
-      "delistedAt": "2026-09-18T10:54:11.445Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

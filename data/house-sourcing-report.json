@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-28T03:50:13.167Z",
+  "checkedAt": "2026-10-28T07:25:35.057Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -255,9 +255,9 @@
       "origin": "https://maisonalhambra.co",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 47,
+      "listings": 54,
       "pricedInGbp": 0,
-      "withPhoto": 47,
+      "withPhoto": 54,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
@@ -323,14 +323,12 @@
       "houseId": "dumont",
       "name": "Dumont Paris",
       "origin": "https://dumontparfums.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 57,
+      "listings": 178,
       "pricedInGbp": 0,
-      "withPhoto": 57,
-      "errors": [
-        "https://dumontparfums.com/products.json?limit=250&page=1: HTTP 503"
-      ],
+      "withPhoto": 178,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "dumontparis.com is the brand site and dumontparfums.com the shop; this points at the shop because that is what carries prices, but the relationship between the two was not confirmed",
@@ -443,9 +441,9 @@
       "origin": "https://amouage.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 109,
+      "listings": 110,
       "pricedInGbp": 0,
-      "withPhoto": 109,
+      "withPhoto": 110,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-28T03:38:09.424Z",
-  "seenAt": "2026-10-28T03:38:09.424Z",
+  "updatedAt": "2026-10-28T07:14:22.524Z",
+  "seenAt": "2026-10-28T07:14:22.524Z",
   "source": "live",
   "listings": [
     {
@@ -2981,7 +2981,7 @@
       "priceGbp": 41.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the luxurious blend of oud, leather, and saffron in Alf Escalo's Extrait de Parfum. With notes of amber and metallic, this fragrance is perfect for both men and women, adding a touch of sophistication to any occasion. Elevate your scent game with Alf Escalo 50ml EDP..",
       "productType": "Extrait De Parfum",

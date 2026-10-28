@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-10-28T03:38:09.424Z",
-  "seenAt": "2026-10-28T03:38:09.424Z",
+  "updatedAt": "2026-10-28T07:14:22.524Z",
+  "seenAt": "2026-10-28T07:14:22.524Z",
   "source": "live",
   "listings": [
     {
@@ -934,7 +934,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A lost world filled with tropical fruits and amber and the scent of incense woods wraps around you, the warm and humid air blends warm notes with the sweetness of raspberry and tonka bean to create an earthy and fruity scent. As the sun goes down and the air cools off, the scent of lavender and citrus spreads mixed with a heart of patchouli to give off a deep and smoky scent. While vetiver add a touch of warmth to this unique blend. Notes: . Top notes: Geranium, Lavender, Citrus and Pepper. Heart notes: Incense, Patchouli, Amber. Base notes: Tonka Bean, Vetiver, Raspberry, Amber. . .",
       "productType": "Arabic Perfumes",
