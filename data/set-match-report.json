@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 215,
+ "folded": 212,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1892,38 +1892,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3386460134767",
-   "absorbed": [
-    "set-coach-open-road-gift-set-60ml-edt-7-5ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460134767",
-     "brand": "Coach",
-     "name": "Open Road Gift Set 60ml EDT + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3386460134767",
-     "scent": "open road",
-     "signature": "1x60fragrance|1x7.5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-coach-open-road-gift-set-60ml-edt-7-5ml-edt",
-     "brand": "Coach",
-     "name": "Open Road Gift Set 60ml EDT + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "open road",
-     "signature": "1x60fragrance|1x7.5fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3386460148054",
    "absorbed": [
     "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-100ml-shower-gel-7-5ml-edp"
@@ -3488,38 +3456,6 @@
      "signature": "1x100fragrance|1x75body",
      "shops": [
       "scent-warehouse"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3660463018508",
-   "absorbed": [
-    "set-l-artisan-parfumeur-histoire-d-oranges-giftset-edp-spray-50ml-soap-25g-hand-cream-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3660463018508",
-     "brand": "L'Artisan Parfumeur",
-     "name": "Histoire D'Oranges Giftset EDP Spray 50ml + Soap 25g + Hand Cream 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": "3660463018508",
-     "scent": "d histoire oranges",
-     "signature": "1x50body|1x50fragrance|1x?body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-l-artisan-parfumeur-histoire-d-oranges-giftset-edp-spray-50ml-soap-25g-hand-cream-50ml",
-     "brand": "L'Artisan Parfumeur",
-     "name": "Histoire D'Oranges Giftset EDP Spray 50ml + Soap 25g + Hand Cream 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "d histoire oranges",
-     "signature": "1x50body|1x50fragrance|1x?body",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -5192,38 +5128,6 @@
      "signature": "1x100fragrance|1x150?|1x5fragrance|1x?wash",
      "shops": [
       "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003996209",
-   "absorbed": [
-    "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003996209",
-     "brand": "Versace",
-     "name": "pour Homme Gift Set 2 x 30ml EDT Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003996209",
-     "scent": "homme pour",
-     "signature": "2x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-pour-homme-gift-set-2-x-30ml-edt-spray",
-     "brand": "Versace",
-     "name": "pour Homme Gift Set 2 x 30ml EDT Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "homme pour",
-     "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -10891,6 +10795,37 @@
      "signature": "1x75fragrance|1x75wash",
      "shops": [
       "parfumdreams-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.60 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3660463018508",
+     "brand": "L'Artisan Parfumeur",
+     "name": "Histoire D'Oranges Giftset EDP Spray 50ml + Soap 25g + Hand Cream 50ml",
+     "concentration": "Eau de Parfum",
+     "ean": "3660463018508",
+     "scent": "d histoire oranges",
+     "signature": "1x50body|1x50fragrance|1x?body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-l-artisan-parfumeur-histoire-d-oranges-giftset-edp-spray-50ml-soap-25g-hand-cream-50ml",
+     "brand": "L'Artisan Parfumeur",
+     "name": "Histoire D'Oranges Giftset EDP Spray 50ml + Soap 25g + Hand Cream 50ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "d histoire oranges",
+     "signature": "1x50body|1x50fragrance|1x?body",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
