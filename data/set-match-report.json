@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 216,
+ "folded": 215,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -4139,38 +4139,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5060524511258",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511258",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Eau De Toilette 100ml, Body Spray 150ml & Shower Gel 150ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511258",
-     "scent": "cr7",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "beautybase"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5060524511395",
    "absorbed": [
     "set-cristiano-ronaldo-cr7-fearless-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
@@ -7263,6 +7231,49 @@
      "signature": "3p",
      "shops": [
       "armaf"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 5060524511258, 5060524511739"
+   ],
+   "members": [
+    {
+     "id": "set-cristiano-ronaldo-cr7-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-ean-5060524511258",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Eau De Toilette 100ml, Body Spray 150ml & Shower Gel 150ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "5060524511258",
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "beautybase"
+     ]
+    },
+    {
+     "id": "set-ean-5060524511739",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "5060524511739",
+     "scent": "cr7",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "perfume-click"
      ]
     }
    ]
@@ -11843,40 +11854,6 @@
      "signature": "1x50fragrance|1x75wash",
      "shops": [
       "beautybase"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 8435415092067, 8435415098908",
-    "a shop lists more than one: paco-perfumerias-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415092067",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine 100ml Eau de Parfum Travel Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415092067",
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk",
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-8435415098908",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine Eau de Parfum 100ml Spray +10ml Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415098908",
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "paco-perfumerias-uk"
      ]
     }
    ]
