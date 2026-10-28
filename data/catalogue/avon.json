@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-27T20:37:55.574Z",
-  "seenAt": "2026-10-27T20:37:55.574Z",
+  "updatedAt": "2026-10-28T00:12:01.641Z",
+  "seenAt": "2026-10-28T00:12:01.641Z",
   "source": "live",
   "listings": [
     {
@@ -25452,7 +25452,7 @@
       "priceGbp": 10,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Want high voltage lip colour with lasting impact? Amp things up with our Power Stay High Voltage Spark 16-Hour* Lip Colour, for sparkling, multidimensional lips with the power to electrify all day or night.. . Product specification: . • Matte and pigment packed with super-fine glitter.. • Creamy full-coverage colour flexes with your lips.. • Long-lasting and transfer-resistant with no bleeding or fading.. . How to use me: . Glide on the matte lip colour and watch it transform into a multidimensional glitter sparkle. *Based on a consumer study with 109 participants..",
       "productType": "COLOR",
@@ -39091,7 +39091,7 @@
       "priceGbp": 10,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: Looking for expert extras to boost your skincare results and restore your skin's radiance? Get acquainted with Anew Ultimate Firm & Supple Firming Gold Mask.. Infused with pearlescent pigments and real gold, this luxurious peel-off face mask removes dirt and dry flakes for a smoother, more radiant complexion. Use it whenever you need a pamper treat and golden glow. 20 minutes is all it takes.. 75ml. Why you’ll love it: • Specially formulated for dull skin that needs a touch of radiance. • The pearlescent pigments and real gold gives skin a gorgeous glow. • Dermatologist tested.. What’s in: Real gold for a golden glow.. What’s out: Dull skin that lacks radiance.. How to use it: Layer it on Apply a thin layer to cleansed, dry skin. Steer clear of your delicate eye area.. Wait a while Sit back and relax for about 20 minutes while it dries completely.. Peel off Peel it off slowly to lift out impurities. Alternate weekly between this and the Anew Youth Maximising Sheet Mask for youthful-looking, glowing skin..",
       "productType": "FACE",

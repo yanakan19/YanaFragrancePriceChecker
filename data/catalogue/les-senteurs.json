@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-27T20:37:55.574Z",
-  "seenAt": "2026-10-27T20:37:55.574Z",
+  "updatedAt": "2026-10-28T00:12:01.641Z",
+  "seenAt": "2026-10-28T00:12:01.641Z",
   "source": "live",
   "listings": [
     {
@@ -28810,7 +28810,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "In the pendant perfume to Ormonde Man we smell again the bitter fragrance of black hemlock used here in shameless abundance. This is beautifully balanced with sumptuous sweet floral accords: musky absolutes of violet and jasmine which shine radiance into the darkness. A perfume of rare queenly elegance for the most poised and chic of women.. Top Notes: Cardamom, Coriander, Grass Oil Heart Notes: Black Hemlock, Violet, Jasmine Absolute Base Notes: Vetiver, Cedarwood, Amber, Sandalwood .",
       "productType": "Fragrance",

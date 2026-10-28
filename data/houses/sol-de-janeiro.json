@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-27T20:48:29.119Z",
-  "seenAt": "2026-10-27T20:48:29.119Z",
+  "updatedAt": "2026-10-28T00:21:43.818Z",
+  "seenAt": "2026-10-28T00:21:43.818Z",
   "source": "live",
   "listings": [
     {
@@ -1106,7 +1106,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Our latest scent drops, all in one bundle. The N ew Intense Perfume Mists feature three bold, rich fragrances that last 10 hours.* Cheiroso Cologne Mists are our first-ever scents for guys. Some for him, more for you. Or spritz them all for yourself. .",
       "productType": "bundle-dg",
@@ -2666,7 +2666,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Our first-ever scents for guys in one duo. Fresh & sun-drenched, Cheiroso Cologne Mist are inspired by the energy of Brazilian futebol . Cheiroso 10 is a fresh gourmand that smells like Brazilian pineapple & smooth cedarwood. An amber aromatic, Cheiroso 7 smells like salted macadamia nut & vanilla woods. Both are boosted with freshness tech to keep odor in check, so you can reset & refresh anytime, anywhere. .",
       "productType": "bundle-dg",

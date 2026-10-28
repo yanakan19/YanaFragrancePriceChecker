@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-27T20:37:47.984Z",
-  "seenAt": "2026-10-27T20:37:47.984Z",
+  "updatedAt": "2026-10-28T00:11:45.292Z",
+  "seenAt": "2026-10-28T00:11:45.292Z",
   "source": "live",
   "listings": [
     {
@@ -6109,7 +6109,7 @@
       "priceGbp": 34.5,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "French Avenue Obsidian is a bold, modern fragrance that blends icy citrus freshness with rich boozy warmth.. It opens with a crisp burst of grapefruit, bergamot, Italian lemon, bitter orange and mandarin, lifted by aldehydes and an ice accord for a clean, energising edge. The heart reveals smooth cognac, spiced cinnamon and caramel sweetness, adding depth and indulgence. As it dries down, tonka bean, sandalwood, oak and cashmere wood create a warm, velvety finish, enhanced by a subtle touch of myrrh.. Fragrance Notes Top: Grapefruit, Bergamot, Italian Lemon, Bitter Orange, Mandarin, Ice, Aldehydes Middle: Cognac, Cinnamon, Caramel Base: Tonka Bean, Oak, Sandalwood, Cashmere Wood, Myrrh.",
       "productType": null,
@@ -11028,7 +11028,7 @@
       "rawBrand": "Fragrance Hub LTD",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Liquid-Brun-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030882.jpg?v=1769903803",
-      "priceGbp": 29.5,
+      "priceGbp": 29.45,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
       "inStock": true,
