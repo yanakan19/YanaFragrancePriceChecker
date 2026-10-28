@@ -1,7 +1,7 @@
 {
   "retailerId": "zimaya",
-  "updatedAt": "2026-10-28T14:39:06.550Z",
-  "seenAt": "2026-10-28T14:39:06.550Z",
+  "updatedAt": "2026-10-28T18:18:50.945Z",
+  "seenAt": "2026-10-28T18:18:50.945Z",
   "source": "live",
   "listings": [
     {
@@ -704,7 +704,7 @@
       "priceGbp": 32,
       "wasPriceGbp": 40,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A bold fusion that embodies confidence and sophistication, crafted for the modern man who appreciates both elegance and depth. It opens with a fresh, invigorating touch that seamlessly blends into a refined warmth. As the scent evolves, a smooth richness emerges, adding a touch of mystery and intrigue. The dry down leaves a lasting impression, with a harmonious blend of creamy and musky undertones that linger effortlessly. This fragrance is a statement of timeless charm, designed for those who carry themselves with quiet strength and undeniable presence.. TOP NOTE Woody - Lavender - Bergamot - Mint MID NOTE Cardamom - Dry Amber - Benzoin - Pineapple BASE NOTE Tonka Beans - Vanilla - Musk .",
       "productType": "Perfume",

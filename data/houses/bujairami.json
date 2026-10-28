@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-28T14:46:26.065Z",
-  "seenAt": "2026-10-28T14:46:26.065Z",
+  "updatedAt": "2026-10-28T18:26:51.646Z",
+  "seenAt": "2026-10-28T18:26:51.646Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "A clean and airy fragrance opening with sparkling bergamot, crisp aldehydes, and fresh cotton notes. The heart reveals delicate orange blossom, while cedarwood and white musk create a soft, smooth, and comforting finish.. Fragrance Notes . Top: Aldehydes, Bergamot, Cotton Fabric, Fresh Notes. Heart: Orange Blossom. Base: Cedarwood, White Musk. Profile: Fresh • Clean • Floral • Musky • Woody.",
       "productType": null,
@@ -1418,7 +1418,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "A vibrant and elegant fragrance opening with juicy raspberry and sparkling mandarin orange. The heart blooms with delicate freesia, orange blossom, and jasmine, while Akigalawood®, vanilla, and amber create a warm, smooth, and alluring finish.. Fragrance Notes . Top: Raspberry, Mandarin Orange. Heart: Freesia, Orange Blossom, Jasmine. Base: Akigalawood®, Vanilla, Amber. Profile: Fruity • Floral • Sweet • Woody • Warm.",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-28T14:38:52.851Z",
-  "seenAt": "2026-10-28T14:38:52.851Z",
+  "updatedAt": "2026-10-28T18:18:24.287Z",
+  "seenAt": "2026-10-28T18:18:24.287Z",
   "source": "live",
   "listings": [
     {
@@ -12457,7 +12457,7 @@
       "priceGbp": 21.99,
       "wasPriceGbp": 29.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Bade’e Al Oud Sublime (Oud For Glory Sublime) by Lattafa is a long-lasting fruity perfume suitable for both women and men. It is an aromatic Oudh perfume with a beautiful red perfume bottle in a 100ml size.. . NOTES . TOP NOTES: LITCHI, ROSE, APPLE . MIDDLE NOTES: JASMINE, PLUM. BASE NOTES: MOSS, VANILLA, PATCHOULI .",
       "productType": null,
