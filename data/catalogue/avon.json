@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-28T11:12:13.276Z",
-  "seenAt": "2026-10-28T11:12:13.276Z",
+  "updatedAt": "2026-10-28T14:39:06.550Z",
+  "seenAt": "2026-10-28T14:39:06.550Z",
   "source": "live",
   "listings": [
     {
@@ -30581,7 +30581,7 @@
       "priceGbp": 11,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About Me: . We know foundation isn’t just about coverage, that’s why we’ve developed Flawless Match Natural Finish Foundation. Its skin-loving formula is infused with hyaluronic acid for a hydrating, yet weightless, feel. To make sure you get your perfect skin match, our colour experts have worked with people of all skin tones to ensure we have a shade to match everyone. So you get a natural-skin-feel foundation that’s like your skin, only better!. . Product Specification: . • Smartmatch Technology for the perfect shade match.. • Natural-skin look, buildable, medium-to-full coverage.. • Hyaluronic Acid for a hydrating, yet weightless feel.. . How to use me: . Use our shade finder to find your Flawless Foundation match and then apply with our Flat Foundation Brush starting in the centre of your face and moving towards your hairline and jawline, buffing into your skin.. . Power up your flawless base by pairing your foundation with our Flawless Match Concealer , apply your shade match under foundation to conceal blemishes or a shade lighter under your eyes to brighten.. . .",
       "productType": "COLOR",
@@ -35825,7 +35825,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Hair loss treatment can help thicken your hair, stimulate growth and stop hair from falling out. . Now you can take full c ontrol of hair loss with this scalp cooling treatment spray. Formulated with caffeine to help strengthen hair, this spray helps to rebalance the scalp's moisture, leaving hair feeling healthier and softer. . Just spray it on your scalp and massage in, and let the hair loss treatment do its thing. Product specification: • Formulated with caffeine. • 100ml How to use me: To apply, spray lightly on scalp and massage. Continue to spray on hair from root to tip. Do not rinse. . Use this hair loss treatment regularly and give your hair the boost you deserve. .",
       "productType": "TOILETRIES",

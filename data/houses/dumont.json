@@ -1,12 +1,12 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-10-28T11:21:34.687Z",
-  "seenAt": "2026-10-28T11:21:34.687Z",
+  "updatedAt": "2026-10-28T14:48:11.259Z",
+  "seenAt": "2026-10-28T14:48:11.259Z",
   "source": "live",
   "listings": [
     {
       "retailerSku": "15445865759030-Default Title",
-      "url": "https://dumontparfums.com/products/nitro-blue-bundle-30ml-bottle-150ml-bottle-250ml-body-splash-copy",
+      "url": "https://dumontparfums.com/products/nitro-blue-bundle-30ml-bottle-150ml-bottle-250ml-body-splash",
       "rawTitle": "Nitro Blue Bundle (30ml Bottle, 150ml Bottle, 250ml Body Splash)",
       "rawBrand": "Dumont Perfumes UAE",
       "ean": null,
@@ -84,7 +84,7 @@
     },
     {
       "retailerSku": "15445866643766-Default Title",
-      "url": "https://dumontparfums.com/products/nitro-green-bundle-30ml-bottle-150ml-bottle-250ml-body-splash-copy-copy",
+      "url": "https://dumontparfums.com/products/nitro-green-bundle-30ml-bottle-150ml-bottle-250ml-body-splash",
       "rawTitle": "Nitro Green Bundle (30ml Bottle, 150ml Bottle, 250ml Body Splash)",
       "rawBrand": "Dumont Perfumes UAE",
       "ean": null,

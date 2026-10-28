@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-28T11:12:13.276Z",
-  "seenAt": "2026-10-28T11:12:13.276Z",
+  "updatedAt": "2026-10-28T14:39:06.550Z",
+  "seenAt": "2026-10-28T14:39:06.550Z",
   "source": "live",
   "listings": [
     {
@@ -7880,7 +7880,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A unisex Woody, Spicy Perfume Extract imagined as a love potion by Julien Rasquinet for D'ORSAY.. Oak and Cedar reignite the embers of the day, while Cardamom and Clove add extra spice to the evening. Incense Crush is a Perfume Extract that opens up the chakras, reveals our power of seduction and inexorably attracts others..",
       "productType": "Fragrance",
@@ -28396,7 +28396,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A fabulous sensual fragrance inspired by the silky sun-warmed fur of a beautiful Bengal cat. Top notes of Turkish rose lead into a very rich heart of melting orris butter mixed with vanilla and wild honey; the base contains Indian sandalwood, sweet myrrh and labdanum. Hyper-addictive and voluptuous this perfume is enveloping, embracing and exceedingly erotic..",
       "productType": "Fragrance",
@@ -28810,7 +28810,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "In the pendant perfume to Ormonde Man we smell again the bitter fragrance of black hemlock used here in shameless abundance. This is beautifully balanced with sumptuous sweet floral accords: musky absolutes of violet and jasmine which shine radiance into the darkness. A perfume of rare queenly elegance for the most poised and chic of women.. Top Notes: Cardamom, Coriander, Grass Oil Heart Notes: Black Hemlock, Violet, Jasmine Absolute Base Notes: Vetiver, Cedarwood, Amber, Sandalwood .",
       "productType": "Fragrance",

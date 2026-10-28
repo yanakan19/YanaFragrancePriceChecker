@@ -1,9 +1,35 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-28T11:16:56.201Z",
-  "seenAt": "2026-10-28T11:16:56.201Z",
+  "updatedAt": "2026-10-28T14:43:30.825Z",
+  "seenAt": "2026-10-28T14:43:30.825Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "10161424990517-Default Title",
+      "url": "https://surrati.ae/products/miss-world-charisma",
+      "rawTitle": "Miss World Charisma",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/MissWorldcharisma.png?v=1752995458",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Miss World Charisma provides a luxurious and elegant fragrance with a rich and floral aroma..",
+      "productType": "Unisex Perfume",
+      "nativePrice": {
+        "amount": 200,
+        "currency": "AED"
+      },
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-10-28T14:43:30.825Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "101044330",
       "url": "https://surrati.ae/products/cuban-tobacco",

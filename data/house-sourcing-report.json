@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-28T11:23:02.693Z",
+  "checkedAt": "2026-10-28T14:49:41.602Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,9 +59,9 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 235,
+      "listings": 426,
       "pricedInGbp": 0,
-      "withPhoto": 225,
+      "withPhoto": 404,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -77,9 +77,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 187,
+      "listings": 191,
       "pricedInGbp": 0,
-      "withPhoto": 187,
+      "withPhoto": 191,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -160,9 +160,9 @@
       "origin": "https://surrati.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 98,
+      "listings": 99,
       "pricedInGbp": 0,
-      "withPhoto": 97,
+      "withPhoto": 98,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -241,9 +241,9 @@
       "origin": "https://bujairami.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 110,
+      "listings": 112,
       "pricedInGbp": 0,
-      "withPhoto": 110,
+      "withPhoto": 112,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -275,9 +275,9 @@
       "origin": "https://swissarabian.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 295,
+      "listings": 261,
       "pricedInGbp": 0,
-      "withPhoto": 295,
+      "withPhoto": 261,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -530,9 +530,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 194,
-      "pricedInGbp": 194,
-      "withPhoto": 193,
+      "listings": 195,
+      "pricedInGbp": 195,
+      "withPhoto": 194,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
