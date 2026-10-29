@@ -10238,7 +10238,7 @@
   {
    "reasons": [
     "two different barcodes: 3616304197918, 3616306127968",
-    "price spread 1.92 is over 1.5"
+    "price spread 1.60 is over 1.5"
    ],
    "members": [
     {
@@ -10264,7 +10264,6 @@
      "shops": [
       "beautybase",
       "direct-cosmetics",
-      "fragrance-click",
       "paco-perfumerias-uk"
      ]
     }
