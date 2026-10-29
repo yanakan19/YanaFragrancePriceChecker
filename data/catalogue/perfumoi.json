@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-28T22:09:33.841Z",
-  "seenAt": "2026-10-28T22:09:33.841Z",
+  "updatedAt": "2026-10-29T01:44:39.643Z",
+  "seenAt": "2026-10-29T01:44:39.643Z",
   "source": "live",
   "listings": [
     {
@@ -6017,7 +6017,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Angel Elixir Eau De Parfum Spray is a warm fragrance created for customers who enjoy a rich, expressive scent. It opens with a dreamy blend of white florals and pink pepper, develops into a balanced heart of vanilla, and settles into a smooth base of sandalwood and amber. Suitable for evening wear and special occasions, this fragrance is a strong choice for anyone looking for a scent that feels elegant and captivating.. Why customers choose it . Well-suited for cooler weather and dressier occasions. A great option for evening wear and special events. Designed for customers who prefer floral fruity gourmand scents.",
       "productType": "Eau de Parfum",

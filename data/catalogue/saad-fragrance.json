@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-28T22:09:33.841Z",
-  "seenAt": "2026-10-28T22:09:33.841Z",
+  "updatedAt": "2026-10-29T01:44:39.643Z",
+  "seenAt": "2026-10-29T01:44:39.643Z",
   "source": "live",
   "listings": [
     {
@@ -60,7 +60,7 @@
       "priceGbp": 36.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Top notes are Bergamot, Pink Pepper and Ginger; middle notes are Rose, Lavender and White Flowers; base notes are Akigalawood, Patchouli, Cashmeran and Musk. .",
       "productType": null,
@@ -405,7 +405,7 @@
       "priceGbp": 41.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Espanio by Escalo 50ml Extrait de Parfum combines amber (warmth), musk (sensual smoothness), and patchouli (earthy depth) to create a balanced, long-lasting scent. This refined blend offers a rich yet elegant aromatic profile suitable for both modern and classic preferences. .",
       "productType": null,

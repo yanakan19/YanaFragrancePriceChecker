@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-28T22:18:49.161Z",
-  "seenAt": "2026-10-28T22:18:49.161Z",
+  "updatedAt": "2026-10-29T01:52:10.889Z",
+  "seenAt": "2026-10-29T01:52:10.889Z",
   "source": "live",
   "listings": [
     {
@@ -2484,7 +2484,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Top Notes: Sapodilla, Ambrette. Middle Notes: Magnolia, Violet, Sandalwood. Base Notes: Musk, Amber, Cedarwood.",
       "productType": null,

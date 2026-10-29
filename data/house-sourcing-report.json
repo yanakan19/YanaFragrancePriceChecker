@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-28T22:21:59.930Z",
+  "checkedAt": "2026-10-29T01:55:25.032Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -89,14 +89,12 @@
       "houseId": "gulf-orchid",
       "name": "Gulf Orchid",
       "origin": "https://shop-gulforchid.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 60,
+      "listings": 251,
       "pricedInGbp": 0,
-      "withPhoto": 60,
-      "errors": [
-        "https://shop-gulforchid.com/products.json?limit=250&page=1: HTTP 503"
-      ],
+      "withPhoto": 251,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest",
@@ -142,16 +140,19 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 60,
+      "currency": "USD",
+      "listings": 55,
       "pricedInGbp": 0,
-      "withPhoto": 59,
-      "errors": [],
+      "withPhoto": 54,
+      "errors": [
+        "https://lattafa.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
