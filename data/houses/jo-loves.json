@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-29T09:23:49.405Z",
-  "seenAt": "2026-10-29T09:23:49.405Z",
+  "updatedAt": "2026-10-29T13:21:34.508Z",
+  "seenAt": "2026-10-29T13:21:34.508Z",
   "source": "live",
   "listings": [
     {
@@ -269,7 +269,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Discover three much-loved Jo Loves fragrances with this beautiful collection of tealights, featuring bestselling Christmas Trees, cosy Log Fires and the new Nutmeg & Incense. The perfect way to explore each scent from the Jo Loves Christmas Layered Candle or to gift and discover your perfect Christmas home scent.",
+      "description": "Discover three much-loved Jo Loves fragrances with this beautiful collection of tealights, featuring bestselling Christmas Trees, cosy Log Fires and the new Nutmeg & Incense. The perfect way to explore each scent from the Jo Loves Christmas Layered Candle or to gift and discover your perfect Christmas home scent. Burn time: Up to 4 hours per tealight (set of 3).",
       "productType": null,
       "nativePrice": null,
       "retailerId": "jo-loves",
@@ -1785,7 +1785,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Confidence in a collection. The sensual warmth of Black Cashmeran & Tonka sets the tone, complemented by a sweep of Red Dot Rouge Nail Polish for a chic finishing touch. Complete your evening with the elegant freshness of Pink Vetiver Body Lotion. A bold scent that lingers long after dark.",
       "productType": null,

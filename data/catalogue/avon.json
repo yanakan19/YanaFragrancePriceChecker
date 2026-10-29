@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-29T09:14:10.587Z",
-  "seenAt": "2026-10-29T09:14:10.587Z",
+  "updatedAt": "2026-10-29T13:09:58.103Z",
+  "seenAt": "2026-10-29T13:09:58.103Z",
   "source": "live",
   "listings": [
     {
@@ -29477,7 +29477,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Feel clean and fresh whatever your day brings with our Gentle Delicate Feminine Wash. It’s formulated to help control intimate feminine odour and give you all-day freshness, even during your period or when you’re working out. Dermatologically and gynecologically tested, the pH-balanced formula is suitable for sensitive skin too.. DID YOU KNOW? Using harsh shower gel on your intimate area could cause irritation and discomfort. Avon Care Intimate is gentle, pH balanced and specially designed for feminine hygiene, to help keep you feeling fresh and confident, all day.. Product specification: . • Intimate feminine wash. • Mild formula with chamomile extract for everyday use. • pH balanced and gynaecologically tested formula. • Size: 250ml.. How to use me: . Pour a small amount onto the palm of your hand or wash cloth. Apply to your vulval skin, lather and rinse thoroughly. For external use only..",
       "productType": "TOILETRIES",
@@ -32283,7 +32283,7 @@
       "priceGbp": 11,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Be true to yourself with the fresh and fougère aftershave of Individual Blue Eau de Toilette. Live your life authentically with bergamot, lavender and soft musk. Product specification: • Top note: bergamot. • Middle note: lavender. • Base note: soft musk. • 100ml. How to wear me: Spray the refreshing fragrance onto your pulse points and enjoy the fougère and fresh scent during your day.",
       "productType": "FRAGRANCE",
