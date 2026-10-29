@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 214,
+ "folded": 213,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -295,8 +295,7 @@
   {
    "canonical": "set-ean-0085805377441",
    "absorbed": [
-    "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel",
-    "set-elizabeth-arden-red-door-gift-set-100ml-edt-100ml-shower-gel-100ml-body-lotion"
+    "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel"
    ],
    "members": [
     {
@@ -321,18 +320,6 @@
      "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
       "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-elizabeth-arden-red-door-gift-set-100ml-edt-100ml-shower-gel-100ml-body-lotion",
-     "brand": "Elizabeth Arden",
-     "name": "Red Door Gift Set 100ml EDT - 100ml Shower Gel - 100ml Body Lotion",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "door red",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -5134,33 +5121,33 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003907069",
+   "canonical": "set-ean-8011003907106",
    "absorbed": [
-    "set-versace-eros-gift-set-100ml-edp-5ml-edp-150ml-bath-and-shower-gel"
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
    ],
    "members": [
     {
-     "id": "set-ean-8011003907069",
+     "id": "set-ean-8011003907106",
      "brand": "Versace",
-     "name": "Eros Gift Set 100ml EDP + 5ml EDP + 150ml Bath and Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003907069",
-     "scent": "eros",
-     "signature": "1x100fragrance|1x150?|1x5fragrance|1x?wash",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "perfume-click"
      ]
     },
     {
-     "id": "set-versace-eros-gift-set-100ml-edp-5ml-edp-150ml-bath-and-shower-gel",
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
      "brand": "Versace",
-     "name": "Eros Gift Set 100ml EDP + 5ml EDP + 150ml Bath and Shower Gel",
-     "concentration": "Eau de Parfum",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
      "ean": null,
-     "scent": "eros",
-     "signature": "1x100fragrance|1x150?|1x5fragrance|1x?wash",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
      "shops": [
-      "beaute-boulevard"
+      "john-lewis"
      ]
     }
    ]
@@ -11307,37 +11294,6 @@
      "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "2 toy",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.54 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003903061",
-     "brand": "Versace",
-     "name": "Eros Eau De Toilette 50ml & Shower Gel 50ml & After Shave Balm 50ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003903061",
-     "scent": "eros",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "beautybase"
-     ]
-    },
-    {
-     "id": "set-versace-eros-3-piece-gift-set-eau-de-toilette-50ml-shower-gel-50ml-aftershave-balm-50ml",
-     "brand": "Versace",
-     "name": "Eros 3 Piece Gift Set: Eau de Toilette 50ml - Shower Gel 50ml - Aftershave Balm 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "eros",
      "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "mybeauty-boutique"
