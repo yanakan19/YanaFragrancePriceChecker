@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-29T05:42:18.533Z",
-  "seenAt": "2026-10-29T05:42:18.533Z",
+  "updatedAt": "2026-10-29T09:14:04.753Z",
+  "seenAt": "2026-10-29T09:14:04.753Z",
   "source": "live",
   "listings": [
     {
@@ -3875,8 +3875,8 @@
       "rawBrand": "armaf",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Club-De-Nuit-Intense-Man-Limited-Edition-V-2-105ml-by-Armaf.jpg?v=1772461079",
-      "priceGbp": 69.95,
-      "wasPriceGbp": 75,
+      "priceGbp": 74.99,
+      "wasPriceGbp": 79.99,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

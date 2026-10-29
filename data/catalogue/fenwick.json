@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-29T05:42:18.533Z",
-  "seenAt": "2026-10-29T05:42:18.533Z",
+  "updatedAt": "2026-10-29T09:14:04.753Z",
+  "seenAt": "2026-10-29T09:14:04.753Z",
   "source": "live",
   "listings": [
     {
@@ -24348,7 +24348,7 @@
       "priceGbp": 100,
       "wasPriceGbp": 125,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Molecule 02 consists of the molecule Ambroxan pure and singular. Ambroxan has a subtle sensual quality with a radiant, long-lasting dry down. It is a crystal with a chemical structure identical to the ambrox derived from ambergris..",
       "productType": "Men's Fragrances",

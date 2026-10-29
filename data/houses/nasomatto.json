@@ -1,7 +1,7 @@
 {
   "retailerId": "nasomatto",
-  "updatedAt": "2026-10-29T05:51:41.573Z",
-  "seenAt": "2026-10-29T05:51:41.573Z",
+  "updatedAt": "2026-10-29T09:22:14.469Z",
+  "seenAt": "2026-10-29T09:22:14.469Z",
   "source": "live",
   "listings": [
     {
@@ -144,7 +144,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "This bottle of perfume is part of the project Nasomatto. The fragrance is an elusive hint towards the transgressive act that has been carried out with an ease of refined precision..",
       "productType": null,

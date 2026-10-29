@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-29T05:42:18.533Z",
-  "seenAt": "2026-10-29T05:42:18.533Z",
+  "updatedAt": "2026-10-29T09:14:04.753Z",
+  "seenAt": "2026-10-29T09:14:04.753Z",
   "source": "live",
   "listings": [
     {
@@ -382,7 +382,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": 69.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": null,

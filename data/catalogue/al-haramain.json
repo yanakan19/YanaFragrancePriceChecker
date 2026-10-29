@@ -1,7 +1,7 @@
 {
   "retailerId": "al-haramain",
-  "updatedAt": "2026-10-29T05:42:14.318Z",
-  "seenAt": "2026-10-29T05:42:14.318Z",
+  "updatedAt": "2026-10-29T09:14:10.587Z",
+  "seenAt": "2026-10-29T09:14:10.587Z",
   "source": "live",
   "listings": [
     {
@@ -3970,7 +3970,7 @@
       "priceGbp": 20,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Haramain Velvet Collection Carbon, a luxurious air freshener that boasts a unique blend of fragrance notes. The top notes of bergamot, lavender, and rosemary provide a refreshing and invigorating scent, while the middle notes of geranium, sage, and accord add a harmonious and balanced touch. The base notes of moss, cedarwood, vetiver, and amber create a deep, woody, and earthy scent that gives the air freshener its luxurious and sophisticated character. Overall, this air freshener is the perfect choice to transform any space into a haven of relaxation and calmness.. Fragrance Notes: Top note:. -Apple, Grapefruit, Lemon . Middle note: . -Rose, Lily of the Valley, Morrocan Jasmine . Base note: . -Patchouli, Musk, Oakmoss, Amber.",
       "productType": "HOME & BEAUTY",
