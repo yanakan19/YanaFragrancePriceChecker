@@ -1798,7 +1798,34 @@ jobs:
         if: ${{ !cancelled() && (inputs.harvest || inputs.deals_refresh || env.SCHEDULED == 'true') && steps.rebuild.outcome == 'success' }}
         continue-on-error: true
         timeout-minutes: 12
+        env:
+          # A data check written with softIt/softly (tests/support/softCheck.ts) records a failed
+          # assertion here instead of failing; the next step reports it. Only this step sets it:
+          # on a developer's machine and on every push the same checks are strict.
+          SOFT_TEST_FINDINGS: ${{ runner.temp }}/soft-findings.jsonl
         run: npm run test:data
+
+      # What the soft data checks found (scripts/softTestReport.ts): one warning each, the table in
+      # the run's summary, and data/soft-test-report.json for the weekly health. It fails only when
+      # more than SOFT_FAILURE_LIMIT different checks found something in one run, which is the data
+      # being wrong rather than one odd listing (docs/PIPELINE-FAILURE-MODES.md, row 61). The final
+      # "Fail the run" step below turns that into a red run.
+      - name: Report the soft data checks
+        id: softreport
+        if: ${{ !cancelled() && steps.datatests.outcome != 'skipped' }}
+        continue-on-error: true
+        timeout-minutes: 3
+        env:
+          SOFT_TEST_FINDINGS: ${{ runner.temp }}/soft-findings.jsonl
+        run: npx tsx scripts/soft-test-report.ts
+
+      - name: Commit the soft data check report
+        if: ${{ !cancelled() && steps.softreport.outcome != 'skipped' }}
+        timeout-minutes: 10
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Soft data checks: $(date -u +%Y-%m-%d)" \
+            data/soft-test-report.json
 
       # ── Freshness: the check that keeps "every price within a day" true ──
       # Reads the per shop table the harvest wrote into data/harvest-report.json
@@ -1985,9 +2012,9 @@ jobs:
       # carries continue-on-error so nothing after it is skipped; `outcome` is
       # the real result. See docs/PIPELINE-FAILURE-MODES.md, row 49.
       - name: Fail the run if the data tests failed
-        if: ${{ !cancelled() && steps.datatests.outcome == 'failure' }}
+        if: ${{ !cancelled() && (steps.datatests.outcome == 'failure' || steps.softreport.outcome == 'failure') }}
         run: |
-          echo "::error::The data tests failed or ran out of time (see \"Test the data the crawl produced\" and the run's summary for the files). The harvest and the rebuilt page were committed before they ran, so no prices were lost; the data or a test needs fixing."
+          echo "::error::The data tests failed or ran out of time, or too many soft data checks found something at once (see \"Test the data the crawl produced\", \"Report the soft data checks\" and the run's summary for the files). The harvest and the rebuilt page were committed before they ran, so no prices were lost; the data or a test needs fixing."
           exit 1
 
       # Keep the failure loud. A crawl that quietly stops working leaves stale

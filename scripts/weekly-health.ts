@@ -24,6 +24,7 @@
 import { appendFileSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { parseReport, renderFindings, type SoftTestReport } from './softTestReport.js';
 
 export type Fetch = typeof fetch;
 
@@ -223,6 +224,8 @@ export interface WorstCaseInput {
   deploy: DeploySize | null;
   crawl: { slowest: ReturnType<typeof slowestRun>; limit: number | null } | null;
   runs: WorkflowStat[] | null;
+  /** data/soft-test-report.json: what the crawl's soft data checks found in its last run. */
+  soft?: SoftTestReport | null;
 }
 
 const pct = (x: number): string => (x > 0 && x < 0.01 ? 'under 1%' : `${Math.round(x * 100)}%`);
@@ -265,6 +268,7 @@ export function worstCases(input: WorstCaseInput, max = 12): string[] {
     const share = c.slowest.minutes / c.limit;
     if (share >= 0.85) add(share >= 0.98 ? 97 : 82, `The slowest crawl run took ${Math.round(c.slowest.minutes)} of its ${c.limit} minutes (${pct(share)}, ${c.slowest.conclusion ?? 'unknown'}): shrink or split a stage.`);
   }
+  for (const f of input.soft?.findings ?? []) add(55, `Soft data check \`${f.check}\` (${f.file}) found something in the last crawl: ${f.message.slice(0, 120)}`);
   for (const r of input.runs ?? []) if (r.failed > 0) add(60 + Math.min(19, r.failed), `Workflow "${r.workflow}" failed ${r.failed} of ${r.runs} runs this week.`);
   for (const f of input.freshness ?? []) {
     // A few old listings in a big shop (under 2%) are a straggler, not a stale shop: last.
@@ -374,6 +378,7 @@ export interface RenderInput {
   links?: ReturnType<typeof summariseLinks> | null;
   deploy?: DeploySize | null;
   crawl?: { slowest: ReturnType<typeof slowestRun>; limit: number | null } | null;
+  soft?: SoftTestReport | null;
 }
 
 export function render(input: RenderInput): string {
@@ -389,6 +394,7 @@ export function render(input: RenderInput): string {
     deploy: input.deploy ?? null,
     crawl: input.crawl ?? null,
     runs: input.runs,
+    soft: input.soft ?? null,
   });
   L.push('## Worst cases, worst first', '');
   if (worst.length === 0) L.push('Nothing over its line this week.', '');
@@ -444,6 +450,10 @@ export function render(input: RenderInput): string {
   if (!input.links) L.push('The catalogue could not be read.', '');
   else if (input.links.fallback.length === 0) L.push(`All ${input.links.checked} most stocked products open their own Fragrantica page.`, '');
   else L.push(`${input.links.fallback.length} of the ${input.links.checked} most stocked products open the fallback Fragrantica search: ${input.links.fallback.slice(0, 25).map((x) => `${x.brand} ${x.name} (${x.shops})`).join('; ')}${input.links.fallback.length > 25 ? ', and more' : ''}.`, '');
+
+  L.push('## Soft data checks (the crawl\'s data tests that report instead of failing)', '');
+  if (!input.soft) L.push('`data/soft-test-report.json` could not be read.', '');
+  else L.push(...renderFindings(input.soft), '');
 
   L.push('## Deploy size and crawl time', '');
   const d = input.deploy;
@@ -548,7 +558,14 @@ async function main(env = process.env): Promise<void> {
     }
     crawl = { slowest: slowestRun(rawRuns, CRAWL_WORKFLOW), limit };
   }
+  let soft: SoftTestReport | null = null;
+  try {
+    soft = parseReport(readFileSync(resolve(root, 'data/soft-test-report.json'), 'utf8'));
+  } catch {
+    soft = null;
+  }
   const md = render({
+    soft,
     shops: harvest ? summariseShops(harvest) : null,
     harvest,
     runs,

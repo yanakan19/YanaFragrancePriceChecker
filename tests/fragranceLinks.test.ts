@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { softIt } from './support/softCheck.js';
 import { fragranceLinksFor } from '../demo/fragranceLinks.js';
 import { FRAGRANCE_LINKS } from '../demo/fragranceLinks.generated.js';
 import { BRAND_SITES } from '../demo/brandSites.js';
@@ -112,7 +113,7 @@ describe('the committed link table', () => {
     }
   });
 
-  it('holds no Fragrantica page whose slug disagrees with its own perfume', () => {
+  softIt('link-slug-matches-perfume', 'holds no Fragrantica page whose slug disagrees with its own perfume', () => {
     const byKey = new Map(CATALOGUE.map((e) => [fragranceLinkKey(e.brand, e.name, e.concentration), e]));
     let checked = 0;
     for (const [key, [f]] of entries) {

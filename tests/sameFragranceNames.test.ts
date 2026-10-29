@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { softIt } from './support/softCheck.js';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
 import {
   KEEP_APART_AUDIENCE,
@@ -290,7 +291,7 @@ describe('the catalogues as built', () => {
     });
   }
 
-  it('list no "Unisex" name beside the same name without it (UK)', () => {
+  softIt('unisex-twin', 'list no "Unisex" name beside the same name without it (UK)', () => {
     const family = new Map<string, Set<string>>();
     for (const p of uk) {
       const k = audienceFamilyKey(p);

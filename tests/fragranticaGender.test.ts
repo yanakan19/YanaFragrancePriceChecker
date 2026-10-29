@@ -3,6 +3,7 @@ import { spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { softIt } from './support/softCheck.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
 import { fragranceLinkKey, fragranticaPath } from '../src/catalogue/fragranceLinkMatch.js';
 import type { LinksFile } from '../src/catalogue/fragranceLinkStore.js';
@@ -270,7 +271,7 @@ describe('the stored review and links', () => {
     expect(checked).toBeGreaterThan(10);
   });
 
-  it('holds every stored Fragrantica link to the gender of every product that shares its name', () => {
+  softIt('link-matches-gender', 'holds every stored Fragrantica link to the gender of every product that shares its name', () => {
     const genders = new Map<string, Set<'mens' | 'womens' | 'unisex' | null | undefined>>();
     const sample = new Map<string, { brand: string; name: string; concentration: string }>();
     for (const e of CATALOGUE) {

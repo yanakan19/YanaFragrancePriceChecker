@@ -180,6 +180,11 @@ describe('weekly health: the worst cases', () => {
   it('says so when nothing is over its line', () => {
     expect(worstCases(base)).toEqual([]);
   });
+  it('lists a soft data check that found something, and the section says so', () => {
+    const soft = { limit: 4, findings: [{ check: 'unisex-twin', file: 'tests/sameFragranceNames.test.ts', title: 't', message: 'expected [ Array(1) ] to deeply equal []' }] };
+    expect(worstCases({ ...base, soft }).join('\n')).toContain('`unisex-twin`');
+    expect(render({ shops: null, harvest: null, runs: [], ping: { status: null }, now: new Date('2026-10-29T00:00:00Z'), soft })).toContain('## Soft data checks');
+  });
   it('ranks a shop that did not answer above a deploy or a crawl near its limit, failures, stale prices, photos and links', () => {
     const lines = worstCases({
       shops: summariseShops(harvest),

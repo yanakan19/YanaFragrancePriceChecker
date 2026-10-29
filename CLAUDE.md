@@ -99,6 +99,13 @@ snapshots and reports, and the "deploy" files above).
   refuses a price literal). Every test browser starts through `launchChromium`
   or `launchWebkit` (`scripts/a11y-audit.ts`), never `chromium.launch()` (the
   same test refuses it).
+- A data check that judges what shops listed (not a guard of structure) is
+  written with `softIt` or `softly` (`tests/support/softCheck.ts`): strict on a
+  machine and on every push, but in the crawl a failed assertion is a finding in
+  `data/soft-test-report.json` and a warning, not a red run, unless more than 4
+  different checks find something at once. Never for a memory, an id alias, the
+  sitemap or the deploy budget (`tests/softTestReport.test.ts`; row 61 of
+  `docs/PIPELINE-FAILURE-MODES.md`).
 - The whole repository type checks on every push (`tests.yml`, job
   `typecheck`): run `npx tsc --noEmit -p tsconfig.json` before you push.
 

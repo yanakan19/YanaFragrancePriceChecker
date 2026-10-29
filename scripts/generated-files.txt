@@ -120,6 +120,7 @@ incoming  data/catalogue/*.json               harvest, Awin feed sync, storefron
 incoming  data/houses/*.json                  houses harvest
 incoming  data/house-sourcing-report.json     houses harvest
 incoming  data/harvest-report.json            harvest
+incoming  data/soft-test-report.json         soft data checks (scripts/soft-test-report.ts, after the crawl's data tests)
 incoming  data/harvest-cursor.json            harvest (the guard job reads its commit history)
 incoming  data/metered-harvest-marker.txt     harvest (once a day gate on the paid Apify tiers)
 incoming  data/awin-feed-sync-state.json      Awin feed sync

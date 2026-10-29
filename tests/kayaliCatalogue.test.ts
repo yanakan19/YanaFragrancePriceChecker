@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { softIt } from './support/softCheck.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
 
 /**
@@ -33,7 +34,7 @@ describe('Kayali in the built catalogue', () => {
     expect(names.has('Vanilla | 28')).toBe(true);
   });
 
-  it('groups every size of a perfume under one name and one strength, each size its own product', () => {
+  softIt('kayali-one-name-per-scent', 'groups every size of a perfume under one name and one strength, each size its own product', () => {
     const families = new Map<string, typeof bottles>();
     for (const p of bottles) {
       const key = `${p.name}|${p.concentration}`;

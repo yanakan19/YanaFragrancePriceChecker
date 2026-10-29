@@ -296,6 +296,7 @@ code tests/socialPictures.test.ts
 code tests/socialPosts.test.ts
 code tests/socialSingleCaptions.test.ts
 code tests/socialVideoTemplate.test.ts
+code tests/softTestReport.test.ts
 code tests/sortLabels.test.ts
 code tests/sortLabelsBrowser.test.ts
 code tests/strategy.test.ts

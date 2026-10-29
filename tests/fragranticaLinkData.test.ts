@@ -1,5 +1,6 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
+import { softIt } from './support/softCheck.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
 import { fragranceLinksFor, fragranticaLabel } from '../demo/fragranceLinks.js';
 import { fragranceLinkKey, fragranticaPath, parseFragranticaUrl } from '../src/catalogue/fragranceLinkMatch.js';
@@ -54,7 +55,7 @@ describe('data/fragrance-links.json: every Fragrantica link is a direct perfume 
 describe('the page: every product\'s Fragrantica link is its own page or an honest search', () => {
   const rows = CATALOGUE.map((e) => ({ e, links: fragranceLinksFor(e.brand, e.name, e.concentration) }));
 
-  it('a direct link names the same designer and perfume, without a contradicting strength or gender', () => {
+  softIt('direct-link-same-perfume', 'a direct link names the same designer and perfume, without a contradicting strength or gender', () => {
     let direct = 0;
     const bad: string[] = [];
     for (const { e, links } of rows) {
@@ -71,7 +72,7 @@ describe('the page: every product\'s Fragrantica link is its own page or an hone
     expect(bad, bad.slice(0, 20).join('\n')).toEqual([]);
   });
 
-  it('a direct link is the same perfume under the full rule, review included', () => {
+  softIt('direct-link-full-rule', 'a direct link is the same perfume under the full rule, review included', () => {
     const bad: string[] = [];
     for (const { e, links } of rows) {
       if (!links.fragranticaDirect) continue;
@@ -98,7 +99,7 @@ describe('the page: every product\'s Fragrantica link is its own page or an hone
     }
   });
 
-  it('is never a page the review rejected for that product', () => {
+  softIt('link-not-rejected-page', 'is never a page the review rejected for that product', () => {
     for (const { e, links } of rows) {
       if (!links.fragranticaDirect) continue;
       expect(
@@ -123,7 +124,7 @@ describe('data/fragrantica-link-review.json', () => {
     }
   });
 
-  it('does not leave a rejected page stored for the perfume it was rejected for', () => {
+  softIt('no-rejected-page-stored', 'does not leave a rejected page stored for the perfume it was rejected for', () => {
     for (const e of CATALOGUE) {
       const k = fragranceLinkKey(e.brand, e.name, e.concentration);
       const stored = LINKS.entries[k]?.fragrantica;
