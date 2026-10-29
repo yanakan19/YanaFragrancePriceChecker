@@ -1465,6 +1465,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3346470148949",
    "absorbed": [
     "set-guerlain-shalimar-gift-set-50ml-edp-75ml-body-lotion-5ml-edp"
@@ -3750,38 +3782,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-5013692273626",
-   "absorbed": [
-    "set-firetrap-spicefire-gift-set-eau-de-toilette-spray-50ml-body-wash-150ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5013692273626",
-     "brand": "Firetrap",
-     "name": "Spicefire Gift Set 50ml EDT + 150ml Body Wash",
-     "concentration": "Eau de Toilette",
-     "ean": "5013692273626",
-     "scent": "spicefire",
-     "signature": "1x150wash|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-firetrap-spicefire-gift-set-eau-de-toilette-spray-50ml-body-wash-150ml",
-     "brand": "Firetrap",
-     "name": "Spicefire Gift Set Eau de Toilette Spray 50ml + Body Wash 150ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "spicefire",
-     "signature": "1x150wash|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
