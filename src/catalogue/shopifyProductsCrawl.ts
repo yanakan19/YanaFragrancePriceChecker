@@ -100,7 +100,9 @@ export interface ShopifyProductsCrawlResult {
    * a page with no products at all. False when it stopped for any other
    * reason (the page cap, an error, the deadline, a non-sterling payload), so
    * a caller may treat a product's absence as withdrawal only when this is
-   * true.
+   * true. The one other way to be true: every page up to Shopify's cap was read,
+   * each full, and the shop's own `/meta.json` count is within
+   * SHOPIFY_CAP_SLACK_PRODUCTS of what the cap can hand over.
    */
   complete: boolean;
   /**
@@ -131,6 +133,29 @@ export const SHOPIFY_PAGE_SIZE = 250;
  * products, is the most this endpoint can ever hand over.
  */
 export const SHOPIFY_MAX_PAGE = 100;
+
+/**
+ * How many products past the page cap a shop may publish (its own
+ * `/meta.json` count against 100 pages of 250) for a walk that read every page
+ * to the cap to count as the whole shop. Fenwick publishes 25,001 products, one
+ * past what Shopify will hand over, so its walk never met an empty page and
+ * `complete` stayed false on every run: a listing the shop had withdrawn was
+ * never retired, kept its last price, and aged past 48 hours until the
+ * freshness check failed the crawl on it (runs #1822 to #2011, 25 to 28 Oct
+ * 2026). A shop far past the cap (tens of thousands more) stays incomplete,
+ * because then a missing product may simply be beyond page 100.
+ */
+export const SHOPIFY_CAP_SLACK_PRODUCTS = 50;
+
+/** The product count a storefront's `/meta.json` publishes, or null when it names none. */
+export function publishedProductsCount(body: string): number | null {
+  try {
+    const n = (JSON.parse(body) as { published_products_count?: unknown }).published_products_count;
+    return typeof n === 'number' && Number.isFinite(n) && n >= 0 ? n : null;
+  } catch {
+    return null;
+  }
+}
 
 /**
  * How long to wait before asking a page again after the shop answered it with a
@@ -233,6 +258,7 @@ export async function crawlViaShopifyProducts(
   let complete = false;
   let retriedPages = 0;
   let skippedPages = 0;
+  let lastPageCount = 0;
 
   // Asked before the catalogue is read, not after, so there is never a moment
   // where a converted price list has been parsed as pounds and is waiting to
@@ -388,6 +414,7 @@ export async function crawlViaShopifyProducts(
       ...(retailer.barcodeFromProductJs ? { keepVariantId: true } : {}),
     });
     listings.push(...batch);
+    lastPageCount = shopifyProductCount(res.body);
 
     // Same reasoning as crawlViaSitemap's own trailing-wait skip (see its
     // comment): the gap exists to space out the *next* request, and
@@ -399,6 +426,22 @@ export async function crawlViaShopifyProducts(
     // but every storefront big enough to hit its own maxPages cap (the
     // common case this budget exists for) no longer pays it.
     if (options.gapMs > 0 && pagesFetched < maxPages) await sleep(options.gapMs);
+  }
+
+  // A walk that read every page Shopify will serve, each one full, never meets
+  // the empty page that ends a catalogue. When the shop's own count says there
+  // is hardly more than that (SHOPIFY_CAP_SLACK_PRODUCTS), it is the whole shop
+  // for the purpose of retiring what the shop no longer lists.
+  if (
+    !complete && isShopify && currency.isSterling && skippedPages === 0 &&
+    pagesFetched >= SHOPIFY_MAX_PAGE && lastPageCount >= perPage && errors.length === 0
+  ) {
+    const metaUrl = `${market.base}/meta.json`;
+    if (isAllowed(robots, metaUrl)) {
+      const meta = await http(metaUrl, marketHeaders);
+      const published = meta.ok ? publishedProductsCount(meta.body) : null;
+      if (published !== null && published <= SHOPIFY_MAX_PAGE * perPage + SHOPIFY_CAP_SLACK_PRODUCTS) complete = true;
+    }
   }
 
   // A catalogue read in a currency that is not established as sterling is

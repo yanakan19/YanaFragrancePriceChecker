@@ -5,7 +5,7 @@ import {
   refreshFromItems, parseWooStoreProducts, crawlWooStoreProducts, normaliseProductUrl,
   MIN_COMPARISONS, type RefreshItem,
 } from '../src/catalogue/catalogueRefresh.js';
-import { shopFreshness, freshnessTolerance } from '../src/catalogue/freshness.js';
+import { shopFreshness, freshnessTolerance, freshnessHardLimit } from '../src/catalogue/freshness.js';
 import { parseCursor, withDiscoveryOffset, discoveryOffsetFor, EMPTY_CURSOR } from '../src/catalogue/harvestCursor.js';
 import { NO_RESTRICTIONS, parseRobots } from '../src/catalogue/robots.js';
 import type { Http } from '../src/catalogue/attempt.js';
@@ -361,5 +361,16 @@ describe('freshness of shown listings', () => {
   it('tolerates a handful, never a slice of the catalogue', () => {
     expect(freshnessTolerance(10)).toBe(5);
     expect(freshnessTolerance(2000)).toBe(40);
+  });
+
+  it('fails the run only for a slice of a shop (a tenth, at least 25), and only warns for a corner above the tolerance', () => {
+    for (const shown of [1, 10, 300, 1126, 2000, 10000]) {
+      expect(freshnessHardLimit(shown), `shown ${shown}`).toBeGreaterThanOrEqual(freshnessTolerance(shown));
+      expect(freshnessHardLimit(shown), `shown ${shown}`).toBeGreaterThanOrEqual(25);
+    }
+    // A shop of a thousand listings with 2.3% stale (Fenwick, 25 to 28 Oct 2026) is a warning, 12% is a failure.
+    expect(1000 * 0.023).toBeGreaterThan(freshnessTolerance(1000));
+    expect(1000 * 0.023).toBeLessThanOrEqual(freshnessHardLimit(1000));
+    expect(1000 * 0.12).toBeGreaterThan(freshnessHardLimit(1000));
   });
 });

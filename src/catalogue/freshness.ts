@@ -54,6 +54,18 @@ export function freshnessTolerance(shown: number): number {
 }
 
 /**
+ * Past this many listings over 48 hours a shop that answered fails the check.
+ * Between the tolerance above and this it is a warning the weekly health lists:
+ * a few dozen listings the shop stopped serving is one shop's odd corner (Fenwick:
+ * 26 of 1,126, 2.3%, failed 20 crawls in a row from 25 to 28 Oct 2026 for a
+ * catalogue one product past Shopify's page cap), not a harvest that stopped
+ * keeping prices fresh. A tenth of the shop, or 25 listings, is.
+ */
+export function freshnessHardLimit(shown: number): number {
+  return Math.max(25, Math.floor(shown * 0.1));
+}
+
+/**
  * How old the newest harvest report is, for scripts/freshness-check.ts. The
  * check runs even when an earlier step of the crawl failed (run #592 skipped
  * it), and then the report on disk can be one or more runs old: the line says

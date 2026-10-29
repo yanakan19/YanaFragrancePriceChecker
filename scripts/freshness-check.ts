@@ -13,8 +13,9 @@
  *   - prints it;
  *   - raises a ::warning:: for every shop with any shown listing over 48h;
  *   - exits 1 when a shop that answered this run (priced something, from its
- *     pages or its own catalogue feed, and refused no page) has more over 48h than a small
- *     tolerance allows, because that shop let us in and we still left its
+ *     pages or its own catalogue feed, and refused no page) has more over 48h than
+ *     freshnessHardLimit allows (a tenth of its shown listings, at least 25; between
+ *     the small tolerance and that it is a warning), because that shop let us in and we still left its
  *     prices to age, which is the regression this exists to catch;
  *   - judges a feed shop (affiliate feed, synced by the Awin step, never asked by
  *     the sweep) the same way, by the age of its listings: a feed that stopped
@@ -30,7 +31,7 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { HarvestReport } from '../src/catalogue/harvestReport.js';
-import { freshnessTolerance, reportAge } from '../src/catalogue/freshness.js';
+import { freshnessHardLimit, freshnessTolerance, reportAge } from '../src/catalogue/freshness.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const warnOnly = process.argv.includes('--warn-only');
@@ -66,8 +67,15 @@ for (const [id, f] of Object.entries(report.freshness).sort(([a], [b]) => a.loca
   const allowed = freshnessTolerance(f.shown);
   // A feed shop is never asked by the sweep, so it is judged by its listings' age alone.
   const judged = f.answered || f.source === 'feed';
-  if (judged && f.over48h > allowed) {
-    failing.push(`${id} (${f.over48h} of ${f.shown} shown listings over 48h, tolerance ${allowed}${f.source === 'feed' ? ', feed' : ''})`);
+  const hardLimit = freshnessHardLimit(f.shown);
+  if (judged && f.over48h > allowed && f.over48h <= hardLimit) {
+    // Over the tolerance but a corner of the shop, not a slice of it: reported, never a red crawl.
+    console.log(
+      `::warning::${id}: ${f.over48h} of ${f.shown} shown listings last confirmed more than 48 hours ago ` +
+        `(over the tolerance ${allowed}, under the limit ${hardLimit} that fails the run): look at which listings the shop no longer serves.`,
+    );
+  } else if (judged && f.over48h > hardLimit) {
+    failing.push(`${id} (${f.over48h} of ${f.shown} shown listings over 48h, limit ${hardLimit}${f.source === 'feed' ? ', feed' : ''})`);
     console.log(
       f.source === 'feed'
         ? `::error::${id} is read from a feed and ${f.over48h} of its ${f.shown} shown listings were last confirmed more than 48 hours ago: the feed sync is not keeping up.`

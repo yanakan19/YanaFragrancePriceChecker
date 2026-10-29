@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { crawlViaShopifyProducts, SERVER_ERROR_RETRY_MAX_MS, SERVER_ERROR_RETRY_MS, waitAfterServerError } from '../src/catalogue/shopifyProductsCrawl.js';
+import { crawlViaShopifyProducts, publishedProductsCount, SHOPIFY_CAP_SLACK_PRODUCTS, SHOPIFY_MAX_PAGE, SHOPIFY_PAGE_SIZE, SERVER_ERROR_RETRY_MAX_MS, SERVER_ERROR_RETRY_MS, waitAfterServerError } from '../src/catalogue/shopifyProductsCrawl.js';
 import { NO_RESTRICTIONS } from '../src/catalogue/robots.js';
 import type { Retailer } from '../src/types/retailer.js';
 import type { Http } from '../src/catalogue/attempt.js';
@@ -206,5 +206,66 @@ describe('crawlViaShopifyProducts: a server error is asked about once more', () 
     expect(asked).toEqual([1, 2]);
     expect(result.retriedPages).toBe(0);
     expect(result.errors).toHaveLength(1);
+  });
+});
+
+describe('crawlViaShopifyProducts: a shop one product past the page cap', () => {
+  // Fenwick publishes 25,001 products and Shopify hands over 25,000, so the walk
+  // never meets the empty page. Without this its withdrawn listings were never
+  // retired and the freshness check failed 20 crawls (25 to 28 Oct 2026).
+  const pageOf = (url: string) => Number.parseInt(/page=(\d+)/.exec(url)?.[1] ?? '1', 10);
+  const fullPage = (p: number) => page(Array.from({ length: SHOPIFY_PAGE_SIZE }, (_, i) => p * 1000 + i));
+  const walk = async (published: number | null, metaOk = true) => {
+    const asked: string[] = [];
+    const http: Http = async (url) => {
+      asked.push(url);
+      if (url.endsWith('/meta.json')) {
+        return metaOk
+          ? { status: 200, ok: true, body: JSON.stringify(published === null ? {} : { published_products_count: published }) }
+          : { status: 404, ok: false, body: '' };
+      }
+      return { status: 200, ok: true, body: fullPage(pageOf(url)) };
+    };
+    const result = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: SHOPIFY_MAX_PAGE, gapMs: 0, sleep: async () => {}, currency: STERLING,
+    });
+    return { result, asked };
+  };
+
+  it('counts as the whole shop when the shop publishes hardly more than the cap', async () => {
+    const { result, asked } = await walk(SHOPIFY_MAX_PAGE * SHOPIFY_PAGE_SIZE + 1);
+    expect(result.pagesFetched).toBe(SHOPIFY_MAX_PAGE);
+    expect(result.complete).toBe(true);
+    expect(asked.filter((u) => u.endsWith('/meta.json'))).toHaveLength(1);
+  });
+
+  it('does not, when the shop publishes far more than the cap can hand over', async () => {
+    const { result } = await walk(SHOPIFY_MAX_PAGE * SHOPIFY_PAGE_SIZE + SHOPIFY_CAP_SLACK_PRODUCTS + 1);
+    expect(result.complete).toBe(false);
+  });
+
+  it('does not, when the shop names no count or will not say', async () => {
+    expect((await walk(null)).result.complete).toBe(false);
+    expect((await walk(25_001, false)).result.complete).toBe(false);
+  });
+
+  it('never asks for the count of a walk that ended on its own', async () => {
+    const asked: string[] = [];
+    const http: Http = async (url) => {
+      asked.push(url);
+      const p = pageOf(url);
+      return { status: 200, ok: true, body: p <= 2 ? page([p]) : page([]) };
+    };
+    const result = await crawlViaShopifyProducts({
+      retailer, http, robots: NO_RESTRICTIONS, headers: {}, maxPages: SHOPIFY_MAX_PAGE, gapMs: 0, sleep: async () => {}, currency: STERLING,
+    });
+    expect(result.complete).toBe(true);
+    expect(asked.some((u) => u.endsWith('/meta.json'))).toBe(false);
+  });
+
+  it('reads the count only from a number', () => {
+    expect(publishedProductsCount('{"published_products_count":25001}')).toBe(25001);
+    expect(publishedProductsCount('{"published_products_count":"25001"}')).toBeNull();
+    expect(publishedProductsCount('not json')).toBeNull();
   });
 });
