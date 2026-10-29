@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-29T13:21:35.012Z",
+  "checkedAt": "2026-10-29T16:58:51.630Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,7 +58,7 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "CAD",
+      "currency": "GBP",
       "listings": 507,
       "pricedInGbp": 0,
       "withPhoto": 484,
@@ -66,8 +66,7 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "prices are in CAD, not GBP — needs a UK price source before these are comparable"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
       ]
     },
     {
@@ -76,9 +75,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 194,
+      "listings": 195,
       "pricedInGbp": 0,
-      "withPhoto": 194,
+      "withPhoto": 195,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -141,18 +140,16 @@
       "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 33,
+      "currency": "USD",
+      "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 33,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 59,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
         "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -296,12 +293,11 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "robots.txt unreachable at https://fragranceworld.ae and https://www.fragranceworld.ae — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "parent of French Avenue, which is already a retailers.ts entry on its own UK subdomain — expect overlapping products between the two",
-        "no listings retrieved from the storefront on this run"
+        "parent of French Avenue, which is already a retailers.ts entry on its own UK subdomain — expect overlapping products between the two"
       ]
     },
     {
@@ -531,9 +527,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 196,
-      "pricedInGbp": 196,
-      "withPhoto": 195,
+      "listings": 197,
+      "pricedInGbp": 197,
+      "withPhoto": 196,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

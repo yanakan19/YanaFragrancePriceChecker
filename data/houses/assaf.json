@@ -1,9 +1,36 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-29T13:12:37.114Z",
-  "seenAt": "2026-10-29T13:12:37.114Z",
+  "updatedAt": "2026-10-29T16:50:59.060Z",
+  "seenAt": "2026-10-29T16:50:59.060Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "LDY-100-ON-0005",
+      "url": "https://assaf.ae/products/edp-miss-flora-100ml",
+      "rawTitle": "EDP MISS FLORA 100ML 100 ML",
+      "rawBrand": "Assaf Trading LLC",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/image_2026-04-30_114208993.png?v=1777538531",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Order your Miss Flora Perfume and try it for two years with Assaf's special guarantee, which allows you to return the bottle if you do not like it—regardless of the quantity used, if necessary—and get your money back.. Miss Flora - 100 ml They will definitely ask you about it.. Source of Inspiration and Naming. This fragrance is designed for the girl who loves and is fascinated by flowers and jasmine. We have specially designed this for every girl who seeks to dazzle everyone with the smell of this fragrance, so that she becomes the \"first lady\" of the moment through its scent and breezes.. Composition - Miss Flora. A fragrance that combines woody and floral notes. The top notes of the fragrance open with orange blossom and almond, while the heart notes of jasmine, violet, and apricot add a touch of femininity. The base notes of the fragrance are sure to make you shine at all times: sandalwood and musk..",
+      "productType": null,
+      "nativePrice": {
+        "amount": 99,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 199,
+      "retailerId": "assaf",
+      "firstSeenAt": "2026-08-05T11:07:47.821Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-10-29T16:50:59.060Z",
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
     {
       "retailerSku": "PKG-ASFP99-ON-10150",
       "url": "https://assaf.ae/products/aura-and-risk-collection",
@@ -5286,34 +5313,6 @@
       "delistedAt": "2026-10-28T14:41:38.229Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "LDY-100-ON-0005",
-      "url": "https://assaf.ae/products/edp-miss-flora-100ml",
-      "rawTitle": "EDP MISS FLORA 100ML 100 ML",
-      "rawBrand": "Assaf Trading LLC",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/image_2026-04-30_114208993.png?v=1777538531",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Order your Miss Flora Perfume and try it for two years with Assaf's special guarantee, which allows you to return the bottle if you do not like it—regardless of the quantity used, if necessary—and get your money back.. Miss Flora - 100 ml They will definitely ask you about it.. Source of Inspiration and Naming. This fragrance is designed for the girl who loves and is fascinated by flowers and jasmine. We have specially designed this for every girl who seeks to dazzle everyone with the smell of this fragrance, so that she becomes the \"first lady\" of the moment through its scent and breezes.. Composition - Miss Flora. A fragrance that combines woody and floral notes. The top notes of the fragrance open with orange blossom and almond, while the heart notes of jasmine, violet, and apricot add a touch of femininity. The base notes of the fragrance are sure to make you shine at all times: sandalwood and musk..",
-      "productType": null,
-      "nativePrice": {
-        "amount": 99,
-        "currency": "AED"
-      },
-      "nativeWasPrice": 199,
-      "retailerId": "assaf",
-      "firstSeenAt": "2026-08-05T11:07:47.821Z",
-      "lastSeenAt": "2026-10-25T12:15:32.554Z",
-      "status": "delisted",
-      "delistedAt": "2026-10-25T15:41:16.223Z",
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
       "variantId": null
     },
     {

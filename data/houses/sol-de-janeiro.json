@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-29T13:21:30.709Z",
-  "seenAt": "2026-10-29T13:21:30.709Z",
+  "updatedAt": "2026-10-29T16:58:46.012Z",
+  "seenAt": "2026-10-29T16:58:46.012Z",
   "source": "live",
   "listings": [
     {
@@ -745,7 +745,7 @@
       "inStock": false,
       "sectionId": "house-direct",
       "description": "Wishing for your own Cheirosa candle collection ? Choose any three for 20% off. Stock up o n the ones that feel like home––or light your way through all of them with this custom bundle . Cheirosa 62™ is your endless summer, home edition. While Cheirosa 59 fills the room with blissful & comforting notes. Sultry night in? Strike a match to Cheirosa 40. Your favorite scents are now flickering. S et your scene and spark a mood. .",
-      "productType": "bundle",
+      "productType": "pack-bundle",
       "nativePrice": {
         "amount": 144,
         "currency": "USD"
@@ -10599,7 +10599,7 @@
       "inStock": true,
       "sectionId": "house-direct",
       "description": "We’ve got the group chat covered with our custom Jet Set quad. Pick any 4 for discount off all of them.* .",
-      "productType": "4pack bundle",
+      "productType": "pack-bundle",
       "nativePrice": {
         "amount": 109,
         "currency": "USD"

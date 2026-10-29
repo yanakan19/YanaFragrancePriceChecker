@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-29T13:10:00.379Z",
-  "seenAt": "2026-10-29T13:10:00.379Z",
+  "updatedAt": "2026-10-29T16:49:16.929Z",
+  "seenAt": "2026-10-29T16:49:16.929Z",
   "source": "live",
   "listings": [
     {
@@ -7305,7 +7305,7 @@
       "priceGbp": 25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "From Italy, this featherweight, translucent pressed powder (suitable for all skin tones) has hexagonal microparticles for a long-wearing, extreme soft-focus and skin perfecting effect. It features superfine Micro-Clay for a silky, oil-absorbing finish and natural sebum-balancing Oils to help mattify and illuminate skin. Use it to blot, blend and blur. Clean formula. Vegan. Cruelty-free (of course).. Slots into the silver, lightweight, Keep This™ Compact (which features a handy mirror for makeup touch-ups on-the-go)..",
       "productType": "Makeup",
