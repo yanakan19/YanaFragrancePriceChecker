@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-29T01:44:39.643Z",
-  "seenAt": "2026-10-29T01:44:39.643Z",
+  "updatedAt": "2026-10-29T05:42:18.533Z",
+  "seenAt": "2026-10-29T05:42:18.533Z",
   "source": "live",
   "listings": [
     {
@@ -19380,7 +19380,7 @@
       "priceGbp": 148,
       "wasPriceGbp": 185,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Angels' Share Paradis Eau de Parfum 30ml by Kilian Paris offers a more intense expression of the original composition, enriched with deeper gourmand notes. Smooth and enveloping, it balances warmth with refined complexity. A bold interpretation with lasting presence..",
       "productType": "Unisex Fragrance",

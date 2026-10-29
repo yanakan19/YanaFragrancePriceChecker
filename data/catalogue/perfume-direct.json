@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-29T01:44:39.643Z",
-  "seenAt": "2026-10-29T01:44:39.643Z",
+  "updatedAt": "2026-10-29T05:42:18.533Z",
+  "seenAt": "2026-10-29T05:42:18.533Z",
   "source": "live",
   "listings": [
     {
@@ -24989,7 +24989,7 @@
       "priceGbp": 104.99,
       "wasPriceGbp": 130,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Experience a journey of elegance and self-discovery with Armani My Way Ylang Eau de Parfum. This modern, sophisticated scent captures the spirit of curiosity and openness, blending delicate floral notes with a warm, uplifting aura. Designed for the confident, adventurous woman, it’s perfect for day-to-night wear, leaving a lasting impression wherever you go. Discover a fragrance that’s as vibrant and unique as you are. . . Fragrance Type: . Sweet, Tropical . . Fragrance Notes: . - Top notes: Mango, Coconut, Orange Blossom, Bergamot . - Middle notes: Ylang-Ylang, Tuberose . - Base notes: Vanilla, White Musk, Cedarwood . . Launched: . 2024 .",
       "productType": "Women's Perfume",
