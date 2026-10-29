@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-10-29T16:49:19.466Z",
-  "seenAt": "2026-10-29T16:49:19.466Z",
+  "updatedAt": "2026-10-29T20:38:17.650Z",
+  "seenAt": "2026-10-29T20:38:17.650Z",
   "source": "live",
   "listings": [
     {
@@ -8547,7 +8547,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Raw Gold, a bold anthem of eternal youth, oscillating between innocence and temptation, where desire reigns supreme..",
       "productType": "Fragrance",

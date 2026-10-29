@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-29T16:49:16.929Z",
-  "seenAt": "2026-10-29T16:49:16.929Z",
+  "updatedAt": "2026-10-29T20:38:04.671Z",
+  "seenAt": "2026-10-29T20:38:04.671Z",
   "source": "live",
   "listings": [
     {
@@ -8432,7 +8432,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Burberry Touch For Men Eau de Toilette is a woody fragrance created for customers who enjoy a smooth, confident scent. It opens with a distinctive first impression, develops into a balanced heart, and settles into a polished, lasting base. Suitable for both day and evening wear, this fragrance is a strong choice for anyone looking for a scent that feels modern and stylish.. Why customers choose it . Well-suited for year-round wear and various occasions. A great option for daily wear or more formal events. Designed for customers who prefer woody and grounded scent profiles.",
       "productType": "Eau de Toilette",

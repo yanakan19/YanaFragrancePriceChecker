@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-29T16:58:46.012Z",
-  "seenAt": "2026-10-29T16:58:46.012Z",
+  "updatedAt": "2026-10-29T20:47:47.608Z",
+  "seenAt": "2026-10-29T20:47:47.608Z",
   "source": "live",
   "listings": [
     {
@@ -17634,7 +17634,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "SJ99113400",
+      "retailerSku": "SJ99049300",
       "url": "https://soldejaneiro.com/products/cheirosa-62-hair-body-fragrance-mist",
       "rawTitle": "Cheirosa 62™ Perfume Mist 240ml",
       "rawBrand": "Sol de Janeiro",
@@ -17652,7 +17652,7 @@
         "currency": "USD"
       },
       "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-10-01T20:12:33.185Z",
+      "firstSeenAt": "2026-10-29T20:47:47.608Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -18227,6 +18227,33 @@
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "SJ99113400",
+      "url": "https://soldejaneiro.com/products/cheirosa-62-hair-body-fragrance-mist",
+      "rawTitle": "Cheirosa 62™ Perfume Mist 240ml",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_C62_240ML_OVERHEAD_RGB_1452X1452_222bd1a6-2a46-4d97-9101-d4c20edacc6c.jpg?v=1788866500",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Sun-drenched days, samba nights. Waves of pure joy. That unforgettable summer crush.. . Our cult classic Cheirosa 62™ Perfume Mist captures the Brazilian spirit of 1962, when we fell for the Girl from Ipanema. Irresistible and sunny, this iconic fragrance opens with creamy pistachio, while a hint of salted caramel unites with jasmine petals and vanilla.. Not sure which scent fits your mood? Take our quiz to find your fragrance .. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . . .",
+      "productType": "Fragrance",
+      "nativePrice": {
+        "amount": 39,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-10-01T20:12:33.185Z",
+      "lastSeenAt": "2026-10-29T16:58:46.012Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-29T20:47:47.608Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null

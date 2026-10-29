@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-29T16:49:16.929Z",
-  "seenAt": "2026-10-29T16:49:16.929Z",
+  "updatedAt": "2026-10-29T20:38:04.671Z",
+  "seenAt": "2026-10-29T20:38:04.671Z",
   "source": "live",
   "listings": [
     {
@@ -14504,7 +14504,7 @@
       "priceGbp": 84,
       "wasPriceGbp": 105,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Florabloom Forte Eau de Parfum 75ml by Guerlain blends rich floral notes with a sophisticated depth, creating a long-lasting, radiant signature scent..",
       "productType": "Women's Fragrances",
@@ -21910,7 +21910,7 @@
       "priceGbp": 68,
       "wasPriceGbp": 85,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Original Eau de Parfum For Her 100ml by Lacoste is a luminous floral fragrance with soft musky undertones. Fresh top notes unfold into a refined, feminine heart. A modern interpretation of effortless elegance..",
       "productType": "Women's Fragrances",
@@ -26119,7 +26119,7 @@
       "priceGbp": 100,
       "wasPriceGbp": 125,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Molecule 01 consists of the molecule Iso E Super pure and singular. Iso E Super is a molecule that hovers close to the skin to create an indefinable aura round the wearer. It is characterised by a hyper-modern cedarwood note with a velvety sensation..",
       "productType": "Men's Fragrances",

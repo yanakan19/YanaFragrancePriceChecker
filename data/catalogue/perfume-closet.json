@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-10-29T16:49:19.466Z",
-  "seenAt": "2026-10-29T16:49:19.466Z",
+  "updatedAt": "2026-10-29T20:38:17.650Z",
+  "seenAt": "2026-10-29T20:38:17.650Z",
   "source": "live",
   "listings": [
     {
@@ -336,7 +336,7 @@
       "priceGbp": 15,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Reef 21 is a fragrance that encapsulates the concept of bold allure, a daring symphony that redefines exceptional presence, granting you an aura of prestige that precedes any word. . 15ml in a perfectly compact format to accompany you anywhere and anytime. . Reef 21 is designed for those who dare to be different. The journey begins with vibrant bursts of Red Berries, providing instant freshness, while the heart of Cedarwood soon emerges to envelop you in an aura of warm luxury. Finally, Patchouli takes root, granting the fragrance an earthy depth and a mysterious allure that lingers for hours. . This is more than a practically-sized fragrance, it is a bold statement of your strong personality and a hallmark of modern elegance that never fades. . Fragrance Notes: . Top Note: Red Berries . Heart Note: Cedarwood . Base Note: Patchouli .",
       "productType": null,

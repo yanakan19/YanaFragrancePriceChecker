@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-29T16:49:19.466Z",
-  "seenAt": "2026-10-29T16:49:19.466Z",
+  "updatedAt": "2026-10-29T20:38:17.650Z",
+  "seenAt": "2026-10-29T20:38:17.650Z",
   "source": "live",
   "listings": [
     {
@@ -4476,7 +4476,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: . Lean in for what’s hot at the mo on our lingerie line-up… your go-to everyday One Bra, now in cheetah print.. This bra’s got it all - comfort with its pull-on design, removable pads and heat seal label; style with its cute cheetah print, no lace trim and no telltale lines; and support with its fitted feel, thick underband and adjustable straps.. This is comfort and confidence you can depend on, every day.. The best part… it’s free from wires! Untamed never looked or felt better!. Why you’ll love it: . • Made with 96% nylon and 4% spandex for a more fitted and flexible look and feel.. • Comes in sizes 8-10, 12-14, 16-18 and 20-22.. • Perfect for everyday use; giving you the support you need at home and on the go.. How to use it: . Find your fit. This innerwear comes in your unique size. Pick the one that fits you best.. Enjoy everyday support. Slip this on before heading to the gym or on busy days when you need a little extra support.. Line up your lingerie. Check out the rest of our range and maybe get a lace bra and plunge bra too..",
       "productType": "INNERWEAR",
@@ -30420,7 +30420,7 @@
       "priceGbp": 11,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About Me: . We know foundation isn’t just about coverage, that’s why we’ve developed Flawless Match Natural Finish Foundation. Its skin-loving formula is infused with hyaluronic acid for a hydrating, yet weightless, feel. To make sure you get your perfect skin match, our colour experts have worked with people of all skin tones to ensure we have a shade to match everyone. So you get a natural-skin-feel foundation that’s like your skin, only better!. . Product Specification: . • Smartmatch Technology for the perfect shade match.. • Natural-skin look, buildable, medium-to-full coverage.. • Hyaluronic Acid for a hydrating, yet weightless feel.. . How to use me: . Use our shade finder to find your Flawless Foundation match and then apply with our Flat Foundation Brush starting in the centre of your face and moving towards your hairline and jawline, buffing into your skin.. . Power up your flawless base by pairing your foundation with our Flawless Match Concealer , apply your shade match under foundation to conceal blemishes or a shade lighter under your eyes to brighten.. . .",
       "productType": "COLOR",
