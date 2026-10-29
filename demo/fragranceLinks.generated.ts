@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-10-28T09:43:00.931Z";
+export const FRAGRANCE_LINKS_AT = "2026-10-29T10:00:31.282Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -1818,6 +1818,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "bharara|king|edp": ["","https://www.bhararabeauty.com/products/bharara-king"],
   "bharara|onyx|edp": ["","https://www.bhararabeauty.com/products/bharara-onyx-eau-de-parfum"],
   "bharara|rose|edp": ["","https://www.bhararabeauty.com/products/bharara-rose-eau-de-parfum"],
+  "billieeilish|eilisheaudeparfumspray100mlgiftset100ml": ["","https://store.billieeilish.com/products/eilish-gift-set"],
+  "billieeilish|eilisheaudeparfumspray100mlgiftset100ml|edp": ["","https://store.billieeilish.com/products/eilish-gift-set"],
   "billieeilish|eilishno2|edp": ["","https://store.billieeilish.com/products/eilish-no-2-eau-de-parfum"],
   "billieeilish|eilish|edp": ["","https://store.billieeilish.com/products/eilish-eau-de-parfum"],
   "billieeilish|yourturn": ["Billie-Eilish/Your-Turn-102635",""],
@@ -3787,9 +3789,13 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "goldfieldbanks|desertrosewoodunisex|edp": ["","https://www.goldfieldandbanks.com/products/desert-rosewood"],
   "goldfieldbanks|desertrosewood|edp": ["","https://www.goldfieldandbanks.com/products/desert-rosewood"],
   "goldfieldbanks|ingeniousginger": ["","https://www.goldfieldandbanks.com/products/ingenious-ginger"],
+  "goldfieldbanks|ingeniousgingerunisex": ["","https://www.goldfieldandbanks.com/products/ingenious-ginger"],
+  "goldfieldbanks|ingeniousgingerunisex|edp": ["","https://www.goldfieldandbanks.com/products/ingenious-ginger"],
   "goldfieldbanks|ingeniousginger|edp": ["","https://www.goldfieldandbanks.com/products/ingenious-ginger"],
   "goldfieldbanks|ingeniousginger|unstated": ["","https://www.goldfieldandbanks.com/products/ingenious-ginger"],
   "goldfieldbanks|islandlush": ["","https://www.goldfieldandbanks.com/products/island-lush"],
+  "goldfieldbanks|islandlushunisex": ["","https://www.goldfieldandbanks.com/products/island-lush"],
+  "goldfieldbanks|islandlushunisex|edp": ["","https://www.goldfieldandbanks.com/products/island-lush"],
   "goldfieldbanks|islandlush|edp": ["","https://www.goldfieldandbanks.com/products/island-lush"],
   "goldfieldbanks|mysticbliss": ["","https://www.goldfieldandbanks.com/products/mystic-bliss"],
   "goldfieldbanks|mysticbliss|edp": ["","https://www.goldfieldandbanks.com/products/mystic-bliss"],
@@ -3804,6 +3810,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "goldfieldbanks|pacificrockswellunisex|extrait": ["","https://www.goldfieldandbanks.com/products/pacific-rock-swell"],
   "goldfieldbanks|pacificrockswell|extrait": ["","https://www.goldfieldandbanks.com/products/pacific-rock-swell"],
   "goldfieldbanks|purplesuede": ["","https://www.goldfieldandbanks.com/products/purple-suede"],
+  "goldfieldbanks|purplesuedeunisex": ["","https://www.goldfieldandbanks.com/products/purple-suede"],
+  "goldfieldbanks|purplesuedeunisex|edp": ["","https://www.goldfieldandbanks.com/products/purple-suede"],
   "goldfieldbanks|purplesuede|edp": ["","https://www.goldfieldandbanks.com/products/purple-suede"],
   "goldfieldbanks|rosemagnitude": ["","https://www.goldfieldandbanks.com/products/rose-magnitude"],
   "goldfieldbanks|rosemagnitudeunisex": ["","https://www.goldfieldandbanks.com/products/rose-magnitude"],
@@ -6744,6 +6752,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rabanne|milliongoldforher": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold-for-her--000000000065200303"],
   "rabanne|milliongoldforherpurejasmine": ["","https://www.rabanne.com/br/pt/fragrance/p/million-gold-for-her-pure-jasmine--000000000065224635"],
   "rabanne|milliongoldforherpurejasmine|edp": ["","https://www.rabanne.com/br/pt/fragrance/p/million-gold-for-her-pure-jasmine--000000000065224635"],
+  "rabanne|milliongoldforher|disputed": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold-for-her--000000000065200303"],
   "rabanne|milliongoldforher|edp": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold-for-her--000000000065200303"],
   "rabanne|milliongoldforher|parfum": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold-for-her-parfum--000000000065215866"],
   "rabanne|milliongold|edp": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold--000000000065200312"],
@@ -7092,6 +7101,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rogergallet|gingembrerouge|disputed": ["","https://be-nl.roger-gallet.com/c/Mjgx/parfums/collecties/gingembre-rouge"],
   "rogergallet|gingembrerouge|edt": ["","https://be-nl.roger-gallet.com/c/Mjgx/parfums/collecties/gingembre-rouge"],
   "rogergallet|jeanmariefarina|edc": ["","https://be-nl.roger-gallet.com/articles/jean-marie-farina-eau-de-cologne-1862"],
+  "rojaparfums|apexeauintense|edp": ["","https://rojalondon.com/products/apex-eau-intense-edp"],
   "rojaparfums|burlington1819": ["","https://rojalondon.com/products/burlington-1819"],
   "rojaparfums|burlington1819|edp": ["","https://rojalondon.com/products/burlington-1819"],
   "rojaparfums|delanuitparfum|parfum": ["","https://rojalondon.com/products/parfum-de-la-nuit"],
@@ -7345,6 +7355,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "surrati|fabrica1929": ["","https://surrati.ae/products/fabrica-1929"],
   "surrati|fabrica1929|extrait": ["","https://surrati.ae/products/fabrica-1929"],
   "surrati|missworld": ["","https://surrati.ae/products/miss-world"],
+  "surrati|missworldcharisma": ["","https://surrati.ae/products/miss-world-charisma"],
+  "surrati|missworldcharisma|extrait": ["","https://surrati.ae/products/miss-world-charisma"],
   "surrati|missworld|extrait": ["","https://surrati.ae/products/miss-world"],
   "surrati|omniyat": ["","https://surrati.ae/products/omniyat"],
   "surrati|omniyat|edp": ["","https://surrati.ae/products/omniyat"],
@@ -7456,6 +7468,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "thameen|carvedoudunisex|extrait": ["","https://thameenfragrance.com/products/carved-oud-50ml-extrait-de-parfum"],
   "thameen|centrestageelixir|edc": ["","https://thameenfragrance.com/products/centre-stage-100ml-cologne-elixir"],
   "thameen|constellationdiamond|extrait": ["","https://thameenfragrance.com/products/constellation-diamond-50ml-extrait-de-parfum"],
+  "thameen|florentinediamondunisex|extrait": ["","https://thameenfragrance.com/products/florentine-diamond-100ml-extrait-de-parfum"],
   "thameen|greenpearlunisex|extrait": ["","https://thameenfragrance.com/products/green-pearl-50ml-extrait-de-parfum"],
   "thameen|greenpearl|extrait": ["","https://thameenfragrance.com/products/green-pearl-50ml-extrait-de-parfum"],
   "thameen|noorolaintaifunisex|extrait": ["","https://thameenfragrance.com/products/noorolain-taif-10ml-extrait-de-parfum"],
