@@ -1,13 +1,13 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "ranAt": "2026-10-29T11:42:05.196Z",
-  "minutes": 8.04,
+  "ranAt": "2026-10-30T11:32:26.761Z",
+  "minutes": 14.81,
   "dryRun": false,
   "shopsWired": 19,
   "shopsEnabled": 10,
-  "shopsPriced": 10,
-  "listingsKept": 36677,
+  "shopsPriced": 9,
+  "listingsKept": 35899,
   "shops": [
     {
       "id": "discount-fragrances-ca",
@@ -15,14 +15,18 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1054,
-      "priced": 1054,
-      "kept": 912,
+      "listingsRead": 1058,
+      "priced": 1058,
+      "kept": 916,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 14,
+      "seconds": 121,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://discountfragrances.ca/robots.txt: HTTP 503",
+        "https://discountfragrances.ca/products.json?limit=250&page=3: HTTP 503"
+      ]
     },
     {
       "id": "perfumeonline-ca",
@@ -35,9 +39,14 @@
       "kept": 13641,
       "withBarcode": 0,
       "pagesFetched": 45,
-      "seconds": 95,
-      "currency": "the storefront publishes CAD at rate 1, settles in CAD",
-      "errors": []
+      "seconds": 316,
+      "currency": "the storefront publishes CAD at rate 1",
+      "errors": [],
+      "diagnostics": [
+        "https://perfumeonline.ca/meta.json: HTTP 503",
+        "https://perfumeonline.ca/products.json?limit=250&page=10: HTTP 503",
+        "https://perfumeonline.ca/products.json?limit=250&page=11: HTTP 503"
+      ]
     },
     {
       "id": "fragrance-canada",
@@ -45,29 +54,36 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6732,
-      "priced": 6727,
-      "kept": 6033,
+      "listingsRead": 6747,
+      "priced": 6742,
+      "kept": 6048,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 52,
-      "currency": "the storefront publishes CAD at rate 1, settles in CAD",
-      "errors": []
+      "seconds": 134,
+      "currency": "the storefront publishes CAD, settles in CAD",
+      "errors": [],
+      "diagnostics": [
+        "https://fragrancecanada.ca/: HTTP 503",
+        "https://fragrancecanada.ca/products.json?limit=250&page=2: HTTP 503"
+      ]
     },
     {
       "id": "fragrance-online-co",
       "name": "Fragrance Online Co.",
       "route": "shopify",
       "singleBrand": false,
-      "status": "priced",
-      "listingsRead": 812,
-      "priced": 812,
-      "kept": 800,
+      "status": "refused",
+      "listingsRead": 0,
+      "priced": 0,
+      "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 6,
-      "seconds": 15,
-      "currency": "the storefront publishes CAD at rate 1, settles in CAD",
-      "errors": []
+      "pagesFetched": 0,
+      "seconds": 25,
+      "currency": "",
+      "errors": [
+        "robots.txt https://fragranceonlineco.ca/robots.txt: 503",
+        "robots.txt https://www.fragranceonlineco.ca/robots.txt: 0 AbortError: This operation was aborted"
+      ]
     },
     {
       "id": "maximum-fragrance",
@@ -75,14 +91,18 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 13761,
-      "priced": 13761,
-      "kept": 9597,
-      "withBarcode": 9283,
+      "listingsRead": 13762,
+      "priced": 13762,
+      "kept": 9598,
+      "withBarcode": 9284,
       "pagesFetched": 34,
-      "seconds": 72,
+      "seconds": 276,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://maximumfragrance.ca/products.json?country=CA&limit=250&page=3: HTTP 503",
+        "https://maximumfragrance.ca/products.json?country=CA&limit=250&page=8: HTTP 503"
+      ]
     },
     {
       "id": "perfume-factory-ca",
@@ -95,7 +115,7 @@
       "kept": 698,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 13,
+      "seconds": 16,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -120,14 +140,17 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 3307,
-      "priced": 3119,
-      "kept": 3014,
+      "listingsRead": 3309,
+      "priced": 3121,
+      "kept": 3016,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 23,
+      "seconds": 25,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://parfumexquis.com/robots.txt: HTTP 503"
+      ]
     },
     {
       "id": "niche-essence",
@@ -135,14 +158,17 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2339,
-      "priced": 1489,
+      "listingsRead": 2330,
+      "priced": 1490,
       "kept": 1265,
       "withBarcode": 0,
       "pagesFetched": 12,
-      "seconds": 34,
+      "seconds": 153,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://www.nicheessence.com/products.json?country=CA&limit=250&page=9: HTTP 503"
+      ]
     },
     {
       "id": "perfume-plus-ca",
@@ -150,14 +176,16 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 176,
-      "priced": 176,
+      "listingsRead": 162,
+      "priced": 162,
       "kept": 2,
       "withBarcode": 0,
-      "pagesFetched": 176,
-      "seconds": 422,
+      "pagesFetched": 162,
+      "seconds": 726,
       "currency": "JSON-LD offers named: CAD",
-      "errors": [],
+      "errors": [
+        "stopped early: exceeded this shop's time budget"
+      ],
       "diagnostics": [
         "sitemap: 176 product address(es) found, first read https://www.perfumeplus.ca/product-page/house-of-viva-la-juicy-3-piece-travel-spray-set"
       ]

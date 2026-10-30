@@ -1,36 +1,36 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-10-29T11:50:08.198Z",
+  "builtAt": "2026-10-30T11:47:16.045Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 10,
-  "shopsPriced": 10,
-  "crawlMinutes": 8.04,
-  "harvestRanAt": "2026-10-29T11:42:05.196Z",
-  "listingsPriced": 46764,
-  "listingsKept": 36677,
+  "shopsPriced": 9,
+  "crawlMinutes": 14.81,
+  "harvestRanAt": "2026-10-30T11:32:26.761Z",
+  "listingsPriced": 45961,
+  "listingsKept": 35899,
   "staleAfterDays": 7,
-  "products": 26666,
-  "productsWithTwoOrMoreShops": 6313,
+  "products": 26681,
+  "productsWithTwoOrMoreShops": 6315,
   "shareWithTwoOrMoreShops": 0.237,
-  "productsWithTwoOrMoreIndependentShops": 6313,
+  "productsWithTwoOrMoreIndependentShops": 6315,
   "shareWithTwoOrMoreIndependentShops": 0.237,
-  "productsWithThreeOrMoreShops": 2224,
+  "productsWithThreeOrMoreShops": 2226,
   "medianPriceGap": 0.225,
   "listingBarcodeShare": 0.253,
-  "productsMatchingUkByBarcode": 2341,
+  "productsMatchingUkByBarcode": 2342,
   "shops": [
     {
       "id": "discount-fragrances-ca",
-      "products": 905,
-      "shared": 675
+      "products": 909,
+      "shared": 679
     },
     {
       "id": "fragrance-canada",
-      "products": 5844,
-      "shared": 3487
+      "products": 5859,
+      "shared": 3488
     },
     {
       "id": "fragrance-online-co",
@@ -44,23 +44,23 @@
     },
     {
       "id": "maximum-fragrance",
-      "products": 9578,
-      "shared": 4426
+      "products": 9579,
+      "shared": 4427
     },
     {
       "id": "niche-essence",
       "products": 1257,
-      "shared": 423
+      "shared": 424
     },
     {
       "id": "parfum-exquis",
-      "products": 3009,
-      "shared": 365
+      "products": 3011,
+      "shared": 366
     },
     {
       "id": "perfume-factory-ca",
       "products": 673,
-      "shared": 514
+      "shared": 515
     },
     {
       "id": "perfume-plus-ca",
@@ -73,12 +73,12 @@
       "shared": 5344
     }
   ],
-  "productsShown": 26666,
-  "productsWithUkPhoto": 5603,
-  "productsWithUkPhotoByBarcode": 1447,
-  "productsWithUkPhotoByName": 4156,
-  "listingsWithReference": 10911,
-  "offersWithCorroboratedReference": 3307,
+  "productsShown": 26681,
+  "productsWithUkPhoto": 5609,
+  "productsWithUkPhotoByBarcode": 1450,
+  "productsWithUkPhotoByName": 4159,
+  "listingsWithReference": 10928,
+  "offersWithCorroboratedReference": 3311,
   "deals": 1083,
   "shareWithUkPhoto": 0.21,
   "goNoGo": {
