@@ -2,9 +2,9 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-10-29T00:59:09.039Z",
+ "builtAt": "2026-10-30T00:54:59.805Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 13696,
+ "listingsWithReference": 13701,
  "offersWithCorroboratedReference": 2206,
  "deals": [
   {
@@ -254,6 +254,16 @@
    "wasPrice": 6500,
    "percentOff": 49,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-rayhaan-tonquin-giza",
+   "price": 2150,
+   "delivered": true,
+   "wasPrice": 4250,
+   "percentOff": 49,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -1778,16 +1788,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-rayhaan-tonquin-giza",
-   "price": 2650,
-   "delivered": true,
-   "wasPrice": 4250,
-   "percentOff": 37,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-swiss-arabian-shaghaf-amber-infusion",
    "price": 4750,
    "delivered": true,
@@ -1908,6 +1908,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-lattafa-musamam-black-intense",
+   "price": 4508.9,
+   "delivered": true,
+   "wasPrice": 7150,
+   "percentOff": 36,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-montale-chocolate-greedy",
    "price": 8500,
    "delivered": true,
@@ -2012,6 +2022,26 @@
    "price": 2145,
    "delivered": true,
    "wasPrice": 3300,
+   "percentOff": 35,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-caneza-oud-essence",
+   "price": 4948.9,
+   "delivered": true,
+   "wasPrice": 7700,
+   "percentOff": 35,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-caneza-prisca",
+   "price": 4948.9,
+   "delivered": true,
+   "wasPrice": 7700,
    "percentOff": 35,
    "retailerId": "perfume-palace",
    "kind": "retailer",
@@ -2334,6 +2364,16 @@
    "wasPrice": 6995,
    "percentOff": 35,
    "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-caneza-mezmar-4",
+   "price": 4343.9,
+   "delivered": true,
+   "wasPrice": 6600,
+   "percentOff": 34,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -2722,16 +2762,6 @@
    "price": 3699,
    "delivered": true,
    "wasPrice": 5450,
-   "percentOff": 32,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-nishane-hacivat-1",
-   "price": 19500,
-   "delivered": true,
-   "wasPrice": 28800,
    "percentOff": 32,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -3958,36 +3988,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-caneza-mezmar-4",
-   "price": 4500,
-   "delivered": true,
-   "wasPrice": 6000,
-   "percentOff": 25,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-caneza-oud-essence",
-   "price": 5250,
-   "delivered": true,
-   "wasPrice": 7000,
-   "percentOff": 25,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-caneza-prisca",
-   "price": 5250,
-   "delivered": true,
-   "wasPrice": 7000,
-   "percentOff": 25,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-caneza-uomo-3",
    "price": 4875,
    "delivered": true,
@@ -4788,16 +4788,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-tom-ford-oud-wood",
-   "price": 23900,
-   "delivered": true,
-   "wasPrice": 30400,
-   "percentOff": 21,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-ado-crepuscule-des-ames-edp-100ml",
    "price": 14400,
    "delivered": true,
@@ -5198,12 +5188,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "nykaa-azzar00000014",
-   "price": 7840,
-   "delivered": false,
-   "wasPrice": 9800,
+   "fragranceId": "fridaycharm-ysl-libre-le-parfum-w-90ml",
+   "price": 9900,
+   "delivered": true,
+   "wasPrice": 12500,
    "percentOff": 20,
-   "retailerId": "perfume-network",
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -6002,6 +5992,16 @@
    "price": 15700,
    "delivered": true,
    "wasPrice": 18600,
+   "percentOff": 15,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-maison-crivelli-safran-secret-extrait-de-parfum-for-unisex",
+   "price": 27500,
+   "delivered": true,
+   "wasPrice": 32500,
    "percentOff": 15,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -6978,30 +6978,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-maison-crivelli-safran-secret-extrait-de-parfum-for-unisex",
-   "price": 29500,
-   "delivered": true,
-   "wasPrice": 32500,
-   "percentOff": 9,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-neesh-shafran-extrait-de-parfum-u-100ml",
    "price": 7100,
    "delivered": true,
    "wasPrice": 7850,
-   "percentOff": 9,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-ysl-libre-le-parfum-w-90ml",
-   "price": 11350,
-   "delivered": true,
-   "wasPrice": 12500,
    "percentOff": 9,
    "retailerId": "fridaycharm",
    "kind": "retailer",

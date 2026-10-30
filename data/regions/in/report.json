@@ -1,26 +1,26 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-10-29T00:59:09.039Z",
+  "builtAt": "2026-10-30T00:54:59.805Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 16,
   "shopsPriced": 16,
-  "crawlMinutes": 55.37,
-  "harvestRanAt": "2026-10-29T00:03:45.963Z",
-  "listingsPriced": 32812,
-  "listingsKept": 21822,
+  "crawlMinutes": 55.33,
+  "harvestRanAt": "2026-10-29T23:59:39.106Z",
+  "listingsPriced": 32760,
+  "listingsKept": 21770,
   "staleAfterDays": 7,
-  "products": 18314,
-  "productsWithTwoOrMoreShops": 3266,
-  "shareWithTwoOrMoreShops": 0.178,
-  "productsWithTwoOrMoreIndependentShops": 3266,
-  "shareWithTwoOrMoreIndependentShops": 0.178,
+  "products": 18318,
+  "productsWithTwoOrMoreShops": 3270,
+  "shareWithTwoOrMoreShops": 0.179,
+  "productsWithTwoOrMoreIndependentShops": 3270,
+  "shareWithTwoOrMoreIndependentShops": 0.179,
   "productsWithThreeOrMoreShops": 1063,
-  "medianPriceGap": 0.218,
+  "medianPriceGap": 0.217,
   "listingBarcodeShare": 0.01,
-  "productsMatchingUkByBarcode": 103,
+  "productsMatchingUkByBarcode": 102,
   "shops": [
     {
       "id": "aar-fragrances",
@@ -34,8 +34,8 @@
     },
     {
       "id": "fridaycharm",
-      "products": 6338,
-      "shared": 2043
+      "products": 6342,
+      "shared": 2046
     },
     {
       "id": "maison-des-parfums-in",
@@ -50,7 +50,7 @@
     {
       "id": "nykaa",
       "products": 1582,
-      "shared": 258
+      "shared": 259
     },
     {
       "id": "perfume-network",
@@ -59,12 +59,12 @@
     },
     {
       "id": "perfume-palace",
-      "products": 6574,
-      "shared": 2095
+      "products": 6576,
+      "shared": 2099
     },
     {
       "id": "scentido",
-      "products": 156,
+      "products": 158,
       "shared": 30
     },
     {
@@ -88,13 +88,13 @@
       "shared": 5
     }
   ],
-  "productsShown": 18176,
-  "productsWithUkPhoto": 2553,
-  "productsWithUkPhotoByBarcode": 93,
-  "productsWithUkPhotoByName": 2460,
-  "listingsWithReference": 13696,
+  "productsShown": 18180,
+  "productsWithUkPhoto": 2551,
+  "productsWithUkPhotoByBarcode": 92,
+  "productsWithUkPhotoByName": 2459,
+  "listingsWithReference": 13701,
   "offersWithCorroboratedReference": 2206,
-  "deals": 745,
+  "deals": 743,
   "shareWithUkPhoto": 0.14,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
