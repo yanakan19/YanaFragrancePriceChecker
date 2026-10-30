@@ -1,7 +1,7 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-10-30T07:52:28.725Z",
-  "seenAt": "2026-10-30T07:52:28.725Z",
+  "updatedAt": "2026-10-30T11:18:34.141Z",
+  "seenAt": "2026-10-30T11:18:34.141Z",
   "source": "live",
   "listings": [
     {
@@ -10,7 +10,7 @@
       "rawTitle": "Coffret à composer - Exploration 8x2ml",
       "rawBrand": "BDK Parfums",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/LaDecouverteParsiennenew_5.jpg?v=1696605711",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/2ml_4-5_2.jpg?v=1793353189",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -36,7 +36,7 @@
       "rawTitle": "Coffret à composer - Immersion 15x2ml",
       "rawBrand": "BDK Parfums",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/LaDecouverteParsiennenew_2.jpg?v=1696606430",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/2ml_4-5_4.jpg?v=1793353189",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -3130,7 +3130,7 @@
       "rawTitle": "Coffret à composer - Initiation 4x2ml",
       "rawBrand": "BDK Parfums",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/EchantillonEtui.jpg?v=1791299854",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/2ml_4-5_5.jpg?v=1793353189",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,

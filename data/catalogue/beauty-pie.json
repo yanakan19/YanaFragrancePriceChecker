@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-30T07:43:12.926Z",
-  "seenAt": "2026-10-30T07:43:12.926Z",
+  "updatedAt": "2026-10-30T11:08:59.446Z",
+  "seenAt": "2026-10-30T11:08:59.446Z",
   "source": "live",
   "listings": [
     {
@@ -4844,7 +4844,7 @@
       "priceGbp": 20,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A perfectly-balanced, universal formula that nourishes, strengthens, protects and smooths all hair types. With Vitamin B5 to soften, Coconut Oil to restore lustre and shine, Kerasym™ Shield to help repair damage to hair fibres, and Pentavitin® - a ‘moisture magnet’ to help lock in moisture. Cruelty-free. Vegan.. In a supersize 450ml bottle. Pairs perfectly with the matching shampoo..",
       "productType": "Haircare",
@@ -7305,7 +7305,7 @@
       "priceGbp": 25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "From Italy, this featherweight, translucent pressed powder (suitable for all skin tones) has hexagonal microparticles for a long-wearing, extreme soft-focus and skin perfecting effect. It features superfine Micro-Clay for a silky, oil-absorbing finish and natural sebum-balancing Oils to help mattify and illuminate skin. Use it to blot, blend and blur. Clean formula. Vegan. Cruelty-free (of course).. Slots into the silver, lightweight, Keep This™ Compact (which features a handy mirror for makeup touch-ups on-the-go)..",
       "productType": "Makeup",

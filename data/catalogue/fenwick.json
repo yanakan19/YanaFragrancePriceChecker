@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-30T07:43:12.926Z",
-  "seenAt": "2026-10-30T07:43:12.926Z",
+  "updatedAt": "2026-10-30T11:08:59.446Z",
+  "seenAt": "2026-10-30T11:08:59.446Z",
   "source": "live",
   "listings": [
     {
@@ -17954,7 +17954,7 @@
       "priceGbp": 98,
       "wasPriceGbp": 140,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Feuilles De Tabac Eau de Parfum 100ml by Miller Harris offers a rich, woody fragrance centered around the warm, earthy scent of patchouli. This elegant perfume combines tobacco leaf notes with subtle woody undertones, creating a sophisticated and long-lasting aroma. Ideal for those who appreciate distinctive, refined scents that evoke comfort and depth throughout the day..",
       "productType": "Women's Fragrances",
