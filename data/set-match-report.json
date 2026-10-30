@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 212,
+ "folded": 214,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2743,39 +2743,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3614274185751",
-   "absorbed": [
-    "set-giorgio-armani-si-eau-de-parfum-intense-gift-set-100ml-edp-15ml-edp-50ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614274185751",
-     "brand": "Giorgio Armani",
-     "name": "SÌ Eau De Parfum Intense Gift Set 100ml EDP + 15ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3614274185751",
-     "scent": "si",
-     "signature": "1x100fragrance|1x15fragrance|1x50body",
-     "shops": [
-      "perfume-click",
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-giorgio-armani-si-eau-de-parfum-intense-gift-set-100ml-edp-15ml-edp-50ml-body-lotion",
-     "brand": "Giorgio Armani",
-     "name": "SÌ Eau De Parfum Intense Gift Set 100ml EDP + 15ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "si",
-     "signature": "1x100fragrance|1x15fragrance|1x50body",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3614274337129",
    "absorbed": [
     "set-giorgio-armani-armani-code-eau-de-toilette-gift-set-50ml-edt-75ml-shower-gel"
@@ -3378,6 +3345,38 @@
      "signature": "1x200fragrance|1x75deo",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3616306129016",
+   "absorbed": [
+    "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616306129016",
+     "brand": "Chloé",
+     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3616306129016",
+     "scent": "l",
+     "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion",
+     "brand": "Chloé",
+     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "l",
+     "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -4650,6 +4649,38 @@
    ]
   },
   {
+   "canonical": "set-ean-7340032861969",
+   "absorbed": [
+    "set-byredo-la-selection-boisee-gift-set-12ml-black-saffron-edp-12ml-mojave-ghost-edp-12ml-super-cedar-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-7340032861969",
+     "brand": "Byredo",
+     "name": "La Sélection Boisée Gift Set 12ml Black Saffron EDP + 12ml Mojave Ghost EDP + 12ml Super Cedar EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "7340032861969",
+     "scent": "black boisee cedar ghost la mojave saffron selection super",
+     "signature": "3x12fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-byredo-la-selection-boisee-gift-set-12ml-black-saffron-edp-12ml-mojave-ghost-edp-12ml-super-cedar-edp",
+     "brand": "Byredo",
+     "name": "La Sélection Boisée Gift Set 12ml Black Saffron EDP + 12ml Mojave Ghost EDP + 12ml Super Cedar EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "black boisee cedar ghost la mojave saffron selection super",
+     "signature": "3x12fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-7640164030616",
    "absorbed": [
     "set-gisada-ambassador-women-gift-set-50ml-edp-100ml-shower-gel",
@@ -5804,6 +5835,39 @@
    ]
   },
   {
+   "canonical": "set-ean-8435415112925",
+   "absorbed": [
+    "set-jean-paul-gaultier-le-male-gift-set-75ml-edt-75ml-all-over-shower-gel-christmas-edition"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415112925",
+     "brand": "Jean Paul Gaultier",
+     "name": "Le Male Gift Set 75ml EDT + 75ml All Over Shower Gel (Christmas Edition)",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415112925",
+     "scent": "all christmas edition le male over",
+     "signature": "1x75fragrance|1x75wash",
+     "shops": [
+      "perfume-click",
+      "perfumeuk"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-le-male-gift-set-75ml-edt-75ml-all-over-shower-gel-christmas-edition",
+     "brand": "Jean Paul Gaultier",
+     "name": "Le Male Gift Set 75ml EDT + 75ml All Over Shower Gel (Christmas Edition)",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "all christmas edition le male over",
+     "signature": "1x75fragrance|1x75wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8436581946246",
    "absorbed": [
     "set-reebok-cool-your-body-women-gift-set-100ml-edt-150ml-body-spray"
@@ -6650,7 +6714,7 @@
   },
   {
    "reasons": [
-    "two different barcodes: 783320421211, 783320422331",
+    "two different barcodes: 783320422331, 783320423451",
     "a shop lists more than one: the-beauty-store-uk"
    ],
    "members": [
@@ -6692,18 +6756,6 @@
      ]
     },
     {
-     "id": "set-ean-0783320421211",
-     "brand": "Bvlgari",
-     "name": "Man Rain Essence Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0783320421211",
-     "scent": "essence man rain",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
      "id": "set-ean-0783320422331",
      "brand": "Bvlgari",
      "name": "Man Rain Essence Eau de Parfum Men's Gift Set (100ml + 15ml)",
@@ -6713,6 +6765,18 @@
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
       "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-0783320423451",
+     "brand": "Bvlgari",
+     "name": "Man Rain Essence Gift Set 100ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320423451",
+     "scent": "essence man rain",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "perfume-click"
      ]
     }
    ]
@@ -7204,7 +7268,7 @@
   {
    "reasons": [
     "two different barcodes: 3616304957536, 3616304990458",
-    "price spread 2.14 is over 1.5"
+    "price spread 2.21 is over 1.5"
    ],
    "members": [
     {
@@ -7948,49 +8012,6 @@
    ],
    "members": [
     {
-     "id": "set-ean-0810103654273",
-     "brand": "Head",
-     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0810103654273",
-     "scent": "motion",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-head-motion-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
-     "brand": "Head",
-     "name": "Motion 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "motion",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-head-motion-gift-set-edt-100ml-deodorant-spray-200ml",
-     "brand": "Head",
-     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "motion",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 3.98 is over 1.5"
-   ],
-   "members": [
-    {
      "id": "set-ean-0810103654280",
      "brand": "Head",
      "name": "Fire Gift Set: EDT 100ml - Deodorant Spray 200ml",
@@ -8024,80 +8045,6 @@
      "signature": "1x100fragrance|1x200deo",
      "shops": [
       "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 2.04 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0810103654372",
-     "brand": "Head",
-     "name": "Women Gift Set: Bliss EDT 50ml - EliteEDT 50ml - Spark EDT 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0810103654372",
-     "scent": "bliss eliteedt spark",
-     "signature": "3x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-head-women-gift-set-bliss-edt-50ml-eliteedt-50ml-spark-edt-50ml",
-     "brand": "Head",
-     "name": "Women Gift Set: Bliss EDT 50ml - EliteEDT 50ml - Spark EDT 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bliss eliteedt spark",
-     "signature": "3x50fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 3.98 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0810103654631",
-     "brand": "Head",
-     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0810103654631",
-     "scent": "bliss",
-     "signature": "1x100fragrance|1x240body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-head-bliss-gift-set-edt-100ml-fragrance-mist-240ml",
-     "brand": "Head",
-     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bliss",
-     "signature": "1x100fragrance|1x240body",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
-     "id": "set-head-bliss-gift-set-edt-spray-100ml-fragrance-mist-240ml",
-     "brand": "Head",
-     "name": "Bliss Gift Set EDT Spray 100ml + Fragrance Mist 240ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bliss",
-     "signature": "1x100fragrance|1x240body",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
@@ -10962,11 +10909,11 @@
    ],
    "members": [
     {
-     "id": "set-ean-5060523017874",
+     "id": "set-ean-5060412679237",
      "brand": "Ted Baker",
      "name": "Icons Gift Set 15ml EDT Woman Original + 15ml EDT Woman Limited Edition + 15ml EDT W For Her + 15ml EDT X20 For Her",
      "concentration": "Eau de Toilette",
-     "ean": "5060523017874",
+     "ean": "5060412679237",
      "scent": "edition icons limited original w woman x20",
      "signature": "4x15fragrance",
      "shops": [
@@ -12003,6 +11950,68 @@
      "signature": "1x50fragrance|1x5fragrance|1x75body",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 3.98 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-head-bliss-gift-set-edt-100ml-fragrance-mist-240ml",
+     "brand": "Head",
+     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    },
+    {
+     "id": "set-head-bliss-gift-set-edt-spray-100ml-fragrance-mist-240ml",
+     "brand": "Head",
+     "name": "Bliss Gift Set EDT Spray 100ml + Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 3.98 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-head-motion-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Motion 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-head-motion-gift-set-edt-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
