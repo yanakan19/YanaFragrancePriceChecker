@@ -1,7 +1,7 @@
 {
   "retailerId": "swiss-arabian",
-  "updatedAt": "2026-10-30T11:17:06.562Z",
-  "seenAt": "2026-10-30T11:17:06.562Z",
+  "updatedAt": "2026-10-30T14:49:45.450Z",
+  "seenAt": "2026-10-30T14:49:45.450Z",
   "source": "live",
   "listings": [
     {
@@ -1425,10 +1425,9 @@
       "description": "A truly unique and special variety of Oud has been discovered in the Arabian region, sourced from a rare and hard-to-find sapling. The story of Oud is steeped in tradition, as farmers have used timehonored methods passed down through generations to cultivate this organic and revolutionary scent. The unique characteristics of this Oud variety make it stand out from others, making it a true treasure for Oud lovers.",
       "productType": null,
       "nativePrice": {
-        "amount": 99.22,
+        "amount": 141.75,
         "currency": "USD"
       },
-      "nativeWasPrice": 141.75,
       "retailerId": "swiss-arabian",
       "firstSeenAt": "2026-08-05T18:10:51.641Z",
       "status": "active",
