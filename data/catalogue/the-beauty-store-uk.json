@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-30T04:12:03.897Z",
-  "seenAt": "2026-10-30T04:12:03.897Z",
+  "updatedAt": "2026-10-30T07:43:12.905Z",
+  "seenAt": "2026-10-30T07:43:12.905Z",
   "source": "live",
   "listings": [
     {
@@ -26073,7 +26073,7 @@
       "priceGbp": 164.18,
       "wasPriceGbp": 255,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Xerjoff Casamorati 1888 Quatro Pizzi Eau De Parfum 100ml.",
       "productType": "Eau de Parfum",

@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-10-30T04:11:58.400Z",
-  "seenAt": "2026-10-30T04:11:58.400Z",
+  "updatedAt": "2026-10-30T07:43:12.926Z",
+  "seenAt": "2026-10-30T07:43:12.926Z",
   "source": "live",
   "listings": [
     {
@@ -773,7 +773,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "An elegant and luxurious scent that reflects the true meaning of the authentic Arabian rituals. It is characterized by a distinctive mixture of white musk and carefully selected extracts of cardamom seeds. It starts with wonderful layers of amber and the freshness of vanilla, in addition to light and spicy flavors of bergamot for a scent that mimics the smell of cleanliness and gives you a sense of freshness that lasts all day.. Notes: . Top notes: Vanilla, Amber. Heart notes: Spicy, Bergamot. Base notes: Musk, Cardamom. .",
       "productType": "Arabic Perfumes",

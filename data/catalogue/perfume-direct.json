@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-30T04:11:58.400Z",
-  "seenAt": "2026-10-30T04:11:58.400Z",
+  "updatedAt": "2026-10-30T07:43:12.926Z",
+  "seenAt": "2026-10-30T07:43:12.926Z",
   "source": "live",
   "listings": [
     {
@@ -36512,7 +36512,7 @@
       "priceGbp": 244.99,
       "wasPriceGbp": 259.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Relive the holiday classic with the LEGO Ideas Home Alone (21330) set, a festive build, packed with iconic scenes and clever details. Recreate the McCallister house, treehouse, and Kevin’s booby traps in this nostalgic masterpiece. Featuring five minifigures - including Kevin, the Wet Bandits, and Old Man Marley this set is perfect for display or play. A must-have for fans of the film and LEGO collectors alike during the holiday season.. Age Restrictions: 18+. No. of Pieces: 3955. Dimensions: H 11\" x W 14\" x D 15\".",
       "productType": "LEGO",
