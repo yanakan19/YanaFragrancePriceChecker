@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-10-30T18:25:14.447Z",
-  "seenAt": "2026-10-30T18:25:14.447Z",
+  "updatedAt": "2026-10-30T22:23:27.052Z",
+  "seenAt": "2026-10-30T22:23:27.052Z",
   "source": "live",
   "listings": [
     {
@@ -466,32 +466,6 @@
       },
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-29T09:45:33.118Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "BN004801",
-      "url": "https://soldejaneiro.com/products/limited-edition-sol-tote-perfume-mist-collection",
-      "rawTitle": "Limited Edition Sol Tote & Perfume Mist Collection",
-      "rawBrand": "Sol de Janeiro",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_GWPPINKTOTE_OVERHEAD_1452X1452_1e3c83bb-e146-468f-b08b-71cbadd2b263.jpg?v=1790111233",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "house-direct",
-      "description": "Every. Single. Obsession. . . Spritz our entire 90ml perfume mist collection with this super limited-edition bundle, featuring an exclusive Sol de Janeiro tote. Only available for limited time & extremely limited stock : Bag the ultimate cheirosa haul before it’s gone for good. . .",
-      "productType": "bundle-dg",
-      "nativePrice": {
-        "amount": 199,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-09-28T02:01:53.277Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -18227,6 +18201,33 @@
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "BN004801",
+      "url": "https://soldejaneiro.com/products/limited-edition-sol-tote-perfume-mist-collection",
+      "rawTitle": "Limited Edition Sol Tote & Perfume Mist Collection",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_GWPPINKTOTE_OVERHEAD_1452X1452_1e3c83bb-e146-468f-b08b-71cbadd2b263.jpg?v=1790111233",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "description": "Every. Single. Obsession. . . Spritz our entire 90ml perfume mist collection with this super limited-edition bundle, featuring an exclusive Sol de Janeiro tote. Only available for limited time & extremely limited stock : Bag the ultimate cheirosa haul before it’s gone for good. . .",
+      "productType": "bundle-dg",
+      "nativePrice": {
+        "amount": 199,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-09-28T02:01:53.277Z",
+      "lastSeenAt": "2026-10-30T18:25:14.447Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-30T22:23:27.052Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null

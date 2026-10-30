@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-30T18:16:37.960Z",
-  "seenAt": "2026-10-30T18:16:37.960Z",
+  "updatedAt": "2026-10-30T22:16:18.365Z",
+  "seenAt": "2026-10-30T22:16:18.365Z",
   "source": "live",
   "listings": [
     {
@@ -4965,7 +4965,7 @@
     {
       "retailerSku": "CHRT-100-00200",
       "url": "https://assaf.ae/products/charlotte-perfume",
-      "rawTitle": "Charlotte 100 ML",
+      "rawTitle": "Charlotte 100 ML 100 ML",
       "rawBrand": "Assaf",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/e7bc212d-37e1-4ce2-af58-d169018b13c2-1000x1000-lRTLd74JeQkyYFyYxkeN1or7Mlyie0GGOss2EQMM.jpg?v=1741869265",
@@ -4977,7 +4977,7 @@
       "description": ".",
       "productType": "women",
       "nativePrice": {
-        "amount": 75,
+        "amount": 59.99,
         "currency": "AED"
       },
       "nativeWasPrice": 259,

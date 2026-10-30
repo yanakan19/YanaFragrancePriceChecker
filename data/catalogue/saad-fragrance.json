@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-30T18:13:53.797Z",
-  "seenAt": "2026-10-30T18:13:53.797Z",
+  "updatedAt": "2026-10-30T22:14:50.849Z",
+  "seenAt": "2026-10-30T22:14:50.849Z",
   "source": "live",
   "listings": [
     {
@@ -3188,7 +3188,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the luxurious and captivating scent of Ahmed Al Maghribi Marj EDP 60ml, exclusively available at Saad Fragrance. This premium fragrance embodies elegance and sophistication, blending exquisite oriental notes for a truly unforgettable experience. Whether you’re looking to enhance your personal scent collection or find the perfect gift, Marj EDP offers a unique and timeless fragrance that lingers throughout the day.. .",
       "productType": null,

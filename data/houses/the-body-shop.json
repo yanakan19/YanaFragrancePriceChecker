@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-10-30T18:25:16.113Z",
-  "seenAt": "2026-10-30T18:25:16.113Z",
+  "updatedAt": "2026-10-30T22:23:28.394Z",
+  "seenAt": "2026-10-30T22:23:28.394Z",
   "source": "live",
   "listings": [
     {
@@ -6638,7 +6638,7 @@
       "priceGbp": 3,
       "wasPriceGbp": 8,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Shop our Swipe It Moisturising Lip Balm to benefit from 95% of natural ingredients. Our Tinted Lip Balm is vegan certified and has recyclable packaging**..",
       "productType": "Lip Care",
