@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 207,
+ "folded": 202,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1751,38 +1751,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3349668656271",
-   "absorbed": [
-    "set-paco-rabanne-phantom-parfum-gift-set-50ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3349668656271",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Phantom Parfum Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3349668656271",
-     "scent": "paco phantom rabanne",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-phantom-parfum-gift-set-50ml-edp-10ml-edp",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Phantom Parfum Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "paco phantom rabanne",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3349668666959",
    "absorbed": [
     "set-paco-rabanne-million-gold-2-piece-gift-set-eau-de-parfum-50ml-body-lotion-100ml"
@@ -1908,38 +1876,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3386460158411",
-   "absorbed": [
-    "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460158411",
-     "brand": "Jimmy Choo",
-     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3386460158411",
-     "scent": "man",
-     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
-     "brand": "Jimmy Choo",
-     "name": "Man Gift Set 100ml EDT - 100ml Shower Gel - 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "man",
-     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -2323,38 +2259,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3430750646079",
-   "absorbed": [
-    "set-jeanne-arthes-night-club-gift-set-100ml-edt-150ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750646079",
-     "brand": "Jeanne Arthes",
-     "name": "Night Club Gift Set 100ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3430750646079",
-     "scent": "club night",
-     "signature": "1x100fragrance|1x150wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-night-club-gift-set-100ml-edt-150ml-shower-gel",
-     "brand": "Jeanne Arthes",
-     "name": "Night Club Gift Set 100ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "club night",
-     "signature": "1x100fragrance|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3430750646086",
    "absorbed": [
     "set-jeanne-arthes-private-club-gift-set-100ml-edt-150ml-shower-gel"
@@ -2380,38 +2284,6 @@
      "ean": null,
      "scent": "club private",
      "signature": "1x100fragrance|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3430750901215",
-   "absorbed": [
-    "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750901215",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3430750901215",
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -3588,38 +3460,6 @@
      "signature": "2x30fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3760269842038",
-   "absorbed": [
-    "set-lolita-lempicka-mon-premier-gift-set-50ml-edp-75ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3760269842038",
-     "brand": "Lolita Lempicka",
-     "name": "Mon Premier Gift Set 50ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3760269842038",
-     "scent": "mon premier",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-lolita-lempicka-mon-premier-gift-set-50ml-edp-75ml-body-lotion",
-     "brand": "Lolita Lempicka",
-     "name": "Mon Premier Gift Set 50ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "mon premier",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -6206,7 +6046,7 @@
  "refused": [
   {
    "reasons": [
-    "price spread 1.54 is over 1.5"
+    "price spread 1.57 is over 1.5"
    ],
    "members": [
     {
@@ -6237,7 +6077,7 @@
   },
   {
    "reasons": [
-    "price spread 1.71 is over 1.5"
+    "price spread 1.74 is over 1.5"
    ],
    "members": [
     {
@@ -6268,7 +6108,7 @@
   },
   {
    "reasons": [
-    "price spread 1.59 is over 1.5"
+    "price spread 1.62 is over 1.5"
    ],
    "members": [
     {
@@ -6590,7 +6430,7 @@
   },
   {
    "reasons": [
-    "price spread 1.80 is over 1.5"
+    "price spread 1.84 is over 1.5"
    ],
    "members": [
     {
@@ -6624,7 +6464,7 @@
    "reasons": [
     "two different barcodes: 783320423413, 783320424243",
     "a shop lists more than one: perfume-click",
-    "price spread 1.60 is over 1.5"
+    "price spread 1.63 is over 1.5"
    ],
    "members": [
     {
@@ -6667,7 +6507,7 @@
   },
   {
    "reasons": [
-    "price spread 1.56 is over 1.5"
+    "price spread 1.60 is over 1.5"
    ],
    "members": [
     {
@@ -6816,7 +6656,7 @@
   },
   {
    "reasons": [
-    "price spread 1.52 is over 1.5"
+    "price spread 1.55 is over 1.5"
    ],
    "members": [
     {
@@ -7044,7 +6884,7 @@
   {
    "reasons": [
     "two different barcodes: 3616304957536, 3616304990458",
-    "price spread 2.21 is over 1.5"
+    "price spread 2.47 is over 1.5"
    ],
    "members": [
     {
@@ -7087,7 +6927,7 @@
   },
   {
    "reasons": [
-    "price spread 1.58 is over 1.5"
+    "price spread 1.60 is over 1.5"
    ],
    "members": [
     {
@@ -7261,7 +7101,7 @@
   },
   {
    "reasons": [
-    "price spread 1.70 is over 1.5"
+    "price spread 1.73 is over 1.5"
    ],
    "members": [
     {
@@ -7292,7 +7132,7 @@
   },
   {
    "reasons": [
-    "price spread 1.75 is over 1.5"
+    "price spread 1.78 is over 1.5"
    ],
    "members": [
     {
@@ -7379,7 +7219,7 @@
   },
   {
    "reasons": [
-    "price spread 2.30 is over 1.5"
+    "price spread 2.34 is over 1.5"
    ],
    "members": [
     {
@@ -7604,7 +7444,7 @@
   },
   {
    "reasons": [
-    "price spread 2.70 is over 1.5"
+    "price spread 2.68 is over 1.5"
    ],
    "members": [
     {
@@ -7679,7 +7519,7 @@
   },
   {
    "reasons": [
-    "price spread 2.53 is over 1.5"
+    "price spread 2.57 is over 1.5"
    ],
    "members": [
     {
@@ -7753,7 +7593,7 @@
   },
   {
    "reasons": [
-    "price spread 2.12 is over 1.5"
+    "price spread 2.16 is over 1.5"
    ],
    "members": [
     {
@@ -7870,7 +7710,7 @@
   },
   {
    "reasons": [
-    "price spread 4.56 is over 1.5"
+    "price spread 4.63 is over 1.5"
    ],
    "members": [
     {
@@ -7901,7 +7741,7 @@
   },
   {
    "reasons": [
-    "price spread 1.76 is over 1.5"
+    "price spread 1.80 is over 1.5"
    ],
    "members": [
     {
@@ -7944,7 +7784,7 @@
   },
   {
    "reasons": [
-    "price spread 1.75 is over 1.5"
+    "price spread 1.78 is over 1.5"
    ],
    "members": [
     {
@@ -7975,7 +7815,7 @@
   },
   {
    "reasons": [
-    "price spread 1.90 is over 1.5"
+    "price spread 1.93 is over 1.5"
    ],
    "members": [
     {
@@ -8006,7 +7846,7 @@
   },
   {
    "reasons": [
-    "price spread 1.57 is over 1.5"
+    "price spread 1.62 is over 1.5"
    ],
    "members": [
     {
@@ -8092,7 +7932,7 @@
   },
   {
    "reasons": [
-    "price spread 1.63 is over 1.5"
+    "price spread 1.66 is over 1.5"
    ],
    "members": [
     {
@@ -8123,7 +7963,7 @@
   },
   {
    "reasons": [
-    "price spread 1.79 is over 1.5"
+    "price spread 2.05 is over 1.5"
    ],
    "members": [
     {
@@ -8154,7 +7994,7 @@
   },
   {
    "reasons": [
-    "price spread 1.63 is over 1.5"
+    "price spread 1.66 is over 1.5"
    ],
    "members": [
     {
@@ -8185,7 +8025,7 @@
   },
   {
    "reasons": [
-    "price spread 1.70 is over 1.5"
+    "price spread 1.73 is over 1.5"
    ],
    "members": [
     {
@@ -8216,7 +8056,7 @@
   },
   {
    "reasons": [
-    "price spread 1.63 is over 1.5"
+    "price spread 1.66 is over 1.5"
    ],
    "members": [
     {
@@ -8247,7 +8087,7 @@
   },
   {
    "reasons": [
-    "price spread 1.75 is over 1.5"
+    "price spread 1.78 is over 1.5"
    ],
    "members": [
     {
@@ -8278,7 +8118,7 @@
   },
   {
    "reasons": [
-    "price spread 1.60 is over 1.5"
+    "price spread 1.63 is over 1.5"
    ],
    "members": [
     {
@@ -9061,7 +8901,7 @@
   },
   {
    "reasons": [
-    "price spread 2.27 is over 1.5"
+    "price spread 2.31 is over 1.5"
    ],
    "members": [
     {
@@ -9200,6 +9040,37 @@
   },
   {
    "reasons": [
+    "price spread 1.51 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460158411",
+     "brand": "Jimmy Choo",
+     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460158411",
+     "scent": "man",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
+     "brand": "Jimmy Choo",
+     "name": "Man Gift Set 100ml EDT - 100ml Shower Gel - 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "man",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3423222018245, 8054754400748"
    ],
    "members": [
@@ -9265,7 +9136,7 @@
    "reasons": [
     "two different barcodes: 3423222092528, 3423222110857, 3423222133849",
     "a shop lists more than one: allbeauty, perfume-click",
-    "price spread 1.98 is over 1.5"
+    "price spread 2.02 is over 1.5"
    ],
    "members": [
     {
@@ -9347,7 +9218,7 @@
   },
   {
    "reasons": [
-    "price spread 1.60 is over 1.5"
+    "price spread 1.63 is over 1.5"
    ],
    "members": [
     {
@@ -9482,7 +9353,7 @@
   },
   {
    "reasons": [
-    "price spread 1.70 is over 1.5"
+    "price spread 1.73 is over 1.5"
    ],
    "members": [
     {
@@ -9514,7 +9385,7 @@
   },
   {
    "reasons": [
-    "price spread 1.79 is over 1.5"
+    "price spread 1.96 is over 1.5"
    ],
    "members": [
     {
@@ -9682,7 +9553,7 @@
   },
   {
    "reasons": [
-    "price spread 2.27 is over 1.5"
+    "price spread 2.31 is over 1.5"
    ],
    "members": [
     {
@@ -9707,6 +9578,68 @@
      "signature": "1x50body|1x50fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.52 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750646079",
+     "brand": "Jeanne Arthes",
+     "name": "Night Club Gift Set 100ml EDT + 150ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "3430750646079",
+     "scent": "club night",
+     "signature": "1x100fragrance|1x150wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-night-club-gift-set-100ml-edt-150ml-shower-gel",
+     "brand": "Jeanne Arthes",
+     "name": "Night Club Gift Set 100ml EDT + 150ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "club night",
+     "signature": "1x100fragrance|1x150wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.51 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750901215",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3430750901215",
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -10314,7 +10247,7 @@
   {
    "reasons": [
     "two different barcodes: 3616305278180, 3616305447593",
-    "price spread 1.63 is over 1.5"
+    "price spread 1.60 is over 1.5"
    ],
    "members": [
     {
@@ -10566,7 +10499,7 @@
   },
   {
    "reasons": [
-    "price spread 1.60 is over 1.5"
+    "price spread 1.63 is over 1.5"
    ],
    "members": [
     {
@@ -10597,7 +10530,38 @@
   },
   {
    "reasons": [
-    "price spread 1.56 is over 1.5"
+    "price spread 1.52 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3760269842038",
+     "brand": "Lolita Lempicka",
+     "name": "Mon Premier Gift Set 50ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3760269842038",
+     "scent": "mon premier",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-lolita-lempicka-mon-premier-gift-set-50ml-edp-75ml-body-lotion",
+     "brand": "Lolita Lempicka",
+     "name": "Mon Premier Gift Set 50ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "mon premier",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.59 is over 1.5"
    ],
    "members": [
     {
@@ -10628,7 +10592,7 @@
   },
   {
    "reasons": [
-    "price spread 4.27 is over 1.5"
+    "price spread 4.35 is over 1.5"
    ],
    "members": [
     {
@@ -10692,7 +10656,7 @@
   },
   {
    "reasons": [
-    "price spread 1.69 is over 1.5"
+    "price spread 1.72 is over 1.5"
    ],
    "members": [
     {
@@ -10723,7 +10687,7 @@
   },
   {
    "reasons": [
-    "price spread 1.69 is over 1.5"
+    "price spread 1.72 is over 1.5"
    ],
    "members": [
     {
@@ -10754,7 +10718,7 @@
   },
   {
    "reasons": [
-    "price spread 1.71 is over 1.5"
+    "price spread 1.74 is over 1.5"
    ],
    "members": [
     {
@@ -10785,7 +10749,7 @@
   },
   {
    "reasons": [
-    "price spread 2.81 is over 1.5"
+    "price spread 2.86 is over 1.5"
    ],
    "members": [
     {
@@ -10948,7 +10912,7 @@
   },
   {
    "reasons": [
-    "price spread 1.53 is over 1.5"
+    "price spread 1.54 is over 1.5"
    ],
    "members": [
     {
@@ -11035,7 +10999,7 @@
   },
   {
    "reasons": [
-    "price spread 1.69 is over 1.5"
+    "price spread 1.72 is over 1.5"
    ],
    "members": [
     {
@@ -11606,7 +11570,7 @@
   },
   {
    "reasons": [
-    "price spread 1.72 is over 1.5"
+    "price spread 1.74 is over 1.5"
    ],
    "members": [
     {
@@ -11637,7 +11601,7 @@
   },
   {
    "reasons": [
-    "price spread 1.72 is over 1.5"
+    "price spread 1.74 is over 1.5"
    ],
    "members": [
     {

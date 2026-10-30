@@ -1,6 +1,6 @@
 {
  "note": "Written by npm run catalogue:demo. The catalogue modules are built from exactly these data inputs (git blob ids), with this clock, wherever they are read (scripts/catalogueBuild.ts); never edit by hand.",
- "builtAt": "2026-10-30T12:02:04.807Z",
+ "builtAt": "2026-10-30T14:38:56.824Z",
  "files": {
   "data/better-photos.json": "2b1d444a22c4a7ef5db164a8f1d146e2c5881c04",
   "data/catalogue/al-haramain.json": "28b9cb3047e0bffec6580f444385df5815309a3e",
@@ -22,7 +22,7 @@
   "data/catalogue/escentric-molecules.json": "6bdecc9daafe4a6eff2b7dd81330d919282f4fc3",
   "data/catalogue/escentual.json": "2451f76dfc9bba085ac9b29b89586f7e4d18eee8",
   "data/catalogue/fenwick.json": "138a4ebdef695f46e85db60106a6f1c3204616ce",
-  "data/catalogue/fragrance-click.json": "eebc943463fe0e4fe5bacef72866d10106a293e6",
+  "data/catalogue/fragrance-click.json": "2ee0fb9f7ffadffd9320205a61dae8b10d4e4037",
   "data/catalogue/fragrancehub.json": "fe1ac8d7058595bc79f2e8c13645e0aa6e4025c2",
   "data/catalogue/french-avenue.json": "38a1ba90a8382b0ae5b7e88e832d864af5ed47c6",
   "data/catalogue/glorious-beauty.json": "d1eb8121bf70727d18de05be0fff45f521a4cb7c",
@@ -40,7 +40,7 @@
   "data/catalogue/lookfantastic.json": "b06e97c60143afcab90a7fb78ce009fb6d47c73b",
   "data/catalogue/manchester-ouds.json": "6eb2b351918117d074eaf4a818c87c2955b5d059",
   "data/catalogue/marks-and-spencer.json": "855ad6f7a20f7788b538c4e7fbf6eb4328984f9d",
-  "data/catalogue/mybeauty-boutique.json": "664fc98cd7bfd423ac851fb8730f2f8f6ad9aacd",
+  "data/catalogue/mybeauty-boutique.json": "dfda0c91064c168b0ed0643d50cacc6202fa1ec9",
   "data/catalogue/nicchia-luxury-uk.json": "42a09ae45c275d8f59df24b91dc54fd820109d65",
   "data/catalogue/niche-beauty-uk.json": "3b6b45a58adedd8dc3d0d1c70654e396123439ee",
   "data/catalogue/notino-uk.json": "6351e2d0a69449b72e0e949ec539454c187ec519",
@@ -48,7 +48,7 @@
   "data/catalogue/oud-arabian.json": "1c6cb03e0ec48b7ffe972246d45840f171c56860",
   "data/catalogue/paco-perfumerias-uk.json": "748277d230a00d57a717e15fafad1bd11884c0e8",
   "data/catalogue/parfumdreams-uk.json": "337b652c1a731a58ddfb6bfba4e27f028387d8ad",
-  "data/catalogue/perfume-click.json": "b7e446f51f952db4b6a2c616165af44602850eff",
+  "data/catalogue/perfume-click.json": "aff0d9562fedc3dcae3e85da2e161602e6532ed5",
   "data/catalogue/perfume-closet.json": "4893fecd7c9c75228cde5914447a6109d081d9af",
   "data/catalogue/perfume-direct.json": "1b8603ecef5fd120527ac5ff23b3a36b34e0b9f4",
   "data/catalogue/perfume-market-uk.json": "1e6491db941cf9eaf07c6898718b4e708290bfc6",
@@ -98,10 +98,10 @@
   "data/houses/surrati.json": "2e72aee259faa927037538da9f23a63468d04f69",
   "data/houses/swiss-arabian.json": "cfafba8e76f357bb2694b38d072027477376a810",
   "data/houses/the-body-shop.json": "4c8a84963bb80b3f503728308fb94e5265638835",
-  "data/id-aliases.json": "ef35aaa3eed705f727e675a30a6a930a925cbd6c",
+  "data/id-aliases.json": "2a07859ef79c62a09e305d6f2f35e26cd7e46bee",
   "data/image-box-verdicts.json": "23fcd7f75fa4dafcae6dc8325b7be78463622b59",
   "data/note-aliases.json": "7fc4b8f4ba71c29993580bd732815fe7a2d0b6b8",
   "data/note-not-a-note.json": "aed2513264555cf20392c82d0aa5098b1cfcc715",
-  "data/product-slugs.json": "8c18b143b228c02dcee4ddf7ee1b8336dee703b0"
+  "data/product-slugs.json": "1d8838eb06175ee46f9c9c9f77235753a60d409d"
  }
 }
