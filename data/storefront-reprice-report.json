@@ -1,5 +1,5 @@
 {
-  "repricedAt": "2026-10-30T14:38:56.352Z",
+  "repricedAt": "2026-10-30T22:09:59.412Z",
   "dryRun": false,
   "outcomes": [
     {
@@ -14,7 +14,7 @@
       "corrected": 6124,
       "wasOverstated": 6109,
       "wasUnderstated": 15,
-      "overstatementRemovedGbp": 204797.95,
+      "overstatementRemovedGbp": 204795.95,
       "cleared": 2
     }
   ]

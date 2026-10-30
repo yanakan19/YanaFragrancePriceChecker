@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 200,
+ "folded": 201,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -2134,13 +2134,12 @@
     {
      "id": "set-ean-3423478501058",
      "brand": "Issey Miyake",
-     "name": "L'Eau D'issey 100ml Eau De Toilette Set",
+     "name": "L'Eau D'issey Eau De Toilette 100ml Spray Set",
      "concentration": "Eau de Toilette",
      "ean": "3423478501058",
      "scent": "d eau issey l",
      "signature": "1x100fragrance|1x75body",
      "shops": [
-      "fragrance-click",
       "paco-perfumerias-uk",
       "perfume-click",
       "perfume-direct"
@@ -2252,6 +2251,38 @@
      "ean": null,
      "scent": "club private",
      "signature": "1x100fragrance|1x150wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3430750901215",
+   "absorbed": [
+    "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750901215",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3430750901215",
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -8944,20 +8975,32 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3386460156004, 3386460167321",
     "price spread 1.58 is over 1.5"
    ],
    "members": [
     {
      "id": "set-ean-3386460156004",
      "brand": "Jimmy Choo",
-     "name": "I Want Choo Gift Set 60ml EDP + 100ml Body Lotion",
+     "name": "I Want Choo Eau de Parfum Women's Perfume Gift Set (60ml) with 100ml Body Lotion",
      "concentration": "Eau de Parfum",
      "ean": "3386460156004",
      "scent": "choo i want",
      "signature": "1x100body|1x60fragrance",
      "shops": [
-      "perfume-click",
       "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3386460167321",
+     "brand": "Jimmy Choo",
+     "name": "I Want Choo Gift Set 60ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460167321",
+     "scent": "choo i want",
+     "signature": "1x100body|1x60fragrance",
+     "shops": [
+      "perfume-click"
      ]
     },
     {
@@ -9543,37 +9586,6 @@
      "ean": null,
      "scent": "club night",
      "signature": "1x100fragrance|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.51 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750901215",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3430750901215",
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -10320,50 +10332,6 @@
      "signature": "1x30fragrance|1x50body",
      "shops": [
       "parfumdreams-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "strengths differ: Eau de Parfum, Eau de Toilette",
-    "a shop lists more than one: mybeauty-boutique"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616306127869",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 10ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3616306127869",
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Eau de Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-bottled-gift-set-100ml-edt-100ml-shower-gel-10ml-edt",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 10ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -11240,6 +11208,37 @@
   },
   {
    "reasons": [
+    "two different barcodes: 8411061101810, 8411061122365"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8411061101810",
+     "brand": "Carolina Herrera",
+     "name": "Good Girl Blush Eau de Parfum Women's Gift Set Spray (80ml) with 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061101810",
+     "scent": "blush girl good",
+     "signature": "1x100body|1x80fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-8411061122365",
+     "brand": "Carolina Herrera",
+     "name": "Good Girl Blush Gift Set 80ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061122365",
+     "scent": "blush girl good",
+     "signature": "1x100body|1x80fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 8435415005388, 8435415019187, 8435415092524",
     "a shop lists more than one: parfumdreams-uk"
    ],
@@ -11761,6 +11760,38 @@
      "signature": "1x15fragrance|1x60fragrance",
      "shops": [
       "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Eau de Toilette",
+    "a shop lists more than one: mybeauty-boutique"
+   ],
+   "members": [
+    {
+     "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Eau de Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-hugo-boss-boss-bottled-gift-set-100ml-edt-100ml-shower-gel-10ml-edt",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
