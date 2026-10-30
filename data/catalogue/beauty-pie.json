@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-10-30T14:42:09.351Z",
-  "seenAt": "2026-10-30T14:42:09.351Z",
+  "updatedAt": "2026-10-30T18:13:53.797Z",
+  "seenAt": "2026-10-30T18:13:53.797Z",
   "source": "live",
   "listings": [
     {
@@ -4956,7 +4956,7 @@
       "rawBrand": "Beauty Pie",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/v2_AWESOME_BRONZE_POWDER_BRONZER_REFILL_SUNNYSIDE_194031_PDP_ECOM_1X1_PACKSHOT_2025_WEB.jpg?v=1783341684",
-      "priceGbp": 14.3,
+      "priceGbp": 17.6,
       "wasPriceGbp": 22,
       "promoEndsAt": null,
       "inStock": true,
@@ -5002,8 +5002,8 @@
       "rawBrand": "Beauty Pie",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/v2_AWESOME_BRONZE_POWDER_BRONZER_REFILL_SUNNYSIDE_194031_PDP_ECOM_1X1_PACKSHOT_2025_WEB.jpg?v=1783341684",
-      "priceGbp": 22,
-      "wasPriceGbp": null,
+      "priceGbp": 17.6,
+      "wasPriceGbp": 22,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -7305,7 +7305,7 @@
       "priceGbp": 25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "From Italy, this featherweight, translucent pressed powder (suitable for all skin tones) has hexagonal microparticles for a long-wearing, extreme soft-focus and skin perfecting effect. It features superfine Micro-Clay for a silky, oil-absorbing finish and natural sebum-balancing Oils to help mattify and illuminate skin. Use it to blot, blend and blur. Clean formula. Vegan. Cruelty-free (of course).. Slots into the silver, lightweight, Keep This™ Compact (which features a handy mirror for makeup touch-ups on-the-go)..",
       "productType": "Makeup",

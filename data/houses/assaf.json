@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-10-30T14:43:40.570Z",
-  "seenAt": "2026-10-30T14:43:40.570Z",
+  "updatedAt": "2026-10-30T18:16:37.960Z",
+  "seenAt": "2026-10-30T18:16:37.960Z",
   "source": "live",
   "listings": [
     {
@@ -3707,7 +3707,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": ". .",
       "productType": "women",

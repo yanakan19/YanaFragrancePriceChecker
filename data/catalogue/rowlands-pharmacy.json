@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-30T14:42:29.669Z",
-  "seenAt": "2026-10-30T14:42:29.669Z",
+  "updatedAt": "2026-10-30T18:13:45.279Z",
+  "seenAt": "2026-10-30T18:13:45.279Z",
   "source": "live",
   "listings": [
     {
@@ -451,7 +451,7 @@
       "priceGbp": 22.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein CK Be Eau de Toilette 200ml. Key Features. ##features##. Fresh unisex Eau de Toilette from Calvin Klein.. Clean woody-musky fragrance for men and women.. Features bergamot, lavender, peach and sandalwood.. Versatile fragrance suitable for everyday wear.. Large 200ml bottle offering excellent value.. Modern scent focused on individuality and self-expression.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Calvin Klein CK Be Eau de Toilette is a fresh, modern unisex fragrance that celebrates individuality. Opening with bergamot, mandarin and lavender, it develops into a smooth heart of magnolia and peach before finishing with warm sandalwood, musk and tonka bean. Clean, contemporary and easy to wear throughout the day.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

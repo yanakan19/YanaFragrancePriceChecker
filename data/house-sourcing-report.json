@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-30T14:51:17.534Z",
+  "checkedAt": "2026-10-30T18:25:18.557Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -141,10 +141,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
+      "listings": 40,
       "pricedInGbp": 0,
-      "withPhoto": 59,
-      "errors": [],
+      "withPhoto": 40,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
@@ -188,16 +190,17 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": "AED",
-      "listings": 60,
+      "listings": 0,
       "pricedInGbp": 0,
-      "withPhoto": 60,
+      "withPhoto": 0,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "prices are in AED, not GBP — needs a UK price source before these are comparable",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {

@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-30T14:51:16.948Z",
-  "seenAt": "2026-10-30T14:51:16.948Z",
+  "updatedAt": "2026-10-30T18:25:17.315Z",
+  "seenAt": "2026-10-30T18:25:17.315Z",
   "source": "live",
   "listings": [
     {
@@ -2015,7 +2015,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Immerse yourself in Jo's personal scent with the Jo by Jo Loves Bath & Shower Gel and Body Lotion. The gel, infused with sparkling citrus and Aloe Leaf Juice, offers a refreshing cleanse. Our lotion, a love letter to Jo's signature scent, blends grapefruit, orange, lime, spearmint, black pepper, and more, leaving your skin smooth with cocoa butter, almond, grape seed oil, and vitamin E. Experience Jo's past, present, and future in every indulgent application. Jo's everyday go-to fragrance, which she affectionately refers to it as 'Parfum Jo.' Her olfactory signature, it's as synonymous with her as the iconic Red Dot.",
       "productType": null,
@@ -2038,7 +2038,7 @@
       "priceGbp": 39,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Indulge in Jo's love letter to herself with the Jo by Jo Loves Bath & Shower Gel, a luxurious daily cleanser infused with sparkling citrus notes and soothing Aloe Leaf Juice, perfect for a refreshing and aromatic experience. Jo's everyday go-to fragrance, which she affectionately refers to it as 'Parfum Jo.' Her olfactory signature, it's as synonymous with her as the iconic Red Dot.",
       "productType": null,
@@ -2061,7 +2061,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Ignite your senses with our sophisticated Home Candle, a warm and smoky fragrance that transports you to a cozy evening by the fireplace. Crafted by hand in England using high-quality ingredients, this artisan candle in hand-blown glass will captivate you for up to 37.5 hours, filling your space with notes of wood fire, cedar oil, guaiac wood oil, and black leather. Experience the perfect ambiance for relaxation and indulgence. .",
       "productType": null,

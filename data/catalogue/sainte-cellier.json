@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-10-30T14:42:29.669Z",
-  "seenAt": "2026-10-30T14:42:29.669Z",
+  "updatedAt": "2026-10-30T18:13:45.279Z",
+  "seenAt": "2026-10-30T18:13:45.279Z",
   "source": "live",
   "listings": [
     {
@@ -5787,7 +5787,7 @@
       "priceGbp": 195,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Eau de Parfum. . Musc des Sables is a radiant musk fragrance that evokes sun-warmed skin, whispering dunes and the quiet shimmer of twilight.. This soft and sensual perfume opens with milky white musks and a breeze of salt-kissed ambergris, evoking the hush of a desert evening. Fleeting citrus notes of mandarin flicker like embers, while smooth patchouli and dry woods ground the composition in warmth and depth.. A hint of iris absolute brings a powdery elegance, rising through the musky glow like stars through a violet dusk. Musc des Sables is a modern skin scent—clean, creamy, intimate and subtly addictive.. . Composition: . Italian Green Mandarin Essence 4.9%. French Orris Essence .3%. Indonesian Patchouli Essence 1.1%, Ambergris Tincture .7%. Perfumer: Antoine Lie, 2019. . inci list: Alcohol Denat., Parfum, Water / Aqua, Alpha-Isomethyl Ionone, Benzyl, Benzoate Cinnamal, Coumarin, Citronellol, Limonene, Geraniol, Linalool, BHT, Ethylhexyl Methoxycinnamate, Butyl Methoxydibenzoylmethane (Avobenzone) .",
       "productType": "Perfume & Cologne",
