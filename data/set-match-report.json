@@ -10527,40 +10527,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3616305278241, 3616307112338",
-    "a shop lists more than one: fragrance-click, paco-perfumerias-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305278241",
-     "brand": "Gucci",
-     "name": "Bloom 100ml Eau de Parfum Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305278241",
-     "scent": "bloom",
-     "signature": "1x100fragrance|3p",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk"
-     ]
-    },
-    {
-     "id": "set-ean-3616307112338",
-     "brand": "Gucci",
-     "name": "Bloom 100ml Eau de Parfum Set",
-     "concentration": "Eau de Parfum",
-     "ean": "3616307112338",
-     "scent": "bloom",
-     "signature": "1x100fragrance|3p",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3616305278319, 3616305447685",
     "price spread 1.85 is over 1.5"
    ],
@@ -10710,6 +10676,39 @@
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3616307112338, 3616307657754",
+    "a shop lists more than one: paco-perfumerias-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616307112338",
+     "brand": "Gucci",
+     "name": "Bloom 100ml Eau de Parfum Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3616307112338",
+     "scent": "bloom",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3616307657754",
+     "brand": "Gucci",
+     "name": "Bloom Eau de Parfum 100ml Spray 3pc Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3616307657754",
+     "scent": "bloom",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
      ]
     }
    ]
