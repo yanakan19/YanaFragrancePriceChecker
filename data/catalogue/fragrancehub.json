@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-29T20:38:04.671Z",
-  "seenAt": "2026-10-29T20:38:04.671Z",
+  "updatedAt": "2026-10-30T00:13:22.381Z",
+  "seenAt": "2026-10-30T00:13:22.381Z",
   "source": "live",
   "listings": [
     {
@@ -5235,7 +5235,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Bujairami Boss Life Extrait is a bold, resinous extrait built around power and depth. It opens smoky and bright with frankincense, elemi, and fresh lemon and bergamot, spiced by cardamom and Sichuan pepper. The heart is dark and aromatic, blending patchouli, saffron, anise, coriander, cumin, and soft florals of orange blossom, geranium, and rose. A rich, commanding base of frankincense, oud, amber, benzoin, vanilla, labdanum, birch, ambergris, maltol, opoponax, and musk delivers a long-lasting, authoritative trail.. Notes. Top: Frankincense, Elemi, Cardamom, Lemon, Sichuan Pepper, Bergamot. Heart: Patchouli, Anise, Coriander, Cumin, Orange Blossom, Saffron, Geranium, Wormwood, Rose. Base: Frankincense, Vanilla, Benzoin, Amber, Oud, Opoponax, Birch, Ambergris, Maltol, Labdanum, Musk.",
       "productType": null,

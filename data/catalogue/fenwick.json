@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-29T20:38:04.671Z",
-  "seenAt": "2026-10-29T20:38:04.671Z",
+  "updatedAt": "2026-10-30T00:13:22.381Z",
+  "seenAt": "2026-10-30T00:13:22.381Z",
   "source": "live",
   "listings": [
     {
@@ -12572,7 +12572,7 @@
       "priceGbp": 191.25,
       "wasPriceGbp": 225,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Bijou Zafran Eau de Parfum by Ormonde Jayne blends warm saffron with elegant florals and rich woods to create a refined fragrance composition. The scent reveals layers of warmth and sophistication as it evolves on the skin. A distinctive fragrance designed to bring depth and individuality to your fragrance wardrobe..",
       "productType": "Women's Fragrances",

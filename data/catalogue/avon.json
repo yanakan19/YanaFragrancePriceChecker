@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-29T20:38:17.650Z",
-  "seenAt": "2026-10-29T20:38:17.650Z",
+  "updatedAt": "2026-10-30T00:13:06.001Z",
+  "seenAt": "2026-10-30T00:13:06.001Z",
   "source": "live",
   "listings": [
     {
@@ -37688,7 +37688,7 @@
       "priceGbp": 4.5,
       "wasPriceGbp": 5.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: We’re bringing back the romance and falling in love again with the oriental and woody fragranced Tomorrow Body Lotion, from the bestselling Today Tomorrow Always collection. Feel the first moments of love’s passion and excitement with sparkling peach, intimate African violet and captivating musk. Product specification: • Top note: peach. • Middle note: African violet. • Base note: musk. • 125ml. How to wear me: Feel the intensity of purse passion and enjoy silky-soft skin with the oriental and woody-scented body lotion. Uncover those all-consuming feelings with a spritz of the matching perfume.",
       "productType": "FRAGRANCE",
