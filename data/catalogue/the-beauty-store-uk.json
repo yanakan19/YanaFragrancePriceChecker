@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-10-30T00:13:06.001Z",
-  "seenAt": "2026-10-30T00:13:06.001Z",
+  "updatedAt": "2026-10-30T04:12:03.897Z",
+  "seenAt": "2026-10-30T04:12:03.897Z",
   "source": "live",
   "listings": [
     {
@@ -35089,7 +35089,7 @@
       "priceGbp": 62.97,
       "wasPriceGbp": 102,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Acqua di Parma Signatures Yuzu Room Diffuser 180ml.",
       "productType": "Diffuser",
@@ -82009,7 +82009,7 @@
       "priceGbp": 8.75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "New Brand Prestige Parfum De Nuit For Women Eau de Parfum 100ml.",
       "productType": "Eau de Parfum",
