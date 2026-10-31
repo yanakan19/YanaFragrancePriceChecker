@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-10-31T16:38:58.703Z",
-  "seenAt": "2026-10-31T16:38:58.703Z",
+  "updatedAt": "2026-10-31T20:18:54.250Z",
+  "seenAt": "2026-10-31T20:18:54.250Z",
   "source": "live",
   "listings": [
     {
@@ -4200,7 +4200,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "For exceptional moments and rare encounters: Elixir de Bombe unfolds in robust notes of red pepper, ginger, and tangy tangerine. Paired with rock rose, raspberry, and sweet caramel, it’s a scent both confident and slyly sensual. . . TOP NOTES Tangerine, red pepper, ginger MIDDLE NOTES Ylang-Ylang, rock rose, raspberry BASE NOTES Caramel, leather, Amber .",
       "productType": "Perfume",

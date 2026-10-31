@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-10-31T16:38:58.703Z",
-  "seenAt": "2026-10-31T16:38:58.703Z",
+  "updatedAt": "2026-10-31T20:18:54.250Z",
+  "seenAt": "2026-10-31T20:18:54.250Z",
   "source": "live",
   "listings": [
     {
@@ -11028,7 +11028,7 @@
       "rawBrand": "Fragrance Hub LTD",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Liquid-Brun-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030882.jpg?v=1769903803",
-      "priceGbp": 29.45,
+      "priceGbp": 28.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
       "inStock": true,

@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-10-31T16:49:46.630Z",
-  "seenAt": "2026-10-31T16:49:46.630Z",
+  "updatedAt": "2026-10-31T20:28:38.746Z",
+  "seenAt": "2026-10-31T20:28:38.746Z",
   "source": "live",
   "listings": [
     {
@@ -2061,7 +2061,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Ignite your senses with our sophisticated Home Candle, a warm and smoky fragrance that transports you to a cozy evening by the fireplace. Crafted by hand in England using high-quality ingredients, this artisan candle in hand-blown glass will captivate you for up to 37.5 hours, filling your space with notes of wood fire, cedar oil, guaiac wood oil, and black leather. Experience the perfect ambiance for relaxation and indulgence. .",
       "productType": null,

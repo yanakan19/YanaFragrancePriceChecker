@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-31T16:38:58.703Z",
-  "seenAt": "2026-10-31T16:38:58.703Z",
+  "updatedAt": "2026-10-31T20:18:54.250Z",
+  "seenAt": "2026-10-31T20:18:54.250Z",
   "source": "live",
   "listings": [
     {
@@ -25728,7 +25728,7 @@
       "priceGbp": 131.75,
       "wasPriceGbp": 155,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rose of No Man's Land is the nickname given by soldiers to the nurses who saved thousands of lives during WWI. The scent is tribute to selflessness and compassion..",
       "productType": "Women's Fragrances",
