@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-10-31T13:22:49.452Z",
-  "seenAt": "2026-10-31T13:22:49.452Z",
+  "updatedAt": "2026-10-31T16:49:40.652Z",
+  "seenAt": "2026-10-31T16:49:40.652Z",
   "source": "live",
   "listings": [
     {
@@ -3216,7 +3216,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Built around its floral woody leather character, Kayaan Classic reveals a fresh, elegant and refined signature designed to leave a lasting impression..",
       "productType": null,

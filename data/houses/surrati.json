@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-10-31T13:17:34.796Z",
-  "seenAt": "2026-10-31T13:17:34.796Z",
+  "updatedAt": "2026-10-31T16:44:27.811Z",
+  "seenAt": "2026-10-31T16:44:27.811Z",
   "source": "live",
   "listings": [
     {
@@ -547,33 +547,6 @@
         "amount": 63,
         "currency": "AED"
       },
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-08-05T11:07:58.528Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "101044367",
-      "url": "https://surrati.ae/products/pur-musk",
-      "rawTitle": "Pur Musk",
-      "rawBrand": "Surrati Perfumes",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/purmusk_1..png?v=1775910725",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Surrati Pur Musk . Pur Musk is a cornerstone of Surrati’s collection, celebrated for its extreme purity and \"second-skin\" feel. It is a minimalist, velvety fragrance that embodies the scent of fresh linen and clean skin. Unlike heavy ouds or sweet florals, this scent is prized for its soft, powdery texture and its ability to act as a versatile base for layering with other perfumes.. Fragrance Profile: A Clean Floral-Musk composition that is light, airy, and creamy.. . Key Notes: A dominant core of White Musk , accented by Lily of the Valley , Soft Rose , and a smooth Powdery Accord .. . Best Use: The perfect everyday \"clean\" scent; ideal for the office, post-shower freshness, or as a base layer to increase the longevity of other fragrances.. . Performance: Exceptional \"close-to-skin\" longevity; it creates a subtle, comforting aura rather than a loud trail.. . Vibe: Innocent, crystalline, fresh, and calming.. . Target Audience: Perfect for those who prefer \"non-perfume\" scents or want a professional, understated fragrance that smells naturally clean.. .",
-      "productType": null,
-      "nativePrice": {
-        "amount": 150,
-        "currency": "AED"
-      },
-      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2508,6 +2481,34 @@
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "101044367",
+      "url": "https://surrati.ae/products/pur-musk",
+      "rawTitle": "Pur Musk",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/purmusk_1..png?v=1775910725",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Surrati Pur Musk . Pur Musk is a cornerstone of Surrati’s collection, celebrated for its extreme purity and \"second-skin\" feel. It is a minimalist, velvety fragrance that embodies the scent of fresh linen and clean skin. Unlike heavy ouds or sweet florals, this scent is prized for its soft, powdery texture and its ability to act as a versatile base for layering with other perfumes.. Fragrance Profile: A Clean Floral-Musk composition that is light, airy, and creamy.. . Key Notes: A dominant core of White Musk , accented by Lily of the Valley , Soft Rose , and a smooth Powdery Accord .. . Best Use: The perfect everyday \"clean\" scent; ideal for the office, post-shower freshness, or as a base layer to increase the longevity of other fragrances.. . Performance: Exceptional \"close-to-skin\" longevity; it creates a subtle, comforting aura rather than a loud trail.. . Vibe: Innocent, crystalline, fresh, and calming.. . Target Audience: Perfect for those who prefer \"non-perfume\" scents or want a professional, understated fragrance that smells naturally clean.. .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 150,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 300,
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-08-05T11:07:58.528Z",
+      "lastSeenAt": "2026-10-31T13:17:34.796Z",
+      "status": "delisted",
+      "delistedAt": "2026-10-31T16:44:27.811Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

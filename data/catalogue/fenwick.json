@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-31T13:13:32.831Z",
-  "seenAt": "2026-10-31T13:13:32.831Z",
+  "updatedAt": "2026-10-31T16:38:58.703Z",
+  "seenAt": "2026-10-31T16:38:58.703Z",
   "source": "live",
   "listings": [
     {
@@ -1348,7 +1348,7 @@
       "priceGbp": 50.4,
       "wasPriceGbp": 72,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A modern definition of sensuality. Confident and refined. A rich core of Molten Woods and Amber, surrounded by atmospheric florals, warmed by a hint of Pepper and a touch of Honey.The InspirationEstée Lauder Sensuous was created to evoke the warmest, most feminine side of a woman..",
       "productType": "Women's Fragrances",

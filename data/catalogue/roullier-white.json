@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-10-31T13:13:32.831Z",
-  "seenAt": "2026-10-31T13:13:32.831Z",
+  "updatedAt": "2026-10-31T16:38:58.703Z",
+  "seenAt": "2026-10-31T16:38:58.703Z",
   "source": "live",
   "listings": [
     {
@@ -865,7 +865,7 @@
       "priceGbp": 34,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hierbas De Ibiza. The fresh and fragrant aroma of a Mediterranean paradise. Created in 1965 and still completely handmade by the Torres family, Hierbas De Ibiza is a classic Eau de Cologne that speaks of golden sands and endless sunshine. Ibiza has been famed for its fantastic aromatic flora since ancient times when sailors would take soil from the island back to their homes as a fertility rite. The fragrance builds upon traditional citrus notes with a herbaceous middle to create a unique accord that will be familiar to anyone who has ever walked in the hills of Ibiza during high summer.. Fragrance Notes Top: Orange, Lemon, Lavender, Lemon Verbena, Rosemary Middle: Thyme, Sage, Verbena, Geranium, Jasmine Base: Orange Blossom, Cinnamon, Vanilla.",
       "productType": "Perfume",
@@ -3993,7 +3993,7 @@
       "priceGbp": 110,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Elegantly refined, Uomo by Carthusia is a refreshing and vibrant composition redolent of Mediterranean waves and ripe fruits. A bright green citrus opening awakens the senses, before a mellow bouquet of cedar, patchouli and geranium sweeps in, bringing depth and shade to the fragrance. A simple base of sandalwood, musk, and amber closes out the scent for an elegant and enticing dry down. . Fragrance Notes . Top: Lemon, Bergamot, Freesia, Green Leaves Middle: Lily of the Valley, Jasmine, Geranium, Cedarwood, Patchouli Base: Sandalwood, Musk, Amber. Fragrance House . The history of Carthusia Fragrances is a unique and romantic one. According to the stories, in 1380 the Father Prior decorated his Carthusian Monastery of St Giacomo with large bouquets of Capri island flowers for a visit by Queen Giovanna D'Angio. The resulting scented monastery was sublime. Together with the Father Alchemist \"Garofilium Sivestre Caprese”, Capri’s first perfume was born. Today Carthusia fragrances are made on the beautiful island of Capri in much the same way they were once made by the Carthusian monks. Carthusia uses the highest quality ingredients, including the rosemary growing on the slopes of Monte Solaro and essence of Capri's wild carnation. Carthusia fragrances are one of the most popular, easy-to-wear, uplifting scents in the extensive Roullier White collection. A spray of a Carthusia fragrance is guaranteed to raise a smile and your spirits; it is instilled with the joy and beauty of the Mediterranea.",
       "productType": "Perfume",
