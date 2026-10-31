@@ -1,6 +1,6 @@
 {
  "note": "Written by npm run catalogue:demo. The catalogue modules are built from exactly these data inputs (git blob ids), with this clock, wherever they are read (scripts/catalogueBuild.ts); never edit by hand.",
- "builtAt": "2026-10-31T02:31:32.977Z",
+ "builtAt": "2026-10-31T05:09:24.877Z",
  "files": {
   "data/better-photos.json": "2b1d444a22c4a7ef5db164a8f1d146e2c5881c04",
   "data/catalogue/al-haramain.json": "62690b873e11f7e4c62a0bd1a3b1fc5ed28b2c71",
@@ -40,7 +40,7 @@
   "data/catalogue/lookfantastic.json": "7d6c81659440453739ee352f960b508a8002596e",
   "data/catalogue/manchester-ouds.json": "9ae02fc47dd734a5da72d2300af7b33a6d113942",
   "data/catalogue/marks-and-spencer.json": "bf5aa7c4b6537e7d73bf06e9cef542a56313f1b6",
-  "data/catalogue/mybeauty-boutique.json": "dff67641da4dd6b23ac714dc38865d4e28e6422c",
+  "data/catalogue/mybeauty-boutique.json": "a59fdf69e61b63add5cda000656f6db02eb70265",
   "data/catalogue/nicchia-luxury-uk.json": "3f9f354c3c7c6bada9b6e843c1f8d65cc5c500d7",
   "data/catalogue/niche-beauty-uk.json": "262d9bdafdcb0470384857942e1b042f115d3343",
   "data/catalogue/notino-uk.json": "6351e2d0a69449b72e0e949ec539454c187ec519",
