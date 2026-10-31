@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 203,
+ "folded": 201,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -971,38 +971,6 @@
      "signature": "1x100fragrance|1x75deo|1x?body",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0888066150668",
-   "absorbed": [
-    "set-tom-ford-noir-extreme-eau-de-parfum-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0888066150668",
-     "brand": "Tom Ford",
-     "name": "Noir Extreme Gift Set 100ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0888066150668",
-     "scent": "extreme noir",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-tom-ford-noir-extreme-eau-de-parfum-fragrance-gift-set",
-     "brand": "Tom Ford",
-     "name": "Noir Extreme Eau de Parfum Fragrance Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "extreme noir",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -2283,38 +2251,6 @@
      "ean": null,
      "scent": "club private",
      "signature": "1x100fragrance|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3430750901215",
-   "absorbed": [
-    "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750901215",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3430750901215",
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -6958,7 +6894,7 @@
   },
   {
    "reasons": [
-    "price spread 1.60 is over 1.5"
+    "price spread 1.58 is over 1.5"
    ],
    "members": [
     {
@@ -9688,6 +9624,37 @@
   },
   {
    "reasons": [
+    "price spread 1.51 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750901215",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3430750901215",
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3614273624060, 3614274341195",
     "a shop lists more than one: paco-perfumerias-uk"
    ],
@@ -10997,7 +10964,7 @@
   },
   {
    "reasons": [
-    "price spread 1.72 is over 1.5"
+    "price spread 1.90 is over 1.5"
    ],
    "members": [
     {
