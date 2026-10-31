@@ -8810,6 +8810,37 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3349668656615, 3349668672479"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668656615",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Invictus Gift Set 100ml EDT + 150ml Deodorant Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668656615",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-3349668672479",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Paco Rabanne Invictus Set 100ml EDT + 150ml Deo Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668672479",
+     "scent": "invictus paco rabanne",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "scentsational"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 3.97 is over 1.5"
    ],
    "members": [
