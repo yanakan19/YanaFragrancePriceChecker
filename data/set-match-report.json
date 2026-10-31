@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 200,
+ "folded": 201,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -191,6 +191,38 @@
      "signature": "1x100fragrance|1x150wash",
      "shops": [
       "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0085715961198",
+   "absorbed": [
+    "set-dkny-be-delicious-fresh-blossom-gift-set-100ml-edp-125ml-body-mist-pouch"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715961198",
+     "brand": "DKNY",
+     "name": "Be Delicious Fresh Blossom Gift Set 100ml EDP + 125ml Body Mist + Pouch",
+     "concentration": "Eau de Parfum",
+     "ean": "0085715961198",
+     "scent": "be blossom delicious fresh",
+     "signature": "1x100fragrance|1x125body|1x?other",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dkny-be-delicious-fresh-blossom-gift-set-100ml-edp-125ml-body-mist-pouch",
+     "brand": "DKNY",
+     "name": "Be Delicious Fresh Blossom Gift Set 100ml EDP + 125ml Body Mist + Pouch",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "be blossom delicious fresh",
+     "signature": "1x100fragrance|1x125body|1x?other",
+     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -7602,6 +7634,37 @@
   },
   {
    "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0810103654372",
+     "brand": "Head",
+     "name": "Women Gift Set: Bliss EDT 50ml - EliteEDT 50ml - Spark EDT 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0810103654372",
+     "scent": "bliss eliteedt spark",
+     "signature": "3x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-head-women-gift-set-bliss-edt-50ml-eliteedt-50ml-spark-edt-50ml",
+     "brand": "Head",
+     "name": "Women Gift Set: Bliss EDT 50ml - EliteEDT 50ml - Spark EDT 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss eliteedt spark",
+     "signature": "3x50fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 3.98 is over 1.5"
    ],
    "members": [
@@ -8542,13 +8605,12 @@
     {
      "id": "set-ean-3349668625284",
      "brand": "Rabanne",
-     "name": "Paco Rabanne 1 Million 100ml Eau de Toilette + 20ml Set",
+     "name": "Paco Rabanne 1 Million Eau de Toilette 100ml Spray + 20ml Spray Set",
      "concentration": "Eau de Toilette",
      "ean": "3349668625284",
      "scent": "1 million paco rabanne",
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
-      "fragrance-click",
       "paco-perfumerias-uk"
      ]
     },
