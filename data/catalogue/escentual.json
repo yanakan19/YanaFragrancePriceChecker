@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-10-31T01:38:44.460Z",
-  "seenAt": "2026-10-31T01:38:44.460Z",
+  "updatedAt": "2026-10-31T05:14:37.530Z",
+  "seenAt": "2026-10-31T05:14:37.530Z",
   "source": "live",
   "listings": [
     {
@@ -100179,7 +100179,7 @@
       "priceGbp": 7.87,
       "wasPriceGbp": 10.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "\"Feel confident that you'll stay fresh, dry and protected all day long with the Vichy 96hr Clinical Control Detranspirant Deodorant, a hypoallergenic formula suitable for all skin types.\" - Darcey, Escentual Beauty Team.. . Why You'll Love The Vichy 96hr Clinical Control Deodorant: . Provides long-lasting 96-hour protection from sweat and odours.. Antibacterial formula eliminates 100% of odours at the source.. Hypoallergenic, dermatologist-tested deodorant for all skin types.. Releases a refreshing and clean scent.. Features a fast-drying formula and easy-to-use roll-on design.. . What You Need To Know: . The Vichy 96hr Clinical Control Deodorant provides powerful protection against sweat and odours for up to 96 hours. The dermatologist-tested formula features an anti-odour complex made up of zinc, which works to neutralise the bacteria responsible for bad odours at the source. Plus, unique anti-humidity ingredients that provide long-lasting humidity control for a fresh and clean feeling.. Formulated with optimal tolerance for sensitive skin, the hypoallergenic formula is completely alcohol-free to minimise the chances of a reaction. So, everyone can be confident that they will stay fresh and dry throughout the day.. . Why It's Escentual: . The Vichy 96hr Clinical Control Deodorant is perfect for anyone who suffers from constant perspiration or regularly partakes in intensive sporting or workout sessions. The ultra-tolerant and powerful formula has a refreshingly clean scent that will take you from day to night.. We love the lightweight and comfortable texture that instantly dries onto the skin - no white marks here! The invisible formula and easy-to-use roll-on design are perfect for busy mornings or quick outfit changes too.. . The Best Way To Use It: . Roll directly onto the underarms. For the first use, roll back and forth until the deodorant covers the ball before you apply it to your skin.. . Values: . Hypoallergenic, dermatologist-tested.. Alcohol-free..",
       "productType": "Bath & Body",
@@ -110434,8 +110434,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/guerlain_l_instant_magic_eau_de_parfum_spray_75ml.png?v=1729190294",
-      "priceGbp": 88.67,
-      "wasPriceGbp": 133,
+      "priceGbp": 133,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

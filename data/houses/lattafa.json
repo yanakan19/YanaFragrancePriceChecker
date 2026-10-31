@@ -1,7 +1,7 @@
 {
   "retailerId": "lattafa",
-  "updatedAt": "2026-10-31T01:44:38.234Z",
-  "seenAt": "2026-10-31T01:44:38.234Z",
+  "updatedAt": "2026-10-31T05:18:22.742Z",
+  "seenAt": "2026-10-31T05:18:22.742Z",
   "source": "live",
   "listings": [
     {
@@ -359,6 +359,32 @@
       "ean": null,
       "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/2-11.jpg",
       "description": "\"إفتتاحية العطر: البرغموت، الليمون، الأناناس، الفلفل، الليمون قلب العطر: الياسمين، زنبق الوادي، اللبانوم قاعدة العطر: العنبر، خشب الصندل، حبوب التونكا، الكراميل، المسك\"",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": false,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 50,
+        "currency": "AED"
+      },
+      "retailerId": "lattafa",
+      "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "31NE0016",
+      "url": "https://lattafa.com/ar/product/%d8%ae%d8%a7%d9%84%d8%af-%d9%a2%d9%a0-%d9%85%d9%84/",
+      "rawTitle": "خالد ٢٠ مل",
+      "rawBrand": null,
+      "ean": null,
+      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/Khalid-20-Ml-01.jpg",
+      "description": "\"إفتتاحية العطر: زعفران، لابدانوم، جلد قلب العطر: البتولا، كادي، الباتشولي القاعدة: بنزوين ، عود ، بلسم تولو ، جلد\"",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
@@ -884,33 +910,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "31NE0016",
-      "url": "https://lattafa.com/ar/product/%d8%ae%d8%a7%d9%84%d8%af-%d9%a2%d9%a0-%d9%85%d9%84/",
-      "rawTitle": "خالد ٢٠ مل",
-      "rawBrand": null,
-      "ean": null,
-      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/Khalid-20-Ml-01.jpg",
-      "description": "\"إفتتاحية العطر: زعفران، لابدانوم، جلد قلب العطر: البتولا، كادي، الباتشولي القاعدة: بنزوين ، عود ، بلسم تولو ، جلد\"",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": false,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 50,
-        "currency": "AED"
-      },
-      "retailerId": "lattafa",
-      "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-10-30T22:18:13.000Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "31PL0084",
       "url": "https://lattafa.com/product/la-affrican-drummer-20-ml/",
       "rawTitle": "La Affrican Drummer 20 ML",
@@ -930,7 +929,6 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-10-26T10:17:18.840Z",
-      "lastSeenAt": "2026-10-30T22:18:13.000Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
