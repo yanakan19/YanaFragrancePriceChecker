@@ -1,26 +1,26 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-10-30T15:34:48.630Z",
+  "builtAt": "2026-10-31T14:54:15.188Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 23,
   "shopsPriced": 23,
-  "crawlMinutes": 57.35,
-  "harvestRanAt": "2026-10-30T14:37:26.800Z",
-  "listingsPriced": 69569,
-  "listingsKept": 34701,
+  "crawlMinutes": 57.21,
+  "harvestRanAt": "2026-10-31T13:57:01.967Z",
+  "listingsPriced": 69721,
+  "listingsKept": 34831,
   "staleAfterDays": 7,
-  "products": 22629,
-  "productsWithTwoOrMoreShops": 6841,
+  "products": 22626,
+  "productsWithTwoOrMoreShops": 6840,
   "shareWithTwoOrMoreShops": 0.302,
-  "productsWithTwoOrMoreIndependentShops": 3141,
+  "productsWithTwoOrMoreIndependentShops": 3138,
   "shareWithTwoOrMoreIndependentShops": 0.139,
-  "productsWithThreeOrMoreShops": 4048,
-  "medianPriceGap": 0.304,
+  "productsWithThreeOrMoreShops": 4049,
+  "medianPriceGap": 0.303,
   "listingBarcodeShare": 0.199,
-  "productsMatchingUkByBarcode": 2198,
+  "productsMatchingUkByBarcode": 2209,
   "shops": [
     {
       "id": "aedes",
@@ -34,7 +34,7 @@
     },
     {
       "id": "beautyhabit",
-      "products": 855,
+      "products": 854,
       "shared": 232
     },
     {
@@ -44,8 +44,8 @@
     },
     {
       "id": "dillards",
-      "products": 1328,
-      "shared": 496
+      "products": 1331,
+      "shared": 495
     },
     {
       "id": "ds-and-durga",
@@ -74,12 +74,12 @@
     },
     {
       "id": "la-belle-perfumes",
-      "products": 4859,
+      "products": 4860,
       "shared": 1403
     },
     {
       "id": "luckyscent",
-      "products": 2571,
+      "products": 2572,
       "shared": 491
     },
     {
@@ -89,12 +89,12 @@
     },
     {
       "id": "microperfumes",
-      "products": 511,
-      "shared": 357
+      "products": 510,
+      "shared": 356
     },
     {
       "id": "ministry-of-scent",
-      "products": 1650,
+      "products": 1647,
       "shared": 539
     },
     {
@@ -114,7 +114,7 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 571,
+      "products": 567,
       "shared": 206
     },
     {
@@ -128,14 +128,14 @@
       "shared": 345
     }
   ],
-  "productsShown": 22507,
-  "productsWithUkPhoto": 5448,
-  "productsWithUkPhotoByBarcode": 1667,
-  "productsWithUkPhotoByName": 3781,
-  "listingsWithReference": 23614,
-  "offersWithCorroboratedReference": 11550,
-  "deals": 1862,
-  "shareWithUkPhoto": 0.242,
+  "productsShown": 22504,
+  "productsWithUkPhoto": 5390,
+  "productsWithUkPhotoByBarcode": 1672,
+  "productsWithUkPhotoByName": 3718,
+  "listingsWithReference": 23612,
+  "offersWithCorroboratedReference": 11549,
+  "deals": 1870,
+  "shareWithUkPhoto": 0.24,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
