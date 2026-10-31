@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-31T09:13:22.182Z",
-  "seenAt": "2026-10-31T09:13:22.182Z",
+  "updatedAt": "2026-10-31T13:13:32.831Z",
+  "seenAt": "2026-10-31T13:13:32.831Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Fragrance Notes. Top Notes Basil, Haitian Vetiver, Sichuan pepper Heart Notes Akigalawood Base Notes Ambergris, Ambroxan, Patchouli .",
       "productType": null,

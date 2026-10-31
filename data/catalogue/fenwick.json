@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-31T09:13:22.182Z",
-  "seenAt": "2026-10-31T09:13:22.182Z",
+  "updatedAt": "2026-10-31T13:13:32.831Z",
+  "seenAt": "2026-10-31T13:13:32.831Z",
   "source": "live",
   "listings": [
     {
@@ -5603,7 +5603,7 @@
       "priceGbp": 36,
       "wasPriceGbp": 45,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Coach Gold Parfum is a striking and radiant fragrance for women, featuring a blend of warm vanilla, almond blossom, and sparkling fruits to create a luminous golden scent. It begins with inviting vanilla and golden amber, followed by gentle floral notes of sweet almond blossom and rose water, and finishes with vibrant, sparkling hints of bergamot and pink peppercorn.. .",
       "productType": "Women's Fragrances",
@@ -17540,7 +17540,7 @@
       "priceGbp": 98,
       "wasPriceGbp": 140,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hydra Figue Eau de Parfum 100ml by Miller Harris offers a distinctive woody fragrance enriched with the fresh, green aroma of fig leaf. This elegant scent combines natural warmth and crispness, creating a balanced and inviting experience. Perfect for those who appreciate subtle yet memorable perfumes, it delivers lasting freshness throughout the day..",
       "productType": "Women's Fragrances",

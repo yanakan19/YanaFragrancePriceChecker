@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-10-31T09:18:29.066Z",
-  "seenAt": "2026-10-31T09:18:29.066Z",
+  "updatedAt": "2026-10-31T13:19:47.512Z",
+  "seenAt": "2026-10-31T13:19:47.512Z",
   "source": "live",
   "listings": [
     {
@@ -274,7 +274,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A sophisticated woody fragrance opening with fresh bergamot, spicy pink pepper, and aromatic geranium. The heart blends delicate violet with warm amber and earthy patchouli, while oud, musk, and vanilla create a rich, smooth, and sensual finish.. Fragrance Notes . Top: Bergamot, Pink Pepper, Geranium. Heart: Violet, Amber, Patchouli. Base: Oud, Musk, Vanilla. Profile: Woody • Spicy • Floral • Amber • Musky.",
       "productType": null,

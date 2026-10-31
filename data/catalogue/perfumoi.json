@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-10-31T09:13:22.182Z",
-  "seenAt": "2026-10-31T09:13:22.182Z",
+  "updatedAt": "2026-10-31T13:13:32.831Z",
+  "seenAt": "2026-10-31T13:13:32.831Z",
   "source": "live",
   "listings": [
     {
@@ -313,7 +313,7 @@
       "priceGbp": 22.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Tabac Original Eau de Cologne is an eau de cologne created for customers who enjoy a fresh, aromatic woody scent. It opens with a bright citrus impression, develops into a clean, spicy floral heart, and settles into a warm, musky base. Suitable for everyday wear and classic grooming routines, this fragrance is a great choice for anyone looking for a scent that feels fresh, traditional, and refined. . Why customers choose it ● Well-suited for spring and autumn ● A great option for daily wear or gifting ● Designed for customers who prefer fresh aromatic and woody scents .",
       "productType": "Cologne",

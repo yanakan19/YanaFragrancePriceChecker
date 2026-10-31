@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-10-31T09:13:22.182Z",
-  "seenAt": "2026-10-31T09:13:22.182Z",
+  "updatedAt": "2026-10-31T13:13:32.831Z",
+  "seenAt": "2026-10-31T13:13:32.831Z",
   "source": "live",
   "listings": [
     {
@@ -37,7 +37,7 @@
       "priceGbp": 108,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Sprinkled with a little extra joy, the limited edition KAYALI Yum Vanilla Cupcake | 108 Edit brings together three irresistible treats in one sweet, collectible gems! . . It opens with a burst of bright lemon sugar and rainbow sprinkles tossed in like confetti, sinking into a decadent heart of white caramel, toasted coconut flakes, and warm sweet milk. It then settles into a rich vanilla frosting base, turning little joys into lasting memories worth treasuring forever.. . This edit includes: . Limited-edition Yum Vanilla Cupcake | 108 50ml. Yum Vanilla Cupcake | 108 Eau de Parfum 10ml. Yum Vanilla Cupcake | 108 Perfume Holder Charm . .",
       "productType": null,
@@ -175,7 +175,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Sprinkled with a little extra joy, the limited-edition Yum Vanilla Cupcake | 108 Eau de Parfum turns a fave gourmand into a collectible gem!. It opens with a burst of bright lemon sugar and rainbow sprinkles tossed in like confetti, sinking into a decadent heart of white caramel, toasted coconut flakes, and warm sweet milk. It then settles into a rich vanilla frosting base, turning little joys into lasting memories worth treasuring forever..",
       "productType": "Fragrances",
