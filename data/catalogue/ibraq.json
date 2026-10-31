@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-10-31T05:14:22.681Z",
-  "seenAt": "2026-10-31T05:14:22.681Z",
+  "updatedAt": "2026-10-31T09:13:22.182Z",
+  "seenAt": "2026-10-31T09:13:22.182Z",
   "source": "live",
   "listings": [
     {
@@ -1578,7 +1578,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Diamond Collection Mini Set 6x10ml includes: . Black Carbon Diamond 10 ml . Emerald Soul Diamond 10 ml . Nude Coral Diamond 10 ml . White Regent Diamond 10 ml . Purple Heart Diamond 10 ml . Grey Pearl Diamond 10 ml . . .",
       "productType": "Arabic Perfumes",

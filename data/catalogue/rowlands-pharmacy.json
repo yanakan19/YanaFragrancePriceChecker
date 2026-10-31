@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-10-31T05:14:37.530Z",
-  "seenAt": "2026-10-31T05:14:37.530Z",
+  "updatedAt": "2026-10-31T09:13:12.864Z",
+  "seenAt": "2026-10-31T09:13:12.864Z",
   "source": "live",
   "listings": [
     {
@@ -681,7 +681,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Bottled Aftershave 100ml. Key Features. ##features##. Classic men's aftershave from Hugo Boss.. Inspired by the iconic Boss Bottled fragrance.. Helps leave skin refreshed after shaving.. Features apple, cinnamon and woody notes.. Sophisticated masculine scent profile.. 100ml bottle ideal for daily use.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Hugo Boss Boss Bottled Aftershave provides a refreshing post-shave experience while leaving skin scented with the unmistakable Boss Bottled fragrance. Featuring fresh apple accords, warm spices and elegant woody notes, it is the perfect finishing touch to a modern grooming routine.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -1279,7 +1279,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Orange Woman Eau de Toilette 30ml. Key Features. ##features##. Fragrance Family: Fruity-Floral . . Top Notes: Crisp Apple . . Heart Notes: Orange Blossom, White Florals . . Base Notes: Vanilla, Sandalwood, Olive Wood . . Ideal For: Everyday wear, gifting. . ##end-features##. Product Details. A cheerful, fruity-floral fragrance that embodies confidence and warmth. Opens with crisp apple, followed by delicate orange blossom and white florals, finishing with creamy vanilla and sandalwood for a sensual, comforting base..",
       "productType": "Fragrance",

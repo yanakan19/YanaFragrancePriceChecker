@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-10-31T05:14:22.681Z",
-  "seenAt": "2026-10-31T05:14:22.681Z",
+  "updatedAt": "2026-10-31T09:13:22.182Z",
+  "seenAt": "2026-10-31T09:13:22.182Z",
   "source": "live",
   "listings": [
     {
@@ -8488,7 +8488,7 @@
       "priceGbp": 10.99,
       "wasPriceGbp": 17,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Calvin Klein CK One Deodorant Spray delivers long-lasting freshness with the clean, iconic scent of CK One. This refreshing deodorant provides effective odour protection while leaving skin lightly fragranced with a modern blend of citrus, green tea and soft musks. Suitable for everyday use, its lightweight formula dries quickly and helps you feel confident throughout the day. Perfect for layering with the matching fragrance or wearing alone for a subtle, invigorating scent. . . Fragrance Type: . Fruity . . Fragrance Notes: . - Top notes: Pineapple, Green Notes, Mandarin Orange, Papaya, Bergamot, Cardamom, Lemon . - Middle notes: Nutmeg, Violet, Orris Root, Jasmine, Lily-of-the-Valley, Rose, Freesia . - Base notes: Sandalwood, Amber, Musk, Cedar, Oakmoss, Green Tea, Green Notes . . Launched: . 1994 .",
       "productType": "Men's Aftershave",
