@@ -1,7 +1,7 @@
 {
   "retailerId": "beautybase",
-  "updatedAt": "2026-10-30T22:14:43.277Z",
-  "seenAt": "2026-10-30T22:14:43.277Z",
+  "updatedAt": "2026-10-31T01:38:44.460Z",
+  "seenAt": "2026-10-31T01:38:44.460Z",
   "source": "live",
   "listings": [
     {
@@ -819,6 +819,28 @@
       "variantId": null
     },
     {
+      "retailerSku": "BBS14412",
+      "url": "https://www.beautybase.com/products/eternity-for-men-eau-de-toilette-100ml-spray",
+      "rawTitle": "Calvin Klein Eternity For Men Eau De Toilette 100ml Spray",
+      "rawBrand": "Calvin Klein",
+      "ean": "088300605514",
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524580632-18442300.png?v=1763388852&width=1920",
+      "description": "Top Notes: Lavender, Mandarin, Bergamot, Lemon Heart Notes: Coriander, Lily, Orange Blossom, Juniper Berries Base Notes: Sandalwood, Amber, Musk, Vetiver",
+      "priceGbp": 39.99,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "sitemap",
+      "rating": null,
+      "retailerId": "beautybase",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-08-03T08:54:00.370Z",
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
       "retailerSku": "BBS14251",
       "url": "https://www.beautybase.com/products/euphoria-eau-de-parfum-50ml-spray",
       "rawTitle": "Calvin Klein Euphoria Eau De Parfum 50ml Spray",
@@ -1101,28 +1123,6 @@
       "status": "active",
       "delistedAt": null,
       "relistedAt": "2026-10-30T14:42:29.669Z",
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "BBS14412",
-      "url": "https://www.beautybase.com/products/eternity-for-men-eau-de-toilette-100ml-spray",
-      "rawTitle": "Calvin Klein Eternity For Men Eau De Toilette 100ml Spray",
-      "rawBrand": "Calvin Klein",
-      "ean": "088300605514",
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524580632-18442300.png?v=1763388852&width=1920",
-      "description": "Top Notes: Lavender, Mandarin, Bergamot, Lemon Heart Notes: Coriander, Lily, Orange Blossom, Juniper Berries Base Notes: Sandalwood, Amber, Musk, Vetiver",
-      "priceGbp": 39.99,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "sitemap",
-      "rating": null,
-      "retailerId": "beautybase",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": "2026-08-03T08:54:00.370Z",
       "eligibleForNewBadge": true,
       "variantId": null
     },

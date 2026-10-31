@@ -1,7 +1,7 @@
 {
   "retailerId": "lattafa",
-  "updatedAt": "2026-10-30T22:18:13.000Z",
-  "seenAt": "2026-10-30T22:18:13.000Z",
+  "updatedAt": "2026-10-31T01:44:38.234Z",
+  "seenAt": "2026-10-31T01:44:38.234Z",
   "source": "live",
   "listings": [
     {
@@ -378,13 +378,13 @@
       "variantId": null
     },
     {
-      "retailerSku": "31NE0016",
-      "url": "https://lattafa.com/ar/product/%d8%ae%d8%a7%d9%84%d8%af-%d9%a2%d9%a0-%d9%85%d9%84/",
-      "rawTitle": "خالد ٢٠ مل",
+      "retailerSku": "31NE0023",
+      "url": "https://lattafa.com/ar/product/%d8%a7%d9%84%d8%ac%d9%88%d9%87%d8%b1%d8%a9-%d9%a2%d9%a0-%d9%85%d9%84/",
+      "rawTitle": "الجوهرة ٢٠ مل",
       "rawBrand": null,
       "ean": null,
-      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/Khalid-20-Ml-01.jpg",
-      "description": "\"إفتتاحية العطر: زعفران، لابدانوم، جلد قلب العطر: البتولا، كادي، الباتشولي القاعدة: بنزوين ، عود ، بلسم تولو ، جلد\"",
+      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/Al-Jawhara-20-ML-01.jpg",
+      "description": "\"إفتتاحية العطر: الفلفل الوردي، الدافانا قلب العطر: القرفة، الأوسمانثوس، البرقوق قاعدة العطر: اللابدانوم، الأمبروكسان، الباتشولي، المسك\"",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
@@ -884,6 +884,33 @@
       "variantId": null
     },
     {
+      "retailerSku": "31NE0016",
+      "url": "https://lattafa.com/ar/product/%d8%ae%d8%a7%d9%84%d8%af-%d9%a2%d9%a0-%d9%85%d9%84/",
+      "rawTitle": "خالد ٢٠ مل",
+      "rawBrand": null,
+      "ean": null,
+      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/Khalid-20-Ml-01.jpg",
+      "description": "\"إفتتاحية العطر: زعفران، لابدانوم، جلد قلب العطر: البتولا، كادي، الباتشولي القاعدة: بنزوين ، عود ، بلسم تولو ، جلد\"",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": false,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 50,
+        "currency": "AED"
+      },
+      "retailerId": "lattafa",
+      "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-10-30T22:18:13.000Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
       "retailerSku": "31PL0084",
       "url": "https://lattafa.com/product/la-affrican-drummer-20-ml/",
       "rawTitle": "La Affrican Drummer 20 ML",
@@ -903,37 +930,11 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-10-26T10:17:18.840Z",
+      "lastSeenAt": "2026-10-30T22:18:13.000Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "31NE0023",
-      "url": "https://lattafa.com/ar/product/%d8%a7%d9%84%d8%ac%d9%88%d9%87%d8%b1%d8%a9-%d9%a2%d9%a0-%d9%85%d9%84/",
-      "rawTitle": "الجوهرة ٢٠ مل",
-      "rawBrand": null,
-      "ean": null,
-      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/04/Al-Jawhara-20-ML-01.jpg",
-      "description": "\"إفتتاحية العطر: الفلفل الوردي، الدافانا قلب العطر: القرفة، الأوسمانثوس، البرقوق قاعدة العطر: اللابدانوم، الأمبروكسان، الباتشولي، المسك\"",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": false,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 50,
-        "currency": "AED"
-      },
-      "retailerId": "lattafa",
-      "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-10-30T18:19:43.544Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
