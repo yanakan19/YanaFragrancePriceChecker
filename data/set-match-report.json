@@ -35,38 +35,6 @@
    ]
   },
   {
-   "canonical": "set-back-to-the-roots-eau-de-parfum-3x10-ml",
-   "absorbed": [
-    "set-back-to-the-roots-eau-de-parfum-3x10ml"
-   ],
-   "members": [
-    {
-     "id": "set-back-to-the-roots-eau-de-parfum-3x10-ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Back to the Roots Eau de Parfum 3x10 ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "back roots to",
-     "signature": "3x10fragrance",
-     "shops": [
-      "nicchia-luxury-uk"
-     ]
-    },
-    {
-     "id": "set-back-to-the-roots-eau-de-parfum-3x10ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Back to the Roots Eau de Parfum 3x10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "back roots to",
-     "signature": "3x10fragrance",
-     "shops": [
-      "liberty-london"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-bruno-banani-magnetic-woman-gift-set-30ml-edp-50ml-shower-gel",
    "absorbed": [
     "set-bruno-banani-magnetic-woman-gift-set-edp-spray-30ml-shower-gel-50ml"
@@ -4890,6 +4858,38 @@
      "signature": "1x50?|1x50body|1x50fragrance|1x?wash",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
