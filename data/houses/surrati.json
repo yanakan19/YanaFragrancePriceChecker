@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-11-01T07:12:16.467Z",
-  "seenAt": "2026-11-01T07:12:16.467Z",
+  "updatedAt": "2026-11-01T10:52:14.891Z",
+  "seenAt": "2026-11-01T10:52:14.891Z",
   "source": "live",
   "listings": [
     {
@@ -1317,32 +1317,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "101024001",
-      "url": "https://surrati.ae/products/niche-fragrance-ayan-500-ml",
-      "rawTitle": "Ayan",
-      "rawBrand": "Surrati Perfumes",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/9_b9c23bc9-2687-408f-8806-6582ef54f98b.jpg?v=1728378979",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Niche Fragrance Ayan 500 ml . Ayan is a luxurious niche fragrance that exudes sophistication and elegance. With its unique blend of exotic notes, this 500 ml masterpiece offers a long-lasting and captivating aroma perfect for any occasion..",
-      "productType": "Air Freshner",
-      "nativePrice": {
-        "amount": 30,
-        "currency": "AED"
-      },
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-08-05T11:07:58.528Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "101044311",
       "url": "https://surrati.ae/products/spray-collector-210-ml",
       "rawTitle": "Collector",
@@ -1982,33 +1956,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "101044316",
-      "url": "https://surrati.ae/products/spray-arabian-eagle-100-ml",
-      "rawTitle": "Spray Arabian Eagle",
-      "rawBrand": "My Store",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/Untitled_design_-_2024-08-06T123709.262.png?v=1728378863",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": ". Top Middle Bottom White Floral, Sweet Lactonic, Fresh Floral, Ozonic Perfumer :. Beatrice Piquet. . Beatrice Piquet was a highly talented French perfumer who left an indelible mark on the fragrance industry during her lifetime. She was born on September 27th, 1963, in Eaubonne, France, and passed away on March 1st, 2010, in Nanterre after a prolonged illness. . .",
-      "productType": null,
-      "nativePrice": {
-        "amount": 115,
-        "currency": "AED"
-      },
-      "nativeWasPrice": 230,
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-08-05T11:07:58.528Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "101044317",
       "url": "https://surrati.ae/products/spray-black-horse-100-ml",
       "rawTitle": "Spray Black Horse 100 Ml",
@@ -2481,6 +2428,61 @@
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "101024001",
+      "url": "https://surrati.ae/products/niche-fragrance-ayan-500-ml",
+      "rawTitle": "Ayan",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/9_b9c23bc9-2687-408f-8806-6582ef54f98b.jpg?v=1728378979",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Niche Fragrance Ayan 500 ml . Ayan is a luxurious niche fragrance that exudes sophistication and elegance. With its unique blend of exotic notes, this 500 ml masterpiece offers a long-lasting and captivating aroma perfect for any occasion..",
+      "productType": "Air Freshner",
+      "nativePrice": {
+        "amount": 30,
+        "currency": "AED"
+      },
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-08-05T11:07:58.528Z",
+      "lastSeenAt": "2026-11-01T07:12:16.467Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-01T10:52:14.891Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "101044316",
+      "url": "https://surrati.ae/products/spray-arabian-eagle-100-ml",
+      "rawTitle": "Spray Arabian Eagle",
+      "rawBrand": "My Store",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/Untitled_design_-_2024-08-06T123709.262.png?v=1728378863",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": ". Top Middle Bottom White Floral, Sweet Lactonic, Fresh Floral, Ozonic Perfumer :. Beatrice Piquet. . Beatrice Piquet was a highly talented French perfumer who left an indelible mark on the fragrance industry during her lifetime. She was born on September 27th, 1963, in Eaubonne, France, and passed away on March 1st, 2010, in Nanterre after a prolonged illness. . .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 115,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 230,
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-08-05T11:07:58.528Z",
+      "lastSeenAt": "2026-11-01T07:12:16.467Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-01T10:52:14.891Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

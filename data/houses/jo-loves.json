@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-01T07:17:47.610Z",
-  "seenAt": "2026-11-01T07:17:47.610Z",
+  "updatedAt": "2026-11-01T10:58:03.530Z",
+  "seenAt": "2026-11-01T10:58:03.530Z",
   "source": "live",
   "listings": [
     {
@@ -3579,7 +3579,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Discover the essence of Jo Loves Pomelo, a captivating fragrance that captures the magic of a beach holiday on Parrot Cay Island. Inspired by a moment of creative awakening, this diffuser refill combines the sparkling notes of rose and pomelo with the depth of vetiver, clove, patchouli, and suede, creating a scent that transports you to a serene, sun-kissed paradise. To enjoy the full fragrance experience, simply dip the reeds into the oil, turn them, and rotate them every few days for a lasting, mesmerising aroma that reminds you of your own creative journey.",
       "productType": null,

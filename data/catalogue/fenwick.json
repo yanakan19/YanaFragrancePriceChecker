@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-01T07:08:43.178Z",
-  "seenAt": "2026-11-01T07:08:43.178Z",
+  "updatedAt": "2026-11-01T10:49:01.834Z",
+  "seenAt": "2026-11-01T10:49:01.834Z",
   "source": "live",
   "listings": [
     {
@@ -9858,7 +9858,7 @@
       "priceGbp": 136,
       "wasPriceGbp": 160,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Coco Mademoiselle Crush Absolu Eau De Parfum is a captivating women's fragrance that brings a luxurious new expression to the iconic Coco Mademoiselle collection. Presented in a 50ml or 100ml bottle, this elegant Eau De Parfum is designed to envelop the skin in an expressive scent and leave a memorable fragrance trail..",
       "productType": "Women's Fragrances",

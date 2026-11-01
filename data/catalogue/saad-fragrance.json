@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-01T07:08:43.178Z",
-  "seenAt": "2026-11-01T07:08:43.178Z",
+  "updatedAt": "2026-11-01T10:49:01.834Z",
+  "seenAt": "2026-11-01T10:49:01.834Z",
   "source": "live",
   "listings": [
     {
@@ -497,7 +497,7 @@
       "priceGbp": 27.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Black fume Ahmed al Maghribi 100 ml EDP features a complex structure with a raspberry top note providing a fruity opening. Its heart combines woody notes and orris for depth, while the base blends oud, tobacco, labdanum, and ambroxan, creating a long-lasting, rich aromatic profile. .",
       "productType": null,
