@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 202,
+ "folded": 200,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -2165,38 +2165,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3430750039536",
-   "absorbed": [
-    "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750039536",
-     "brand": "Jeanne Arthes",
-     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": "3430750039536",
-     "scent": "js magnetic power",
-     "signature": "1x100fragrance|1x75body|1x75wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm",
-     "brand": "Jeanne Arthes",
-     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "js magnetic power",
-     "signature": "1x100fragrance|1x75body|1x75wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3430750368605",
    "absorbed": [
     "set-jeanne-arthes-amore-mio-gift-set-100ml-edp-200ml-body-lotion"
@@ -2322,39 +2290,6 @@
      "signature": "1x50wash|1x75fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3614228832915",
-   "absorbed": [
-    "set-hugo-boss-the-scent-eau-de-toilette-50ml-duo-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614228832915",
-     "brand": "Hugo Boss",
-     "name": "The Scent 50ml Eau de Toilette Duo Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3614228832915",
-     "scent": "duo scent",
-     "signature": "1x50fragrance|2p",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-the-scent-eau-de-toilette-50ml-duo-set",
-     "brand": "Hugo Boss",
-     "name": "The Scent Eau de Toilette 50ml Duo Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "duo scent",
-     "signature": "1x50fragrance|2p",
-     "shops": [
-      "perfume-market-uk"
      ]
     }
    ]
@@ -8362,7 +8297,8 @@
   {
    "reasons": [
     "two different barcodes: 3274872463172, 3274872506442",
-    "a shop lists more than one: paco-perfumerias-uk"
+    "a shop lists more than one: paco-perfumerias-uk",
+    "price spread 1.51 is over 1.5"
    ],
    "members": [
     {
@@ -8380,13 +8316,12 @@
     {
      "id": "set-ean-3274872506442",
      "brand": "Givenchy",
-     "name": "L'Interdit 80ml Eau de Parfum 3 Piece Set",
+     "name": "L'Interdit Eau de Parfum 80ml Spray 3 Piece Set",
      "concentration": "Eau de Parfum",
      "ean": "3274872506442",
      "scent": "interdit l",
      "signature": "1x80fragrance|3p",
      "shops": [
-      "fragrance-click",
       "paco-perfumerias-uk"
      ]
     }
@@ -8512,13 +8447,12 @@
     {
      "id": "set-ean-3349668628728",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Lady Million Gift Set 80ml EDP + 20ml EDP",
+     "name": "Paco Rabanne Lady Million Women's Perfume Gift Set (80ml EDP + 20ml EDP)",
      "concentration": "Eau de Parfum",
      "ean": "3349668628728",
      "scent": "lady million paco rabanne",
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
-      "perfume-click",
       "perfume-direct"
      ]
     }
@@ -9732,6 +9666,37 @@
      "signature": "1x50body|1x50fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.72 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750039536",
+     "brand": "Jeanne Arthes",
+     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "3430750039536",
+     "scent": "js magnetic power",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm",
+     "brand": "Jeanne Arthes",
+     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "js magnetic power",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
