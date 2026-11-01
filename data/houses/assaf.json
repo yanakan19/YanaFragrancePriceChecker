@@ -1,9 +1,36 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-01T14:42:42.583Z",
-  "seenAt": "2026-11-01T14:42:42.583Z",
+  "updatedAt": "2026-11-01T18:15:04.785Z",
+  "seenAt": "2026-11-01T18:15:04.785Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "FBKX-200-ON-00650",
+      "url": "https://assaf.ae/products/edp-frankel-black-elixir-200ml",
+      "rawTitle": "FRANKEL AVENTUS BLACK ELIXIR 30% Elixir / 200 ML",
+      "rawBrand": "Assaf Trading LLC",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/840c30bd-e74b-4cbc-a26c-be788c345ebf-1000x1000-uEzsee7Q5jHvyqsWo5Y9tMjkpEMcK8D9aBkIGvep.webp?v=1768490801",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "description": "Order your Frankel Black Elixir 30 perfume now, as you can try it for seven days with the exclusive Assaf guarantee, which allows you to return the bottle if it does not meet your expectations regardless of how much has been used , and receive a full refund.. Frankel Perfume – Now with Elixir 30% concentration and stronger projection than ever. . The 30% Elixir concentration makes every spray an unforgettable story, and its high projection asserts its presence wherever you go.. When a scent speaks of a man, it speaks of Frankel Aventus .. The projection of Frankel Black Elixir does not go unnoticed…. From the very first spray, its aroma penetrates with strength and elegance, filling the surroundings and announcing your presence with absolute confidence.. It is not just a momentary projection, but a lasting fragrance that precedes you with every step, attracting attention wherever you go.. Whether you are in a formal meeting, a special occasion, or even passing by… the fragrance asserts itself and leaves a mark in memory.. The fragrance of the confident man. The bold man. A summer fragrance with a captivating effect that does not fade over time.. FRANKEL BLACK features a carefully crafted composition with a pure and intense character. It is a men’s fragrance that reflects boldness and self-confidence.. Inspiration and Naming . Frankel is the fragrance of the man who sets the rules and does not intend to break them. Its composition reveals a personality that asserts itself independently, and the spirit of a man who chooses his own destiny.. The fragrance’s name is inspired by the horse Frankel , who participated in 14 races since birth and, surprisingly, won all of them.. Composition . Frankel has a cool freshness. Its top notes highlight the enchanting iris and refreshing lemon , while the heart contains violet and basil with hints of vetiver (aromatic Indian grass) , giving you invigorating nuances.. Then the fragrance unfolds into a wonderful harmony enhanced with amber, vanilla, cedarwood, and musk . The aroma of these rich and strong notes spreads, leaving a dense trail everywhere.. Guarantee and Fragrance Application Tips . For more lasting projection and to enjoy the full richness of the fragrance notes, it is recommended to spray the perfume directly on the warmest areas of the skin ( neck and wrists )..",
+      "productType": "man",
+      "nativePrice": {
+        "amount": 109,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 499,
+      "retailerId": "assaf",
+      "firstSeenAt": "2026-08-05T11:07:47.821Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-11-01T18:15:04.785Z",
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
     {
       "retailerSku": "LDY-100-ON-0005",
       "url": "https://assaf.ae/products/edp-miss-flora-100ml",
@@ -6729,34 +6756,6 @@
         "currency": "AED"
       },
       "nativeWasPrice": 375,
-      "retailerId": "assaf",
-      "firstSeenAt": "2026-08-05T11:07:47.821Z",
-      "lastSeenAt": "2026-10-24T10:39:50.607Z",
-      "status": "delisted",
-      "delistedAt": "2026-10-24T14:21:19.119Z",
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "FBKX-200-ON-00650",
-      "url": "https://assaf.ae/products/edp-frankel-black-elixir-200ml",
-      "rawTitle": "FRANKEL AVENTUS BLACK ELIXIR 30% Elixir / 200 ML",
-      "rawBrand": "Assaf Trading LLC",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/840c30bd-e74b-4cbc-a26c-be788c345ebf-1000x1000-uEzsee7Q5jHvyqsWo5Y9tMjkpEMcK8D9aBkIGvep.webp?v=1768490801",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "house-direct",
-      "description": "Order your Frankel Black Elixir 30 perfume now, as you can try it for seven days with the exclusive Assaf guarantee, which allows you to return the bottle if it does not meet your expectations regardless of how much has been used , and receive a full refund.. Frankel Perfume – Now with Elixir 30% concentration and stronger projection than ever. . The 30% Elixir concentration makes every spray an unforgettable story, and its high projection asserts its presence wherever you go.. When a scent speaks of a man, it speaks of Frankel Aventus .. The projection of Frankel Black Elixir does not go unnoticed…. From the very first spray, its aroma penetrates with strength and elegance, filling the surroundings and announcing your presence with absolute confidence.. It is not just a momentary projection, but a lasting fragrance that precedes you with every step, attracting attention wherever you go.. Whether you are in a formal meeting, a special occasion, or even passing by… the fragrance asserts itself and leaves a mark in memory.. The fragrance of the confident man. The bold man. A summer fragrance with a captivating effect that does not fade over time.. FRANKEL BLACK features a carefully crafted composition with a pure and intense character. It is a men’s fragrance that reflects boldness and self-confidence.. Inspiration and Naming . Frankel is the fragrance of the man who sets the rules and does not intend to break them. Its composition reveals a personality that asserts itself independently, and the spirit of a man who chooses his own destiny.. The fragrance’s name is inspired by the horse Frankel , who participated in 14 races since birth and, surprisingly, won all of them.. Composition . Frankel has a cool freshness. Its top notes highlight the enchanting iris and refreshing lemon , while the heart contains violet and basil with hints of vetiver (aromatic Indian grass) , giving you invigorating nuances.. Then the fragrance unfolds into a wonderful harmony enhanced with amber, vanilla, cedarwood, and musk . The aroma of these rich and strong notes spreads, leaving a dense trail everywhere.. Guarantee and Fragrance Application Tips . For more lasting projection and to enjoy the full richness of the fragrance notes, it is recommended to spray the perfume directly on the warmest areas of the skin ( neck and wrists )..",
-      "productType": "man",
-      "nativePrice": {
-        "amount": 109,
-        "currency": "AED"
-      },
-      "nativeWasPrice": 499,
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "lastSeenAt": "2026-10-24T10:39:50.607Z",

@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-01T14:39:51.197Z",
-  "seenAt": "2026-11-01T14:39:51.197Z",
+  "updatedAt": "2026-11-01T18:13:32.843Z",
+  "seenAt": "2026-11-01T18:13:32.843Z",
   "source": "live",
   "listings": [
     {
@@ -15815,7 +15815,7 @@
       "priceGbp": 268.81,
       "wasPriceGbp": 270,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": "Eau de Toilette",

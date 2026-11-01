@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-01T14:39:51.197Z",
-  "seenAt": "2026-11-01T14:39:51.197Z",
+  "updatedAt": "2026-11-01T18:13:32.843Z",
+  "seenAt": "2026-11-01T18:13:32.843Z",
   "source": "live",
   "listings": [
     {
@@ -43139,7 +43139,7 @@
       "priceGbp": 68,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "This ”bandage effect” leave-in haircare combines the repairing powers of 4 exclusive honeys chosen by Guerlain Research with Honey Bond-Protect Complexᵀᴹ technology to deeply repair the hair fibre and protect it from humidity, pollution and heat-styling tools up to 230°C. From first use, hair is more resistant against breakage, frizz are controlled and the lengths are disciplined. Day after day, hair is re-plumped, soft and shiny. Its lightweight, silky smooth texture was developed according to the Guerlain art of formulation and is composed of 93% naturally-derived ingredients². REPAIRING ACTION The fruit of more than 15 years’ research into the powers of honey, Guerlain has created Blackbee Honey Repair technology, which combines 4 powerful repairing honeys with expert active ingredients for hair inspired by dermocosmetics: restructuring phytoceramides, smoothing arginine, fortifying D-Panthenol and a colour-protecting cassia alata extract³. PROTECTIVE ACTION The new Honey Bond-Protect Complexᵀᴹ technology combines royal jelly and Åland honey, which are rich in cysteine, for a bond-building action that protects and recreates hydrogen bonds at the core of the hair fibre. Enriched with a beeswax butter, it creates an invisible film on hair’s surface for optimal protection of the fibre. ¹Instrumental test. ²Calculation based on the international ISO standard 16128, including water. ³In vitro tests on ingredients..",
       "productType": "Hair",
@@ -83018,8 +83018,8 @@
       "rawBrand": "Shiseido",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/110_alabaster.png?v=1729190624",
-      "priceGbp": 22,
-      "wasPriceGbp": 53,
+      "priceGbp": 53,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
