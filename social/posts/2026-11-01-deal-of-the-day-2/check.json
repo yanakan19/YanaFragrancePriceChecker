@@ -1,0 +1,41 @@
+{
+  "id": "ean-6290171074946",
+  "url": "https://pricesniffs.space/zimaya_awatif_pour_femme_100ml",
+  "delivered": 19.45,
+  "msrp": 40,
+  "shop": "Perfume Click",
+  "percent": 51,
+  "pricesCheckedAt": "2026-11-01T03:37:34.619Z",
+  "brandRule": {
+    "restDays": 7,
+    "overridden": false
+  },
+  "liveCheck": {
+    "status": 200,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "gender": {
+    "reading": "womens",
+    "basis": "product name"
+  },
+  "notes": {
+    "used": "own",
+    "source": "Beauty Base",
+    "reasons": [],
+    "top": [
+      "Mandarin",
+      "Bergamot"
+    ],
+    "middle": [
+      "Rose",
+      "Ylang Ylang",
+      "Musk"
+    ],
+    "base": [
+      "Vanilla",
+      "Patchouli"
+    ]
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "ean-6290171074946",
+  "url": "https://pricesniffs.space/zimaya_awatif_pour_femme_100ml",
+  "name": "Awatif Pour Femme 100ml",
+  "brand": "Zimaya",
+  "delivered": 19.45,
+  "msrp": 40,
+  "shop": "Perfume Click",
+  "percent": 51,
+  "pricesCheckedAt": "2026-11-01T03:37:34.619Z",
+  "date": "2026-11-01",
+  "dealsList": {
+    "generatedAt": "2026-11-01T03:39:42.565Z",
+    "retailerId": "perfume-click",
+    "price": 19.45,
+    "wasPrice": 40,
+    "percentOff": 51,
+    "kind": "house"
+  },
+  "photo": "https://cdn.shopify.com/s/files/1/0941/4551/1791/files/AwatifPourFemme.png?v=1762863354",
+  "brandRule": {
+    "restDays": 7,
+    "overridden": false
+  },
+  "liveCheck": {
+    "status": 200,
+    "servesApp": true,
+    "inLiveData": true,
+    "ok": true
+  },
+  "video": {
+    "file": "deal-video-9x16.mp4",
+    "seconds": 10,
+    "frames": 300,
+    "bytes": 1019506,
+    "transitions": [
+      {
+        "kind": "swipe",
+        "from": "bottle",
+        "to": "prices",
+        "start": 2.6,
+        "end": 3,
+        "seconds": 0.4
+      },
+      {
+        "kind": "dissolve",
+        "from": "prices",
+        "to": "note",
+        "start": 5.1,
+        "end": 5.6,
+        "seconds": 0.5
+      },
+      {
+        "kind": "swipe",
+        "from": "note",
+        "to": "outro",
+        "start": 7.4,
+        "end": 7.8,
+        "seconds": 0.4
+      }
+    ]
+  }
+}

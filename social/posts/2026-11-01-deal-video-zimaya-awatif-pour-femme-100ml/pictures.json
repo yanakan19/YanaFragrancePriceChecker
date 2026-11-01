@@ -1,0 +1,12 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-11-01-deal-video-zimaya-awatif-pour-femme-100ml . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "deal-video-9x16.mp4",
+      "make": "deal-video",
+      "seconds": 10,
+      "bytes": 1019506,
+      "sha256": "667d964a5616dadb829812a7bb2b3d0ab47ff728122d44ba43c51824cd805c9d"
+    }
+  ]
+}
