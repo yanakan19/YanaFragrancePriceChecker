@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 203,
+ "folded": 204,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -3703,13 +3703,12 @@
     {
      "id": "set-ean-5060426158728",
      "brand": "Sarah Jessica Parker",
-     "name": "Lovely Gift Set 100ml EDP + 15ml EDP",
+     "name": "Lovely Women's Perfume Gift Set (100ml EDP + 15ml EDP)",
      "concentration": "Eau de Parfum",
      "ean": "5060426158728",
      "scent": "lovely",
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
-      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -5671,6 +5670,38 @@
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "body cool your",
+     "signature": "1x100fragrance|1x150body",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8436581946253",
+   "absorbed": [
+    "set-reebok-inspire-your-mind-woman-gift-set-100ml-edt-150ml-body-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8436581946253",
+     "brand": "Reebok",
+     "name": "Inspire Your Mind Woman Gift Set 100ml EDT + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "8436581946253",
+     "scent": "inspire mind woman your",
+     "signature": "1x100fragrance|1x150body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-reebok-inspire-your-mind-woman-gift-set-100ml-edt-150ml-body-spray",
+     "brand": "Reebok",
+     "name": "Inspire Your Mind Woman Gift Set 100ml EDT + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "inspire mind woman your",
      "signature": "1x100fragrance|1x150body",
      "shops": [
       "mybeauty-boutique"
@@ -11829,37 +11860,6 @@
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "move spirit your",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.74 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8436581946253",
-     "brand": "Reebok",
-     "name": "Inspire Your Mind Woman Gift Set 100ml EDT + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "8436581946253",
-     "scent": "inspire mind woman your",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-reebok-inspire-your-mind-woman-gift-set-100ml-edt-150ml-body-spray",
-     "brand": "Reebok",
-     "name": "Inspire Your Mind Woman Gift Set 100ml EDT + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "inspire mind woman your",
      "signature": "1x100fragrance|1x150body",
      "shops": [
       "mybeauty-boutique"
