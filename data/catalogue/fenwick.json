@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-10-31T20:18:54.250Z",
-  "seenAt": "2026-10-31T20:18:54.250Z",
+  "updatedAt": "2026-11-01T00:09:32.151Z",
+  "seenAt": "2026-11-01T00:09:32.151Z",
   "source": "live",
   "listings": [
     {
@@ -17448,7 +17448,7 @@
       "priceGbp": 126,
       "wasPriceGbp": 180,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Scherzo Eau de Parfum 100ml by Miller Harris is a floral fragrance centered around the delicate scent of rose. This elegant perfume offers a fresh and sophisticated aroma, perfect for those who appreciate classic floral notes with a modern twist. The 100ml bottle provides lasting wear, making it an ideal choice for daily use or special occasions..",
       "productType": "Unisex Fragrance",

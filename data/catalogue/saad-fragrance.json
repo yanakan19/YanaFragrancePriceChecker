@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-10-31T20:18:54.250Z",
-  "seenAt": "2026-10-31T20:18:54.250Z",
+  "updatedAt": "2026-11-01T00:09:32.151Z",
+  "seenAt": "2026-11-01T00:09:32.151Z",
   "source": "live",
   "listings": [
     {
@@ -2130,7 +2130,7 @@
       "priceGbp": 32.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the mysterious and captivating scent of Azhrance Sparkle Eau de Parfum. With vibrant notes of blood orange and mandarin, this unique fragrance is enhanced with honey, jasmine, and caramel. Perfect for those seeking a one-of-a-kind scent. .",
       "productType": null,

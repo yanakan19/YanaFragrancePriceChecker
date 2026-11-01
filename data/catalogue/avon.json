@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-10-31T20:18:50.152Z",
-  "seenAt": "2026-10-31T20:18:50.152Z",
+  "updatedAt": "2026-11-01T00:09:56.847Z",
+  "seenAt": "2026-11-01T00:09:56.847Z",
   "source": "live",
   "listings": [
     {
@@ -32099,7 +32099,7 @@
       "priceGbp": 5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Want fresh and invigorated skin?* Try our Planet Spa The Tranquility Facial Scrub. This deeply purifying formula exfoliates your skin, leaving it looking fresh, supple and smoother and feeling revitalised and stimulated.* Try the whole pampering experience with the rest of The Tranquility collection!. Product specification: . • Deeply purifying facial scrub. • Enriched with Dead Sea minerals. • Clinically and dermatologically tested. • Part of the Tranquility collection. • Size: 75ml.. How to use me: . Massage gently onto wet skin avoiding eye area. Rinse thoroughly and pat dry. Use up to 3 times per week.. *Based on a consumer science study with 30 participants..",
       "productType": "FACE",
