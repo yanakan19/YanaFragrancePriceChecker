@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-01T10:49:04.269Z",
-  "seenAt": "2026-11-01T10:49:04.269Z",
+  "updatedAt": "2026-11-01T14:39:51.197Z",
+  "seenAt": "2026-11-01T14:39:51.197Z",
   "source": "live",
   "listings": [
     {
@@ -9536,7 +9536,7 @@
       "priceGbp": 12,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A suedette-finish cross-body bag with adjustable shoulder strap and button closure brings a touch of style and comfort to everyday outfits..",
       "productType": "ACCESSORIES",

@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-01T10:49:04.269Z",
-  "seenAt": "2026-11-01T10:49:04.269Z",
+  "updatedAt": "2026-11-01T14:39:51.197Z",
+  "seenAt": "2026-11-01T14:39:51.197Z",
   "source": "live",
   "listings": [
     {
@@ -18483,7 +18483,7 @@
       "priceGbp": 37.75,
       "wasPriceGbp": 125,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Bvlgari Omnia Coral Eau de Toilette Spray 100ml Tester.",
       "productType": "Eau de Toilette",
@@ -19219,7 +19219,7 @@
       "priceGbp": 12.5,
       "wasPriceGbp": 39,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Elizabeth Arden Visible Difference Refining Moisture Cream Complex 75ml.",
       "productType": "Face Moisturiser",
@@ -19886,7 +19886,7 @@
       "priceGbp": 15.5,
       "wasPriceGbp": 69,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Cacharel Anais Anais Eau de Toilette Spray 100ml Unwrapped.",
       "productType": "Eau de Toilette",
