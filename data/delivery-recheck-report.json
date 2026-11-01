@@ -1,13 +1,13 @@
 {
-  "checkedAt": "2026-10-01T23:03:08.131Z",
-  "month": "2026-10",
+  "checkedAt": "2026-11-01T11:30:33.719Z",
+  "month": "2026-11",
   "staleAfterDays": 60,
   "summary": {
-    "shops": 38,
-    "same": 21,
-    "changed": 0,
-    "blocked": 12,
-    "unreadable": 5,
+    "shops": 62,
+    "same": 38,
+    "changed": 4,
+    "blocked": 4,
+    "unreadable": 16,
     "stale": 0
   },
   "rows": [
@@ -22,7 +22,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 3.95,
@@ -59,10 +59,10 @@
         "standardGbp": 2.99,
         "freeOverGbp": 25,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": 2.99,
@@ -86,82 +86,6 @@
       "reason": "page still says £2.99, free over £25.00"
     },
     {
-      "retailerId": "notino-uk",
-      "name": "Notino UK",
-      "url": "https://www.notino.co.uk/shipping-info/",
-      "recorded": {
-        "standardGbp": 2.99,
-        "freeOverGbp": null,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 0,
-      "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": 403,
-      "status": "blocked",
-      "reason": "HTTP 403 — the shop refused the request"
-    },
-    {
-      "retailerId": "boots",
-      "name": "Boots",
-      "url": "https://www.boots.com/shopping/delivery-information",
-      "recorded": {
-        "standardGbp": 3.95,
-        "freeOverGbp": 25,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 0,
-      "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": 200,
-      "status": "blocked",
-      "reason": "HTTP 200 with a bot challenge / captcha page (\"_Incapsula_Resource\")"
-    },
-    {
-      "retailerId": "the-fragrance-shop",
-      "name": "The Fragrance Shop",
-      "url": "https://www.thefragranceshop.co.uk/delivery",
-      "recorded": {
-        "standardGbp": 3.49,
-        "freeOverGbp": 40,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 0,
-      "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": 403,
-      "status": "blocked",
-      "reason": "HTTP 403 — the shop refused the request"
-    },
-    {
-      "retailerId": "the-perfume-shop",
-      "name": "The Perfume Shop",
-      "url": "https://www.theperfumeshop.com/delivery-information",
-      "recorded": {
-        "standardGbp": 3.5,
-        "freeOverGbp": 25,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 0,
-      "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": 403,
-      "status": "blocked",
-      "reason": "HTTP 403 — the shop refused the request"
-    },
-    {
       "retailerId": "john-lewis",
       "name": "John Lewis",
       "url": "https://www.johnlewis.com/customer-services/delivery-information/uk-delivery",
@@ -172,13 +96,26 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": null,
-      "status": "blocked",
-      "reason": "no answer (timeout or connection refused) (AbortError: This operation was aborted)"
+      "found": {
+        "standardGbp": 4.5,
+        "freeOverGbp": 50,
+        "standardCandidates": [
+          19.95
+        ],
+        "thresholdCandidates": [
+          50
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "Larger item delivery costs £19.95, with exceptions to large items delivered to non-UK mainland locations.",
+        "Delivery is free when you spend £50 and over, and £4.50 for orders under £50."
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £4.50, free over £50.00"
     },
     {
       "retailerId": "beautybase",
@@ -191,7 +128,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 4.95,
@@ -225,14 +162,15 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 3.95,
         "freeOverGbp": 25,
         "standardCandidates": [
           3.95,
-          5.95
+          5.95,
+          200
         ],
         "thresholdCandidates": [
           25
@@ -249,63 +187,6 @@
       "reason": "page still says £3.95, free over £25.00"
     },
     {
-      "retailerId": "superdrug",
-      "name": "Superdrug",
-      "url": "https://www.superdrug.com/delInfo",
-      "recorded": {
-        "standardGbp": 3,
-        "freeOverGbp": 25,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 0,
-      "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": 403,
-      "status": "blocked",
-      "reason": "HTTP 403 — the shop refused the request"
-    },
-    {
-      "retailerId": "selfridges",
-      "name": "Selfridges",
-      "url": "https://www.selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/",
-      "recorded": {
-        "standardGbp": 6.95,
-        "freeOverGbp": null,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 0,
-      "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": 403,
-      "status": "blocked",
-      "reason": "HTTP 403 — the shop refused the request"
-    },
-    {
-      "retailerId": "harvey-nichols",
-      "name": "Harvey Nichols",
-      "url": "https://www.harveynichols.com/info/help/delivery-help/uk-delivery/",
-      "recorded": {
-        "standardGbp": 4.5,
-        "freeOverGbp": 300,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 0,
-      "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": null,
-      "status": "blocked",
-      "reason": "robots.txt could not be read (server error or no answer) — not fetched"
-    },
-    {
       "retailerId": "fragrance-click",
       "name": "Fragrance Click",
       "url": "https://www.fragranceclick.co.uk/delivery",
@@ -316,7 +197,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 0,
@@ -342,10 +223,10 @@
         "standardGbp": 3.99,
         "freeOverGbp": 60,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": 3.99,
@@ -367,6 +248,39 @@
       "reason": "page still says £3.99, free over £60.00"
     },
     {
+      "retailerId": "escentual",
+      "name": "Escentual",
+      "url": "https://www.escentual.com/pages/delivery-information",
+      "recorded": {
+        "standardGbp": 3.5,
+        "freeOverGbp": 30,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-01",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 31,
+      "stale": false,
+      "found": {
+        "standardGbp": 3.5,
+        "freeOverGbp": 30,
+        "standardCandidates": [
+          3.5
+        ],
+        "thresholdCandidates": [
+          30
+        ],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "Standard Delivery ~ £3.50 / free on orders over £30 ~ 3-5 working days*",
+        "Free UK delivery on orders over £30 (from £3.50 under £30)",
+        "Free UK Delivery"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £3.50, free over £30.00"
+    },
+    {
       "retailerId": "the-fragrance-counter",
       "name": "The Fragrance Counter",
       "url": "https://www.thefragrancecounter.co.uk/delivery.html",
@@ -377,7 +291,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 3.95,
@@ -406,7 +320,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 2.95,
@@ -419,7 +333,7 @@
       },
       "evidence": [
         "Free UK Delivery Over £30",
-        "Scentstore Enjoy Free Delivery When You Spend £30+",
+        "Enjoy Free Delivery When You Spend £30+",
         "£2.95 Free on Orders Over £30"
       ],
       "httpStatus": 200,
@@ -434,10 +348,10 @@
         "standardGbp": 3.99,
         "freeOverGbp": 28,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -466,10 +380,10 @@
         "standardGbp": 4.99,
         "freeOverGbp": 100,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": 4.99,
@@ -492,13 +406,13 @@
       "name": "Armaf",
       "url": "https://armaf.uk/policies/shipping-policy",
       "recorded": {
-        "standardGbp": null,
-        "freeOverGbp": null,
-        "standardRateNotPublished": true,
-        "verifiedAt": "2026-10-01",
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -517,13 +431,13 @@
       "name": "Al Haramain Perfumes",
       "url": "https://alharamainperfumes.co.uk/en-us/pages/delivery-information",
       "recorded": {
-        "standardGbp": null,
+        "standardGbp": 4.95,
         "freeOverGbp": 50,
-        "standardRateNotPublished": true,
-        "verifiedAt": "2026-10-01",
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -539,40 +453,21 @@
         "FREE UK Delivery on orders over £50 (Royal Mail Standard Service)"
       ],
       "httpStatus": 200,
-      "status": "same",
-      "reason": "page still says no standard rate, free over £50.00"
-    },
-    {
-      "retailerId": "riiffs",
-      "name": "Riiffs Perfumes",
-      "url": "https://uk.riiffsperfumes.com/policies/shipping-policy",
-      "recorded": {
-        "standardGbp": null,
-        "freeOverGbp": 100,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-08-05",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 57,
-      "stale": false,
-      "found": null,
-      "evidence": [],
-      "httpStatus": 403,
-      "status": "blocked",
-      "reason": "HTTP 403 — the shop refused the request"
+      "status": "unreadable",
+      "reason": "page read but names no standard charge to compare with the recorded £4.95 (free-over £50.00 still matches)"
     },
     {
       "retailerId": "ibraq",
       "name": "IBRAQ",
       "url": "https://ibraquk.com/policies/shipping-policy",
       "recorded": {
-        "standardGbp": null,
+        "standardGbp": 2.99,
         "freeOverGbp": 50,
-        "standardRateNotPublished": true,
-        "verifiedAt": "2026-10-01",
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -589,8 +484,8 @@
         "Free shipping, anywhere in the UK!"
       ],
       "httpStatus": 200,
-      "status": "same",
-      "reason": "page still says no standard rate, free over £50.00"
+      "status": "unreadable",
+      "reason": "page read but names no standard charge to compare with the recorded £2.99 (free-over £50.00 still matches)"
     },
     {
       "retailerId": "bellavita-luxury",
@@ -603,7 +498,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 3.99,
@@ -633,10 +528,10 @@
         "standardGbp": 3.99,
         "freeOverGbp": 30,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": 3.99,
@@ -663,13 +558,13 @@
       "name": "Manchester Ouds",
       "url": "https://manchesterouds.com/pages/shipping-policy",
       "recorded": {
-        "standardGbp": null,
-        "freeOverGbp": 50,
-        "standardRateNotPublished": true,
-        "verifiedAt": "2026-10-01",
+        "standardGbp": 2.99,
+        "freeOverGbp": 200,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -684,8 +579,8 @@
         "Free shipping on orders over £50"
       ],
       "httpStatus": 200,
-      "status": "same",
-      "reason": "page still says no standard rate, free over £50.00"
+      "status": "changed",
+      "reason": "free over: recorded £200.00, page names £50.00"
     },
     {
       "retailerId": "emirates-oud",
@@ -695,10 +590,10 @@
         "standardGbp": 3.99,
         "freeOverGbp": 50,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -727,7 +622,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 0,
@@ -739,7 +634,7 @@
       "evidence": [
         "Delivery Information - Perfumeo Fast & Free UK Delivery &mdash; No Minimum Spend",
         "Fast + Free Tracked Delivery on All UK Orders 100% Genuine — Sealed & Batch-Coded Up to 40% Off Lattafa Best Sellers — While Stock Lasts",
-        "+ FREE Fast-Tracked Delivery No Minimum Spend"
+        "Free tracked delivery on every order &middot; No spam"
       ],
       "httpStatus": 200,
       "status": "same",
@@ -753,29 +648,26 @@
         "standardGbp": 2.95,
         "freeOverGbp": 50,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": 2.95,
-        "freeOverGbp": 50,
+        "freeOverGbp": null,
         "standardCandidates": [
           2.95
         ],
-        "thresholdCandidates": [
-          50
-        ],
+        "thresholdCandidates": [],
         "freeUnconditional": false
       },
       "evidence": [
-        "Standard Delivery (UK Mainland) : £2.95",
-        "FREE DELIVERY OVER £50"
+        "Standard Delivery (UK Mainland) : £2.95"
       ],
       "httpStatus": 200,
       "status": "same",
-      "reason": "page still says £2.95, free over £50.00"
+      "reason": "page still says £2.95; free-over £50.00 not restated there"
     },
     {
       "retailerId": "zimaya",
@@ -788,7 +680,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": null,
       "evidence": [],
@@ -798,47 +690,22 @@
     },
     {
       "retailerId": "kayali",
-      "name": "KAYALI",
+      "name": "Kayali",
       "url": "https://kayalihelp.zendesk.com/hc/en-us/articles/45981494574865-How-much-will-I-be-charged-for-shipping",
       "recorded": {
         "standardGbp": 5.99,
         "freeOverGbp": 79,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": null,
       "evidence": [],
       "httpStatus": 403,
       "status": "blocked",
       "reason": "HTTP 403 — the shop refused the request"
-    },
-    {
-      "retailerId": "zara",
-      "name": "Zara",
-      "url": "https://www.zara.com/uk/en/help-center/DeliveryMethods",
-      "recorded": {
-        "standardGbp": 3.95,
-        "freeOverGbp": 50,
-        "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
-        "confidence": "unverified"
-      },
-      "verifiedAgeDays": 0,
-      "stale": false,
-      "found": {
-        "standardGbp": null,
-        "freeOverGbp": null,
-        "standardCandidates": [],
-        "thresholdCandidates": [],
-        "freeUnconditional": false
-      },
-      "evidence": [],
-      "httpStatus": 200,
-      "status": "unreadable",
-      "reason": "page fetched but no delivery terms recognised (moved, or drawn by script)"
     },
     {
       "retailerId": "escentric-molecules",
@@ -851,7 +718,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": 7.5,
@@ -870,6 +737,260 @@
       "reason": "page still says £7.50, free over £80.00"
     },
     {
+      "retailerId": "debenhams",
+      "name": "Debenhams",
+      "url": "https://www.debenhams.com/pages/informational/delivery",
+      "recorded": {
+        "standardGbp": 2.99,
+        "freeOverGbp": null,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-04",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 28,
+      "stale": false,
+      "found": {
+        "standardGbp": 2.99,
+        "freeOverGbp": null,
+        "standardCandidates": [
+          2.99,
+          3.99,
+          4.99
+        ],
+        "thresholdCandidates": [],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "UK Standard Delivery ~ £3.99 per order ~ ⭐ FREE with Debenhams UNLIMITED",
+        "UK Supersaver Delivery ~ £2.99 per order.",
+        "Bulky Item Delivery ~ £4.99 per order ~ ⭐ FREE with Debenhams UNLIMITED"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £2.99"
+    },
+    {
+      "retailerId": "niche-beauty-uk",
+      "name": "Niche Beauty UK",
+      "url": "https://service.global-e.com/Categories/how-much-will-it-cost-to-ship-to-my-country?id=0790965a-5431-44d2-96ab-cf7e7a587563",
+      "recorded": {
+        "standardGbp": null,
+        "freeOverGbp": 75,
+        "standardRateNotPublished": true,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": null,
+      "evidence": [],
+      "httpStatus": 200,
+      "status": "blocked",
+      "reason": "HTTP 200 with a bot challenge / captcha page (\"challenge-platform\")"
+    },
+    {
+      "retailerId": "nicchia-luxury-uk",
+      "name": "Nicchia Luxury UK",
+      "url": "https://www.nicchialuxury.com/policies/shipping-policy",
+      "recorded": {
+        "standardGbp": 15,
+        "freeOverGbp": 133,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": {
+        "standardGbp": null,
+        "freeOverGbp": null,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "Free shipping thresholds (minimum subtotal after discounts and promo codes):"
+      ],
+      "httpStatus": 200,
+      "status": "unreadable",
+      "reason": "page read but names no standard charge to compare with the recorded £15.00"
+    },
+    {
+      "retailerId": "beauty-pie",
+      "name": "Beauty Pie",
+      "url": "https://help.beautypie.com/en-US/delivery-options-and-charges-6429815",
+      "recorded": {
+        "standardGbp": 3.45,
+        "freeOverGbp": null,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": {
+        "standardGbp": 7.95,
+        "freeOverGbp": null,
+        "standardCandidates": [
+          7.95
+        ],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "Shipping to Jersey, UK Addresses: £7.95",
+        "From time to time, we do offer special promotions/benefits for our Members (which may include free shipping).",
+        "From time to time, we do offer special promotions/perks for our Members (which may include free standard shipping)."
+      ],
+      "httpStatus": 200,
+      "status": "changed",
+      "reason": "standard delivery: recorded £3.45, page names £7.95"
+    },
+    {
+      "retailerId": "gorgeous-shop",
+      "name": "Gorgeous Shop",
+      "url": "https://www.gorgeousshop.com/uk-delivery-options",
+      "recorded": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 25,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 25,
+        "standardCandidates": [
+          25
+        ],
+        "thresholdCandidates": [
+          25
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "UK Saver Delivery - Orders under £25 ~ 2-4 Days ~ £2.95",
+        "UK Saver Delivery for Orders Under £25 - £2.95",
+        "Free UK Saver Delivery - Orders over £25 ~ 2-4 Days ~ Free"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £2.95, free over £25.00"
+    },
+    {
+      "retailerId": "beauty-flash",
+      "name": "Beauty Flash",
+      "url": "https://www.beautyflash.co.uk/uk-delivery-options",
+      "recorded": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 25,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 25,
+        "standardCandidates": [
+          25
+        ],
+        "thresholdCandidates": [
+          25
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "UK Saver Delivery - Orders under £25 ~ 2-4 Days ~ £2.95",
+        "UK Saver Delivery for Orders Under £25 - £2.95",
+        "Free UK Saver Delivery - Orders over £25 ~ 2-4 Days ~ Free"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £2.95, free over £25.00"
+    },
+    {
+      "retailerId": "scentsational",
+      "name": "Scentsational",
+      "url": "https://www.scentsational.com/delivery-returns-i5",
+      "recorded": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 80,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 80,
+        "standardCandidates": [
+          80
+        ],
+        "thresholdCandidates": [
+          80
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "Shipping Costs – Orders under £80 incur a standard delivery charge of £2.95 .",
+        "Orders over £80 qualify for free standard delivery ."
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £2.95, free over £80.00"
+    },
+    {
+      "retailerId": "perfume-market-uk",
+      "name": "Perfume Market UK",
+      "url": "https://www.perfumemarketuk.com/delivery/",
+      "recorded": {
+        "standardGbp": 0,
+        "freeOverGbp": null,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": null,
+      "evidence": [],
+      "httpStatus": 404,
+      "status": "unreadable",
+      "reason": "HTTP 404 — the recorded page has moved or gone"
+    },
+    {
+      "retailerId": "parfumdreams-uk",
+      "name": "Parfumdreams UK",
+      "url": "https://www.parfumdreams.co.uk/Shipping-Costs",
+      "recorded": {
+        "standardGbp": 3.95,
+        "freeOverGbp": 35,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": {
+        "standardGbp": null,
+        "freeOverGbp": null,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "United Kingdom , from &#xA3; 35.00 value of goods FREE SHIPPING"
+      ],
+      "httpStatus": 200,
+      "status": "unreadable",
+      "reason": "page read but names no standard charge to compare with the recorded £3.95"
+    },
+    {
       "retailerId": "perfume-click",
       "name": "Perfume Click",
       "url": "https://www.perfume-click.co.uk/Delivery-Information/",
@@ -877,10 +998,10 @@
         "standardGbp": 2.95,
         "freeOverGbp": 50,
         "standardRateNotPublished": false,
-        "verifiedAt": "2026-10-01",
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": 2.95,
@@ -904,17 +1025,82 @@
       "reason": "page still says £2.95, free over £50.00"
     },
     {
+      "retailerId": "beauty-bay",
+      "name": "Beauty Bay",
+      "url": "https://www.beautybay.com/delivery",
+      "recorded": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 30,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": {
+        "standardGbp": null,
+        "freeOverGbp": null,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": false
+      },
+      "evidence": [],
+      "httpStatus": 200,
+      "status": "unreadable",
+      "reason": "page fetched but no delivery terms recognised (moved, or drawn by script)"
+    },
+    {
+      "retailerId": "cult-beauty-global",
+      "name": "Cult Beauty Global",
+      "url": "https://www.cultbeauty.co.uk/c/info/delivery-information/",
+      "recorded": {
+        "standardGbp": 3.95,
+        "freeOverGbp": 30,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": {
+        "standardGbp": 3.95,
+        "freeOverGbp": 30,
+        "standardCandidates": [
+          3.95,
+          5.95,
+          9.95,
+          15,
+          200
+        ],
+        "thresholdCandidates": [
+          30,
+          90,
+          100,
+          150
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "STANDARD DELIVERY - £3.95",
+        "To help keep your order secure, some deliveries over £200 require a PIN.",
+        "SAME DAY DELIVERY - £5.95 for a limited time only!"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £3.95, free over £30.00"
+    },
+    {
       "retailerId": "fragrancehub",
       "name": "FragranceHub",
       "url": "https://www.fragrancehub.co.uk/policies/shipping-policy",
       "recorded": {
-        "standardGbp": null,
+        "standardGbp": 4.99,
         "freeOverGbp": 90,
-        "standardRateNotPublished": true,
-        "verifiedAt": "2026-10-01",
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -929,8 +1115,8 @@
         "FREE SHIPPING FOR ORDERS OVER £90"
       ],
       "httpStatus": 200,
-      "status": "same",
-      "reason": "page still says no standard rate, free over £90.00"
+      "status": "unreadable",
+      "reason": "page read but names no standard charge to compare with the recorded £4.99 (free-over £90.00 still matches)"
     },
     {
       "retailerId": "avon",
@@ -943,7 +1129,7 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -964,17 +1150,116 @@
       "reason": "page read but names no standard charge to compare with the recorded £3.50 (free-over £25.00 still matches)"
     },
     {
-      "retailerId": "morrisons",
-      "name": "Morrisons",
-      "url": "https://groceries.morrisons.com/content/delivery-pass-content-page",
+      "retailerId": "space-nk",
+      "name": "Space NK",
+      "url": "https://www.spacenk.com/uk/shipping",
       "recorded": {
         "standardGbp": null,
-        "freeOverGbp": null,
+        "freeOverGbp": 25,
         "standardRateNotPublished": true,
-        "verifiedAt": "2026-09-22",
+        "verifiedAt": "2026-10-26",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 9,
+      "verifiedAgeDays": 6,
+      "stale": false,
+      "found": {
+        "standardGbp": null,
+        "freeOverGbp": 25,
+        "standardCandidates": [],
+        "thresholdCandidates": [
+          25,
+          220
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "Skip to main content Skip to footer content Receive a FREE Gift Worth Over £350 When You Spend £220 - WHAT'S IN THE GIFT",
+        "Receive a FREE Gift Worth Over £350 When You Spend £220 - WHAT'S IN THE GIFT",
+        "FREE UK STANDARD DELIVERY on all orders over £25"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says no standard rate, free over £25.00"
+    },
+    {
+      "retailerId": "marks-and-spencer",
+      "name": "Marks & Spencer",
+      "url": "https://www.marksandspencer.com/help-and-support/collection-and-delivery",
+      "recorded": {
+        "standardGbp": 3.99,
+        "freeOverGbp": 75,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": {
+        "standardGbp": 3.99,
+        "freeOverGbp": 75,
+        "standardCandidates": [
+          3.99,
+          5.99,
+          15
+        ],
+        "thresholdCandidates": [
+          75
+        ],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "UK Standard Delivery is available for £3.99 or free on orders over £75 (excluding furniture).",
+        "UK Nominated Day Delivery is available for £5.99, or £15 for mattress delivery.",
+        "UK Standard Delivery is available for £15."
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £3.99, free over £75.00"
+    },
+    {
+      "retailerId": "les-senteurs",
+      "name": "Les Senteurs",
+      "url": "https://www.lessenteurs.com/policies/shipping-policy",
+      "recorded": {
+        "standardGbp": 3.95,
+        "freeOverGbp": 175,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": {
+        "standardGbp": 3.95,
+        "freeOverGbp": 175,
+        "standardCandidates": [
+          3.95
+        ],
+        "thresholdCandidates": [
+          175
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "Standard UK Delivery - £3.95",
+        "Free UK delivery on orders over £175"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £3.95, free over £175.00"
+    },
+    {
+      "retailerId": "bloom-perfumery",
+      "name": "Bloom Perfumery",
+      "url": "https://bloomperfume.co.uk/products/ngc-6302-butterfly-nebula",
+      "recorded": {
+        "standardGbp": 9.86,
+        "freeOverGbp": 150,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
         "standardGbp": null,
@@ -983,40 +1268,73 @@
         "thresholdCandidates": [],
         "freeUnconditional": false
       },
+      "evidence": [],
+      "httpStatus": 200,
+      "status": "unreadable",
+      "reason": "page fetched but no delivery terms recognised (moved, or drawn by script)"
+    },
+    {
+      "retailerId": "paco-perfumerias-uk",
+      "name": "Paco Perfumerías UK",
+      "url": "https://www.pacoperfumerias.co.uk/delivery-and-returns/",
+      "recorded": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 25,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 29,
+      "stale": false,
+      "found": {
+        "standardGbp": 2.95,
+        "freeOverGbp": 25,
+        "standardCandidates": [],
+        "thresholdCandidates": [
+          25
+        ],
+        "freeUnconditional": false
+      },
       "evidence": [
-        "£5 off your first 3 fast orders with code: 5firstnow *min spend £30"
+        "Free delivery when you spend over £25",
+        "Royal Mail Tracked 48 ~ Free over £25 ~ £2.95 under £25 ~ 2 to 3 working days"
       ],
       "httpStatus": 200,
       "status": "same",
-      "reason": "page still says no standard rate"
+      "reason": "page still says £2.95, free over £25.00"
     },
     {
-      "retailerId": "bm-stores",
-      "name": "B&M",
-      "url": "https://www.bmstores.co.uk/faqs",
+      "retailerId": "perfume-direct",
+      "name": "Perfume Direct",
+      "url": "https://www.perfumedirect.com/pages/delivery-options",
       "recorded": {
-        "standardGbp": null,
-        "freeOverGbp": null,
-        "standardRateNotPublished": true,
-        "verifiedAt": "2026-10-01",
+        "standardGbp": 2.99,
+        "freeOverGbp": 50,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-03",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 29,
       "stale": false,
       "found": {
-        "standardGbp": null,
-        "freeOverGbp": null,
-        "standardCandidates": [],
-        "thresholdCandidates": [],
+        "standardGbp": 2.99,
+        "freeOverGbp": 50,
+        "standardCandidates": [
+          2.99
+        ],
+        "thresholdCandidates": [
+          50
+        ],
         "freeUnconditional": true
       },
       "evidence": [
-        "*Any free delivery options advertised on the above 3rd party websites apply to online orders only, and only if the specified conditions of sale are met (see T&Cs of sale on respec…",
-        "Free delivery does not apply to in-store purchases."
+        "Standard Delivery - £2.99 (2-4 business days)",
+        "free shipping over £50",
+        "Free Shipping"
       ],
       "httpStatus": 200,
       "status": "same",
-      "reason": "page still says no standard rate"
+      "reason": "page still says £2.99, free over £50.00"
     },
     {
       "retailerId": "home-bargains",
@@ -1029,13 +1347,524 @@
         "verifiedAt": "2026-10-01",
         "confidence": "confirmed"
       },
-      "verifiedAgeDays": 0,
+      "verifiedAgeDays": 31,
       "stale": false,
       "found": null,
       "evidence": [],
       "httpStatus": 403,
       "status": "blocked",
       "reason": "HTTP 403 — the shop refused the request"
+    },
+    {
+      "retailerId": "opulensi",
+      "name": "Opulensi",
+      "url": "https://www.opulensi.com/products/lattafa-khamrah-waha-unisex-eau-de-parfum-100ml",
+      "recorded": {
+        "standardGbp": null,
+        "freeOverGbp": 30,
+        "standardRateNotPublished": true,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": null,
+        "freeOverGbp": null,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "Free Delivery",
+        "Striving to get customers affordable and cheap perfumes, beauty and home products with fast free delivery with 100% Authentic Guarantee"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says no standard rate; free-over £30.00 not restated there"
+    },
+    {
+      "retailerId": "perfume-closet",
+      "name": "The Perfume Closet",
+      "url": "https://theperfumecloset.co.uk/pages/delivery-and-returns",
+      "recorded": {
+        "standardGbp": null,
+        "freeOverGbp": null,
+        "standardRateNotPublished": true,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": null,
+        "freeOverGbp": null,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": false
+      },
+      "evidence": [],
+      "httpStatus": 200,
+      "status": "unreadable",
+      "reason": "page fetched but no delivery terms recognised (moved, or drawn by script)"
+    },
+    {
+      "retailerId": "perfumoi",
+      "name": "Perfumoi",
+      "url": "https://perfumoi.co.uk/products/boucheron-pour-homme-eau-de-parfum-spray-100ml",
+      "recorded": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "FREE Delivery Tomorrow, Order before 3pm (Mon - Fri)"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says free"
+    },
+    {
+      "retailerId": "saad-fragrance",
+      "name": "Saad Fragrance",
+      "url": "https://saadfragrance.com/products/riiffs-momento-100ml-extrait-de-parfum",
+      "recorded": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "Free Delivery Across the UK",
+        "We offer fast and free delivery on all orders.",
+        "Shipping Fee: Free shipping on all orders"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says free"
+    },
+    {
+      "retailerId": "sainte-cellier",
+      "name": "Sainte Cellier",
+      "url": null,
+      "recorded": {
+        "standardGbp": null,
+        "freeOverGbp": null,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "unverified"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": null,
+      "evidence": [],
+      "httpStatus": null,
+      "status": "unreadable",
+      "reason": "no delivery page recorded (shipping.source, or UNQUOTED_DELIVERY_PAGES in scripts/deliveryRecheck.ts)"
+    },
+    {
+      "retailerId": "fenwick",
+      "name": "Fenwick",
+      "url": "https://fenwick.co.uk/products/tom-ford-ombre-leather-reserve",
+      "recorded": {
+        "standardGbp": 5,
+        "freeOverGbp": 100,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 8,
+        "freeOverGbp": 100,
+        "standardCandidates": [
+          8,
+          19.95,
+          29,
+          79
+        ],
+        "thresholdCandidates": [
+          100,
+          1000
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "delivery) £0.00",
+        "Nominated Day Delivery (Mon-Fri) £8 — Choose a delivery date up to 7 days in advance.",
+        "Furniture & Garden Furniture Delivery £19.95, or FREE on orders over £1,000 — Delivered within 7-10 working days."
+      ],
+      "httpStatus": 200,
+      "status": "changed",
+      "reason": "standard delivery: recorded £5.00, page names £8.00 / £19.95 / £29.00 / £79.00"
+    },
+    {
+      "retailerId": "perfumeuk",
+      "name": "PerfumeUK",
+      "url": "https://www.perfumeuk.co.uk/shipping",
+      "recorded": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "Shipping - perfumeuk.co.uk FREE UK DELIVERY AVAILABLE",
+        "FREE UK DELIVERY AVAILABLE",
+        "Shipping and Delivery Schedule ~ FREE UK DELIVERY - Royal Mail Tracked 48 ~ We aim to dispatch your order within 1 working day."
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says free"
+    },
+    {
+      "retailerId": "liberty-london",
+      "name": "Liberty London",
+      "url": "https://www.libertylondon.com/uk/odeur-53-eau-de-toilette-200ml-72631.html",
+      "recorded": {
+        "standardGbp": 5.95,
+        "freeOverGbp": 100,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 5.95,
+        "freeOverGbp": 100,
+        "standardCandidates": [
+          5.95,
+          10,
+          15,
+          20,
+          135
+        ],
+        "thresholdCandidates": [
+          100,
+          150
+        ],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "delivery) £135.00",
+        "Standard Delivery £5.95 3-5 working days",
+        "£10 OR FREE DELIVERY OVER £150*"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £5.95, free over £100.00"
+    },
+    {
+      "retailerId": "rasasi-uk-store",
+      "name": "Rasasi UK Store",
+      "url": "https://www.rasasistore.co.uk/shipping-returns",
+      "recorded": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "FREE UK DELIVERY · ORDER BEFORE 11AM FOR SAME-DAY DISPATCH",
+        "Free on every order, delivered in 2–4 working days."
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says free"
+    },
+    {
+      "retailerId": "direct-cosmetics",
+      "name": "Direct Cosmetics",
+      "url": "https://www.directcosmetics.com/delivery-returns-i5",
+      "recorded": {
+        "standardGbp": 2.95,
+        "freeOverGbp": null,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-08",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 24,
+      "stale": false,
+      "found": {
+        "standardGbp": 35,
+        "freeOverGbp": 50,
+        "standardCandidates": [
+          35
+        ],
+        "thresholdCandidates": [
+          50
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "If you would like us to re-send the item a delivery charge will applicable based on the service you request (orders over the value of £35 will have to be sent recorded delivery).",
+        "Fast & Free UK Delivery Over £50 Code: SHIPFREE50"
+      ],
+      "httpStatus": 200,
+      "status": "changed",
+      "reason": "standard delivery: recorded £2.95, page names £35.00; free over: recorded none, page names £50.00"
+    },
+    {
+      "retailerId": "glossier-uk",
+      "name": "Glossier UK",
+      "url": "https://helpuk.glossier.com/en-US",
+      "recorded": {
+        "standardGbp": 4,
+        "freeOverGbp": 30,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-09",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 23,
+      "stale": false,
+      "found": {
+        "standardGbp": null,
+        "freeOverGbp": null,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": false
+      },
+      "evidence": [],
+      "httpStatus": 200,
+      "status": "unreadable",
+      "reason": "page fetched but no delivery terms recognised (moved, or drawn by script)"
+    },
+    {
+      "retailerId": "rowlands-pharmacy",
+      "name": "Rowlands Pharmacy",
+      "url": "https://shop.rowlandspharmacy.co.uk/policies/shipping-policy",
+      "recorded": {
+        "standardGbp": 3.5,
+        "freeOverGbp": 30,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-09",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 23,
+      "stale": false,
+      "found": {
+        "standardGbp": 3.5,
+        "freeOverGbp": 30,
+        "standardCandidates": [
+          3.5,
+          30
+        ],
+        "thresholdCandidates": [
+          30
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "local_shipping Free Standard Shipping On Orders £30+",
+        "Standard delivery is 3-5 working days, charged at £3.50 per order.",
+        "Free standard delivery is available for any order of £30 or over."
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £3.50, free over £30.00"
+    },
+    {
+      "retailerId": "lloyds-pharmacy",
+      "name": "LloydsPharmacy",
+      "url": "https://lloydspharmacy.com/pages/delivery-information",
+      "recorded": {
+        "standardGbp": 2.99,
+        "freeOverGbp": 30,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-09",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 23,
+      "stale": false,
+      "found": {
+        "standardGbp": null,
+        "freeOverGbp": 30,
+        "standardCandidates": [],
+        "thresholdCandidates": [
+          30
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "Free Delivery on orders over £30"
+      ],
+      "httpStatus": 200,
+      "status": "unreadable",
+      "reason": "page read but names no standard charge to compare with the recorded £2.99 (free-over £30.00 still matches)"
+    },
+    {
+      "retailerId": "beaute-boulevard",
+      "name": "Beauté Boulevard",
+      "url": "https://beaute-boulevard.co.uk/pages/shipping-returns-policy",
+      "recorded": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-09",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 23,
+      "stale": false,
+      "found": {
+        "standardGbp": 0,
+        "freeOverGbp": 0,
+        "standardCandidates": [],
+        "thresholdCandidates": [],
+        "freeUnconditional": true
+      },
+      "evidence": [
+        "There is no minimum spend required to qualify for free delivery."
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says free"
+    },
+    {
+      "retailerId": "scent-warehouse",
+      "name": "Scent Warehouse",
+      "url": "https://scentwarehouse.co.uk/pages/delivery-information-shipping-policy",
+      "recorded": {
+        "standardGbp": 2.99,
+        "freeOverGbp": 20,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-09",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 23,
+      "stale": false,
+      "found": {
+        "standardGbp": 2.99,
+        "freeOverGbp": 20,
+        "standardCandidates": [
+          3.99,
+          4.99,
+          20
+        ],
+        "thresholdCandidates": [
+          20,
+          30
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "Orders under £20.00 will incur a delivery charge of £2.99.",
+        "Delivery takes 1 working day, and the charge of this service will be £4.99",
+        "Delivery takes 2 working days, and the charge of this service will be £3.99"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £2.99, free over £20.00"
+    },
+    {
+      "retailerId": "roullier-white",
+      "name": "Roullier White",
+      "url": "https://www.roullierwhite.com/pages/delivery-returns",
+      "recorded": {
+        "standardGbp": 6.75,
+        "freeOverGbp": 175,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-09",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 23,
+      "stale": false,
+      "found": {
+        "standardGbp": 6.75,
+        "freeOverGbp": 175,
+        "standardCandidates": [
+          6.75
+        ],
+        "thresholdCandidates": [
+          175
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "£6.75 for mainland UK deliveries 1-2 Working Days",
+        "Free UK Delivery on Orders Over £175.00",
+        "We offer free standard mainland UK delivery on orders over £175."
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £6.75, free over £175.00"
+    },
+    {
+      "retailerId": "scented-glasgow",
+      "name": "Scented",
+      "url": "https://www.scent-ed.com/policies/shipping-policy",
+      "recorded": {
+        "standardGbp": 5,
+        "freeOverGbp": 50,
+        "standardRateNotPublished": false,
+        "verifiedAt": "2026-10-09",
+        "confidence": "confirmed"
+      },
+      "verifiedAgeDays": 23,
+      "stale": false,
+      "found": {
+        "standardGbp": 5,
+        "freeOverGbp": 50,
+        "standardCandidates": [
+          5,
+          35
+        ],
+        "thresholdCandidates": [
+          50,
+          260
+        ],
+        "freeUnconditional": false
+      },
+      "evidence": [
+        "Standard Shipping: £5.00",
+        "Standard Shipping: £35",
+        "Free UK delivery with orders over £50"
+      ],
+      "httpStatus": 200,
+      "status": "same",
+      "reason": "page still says £5.00, free over £50.00"
     }
   ]
 }
