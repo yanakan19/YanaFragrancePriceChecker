@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-10-31T20:13:36.935Z",
-  "seenAt": "2026-10-31T20:13:36.935Z",
+  "updatedAt": "2026-11-01T03:37:34.619Z",
+  "seenAt": "2026-11-01T03:37:34.619Z",
   "source": "live",
   "listings": [
     {
@@ -5546,28 +5546,6 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "3274872411692",
-      "url": "https://www.awin1.com/pclick.php?p=45576608828&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/givenchy-l-interdit-absolu-80ml-eau-de-parfum-intense.html",
-      "rawTitle": "Givenchy L'interdit Absolu 80ml Eau de Parfum Intense",
-      "rawBrand": "Givenchy",
-      "ean": "3274872411692",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_80ml_eau_de_parfum_intense.jpg",
-      "priceGbp": 71.95,
-      "wasPriceGbp": 130,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "Since its release, Givenchy L'interdit Absolu   Intense has become known for its elegant character. The 80ml bottle offers an elegant fragrance that combines fresh floral notes with a warm, sophisticated base.From initial spray to dry down, this moves from Bergamot, Citrus through Jasmine, Rose, finally resting on Vanilla, Musk. The progression feels natural rather than abrupt.This eau de parfum suits different occasions pretty well. The 80ml bottle is substantial enough for daily wear while still being manageable if you're traveling or want to keep it in a gym bag.Scent Profile:Opening - Bergamot, Citrus, Fresh floralsHeart - Jasmine, Rose, Floral bouquetDry Down - Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-12T18:57:07.303Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -19162,6 +19140,29 @@
       "firstSeenAt": "2026-10-28T00:07:24.568Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3274872411692",
+      "url": "https://www.awin1.com/pclick.php?p=45576608828&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/givenchy-l-interdit-absolu-80ml-eau-de-parfum-intense.html",
+      "rawTitle": "Givenchy L'interdit Absolu 80ml Eau de Parfum Intense",
+      "rawBrand": "Givenchy",
+      "ean": "3274872411692",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_80ml_eau_de_parfum_intense.jpg",
+      "priceGbp": 71.95,
+      "wasPriceGbp": 130,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "Since its release, Givenchy L'interdit Absolu   Intense has become known for its elegant character. The 80ml bottle offers an elegant fragrance that combines fresh floral notes with a warm, sophisticated base.From initial spray to dry down, this moves from Bergamot, Citrus through Jasmine, Rose, finally resting on Vanilla, Musk. The progression feels natural rather than abrupt.This eau de parfum suits different occasions pretty well. The 80ml bottle is substantial enough for daily wear while still being manageable if you're traveling or want to keep it in a gym bag.Scent Profile:Opening - Bergamot, Citrus, Fresh floralsHeart - Jasmine, Rose, Floral bouquetDry Down - Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-12T18:57:07.303Z",
+      "lastSeenAt": "2026-10-31T20:13:36.935Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-01T03:37:34.619Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
