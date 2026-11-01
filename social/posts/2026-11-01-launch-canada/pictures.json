@@ -1,0 +1,13 @@
+{
+  "about": "The pictures and videos of this post are not committed (docs/DECISIONS.md D28). Draw them with: npm run social:render -- social/posts/2026-11-01-launch-canada . Each entry says what the file is drawn from; bytes, sha256 and the size or length are those of the file as first made.",
+  "pictures": [
+    {
+      "file": "launch-canada-9x16.mp4",
+      "make": "launch-video",
+      "video": "ca",
+      "seconds": 10,
+      "bytes": 1174078,
+      "sha256": "b48072bb9036c74d07d11a06fa93f0876d6ac51637a369b08dc18738e5f88bd0"
+    }
+  ]
+}

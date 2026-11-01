@@ -352,3 +352,5 @@ code tests/regionPageReaders.test.ts
 code tests/homeSections.test.ts
 code tests/shopCount.test.ts
 data tests/regionLeafPages.test.ts
+code tests/socialLaunchVideosSites.test.ts
+data tests/socialLaunchVideosSitesData.test.ts

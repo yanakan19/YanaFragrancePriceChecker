@@ -70,6 +70,9 @@ What to post, where and when: `docs/SOCIAL-MEDIA-PLAN.md`.
 | 2026-10-09 | `posts/2026-10-09-select-your-country/` | "One site, three countries": the three country choices (one black picture, 3:4 and 9:16; one caption) |
 | 2026-10-10 | `posts/2026-10-10-launch-us-video/` | Launch video: "We've launched in the US" (11.8 second 9:16 MP4, black theme, video template; one caption with a call to tag friends) |
 | 2026-10-11 | `posts/2026-10-11-launch-india-video/` | Launch video: "We've launched in India" (11.8 second 9:16 MP4, black theme, video template; one caption with a call to tag friends) |
+| 2026-11-01 | `posts/2026-11-01-launch-us-2/` | Launch video: "We've now got US, India and Canada sites", the US one: a price drop story in dollars (exactly 10 second 9:16 MP4, blue accent, black theme; one caption with a call to tag friends) |
+| 2026-11-01 | `posts/2026-11-01-launch-india-2/` | Launch video, the India one: a rupee story, MRP against the cheapest price (exactly 10 seconds, saffron accent; one caption) |
+| 2026-11-01 | `posts/2026-11-01-launch-canada/` | Launch video, the Canada one: a reveal and a price ladder in Canadian dollars (exactly 10 seconds, red accent; one caption). The three are made by `npm run social:video:launch -- --video us2\|in2\|ca` |
 | 2026-10-05 | `posts/2026-10-05-hurry-deal-video/` | Hurry deal video: Dolce & Gabbana The One for Men 150ml, £59.95 against RRP £153 (10 second 9:16 MP4, real site UI) |
 | 2026-10-17 | `posts/2026-10-17-features-week/` | Features of the week: six black slides (3:4) and a 15 second 9:16 video of real screenshots (country menu, notes, search, Deals, Most Stocked); one caption. Remake with `npm run social:render` |
 | 2026-10-02 | `posts/2026-10-02-what-is-pricesniffs/` | Intro carousel: "What is PriceSniffs?" (4 slides, 3:4 post). Remake with `npx tsx scripts/social-intro-slides.ts` |

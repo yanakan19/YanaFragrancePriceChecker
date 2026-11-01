@@ -66,6 +66,16 @@ export interface VideoFacts {
 }
 
 /**
+ * The container's own length when ffprobe is installed. ffmpeg 6.x prints the start of the last frame (9.97 s
+ * for a 10 s, 300 frame file) as the decoded time, ffmpeg 7 prints its end; ffprobe says 10.000 for both.
+ */
+function containerSeconds(file: string): number | null {
+  const run = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', file], { encoding: 'utf8' });
+  const n = Number(`${run.stdout}`.trim());
+  return run.status === 0 && Number.isFinite(n) && n > 0 ? n : null;
+}
+
+/**
  * What the file really holds, found by decoding all of it (there is no ffprobe
  * on the machines this runs on, and the container's own length can disagree
  * with the frames inside it).
@@ -83,7 +93,7 @@ export function probeVideo(file: string): VideoFacts {
     height: Number(stream[3]),
     fps: Number(stream[4]),
     frames: Number(frames[1]),
-    seconds: Number(time[1]) * 3600 + Number(time[2]) * 60 + Number(time[3]),
+    seconds: containerSeconds(file) ?? Number(time[1]) * 3600 + Number(time[2]) * 60 + Number(time[3]),
     bytes: statSync(file).size,
   };
 }

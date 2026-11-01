@@ -7,9 +7,10 @@
  *
  *   npx tsx scripts/social-video-launch.ts                 the US launch video
  *   npx tsx scripts/social-video-launch.ts --video in      the India launch video
+ *   npx tsx scripts/social-video-launch.ts --video us2|in2|ca   the 1 November 2026 trio (10 s each)
  *   npm run social:video:launch
  *
- *   --video us|in       which launch video (default: us)
+ *   --video us|in|us2|in2|ca   which launch video (default: us)
  *   --date YYYY-MM-DD   the date in the folder name (default: today, UK)
  *   --keep-frames       keep the drawn frames in _frames/ (git ignores them)
  *
@@ -32,6 +33,7 @@ import { flagSvg } from '../demo/flags.js';
 import { renderVideo } from './social-video-render.js';
 import { recordPictures } from './socialPictures.js';
 import { MARK } from './socialSlides.js';
+import { SITES_VIDEOS, sitesCss } from './social-video-launch-sites.js';
 import { OUTRO_SCENE, VIDEO_TEMPLATE, brandline, esc, type VideoSpec } from './social-video-template.js';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -194,7 +196,10 @@ export const IN_LAUNCH_VIDEO = {
   ],
 };
 
-export const LAUNCH_VIDEOS = { us: US_LAUNCH_VIDEO, in: IN_LAUNCH_VIDEO } as const;
+export const LAUNCH_VIDEOS = { us: US_LAUNCH_VIDEO, in: IN_LAUNCH_VIDEO, ...SITES_VIDEOS } as const;
+
+/** The page styles of a launch video: the first two share LAUNCH_CSS, the 1 November 2026 trio has its own (scripts/social-video-launch-sites.ts). */
+export const launchCss = (key: string): string => (key in SITES_VIDEOS ? sitesCss(key as keyof typeof SITES_VIDEOS) : LAUNCH_CSS);
 
 async function main() {
   const args = process.argv.slice(2);
@@ -208,7 +213,7 @@ async function main() {
   for (const [key, v] of Object.entries(LAUNCH_VIDEOS).filter(([k]) => k === only)) {
     const outDir = join(ROOT, 'social', 'posts', `${date}-${v.folder}`);
     mkdirSync(outDir, { recursive: true });
-    await renderVideo({ spec: v.spec, scenes: v.scenes(), outDir, file: v.file, extraCss: LAUNCH_CSS, keepFrames: args.includes('--keep-frames') });
+    await renderVideo({ spec: v.spec, scenes: v.scenes(), outDir, file: v.file, extraCss: launchCss(key), keepFrames: args.includes('--keep-frames') });
     recordPictures(outDir, { [v.file]: { make: 'launch-video', video: key } });
   }
 }
