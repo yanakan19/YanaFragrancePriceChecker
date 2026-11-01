@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-01T18:13:32.843Z",
-  "seenAt": "2026-11-01T18:13:32.843Z",
+  "updatedAt": "2026-11-01T22:14:15.373Z",
+  "seenAt": "2026-11-01T22:14:15.373Z",
   "source": "live",
   "listings": [
     {
@@ -110158,8 +110158,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/guerlain_nahema_eau_de_parfum_spray_75ml.png?v=1729191269",
-      "priceGbp": 88.67,
-      "wasPriceGbp": 133,
+      "priceGbp": 133,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -118668,8 +118668,8 @@
       "rawBrand": "Ralph Lauren",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/Ralph_Lauren_Polo_Red_Eau_de_Parfum_Spray_75ml_f50064c2-2f02-40ca-8d77-e1aace74d67b.png?v=1735559401",
-      "priceGbp": 53.9,
-      "wasPriceGbp": 77,
+      "priceGbp": 77,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
