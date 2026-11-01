@@ -1,7 +1,7 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-11-01T03:50:15.805Z",
-  "seenAt": "2026-11-01T03:50:15.805Z",
+  "updatedAt": "2026-11-01T07:16:09.295Z",
+  "seenAt": "2026-11-01T07:16:09.295Z",
   "source": "live",
   "listings": [
     {
@@ -770,7 +770,7 @@
       "rawTitle": "Soprano Ice 100ml",
       "rawBrand": "Panucci",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/Bundle_Soprano_copy.jpg?v=1793176420",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/SopranoIce002.png?v=1762770344",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -779,9 +779,10 @@
       "description": "Soprano Ice presents a sophisticated juxtaposition of freshness and amber warmth, creating a complex olfactory profile with multiple dimensions. This composition is ideally suited for individuals who project composure externally while harboring intensity beneath—a fragrance that establishes presence through its subtle yet authoritative character rather than overt projection. . Fragrance Notes: . Top Notes: GINGER, BERGAMOT, GRAPEFRUIT, ALDEHYDIC. Heart Notes: APPLE, INCENSE, GERANIUM, LAVENDER, AMBERY. Base Notes: MUSK, VANILLA, SANDALWOOD, PATCHOULI, BALSAMIC. .",
       "productType": "Perfume",
       "nativePrice": {
-        "amount": 260,
+        "amount": 190,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",

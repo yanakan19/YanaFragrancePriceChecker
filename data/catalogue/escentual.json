@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-01T03:42:46.320Z",
-  "seenAt": "2026-11-01T03:42:46.320Z",
+  "updatedAt": "2026-11-01T07:08:40.076Z",
+  "seenAt": "2026-11-01T07:08:40.076Z",
   "source": "live",
   "listings": [
     {
@@ -83366,7 +83366,7 @@
       "priceGbp": 75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Davidoff Cool Water Intense aftershave for men, discover the intense freshness of the sea.. For the first time, Davidoff has revisited the scent of Cool Water with an ethically sourced ingredient: the Green Mandarin. This handpicked citrus fruit was harvested by a community in the Vale Do Capao in Brazil as part of a sustainable sourcing partnership monitored by the perfumer. Davidoff Cool Water Intense men's aftershave is a scent that unfolds into oriental notes of coconut water blended with the sensuality of amber accord. The ultimate scent of freshness, hedonism and seduction.. Top Notes: Galbanum Heart Notes: Amber Base Notes: Vetiver.",
       "productType": "Fragrance",
