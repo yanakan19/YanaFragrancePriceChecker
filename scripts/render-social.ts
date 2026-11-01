@@ -59,7 +59,7 @@ import {
 import { renderVideo } from './social-video-render.js';
 import { DEAL_VIDEO, dealScenes, dealVideoFromRecord, esc, type DealVideoRecord } from './social-video-template.js';
 import { EXPLAINER_CSS, EXPLAINER_VIDEOS } from './social-video-explainers.js';
-import { LAUNCH_VIDEOS, launchCss } from './social-video-launch.js';
+import { LAUNCH_VIDEOS, launchCss, launchExtra } from './social-video-launch.js';
 import { drawFeaturesWeek } from './social-features-week.js';
 import { drawPuzzleVideo, drawRevealVideo } from './social-video-guess.js';
 
@@ -162,7 +162,7 @@ async function draw(browser: () => Promise<Browser>, dir: string, outDir: string
   if (p.make === 'launch-video') {
     const v = LAUNCH_VIDEOS[p.video as keyof typeof LAUNCH_VIDEOS];
     if (!v) throw new Error(`${p.file}: no launch video "${p.video}" in scripts/social-video-launch.ts`);
-    await withRetries(p.file, () => renderVideo({ spec: v.spec, scenes: v.scenes(), outDir, file: p.file, extraCss: launchCss(p.video as string), log: () => {} }));
+    await withRetries(p.file, () => renderVideo({ spec: v.spec, scenes: v.scenes(), outDir, file: p.file, extraCss: launchCss(p.video as string), ...launchExtra(v), log: () => {} }));
     return `drawn from scripts/social-video-launch.ts (${p.video})`;
   }
   if (p.make === 'features-week') {

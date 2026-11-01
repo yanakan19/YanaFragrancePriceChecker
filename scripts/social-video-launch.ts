@@ -201,6 +201,12 @@ export const LAUNCH_VIDEOS = { us: US_LAUNCH_VIDEO, in: IN_LAUNCH_VIDEO, ...SITE
 /** The page styles of a launch video: the first two share LAUNCH_CSS, the 1 November 2026 trio has its own (scripts/social-video-launch-sites.ts). */
 export const launchCss = (key: string): string => (key in SITES_VIDEOS ? sitesCss(key as keyof typeof SITES_VIDEOS) : LAUNCH_CSS);
 
+/** The in-scene motion a launch video draws (the 1 November 2026 trio's opening punch), when it has one. */
+export const launchExtra = (v: object): { extra?: (t: number) => unknown } => {
+  const extra = (v as { extra?: (t: number) => unknown }).extra;
+  return extra ? { extra } : {};
+};
+
 async function main() {
   const args = process.argv.slice(2);
   const opt = (name: string) => {
@@ -213,7 +219,7 @@ async function main() {
   for (const [key, v] of Object.entries(LAUNCH_VIDEOS).filter(([k]) => k === only)) {
     const outDir = join(ROOT, 'social', 'posts', `${date}-${v.folder}`);
     mkdirSync(outDir, { recursive: true });
-    await renderVideo({ spec: v.spec, scenes: v.scenes(), outDir, file: v.file, extraCss: launchCss(key), keepFrames: args.includes('--keep-frames') });
+    await renderVideo({ spec: v.spec, scenes: v.scenes(), outDir, file: v.file, extraCss: launchCss(key), ...launchExtra(v), keepFrames: args.includes('--keep-frames') });
     recordPictures(outDir, { [v.file]: { make: 'launch-video', video: key } });
   }
 }

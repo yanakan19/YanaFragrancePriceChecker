@@ -14,6 +14,15 @@
  *   India   a rupee story: MRP against the cheapest price, with local shops. Saffron.
  *   Canada  a reveal: the Canadian flag, then a price ladder in Canadian dollars. Red.
  *
+ * Each opens on a big, punchy hook that fills the frame (owner request, 1 November 2026,
+ * "much more catchy"): the first frame is a finished still (it is the thumbnail), the template's opening
+ * still lasts 0.8 s, then a 0.5 s punch (a flash, a pop, a shudder or a sweep, different per country)
+ * lands the hook. The punch is drawn through the renderer's `extra` hook, so it is exact frame by frame.
+ *
+ *   US      "WE'RE NOW IN THE US": blue flash and a pop.
+ *   India   "NOW IN INDIA": tricolour bars, a crossed out MRP stamp that slams, a shudder.
+ *   Canada  "HELLO, CANADA": a red sweep across the frame and a lift.
+ *
  * Every claim on screen is a constant here, rounded in the visitor's favour
  * (counts rounded down, "over" and "under" prices rounded away from the real
  * price, savings rounded down), so it stays true as shops reprice.
@@ -21,7 +30,7 @@
  * hold each one to the region's own report, catalogue and deals.
  */
 import { flagSvg } from '../demo/flags.js';
-import { OUTRO_SCENE, VIDEO_TEMPLATE, brandline, esc, type VideoSpec } from './social-video-template.js';
+import { OUTRO_SCENE, VIDEO_TEMPLATE, esc, type VideoSpec } from './social-video-template.js';
 import { MARK } from './socialSlides.js';
 
 /** One bottle, one dear shop and one cheap shop, as the site's catalogue lists them. */
@@ -179,6 +188,26 @@ const SITES_CSS = `
   .stat b { font-size: 132px; line-height: 1; letter-spacing: -3px; color: var(--accent); white-space: nowrap; }
   .stat span { font-size: 48px; line-height: 1.2; color: var(--card-ink); }
   .savepill { padding: 14px 46px; border-radius: 999px; background: var(--pill-bg); color: var(--pill-ink); font-size: 56px; font-weight: 700; white-space: nowrap; }
+  /* The openings: a huge hook, a short line under it, and the shapes the punch moves */
+  .hook { margin: 0; width: 100%; font-size: 170px; font-weight: 700; line-height: 1; letter-spacing: -4px; }
+  .hook span { display: block; }
+  .sub { margin: 0; width: 100%; font-size: 52px; font-weight: 700; line-height: 1.2; color: var(--ink-2); }
+  .flash { position: absolute; left: -110px; top: -380px; width: 1080px; height: 1920px; background: var(--accent); opacity: 0; pointer-events: none; }
+  .sweep { position: absolute; left: -110px; top: -380px; width: 320px; height: 1920px; opacity: 0; pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,59,65,0), var(--accent) 50%, rgba(255,59,65,0)); }
+  .rule { width: 100%; height: 22px; border-radius: 11px; background: var(--accent); }
+  .tri { width: 100%; border-radius: 10px; overflow: hidden; }
+  .tri i { display: block; height: 22px; }
+  .tri i:nth-child(1) { background: #FF9933; }
+  .tri i:nth-child(2) { background: #FFFFFF; }
+  .tri i:nth-child(3) { background: #138808; }
+  .mrpstamp { padding: 4px 38px 8px; border: 7px solid var(--ink-3); border-radius: 18px; color: var(--ink-3); font-size: 108px; font-weight: 700;
+    letter-spacing: 6px; transform: rotate(-6deg); text-decoration: line-through; text-decoration-thickness: 14px; text-decoration-color: var(--accent); }
+  .pair { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .pair .pname { font-size: 36px; }
+  .pair .barrow p { font-size: 34px; margin-bottom: 6px; }
+  .pair .bar { height: 42px; border-radius: 14px; }
+  .pair .savepill { font-size: 42px; padding: 8px 34px; }
   /* US: two price tags and a drop between them */
   .tagrow { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 26px 34px; border-radius: 28px;
     background: var(--card); border: 3px solid var(--card-line); }
@@ -227,6 +256,21 @@ const SITES_CSS = `
 
 const accentCss = (hex: string, kicker: string) => `html { --accent: ${hex}; --kicker: ${kicker}; --pill-bg: ${hex}; --dot-on: ${hex}; --row-best: ${hex}; }`;
 
+/* ── the opening punch ───────────────────────────────────────────────── */
+
+/**
+ * The template holds the first frame still until `openingStillSeconds` (0.8 s), so the thumbnail is the finished hook.
+ * The punch then runs for 0.5 s (the longest any motion may last): `s` goes from 0 to 1, and null means at rest.
+ */
+export const PUNCH = { start: VIDEO_TEMPLATE.openingStillSeconds, seconds: 0.5 } as const;
+export const punchAt = (t: number): { s: number } | null => {
+  const s = (t - PUNCH.start) / PUNCH.seconds;
+  return s > 0 && s < 1 ? { s: Math.round(s * 1000) / 1000 } : null;
+};
+/** The scene's own script: `body` sets styles from pulse (0 to 1 to 0), decay (1 to 0), s and on; with no punch every value is at rest. */
+const punchScript = (body: string) =>
+  `<script>window.__extra=(x)=>{const q=(i)=>document.getElementById(i);const on=!!x;const s=on?x.s:0;const pulse=on?Math.sin(Math.PI*s):0;const decay=on?(1-s)*(1-s):0;${body}};</script>`;
+
 /* ── US video ────────────────────────────────────────────────────────── */
 
 const dropScene = (id: string, kicker: string, headline: string, e: PriceExample) => ({
@@ -240,7 +284,18 @@ const dropScene = (id: string, kicker: string, headline: string, e: PriceExample
       <div class="savepill" data-box>Save ${usd(e.saveOver)}+</div>`,
 });
 
-/** The US video: 10 seconds, 300 frames. A, B, the numbers, then the three sites and the tag. */
+/** The US hook: huge, blue flash and a pop on the beat. Frame 0 is the finished picture. */
+const usHook = () => ({
+  id: 'now-us',
+  html: `<div class="flash" id="us-flash" data-bleed></div>
+      <div class="ft on" id="us-flag" style="width:255px;height:170px;opacity:1" data-box>${flagSvg('US')}</div>
+      <h1 class="hook" id="us-hook" style="font-size:192px" data-fit="4,110">WE’RE<br>NOW IN<br>THE <em>US</em></h1>
+      <div class="rule" data-box></div>
+      <p class="sub" data-fit="2,34">${SITES_US.shopsClaim} shops, ${SITES_US.productsClaim} products<br>all in dollars</p>
+      ${punchScript(`q('us-flash').style.opacity=String(0.5*decay);q('us-hook').style.transform='scale('+(1+0.07*pulse)+')';q('us-flag').style.transform='scale('+(1+0.16*pulse)+') rotate('+(-7*pulse)+'deg)';`)}`,
+});
+
+/** The US video: 10 seconds, 300 frames. The hook, the two drops, then the three sites and the tag. */
 export const US_SITES_VIDEO = {
   folder: 'launch-us-2',
   file: 'launch-us-2-9x16.mp4',
@@ -248,29 +303,25 @@ export const US_SITES_VIDEO = {
     id: 'launch-us-2',
     theme: VIDEO_TEMPLATE.launch.theme,
     scenes: [
-      { id: 'drop-a', seconds: 2.3 },
-      { id: 'drop-b', seconds: 2.3, transition: 'dissolve' },
-      { id: 'numbers', seconds: 2.3, transition: 'swipe' },
+      { id: 'now-us', seconds: 2.3 },
+      { id: 'drop-a', seconds: 2.3, transition: 'dissolve' },
+      { id: 'drop-b', seconds: 2.3, transition: 'swipe' },
       { id: 'sites', seconds: 2.3, transition: 'dissolve' },
       OUTRO_SCENE('swipe', 2.6),
     ],
   } as VideoSpec,
   css: accentCss(SITES_US.accent, '#8CC4FF'),
+  extra: punchAt,
   scenes: (): { id: string; html: string }[] => [
+    usHook(),
     dropScene('drop-a', 'Same bottle, two prices', 'Over <em>$100</em> less<br>for the same perfume', SITES_US.examples[0]!),
     dropScene('drop-b', 'And another one', 'Same again.<br>Another <em>$100</em> off', SITES_US.examples[1]!),
-    {
-      id: 'numbers',
-      html: `<p class="kicker">PriceSniffs US</p>
-      <div class="stat" data-box><b>${SITES_US.shopsClaim}</b><span>US shops compared</span></div>
-      <div class="stat" data-box><b>${SITES_US.productsClaim}</b><span>products, in dollars</span></div>
-      <p class="fine">Prices before sales tax</p>`,
-    },
     {
       id: 'sites',
       html: `<h2 class="h xxl" data-fit="3,64">We’ve now got<br><em>US</em>, India and<br>Canada sites</h2>
       ${flags(['US', 'IN', 'CA'], 'US')}
-      ${tagLine()}`,
+      ${tagLine()}
+      <p class="fine">Prices before sales tax</p>`,
     },
     { id: 'outro', html: outro(SITES_US.address) },
   ],
@@ -278,7 +329,26 @@ export const US_SITES_VIDEO = {
 
 /* ── India video ─────────────────────────────────────────────────────── */
 
-/** The India video: 10 seconds. MRP bars, local shops, the stamp, then the tag with the three sites. */
+const mrpPair = (e: MrpExample) => `<div class="pair" data-box>
+        <p class="pname" data-fit="1,22">${esc(productName(e))}</p>
+        <div class="barrow"><p>MRP <i>over ${inr(e.mrpOver)}</i></p><div class="bar mrp"></div></div>
+        <div class="barrow"><p>${esc(e.shopName)} <i>under ${inr(e.priceUnder)}</i></p><div class="bar low" style="width:58%"></div></div>
+        <div class="savepill" data-box>Save ${e.saveOverPercent}%+</div>
+      </div>`;
+
+/** The India hook: tricolour bars, a crossed out MRP stamp that slams down, and a shudder. */
+const inHook = () => ({
+  id: 'now-in',
+  html: `<div class="flash" id="in-flash" data-bleed></div>
+      <div class="tri" id="in-top" data-box><i></i><i></i><i></i></div>
+      <div class="mrpstamp" id="in-stamp" data-box>MRP</div>
+      <h1 class="hook" id="in-hook" style="font-size:218px" data-fit="3,110"><span id="in-l1">NOW IN</span><span id="in-l2"><em>INDIA</em></span></h1>
+      <div class="tri" id="in-bottom" data-box><i></i><i></i><i></i></div>
+      <p class="sub" style="font-size:70px" data-fit="1,34">Why pay full MRP?</p>
+      ${punchScript(`q('in-flash').style.opacity=String(0.35*decay);const w=Math.sin(2*Math.PI*s)*(1-s)*(on?1:0);q('in-l1').style.transform='translateX('+(46*w)+'px)';q('in-l2').style.transform='translateX('+(-46*w)+'px)';q('in-stamp').style.transform='rotate('+(-6-8*pulse)+'deg) scale('+(1+0.4*pulse)+')';q('in-top').style.transform='scaleX('+(1-0.3*pulse)+')';q('in-bottom').style.transform='scaleX('+(1-0.3*pulse)+')';`)}`,
+});
+
+/** The India video: 10 seconds. The hook, MRP against the price, local shops, then the tag with the three sites. */
 export const IN_SITES_VIDEO = {
   folder: 'launch-india-2',
   file: 'launch-india-2-9x16.mp4',
@@ -286,58 +356,44 @@ export const IN_SITES_VIDEO = {
     id: 'launch-in-2',
     theme: VIDEO_TEMPLATE.launch.theme,
     scenes: [
-      { id: 'mrp', seconds: 2.3 },
-      { id: 'shops', seconds: 2.3, transition: 'swipe' },
-      { id: 'stamp', seconds: 2.3, transition: 'dissolve' },
-      { id: 'tag', seconds: 2.2, transition: 'swipe' },
+      { id: 'now-in', seconds: 2.3 },
+      { id: 'mrp', seconds: 2.4, transition: 'swipe' },
+      { id: 'shops', seconds: 2.3, transition: 'dissolve' },
+      { id: 'tag', seconds: 2.1, transition: 'swipe' },
       OUTRO_SCENE('swipe', 2.6),
     ],
   } as VideoSpec,
   css: accentCss(SITES_IN.accent, '#FFB870'),
-  scenes: (): { id: string; html: string }[] => {
-    const a = SITES_IN.examples[0]!;
-    const b = SITES_IN.examples[1]!;
-    return [
-      {
-        id: 'mrp',
-        html: `<p class="kicker">India, in rupees</p>
-      <h1 class="h xxl" data-fit="2,64">Why pay <em>MRP</em>?</h1>
-      <p class="pname" data-fit="2,32">${esc(productName(a))}</p>
-      <div class="bars">
-        <div class="barrow" data-box><p>MRP <i>over ${inr(a.mrpOver)}</i></p><div class="bar mrp"></div></div>
-        <div class="barrow" data-box><p>${esc(a.shopName)} <i>under ${inr(a.priceUnder)}</i></p><div class="bar low" style="width:58%"></div></div>
-      </div>
-      <div class="savepill" data-box>Save ${a.saveOverPercent}%+</div>`,
-      },
-      {
-        id: 'shops',
-        html: `<p class="kicker">Local shops, one place</p>
+  extra: punchAt,
+  scenes: (): { id: string; html: string }[] => [
+    inHook(),
+    {
+      id: 'mrp',
+      html: `<p class="kicker">India, in rupees</p>
+      <h2 class="h md" data-fit="1,56">Pay under <em>MRP</em></h2>
+      ${SITES_IN.examples.map(mrpPair).join('')}`,
+    },
+    {
+      id: 'shops',
+      html: `<p class="kicker">Local shops, one place</p>
       <h2 class="h" data-fit="2,60">Compare <em>${SITES_IN.shopsClaim}</em><br>Indian shops</h2>
       <div class="stat" data-box><b>${SITES_IN.productsClaim}</b><span>products, GST included</span></div>
       <div class="chips">${SITES_IN.shops.map((s) => `<span data-box>${esc(s.name)}</span>`).join('')}</div>`,
-      },
-      {
-        id: 'stamp',
-        html: `<div class="stamp" data-box>MRP</div>
-      <p class="pname" data-fit="2,32">${esc(productName(b))}</p>
-      <div class="vs" data-box><span class="old">Over ${inr(b.mrpOver)}</span><small>${esc(b.shopName)}</small><span class="new">Under ${inr(b.priceUnder)}</span></div>
-      <div class="savepill" data-box>Save ${b.saveOverPercent}%+</div>`,
-      },
-      {
-        id: 'tag',
-        html: `<div class="at" data-box>@</div>
+    },
+    {
+      id: 'tag',
+      html: `<div class="at" data-box>@</div>
       <h2 class="h md" data-fit="2,48">${esc(SITES_LINE)}</h2>
       ${flags(['US', 'IN', 'CA'], 'IN')}
       ${tagLine()}`,
-      },
-      { id: 'outro', html: outro(SITES_IN.address) },
-    ];
-  },
+    },
+    { id: 'outro', html: outro(SITES_IN.address) },
+  ],
 };
 
 /* ── Canada video ────────────────────────────────────────────────────── */
 
-/** The Canada video: 10 seconds. The reveal, the three sites, the ladder, then the numbers and the tag. */
+/** The Canada video: 10 seconds. The hook, the three sites, the ladder, then the numbers and the tag. */
 export const CA_SITES_VIDEO = {
   folder: 'launch-canada',
   file: 'launch-canada-9x16.mp4',
@@ -345,7 +401,7 @@ export const CA_SITES_VIDEO = {
     id: 'launch-ca',
     theme: VIDEO_TEMPLATE.launch.theme,
     scenes: [
-      { id: 'reveal', seconds: 2.4 },
+      { id: 'hello-ca', seconds: 2.4 },
       { id: 'sites', seconds: 2.3, transition: 'dissolve' },
       { id: 'ladder', seconds: 2.2, transition: 'swipe' },
       { id: 'tag', seconds: 2.2, transition: 'swipe' },
@@ -353,15 +409,18 @@ export const CA_SITES_VIDEO = {
     ],
   } as VideoSpec,
   css: accentCss(SITES_CA.accent, '#FF6A6E'),
+  extra: punchAt,
   scenes: (): { id: string; html: string }[] => {
     const l = SITES_CA.ladder;
     return [
       {
-        id: 'reveal',
-        html: `${brandline()}
-      <div class="ft on" style="width:450px;height:300px;opacity:1" data-box>${flagSvg('CA')}</div>
-      <h1 class="h xxl" data-fit="3,64">Hello,<br><em>Canada</em></h1>
-      <p class="pname" data-fit="2,32">PriceSniffs Canada is here</p>`,
+        id: 'hello-ca',
+        html: `<div class="flash" id="ca-flash" data-bleed></div>
+      <div class="sweep" id="ca-sweep" data-bleed></div>
+      <div class="ft on" id="ca-flag" style="width:450px;height:300px;opacity:1" data-box>${flagSvg('CA')}</div>
+      <h1 class="hook" id="ca-hook" style="font-size:188px" data-fit="3,110"><span>HELLO,</span><span><em>CANADA</em></span></h1>
+      <p class="sub" style="font-size:62px" data-fit="2,34">PriceSniffs Canada is here</p>
+      ${punchScript(`q('ca-flash').style.opacity=String(0.22*decay);const sw=q('ca-sweep');sw.style.opacity=on?'0.9':'0';sw.style.transform='translateX('+(-340+1560*s)+'px) skewX(-16deg)';q('ca-hook').style.transform='translateY('+(-24*pulse)+'px) scale('+(1+0.05*pulse)+')';q('ca-flag').style.transform='scale('+(1+0.12*pulse)+')';`)}`,
       },
       {
         id: 'sites',

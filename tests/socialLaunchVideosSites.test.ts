@@ -6,7 +6,7 @@ import { launchChromium } from '../scripts/a11y-audit.js';
 import { REPO_ROOT } from '../scripts/generatedFiles.js';
 import { pageHtml } from '../scripts/social-video-render.js';
 import { launchCss } from '../scripts/social-video-launch.js';
-import { CA_SITES_VIDEO, IN_SITES_VIDEO, SITES_CA, SITES_IN, SITES_US, SITES_VIDEOS, TAG_LINE, US_SITES_VIDEO } from '../scripts/social-video-launch-sites.js';
+import { CA_SITES_VIDEO, IN_SITES_VIDEO, PUNCH, SITES_CA, SITES_IN, SITES_US, SITES_VIDEOS, TAG_LINE, US_SITES_VIDEO, punchAt } from '../scripts/social-video-launch-sites.js';
 import { VIDEO_TEMPLATE as T, buildTimeline, timelineProblems } from '../scripts/social-video-template.js';
 
 // Owner request, 1 November 2026: three different 10 second launch videos, "we've now got US, India and
@@ -18,16 +18,16 @@ const POSTS = join(REPO_ROOT, 'social', 'posts');
 const DASHES = /[-‐-―−]/;
 const words = (html: string) =>
   html
-    .replace(/<style[\s\S]*?<\/style>/g, '')
+    .replace(/<(style|script)[\s\S]*?<\/\1>/g, '')
     .replace(/<svg[\s\S]*?<\/svg>/g, '')
     .split(/<[^>]+>/)
     .map((t) => t.replace(/&amp;/g, '&').trim())
     .filter(Boolean);
 
 const VIDEOS = [
-  { key: 'us2', video: US_SITES_VIDEO, folder: '2026-11-01-launch-us-2', address: 'pricesniffs.space/us', hashtag: '#perfumeusa', accent: SITES_US.accent, tax: 'Prices before sales tax' },
-  { key: 'in2', video: IN_SITES_VIDEO, folder: '2026-11-01-launch-india-2', address: 'pricesniffs.space/in', hashtag: '#perfumeindia', accent: SITES_IN.accent, tax: 'GST included' },
-  { key: 'ca', video: CA_SITES_VIDEO, folder: '2026-11-01-launch-canada', address: 'pricesniffs.space/ca', hashtag: '#perfumecanada', accent: SITES_CA.accent, tax: 'Prices before tax' },
+  { key: 'us2', video: US_SITES_VIDEO, folder: '2026-11-01-launch-us-2', hook: 'WE’RE NOW IN THE US', opening: 'now-us', address: 'pricesniffs.space/us', hashtag: '#perfumeusa', accent: SITES_US.accent, tax: 'Prices before sales tax' },
+  { key: 'in2', video: IN_SITES_VIDEO, folder: '2026-11-01-launch-india-2', hook: 'NOW IN INDIA', opening: 'now-in', address: 'pricesniffs.space/in', hashtag: '#perfumeindia', accent: SITES_IN.accent, tax: 'GST included' },
+  { key: 'ca', video: CA_SITES_VIDEO, folder: '2026-11-01-launch-canada', hook: 'HELLO, CANADA', opening: 'hello-ca', address: 'pricesniffs.space/ca', hashtag: '#perfumecanada', accent: SITES_CA.accent, tax: 'Prices before tax' },
 ] as const;
 
 const text = (v: (typeof VIDEOS)[number]) => v.video.scenes().flatMap((s) => words(s.html));
@@ -66,6 +66,28 @@ for (const v of VIDEOS) {
       expect(v.video.spec.theme).toBe(T.launch.theme);
     });
 
+    it('opens on a huge capital letter hook, with a short line under it, in the first scene', () => {
+      expect(scenes[0]!.id).toBe(v.opening);
+      const first = words(scenes[0]!.html);
+      expect(first.join(' ').replace(/\s+/g, ' ')).toContain(v.hook);
+      expect(scenes[0]!.html).toMatch(/class="hook"/);
+      expect(scenes[0]!.html).toMatch(/class="sub"/);
+    });
+
+    it('lands the hook with a punch of at most 0.5 s that starts after the still first frame, and rests otherwise', () => {
+      const extra = (v.video as { extra?: (t: number) => unknown }).extra;
+      expect(extra).toBe(punchAt);
+      expect(PUNCH.start).toBe(T.openingStillSeconds);
+      expect(PUNCH.seconds).toBeLessThanOrEqual(T.transitions.maxSeconds);
+      expect(extra!(0)).toBeNull();
+      expect(extra!(PUNCH.start)).toBeNull();
+      expect(extra!(PUNCH.start + PUNCH.seconds)).toBeNull();
+      expect(extra!(PUNCH.start + PUNCH.seconds / 2)).toEqual({ s: 0.5 });
+      const lastFrame = Math.floor((PUNCH.start + PUNCH.seconds) * T.fps - 1e-9);
+      expect(lastFrame / T.fps).toBeLessThan(buildTimeline(v.video.spec).scenes[1]!.start);
+      expect(scenes[0]!.html).toContain('window.__extra');
+    });
+
     it('keeps its accent colour for its own page styles', () => {
       expect(launchCss(v.key)).toContain(`--accent: ${v.accent}`);
     });
@@ -87,6 +109,23 @@ for (const v of VIDEOS) {
     });
   });
 }
+
+describe('the three openings are different', () => {
+  it('have different hooks, shapes and punches', () => {
+    const html = VIDEOS.map((v) => v.video.scenes()[0]!.html);
+    expect(new Set(VIDEOS.map((v) => v.hook)).size).toBe(3);
+    expect(new Set(html.map((h) => h.match(/window\.__extra=[\s\S]*$/)![0])).size).toBe(3);
+    expect(html[0]).toContain('id="us-flash"');
+    expect(html[1]).toContain('class="tri"');
+    expect(html[2]).toContain('class="sweep"');
+  });
+  it('lead the captions: the US caption starts with the hook, the others share its first words', () => {
+    const first = (f: string) => readFileSync(join(POSTS, f, 'caption.txt'), 'utf8').trim();
+    expect(first('2026-11-01-launch-us-2')).toMatch(/^We're now in the US!/);
+    expect(first('2026-11-01-launch-canada')).toMatch(/^Hello, Canada!/);
+    expect(first('2026-11-01-launch-india-2')).toMatch(/^Why pay full MRP\?/);
+  });
+});
 
 describe('the three launch videos are different videos, not one with the country swapped', () => {
   const all = VIDEOS.map((v) => ({ v, scenes: v.video.scenes() }));
@@ -141,11 +180,14 @@ describe('launch videos us2, in2 and ca: the layout, in a real browser', () => {
         await page.evaluate('document.fonts.ready');
         const problems = (await page.evaluate(`(() => {
           const out = [];
-          for (const el of document.querySelectorAll('.tagrow, .tagrow b, .stat b, .chips span, .row, .rung .top, .vs span, .big, .addr, .stamp')) {
+          for (const el of document.querySelectorAll('.tagrow, .tagrow b, .stat b, .chips span, .row, .rung .top, .vs span, .big, .addr, .stamp, .pair, .pair p, .mrpstamp, .hook, .sub')) {
             if (el.scrollWidth > el.clientWidth + 1) out.push(el.textContent + ' is wider than its box');
           }
           for (const el of document.querySelectorAll('[data-fit]')) {
             if (el.dataset.clamped) out.push(el.textContent + ' was cut short');
+          }
+          for (const el of document.querySelectorAll('.hook')) {
+            if (parseFloat(getComputedStyle(el).fontSize) < 140) out.push(el.textContent + ' is smaller than 140px, not a hook');
           }
           return out;
         })()`)) as string[];

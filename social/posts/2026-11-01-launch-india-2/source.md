@@ -8,16 +8,16 @@ Draw it again with `npm run social:render -- social/posts/2026-11-01-launch-indi
 
     npx tsx scripts/social-video-launch.ts --video in2 --date 2026-11-01
 
-Angle: **a rupee story, MRP against the cheapest price**, with local shops. Saffron accent (`#FF9933`) in the black theme,
+Angle: **a loud hook, then a rupee story, MRP against the cheapest price**, with local shops. The opening is a huge hook that fills the frame (owner request, 1 Nov 2026): the still first frame is the thumbnail, the 0.8 s still is kept, then a 0.5 s punch (`punchAt`, drawn through the renderer's `extra`) lands it. The MRP stamp scene became the hook's stamp and the second pair of bars. Saffron accent (`#FF9933`) in the black theme,
 price bars against MRP and an MRP stamp. The rupee sign is drawn as a shape (Liberation Sans has no ₹). Scenes are in
 `scripts/social-video-launch-sites.ts` (`IN_SITES_VIDEO`).
 
 | From (s) | Scene | Shows |
 |---|---|---|
-| 0.0 | mrp (still until 0.8) | "Why pay MRP?", Azzaro Chrome For Him EDT 100ml, bar MRP over ₹6,500, bar Perfume Network under ₹4,000, Save 45%+ |
-| 1.9 | swipe to shops | "Compare 12+ Indian shops", 18,000+ products GST included, Perfume Network, FridayCharm, Perfume Palace, Nykaa, Scentira, AAR Fragrances |
-| 3.7 | dissolve to stamp | MRP stamp, Montblanc Legend For Men EDP 100ml, over ₹10,000 struck through, Perfume Network under ₹6,500, Save 40%+ |
-| 5.6 | swipe to tag | An @ in a ring, "We've now got US, India and Canada sites", three flag tiles (India lit), "Tag your friends who'd love to use our site" |
+| 0.0 | now-in (still until 0.8, then a 0.5 s shudder and a stamp slam) | "NOW IN INDIA" in capitals, tricolour bars, a crossed out MRP stamp, "Why pay full MRP?" |
+| 1.9 | swipe to mrp | "Pay under MRP", two pairs of bars: Azzaro Chrome For Him EDT 100ml (MRP over ₹6,500, Perfume Network under ₹4,000, Save 45%+) and Montblanc Legend For Men EDP 100ml (MRP over ₹10,000, Perfume Network under ₹6,500, Save 40%+) |
+| 3.8 | dissolve to shops | "Compare 12+ Indian shops", 18,000+ products GST included, Perfume Network, FridayCharm, Perfume Palace, Nykaa, Scentira, AAR Fragrances |
+| 5.7 | swipe to tag | An @ in a ring, "We've now got US, India and Canada sites", three flag tiles (India lit), "Tag your friends who'd love to use our site" |
 | 7.4 | swipe to PriceSniffs | Mark, wordmark, `pricesniffs.space/in`, held to 9.0, then the 1 s fade |
 
 ## Claims and the data behind them (built 2026-11-01 for the India region, `data/regions/in/`)
