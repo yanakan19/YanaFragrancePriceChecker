@@ -71,7 +71,7 @@ Scentbird would allow the bot; the wall decides, so they stay on the refused lis
 
 | Rank | Shop | robots.txt for PriceSniffsBot | Platform | Products | Barcodes | Gain in sample (none / one / 2+) | Effort | Verdict |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Scentopia (scentopiaperfumes.com) | 200, 3,723 B, stock file | Shopify, INR (`/meta.json` IN) | 1,439 | No (sku empty) | 11 / **25** / 14 | S: Shopify walker; the title starts "Scentopia Perfumes" in `vendor` only after our prefixing, strength and "100ML" sit in the title | **add now** (half of the sample becomes a second shop) |
+| 1 | Scentopia (scentopiaperfumes.com) | 200, 3,723 B, stock file | Shopify, INR (`/meta.json` IN) | 1,439 | No (sku empty) | 11 / **25** / 14 | S: Shopify walker; `vendor` is the shop name, so the house must be read from the title ("... by Lattafa"); strength and "100ML" sit in the title | **add now** (half of the sample becomes a second shop) |
 | 2 | All Arabic (allarabic.in) | 200, 6,864 B, no rule for `PriceSniffsBot` | Shopify, INR | 704 | No (own sku, e.g. AAPRHIF037) | 27 / **6** / 17 | S; must skip titles ending "(Partial)" (decants) | **add now** |
 | 3 | Perfumebay (perfumebay.in) | 200, 3,683 B | Shopify, INR | 32, own house, prices 8,400 and up | No | 0 matched | S | skip (single house) |
 | 4 | Ajmal India (in.ajmal.com) | 200, 1,171 B | not probed beyond robots | one house | n/a | n/a | S | skip (single house) |
