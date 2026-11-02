@@ -1,9 +1,35 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-11-02T06:17:41.336Z",
-  "seenAt": "2026-11-02T06:17:41.336Z",
+  "updatedAt": "2026-11-02T10:22:46.956Z",
+  "seenAt": "2026-11-02T10:22:46.956Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "15454339334454-100ml",
+      "url": "https://dumontparfums.com/products/soprano-ice-buy-one-get-one-offer-1",
+      "rawTitle": "Soprano Ice + FREE Soprano Elite 100ml",
+      "rawBrand": "Panucci",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/Bundle_Soprano_copy.jpg?v=1793176420",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Soprano Ice presents a sophisticated juxtaposition of freshness and amber warmth, creating a complex olfactory profile with multiple dimensions. This composition is ideally suited for individuals who project composure externally while harboring intensity beneath—a fragrance that establishes presence through its subtle yet authoritative character rather than overt projection. . Fragrance Notes: . Top Notes: GINGER, BERGAMOT, GRAPEFRUIT, ALDEHYDIC. Heart Notes: APPLE, INCENSE, GERANIUM, LAVENDER, AMBERY. Base Notes: MUSK, VANILLA, SANDALWOOD, PATCHOULI, BALSAMIC. .",
+      "productType": "Perfume",
+      "nativePrice": {
+        "amount": 250,
+        "currency": "AED"
+      },
+      "retailerId": "dumont",
+      "firstSeenAt": "2026-11-02T10:22:46.956Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "15445865759030-Default Title",
       "url": "https://dumontparfums.com/products/nitro-blue-bundle-30ml-bottle-150ml-bottle-250ml-body-splash",
@@ -16,7 +42,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Experience the energy of Nitro Blue!. Get all 3 for just AED 250! . 1 × Nitro Perfume – 30ml . . 1 × Nitro Perfume – 100ml . . 1 × Nitro Body Splash . .",
+      "description": "Experience the energy of Nitro Blue!. Get all 3 for just AED 250! . 1 × Nitro Perfume – 30ml . . 1 × Nitro Perfume – 150ml . . 1 × Nitro Body Splash . .",
       "productType": null,
       "nativePrice": {
         "amount": 400,
@@ -42,7 +68,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Experience the energy of Nitro Pour Homme!. Get all 3 for just AED 250! . 1 × Nitro Perfume – 30ml . . 1 × Nitro Perfume – 100ml . . 1 × Nitro Body Splash . .",
+      "description": "Experience the energy of Nitro Pour Homme!. Get all 3 for just AED 250! . 1 × Nitro Perfume – 30ml . . 1 × Nitro Perfume – 150ml . . 1 × Nitro Body Splash . .",
       "productType": null,
       "nativePrice": {
         "amount": 400,
@@ -68,7 +94,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Experience the energy of Nitro Platinum!. Get all 3 for just AED 250! . 1 × Nitro Perfume – 30ml . . 1 × Nitro Perfume – 100ml . . 1 × Nitro Body Splash . .",
+      "description": "Experience the energy of Nitro Platinum!. Get all 3 for just AED 250! . 1 × Nitro Perfume – 30ml . . 1 × Nitro Perfume – 150ml . . 1 × Nitro Body Splash . .",
       "productType": null,
       "nativePrice": {
         "amount": 400,
@@ -94,7 +120,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Experience the energy of Nitro Green!. Get all 3 for just AED 250! . 1 × Nitro Perfume – 30ml . . 1 × Nitro Perfume – 100ml . . 1 × Nitro Body Splash . .",
+      "description": "Experience the energy of Nitro Green!. Get all 3 for just AED 250! . 1 × Nitro Perfume – 30ml . . 1 × Nitro Perfume – 15 0ml . . 1 × Nitro Body Splash . .",
       "productType": null,
       "nativePrice": {
         "amount": 400,
@@ -770,7 +796,7 @@
       "rawTitle": "Soprano Ice 100ml",
       "rawBrand": "Panucci",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/SopranoIce002.png?v=1762770344",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0742/3105/4646/files/SopranoIce001.png?v=1748935855",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -2756,9 +2782,10 @@
       "description": "Indulge in Soprano Pure, where juicy notes and delicate florals dance at its heart. Perfect for any occasion, it leaves a refreshing and lasting impression.. Fragrance Notes: . Top Notes: BERGAMOT, GREEN APPLE, PEARL, OZONE, PINK PEPPER, MELON, GRAPEFRUIT. Heart Notes: DIHYDROMYRCENOL, VIOLET, LAVENDIN. Base Notes: ELEMI, CEDARWOOD, CASHMERAN, TEAKWOOD, AMBROCEDIE, PRALINE.",
       "productType": "Perfume",
       "nativePrice": {
-        "amount": 260,
+        "amount": 190,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
@@ -2782,9 +2809,10 @@
       "description": "Soprano Elite is a captivating fragrance that opens with fresh lemon, anise, and clary sage, with a heart of geranium, lavender, and spicy accord. The base notes of musk, guaiac wood, and amber bring warmth and depth, perfect for a confident and sophisticated individual. Perfect for any occasion. Fragrance Notes: . Top Notes: LEMON, ANISE, CLARY SAGE. Heart Notes: GERANIUM, LAVENDER, SPICY ACCORD. Base Notes: MUSK, GUAIACWOOD, AMBER.",
       "productType": "Perfume",
       "nativePrice": {
-        "amount": 260,
+        "amount": 190,
         "currency": "AED"
       },
+      "nativeWasPrice": 250,
       "retailerId": "dumont",
       "firstSeenAt": "2026-08-05T18:10:57.418Z",
       "status": "active",
@@ -2808,7 +2836,7 @@
       "description": "Soprano Soul exudes confidence with every spritz. It combines a unique blend of spices, citrus, and stunning base notes. Wear it for an exceptional and distinctive experience. Fragrance Notes: . Top Notes: SAGE, BASIL, LEMON, CINNAMON . Heart Notes: TOLU BALSAM, BLACK CARDAMOM, PRALINE . Base Notes: PATCHOULI, BLACK AMBER, BRAZILIAN ROSEWOOD .",
       "productType": "Perfume",
       "nativePrice": {
-        "amount": 260,
+        "amount": 250,
         "currency": "AED"
       },
       "retailerId": "dumont",

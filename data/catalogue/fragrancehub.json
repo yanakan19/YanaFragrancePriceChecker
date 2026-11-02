@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-02T06:09:49.832Z",
-  "seenAt": "2026-11-02T06:09:49.832Z",
+  "updatedAt": "2026-11-02T10:14:26.987Z",
+  "seenAt": "2026-11-02T10:14:26.987Z",
   "source": "live",
   "listings": [
     {
@@ -3188,7 +3188,7 @@
       "priceGbp": 44.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "When the world settles, what remains is the impression. “Blanc Ash” is the embodiment of quiet power and the effortless allure represented by Jeffrey Dean Morgan, designed for moments where your presence speaks on your behalf.. Fragrance Notes. Top Notes: Black Pepper, Saffron. Heart Notes: Vanilla, Dry Amber. Base Notes: Cedarwood, Patchouli, Sandalwood.",
       "productType": null,
