@@ -1,7 +1,7 @@
 {
   "retailerId": "swiss-arabian",
-  "updatedAt": "2026-11-02T02:20:44.265Z",
-  "seenAt": "2026-11-02T02:20:44.265Z",
+  "updatedAt": "2026-11-02T06:17:35.197Z",
+  "seenAt": "2026-11-02T06:17:35.197Z",
   "source": "live",
   "listings": [
     {
@@ -6614,7 +6614,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Edge - 100 ML Edge Intense (M) - 100 ML Edge Intense (W) - 100 ML.",
+      "description": "Edge (W) - 100 ML Edge Intense (M) - 100 ML Edge Intense (W) - 100 ML.",
       "productType": "simple",
       "nativePrice": {
         "amount": 83,

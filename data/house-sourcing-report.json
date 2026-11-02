@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02T02:22:16.998Z",
+  "checkedAt": "2026-11-02T06:19:04.472Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -143,7 +143,7 @@
       "currency": "USD",
       "listings": 60,
       "pricedInGbp": 0,
-      "withPhoto": 59,
+      "withPhoto": 60,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

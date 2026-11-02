@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-02T02:13:17.323Z",
-  "seenAt": "2026-11-02T02:13:17.323Z",
+  "updatedAt": "2026-11-02T06:09:56.199Z",
+  "seenAt": "2026-11-02T06:09:56.199Z",
   "source": "live",
   "listings": [
     {
@@ -63264,7 +63264,7 @@
       "priceGbp": 43.64,
       "wasPriceGbp": 108,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Discover timeless elegance with the Issey Miyake L'Eau d'Issey Pour Femme Gift Set , a three-piece fragrance collection featuring the iconic floral aquatic Eau de Toilette. Combining a 100ml fragrance spray, a convenient 10ml travel-size Eau de Toilette and a 50ml body lotion, this beautifully coordinated set makes a thoughtful gift for women who appreciate fresh, sophisticated perfumes.. Issey Miyake L'Eau d'Issey Gift Set – What's Included?. L'Eau d'Issey Eau de Toilette 100ml: The full-size signature fragrance, combining delicate florals with refreshing aquatic notes.. L'Eau d'Issey Eau de Toilette 10ml: A convenient smaller fragrance size, ideal for handbags, travelling and refreshing your scent throughout the day.. L'Eau d'Issey Body Lotion 50ml: A complementary scented body lotion for incorporating the fragrance into your daily body care routine.. A Timeless Floral Aquatic Fragrance. Originally launched in 1992, L'Eau d'Issey celebrates the purity and freshness of water through an elegant floral composition.. Top Notes: Lotus and rose create a delicate, refreshing opening.. Heart Notes: Lily and white flowers introduce soft floral elegance.. Base Notes: Precious woods provide a warm, sophisticated finish.. How to Use. Apply the body lotion to clean, dry skin. Spray the Eau de Toilette onto pulse points, including the wrists and neck. Use the 10ml fragrance for convenient application when travelling.. Perfect for birthdays, anniversaries or Christmas, this Issey Miyake perfume gift set brings together three complementary fragrance essentials..",
       "productType": "Gift Set",
@@ -115566,7 +115566,7 @@
       "priceGbp": 17.68,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Lattafa Fakhar Lattafa Eau de Parfum Spray 100ml.",
       "productType": "Eau de Parfum",
