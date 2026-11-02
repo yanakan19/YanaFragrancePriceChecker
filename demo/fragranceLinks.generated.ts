@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-01T10:32:50.040Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-02T11:08:45.197Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -4876,6 +4876,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "lattafa|asadbourbon|edp": ["","https://lattafa.com/product/asad-bourbon/"],
   "lattafa|asadelixir": ["Lattafa-Perfumes/Asad-Elixir-117616","https://lattafa.com/product/asad-elixir/"],
   "lattafa|asadelixir|edp": ["Lattafa-Perfumes/Asad-Elixir-117616","https://lattafa.com/product/asad-elixir/"],
+  "lattafa|asadpolar": ["","https://lattafa.com/product/asad-polar/"],
+  "lattafa|asadpolar|edp": ["","https://lattafa.com/product/asad-polar/"],
   "lattafa|asadzanzibar": ["","https://lattafa.com/product/asad-zanzibar/"],
   "lattafa|asadzanzibarlimitededition": ["","https://lattafa.com/product/asad-zanzibar-limited-edition/"],
   "lattafa|asadzanzibarlimitededition|edp": ["","https://lattafa.com/product/asad-zanzibar-limited-edition/"],
