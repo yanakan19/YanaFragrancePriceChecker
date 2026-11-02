@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-02T10:14:26.987Z",
-  "seenAt": "2026-11-02T10:14:26.987Z",
+  "updatedAt": "2026-11-02T14:39:31.122Z",
+  "seenAt": "2026-11-02T14:39:31.122Z",
   "source": "live",
   "listings": [
     {
@@ -8225,7 +8225,7 @@
       "priceGbp": 12,
       "wasPriceGbp": 20,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Infused with conditioning Wild Mango Butter and a blend of Elastic Waxes for a silky, hugs-your-lips feel, this jumbo twist-up matte lipstick is like a power suit for your mouth. A lip crayon that will drive you to matteness..",
       "productType": "Makeup",
@@ -11169,7 +11169,7 @@
       "priceGbp": 25.6,
       "wasPriceGbp": 32,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A precision combination of bristles (shine-boosting natural boar bristles plus smoothing V-shaped nylon) delivers sleekness from root to tip, and just the right ‘lift’. The ceramic-coated barrel helps prevent breakage, and the lightweight, non-slip wooden handle makes blow-drying a dream..",
       "productType": "Accessories",

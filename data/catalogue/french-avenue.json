@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-11-02T10:14:24.157Z",
-  "seenAt": "2026-11-02T10:14:24.157Z",
+  "updatedAt": "2026-11-02T14:39:28.331Z",
+  "seenAt": "2026-11-02T14:39:28.331Z",
   "source": "live",
   "listings": [
     {
@@ -214,7 +214,7 @@
     {
       "retailerSku": "17734",
       "url": "https://uk.shopfrenchavenue.com/products/zenith-noire-edp-100ml",
-      "rawTitle": "Zenith Noire EDP 100ml",
+      "rawTitle": "Zenith Noire ExDP 100ml",
       "rawBrand": "French Avenue",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Zenith_Noire_EDP_100ml.jpg?v=1778572165",
@@ -1157,7 +1157,7 @@
     {
       "retailerSku": "17964",
       "url": "https://uk.shopfrenchavenue.com/products/zenith-santal-edp-100ml",
-      "rawTitle": "Zenith Santal EDP 100ml",
+      "rawTitle": "Zenith Santal ExDP 100ml",
       "rawBrand": "French Avenue UK",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_31.jpg?v=1767796332",
@@ -1180,7 +1180,7 @@
     {
       "retailerSku": "17961",
       "url": "https://uk.shopfrenchavenue.com/products/zenith-deep-edp-100ml",
-      "rawTitle": "Zenith Deep EDP 100ml",
+      "rawTitle": "Zenith Deep ExDP 100ml",
       "rawBrand": "French Avenue UK",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1_32_af6bb26a-815f-44d6-8d5c-0254b1e7f4cf.jpg?v=1767796535",
@@ -1893,7 +1893,7 @@
     {
       "retailerSku": "17524",
       "url": "https://uk.shopfrenchavenue.com/products/zenith-blue-edp-100ml",
-      "rawTitle": "Zenith Blue EDP 100ml",
+      "rawTitle": "Zenith Blue ExDP 100ml",
       "rawBrand": "French Avenue UK",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T140231.638.jpg?v=1756977835",
@@ -2169,7 +2169,7 @@
     {
       "retailerSku": "17604",
       "url": "https://uk.shopfrenchavenue.com/products/zenith-tobacco-edp-100ml",
-      "rawTitle": "Zenith Tobacco EDP 100ml",
+      "rawTitle": "Zenith Tobacco ExDP 100ml",
       "rawBrand": "French Avenue UK",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T141233.474_d946e747-d958-4c52-a66d-465158a85525.jpg?v=1756984095",
@@ -2330,7 +2330,7 @@
     {
       "retailerSku": "17522",
       "url": "https://uk.shopfrenchavenue.com/products/zenith-vanilla-edp-100ml",
-      "rawTitle": "Zenith Vanilla EDP 100ml",
+      "rawTitle": "Zenith Vanilla ExDP 100ml",
       "rawBrand": "French Avenue UK",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/1-2025-08-14T140736.640.jpg?v=1756986380",

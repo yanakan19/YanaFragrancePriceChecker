@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-11-02T10:14:26.987Z",
-  "seenAt": "2026-11-02T10:14:26.987Z",
+  "updatedAt": "2026-11-02T14:39:31.122Z",
+  "seenAt": "2026-11-02T14:39:31.122Z",
   "source": "live",
   "listings": [
     {
@@ -2977,7 +2977,7 @@
       "rawTitle": "Bon Parfumeur - 401 (EdP) 30ml",
       "rawBrand": "Bon Parfumeur",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0799/7059/9239/files/BON_PARFUMEUR_LES_CLASSIQUES_100ml_701_V2_cb9c8a6c-df38-4d10-bc72-f783652a9c86.webp?v=1746719915",
+      "imageUrl": null,
       "priceGbp": 52,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -3671,7 +3671,7 @@
       "priceGbp": 25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Enjoy the full fragrance of white jasmine in this 4711 Floral Collection creation. The floral fragrance embodies a very sensual femininity. The sweet and intensive aroma of this floral essence is even said to have a seductive effect. The Eau de Cologne has a light, citrusy fresh opening with nuances of neroli, tea and bergamot. At the heart, the opulent jasmine flower exudes floral sensuality. Tonka bean and a hint of musk in the base note create a long-lasting feeling of joy.. Fragrance Notes . Top : Bergamot, Notes Of Tea. Middle : Jasmine, Neroli. Base : Cedar, Tonka Bean, Musk. Fragrance House. One of the world’s first examples of eau de cologne, 4711 have been producing their signature fragrance since 1792, and it has remained a staple of high society throughout its long and storied history. Originally conceived as an ‘aqua mirabilis’, or ‘miracle water’, the composition was intended for use as a curative health drink. However, upon the French occupation of Cologne under Napoleon Bonaparte, it was decreed that recipes for all medicines designed for internal be made public. Upon hearing this news, Muelhens, unwilling to relinquish his secret, decided to market his preparation as a fragrance rather than a remedy, giving birth to the iconic scent known around the world to this day. .",
       "productType": "Perfume",
