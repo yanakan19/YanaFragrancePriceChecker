@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-02T18:39:44.392Z",
-  "seenAt": "2026-11-02T18:39:44.392Z",
+  "updatedAt": "2026-11-02T22:48:32.293Z",
+  "seenAt": "2026-11-02T22:48:32.293Z",
   "source": "live",
   "listings": [
     {
@@ -2659,7 +2659,7 @@
       "priceGbp": 55.2,
       "wasPriceGbp": 69,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Tom Ford Tobacco Chocolat Eau de Parfum brings together the rich character suggested by tobacco and chocolate in an indulgent fragrance composition. Deep and sophisticated, the scent is designed to create a warm, distinctive and memorable impression..",
       "productType": "Women's Fragrances",
@@ -17402,7 +17402,7 @@
       "priceGbp": 80.5,
       "wasPriceGbp": 115,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Scherzo Eau de Parfum 50ml by Miller Harris is a refined floral fragrance centered around the delicate scent of rose. This elegant perfume offers a fresh and sophisticated aroma, perfect for those who appreciate classic floral notes with a modern twist. Its balanced composition makes it suitable for daily wear, adding a subtle yet memorable touch to your presence..",
       "productType": "Women's Fragrances",
@@ -17793,7 +17793,7 @@
       "priceGbp": 98,
       "wasPriceGbp": 140,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Lumiere Doree Eau de Parfum 100ml by Miller Harris offers a fresh and uplifting fragrance centered on vibrant citrus notes, including bergamot. This elegant scent brings a bright, radiant aura, perfect for daily wear or special occasions. The 100ml bottle provides lasting enjoyment of its crisp, invigorating aroma..",
       "productType": "Women's Fragrances",

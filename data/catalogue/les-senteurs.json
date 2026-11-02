@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-02T18:39:21.753Z",
-  "seenAt": "2026-11-02T18:39:21.753Z",
+  "updatedAt": "2026-11-02T22:48:27.282Z",
+  "seenAt": "2026-11-02T22:48:27.282Z",
   "source": "live",
   "listings": [
     {
@@ -3372,7 +3372,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A scent carved from shadow and stone. A patchouli not bound by tradition but reimagined. Earthbound velvet, aged in the roots of forgotten forests. Patchouli rises bold, sacred and unyielding, wrapped in the ancient hush of cedar groves balanced with the breath of the mountain - raw and refined.. A serenity with iron resolve, the curiosity of opposing conversation creating a realm that Titans dream of and mankind now dares.. Patchouli d’Atlas - a perfume for the beautiful unshaken. Wear it and turn the world on its scented head..",
       "productType": "Fragrance",

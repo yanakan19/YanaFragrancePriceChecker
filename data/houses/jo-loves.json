@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-02T18:47:31.648Z",
-  "seenAt": "2026-11-02T18:47:31.648Z",
+  "updatedAt": "2026-11-02T22:55:10.761Z",
+  "seenAt": "2026-11-02T22:55:10.761Z",
   "source": "live",
   "listings": [
     {
@@ -3073,7 +3073,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Experience the ultimate indulgence with Jo Loves Pomelo Bath & Shower Gel and Body Lotion Duo. The Bath & Shower Gel, inspired by sun-kissed beaches, gently cleanses and nourishes your skin with its luxurious formula, leaving behind a captivating blend of rose, pomelo, vetiver, clove, patchouli, and suede. Let the scent transport you to your own personal paradise, where creativity and relaxation intertwine. Complement your bathing ritual with the Pomelo Body Lotion, a luxurious blend of pomelo, rose, vetiver, clove, patchouli, and suede notes. Infused with cocoa butter, almond, and grape seed oil, this nourishing formula leaves your skin soft, radiant, and delicately scented with the essence of sun-drenched beaches and whispers of inspiration.",
       "productType": null,

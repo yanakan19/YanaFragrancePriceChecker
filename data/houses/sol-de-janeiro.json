@@ -1,9 +1,35 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-02T18:47:28.423Z",
-  "seenAt": "2026-11-02T18:47:28.423Z",
+  "updatedAt": "2026-11-02T22:55:06.560Z",
+  "seenAt": "2026-11-02T22:55:06.560Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "SJ99120300",
+      "url": "https://soldejaneiro.com/products/sol-de-janeiro-x-aurelia-nobels-cheirosa-perfume-mist-vip",
+      "rawTitle": "Sol de Janeiro x Aurelia Nobels Cheirosa Perfume Mist 90ml",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/Coming_Soon_P_Page_Aurelia_Regional_Launch_Base.webp?v=1793372832",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "description": "The rush of crossing the finish line. Heart-pumping thrill of the win. Celebration erupts in the street. . . Inspired by rising Brazilian race car driver Aurelia Nobels, this limited-edition signature scent feels like the exhilarating moment after the win. Lively & celebratory notes of Passionfruit Pulp, Red Poppy, & Fresh Coconut come together to capture the unstoppable confidence of blazing your own trail. .",
+      "productType": "VIP-dg",
+      "nativePrice": {
+        "amount": 26,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-02T22:55:06.560Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "SJ99016700",
       "url": "https://soldejaneiro.com/products/sol-passport-summer-e-amor",

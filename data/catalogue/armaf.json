@@ -1,13 +1,13 @@
 {
   "retailerId": "armaf",
-  "updatedAt": "2026-11-02T18:39:21.753Z",
-  "seenAt": "2026-11-02T18:39:21.753Z",
+  "updatedAt": "2026-11-02T22:48:27.282Z",
+  "seenAt": "2026-11-02T22:48:27.282Z",
   "source": "live",
   "listings": [
     {
       "retailerSku": "ARF32121282",
       "url": "https://armaf.uk/products/club-de-nuit-timeless-eau-de-parfum-105ml",
-      "rawTitle": "Club De Nuit TIMELESS Eau De Parfum 105ml",
+      "rawTitle": "Club De Nuit Timeless Eau De Parfum 105ml",
       "rawBrand": "ARMAF UK",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/2.png?v=1793645978",
@@ -2889,7 +2889,7 @@
       "priceGbp": 12.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Top Notes: Bergamot, Tea Middle Notes: Jasmine, Freesia, Orchid Base Notes: Centiflora, Rose, Patchouli.",
       "productType": null,
