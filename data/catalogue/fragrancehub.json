@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-01T22:14:16.442Z",
-  "seenAt": "2026-11-01T22:14:16.442Z",
+  "updatedAt": "2026-11-02T02:13:21.475Z",
+  "seenAt": "2026-11-02T02:13:21.475Z",
   "source": "live",
   "listings": [
     {
@@ -543,7 +543,7 @@
       "priceGbp": 44.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "MARBELLA Extrait de Parfum 100ml. Inspired by endless sunsets and warm ocean air, Marbella combines exotic passionfruit, creamy frangipani, and velvety vanilla to create a fragrance that glows on the skin long after the sun disappears. Summer never looked this seductive.. Top Notes: Orange, Lemon, Passionfruit, Mango. Middle Notes: Frangipani, Solar Notes, Blackcurrant. Base Notes: Vanilla, Benzoin, Musk, Labdanum.",
       "productType": null,
@@ -3142,7 +3142,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Keep the energy going all day with Bujairami Nonstop, a fresh, vibrant, and addictive fragrance designed for those who never slow down. This dynamic scent blends citrus brightness, aromatic herbs, juicy fruits, and deep marine-amber warmth into a modern signature that feels clean, confident, and effortlessly powerful.. It opens with an energising burst of Orange, Green Lemon, Mint, and Black Currant, delivering a crisp citrus-mint freshness with a subtle fruity edge that instantly awakens the senses. The heart evolves into a sophisticated blend of Apricot, Basil, Aqueous Accord, and May Rose, balancing juicy sweetness with herbal freshness and airy aquatic clarity. As it dries down, the fragrance settles into a rich and lasting base of Dates, Fig, Moss, and Ambergris, creating a smooth, earthy-sweet depth with a refined marine warmth that lingers for hours.. Perfect for daily wear, office confidence, gym-to-evening transitions, or warm-weather freshness, Nonstop by Bujairami is built for performance, versatility, and modern style.. Fragrance Profile: • Top Notes: Orange, Green Lemon, Mint, Blackcurrant • Heart Notes: Apricot, Basil, Aqueous Accord, May Rose • Base Notes: Dates, Fig, Moss, Ambergris.",
       "productType": null,
@@ -13305,7 +13305,7 @@
       "rawBrand": "My Store",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/e7fba26a-b563-4015-854b-cca686d490e1.jpg?v=1743861961",
-      "priceGbp": 29.99,
+      "priceGbp": 25.95,
       "wasPriceGbp": 45.99,
       "promoEndsAt": null,
       "inStock": true,
