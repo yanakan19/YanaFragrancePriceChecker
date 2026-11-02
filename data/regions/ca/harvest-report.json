@@ -1,13 +1,13 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "ranAt": "2026-11-01T11:58:38.767Z",
-  "minutes": 7.02,
+  "ranAt": "2026-11-02T13:45:59.188Z",
+  "minutes": 12.03,
   "dryRun": false,
   "shopsWired": 19,
   "shopsEnabled": 10,
   "shopsPriced": 10,
-  "listingsKept": 36721,
+  "listingsKept": 36724,
   "shops": [
     {
       "id": "discount-fragrances-ca",
@@ -20,7 +20,7 @@
       "kept": 926,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 14,
+      "seconds": 15,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -35,7 +35,7 @@
       "kept": 13642,
       "withBarcode": 0,
       "pagesFetched": 45,
-      "seconds": 75,
+      "seconds": 92,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -50,7 +50,7 @@
       "kept": 6061,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 36,
+      "seconds": 51,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -65,7 +65,7 @@
       "kept": 806,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 15,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -80,7 +80,7 @@
       "kept": 9598,
       "withBarcode": 9284,
       "pagesFetched": 34,
-      "seconds": 64,
+      "seconds": 67,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -105,12 +105,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1155,
+      "listingsRead": 1154,
       "priced": 730,
       "kept": 715,
       "withBarcode": 0,
       "pagesFetched": 5,
-      "seconds": 9,
+      "seconds": 10,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -125,7 +125,7 @@
       "kept": 3020,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 18,
+      "seconds": 20,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -135,12 +135,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2310,
-      "priced": 1487,
-      "kept": 1262,
+      "listingsRead": 2339,
+      "priced": 1490,
+      "kept": 1265,
       "withBarcode": 0,
-      "pagesFetched": 11,
-      "seconds": 26,
+      "pagesFetched": 12,
+      "seconds": 34,
       "currency": "the storefront publishes CAD at rate 1, settles in CAD",
       "errors": []
     },
@@ -155,7 +155,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 176,
-      "seconds": 367,
+      "seconds": 663,
       "currency": "JSON-LD offers named: CAD",
       "errors": [],
       "diagnostics": [
