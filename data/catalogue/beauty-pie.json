@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-02T14:39:31.122Z",
-  "seenAt": "2026-11-02T14:39:31.122Z",
+  "updatedAt": "2026-11-02T18:39:44.392Z",
+  "seenAt": "2026-11-02T18:39:44.392Z",
   "source": "live",
   "listings": [
     {
@@ -819,7 +819,7 @@
       "priceGbp": 10,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A dropperful of these a day will do it! With a mega-dose of 10% Niacinamide, Oxygeskin (for radiance) & Evermat (which makes large pores look like they’ve shrunk) - plus antioxidants, skin-soothers & a natural peptidic surfactant to help prevent breakouts. Use after toner & under your serum or moisturiser. Suitable for all skin types.. Clean and cruelty free (of course)..",
       "productType": null,
@@ -1624,7 +1624,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "It’s like skincare in a supplement: bioavailable multi-molecular Hyaluronic Acid to help improve the appearance of wrinkles, skin elasticity and hydration. A natural collagen-booster for luminosity +26%, Grape Monomers of Flavanols, Bioactive SuperOxide Dismutase, Vitamin C and Zinc Citrate. Take 2 a day and get glowing..",
       "productType": "Supplement",
@@ -3970,7 +3970,7 @@
       "priceGbp": 27,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "When you’re looking for an expert blend of live cultures to support your digestion, SuperGut Digestion+ Formula is a multi-strain blend containing a broad-spectrum of digestive enzymes to help support healthy digestion. With DIGEZYME™ to help support the normal digestion of dairy products, as well as carbohydrates, fats and proteins..",
       "productType": "Supplement",

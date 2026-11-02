@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-02T14:47:51.201Z",
-  "seenAt": "2026-11-02T14:47:51.201Z",
+  "updatedAt": "2026-11-02T18:47:30.170Z",
+  "seenAt": "2026-11-02T18:47:30.170Z",
   "source": "live",
   "listings": [
     {
@@ -1946,7 +1946,7 @@
       "priceGbp": 7,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Slather on the luxury with our Matcha Body Butter; rich and packed with zen vibes. .",
       "productType": "Body Butters",

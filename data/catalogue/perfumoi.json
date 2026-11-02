@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-02T14:39:31.122Z",
-  "seenAt": "2026-11-02T14:39:31.122Z",
+  "updatedAt": "2026-11-02T18:39:44.392Z",
+  "seenAt": "2026-11-02T18:39:44.392Z",
   "source": "live",
   "listings": [
     {
@@ -5051,7 +5051,7 @@
       "priceGbp": 35.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Jean Paul Gaultier Le Male Eau de Toilette Spray is a warm fragrance created for customers who enjoy a rich, expressive scent. It opens with spicy and citrus notes, develops into herbal and woody accords, and settles into a bold yet polished base. Suitable for evening and cooler weather, this scent feels confident and layered.. Why customers choose it . Well-suited for evening and cooler seasons. A great option for formal occasions and daily wear. Designed for customers who prefer spicy, woody, and herbal scents.",
       "productType": "Eau de Toilette",
