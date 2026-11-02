@@ -1,26 +1,26 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-11-01T15:31:54.305Z",
+  "builtAt": "2026-11-02T18:27:45.738Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 26,
   "shopsEnabled": 23,
   "shopsPriced": 23,
-  "crawlMinutes": 57.34,
-  "harvestRanAt": "2026-11-01T14:34:33.178Z",
-  "listingsPriced": 69934,
-  "listingsKept": 34942,
+  "crawlMinutes": 57.23,
+  "harvestRanAt": "2026-11-02T17:30:31.208Z",
+  "listingsPriced": 69483,
+  "listingsKept": 34625,
   "staleAfterDays": 7,
-  "products": 22643,
-  "productsWithTwoOrMoreShops": 6847,
+  "products": 22636,
+  "productsWithTwoOrMoreShops": 6846,
   "shareWithTwoOrMoreShops": 0.302,
-  "productsWithTwoOrMoreIndependentShops": 3145,
+  "productsWithTwoOrMoreIndependentShops": 3144,
   "shareWithTwoOrMoreIndependentShops": 0.139,
   "productsWithThreeOrMoreShops": 4049,
   "medianPriceGap": 0.302,
   "listingBarcodeShare": 0.199,
-  "productsMatchingUkByBarcode": 2216,
+  "productsMatchingUkByBarcode": 2222,
   "shops": [
     {
       "id": "aedes",
@@ -34,7 +34,7 @@
     },
     {
       "id": "beautyhabit",
-      "products": 854,
+      "products": 853,
       "shared": 232
     },
     {
@@ -79,8 +79,8 @@
     },
     {
       "id": "luckyscent",
-      "products": 2592,
-      "shared": 497
+      "products": 2586,
+      "shared": 496
     },
     {
       "id": "maison-louis-marie",
@@ -94,8 +94,8 @@
     },
     {
       "id": "ministry-of-scent",
-      "products": 1645,
-      "shared": 545
+      "products": 1644,
+      "shared": 544
     },
     {
       "id": "parfums-raffy",
@@ -128,14 +128,14 @@
       "shared": 345
     }
   ],
-  "productsShown": 22521,
-  "productsWithUkPhoto": 5393,
-  "productsWithUkPhotoByBarcode": 1678,
-  "productsWithUkPhotoByName": 3715,
+  "productsShown": 22514,
+  "productsWithUkPhoto": 5399,
+  "productsWithUkPhotoByBarcode": 1681,
+  "productsWithUkPhotoByName": 3718,
   "listingsWithReference": 23612,
   "offersWithCorroboratedReference": 11549,
-  "deals": 1864,
-  "shareWithUkPhoto": 0.239,
+  "deals": 1855,
+  "shareWithUkPhoto": 0.24,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
