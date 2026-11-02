@@ -6,7 +6,7 @@
 import { describe, expect, it } from 'vitest';
 import { RETAILERS } from '../src/config/retailers.js';
 import {
-  EMPTY_CURSOR, HARVEST_LONG_MINUTES, MAX_SLOW_FIRST, STAGES_AROUND_SWEEP_MINUTES, SLOW_SHOP_AFTER_STOPS, SLOW_SHOP_CAP_MINUTES,
+  EMPTY_CURSOR, SLOW_SHOP_OWN_MINUTES, HARVEST_LONG_MINUTES, MAX_SLOW_FIRST, STAGES_AROUND_SWEEP_MINUTES, SLOW_SHOP_AFTER_STOPS, SLOW_SHOP_CAP_MINUTES,
   budgetStops, isLongRun, isSlowShop, parseCursor, slowFirst, slowShopMinutes, slowestFirst, withBudgetOutcome, withRunLength,
   type HarvestCursor,
 } from '../src/catalogue/harvestCursor.js';
@@ -88,11 +88,20 @@ describe('the slow shop valve', () => {
   });
 
   it('is the registry setting of the shops known to answer slowly, held to the cap and to the time the sweep has', () => {
-    for (const r of RETAILERS) {
-      if (r.slowShopMinutes === undefined) continue;
-      expect(r.slowShopMinutes, r.id).toBeGreaterThan(0);
-      expect(r.slowShopMinutes, r.id).toBeLessThanOrEqual(SLOW_SHOP_CAP_MINUTES);
+    const ids = new Set(RETAILERS.map((r) => r.id));
+    for (const [id, minutes] of Object.entries(SLOW_SHOP_OWN_MINUTES)) {
+      expect(ids.has(id), id).toBe(true);
+      expect(minutes, id).toBeGreaterThan(0);
+      expect(minutes, id).toBeLessThanOrEqual(SLOW_SHOP_CAP_MINUTES);
     }
+  });
+});
+
+describe('the price history replay fingerprint', () => {
+  it('is not reached from the harvest modules, so editing them never forces a full replay', async () => {
+    const { ruleModules } = await import('../scripts/priceHistoryReplay.js');
+    const reached = ruleModules(process.cwd()).filter((f) => /harvest|freshness/.test(f));
+    expect(reached).toEqual([]);
   });
 });
 

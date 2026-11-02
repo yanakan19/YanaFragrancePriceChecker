@@ -334,6 +334,20 @@ export const SLOW_SHOP_AFTER_STOPS = 2;
 /** The longest time budget the valve ever gives one shop, in minutes. */
 export const SLOW_SHOP_CAP_MINUTES = 65;
 
+/**
+ * Shops known to answer slowly, with their own time budget in minutes where the
+ * sweep's ceiling (50) is too short to re-read their range. Niche Beauty's product
+ * page takes 8 to 24 seconds (run #2256: 308 of ~3,850 due pages in 50 minutes, 13%
+ * of its listings over 48 hours; the sitemap has no lastmod and there is no
+ * products.json), so 60 minutes reads about 370 pages a run and the valve adds up
+ * to 65. Only the time grows: the gap, the robots.txt delay and one request at a
+ * time stay. Kept here and not in src/types/retailer.ts or the registry: a change
+ * to a type file reachable from the price history replay changes its rules
+ * fingerprint and forces a 40 minute full replay that times the rebuild out (run
+ * #2271, 2 Nov 2026).
+ */
+export const SLOW_SHOP_OWN_MINUTES: Readonly<Record<string, number>> = { 'niche-beauty-uk': 60 };
+
 /** How many valve shops may start ahead of everyone else (a lane each, never all eight). */
 export const MAX_SLOW_FIRST = 4;
 

@@ -90,7 +90,7 @@ import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.j
 import {
   parseCursor, sweepOrder, heavyFirst, shopsThatRanOutOfTime, withAttempt, withActorRender, lastActorRender, staleCursorIds,
   discoveryOffsetFor, withDiscoveryOffset, barcodeBackoffUntil, withBarcodeBackoff, BARCODE_BACKOFF_HOURS,
-  slowFirst, slowShopMinutes, withBudgetOutcome, isLongRun, slowestFirst, isSlowShop, budgetStops, SLOW_SHOP_CAP_MINUTES,
+  slowFirst, slowShopMinutes, SLOW_SHOP_OWN_MINUTES, withBudgetOutcome, isLongRun, slowestFirst, isSlowShop, budgetStops, SLOW_SHOP_CAP_MINUTES,
 } from '../src/catalogue/harvestCursor.js';
 import { SHOPIFY_MAX_PAGE } from '../src/catalogue/shopifyProductsCrawl.js';
 import {
@@ -823,7 +823,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   // Only the time grows; the gap below is the shop's, as always.
   const baseShopMinutes = Math.max(
     shopMinutes !== null ? shopMinutes : DEFAULT_CRAWL_MS / 60_000,
-    Math.min(SLOW_SHOP_CAP_MINUTES, retailer.slowShopMinutes ?? 0),
+    Math.min(SLOW_SHOP_CAP_MINUTES, SLOW_SHOP_OWN_MINUTES[retailer.id] ?? 0),
   );
   const shopCeilingMinutes = onlyShop ? baseShopMinutes : slowShopMinutes(cursor, retailer.id, baseShopMinutes);
   if (shopCeilingMinutes !== (shopMinutes ?? DEFAULT_CRAWL_MS / 60_000)) {

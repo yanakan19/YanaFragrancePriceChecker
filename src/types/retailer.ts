@@ -878,17 +878,6 @@ export interface Retailer {
    */
   refreshAfterHours?: number;
   /**
-   * The shop's own time budget in a harvest, in minutes, where the sweep's
-   * (`--shop-minutes`, 50) is too short to re-read its range because its pages
-   * answer slowly: Niche Beauty's product page takes 8 to 24 seconds to answer,
-   * so 50 minutes read 308 of 4,800 listings a run. Raises the ceiling, never the
-   * pace: the gap between requests, the robots.txt delay and one request at a time
-   * stay as they are. Held to `SLOW_SHOP_CAP_MINUTES` (src/catalogue/harvestCursor.ts).
-   * A shop that stops on its budget twice in a row gets the same raise without
-   * this setting (the slow shop valve); this is for a shop known to need it.
-   */
-  slowShopMinutes?: number;
-  /**
    * The shop's titles name no strength (Eau de Parfum, Parfum, Eau de
    * Toilette), but each perfume's product page states it in the theme's own
    * product data, so the harvest reads it from the page and puts it into the

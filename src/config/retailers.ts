@@ -5994,7 +5994,6 @@ export const RETAILERS: readonly Retailer[] = [
     // the slow shop valve (harvestCursor.ts) adds up to 65 (about 400) if it still
     // stops on the budget; 66 minutes is all the sweep job has (workflow limits).
     // 3,850 pages due in 48 hours at a run every 4 hours is 320 a run. The gap stays 1.5 s and one request at a time.
-    slowShopMinutes: 60,
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
