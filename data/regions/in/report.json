@@ -1,31 +1,31 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-11-01T00:22:14.982Z",
+  "builtAt": "2026-11-02T00:36:17.237Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 16,
   "shopsPriced": 16,
-  "crawlMinutes": 55.35,
-  "harvestRanAt": "2026-10-31T23:26:53.261Z",
-  "listingsPriced": 32891,
-  "listingsKept": 21903,
+  "crawlMinutes": 55.42,
+  "harvestRanAt": "2026-11-01T23:40:51.142Z",
+  "listingsPriced": 32921,
+  "listingsKept": 21931,
   "staleAfterDays": 7,
-  "products": 18336,
-  "productsWithTwoOrMoreShops": 3273,
+  "products": 18341,
+  "productsWithTwoOrMoreShops": 3274,
   "shareWithTwoOrMoreShops": 0.179,
-  "productsWithTwoOrMoreIndependentShops": 3273,
+  "productsWithTwoOrMoreIndependentShops": 3274,
   "shareWithTwoOrMoreIndependentShops": 0.179,
-  "productsWithThreeOrMoreShops": 1064,
+  "productsWithThreeOrMoreShops": 1066,
   "medianPriceGap": 0.222,
   "listingBarcodeShare": 0.01,
-  "productsMatchingUkByBarcode": 105,
+  "productsMatchingUkByBarcode": 107,
   "shops": [
     {
       "id": "aar-fragrances",
       "products": 2260,
-      "shared": 1470
+      "shared": 1471
     },
     {
       "id": "bellavita-india",
@@ -34,8 +34,8 @@
     },
     {
       "id": "fridaycharm",
-      "products": 6353,
-      "shared": 2049
+      "products": 6363,
+      "shared": 2051
     },
     {
       "id": "maison-des-parfums-in",
@@ -49,8 +49,8 @@
     },
     {
       "id": "nykaa",
-      "products": 1587,
-      "shared": 259
+      "products": 1586,
+      "shared": 261
     },
     {
       "id": "perfume-network",
@@ -88,12 +88,12 @@
       "shared": 5
     }
   ],
-  "productsShown": 18198,
-  "productsWithUkPhoto": 2518,
-  "productsWithUkPhotoByBarcode": 95,
-  "productsWithUkPhotoByName": 2423,
-  "listingsWithReference": 13717,
-  "offersWithCorroboratedReference": 2206,
+  "productsShown": 18203,
+  "productsWithUkPhoto": 2519,
+  "productsWithUkPhotoByBarcode": 97,
+  "productsWithUkPhotoByName": 2422,
+  "listingsWithReference": 13727,
+  "offersWithCorroboratedReference": 2209,
   "deals": 740,
   "shareWithUkPhoto": 0.138,
   "goNoGo": {

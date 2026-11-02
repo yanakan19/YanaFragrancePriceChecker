@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-10-31T23:26:53.261Z",
-  "minutes": 55.35,
+  "ranAt": "2026-11-01T23:40:51.142Z",
+  "minutes": 55.42,
   "dryRun": false,
   "shopsWired": 19,
   "shopsEnabled": 16,
   "shopsPriced": 16,
-  "listingsKept": 21903,
+  "listingsKept": 21931,
   "shops": [
     {
       "id": "nykaa",
@@ -15,12 +15,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1284,
-      "priced": 1284,
-      "kept": 1268,
-      "withBarcode": 212,
-      "pagesFetched": 1298,
-      "seconds": 3301,
+      "listingsRead": 1264,
+      "priced": 1264,
+      "kept": 1247,
+      "withBarcode": 213,
+      "pagesFetched": 1278,
+      "seconds": 3303,
       "currency": "JSON-LD offers named: INR",
       "errors": [
         "https://www.nykaa.com/azha-perfumes-eternal-nights-eau-de-parfum/p/22163370: HTTP 404",
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
         "https://www.nykaa.com/ulric-de-varens-flash-eau-de-toilette-natural-spray-for-men/p/9329009: HTTP 404",
         "https://www.nykaa.com/victoria-s-secret-bare-eau-de-parfum-travel-spray/p/16691987: HTTP 404",
-        "sitemap: 3107 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
+        "sitemap: 3097 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -66,12 +66,9 @@
       "kept": 6630,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 121,
+      "seconds": 104,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": [],
-      "diagnostics": [
-        "https://perfumepalace.in/products.json?limit=250&page=29: HTTP 500"
-      ]
+      "errors": []
     },
     {
       "id": "fridaycharm",
@@ -79,12 +76,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7641,
-      "priced": 7641,
-      "kept": 6405,
+      "listingsRead": 7651,
+      "priced": 7651,
+      "kept": 6415,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 80,
+      "seconds": 74,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -99,7 +96,7 @@
       "kept": 1905,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 20,
+      "seconds": 23,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -109,12 +106,12 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1093,
-      "priced": 1093,
-      "kept": 1041,
+      "listingsRead": 1132,
+      "priced": 1132,
+      "kept": 1080,
       "withBarcode": 0,
-      "pagesFetched": 1094,
-      "seconds": 3301,
+      "pagesFetched": 1133,
+      "seconds": 3303,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -134,7 +131,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -149,7 +146,7 @@
       "kept": 353,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 14,
+      "seconds": 15,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -164,7 +161,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -179,7 +176,7 @@
       "kept": 27,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -194,7 +191,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 7,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -209,7 +206,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 10,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -253,8 +250,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 998,
-      "priced": 998,
+      "listingsRead": 999,
+      "priced": 999,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
@@ -303,7 +300,7 @@
       "kept": 2473,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 25,
+      "seconds": 28,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
