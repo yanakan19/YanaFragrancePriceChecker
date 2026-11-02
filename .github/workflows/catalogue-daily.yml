@@ -875,7 +875,11 @@ jobs:
           # at roughly six hour spacing, and a six hour threshold would push
           # every other attempt just under the line and stretch it to eight.
           if [ "${{ inputs.awin_feed_sync }}" = "true" ] || [ "$AGE" -ge 18000 ]; then
-            npm run awin:feed-sync
+            # 20 minutes of the step's 30, killed hard: a feed that hangs the sync (runs #2263 and
+            # #2271, 2 Nov 2026: nothing printed after the feed list, the step ran into its cap, twice)
+            # cannot be stopped from inside a synchronous ingest. The script names each feed before it
+            # downloads and ingests it, so the log says which one stalled.
+            timeout --kill-after=30s 20m npm run awin:feed-sync
             # Ordering here is load-bearing in both directions. The sync
             # overwrites each feed retailer's snapshot with whatever the feed
             # currently says, so a correction applied before it would be
