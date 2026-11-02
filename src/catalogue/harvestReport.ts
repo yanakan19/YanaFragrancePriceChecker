@@ -154,6 +154,15 @@ export interface HarvestReport {
 export interface ReportedFreshness extends ShopFreshness {
   answered: boolean;
   /**
+   * Harvests in a row this shop was over the freshness tolerance with no fall in
+   * the share of old listings (src/catalogue/freshness.ts, `freshnessStuckRuns`).
+   * 0 or absent: fine, or catching up. scripts/freshness-check.ts fails a shop
+   * only when this reaches `FRESHNESS_STUCK_RUNS`.
+   */
+  stuckRuns?: number;
+  /** The shop stopped on its own time budget this harvest (a partial read, so it is warned about first). */
+  timeBudget?: boolean;
+  /**
    * Where the shop's prices come from when it is not read page by page: 'feed'
    * (an affiliate feed, synced by the Awin step) or 'import' (saved pages the
    * owner imports). Such a shop is never asked by the sweep, so `answered` says

@@ -248,7 +248,7 @@ describe('catalogue-daily.yml', () => {
 
   it('sizes the harvest deadline to the time the job has left', () => {
     const harvest = step('Harvest via sitemap');
-    expect(harvest).toContain('RUN_MINUTES=$(JOB_LIMIT_MIN=80 RESERVE_MIN=12 MAX_MIN=62 scripts/harvest-minutes.sh)');
+    expect(harvest).toContain('RUN_MINUTES=$(JOB_LIMIT_MIN=80 RESERVE_MIN=12 MAX_MIN=66 scripts/harvest-minutes.sh)');
     // The limit given to the script is the sweep job's own.
     expect(jobs('catalogue-daily.yml').find((j) => j.name === 'sweep')!.body).toContain('timeout-minutes: 80');
     expect(harvest).toContain('--run-minutes="$RUN_MINUTES"');

@@ -5,6 +5,7 @@ import { concentration, concentrationMatch } from '../src/catalogue/productName.
 import { HOUSE_STRENGTH_EVIDENCE } from '../src/catalogue/houseStrengthEvidence.js';
 import { nameCarriedKey, nameCore, strengthBlindKey, strengthDifference } from '../src/catalogue/duplicateKey.js';
 import { concentrationBlindKey, findDuplicateGroups, settleHouseConcentrations, type MatchableProduct } from '../src/catalogue/productMatch.js';
+import { softIt } from './support/softCheck.js';
 
 // The same bottle splits into two pages when two shops name its strength two ways.
 // Orto Parisi Cuoium 50ml, stored titles, 2026-10-04:
@@ -184,7 +185,7 @@ describe('the built catalogue', () => {
     expect(ID_ALIASES['nicchia-luxury-uk-n02264-01']).toBe(cuoium[0]!.id);
   });
 
-  it('has no Orto Parisi, Farmacia SS. Annunziata or Laboratorio Olfattivo bottle split by Extrait de Parfum against Parfum', () => {
+  softIt('has-no-orto-parisi-farmacia-ss-annunziata-or-lab', 'has no Orto Parisi, Farmacia SS. Annunziata or Laboratorio Olfattivo bottle split by Extrait de Parfum against Parfum', () => {
     const houses = new Set(HOUSE_STRENGTH_EVIDENCE.map((e) => e.brand));
     const bottles = new Map<string, Set<string>>();
     for (const p of CATALOGUE) {

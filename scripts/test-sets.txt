@@ -354,3 +354,4 @@ code tests/shopCount.test.ts
 data tests/regionLeafPages.test.ts
 code tests/socialLaunchVideosSites.test.ts
 data tests/socialLaunchVideosSitesData.test.ts
+code tests/slowShopValve.test.ts

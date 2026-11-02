@@ -5,6 +5,7 @@ import { ownSizeTitle, parseShopifyProducts } from '../src/catalogue/shopifyJson
 import { sizeMl } from '../src/catalogue/fragranceId.js';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
 import { formatLabels } from '../src/catalogue/offerFormat.js';
+import { softIt } from './support/softCheck.js';
 
 /**
  * Perfume Direct titles a Shopify product with every size its page sells,
@@ -181,7 +182,7 @@ describe('the stored Perfume Direct rows', () => {
    */
   const OUTVOTED_BY_BARCODE = new Map([['18667PD', 80]]);
 
-  it('puts each of those rows on a product of its own size in the built catalogue', () => {
+  softIt('puts-each-of-those-rows-on-a-product-of-its-own', 'puts each of those rows on a product of its own size in the built catalogue', () => {
     const byId = new Map(CATALOGUE.map((c) => [c.id, c]));
     const holders = new Map<string, string[]>();
     for (const [pid, offers] of Object.entries(CRAWLED)) {

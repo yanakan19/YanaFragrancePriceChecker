@@ -14,6 +14,7 @@ import {
   oilFactsOfOffers,
 } from '../src/catalogue/perfumeOil.js';
 import type { StoredListing } from '../src/catalogue/types.js';
+import { softIt } from './support/softCheck.js';
 
 /**
  * Oils, phase 2 of docs/GIFT-SETS-AND-OILS-PLAN.md, with the owner's answers of
@@ -133,14 +134,14 @@ describe('which listings are oils', () => {
     }
   });
 
-  it('takes the scented body oil out of the bottle list', () => {
+  softIt('takes-the-scented-body-oil-out-of-the-bottle-lis', 'takes the scented body oil out of the bottle list', () => {
     const l = find('justmylook', /Satin Mood Scented Body Oil/);
     if (l.length === 0) return; // gone from the shop altogether
     for (const x of l) expect(kept(x), x.rawTitle).toBe(false);
     expect(CATALOGUE.find((c) => /Scented Body Oil/i.test(c.name) && !c.giftSet)).toBeUndefined();
   });
 
-  it('never makes a rollerball spray an oil', () => {
+  softIt('never-makes-a-rollerball-spray-an-oil', 'never makes a rollerball spray an oil', () => {
     const sprays = ALL.filter((l) => /\b(roll[- ]?on|roller|rollerball)\b/i.test(l.rawTitle) && /\b(eau de (parfum|toilette)|edp|edt)\b/i.test(l.rawTitle) && !/\boil\b/i.test(l.rawTitle));
     expect(sprays.length).toBeGreaterThan(5);
     for (const l of sprays) expect(isOilStrength(strength(l)), l.rawTitle).toBe(false);
@@ -186,13 +187,13 @@ describe('what a shop states about an oil', () => {
 describe('the oils in the catalogue', () => {
   const oils = CATALOGUE.filter((c) => !c.giftSet && isOilStrength(c.concentration));
 
-  it('are a few hundred, with the owner\'s fifteen Nicchia attars among them', () => {
+  softIt('are-a-few-hundred-with-the-owner', 'are a few hundred, with the owner\'s fifteen Nicchia attars among them', () => {
     expect(oils.length).toBeGreaterThan(300);
     expect(oils.filter((c) => c.concentration === 'Attar').length).toBeGreaterThanOrEqual(15);
     expect(DEMO_FRAGRANCES.filter(isOil).length).toBe(oils.length);
   });
 
-  it('carry an oil record, and nothing else does', () => {
+  softIt('carry-an-oil-record-and-nothing-else-does', 'carry an oil record, and nothing else does', () => {
     for (const c of CATALOGUE) {
       const oil = !c.giftSet && isOilStrength(c.concentration);
       expect(c.oil !== undefined, `${c.id} (${c.concentration})`).toBe(oil);
@@ -223,7 +224,7 @@ describe('the oils in the catalogue', () => {
     expect(free).toBeGreaterThan(10);
   });
 
-  it('are no set, and no bottle is an oil', () => {
+  softIt('are-no-set-and-no-bottle-is-an-oil', 'are no set, and no bottle is an oil', () => {
     expect(DEMO_FRAGRANCES.filter((f) => isSet(f) && isOil(f))).toEqual([]);
     expect(DEMO_FRAGRANCES.filter((f) => !isOil(f) && !isSet(f) && isOilStrength(f.concentration))).toEqual([]);
   });

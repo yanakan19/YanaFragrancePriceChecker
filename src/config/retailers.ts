@@ -5983,6 +5983,18 @@ export const RETAILERS: readonly Retailer[] = [
     // (see shipping below), so its offers show as delivery not stated under
     // £75 (tests/registry.test.ts's unstated list).
     sitemapHarvestConfirmed: true,
+    // ── Slow pages, measured 2 Nov 2026 ─────────────────────────────────────
+    // A product page takes 8 to 24 seconds to answer (run #2256: 308 pages in
+    // the 50 minute ceiling, 9.8 s a page with the 1.5 s gap; one request here
+    // waited 14.8 s for its first byte), and the sitemap has no lastmod and no
+    // products.json exists, so every price is a page read. 4,778 listings at
+    // that pace need about 8 hours of reading in each 24, and the 50 minute
+    // ceiling gave 5: 632 listings were over 48 hours old and the freshness
+    // check failed the crawl (run #2256). 60 minutes reads about 370 pages a run,
+    // the slow shop valve (harvestCursor.ts) adds up to 65 (about 400) if it still
+    // stops on the budget; 66 minutes is all the sweep job has (workflow limits).
+    // 3,850 pages due in 48 hours at a run every 4 hours is 320 a run. The gap stays 1.5 s and one request at a time.
+    slowShopMinutes: 60,
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',

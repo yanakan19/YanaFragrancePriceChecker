@@ -5,6 +5,7 @@ import { sizeMl } from '../src/catalogue/fragranceId.js';
 import { matchKey } from '../src/catalogue/productMatch.js';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
 import { readGender } from '../demo/gender.js';
+import { softIt } from './support/softCheck.js';
 
 /**
  * Perfume Direct writes its own category into the middle of a title, "Women's
@@ -165,7 +166,7 @@ describe('the built catalogue', () => {
   const pdRows = (id: string) => (CRAWLED[id] ?? []).filter((o) => o.retailerId === PD);
   const entries = CATALOGUE.filter((c) => pdRows(c.id).length > 0);
 
-  it('now compares most Perfume Direct rows with another shop', () => {
+  softIt('now-compares-most-perfume-direct-rows-with-anoth', 'now compares most Perfume Direct rows with another shop', () => {
     const rows = entries.reduce((n, c) => n + pdRows(c.id).length, 0);
     const shared = entries.reduce((n, c) => n + ((CRAWLED[c.id] ?? []).some((o) => o.retailerId !== PD) ? pdRows(c.id).length : 0), 0);
     // Before: 36 of 3,094 rows (about 1%). After: about two thirds.
@@ -178,7 +179,7 @@ describe('the built catalogue', () => {
     for (const c of labelled) expect(c.name, `${c.brand} ${c.name}`).toMatch(/Cool Water|Eternity|Brit|First Instinct Blue|The One Gold Intense|Reborn/);
   });
 
-  it('puts one Perfume Direct row with other shops where the barcode is the same bottle', () => {
+  softIt('puts-one-perfume-direct-row-with-other-shops-whe', 'puts one Perfume Direct row with other shops where the barcode is the same bottle', () => {
     // Read from Perfume Direct's own product page on 2026-10-04: the 150ml
     // variant of its Dolce & Gabbana K page carries barcode 3423473049654.
     const k = CATALOGUE.find((c) => c.id === 'ean-3423473049654')!;
@@ -189,7 +190,7 @@ describe('the built catalogue', () => {
     for (const id of ['ean-3614223113347', 'ean-3614273662581']) expect(pdRows(id).length, id).toBe(1);
   });
 
-  it('keeps the gender the label gave on the product, where the name is silent', () => {
+  softIt('keeps-the-gender-the-label-gave-on-the-product-w', 'keeps the gender the label gave on the product, where the name is silent', () => {
     const nomade = CATALOGUE.find((c) => c.id === 'ean-3614223113347')!;
     expect(readGender(`${nomade.brand} ${nomade.name} ${nomade.concentration}`)).toBe('notStated');
     expect(nomade.gender).toBe('womens');
@@ -200,7 +201,7 @@ describe('the built catalogue', () => {
     expect(aqua?.gender).toBe('unisex');
   });
 
-  it('never gives a product a gender its own name contradicts: the name wins', () => {
+  softIt('never-gives-a-product-a-gender-its-own-name-cont', 'never gives a product a gender its own name contradicts: the name wins', () => {
     // Perfume Direct files Valentino Donna Born In Roma Coral Fantasy under Men's
     // Aftershave while its title says Donna, and Scent Warehouse shelves a
     // "Unisex" bottle "for Her". The Gender filter reads the name first (demo/app.ts

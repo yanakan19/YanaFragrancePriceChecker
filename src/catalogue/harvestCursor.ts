@@ -92,6 +92,20 @@ export interface HarvestCursor {
    * has refused one.
    */
   barcodeBackoff?: Record<string, string>;
+  /**
+   * The slow shop valve (docs/PIPELINE-FAILURE-MODES.md, row 63): per retailer
+   * id, how many harvests in a row the shop stopped on its own time budget
+   * (still re-reading when the clock ran out). 0 once it finished in time. From
+   * `SLOW_SHOP_AFTER_STOPS` the shop starts first in its group and gets a longer
+   * time budget, up to `SLOW_SHOP_CAP_MINUTES`.
+   */
+  slowShops?: Record<string, number>;
+  /**
+   * Set when the last harvest took longer than `HARVEST_LONG_MINUTES` end to end
+   * (the slowest group's sweep). The next harvest then starts its slowest shops
+   * first. Absent after a harvest that was quicker.
+   */
+  longRun?: { minutes: number; at: string };
 }
 
 /** How long a shop's barcode reads are left alone after it refused one. */
@@ -161,11 +175,17 @@ export function parseCursor(raw: string | null | undefined): HarvestCursor {
     // bound allows one render, which is the same as a fresh install.
     const offsets = offsetMap((parsed as { discoveryOffset?: unknown }).discoveryOffset);
     const backoff = stampMap((parsed as { barcodeBackoff?: unknown }).barcodeBackoff);
+    const slow = offsetMap((parsed as { slowShops?: unknown }).slowShops);
+    const longRun = (parsed as { longRun?: { minutes?: unknown; at?: unknown } }).longRun;
     return {
       attempted: stampMap(attempted),
       actorRendered: stampMap((parsed as { actorRendered?: unknown }).actorRendered),
       ...(offsets ? { discoveryOffset: offsets } : {}),
       ...(Object.keys(backoff).length > 0 ? { barcodeBackoff: backoff } : {}),
+      ...(slow && Object.keys(slow).length > 0 ? { slowShops: slow } : {}),
+      ...(longRun && typeof longRun.minutes === 'number' && Number.isFinite(longRun.minutes) && typeof longRun.at === 'string'
+        ? { longRun: { minutes: longRun.minutes, at: longRun.at } }
+        : {}),
     };
   } catch {
     return EMPTY_CURSOR;
@@ -304,4 +324,102 @@ export function lastActorRender(cursor: HarvestCursor, id: string): string | nul
 export function staleCursorIds(cursor: HarvestCursor, known: readonly string[]): string[] {
   const live = new Set(known);
   return Object.keys(cursor.attempted).filter((id) => !live.has(id));
+}
+
+// ── The slow shop valve and the long run guard ──────────────────────────────
+
+/** Harvests in a row a shop must stop on its time budget before it gets the fast path. */
+export const SLOW_SHOP_AFTER_STOPS = 2;
+
+/** The longest time budget the valve ever gives one shop, in minutes. */
+export const SLOW_SHOP_CAP_MINUTES = 65;
+
+/** How many valve shops may start ahead of everyone else (a lane each, never all eight). */
+export const MAX_SLOW_FIRST = 4;
+
+/**
+ * A harvest slower than this, end to end, makes the next one start its slowest
+ * shops first. The whole run is the sweep plus the stages around it (`prepare`
+ * before, the `crawl` job's merge, rebuild and data tests after, measured at
+ * about 20 minutes and allowed `STAGES_AROUND_SWEEP_MINUTES`), so it passes 100
+ * minutes when the sweep runs into its own deadline (66 minutes,
+ * .github/workflows/catalogue-daily.yml): shops were cut by the clock.
+ */
+export const HARVEST_LONG_MINUTES = 100;
+export const STAGES_AROUND_SWEEP_MINUTES = 35;
+
+/** Harvests in a row a shop has stopped on its time budget. */
+export function budgetStops(cursor: HarvestCursor, id: string): number {
+  const n = cursor.slowShops?.[id];
+  return typeof n === 'number' && Number.isFinite(n) && n > 0 ? Math.floor(n) : 0;
+}
+
+/**
+ * Record how a shop's read ended: stopped on its time budget (one more in a row)
+ * or finished in time (back to 0, so the valve closes as soon as the shop is
+ * fast again). The counter is kept at 0 and not deleted, because a group's
+ * cursor only hands over the entries it holds (`mergeCursors`).
+ */
+export function withBudgetOutcome(cursor: HarvestCursor, id: string, stoppedOnBudget: boolean): HarvestCursor {
+  const next = stoppedOnBudget ? Math.min(9, budgetStops(cursor, id) + 1) : 0;
+  if (!stoppedOnBudget && cursor.slowShops?.[id] === undefined) return cursor;
+  return { ...cursor, slowShops: { ...(cursor.slowShops ?? {}), [id]: next } };
+}
+
+/** Whether the valve is open for a shop. */
+export function isSlowShop(cursor: HarvestCursor, id: string): boolean {
+  return budgetStops(cursor, id) >= SLOW_SHOP_AFTER_STOPS;
+}
+
+/**
+ * The time budget for a shop in minutes: `baseMinutes` (the sweep's ceiling or the
+ * shop's own), and once the valve is open half as much again for the second stop
+ * in a row, twice for the third, never past `SLOW_SHOP_CAP_MINUTES`. Only the
+ * time grows: the shop's request gap, its robots.txt delay and the one request
+ * at a time rule are exactly what they were.
+ */
+export function slowShopMinutes(cursor: HarvestCursor, id: string, baseMinutes: number): number {
+  const stops = budgetStops(cursor, id);
+  if (stops < SLOW_SHOP_AFTER_STOPS) return baseMinutes;
+  const grown = Math.round(baseMinutes * (1 + 0.5 * (stops - SLOW_SHOP_AFTER_STOPS + 1)));
+  return Math.max(baseMinutes, Math.min(SLOW_SHOP_CAP_MINUTES, grown));
+}
+
+/** The shops whose valve is open start first (at most MAX_SLOW_FIRST, most stops first); the rest keep their order. */
+export function slowFirst<T extends { id: string }>(ordered: readonly T[], cursor: HarvestCursor, max: number = MAX_SLOW_FIRST): T[] {
+  const front = ordered
+    .map((shop, index) => ({ shop, index }))
+    .filter((e) => isSlowShop(cursor, e.shop.id))
+    .sort((a, b) => budgetStops(cursor, b.shop.id) - budgetStops(cursor, a.shop.id) || a.index - b.index)
+    .slice(0, max)
+    .map((e) => e.shop);
+  if (front.length === 0) return [...ordered];
+  const moved = new Set(front.map((s) => s.id));
+  return [...front, ...ordered.filter((s) => !moved.has(s.id))];
+}
+
+/** Whether the last harvest was a long run. */
+export function isLongRun(cursor: HarvestCursor): boolean {
+  return cursor.longRun !== undefined;
+}
+
+/** The cursor after a harvest whose slowest group's sweep took `sweepMinutes`: a long run is noted, a quick one clears the note. */
+export function withRunLength(cursor: HarvestCursor, sweepMinutes: number | null, at: string): HarvestCursor {
+  const { longRun: _gone, ...rest } = cursor;
+  if (sweepMinutes === null) return rest;
+  const minutes = sweepMinutes + STAGES_AROUND_SWEEP_MINUTES;
+  return minutes > HARVEST_LONG_MINUTES ? { ...rest, longRun: { minutes, at } } : rest;
+}
+
+/**
+ * A sweep order with the slowest shops first (by the seconds the last report
+ * gave them; a shop with no figure keeps its place behind every shop with one).
+ * Longest first is the best order for lanes that run side by side: the long
+ * shops start at once and the short ones fill the gaps. Used after a long run.
+ */
+export function slowestFirst<T extends { id: string }>(ordered: readonly T[], seconds: Readonly<Record<string, number>>): T[] {
+  return ordered
+    .map((shop, index) => ({ shop, index }))
+    .sort((a, b) => (seconds[b.shop.id] ?? -1) - (seconds[a.shop.id] ?? -1) || a.index - b.index)
+    .map((e) => e.shop);
 }

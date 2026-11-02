@@ -41,6 +41,10 @@ export interface FreshnessRow {
   answered: boolean;
   /** 'feed' or 'import' for a shop the sweep never asks (src/catalogue/harvestReport.ts ReportedFreshness). */
   source?: 'feed' | 'import';
+  /** Harvests in a row over the tolerance without improving (ReportedFreshness). */
+  stuckRuns?: number;
+  /** The shop stopped on its own time budget this harvest (ReportedFreshness). */
+  timeBudget?: boolean;
 }
 export interface HarvestLite {
   finishedAt?: string;
@@ -115,6 +119,9 @@ export interface FreshShare {
   /** Shares of `shown`, 0 to 1. */
   share24: number;
   share48: number;
+  /** Harvests in a row over the tolerance without improving; the crawl fails a shop at 3 (6 on a time budget). */
+  stuckRuns: number;
+  timeBudget: boolean;
 }
 
 /** Every shop with listings shown: what share of them are over 24 and over 48 hours old, the stalest first. Pure. */
@@ -123,7 +130,10 @@ export function summariseFreshness(report: Pick<HarvestLite, 'freshness'>): Fres
     .filter(([, f]) => f.shown > 0)
     .map(([id, f]) => {
       const over24h = Math.max(f.over24h ?? 0, f.over48h);
-      return { id, shown: f.shown, over24h, over48h: f.over48h, share24: over24h / f.shown, share48: f.over48h / f.shown };
+      return {
+        id, shown: f.shown, over24h, over48h: f.over48h, share24: over24h / f.shown, share48: f.over48h / f.shown,
+        stuckRuns: f.stuckRuns ?? 0, timeBudget: f.timeBudget === true,
+      };
     })
     .sort((a, b) => b.share48 - a.share48 || b.share24 - a.share24 || b.shown - a.shown || a.id.localeCompare(b.id));
 }
@@ -272,7 +282,7 @@ export function worstCases(input: WorstCaseInput, max = 12): string[] {
   for (const r of input.runs ?? []) if (r.failed > 0) add(60 + Math.min(19, r.failed), `Workflow "${r.workflow}" failed ${r.failed} of ${r.runs} runs this week.`);
   for (const f of input.freshness ?? []) {
     // A few old listings in a big shop (under 2%) are a straggler, not a stale shop: last.
-    if (f.share48 >= 0.02) add(50 + 30 * f.share48, `Shop \`${f.id}\`: ${pct(f.share48)} of its ${f.shown} shown listings are over 48 hours old (${pct(f.share24)} over 24 hours).`);
+    if (f.share48 >= 0.02) add(50 + 30 * f.share48 + 5 * Math.min(3, f.stuckRuns), `Shop \`${f.id}\`: ${pct(f.share48)} of its ${f.shown} shown listings are over 48 hours old (${pct(f.share24)} over 24 hours)${f.stuckRuns > 0 ? `, not improving for ${f.stuckRuns} harvest(s)` : ', catching up or new'}${f.timeBudget ? ', its read stopped on its time budget' : ''}.`);
     else if (f.over48h > 0) add(10, `Shop \`${f.id}\`: ${f.over48h} of its ${f.shown} shown listings are over 48 hours old.`);
     else if (f.share24 >= 0.5) add(35 + 10 * f.share24, `Shop \`${f.id}\`: ${pct(f.share24)} of its ${f.shown} shown listings are over 24 hours old.`);
   }
@@ -426,8 +436,10 @@ export function render(input: RenderInput): string {
     const stale = input.freshness.filter((f) => f.over24h > 0);
     L.push(`${input.freshness.length - stale.length} of ${input.freshness.length} shops show no listing over 24 hours old.`, '');
     if (stale.length) {
-      L.push('| Shop | Shown | Over 24 h | Over 48 h |', '|---|---|---|---|');
-      for (const f of stale.slice(0, 20)) L.push(`| ${f.id} | ${f.shown} | ${pct(f.share24)} (${f.over24h}) | ${pct(f.share48)} (${f.over48h}) |`);
+      L.push('| Shop | Shown | Over 24 h | Over 48 h | Not improving for | Stopped on its time budget |', '|---|---|---|---|---|---|');
+      for (const f of stale.slice(0, 20)) {
+        L.push(`| ${f.id} | ${f.shown} | ${pct(f.share24)} (${f.over24h}) | ${pct(f.share48)} (${f.over48h}) | ${f.stuckRuns} harvest(s) | ${f.timeBudget ? 'yes' : 'no'} |`);
+      }
       L.push('');
     }
   }

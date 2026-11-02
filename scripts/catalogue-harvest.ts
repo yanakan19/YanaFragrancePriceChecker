@@ -90,6 +90,7 @@ import { capturePages, type CapturePage } from '../src/catalogue/renderCapture.j
 import {
   parseCursor, sweepOrder, heavyFirst, shopsThatRanOutOfTime, withAttempt, withActorRender, lastActorRender, staleCursorIds,
   discoveryOffsetFor, withDiscoveryOffset, barcodeBackoffUntil, withBarcodeBackoff, BARCODE_BACKOFF_HOURS,
+  slowFirst, slowShopMinutes, withBudgetOutcome, isLongRun, slowestFirst, isSlowShop, budgetStops, SLOW_SHOP_CAP_MINUTES,
 } from '../src/catalogue/harvestCursor.js';
 import { SHOPIFY_MAX_PAGE } from '../src/catalogue/shopifyProductsCrawl.js';
 import {
@@ -97,11 +98,11 @@ import {
   normaliseProductUrl, type CatalogueRefreshResult, type RefreshPlatform,
 } from '../src/catalogue/catalogueRefresh.js';
 import { DEFAULT_REFRESH_AFTER_HOURS, dueUrls, refreshAfterHoursFor, shopFreshness } from '../src/catalogue/freshness.js';
-import type { ReportedFreshness } from '../src/catalogue/harvestReport.js';
+import type { HarvestReport, ReportedFreshness } from '../src/catalogue/harvestReport.js';
 import type { RawListing, StoredListing } from '../src/catalogue/types.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { NOTHING_HARVESTED } from './harvestExit.js';
-import { groupAssignment, parseGroupArg } from '../src/catalogue/harvestGroups.js';
+import { groupAssignment, parseGroupArg, shopSecondsFromReport } from '../src/catalogue/harvestGroups.js';
 import { freshnessTable } from '../src/catalogue/harvestFreshness.js';
 
 /** A file that may not exist yet, as text. Absence is not an error here. */
@@ -484,12 +485,34 @@ let cursor = parseCursor(readFileIfPresent(cursorPath));
 // the clock ran out) start first, up to four, so they get their whole ceiling
 // instead of what is left of the sweep; see shopsThatRanOutOfTime. The report
 // on disk is still the previous run's: it is rewritten after this point.
-const shops = heavyFirst(
-  sweepOrder(
-    enabledShops.map((r) => ({ ...r, neverLive: neverLiveYet(r.id) })),
-    cursor,
-  ),
-  onlyShop ? new Set<string>() : shopsThatRanOutOfTime(readFileIfPresent(resolve(root, 'data/harvest-report.json'))),
+const previousReportText = readFileIfPresent(resolve(root, 'data/harvest-report.json'));
+const previousFreshness = ((): Record<string, ReportedFreshness> | undefined => {
+  try {
+    return previousReportText ? (JSON.parse(previousReportText) as HarvestReport).freshness : undefined;
+  } catch {
+    return undefined;
+  }
+})();
+let sweepOrdered = sweepOrder(
+  enabledShops.map((r) => ({ ...r, neverLive: neverLiveYet(r.id) })),
+  cursor,
+);
+// A long run guard (docs/PIPELINE-FAILURE-MODES.md, row 63): when the last harvest
+// took more than HARVEST_LONG_MINUTES end to end, this one starts its slowest shops
+// first (longest first fills side by side lanes best). The merge sets and clears the note.
+if (!onlyShop && isLongRun(cursor) && previousReportText) {
+  try {
+    sweepOrdered = slowestFirst(sweepOrdered, shopSecondsFromReport(JSON.parse(previousReportText) as HarvestReport));
+    console.log(`long run  the last harvest took ${cursor.longRun!.minutes} minutes: the slowest shops start first`);
+  } catch {
+    // An ordering hint, like the rest of the cursor.
+  }
+}
+// The slow shop valve goes last, so a shop that stopped on its time budget twice in
+// a row leads its group whatever else moved.
+const shops = slowFirst(
+  heavyFirst(sweepOrdered, onlyShop ? new Set<string>() : shopsThatRanOutOfTime(previousReportText)),
+  onlyShop ? { ...cursor, slowShops: {} } : cursor,
 );
 
 // Stamps for shops this registry no longer sweeps. Reported rather than
@@ -525,6 +548,25 @@ function recordAttempt(retailerId: string): void {
 function recordDiscovery(retailerId: string, fetched: number): void {
   if (!(fetched > 0)) return;
   cursor = withDiscoveryOffset(cursor, retailerId, discoveryOffsetFor(cursor, retailerId) + fetched);
+  try {
+    writeFileSync(cursorPath, `${JSON.stringify(cursor, null, 2)}\n`);
+  } catch {
+    // An ordering hint, like the rest of the cursor.
+  }
+}
+
+/**
+ * Note how a shop's read ended for the slow shop valve: stopped on its time budget
+ * (one more in a row) or in time (back to 0), and put it on disk at once. Same
+ * failure policy as recordAttempt.
+ */
+function recordBudgetOutcome(retailerId: string, stoppedOnBudget: boolean): void {
+  const before = budgetStops(cursor, retailerId);
+  cursor = withBudgetOutcome(cursor, retailerId, stoppedOnBudget);
+  const after = budgetStops(cursor, retailerId);
+  if (after !== before) {
+    console.log(`      ${retailerId}: ${stoppedOnBudget ? `stopped on its time budget ${after} harvest(s) in a row` : 'finished in time, the longer time budget closes'}`);
+  }
   try {
     writeFileSync(cursorPath, `${JSON.stringify(cursor, null, 2)}\n`);
   } catch {
@@ -776,7 +818,21 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
   // process back to overrunning its step, which is the whole thing being
   // fixed. crawlViaSitemap applies maxDurationMs to its sitemap discovery as
   // well as its fetch loop, so the bound holds for the whole shop.
-  const configuredShopMs = shopMinutes !== null ? Math.round(shopMinutes * 60_000) : DEFAULT_CRAWL_MS;
+  // The sweep's ceiling, or the shop's own where its pages answer slowly, and once the
+  // slow shop valve is open (stopped on its budget twice in a row) more, up to the cap.
+  // Only the time grows; the gap below is the shop's, as always.
+  const baseShopMinutes = Math.max(
+    shopMinutes !== null ? shopMinutes : DEFAULT_CRAWL_MS / 60_000,
+    Math.min(SLOW_SHOP_CAP_MINUTES, retailer.slowShopMinutes ?? 0),
+  );
+  const shopCeilingMinutes = onlyShop ? baseShopMinutes : slowShopMinutes(cursor, retailer.id, baseShopMinutes);
+  if (shopCeilingMinutes !== (shopMinutes ?? DEFAULT_CRAWL_MS / 60_000)) {
+    console.log(
+      `      ${retailer.name}: time budget ${shopCeilingMinutes} minutes ` +
+        `(${isSlowShop(cursor, retailer.id) ? `slow shop valve, stopped on its budget ${budgetStops(cursor, retailer.id)} harvests in a row` : 'its own setting'}; the gap stays ${gapMs} ms)`,
+    );
+  }
+  const configuredShopMs = Math.round(shopCeilingMinutes * 60_000);
   const shopMs =
     runDeadlineAt === null
       ? configuredShopMs
@@ -1444,6 +1500,7 @@ async function harvestShop(retailer: (typeof shops)[number]): Promise<void> {
       : viaPatience ? 'patient'
       : withPrice.length > 0 || feedListings.length > 0 ? 'free'
       : 'none';
+  recordBudgetOutcome(retailer.id, result.errors.some((e) => /^stopped early: exceeded this shop's time budget/.test(e)));
   report.record({
     retailerId: retailer.id,
     name: retailer.name,
@@ -1672,7 +1729,7 @@ if (!groupArg) {
   const nowDate = new Date();
   // Which shops answered, and the table: src/catalogue/harvestFreshness.ts.
   const measured = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
-  const freshness = freshnessTable(report.current().shops, measured, (id) => store.read(id), nowDate);
+  const freshness = freshnessTable(report.current().shops, measured, (id) => store.read(id), nowDate, previousFreshness);
   report.setFreshness(freshness);
   console.log(`\nFreshness after this run (shown listings by age of last confirmed price)`);
   console.log(`  ${'shop'.padEnd(24)} ${'shown'.padStart(6)} ${'>24h'.padStart(6)} ${'>48h'.padStart(6)}  answered`);

@@ -24,7 +24,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
-import { parseCursor } from '../src/catalogue/harvestCursor.js';
+import { parseCursor, withRunLength } from '../src/catalogue/harvestCursor.js';
 import { freshnessTable } from '../src/catalogue/harvestFreshness.js';
 import { HARVEST_GROUPS, METERED_GROUP, mergeCursors, mergeReports, shopsOfGroup } from '../src/catalogue/harvestGroups.js';
 import type { HarvestReport } from '../src/catalogue/harvestReport.js';
@@ -79,6 +79,8 @@ export function run(dir: string, onlyShop: string | null = null, repo: string = 
   const cursorPath = resolve(repo, 'data/harvest-cursor.json');
   const baseCursor = parseCursor(existsSync(cursorPath) ? readFileSync(cursorPath, 'utf8') : null);
   const seen = new Set<number>();
+  // Last harvest's report, read before this one replaces it: the freshness table compares with it.
+  const previousReport = readJson<HarvestReport>(resolve(repo, 'data/harvest-report.json'));
 
   for (const { info, dir: d } of sweeps) {
     const group = info.group as number;
@@ -125,11 +127,15 @@ export function run(dir: string, onlyShop: string | null = null, repo: string = 
     console.log(`houses: ${info.files.length} file(s) applied`);
   }
 
-  writeFileSync(cursorPath, `${JSON.stringify(mergeCursors(baseCursor, cursorParts), null, 2)}\n`);
-
   const merged = mergeReports(parts);
+  // The long run guard: a sweep over HARVEST_LONG_MINUTES makes the next one start its slowest shops first.
+  const groupMinutes = (merged.groups ?? []).map((g) => g.minutes).filter((m): m is number => typeof m === 'number');
+  const longest = groupMinutes.length > 0 ? Math.max(...groupMinutes) : null;
+  const mergedCursor = mergeCursors(baseCursor, cursorParts);
+  const cursorOut = onlyShop ? mergedCursor : withRunLength(mergedCursor, longest, new Date().toISOString());
+  writeFileSync(cursorPath, `${JSON.stringify(cursorOut, null, 2)}\n`);
   const store = new CatalogueStore(resolve(repo, 'data/catalogue'));
-  merged.freshness = freshnessTable(merged.shops, RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop)), (id) => store.read(id));
+  merged.freshness = freshnessTable(merged.shops, RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop)), (id) => store.read(id), new Date(), previousReport?.freshness);
   writeFileSync(resolve(repo, 'data/harvest-report.json'), `${JSON.stringify(merged, null, 2)}\n`);
 
   for (const g of merged.groups ?? []) {

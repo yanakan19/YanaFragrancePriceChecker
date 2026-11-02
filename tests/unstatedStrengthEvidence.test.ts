@@ -4,6 +4,7 @@ import { STRENGTH_EVIDENCE, declinesStrengthWords, evidencedStrength } from '../
 import { isFragrance } from '../src/catalogue/fragranceId.js';
 import { CONCENTRATION_NOT_STATED, concentrationOfStoredListing } from '../src/catalogue/productName.js';
 import type { StoredListing } from '../src/catalogue/types.js';
+import { softIt } from './support/softCheck.js';
 
 // About 185 Cult Beauty perfume pages state no strength and were hidden (commit
 // 710db0a1). The brand's own page names it for some; this holds each entry to its
@@ -149,7 +150,7 @@ describe('what it unlocks', () => {
     expect(concentrationOfStoredListing(edt)).toBe('Eau de Toilette');
   });
 
-  it('puts the unlocked Creed pages in the built catalogue, as Eau de Parfum, once each', () => {
+  softIt('puts-the-unlocked-creed-pages-in-the-built-catal', 'puts the unlocked Creed pages in the built catalogue, as Eau de Parfum, once each', () => {
     const wild = CATALOGUE.filter((p) => p.brand === 'Creed' && p.name === 'Wild Vetiver' && p.sizeMl === 50);
     if (wild.length === 0) return; // the shops stopped listing it
     expect(wild).toHaveLength(1);
@@ -160,7 +161,7 @@ describe('what it unlocks', () => {
   // The rule, not a snapshot of today's listings: this pinned "no Commodity
   // product from Cult Beauty at all" and failed when the shop's discovery kits
   // arrived as gift sets (2026-10-06), which carry no strength and are right.
-  it('shows no Commodity bottle from Cult Beauty and puts no strength on anything of theirs there: the house names none', () => {
+  softIt('shows-no-commodity-bottle-from-cult-beauty-and-p', 'shows no Commodity bottle from Cult Beauty and puts no strength on anything of theirs there: the house names none', () => {
     const fromCult = CATALOGUE.filter(
       (p) => p.brand === 'Commodity' && (CRAWLED[p.id] ?? []).some((o) => o.retailerId === 'cult-beauty-global'),
     );

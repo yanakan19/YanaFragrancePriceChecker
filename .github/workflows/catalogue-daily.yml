@@ -1040,7 +1040,14 @@ jobs:
       fail-fast: false
       matrix:
         group: [0, 1]
-    # 62 minutes of sweep (the old deadline was 56 for all the shops) and each shop's
+    # 2 Nov 2026: up to 66 minutes of sweep (was 62), the most this job's 80 and the step's 70
+    # allow with prepare 45 + sweep 80 + crawl 55 inside the three hour tick (tests/workflowRules.test.ts).
+    # Most groups still end at about 50 minutes, when their shops are swept; the room is for a slow
+    # shop (Niche Beauty: a page takes 8 to 24 seconds, 308 pages in 50 minutes) that the slow shop
+    # valve gives a longer time budget, up to 65 minutes, src/catalogue/harvestCursor.ts. A sweep that
+    # runs into its deadline (the whole run then passes 100 minutes) makes the next one start its
+    # slowest shops first.
+    # Before that: 62 minutes of sweep (the old deadline was 56 for all the shops) and each shop's
     # ceiling 50 (was 40), inside the step's 70 and this job's 80; the artifact upload
     # follows. Run time per group was measured in the last sweep at 225 minutes of
     # shop time each, 28 minutes over eight lanes, and the slow shops take their ceiling.
@@ -1253,7 +1260,7 @@ jobs:
           # inside the job's 120 minutes (scripts/harvest-minutes.sh). Too
           # little left and the harvest is skipped, with an error, rather
           # than cut off mid commit by the job limit (run #180).
-          if ! RUN_MINUTES=$(JOB_LIMIT_MIN=80 RESERVE_MIN=12 MAX_MIN=62 scripts/harvest-minutes.sh); then
+          if ! RUN_MINUTES=$(JOB_LIMIT_MIN=80 RESERVE_MIN=12 MAX_MIN=66 scripts/harvest-minutes.sh); then
             exit 1
           fi
           # ── Why the metered tiers are not offered on every run ─────────────

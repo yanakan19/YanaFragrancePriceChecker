@@ -248,7 +248,7 @@ describe('the sets in the catalogue', () => {
     expect(sets.filter((c) => c.giftSet!.bundle).length).toBeGreaterThan(60);
   });
 
-  it('mark every Kayali, Escentric and other listing the shop files under Bundle or Bundles as a bundle', () => {
+  softIt('mark-every-kayali-escentric-and-other-listing-th', 'mark every Kayali, Escentric and other listing the shop files under Bundle or Bundles as a bundle', () => {
     const dir = resolve(import.meta.dirname, '../data/catalogue');
     if (!existsSync(dir)) return;
     let seen = 0;

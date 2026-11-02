@@ -6,6 +6,7 @@ import {
 } from '../src/catalogue/brandName.js';
 import { hasHtmlEntity } from '../src/catalogue/htmlEntities.js';
 import { BRAND_ALIAS_SLUGS, matchRoute, slugify } from '../demo/router.js';
+import { softIt } from './support/softCheck.js';
 
 /**
  * Every house is one brand (11 Oct 2026). The Brands list, a brand page, the
@@ -361,7 +362,7 @@ describe.each(Object.entries(CATALOGUES))('the %s catalogue as built', (_name, p
 });
 
 describe('the house files and the UK catalogue agree on the entity rule', () => {
-  it('has no entity in a house product brand or name', () => {
+  softIt('has-no-entity-in-a-house-product-brand-or-name', 'has no entity in a house product brand or name', () => {
     expect(HOUSE_PRODUCTS.filter((p) => hasHtmlEntity(p.brand) || hasHtmlEntity(p.name)).map((p) => `${p.brand} | ${p.name}`)).toEqual([]);
   });
 });

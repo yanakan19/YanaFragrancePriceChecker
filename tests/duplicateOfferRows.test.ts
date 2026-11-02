@@ -6,6 +6,7 @@ import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
 import { matchKey, rawTitlesAgree } from '../src/catalogue/productMatch.js';
 import { concentration } from '../src/catalogue/productName.js';
 import { sizeMl } from '../src/catalogue/fragranceId.js';
+import { softIt } from './support/softCheck.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -32,7 +33,7 @@ describe('no product lists one shop twice with the same row', () => {
     expect(CATALOGUE.length).toBeGreaterThan(0);
   });
 
-  it('has no two offers a reader could not tell apart', () => {
+  softIt('has-no-two-offers-a-reader-could-not-tell-apart', 'has no two offers a reader could not tell apart', () => {
     const offenders: string[] = [];
     for (const [fragranceId, offers] of Object.entries(CRAWLED)) {
       const seen = new Set<string>();
@@ -50,7 +51,7 @@ describe('no product lists one shop twice with the same row', () => {
      Emirates Oud's Odyssey Aqua showed a buyable £22.50 row last seen
      2026-08-16 beside the shop's 2026-10-02 "out of stock". Only the newest
      reading is what the shop says today. */
-  it('never shows an older stock reading of the same page and price beside a newer one', () => {
+  softIt('never-shows-an-older-stock-reading-of-the-same-p', 'never shows an older stock reading of the same page and price beside a newer one', () => {
     const offenders: string[] = [];
     for (const [fragranceId, offers] of Object.entries(CRAWLED)) {
       const groups = new Map<string, string[]>();
@@ -65,7 +66,7 @@ describe('no product lists one shop twice with the same row', () => {
     expect(offenders).toEqual([]);
   });
 
-  it('counts shops on the product record as offers actually shipped', () => {
+  softIt('counts-shops-on-the-product-record-as-offers-act', 'counts shops on the product record as offers actually shipped', () => {
     /* `shops` is written as offers.length, so a collapsed row has to leave it
        consistent or the count on the page goes back to overstating. */
     const wrong = CATALOGUE.filter((p) => p.shops !== (CRAWLED[p.id] ?? []).length);

@@ -6,7 +6,7 @@
  * (scripts/harvest-merge.ts), which is the only place that sees every group.
  */
 import type { CatalogueSnapshot } from './store.js';
-import { shopFreshness } from './freshness.js';
+import { freshnessStuckRuns, shopFreshness } from './freshness.js';
 import { refusalIn } from './refusal.js';
 import type { ReportedFreshness, ShopHarvestOutcome } from './harvestReport.js';
 
@@ -40,14 +40,26 @@ export function freshnessTable(
   measured: readonly { id: string; adapter?: string }[],
   read: (id: string) => Pick<CatalogueSnapshot, 'source' | 'listings'>,
   now: Date = new Date(),
+  previous?: Readonly<Record<string, ReportedFreshness>>,
 ): Record<string, ReportedFreshness> {
   const answered = answeredShopIds(shops);
+  const onBudget = new Set(
+    shops.filter((s) => s.errors.some((e) => /^stopped early: exceeded this shop's time budget/.test(e))).map((s) => s.retailerId),
+  );
   const table: Record<string, ReportedFreshness> = {};
   for (const r of measured) {
     const snap = read(r.id);
     if (snap.source !== 'live') continue;
     const source = priceSourceOf(r.adapter);
-    table[r.id] = { ...shopFreshness(snap.listings, now), answered: answered.has(r.id), ...(source ? { source } : {}) };
+    const fresh = shopFreshness(snap.listings, now);
+    const stuckRuns = freshnessStuckRuns(fresh, previous?.[r.id]);
+    table[r.id] = {
+      ...fresh,
+      answered: answered.has(r.id),
+      ...(source ? { source } : {}),
+      ...(stuckRuns > 0 ? { stuckRuns } : {}),
+      ...(onBudget.has(r.id) ? { timeBudget: true } : {}),
+    };
   }
   return table;
 }

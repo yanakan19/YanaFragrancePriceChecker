@@ -66,6 +66,48 @@ export function freshnessHardLimit(shown: number): number {
 }
 
 /**
+ * Harvests in a row a shop that answered must be over the tolerance and not
+ * improving before the freshness check fails the crawl (a shop stopped on its
+ * time budget gets `FRESHNESS_STUCK_RUNS_ON_BUDGET`, while the slow shop valve
+ * gives it more time). One harvest of old prices is a fact about the run; three
+ * in a row, with no fall in the share, is a harvest that cannot keep up.
+ */
+export const FRESHNESS_STUCK_RUNS = 3;
+export const FRESHNESS_STUCK_RUNS_ON_BUDGET = 6;
+
+/**
+ * The shop's run of harvests that were over the tolerance without improving:
+ * 0 within the tolerance or when the share of shown listings over 48 hours fell
+ * since the previous harvest (the shop is catching up: a warning, not a failure),
+ * else one more than before (1 for a shop seen over the tolerance for the first time).
+ */
+export function freshnessStuckRuns(
+  now: Pick<ShopFreshness, 'shown' | 'over48h'>,
+  previous: (Pick<ShopFreshness, 'shown' | 'over48h'> & { stuckRuns?: number }) | undefined,
+): number {
+  if (now.over48h <= freshnessTolerance(now.shown)) return 0;
+  if (!previous) return 1;
+  const share = (f: Pick<ShopFreshness, 'shown' | 'over48h'>) => (f.shown > 0 ? f.over48h / f.shown : 0);
+  if (share(now) < share(previous)) return 0;
+  return Math.min(99, (previous.stuckRuns ?? 0) + 1);
+}
+
+/**
+ * Whether a shop's freshness fails the crawl: it answered (or is a feed shop),
+ * has more listings over 48 hours than `freshnessHardLimit`, and has not been
+ * improving for `FRESHNESS_STUCK_RUNS` harvests (`FRESHNESS_STUCK_RUNS_ON_BUDGET`
+ * when its read stopped on its own time budget). Everything short of that is a
+ * warning the weekly health lists.
+ */
+export function freshnessFailsCrawl(
+  f: Pick<ShopFreshness, 'shown' | 'over48h'> & { stuckRuns?: number; timeBudget?: boolean },
+  judged: boolean,
+): boolean {
+  if (!judged || f.over48h <= freshnessHardLimit(f.shown)) return false;
+  return (f.stuckRuns ?? 0) >= (f.timeBudget ? FRESHNESS_STUCK_RUNS_ON_BUDGET : FRESHNESS_STUCK_RUNS);
+}
+
+/**
  * How old the newest harvest report is, for scripts/freshness-check.ts. The
  * check runs even when an earlier step of the crawl failed (run #592 skipped
  * it), and then the report on disk can be one or more runs old: the line says

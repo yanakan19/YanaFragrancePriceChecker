@@ -15,8 +15,11 @@
  *   - exits 1 when a shop that answered this run (priced something, from its
  *     pages or its own catalogue feed, and refused no page) has more over 48h than
  *     freshnessHardLimit allows (a tenth of its shown listings, at least 25; between
- *     the small tolerance and that it is a warning), because that shop let us in and we still left its
- *     prices to age, which is the regression this exists to catch;
+ *     the small tolerance and that it is a warning) AND has not been improving for
+ *     FRESHNESS_STUCK_RUNS harvests in a row (6 when its read stopped on its own time
+ *     budget, while the slow shop valve gives it longer): that shop let us in and we
+ *     still left its prices to age, which is the regression this exists to catch. A
+ *     shop that is catching up, or new over the limit, is a warning the weekly health lists;
  *   - judges a feed shop (affiliate feed, synced by the Awin step, never asked by
  *     the sweep) the same way, by the age of its listings: a feed that stopped
  *     syncing fails here, and `answered: no` says nothing about it. An import
@@ -31,7 +34,9 @@ import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { HarvestReport } from '../src/catalogue/harvestReport.js';
-import { freshnessHardLimit, freshnessTolerance, reportAge } from '../src/catalogue/freshness.js';
+import {
+  freshnessFailsCrawl, freshnessHardLimit, freshnessTolerance, reportAge, FRESHNESS_STUCK_RUNS, FRESHNESS_STUCK_RUNS_ON_BUDGET,
+} from '../src/catalogue/freshness.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const warnOnly = process.argv.includes('--warn-only');
@@ -74,8 +79,18 @@ for (const [id, f] of Object.entries(report.freshness).sort(([a], [b]) => a.loca
       `::warning::${id}: ${f.over48h} of ${f.shown} shown listings last confirmed more than 48 hours ago ` +
         `(over the tolerance ${allowed}, under the limit ${hardLimit} that fails the run): look at which listings the shop no longer serves.`,
     );
+  } else if (judged && f.over48h > hardLimit && !freshnessFailsCrawl(f, judged)) {
+    // Over the limit but not for long enough to be a harvest that cannot keep up: it fell since the
+    // last harvest (catching up), or it is the first or second harvest in a row, or the shop was
+    // stopped by its own time budget (the slow shop valve gives it more time). A warning the weekly
+    // health lists; the crawl fails when it stays stuck (FRESHNESS_STUCK_RUNS harvests, 6 on a time budget).
+    console.log(
+      `::warning::${id}: ${f.over48h} of ${f.shown} shown listings last confirmed more than 48 hours ago, over the limit ${hardLimit} ` +
+        `but ${f.stuckRuns ? `not improving for ${f.stuckRuns} harvest(s) of ${f.timeBudget ? FRESHNESS_STUCK_RUNS_ON_BUDGET : FRESHNESS_STUCK_RUNS}` : 'improving or new'}` +
+        `${f.timeBudget ? ' and its read stopped on its time budget (the slow shop valve gives it longer)' : ''}.`,
+    );
   } else if (judged && f.over48h > hardLimit) {
-    failing.push(`${id} (${f.over48h} of ${f.shown} shown listings over 48h, limit ${hardLimit}${f.source === 'feed' ? ', feed' : ''})`);
+    failing.push(`${id} (${f.over48h} of ${f.shown} shown listings over 48h, limit ${hardLimit}, not improving for ${f.stuckRuns ?? 0} harvests${f.source === 'feed' ? ', feed' : ''})`);
     console.log(
       f.source === 'feed'
         ? `::error::${id} is read from a feed and ${f.over48h} of its ${f.shown} shown listings were last confirmed more than 48 hours ago: the feed sync is not keeping up.`

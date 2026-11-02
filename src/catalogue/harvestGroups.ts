@@ -264,8 +264,8 @@ export function shopSecondsFromReport(report: Pick<HarvestReport, 'startedAt' | 
 
 /** The cursor with each group's own shops taken from that group's cursor and every other entry kept from `base`. */
 export function mergeCursors(base: HarvestCursor, parts: readonly { ids: ReadonlySet<string>; cursor: HarvestCursor }[]): HarvestCursor {
-  const maps = ['attempted', 'actorRendered', 'discoveryOffset', 'barcodeBackoff'] as const;
-  const out: Record<string, Record<string, string | number>> = {};
+  const maps = ['attempted', 'actorRendered', 'discoveryOffset', 'barcodeBackoff', 'slowShops'] as const;
+  const out: Record<string, unknown> = {};
   for (const name of maps) {
     const merged: Record<string, string | number> = { ...((base[name] as Record<string, string | number> | undefined) ?? {}) };
     for (const { ids, cursor } of parts) {
@@ -276,6 +276,8 @@ export function mergeCursors(base: HarvestCursor, parts: readonly { ids: Readonl
     }
     if (Object.keys(merged).length > 0 || name === 'attempted' || name === 'actorRendered') out[name] = merged;
   }
+  // The run length is the merge's own to set (it alone sees every group), never a group's.
+  if (base.longRun) out.longRun = base.longRun;
   return out as unknown as HarvestCursor;
 }
 

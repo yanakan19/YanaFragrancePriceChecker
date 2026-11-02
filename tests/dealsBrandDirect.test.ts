@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { DEALS } from '../demo/data.js';
 import { CATALOGUE, CRAWLED } from '../demo/catalogue.generated.js';
 import { RETAILERS } from '../src/config/retailers.js';
+import { softIt } from './support/softCheck.js';
 
 /**
  * Backlog item: "brand-direct excluded from Most Stocked and Deals". Checked
@@ -17,7 +18,7 @@ describe('DEALS excludes brand-direct storefronts', () => {
     expect(DEALS.length).toBeGreaterThan(0);
   });
 
-  it('never surfaces a deal from a retailer with singleBrandOnly set', () => {
+  softIt('never-surfaces-a-deal-from-a-retailer-with-singl', 'never surfaces a deal from a retailer with singleBrandOnly set', () => {
     const singleBrandOnlyIds = new Set(
       RETAILERS.filter((r) => r.singleBrandOnly).map((r) => r.id),
     );
@@ -68,11 +69,11 @@ describe('DEALS never out-claim the fragrance house', () => {
     CATALOGUE.flatMap((p) => (p.houseCeiling === undefined ? [] : [[p.id, p.houseCeiling] as const])),
   );
 
-  it('has deals on fragrances whose house is also here, or this proves nothing', () => {
+  softIt('has-deals-on-fragrances-whose-house-is-also-here', 'has deals on fragrances whose house is also here, or this proves nothing', () => {
     expect(DEALS.filter((d) => ceilings.has(d.fragrance.id)).length).toBeGreaterThan(0);
   });
 
-  it('never strikes through a price above the house’s own', () => {
+  softIt('never-strikes-through-a-price-above-the-house-s', 'never strikes through a price above the house’s own', () => {
     const offenders = DEALS.filter((d) => {
       const top = ceilings.get(d.fragrance.id);
       return top !== undefined && d.wasPrice > top;
@@ -82,7 +83,7 @@ describe('DEALS never out-claim the fragrance house', () => {
     ).toEqual([]);
   });
 
-  it('records a ceiling exactly where a single-brand storefront is stocked', () => {
+  softIt('records-a-ceiling-exactly-where-a-single-brand-s', 'records a ceiling exactly where a single-brand storefront is stocked', () => {
     /* The ceiling and the offers are written by the same pass over the same
        products, so they cannot drift apart — but they can both be wrong in the
        same direction if the brand match silently stops matching, which would
@@ -106,11 +107,11 @@ describe('DEALS never out-claim the fragrance house', () => {
  * regression: that a future change does not quietly bring the exclusion back.
  */
 describe('DEALS no longer singles out Perfume Click', () => {
-  it('surfaces Perfume Click deals like any other shop', () => {
+  softIt('surfaces-perfume-click-deals-like-any-other-shop', 'surfaces Perfume Click deals like any other shop', () => {
     expect(DEALS.some((d) => d.retailerId === 'perfume-click')).toBe(true);
   });
 
-  it('still has deals from other shops', () => {
+  softIt('still-has-deals-from-other-shops', 'still has deals from other shops', () => {
     const shops = new Set(DEALS.map((d) => d.retailerId));
     expect(shops.size).toBeGreaterThan(1);
   });

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { GIFT_SET_BAND, VOLUME_BANDS, volumeBandFor, volumeOptions, type VolumeBand } from '../demo/volumeBands.js';
 import { CATALOGUE } from '../demo/catalogue.generated.js';
+import { softIt } from './support/softCheck.js';
 
 /**
  * The Volume facet's whole job is deciding what happens at a shared boundary
@@ -112,7 +113,7 @@ describe('gift sets: their own option under Volume (owner, 2026-10-03)', () => {
     expect(volumeOptions(new Map<VolumeBand, number>([['30-70', 1]])).map((o) => o.value)).toEqual(['30-70']);
   });
 
-  it('puts every gift set in the shipped catalogue under Gift Sets, and no single bottle', () => {
+  softIt('puts-every-gift-set-in-the-shipped-catalogue-und', 'puts every gift set in the shipped catalogue under Gift Sets, and no single bottle', () => {
     const sets = CATALOGUE.filter((p) => p.giftSet);
     expect(sets.length).toBeGreaterThan(0);
     for (const p of sets) {

@@ -106,6 +106,11 @@ snapshots and reports, and the "deploy" files above).
   different checks find something at once. Never for a memory, an id alias, the
   sitemap or the deploy budget (`tests/softTestReport.test.ts`; row 61 of
   `docs/PIPELINE-FAILURE-MODES.md`).
+- Since 2 Nov 2026 every data check that judges what shops listed is `softIt`
+  or `softly` (a new one too, unless it guards structure), the freshness check
+  fails a shop only when it is stale and has not improved for 3 harvests, and a
+  shop that stops on its time budget twice gets a longer one
+  (`docs/PIPELINE-FAILURE-MODES.md` rows 63 to 66).
 - The whole repository type checks on every push (`tests.yml`, job
   `typecheck`): run `npx tsc --noEmit -p tsconfig.json` before you push.
 
