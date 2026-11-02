@@ -292,7 +292,7 @@ jobs:
       # tests/crawlGuard.test.ts can hold it to its rules. Checking out that
       # one file, with no history and no other blobs, takes seconds: the
       # point of a separate guard job (cheap skipped ticks) still holds.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 3
         with:
           sparse-checkout: scripts/crawl-guard.sh
@@ -551,12 +551,12 @@ jobs:
       # single commit, rebuild demo/priceHistory.generated.ts from just that
       # one point, and never accumulate history from here on — with no error,
       # nothing failing, just a chart that quietly never grows past one dot.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 10
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         timeout-minutes: 5
         with:
           node-version: '22'
@@ -1069,13 +1069,13 @@ jobs:
       # ref is the commit that started the run, which does not have it). One
       # commit deep: this job never reads history, and the merge compares
       # against the commit it started from by name.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 10
         with:
           ref: ${{ github.ref_name }}
 
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         timeout-minutes: 5
         with:
           node-version: '22'
@@ -1377,7 +1377,7 @@ jobs:
         timeout-minutes: 5
         run: npx tsx scripts/harvest-pack.ts sweep ${{ matrix.group }} handover
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         timeout-minutes: 10
         with:
@@ -1404,12 +1404,12 @@ jobs:
       SCHEDULED: ${{ github.event_name == 'schedule' || inputs.scheduled_tick == true }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 10
         with:
           ref: ${{ github.ref_name }}
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         timeout-minutes: 5
         with:
           node-version: '22'
@@ -1449,7 +1449,7 @@ jobs:
         timeout-minutes: 5
         run: npx tsx scripts/harvest-pack.ts houses handover
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         if: ${{ !cancelled() }}
         timeout-minutes: 10
         with:
@@ -1484,13 +1484,13 @@ jobs:
       # fetch-depth: 0 is load-bearing: scripts/build-price-history.ts replays the
       # whole commit history of data/catalogue (see `prepare`). The branch as it is
       # now, not the commit that started the run: `prepare` pushed after that.
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         timeout-minutes: 10
         with:
           ref: ${{ github.ref_name }}
           fetch-depth: 0
 
-      - uses: actions/setup-node@v5
+      - uses: actions/setup-node@v7
         timeout-minutes: 5
         with:
           node-version: '22'
@@ -1507,7 +1507,7 @@ jobs:
         timeout-minutes: 10
         run: scripts/retry.sh 2 npx playwright install --with-deps --only-shell chromium
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         if: ${{ !cancelled() && (inputs.harvest || env.SCHEDULED == 'true') && (needs.sweep.result == 'success' || needs.sweep.result == 'failure') }}
         continue-on-error: true
         timeout-minutes: 10
