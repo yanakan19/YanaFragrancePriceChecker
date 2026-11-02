@@ -61,6 +61,16 @@ if (feedRetailers.length === 0) {
 type SyncState = Record<string, { lastImported: string }>;
 const state: SyncState = existsSync(statePath) ? JSON.parse(readFileSync(statePath, 'utf8')) : {};
 
+// Self limit (2 Nov 2026, run #2263: one feed download hung after the list printed and the step ran
+// into its 30 minute cap, which failed the whole crawl). After AWIN_SYNC_MAX_MINUTES the sync stops
+// where it is and exits 0: every feed already imported is whole (a feed is written only when it has
+// downloaded), and the feeds not reached are due again next run, oldest sync first.
+const AWIN_SYNC_MAX_MINUTES = 20;
+setTimeout(() => {
+  console.log(`::warning::The Awin sync stopped after ${AWIN_SYNC_MAX_MINUTES} minutes with a feed still downloading; the feeds not reached are synced next run.`);
+  process.exit(0);
+}, AWIN_SYNC_MAX_MINUTES * 60_000);
+
 const http = createHttp();
 const now = new Date().toISOString();
 const headers = { 'user-agent': BOT_USER_AGENT };
