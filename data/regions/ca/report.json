@@ -1,26 +1,26 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-11-01T12:05:40.638Z",
+  "builtAt": "2026-11-02T13:58:01.652Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 10,
   "shopsPriced": 10,
-  "crawlMinutes": 7.02,
-  "harvestRanAt": "2026-11-01T11:58:38.767Z",
-  "listingsPriced": 46807,
-  "listingsKept": 36721,
+  "crawlMinutes": 12.03,
+  "harvestRanAt": "2026-11-02T13:45:59.188Z",
+  "listingsPriced": 46810,
+  "listingsKept": 36724,
   "staleAfterDays": 7,
-  "products": 26696,
+  "products": 26697,
   "productsWithTwoOrMoreShops": 6321,
   "shareWithTwoOrMoreShops": 0.237,
   "productsWithTwoOrMoreIndependentShops": 6321,
   "shareWithTwoOrMoreIndependentShops": 0.237,
-  "productsWithThreeOrMoreShops": 2230,
+  "productsWithThreeOrMoreShops": 2231,
   "medianPriceGap": 0.225,
   "listingBarcodeShare": 0.253,
-  "productsMatchingUkByBarcode": 2400,
+  "productsMatchingUkByBarcode": 2405,
   "shops": [
     {
       "id": "discount-fragrances-ca",
@@ -49,8 +49,8 @@
     },
     {
       "id": "niche-essence",
-      "products": 1254,
-      "shared": 422
+      "products": 1257,
+      "shared": 424
     },
     {
       "id": "parfum-exquis",
@@ -73,13 +73,13 @@
       "shared": 5345
     }
   ],
-  "productsShown": 26696,
-  "productsWithUkPhoto": 5596,
-  "productsWithUkPhotoByBarcode": 1485,
-  "productsWithUkPhotoByName": 4111,
+  "productsShown": 26697,
+  "productsWithUkPhoto": 5597,
+  "productsWithUkPhotoByBarcode": 1490,
+  "productsWithUkPhotoByName": 4107,
   "listingsWithReference": 10871,
-  "offersWithCorroboratedReference": 3318,
-  "deals": 1074,
+  "offersWithCorroboratedReference": 3319,
+  "deals": 1071,
   "shareWithUkPhoto": 0.21,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
