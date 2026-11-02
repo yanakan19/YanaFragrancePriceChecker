@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-02T06:09:49.832Z",
-  "seenAt": "2026-11-02T06:09:49.832Z",
+  "updatedAt": "2026-11-02T10:14:26.987Z",
+  "seenAt": "2026-11-02T10:14:26.987Z",
   "source": "live",
   "listings": [
     {
@@ -8225,7 +8225,7 @@
       "priceGbp": 12,
       "wasPriceGbp": 20,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Infused with conditioning Wild Mango Butter and a blend of Elastic Waxes for a silky, hugs-your-lips feel, this jumbo twist-up matte lipstick is like a power suit for your mouth. A lip crayon that will drive you to matteness..",
       "productType": "Makeup",

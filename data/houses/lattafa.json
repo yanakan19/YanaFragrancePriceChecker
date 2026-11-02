@@ -1,36 +1,9 @@
 {
   "retailerId": "lattafa",
-  "updatedAt": "2026-11-02T06:13:53.548Z",
-  "seenAt": "2026-11-02T06:13:53.548Z",
+  "updatedAt": "2026-11-02T10:18:52.475Z",
+  "seenAt": "2026-11-02T10:18:52.475Z",
   "source": "live",
   "listings": [
-    {
-      "retailerSku": "32LA0252",
-      "url": "https://lattafa.com/product/badee-al-oud-deo-200-ml/",
-      "rawTitle": "Badee Al Oud Deo- 200 ML",
-      "rawBrand": null,
-      "ean": null,
-      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/05/Badee-Al-Oud.png",
-      "description": null,
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": false,
-      "availability": "preOrder",
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 23,
-        "currency": "AED"
-      },
-      "retailerId": "lattafa",
-      "firstSeenAt": "2026-11-02T06:13:53.548Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
     {
       "retailerSku": "31LA3229",
       "url": "https://lattafa.com/product/asad-polar/",
@@ -127,7 +100,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 66,
+        "amount": 53,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -234,7 +207,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 105,
+        "amount": 84,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -286,7 +259,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 70,
+        "amount": 56,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -312,7 +285,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 76,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -341,7 +314,7 @@
         "count": 7
       },
       "nativePrice": {
-        "amount": 90,
+        "amount": 72,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -367,7 +340,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 300,
+        "amount": 180,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -393,7 +366,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 300,
+        "amount": 180,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -445,7 +418,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 195,
+        "amount": 117,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -471,7 +444,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 195,
+        "amount": 117,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -497,7 +470,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 195,
+        "amount": 117,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -575,7 +548,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 230,
+        "amount": 138,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -601,7 +574,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 23,
+        "amount": 9,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -653,7 +626,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 95,
+        "amount": 71,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -662,6 +635,34 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "32LA0252",
+      "url": "https://lattafa.com/product/badee-al-oud-deo-200-ml/",
+      "rawTitle": "Badee Al Oud Deo- 200 ML",
+      "rawBrand": null,
+      "ean": null,
+      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/05/Badee-Al-Oud.png",
+      "description": null,
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": false,
+      "availability": "preOrder",
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 23,
+        "currency": "AED"
+      },
+      "retailerId": "lattafa",
+      "firstSeenAt": "2026-11-02T06:13:53.548Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -684,6 +685,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -713,6 +715,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -739,6 +742,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -768,6 +772,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -794,6 +799,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -820,6 +826,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-11-02T06:13:53.548Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -846,6 +853,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -872,6 +880,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -898,6 +907,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -924,6 +934,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -950,6 +961,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -976,6 +988,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1005,6 +1018,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1031,6 +1045,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1057,6 +1072,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1083,6 +1099,7 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
+      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
