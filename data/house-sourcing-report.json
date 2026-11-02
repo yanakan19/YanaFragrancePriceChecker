@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-02T14:47:52.493Z",
+  "checkedAt": "2026-11-02T18:47:32.141Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,12 +59,10 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 444,
+      "listings": 507,
       "pricedInGbp": 0,
-      "withPhoto": 422,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 484,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",

@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-02T14:39:28.331Z",
-  "seenAt": "2026-11-02T14:39:28.331Z",
+  "updatedAt": "2026-11-02T18:39:21.753Z",
+  "seenAt": "2026-11-02T18:39:21.753Z",
   "source": "live",
   "listings": [
     {
@@ -60,7 +60,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Montblanc Legend Eau de Toilette 50ml. Key Features. ##features##. Timeless aromatic fougère fragrance.. Notes of bergamot, lavender and pineapple leaf.. Heart of apple, geranium and oakmoss.. Rich base of sandalwood and tonka bean.. Long-lasting masculine scent.. Versatile fragrance suitable for all occasions.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Montblanc Legend Eau de Toilette is a confident and modern fragrance for men. Fresh citrus and aromatic notes blend effortlessly with warm woods and tonka bean to create a fragrance that is both classic and contemporary. An excellent choice for men looking for a reliable daytime or evening scent.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -428,7 +428,7 @@
       "priceGbp": 14.99,
       "wasPriceGbp": 17,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein CK One Eau de Toilette 50ml. Key Features. ##features##. Iconic unisex fragrance loved worldwide.. Fresh citrus aromatic scent profile.. Contains notes of bergamot, pineapple, green tea and musk.. Suitable for men and women.. Ideal everyday fragrance for casual wear.. Compact 50ml bottle perfect for travel.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Calvin Klein CK One Eau de Toilette is a pioneering unisex fragrance that blends refreshing citrus fruits with green tea, delicate florals and warm musk. Clean, modern and universally appealing, CK One remains one of the most recognisable fragrances for everyday wear.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

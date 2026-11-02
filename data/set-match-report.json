@@ -9849,39 +9849,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3614274652956, 3660732521951"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614274652956",
-     "brand": "Viktor & Rolf",
-     "name": "Flowerbomb EDP 50ml Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": "3614274652956",
-     "scent": "flowerbomb",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfumeuk",
-      "scentsational",
-      "scentstore"
-     ]
-    },
-    {
-     "id": "set-ean-3660732521951",
-     "brand": "Viktor & Rolf",
-     "name": "FlowerBomb Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3660732521951",
-     "scent": "flowerbomb",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3614274707380, 3614275021133",
     "a shop lists more than one: beautybase"
    ],
