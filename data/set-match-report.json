@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 201,
+ "folded": 208,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -616,6 +616,70 @@
    ]
   },
   {
+   "canonical": "set-ean-0737052556611",
+   "absorbed": [
+    "set-escada-rockin-rio-gift-set-30ml-edt-beauty-pouch"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0737052556611",
+     "brand": "Escada",
+     "name": "Rockin' Rio Gift Set 30ml EDT + Beauty Pouch",
+     "concentration": "Eau de Toilette",
+     "ean": "0737052556611",
+     "scent": "beauty rio rockin",
+     "signature": "1x30fragrance|1x?other",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-escada-rockin-rio-gift-set-30ml-edt-beauty-pouch",
+     "brand": "Escada",
+     "name": "Rockin' Rio Gift Set 30ml EDT + Beauty Pouch",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "beauty rio rockin",
+     "signature": "1x30fragrance|1x?other",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0783320422324",
+   "absorbed": [
+    "set-bvlgari-man-glacial-essence-gift-set-100ml-edp-15ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0783320422324",
+     "brand": "Bvlgari",
+     "name": "Man Glacial Essence Gift Set 100ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320422324",
+     "scent": "essence glacial man",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-bvlgari-man-glacial-essence-gift-set-100ml-edp-15ml-edp",
+     "brand": "Bvlgari",
+     "name": "Man Glacial Essence Gift Set 100ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "essence glacial man",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0783320427749",
    "absorbed": [
     "set-bvlgari-omnia-crystalline-gift-set-100ml-edt-15ml-edt-40ml-handcream"
@@ -1081,6 +1145,38 @@
      "ean": null,
      "scent": "black orchid",
      "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0888066167109",
+   "absorbed": [
+    "set-tom-ford-private-blend-oud-wood-gift-set-50ml-edp-10ml-travel-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0888066167109",
+     "brand": "Tom Ford",
+     "name": "Private Blend Oud Wood Gift Set 50ml EDP + 10ml Travel Spray",
+     "concentration": "Eau de Parfum",
+     "ean": "0888066167109",
+     "scent": "blend oud private wood",
+     "signature": "1x10travel|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-tom-ford-private-blend-oud-wood-gift-set-50ml-edp-10ml-travel-spray",
+     "brand": "Tom Ford",
+     "name": "Private Blend Oud Wood Gift Set 50ml EDP + 10ml Travel Spray",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blend oud private wood",
+     "signature": "1x10travel|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -2261,6 +2357,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3430750901215",
+   "absorbed": [
+    "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750901215",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3430750901215",
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3605972818416",
    "absorbed": [
     "set-ralph-lauren-polo-blue-gift-set-edt-125ml-edt-40ml-b-wash-50ml-a-balm-50ml"
@@ -2321,6 +2449,39 @@
      "signature": "1x50wash|1x75fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3614228832915",
+   "absorbed": [
+    "set-hugo-boss-the-scent-eau-de-toilette-50ml-duo-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614228832915",
+     "brand": "Hugo Boss",
+     "name": "The Scent 50ml Eau de Toilette Duo Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3614228832915",
+     "scent": "duo scent",
+     "signature": "1x50fragrance|2p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-hugo-boss-the-scent-eau-de-toilette-50ml-duo-set",
+     "brand": "Hugo Boss",
+     "name": "The Scent Eau de Toilette 50ml Duo Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "duo scent",
+     "signature": "1x50fragrance|2p",
+     "shops": [
+      "perfume-market-uk"
      ]
     }
    ]
@@ -3063,31 +3224,31 @@
    ]
   },
   {
-   "canonical": "set-ean-3616306129016",
+   "canonical": "set-ean-3616306130302",
    "absorbed": [
-    "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion"
+    "set-calvin-klein-miniature-gift-set-15ml-eternity-edt-15ml-obsession-edt-15ml-ck-one-edt-15ml-escape-edt"
    ],
    "members": [
     {
-     "id": "set-ean-3616306129016",
-     "brand": "Chloé",
-     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306129016",
-     "scent": "l",
-     "signature": "1x100body|1x50fragrance",
+     "id": "set-ean-3616306130302",
+     "brand": "Calvin Klein",
+     "name": "Miniature Gift Set 15ml Eternity EDT + 15ml Obsession EDT + 15ml CK One EDT + 15ml Escape EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3616306130302",
+     "scent": "ck escape eternity obsession one",
+     "signature": "4x15fragrance",
      "shops": [
       "perfume-click"
      ]
     },
     {
-     "id": "set-chloe-l-eau-de-parfum-intense-gift-set-50ml-edp-100ml-body-lotion",
-     "brand": "Chloé",
-     "name": "L'Eau de Parfum Intense Gift Set 50ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
+     "id": "set-calvin-klein-miniature-gift-set-15ml-eternity-edt-15ml-obsession-edt-15ml-ck-one-edt-15ml-escape-edt",
+     "brand": "Calvin Klein",
+     "name": "Miniature Gift Set 15ml Eternity EDT + 15ml Obsession EDT + 15ml CK One EDT + 15ml Escape EDT",
+     "concentration": "Eau de Toilette",
      "ean": null,
-     "scent": "l",
-     "signature": "1x100body|1x50fragrance",
+     "scent": "ck escape eternity obsession one",
+     "signature": "4x15fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -3688,6 +3849,38 @@
      "signature": "2x15fragrance|2x50wash",
      "shops": [
       "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5060523018000",
+   "absorbed": [
+    "set-ted-baker-polly-cracker-gift-set-15ml-edt-8ml-lipgloss"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060523018000",
+     "brand": "Ted Baker",
+     "name": "Polly Cracker Gift Set 15ml EDT + 8ml Lipgloss",
+     "concentration": "Eau de Toilette",
+     "ean": "5060523018000",
+     "scent": "cracker lipgloss polly",
+     "signature": "1x15fragrance|1x8fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ted-baker-polly-cracker-gift-set-15ml-edt-8ml-lipgloss",
+     "brand": "Ted Baker",
+     "name": "Polly Cracker Gift Set 15ml EDT + 8ml Lipgloss",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cracker lipgloss polly",
+     "signature": "1x15fragrance|1x8fragrance",
+     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -4793,6 +4986,38 @@
      "ean": null,
      "scent": "2 bubble gum toy",
      "signature": "1x50body|1x50fragrance|1x50wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003900497",
+   "absorbed": [
+    "set-versace-dylan-blue-pour-femme-4-piece-gift-set-eau-de-parfum-100ml-shower-gel-100ml-body-lotion-100ml-eau-de-parfum-5ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003900497",
+     "brand": "Versace",
+     "name": "Pour Femme Dylan Blue Gift Set 100ml EDP + 5ml EDP + 100ml Shower Gel + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003900497",
+     "scent": "blue dylan femme pour",
+     "signature": "1x100body|1x100fragrance|1x100wash|1x5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-dylan-blue-pour-femme-4-piece-gift-set-eau-de-parfum-100ml-shower-gel-100ml-body-lotion-100ml-eau-de-parfum-5ml",
+     "brand": "Versace",
+     "name": "Dylan Blue Pour Femme 4 Piece Gift Set: Eau De Parfum 100ml - Shower Gel 100ml - Body Lotion 100ml - Eau De Parfum 5ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blue dylan femme pour",
+     "signature": "1x100body|1x100fragrance|1x100wash|1x5fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -8516,7 +8741,8 @@
      "scent": "invictus paco rabanne",
      "signature": "1x100fragrance|1x10?|1x150deo",
      "shops": [
-      "fragrance-click"
+      "fragrance-click",
+      "perfume-click"
      ]
     }
    ]
@@ -8745,6 +8971,37 @@
      "ean": "3349668666577",
      "scent": "invictus paco rabanne",
      "signature": "1x100fragrance|1x10fragrance|1x?deo",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3349668628551, 3349668642861"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668628551",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Fame Women's Perfume Gift Set (80ml EDP + 100ml Body Lotion + 4ml EDP)",
+     "concentration": "Eau de Parfum",
+     "ean": "3349668628551",
+     "scent": "fame paco rabanne",
+     "signature": "1x100body|1x4fragrance|1x80fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3349668642861",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Fame Gift Set 80ml EDP + 100ml Body Lotion + 4ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3349668642861",
+     "scent": "fame paco rabanne",
+     "signature": "1x100body|1x4fragrance|1x80fragrance",
      "shops": [
       "perfume-click"
      ]
@@ -9722,31 +9979,32 @@
   },
   {
    "reasons": [
-    "price spread 1.51 is over 1.5"
+    "two different barcodes: 3614273587716, 3614274673999"
    ],
    "members": [
     {
-     "id": "set-ean-3430750901215",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3430750901215",
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
+     "id": "set-ean-3614273587716",
+     "brand": "Diesel",
+     "name": "Only the Brave Eau de Toilette 125ml Spray + 35ml Spray Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3614273587716",
+     "scent": "brave only",
+     "signature": "1x125fragrance|1x35fragrance",
      "shops": [
-      "perfume-click"
+      "paco-perfumerias-uk",
+      "perfume-direct"
      ]
     },
     {
-     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
+     "id": "set-ean-3614274673999",
+     "brand": "Diesel",
+     "name": "Only The Brave Gift Set 125ml EDT + 35ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3614274673999",
+     "scent": "brave only",
+     "signature": "1x125fragrance|1x35fragrance",
      "shops": [
-      "mybeauty-boutique"
+      "perfume-click"
      ]
     }
    ]
@@ -11250,6 +11508,39 @@
      "signature": "1x50fragrance|1x6fragrance|1x75body",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 8410225601210, 8435415017718",
+    "a shop lists more than one: paco-perfumerias-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8410225601210",
+     "brand": "Jean Paul Gaultier",
+     "name": "Classique 100ml Eau de Toilette 3Pcs Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8410225601210",
+     "scent": "classique",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-ean-8435415017718",
+     "brand": "Jean Paul Gaultier",
+     "name": "Classique Eau de Toilette 100ml Spray 3Pcs Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415017718",
+     "scent": "classique",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk"
      ]
     }
    ]
