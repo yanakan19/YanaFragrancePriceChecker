@@ -11365,39 +11365,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 8410225601210, 8435415017718",
-    "a shop lists more than one: paco-perfumerias-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8410225601210",
-     "brand": "Jean Paul Gaultier",
-     "name": "Classique 100ml Eau de Toilette 3Pcs Set",
-     "concentration": "Eau de Toilette",
-     "ean": "8410225601210",
-     "scent": "classique",
-     "signature": "1x100fragrance|3p",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk"
-     ]
-    },
-    {
-     "id": "set-ean-8435415017718",
-     "brand": "Jean Paul Gaultier",
-     "name": "Classique Eau de Toilette 100ml Spray 3Pcs Set",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415017718",
-     "scent": "classique",
-     "signature": "1x100fragrance|3p",
-     "shops": [
-      "paco-perfumerias-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 8411061028438, 8411061046241",
     "a shop lists more than one: paco-perfumerias-uk"
    ],
