@@ -1,7 +1,7 @@
 {
   "retailerId": "al-haramain",
-  "updatedAt": "2026-11-03T06:44:00.190Z",
-  "seenAt": "2026-11-03T06:44:00.190Z",
+  "updatedAt": "2026-11-03T10:43:49.951Z",
+  "seenAt": "2026-11-03T10:43:49.951Z",
   "source": "live",
   "listings": [
     {
@@ -1992,7 +1992,7 @@
       "priceGbp": 12,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Haramain Salsabeel 12ml Concentrated Perfume Oil. A delightful scent that begins with the fresh notes of white flowers, bergamot, and the sweetness of red plum. The heart reveals a playful mix of wild strawberry, and pink jasmine. The base lingers with comforting vanilla absolute, sugary accents, white musk, and subtle woody notes, creating a captivating fragrance journey. . . . . . Fragrance notes: Top notes: White Flowers Bouquet, Bergamot, Red Plum Middle notes: Wild Strawberry, Pink Jasmine, Sweet Base notes: Vanilla Absolute, Sweet Sugary, White Musk, Woody.",
       "productType": "ATTTAR / OIL",

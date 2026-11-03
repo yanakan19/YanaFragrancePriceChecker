@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-03T06:50:40.575Z",
+  "checkedAt": "2026-11-03T10:52:00.685Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,16 +58,17 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "EUR",
-      "listings": 507,
+      "currency": "GBP",
+      "listings": 407,
       "pricedInGbp": 0,
-      "withPhoto": 484,
-      "errors": [],
+      "withPhoto": 386,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "prices are in EUR, not GBP — needs a UK price source before these are comparable"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
       ]
     },
     {
@@ -245,9 +246,9 @@
       "origin": "https://bujairami.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 112,
+      "listings": 113,
       "pricedInGbp": 0,
-      "withPhoto": 112,
+      "withPhoto": 113,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

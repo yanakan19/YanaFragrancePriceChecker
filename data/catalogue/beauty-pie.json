@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-03T06:43:58.309Z",
-  "seenAt": "2026-11-03T06:43:58.309Z",
+  "updatedAt": "2026-11-03T10:43:49.534Z",
+  "seenAt": "2026-11-03T10:43:49.534Z",
   "source": "live",
   "listings": [
     {
@@ -8938,7 +8938,7 @@
       "priceGbp": 332,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "[].",
       "productType": null,

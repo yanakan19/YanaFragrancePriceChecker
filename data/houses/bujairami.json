@@ -1,9 +1,35 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-03T06:47:29.118Z",
-  "seenAt": "2026-11-03T06:47:29.118Z",
+  "updatedAt": "2026-11-03T10:48:50.645Z",
+  "seenAt": "2026-11-03T10:48:50.645Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "11056852271415-Default Title",
+      "url": "https://bujairami.ae/products/darkwood-inspired-by-chandigarh-express-ex-nihilo-extrait",
+      "rawTitle": "Darkwood Inspired By Chandigarh Express Ex Nihilo - Extrait",
+      "rawBrand": "Bujairami UAE",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/DARW.png?v=1793699467",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A rich and sophisticated fragrance opening with fresh bergamot, aromatic cardamom, and juicy mandarin. The heart blends fruity davana, fir balsam, jasmine, leather, and luminous mahonial, while benzoin, patchouli, tonka bean, and vetiver create a warm, smooth, and elegant finish.. Fragrance Notes . Top: Bergamot, Cardamom, Mandarin. Heart: Davana, Fir Balsam, Jasmine, Leather, Mahonial. Base: Benzoin, Patchouli, Tonka Bean, Vetiver. Profile: Woody • Spicy • Aromatic • Leather • Warm • Amber.",
+      "productType": null,
+      "nativePrice": {
+        "amount": 170,
+        "currency": "AED"
+      },
+      "retailerId": "bujairami",
+      "firstSeenAt": "2026-11-03T10:48:50.645Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11038253187383-Default Title",
       "url": "https://bujairami.ae/products/chic-wood-inspired-by-cedar-chic-carolina-herrera",

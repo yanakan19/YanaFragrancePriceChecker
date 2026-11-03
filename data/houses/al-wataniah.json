@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-11-03T06:50:33.266Z",
-  "seenAt": "2026-11-03T06:50:33.266Z",
+  "updatedAt": "2026-11-03T10:51:53.188Z",
+  "seenAt": "2026-11-03T10:51:53.188Z",
   "source": "live",
   "listings": [
     {
@@ -1769,7 +1769,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Attar Al Wesal Air Freshener fills your space with warm elegance. This refined fragrance blends rich oriental accords with soft woody and musky notes, creating a welcoming and comforting ambiance. Designed to neutralize unwanted odors while delivering a long-lasting scent, it leaves every room feeling inviting, sophisticated, and beautifully scented..",
       "productType": null,
