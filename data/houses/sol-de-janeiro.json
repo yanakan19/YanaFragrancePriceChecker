@@ -1,23 +1,23 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-03T02:46:09.537Z",
-  "seenAt": "2026-11-03T02:46:09.537Z",
+  "updatedAt": "2026-11-03T06:50:36.650Z",
+  "seenAt": "2026-11-03T06:50:36.650Z",
   "source": "live",
   "listings": [
     {
       "retailerSku": "SJ99120300",
-      "url": "https://soldejaneiro.com/products/sol-de-janeiro-x-aurelia-nobels-cheirosa-perfume-mist-vip",
+      "url": "https://soldejaneiro.com/products/sol-de-janeiro-x-aurelia-nobels-cheirosa-perfume-mist",
       "rawTitle": "Sol de Janeiro x Aurelia Nobels Cheirosa Perfume Mist 90ml",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/Coming_Soon_P_Page_Aurelia_Regional_Launch_Base.webp?v=1793372832",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/Coming_Soon_P_Page_Aurelia_Regional_Launch_1.webp?v=1793660846",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "house-direct",
       "description": "The rush of crossing the finish line. Heart-pumping thrill of the win. Celebration erupts in the street. . . Inspired by rising Brazilian race car driver Aurelia Nobels, this limited-edition signature scent feels like the exhilarating moment after the win. Lively & celebratory notes of Passionfruit Pulp, Red Poppy, & Fresh Coconut come together to capture the unstoppable confidence of blazing your own trail. .",
-      "productType": "VIP-dg",
+      "productType": null,
       "nativePrice": {
         "amount": 26,
         "currency": "USD"

@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-11-03T02:46:07.160Z",
-  "seenAt": "2026-11-03T02:46:07.160Z",
+  "updatedAt": "2026-11-03T06:50:33.266Z",
+  "seenAt": "2026-11-03T06:50:33.266Z",
   "source": "live",
   "listings": [
     {
@@ -43,7 +43,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Introducing Rawaee Regina, a perfume fit for royalty. Its top notes of passionfruit, peach, pear, raspberry, cassis, and sand create a luscious and exotic blend. The middle note of lily-of-the-valley adds a delicate and floral touch. Finally, the base notes of musk, sandalwood, vanilla, patchouli, and heliotrope provide a warm and enchanting finish. Rawaee Regina is a fragrance that exudes elegance and leaves a lasting impression of regal allure..",
+      "description": "Rawaee Regina opens with a vibrant blend of passionfruit, peach, pear, raspberry, cassis and sand. Lily-of-the-valley brings a soft floral heart, while musk, sandalwood, vanilla, patchouli and heliotrope create a warm, elegant finish with a regal presence.",
       "productType": null,
       "nativePrice": {
         "amount": 88,
@@ -97,7 +97,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Introducing Rawaee Noble, a perfume that epitomizes nobility and refinement. Its top notes of pink pepper, black pepper, saffron, bergamot, and mandarin create an intriguing and invigorating blend. The middle notes of ylang extract, orange flower, caramelized pineapple, and mango accord add a sweet and tropical allure. Finally, the base notes of cognac, cedarwood, patchouli, and amberxtreme provide a warm and sophisticated finish. Rawaee Noble is a fragrance that exudes elegance and leaves a lasting impression..",
+      "description": "Rawaee Noble opens with pink and black pepper, saffron, bergamot and mandarin. A heart of ylang, orange blossom and tropical fruit unfolds into a refined base of cognac, cedarwood, patchouli and amber. Warm, distinctive and elegantly composed.",
       "productType": null,
       "nativePrice": {
         "amount": 88,
@@ -124,7 +124,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Reda’a Perfume captivates with a harmonious blend of vibrant citrus top notes including cardamom, tangerine, and bergamot. Lavender, sage, and violet leaf compose a soothing middle accord, while benzoin, cedarwood, and patchouli in the base impart a warm, lingering essence, evoking sophistication and allure in every spray..",
+      "description": "Reda’a opens with bright citrus, cardamom and tangerine, softened by lavender, sage and violet leaf. A refined base of benzoin, cedarwood and patchouli leaves a warm, elegant trail.",
       "productType": null,
       "nativePrice": {
         "amount": 96,
@@ -178,7 +178,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Introducing House Of Oud, an exquisite perfume that captures the essence of luxury. Its top notes of cardamom and pepper blend seamlessly with the alluring middle notes of jasmine, raspberry, rose, and praline. The enchanting base notes of musk, oud, amber, and moss create a lingering and irresistible fragrance. Experience sophistication and elegance with House Of Oud..",
+      "description": "House Of Oud opens with cardamom and pepper, unfolding into jasmine, raspberry, rose and praline. A rich base of oud, amber, musk and moss leaves a refined, lasting impression..",
       "productType": null,
       "nativePrice": {
         "amount": 100,
