@@ -10068,7 +10068,8 @@
      "scent": "angel",
      "signature": "1x10travel|1x50body|1x50fragrance",
      "shops": [
-      "beautybase"
+      "beautybase",
+      "scentsational"
      ]
     }
    ]
@@ -11096,6 +11097,38 @@
   },
   {
    "reasons": [
+    "two different barcodes: 66667150, 66667151",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-66667150",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667150",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-66667151",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667151",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 2.12 is over 1.5"
    ],
    "members": [
@@ -11449,7 +11482,8 @@
      "signature": "1x100fragrance|3p",
      "shops": [
       "fragrance-click",
-      "paco-perfumerias-uk"
+      "paco-perfumerias-uk",
+      "perfume-direct"
      ]
     },
     {
