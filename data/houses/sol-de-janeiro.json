@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-03T14:52:04.099Z",
-  "seenAt": "2026-11-03T14:52:04.099Z",
+  "updatedAt": "2026-11-03T18:50:06.397Z",
+  "seenAt": "2026-11-03T18:50:06.397Z",
   "source": "live",
   "listings": [
     {
@@ -17,7 +17,7 @@
       "inStock": false,
       "sectionId": "house-direct",
       "description": "The rush of crossing the finish line. Heart-pumping thrill of the win. Celebration erupts in the street. . . Inspired by rising Brazilian race car driver Aurelia Nobels, this limited-edition signature scent feels like the exhilarating moment after the win. Lively & celebratory notes of Passionfruit Pulp, Red Poppy, & Fresh Coconut come together to capture the unstoppable confidence of blazing your own trail. .",
-      "productType": null,
+      "productType": "Fragrance",
       "nativePrice": {
         "amount": 26,
         "currency": "USD"
@@ -2591,7 +2591,7 @@
       "inStock": true,
       "sectionId": "house-direct",
       "description": "Make your beach day even better with our limited-edition , oversized, 100% cotton beach towel. With fringe detail and soft cotton in an extra-large size, it's perfect for days when you want to catch rays, chase waves and lay with friends.. Complete the moment with Body Badalada™ Lotion for all-day hydration in our iconic Cheirosa 62™ scent.. Size: 35\"W x 60\"L. Premium 100% cotton - 550gsm weight. .",
-      "productType": "VIP",
+      "productType": "Merch",
       "nativePrice": {
         "amount": 48,
         "currency": "USD"

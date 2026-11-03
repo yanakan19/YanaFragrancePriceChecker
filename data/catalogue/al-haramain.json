@@ -1,7 +1,7 @@
 {
   "retailerId": "al-haramain",
-  "updatedAt": "2026-11-03T14:45:08.243Z",
-  "seenAt": "2026-11-03T14:45:08.243Z",
+  "updatedAt": "2026-11-03T18:42:00.199Z",
+  "seenAt": "2026-11-03T18:42:00.199Z",
   "source": "live",
   "listings": [
     {
@@ -2107,7 +2107,7 @@
       "priceGbp": 12,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Haramain Amber 12ml Concentrated Perfume Oil. A captivating blend of rose, geranium, davana, blossoms, bergamot, and orange, create a fresh opening. At its heart, Haramain Amber, reveals a rich floral bouquet of rose, jasmine, and orchid, complemented by clove, saffron, and warm sandalwood and cedarwood. As the scent deepens, the base notes of cedarwood, sandalwood, cashmere wood, and fruity nuances leave a lasting impression. . . . . . Fragrance notes: Top notes: Rose, Geranium, Davana, Blossoms, Bergamot, Orange Middle notes: Amber, Rose, Jasmine, Orchid, Saffron, Clove, Sandalwood Base notes: Sandalwood, Cedarwood, Cashmere Wood Complex, Fruity.",
       "productType": "ATTTAR / OIL",
