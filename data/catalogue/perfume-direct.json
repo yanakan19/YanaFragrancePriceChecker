@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-03T18:41:50.233Z",
-  "seenAt": "2026-11-03T18:41:50.233Z",
+  "updatedAt": "2026-11-03T22:53:21.016Z",
+  "seenAt": "2026-11-03T22:53:21.016Z",
   "source": "live",
   "listings": [
     {
@@ -3210,7 +3210,7 @@
       "priceGbp": 55.99,
       "wasPriceGbp": 80,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Unleash incredible power with the Pokémon TCG: Mega Zygarde ex Premium Collection 2026. Featuring the mighty Mega Zygarde ex, this exciting collection is packed with Pokémon TCG goodies for collectors and players alike. Discover impressive promotional cards, booster packs filled with potential rare pulls, and exclusive extras inspired by Zygarde. Perfect for expanding your collection, upgrading your deck or gifting to a Pokémon fan, this premium set delivers an action-packed unboxing experience..",
       "productType": "Pokemon",
@@ -22576,7 +22576,7 @@
       "priceGbp": 82.99,
       "wasPriceGbp": 90,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About the Product: . Prada Luna Rossa Carbon is a fougere fragrance for men.. . Strong as the darkest rock, with the freshness of air, Prada Luna Rossa Carbon brings together steam-distilled botanicals and synthetics in a mineral-forward blend containing notes of lavender, bergamot, patchouli and ambroxan.. . The bottle is engineered using radically different materials. The base is presented in the richest of blacks; light absorbing, with a soft organic-velvet texture. The distinctive red stripe of Prada is cut into the façade of the glass by fastidious technique. Architectural and immediate, bringing balance to the form.. . Fragrance Type: . Aromatic. Fragrance Notes: . - Top notes: Italian Bergamot, Lavender. - Middle notes: Geranium, Patchouli. - Base notes: Heliotrope, Ambroxan. . Launched: 2017. Gift Set Includes: - 100ml EDT - 10ml EDT.",
       "productType": "Men's Aftershave",
@@ -43565,7 +43565,7 @@
       "priceGbp": 12.99,
       "wasPriceGbp": 19,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Experience the exquisite allure of Lattafa Hayaati Gold Elixir Eau de Parfum, a unisex fragrance that captures timeless elegance. This luxurious scent combines rich notes of amber, floral hints, and warm spices, creating a harmonious blend that lingers beautifully. Ideal for any occasion, this enchanting perfume offers an unforgettable aroma that enhances your presence. Indulge in this captivating fragrance spray and embrace a sophisticated essence that transcends boundaries and expectations. . . Fragrance Type: . Leather, Citrus . . Fragrance Notes: . - Top notes: Bergamot, Grapefruit, Cassis . - Middle notes: Leather, Peach, Saffron . - Base notes: Vanilla, Amber, Musk, Vetiver .",
       "productType": "Unisex Perfume",

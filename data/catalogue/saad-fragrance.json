@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-03T18:41:50.233Z",
-  "seenAt": "2026-11-03T18:41:50.233Z",
+  "updatedAt": "2026-11-03T22:53:21.016Z",
+  "seenAt": "2026-11-03T22:53:21.016Z",
   "source": "live",
   "listings": [
     {
@@ -1670,7 +1670,7 @@
       "priceGbp": 33.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Indulge in the intoxicating warmth of Azhrance Spiced, a 100ml EDP perfume. This unique blend of cinnamon, nutmeg, and cognac is perfectly complemented by notes of plum, vanilla, and patchouli. Add a touch of richness to any occasion with this inviting fragrance..",
       "productType": "Eau De Parfum",
