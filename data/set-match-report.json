@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 209,
+ "folded": 208,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -2486,39 +2486,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3614228832915",
-   "absorbed": [
-    "set-hugo-boss-the-scent-eau-de-toilette-50ml-duo-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614228832915",
-     "brand": "Hugo Boss",
-     "name": "The Scent 50ml Eau de Toilette Duo Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3614228832915",
-     "scent": "duo scent",
-     "signature": "1x50fragrance|2p",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-the-scent-eau-de-toilette-50ml-duo-set",
-     "brand": "Hugo Boss",
-     "name": "The Scent Eau de Toilette 50ml Duo Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "duo scent",
-     "signature": "1x50fragrance|2p",
-     "shops": [
-      "perfume-market-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3614273670012",
    "absorbed": [
     "set-cacharel-yes-i-am-delicious-gift-set-50ml-edp-10ml-edp"
@@ -3166,13 +3133,12 @@
     {
      "id": "set-ean-3616305278500",
      "brand": "Gucci",
-     "name": "Flora Gorgeous 3 x 10ml Eau de Parfum Gift Set",
+     "name": "Flora Gorgeous Eau de Parfum 3 x 10ml Gift Set",
      "concentration": "Eau de Parfum",
      "ean": "3616305278500",
      "scent": "flora gorgeous",
      "signature": "3x10fragrance",
      "shops": [
-      "fragrance-click",
       "paco-perfumerias-uk"
      ]
     },
