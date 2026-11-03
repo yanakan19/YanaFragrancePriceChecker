@@ -1,31 +1,31 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-11-02T00:36:17.237Z",
+  "builtAt": "2026-11-03T03:21:27.938Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 19,
   "shopsEnabled": 16,
   "shopsPriced": 16,
-  "crawlMinutes": 55.42,
-  "harvestRanAt": "2026-11-01T23:40:51.142Z",
-  "listingsPriced": 32921,
-  "listingsKept": 21931,
+  "crawlMinutes": 55.39,
+  "harvestRanAt": "2026-11-03T02:26:03.956Z",
+  "listingsPriced": 32882,
+  "listingsKept": 21880,
   "staleAfterDays": 7,
-  "products": 18341,
-  "productsWithTwoOrMoreShops": 3274,
+  "products": 18357,
+  "productsWithTwoOrMoreShops": 3285,
   "shareWithTwoOrMoreShops": 0.179,
-  "productsWithTwoOrMoreIndependentShops": 3274,
+  "productsWithTwoOrMoreIndependentShops": 3285,
   "shareWithTwoOrMoreIndependentShops": 0.179,
-  "productsWithThreeOrMoreShops": 1066,
-  "medianPriceGap": 0.222,
+  "productsWithThreeOrMoreShops": 1067,
+  "medianPriceGap": 0.221,
   "listingBarcodeShare": 0.01,
   "productsMatchingUkByBarcode": 107,
   "shops": [
     {
       "id": "aar-fragrances",
-      "products": 2260,
-      "shared": 1471
+      "products": 2262,
+      "shared": 1473
     },
     {
       "id": "bellavita-india",
@@ -34,13 +34,13 @@
     },
     {
       "id": "fridaycharm",
-      "products": 6363,
-      "shared": 2051
+      "products": 6368,
+      "shared": 2058
     },
     {
       "id": "maison-des-parfums-in",
       "products": 1452,
-      "shared": 523
+      "shared": 525
     },
     {
       "id": "naso-profumi",
@@ -49,8 +49,8 @@
     },
     {
       "id": "nykaa",
-      "products": 1586,
-      "shared": 261
+      "products": 1580,
+      "shared": 264
     },
     {
       "id": "perfume-network",
@@ -59,8 +59,8 @@
     },
     {
       "id": "perfume-palace",
-      "products": 6576,
-      "shared": 2099
+      "products": 6604,
+      "shared": 2108
     },
     {
       "id": "scentido",
@@ -70,7 +70,7 @@
     {
       "id": "scentira",
       "products": 2472,
-      "shared": 742
+      "shared": 743
     },
     {
       "id": "the-man-company",
@@ -88,13 +88,13 @@
       "shared": 5
     }
   ],
-  "productsShown": 18203,
+  "productsShown": 18219,
   "productsWithUkPhoto": 2519,
-  "productsWithUkPhotoByBarcode": 97,
-  "productsWithUkPhotoByName": 2422,
-  "listingsWithReference": 13727,
-  "offersWithCorroboratedReference": 2209,
-  "deals": 740,
+  "productsWithUkPhotoByBarcode": 98,
+  "productsWithUkPhotoByName": 2421,
+  "listingsWithReference": 13751,
+  "offersWithCorroboratedReference": 2214,
+  "deals": 732,
   "shareWithUkPhoto": 0.138,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
