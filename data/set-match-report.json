@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 209,
+ "folded": 207,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -610,38 +610,6 @@
      "signature": "1x100wash|1x75fragrance",
      "shops": [
       "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0783320422324",
-   "absorbed": [
-    "set-bvlgari-man-glacial-essence-gift-set-100ml-edp-15ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0783320422324",
-     "brand": "Bvlgari",
-     "name": "Man Glacial Essence Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0783320422324",
-     "scent": "essence glacial man",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-bvlgari-man-glacial-essence-gift-set-100ml-edp-15ml-edp",
-     "brand": "Bvlgari",
-     "name": "Man Glacial Essence Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "essence glacial man",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -2421,6 +2389,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3430750901215",
+   "absorbed": [
+    "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750901215",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3430750901215",
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3605972818416",
    "absorbed": [
     "set-ralph-lauren-polo-blue-gift-set-edt-125ml-edt-40ml-b-wash-50ml-a-balm-50ml"
@@ -3217,38 +3217,6 @@
      "signature": "1x200fragrance|1x75deo",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616306130302",
-   "absorbed": [
-    "set-calvin-klein-miniature-gift-set-15ml-eternity-edt-15ml-obsession-edt-15ml-ck-one-edt-15ml-escape-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616306130302",
-     "brand": "Calvin Klein",
-     "name": "Miniature Gift Set 15ml Eternity EDT + 15ml Obsession EDT + 15ml CK One EDT + 15ml Escape EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3616306130302",
-     "scent": "ck escape eternity obsession one",
-     "signature": "4x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-calvin-klein-miniature-gift-set-15ml-eternity-edt-15ml-obsession-edt-15ml-ck-one-edt-15ml-escape-edt",
-     "brand": "Calvin Klein",
-     "name": "Miniature Gift Set 15ml Eternity EDT + 15ml Obsession EDT + 15ml CK One EDT + 15ml Escape EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "ck escape eternity obsession one",
-     "signature": "4x15fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -5688,38 +5656,6 @@
      "signature": "1x10fragrance|1x200fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8435415092760",
-   "absorbed": [
-    "set-jean-paul-gaultier-miniatures-for-him-gift-set-7ml-le-male-edt-7ml-le-beau-edt-7ml-scandal-pour-homme-edt-7ml-le-male-elixir-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415092760",
-     "brand": "Jean Paul Gaultier",
-     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415092760",
-     "scent": "beau elixir homme le male pour scandal",
-     "signature": "1x7fragrance|3x7fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-miniatures-for-him-gift-set-7ml-le-male-edt-7ml-le-beau-edt-7ml-scandal-pour-homme-edt-7ml-le-male-elixir-edp",
-     "brand": "Jean Paul Gaultier",
-     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "beau elixir homme le male pour scandal",
-     "signature": "1x7fragrance|3x7fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -8659,12 +8595,13 @@
     {
      "id": "set-ean-3349668628728",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Lady Million Women's Perfume Gift Set (80ml EDP + 20ml EDP)",
+     "name": "Paco Rabanne Lady Million Gift Set 80ml EDP + 20ml EDP",
      "concentration": "Eau de Parfum",
      "ean": "3349668628728",
      "scent": "lady million paco rabanne",
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
+      "perfume-click",
       "perfume-direct"
      ]
     }
@@ -9724,12 +9661,13 @@
     {
      "id": "set-ean-3423222118495",
      "brand": "Issey Miyake",
-     "name": "Le Sel D'Issey Eau de Toilette 100ml Spray Gift Set",
+     "name": "Le Sel D'Issey 100ml Eau de Toilette Set",
      "concentration": "Eau de Toilette",
      "ean": "3423222118495",
      "scent": "d issey le sel",
      "signature": "1x100fragrance|1x10?|1x50wash",
      "shops": [
+      "fragrance-click",
       "paco-perfumerias-uk",
       "perfume-direct"
      ]
@@ -9937,37 +9875,6 @@
      "ean": null,
      "scent": "club night",
      "signature": "1x100fragrance|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.51 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750901215",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3430750901215",
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -11902,6 +11809,51 @@
       "fragrance-click",
       "paco-perfumerias-uk",
       "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Eau de Toilette",
+    "two different barcodes: 8435415092760, 8435415115926",
+    "a shop lists more than one: perfume-click"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415092760",
+     "brand": "Jean Paul Gaultier",
+     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8435415092760",
+     "scent": "beau elixir homme le male pour scandal",
+     "signature": "1x7fragrance|3x7fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-8435415115926",
+     "brand": "Jean Paul Gaultier",
+     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir Parfum",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415115926",
+     "scent": "beau elixir homme le male pour scandal",
+     "signature": "1x7fragrance|3x7fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-miniatures-for-him-gift-set-7ml-le-male-edt-7ml-le-beau-edt-7ml-scandal-pour-homme-edt-7ml-le-male-elixir-edp",
+     "brand": "Jean Paul Gaultier",
+     "name": "Miniatures for Him Gift Set 7ml Le Male EDT + 7ml Le Beau EDT + 7ml Scandal Pour Homme EDT + 7ml Le Male Elixir EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "beau elixir homme le male pour scandal",
+     "signature": "1x7fragrance|3x7fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
