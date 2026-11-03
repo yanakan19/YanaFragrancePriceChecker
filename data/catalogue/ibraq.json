@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-03T10:43:49.534Z",
-  "seenAt": "2026-11-03T10:43:49.534Z",
+  "updatedAt": "2026-11-03T14:44:46.755Z",
+  "seenAt": "2026-11-03T14:44:46.755Z",
   "source": "live",
   "listings": [
     {
@@ -911,7 +911,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Gravity in one bottle, whenever it smells of its fragrance, it gives you a new memory and unique moments, full of fruity notes mixed with an oriental character of saffron and the luxury of the smell of plumeria flowers to end the aromatic story with the most exquisite fragrance with a mixture of musk, vanilla and sweet drops of honey to immerse you in freshness and classy cleanliness.. Notes: . Top notes: Saffron, Honey and Orange. Heart notes: Plumeria, Coffee, Tonka Bean. Base notes: Vanilla, Tobacco, Musk and Oakmoss. . .",
       "productType": "Arabic Perfumes",

@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-11-03T10:43:49.951Z",
-  "seenAt": "2026-11-03T10:43:49.951Z",
+  "updatedAt": "2026-11-03T14:45:08.243Z",
+  "seenAt": "2026-11-03T14:45:08.243Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 50,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": "Storable Product",

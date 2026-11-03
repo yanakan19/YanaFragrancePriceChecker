@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-03T10:52:00.685Z",
+  "checkedAt": "2026-11-03T14:52:11.335Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,12 +59,10 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "GBP",
-      "listings": 407,
+      "listings": 507,
       "pricedInGbp": 0,
-      "withPhoto": 386,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 484,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -77,9 +75,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 197,
+      "listings": 196,
       "pricedInGbp": 0,
-      "withPhoto": 197,
+      "withPhoto": 196,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -246,9 +244,9 @@
       "origin": "https://bujairami.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 113,
+      "listings": 117,
       "pricedInGbp": 0,
-      "withPhoto": 113,
+      "withPhoto": 117,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -535,9 +533,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 197,
-      "pricedInGbp": 197,
-      "withPhoto": 196,
+      "listings": 195,
+      "pricedInGbp": 195,
+      "withPhoto": 194,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

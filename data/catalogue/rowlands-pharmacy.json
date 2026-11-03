@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-03T10:43:49.951Z",
-  "seenAt": "2026-11-03T10:43:49.951Z",
+  "updatedAt": "2026-11-03T14:45:08.243Z",
+  "seenAt": "2026-11-03T14:45:08.243Z",
   "source": "live",
   "listings": [
     {
@@ -198,7 +198,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "DKNY Be Tempted Eau de Parfum 50ml. Key Features. ##features##. Seductive fruity floral fragrance for women.. Features tempting fruit accords and rich florals.. Warm oriental-inspired base notes.. Designed for evening wear and special occasions.. Sophisticated and feminine fragrance.. Signature red apple-inspired bottle.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. DKNY Be Tempted Eau de Parfum is a bold and alluring fragrance created for confident women. Combining juicy fruit notes with luxurious florals and warm oriental undertones, it delivers a sophisticated and irresistible scent perfect for evenings and special occasions.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -428,7 +428,7 @@
       "priceGbp": 22.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein CK Be Eau de Toilette 200ml. Key Features. ##features##. Fresh unisex Eau de Toilette from Calvin Klein.. Clean woody-musky fragrance for men and women.. Features bergamot, lavender, peach and sandalwood.. Versatile fragrance suitable for everyday wear.. Large 200ml bottle offering excellent value.. Modern scent focused on individuality and self-expression.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Calvin Klein CK Be Eau de Toilette is a fresh, modern unisex fragrance that celebrates individuality. Opening with bergamot, mandarin and lavender, it develops into a smooth heart of magnolia and peach before finishing with warm sandalwood, musk and tonka bean. Clean, contemporary and easy to wear throughout the day.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
