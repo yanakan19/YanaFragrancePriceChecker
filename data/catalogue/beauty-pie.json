@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-02T22:48:32.293Z",
-  "seenAt": "2026-11-02T22:48:32.293Z",
+  "updatedAt": "2026-11-03T02:39:52.918Z",
+  "seenAt": "2026-11-03T02:39:52.918Z",
   "source": "live",
   "listings": [
     {
@@ -1693,7 +1693,7 @@
       "priceGbp": 135,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "It’s like skincare in a supplement: bioavailable multi-molecular Hyaluronic Acid to help improve the appearance of wrinkles, skin elasticity and hydration. A natural collagen-booster for luminosity +26%, Grape Monomers of Flavanols, Bioactive SuperOxide Dismutase, Vitamin C and Zinc Citrate. Take 2 a day and get glowing..",
       "productType": null,
@@ -1831,7 +1831,7 @@
       "priceGbp": 120,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "One’s a dermatologist-developed, award-winning Radiance Concentrate with 15 active ingredients laser-focused on helping the skin reflect light, the other’s an expertly-formulated Elasticity Support supplement to boost skin luminosity. Together, they make magic happen. The advanced route to superior skin glow..",
       "productType": null,

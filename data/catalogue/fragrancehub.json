@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-02T22:48:32.293Z",
-  "seenAt": "2026-11-02T22:48:32.293Z",
+  "updatedAt": "2026-11-03T02:39:52.918Z",
+  "seenAt": "2026-11-03T02:39:52.918Z",
   "source": "live",
   "listings": [
     {
@@ -2866,7 +2866,7 @@
       "priceGbp": 50,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The fragrance opens with a radiant mix of citron, bergamot, and Sicilian orange, delivering a bright, crisp, airy, and energising citrus burst.. At the heart, neroli and ginger introduce a fresh floral-spicy balance. The neroli adds a clean floral brightness, while ginger brings a subtle, uplifting warmth.. As the scent settles, the base of black tea, ambroxan, and guaiac wood creates a smooth, sophisticated and long-lasting finish. The tea note adds a refined twist, while ambroxan gives a modern musky depth.. Perfect for those who love fresh citrus fragrances with aromatic complexity and a clean woody base.. Top Notes: Citron, Bergamot, Sicilian Orange Middle Notes: Neroli, Ginger Base Notes: Black Tea, Ambroxan, Guaiac Wood.",
       "productType": null,

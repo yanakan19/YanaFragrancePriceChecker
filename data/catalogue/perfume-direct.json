@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-02T22:48:32.293Z",
-  "seenAt": "2026-11-02T22:48:32.293Z",
+  "updatedAt": "2026-11-03T02:39:52.918Z",
+  "seenAt": "2026-11-03T02:39:52.918Z",
   "source": "live",
   "listings": [
     {
@@ -2125,7 +2125,7 @@
       "priceGbp": 38.99,
       "wasPriceGbp": 74.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Discover the sophistication of the Issey Miyake L'eau D'Issey Pour Homme Men's Gift Set. This elegant set includes a 75ML Eau de Toilette and a 50ML Shower Gel, perfect for the modern man. The fragrance offers a harmonious blend of fresh and woody notes, providing a refreshing and timeless scent. Ideal for any occasion, this gift set embodies style and refinement, making it an excellent choice for personal use or as a thoughtful present. . Fragrance Type: Woody, Oriental. Fragrance Notes: - Top notes: Yuzu, Tarragon, Mandarin Orange, Cypress, Coriander, Calone, Lemon, Bergamot, Sage, Lemon Verbena - Middle notes: Saffron, Bourbon Geranium, Ceylon Cinnamon, Mignonette, Blue Lotus, Lily-of-the-Valley - Base notes: Amber, Cedar, Sandalwood, Musk, Tahitian Vetiver, Tobacco. Launched: 1994.",
       "productType": "Men's Aftershave",
@@ -6149,7 +6149,7 @@
       "priceGbp": 12.99,
       "wasPriceGbp": 24,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: The Hugo Boss Bottled Men’s Gift Set is the perfect blend of sophistication and style. Featuring a bold 50ml Parfum and a refreshing 150ml Deodorant Spray, this set delivers a lasting, confident fragrance. With notes of apple, spices, and woods, it’s ideal for the modern man who values elegance and charisma. A timeless gift choice for any occasion, designed to leave a powerful and lasting impression.. Fragrance Type: Woody, Leather. Fragrance Notes: - Top notes: Oilbanum, Mandarin Orange - Middle notes: Fig Tree, Orris - Base notes: Cedar, Leather. Launched: 2022.",
       "productType": "Men's Aftershave",
@@ -99568,7 +99568,7 @@
       "priceGbp": 15.99,
       "wasPriceGbp": 33.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . CK IN2U for men by Calvin Klein is a young, fresh, masculine scent. From start to finish, the cool musks linger throughout. This delicious journey reaches its climax with a warm vetiver finish. . . Fragrance Type: . Aromatic, Fruity . . Fragrance Notes: . - Top notes: Lemon, Tomato Leaf. - Middle notes: Cacao Pod. - Base notes: Vetiver, Cedar, White Musk . . Launched: . 2007.",
       "productType": "Men's Aftershave",
