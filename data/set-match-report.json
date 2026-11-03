@@ -616,38 +616,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0737052556611",
-   "absorbed": [
-    "set-escada-rockin-rio-gift-set-30ml-edt-beauty-pouch"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0737052556611",
-     "brand": "Escada",
-     "name": "Rockin' Rio Gift Set 30ml EDT + Beauty Pouch",
-     "concentration": "Eau de Toilette",
-     "ean": "0737052556611",
-     "scent": "beauty rio rockin",
-     "signature": "1x30fragrance|1x?other",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-escada-rockin-rio-gift-set-30ml-edt-beauty-pouch",
-     "brand": "Escada",
-     "name": "Rockin' Rio Gift Set 30ml EDT + Beauty Pouch",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "beauty rio rockin",
-     "signature": "1x30fragrance|1x?other",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0783320422324",
    "absorbed": [
     "set-bvlgari-man-glacial-essence-gift-set-100ml-edp-15ml-edp"
@@ -817,6 +785,38 @@
      "signature": "3x50fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0849017007394",
+   "absorbed": [
+    "set-ellen-tracy-miniatures-gift-set-11ml-brilliant-edp-11ml-dazzling-edp-11ml-dynamic-edp-11ml-sensational-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0849017007394",
+     "brand": "Ellen Tracy",
+     "name": "Miniatures Gift Set 11ml Brilliant EDP + 11ml Dazzling EDP + 11ml Dynamic EDP + 11ml Sensational EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0849017007394",
+     "scent": "brilliant dazzling dynamic sensational",
+     "signature": "4x11fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ellen-tracy-miniatures-gift-set-11ml-brilliant-edp-11ml-dazzling-edp-11ml-dynamic-edp-11ml-sensational-edp",
+     "brand": "Ellen Tracy",
+     "name": "Miniatures Gift Set 11ml Brilliant EDP + 11ml Dazzling EDP + 11ml Dynamic EDP + 11ml Sensational EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "brilliant dazzling dynamic sensational",
+     "signature": "4x11fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -2357,38 +2357,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3430750901215",
-   "absorbed": [
-    "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750901215",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3430750901215",
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3605972818416",
    "absorbed": [
     "set-ralph-lauren-polo-blue-gift-set-edt-125ml-edt-40ml-b-wash-50ml-a-balm-50ml"
@@ -3684,6 +3652,38 @@
      "ean": null,
      "scent": "glow",
      "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5055116606610",
+   "absorbed": [
+    "set-jojo-siwa-be-you-gift-set-30ml-edp-100ml-luxury-body-wash"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5055116606610",
+     "brand": "Jojo Siwa",
+     "name": "Be You Gift Set 30ml EDP + 100ml Luxury Body Wash",
+     "concentration": "Eau de Parfum",
+     "ean": "5055116606610",
+     "scent": "be luxury you",
+     "signature": "1x100wash|1x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jojo-siwa-be-you-gift-set-30ml-edp-100ml-luxury-body-wash",
+     "brand": "Jojo Siwa",
+     "name": "Be You Gift Set 30ml EDP + 100ml Luxury Body Wash",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "be luxury you",
+     "signature": "1x100wash|1x30fragrance",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -7117,7 +7117,7 @@
   },
   {
    "reasons": [
-    "price spread 1.58 is over 1.5"
+    "price spread 1.60 is over 1.5"
    ],
    "members": [
     {
@@ -8109,7 +8109,7 @@
   },
   {
    "reasons": [
-    "price spread 1.73 is over 1.5"
+    "price spread 1.83 is over 1.5"
    ],
    "members": [
     {
@@ -8676,8 +8676,7 @@
      "scent": "invictus paco rabanne",
      "signature": "1x100fragrance|1x10?|1x150deo",
      "shops": [
-      "fragrance-click",
-      "perfume-click"
+      "fragrance-click"
      ]
     }
    ]
@@ -9913,6 +9912,37 @@
   },
   {
    "reasons": [
+    "price spread 1.51 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750901215",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3430750901215",
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3614273587716, 3614274673999"
    ],
    "members": [
@@ -10701,6 +10731,50 @@
      "signature": "1x30fragrance|1x50body",
      "shops": [
       "parfumdreams-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Eau de Toilette",
+    "a shop lists more than one: mybeauty-boutique"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616306127906",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3616306127906",
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Eau de Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-hugo-boss-boss-bottled-gift-set-100ml-edt-100ml-shower-gel-10ml-edt",
+     "brand": "Hugo Boss",
+     "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "boss bottled",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -12082,38 +12156,6 @@
      "signature": "1x15fragrance|1x60fragrance",
      "shops": [
       "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "strengths differ: Eau de Parfum, Eau de Toilette",
-    "a shop lists more than one: mybeauty-boutique"
-   ],
-   "members": [
-    {
-     "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Eau de Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-bottled-gift-set-100ml-edt-100ml-shower-gel-10ml-edt",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 10ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
