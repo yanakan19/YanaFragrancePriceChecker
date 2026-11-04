@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 203,
+ "folded": 202,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1463,38 +1463,6 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3346130438243",
-   "absorbed": [
-    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3346130438243",
-     "brand": "Hermès",
-     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
-     "concentration": "Eau de Toilette",
-     "ean": "3346130438243",
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
-     "brand": "Hermès",
-     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d hermes terre",
-     "signature": "1x100fragrance|1x15fragrance|1x40wash",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -8286,17 +8254,17 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3274872463172, 3274872506442",
+    "two different barcodes: 3274872506442, 3274872519558",
     "a shop lists more than one: paco-perfumerias-uk",
     "price spread 1.51 is over 1.5"
    ],
    "members": [
     {
-     "id": "set-ean-3274872463172",
+     "id": "set-ean-3274872506442",
      "brand": "Givenchy",
-     "name": "L'Interdit Eau de Parfum 80ml Spray 3 pcs Gift Set",
+     "name": "L'Interdit Eau de Parfum 80ml Spray 3 Piece Set",
      "concentration": "Eau de Parfum",
-     "ean": "3274872463172",
+     "ean": "3274872506442",
      "scent": "interdit l",
      "signature": "1x80fragrance|3p",
      "shops": [
@@ -8304,11 +8272,11 @@
      ]
     },
     {
-     "id": "set-ean-3274872506442",
+     "id": "set-ean-3274872519558",
      "brand": "Givenchy",
-     "name": "L'Interdit Eau de Parfum 80ml Spray 3 Piece Set",
+     "name": "L'Interdit Eau de Parfum 80ml Spray 3 pcs Gift Set",
      "concentration": "Eau de Parfum",
-     "ean": "3274872506442",
+     "ean": "3274872519558",
      "scent": "interdit l",
      "signature": "1x80fragrance|3p",
      "shops": [
