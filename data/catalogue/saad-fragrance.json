@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-04T14:14:40.988Z",
-  "seenAt": "2026-11-04T14:14:40.988Z",
+  "updatedAt": "2026-11-04T18:06:36.993Z",
+  "seenAt": "2026-11-04T18:06:36.993Z",
   "source": "live",
   "listings": [
     {
@@ -2153,7 +2153,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Grow French Avenue 100 ml EDP perfume features a complex composition crafted by perfumer Jean-Christophe Hérault. Its intricate layers include top notes of saffron and pear, transitioning to a floral and creamy heart, and concluding with a rich base of musk and cedar. This sophisticated blend offers a distinctive scent profile that evolves throughout the day, providing a lasting and memorable fragrance experience. .",
       "productType": null,

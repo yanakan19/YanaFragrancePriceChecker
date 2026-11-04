@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-11-04T14:14:46.596Z",
-  "seenAt": "2026-11-04T14:14:46.596Z",
+  "updatedAt": "2026-11-04T18:05:47.433Z",
+  "seenAt": "2026-11-04T18:05:47.433Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 50,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": "Storable Product",
@@ -3096,7 +3096,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Inspired By The Charishma And Sex Appeal Of 007 James Bond, Spectre Ghost Has A Spicy, Fresh Start With A Hint Of Citrus, Leading To A Sweet, Floral Heart And Settling Into A Warm, Comforting Blend With A Touch Of Muskiness. .",
       "productType": "Storable Product",

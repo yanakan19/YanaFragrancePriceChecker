@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-04T14:14:46.596Z",
-  "seenAt": "2026-11-04T14:14:46.596Z",
+  "updatedAt": "2026-11-04T18:05:47.433Z",
+  "seenAt": "2026-11-04T18:05:47.433Z",
   "source": "live",
   "listings": [
     {
@@ -42104,7 +42104,7 @@
       "priceGbp": 4.25,
       "wasPriceGbp": 5.75,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Footworks Non-greasy pedicure cream instantly moisturises to reveal visibly smoother heels in just 3 days. Contains cocoa butter, shea butter and vitamin E. Use as and when needed as part of your foot care routine. 75ml. .",
       "productType": "BODY",
