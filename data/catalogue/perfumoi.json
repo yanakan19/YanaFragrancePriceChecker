@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-04T06:14:09.764Z",
-  "seenAt": "2026-11-04T06:14:09.764Z",
+  "updatedAt": "2026-11-04T10:13:33.257Z",
+  "seenAt": "2026-11-04T10:13:33.257Z",
   "source": "live",
   "listings": [
     {
@@ -80,7 +80,7 @@
       "rawBrand": "Calvin Klein",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0937/0035/8473/files/CK728141__21680_1.png?v=1793533999",
-      "priceGbp": 49.99,
+      "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": false,

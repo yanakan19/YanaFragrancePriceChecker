@@ -1,9 +1,35 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-04T06:15:38.587Z",
-  "seenAt": "2026-11-04T06:15:38.587Z",
+  "updatedAt": "2026-11-04T10:15:02.751Z",
+  "seenAt": "2026-11-04T10:15:02.751Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "TESTASSAF",
+      "url": "https://assaf.ae/products/testassaf",
+      "rawTitle": "TESTASSAF",
+      "rawBrand": "Assaf Trading LLC",
+      "ean": null,
+      "imageUrl": null,
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": ".",
+      "productType": null,
+      "nativePrice": {
+        "amount": 10,
+        "currency": "AED"
+      },
+      "retailerId": "assaf",
+      "firstSeenAt": "2026-08-05T11:07:47.821Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-11-04T10:15:02.751Z",
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
     {
       "retailerSku": "PKG-ASFP50-ON-10101",
       "url": "https://assaf.ae/products/arrogate-pink-with-powder",
@@ -5778,33 +5804,6 @@
         "currency": "AED"
       },
       "nativeWasPrice": 399,
-      "retailerId": "assaf",
-      "firstSeenAt": "2026-08-05T11:07:47.821Z",
-      "lastSeenAt": "2026-10-24T10:39:50.607Z",
-      "status": "delisted",
-      "delistedAt": "2026-10-24T14:21:19.119Z",
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "TESTASSAF",
-      "url": "https://assaf.ae/products/testassaf",
-      "rawTitle": "TESTASSAF",
-      "rawBrand": "Assaf Trading LLC",
-      "ean": null,
-      "imageUrl": null,
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "house-direct",
-      "description": ".",
-      "productType": null,
-      "nativePrice": {
-        "amount": 10,
-        "currency": "AED"
-      },
       "retailerId": "assaf",
       "firstSeenAt": "2026-08-05T11:07:47.821Z",
       "lastSeenAt": "2026-10-24T10:39:50.607Z",
