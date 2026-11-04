@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-04T18:06:36.993Z",
-  "seenAt": "2026-11-04T18:06:36.993Z",
+  "updatedAt": "2026-11-04T21:46:56.103Z",
+  "seenAt": "2026-11-04T21:46:56.103Z",
   "source": "live",
   "listings": [
     {
@@ -3848,7 +3848,7 @@
     {
       "retailerSku": "PLEL0499S-1",
       "url": "https://perfumoi.co.uk/products/lacoste-touch-of-pink-edt-spray-90ml",
-      "rawTitle": "Lacoste Touch of Pink Eau De Toilette Spray 90ml 90ml",
+      "rawTitle": "Lacoste Touch of Pink Eau De Toilette Spray 90ml",
       "rawBrand": "Lacoste",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0937/0035/8473/files/toupts34.png?v=1780075861",
@@ -3871,14 +3871,14 @@
     {
       "retailerSku": "PLEL0499S",
       "url": "https://perfumoi.co.uk/products/lacoste-touch-of-pink-edt-spray-90ml",
-      "rawTitle": "Lacoste Touch of Pink Eau De Toilette Spray 90ml 50ml",
+      "rawTitle": "Lacoste Touch of Pink Eau De Toilette Spray 50ml",
       "rawBrand": "Lacoste",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0937/0035/8473/files/toupts34.png?v=1780075861",
       "priceGbp": 25.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Lacoste Touch of Pink Eau De Toilette Spray is a floral fragrance created for customers who enjoy a soft, elegant scent. It opens with a fresh impression, develops into a graceful floral heart, and settles into a smooth, lasting base. Suitable for everyday wear, this fragrance feels youthful and confident.. Why customers choose it . Well-suited for spring and casual occasions. A great option for daily wear or gifting. Designed for customers who prefer fresh and floral scents.",
       "productType": "Eau de Toilette",

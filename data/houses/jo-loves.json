@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-04T18:13:20.919Z",
-  "seenAt": "2026-11-04T18:13:20.919Z",
+  "updatedAt": "2026-11-04T21:51:34.207Z",
+  "seenAt": "2026-11-04T21:51:34.207Z",
   "source": "live",
   "listings": [
     {
@@ -589,7 +589,7 @@
       "priceGbp": 32,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Immerse yourself in seven vibrant Jo Loves fragrances, where sparkling citrus, juicy fruits, fresh green accords and expressive florals come together in a collection full of colour and character. From uplifting daytime scents to more distinctive modern compositions, discover a fragrance for every mood and moment. Contents: Pomelo, White Rose & Lemon Leaves, Mango Thai Lime, Green Orange & Coriander, Pink Vetiver, No.42 The Flower Shop and Orange Butterflies. Please note the set will start dispatching after 9th October..",
       "productType": null,

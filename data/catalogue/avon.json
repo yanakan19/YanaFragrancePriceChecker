@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-04T18:05:47.433Z",
-  "seenAt": "2026-11-04T18:05:47.433Z",
+  "updatedAt": "2026-11-04T21:50:48.376Z",
+  "seenAt": "2026-11-04T21:50:48.376Z",
   "source": "live",
   "listings": [
     {
@@ -28925,7 +28925,7 @@
       "priceGbp": 14,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Escape and to enrich your senses with the beauty of nature with the floral and aqua perfume of Perceive Dew Eau de Parfum. Discover the dawn of a new era with beautiful freesia, fresh marine mist and vivid golden amber.. Product specification: . • Top note: freesia. • Middle note: marine mist. • Base note: golden amber. • 50ml.. How to wear me: . Spritz the floral and aqua fragrance onto your pulse points and enjoy the peaceful scent throughout the day..",
       "productType": "FRAGRANCE",

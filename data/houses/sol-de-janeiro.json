@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-04T18:13:16.306Z",
-  "seenAt": "2026-11-04T18:13:16.306Z",
+  "updatedAt": "2026-11-04T21:51:30.305Z",
+  "seenAt": "2026-11-04T21:51:30.305Z",
   "source": "live",
   "listings": [
     {
@@ -170,7 +170,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": null,
       "productType": "Passport Reward",

@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-04T18:06:36.993Z",
-  "seenAt": "2026-11-04T18:06:36.993Z",
+  "updatedAt": "2026-11-04T21:46:56.103Z",
+  "seenAt": "2026-11-04T21:46:56.103Z",
   "source": "live",
   "listings": [
     {
@@ -9536,7 +9536,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rayhaan Crimson – A Bold Expression of Power and Elegance. A fragrance that commands attention, Rayhaan Crimson exudes warmth, depth, and undeniable allure. Its rich, spicy character unfolds into a refined blend of sensuality and strength, leaving behind an irresistible, long-lasting trail. Perfect for those who embrace confidence and sophistication, Crimson is more than a scent—it’s a statement. . Top: Cinnamon, Cardamom and Pink Pepper. Middle: Patchouli, Heliotropin. Base: Benzoin, Vanilla, Tonka Bean.",
       "productType": null,
@@ -10798,7 +10798,7 @@
       "rawBrand": "Afnan",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/07799e2b-bbd1-4ee2-9d59-d15203c4fecf.png?v=1743863116",
-      "priceGbp": 46.95,
+      "priceGbp": 49.95,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
       "inStock": true,
@@ -11074,7 +11074,7 @@
       "rawBrand": "Fragrance Hub LTD",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Liquid-Brun-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030882.jpg?v=1769903803",
-      "priceGbp": 28.99,
+      "priceGbp": 29.5,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
       "inStock": true,
