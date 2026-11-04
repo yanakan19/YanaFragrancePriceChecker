@@ -133,3 +133,13 @@ Perfumes4All (100 pages) and Perfumes Club UK (22.9k pages) are the only candida
 
 Method note: the match script counted a title as the same product when brand and name tokens (minus strength words) were
 equal or 80% similar and the size in ml agreed, or the EAN matched; it is a rough count, not the site's own matcher.
+
+## Outcome of the wiring job (4 Nov 2026)
+
+Each shop is one commit, in the order of the owner's list. Every route was re-read as PriceSniffsBot (robots.txt first) with
+a small real fetch before the entry was written, and `npx tsx scripts/region-harvest.ts --region=<in|us|ca> --shop=<id> --dry-run`
+priced it. The region crawl writes each shop's first snapshot; no snapshot, memory or generated file is committed here.
+
+| Shop | Outcome | Notes |
+| --- | --- | --- |
+| Scentopia (IN) | wired (`scentopia`, `retailers.in.ts`) | `/products.json` allowed, INR at rate 1. Vendor is always the shop and the product type is empty, so `vendorIsShop` and `fragranceOnlyCatalogue` are set (many titles name no strength). Titles with no size anywhere ("Hawas Rouge by Rasasi", the size is only in the description) are not kept: about half of the 1,433 variants pass, the rest cannot be compared by size. Shipping policy page answers 404; delivery is the banner (free over 1,499 rupees), unverified. |

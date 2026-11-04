@@ -656,4 +656,40 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     taxNote: IN_TAX_NOTE,
     checked: `${CHECKED}: robots.txt 200 (24 B, no restriction, no sitemap); home 200; Store API page one: 20 products, 4 simple (sets and kits), 16 variable.`,
   },
+  // ── Shop candidates round of 2 Nov 2026 (docs/SHOP-CANDIDATES-2026-11-02.md), read again 4 Nov 2026 as PriceSniffsBot ──
+  {
+    id: 'scentopia',
+    name: 'Scentopia',
+    region: 'IN',
+    currency: 'INR',
+    domain: 'scentopiaperfumes.com',
+    homepage: 'https://scentopiaperfumes.com/',
+    tiers: ['mideast', 'niche'],
+    enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
+    // Middle Eastern perfume only; many titles name no strength ("Hawas Rouge by Rasasi", "Naseem Asmira Rouge – 100ML").
+    fragranceOnlyCatalogue: true,
+    route: { kind: 'shopify' },
+    minRequestGapMs: 1500,
+    excludeProductTypes: NOT_FOR_SALE_TYPES,
+    // Its vendor is always "Scentopia Perfumes" and its product type is empty; the house is in the title
+    // ("Beyond Precious by Lattafa Eau De Parfum – 100ML for Women").
+    vendorIsShop: true,
+    delivery: {
+      standard: null,
+      freeOver: 1499,
+      estimatedDays: null,
+      verifiedAt: '2026-11-04',
+      confidence: 'unverified',
+      source: {
+        url: 'https://scentopiaperfumes.com/',
+        quote: 'Free Shipping all over India on all orders above ₹1499 ... Shipping charges applicable on all orders below ₹1499',
+        readAt: '2026-11-04',
+      },
+      notes: 'Read from the banner on every page. Its /policies/shipping-policy page answered 404, so the charge below the threshold and the delivery window are not stated.',
+    },
+    taxNote: IN_TAX_NOTE,
+    checked: '2026-11-04: robots.txt 200 (stock; Allow /); home 200; /products.json 200 (250 products a page, about 1,440 in all); /meta.json currency INR, country IN, Mumbai.',
+  },
 ];
