@@ -940,6 +940,11 @@ export interface Retailer {
    */
   skuIsBarcode?: boolean;
   /**
+   * The variant title only repeats the size the product title already states ("... EDP 100ML" and the variant "100 ML"), so it
+   * is not appended a second time (All Arabic). Unset for every other shop, whose stored titles stay as they were.
+   */
+  dropRepeatedVariantSize?: boolean;
+  /**
    * This shop's "Travel Spray" variant is the same perfume in a small
    * atomiser, one more size on the perfume's own page (Kayali's "10ml Travel
    * Spray" beside its 100ml, 50ml, "10ml Miniature" and 1.5ml), so the word is

@@ -692,4 +692,29 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     taxNote: IN_TAX_NOTE,
     checked: '2026-11-04: robots.txt 200 (stock; Allow /); home 200; /products.json 200 (250 products a page, about 1,440 in all); /meta.json currency INR, country IN, Mumbai.',
   },
+  {
+    id: 'all-arabic',
+    name: 'All Arabic',
+    region: 'IN',
+    currency: 'INR',
+    domain: 'allarabic.in',
+    homepage: 'https://allarabic.in/',
+    tiers: ['mideast'],
+    enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
+    route: { kind: 'shopify' },
+    minRequestGapMs: 1500,
+    excludeProductTypes: NOT_FOR_SALE_TYPES,
+    // It lists part used bottles as "... EDP 60ML (Partial)" and its decants as "... EDP Decant" (10, 20 and 30 ML
+    // variants): neither is the sealed bottle other shops sell, so both are left out (owner brief, 4 Nov 2026).
+    titleMustMatch: '^(?!.*(?:\\(partial\\)|\\bdecants?\\b))',
+    // Its vendor is always "All Arabic"; the house leads the title ("Rasasi Hawas Ice Freeze EDP 100ML").
+    vendorIsShop: true,
+    // Its variant title repeats the size the product title states ("EDP 100ML" and "100 ML").
+    dropRepeatedVariantSize: true,
+    delivery: unverified('Its /policies/shipping-policy page (read 2026-11-04) gives only a fulfilment time, 2 to 3 business days, and no charge or free threshold.'),
+    taxNote: IN_TAX_NOTE,
+    checked: '2026-11-04: robots.txt 200 (stock plus sort and filter rules; no rule for PriceSniffsBot); /products.json 200 (704 products, 250 a page); /meta.json currency INR, country IN, Zirakpur, Punjab.',
+  },
 ];

@@ -281,3 +281,24 @@ describe('the Soghaat registry entry', () => {
     expect(shop.shopifyVariantRule?.productTypes).not.toContain('Luxury Air Fresheners');
   });
 });
+
+describe('a variant title that only repeats the size already in the product title', () => {
+  const sizedProduct = (title: string, variantTitle: string) =>
+    product({ title, handle: 'h', options: [{ name: 'Quantity' }],
+      variants: [{ sku: 'AA1', title: variantTitle, option1: variantTitle, price: '3599.00', compare_at_price: null, available: true }] });
+  const titleOf = (title: string, variantTitle: string, dropRepeatedSize: boolean) =>
+    parseShopifyProducts(JSON.stringify({ products: [sizedProduct(title, variantTitle)] }), {
+      origin: 'https://shop.example', sectionId: 's', currency: 'INR', ...(dropRepeatedSize ? { dropRepeatedSize: true } : {}),
+    })[0]!.rawTitle;
+
+  it('is appended as before unless the shop asks for it to be dropped', () => {
+    expect(titleOf('Rasasi Hawas EDP 100ML', '100 ML', false)).toBe('Rasasi Hawas EDP 100ML 100 ML');
+    expect(titleOf('Rasasi Hawas EDP 100ML', '100 ML', true)).toBe('Rasasi Hawas EDP 100ML');
+  });
+
+  it('is still appended when it names a different size, or is no size at all', () => {
+    expect(titleOf('Khamrah EDP', '10 ML', true)).toBe('Khamrah EDP 10 ML');
+    expect(titleOf('Khamrah EDP 100ML', '50 ML', true)).toBe('Khamrah EDP 100ML 50 ML');
+    expect(titleOf('Khamrah EDP 100ML', 'Tester', true)).toBe('Khamrah EDP 100ML Tester');
+  });
+});

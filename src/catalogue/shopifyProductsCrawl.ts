@@ -414,6 +414,7 @@ export async function crawlViaShopifyProducts(
       ...(retailer.barcodeFromProductJs ? { keepVariantId: true } : {}),
       // A shop that prints the bottle's barcode as its variant sku.
       ...(retailer.skuIsBarcode ? { skuIsBarcode: true } : {}),
+      ...(retailer.dropRepeatedVariantSize ? { dropRepeatedSize: true } : {}),
     });
     listings.push(...batch);
     lastPageCount = shopifyProductCount(res.body);

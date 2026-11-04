@@ -368,6 +368,19 @@ export interface ShopifyParseOptions {
    * when it passes the barcode checks (`cleanBarcode`); a sku that does not stays only the shop's own key.
    */
   skuIsBarcode?: boolean;
+  /**
+   * Do not append a variant title that only repeats the size the product title already states (All Arabic: "Rasasi Hawas EDP
+   * 100ML" with the variant "100 ML" read "... 100ML 100 ML", and a title with two sizes is refused for a fragrance only
+   * house). Compared without spaces or case; every other variant title is appended as before.
+   */
+  dropRepeatedSize?: boolean;
+}
+
+/** Whether a variant title is only a size the product title already states ("100 ML" after "... EDP 100ML"). */
+function repeatsSize(title: string, variantTitle: string): boolean {
+  const squash = (t: string) => t.toLowerCase().replace(/\s+/g, '');
+  const v = squash(variantTitle);
+  return /^\d{1,4}(?:\.\d)?(?:ml|oz)$/.test(v) && squash(title).includes(v);
 }
 
 /**
@@ -443,7 +456,7 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
         ? `${title} ${ruleTitle}`
         : rule
           ? title
-          : variant.title && !/^default/i.test(variant.title)
+          : variant.title && !/^default/i.test(variant.title) && !(options.dropRepeatedSize && repeatsSize(title, variant.title))
             ? `${title} ${variant.title}`
             : title;
 

@@ -153,6 +153,11 @@ export interface RegionRetailer {
    */
   skuIsBarcode?: boolean;
   /**
+   * The Shopify variant title only repeats the size the product title states ("... EDP 100ML" and "100 ML", All Arabic), and a
+   * title that names a size twice is refused for a fragrance only house (Rasasi, Zimaya). The size is then not appended again.
+   */
+  dropRepeatedVariantSize?: boolean;
+  /**
    * The shop's page states a price of 0 for a product it has sold out
    * (Purplle, round 2). A 0 is never a price: a listing already stored is
    * kept at its last price and marked out of stock, and a new one is not

@@ -598,6 +598,7 @@ export function crawlerRetailer(shop: RegionRetailer): Retailer {
     enabled: shop.enabled,
     adapter: shop.route?.kind === 'sitemap' ? 'json-ld' : 'unknown',
     ...(shop.route?.kind === 'shopify' ? { shopifyStorefront: true } : {}),
+    ...(shop.route?.kind === 'shopify' && shop.dropRepeatedVariantSize ? { dropRepeatedVariantSize: true } : {}),
     ...(shop.route?.kind === 'shopify' && shop.route.variantRule ? { shopifyVariantRule: shop.route.variantRule } : {}),
     ...(route ? { sitemapRoute: route } : {}),
     shipping: { standardGbp: null, freeOverGbp: null, estimatedDays: [0, 0], verifiedAt: shop.delivery.verifiedAt, confidence: 'unverified' },
