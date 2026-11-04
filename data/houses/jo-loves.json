@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-04T10:20:20.139Z",
-  "seenAt": "2026-11-04T10:20:20.139Z",
+  "updatedAt": "2026-11-04T14:23:45.406Z",
+  "seenAt": "2026-11-04T14:23:45.406Z",
   "source": "live",
   "listings": [
     {
@@ -589,7 +589,7 @@
       "priceGbp": 32,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Immerse yourself in seven vibrant Jo Loves fragrances, where sparkling citrus, juicy fruits, fresh green accords and expressive florals come together in a collection full of colour and character. From uplifting daytime scents to more distinctive modern compositions, discover a fragrance for every mood and moment. Contents: Pomelo, White Rose & Lemon Leaves, Mango Thai Lime, Green Orange & Coriander, Pink Vetiver, No.42 The Flower Shop and Orange Butterflies. Please note the set will start dispatching after 9th October..",
       "productType": null,
@@ -4338,7 +4338,7 @@
       "priceGbp": 39,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Discover the scent of your dreams with Jo Loves Pomelo Bath & Shower Gel! Inspired by sun-kissed beaches and creative bliss, this luxurious formula gently cleanses and nourishes your skin, leaving it delicately fragranced with a captivating blend of rose, pomelo, vetiver, clove, patchouli, and suede. Indulge in a moment of pure relaxation and let the scent of holidays, sun, and water transport you to your own personal paradise. Experience the joy of creativity and the comfort of home with every use.",
       "productType": null,

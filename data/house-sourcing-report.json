@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-04T10:20:20.657Z",
+  "checkedAt": "2026-11-04T14:23:45.863Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,7 +58,7 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": "USD",
+      "currency": "GBP",
       "listings": 507,
       "pricedInGbp": 0,
       "withPhoto": 484,
@@ -66,8 +66,7 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
       ]
     },
     {
@@ -76,9 +75,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 197,
+      "listings": 198,
       "pricedInGbp": 0,
-      "withPhoto": 196,
+      "withPhoto": 197,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -192,13 +191,15 @@
     {
       "houseId": "paris-corner",
       "name": "Paris Corner",
-      "origin": "https://pariscorner.ae",
+      "origin": "https://www.pariscorner.ae",
       "routeUsed": null,
       "currency": "AED",
       "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [],
+      "errors": [
+        "https://pariscorner.ae did not answer; used https://www.pariscorner.ae instead"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",

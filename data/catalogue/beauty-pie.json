@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-04T10:13:33.257Z",
-  "seenAt": "2026-11-04T10:13:33.257Z",
+  "updatedAt": "2026-11-04T14:14:40.988Z",
+  "seenAt": "2026-11-04T14:14:40.988Z",
   "source": "live",
   "listings": [
     {
@@ -4338,7 +4338,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A concentrated serum like this, with 7% advanced pro collagen Matrixyl (R) peptides- would normally retail for about £100. But that’s not what you pay shopping warehouse-direct at Beauty Pie. “Shockingly Good.” “Witchcraft.” “A Face Lift In A Bottle.” That’s how people talk about our powerful anti-aging Flash Face Lift Intense Serum Superdrops . Formulated with two Matrixyl™ peptides plus Argireline®, this concentrated serum helps visibly lift and firm while reducing the appearance of fine lines, deep wrinkles and expression lines. It also supports cell longevity for a complexion that appears smoother, fresher and more youthful. .",
       "productType": "Skincare",
@@ -11422,7 +11422,7 @@
       "priceGbp": 25.6,
       "wasPriceGbp": 32,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A precision combination of bristles (shine-boosting natural boar bristles plus smoothing V-shaped nylon) delivers sleekness from root to tip, and just the right ‘lift’. The ceramic-coated barrel helps prevent breakage, and the lightweight, non-slip wooden handle makes blow-drying a dream..",
       "productType": "Accessories",

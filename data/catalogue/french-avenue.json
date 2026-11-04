@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-11-04T10:13:32.591Z",
-  "seenAt": "2026-11-04T10:13:32.591Z",
+  "updatedAt": "2026-11-04T14:14:46.596Z",
+  "seenAt": "2026-11-04T14:14:46.596Z",
   "source": "live",
   "listings": [
     {
@@ -76,7 +76,7 @@
     {
       "retailerSku": "18347",
       "url": "https://uk.shopfrenchavenue.com/products/spirito-ignite-edp-100ml",
-      "rawTitle": "Spirito Ignite EDP 100ml",
+      "rawTitle": "Spirito Ignite ExDP 100ml",
       "rawBrand": "French Avenue",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Spirito_Ignite_EDP_100ml.jpg?v=1787553927",
