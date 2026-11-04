@@ -251,6 +251,17 @@ export function shopImageUrl(url: string | null | undefined): string | null {
   return rejectPlaceholderImage(url);
 }
 
+/**
+ * A title that names no size, with the one millilitre size the first 300 characters of the shop's own description state
+ * ("Hawas Rouge by Rasasi" and "Hawas Rouge by Rasasi – 100ML Eau De Parfum for Women" make "Hawas Rouge by Rasasi 100ml").
+ * A title that already names a size, a description naming none or two different ones, leave the title as it was.
+ */
+export function titleWithDescriptionSize(title: string, description: string | null | undefined): string {
+  if (!description || /\d\s*(?:ml|oz|g)\b/i.test(title)) return title;
+  const sizes = new Set([...description.slice(0, 300).matchAll(/\b(\d{1,3}(?:\.\d)?)\s*ml\b/gi)].map((m) => m[1]!));
+  return sizes.size === 1 ? `${title} ${[...sizes][0]}ml` : title;
+}
+
 /** What the adapters return, priced in the region's currency and cut to what the catalogue keeps. */
 export function toRegionListings(
   raw: readonly RawListing[],
@@ -277,7 +288,7 @@ export function toRegionListings(
     const candidate: RegionListing = {
       retailerSku: l.retailerSku,
       url: l.url,
-      rawTitle: l.rawTitle,
+      rawTitle: shop.sizeFromDescription ? titleWithDescriptionSize(l.rawTitle, l.description) : l.rawTitle,
       rawBrand,
       ean,
       price,

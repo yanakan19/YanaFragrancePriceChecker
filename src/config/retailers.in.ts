@@ -670,6 +670,8 @@ export const IN_RETAILERS: readonly RegionRetailer[] = [
     imageBasis: 'hotlink-unlicensed',
     // Middle Eastern perfume only; many titles name no strength ("Hawas Rouge by Rasasi", "Naseem Asmira Rouge – 100ML").
     fragranceOnlyCatalogue: true,
+    // Half of its titles name no size ("Hawas Rouge by Rasasi"); the first words of its description do ("... – 100ML Eau De Parfum for Women").
+    sizeFromDescription: true,
     route: { kind: 'shopify' },
     minRequestGapMs: 1500,
     excludeProductTypes: NOT_FOR_SALE_TYPES,

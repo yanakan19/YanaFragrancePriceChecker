@@ -11,6 +11,7 @@ import { parseShopifyProducts } from '../src/catalogue/shopifyJson.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
 import { withTitleParts } from '../src/catalogue/sitemapCrawl.js';
 import {
+  titleWithDescriptionSize,
   encodeRegionSnapshot, harvestRegionShop, reconcileRegion, regionPriceOf, regionStorefrontCurrency, toRegionListings, zeroPricedSkus,
   productGroupSizes, withVariantSize,
   barcodeInSku, readOgProductPage, recordingHttp,
@@ -308,3 +309,23 @@ describe('the size an Ulta page gives its selected sku', () => {
   });
 });
 
+
+describe('a size taken from the first words of the description', () => {
+  const desc = 'Hawas Rouge by Rasasi – 100ML Eau De Parfum for Women. Radiant, elegant and irresistibly feminine.';
+
+  it('is put at the end of a title that names no size', () => {
+    expect(titleWithDescriptionSize('Hawas Rouge by Rasasi', desc)).toBe('Hawas Rouge by Rasasi 100ml');
+    expect(titleWithDescriptionSize('Hawas Rouge by Rasasi', 'A 7.5 ML travel spray of Hawas Rouge')).toBe('Hawas Rouge by Rasasi 7.5ml');
+  });
+
+  it('leaves a title that names a size, a description with none, and one with two different sizes alone', () => {
+    expect(titleWithDescriptionSize('Hawas Rouge – 50ML', desc)).toBe('Hawas Rouge – 50ML');
+    expect(titleWithDescriptionSize('Hawas Rouge', 'Radiant and feminine')).toBe('Hawas Rouge');
+    expect(titleWithDescriptionSize('Hawas Rouge', 'Comes in 50ML and 100ML')).toBe('Hawas Rouge');
+    expect(titleWithDescriptionSize('Hawas Rouge', null)).toBe('Hawas Rouge');
+  });
+
+  it('ignores a size that only appears deep in the copy', () => {
+    expect(titleWithDescriptionSize('Hawas Rouge', `${'Lovely. '.repeat(60)}100ML`)).toBe('Hawas Rouge');
+  });
+});

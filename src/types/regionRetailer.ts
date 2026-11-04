@@ -158,6 +158,13 @@ export interface RegionRetailer {
    */
   dropRepeatedVariantSize?: boolean;
   /**
+   * The title names no size and the product description's first words do ("Hawas Rouge by Rasasi", then "Hawas Rouge by Rasasi
+   * – 100ML Eau De Parfum for Women", Scentopia), and a price without a size cannot be compared. The one millilitre size
+   * stated in the first 300 characters of the description is put at the end of the title of a listing that states none
+   * (`titleWithDescriptionSize`). Two different sizes there, or none, leave the title as it was.
+   */
+  sizeFromDescription?: boolean;
+  /**
    * The shop's page states a price of 0 for a product it has sold out
    * (Purplle, round 2). A 0 is never a price: a listing already stored is
    * kept at its last price and marked out of stock, and a new one is not
