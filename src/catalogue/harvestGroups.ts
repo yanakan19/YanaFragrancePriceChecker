@@ -98,6 +98,7 @@ export const HARVEST_GROUP_PLAN: Readonly<Record<string, readonly [group: number
   ocado: [0, 0],
   opulensi: [1, 38],
   'oud-arabian': [1, 81],
+  'p-eleven': [1, 180],
   'paco-perfumerias-uk': [1, 2400],
   'parfumdreams-uk': [1, 2151],
   'perfume-closet': [0, 7],

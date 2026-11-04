@@ -532,6 +532,14 @@ export interface ShopifyVariantRule {
   /** Keep only products whose `product_type` is one of these (case blind). */
   productTypes?: readonly string[];
   /**
+   * Keep only products whose `product_type` starts with one of these (case blind, after turning `&gt;` and `&amp;`
+   * back into `>` and `&`). For a shop that files its perfume under a tree of types, "Fragrance > For Her", "Fragrance >
+   * Unisex" (P-Eleven), among skincare and make up.
+   */
+  productTypePrefixes?: readonly string[];
+  /** Drop products whose `product_type` is exactly one of these (case blind, entities turned back), after the tests above. */
+  excludeProductTypes?: readonly string[];
+  /**
    * Options the product must carry, by name (case blind). A fragrance sold
    * with a concentration has one; a hand sanitizer filed under the same
    * product type does not.

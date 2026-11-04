@@ -230,3 +230,24 @@ describe('the Bloom Perfumery registry entry', () => {
     expect(bloom.shopifyVariantRule?.productTypes).toEqual(['Perfume']);
   });
 });
+
+describe('a rule that reads a tree of product types', () => {
+  const RULE3: ShopifyVariantRule = { productTypePrefixes: ['Fragrance >'], excludeProductTypes: ['Fragrance > Home'] };
+  const item = (title: string, type: string) =>
+    product({ title, handle: title.toLowerCase().replace(/\W+/g, '-'), product_type: type, options: [{ name: 'Title' }],
+      variants: [{ sku: `S-${title}`, title: 'Default Title', option1: 'Default Title', price: '10.00', compare_at_price: null, available: true }] });
+
+  it('keeps every branch of the tree, with or without the entities a shop leaves in the field, and nothing beside it', () => {
+    const rows = parse(
+      [item('A', 'Fragrance &gt; For Her'), item('B', 'Fragrance > Unisex'), item('C', 'fragrance &gt; For Him'),
+        item('D', 'Skincare &gt; Eye Care'), item('E', 'Fragrance Oils'), item('F', '')],
+      RULE3,
+    );
+    expect(rows.map((r) => r.rawTitle)).toEqual(['A', 'B', 'C']);
+  });
+
+  it('drops a branch the rule excludes, entities or not', () => {
+    const rows = parse([item('Candle', 'Fragrance &gt; Home'), item('Scent', 'Fragrance &gt; For Her')], RULE3);
+    expect(rows.map((r) => r.rawTitle)).toEqual(['Scent']);
+  });
+});

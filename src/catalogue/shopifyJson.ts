@@ -173,6 +173,20 @@ const PLACEHOLDER_OPTION_VALUE = /^(?:default title|0)$/i;
 const PLAIN_ML = /^(\d+(?:\.\d+)?)\s*ml$/i;
 
 /**
+ * A product type as a rule reads it: lower case, with the entities some shops leave in the field
+ * (P-Eleven writes "Fragrance &gt; For Her") turned back into the characters they stand for.
+ */
+function unescapeType(type: string): string {
+  return type
+    .replace(/&gt;/gi, '>')
+    .replace(/&lt;/gi, '<')
+    .replace(/&amp;/gi, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+/**
  * Whether a product passes a retailer's variant rule at product level: its
  * type, and that it has the options the rule's other tests will read.
  */
@@ -180,6 +194,11 @@ export function productPassesVariantRule(product: JsonValue, rule: ShopifyVarian
   if (rule.productTypes) {
     const type = (str(product['product_type']) ?? '').toLowerCase();
     if (!rule.productTypes.some((t) => t.toLowerCase() === type)) return false;
+  }
+  if (rule.productTypePrefixes || rule.excludeProductTypes) {
+    const type = unescapeType(str(product['product_type']) ?? '');
+    if (rule.productTypePrefixes && !rule.productTypePrefixes.some((p) => type.startsWith(p.toLowerCase()))) return false;
+    if (rule.excludeProductTypes?.some((t) => t.toLowerCase() === type)) return false;
   }
   if (rule.excludeTitle && new RegExp(rule.excludeTitle, 'i').test(str(product['title']) ?? '')) return false;
   const names = optionNamesOf(product).map((n) => n.toLowerCase());

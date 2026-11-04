@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 87 retailers, 63 of them `enabled: true`. Every one of them is a legitimate
+ * 88 retailers, 64 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -11623,6 +11623,69 @@ export const RETAILERS: readonly Retailer[] = [
       // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
       // rehosted. Unset this the moment they object or block hot-linking.
       // Owner extended D24 to this shop on 2026-10-09 (docs/DECISIONS.md D24).
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
+  },
+  {
+    id: 'p-eleven',
+    name: 'P-Eleven',
+    domain: 'p-eleven.com',
+    homepage: 'https://p-eleven.com',
+    tiers: ['designer', 'niche'],
+    // Added 2026-11-04 (docs/SHOP-CANDIDATES-2026-11-02.md, UK rank 1). A London beauty discounter
+    // (skincare, make up, bath and body, hair and fragrance); its fragrance shelf holds niche and
+    // designer houses (Xerjoff, Tiziana Terenzi, Ex Nihilo, Hermes, Jean Paul Gaultier). Read as
+    // PriceSniffsBot only, robots.txt first, on 2026-11-04.
+    //
+    // robots.txt (https://p-eleven.com/robots.txt, HTTP 200) is Shopify's newer stock file: product pages and
+    // /products.json are not disallowed, no crawl delay for the bot. /meta.json: currency GBP, country GB,
+    // London. /products.json is 20,423 products (about 82 pages of 250, about 380 KB a page); the walk is the
+    // existing Shopify one, 100 pages at most, 1.5 s apart, so about 3 to 4 minutes for the shop.
+    //
+    // WHAT IS KEPT. Its product types are a tree, "Fragrance > For Her", "Fragrance > For Him", "Fragrance
+    // > Unisex" (the field holds the entity, "Fragrance &gt; For Her"), beside "Skincare > ...", "Cosmetics
+    // > ..." and the rest. The rule keeps the prefix "Fragrance >" (`productTypePrefixes`) and leaves out
+    // "Fragrance > Home" (candles and diffusers). Its few loose "Eau de Parfum" and "Eau de Toilette" typed
+    // products are not read. One variant a product, the title carries the size and the form
+    // ("... Eau de Parfum 100ml Spray"). The sku is the shop's own code (F666451), not a barcode.
+    //
+    // Affiliate: none found. Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      productTypePrefixes: ['Fragrance >'],
+      excludeProductTypes: ['Fragrance > Home'],
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 4.99,
+      freeOverGbp: 75,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-11-04',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://p-eleven.com/policies/shipping-policy',
+        quote: '£4.99 or FREE on orders over £75. Standard delivery. Please allow 2-5 working days to receive your order.',
+        readAt: '2026-11-04',
+      },
+      notes:
+        'Read off the shop\'s own Shipping policy page on 2026-11-04 (allowed by its robots.txt). Express shipping ' +
+        'is not available to the Scottish Highlands, Isle of Wight, West Cornwall, Isle of Man and Channel Isles. ' +
+        'Nothing was added to a cart.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://p-eleven.com/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://p-eleven.com/collections/all?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
       // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
       imageBasis: 'hotlink-unlicensed',
     },

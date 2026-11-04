@@ -178,7 +178,10 @@ describe('retailer registry', () => {
     // own Shopify /products.json: Rowlands Pharmacy, LloydsPharmacy, Beaute
     // Boulevard, Scent Warehouse, Roullier White and Scented (Glasgow). All six
     // are enabled, so the enabled count goes 56 to 62.
-    expect(RETAILERS).toHaveLength(87);
+    //
+    // 2026-11-04: 87 becomes 88. P-Eleven (docs/SHOP-CANDIDATES-2026-11-02.md), enabled, so the
+    // enabled count goes up by one.
+    expect(RETAILERS).toHaveLength(88);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
