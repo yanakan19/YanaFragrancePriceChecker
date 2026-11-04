@@ -2,6 +2,12 @@
   "limit": 4,
   "findings": [
     {
+      "check": "pipe-outside-allowlist",
+      "file": "tests/productNameNoise.test.ts",
+      "title": "has no \"|\" in a name outside the verified allowlist",
+      "message": "expected [ …(2) ] to deeply equal []"
+    },
+    {
       "check": "missing-sets-and-excluded-kinds",
       "file": "tests/unnamedSets.test.ts",
       "title": "holds the sets that were missing, and none of the vial sets or home fragrance sets",
