@@ -251,3 +251,33 @@ describe('a rule that reads a tree of product types', () => {
     expect(rows.map((r) => r.rawTitle)).toEqual(['Scent']);
   });
 });
+
+describe('a shop whose variant sku is the bottle barcode', () => {
+  const sized = (sku: string | null) =>
+    product({ title: 'Verda 75ml Eau de Parfum by Osma', handle: 'verda', options: [{ name: 'Title' }],
+      variants: [{ sku, title: 'Default Title', option1: 'Default Title', price: '39.99', compare_at_price: null, available: true }] });
+  const read = (sku: string | null, skuIsBarcode: boolean) =>
+    parseShopifyProducts(JSON.stringify({ products: [sized(sku)] }), {
+      origin: 'https://shop.example', sectionId: 's', currency: 'GBP', ...(skuIsBarcode ? { skuIsBarcode: true } : {}),
+    });
+
+  it('stores a sku that is a real barcode as the ean, and only for a shop that says so', () => {
+    expect(read('6287036287764', true)[0]!.ean).toBe('6287036287764');
+    expect(read('6287036287764', false)[0]!.ean).toBeNull();
+  });
+
+  it('keeps a sku that is no barcode as the shop\'s own key and stores no ean', () => {
+    const rows = read('F666451', true);
+    expect(rows[0]!.ean).toBeNull();
+    expect(rows[0]!.retailerSku).toBe('F666451');
+    expect(read(null, true)[0]!.ean).toBeNull();
+  });
+});
+
+describe('the Soghaat registry entry', () => {
+  it('reads the sku as the barcode and keeps its perfume types only', () => {
+    const shop = RETAILERS.find((r) => r.id === 'soghaat')!;
+    expect(shop.skuIsBarcode).toBe(true);
+    expect(shop.shopifyVariantRule?.productTypes).not.toContain('Luxury Air Fresheners');
+  });
+});

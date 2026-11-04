@@ -181,7 +181,9 @@ describe('retailer registry', () => {
     //
     // 2026-11-04: 87 becomes 88. P-Eleven (docs/SHOP-CANDIDATES-2026-11-02.md), enabled, so the
     // enabled count goes up by one.
-    expect(RETAILERS).toHaveLength(88);
+    //
+    // 2026-11-04: 88 becomes 89. Soghaat, enabled, so the enabled count goes up by one again.
+    expect(RETAILERS).toHaveLength(89);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -346,11 +348,14 @@ describe('retailer registry', () => {
       // flat rate (a free threshold of £30 for the first, none for the second);
       // sainte-cellier's shipping terms sit under /policies/, which its
       // robots.txt disallows, so nothing was read and its entry says so.
+      // soghaat joined 2026-11-04 on a Shopify route proved from its own /products.json: free UK delivery over £40 and
+      // no rate below it (standardRateNotPublished, its policy page quoted).
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'niche-beauty-uk',
         'opulensi',
         'perfume-closet',
         'sainte-cellier',
+        'soghaat',
         'space-nk',
       ]);
       for (const r of unstated) {

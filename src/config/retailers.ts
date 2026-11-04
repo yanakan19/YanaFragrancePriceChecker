@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 88 retailers, 64 of them `enabled: true`. Every one of them is a legitimate
+ * 89 retailers, 65 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -11679,6 +11679,79 @@ export const RETAILERS: readonly Retailer[] = [
       searchUrlTemplate: 'https://p-eleven.com/search?q={q}',
       sections: [
         { id: 'all', label: 'All products', urlTemplate: 'https://p-eleven.com/collections/all?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
+  },
+  {
+    id: 'soghaat',
+    name: 'Soghaat',
+    domain: 'soghaat.co.uk',
+    homepage: 'https://soghaat.co.uk',
+    tiers: ['mideast'],
+    // Added 2026-11-04 (docs/SHOP-CANDIDATES-2026-11-02.md, UK rank 2). A Huddersfield shop for Arabian perfume
+    // (Lattafa, Ajmal, Swiss Arabian, Ahmed Al Maghribi, Maison Alhambra, Osma, Bujairami). Read as PriceSniffsBot
+    // only, robots.txt first, on 2026-11-04.
+    //
+    // robots.txt (https://soghaat.co.uk/robots.txt, HTTP 200) is Shopify's stock file with a few more rules: only
+    // /collections/*sort_by*, /collections/*+* and filter addresses are disallowed, products.json and the sitemap are
+    // allowed, no crawl delay for the bot. /meta.json: currency GBP, country GB, Huddersfield. /products.json is 2,363
+    // products over 10 full pages and a short eleventh (250 a page), all single variant.
+    //
+    // BARCODES. The variant sku is an EAN-13 (2,278 of 2,363 variants), so `skuIsBarcode` stores it as the listing's
+    // `ean` when the check digit holds, with no request beyond the walk: the best matching quality of the new shops.
+    //
+    // WHAT IS KEPT. By product type: "Inspired Perfumes" (1,245: the Arabian houses' own bottles, Maison Alhambra,
+    // Bujairami), "Arabian Perfumes & Fragrances" (833), "Travel Size Fragrances" and "Fragrance Gift Sets". Left out:
+    // "Luxury Air Fresheners", "Vehicle Air Fresheners", "Body Sprays & Deodorants", "Bakhoor & Incense", "Alcohol-Free
+    // Perfumes & Attars" (oils, read by the shop's own page only) and "Perfumes for Kids". Titles carry the size and the
+    // strength ("Verda 75ml Eau de Parfum by Osma"), the vendor is the house.
+    //
+    // Affiliate: none found. Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    skuIsBarcode: true,
+    shopifyVariantRule: {
+      productTypes: [
+        'Inspired Perfumes',
+        'Arabian Perfumes & Fragrances',
+        'Travel Size Fragrances',
+        'Fragrance Gift Sets',
+      ],
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 40,
+      estimatedDays: [1, 3],
+      verifiedAt: '2026-11-04',
+      confidence: 'confirmed',
+      // Its policy page names no rate below the free threshold: the cost is worked out at checkout.
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://soghaat.co.uk/policies/shipping-policy',
+        quote:
+          'Free UK Shipping: Available for UK orders over £40, excluding ZamZam Water. Shipping fees depend on delivery destination, courier service and order size. The final delivery price is calculated at checkout.',
+        readAt: '2026-11-04',
+      },
+      notes:
+        'Read off the shop\'s own Shipping policy page on 2026-11-04 (allowed by its robots.txt). Below £40 the page says ' +
+        '"Shipping fees depend on delivery destination, courier service and order size. The final delivery price is ' +
+        'calculated at checkout", so no flat standard rate is stated and none is invented. Couriers: Royal Mail Tracked ' +
+        '24 and 48, DPD and DHL next day.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://soghaat.co.uk/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://soghaat.co.uk/collections/all?page={page}', tier: 'mideast' },
       ],
       firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
     },

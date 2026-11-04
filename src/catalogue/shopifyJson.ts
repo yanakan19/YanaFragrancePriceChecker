@@ -1,4 +1,5 @@
 import type { RawListing } from './types.js';
+import { cleanBarcode } from './barcode.js';
 import type { ShopifyVariantRule } from '../types/retailer.js';
 
 /**
@@ -362,6 +363,11 @@ export interface ShopifyParseOptions {
    * listing carries no such field, so no other shop's stored rows change.
    */
   keepVariantId?: boolean;
+  /**
+   * The variant's `sku` is the bottle's barcode (Soghaat prints an EAN-13 there). It becomes the listing's `ean`
+   * when it passes the barcode checks (`cleanBarcode`); a sku that does not stays only the shop's own key.
+   */
+  skuIsBarcode?: boolean;
 }
 
 /**
@@ -459,7 +465,7 @@ export function parseShopifyProducts(body: string, options: ShopifyParseOptions)
         // Direct, read 2026-10-05; the header comment says why Shopify keeps it
         // out). A shop whose product files carry one has it read from there:
         // see src/catalogue/barcodeFromProductJs.ts.
-        ean: null,
+        ean: options.skuIsBarcode ? cleanBarcode(variant.sku) : null,
         ...(options.keepVariantId ? { shopVariantId: variant.id } : {}),
         imageUrl: image,
         priceGbp: isGbp ? variant.price : null,

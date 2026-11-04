@@ -934,6 +934,12 @@ export interface Retailer {
    */
   barcodeFromProductJs?: { origin: string; gapMs: number; maxPerRun: number };
   /**
+   * The Shopify variant `sku` is the bottle's barcode (Soghaat: an EAN-13 on 231 of 250 variants). It is stored as the
+   * listing's `ean` when it passes `cleanBarcode` (src/catalogue/barcode.ts), with no request beyond the walk.
+   * Unset for every other shop, whose sku is its own code.
+   */
+  skuIsBarcode?: boolean;
+  /**
    * This shop's "Travel Spray" variant is the same perfume in a small
    * atomiser, one more size on the perfume's own page (Kayali's "10ml Travel
    * Spray" beside its 100ml, 50ml, "10ml Miniature" and 1.5ml), so the word is

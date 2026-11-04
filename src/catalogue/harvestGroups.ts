@@ -122,6 +122,7 @@ export const HARVEST_GROUP_PLAN: Readonly<Record<string, readonly [group: number
   scentstore: [1, 703],
   selfridges: [0, 0],
   'sephora-uk': [0, 0],
+  soghaat: [0, 60],
   'space-nk': [0, 120],
   superdrug: [0, 0],
   tesco: [0, 0],

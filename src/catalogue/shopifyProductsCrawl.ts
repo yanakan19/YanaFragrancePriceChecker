@@ -412,6 +412,8 @@ export async function crawlViaShopifyProducts(
       // A shop whose barcodes are read from each product's own file ties a
       // barcode to the variant it was read for.
       ...(retailer.barcodeFromProductJs ? { keepVariantId: true } : {}),
+      // A shop that prints the bottle's barcode as its variant sku.
+      ...(retailer.skuIsBarcode ? { skuIsBarcode: true } : {}),
     });
     listings.push(...batch);
     lastPageCount = shopifyProductCount(res.body);
