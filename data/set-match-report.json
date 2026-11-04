@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 205,
+ "folded": 206,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1114,6 +1114,7 @@
      "scent": "black orchid",
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
@@ -1495,6 +1496,38 @@
      "signature": "1x100fragrance|1x80wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3346130438243",
+   "absorbed": [
+    "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130438243",
+     "brand": "Hermès",
+     "name": "Hermes Terre d'Hermes Men's Gift Set (100ml EDT + 40ml Shower Gel + 15ml EDT)",
+     "concentration": "Eau de Toilette",
+     "ean": "3346130438243",
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-hermes-terre-d-hermes-eau-de-toilette-fragrance-gift-set",
+     "brand": "Hermès",
+     "name": "Terre d’Hermès Eau de Toilette Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d hermes terre",
+     "signature": "1x100fragrance|1x15fragrance|1x40wash",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -3497,38 +3530,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3760294350102",
-   "absorbed": [
-    "set-sillage-d-orient-signature-jade-gift-set-100ml-edp-15ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3760294350102",
-     "brand": "Sillage D'Orient",
-     "name": "Signature Jade Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3760294350102",
-     "scent": "jade signature",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-sillage-d-orient-signature-jade-gift-set-100ml-edp-15ml-edp",
-     "brand": "Sillage D'Orient",
-     "name": "Signature Jade Gift Set 100ml Edp + 15ml Edp",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "jade signature",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3760294350164",
    "absorbed": [
     "set-sillage-d-orient-signature-opal-gift-set-100ml-edp-15ml-edp"
@@ -5018,6 +5019,38 @@
      "signature": "1x50?|1x50body|1x50fragrance|1x?wash",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
@@ -6594,37 +6627,6 @@
      "ean": "0783320424243",
      "scent": "blossom delight goldea rose",
      "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.60 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-bvlgari-splendida-patchouli-tentation-gift-set-100ml-edp-15ml-edp",
-     "brand": "Bvlgari",
-     "name": "Splendida Patchouli Tentation Gift Set 100ml Edp + 15ml Edp",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "patchouli splendida tentation",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
-     "id": "set-ean-0783320418990",
-     "brand": "Bvlgari",
-     "name": "Splendida Patchouli Tentation Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "0783320418990",
-     "scent": "patchouli splendida tentation",
-     "signature": "1x100fragrance|1x15fragrance",
      "shops": [
       "perfume-click"
      ]
@@ -11041,6 +11043,38 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 66667150, 66667151",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-66667150",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667150",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-66667151",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667151",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
      ]
     }
    ]
