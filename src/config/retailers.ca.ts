@@ -428,6 +428,41 @@ export const CA_RETAILERS: readonly RegionRetailer[] = [
       `${CHECKED}: robots.txt 200 (User-agent * allows /; Crawl-delay lines are for dotbot and AhrefsBot); home 200; /products.json 400; ` +
       'store-products-sitemap.xml lists about 175 product pages; a product page read has one JSON-LD Product, offers in priceCurrency CAD (Burberry Her, $139).',
   },
+  {
+    id: 'my-royal-musk',
+    name: 'My Royal Musk',
+    region: 'CA',
+    currency: 'CAD',
+    domain: 'www.myroyalmusk.com',
+    homepage: 'https://www.myroyalmusk.com/',
+    tiers: ['designer', 'niche', 'mideast'],
+    enabled: true,
+    imageBasis: 'hotlink-unlicensed',
+    // Quotes USD to a US runner unless asked for its Canadian market; CAD at rate 1 with ?country=CA (src/types/regionRetailer.ts).
+    marketQuery: 'country=CA',
+    route: { kind: 'shopify' },
+    minRequestGapMs: 1500,
+    // Its product types: "perfume" on most, and air fresheners, oils, incense, decants, body gel, body spray and make up beside.
+    excludeProductTypes: [...NOT_FOR_SALE_TYPES, ...NOT_PERFUME_TYPES, 'Air Freshener', 'Oil', 'Incense', 'Decant', 'Body Gel', 'Makeup Kit'],
+    // Its variant sku is the bottle's EAN-13 on the multi size products (135 of 259 variants); a figure that fails the check digit is dropped.
+    skuIsBarcode: true,
+    delivery: {
+      standard: 9.99,
+      freeOver: 75,
+      freeOverInclusive: false,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-11-04',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.myroyalmusk.com/policies/shipping-policy',
+        quote: 'Standard Shipping - Domestic 7 Provinces - Alberta, British Columbia, Manitoba, Ontario, Quebec, Saskatchewan & Nova Scotia : $9.99 CAD Delivered in 2 to 5 business days',
+        readAt: '2026-11-04',
+      },
+      notes: 'Free over $75 CAD in those seven provinces (PO boxes excluded). The six other provinces and territories pay $14.99 and ship free over $150. A $14.99 premium service (2 to 3 days) and a $21.90 express service are not standard delivery.',
+    },
+    taxNote: CA_TAX_NOTE,
+    checked: '2026-11-04: robots.txt 200 (User-agent * allows /; products.json not disallowed); /products.json 200 (about 1.7 MB a page, 250 products); /meta.json currency CAD, country CA, Scarborough, Ontario.',
+  },
   refused('fragrancebuy-ca', 'FragranceBuy.ca', 'fragrancebuy.ca', 'robots.txt, the home page and /products.json all answered 403'),
   refused('ace-gifts-plus', 'Ace Gifts Plus', 'acegiftsplus.ca', 'robots.txt, the home page and /products.json all answered 403'),
   refused('sephora-ca', 'Sephora Canada', 'www.sephora.com', 'robots.txt and the home page answered 403'),
