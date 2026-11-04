@@ -882,4 +882,35 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     taxNote: US_TAX_NOTE,
     checked: '2026-11-04: robots.txt 200 (Shopify stock file; /products.json not disallowed); /products.json 200 (about 8,000 products, 250 a page, no product type, vendor is the house); /meta.json currency USD, country US, Edison NJ. Titles carry the size in ounces and the strength ("3.4 oz EDP Spray for Men"); its page answered a burst of five requests with HTTP 429, so the walk keeps its 2 second gap.',
   },
+  {
+    id: 'triple-traders',
+    name: 'Triple Traders',
+    region: 'US',
+    currency: 'USD',
+    domain: 'tripletraders.com',
+    homepage: 'https://tripletraders.com/',
+    tiers: ['designer', 'niche', 'mideast'],
+    enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
+    route: { kind: 'shopify' },
+    minRequestGapMs: 2000,
+    // Nearly every product is typed "Fragrance, cologne, perfume, oud"; body care, hair care and coffee sit beside them.
+    excludeProductTypes: [...NOT_FOR_SALE_TYPES, 'body care', 'Hair Care', 'Coffee, Yemeni Coffee, Al Kabous'],
+    delivery: {
+      standard: 0,
+      freeOver: null,
+      estimatedDays: null,
+      verifiedAt: '2026-11-04',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://tripletraders.com/policies/shipping-policy',
+        quote: 'No hassle Free shipping. No hassle return if not happy. No questions asked.',
+        readAt: '2026-11-04',
+      },
+      notes: 'The policy page is that one sentence: free shipping, no threshold and no delivery window stated.',
+    },
+    taxNote: US_TAX_NOTE,
+    checked: '2026-11-04: robots.txt 200 (Shopify stock file; /products.json not disallowed); /products.json 200 (about 6,600 products, 250 a page, vendor is the house); /meta.json currency USD, country US, Bensenville IL. Titles carry the size twice ("100ml/3.4oz") and many are marked TESTER, which the catalogue leaves out.',
+  },
 ];
