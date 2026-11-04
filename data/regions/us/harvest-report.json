@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-11-04T15:49:12.614Z",
-  "minutes": 57.27,
+  "ranAt": "2026-11-04T18:19:47.347Z",
+  "minutes": 57.87,
   "dryRun": false,
-  "shopsWired": 26,
-  "shopsEnabled": 23,
+  "shopsWired": 28,
+  "shopsEnabled": 25,
   "shopsPriced": 23,
-  "listingsKept": 34873,
+  "listingsKept": 31305,
   "shops": [
     {
       "id": "perfumania",
@@ -15,14 +15,19 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 5958,
-      "priced": 5958,
-      "kept": 4380,
+      "listingsRead": 261,
+      "priced": 261,
+      "kept": 188,
       "withBarcode": 0,
-      "pagesFetched": 21,
-      "seconds": 37,
+      "pagesFetched": 4,
+      "seconds": 31,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "errors": [
+        "https://perfumania.com/products.json?limit=250&page=2: HTTP 0 AbortError: This operation was aborted"
+      ],
+      "diagnostics": [
+        "https://perfumania.com/products.json?limit=250&page=2: HTTP 0 (AbortError: This operation was aborted)"
+      ]
     },
     {
       "id": "jomashop",
@@ -46,12 +51,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2640,
-      "priced": 2639,
-      "kept": 2542,
-      "withBarcode": 900,
-      "pagesFetched": 1276,
-      "seconds": 2100,
+      "listingsRead": 2146,
+      "priced": 2143,
+      "kept": 1930,
+      "withBarcode": 849,
+      "pagesFetched": 1149,
+      "seconds": 2101,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
@@ -67,7 +72,7 @@
         "https://www.luckyscent.com/products/akatsuki-by-tada-parfumeur: HTTP 404",
         "https://www.luckyscent.com/products/aoud-extraordinaire-by-roja-parfums: HTTP 404",
         "https://www.luckyscent.com/products/no02-le-long-fond-eau-de-parfum-by-maison-louis-marie: HTTP 404",
-        "sitemap: 3477 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
+        "sitemap: 3478 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
       ]
     },
     {
@@ -81,7 +86,7 @@
       "kept": 713,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 20,
+      "seconds": 18,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -96,7 +101,7 @@
       "kept": 185,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 15,
+      "seconds": 14,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -111,9 +116,12 @@
       "kept": 543,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 12,
-      "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "seconds": 36,
+      "currency": "the storefront publishes USD at rate 1",
+      "errors": [],
+      "diagnostics": [
+        "https://indigoperfumery.com/meta.json: HTTP 0 (AbortError: This operation was aborted)"
+      ]
     },
     {
       "id": "bluemercury",
@@ -121,14 +129,19 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 12150,
-      "priced": 12149,
-      "kept": 649,
+      "listingsRead": 9059,
+      "priced": 9058,
+      "kept": 491,
       "withBarcode": 0,
-      "pagesFetched": 26,
-      "seconds": 49,
+      "pagesFetched": 20,
+      "seconds": 62,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "errors": [
+        "https://bluemercury.com/products.json?limit=250&page=18: HTTP 0 AbortError: This operation was aborted"
+      ],
+      "diagnostics": [
+        "https://bluemercury.com/products.json?limit=250&page=18: HTTP 0 (AbortError: This operation was aborted)"
+      ]
     },
     {
       "id": "beautyhabit",
@@ -136,12 +149,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6792,
-      "priced": 6792,
+      "listingsRead": 6795,
+      "priced": 6795,
       "kept": 852,
       "withBarcode": 0,
       "pagesFetched": 28,
-      "seconds": 56,
+      "seconds": 55,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -171,7 +184,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -210,15 +223,21 @@
       "name": "Boy Smells",
       "route": "shopify",
       "singleBrand": true,
-      "status": "priced",
-      "listingsRead": 130,
-      "priced": 130,
+      "status": "no-prices",
+      "listingsRead": 0,
+      "priced": 0,
       "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 4,
-      "seconds": 6,
+      "pagesFetched": 3,
+      "seconds": 29,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "errors": [
+        "https://boysmells.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
+        "/products.json did not answer as a Shopify catalogue"
+      ],
+      "diagnostics": [
+        "https://boysmells.com/products.json?limit=250&page=1: HTTP 0 (AbortError: This operation was aborted)"
+      ]
     },
     {
       "id": "sol-de-janeiro",
@@ -246,7 +265,7 @@
       "kept": 5139,
       "withBarcode": 4526,
       "pagesFetched": 26,
-      "seconds": 48,
+      "seconds": 47,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -256,29 +275,37 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6352,
-      "priced": 6352,
-      "kept": 4622,
+      "listingsRead": 1787,
+      "priced": 1787,
+      "kept": 1234,
       "withBarcode": 0,
-      "pagesFetched": 23,
+      "pagesFetched": 9,
       "seconds": 41,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "errors": [
+        "https://www.fragranceoutlet.com/products.json?limit=250&page=7: HTTP 0 AbortError: This operation was aborted"
+      ],
+      "diagnostics": [
+        "https://www.fragranceoutlet.com/products.json?limit=250&page=7: HTTP 0 (AbortError: This operation was aborted)"
+      ]
     },
     {
       "id": "fragrance-market",
       "name": "Fragrance Market",
       "route": "shopify",
       "singleBrand": false,
-      "status": "priced",
-      "listingsRead": 6060,
-      "priced": 6060,
-      "kept": 4739,
+      "status": "refused",
+      "listingsRead": 0,
+      "priced": 0,
+      "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 22,
-      "seconds": 40,
-      "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "pagesFetched": 0,
+      "seconds": 50,
+      "currency": "",
+      "errors": [
+        "robots.txt https://fragrancemarket.com/robots.txt: 0 AbortError: This operation was aborted",
+        "robots.txt https://www.fragrancemarket.com/robots.txt: 0 AbortError: This operation was aborted"
+      ]
     },
     {
       "id": "microperfumes",
@@ -286,14 +313,19 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1753,
-      "priced": 511,
-      "kept": 511,
+      "listingsRead": 1510,
+      "priced": 469,
+      "kept": 469,
       "withBarcode": 0,
-      "pagesFetched": 10,
-      "seconds": 17,
+      "pagesFetched": 9,
+      "seconds": 39,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "errors": [
+        "https://microperfumes.com/products.json?limit=250&page=7: HTTP 0 AbortError: This operation was aborted"
+      ],
+      "diagnostics": [
+        "https://microperfumes.com/products.json?limit=250&page=7: HTTP 0 (AbortError: This operation was aborted)"
+      ]
     },
     {
       "id": "parfums-raffy",
@@ -306,9 +338,12 @@
       "kept": 307,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 17,
+      "seconds": 48,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://parfumsraffy.com/robots.txt: HTTP 0 (AbortError: This operation was aborted)"
+      ]
     },
     {
       "id": "ministry-of-scent",
@@ -321,7 +356,7 @@
       "kept": 1641,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 16,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -336,7 +371,7 @@
       "kept": 4890,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 49,
+      "seconds": 56,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -346,12 +381,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1874,
-      "priced": 850,
-      "kept": 834,
-      "withBarcode": 834,
-      "pagesFetched": 883,
-      "seconds": 3302,
+      "listingsRead": 1795,
+      "priced": 882,
+      "kept": 704,
+      "withBarcode": 679,
+      "pagesFetched": 930,
+      "seconds": 3303,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
         "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
@@ -376,12 +411,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 580,
-      "priced": 580,
-      "kept": 550,
-      "withBarcode": 463,
-      "pagesFetched": 805,
-      "seconds": 1501,
+      "listingsRead": 564,
+      "priced": 564,
+      "kept": 479,
+      "withBarcode": 381,
+      "pagesFetched": 794,
+      "seconds": 1500,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/: HTTP 404",
@@ -406,12 +441,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1371,
-      "priced": 1362,
-      "kept": 1325,
-      "withBarcode": 21,
-      "pagesFetched": 975,
-      "seconds": 2400,
+      "listingsRead": 1318,
+      "priced": 1309,
+      "kept": 1127,
+      "withBarcode": 14,
+      "pagesFetched": 1020,
+      "seconds": 2383,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://www.dillards.com/p/jo-malone-london-red-hibiscus-cologne-intense-3.4-oz./517863281: HTTP 404",
@@ -461,6 +496,36 @@
       "currency": "",
       "errors": [],
       "note": "Later, as the plan says: /api/ is disallowed by its robots.txt, /products.json is 404 and its pages are heavy (256 KB home). No route chosen yet."
+    },
+    {
+      "id": "perfumes-america",
+      "name": "PerfumesAmerica",
+      "route": "shopify",
+      "singleBrand": false,
+      "status": "priced",
+      "listingsRead": 8402,
+      "priced": 8402,
+      "kept": 5412,
+      "withBarcode": 0,
+      "pagesFetched": 36,
+      "seconds": 81,
+      "currency": "the storefront publishes USD at rate 1, settles in USD",
+      "errors": []
+    },
+    {
+      "id": "triple-traders",
+      "name": "Triple Traders",
+      "route": "shopify",
+      "singleBrand": false,
+      "status": "priced",
+      "listingsRead": 6603,
+      "priced": 6313,
+      "kept": 4550,
+      "withBarcode": 0,
+      "pagesFetched": 30,
+      "seconds": 76,
+      "currency": "the storefront publishes USD at rate 1, settles in USD",
+      "errors": []
     }
   ]
 }
