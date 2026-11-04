@@ -851,4 +851,35 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     taxNote: US_TAX_NOTE,
     checked: '2026-10-09 (candidates pass): robots.txt 200 (2,685 B, /api/ disallowed); home 200; /products.json 404.',
   },
+  // ── Shop candidates round of 2 Nov 2026 (docs/SHOP-CANDIDATES-2026-11-02.md), read again 4 Nov 2026 as PriceSniffsBot ──
+  {
+    id: 'perfumes-america',
+    name: 'PerfumesAmerica',
+    region: 'US',
+    currency: 'USD',
+    domain: 'perfumesamerica.com',
+    homepage: 'https://perfumesamerica.com/',
+    tiers: ['designer', 'niche', 'mideast'],
+    enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
+    route: { kind: 'shopify' },
+    minRequestGapMs: 2000,
+    excludeProductTypes: NOT_FOR_SALE_TYPES,
+    delivery: {
+      standard: 5.95,
+      freeOver: null,
+      estimatedDays: null,
+      verifiedAt: '2026-11-04',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://perfumesamerica.com/policies/shipping-policy',
+        quote: 'Standard shipping is $5.95. Most orders placed by 2pm Eastern time ship the same business day.',
+        readAt: '2026-11-04',
+      },
+      notes: 'The policy page states one flat rate and no free shipping threshold, so none is recorded; it gives no delivery window.',
+    },
+    taxNote: US_TAX_NOTE,
+    checked: '2026-11-04: robots.txt 200 (Shopify stock file; /products.json not disallowed); /products.json 200 (about 8,000 products, 250 a page, no product type, vendor is the house); /meta.json currency USD, country US, Edison NJ. Titles carry the size in ounces and the strength ("3.4 oz EDP Spray for Men"); its page answered a burst of five requests with HTTP 429, so the walk keeps its 2 second gap.',
+  },
 ];
