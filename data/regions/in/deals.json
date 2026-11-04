@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-11-03T03:21:27.938Z",
+ "builtAt": "2026-11-04T01:36:10.710Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 13751,
- "offersWithCorroboratedReference": 2214,
+ "listingsWithReference": 13913,
+ "offersWithCorroboratedReference": 2220,
  "deals": [
   {
    "fragranceId": "aar-fragrances-lalique-encre-noire-100ml",
@@ -124,16 +124,6 @@
    "wasPrice": 9500,
    "percentOff": 53,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-lattafa-mayar-for-women",
-   "price": 2200,
-   "delivered": false,
-   "wasPrice": 4500,
-   "percentOff": 51,
-   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -1354,6 +1344,16 @@
    "wasPrice": 4999,
    "percentOff": 40,
    "retailerId": "scentira",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-mykonos-utopia",
+   "price": 3298.9,
+   "delivered": true,
+   "wasPrice": 5500,
+   "percentOff": 40,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -2634,16 +2634,6 @@
    "wasPrice": 3300,
    "percentOff": 33,
    "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-mykonos-utopia",
-   "price": 3000,
-   "delivered": false,
-   "wasPrice": 4500,
-   "percentOff": 33,
-   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -4978,16 +4968,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-rayhaan-terra",
-   "price": 2790,
-   "delivered": true,
-   "wasPrice": 3500,
-   "percentOff": 20,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-riiffs-tanzanite-amber",
    "price": 1999,
    "delivered": false,
@@ -5898,6 +5878,36 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-escentric-molecules-molecule-01-eaudetoilette-100mll",
+   "price": 15555,
+   "delivered": false,
+   "wasPrice": 18300,
+   "percentOff": 15,
+   "retailerId": "scentido",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-essential-parfums-nice-bergamote-edp-u-100ml",
+   "price": 9775,
+   "delivered": false,
+   "wasPrice": 11500,
+   "percentOff": 15,
+   "retailerId": "scentido",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-essential-parfums-patchouli-mania-edp-u-100ml",
+   "price": 9775,
+   "delivered": false,
+   "wasPrice": 11500,
+   "percentOff": 15,
+   "retailerId": "scentido",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-hb-bottled-night-100ml",
    "price": 5490,
    "delivered": true,
@@ -5954,6 +5964,16 @@
    "wasPrice": 15500,
    "percentOff": 15,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfume-palace-epboisimperial",
+   "price": 9775,
+   "delivered": false,
+   "wasPrice": 11500,
+   "percentOff": 15,
+   "retailerId": "scentido",
    "kind": "retailer",
    "houseName": null
   },
@@ -6888,16 +6908,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-essential-parfums-patchouli-mania-edp-u-100ml",
-   "price": 10800,
-   "delivered": true,
-   "wasPrice": 11950,
-   "percentOff": 9,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-neesh-shafran-extrait-de-parfum-u-100ml",
    "price": 7100,
    "delivered": true,
@@ -7272,16 +7282,6 @@
    "price": 2450,
    "delivered": true,
    "wasPrice": 2500,
-   "percentOff": 2,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-essential-parfums-nice-bergamote-edp-u-100ml",
-   "price": 9800,
-   "delivered": true,
-   "wasPrice": 10000,
    "percentOff": 2,
    "retailerId": "fridaycharm",
    "kind": "retailer",
