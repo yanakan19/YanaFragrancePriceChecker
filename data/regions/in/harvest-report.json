@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-11-04T00:40:48.717Z",
-  "minutes": 55.35,
+  "ranAt": "2026-11-04T18:22:01.757Z",
+  "minutes": 55.42,
   "dryRun": false,
-  "shopsWired": 19,
-  "shopsEnabled": 16,
-  "shopsPriced": 16,
-  "listingsKept": 21955,
+  "shopsWired": 21,
+  "shopsEnabled": 18,
+  "shopsPriced": 17,
+  "listingsKept": 21568,
   "shops": [
     {
       "id": "nykaa",
@@ -15,11 +15,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1279,
-      "priced": 1279,
-      "kept": 1260,
-      "withBarcode": 213,
-      "pagesFetched": 1294,
+      "listingsRead": 1226,
+      "priced": 1214,
+      "kept": 1070,
+      "withBarcode": 111,
+      "pagesFetched": 1258,
       "seconds": 3301,
       "currency": "JSON-LD offers named: INR",
       "errors": [
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
         "https://www.nykaa.com/ulric-de-varens-flash-eau-de-toilette-natural-spray-for-men/p/9329009: HTTP 404",
         "https://www.nykaa.com/victoria-s-secret-bare-eau-de-parfum-travel-spray/p/16691987: HTTP 404",
-        "sitemap: 3047 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
+        "sitemap: 3069 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -61,14 +61,17 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7942,
-      "priced": 7942,
-      "kept": 6660,
+      "listingsRead": 7945,
+      "priced": 7945,
+      "kept": 6663,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 93,
+      "seconds": 113,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "errors": [],
+      "diagnostics": [
+        "https://perfumepalace.in/products.json?limit=250&page=5: HTTP 504"
+      ]
     },
     {
       "id": "fridaycharm",
@@ -76,12 +79,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7665,
-      "priced": 7665,
-      "kept": 6425,
+      "listingsRead": 7676,
+      "priced": 7676,
+      "kept": 6436,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 68,
+      "seconds": 63,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -90,15 +93,18 @@
       "name": "Perfume Network",
       "route": "shopify",
       "singleBrand": false,
-      "status": "priced",
-      "listingsRead": 2171,
-      "priced": 2171,
-      "kept": 1905,
+      "status": "refused",
+      "listingsRead": 0,
+      "priced": 0,
+      "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 10,
-      "seconds": 21,
-      "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "pagesFetched": 0,
+      "seconds": 25,
+      "currency": "",
+      "errors": [
+        "robots.txt https://www.perfumenetwork.in/robots.txt: 0 AbortError: This operation was aborted",
+        "robots.txt https://www.www.perfumenetwork.in/robots.txt: 0 TypeError: fetch failed (Error: getaddrinfo ENOTFOUND www.www.perfumenetwork.in)"
+      ]
     },
     {
       "id": "aar-fragrances",
@@ -106,18 +112,18 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1103,
-      "priced": 1103,
-      "kept": 1051,
+      "listingsRead": 1063,
+      "priced": 1063,
+      "kept": 1011,
       "withBarcode": 0,
-      "pagesFetched": 1104,
-      "seconds": 3301,
+      "pagesFetched": 1064,
+      "seconds": 3300,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2322 product address(es)"
+        "sitemap: 2323 product address(es)"
       ]
     },
     {
@@ -141,12 +147,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 1348,
-      "priced": 1276,
+      "listingsRead": 1349,
+      "priced": 1277,
       "kept": 353,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 14,
+      "seconds": 13,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -161,7 +167,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 8,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -191,7 +197,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -206,7 +212,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 10,
+      "seconds": 12,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -216,16 +222,16 @@
       "route": "sitemap",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 5,
-      "priced": 5,
+      "listingsRead": 3,
+      "priced": 3,
       "kept": 2,
       "withBarcode": 0,
-      "pagesFetched": 12,
-      "seconds": 36,
+      "pagesFetched": 10,
+      "seconds": 29,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
-        "sitemap: 10 product address(es) found, first read https://www.ustraa.com/cologne-for-men-base-camp/p"
+        "sitemap: 10 product address(es) found, first read https://www.ustraa.com/cologne-spray-ammunition-125ml/p"
       ]
     },
     {
@@ -255,7 +261,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 11,
+      "seconds": 12,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -295,12 +301,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6759,
+      "listingsRead": 6760,
       "priced": 6603,
       "kept": 2473,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 22,
+      "seconds": 23,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -319,6 +325,36 @@
       "currency": "",
       "errors": [],
       "note": "WooCommerce. Its public Store API (/wp-json/wc/store/v1/products, robots.txt allows everything) answers in INR (currency_code INR, minor unit 2) and the page also shows dollars, which are never read. But its attars and sprays are variable products whose list entry gives only a \"from\" price and no size; reading each size needs one request per variation. Off until that read is built."
+    },
+    {
+      "id": "scentopia",
+      "name": "Scentopia",
+      "route": "shopify",
+      "singleBrand": false,
+      "status": "priced",
+      "listingsRead": 1433,
+      "priced": 1433,
+      "kept": 1231,
+      "withBarcode": 0,
+      "pagesFetched": 9,
+      "seconds": 14,
+      "currency": "the storefront publishes INR at rate 1, settles in INR",
+      "errors": []
+    },
+    {
+      "id": "all-arabic",
+      "name": "All Arabic",
+      "route": "shopify",
+      "singleBrand": false,
+      "status": "priced",
+      "listingsRead": 1207,
+      "priced": 527,
+      "kept": 503,
+      "withBarcode": 0,
+      "pagesFetched": 6,
+      "seconds": 11,
+      "currency": "the storefront publishes INR at rate 1, settles in INR",
+      "errors": []
     }
   ]
 }
