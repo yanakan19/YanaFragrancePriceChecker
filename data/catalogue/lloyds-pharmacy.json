@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-03T22:53:21.016Z",
-  "seenAt": "2026-11-03T22:53:21.016Z",
+  "updatedAt": "2026-11-04T02:38:59.274Z",
+  "seenAt": "2026-11-04T02:38:59.274Z",
   "source": "live",
   "listings": [
     {
@@ -3093,7 +3093,7 @@
       "rawBrand": "Yardley",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Yardley-English-Lavender-EDT-Spray-125ml-64156488368396.jpg?v=1781175405",
-      "priceGbp": 10,
+      "priceGbp": 12.06,
       "wasPriceGbp": 18,
       "promoEndsAt": null,
       "inStock": true,
@@ -3763,7 +3763,7 @@
       "priceGbp": 39.95,
       "wasPriceGbp": 92,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Viktor & Rolf Bonbon EDP Spray. 50ml bottle. Indulgent caramel fragrance. ##end-features##. Product description. An enticing scent from Viktor & Rolf that encapsulates pure indulgence. With the tantalising smell of caramel, this perfume is the ultimate sweet treat. A feminine fragrance that is perfect for every day or special occasion wear. Presented in a 50ml bottle, it makes for a perfect gift or a luxurious treat for yourself. . . Features of Viktor & Rolf Bonbon EDP Spray 50ml. Indulgent caramel aroma. Feminine fragrance. Perfect for daily use or special occasions. 50ml bottle. ##accordion-start##. Specifications. Brand: Viktor & Rolf . ##accordion-item-end##. Suitable for. Women. ##accordion-item-end##. Warnings and cautions. Avoid contact with eyes. Do not ingest. Keep out of reach of children. Use externally only. ##accordion-item-end##. How to use. Apply to pulse points such as wrists and neck . Do not rub the fragrance into skin as it can alter the scent. ##accordion-item-end##. Ingredients. Caramel, Mandarin, Orange, Peach, Orange Blossom, Jasmine, Cedar, Guaiac Wood, Sandalwood, Amber. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -5025,7 +5025,7 @@
       "rawBrand": "Yardley",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Yardley-English-Daffodil-EDT-Spray-125ml-63971248144652.png?v=1781181166",
-      "priceGbp": 10,
+      "priceGbp": 12.06,
       "wasPriceGbp": 18,
       "promoEndsAt": null,
       "inStock": true,
