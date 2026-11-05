@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-11-04T18:19:47.347Z",
-  "minutes": 57.87,
+  "ranAt": "2026-11-05T15:53:01.111Z",
+  "minutes": 57.15,
   "dryRun": false,
   "shopsWired": 28,
   "shopsEnabled": 25,
-  "shopsPriced": 23,
-  "listingsKept": 31305,
+  "shopsPriced": 25,
+  "listingsKept": 45234,
   "shops": [
     {
       "id": "perfumania",
@@ -15,19 +15,14 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 261,
-      "priced": 261,
-      "kept": 188,
+      "listingsRead": 5962,
+      "priced": 5962,
+      "kept": 4384,
       "withBarcode": 0,
-      "pagesFetched": 4,
-      "seconds": 31,
+      "pagesFetched": 21,
+      "seconds": 35,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": [
-        "https://perfumania.com/products.json?limit=250&page=2: HTTP 0 AbortError: This operation was aborted"
-      ],
-      "diagnostics": [
-        "https://perfumania.com/products.json?limit=250&page=2: HTTP 0 (AbortError: This operation was aborted)"
-      ]
+      "errors": []
     },
     {
       "id": "jomashop",
@@ -51,11 +46,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2146,
-      "priced": 2143,
-      "kept": 1930,
-      "withBarcode": 849,
-      "pagesFetched": 1149,
+      "listingsRead": 2704,
+      "priced": 2704,
+      "kept": 2681,
+      "withBarcode": 1036,
+      "pagesFetched": 1301,
       "seconds": 2101,
       "currency": "JSON-LD offers named: USD",
       "errors": [
@@ -72,7 +67,7 @@
         "https://www.luckyscent.com/products/akatsuki-by-tada-parfumeur: HTTP 404",
         "https://www.luckyscent.com/products/aoud-extraordinaire-by-roja-parfums: HTTP 404",
         "https://www.luckyscent.com/products/no02-le-long-fond-eau-de-parfum-by-maison-louis-marie: HTTP 404",
-        "sitemap: 3478 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
+        "sitemap: 3480 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
       ]
     },
     {
@@ -86,7 +81,7 @@
       "kept": 713,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 18,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -101,7 +96,7 @@
       "kept": 185,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 14,
+      "seconds": 15,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -116,12 +111,9 @@
       "kept": 543,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 36,
-      "currency": "the storefront publishes USD at rate 1",
-      "errors": [],
-      "diagnostics": [
-        "https://indigoperfumery.com/meta.json: HTTP 0 (AbortError: This operation was aborted)"
-      ]
+      "seconds": 10,
+      "currency": "the storefront publishes USD at rate 1, settles in USD",
+      "errors": []
     },
     {
       "id": "bluemercury",
@@ -129,19 +121,14 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 9059,
-      "priced": 9058,
-      "kept": 491,
+      "listingsRead": 12149,
+      "priced": 12148,
+      "kept": 649,
       "withBarcode": 0,
-      "pagesFetched": 20,
-      "seconds": 62,
+      "pagesFetched": 26,
+      "seconds": 49,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": [
-        "https://bluemercury.com/products.json?limit=250&page=18: HTTP 0 AbortError: This operation was aborted"
-      ],
-      "diagnostics": [
-        "https://bluemercury.com/products.json?limit=250&page=18: HTTP 0 (AbortError: This operation was aborted)"
-      ]
+      "errors": []
     },
     {
       "id": "beautyhabit",
@@ -149,12 +136,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6795,
-      "priced": 6795,
+      "listingsRead": 6798,
+      "priced": 6798,
       "kept": 852,
       "withBarcode": 0,
       "pagesFetched": 28,
-      "seconds": 55,
+      "seconds": 56,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -169,7 +156,7 @@
       "kept": 12,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -223,21 +210,15 @@
       "name": "Boy Smells",
       "route": "shopify",
       "singleBrand": true,
-      "status": "no-prices",
-      "listingsRead": 0,
-      "priced": 0,
+      "status": "priced",
+      "listingsRead": 130,
+      "priced": 130,
       "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 3,
-      "seconds": 29,
+      "pagesFetched": 4,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": [
-        "https://boysmells.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
-        "/products.json did not answer as a Shopify catalogue"
-      ],
-      "diagnostics": [
-        "https://boysmells.com/products.json?limit=250&page=1: HTTP 0 (AbortError: This operation was aborted)"
-      ]
+      "errors": []
     },
     {
       "id": "sol-de-janeiro",
@@ -245,7 +226,7 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 701,
+      "listingsRead": 700,
       "priced": 691,
       "kept": 354,
       "withBarcode": 0,
@@ -260,12 +241,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 9570,
-      "priced": 9570,
-      "kept": 5139,
-      "withBarcode": 4526,
+      "listingsRead": 9573,
+      "priced": 9573,
+      "kept": 5142,
+      "withBarcode": 4529,
       "pagesFetched": 26,
-      "seconds": 47,
+      "seconds": 45,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -275,37 +256,29 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1787,
-      "priced": 1787,
-      "kept": 1234,
+      "listingsRead": 6356,
+      "priced": 6356,
+      "kept": 4626,
       "withBarcode": 0,
-      "pagesFetched": 9,
+      "pagesFetched": 23,
       "seconds": 41,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": [
-        "https://www.fragranceoutlet.com/products.json?limit=250&page=7: HTTP 0 AbortError: This operation was aborted"
-      ],
-      "diagnostics": [
-        "https://www.fragranceoutlet.com/products.json?limit=250&page=7: HTTP 0 (AbortError: This operation was aborted)"
-      ]
+      "errors": []
     },
     {
       "id": "fragrance-market",
       "name": "Fragrance Market",
       "route": "shopify",
       "singleBrand": false,
-      "status": "refused",
-      "listingsRead": 0,
-      "priced": 0,
-      "kept": 0,
+      "status": "priced",
+      "listingsRead": 6064,
+      "priced": 6064,
+      "kept": 4743,
       "withBarcode": 0,
-      "pagesFetched": 0,
-      "seconds": 50,
-      "currency": "",
-      "errors": [
-        "robots.txt https://fragrancemarket.com/robots.txt: 0 AbortError: This operation was aborted",
-        "robots.txt https://www.fragrancemarket.com/robots.txt: 0 AbortError: This operation was aborted"
-      ]
+      "pagesFetched": 22,
+      "seconds": 39,
+      "currency": "the storefront publishes USD at rate 1, settles in USD",
+      "errors": []
     },
     {
       "id": "microperfumes",
@@ -313,19 +286,14 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1510,
-      "priced": 469,
-      "kept": 469,
+      "listingsRead": 1753,
+      "priced": 511,
+      "kept": 511,
       "withBarcode": 0,
-      "pagesFetched": 9,
-      "seconds": 39,
+      "pagesFetched": 10,
+      "seconds": 16,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": [
-        "https://microperfumes.com/products.json?limit=250&page=7: HTTP 0 AbortError: This operation was aborted"
-      ],
-      "diagnostics": [
-        "https://microperfumes.com/products.json?limit=250&page=7: HTTP 0 (AbortError: This operation was aborted)"
-      ]
+      "errors": []
     },
     {
       "id": "parfums-raffy",
@@ -338,12 +306,9 @@
       "kept": 307,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 48,
+      "seconds": 16,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
-      "errors": [],
-      "diagnostics": [
-        "https://parfumsraffy.com/robots.txt: HTTP 0 (AbortError: This operation was aborted)"
-      ]
+      "errors": []
     },
     {
       "id": "ministry-of-scent",
@@ -351,8 +316,8 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 3192,
-      "priced": 3102,
+      "listingsRead": 3193,
+      "priced": 3103,
       "kept": 1641,
       "withBarcode": 0,
       "pagesFetched": 9,
@@ -371,7 +336,7 @@
       "kept": 4890,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 56,
+      "seconds": 49,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -381,12 +346,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1795,
-      "priced": 882,
-      "kept": 704,
-      "withBarcode": 679,
-      "pagesFetched": 930,
-      "seconds": 3303,
+      "listingsRead": 2284,
+      "priced": 977,
+      "kept": 952,
+      "withBarcode": 947,
+      "pagesFetched": 994,
+      "seconds": 3301,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
         "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
@@ -411,12 +376,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 564,
-      "priced": 564,
-      "kept": 479,
-      "withBarcode": 381,
-      "pagesFetched": 794,
-      "seconds": 1500,
+      "listingsRead": 577,
+      "priced": 577,
+      "kept": 577,
+      "withBarcode": 507,
+      "pagesFetched": 805,
+      "seconds": 1501,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/: HTTP 404",
@@ -432,7 +397,7 @@
         "https://theperfumespot.com/sweet-like-candy-by-ariana-grande-3-4-oz-eau-de-parfum-spray-for-women-outlet2/: HTTP 404",
         "https://theperfumespot.com/versace-bright-crystal-absolu-by-versace-3-oz-eau-de-parfum-spray-for-women-unboxed-outlet/: HTTP 404",
         "https://theperfumespot.com/baccarat-rouge-540-by-maison-francis-kurkdjian-2-4-oz-extrait-de-parfum-spray-for-unisex-outlet/: HTTP 404",
-        "sitemap: 7482 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
+        "sitemap: 7505 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
       ]
     },
     {
@@ -441,28 +406,20 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1318,
-      "priced": 1309,
-      "kept": 1127,
-      "withBarcode": 14,
-      "pagesFetched": 1020,
-      "seconds": 2383,
+      "listingsRead": 1432,
+      "priced": 1423,
+      "kept": 1409,
+      "withBarcode": 15,
+      "pagesFetched": 974,
+      "seconds": 2401,
       "currency": "JSON-LD offers named: USD",
       "errors": [
-        "https://www.dillards.com/p/jo-malone-london-red-hibiscus-cologne-intense-3.4-oz./517863281: HTTP 404",
-        "https://www.dillards.com/p/jo-malone-london-lime-basil--mandarin-cologne-1.7-oz./518181864: HTTP 404",
-        "https://www.dillards.com/p/jo-malone-london-peony--blush-suede-cologne-1.7-oz./518181928: HTTP 404",
-        "https://www.dillards.com/p/jo-malone-london-honeysuckle--davana-cologne-1-oz./515638286: HTTP 404",
-        "https://www.dillards.com/p/jo-malone-london-wild-bluebell-cologne-1-oz./515638293: HTTP 404"
+        "https://www.dillards.com/p/jo-malone-london-wild-bluebell-cologne-1-oz./515638293: HTTP 404",
+        "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "https://www.dillards.com/p/jo-malone-london-red-hibiscus-cologne-intense-3.4-oz./517863281: HTTP 404",
-        "https://www.dillards.com/p/jo-malone-london-lime-basil--mandarin-cologne-1.7-oz./518181864: HTTP 404",
-        "https://www.dillards.com/p/jo-malone-london-peony--blush-suede-cologne-1.7-oz./518181928: HTTP 404",
-        "https://www.dillards.com/p/jo-malone-london-honeysuckle--davana-cologne-1-oz./515638286: HTTP 404",
         "https://www.dillards.com/p/jo-malone-london-wild-bluebell-cologne-1-oz./515638293: HTTP 404",
-        "https://www.dillards.com/p/jo-malone-london-peony--blush-suede-cologne-3.4-oz./515638309: HTTP 404",
-        "sitemap: 1685 product address(es) found, first read https://www.dillards.com/p/givenchy-eaudemoiselle-eau-florale-eau-de-toilette/518984263"
+        "sitemap: 1709 product address(es) found, first read https://www.dillards.com/p/givenchy-eaudemoiselle-eau-florale-eau-de-toilette/518984263"
       ]
     },
     {
@@ -503,9 +460,9 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 8402,
-      "priced": 8402,
-      "kept": 5412,
+      "listingsRead": 8411,
+      "priced": 8411,
+      "kept": 5417,
       "withBarcode": 0,
       "pagesFetched": 36,
       "seconds": 81,
@@ -518,12 +475,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6603,
-      "priced": 6313,
-      "kept": 4550,
+      "listingsRead": 6615,
+      "priced": 6325,
+      "kept": 4561,
       "withBarcode": 0,
       "pagesFetched": 30,
-      "seconds": 76,
+      "seconds": 77,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     }
