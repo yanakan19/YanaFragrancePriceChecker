@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-04T10:58:33.089Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-05T11:16:14.285Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -3431,6 +3431,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "franckolivier|inpink|edp": ["","https://franckolivier.fr/products/in-pink"],
   "franckolivier|miss": ["","https://franckolivier.fr/products/miss"],
   "franckolivier|miss|edp": ["","https://franckolivier.fr/products/miss"],
+  "franckolivier|onekiss": ["","https://franckolivier.fr/products/one-kiss"],
+  "franckolivier|onekiss|edp": ["","https://franckolivier.fr/products/one-kiss"],
   "franckolivier|oudtouch": ["","https://franckolivier.fr/products/oud-touch"],
   "franckolivier|oudtouch|edp": ["","https://franckolivier.fr/products/oud-touch"],
   "franckolivier|oudvanille": ["","https://franckolivier.fr/products/oud-vanille"],
@@ -3581,6 +3583,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "frenchavenue|spectre|edp": ["","https://uk.shopfrenchavenue.com/products/spectre-edp-80ml"],
   "frenchavenue|spicyamber|edp": ["","https://uk.shopfrenchavenue.com/products/spicy-amber-edp-100ml"],
   "frenchavenue|spiritoignite|edp": ["","https://uk.shopfrenchavenue.com/products/spirito-ignite-edp-100ml"],
+  "frenchavenue|spiritoignite|extrait": ["","https://uk.shopfrenchavenue.com/products/spirito-ignite-edp-100ml"],
   "frenchavenue|spiritomystic|edp": ["","https://uk.shopfrenchavenue.com/products/spirito-mystic-edp-100ml"],
   "frenchavenue|sultanathejoyful|edp": ["","https://uk.shopfrenchavenue.com/products/sultana-the-joyful-edp-80ml"],
   "frenchavenue|sultantheconqueror|edp": ["","https://uk.shopfrenchavenue.com/products/sultan-the-conqueror-edp-80ml"],
