@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-05T06:47:11.149Z",
-  "seenAt": "2026-11-05T06:47:11.149Z",
+  "updatedAt": "2026-11-05T11:21:03.517Z",
+  "seenAt": "2026-11-05T11:21:03.517Z",
   "source": "live",
   "listings": [
     {
@@ -6546,7 +6546,7 @@
       "priceGbp": 3,
       "wasPriceGbp": 12,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Kind to your lips, Peptalk is moisturising, flattering and refillable. Now available in 20 gorgeous shades, add a dash of colour and heaps of moisturisation to your lips. Case not included..",
       "productType": "Lips",
@@ -6684,7 +6684,7 @@
       "priceGbp": 3,
       "wasPriceGbp": 8,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Shop our Swipe It Moisturising Lip Balm to benefit from 95% of natural ingredients. Our Tinted Lip Balm is vegan certified and has recyclable packaging**..",
       "productType": "Lip Care",
@@ -6753,7 +6753,7 @@
       "priceGbp": 3,
       "wasPriceGbp": 8,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Shop our Swipe It Moisturising Lip Balm to benefit from 95% of natural ingredients. Our Tinted Lip Balm is vegan certified and has recyclable packaging**..",
       "productType": "Lip Care",

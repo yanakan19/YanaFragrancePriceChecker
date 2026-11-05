@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-05T06:39:59.875Z",
-  "seenAt": "2026-11-05T06:39:59.875Z",
+  "updatedAt": "2026-11-05T11:14:35.338Z",
+  "seenAt": "2026-11-05T11:14:35.338Z",
   "source": "live",
   "listings": [
     {
@@ -26441,7 +26441,7 @@
       "priceGbp": 100,
       "wasPriceGbp": 125,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Molecule 01 consists of the molecule Iso E Super pure and singular. Iso E Super is a molecule that hovers close to the skin to create an indefinable aura round the wearer. It is characterised by a hyper-modern cedarwood note with a velvety sensation..",
       "productType": "Men's Fragrances",

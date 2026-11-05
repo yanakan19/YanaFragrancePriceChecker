@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-05T06:39:59.875Z",
-  "seenAt": "2026-11-05T06:39:59.875Z",
+  "updatedAt": "2026-11-05T11:14:35.338Z",
+  "seenAt": "2026-11-05T11:14:35.338Z",
   "source": "live",
   "listings": [
     {
@@ -428,7 +428,7 @@
       "priceGbp": 22.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Lanvin A Girl In Capri Eau de Toilette is a fresh fragrance created for customers who enjoy a light and uplifting scent. It opens with a bright and lively first impression, develops into a balanced heart, and settles into a smooth lasting base. Suitable for daytime and warmer seasons, this fragrance is a strong choice for anyone looking for a scent that feels fresh and invigorating.. Why customers choose it . Well-suited for spring and summer wear. A great option for daily wear and gifting. Designed for customers who prefer fresh and clean scents.",
       "productType": "Eau de Toilette",

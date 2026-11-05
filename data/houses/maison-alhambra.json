@@ -1,7 +1,7 @@
 {
   "retailerId": "maison-alhambra",
-  "updatedAt": "2026-11-05T06:45:19.825Z",
-  "seenAt": "2026-11-05T06:45:19.825Z",
+  "updatedAt": "2026-11-05T11:19:30.227Z",
+  "seenAt": "2026-11-05T11:19:30.227Z",
   "source": "live",
   "listings": [
     {
@@ -1419,32 +1419,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "maison-alhambra-fabulo-intense",
-      "url": "https://maisonalhambra.co/product/maison-alhambra-fabulo-intense/",
-      "rawTitle": "Maison Alhambra Fabulo Intense (F****** Fabulous Inspired)",
-      "rawBrand": "Maison Alhambra",
-      "ean": null,
-      "imageUrl": "https://maisonalhambra.co/wp-content/uploads/2026/10/fabulo-intense-3-64dc6965dd386_1200x1200_030730df-82af-42ef-b715-5578fcf08c37.jpg",
-      "description": "Maison Alhambra Fabulo Intense Eau de Parfum, 80 ml, inspired by Tom Ford F****** Fabulous. Notes and where to buy.",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 25.99,
-        "currency": "USD"
-      },
-      "retailerId": "maison-alhambra",
-      "firstSeenAt": "2026-10-07T22:13:20.631Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
       "retailerSku": "maison-alhambra-decadent-dream",
       "url": "https://maisonalhambra.co/product/maison-alhambra-decadent-dream/",
       "rawTitle": "Maison Alhambra Decadent Dream (Amouage Guidance Inspired)",
@@ -1464,7 +1438,32 @@
       },
       "retailerId": "maison-alhambra",
       "firstSeenAt": "2026-10-23T19:32:00.131Z",
-      "lastSeenAt": "2026-11-05T02:13:48.207Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "maison-alhambra-fabulo-intense",
+      "url": "https://maisonalhambra.co/product/maison-alhambra-fabulo-intense/",
+      "rawTitle": "Maison Alhambra Fabulo Intense (F****** Fabulous Inspired)",
+      "rawBrand": "Maison Alhambra",
+      "ean": null,
+      "imageUrl": "https://maisonalhambra.co/wp-content/uploads/2026/10/fabulo-intense-3-64dc6965dd386_1200x1200_030730df-82af-42ef-b715-5578fcf08c37.jpg",
+      "description": "Maison Alhambra Fabulo Intense Eau de Parfum, 80 ml, inspired by Tom Ford F****** Fabulous. Notes and where to buy.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 25.99,
+        "currency": "USD"
+      },
+      "retailerId": "maison-alhambra",
+      "firstSeenAt": "2026-10-07T22:13:20.631Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
