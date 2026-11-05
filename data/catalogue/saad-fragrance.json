@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-05T11:14:35.338Z",
-  "seenAt": "2026-11-05T11:14:35.338Z",
+  "updatedAt": "2026-11-05T15:48:22.694Z",
+  "seenAt": "2026-11-05T15:48:22.694Z",
   "source": "live",
   "listings": [
     {
@@ -1716,7 +1716,7 @@
       "priceGbp": 33.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Indulge in the captivating scent of Passion by Azhrance Perfume. With a blend of juicy pear, sweet blackcurrant, and exotic lychee, this fragrance is sure to leave a lasting impression. Notes of jasmine, coconut, and vanilla add a sensual touch, making this the perfect choice for any occasion. Feel confident and alluring with Passion..",
       "productType": "Eau De Parfum",

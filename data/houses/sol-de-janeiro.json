@@ -1,13 +1,13 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-05T11:20:59.927Z",
-  "seenAt": "2026-11-05T11:20:59.927Z",
+  "updatedAt": "2026-11-05T15:55:08.136Z",
+  "seenAt": "2026-11-05T15:55:08.136Z",
   "source": "live",
   "listings": [
     {
       "retailerSku": "SJ99102000",
-      "url": "https://soldejaneiro.com/products/30ml-brazilian-crush-cheirosa-68-beija-flor™-perfume-mist",
-      "rawTitle": "Free 30ml Cheirosa 68 Beija Flor™ Perfume Mist",
+      "url": "https://soldejaneiro.com/products/cheirosa-68-beija-flor™-perfume-mist-30ml",
+      "rawTitle": "Cheirosa 68 Perfume Mist (30ml)",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_C68_30ML_OVERHEAD_RGB_1452X1452_1ebb4e1d-f311-4718-97b7-cf342336c6af.jpg?v=1789751440",
@@ -19,7 +19,7 @@
       "description": null,
       "productType": "GWP",
       "nativePrice": {
-        "amount": 0.01,
+        "amount": 12,
         "currency": "USD"
       },
       "retailerId": "sol-de-janeiro",
@@ -145,32 +145,6 @@
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
-      "sectionId": "house-direct",
-      "description": null,
-      "productType": "Passport Reward",
-      "nativePrice": {
-        "amount": 18,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-10-22T16:58:50.495Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "MR102500",
-      "url": "https://soldejaneiro.com/products/beauty-bag",
-      "rawTitle": "Beauty Bag Cheirosa 76 Blue",
-      "rawBrand": "Sol de Janeiro",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/252411_MiniBuilderColorExtensions_1600x1600_62.jpg?v=1764774630",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": false,
       "sectionId": "house-direct",
       "description": null,
       "productType": "Passport Reward",
@@ -18227,6 +18201,33 @@
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "MR102500",
+      "url": "https://soldejaneiro.com/products/beauty-bag",
+      "rawTitle": "Beauty Bag Cheirosa 76 Blue",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/252411_MiniBuilderColorExtensions_1600x1600_62.jpg?v=1764774630",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "description": null,
+      "productType": "Passport Reward",
+      "nativePrice": {
+        "amount": 18,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-10-22T16:58:50.495Z",
+      "lastSeenAt": "2026-11-05T11:20:59.927Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-05T15:55:08.136Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null

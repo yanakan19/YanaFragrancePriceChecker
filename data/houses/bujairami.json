@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-05T11:17:52.384Z",
-  "seenAt": "2026-11-05T11:17:52.384Z",
+  "updatedAt": "2026-11-05T15:51:57.777Z",
+  "seenAt": "2026-11-05T15:51:57.777Z",
   "source": "live",
   "listings": [
     {
@@ -664,7 +664,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A fresh and aromatic fragrance opening with spicy cardamom, vibrant ginger, and bright bergamot. The heart blends soothing lavender with elegant geranium, while cedarwood and vetiver create a smooth, earthy, and refined finish.. Fragrance Notes . Top: Cardamom, Ginger, Bergamot. Heart: Lavender, Geranium. Base: Cedarwood, Vetiver. Profile: Fresh • Aromatic • Spicy • Woody • Earthy.",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-05T11:14:16.796Z",
-  "seenAt": "2026-11-05T11:14:16.796Z",
+  "updatedAt": "2026-11-05T15:48:17.810Z",
+  "seenAt": "2026-11-05T15:48:17.810Z",
   "source": "live",
   "listings": [
     {
@@ -17126,7 +17126,7 @@
       "priceGbp": 310,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A distinctive and compelling woody spicy perfume composed using nature's finest aphrodisiacs, leaving a perfumed kiss in the wearers wake. This perfume pair evoke the heady romance of Mark Antony and Cleopatra with their bold presence.. A singular complex blend of extracts including fresh cardamom and fiery ginger that melt into a rich orris butter. A signature touch of jasmine lifts the heart against a delicious base of oakmoss and vetiver.. Top Notes: Ginger, Pink pepper, Juniper, Bergamot, Cardamom. Heart Notes: Orris butter, Pimento, Jasmine sambac oil, Rose, Cinnamon. Base Notes: Amber, Vetiver, Oakmoss, Cedarwood, Vanilla. .",
       "productType": "Fragrance",

@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-05T11:14:35.338Z",
-  "seenAt": "2026-11-05T11:14:35.338Z",
+  "updatedAt": "2026-11-05T15:48:22.694Z",
+  "seenAt": "2026-11-05T15:48:22.694Z",
   "source": "live",
   "listings": [
     {
@@ -80,7 +80,7 @@
       "rawBrand": "French Avenue",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/The-Shadow-Extrait-De-Parfum-60ml-French-Avenue-283071031.jpg?v=1793110263",
-      "priceGbp": 49.99,
+      "priceGbp": 55,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
       "inStock": true,
@@ -543,7 +543,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 55.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Mahd Al Dhahab opens with a bright and warming blend of Bergamot, Spices and Lemon, delivering immediate citrus energy with a bold and aromatic spiced depth. The heart deepens into Amber, Patchouli and Oud, adding rich resinous warmth and a deeply oriental character that carries the composition with commanding authority. The base settles into Vanilla, Sandalwood and White Musk, leaving a smooth, creamy and beautifully enduring trail. . Top Notes: Bergamot, Spices and Lemon Heart Notes: Amber, Patchouli and Oud Base Notes: Vanilla, Sandalwood and White Musk .",
       "productType": null,
@@ -5373,7 +5373,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Enforcer 100ml EDP by Bujairami is a powerful and refined fragrance crafted for those who command attention effortlessly. This Eau de Parfum blends fresh citrus brightness with modern woody depth, creating a confident scent that feels both contemporary and timeless.. Designed to leave a strong impression, Enforcer by Bujairami is perfect for day-to-night wear, offering excellent longevity and a memorable trail that reflects strength, elegance, and sophistication.. Top Notes: Pear, Bergamot, Mandarin Orange, Ginger Middle Notes: Orange Blossom, Georgywood Base Notes: Musk, Akigalawood . The opening of Enforcer 100ml EDP by Bujairami is vibrant and energetic. Juicy pear adds a smooth sweetness, while bergamot and mandarin orange deliver a crisp citrus sparkle. A touch of ginger introduces a spicy freshness that instantly awakens the senses and sets a bold, confident tone.. As the fragrance evolves, the heart reveals a refined balance of floral and woody nuances. Orange blossom brings a clean, slightly creamy floral elegance, while Georgywood adds a modern, radiant woody character that feels warm, smooth, and unmistakably masculine.. The base notes anchor the fragrance with depth and intensity. Soft musk enhances the skin-like warmth, while Akigalawood provides a spicy-woody richness that lingers beautifully, leaving a powerful and long-lasting signature..",
       "productType": null,

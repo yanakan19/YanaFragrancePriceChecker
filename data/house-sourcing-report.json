@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-05T11:21:05.865Z",
+  "checkedAt": "2026-11-05T15:55:12.492Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -463,9 +463,9 @@
       "origin": "https://bdkparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "EUR",
-      "listings": 128,
+      "listings": 129,
       "pricedInGbp": 0,
-      "withPhoto": 128,
+      "withPhoto": 129,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -479,9 +479,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 701,
+      "listings": 700,
       "pricedInGbp": 0,
-      "withPhoto": 701,
+      "withPhoto": 700,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -516,9 +516,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 392,
-      "pricedInGbp": 392,
-      "withPhoto": 392,
+      "listings": 391,
+      "pricedInGbp": 391,
+      "withPhoto": 391,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
