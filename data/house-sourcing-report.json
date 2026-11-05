@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-05T02:15:27.570Z",
+  "checkedAt": "2026-11-05T06:47:13.408Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -260,9 +260,9 @@
       "origin": "https://maisonalhambra.co",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 57,
+      "listings": 56,
       "pricedInGbp": 0,
-      "withPhoto": 57,
+      "withPhoto": 56,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
@@ -298,12 +298,11 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "robots.txt unreachable at https://fragranceworld.ae and https://www.fragranceworld.ae — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "parent of French Avenue, which is already a retailers.ts entry on its own UK subdomain — expect overlapping products between the two",
-        "no listings retrieved from the storefront on this run"
+        "parent of French Avenue, which is already a retailers.ts entry on its own UK subdomain — expect overlapping products between the two"
       ]
     },
     {

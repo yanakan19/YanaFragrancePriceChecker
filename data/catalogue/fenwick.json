@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-05T02:08:28.033Z",
-  "seenAt": "2026-11-05T02:08:28.033Z",
+  "updatedAt": "2026-11-05T06:39:59.875Z",
+  "seenAt": "2026-11-05T06:39:59.875Z",
   "source": "live",
   "listings": [
     {
@@ -26096,7 +26096,7 @@
       "priceGbp": 176,
       "wasPriceGbp": 220,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Inspired by the timeless elegance of Yves Saint Laurent couture, this Eau de Parfum offers a refined blend of notes that create a distinctive and long-lasting fragrance..",
       "productType": "Women's Fragrances",
