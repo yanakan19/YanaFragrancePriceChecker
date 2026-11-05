@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-05T15:51:57.777Z",
-  "seenAt": "2026-11-05T15:51:57.777Z",
+  "updatedAt": "2026-11-05T20:23:09.179Z",
+  "seenAt": "2026-11-05T20:23:09.179Z",
   "source": "live",
   "listings": [
     {
@@ -1782,7 +1782,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Top: Orange, Green Lemon, Mint, Black Currant. Heart: Apricot, Basil, Aqueous Accord, May Rose. Base: Dates, Fig, Moss, Ambergris.",
       "productType": null,

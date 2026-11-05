@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-05T15:48:22.694Z",
-  "seenAt": "2026-11-05T15:48:22.694Z",
+  "updatedAt": "2026-11-05T20:19:26.640Z",
+  "seenAt": "2026-11-05T20:19:26.640Z",
   "source": "live",
   "listings": [
     {
@@ -2590,7 +2590,7 @@
       "priceGbp": 44.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Estee Lauder Knowing Eau de Parfum Spray is an eau de parfum created for customers who enjoy a rich, floral chypre scent. It opens with a refined and elegant first impression, develops into a luxurious floral heart, and settles into a warm, woody base. Suitable for evening wear or special occasions, this fragrance is a strong choice for anyone looking for a scent that feels confident and sophisticated.. Why customers choose it: ● Well-suited for autumn and winter ● A great option for evening wear or gifting ● Designed for customers who prefer floral chypre scents.",
       "productType": "Eau de Parfum",
@@ -6040,7 +6040,7 @@
       "priceGbp": 129.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Tom Ford Cherry Smoke is a warm eau de parfum created for customers who enjoy a rich and expressive scent. It opens with a distinctive first impression of sour cherry and saffron, develops into a balanced heart with leather, olive, and apricot tones, and settles into a smooth, smoky woody base. Suitable for evening and cooler weather wear, this fragrance is a strong choice for anyone looking for a confident and polished scent.. Why customers choose it . Well-suited for evening and cooler seasons. A great option for special occasions and dressier events. Designed for customers who prefer warm, woody, and fruity scents.",
       "productType": "Eau de Parfum",

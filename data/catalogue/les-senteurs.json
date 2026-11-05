@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-05T15:48:17.810Z",
-  "seenAt": "2026-11-05T15:48:17.810Z",
+  "updatedAt": "2026-11-05T20:19:25.221Z",
+  "seenAt": "2026-11-05T20:19:25.221Z",
   "source": "live",
   "listings": [
     {
@@ -842,7 +842,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A Woody Gourmand fragrance with the unmistakable Dusita signature: indulgent and enveloping, yet luminous and refined.. Mocha Absolu pairs the richness of Arabica coffee and dark chocolate with an unexpected lift of Thai tea. . Toasted almond, caramelised milk and vanilla bring a smooth warmth to the heart, settling into sandalwood, tonka bean and benzoin. Rich and enveloping, yet never heavy - a gourmand with a distinctive Dusita touch. . . . \"To mark Dusita's 10th anniversary, I wanted to honour our House's emotional origins. Mocha Absolu was inspired by a cherished childhood memory. I remember returning from school to the aroma of hot mocha and Thai tea, finding my father writing at his desk. Later, he began preparing those drinks for me too, a simple gesture of love I have never forgotten. To this day, their scent instantly reminds me of the warmth of our family home. I hope Mocha Absolu offers everyone that same sweet feeling of coming home.\". - Pissara Umavijani . . . .",
       "productType": "Fragrance",
@@ -21312,7 +21312,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Maurice Roucel recommends this elegantly indulgent oriental fragrance for both sexes.. Musc Ravageur is dark and dangerous; deceptively fresh top notes of lavender, bergamot and orange yield to sensual depths of cloves, gaiac wood, tonka, vanilla and cedar. A perfume of the night… ”Comme il est beau, mon gangster!” as Mistinguett used to sing.. That’s Musc Ravageur!. Top Notes: Bergamot, Mandarin, Lavender Heart Notes: Amber, Vanilla, Musk Base Notes: Sandalwood, Musk .",
       "productType": "Fragrance",
