@@ -2,10 +2,10 @@
  "region": "CA",
  "currency": "CAD",
  "referencePriceName": "MSRP",
- "builtAt": "2026-11-04T18:29:04.826Z",
+ "builtAt": "2026-11-05T13:34:07.487Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 12338,
- "offersWithCorroboratedReference": 3703,
+ "listingsWithReference": 12354,
+ "offersWithCorroboratedReference": 3710,
  "deals": [
   {
    "fragranceId": "fragrance-canada-5070699921545-default-title",
@@ -68,6 +68,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-8411061923221",
+   "price": 18.35,
+   "delivered": false,
+   "wasPrice": 68,
+   "percentOff": 73,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "perfume-factory-ca-l233-090tf",
    "price": 23,
    "delivered": false,
@@ -89,7 +99,7 @@
   },
   {
    "fragranceId": "fragrance-canada-5698411495589-default-title",
-   "price": 48.65,
+   "price": 48.35,
    "delivered": false,
    "wasPrice": 175,
    "percentOff": 72,
@@ -99,7 +109,7 @@
   },
   {
    "fragranceId": "discount-fragrances-ca-slqugt0573",
-   "price": 19.65,
+   "price": 19.45,
    "delivered": false,
    "wasPrice": 68,
    "percentOff": 71,
@@ -112,6 +122,16 @@
    "price": 29.65,
    "delivered": false,
    "wasPrice": 105,
+   "percentOff": 71,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-7640111494133",
+   "price": 23.35,
+   "delivered": false,
+   "wasPrice": 82,
    "percentOff": 71,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -149,29 +169,9 @@
   },
   {
    "fragranceId": "ean-3386460036351",
-   "price": 49.4,
+   "price": 49.25,
    "delivered": false,
    "wasPrice": 168,
-   "percentOff": 70,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-7640111494133",
-   "price": 23.95,
-   "delivered": false,
-   "wasPrice": 82,
-   "percentOff": 70,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-8411061923221",
-   "price": 19.85,
-   "delivered": false,
-   "wasPrice": 68,
    "percentOff": 70,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -228,12 +228,42 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-canada-5821699195045-100ml--edp-spray-",
+   "price": 21.05,
+   "delivered": false,
+   "wasPrice": 68,
+   "percentOff": 69,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "discount-fragrances-ca-slqugt1478",
+   "price": 15.25,
+   "delivered": false,
+   "wasPrice": 48,
+   "percentOff": 68,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt2461",
    "price": 24.95,
    "delivered": false,
    "wasPrice": 78,
    "percentOff": 68,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-canada-5308514042021-240ml",
+   "price": 26.05,
+   "delivered": false,
+   "wasPrice": 82,
+   "percentOff": 68,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -248,20 +278,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-5821699195045-100ml--edp-spray-",
-   "price": 21.25,
+   "fragranceId": "discount-fragrances-ca-slqugt0402",
+   "price": 9.45,
    "delivered": false,
-   "wasPrice": 68,
-   "percentOff": 68,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt1478",
-   "price": 15.5,
-   "delivered": false,
-   "wasPrice": 48,
+   "wasPrice": 29,
    "percentOff": 67,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -279,7 +299,7 @@
   },
   {
    "fragranceId": "fragrance-canada-5070625243273-default-title",
-   "price": 13.85,
+   "price": 13.65,
    "delivered": false,
    "wasPrice": 42,
    "percentOff": 67,
@@ -298,32 +318,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-5308514042021-240ml",
-   "price": 26.35,
-   "delivered": false,
-   "wasPrice": 82,
-   "percentOff": 67,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "perfume-factory-ca-l153-100pf",
    "price": 27.95,
    "delivered": false,
    "wasPrice": 87,
    "percentOff": 67,
    "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt0402",
-   "price": 9.65,
-   "delivered": false,
-   "wasPrice": 29,
-   "percentOff": 66,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -568,16 +568,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt1606",
-   "price": 54.95,
-   "delivered": false,
-   "wasPrice": 149,
-   "percentOff": 63,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "discount-fragrances-ca-slqugt1906",
    "price": 24.95,
    "delivered": false,
@@ -718,10 +708,30 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3760265192960",
+   "price": 89.15,
+   "delivered": false,
+   "wasPrice": 236,
+   "percentOff": 62,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-8033488153267",
    "price": 158.45,
    "delivered": true,
    "wasPrice": 425,
+   "percentOff": 62,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-canada-4604641509513-default-title",
+   "price": 32.65,
+   "delivered": false,
+   "wasPrice": 86,
    "percentOff": 62,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -769,7 +779,7 @@
   },
   {
    "fragranceId": "discount-fragrances-ca-slqugt1004",
-   "price": 26.25,
+   "price": 25.95,
    "delivered": false,
    "wasPrice": 68,
    "percentOff": 61,
@@ -779,7 +789,7 @@
   },
   {
    "fragranceId": "discount-fragrances-ca-slqugt1593",
-   "price": 34.65,
+   "price": 34.45,
    "delivered": false,
    "wasPrice": 89,
    "percentOff": 61,
@@ -818,16 +828,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3760265192960",
-   "price": 90.25,
-   "delivered": false,
-   "wasPrice": 236,
-   "percentOff": 61,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-4555751194761-100ml",
    "price": 29.95,
    "delivered": false,
@@ -838,22 +838,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-4604641509513-default-title",
-   "price": 33.35,
-   "delivered": false,
-   "wasPrice": 86,
-   "percentOff": 61,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-5335387242661-50ml",
    "price": 28,
    "delivered": false,
    "wasPrice": 72,
    "percentOff": 61,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-canada-5427356860581-100ml",
+   "price": 32.75,
+   "delivered": false,
+   "wasPrice": 84,
+   "percentOff": 61,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -902,6 +902,16 @@
    "price": 24.55,
    "delivered": false,
    "wasPrice": 62,
+   "percentOff": 60,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "discount-fragrances-ca-slqugt1500",
+   "price": 33.75,
+   "delivered": false,
+   "wasPrice": 85,
    "percentOff": 60,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -968,16 +978,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt1500",
-   "price": 34.85,
-   "delivered": false,
-   "wasPrice": 85,
-   "percentOff": 59,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0614514465059",
    "price": 39.95,
    "delivered": false,
@@ -1004,6 +1004,16 @@
    "wasPrice": 195,
    "percentOff": 59,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3760260452144",
+   "price": 81.55,
+   "delivered": false,
+   "wasPrice": 199,
+   "percentOff": 59,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -1039,11 +1049,21 @@
   },
   {
    "fragranceId": "fragrance-canada-5038194262153-200ml",
-   "price": 30.65,
+   "price": 30.35,
    "delivered": false,
    "wasPrice": 75,
    "percentOff": 59,
    "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-canada-5106401345673-100ml",
+   "price": 54.95,
+   "delivered": false,
+   "wasPrice": 136,
+   "percentOff": 59,
+   "retailerId": "fragrance-canada",
    "kind": "retailer",
    "houseName": null
   },
@@ -1118,12 +1138,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt0893",
+   "price": 39.65,
+   "delivered": false,
+   "wasPrice": 95,
+   "percentOff": 58,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt0951",
    "price": 35,
    "delivered": false,
    "wasPrice": 84,
    "percentOff": 58,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "discount-fragrances-ca-slqugt0954",
+   "price": 36.65,
+   "delivered": false,
+   "wasPrice": 88,
+   "percentOff": 58,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -1188,16 +1228,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3760260452144",
-   "price": 82.35,
-   "delivered": false,
-   "wasPrice": 199,
-   "percentOff": 58,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-15404411879651-default-title",
    "price": 34.95,
    "delivered": false,
@@ -1208,8 +1238,18 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-canada-15404414632163-default-title",
+   "price": 34.95,
+   "delivered": false,
+   "wasPrice": 85,
+   "percentOff": 58,
+   "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-canada-4491460870281-50ml--new-packaging-",
-   "price": 36.85,
+   "price": 36.65,
    "delivered": false,
    "wasPrice": 88,
    "percentOff": 58,
@@ -1239,7 +1279,7 @@
   },
   {
    "fragranceId": "fragrance-canada-5272654086309-default-title",
-   "price": 31.4,
+   "price": 31.25,
    "delivered": false,
    "wasPrice": 75,
    "percentOff": 58,
@@ -1259,7 +1299,7 @@
   },
   {
    "fragranceId": "fragrance-canada-7992824234211-default-title",
-   "price": 47.85,
+   "price": 47.55,
    "delivered": false,
    "wasPrice": 115,
    "percentOff": 58,
@@ -1269,7 +1309,7 @@
   },
   {
    "fragranceId": "fragrance-canada-8324210426083-default-title",
-   "price": 48.25,
+   "price": 47.95,
    "delivered": false,
    "wasPrice": 115,
    "percentOff": 58,
@@ -1294,16 +1334,6 @@
    "wasPrice": 89,
    "percentOff": 58,
    "retailerId": "fragrance-online-co",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt0893",
-   "price": 39.95,
-   "delivered": false,
-   "wasPrice": 95,
-   "percentOff": 57,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -1339,7 +1369,7 @@
   },
   {
    "fragranceId": "ean-3760265191659",
-   "price": 97.65,
+   "price": 96.85,
    "delivered": false,
    "wasPrice": 230,
    "percentOff": 57,
@@ -1389,7 +1419,7 @@
   },
   {
    "fragranceId": "fragrance-canada-5480862253221-default-title",
-   "price": 32.15,
+   "price": 31.85,
    "delivered": false,
    "wasPrice": 75,
    "percentOff": 57,
@@ -1499,7 +1529,7 @@
   },
   {
    "fragranceId": "fragrance-canada-4670864916617-100ml",
-   "price": 38.25,
+   "price": 37.95,
    "delivered": false,
    "wasPrice": 88,
    "percentOff": 56,
@@ -1558,12 +1588,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3614273650311",
+   "price": 64.95,
+   "delivered": false,
+   "wasPrice": 145,
+   "percentOff": 55,
+   "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3616300892442",
    "price": 99.95,
    "delivered": false,
    "wasPrice": 224,
    "percentOff": 55,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3760265190966",
+   "price": 92.25,
+   "delivered": false,
+   "wasPrice": 205,
+   "percentOff": 55,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -1668,6 +1718,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt0032",
+   "price": 34.35,
+   "delivered": false,
+   "wasPrice": 75,
+   "percentOff": 54,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0614514555132",
    "price": 56.8,
    "delivered": false,
@@ -1689,7 +1749,7 @@
   },
   {
    "fragranceId": "ean-3386460048118",
-   "price": 45.45,
+   "price": 45.15,
    "delivered": false,
    "wasPrice": 99,
    "percentOff": 54,
@@ -1712,16 +1772,6 @@
    "price": 38.6,
    "delivered": false,
    "wasPrice": 85,
-   "percentOff": 54,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3760265190966",
-   "price": 93.05,
-   "delivered": false,
-   "wasPrice": 205,
    "percentOff": 54,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -1909,20 +1959,10 @@
   },
   {
    "fragranceId": "perfume-factory-ca-m283-100tf",
-   "price": 34.1,
+   "price": 33.95,
    "delivered": false,
    "wasPrice": 75,
    "percentOff": 54,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt0032",
-   "price": 34.65,
-   "delivered": false,
-   "wasPrice": 75,
-   "percentOff": 53,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
@@ -1988,6 +2028,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3616301623335",
+   "price": 39.65,
+   "delivered": false,
+   "wasPrice": 86,
+   "percentOff": 53,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3760265190041",
    "price": 96.05,
    "delivered": false,
@@ -1999,7 +2049,7 @@
   },
   {
    "fragranceId": "ean-3760265191611",
-   "price": 108.05,
+   "price": 106.95,
    "delivered": false,
    "wasPrice": 230,
    "percentOff": 53,
@@ -2098,6 +2148,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt1566",
+   "price": 57.45,
+   "delivered": false,
+   "wasPrice": 120,
+   "percentOff": 52,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt2013",
    "price": 39.95,
    "delivered": false,
@@ -2139,7 +2199,7 @@
   },
   {
    "fragranceId": "ean-3351500980086",
-   "price": 54.95,
+   "price": 54.35,
    "delivered": false,
    "wasPrice": 115,
    "percentOff": 52,
@@ -2199,7 +2259,7 @@
   },
   {
    "fragranceId": "ean-8051277318550",
-   "price": 133.75,
+   "price": 132.65,
    "delivered": false,
    "wasPrice": 280,
    "percentOff": 52,
@@ -2222,16 +2282,6 @@
    "price": 59.95,
    "delivered": false,
    "wasPrice": 125,
-   "percentOff": 52,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-canada-5427356860581-100ml",
-   "price": 39.95,
-   "delivered": false,
-   "wasPrice": 84,
    "percentOff": 52,
    "retailerId": "fragrance-canada",
    "kind": "retailer",
@@ -2318,6 +2368,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt0503",
+   "price": 47.75,
+   "delivered": false,
+   "wasPrice": 98,
+   "percentOff": 51,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt0894",
    "price": 27.95,
    "delivered": false,
@@ -2358,16 +2418,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt1566",
-   "price": 58.05,
-   "delivered": false,
-   "wasPrice": 120,
-   "percentOff": 51,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0608940535387",
    "price": 35.1,
    "delivered": false,
@@ -2404,16 +2454,6 @@
    "wasPrice": 72,
    "percentOff": 51,
    "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3607342221161",
-   "price": 74.95,
-   "delivered": false,
-   "wasPrice": 154.5,
-   "percentOff": 51,
-   "retailerId": "fragrance-online-co",
    "kind": "retailer",
    "houseName": null
   },
@@ -2468,22 +2508,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-5464346656933-default-title",
-   "price": 44.95,
-   "delivered": false,
-   "wasPrice": 92,
-   "percentOff": 51,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-7688785035491-default-title",
    "price": 34.95,
    "delivered": false,
    "wasPrice": 72,
    "percentOff": 51,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-canada-7829984968931-100ml",
+   "price": 31.85,
+   "delivered": false,
+   "wasPrice": 65,
+   "percentOff": 51,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -2628,6 +2668,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3700550216094",
+   "price": 274.95,
+   "delivered": true,
+   "wasPrice": 550,
+   "percentOff": 50,
+   "retailerId": "fragrance-online-co",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3700578505002",
    "price": 269,
    "delivered": true,
@@ -2678,16 +2728,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-8011003804559",
-   "price": 59.95,
-   "delivered": false,
-   "wasPrice": 120,
-   "percentOff": 50,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-5679844327589-50ml",
    "price": 34.95,
    "delivered": false,
@@ -2702,16 +2742,6 @@
    "price": 45.25,
    "delivered": false,
    "wasPrice": 92,
-   "percentOff": 50,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-canada-7829984968931-100ml",
-   "price": 32.15,
-   "delivered": false,
-   "wasPrice": 65,
    "percentOff": 50,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -2759,7 +2789,7 @@
   },
   {
    "fragranceId": "perfume-factory-ca-w147-100p",
-   "price": 38.8,
+   "price": 38.65,
    "delivered": false,
    "wasPrice": 78,
    "percentOff": 50,
@@ -2774,16 +2804,6 @@
    "wasPrice": 76,
    "percentOff": 49,
    "retailerId": "discount-fragrances-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt0503",
-   "price": 49.65,
-   "delivered": false,
-   "wasPrice": 98,
-   "percentOff": 49,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -2804,6 +2824,16 @@
    "wasPrice": 99,
    "percentOff": 49,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "discount-fragrances-ca-slqugt1815",
+   "price": 47.75,
+   "delivered": false,
+   "wasPrice": 95,
+   "percentOff": 49,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -2829,7 +2859,7 @@
   },
   {
    "fragranceId": "ean-8033488155124",
-   "price": 132.85,
+   "price": 131.75,
    "delivered": false,
    "wasPrice": 263,
    "percentOff": 49,
@@ -2878,12 +2908,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt1240",
+   "price": 49.25,
+   "delivered": false,
+   "wasPrice": 95,
+   "percentOff": 48,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt1298",
    "price": 39.95,
    "delivered": false,
    "wasPrice": 78,
    "percentOff": 48,
    "retailerId": "fragrance-online-co",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "discount-fragrances-ca-slqugt1532",
+   "price": 49.35,
+   "delivered": false,
+   "wasPrice": 95,
+   "percentOff": 48,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -2912,16 +2962,6 @@
    "price": 34.95,
    "delivered": false,
    "wasPrice": 68,
-   "percentOff": 48,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3614273650311",
-   "price": 64.95,
-   "delivered": false,
-   "wasPrice": 126,
    "percentOff": 48,
    "retailerId": "fragrance-canada",
    "kind": "retailer",
@@ -3069,7 +3109,7 @@
   },
   {
    "fragranceId": "fragrance-canada-8949584855267-default-title",
-   "price": 31.99,
+   "price": 31.65,
    "delivered": false,
    "wasPrice": 62,
    "percentOff": 48,
@@ -3128,36 +3168,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt1240",
-   "price": 49.55,
-   "delivered": false,
-   "wasPrice": 95,
-   "percentOff": 47,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt1532",
-   "price": 49.65,
-   "delivered": false,
-   "wasPrice": 95,
-   "percentOff": 47,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt1815",
-   "price": 49.85,
-   "delivered": false,
-   "wasPrice": 95,
-   "percentOff": 47,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "discount-fragrances-ca-slqugt2504",
    "price": 44.95,
    "delivered": false,
@@ -3184,6 +3194,16 @@
    "wasPrice": 130,
    "percentOff": 47,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0737052872056",
+   "price": 78.05,
+   "delivered": false,
+   "wasPrice": 148,
+   "percentOff": 47,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -3418,30 +3438,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0737052872056",
-   "price": 78.9,
-   "delivered": false,
-   "wasPrice": 148,
-   "percentOff": 46,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0873824001016",
-   "price": 51,
+   "price": 50.65,
    "delivered": false,
    "wasPrice": 95,
-   "percentOff": 46,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3139420000547",
-   "price": 40.25,
-   "delivered": false,
-   "wasPrice": 75,
    "percentOff": 46,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -3628,8 +3628,18 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt1531",
+   "price": 47.75,
+   "delivered": false,
+   "wasPrice": 88,
+   "percentOff": 45,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt1545",
-   "price": 31.65,
+   "price": 31.35,
    "delivered": false,
    "wasPrice": 58,
    "percentOff": 45,
@@ -3668,12 +3678,42 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3412241210204",
+   "price": 10.85,
+   "delivered": false,
+   "wasPrice": 20,
+   "percentOff": 45,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3432240031938",
    "price": 109.95,
    "delivered": false,
    "wasPrice": 200,
    "percentOff": 45,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3616303321932",
+   "price": 10.85,
+   "delivered": false,
+   "wasPrice": 20,
+   "percentOff": 45,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3616303321987",
+   "price": 10.95,
+   "delivered": false,
+   "wasPrice": 20,
+   "percentOff": 45,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -3768,6 +3808,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-canada-4506406715529-75ml--new-packaging-",
+   "price": 37.35,
+   "delivered": false,
+   "wasPrice": 68,
+   "percentOff": 45,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-canada-5102636695689-default-title",
    "price": 37.95,
    "delivered": false,
@@ -3828,6 +3878,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt2458",
+   "price": 28.95,
+   "delivered": false,
+   "wasPrice": 52,
+   "percentOff": 44,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0088300107438",
+   "price": 43.55,
+   "delivered": false,
+   "wasPrice": 78,
+   "percentOff": 44,
+   "retailerId": "discount-fragrances-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0614514331064",
    "price": 54.95,
    "delivered": false,
@@ -3858,8 +3928,18 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3139420000547",
+   "price": 41.95,
+   "delivered": false,
+   "wasPrice": 75,
+   "percentOff": 44,
+   "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3139420008161",
-   "price": 43.35,
+   "price": 43.05,
    "delivered": false,
    "wasPrice": 78,
    "percentOff": 44,
@@ -3898,16 +3978,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3616303321987",
-   "price": 11.15,
-   "delivered": false,
-   "wasPrice": 20,
-   "percentOff": 44,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-3700578509000",
    "price": 210,
    "delivered": true,
@@ -3924,26 +3994,6 @@
    "wasPrice": 169,
    "percentOff": 44,
    "retailerId": "fragrance-online-co",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-canada-4506406715529-75ml--new-packaging-",
-   "price": 37.65,
-   "delivered": false,
-   "wasPrice": 68,
-   "percentOff": 44,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-canada-5106401345673-100ml",
-   "price": 54.85,
-   "delivered": false,
-   "wasPrice": 98,
-   "percentOff": 44,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -3999,7 +4049,7 @@
   },
   {
    "fragranceId": "discount-fragrances-ca-slqugt0384",
-   "price": 59.45,
+   "price": 58.95,
    "delivered": false,
    "wasPrice": 105,
    "percentOff": 43,
@@ -4139,7 +4189,7 @@
   },
   {
    "fragranceId": "ean-3760260453332",
-   "price": 85.45,
+   "price": 84.65,
    "delivered": false,
    "wasPrice": 150,
    "percentOff": 43,
@@ -4178,16 +4228,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-4502108930185-default-title",
-   "price": 29.25,
-   "delivered": false,
-   "wasPrice": 52,
-   "percentOff": 43,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-5285715443877-50ml",
    "price": 34.95,
    "delivered": false,
@@ -4199,7 +4239,7 @@
   },
   {
    "fragranceId": "fragrance-canada-5751153328293-100ml",
-   "price": 99.15,
+   "price": 98.25,
    "delivered": false,
    "wasPrice": 175,
    "percentOff": 43,
@@ -4258,8 +4298,18 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt0376",
+   "price": 79.25,
+   "delivered": false,
+   "wasPrice": 139,
+   "percentOff": 42,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt0516",
-   "price": 49.3,
+   "price": 49.15,
    "delivered": false,
    "wasPrice": 85,
    "percentOff": 42,
@@ -4294,6 +4344,16 @@
    "wasPrice": 105,
    "percentOff": 42,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0737052074450",
+   "price": 60.85,
+   "delivered": false,
+   "wasPrice": 105,
+   "percentOff": 42,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -4388,6 +4448,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-canada-5070643101833-90ml",
+   "price": 54.45,
+   "delivered": false,
+   "wasPrice": 95,
+   "percentOff": 42,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-canada-5253496045733-50ml",
    "price": 79.95,
    "delivered": false,
@@ -4399,7 +4469,7 @@
   },
   {
    "fragranceId": "fragrance-canada-5312546504869-100ml",
-   "price": 53.1,
+   "price": 52.55,
    "delivered": false,
    "wasPrice": 92,
    "percentOff": 42,
@@ -4468,6 +4538,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt1606",
+   "price": 54.25,
+   "delivered": false,
+   "wasPrice": 92,
+   "percentOff": 41,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt2008",
    "price": 23.95,
    "delivered": false,
@@ -4482,16 +4562,6 @@
    "price": 54.85,
    "delivered": false,
    "wasPrice": 93,
-   "percentOff": 41,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-0737052074450",
-   "price": 61.3,
-   "delivered": false,
-   "wasPrice": 105,
    "percentOff": 41,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -4608,16 +4678,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt0048",
-   "price": 74.95,
-   "delivered": false,
-   "wasPrice": 125,
-   "percentOff": 40,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "discount-fragrances-ca-slqugt0204",
    "price": 46.29,
    "delivered": false,
@@ -4718,10 +4778,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0088300104406",
-   "price": 28.05,
+   "fragranceId": "ean-0088300104437",
+   "price": 37.65,
    "delivered": false,
-   "wasPrice": 47,
+   "wasPrice": 63,
    "percentOff": 40,
    "retailerId": "discount-fragrances-ca",
    "kind": "retailer",
@@ -4794,16 +4854,6 @@
    "wasPrice": 160,
    "percentOff": 40,
    "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3616303321932",
-   "price": 11.95,
-   "delivered": false,
-   "wasPrice": 20,
-   "percentOff": 40,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -4904,16 +4954,6 @@
    "wasPrice": 202,
    "percentOff": 40,
    "retailerId": "maximum-fragrance",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-8011003818112",
-   "price": 99.95,
-   "delivered": false,
-   "wasPrice": 169,
-   "percentOff": 40,
-   "retailerId": "fragrance-canada",
    "kind": "retailer",
    "houseName": null
   },
@@ -5158,20 +5198,20 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0088300104437",
-   "price": 37.95,
+   "fragranceId": "ean-0088300196814",
+   "price": 28.49,
    "delivered": false,
-   "wasPrice": 63,
+   "wasPrice": 47,
    "percentOff": 39,
    "retailerId": "discount-fragrances-ca",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "ean-0088300196814",
-   "price": 28.49,
+   "fragranceId": "ean-0737052351100",
+   "price": 65.15,
    "delivered": false,
-   "wasPrice": 47,
+   "wasPrice": 108,
    "percentOff": 39,
    "retailerId": "discount-fragrances-ca",
    "kind": "retailer",
@@ -5308,6 +5348,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt1609",
+   "price": 52.35,
+   "delivered": false,
+   "wasPrice": 85,
+   "percentOff": 38,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt1660",
    "price": 64.95,
    "delivered": false,
@@ -5362,16 +5412,6 @@
    "price": 99.95,
    "delivered": false,
    "wasPrice": 163,
-   "percentOff": 38,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3349666007921",
-   "price": 99,
-   "delivered": false,
-   "wasPrice": 160,
    "percentOff": 38,
    "retailerId": "fragrance-canada",
    "kind": "retailer",
@@ -5579,17 +5619,17 @@
   },
   {
    "fragranceId": "discount-fragrances-ca-slqugt0379",
-   "price": 71.65,
+   "price": 71.45,
    "delivered": false,
    "wasPrice": 115,
    "percentOff": 37,
-   "retailerId": "discount-fragrances-ca",
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
   {
    "fragranceId": "discount-fragrances-ca-slqugt0442",
-   "price": 42.75,
+   "price": 42.45,
    "delivered": false,
    "wasPrice": 68,
    "percentOff": 37,
@@ -5654,26 +5694,6 @@
    "wasPrice": 98,
    "percentOff": 37,
    "retailerId": "discount-fragrances-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt1531",
-   "price": 47.85,
-   "delivered": false,
-   "wasPrice": 77,
-   "percentOff": 37,
-   "retailerId": "discount-fragrances-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt1609",
-   "price": 52.95,
-   "delivered": false,
-   "wasPrice": 85,
-   "percentOff": 37,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -5928,16 +5948,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-5070643101833-90ml",
-   "price": 59.85,
-   "delivered": false,
-   "wasPrice": 95,
-   "percentOff": 37,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-5691080147109-85ml",
    "price": 119.95,
    "delivered": false,
@@ -6098,16 +6108,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt1095",
-   "price": 118,
-   "delivered": false,
-   "wasPrice": 185,
-   "percentOff": 36,
-   "retailerId": "discount-fragrances-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "discount-fragrances-ca-slqugt1144",
    "price": 39.65,
    "delivered": false,
@@ -6134,6 +6134,16 @@
    "wasPrice": 79,
    "percentOff": 36,
    "retailerId": "perfume-factory-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "discount-fragrances-ca-slqugt2433",
+   "price": 74.55,
+   "delivered": false,
+   "wasPrice": 118,
+   "percentOff": 36,
+   "retailerId": "discount-fragrances-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -6338,16 +6348,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-7510659563747-90ml",
-   "price": 249,
-   "delivered": true,
-   "wasPrice": 395,
-   "percentOff": 36,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-7675001864419-100ml",
    "price": 105,
    "delivered": false,
@@ -6388,16 +6388,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt0376",
-   "price": 89.49,
-   "delivered": false,
-   "wasPrice": 139,
-   "percentOff": 35,
-   "retailerId": "discount-fragrances-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "discount-fragrances-ca-slqugt0445",
    "price": 56.38,
    "delivered": false,
@@ -6414,16 +6404,6 @@
    "wasPrice": 62,
    "percentOff": 35,
    "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt1069",
-   "price": 47.29,
-   "delivered": false,
-   "wasPrice": 73,
-   "percentOff": 35,
-   "retailerId": "discount-fragrances-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -6482,6 +6462,16 @@
    "price": 39.95,
    "delivered": false,
    "wasPrice": 62,
+   "percentOff": 35,
+   "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "discount-fragrances-ca-slqugt2472",
+   "price": 49.95,
+   "delivered": false,
+   "wasPrice": 78,
    "percentOff": 35,
    "retailerId": "fragrance-canada",
    "kind": "retailer",
@@ -6638,6 +6628,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-canada-4519656095881-100ml",
+   "price": 51.15,
+   "delivered": false,
+   "wasPrice": 79,
+   "percentOff": 35,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-canada-4598243885193-200ml",
    "price": 99.95,
    "delivered": false,
@@ -6702,16 +6702,6 @@
    "price": 88.52,
    "delivered": false,
    "wasPrice": 135,
-   "percentOff": 34,
-   "retailerId": "discount-fragrances-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "discount-fragrances-ca-slqugt1220",
-   "price": 76.25,
-   "delivered": false,
-   "wasPrice": 117,
    "percentOff": 34,
    "retailerId": "discount-fragrances-ca",
    "kind": "retailer",
@@ -6894,16 +6884,6 @@
    "wasPrice": 214,
    "percentOff": 34,
    "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-canada-4519656095881-100ml",
-   "price": 51.75,
-   "delivered": false,
-   "wasPrice": 79,
-   "percentOff": 34,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -7208,16 +7188,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-7129965691045-50ml",
-   "price": 92.5,
-   "delivered": false,
-   "wasPrice": 140,
-   "percentOff": 33,
-   "retailerId": "fragrance-online-co",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-7634820006115-50ml",
    "price": 69.45,
    "delivered": false,
@@ -7318,6 +7288,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt2415",
+   "price": 53.15,
+   "delivered": false,
+   "wasPrice": 79,
+   "percentOff": 32,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0027131086871",
    "price": 66.49,
    "delivered": false,
@@ -7372,16 +7352,6 @@
    "price": 84.8,
    "delivered": false,
    "wasPrice": 125,
-   "percentOff": 32,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3412241210204",
-   "price": 13.55,
-   "delivered": false,
-   "wasPrice": 20,
    "percentOff": 32,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -7528,16 +7498,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt0954",
-   "price": 69,
-   "delivered": false,
-   "wasPrice": 100,
-   "percentOff": 31,
-   "retailerId": "perfume-factory-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "discount-fragrances-ca-slqugt1231",
    "price": 149.95,
    "delivered": false,
@@ -7568,22 +7528,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "discount-fragrances-ca-slqugt2415",
-   "price": 54.2,
-   "delivered": false,
-   "wasPrice": 79,
-   "percentOff": 31,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0088300106752",
    "price": 99,
    "delivered": false,
    "wasPrice": 145,
    "percentOff": 31,
    "retailerId": "perfume-factory-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3274872347298",
+   "price": 65.45,
+   "delivered": false,
+   "wasPrice": 95,
+   "percentOff": 31,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -7828,6 +7788,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt0048",
+   "price": 84.99,
+   "delivered": true,
+   "wasPrice": 122,
+   "percentOff": 30,
+   "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "discount-fragrances-ca-slqugt1093",
    "price": 88.4,
    "delivered": false,
@@ -7858,6 +7828,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0688575201895",
+   "price": 94.25,
+   "delivered": false,
+   "wasPrice": 135,
+   "percentOff": 30,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0783320421297",
    "price": 126.5,
    "delivered": false,
@@ -7874,16 +7854,6 @@
    "wasPrice": 299.99,
    "percentOff": 30,
    "retailerId": "my-royal-musk",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3274872347298",
-   "price": 65.75,
-   "delivered": false,
-   "wasPrice": 95,
-   "percentOff": 30,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -8018,8 +7988,28 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-8011003804566",
+   "price": 66.35,
+   "delivered": false,
+   "wasPrice": 95,
+   "percentOff": 30,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8011003818112",
+   "price": 79.95,
+   "delivered": false,
+   "wasPrice": 115,
+   "percentOff": 30,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-8011003861903",
-   "price": 73.55,
+   "price": 73.15,
    "delivered": false,
    "wasPrice": 106,
    "percentOff": 30,
@@ -8278,16 +8268,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-8011003804566",
-   "price": 66.85,
-   "delivered": false,
-   "wasPrice": 95,
-   "percentOff": 29,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-8411061725931",
    "price": 109,
    "delivered": false,
@@ -8309,7 +8289,7 @@
   },
   {
    "fragranceId": "fragrance-canada-4508650733705-200ml",
-   "price": 69.85,
+   "price": 69.45,
    "delivered": false,
    "wasPrice": 99,
    "percentOff": 29,
@@ -8608,16 +8588,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-4520152662153-100ml",
-   "price": 129,
-   "delivered": false,
-   "wasPrice": 180,
-   "percentOff": 28,
-   "retailerId": "perfume-factory-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-4522239426697-90ml--edp-spray-",
    "price": 169,
    "delivered": false,
@@ -8744,6 +8714,16 @@
    "wasPrice": 89.99,
    "percentOff": 27,
    "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0737052074443",
+   "price": 52.05,
+   "delivered": false,
+   "wasPrice": 72,
+   "percentOff": 27,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -8998,16 +8978,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0737052351100",
-   "price": 69.8,
-   "delivered": false,
-   "wasPrice": 95,
-   "percentOff": 26,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0783320971563",
    "price": 119.25,
    "delivered": false,
@@ -9228,16 +9198,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0688575201895",
-   "price": 99.95,
-   "delivered": false,
-   "wasPrice": 135,
-   "percentOff": 25,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0783320911521",
    "price": 149,
    "delivered": false,
@@ -9419,7 +9379,7 @@
   },
   {
    "fragranceId": "fragrance-canada-4609010303113-50ml",
-   "price": 56.25,
+   "price": 55.65,
    "delivered": false,
    "wasPrice": 75,
    "percentOff": 25,
@@ -9638,12 +9598,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0737052074443",
-   "price": 54.85,
+   "fragranceId": "fragrance-canada-7695685222627-50ml",
+   "price": 109.95,
    "delivered": false,
-   "wasPrice": 72,
-   "percentOff": 23,
-   "retailerId": "perfumeonline-ca",
+   "wasPrice": 145,
+   "percentOff": 24,
+   "retailerId": "fragrance-online-co",
    "kind": "retailer",
    "houseName": null
   },
@@ -9764,6 +9724,16 @@
    "wasPrice": 215,
    "percentOff": 23,
    "retailerId": "fragrance-canada",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-canada-4505785467017-30ml",
+   "price": 44.65,
+   "delivered": false,
+   "wasPrice": 58,
+   "percentOff": 23,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -9934,16 +9904,6 @@
    "wasPrice": 175,
    "percentOff": 22,
    "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3616301623335",
-   "price": 69,
-   "delivered": false,
-   "wasPrice": 89,
-   "percentOff": 22,
-   "retailerId": "perfume-factory-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -10158,6 +10118,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3605520292484",
+   "price": 82.35,
+   "delivered": false,
+   "wasPrice": 105,
+   "percentOff": 21,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614273261425",
    "price": 125,
    "delivered": false,
@@ -10298,26 +10268,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3605520292484",
-   "price": 83.75,
-   "delivered": false,
-   "wasPrice": 105,
-   "percentOff": 20,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3614272761469",
-   "price": 134.95,
-   "delivered": false,
-   "wasPrice": 170,
-   "percentOff": 20,
-   "retailerId": "fragrance-online-co",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-3614273953764",
    "price": 114.95,
    "delivered": false,
@@ -10429,9 +10379,19 @@
   },
   {
    "fragranceId": "ean-3274870042362",
-   "price": 84.95,
+   "price": 84.15,
    "delivered": false,
    "wasPrice": 105,
+   "percentOff": 19,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3607342221161",
+   "price": 73.75,
+   "delivered": false,
+   "wasPrice": 92,
    "percentOff": 19,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
@@ -10519,6 +10479,16 @@
   },
   {
    "fragranceId": "discount-fragrances-ca-slqugt0053",
+   "price": 64.98,
+   "delivered": true,
+   "wasPrice": 79.99,
+   "percentOff": 18,
+   "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "discount-fragrances-ca-slqugt0799",
    "price": 64.98,
    "delivered": true,
    "wasPrice": 79.99,
@@ -10938,6 +10908,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-6290360593159",
+   "price": 74.98,
+   "delivered": true,
+   "wasPrice": 89.99,
+   "percentOff": 16,
+   "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-6290360599168",
    "price": 49.98,
    "delivered": true,
@@ -11018,6 +10998,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-canada-7980026953955-default-title",
+   "price": 62.95,
+   "delivered": false,
+   "wasPrice": 75,
+   "percentOff": 16,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-canada-8365260734691-default-title",
    "price": 49.98,
    "delivered": true,
@@ -11048,6 +11038,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-online-co-11037146546343-100ml-edp",
+   "price": 74.98,
+   "delivered": true,
+   "wasPrice": 89.99,
+   "percentOff": 16,
+   "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-online-co-11065759891623-100ml-edp",
    "price": 49.98,
    "delivered": true,
@@ -11059,6 +11059,16 @@
   },
   {
    "fragranceId": "fragrance-online-co-8738830876839-100ml-edp",
+   "price": 49.98,
+   "delivered": true,
+   "wasPrice": 59.99,
+   "percentOff": 16,
+   "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-online-co-9221265752231-100ml-edp",
    "price": 49.98,
    "delivered": true,
    "wasPrice": 59.99,
@@ -11128,7 +11138,17 @@
    "houseName": null
   },
   {
-   "fragranceId": "my-royal-musk-44829641113647",
+   "fragranceId": "my-royal-musk-44829632069679",
+   "price": 49.98,
+   "delivered": true,
+   "wasPrice": 59.99,
+   "percentOff": 16,
+   "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "my-royal-musk-45222409732143",
    "price": 49.98,
    "delivered": true,
    "wasPrice": 59.99,
@@ -11168,6 +11188,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3700578524003",
+   "price": 260.45,
+   "delivered": true,
+   "wasPrice": 310,
+   "percentOff": 15,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-canada-4513169801353-100ml",
    "price": 139.95,
    "delivered": false,
@@ -11194,16 +11224,6 @@
    "wasPrice": 510,
    "percentOff": 15,
    "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-canada-7980026953955-default-title",
-   "price": 63.55,
-   "delivered": false,
-   "wasPrice": 75,
-   "percentOff": 15,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -11298,16 +11318,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3700578524003",
-   "price": 264.45,
-   "delivered": true,
-   "wasPrice": 310,
-   "percentOff": 14,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-6287036287320",
    "price": 72.49,
    "delivered": false,
@@ -11324,6 +11334,26 @@
    "wasPrice": 69.99,
    "percentOff": 14,
    "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-6290362340638",
+   "price": 59.98,
+   "delivered": true,
+   "wasPrice": 69.99,
+   "percentOff": 14,
+   "retailerId": "my-royal-musk",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8011003861224",
+   "price": 84.55,
+   "delivered": false,
+   "wasPrice": 99,
+   "percentOff": 14,
+   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -11378,16 +11408,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-8633987924195-default-title",
-   "price": 20.6,
-   "delivered": false,
-   "wasPrice": 24,
-   "percentOff": 14,
-   "retailerId": "perfumeonline-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-8793417089251-default-title",
    "price": 59.98,
    "delivered": true,
@@ -11429,7 +11449,7 @@
   },
   {
    "fragranceId": "ean-3346131610068",
-   "price": 125.95,
+   "price": 125.45,
    "delivered": false,
    "wasPrice": 145,
    "percentOff": 13,
@@ -11444,16 +11464,6 @@
    "wasPrice": 110,
    "percentOff": 13,
    "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-8011003861224",
-   "price": 85.2,
-   "delivered": false,
-   "wasPrice": 99,
-   "percentOff": 13,
-   "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
@@ -11638,6 +11648,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt1817",
+   "price": 167.98,
+   "delivered": true,
+   "wasPrice": 188,
+   "percentOff": 10,
+   "retailerId": "discount-fragrances-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0652638004693",
    "price": 399,
    "delivered": true,
@@ -11668,12 +11688,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-4505785467017-30ml",
-   "price": 52.15,
+   "fragranceId": "ean-3614272761469",
+   "price": 144,
    "delivered": false,
-   "wasPrice": 58,
+   "wasPrice": 160,
    "percentOff": 10,
-   "retailerId": "perfumeonline-ca",
+   "retailerId": "fragrance-canada",
    "kind": "retailer",
    "houseName": null
   },
@@ -11738,6 +11758,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt1095",
+   "price": 169,
+   "delivered": false,
+   "wasPrice": 185,
+   "percentOff": 8,
+   "retailerId": "perfume-factory-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3348900378575",
    "price": 125,
    "delivered": false,
@@ -11792,16 +11822,6 @@
    "price": 179.95,
    "delivered": false,
    "wasPrice": 195,
-   "percentOff": 7,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3700550216094",
-   "price": 329,
-   "delivered": true,
-   "wasPrice": 357,
    "percentOff": 7,
    "retailerId": "fragrance-canada",
    "kind": "retailer",
@@ -11868,6 +11888,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3349666007921",
+   "price": 98.25,
+   "delivered": false,
+   "wasPrice": 105,
+   "percentOff": 6,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3700550218197",
    "price": 319,
    "delivered": true,
@@ -11908,6 +11938,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "discount-fragrances-ca-slqugt2448",
+   "price": 94.25,
+   "delivered": false,
+   "wasPrice": 99,
+   "percentOff": 4,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3700458601121",
    "price": 229,
    "delivered": false,
@@ -11928,21 +11968,21 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-canada-5302959472805-default-title",
-   "price": 64.95,
+   "fragranceId": "ean-8411061853160",
+   "price": 88.15,
    "delivered": false,
-   "wasPrice": 68,
+   "wasPrice": 92,
    "percentOff": 4,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
   },
   {
-   "fragranceId": "ean-8411061853160",
-   "price": 89.15,
+   "fragranceId": "fragrance-canada-5302959472805-default-title",
+   "price": 64.95,
    "delivered": false,
-   "wasPrice": 92,
-   "percentOff": 3,
+   "wasPrice": 68,
+   "percentOff": 4,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
    "houseName": null
@@ -11958,10 +11998,40 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3605521172648",
+   "price": 57.35,
+   "delivered": false,
+   "wasPrice": 58,
+   "percentOff": 1,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8011003804559",
+   "price": 56.95,
+   "delivered": false,
+   "wasPrice": 58,
+   "percentOff": 1,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-8435137729197",
    "price": 73.75,
    "delivered": false,
    "wasPrice": 75,
+   "percentOff": 1,
+   "retailerId": "perfumeonline-ca",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-canada-4520152662153-100ml",
+   "price": 93.25,
+   "delivered": false,
+   "wasPrice": 95,
    "percentOff": 1,
    "retailerId": "perfumeonline-ca",
    "kind": "retailer",
