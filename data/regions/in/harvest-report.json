@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-11-05T00:57:47.134Z",
-  "minutes": 55.3,
+  "ranAt": "2026-11-06T01:00:50.124Z",
+  "minutes": 55.33,
   "dryRun": false,
   "shopsWired": 21,
   "shopsEnabled": 18,
   "shopsPriced": 18,
-  "listingsKept": 23592,
+  "listingsKept": 23655,
   "shops": [
     {
       "id": "nykaa",
@@ -15,12 +15,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1199,
-      "priced": 1199,
-      "kept": 1185,
-      "withBarcode": 208,
-      "pagesFetched": 1241,
-      "seconds": 3300,
+      "listingsRead": 1238,
+      "priced": 1238,
+      "kept": 1219,
+      "withBarcode": 201,
+      "pagesFetched": 1282,
+      "seconds": 3302,
       "currency": "JSON-LD offers named: INR",
       "errors": [
         "https://www.nykaa.com/azha-perfumes-eternal-nights-eau-de-parfum/p/22163370: HTTP 404",
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
         "https://www.nykaa.com/ulric-de-varens-flash-eau-de-toilette-natural-spray-for-men/p/9329009: HTTP 404",
         "https://www.nykaa.com/victoria-s-secret-bare-eau-de-parfum-travel-spray/p/16691987: HTTP 404",
-        "sitemap: 3058 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
+        "sitemap: 3100 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -61,14 +61,17 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7945,
-      "priced": 7945,
-      "kept": 6663,
+      "listingsRead": 7946,
+      "priced": 7946,
+      "kept": 6664,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 79,
-      "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "seconds": 86,
+      "currency": "the storefront publishes INR at rate 1",
+      "errors": [],
+      "diagnostics": [
+        "https://perfumepalace.in/meta.json: HTTP 500"
+      ]
     },
     {
       "id": "fridaycharm",
@@ -76,12 +79,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7676,
-      "priced": 7676,
-      "kept": 6436,
+      "listingsRead": 7686,
+      "priced": 7686,
+      "kept": 6443,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 62,
+      "seconds": 74,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -96,7 +99,7 @@
       "kept": 1905,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 18,
+      "seconds": 19,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -106,18 +109,18 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1067,
-      "priced": 1067,
-      "kept": 1015,
+      "listingsRead": 1088,
+      "priced": 1088,
+      "kept": 1036,
       "withBarcode": 0,
-      "pagesFetched": 1068,
-      "seconds": 3300,
+      "pagesFetched": 1089,
+      "seconds": 3301,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2323 product address(es)"
+        "sitemap: 2326 product address(es)"
       ]
     },
     {
@@ -131,7 +134,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -146,7 +149,7 @@
       "kept": 353,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 13,
+      "seconds": 14,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -161,7 +164,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -176,7 +179,7 @@
       "kept": 27,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -206,7 +209,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 9,
+      "seconds": 11,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -216,16 +219,16 @@
       "route": "sitemap",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 3,
-      "priced": 3,
+      "listingsRead": 5,
+      "priced": 5,
       "kept": 2,
       "withBarcode": 0,
-      "pagesFetched": 10,
-      "seconds": 31,
+      "pagesFetched": 12,
+      "seconds": 36,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
-        "sitemap: 10 product address(es) found, first read https://www.ustraa.com/cologne-spray-ammunition-125ml/p"
+        "sitemap: 10 product address(es) found, first read https://www.ustraa.com/cologne-for-men-base-camp/p"
       ]
     },
     {
@@ -255,7 +258,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 11,
+      "seconds": 12,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -270,7 +273,7 @@
       "kept": 157,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 13,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -285,7 +288,7 @@
       "kept": 1452,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 19,
+      "seconds": 21,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -300,7 +303,7 @@
       "kept": 2473,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 20,
+      "seconds": 24,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -331,7 +334,7 @@
       "kept": 1231,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 14,
+      "seconds": 16,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -346,7 +349,7 @@
       "kept": 503,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 10,
+      "seconds": 13,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     }
