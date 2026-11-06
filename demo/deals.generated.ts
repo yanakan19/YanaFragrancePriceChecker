@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-11-06T09:49:11.290Z";
+export const DEALS_GENERATED_AT = "2026-11-06T12:46:43.119Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -9723,11 +9723,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3423473947158",
-    "price": 23.48,
+    "price": 25.05,
     "delivered": true,
-    "wasPrice": 54.99,
-    "percentOff": 57,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 55,
+    "percentOff": 54,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -35872,16 +35872,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "mybeauty-boutique-shopify-gb-8338197676169-44927034425481",
-    "price": 24.48,
-    "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 9,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "mybeauty-boutique-shopify-gb-8338197610633-44927034359945",
     "price": 24.11,
     "delivered": true,
@@ -44587,16 +44577,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 82.99,
     "percentOff": 67,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "escentual-cketernity007",
-    "price": 26.98,
-    "delivered": true,
-    "wasPrice": 84.99,
-    "percentOff": 68,
     "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
