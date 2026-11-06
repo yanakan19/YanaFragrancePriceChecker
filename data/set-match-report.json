@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 353,
+ "folded": 356,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -156,6 +156,38 @@
      "signature": "1x30fragrance|1x?other",
      "shops": [
       "beaute-boulevard",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0085715165749",
+   "absorbed": [
+    "set-abercrombie-fitch-away-woman-gift-set-50ml-edp-200ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715165749",
+     "brand": "Abercrombie & Fitch",
+     "name": "Away Woman Gift Set 50ml EDP + 200ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0085715165749",
+     "scent": "away woman",
+     "signature": "1x200body|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-abercrombie-fitch-away-woman-gift-set-50ml-edp-200ml-body-lotion",
+     "brand": "Abercrombie & Fitch",
+     "name": "Away Woman Gift Set 50ml EDP + 200ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "away woman",
+     "signature": "1x200body|1x50fragrance",
+     "shops": [
       "p-eleven"
      ]
     }
@@ -1360,6 +1392,38 @@
    ]
   },
   {
+   "canonical": "set-ean-0850050174974",
+   "absorbed": [
+    "set-michael-kors-pour-homme-gift-set-100ml-edp-100ml-shower-gel-10ml-edp-wallet"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0850050174974",
+     "brand": "Michael Kors",
+     "name": "Pour Homme Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP + Wallet",
+     "concentration": "Eau de Parfum",
+     "ean": "0850050174974",
+     "scent": "homme pour wallet",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-michael-kors-pour-homme-gift-set-100ml-edp-100ml-shower-gel-10ml-edp-wallet",
+     "brand": "Michael Kors",
+     "name": "Pour Homme Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP + Wallet",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "homme pour wallet",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0856857007224",
    "absorbed": [
     "set-lamborghini-essenza-gift-set-40ml-edt-100ml-aftershave-balm"
@@ -1673,6 +1737,38 @@
      "signature": "1x100fragrance|1x12.5fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3274872467552",
+   "absorbed": [
+    "set-kenzo-flower-ikebana-gift-set-75ml-edp-10ml-edp-75ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3274872467552",
+     "brand": "Kenzo",
+     "name": "Flower Ikebana Gift Set 75ml EDP + 10ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3274872467552",
+     "scent": "flower ikebana",
+     "signature": "1x10fragrance|1x75body|1x75fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-kenzo-flower-ikebana-gift-set-75ml-edp-10ml-edp-75ml-body-lotion",
+     "brand": "Kenzo",
+     "name": "Flower Ikebana Gift Set 75ml EDP + 10ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "flower ikebana",
+     "signature": "1x10fragrance|1x75body|1x75fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -8593,38 +8689,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003907106",
-   "absorbed": [
-    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003907106",
-     "brand": "Versace",
-     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
-     "concentration": "Parfum",
-     "ean": "8011003907106",
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
-     "brand": "Versace",
-     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
-     "concentration": "Parfum",
-     "ean": null,
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8028713572937",
    "absorbed": [
     "set-acqua-di-parma-blu-mediterraneo-discovery-set-12ml-arancia-di-capri-edt-12ml-fico-di-amalfi-edt-12ml-mirto-di-panarea-edt"
@@ -8764,6 +8828,38 @@
      "signature": "1x100body|1x100fragrance|1x?other",
      "shops": [
       "beaute-boulevard",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8052464896318",
+   "absorbed": [
+    "set-salvatore-ferragamo-ferragamo-intense-leather-gift-set-100ml-edp-100ml-shower-gel-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8052464896318",
+     "brand": "Salvatore Ferragamo",
+     "name": "Ferragamo Intense Leather Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8052464896318",
+     "scent": "ferragamo intense leather",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-salvatore-ferragamo-ferragamo-intense-leather-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
+     "brand": "Salvatore Ferragamo",
+     "name": "Ferragamo Intense Leather Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "ferragamo intense leather",
+     "signature": "1x100fragrance|1x100wash|1x10fragrance",
+     "shops": [
       "p-eleven"
      ]
     }
@@ -12031,6 +12127,37 @@
      "ean": "8057971185498",
      "scent": "k",
      "signature": "1x100fragrance|1x50body|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.82 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-dsquared-icon-pour-homme-gift-set-100ml-edp-100ml-shower-gel-100ml-aftershave-balm",
+     "brand": "Dsquared2",
+     "name": "Dsquared² Icon Pour Homme Gift Set 100ml Edp + 100ml Shower Gel + 100ml Aftershave Balm",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "dsquared homme icon pour",
+     "signature": "1x100body|1x100fragrance|1x100wash",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    },
+    {
+     "id": "set-ean-8011003900206",
+     "brand": "Dsquared2",
+     "name": "DSquared² Icon Pour Homme Gift Set 100ml EDP + 100ml Shower Gel + 100ml Aftershave Balm",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003900206",
+     "scent": "dsquared homme icon pour",
+     "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
       "perfume-click"
      ]
@@ -15702,6 +15829,37 @@
      "signature": "1x50body|1x50fragrance|1x?body",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.71 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3660732521951",
+     "brand": "Viktor & Rolf",
+     "name": "FlowerBomb Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3660732521951",
+     "scent": "flowerbomb",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-viktor-rolf-flowerbomb-gift-set-50ml-edp-10ml-edp",
+     "brand": "Viktor & Rolf",
+     "name": "FlowerBomb Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "flowerbomb",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
