@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-05T20:19:26.640Z",
-  "seenAt": "2026-11-05T20:19:26.640Z",
+  "updatedAt": "2026-11-06T00:14:28.775Z",
+  "seenAt": "2026-11-06T00:14:28.775Z",
   "source": "live",
   "listings": [
     {
@@ -2199,7 +2199,7 @@
       "priceGbp": 69.99,
       "wasPriceGbp": 79.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A collection inspired by the colors of the sea and the clarity of the sky. . Blending heritage and modernity in captivating fragrance compositions that touch memories.. Each note reflects a balance between freshness and strength, leaving an unforgettable impression.. Blue Box (75 mL): . · Sapphire Leather. · Balas Rose. · Blue Diamond.",
       "productType": "Arabic Perfumes",

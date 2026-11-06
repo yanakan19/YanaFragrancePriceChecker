@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-11-05T20:19:25.221Z",
-  "seenAt": "2026-11-05T20:19:25.221Z",
+  "updatedAt": "2026-11-06T00:14:27.843Z",
+  "seenAt": "2026-11-06T00:14:27.843Z",
   "source": "live",
   "listings": [
     {
@@ -4109,7 +4109,7 @@
       "priceGbp": 160,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Eau de Parfum. . Created in collaboration with designer Violette Hay, this fragrance celebrates the violet flower with a modern hue. While it does contain hints of parma violet, a hay-like suede note with apricot undertones takes centerstage. The blend is far from sweet, and its watercolor scent ties stays close to the skin.. . Composition: . Carrot Seed, Coriander. Apricot, Violet, Saffron. Suede, Hay, Musk. Perfumer: Marissa Zappas, 2022. . inci list: alcohol denat., fragrance (parfum), water (aqua) .",
       "productType": "EAU DE PARFUM",

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-05T20:26:20.902Z",
+  "checkedAt": "2026-11-06T00:21:16.607Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -414,9 +414,9 @@
       "origin": "https://www.reef-parfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 39,
+      "listings": 40,
       "pricedInGbp": 0,
-      "withPhoto": 39,
+      "withPhoto": 40,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],

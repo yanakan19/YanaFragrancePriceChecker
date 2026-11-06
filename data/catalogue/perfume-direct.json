@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-05T20:19:26.640Z",
-  "seenAt": "2026-11-05T20:19:26.640Z",
+  "updatedAt": "2026-11-06T00:14:28.775Z",
+  "seenAt": "2026-11-06T00:14:28.775Z",
   "source": "live",
   "listings": [
     {
@@ -4176,7 +4176,7 @@
       "priceGbp": 54.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "LEGO Blue Astronaut Large Minifigure 40921.",
       "productType": "LEGO",
@@ -19769,7 +19769,7 @@
       "priceGbp": 22.99,
       "wasPriceGbp": 40,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Experience elegance and charm with the Sarah Jessica Parker Lovely Gift Set. Featuring the iconic 100ml Eau de Parfum and a convenient 15ml travel-sized EDP, this set allows you to enjoy your signature scent anytime, anywhere. Delicate, feminine, and sophisticated, Lovely combines floral and musky notes for a long-lasting, captivating fragrance. Perfect for gifting or treating yourself, it’s a timeless celebration of grace, style, and modern femininity. . . Fragrance Type: . Floral, Musky . . Fragrance Notes: . - Top notes: Lavender, Mandarin Orange, Bergamot, Martini, Rosewood . - Middle notes: Patchouli, Orchid, Narcissus . - Base notes: Musk, Woody Notes, Cedar, White Amber . . Launched: . 2005 . . Gift Set Includes: . - 100ml EDP . - 15ml EDP .",
       "productType": "Women's Perfume",
@@ -34190,7 +34190,7 @@
       "priceGbp": 28.99,
       "wasPriceGbp": 42,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Moisture Surge Overnight Mask from Clinique is a deeply moisturising mask.. . Creating an invisible \"net\" to hold moisture to the skin whilst protecting the skin's moisture barrier and helping to protect against night-time moisture loss.. . Suitable for all skin types (1, 2, 3 and 4). . Use after your 3-step routine. Apply all over face before you to go sleep .",
       "productType": "Face Mask",

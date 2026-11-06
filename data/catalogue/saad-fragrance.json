@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-05T20:19:26.640Z",
-  "seenAt": "2026-11-05T20:19:26.640Z",
+  "updatedAt": "2026-11-06T00:14:28.775Z",
+  "seenAt": "2026-11-06T00:14:28.775Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Top notes are Oriental notes, Liquor, Vanilla Pod and Cashmere Wood; middle notes are Amber, Sugar Cane and Cedarwood; base notes are Tonka, Sandalwood, Musk and Labdanum. .",
       "productType": null,
@@ -727,7 +727,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Vulcan feu French avenue 100ml Eau de Parfum presents a complex olfactory profile: vibrant top notes of mango and lemon combine with the warmth of ginger and rhubarb. The middle notes introduce a floral harmony of jasmine and violet, complemented by the sweetness of praline. The fragrance concludes with an earthy base of tonka bean and cedarwood, providing depth and longevity. .",
       "productType": null,

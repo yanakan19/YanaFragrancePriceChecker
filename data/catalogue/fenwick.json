@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-05T20:19:26.640Z",
-  "seenAt": "2026-11-05T20:19:26.640Z",
+  "updatedAt": "2026-11-06T00:14:28.775Z",
+  "seenAt": "2026-11-06T00:14:28.775Z",
   "source": "live",
   "listings": [
     {
@@ -773,7 +773,7 @@
       "priceGbp": 91,
       "wasPriceGbp": 130,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Share happiness with this majestic reinterpretation of a signature fragrance that now captures the luminosity of Magnolia Essence. Spread happiness with La vie est belle, Lancôme’s selling feminine fragrance. Incarnated by Julia Roberts, La vie est belle is a universal declaration to the beauty of life..",
       "productType": "Women's Fragrances",
