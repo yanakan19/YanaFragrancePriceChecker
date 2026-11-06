@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-11-06T16:48:36.189Z",
-  "seenAt": "2026-11-06T16:48:36.189Z",
+  "updatedAt": "2026-11-06T20:45:30.374Z",
+  "seenAt": "2026-11-06T20:45:30.374Z",
   "source": "live",
   "listings": [
     {
@@ -336,7 +336,7 @@
       "priceGbp": 180,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Extrait de Parfum. Limited Edition. . Only in Dreams Collection . Label illustration by Johanna Kwiat. A fascinating, full-throated perfume that opens with a whiplash of lush, sweet decay and a quivering leather resembling iso-butyl quinoline, the decadent Dietrich heart of so many iconic 1930s and 40s fragrances like Vent Vert, Jolie Madame and Bandit, all composed by Germaine Cellier, whom Sainte Cellier was named after.. The heart of Stardust Narcissus swells with a narcotic bouquet of narcissus, jonquil, lily of the valley and jasmine, basking under an overdose of galbanum, a gum resin with bittergreen mastic, green apple and anisic facets.. Intriguing fact: bitter galbanum was used in sacred incense mixes to represent deliberate and unrepentant sinners.. Stardust Narcissus is a covetous perfume, playing off the nostalgic verdant echoes of vintage Guerlain and Caron with a sharp-edged sense of floral modernism, an opiate narcissus / jonquil duet dusted in moonlight, oakmoss and tendrils of incense.. As the name suggests, the notes in Stardust Narcissus shimmer and luminesce from that moody, leather-lash of startling galbanum and hyacinth through the heartswoon of flowers and smoke down to a stalwart base of woods, supple leather, rooty vetiver and oakmoss. It is however Brooke and Nata’s triumphant showcasing of a cosmic narcissus that will have you seeing stars.. . Composition: . Bergamot, Galbanum, Artemisia, Hyacinth. Narcissus Absolute, Jonquil Absolute, Orris Butter, Lily of the Valley, Jasmine. Oakmoss, Patchouli, Leather, Vetiver, Cedarwood. Perfumer: Nata Dyshliuk, 2025. . inci list: Hexamethylindanopyran, Pogostemon Cablin Oil, Alpha Isomethyl Ionone, Citrus Aurantium, Bergamia Peel Oil, Linalool, Limonene, Citral, Linalyl Acetate, Narcissus Extract, Evernia furfuracea (Treemoss) extract, Cyclamen Aldehyde, Geranyl Acetate, Hydroxycitronellal, Cananga Odorata Oil, Pinenes, Eugenol .",
       "productType": "EXTRAIT DE PARFUM",
@@ -4776,7 +4776,7 @@
       "priceGbp": 220,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Eau de Parfum. Des Cendres is a bold, singed Dietrich leather. The green leather surface of an old writing desk, edged in decayed gold. It is a powerful statement scent that eventually mellows down, becoming more ambiguous as it does so. This perfumed interpretation of embers and cinders, bitter and blackened, is full of cooked tree resins, bubbling after a forest fire, oily needles releasing tarred jade aromas.. Des Cendres has some distinctive touches, namely Moroccan mint in the heart notes and the sweet hyacinthine greenness of Galbanum at the top. It is a remarkable perfume; revealing whiffs of blackened concrete and charred soft fruits. Oddly there is a stage where a bubblegum note appears only to be veiled again in the smoke. The assembly and use of materials is exemplary in this dynamic swirling composition. Made with perfect technical and emotive chutzpah by Monsieur Lie.. Composition: . Galbanum, Birch Tar, Swiss Pine Tar, Aniseed. Mint Morocco, Clove, Violet Leaf, Indian Tuberose, Leather. Aceh Patchouli, Vetiver Haiti, African Hyraceum, Oakmoss. Perfumer: Antoine Lie, 2023. inci list: Alcohol (Denat.), Parfum (Fragrance), Benzyl Alcohol, Benzyl Benzoate, Benzyl Cinnamate, Cinnamal, Cinnamyl Alcohol, Citral, Coumarin, Citronellol, Limonene, Eugenol, Geraniol, Isoeugenol, Linalool, Alpha-isomethyl Ionone, Evernia Prunastri Extract, BHT, Ethylhexyl Methoxycinnamate, Butyl Methoxydibenzoylmethane (Avobenzone), FOO94-1 .",
       "productType": "EAU DE PARFUM",

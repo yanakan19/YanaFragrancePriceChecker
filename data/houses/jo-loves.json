@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-06T16:56:56.231Z",
-  "seenAt": "2026-11-06T16:56:56.231Z",
+  "updatedAt": "2026-11-06T20:53:06.698Z",
+  "seenAt": "2026-11-06T20:53:06.698Z",
   "source": "live",
   "listings": [
     {
@@ -1969,7 +1969,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Immerse yourself in Jo's personal scent with the Jo by Jo Loves Bath & Shower Gel and Body Lotion. The gel, infused with sparkling citrus and Aloe Leaf Juice, offers a refreshing cleanse. Our lotion, a love letter to Jo's signature scent, blends grapefruit, orange, lime, spearmint, black pepper, and more, leaving your skin smooth with cocoa butter, almond, grape seed oil, and vitamin E. Experience Jo's past, present, and future in every indulgent application. Jo's everyday go-to fragrance, which she affectionately refers to it as 'Parfum Jo.' Her olfactory signature, it's as synonymous with her as the iconic Red Dot.",
       "productType": null,
@@ -1992,7 +1992,7 @@
       "priceGbp": 39,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Indulge in Jo's love letter to herself with the Jo by Jo Loves Bath & Shower Gel, a luxurious daily cleanser infused with sparkling citrus notes and soothing Aloe Leaf Juice, perfect for a refreshing and aromatic experience. Jo's everyday go-to fragrance, which she affectionately refers to it as 'Parfum Jo.' Her olfactory signature, it's as synonymous with her as the iconic Red Dot.",
       "productType": null,
@@ -3878,7 +3878,7 @@
       "priceGbp": 42,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Experience the innovative Fragrance Paintbrush™, a unique gel formula that holds Jo by Jo Loves' signature scent, Jo, a love letter to herself and her everyday go-to fragrance. Featuring a reusable design with a 7ml on-the-go essential and a refillable 7ml cartridge, this paintbrush-inspired tool allows you to easily top up with a Refill Set when needed. Twist the coloured base to change cartridges and embrace the citrusy blend of grapefruit, orange, lime, spearmint, hedione, black pepper, guaiac wood, vetiver, and cedarwood that captures Jo's character and love affair with grapefruit. Jo's everyday go-to fragrance, which she affectionately refers to it as 'Parfum Jo.' Her olfactory signature, it's as synonymous with her as the iconic Red Dot. Contents: Jo by Jo Loves A Fragrance Paintbrush™ (7ml), Jo by Jo Loves A Fragrance Paintbrush™ Refill (7ml)",
       "productType": "Fragrance",

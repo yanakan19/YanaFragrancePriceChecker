@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-06T16:48:40.346Z",
-  "seenAt": "2026-11-06T16:48:40.346Z",
+  "updatedAt": "2026-11-06T20:45:22.843Z",
+  "seenAt": "2026-11-06T20:45:22.843Z",
   "source": "live",
   "listings": [
     {
@@ -10134,7 +10134,7 @@
       "priceGbp": 84,
       "wasPriceGbp": 112,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Vendetta Uomo Eau De Parfum is a men's fragrance presented in a 90ml bottle..",
       "productType": "Men's Fragrances",
@@ -15815,7 +15815,7 @@
       "priceGbp": 84,
       "wasPriceGbp": 105,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Miu Miu Miutine Eau De Parfum 50ml offers a feminine blend of wild strawberry, vanilla, and brown sugar. With warm floral notes of gardenia and patchouli, it delivers a distinctive and daring fragrance for confident wearers. .",
       "productType": "Women's Fragrances",

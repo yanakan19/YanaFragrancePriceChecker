@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-06T16:48:36.189Z",
-  "seenAt": "2026-11-06T16:48:36.189Z",
+  "updatedAt": "2026-11-06T20:45:30.374Z",
+  "seenAt": "2026-11-06T20:45:30.374Z",
   "source": "live",
   "listings": [
     {
@@ -110503,8 +110503,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/guerlain_idylle_eau_de_parfum_spray_75ml.png?v=1729190274",
-      "priceGbp": 93.1,
-      "wasPriceGbp": 133,
+      "priceGbp": 133,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
