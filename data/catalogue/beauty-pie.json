@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-06T08:39:39.118Z",
-  "seenAt": "2026-11-06T08:39:39.118Z",
+  "updatedAt": "2026-11-06T12:58:52.357Z",
+  "seenAt": "2026-11-06T12:58:52.357Z",
   "source": "live",
   "listings": [
     {
@@ -11284,7 +11284,7 @@
       "priceGbp": 18.9,
       "wasPriceGbp": 27,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "An ultra-futuristic, lightweight foundation infused with high-tech Micro-Pearls for a melt-away feel and natural matte finish. This medium-to-full coverage formula delivers an enviable soft-focus radiance and subtle light-tricks for sculpting. No caking, no pigment overkill, just an even stunning finish. Fragrance-free. Oil-free..",
       "productType": "Makeup",
@@ -11422,7 +11422,7 @@
       "priceGbp": 27,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "An ultra-futuristic, lightweight foundation infused with high-tech Micro-Pearls for a melt-away feel and natural matte finish. This medium-to-full coverage formula delivers an enviable soft-focus radiance and subtle light-tricks for sculpting. No caking, no pigment overkill, just an even stunning finish. Fragrance-free. Oil-free..",
       "productType": "Makeup",
