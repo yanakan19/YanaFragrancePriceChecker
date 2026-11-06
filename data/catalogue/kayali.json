@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-06T04:47:15.785Z",
-  "seenAt": "2026-11-06T04:47:15.785Z",
+  "updatedAt": "2026-11-06T08:39:39.118Z",
+  "seenAt": "2026-11-06T08:39:39.118Z",
   "source": "live",
   "listings": [
     {
@@ -3188,7 +3188,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "This joyful fragrance opens with Sparkling Champagne and silky White Freesia, while Pink Praline, Lush Nectarine dominates the heart of this romantic fragrance. The sweetness of Sugared Musk and the creamy Sandalwood perfectly round out this dazzling scent as a toast to the celebration of love..",
       "productType": "Fragrances",
@@ -4407,7 +4407,7 @@
       "priceGbp": 28,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Déjà vu White Flower | 57 is a seductive, yet warm and comforting scent that is steeped in nostalgia and reminiscent of that memory of falling in love yet also laying the foundations for new exciting memories to come; memories that you can revisit with every spritz.. Evoking the dreamy spirit of nostalgia, the warm and sultry scent is a fresh, bouquet of white florals. Déjà vu White Flower | 57 combines aromatic sandalwood and fruity notes of white nectarine and orange flower, creating a sensual scent that truly seduces the senses. The notes of jasmine, tuberose, patchouli and gardenia come together in a seductive and unique blend..",
       "productType": "Fragrances",

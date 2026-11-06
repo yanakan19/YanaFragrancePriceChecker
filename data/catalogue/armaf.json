@@ -1,7 +1,7 @@
 {
   "retailerId": "armaf",
-  "updatedAt": "2026-11-06T04:46:19.184Z",
-  "seenAt": "2026-11-06T04:46:19.184Z",
+  "updatedAt": "2026-11-06T08:39:40.235Z",
+  "seenAt": "2026-11-06T08:39:40.235Z",
   "source": "live",
   "listings": [
     {
@@ -3234,7 +3234,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Top Notes: Orange Flower, Grapefruit Middle Notes: Vetiver, Aromatic Sage, Orris, Nutmeg Base Notes: Pimento, Amber Woods, Oak Moss.",
       "productType": null,

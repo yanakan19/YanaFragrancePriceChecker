@@ -1,6 +1,6 @@
 {
-  "startedAt": "2026-11-06T04:46:20.810Z",
-  "finishedAt": "2026-11-06T05:45:24.653Z",
+  "startedAt": "2026-11-06T08:39:40.466Z",
+  "finishedAt": "2026-11-06T09:44:42.162Z",
   "complete": true,
   "endedReason": "swept-every-shop",
   "planned": [
@@ -84,36 +84,31 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 22,
-      "finishedAt": "2026-11-06T04:46:42.862Z"
+      "seconds": 24,
+      "finishedAt": "2026-11-06T08:40:05.258Z"
     },
     {
-      "retailerId": "john-lewis",
-      "name": "John Lewis",
-      "urlsDiscovered": 2329,
-      "pagesFetched": 106,
-      "priced": 37,
+      "retailerId": "cult-beauty-global",
+      "name": "Cult Beauty Global",
+      "urlsDiscovered": 1462,
+      "pagesFetched": 86,
+      "priced": 85,
       "tier": "free",
       "renderer": null,
-      "errorCount": 22,
+      "errorCount": 3,
       "errors": [
-        "https://www.johnlewis.com/bdk-parfums-wood-jasmin-eau-de-parfum-100ml/p111650354: HTTP 503",
-        "https://www.johnlewis.com/issey-miyake-leau-dissey-pour-homme-sport-eau-de-toilette/p331373: HTTP 503",
-        "https://www.johnlewis.com/fragrance-du-bois-sirene-privee-parfum-75ml/p115455271: HTTP 503",
-        "https://www.johnlewis.com/clinique-my-happy-cocoa-cashmere-eau-de-parfum-100ml/p110538983: HTTP 503",
-        "https://www.johnlewis.com/loewe-001-woman-eau-de-parfum/p112247839: HTTP 503",
-        "https://www.johnlewis.com/chanel-allure-homme-sport-eau-de-toilette-refillable-travel-spray-3-x-20ml/p1695251: HTTP 503",
-        "https://www.johnlewis.com/yves-saint-laurent-y-for-men-iced-cologne-eau-de-toilette-intense/p114813299: HTTP 503",
-        "https://www.johnlewis.com/diptyque-eau-de-minthe-eau-de-parfum-75ml/p4061301: HTTP 503"
+        "https://www.cultbeauty.co.uk/p/creed-millesime-imperial/12870041/: HTTP 404",
+        "https://www.cultbeauty.co.uk/p/creed-wild-vetiver/16684202/: HTTP 404",
+        "https://www.cultbeauty.co.uk/p/creed-love-in-white-for-summer/12870040/: HTTP 404"
       ],
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 761,
-        "gone": 0
+        "due": 48,
+        "gone": 3
       },
-      "seconds": 640,
-      "finishedAt": "2026-11-06T04:57:01.096Z"
+      "seconds": 293,
+      "finishedAt": "2026-11-06T08:44:34.391Z"
     },
     {
       "retailerId": "glossier-uk",
@@ -131,8 +126,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 2,
-      "finishedAt": "2026-11-06T04:57:03.488Z"
+      "seconds": 3,
+      "finishedAt": "2026-11-06T08:44:37.272Z"
     },
     {
       "retailerId": "rowlands-pharmacy",
@@ -150,15 +145,15 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 13,
-      "finishedAt": "2026-11-06T04:57:16.591Z"
+      "seconds": 16,
+      "finishedAt": "2026-11-06T08:44:53.504Z"
     },
     {
       "retailerId": "beaute-boulevard",
       "name": "Beauté Boulevard",
-      "urlsDiscovered": 4189,
+      "urlsDiscovered": 4178,
       "pagesFetched": 12,
-      "priced": 4189,
+      "priced": 4178,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -169,8 +164,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 25,
-      "finishedAt": "2026-11-06T04:57:41.482Z"
+      "seconds": 26,
+      "finishedAt": "2026-11-06T08:45:19.701Z"
     },
     {
       "retailerId": "perfume-closet",
@@ -188,8 +183,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 6,
-      "finishedAt": "2026-11-06T04:57:47.863Z"
+      "seconds": 7,
+      "finishedAt": "2026-11-06T08:45:26.646Z"
     },
     {
       "retailerId": "sainte-cellier",
@@ -207,27 +202,30 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 33,
-      "finishedAt": "2026-11-06T04:58:21.233Z"
+      "seconds": 36,
+      "finishedAt": "2026-11-06T08:46:02.875Z"
     },
     {
       "retailerId": "space-nk",
       "name": "Space NK",
       "urlsDiscovered": 632,
-      "pagesFetched": 295,
-      "priced": 640,
+      "pagesFetched": 438,
+      "priced": 910,
       "tier": "free",
       "renderer": null,
-      "errorCount": 0,
-      "errors": [],
+      "errorCount": 2,
+      "errors": [
+        "https://www.spacenk.com/uk/fragrance/personal-fragrance/fragrance/marrakech-intense-eau-de-parfum-UK200050805.html: HTTP 404",
+        "https://www.spacenk.com/uk/fragrance/personal-fragrance/fragrance/tacit-eau-de-parfum-UK200050807.html: HTTP 404"
+      ],
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 253,
-        "gone": 0
+        "due": 396,
+        "gone": 307
       },
-      "seconds": 828,
-      "finishedAt": "2026-11-06T05:00:08.966Z"
+      "seconds": 1290,
+      "finishedAt": "2026-11-06T09:01:11.770Z"
     },
     {
       "retailerId": "rasasi-uk-store",
@@ -245,34 +243,48 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 65,
-      "finishedAt": "2026-11-06T05:01:14.246Z"
+      "seconds": 58,
+      "finishedAt": "2026-11-06T09:02:09.534Z"
     },
     {
-      "retailerId": "perfumeuk",
-      "name": "PerfumeUK",
-      "urlsDiscovered": 1133,
-      "pagesFetched": 104,
-      "priced": 99,
+      "retailerId": "bloom-perfumery",
+      "name": "Bloom Perfumery",
+      "urlsDiscovered": 2279,
+      "pagesFetched": 9,
+      "priced": 2279,
       "tier": "free",
       "renderer": null,
-      "errorCount": 6,
+      "errorCount": 0,
+      "errors": [],
+      "refreshed": {
+        "platform": null,
+        "fromFeed": 0,
+        "due": 0,
+        "gone": 0
+      },
+      "seconds": 1380,
+      "finishedAt": "2026-11-06T09:03:05.471Z"
+    },
+    {
+      "retailerId": "lookfantastic",
+      "name": "LOOKFANTASTIC",
+      "urlsDiscovered": 2410,
+      "pagesFetched": 701,
+      "priced": 700,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 1,
       "errors": [
-        "https://www.perfumeuk.co.uk/mont-blanc-legend-red-eau-de-parfum-edp-100ml: HTTP 503",
-        "https://www.perfumeuk.co.uk/mont-blanc-legend-red-eau-de-parfum-edp-50ml: HTTP 503",
-        "https://www.perfumeuk.co.uk/mont-blanc-legend-spirit-eau-de-toilette-100ml: HTTP 503",
-        "https://www.perfumeuk.co.uk/narciso-rodriguez-for-her-eau-de-parfum-100ml: HTTP 503",
-        "https://www.perfumeuk.co.uk/narciso-rodriguez-for-her-eau-de-parfum-50ml: HTTP 503",
-        "stopped early: 5 pages in a row failed"
+        "https://www.lookfantastic.com/p/dolce-gabbana-light-blue-eau-de-toilette-100ml/11883199/: HTTP 404"
       ],
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 994,
-        "gone": 0
+        "due": 659,
+        "gone": 18
       },
-      "seconds": 229,
-      "finishedAt": "2026-11-06T05:02:10.271Z"
+      "seconds": 1405,
+      "finishedAt": "2026-11-06T09:03:06.584Z"
     },
     {
       "retailerId": "beautybase",
@@ -290,31 +302,30 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 122,
-      "finishedAt": "2026-11-06T05:03:16.080Z"
+      "seconds": 130,
+      "finishedAt": "2026-11-06T09:04:19.062Z"
     },
     {
-      "retailerId": "cult-beauty-global",
-      "name": "Cult Beauty Global",
-      "urlsDiscovered": 1451,
-      "pagesFetched": 461,
-      "priced": 464,
-      "tier": "free",
+      "retailerId": "the-fragrance-counter",
+      "name": "The Fragrance Counter",
+      "urlsDiscovered": 395,
+      "pagesFetched": 42,
+      "priced": 0,
+      "tier": "none",
       "renderer": null,
-      "errorCount": 3,
+      "errorCount": 2,
       "errors": [
-        "https://www.cultbeauty.co.uk/p/creed-royal-oud/12870045/: HTTP 404",
-        "https://www.cultbeauty.co.uk/p/creed-aventus-for-her/12870031/: HTTP 404",
-        "https://www.cultbeauty.co.uk/p/creed-green-irish-tweed/12870035/: HTTP 404"
+        "[actor] rendered 1 section page(s), 0 listings parsed, 0 priced",
+        "[actor] https://www.thefragrancecounter.co.uk/all-womens-fragrance.html?p=1: HTTP 200, 215535 bytes"
       ],
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 424,
-        "gone": 3
+        "due": 0,
+        "gone": 0
       },
-      "seconds": 1065,
-      "finishedAt": "2026-11-06T05:04:05.733Z"
+      "seconds": 101,
+      "finishedAt": "2026-11-06T09:04:46.219Z"
     },
     {
       "retailerId": "glorious-beauty",
@@ -332,27 +343,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 108,
-      "finishedAt": "2026-11-06T05:05:04.253Z"
-    },
-    {
-      "retailerId": "escentual",
-      "name": "Escentual",
-      "urlsDiscovered": 7987,
-      "pagesFetched": 21,
-      "priced": 7987,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 0,
-        "gone": 0
-      },
-      "seconds": 83,
-      "finishedAt": "2026-11-06T05:05:28.283Z"
+      "seconds": 114,
+      "finishedAt": "2026-11-06T09:05:00.473Z"
     },
     {
       "retailerId": "french-avenue",
@@ -371,7 +363,7 @@
         "gone": 0
       },
       "seconds": 3,
-      "finishedAt": "2026-11-06T05:05:31.791Z"
+      "finishedAt": "2026-11-06T09:05:03.974Z"
     },
     {
       "retailerId": "armaf",
@@ -390,7 +382,7 @@
         "gone": 0
       },
       "seconds": 5,
-      "finishedAt": "2026-11-06T05:05:36.370Z"
+      "finishedAt": "2026-11-06T09:05:08.865Z"
     },
     {
       "retailerId": "les-senteurs",
@@ -408,8 +400,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 40,
-      "finishedAt": "2026-11-06T05:05:44.342Z"
+      "seconds": 43,
+      "finishedAt": "2026-11-06T09:05:29.456Z"
     },
     {
       "retailerId": "al-haramain",
@@ -427,16 +419,16 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 38,
-      "finishedAt": "2026-11-06T05:06:14.188Z"
+      "seconds": 39,
+      "finishedAt": "2026-11-06T09:05:48.264Z"
     },
     {
-      "retailerId": "perfumeo",
-      "name": "Perfumeo",
-      "urlsDiscovered": 0,
-      "pagesFetched": 0,
-      "priced": 0,
-      "tier": "none",
+      "retailerId": "escentual",
+      "name": "Escentual",
+      "urlsDiscovered": 7987,
+      "pagesFetched": 21,
+      "priced": 7987,
+      "tier": "free",
       "renderer": null,
       "errorCount": 0,
       "errors": [],
@@ -446,8 +438,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 32,
-      "finishedAt": "2026-11-06T05:06:46.552Z"
+      "seconds": 90,
+      "finishedAt": "2026-11-06T09:05:49.201Z"
     },
     {
       "retailerId": "bellavita-luxury",
@@ -461,12 +453,12 @@
       "errors": [],
       "refreshed": {
         "platform": "shopify",
-        "fromFeed": 18,
+        "fromFeed": 9,
         "due": 0,
         "gone": 0
       },
-      "seconds": 79,
-      "finishedAt": "2026-11-06T05:07:03.413Z"
+      "seconds": 83,
+      "finishedAt": "2026-11-06T09:06:52.023Z"
     },
     {
       "retailerId": "zimaya",
@@ -484,8 +476,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 2,
-      "finishedAt": "2026-11-06T05:07:05.757Z"
+      "seconds": 3,
+      "finishedAt": "2026-11-06T09:06:54.930Z"
     },
     {
       "retailerId": "avon",
@@ -503,8 +495,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 10,
-      "finishedAt": "2026-11-06T05:07:15.400Z"
+      "seconds": 11,
+      "finishedAt": "2026-11-06T09:07:05.928Z"
     },
     {
       "retailerId": "the-beauty-store-uk",
@@ -522,34 +514,15 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 76,
-      "finishedAt": "2026-11-06T05:08:02.987Z"
-    },
-    {
-      "retailerId": "bloom-perfumery",
-      "name": "Bloom Perfumery",
-      "urlsDiscovered": 2279,
-      "pagesFetched": 9,
-      "priced": 2279,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 0,
-        "gone": 0
-      },
-      "seconds": 1290,
-      "finishedAt": "2026-11-06T05:08:12.962Z"
+      "seconds": 83,
+      "finishedAt": "2026-11-06T09:07:12.898Z"
     },
     {
       "retailerId": "perfume-market-uk",
       "name": "Perfume Market UK",
       "urlsDiscovered": 384,
-      "pagesFetched": 58,
-      "priced": 56,
+      "pagesFetched": 43,
+      "priced": 41,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -557,18 +530,18 @@
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 16,
+        "due": 1,
         "gone": 0
       },
-      "seconds": 125,
-      "finishedAt": "2026-11-06T05:09:20.020Z"
+      "seconds": 94,
+      "finishedAt": "2026-11-06T09:08:40.372Z"
     },
     {
       "retailerId": "marks-and-spencer",
       "name": "Marks & Spencer",
       "urlsDiscovered": 183,
-      "pagesFetched": 45,
-      "priced": 45,
+      "pagesFetched": 47,
+      "priced": 47,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -576,127 +549,150 @@
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 3,
+        "due": 5,
         "gone": 0
       },
-      "seconds": 90,
-      "finishedAt": "2026-11-06T05:09:32.676Z"
+      "seconds": 91,
+      "finishedAt": "2026-11-06T09:08:43.600Z"
+    },
+    {
+      "retailerId": "perfumeo",
+      "name": "Perfumeo",
+      "urlsDiscovered": 1505,
+      "pagesFetched": 47,
+      "priced": 45,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 1,
+      "errors": [
+        "https://www.perfumeo.co.uk/sitemap.xml: HTTP 404"
+      ],
+      "refreshed": {
+        "platform": "woocommerce",
+        "fromFeed": 69,
+        "due": 5,
+        "gone": 0
+      },
+      "seconds": 300,
+      "finishedAt": "2026-11-06T09:10:48.247Z"
+    },
+    {
+      "retailerId": "gorgeous-shop",
+      "name": "Gorgeous Shop",
+      "urlsDiscovered": 287,
+      "pagesFetched": 202,
+      "priced": 203,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "refreshed": {
+        "platform": null,
+        "fromFeed": 0,
+        "due": 160,
+        "gone": 0
+      },
+      "seconds": 1973,
+      "finishedAt": "2026-11-06T09:12:34.079Z"
+    },
+    {
+      "retailerId": "perfumeuk",
+      "name": "PerfumeUK",
+      "urlsDiscovered": 1133,
+      "pagesFetched": 937,
+      "priced": 937,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "refreshed": {
+        "platform": null,
+        "fromFeed": 0,
+        "due": 895,
+        "gone": 0
+      },
+      "seconds": 1910,
+      "finishedAt": "2026-11-06T09:17:52.664Z"
+    },
+    {
+      "retailerId": "john-lewis",
+      "name": "John Lewis",
+      "urlsDiscovered": 2329,
+      "pagesFetched": 996,
+      "priced": 1457,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 1,
+      "errors": [
+        "stopped early: exceeded this shop's time budget"
+      ],
+      "refreshed": {
+        "platform": null,
+        "fromFeed": 0,
+        "due": 1591,
+        "gone": 0
+      },
+      "seconds": 3002,
+      "finishedAt": "2026-11-06T09:29:42.824Z"
     },
     {
       "retailerId": "direct-cosmetics",
       "name": "Direct Cosmetics",
       "urlsDiscovered": 1492,
-      "pagesFetched": 524,
-      "priced": 518,
+      "pagesFetched": 813,
+      "priced": 810,
       "tier": "free",
       "renderer": null,
-      "errorCount": 7,
+      "errorCount": 4,
       "errors": [
-        "https://www.directcosmetics.com/rush-eau-de-toilette-spray-75ml-gucci-p13762: HTTP 0",
-        "https://www.directcosmetics.com/blue-stratos-pre-electric-shaving-lotion-100ml-p120: HTTP 503",
-        "https://www.directcosmetics.com/blue-stratos-pre-electric-shaving-lotion-100ml-original-p1860: HTTP 503",
-        "https://www.directcosmetics.com/curious-fine-fragrance-mist-236ml-britney-spears-p10740: HTTP 503",
-        "https://www.directcosmetics.com/fantasy-fine-fragrance-mist-spray-236ml-britney-spears-p11422: HTTP 503",
-        "https://www.directcosmetics.com/fantasy-midnight-fragrance-mist-spray-240ml-britney-spears-p12063: HTTP 503",
-        "stopped early: 5 pages in a row failed"
-      ],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 767,
-        "gone": 0
-      },
-      "seconds": 1597,
-      "finishedAt": "2026-11-06T05:12:57.542Z"
-    },
-    {
-      "retailerId": "lookfantastic",
-      "name": "LOOKFANTASTIC",
-      "urlsDiscovered": 2426,
-      "pagesFetched": 757,
-      "priced": 756,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 1,
-      "errors": [
-        "https://www.lookfantastic.com/p/dolce-gabbana-light-blue-eau-de-toilette-100ml/11883199/: HTTP 404"
-      ],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 715,
-        "gone": 19
-      },
-      "seconds": 1627,
-      "finishedAt": "2026-11-06T05:13:27.849Z"
-    },
-    {
-      "retailerId": "the-fragrance-counter",
-      "name": "The Fragrance Counter",
-      "urlsDiscovered": 396,
-      "pagesFetched": 324,
-      "priced": 282,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 282,
-        "gone": 0
-      },
-      "seconds": 765,
-      "finishedAt": "2026-11-06T05:14:55.171Z"
-    },
-    {
-      "retailerId": "gorgeous-shop",
-      "name": "Gorgeous Shop",
-      "urlsDiscovered": 278,
-      "pagesFetched": 314,
-      "priced": 314,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 1,
-      "errors": [
+        "https://www.directcosmetics.com/y-by-ysl-lelixir-parfum-concenrate-mini-7-5ml-gwp-ysl-yvessaintlaurent-p14503: HTTP 0",
+        "https://www.directcosmetics.com/z-14-cologne-spray-125ml-halston-p360: HTTP 0",
+        "https://www.directcosmetics.com/booster-lacoste-eau-de-toilette-spray-125ml-tester-lacoste-p12108: HTTP 0",
         "stopped early: exceeded this shop's time budget"
       ],
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 388,
+        "due": 1002,
         "gone": 0
       },
-      "seconds": 3004,
-      "finishedAt": "2026-11-06T05:36:24.490Z"
+      "seconds": 3002,
+      "finishedAt": "2026-11-06T09:29:42.973Z"
     },
     {
       "retailerId": "niche-beauty-uk",
       "name": "Niche Beauty UK",
       "urlsDiscovered": 6784,
-      "pagesFetched": 1267,
-      "priced": 1267,
+      "pagesFetched": 1262,
+      "priced": 1248,
       "tier": "free",
       "renderer": null,
-      "errorCount": 1,
+      "errorCount": 15,
       "errors": [
-        "stopped early: exceeded this shop's time budget"
+        "https://www.niche-beauty.com/en-gb/products/pestle-mortar-balance-spritz/522-008: HTTP 0",
+        "https://www.niche-beauty.com/en-gb/products/kevyn-aucoin-stripped-nude-skin-tint/519-070: HTTP 0",
+        "https://www.niche-beauty.com/en-gb/products/kevyn-aucoin-glass-glow-face/519-085: HTTP 0",
+        "https://www.niche-beauty.com/en-gb/products/kevyn-aucoin-glass-glow-face/519-086: HTTP 0",
+        "https://www.niche-beauty.com/en-gb/products/seed-to-skin-the-devotion/544-017: HTTP 0",
+        "https://www.niche-beauty.com/en-gb/products/seed-to-skin-the-serenity/544-020: HTTP 0",
+        "https://www.niche-beauty.com/en-gb/products/seed-to-skin-the-retreat/544-023: HTTP 0",
+        "https://www.niche-beauty.com/en-gb/products/sweed-adhesive-for-strip-lashes-clearwhite/520-012: HTTP 0"
       ],
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 1963,
+        "due": 2159,
         "gone": 0
       },
-      "seconds": 3544,
-      "finishedAt": "2026-11-06T05:45:24.588Z"
+      "seconds": 3901,
+      "finishedAt": "2026-11-06T09:44:42.101Z"
     },
     {
       "retailerId": "beauty-bay",
       "name": "Beauty Bay",
       "urlsDiscovered": 51,
-      "pagesFetched": 23,
-      "priced": 57,
+      "pagesFetched": 24,
+      "priced": 60,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -707,8 +703,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 50,
-      "finishedAt": "2026-11-06T04:48:06.922Z"
+      "seconds": 47,
+      "finishedAt": "2026-11-06T08:40:27.461Z"
     },
     {
       "retailerId": "beauty-pie",
@@ -726,8 +722,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 61,
-      "finishedAt": "2026-11-06T04:48:17.805Z"
+      "seconds": 62,
+      "finishedAt": "2026-11-06T08:40:41.979Z"
     },
     {
       "retailerId": "perfume-direct",
@@ -745,13 +741,13 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 28,
-      "finishedAt": "2026-11-06T04:48:35.149Z"
+      "seconds": 32,
+      "finishedAt": "2026-11-06T08:40:59.078Z"
     },
     {
       "retailerId": "liberty-london",
       "name": "Liberty London",
-      "urlsDiscovered": 1745,
+      "urlsDiscovered": 1766,
       "pagesFetched": 5,
       "priced": 0,
       "tier": "none",
@@ -773,8 +769,8 @@
         "due": 1842,
         "gone": 0
       },
-      "seconds": 17,
-      "finishedAt": "2026-11-06T04:48:52.066Z"
+      "seconds": 15,
+      "finishedAt": "2026-11-06T08:41:13.975Z"
     },
     {
       "retailerId": "lloyds-pharmacy",
@@ -793,14 +789,14 @@
         "gone": 0
       },
       "seconds": 44,
-      "finishedAt": "2026-11-06T04:49:35.938Z"
+      "finishedAt": "2026-11-06T08:41:57.953Z"
     },
     {
       "retailerId": "p-eleven",
       "name": "P-Eleven",
-      "urlsDiscovered": 3628,
+      "urlsDiscovered": 3645,
       "pagesFetched": 63,
-      "priced": 3628,
+      "priced": 3645,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -811,8 +807,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 151,
-      "finishedAt": "2026-11-06T04:49:47.464Z"
+      "seconds": 156,
+      "finishedAt": "2026-11-06T08:42:16.423Z"
     },
     {
       "retailerId": "scent-warehouse",
@@ -831,26 +827,7 @@
         "gone": 0
       },
       "seconds": 20,
-      "finishedAt": "2026-11-06T04:49:55.502Z"
-    },
-    {
-      "retailerId": "roullier-white",
-      "name": "Roullier White",
-      "urlsDiscovered": 260,
-      "pagesFetched": 5,
-      "priced": 260,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 0,
-        "gone": 0
-      },
-      "seconds": 10,
-      "finishedAt": "2026-11-06T04:49:57.169Z"
+      "finishedAt": "2026-11-06T08:42:18.054Z"
     },
     {
       "retailerId": "scented-glasgow",
@@ -869,7 +846,26 @@
         "gone": 0
       },
       "seconds": 5,
-      "finishedAt": "2026-11-06T04:50:00.413Z"
+      "finishedAt": "2026-11-06T08:42:23.548Z"
+    },
+    {
+      "retailerId": "roullier-white",
+      "name": "Roullier White",
+      "urlsDiscovered": 260,
+      "pagesFetched": 5,
+      "priced": 260,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "refreshed": {
+        "platform": null,
+        "fromFeed": 0,
+        "due": 0,
+        "gone": 0
+      },
+      "seconds": 9,
+      "finishedAt": "2026-11-06T08:42:25.856Z"
     },
     {
       "retailerId": "perfumoi",
@@ -888,7 +884,7 @@
         "gone": 0
       },
       "seconds": 5,
-      "finishedAt": "2026-11-06T04:50:05.148Z"
+      "finishedAt": "2026-11-06T08:42:31.018Z"
     },
     {
       "retailerId": "saad-fragrance",
@@ -907,26 +903,7 @@
         "gone": 0
       },
       "seconds": 3,
-      "finishedAt": "2026-11-06T04:50:07.771Z"
-    },
-    {
-      "retailerId": "scentsational",
-      "name": "Scentsational",
-      "urlsDiscovered": 795,
-      "pagesFetched": 43,
-      "priced": 43,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 1,
-        "gone": 0
-      },
-      "seconds": 191,
-      "finishedAt": "2026-11-06T04:50:28.015Z"
+      "finishedAt": "2026-11-06T08:42:33.874Z"
     },
     {
       "retailerId": "opulensi",
@@ -944,8 +921,8 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 37,
-      "finishedAt": "2026-11-06T04:50:34.258Z"
+      "seconds": 39,
+      "finishedAt": "2026-11-06T08:43:02.396Z"
     },
     {
       "retailerId": "nicchia-luxury-uk",
@@ -963,34 +940,15 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 76,
-      "finishedAt": "2026-11-06T04:51:23.838Z"
-    },
-    {
-      "retailerId": "home-bargains",
-      "name": "Home Bargains",
-      "urlsDiscovered": 780,
-      "pagesFetched": 44,
-      "priced": 23,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 2,
-        "gone": 0
-      },
-      "seconds": 86,
-      "finishedAt": "2026-11-06T04:51:53.700Z"
+      "seconds": 79,
+      "finishedAt": "2026-11-06T08:43:52.702Z"
     },
     {
       "retailerId": "fenwick",
       "name": "Fenwick",
-      "urlsDiscovered": 1157,
+      "urlsDiscovered": 1156,
       "pagesFetched": 100,
-      "priced": 1157,
+      "priced": 1156,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -1001,8 +959,46 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 226,
-      "finishedAt": "2026-11-06T04:52:04.208Z"
+      "seconds": 236,
+      "finishedAt": "2026-11-06T08:44:38.219Z"
+    },
+    {
+      "retailerId": "allbeauty",
+      "name": "Allbeauty",
+      "urlsDiscovered": 3914,
+      "pagesFetched": 42,
+      "priced": 42,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "refreshed": {
+        "platform": "shopify",
+        "fromFeed": 3914,
+        "due": 0,
+        "gone": 0
+      },
+      "seconds": 130,
+      "finishedAt": "2026-11-06T08:46:02.848Z"
+    },
+    {
+      "retailerId": "justmylook",
+      "name": "Justmylook",
+      "urlsDiscovered": 2001,
+      "pagesFetched": 42,
+      "priced": 42,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "refreshed": {
+        "platform": "shopify",
+        "fromFeed": 2036,
+        "due": 0,
+        "gone": 0
+      },
+      "seconds": 211,
+      "finishedAt": "2026-11-06T08:48:08.928Z"
     },
     {
       "retailerId": "ibraq",
@@ -1020,27 +1016,29 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 2,
-      "finishedAt": "2026-11-06T04:52:06.402Z"
+      "seconds": 3,
+      "finishedAt": "2026-11-06T08:48:11.739Z"
     },
     {
-      "retailerId": "allbeauty",
-      "name": "Allbeauty",
-      "urlsDiscovered": 3911,
-      "pagesFetched": 42,
-      "priced": 42,
+      "retailerId": "scentstore",
+      "name": "ScentStore",
+      "urlsDiscovered": 691,
+      "pagesFetched": 43,
+      "priced": 73,
       "tier": "free",
       "renderer": null,
-      "errorCount": 0,
-      "errors": [],
+      "errorCount": 1,
+      "errors": [
+        "https://www.scentstore.com/product/valentino-born-in-roma-donna-eau-de-parfum-discovery-gift-set/: HTTP 404"
+      ],
       "refreshed": {
-        "platform": "shopify",
-        "fromFeed": 3914,
-        "due": 0,
-        "gone": 0
+        "platform": "woocommerce",
+        "fromFeed": 389,
+        "due": 1,
+        "gone": 1
       },
-      "seconds": 121,
-      "finishedAt": "2026-11-06T04:52:35.002Z"
+      "seconds": 195,
+      "finishedAt": "2026-11-06T08:49:18.074Z"
     },
     {
       "retailerId": "oud-arabian",
@@ -1058,15 +1056,15 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 78,
-      "finishedAt": "2026-11-06T04:53:24.077Z"
+      "seconds": 79,
+      "finishedAt": "2026-11-06T08:49:31.139Z"
     },
     {
       "retailerId": "emirates-oud",
       "name": "Emirates Oud",
-      "urlsDiscovered": 2174,
+      "urlsDiscovered": 2172,
       "pagesFetched": 10,
-      "priced": 2174,
+      "priced": 2172,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -1077,27 +1075,27 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 46,
-      "finishedAt": "2026-11-06T04:54:09.604Z"
+      "seconds": 47,
+      "finishedAt": "2026-11-06T08:50:18.557Z"
     },
     {
-      "retailerId": "manchester-ouds",
-      "name": "Manchester Ouds",
-      "urlsDiscovered": 104,
-      "pagesFetched": 42,
-      "priced": 41,
+      "retailerId": "escentric-molecules",
+      "name": "Escentric Molecules",
+      "urlsDiscovered": 119,
+      "pagesFetched": 2,
+      "priced": 119,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
       "errors": [],
       "refreshed": {
-        "platform": "shopify",
-        "fromFeed": 102,
+        "platform": null,
+        "fromFeed": 0,
         "due": 0,
         "gone": 0
       },
-      "seconds": 104,
-      "finishedAt": "2026-11-06T04:54:18.603Z"
+      "seconds": 34,
+      "finishedAt": "2026-11-06T08:50:52.731Z"
     },
     {
       "retailerId": "fragrancehub",
@@ -1116,45 +1114,26 @@
         "gone": 0
       },
       "seconds": 7,
-      "finishedAt": "2026-11-06T04:54:25.630Z"
+      "finishedAt": "2026-11-06T08:50:59.821Z"
     },
     {
-      "retailerId": "escentric-molecules",
-      "name": "Escentric Molecules",
-      "urlsDiscovered": 119,
-      "pagesFetched": 2,
-      "priced": 119,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 0,
-      "errors": [],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 0,
-        "gone": 0
-      },
-      "seconds": 33,
-      "finishedAt": "2026-11-06T04:54:42.562Z"
-    },
-    {
-      "retailerId": "justmylook",
-      "name": "Justmylook",
-      "urlsDiscovered": 2001,
+      "retailerId": "manchester-ouds",
+      "name": "Manchester Ouds",
+      "urlsDiscovered": 104,
       "pagesFetched": 42,
-      "priced": 42,
+      "priced": 41,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
       "errors": [],
       "refreshed": {
         "platform": "shopify",
-        "fromFeed": 2036,
+        "fromFeed": 101,
         "due": 0,
         "gone": 0
       },
-      "seconds": 199,
-      "finishedAt": "2026-11-06T04:54:43.138Z"
+      "seconds": 105,
+      "finishedAt": "2026-11-06T08:51:03.480Z"
     },
     {
       "retailerId": "kayali",
@@ -1172,15 +1151,15 @@
         "due": 0,
         "gone": 0
       },
-      "seconds": 66,
-      "finishedAt": "2026-11-06T04:55:31.340Z"
+      "seconds": 69,
+      "finishedAt": "2026-11-06T08:52:09.100Z"
     },
     {
-      "retailerId": "parfumdreams-uk",
-      "name": "Parfumdreams UK",
-      "urlsDiscovered": 2482,
-      "pagesFetched": 495,
-      "priced": 862,
+      "retailerId": "home-bargains",
+      "name": "Home Bargains",
+      "urlsDiscovered": 780,
+      "pagesFetched": 481,
+      "priced": 460,
       "tier": "free",
       "renderer": null,
       "errorCount": 0,
@@ -1188,39 +1167,75 @@
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 793,
+        "due": 439,
         "gone": 0
       },
-      "seconds": 1363,
-      "finishedAt": "2026-11-06T05:09:59.854Z"
+      "seconds": 881,
+      "finishedAt": "2026-11-06T08:57:43.630Z"
     },
     {
-      "retailerId": "scentstore",
-      "name": "ScentStore",
-      "urlsDiscovered": 691,
-      "pagesFetched": 455,
-      "priced": 1103,
+      "retailerId": "scentsational",
+      "name": "Scentsational",
+      "urlsDiscovered": 795,
+      "pagesFetched": 691,
+      "priced": 691,
       "tier": "free",
       "renderer": null,
-      "errorCount": 1,
-      "errors": [
-        "https://www.scentstore.com/product/valentino-born-in-roma-donna-eau-de-parfum-discovery-gift-set/: HTTP 404"
-      ],
+      "errorCount": 0,
+      "errors": [],
       "refreshed": {
-        "platform": "woocommerce",
-        "fromFeed": 389,
-        "due": 413,
-        "gone": 1
+        "platform": null,
+        "fromFeed": 0,
+        "due": 649,
+        "gone": 0
       },
-      "seconds": 1445,
-      "finishedAt": "2026-11-06T05:15:58.897Z"
+      "seconds": 2080,
+      "finishedAt": "2026-11-06T09:14:20.043Z"
+    },
+    {
+      "retailerId": "parfumdreams-uk",
+      "name": "Parfumdreams UK",
+      "urlsDiscovered": 2482,
+      "pagesFetched": 947,
+      "priced": 1767,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "refreshed": {
+        "platform": null,
+        "fromFeed": 0,
+        "due": 1689,
+        "gone": 0
+      },
+      "seconds": 2255,
+      "finishedAt": "2026-11-06T09:17:15.881Z"
+    },
+    {
+      "retailerId": "beauty-flash",
+      "name": "Beauty Flash",
+      "urlsDiscovered": 318,
+      "pagesFetched": 308,
+      "priced": 309,
+      "tier": "free",
+      "renderer": null,
+      "errorCount": 0,
+      "errors": [],
+      "refreshed": {
+        "platform": null,
+        "fromFeed": 0,
+        "due": 266,
+        "gone": 0
+      },
+      "seconds": 2946,
+      "finishedAt": "2026-11-06T09:28:46.247Z"
     },
     {
       "retailerId": "paco-perfumerias-uk",
       "name": "Paco Perfumerías UK",
       "urlsDiscovered": 3793,
-      "pagesFetched": 1169,
-      "priced": 1166,
+      "pagesFetched": 1343,
+      "priced": 1340,
       "tier": "free",
       "renderer": null,
       "errorCount": 3,
@@ -1232,18 +1247,18 @@
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 1127,
+        "due": 1301,
         "gone": 0
       },
-      "seconds": 2679,
-      "finishedAt": "2026-11-06T05:31:56.040Z"
+      "seconds": 2972,
+      "finishedAt": "2026-11-06T09:29:12.947Z"
     },
     {
       "retailerId": "debenhams",
       "name": "Debenhams",
-      "urlsDiscovered": 800,
-      "pagesFetched": 409,
-      "priced": 409,
+      "urlsDiscovered": 773,
+      "pagesFetched": 1424,
+      "priced": 1424,
       "tier": "free",
       "renderer": null,
       "errorCount": 2,
@@ -1254,73 +1269,51 @@
       "refreshed": {
         "platform": null,
         "fromFeed": 0,
-        "due": 1517,
-        "gone": 5
+        "due": 1876,
+        "gone": 9
       },
-      "seconds": 3000,
-      "finishedAt": "2026-11-06T05:37:17.430Z"
-    },
-    {
-      "retailerId": "beauty-flash",
-      "name": "Beauty Flash",
-      "urlsDiscovered": 312,
-      "pagesFetched": 314,
-      "priced": 314,
-      "tier": "free",
-      "renderer": null,
-      "errorCount": 1,
-      "errors": [
-        "stopped early: exceeded this shop's time budget"
-      ],
-      "refreshed": {
-        "platform": null,
-        "fromFeed": 0,
-        "due": 495,
-        "gone": 0
-      },
-      "seconds": 3007,
-      "finishedAt": "2026-11-06T05:37:23.830Z"
+      "seconds": 3901,
+      "finishedAt": "2026-11-06T09:44:41.207Z"
     }
   ],
   "groups": [
     {
       "group": 0,
-      "startedAt": "2026-11-06T04:46:20.810Z",
-      "finishedAt": "2026-11-06T05:45:24.653Z",
-      "minutes": 59,
+      "startedAt": "2026-11-06T08:39:41.283Z",
+      "finishedAt": "2026-11-06T09:44:42.162Z",
+      "minutes": 65,
       "shops": 31,
       "endedReason": "swept-every-shop",
       "stoppedOnBudget": [
-        "gorgeous-shop",
-        "niche-beauty-uk"
+        "john-lewis",
+        "direct-cosmetics"
       ]
     },
     {
       "group": 1,
-      "startedAt": "2026-11-06T04:47:16.953Z",
-      "finishedAt": "2026-11-06T05:37:23.840Z",
-      "minutes": 50,
+      "startedAt": "2026-11-06T08:39:40.466Z",
+      "finishedAt": "2026-11-06T09:44:41.244Z",
+      "minutes": 65,
       "shops": 30,
       "endedReason": "swept-every-shop",
       "stoppedOnBudget": [
-        "debenhams",
-        "beauty-flash"
+        "debenhams"
       ]
     }
   ],
   "freshness": {
     "allbeauty": {
-      "shown": 3914,
+      "shown": 3917,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "justmylook": {
       "shown": 2036,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "notino-uk": {
@@ -1336,20 +1329,21 @@
       "over24h": 18,
       "over48h": 16,
       "oldestShownAt": "2026-10-30T11:08:53.650Z",
-      "answered": true
+      "answered": true,
+      "timeBudget": true
     },
     "beautybase": {
       "shown": 3159,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "lookfantastic": {
       "shown": 2777,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T06:39:56.133Z",
+      "oldestShownAt": "2026-11-05T11:14:16.796Z",
       "answered": true
     },
     "fragrance-click": {
@@ -1372,7 +1366,7 @@
       "shown": 7987,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "the-fragrance-counter": {
@@ -1380,55 +1374,55 @@
       "over24h": 0,
       "over48h": 0,
       "oldestShownAt": "2026-11-06T00:14:27.843Z",
-      "answered": true
+      "answered": false
     },
     "scentstore": {
       "shown": 1566,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:26.640Z",
+      "oldestShownAt": "2026-11-06T00:14:28.775Z",
       "answered": true
     },
     "glorious-beauty": {
       "shown": 46,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "french-avenue": {
       "shown": 146,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "armaf": {
       "shown": 374,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "al-haramain": {
       "shown": 595,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "ibraq": {
       "shown": 96,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "bellavita-luxury": {
       "shown": 28,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T00:14:27.843Z",
+      "oldestShownAt": "2026-11-06T04:46:19.184Z",
       "answered": true
     },
     "oud-arabian": {
@@ -1442,56 +1436,56 @@
       "shown": 102,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "emirates-oud": {
-      "shown": 2174,
+      "shown": 2172,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "perfumeo": {
       "shown": 89,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:25.221Z",
-      "answered": false
+      "oldestShownAt": "2026-11-06T00:14:27.843Z",
+      "answered": true
     },
     "the-beauty-store-uk": {
       "shown": 6102,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "zimaya": {
       "shown": 87,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "kayali": {
       "shown": 194,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "escentric-molecules": {
       "shown": 119,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "debenhams": {
       "shown": 2821,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T11:14:35.338Z",
+      "oldestShownAt": "2026-11-05T20:19:26.640Z",
       "answered": true,
       "timeBudget": true
     },
@@ -1499,59 +1493,56 @@
       "shown": 5050,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T15:48:17.810Z",
-      "answered": true,
-      "timeBudget": true
+      "oldestShownAt": "2026-11-05T20:19:25.221Z",
+      "answered": true
     },
     "nicchia-luxury-uk": {
       "shown": 7940,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "beauty-pie": {
       "shown": 541,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "gorgeous-shop": {
       "shown": 786,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T15:48:17.810Z",
-      "answered": true,
-      "timeBudget": true
+      "oldestShownAt": "2026-11-06T00:14:27.843Z",
+      "answered": true
     },
     "beauty-flash": {
       "shown": 895,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T15:48:22.694Z",
-      "answered": true,
-      "timeBudget": true
+      "oldestShownAt": "2026-11-06T00:14:28.775Z",
+      "answered": true
     },
     "scentsational": {
       "shown": 987,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:26.640Z",
+      "oldestShownAt": "2026-11-06T00:14:28.775Z",
       "answered": true
     },
     "perfume-market-uk": {
       "shown": 382,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:25.221Z",
+      "oldestShownAt": "2026-11-06T00:14:27.843Z",
       "answered": true
     },
     "parfumdreams-uk": {
-      "shown": 4684,
+      "shown": 4687,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:26.640Z",
+      "oldestShownAt": "2026-11-06T00:14:28.775Z",
       "answered": true
     },
     "perfume-click": {
@@ -1566,126 +1557,126 @@
       "shown": 74,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T00:14:28.775Z",
+      "oldestShownAt": "2026-11-06T04:47:15.785Z",
       "answered": true
     },
     "cult-beauty-global": {
-      "shown": 1754,
+      "shown": 1748,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T06:39:56.133Z",
+      "oldestShownAt": "2026-11-05T11:14:16.796Z",
       "answered": true
     },
     "fragrancehub": {
       "shown": 582,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "avon": {
       "shown": 1963,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "space-nk": {
-      "shown": 1033,
+      "shown": 1031,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:25.221Z",
+      "oldestShownAt": "2026-11-06T00:14:27.843Z",
       "answered": true
     },
     "marks-and-spencer": {
       "shown": 195,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:25.221Z",
+      "oldestShownAt": "2026-11-06T00:14:27.843Z",
       "answered": true
     },
     "les-senteurs": {
       "shown": 1418,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "bloom-perfumery": {
       "shown": 2279,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "paco-perfumerias-uk": {
       "shown": 3790,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:26.640Z",
+      "oldestShownAt": "2026-11-06T00:14:28.775Z",
       "answered": true
     },
     "perfume-direct": {
       "shown": 4128,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "home-bargains": {
       "shown": 794,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T20:19:26.640Z",
+      "oldestShownAt": "2026-11-06T00:14:28.775Z",
       "answered": true
     },
     "opulensi": {
       "shown": 644,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "perfume-closet": {
       "shown": 1069,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "perfumoi": {
       "shown": 490,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "saad-fragrance": {
       "shown": 164,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "sainte-cellier": {
       "shown": 265,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "fenwick": {
-      "shown": 1157,
+      "shown": 1156,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "perfumeuk": {
       "shown": 1132,
-      "over24h": 72,
+      "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-05T02:08:32.110Z",
+      "oldestShownAt": "2026-11-06T00:14:27.843Z",
       "answered": true
     },
     "liberty-london": {
@@ -1699,7 +1690,7 @@
       "shown": 27,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "direct-cosmetics": {
@@ -1707,69 +1698,70 @@
       "over24h": 0,
       "over48h": 0,
       "oldestShownAt": "2026-11-05T15:48:17.810Z",
-      "answered": true
+      "answered": true,
+      "timeBudget": true
     },
     "glossier-uk": {
       "shown": 29,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "rowlands-pharmacy": {
       "shown": 65,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "lloyds-pharmacy": {
       "shown": 317,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "beaute-boulevard": {
-      "shown": 4189,
+      "shown": 4178,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     },
     "scent-warehouse": {
       "shown": 2418,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "roullier-white": {
       "shown": 259,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "scented-glasgow": {
       "shown": 330,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "p-eleven": {
-      "shown": 3628,
+      "shown": 3645,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:47:15.785Z",
+      "oldestShownAt": "2026-11-06T08:39:39.118Z",
       "answered": true
     },
     "soghaat": {
       "shown": 2337,
       "over24h": 0,
       "over48h": 0,
-      "oldestShownAt": "2026-11-06T04:46:19.184Z",
+      "oldestShownAt": "2026-11-06T08:39:40.235Z",
       "answered": true
     }
   }
