@@ -2,24 +2,6 @@
   "limit": 4,
   "findings": [
     {
-      "check": "link-slug-matches-perfume",
-      "file": "tests/fragranceLinks.test.ts",
-      "title": "holds no Fragrantica page whose slug disagrees with its own perfume",
-      "message": "calvinklein|eternityparfumformen|edp -> Calvin-Klein/Eternity-For-Men-258: expected null not to be null"
-    },
-    {
-      "check": "direct-link-full-rule",
-      "file": "tests/fragranticaLinkData.test.ts",
-      "title": "a direct link is the same perfume under the full rule, review included",
-      "message": "Calvin Klein | Eternity Parfum For Men | Eau de Parfum: https://www.fragrantica.com/perfume/Calvin-Klein/Eternity-For-Men-258.html: expected [ Array(1) ] to deeply equal []"
-    },
-    {
-      "check": "direct-link-same-perfume",
-      "file": "tests/fragranticaLinkData.test.ts",
-      "title": "a direct link names the same designer and perfume, without a contradicting strength or gender",
-      "message": "Calvin Klein | Eternity Parfum For Men | Eau de Parfum: https://www.fragrantica.com/perfume/Calvin-Klein/Eternity-For-Men-258.html (name \"Eternity For Men\" is not \"Eternity Parfum For Men\", its concentration contradicts, or a page that names no strength cannot stand for a Eau de Parfum product): expected [ Array(1) ] to deeply equal []"
-    },
-    {
       "check": "pipe-outside-allowlist",
       "file": "tests/productNameNoise.test.ts",
       "title": "has no \"|\" in a name outside the verified allowlist",
