@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-06T00:21:14.304Z",
-  "seenAt": "2026-11-06T00:21:14.304Z",
+  "updatedAt": "2026-11-06T04:43:54.111Z",
+  "seenAt": "2026-11-06T04:43:54.111Z",
   "source": "live",
   "listings": [
     {
@@ -83,7 +83,7 @@
       "priceGbp": 16,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Spritz on our Blue Musk Fragrance Mist and enjoy a woody, aromatic scent. This genderless mist features cruelty-free musk and natural vetiver oil..",
       "productType": "Body Mists",

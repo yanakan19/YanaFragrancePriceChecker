@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-06T00:14:28.775Z",
-  "seenAt": "2026-11-06T00:14:28.775Z",
+  "updatedAt": "2026-11-06T04:47:15.785Z",
+  "seenAt": "2026-11-06T04:47:15.785Z",
   "source": "live",
   "listings": [
     {
@@ -12135,7 +12135,7 @@
       "priceGbp": 206.5,
       "wasPriceGbp": 295,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Frédéric Malle Northern Love Eau de Parfum is a sophisticated unisex fragrance created to leave a distinctive and memorable impression. Refined and expressive, its contemporary character makes it an elegant addition to a considered fragrance collection..",
       "productType": "Unisex Fragrance",
