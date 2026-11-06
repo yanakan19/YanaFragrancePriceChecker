@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-06T12:58:52.357Z",
-  "seenAt": "2026-11-06T12:58:52.357Z",
+  "updatedAt": "2026-11-06T16:48:40.346Z",
+  "seenAt": "2026-11-06T16:48:40.346Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 120,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "FLÓÐ Limited Edition Fragrance. . KEY ELEMENTS: Icelandic Seaweed, Scorched Siberian Pine, Acrid Air, Geosmin, Ambroxan. . This limited edition fragrance is made for FLÓÐ, a spatial scent, sound, and light sculpture by Jónsi. His main inspiration is the ocean, this ominous and mysterious force playing a central part in our lives. It’s basically about “the big wave,” a wave that takes us all and destroys everything in its path. The effects of climate change, such as sea level rise, flooding, and intensified natural disasters, are happening all around us, and this piece is a reflection of that dire reality. . . ‘The big wave Nearly everything is underwater. The weather is still but has been unpredictable so far, with briny tar and smoke trails flittering through the air. Chimney tops and statue heads break the surface, and few floating structures survive the watery destruction. We all saw the warning signs but chose to scroll by in our little lives, and now, I guess, it’s too late. Everything is silent except for ghostly voices, echoing ship horns, and the big wave breaking in the distance. Unsure if this is real —my imagination or past memories? Dark clouds surround me but a ray of light breaks through. Is it guiding me?’. . 30 ml Handmade in Iceland..",
       "productType": "Perfume",
@@ -3947,7 +3947,7 @@
       "priceGbp": 86,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Divine Vanille, is a tribute to Vanilla absolute, sustainably produced of Madagascar.. Mysterious, suave, deep, carnal … simply irresistible. Natural Tonka Bean and benzoin enhance the soft, balmy and addictive facets of Vanilla. A blend of natural Cinnamon bark and sensual leathery tones of natural Osmanthus reveal rich facets of blond Tobacco and dried fruits. An innovative fraction of natural Cedarwood and Patchouli brings a creamy woody structure highlighted with silky musks, wrapping the fragrance with a delicate luminous veil..",
       "productType": "Perfume",

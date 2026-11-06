@@ -1,9 +1,61 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-06T12:57:06.655Z",
-  "seenAt": "2026-11-06T12:57:06.655Z",
+  "updatedAt": "2026-11-06T16:56:51.318Z",
+  "seenAt": "2026-11-06T16:56:51.318Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "MR144200",
+      "url": "https://soldejaneiro.com/products/medium-gift-wrap",
+      "rawTitle": "Medium Gift Wrap",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_FY26_HOL_PPage_DTC_Merch_GiftBag_Medium_1452x1452_no-text.jpg?v=1793920032",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": null,
+      "productType": null,
+      "nativePrice": {
+        "amount": 10,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-06T16:56:51.318Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "MR144100",
+      "url": "https://soldejaneiro.com/products/small-gift-wrap",
+      "rawTitle": "Small Gift Wrap",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_FY26_HOL_PPage_DTC_Merch_GiftBag_Small_1452x1452_no-text.jpg?v=1793920060",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": null,
+      "productType": null,
+      "nativePrice": {
+        "amount": 5,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-06T16:56:51.318Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "SJ99102000",
       "url": "https://soldejaneiro.com/products/cheirosa-68-beija-flor™-perfume-mist-30ml",

@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-06T12:52:04.954Z",
-  "seenAt": "2026-11-06T12:52:04.954Z",
+  "updatedAt": "2026-11-06T16:51:09.173Z",
+  "seenAt": "2026-11-06T16:51:09.173Z",
   "source": "live",
   "listings": [
     {
@@ -369,10 +369,9 @@
       "description": ". . . . A gift that is like a painting drawn by creative fingers, to be more than just a gift... it is a promise of a scent that captivates the senses. . . . . Pegasus Wild - 100 ml . Like a whirlwind of elegance unleashed without restraint, Pegasus Wild carries within it the essence of absolute freedom, where power blends with mystery in a captivating combination that knows no bounds. . Ingredients: Italian bergamot, pink pepper, roses, jasmine, orange blossom, amber, sandalwood, patchouli, vanilla . . Pegasus Incense - 100 ml . Like a wing that takes you soaring to worlds of luxury and mystery, where legend meets fragrance in an endless dance. Pegasus Incense is not just a perfume, but a poem written with the scent of luxurious incense. . Ingredients: Saffron, Cardamom, Cinnamon, Roses, Sandalwood, Oud, Amber, Musk, Leather . . Pegasus Porrino - 100 ml . Like a cloud of purity embracing the horizon, Pegasus Purino carries within it a hidden charm that combines authenticity and modernity, where strength meets luxury in harmony that tells a story of prestige and attraction. . Ingredients: Mandarin, orange, peach, strawberry, jasmine, amber, patchouli, sandalwood . .",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 399.99,
+        "amount": 999,
         "currency": "AED"
       },
-      "nativeWasPrice": 520.87,
       "retailerId": "assaf",
       "firstSeenAt": "2026-10-25T15:41:16.223Z",
       "status": "active",
