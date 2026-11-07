@@ -5,7 +5,7 @@
       "check": "pipe-outside-allowlist",
       "file": "tests/productNameNoise.test.ts",
       "title": "has no \"|\" in a name outside the verified allowlist",
-      "message": "expected [ …(2) ] to deeply equal []"
+      "message": "expected [ 'Adame: Ghiaccio | Ice', …(2) ] to deeply equal []"
     },
     {
       "check": "us-launch-tom-ford-black-orchid",
