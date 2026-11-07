@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-11-07T04:50:09.974Z",
-  "seenAt": "2026-11-07T04:50:09.974Z",
+  "updatedAt": "2026-11-07T08:46:04.694Z",
+  "seenAt": "2026-11-07T08:46:04.694Z",
   "source": "live",
   "listings": [
     {
@@ -2687,7 +2687,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Built around its woody amber character, Perfume Durrat Al Aroos reveals a refined, bold and warm signature designed to leave a lasting impression..",
       "productType": null,
