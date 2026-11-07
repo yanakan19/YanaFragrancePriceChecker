@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-07T16:09:27.901Z",
-  "seenAt": "2026-11-07T16:09:27.901Z",
+  "updatedAt": "2026-11-07T20:13:56.354Z",
+  "seenAt": "2026-11-07T20:13:56.354Z",
   "source": "live",
   "listings": [
     {
@@ -5002,7 +5002,7 @@
       "rawBrand": "Antonio Banderas",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0054/6996/2304/files/Antonio_Banderas_The_Icon_Eau_de_Parfum_Spray_100ml.jpg?v=1791984835",
-      "priceGbp": 14.75,
+      "priceGbp": 13.65,
       "wasPriceGbp": 60,
       "promoEndsAt": null,
       "inStock": true,
@@ -18069,7 +18069,7 @@
       "priceGbp": 12.75,
       "wasPriceGbp": 73,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Davidoff Cool Water Oceanic Edition Eau de Toilette Spray 125ml Tester.",
       "productType": "Eau de Toilette",
@@ -31340,7 +31340,7 @@
       "priceGbp": 19.38,
       "wasPriceGbp": 72,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Aigner No. 1 Oud for Men Eau de Parfum Spray 100ml Tester.",
       "productType": "Eau de Parfum",

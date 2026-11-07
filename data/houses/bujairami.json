@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-07T16:12:47.228Z",
-  "seenAt": "2026-11-07T16:12:47.228Z",
+  "updatedAt": "2026-11-07T20:18:26.503Z",
+  "seenAt": "2026-11-07T20:18:26.503Z",
   "source": "live",
   "listings": [
     {
@@ -794,7 +794,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A rich and smoky fragrance opening with fresh bergamot, aromatic rosemary, and violet leaves. The heart reveals a warm blend of orris, amber, frankincense, cistus, myrrh, and vanilla, while leather, agarwood smoke, patchouli, sandalwood, and cedarwood create a deep, luxurious finish.. Fragrance Notes . Top: Bergamot, Rosemary, Violet Leaves. Heart: Orris, Amber, Frankincense, Cistus, Myrrh, Vanilla. Base: Leather, Agarwood Smoke, Patchouli, Sandalwood, Cedarwood. Profile: Smoky • Woody • Amber • Resinous • Leather • Warm.",
       "productType": "Perfume",

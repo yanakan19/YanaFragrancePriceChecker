@@ -1,7 +1,7 @@
 {
   "retailerId": "rasasi-uk-store",
-  "updatedAt": "2026-11-07T16:09:27.901Z",
-  "seenAt": "2026-11-07T16:09:27.901Z",
+  "updatedAt": "2026-11-07T20:13:56.354Z",
+  "seenAt": "2026-11-07T20:13:56.354Z",
   "source": "live",
   "listings": [
     {
@@ -65,11 +65,11 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": {
         "value": 4.9,
-        "count": 253
+        "count": 254
       },
       "retailerId": "rasasi-uk-store",
       "firstSeenAt": "2026-10-08T06:03:30.337Z",

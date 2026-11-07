@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-07T16:09:21.489Z",
-  "seenAt": "2026-11-07T16:09:21.489Z",
+  "updatedAt": "2026-11-07T20:13:53.184Z",
+  "seenAt": "2026-11-07T20:13:53.184Z",
   "source": "live",
   "listings": [
     {
@@ -2199,7 +2199,7 @@
       "priceGbp": 32.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the mysterious and captivating scent of Azhrance Sparkle Eau de Parfum. With vibrant notes of blood orange and mandarin, this unique fragrance is enhanced with honey, jasmine, and caramel. Perfect for those seeking a one-of-a-kind scent. .",
       "productType": null,
@@ -3326,7 +3326,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Indulge in the warm and inviting aroma of Khamrah Qahwa by Lattafa Perfumes. Designed for both women and men, this unique fragrance boasts top notes of Cinnamon, Cardamom, and Ginger, while middle notes of Praline, Candied Fruits, and White Flowers offer a delectable sweetness. Finished off with a base of Vanilla, Coffee, Tonka Bean, Benzoin, and Musk, Khamrah Qahwa is the perfect blend of spice, sweetness, and warmth..",
       "productType": "Eau De Parfum",
