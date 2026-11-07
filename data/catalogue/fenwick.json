@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-07T12:19:38.177Z",
-  "seenAt": "2026-11-07T12:19:38.177Z",
+  "updatedAt": "2026-11-07T16:09:21.489Z",
+  "seenAt": "2026-11-07T16:09:21.489Z",
   "source": "live",
   "listings": [
     {
@@ -842,7 +842,7 @@
       "priceGbp": 51.75,
       "wasPriceGbp": 69,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Share happiness with this majestic reinterpretation of a signature fragrance that now captures the luminosity of Magnolia Essence. Spread happiness with La vie est belle, Lancôme’s selling feminine fragrance. Incarnated by Julia Roberts, La vie est belle is a universal declaration to the beauty of life..",
       "productType": "Women's Fragrances",
@@ -5718,7 +5718,7 @@
       "priceGbp": 71.2,
       "wasPriceGbp": 89,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Electric Cherry All Over Body Spray by Tom Ford delivers a lighter expression of the signature cherry fragrance. Designed for effortless application, it refreshes the skin with a vibrant, sensual scent. A modern way to layer fragrance throughout the day..",
       "productType": "Women's Fragrances",
