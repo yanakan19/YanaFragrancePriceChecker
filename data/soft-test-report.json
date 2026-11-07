@@ -8,6 +8,12 @@
       "message": "expected [ …(2) ] to deeply equal []"
     },
     {
+      "check": "us-launch-tom-ford-black-orchid",
+      "file": "tests/socialLaunchVideosSitesData.test.ts",
+      "title": "Tom Ford Black Orchid 100ml: over, under and the saving hold",
+      "message": "Fragrance Market has it in stock: expected Infinity to be less than 200"
+    },
+    {
       "check": "missing-sets-and-excluded-kinds",
       "file": "tests/unnamedSets.test.ts",
       "title": "holds the sets that were missing, and none of the vial sets or home fragrance sets",
