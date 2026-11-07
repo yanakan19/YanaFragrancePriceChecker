@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-07T08:39:22.908Z",
-  "seenAt": "2026-11-07T08:39:22.908Z",
+  "updatedAt": "2026-11-07T12:19:37.553Z",
+  "seenAt": "2026-11-07T12:19:37.553Z",
   "source": "live",
   "listings": [
     {
@@ -18552,7 +18552,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Celebrating the creativity that sits at the heart of the Clive Christian brand. These perfumes capture the essence of the boundless opportunities our perfumes capture and the dedication that goes into each scent.. A deep woody oriental perfume that imparts a signature seductive smokiness on the skin through a fusion of saffron and tobacco. Mandarin lends an immediate freshness giving a pleasing balance. A vision for the wearer.. Top Notes: White thyme, Mandarin, Lemon. Heart Notes: Pink pepper, Jasmine, Tonka bean, Saffron, Rose, Orris. Base Notes: Leather, Amber, Oud, Tobacco. .",
       "productType": "Fragrance",

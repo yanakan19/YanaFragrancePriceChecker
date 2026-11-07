@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-07T08:39:22.283Z",
-  "seenAt": "2026-11-07T08:39:22.283Z",
+  "updatedAt": "2026-11-07T12:19:38.177Z",
+  "seenAt": "2026-11-07T12:19:38.177Z",
   "source": "live",
   "listings": [
     {
@@ -29246,7 +29246,7 @@
       "priceGbp": 79.99,
       "wasPriceGbp": 111,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Immerse yourself in pure freshness with the Bvlgari Man Rain Essence Eau de Parfum Men’s Gift Set (100ml + 15ml). Inspired by the invigorating power of rain, this fragrance blends vibrant mineral notes with amber and musk for a refined, modern scent. The set includes a full-size and travel-size spray, perfect for everyday sophistication. Energising and elegant, it captures the essence of nature’s vitality and masculine strength in every drop. . . Fragrance Type: . Musky, Floral . . Fragrance Notes: . Top Notes: Green Tea, Orange . Middle Notes: White Lotus, Musk . Base Notes: Guaiac Wood, Amber . . Launched: . 2023 . . Gift Set Includes: - 100ml EDP - 15ml EDP .",
       "productType": "Men's Aftershave",

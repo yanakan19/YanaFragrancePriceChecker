@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-07T08:39:22.908Z",
-  "seenAt": "2026-11-07T08:39:22.908Z",
+  "updatedAt": "2026-11-07T12:19:37.553Z",
+  "seenAt": "2026-11-07T12:19:37.553Z",
   "source": "live",
   "listings": [
     {
@@ -382,7 +382,7 @@
       "priceGbp": 7.99,
       "wasPriceGbp": 26,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Eternity Aqua for Men Eau de Toilette 20ml. Key Features. ##features##. Fresh aquatic fragrance for men.. Crisp cucumber, citrus and lotus opening.. Aromatic heart with lavender and cedar.. Smooth base of sandalwood, patchouli and musk.. Compact 20ml travel size.. Ideal for spring, summer and everyday wear.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Calvin Klein Eternity Aqua for Men Eau de Toilette is a clean and refreshing fragrance inspired by the power of water. Combining aquatic freshness with aromatic herbs and warm woods, this versatile scent offers a modern interpretation of masculinity that is perfect for everyday wear and travel.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists and neck.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. Flammable liquid and vapour; avoid contact with eyes and flames; external use only.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-07T08:39:22.283Z",
-  "seenAt": "2026-11-07T08:39:22.283Z",
+  "updatedAt": "2026-11-07T12:19:38.177Z",
+  "seenAt": "2026-11-07T12:19:38.177Z",
   "source": "live",
   "listings": [
     {
@@ -566,7 +566,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Marwa opens with a bright, precisely sourced blend of Calabrian Bergamot, Lemon, and Sicilian Orange, delivering immediate citrus vibrancy with a clean, sophisticated freshness. The heart ignites with Nigerian Ginger, Ceylon Cinnamon, and Tunisian Neroli, adding bold, aromatic spice with a delicate floral lift. The base anchors Ambroxan, Chinese Black Tea, Olibanum, and Guaiac Wood, leaving a smooth, resinous, and deeply distinguished trail. . Top Notes: Calabrian Bergamot, Lemon and Sicilian Orange Heart Notes: Nigerian Ginger, Ceylon Cinnamon and Tunisian Neroli Base Notes: Ambroxan, Chinese Black Tea, Olibanum and Guaiac Wood.",
       "productType": null,
@@ -11629,7 +11629,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Rasasi Hawas blends cinnamon, bergamot, orange blossom, grey amber and sandalwood to create an aquatic scent designed to embody masculine strength and vigor.. This fresh elegant woody perfume combines the premium Italian citrus and the fruity freshness of pear and pineapple. The heart of this modern fougere is based on aquatic elements combined with melon and violet. It is a mix of sandalwood, cedar wood, musk with generous ambergris. The fragrance is inflected with fresh marine aromatic notes that melt into amber woods.. This best perfume for men captures the adventurous, exploratory and evocative spirit of the modern man. The contemporary notes of this chic fragrance come with an attitude to match.. The clear grey bottle has a python wrapped around the stopper while a textured python on the pack captures the sensuality of the species with a flamboyance redolent of haute couture.. Notes: . Top Notes: Apple, Bergamot, Lemon, & Cinnamon Middle Notes : Orange Blossom, Cardamom, & Plum Base Notes: Patchouli, Grey Amber, Dift Wood, & Musk.",
       "productType": null,

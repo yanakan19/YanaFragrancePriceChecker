@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-11-07T08:39:22.283Z",
-  "seenAt": "2026-11-07T08:39:22.283Z",
+  "updatedAt": "2026-11-07T12:19:38.177Z",
+  "seenAt": "2026-11-07T12:19:38.177Z",
   "source": "live",
   "listings": [
     {
@@ -2935,7 +2935,7 @@
       "priceGbp": 52,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A millefeuille of vanilla, caramel and wood. Almond blossom enhances vanilla and caramel with its powdery and floral facets. Sandalwood, soft and milky, brings warmth to this fragrance. A wonderfully addictive fragrance on the skin. . Fragrance Notes . Top: Almond Blossom, Icing Sugar & Almond Middle: Vanilla, Caramel & Jasmine Base: Musk, Benjoin & Sandalwood. Fragrance House . In 2017, Ludovic Bonneton returned to France from Colombia, where he lived in the heart of tropical scents: coffee, cocoa, fragrant flowers... Determined to share his emotions and his passion for haute parfumerie, he teamed up with the greatest French perfumers to bring his world to life in bottles. Firmly rooted in the highest standards and respect for the ancestral know-how of French perfumery, Bon Parfumeur fragrances are, nonetheless, a contemporary vision of luxury, elegance, and olfactive emotion. Made exclusively in France these dynamic, unisex scents are certain to become modern classics. .",
       "productType": "Perfume",

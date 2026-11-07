@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-07T08:39:22.283Z",
-  "seenAt": "2026-11-07T08:39:22.283Z",
+  "updatedAt": "2026-11-07T12:19:38.177Z",
+  "seenAt": "2026-11-07T12:19:38.177Z",
   "source": "live",
   "listings": [
     {
@@ -12227,7 +12227,7 @@
       "priceGbp": 80,
       "wasPriceGbp": 100,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the confident character of Hugo Boss Boss Bottled Beyond Eau De Toilette Intense. Designed as a bold men's fragrance with a refined and expressive presence, it brings contemporary sophistication to an everyday or evening scent collection..",
       "productType": "Men's Fragrances",
