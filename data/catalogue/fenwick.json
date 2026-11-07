@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-06T20:45:22.843Z",
-  "seenAt": "2026-11-06T20:45:22.843Z",
+  "updatedAt": "2026-11-07T00:42:28.153Z",
+  "seenAt": "2026-11-07T00:42:28.153Z",
   "source": "live",
   "listings": [
     {
@@ -18966,7 +18966,7 @@
       "priceGbp": 68,
       "wasPriceGbp": 80,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Chance Eau Splendide Eau de Parfum by CHANEL elevates the fragrance wardrobe with a bright, modern signature. Refined yet expressive, it transforms everyday wear into a more memorable scent statement..",
       "productType": "Women's Fragrances",

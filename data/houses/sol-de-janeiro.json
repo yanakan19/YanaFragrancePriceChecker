@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-06T20:53:03.580Z",
-  "seenAt": "2026-11-06T20:53:03.580Z",
+  "updatedAt": "2026-11-07T00:48:46.820Z",
+  "seenAt": "2026-11-07T00:48:46.820Z",
   "source": "live",
   "listings": [
     {
@@ -88,7 +88,7 @@
       "rawTitle": "Sol de Janeiro x Aurelia Nobels Cheirosa Perfume Mist 90ml",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/Coming_Soon_P_Page_Aurelia_Regional_Launch_1.webp?v=1793660846",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/Coming_Soon_P_Page_Aurelia_Regional_Launch_Base.webp?v=1793372832",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -2692,7 +2692,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Our first-ever scents for guys in one duo. Fresh & sun-drenched, Cheiroso Cologne Mist are inspired by the energy of Brazilian futebol . Cheiroso 10 is a fresh gourmand that smells like Brazilian pineapple & smooth cedarwood. An amber aromatic, Cheiroso 7 smells like salted macadamia nut & vanilla woods. Both are boosted with freshness tech to keep odor in check, so you can reset & refresh anytime, anywhere. .",
       "productType": "bundle-dg",

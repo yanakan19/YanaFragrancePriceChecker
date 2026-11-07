@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-06T20:45:22.843Z",
-  "seenAt": "2026-11-06T20:45:22.843Z",
+  "updatedAt": "2026-11-07T00:42:28.153Z",
+  "seenAt": "2026-11-07T00:42:28.153Z",
   "source": "live",
   "listings": [
     {
@@ -14999,7 +14999,7 @@
       "priceGbp": 21.99,
       "wasPriceGbp": 27,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Paco Rabanne 1 Million Deodorant Stick provides reliable, long-lasting protection with the unmistakable 1 Million fragrance. Blending fresh citrus, warm spices, and smooth woody notes, it keeps you feeling confident and fresh throughout the day. Gentle on skin and easy to apply, this stick is perfect for everyday use and pairs seamlessly with the matching 1 Million fragrance for a bold, masculine scent experience.. . Fragrance Type: . Woody . . Fragrance Notes: . - Top Notes: Grapefruit, Mint, Blood Mandarin, Peppermint . - Middle Notes: Rose Absolute, Cinnamon, Spice . - Base Notes: Leather, Wood, Amber, Indian Patchouli . . Launched: . 2008 .",
       "productType": "Men's Aftershave",
@@ -50023,7 +50023,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 68,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Paco Rabanne Olympea Parfum is a luxurious fragrance for women, capturing the essence of modern goddesses. This exquisite perfume spray combines fresh green mandarin, floral jasmine, and warm vanilla, creating an irresistible aroma. Housed in an elegant bottle, Olympea embodies confidence and sophistication. Perfect for day or evening wear, this captivating scent leaves a lasting impression, enveloping you in an aura of grace and allure. Experience the divine with Paco Rabanne Olympea. . . Fragrance Type: . White Floral, Vanilla . . Fragrance Notes: . - Top notes: Clary Sage, Pink Pepper, Green Accord . - Middle notes: Jasmine, Orange Blossom, Rose Oil . - Base notes: Vanilla, Benzoin, Musk . . Launched: . 2024 .",
       "productType": "Women's Perfume",
