@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 356,
+ "folded": 355,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -64,6 +64,38 @@
      "signature": "1x30fragrance|1x50wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
+   "absorbed": [
+    "set-cristiano-ronaldo-cr7-fearless-gift-set-30ml-edt-150ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
+     "brand": "Cristiano Ronaldo",
+     "name": "Cr7 Fearless 2 Piece Gift Set: Eau de Toilette 30ml - Shower Gel 150ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 fearless",
+     "signature": "1x150wash|1x30fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-cristiano-ronaldo-cr7-fearless-gift-set-30ml-edt-150ml-shower-gel",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Fearless Gift Set 30ml EDT + 150ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 fearless",
+     "signature": "1x150wash|1x30fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -253,6 +285,38 @@
      "signature": "1x200body|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0085715261779",
+   "absorbed": [
+    "set-hollister-wave-for-him-gift-set-50ml-edt-15ml-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715261779",
+     "brand": "Hollister",
+     "name": "Wave for Him Gift Set 50ml EDT + 15ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "0085715261779",
+     "scent": "wave",
+     "signature": "1x15fragrance|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-hollister-wave-for-him-gift-set-50ml-edt-15ml-edt",
+     "brand": "Hollister",
+     "name": "Wave for Him Gift Set 50ml EDT + 15ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "wave",
+     "signature": "1x15fragrance|1x50fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -1387,38 +1451,6 @@
      "signature": "1x100body|1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0850050174974",
-   "absorbed": [
-    "set-michael-kors-pour-homme-gift-set-100ml-edp-100ml-shower-gel-10ml-edp-wallet"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0850050174974",
-     "brand": "Michael Kors",
-     "name": "Pour Homme Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP + Wallet",
-     "concentration": "Eau de Parfum",
-     "ean": "0850050174974",
-     "scent": "homme pour wallet",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-michael-kors-pour-homme-gift-set-100ml-edp-100ml-shower-gel-10ml-edp-wallet",
-     "brand": "Michael Kors",
-     "name": "Pour Homme Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP + Wallet",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "homme pour wallet",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "p-eleven"
      ]
     }
    ]
@@ -2793,39 +2825,6 @@
      "signature": "2x7.5fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3386460139045",
-   "absorbed": [
-    "set-mont-blanc-legend-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460139045",
-     "brand": "Montblanc",
-     "name": "Mont Blanc Legend Eau de Toilette Men's Aftershave Gift Set Spray (100ml) with 100ml Shower Gel + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3386460139045",
-     "scent": "blanc legend mont",
-     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-mont-blanc-legend-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
-     "brand": "Montblanc",
-     "name": "Mont Blanc Legend Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "blanc legend mont",
-     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -4234,39 +4233,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3616303457839",
-   "absorbed": [
-    "set-hugo-boss-the-scent-for-her-gift-set-100ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616303457839",
-     "brand": "Hugo Boss",
-     "name": "The Scent for Her Gift Set 100ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3616303457839",
-     "scent": "scent",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-the-scent-for-her-gift-set-100ml-edp-10ml-edp",
-     "brand": "Hugo Boss",
-     "name": "The Scent for Her Gift Set 100ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "scent",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "mybeauty-boutique",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3616303473143",
    "absorbed": [
     "set-marc-jacobs-perfect-3-piece-gift-set-eau-de-parfum-100ml-body-lotion-75ml-shower-gel-75ml"
@@ -4473,6 +4439,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3616304957017",
+   "absorbed": [
+    "set-gucci-guilty-pour-homme-gift-set-50ml-edt-50ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616304957017",
+     "brand": "Gucci",
+     "name": "Guilty Pour Homme Gift Set 50ml EDT + 50ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "3616304957017",
+     "scent": "guilty homme pour",
+     "signature": "1x50fragrance|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-gucci-guilty-pour-homme-gift-set-50ml-edt-50ml-shower-gel",
+     "brand": "Gucci",
+     "name": "Guilty Pour Homme Gift Set 50ml EDT + 50ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "guilty homme pour",
+     "signature": "1x50fragrance|1x50wash",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3616304974465",
    "absorbed": [
     "set-chloe-miniature-women-s-perfume-gift-set-4-x-5ml"
@@ -4546,6 +4544,38 @@
      "signature": "2x20fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3616304974496",
+   "absorbed": [
+    "set-chloe-signature-gift-set-75ml-edp-100ml-body-lotion-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616304974496",
+     "brand": "Chloé",
+     "name": "Signature Gift Set 75ml EDP + 100ml Body Lotion + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3616304974496",
+     "scent": "signature",
+     "signature": "1x100body|1x10fragrance|1x75fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-chloe-signature-gift-set-75ml-edp-100ml-body-lotion-10ml-edp",
+     "brand": "Chloé",
+     "name": "Signature Gift Set 75ml EDP + 100ml Body Lotion + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "signature",
+     "signature": "1x100body|1x10fragrance|1x75fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -4868,38 +4898,6 @@
      "ean": null,
      "scent": "hero",
      "signature": "1x100fragrance|1x75deo",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616305631954",
-   "absorbed": [
-    "set-marc-jacobs-gift-set-30ml-daisy-edp-30ml-daisy-wild-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305631954",
-     "brand": "Marc Jacobs",
-     "name": "Gift Set 30ml Daisy EDP + 30ml Daisy Wild EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305631954",
-     "scent": "daisy wild",
-     "signature": "2x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-marc-jacobs-gift-set-30ml-daisy-edp-30ml-daisy-wild-edp",
-     "brand": "Marc Jacobs",
-     "name": "Gift Set 30ml Daisy EDP + 30ml Daisy Wild EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "daisy wild",
-     "signature": "2x30fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -6913,51 +6911,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5060524511401",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
-    "set-cristiano-ronaldo-cr7-fearless-gift-set-30ml-edt-150ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511401",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Fearless Gift Set 30ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511401",
-     "scent": "cr7 fearless",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
-     "brand": "Cristiano Ronaldo",
-     "name": "Cr7 Fearless 2 Piece Gift Set: Eau de Toilette 30ml - Shower Gel 150ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 fearless",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-fearless-gift-set-30ml-edt-150ml-shower-gel",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Fearless Gift Set 30ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 fearless",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5060524511562",
    "absorbed": [
     "set-cristiano-ronaldo-cr7-discover-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
@@ -7557,38 +7510,6 @@
    ]
   },
   {
-   "canonical": "set-ean-6295199792339",
-   "absorbed": [
-    "set-ard-al-zaafaran-oud-24-hours-gift-set-100ml-edp-50ml-deodorant-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-6295199792339",
-     "brand": "Ard Al Zaafaran",
-     "name": "Oud 24 Hours Gift Set 100ml EDP + 50ml Deodorant Spray",
-     "concentration": "Eau de Parfum",
-     "ean": "6295199792339",
-     "scent": "24 hours oud",
-     "signature": "1x100fragrance|1x50deo",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ard-al-zaafaran-oud-24-hours-gift-set-100ml-edp-50ml-deodorant-spray",
-     "brand": "Ard Al Zaafaran",
-     "name": "Oud 24 Hours Gift Set 100ml EDP + 50ml Deodorant Spray",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "24 hours oud",
-     "signature": "1x100fragrance|1x50deo",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-6295199802700",
    "absorbed": [
     "set-armaf-club-de-nuit-intense-gift-set-12ml-edp-12ml-parfum-oil-travel-case"
@@ -8124,6 +8045,51 @@
      "signature": "1x100body|1x100fragrance",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003809318",
+   "absorbed": [
+    "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
+    "set-versace-eros-gift-set-2-x-30ml-edt-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003809318",
+     "brand": "Versace",
+     "name": "Eros Gift Set 2 x 30ml EDT Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "8011003809318",
+     "scent": "eros",
+     "signature": "2x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
+     "brand": "Versace",
+     "name": "Eros Eau de Toilette Spray 2 x 30ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "eros",
+     "signature": "2x30fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-versace-eros-gift-set-2-x-30ml-edt-spray",
+     "brand": "Versace",
+     "name": "Eros Gift Set 2 x 30ml EDT Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "eros",
+     "signature": "2x30fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -8689,6 +8655,51 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003994427",
+   "absorbed": [
+    "set-versace-bright-crystal-gift-set-50ml-edt-100ml-body-lotion",
+    "set-versace-bright-crystal-gift-set-edt-50ml-body-lotion-100ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003994427",
+     "brand": "Versace",
+     "name": "Bright Crystal Gift Set 50ml EDT + 100ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": "8011003994427",
+     "scent": "bright crystal",
+     "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-bright-crystal-gift-set-50ml-edt-100ml-body-lotion",
+     "brand": "Versace",
+     "name": "Bright Crystal Gift Set 50ml EDT + 100ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bright crystal",
+     "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-versace-bright-crystal-gift-set-edt-50ml-body-lotion-100ml",
+     "brand": "Versace",
+     "name": "Bright Crystal Gift Set EDT 50ml & Body Lotion 100ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bright crystal",
+     "signature": "1x100body|1x50fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8028713572937",
    "absorbed": [
     "set-acqua-di-parma-blu-mediterraneo-discovery-set-12ml-arancia-di-capri-edt-12ml-fico-di-amalfi-edt-12ml-mirto-di-panarea-edt"
@@ -8716,6 +8727,38 @@
      "signature": "3x12fragrance",
      "shops": [
       "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8028713829468",
+   "absorbed": [
+    "set-acqua-di-parma-colonia-gift-set-100ml-edc-75ml-shower-gel-75ml-body-cream"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8028713829468",
+     "brand": "Acqua di Parma",
+     "name": "Colonia Gift Set 100ml EDC + 75ml Shower Gel + 75ml Body Cream",
+     "concentration": "Eau de Cologne",
+     "ean": "8028713829468",
+     "scent": "colonia",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-acqua-di-parma-colonia-gift-set-100ml-edc-75ml-shower-gel-75ml-body-cream",
+     "brand": "Acqua di Parma",
+     "name": "Colonia Gift Set 100ml EDC + 75ml Shower Gel + 75ml Body Cream",
+     "concentration": "Eau de Cologne",
+     "ean": null,
+     "scent": "colonia",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
       "p-eleven"
      ]
     }
@@ -9548,38 +9591,6 @@
      "ean": null,
      "scent": "212 nyc",
      "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8411061101865",
-   "absorbed": [
-    "set-carolina-herrera-212-heroes-forever-young-gift-set-80ml-edp-100ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8411061101865",
-     "brand": "Carolina Herrera",
-     "name": "212 Heroes Forever Young Gift Set 80ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "8411061101865",
-     "scent": "212 forever heroes young",
-     "signature": "1x100body|1x80fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-212-heroes-forever-young-gift-set-80ml-edp-100ml-body-lotion",
-     "brand": "Carolina Herrera",
-     "name": "212 Heroes Forever Young Gift Set 80ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "212 forever heroes young",
-     "signature": "1x100body|1x80fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -10671,70 +10682,6 @@
    ]
   },
   {
-   "canonical": "set-versace-bright-crystal-gift-set-50ml-edt-100ml-body-lotion",
-   "absorbed": [
-    "set-versace-bright-crystal-gift-set-edt-50ml-body-lotion-100ml"
-   ],
-   "members": [
-    {
-     "id": "set-versace-bright-crystal-gift-set-50ml-edt-100ml-body-lotion",
-     "brand": "Versace",
-     "name": "Bright Crystal Gift Set 50ml EDT + 100ml Body Lotion",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bright crystal",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-versace-bright-crystal-gift-set-edt-50ml-body-lotion-100ml",
-     "brand": "Versace",
-     "name": "Bright Crystal Gift Set EDT 50ml & Body Lotion 100ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bright crystal",
-     "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
-   "absorbed": [
-    "set-versace-eros-gift-set-2-x-30ml-edt-spray"
-   ],
-   "members": [
-    {
-     "id": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
-     "brand": "Versace",
-     "name": "Eros Eau de Toilette Spray 2 x 30ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "eros",
-     "signature": "2x30fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-versace-eros-gift-set-2-x-30ml-edt-spray",
-     "brand": "Versace",
-     "name": "Eros Gift Set 2 x 30ml EDT Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "eros",
-     "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-50ml-edp-50ml-body-lotion",
    "absorbed": [
     "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-edp-50ml-b-lotion-50ml"
@@ -10845,7 +10792,7 @@
   },
   {
    "reasons": [
-    "price spread 2.09 is over 1.5"
+    "price spread 2.04 is over 1.5"
    ],
    "members": [
     {
@@ -11241,6 +11188,7 @@
   },
   {
    "reasons": [
+    "two different barcodes: 783320407277, 783320423444",
     "price spread 1.68 is over 1.5"
    ],
    "members": [
@@ -11255,6 +11203,18 @@
      "shops": [
       "mybeauty-boutique",
       "p-eleven"
+     ]
+    },
+    {
+     "id": "set-ean-0783320423444",
+     "brand": "Bvlgari",
+     "name": "Man Wood Essence Gift Set 100ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0783320423444",
+     "scent": "essence man wood",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "perfume-click"
      ]
     },
     {
@@ -11428,6 +11388,37 @@
      "ean": "0849017016402",
      "scent": "island",
      "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.52 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-carolina-herrera-212-heroes-forever-young-gift-set-80ml-edp-100ml-body-lotion",
+     "brand": "Carolina Herrera",
+     "name": "212 Heroes Forever Young Gift Set 80ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "212 forever heroes young",
+     "signature": "1x100body|1x80fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    },
+    {
+     "id": "set-ean-8411061101865",
+     "brand": "Carolina Herrera",
+     "name": "212 Heroes Forever Young Gift Set 80ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "8411061101865",
+     "scent": "212 forever heroes young",
+     "signature": "1x100body|1x80fragrance",
      "shops": [
       "perfume-click"
      ]
@@ -12192,37 +12183,6 @@
      "signature": "2x100fragrance",
      "shops": [
       "beautybase"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.52 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085715261779",
-     "brand": "Hollister",
-     "name": "Wave for Him Gift Set 50ml EDT + 15ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "0085715261779",
-     "scent": "wave",
-     "signature": "1x15fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-hollister-wave-for-him-gift-set-50ml-edt-15ml-edt",
-     "brand": "Hollister",
-     "name": "Wave for Him Gift Set 50ml EDT + 15ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "wave",
-     "signature": "1x15fragrance|1x50fragrance",
-     "shops": [
-      "p-eleven"
      ]
     }
    ]
@@ -14331,6 +14291,50 @@
      "signature": "1x100body|1x50fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3386460130349, 3386460139045"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460130349",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Legend Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460130349",
+     "scent": "blanc legend mont",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-3386460139045",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Legend Eau de Toilette Men's Aftershave Gift Set Spray (100ml) with 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460139045",
+     "scent": "blanc legend mont",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-mont-blanc-legend-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Legend Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "blanc legend mont",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -16548,7 +16552,7 @@
   },
   {
    "reasons": [
-    "two different barcodes: 8411061092682, 8411061110256, 8411061122310",
+    "two different barcodes: 8411061092682, 8411061110256",
     "a shop lists more than one: perfume-direct"
    ],
    "members": [
@@ -16574,18 +16578,6 @@
      "signature": "1x100body|1x10fragrance|1x80fragrance",
      "shops": [
       "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-8411061122310",
-     "brand": "Carolina Herrera",
-     "name": "Good Girl Gift Set 80ml EDP + 100ml Body Lotion + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8411061122310",
-     "scent": "girl good",
-     "signature": "1x100body|1x10fragrance|1x80fragrance",
-     "shops": [
-      "perfume-click"
      ]
     }
    ]
