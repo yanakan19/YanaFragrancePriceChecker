@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-11-07T04:38:42.436Z",
-  "seenAt": "2026-11-07T04:38:42.436Z",
+  "updatedAt": "2026-11-07T12:13:13.871Z",
+  "seenAt": "2026-11-07T12:13:13.871Z",
   "source": "live",
   "listings": [
     {
@@ -5612,28 +5612,6 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "3274872411692",
-      "url": "https://www.awin1.com/pclick.php?p=45576608828&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/givenchy-l-interdit-absolu-80ml-eau-de-parfum-intense.html",
-      "rawTitle": "Givenchy L'interdit Absolu 80ml Eau de Parfum Intense",
-      "rawBrand": "Givenchy",
-      "ean": "3274872411692",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_80ml_eau_de_parfum_intense.jpg",
-      "priceGbp": 71.95,
-      "wasPriceGbp": 130,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "Since its release, Givenchy L'interdit Absolu   Intense has become known for its elegant character. The 80ml bottle offers an elegant fragrance that combines fresh floral notes with a warm, sophisticated base.From initial spray to dry down, this moves from Bergamot, Citrus through Jasmine, Rose, finally resting on Vanilla, Musk. The progression feels natural rather than abrupt.This eau de parfum suits different occasions pretty well. The 80ml bottle is substantial enough for daily wear while still being manageable if you're traveling or want to keep it in a gym bag.Scent Profile:Opening - Bergamot, Citrus, Fresh floralsHeart - Jasmine, Rose, Floral bouquetDry Down - Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-12T18:57:07.303Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": "2026-11-02T22:43:05.197Z",
-      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -20201,6 +20179,29 @@
       "variantId": null
     },
     {
+      "retailerSku": "3274872411692",
+      "url": "https://www.awin1.com/pclick.php?p=45576608828&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/givenchy-l-interdit-absolu-80ml-eau-de-parfum-intense.html",
+      "rawTitle": "Givenchy L'interdit Absolu 80ml Eau de Parfum Intense",
+      "rawBrand": "Givenchy",
+      "ean": "3274872411692",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_80ml_eau_de_parfum_intense.jpg",
+      "priceGbp": 71.95,
+      "wasPriceGbp": 130,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "Since its release, Givenchy L'interdit Absolu   Intense has become known for its elegant character. The 80ml bottle offers an elegant fragrance that combines fresh floral notes with a warm, sophisticated base.From initial spray to dry down, this moves from Bergamot, Citrus through Jasmine, Rose, finally resting on Vanilla, Musk. The progression feels natural rather than abrupt.This eau de parfum suits different occasions pretty well. The 80ml bottle is substantial enough for daily wear while still being manageable if you're traveling or want to keep it in a gym bag.Scent Profile:Opening - Bergamot, Citrus, Fresh floralsHeart - Jasmine, Rose, Floral bouquetDry Down - Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-12T18:57:07.303Z",
+      "lastSeenAt": "2026-11-07T04:38:42.436Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-07T12:13:13.871Z",
+      "relistedAt": "2026-11-02T22:43:05.197Z",
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
       "retailerSku": "3423473055556",
       "url": "https://www.awin1.com/pclick.php?p=46647616608&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/narciso-rodriguez-narciso-pure-musc-150ml-eau-de-parfum.html",
@@ -20216,8 +20217,9 @@
       "description": "Narciso Rodriguez For Her Pure Musc Eau de Parfum 150ml Spray is a beautifully soft and elegant fragrance for women, combining delicate white flowers with the warmth of musk. Clean, fresh and subtly sensual, it's a lovely choice for anyone who prefers a gentle, feminine scent that isn't overly sweet.\n \n The fragrance centres around Narciso Rodriguez's signature musk, giving it a smooth, powdery character that feels fresh and comforting. Delicate white florals bring a light, airy sweetness, while warm cashmeran adds a soft woody touch. As the perfume settles, these notes blend together to leave a creamy, musky finish that lingers on the skin.\n \n Easy to wear throughout the day, Pure Musc is perfect for work, casual outings or special occasions. Presented in a sleek, frosted white bottle with a contrasting black cap, its simple, elegant design reflects the understated beauty of the fragrance.",
       "retailerId": "fragrance-click",
       "firstSeenAt": "2026-11-07T04:38:42.436Z",
-      "status": "active",
-      "delistedAt": null,
+      "lastSeenAt": "2026-11-07T04:38:42.436Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-07T12:13:13.871Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null

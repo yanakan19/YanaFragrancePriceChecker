@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 355,
+ "folded": 354,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -544,51 +544,6 @@
      "ean": null,
      "scent": "door red",
      "signature": "1x30fragrance|1x50?|1x50body|1x?wash",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0085805377441",
-   "absorbed": [
-    "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel",
-    "set-elizabeth-arden-red-door-gift-set-100ml-edt-100ml-shower-gel-100ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085805377441",
-     "brand": "Elizabeth Arden",
-     "name": "Red Door Gift Set 100ml EDT + 100ml Shower Gel + 100ml Body Lotion",
-     "concentration": "Eau de Toilette",
-     "ean": "0085805377441",
-     "scent": "door red",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel",
-     "brand": "Elizabeth Arden",
-     "name": "Red Door Eau de Toilette Women's Gift Set Perfume Spray (100ml) with 100ml Body Lotion & 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "door red",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-elizabeth-arden-red-door-gift-set-100ml-edt-100ml-shower-gel-100ml-body-lotion",
-     "brand": "Elizabeth Arden",
-     "name": "Red Door Gift Set 100ml EDT + 100ml Shower Gel + 100ml Body Lotion",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "door red",
-     "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
       "p-eleven"
      ]
@@ -10404,6 +10359,38 @@
      "ean": null,
      "scent": "candee chocolat dubai marshmallow odyssey wheel",
      "signature": "3x30fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel",
+   "absorbed": [
+    "set-elizabeth-arden-red-door-gift-set-100ml-edt-100ml-shower-gel-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-elizabeth-arden-red-door-eau-de-toilette-women-s-gift-set-perfume-spray-100ml-with-100ml-body-lotion-100ml-shower-gel",
+     "brand": "Elizabeth Arden",
+     "name": "Red Door Eau de Toilette Women's Gift Set Perfume Spray (100ml) with 100ml Body Lotion & 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "door red",
+     "signature": "1x100body|1x100fragrance|1x100wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-elizabeth-arden-red-door-gift-set-100ml-edt-100ml-shower-gel-100ml-body-lotion",
+     "brand": "Elizabeth Arden",
+     "name": "Red Door Gift Set 100ml EDT + 100ml Shower Gel + 100ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "door red",
+     "signature": "1x100body|1x100fragrance|1x100wash",
      "shops": [
       "p-eleven"
      ]
