@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 353,
+ "folded": 351,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -2721,39 +2721,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3386460139045",
-   "absorbed": [
-    "set-mont-blanc-legend-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460139045",
-     "brand": "Montblanc",
-     "name": "Mont Blanc Legend Eau de Toilette Men's Aftershave Gift Set Spray (100ml) with 100ml Shower Gel + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3386460139045",
-     "scent": "blanc legend mont",
-     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-mont-blanc-legend-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
-     "brand": "Montblanc",
-     "name": "Mont Blanc Legend Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "blanc legend mont",
-     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3386460148443",
    "absorbed": [
     "set-jimmy-choo-man-aqua-gift-set-50ml-edt-100ml-shower-gel"
@@ -3586,38 +3553,6 @@
      "signature": "5x10fragrance",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3605972818416",
-   "absorbed": [
-    "set-ralph-lauren-polo-blue-gift-set-edt-125ml-edt-40ml-b-wash-50ml-a-balm-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3605972818416",
-     "brand": "Ralph Lauren",
-     "name": "Polo Blue Gift Set: EDT 125ml - EDT 40ml - Shower Gel 50ml - Aftershave Balm 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": "3605972818416",
-     "scent": "blue polo",
-     "signature": "1x125fragrance|1x40fragrance|1x50body|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ralph-lauren-polo-blue-gift-set-edt-125ml-edt-40ml-b-wash-50ml-a-balm-50ml",
-     "brand": "Ralph Lauren",
-     "name": "Polo Blue Gift Set EDT 125ml + EDT 40ml + B/Wash 50ml + A/Balm 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "blue polo",
-     "signature": "1x125fragrance|1x40fragrance|1x50body|1x50wash",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
@@ -14239,30 +14174,43 @@
   },
   {
    "reasons": [
-    "price spread 2.31 is over 1.5"
+    "two different barcodes: 3386460130349, 3386460139045"
    ],
    "members": [
     {
-     "id": "set-ean-3386460139069",
+     "id": "set-ean-3386460130349",
      "brand": "Montblanc",
-     "name": "Mont Blanc Legend Red Gift Set 50ml EDP + 100ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "3386460139069",
-     "scent": "blanc legend mont red",
-     "signature": "1x100wash|1x50fragrance",
+     "name": "Mont Blanc Legend Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460130349",
+     "scent": "blanc legend mont",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
      "shops": [
       "perfume-click"
      ]
     },
     {
-     "id": "set-mont-blanc-legend-red-gift-set-50ml-edp-100ml-shower-gel",
+     "id": "set-ean-3386460139045",
      "brand": "Montblanc",
-     "name": "Mont Blanc Legend Red Gift Set 50ml EDP + 100ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanc legend mont red",
-     "signature": "1x100wash|1x50fragrance",
+     "name": "Mont Blanc Legend Eau de Toilette Men's Aftershave Gift Set Spray (100ml) with 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460139045",
+     "scent": "blanc legend mont",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
      "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-mont-blanc-legend-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Legend Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "blanc legend mont",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
