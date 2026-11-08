@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-08T16:08:15.890Z",
-  "seenAt": "2026-11-08T16:08:15.890Z",
+  "updatedAt": "2026-11-08T19:54:10.414Z",
+  "seenAt": "2026-11-08T19:54:10.414Z",
   "source": "live",
   "listings": [
     {
@@ -2889,7 +2889,7 @@
       "priceGbp": 50,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The fragrance opens with woody, green, and bergamot notes, creating a fresh yet grounded introduction that feels natural, crisp, and effortlessly refined.. At the heart, ginger and solar notes bring warmth and energy. The ginger adds a subtle spice, while solar notes introduce a smooth, radiant glow that enhances the fragrance’s presence.. As the scent settles, the base of sandalwood and cedarwood delivers a creamy, woody and long-lasting finish, creating depth, warmth and a sophisticated trail.. Perfect for those who love woody aromatic fragrances with a fresh green opening and smooth woody depth.. Ideal for evenings, special occasions, or as a signature scent that feels confident, bold, and unforgettable.. Top Notes: Woody Notes, Green Notes, Bergamot Middle Notes: Ginger, Solar Notes Base Notes: Sandalwood, Cedarwood.",
       "productType": null,
@@ -4177,7 +4177,7 @@
       "priceGbp": 21.5,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Lattafa Angham – Second Song Eau De Parfum ✨ Sweet. Floral. Addictive.. Angham Second Song by Lattafa is a soft yet irresistible blend of creamy sweetness, airy florals, and warm musky depth. Playful at first spray, smooth at the heart, and beautifully comforting on the dry down.. If you love gourmand florals with a luxury skin-scent finish, this is your everyday signature.. Perfect for dates, evenings, or whenever you want compliments on autopilot.. Fragrance Notes. Top Notes: Pear Blossom, Bergamot Heart Notes: Orange Blossom, Praline, Peony Base Notes: Ambroxan, Vanilla, Tonka Bean, Musk.",
       "productType": null,

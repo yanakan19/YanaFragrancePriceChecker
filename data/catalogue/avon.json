@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-08T16:08:08.224Z",
-  "seenAt": "2026-11-08T16:08:08.224Z",
+  "updatedAt": "2026-11-08T19:54:15.962Z",
+  "seenAt": "2026-11-08T19:54:15.962Z",
   "source": "live",
   "listings": [
     {
@@ -18207,7 +18207,7 @@
       "priceGbp": 2,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: Take the glow wherever you go with SK!N Glow Serum + Cream - your perfectly compact glow-getter bestie.. Easy to choose - blended with vitamin C and papaya extract, it’s the ultimate boost your skin will thank you for!. Easy to use - this 2-in-1 formula brightens like a face serum and hydrates like a face cream.. Transform dull, uneven skin into its best, bouncy, smooth and glowing self.. (Plus, it’s clinically tested and cruelty-free.). 10 ml. Why you’ll love it: • It gives immediate hydration that lasts. • It brightens lacklustre skin for that healthy-looking glow. • It’s expert skincare, made easy (in a mini)!. What’s in: Simplified skincare for visible results (with fewer products!).. What’s out: Skincare overwhelm and 7-step routines.. How to use it: Try it out and take it with: Samples are a great way to experience new skincare so try out this mini before investing in the full-size product. Travelling soon? Save space and and pop this travel size skincare into your suitcase. Start with clean skin: Use your favourite face wash to remove impurities, rinse with water and pat dry. Try Glow Gel Cleanser + Make-Up Remover for a deep, purifying cleanse or Glow Gel Cleanser + Scrub for refreshing smoothness! Perfect the technique: After cleansing, apply a small amount of this serum and moisturiser multi-tasker onto your fingertips and gently smooth it onto your face and neck in an upward and outward motion..",
       "productType": "FACE",
@@ -28971,7 +28971,7 @@
       "priceGbp": 14,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Escape and to enrich your senses with the beauty of nature with the floral and aqua perfume of Perceive Dew Eau de Parfum. Discover the dawn of a new era with beautiful freesia, fresh marine mist and vivid golden amber.. Product specification: . • Top note: freesia. • Middle note: marine mist. • Base note: golden amber. • 50ml.. How to wear me: . Spritz the floral and aqua fragrance onto your pulse points and enjoy the peaceful scent throughout the day..",
       "productType": "FRAGRANCE",

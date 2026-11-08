@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-08T16:08:15.890Z",
-  "seenAt": "2026-11-08T16:08:15.890Z",
+  "updatedAt": "2026-11-08T19:54:10.414Z",
+  "seenAt": "2026-11-08T19:54:10.414Z",
   "source": "live",
   "listings": [
     {
@@ -3901,7 +3901,7 @@
       "priceGbp": 110,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the distinctive character of Kilian Paris Midnight Espresso Eau De Parfum, a sophisticated unisex fragrance with an expressive and refined presence. Presented in a generous 75ml size, it offers a luxurious addition to an everyday or evening fragrance collection..",
       "productType": "Unisex Fragrance",

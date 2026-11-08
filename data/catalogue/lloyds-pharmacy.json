@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-08T16:08:15.890Z",
-  "seenAt": "2026-11-08T16:08:15.890Z",
+  "updatedAt": "2026-11-08T19:54:10.414Z",
+  "seenAt": "2026-11-08T19:54:10.414Z",
   "source": "live",
   "listings": [
     {
@@ -3326,7 +3326,7 @@
       "priceGbp": 49,
       "wasPriceGbp": 79,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Aromatic men's fragrance. 100ml Eau de Parfum. Composed of exceptional ingredients from different continents. ##end-features##. Product description. Montblanc Explorer EDP 100ml . Montblanc Explorer offers a sophisticated, multi-layered fragrance that captures the spirit of adventure. Embark on a sensory journey with this luxurious Eau de Parfum, composed of the finest ingredients sourced from across the globe.. Its scent opens with the citrus energy of Bergamot from Italy, revealing a heart of Haitian Vetiver and grounding base notes of exclusive Patchouli from Sulawesi.. Features of Montblanc Explorer EDP 100ml. Top notes: Bergamot, Pink Pepper, Clary Sage. Heart notes: Leather, Haitian Vetiver. Base notes: Patchouli, Cocoa, Akigalawood, Ambrofix. Package: 100ml Eau de Parfum. ##accordion-start##. Specifications. Bottle volume: 100ml. ##accordion-item-end##. Suitable for. Individuals who enjoy adventurous and sophisticated fragrances. ##accordion-item-end##. Warnings and cautions. Avoid contact with eyes. Keep away from kids and pets. Do not swallow. For external use only. ##accordion-item-end##. How to use. Spray on pulse points: behind the ears and on your wrists.. For a longer-lasting fragrance, apply after showering and before dressing.. ##accordion-item-end##. Ingredients. Alcohol, Parfum (Fragrance), Aqua (Water), Limonene, Ethylhexyl Methoxycinnamate, Linalool, Citral, Cinnamal, BHT, Citronellol, Geraniol.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",
