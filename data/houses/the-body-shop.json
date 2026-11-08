@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-07T20:21:36.913Z",
-  "seenAt": "2026-11-07T20:21:36.913Z",
+  "updatedAt": "2026-11-08T00:20:03.332Z",
+  "seenAt": "2026-11-08T00:20:03.332Z",
   "source": "live",
   "listings": [
     {
@@ -2498,7 +2498,7 @@
       "priceGbp": 34,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A night time cream, to moisturise, revitalise and nourish the skin whilst you sleep..",
       "productType": "Night Care",

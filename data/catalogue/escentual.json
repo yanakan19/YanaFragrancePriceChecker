@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-07T20:13:56.354Z",
-  "seenAt": "2026-11-07T20:13:56.354Z",
+  "updatedAt": "2026-11-08T00:13:03.680Z",
+  "seenAt": "2026-11-08T00:13:03.680Z",
   "source": "live",
   "listings": [
     {
@@ -46198,7 +46198,7 @@
       "priceGbp": 44.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A rich moisturiser for all skin types designed to deeply hydrate, soothe and nourish the complexion while reducing the appearance of redness. What does it do? Deeply hydrates, soothes and nourishes skin while reducing the appearance of redness. Helps with: . Fine Lines & Wrinkles . Dryness . Dehydration . Redness . Sensitive . Skin Stress & Irritation . Made for: All skin types, but especially dry skin and mature skin. . Texture and scent: Rich cream, naturally scented from Rose Geranium. . How To Use After thoroughly cleansing the skin, apply twice daily to the face, neck and décolletage in upward and outward circular movements. . Hero Ingredients . Palmitoyl Tripeptide-5 . Rose Geranium . Red Algae . Anti-redness Complex .",
       "productType": "Skincare",

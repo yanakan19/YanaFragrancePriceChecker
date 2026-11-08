@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-07T20:13:53.184Z",
-  "seenAt": "2026-11-07T20:13:53.184Z",
+  "updatedAt": "2026-11-08T00:13:06.456Z",
+  "seenAt": "2026-11-08T00:13:06.456Z",
   "source": "live",
   "listings": [
     {
@@ -7121,7 +7121,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Cristiano Ronaldo Cr7 Play it Cool is a fresh fragrance created for customers who enjoy a clean, uplifting scent. It opens with a distinctive first impression, develops into a balanced heart, and settles into a smooth lasting base. Suitable for everyday use, this fragrance is a strong choice for anyone looking for a scent that feels modern and fresh.. Why customers choose it . Well-suited for warm seasons and casual settings. A great option for daily wear and daytime activities. Designed for customers who prefer fresh and light scents.",
       "productType": "Eau de Toilette",

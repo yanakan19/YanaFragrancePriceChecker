@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-07T20:13:53.184Z",
-  "seenAt": "2026-11-07T20:13:53.184Z",
+  "updatedAt": "2026-11-08T00:13:06.456Z",
+  "seenAt": "2026-11-08T00:13:06.456Z",
   "source": "live",
   "listings": [
     {
@@ -48282,7 +48282,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 83.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . From the world renowned luxury brand comes a fragrance for the refined man. A fragrance to inspire confidence, composure and drive. Launched in 2014, Montblanc Emblem is a fresh, woody, aromatic scent opening with a splash of aromatic sage and cardamom mixed grapefruit with a base of intense woods and tonka bean. The bottle pays tribute to the Montblanc heritage, symbol of the six glacial valleys bordering the highest peak in Europe. An object to be kept, a talisman for which only a man of natural authority can be the custodian. . Fragrance Type: Warm Spicy, Aromatic Fragrance Notes: - Top Notes: Clary Sage, Cardamom, Grapefruit - Middle Notes: Violet Leaf, Cinnamon - Base Notes: Woody Notes, Tonka Bean Launched: 2014. .",
       "productType": "Men's Aftershave",
