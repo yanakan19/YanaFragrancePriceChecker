@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-08T04:18:58.560Z",
+  "checkedAt": "2026-11-08T08:16:24.795Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -198,10 +198,7 @@
       "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
-      "errors": [
-        "https://pariscorner.ae/products.json?limit=250&page=1: HTTP 403",
-        "https://pariscorner.ae/sitemap_index.xml: HTTP 403"
-      ],
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
@@ -262,13 +259,13 @@
       "houseId": "maison-alhambra",
       "name": "Maison Alhambra",
       "origin": "https://maisonalhambra.co",
-      "routeUsed": null,
+      "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 0,
+      "listings": 57,
       "pricedInGbp": 0,
-      "withPhoto": 0,
+      "withPhoto": 57,
       "errors": [
-        "robots.txt unreachable at https://maisonalhambra.co and https://www.maisonalhambra.co — holding off rather than guessing we are welcome"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
