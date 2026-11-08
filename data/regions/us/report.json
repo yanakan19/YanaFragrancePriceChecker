@@ -1,31 +1,31 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-11-07T15:22:37.858Z",
+  "builtAt": "2026-11-08T15:32:44.500Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 28,
   "shopsEnabled": 25,
   "shopsPriced": 24,
-  "crawlMinutes": 57.15,
-  "harvestRanAt": "2026-11-07T14:25:27.965Z",
-  "listingsPriced": 83371,
-  "listingsKept": 43716,
+  "crawlMinutes": 57.03,
+  "harvestRanAt": "2026-11-08T14:35:41.845Z",
+  "listingsPriced": 83261,
+  "listingsKept": 43697,
   "staleAfterDays": 7,
-  "products": 30730,
-  "productsWithTwoOrMoreShops": 9163,
+  "products": 30696,
+  "productsWithTwoOrMoreShops": 9161,
   "shareWithTwoOrMoreShops": 0.298,
-  "productsWithTwoOrMoreIndependentShops": 5724,
+  "productsWithTwoOrMoreIndependentShops": 5722,
   "shareWithTwoOrMoreIndependentShops": 0.186,
-  "productsWithThreeOrMoreShops": 5233,
-  "medianPriceGap": 0.284,
-  "listingBarcodeShare": 0.174,
+  "productsWithThreeOrMoreShops": 5230,
+  "medianPriceGap": 0.286,
+  "listingBarcodeShare": 0.173,
   "productsMatchingUkByBarcode": 2645,
   "shops": [
     {
       "id": "aedes",
-      "products": 713,
-      "shared": 213
+      "products": 709,
+      "shared": 209
     },
     {
       "id": "beauty-encounter",
@@ -34,7 +34,7 @@
     },
     {
       "id": "beautyhabit",
-      "products": 857,
+      "products": 856,
       "shared": 262
     },
     {
@@ -44,8 +44,8 @@
     },
     {
       "id": "dillards",
-      "products": 2033,
-      "shared": 834
+      "products": 2030,
+      "shared": 832
     },
     {
       "id": "ds-and-durga",
@@ -75,12 +75,12 @@
     {
       "id": "la-belle-perfumes",
       "products": 4869,
-      "shared": 2175
+      "shared": 2174
     },
     {
       "id": "luckyscent",
-      "products": 3878,
-      "shared": 794
+      "products": 3876,
+      "shared": 793
     },
     {
       "id": "maison-louis-marie",
@@ -130,22 +130,22 @@
     {
       "id": "twisted-lily",
       "products": 185,
-      "shared": 109
+      "shared": 108
     },
     {
       "id": "ulta",
-      "products": 1573,
+      "products": 1542,
       "shared": 578
     }
   ],
-  "productsShown": 30612,
-  "productsWithUkPhoto": 6579,
-  "productsWithUkPhotoByBarcode": 2026,
-  "productsWithUkPhotoByName": 4553,
+  "productsShown": 30578,
+  "productsWithUkPhoto": 6550,
+  "productsWithUkPhotoByBarcode": 2023,
+  "productsWithUkPhotoByName": 4527,
   "listingsWithReference": 23791,
-  "offersWithCorroboratedReference": 12970,
-  "deals": 2266,
-  "shareWithUkPhoto": 0.215,
+  "offersWithCorroboratedReference": 12968,
+  "deals": 2262,
+  "shareWithUkPhoto": 0.214,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,

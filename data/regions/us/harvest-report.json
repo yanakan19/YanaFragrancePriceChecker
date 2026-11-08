@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-11-07T14:25:27.965Z",
-  "minutes": 57.15,
+  "ranAt": "2026-11-08T14:35:41.845Z",
+  "minutes": 57.03,
   "dryRun": false,
   "shopsWired": 28,
   "shopsEnabled": 25,
   "shopsPriced": 24,
-  "listingsKept": 43716,
+  "listingsKept": 43697,
   "shops": [
     {
       "id": "perfumania",
@@ -20,7 +20,7 @@
       "kept": 4395,
       "withBarcode": 0,
       "pagesFetched": 21,
-      "seconds": 37,
+      "seconds": 34,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -46,11 +46,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2573,
-      "priced": 2573,
-      "kept": 2550,
-      "withBarcode": 960,
-      "pagesFetched": 1254,
+      "listingsRead": 2549,
+      "priced": 2549,
+      "kept": 2532,
+      "withBarcode": 1052,
+      "pagesFetched": 1277,
       "seconds": 2101,
       "currency": "JSON-LD offers named: USD",
       "errors": [
@@ -76,12 +76,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2063,
-      "priced": 2063,
-      "kept": 713,
+      "listingsRead": 2066,
+      "priced": 2066,
+      "kept": 709,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 15,
+      "seconds": 16,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -96,7 +96,7 @@
       "kept": 185,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 15,
+      "seconds": 14,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -111,7 +111,7 @@
       "kept": 543,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 10,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -126,7 +126,7 @@
       "kept": 649,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 48,
+      "seconds": 44,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -136,12 +136,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6783,
-      "priced": 6783,
-      "kept": 857,
+      "listingsRead": 6690,
+      "priced": 6690,
+      "kept": 856,
       "withBarcode": 0,
       "pagesFetched": 28,
-      "seconds": 54,
+      "seconds": 53,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -156,7 +156,7 @@
       "kept": 12,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -171,7 +171,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -201,7 +201,7 @@
       "kept": 43,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -211,8 +211,8 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 131,
-      "priced": 131,
+      "listingsRead": 130,
+      "priced": 130,
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
@@ -246,7 +246,7 @@
       "kept": 5142,
       "withBarcode": 4529,
       "pagesFetched": 26,
-      "seconds": 46,
+      "seconds": 42,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -261,7 +261,7 @@
       "kept": 4636,
       "withBarcode": 0,
       "pagesFetched": 23,
-      "seconds": 40,
+      "seconds": 38,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -276,7 +276,7 @@
       "kept": 4760,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 39,
+      "seconds": 37,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -306,7 +306,7 @@
       "kept": 307,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 16,
+      "seconds": 15,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -321,7 +321,7 @@
       "kept": 1633,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 15,
+      "seconds": 16,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -336,7 +336,7 @@
       "kept": 4893,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 47,
+      "seconds": 42,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -346,12 +346,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2157,
-      "priced": 931,
-      "kept": 905,
-      "withBarcode": 900,
-      "pagesFetched": 948,
-      "seconds": 3301,
+      "listingsRead": 2044,
+      "priced": 921,
+      "kept": 894,
+      "withBarcode": 864,
+      "pagesFetched": 938,
+      "seconds": 3303,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
         "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
@@ -376,12 +376,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 570,
-      "priced": 570,
-      "kept": 570,
-      "withBarcode": 506,
-      "pagesFetched": 827,
-      "seconds": 1500,
+      "listingsRead": 585,
+      "priced": 585,
+      "kept": 585,
+      "withBarcode": 504,
+      "pagesFetched": 844,
+      "seconds": 1502,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/: HTTP 404",
@@ -397,7 +397,7 @@
         "https://theperfumespot.com/sweet-like-candy-by-ariana-grande-3-4-oz-eau-de-parfum-spray-for-women-outlet2/: HTTP 404",
         "https://theperfumespot.com/versace-bright-crystal-absolu-by-versace-3-oz-eau-de-parfum-spray-for-women-unboxed-outlet/: HTTP 404",
         "https://theperfumespot.com/baccarat-rouge-540-by-maison-francis-kurkdjian-2-4-oz-extrait-de-parfum-spray-for-unisex-outlet/: HTTP 404",
-        "sitemap: 7548 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
+        "sitemap: 7535 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
       ]
     },
     {
@@ -410,8 +410,8 @@
       "priced": 0,
       "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 1172,
-      "seconds": 2402,
+      "pagesFetched": 1181,
+      "seconds": 2401,
       "currency": "JSON-LD offers named: nothing read",
       "errors": [
         "stopped early: exceeded this shop's time budget"
@@ -463,7 +463,7 @@
       "kept": 5438,
       "withBarcode": 0,
       "pagesFetched": 36,
-      "seconds": 79,
+      "seconds": 78,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -478,7 +478,7 @@
       "kept": 4578,
       "withBarcode": 0,
       "pagesFetched": 30,
-      "seconds": 77,
+      "seconds": 72,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     }
