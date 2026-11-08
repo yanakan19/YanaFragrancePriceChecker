@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-11-08T12:14:12.269Z";
+export const DEALS_GENERATED_AT = "2026-11-08T13:25:25.773Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -6352,7 +6352,7 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "beauty-flash-mgl1601052",
+    "fragranceId": "beauty-flash-htg1601694",
     "price": 36.23,
     "delivered": true,
     "wasPrice": 51.75,
@@ -15823,11 +15823,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "beauty-flash-htg1601494",
-    "price": 24.44,
+    "price": 26.48,
     "delivered": true,
-    "wasPrice": 39,
-    "percentOff": 37,
-    "retailerId": "lloyds-pharmacy",
+    "wasPrice": 38.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -54768,16 +54768,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 36,
     "percentOff": 2,
     "retailerId": "soghaat",
-    "kind": "house",
-    "houseName": "French Avenue"
-  },
-  {
-    "fragranceId": "ean-6298042003224",
-    "price": 49,
-    "delivered": true,
-    "wasPrice": 50,
-    "percentOff": 2,
-    "retailerId": "beautybase",
     "kind": "house",
     "houseName": "French Avenue"
   },

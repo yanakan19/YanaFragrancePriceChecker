@@ -14186,6 +14186,49 @@
   },
   {
    "reasons": [
+    "price spread 2.14 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460133647",
+     "brand": "Rochas",
+     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460133647",
+     "scent": "girl",
+     "signature": "1x100wash|1x60fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-rochas-girl-2-piece-gift-set-eau-de-toilette-60ml-shower-gel-100ml",
+     "brand": "Rochas",
+     "name": "Girl 2 Piece Gift Set: Eau de Toilette 60ml - Shower Gel 100ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "girl",
+     "signature": "1x100wash|1x60fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-rochas-girl-gift-set-60ml-edt-100ml-shower-gel",
+     "brand": "Rochas",
+     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "girl",
+     "signature": "1x100wash|1x60fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 2.31 is over 1.5"
    ],
    "members": [
@@ -17229,37 +17272,6 @@
      "signature": "5x5fragrance",
      "shops": [
       "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 2.08 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-rochas-girl-2-piece-gift-set-eau-de-toilette-60ml-shower-gel-100ml",
-     "brand": "Rochas",
-     "name": "Girl 2 Piece Gift Set: Eau de Toilette 60ml - Shower Gel 100ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "girl",
-     "signature": "1x100wash|1x60fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-rochas-girl-gift-set-60ml-edt-100ml-shower-gel",
-     "brand": "Rochas",
-     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "girl",
-     "signature": "1x100wash|1x60fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
