@@ -14186,6 +14186,37 @@
   },
   {
    "reasons": [
+    "price spread 2.31 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460139069",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Legend Red Gift Set 50ml EDP + 100ml Shower Gel",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460139069",
+     "scent": "blanc legend mont red",
+     "signature": "1x100wash|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-mont-blanc-legend-red-gift-set-50ml-edp-100ml-shower-gel",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Legend Red Gift Set 50ml EDP + 100ml Shower Gel",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanc legend mont red",
+     "signature": "1x100wash|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3386460139175, 3386460154949"
    ],
    "members": [
