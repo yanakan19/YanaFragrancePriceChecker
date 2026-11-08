@@ -12532,7 +12532,6 @@
      "scent": "attitude",
      "signature": "1x100fragrance|1x150wash",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -12697,37 +12696,6 @@
      "shops": [
       "beaute-boulevard",
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 4.63 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0810876038416",
-     "brand": "Lamborghini",
-     "name": "Sportivo Gift Set 125ml EDT Spray + 100ml Shower Gel + 100ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": "0810876038416",
-     "scent": "sportivo",
-     "signature": "1x100body|1x100wash|1x125fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-lamborghini-sportivo-gift-set-125ml-edt-spray-100ml-shower-gel-100ml-aftershave-balm",
-     "brand": "Lamborghini",
-     "name": "Sportivo Gift Set 125ml EDT Spray + 100ml Shower Gel + 100ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "sportivo",
-     "signature": "1x100body|1x100wash|1x125fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
