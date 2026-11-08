@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 351,
+ "folded": 348,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -2855,51 +2855,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3423222048464",
-   "absorbed": [
-    "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
-    "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222048464",
-     "brand": "Zadig & Voltaire",
-     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3423222048464",
-     "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
-     "brand": "Zadig & Voltaire",
-     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml",
-     "brand": "Zadig & Voltaire",
-     "name": "This Is Her! Gift Set EDP 50ml + B/Lotion 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3423222065881",
    "absorbed": [
     "set-dolce-gabbana-light-blue-gift-set-25ml-edt-spray-10ml-edt-spray"
@@ -3388,6 +3343,39 @@
      "signature": "1x100fragrance|1x75body",
      "shops": [
       "beaute-boulevard",
+      "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3430750039536",
+   "absorbed": [
+    "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750039536",
+     "brand": "Jeanne Arthes",
+     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "3430750039536",
+     "scent": "js magnetic power",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm",
+     "brand": "Jeanne Arthes",
+     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "js magnetic power",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -9126,38 +9114,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8411061045237",
-   "absorbed": [
-    "set-antonio-banderas-power-of-seduction-gift-set-100ml-edt-150ml-deodorant-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8411061045237",
-     "brand": "Antonio Banderas",
-     "name": "Power of Seduction Gift Set 100ml EDT + 150ml Deodorant Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "8411061045237",
-     "scent": "power seduction",
-     "signature": "1x100fragrance|1x150deo",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-antonio-banderas-power-of-seduction-gift-set-100ml-edt-150ml-deodorant-spray",
-     "brand": "Antonio Banderas",
-     "name": "Power of Seduction Gift Set 100ml EDT + 150ml Deodorant Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "power seduction",
-     "signature": "1x100fragrance|1x150deo",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8411061054857",
    "absorbed": [
     "set-carolina-herrera-confidential-giftset-4x4ml-orange-affair-edt-splash-bergamot-bloom-edt-splash-vetiver-paradise-edt-splash-rose-cruise-edt-splash"
@@ -9552,38 +9508,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8411061109991",
-   "absorbed": [
-    "set-carolina-herrera-212-vip-black-gift-set-100ml-edp-100ml-shower-gel-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8411061109991",
-     "brand": "Carolina Herrera",
-     "name": "212 VIP Black Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8411061109991",
-     "scent": "212 black vip",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-212-vip-black-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
-     "brand": "Carolina Herrera",
-     "name": "212 VIP Black Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "212 black vip",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8411061111321",
    "absorbed": [
     "set-carolina-herrera-la-bomba-gift-set-80ml-edp-10ml-edp"
@@ -9940,38 +9864,6 @@
      "ean": null,
      "scent": "all christmas edition le male over",
      "signature": "1x75fragrance|1x75wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8435415112963",
-   "absorbed": [
-    "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-6ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415112963",
-     "brand": "Jean Paul Gaultier",
-     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415112963",
-     "scent": "classique",
-     "signature": "1x50fragrance|1x6fragrance|1x75body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-6ml-edt",
-     "brand": "Jean Paul Gaultier",
-     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "classique",
-     "signature": "1x50fragrance|1x6fragrance|1x75body",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -10566,6 +10458,38 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
+   "absorbed": [
+    "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
+     "brand": "Zadig & Voltaire",
+     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "is this",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml",
+     "brand": "Zadig & Voltaire",
+     "name": "This Is Her! Gift Set EDP 50ml + B/Lotion 50ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "is this",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "the-beauty-store-uk"
      ]
     }
    ]
@@ -14731,38 +14655,6 @@
      "signature": "1x10fragrance|1x50body|1x90fragrance",
      "shops": [
       "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.72 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750039536",
-     "brand": "Jeanne Arthes",
-     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": "3430750039536",
-     "scent": "js magnetic power",
-     "signature": "1x100fragrance|1x75body|1x75wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm",
-     "brand": "Jeanne Arthes",
-     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "js magnetic power",
-     "signature": "1x100fragrance|1x75body|1x75wash",
-     "shops": [
-      "mybeauty-boutique",
-      "p-eleven"
      ]
     }
    ]
