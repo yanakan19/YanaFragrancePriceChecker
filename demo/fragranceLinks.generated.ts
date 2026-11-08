@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-07T10:10:25.396Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-08T10:24:21.931Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -257,6 +257,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|mosaic": ["","https://ahmedalmaghribi.uk/products/mosaic"],
   "ahmedalmaghribi|mosaic|disputed": ["","https://ahmedalmaghribi.uk/products/mosaic"],
   "ahmedalmaghribi|mosaic|edp": ["","https://ahmedalmaghribi.uk/products/mosaic"],
+  "ahmedalmaghribi|mosaic|extrait": ["","https://ahmedalmaghribi.uk/products/mosaic"],
   "ahmedalmaghribi|muskandleather|edp": ["","https://ahmedalmaghribi.uk/products/musk-leather-edp-100ml"],
   "ahmedalmaghribi|muskandroses": ["","https://ahmedalmaghribi.uk/products/musk-roses"],
   "ahmedalmaghribi|muskandroses|edp": ["","https://ahmedalmaghribi.uk/products/musk-roses"],
@@ -281,6 +282,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|peachypeach": ["","https://ahmedalmaghribi.uk/products/peachy-peach"],
   "ahmedalmaghribi|peachypeach|edp": ["","https://ahmedalmaghribi.uk/products/peachy-peach"],
   "ahmedalmaghribi|prometheus": ["","https://ahmedalmaghribi.uk/products/prometheus"],
+  "ahmedalmaghribi|prometheus|edp": ["","https://ahmedalmaghribi.uk/products/prometheus"],
   "ahmedalmaghribi|prometheus|extrait": ["","https://ahmedalmaghribi.uk/products/prometheus"],
   "ahmedalmaghribi|rawdha|disputed": ["","https://ahmedalmaghribi.uk/products/rawdha-edp-50ml"],
   "ahmedalmaghribi|rhea": ["","https://ahmedalmaghribi.uk/products/rhea"],
@@ -329,6 +331,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "alharamain|50thyearlimitedofferperfumegiftset|unstated": ["","https://alharamainperfumes.co.uk/products/al-haramain-50th-year-limited-offer"],
   "alharamain|ajwaunisex|oil": ["","https://alharamainperfumes.co.uk/products/ajwa-30ml"],
   "alharamain|alfzahraunisex|oil": ["","https://alharamainperfumes.co.uk/products/alf-zahra-15ml"],
+  "alharamain|alharamainamberoudblackedition|edp": ["","https://alharamainperfumes.co.uk/products/al-haramain-amber-oud-black-edition-60ml-eau-de-parfum"],
   "alharamain|alharamainsilver|oil": ["","https://alharamainperfumes.co.uk/products/silver-perfume"],
   "alharamain|almasunisex|oil": ["","https://alharamainperfumes.co.uk/products/almas-12-ml"],
   "alharamain|amber320|oil": ["","https://alharamainperfumes.co.uk/products/amber-320"],
@@ -1975,6 +1978,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "bharara|onyx|edp": ["","https://www.bhararabeauty.com/products/bharara-onyx-eau-de-parfum"],
   "bharara|placid|edp": ["","https://www.bhararabeauty.com/products/bharara-placid-eau-de-parfum"],
   "bharara|rose|edp": ["","https://www.bhararabeauty.com/products/bharara-rose-eau-de-parfum"],
+  "billieeilish|eilisheaudeparfum100mlfragrancegiftset": ["","https://store.billieeilish.com/products/eilish-gift-set"],
+  "billieeilish|eilisheaudeparfum100mlfragrancegiftset|edp": ["","https://store.billieeilish.com/products/eilish-gift-set"],
   "billieeilish|eilisheaudeparfumspray100mlgiftset100ml": ["","https://store.billieeilish.com/products/eilish-gift-set"],
   "billieeilish|eilisheaudeparfumspray100mlgiftset100ml|edp": ["","https://store.billieeilish.com/products/eilish-gift-set"],
   "billieeilish|eilishno2|edp": ["","https://store.billieeilish.com/products/eilish-no-2-eau-de-parfum"],
@@ -2064,6 +2069,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "bois1920|comelamore": ["","https://www.bois1920.it/shop/come-lamore/"],
   "bois1920|comelamore|edp": ["","https://www.bois1920.it/shop/come-lamore/"],
   "bois1920|comelamore|edt": ["","https://www.bois1920.it/shop/come-lamore/"],
+  "bois1920|heudorfprivei": ["","https://www.bois1920.it/shop/heudorf-prive-i/"],
+  "bois1920|heudorfprivei|extrait": ["","https://www.bois1920.it/shop/heudorf-prive-i/"],
   "bois1920|oronero": ["","https://www.bois1920.it/en/shop/oro-nero/"],
   "bois1920|oronero|edp": ["","https://www.bois1920.it/en/shop/oro-nero/"],
   "bois1920|rosadifilare": ["","https://www.bois1920.it/en/shop/rosa-di-filare/"],
