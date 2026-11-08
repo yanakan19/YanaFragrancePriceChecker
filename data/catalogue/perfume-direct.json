@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-08T08:09:43.663Z",
-  "seenAt": "2026-11-08T08:09:43.663Z",
+  "updatedAt": "2026-11-08T12:16:48.544Z",
+  "seenAt": "2026-11-08T12:16:48.544Z",
   "source": "live",
   "listings": [
     {
@@ -11674,7 +11674,7 @@
       "priceGbp": 101.99,
       "wasPriceGbp": 139,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Bvlgari Man In Black Parfum is a bold and intensely masculine fragrance with a rich blend of warm spices, dark woods and sensual amber notes. Opening with vibrant spices and rum accords, it evolves into a sophisticated heart before drying down into smoky leather and deep woody notes. Powerful, elegant and long-lasting, this luxurious men's parfum is perfect for evenings, special occasions and those who prefer confident fragrances with a refined, modern edge.. Fragrance Type: Warm Spicy, Woody. Fragrance Notes: Top notes: Spices, Rum, Tobacco Middle notes: Leather, Iris, Tuberose Base notes: Tonka Bean, Guaiac Wood, Benzoin. Launched: 2014.",
       "productType": "Men's Aftershave",

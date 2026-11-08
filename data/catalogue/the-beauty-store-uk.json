@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-08T08:09:43.393Z",
-  "seenAt": "2026-11-08T08:09:43.393Z",
+  "updatedAt": "2026-11-08T12:16:53.155Z",
+  "seenAt": "2026-11-08T12:16:53.155Z",
   "source": "live",
   "listings": [
     {
@@ -19564,7 +19564,7 @@
       "priceGbp": 44.95,
       "wasPriceGbp": 95,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Prada Luna Carbon Eau de Toilette Spray 100ml Tester.",
       "productType": "Eau de Toilette",
@@ -27798,7 +27798,7 @@
       "priceGbp": 35.95,
       "wasPriceGbp": 137,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Venus de Nina Ricci Eau de Parfum Refillable Spray 80ml Tester.",
       "productType": "Eau de Parfum",

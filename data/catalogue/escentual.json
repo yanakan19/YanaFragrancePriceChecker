@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-08T08:09:43.393Z",
-  "seenAt": "2026-11-08T08:09:43.393Z",
+  "updatedAt": "2026-11-08T12:16:53.155Z",
+  "seenAt": "2026-11-08T12:16:53.155Z",
   "source": "live",
   "listings": [
     {
@@ -89136,8 +89136,8 @@
       "rawBrand": "GIVENCHY",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/givenchy_gentleman_society_deodorant_stick_75ml_product_1.png?v=1729191164",
-      "priceGbp": 22.2,
-      "wasPriceGbp": 37,
+      "priceGbp": 37,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -137278,7 +137278,7 @@
       "priceGbp": 22,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Create long lasting, perfectly primed and defined lips with the Urban Decay 24/7 Glide-On Lip Pencil, a velvety-soft waterproof lip liner that applies like a dream.. This luxurious, smooth and creamy Glide-On Lip Liner is part of the impressive 24/7 range so rest assured, once you've applied your chosen colour, it's not going anywhere. Whatever you get up to, your lips are still going to look sensational!. The 24/7 Glide-On Lip Pencil's moisturising formulation is infused with vitamin E, jojoba oil and cottonseed oil to ensure your lips are perfectly primed, conditioned and hydrated throughout the day.. . Why We Love It . All too often lipsticks and lip glosses can smudge and feather during wear. Don't you just hate it when this happens and your perfectly applied lip is all over your face by lunchtime? The 24/7 Lip Pencil solves this problem so you can feel confident that your lip look is going to stay on all day.. How To Use It . Apply the 24/7 Liner by beginning at the outer corners and glide towards the centre of your lips to give a beautifully defined and plump look.. Top tip: Apply the 24/7 Glide-On Lip Pencil all over your lips to further enhance your lipstick wear-time, then apply your favourite Urban Decay lip colour on top to complete the look.. Values . PETA certified cruelty-free..",
       "productType": "Makeup",
@@ -180104,7 +180104,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Transport yourself to the height of summer with the Miller Harris Secret Gardenia Eau de Parfum Spray, a white floral fragrance for women with radiant zesty facets.. Part of the Miller Harris Colour Collection, this heady Eau de Parfum infuses the purest beauty of white flowers picked from one of London's secret gardens in full bloom. Classic and elegant, Secret Gardenia's bright composition offers a blossoming olfactory experience created for the noses of flower lovers everywhere.. The scent feels bright, cool and sensual; opening with a burst of fresh bergamot, zingy yuzu, sweet nashi pear, before the hidden floral heart of soft gardenia, hypnotic jasmine and ylang-ylang add a touch of sophistication. The base notes of creamy sandalwood and voluptuous musk create a light-filled trail that's distinctly feminine.. Why We Love It . Secret Gardenia is one of those timeless scents you'll never grow tired of. The perfect choice if you're looking for a new signature to take you through the next few seasons. It's sophisticated aroma is paired with a matte white bottle embossed with a golden Miller Harris logo. This perfume would definitely add the perfect finishing touch to your dressing table.. Works Well With . If you're looking for more fragrances that are inspired by moments, why not explore the full Miller Harris Colour Collection and discover your new signature scent.. Notes . Top Notes: Bergamot, Yuzu, Aqual, Nashi Pear.. Heart Notes: Gardenia, Jasmin abs Egypt, Ylang Ylang, Violet Petal.. Base Notes: Driftwood, Creamy Sandalwood, Cedarwood, Musk..",
       "productType": "Fragrance",

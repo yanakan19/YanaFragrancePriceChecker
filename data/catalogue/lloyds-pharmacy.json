@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-08T08:09:43.663Z",
-  "seenAt": "2026-11-08T08:09:43.663Z",
+  "updatedAt": "2026-11-08T12:16:48.544Z",
+  "seenAt": "2026-11-08T12:16:48.544Z",
   "source": "live",
   "listings": [
     {
@@ -4292,7 +4292,7 @@
       "priceGbp": 21.45,
       "wasPriceGbp": 39,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Bottle Size: 30ml. Brand: Jimmy Choo. Category: Men's Fragrance. ##end-features##. Product description. A bold and masculine fragrance offered by Jimmy Choo, the Man EDT 30ml, is the embodiment of masculine style and sharp sophistication. . The fragrance opens with top notes of lavender and mandarin, leading to a heart of pink pepper and geranium mixed with pineapple leaf. The base notes introduce a wonderful harmony of patchouli, suede, and ambery woods, presenting a refreshing yet deep fragrance to suit any occasion.. This 30ml bottle, a subtle design in grey hues, displays the elegance of Jimmy Choo Man EDT.. Features of Jimmy Choo Man EDT 30ml. An aura of masculinity. Sophisticated and aromatic blend. Perfect for any occasion. Subtle and elegant packaging. ##accordion-start##. Specifications. 30ml. ##accordion-item-end##. Suitable for. Men of all ages. ##accordion-item-end##. Warnings and cautions. Avoid direct contact with eyes. Keep out of reach from children. Store away from direct sunlight. If irritation occurs, discontinue use. ##accordion-item-end##. How to use. For best results, spray the fragrance on pulse points.. Do not rub the skin after spraying, as this can diminish the intensity of the fragrance.. ##accordion-item-end##. Ingredients. Top Notes: Lavender, Mandarin Heart Notes: Geranium, Pineapple leaf, Pink pepper Base Notes: Suede, Ambery woods, Patchouli. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",
