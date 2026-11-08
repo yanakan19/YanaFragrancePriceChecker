@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-08T12:16:48.544Z",
-  "seenAt": "2026-11-08T12:16:48.544Z",
+  "updatedAt": "2026-11-08T16:08:15.890Z",
+  "seenAt": "2026-11-08T16:08:15.890Z",
   "source": "live",
   "listings": [
     {
@@ -198,7 +198,7 @@
       "priceGbp": 50,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A refined aromatic fragrance built around quiet strength. Vanilla opens with smooth warmth, while lavender brings clean, polished freshness. Vetiver anchors the scent with earthy depth, leaving a confident and understated trail that feels timeless, masculine and composed.. Top Notes: Vanilla. Middle Notes: Lavender. Base Notes: Vetiver.",
       "productType": null,

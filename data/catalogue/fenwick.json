@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-08T12:16:48.544Z",
-  "seenAt": "2026-11-08T12:16:48.544Z",
+  "updatedAt": "2026-11-08T16:08:15.890Z",
+  "seenAt": "2026-11-08T16:08:15.890Z",
   "source": "live",
   "listings": [
     {
@@ -20139,7 +20139,7 @@
       "priceGbp": 106.25,
       "wasPriceGbp": 125,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The First Eau de Parfum 100ml by Van Cleef & Arpels is a timeless floral fragrance infused with aldehydes, rose and jasmine. Elegant and refined, it captures the house’s classic Parisian femininity in every note..",
       "productType": "Women's Fragrances",
