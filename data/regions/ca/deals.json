@@ -2,9 +2,9 @@
  "region": "CA",
  "currency": "CAD",
  "referencePriceName": "MSRP",
- "builtAt": "2026-11-08T12:16:39.911Z",
+ "builtAt": "2026-11-09T14:23:52.554Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 12367,
+ "listingsWithReference": 12382,
  "offersWithCorroboratedReference": 3726,
  "deals": [
   {
@@ -4339,11 +4339,11 @@
   },
   {
    "fragranceId": "discount-fragrances-ca-slqugt1358",
-   "price": 56.5,
+   "price": 64.95,
    "delivered": false,
-   "wasPrice": 98,
+   "wasPrice": 112,
    "percentOff": 42,
-   "retailerId": "discount-fragrances-ca",
+   "retailerId": "fragrance-canada",
    "kind": "retailer",
    "houseName": null
   },
@@ -5508,16 +5508,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-8411061083666",
-   "price": 119.85,
-   "delivered": false,
-   "wasPrice": 194,
-   "percentOff": 38,
-   "retailerId": "discount-fragrances-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-8435415012669",
    "price": 114.99,
    "delivered": true,
@@ -6332,16 +6322,6 @@
    "price": 259,
    "delivered": true,
    "wasPrice": 410,
-   "percentOff": 36,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-8411061083765",
-   "price": 99,
-   "delivered": false,
-   "wasPrice": 156,
    "percentOff": 36,
    "retailerId": "fragrance-canada",
    "kind": "retailer",
@@ -8248,16 +8228,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-8435415032278",
-   "price": 109.99,
-   "delivered": true,
-   "wasPrice": 155.99,
-   "percentOff": 29,
-   "retailerId": "my-royal-musk",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-canada-4508650733705-200ml",
    "price": 69.45,
    "delivered": false,
@@ -9608,16 +9578,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3348900417885",
-   "price": 129.95,
-   "delivered": false,
-   "wasPrice": 169,
-   "percentOff": 23,
-   "retailerId": "perfume-factory-ca",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-3349668617043",
    "price": 94.95,
    "delivered": false,
@@ -10212,16 +10172,6 @@
    "price": 114.95,
    "delivered": false,
    "wasPrice": 145,
-   "percentOff": 20,
-   "retailerId": "fragrance-canada",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3700559601068",
-   "price": 349,
-   "delivered": true,
-   "wasPrice": 440,
    "percentOff": 20,
    "retailerId": "fragrance-canada",
    "kind": "retailer",
