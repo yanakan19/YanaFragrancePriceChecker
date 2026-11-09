@@ -1,7 +1,7 @@
 {
   "retailerId": "emirates-oud",
-  "updatedAt": "2026-11-08T19:54:10.414Z",
-  "seenAt": "2026-11-08T19:54:10.414Z",
+  "updatedAt": "2026-11-08T23:43:17.374Z",
+  "seenAt": "2026-11-08T23:43:17.374Z",
   "source": "live",
   "listings": [
     {
@@ -6958,7 +6958,7 @@
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Petra-Viola-Perfume-100ml-EDP-Lattafa-195158815.png?v=1785215528",
       "priceGbp": 29.99,
-      "wasPriceGbp": null,
+      "wasPriceGbp": 40,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -36696,7 +36696,7 @@
       "rawBrand": "Fragrance World",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elysia-Vanilla-Perfume-100ml-EDP-Fragrance-World-167852811.jpg?v=1746536333",
-      "priceGbp": 14.99,
+      "priceGbp": 19.99,
       "wasPriceGbp": 25,
       "promoEndsAt": null,
       "inStock": true,

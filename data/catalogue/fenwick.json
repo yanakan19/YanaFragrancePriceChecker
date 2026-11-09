@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-08T19:54:10.414Z",
-  "seenAt": "2026-11-08T19:54:10.414Z",
+  "updatedAt": "2026-11-08T23:43:17.374Z",
+  "seenAt": "2026-11-08T23:43:17.374Z",
   "source": "live",
   "listings": [
     {
@@ -9858,7 +9858,7 @@
       "priceGbp": 57,
       "wasPriceGbp": 76,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover a captivating new expression of La Vie Est Belle with Elixir Cherry Eau de Parfum. Defined by its distinctive cherry-inspired character, this feminine fragrance offers a rich and alluring scent experience in a compact 30ml bottle..",
       "productType": "Women's Fragrances",
@@ -22025,7 +22025,7 @@
       "priceGbp": 85.5,
       "wasPriceGbp": 114,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Bad Boy Cobalt Absolute Eau de Parfum 100ml by Carolina Herrera is an intense and refined fragrance that reimagines the iconic Bad Boy scent with deeper, more sophisticated character. Rich aromatic notes combine with warm woods to create a powerful yet balanced composition with lasting presence. A striking fragrance designed to bring confidence, depth and modern elegance to any fragrance wardrobe..",
       "productType": "Women's Fragrances",
