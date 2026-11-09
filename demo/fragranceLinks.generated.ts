@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-08T10:24:21.931Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-09T11:32:17.917Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -4610,11 +4610,18 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "jimmychoo|urbanhero|edp": ["Jimmy-Choo/Urban-Hero-56740","https://us.jimmychoo.com/en/urbanhero-fragrance.html"],
   "joloves|amberlimeandbergamotairlinetravelcollection4x75ml": ["","https://www.joloves.com/products/amber-lime-bergamot-airline-travel-collection-4x75ml"],
   "joloves|amberlimeandbergamotairlinetravelcollection4x75ml|unstated": ["","https://www.joloves.com/products/amber-lime-bergamot-airline-travel-collection-4x75ml"],
+  "joloves|amberlimebergamotunisex|edt": ["","https://www.joloves.com/products/amber-lime-bergamot-edt-50ml"],
   "joloves|blackcashmeranandtonkaafragrance": ["","https://www.joloves.com/products/black-cashmeran-tonka-a-fragrance-100ml"],
   "joloves|blackcashmeranandtonkaafragrance|edp": ["","https://www.joloves.com/products/black-cashmeran-tonka-a-fragrance-100ml"],
   "joloves|blackcashmerantonka|unstated": ["","https://www.joloves.com/products/black-cashmeran-tonka-edt-50ml"],
+  "joloves|cobaltpatchoulicedarunisex|edt": ["","https://www.joloves.com/products/cobalt-patchouli-cedar-edt-50ml"],
   "joloves|ebonycassisafragrance": ["","https://www.joloves.com/products/ebony-cassis-a-fragrance-100ml"],
   "joloves|ebonycassisafragrance|edt": ["","https://www.joloves.com/products/ebony-cassis-a-fragrance-100ml"],
+  "joloves|greenorangecorianderunisex|edt": ["","https://www.joloves.com/products/green-orange-coriander-edt-50ml"],
+  "joloves|jobyjolovesunisex|edt": ["","https://www.joloves.com/products/jo-by-jo-loves-edt-50ml"],
+  "joloves|mangothailimeunisex|edt": ["","https://www.joloves.com/products/mango-thai-lime-edt-50ml"],
+  "joloves|no42theflowershopunisex|edt": ["","https://www.joloves.com/products/no-42-the-flower-shop-edt-50ml"],
+  "joloves|pomelounisex|edt": ["","https://www.joloves.com/products/pomelo-edt-50ml"],
   "joop|femme": ["Joop/Joop-Femme-3100",""],
   "joop|femme|edt": ["Joop/Joop-Femme-3100",""],
   "joop|homme": ["Joop/Joop-Homme-1251",""],
