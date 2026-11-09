@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-09T07:46:13.264Z",
+  "checkedAt": "2026-11-09T11:55:15.825Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -261,9 +261,9 @@
       "origin": "https://maisonalhambra.co",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 57,
+      "listings": 56,
       "pricedInGbp": 0,
-      "withPhoto": 57,
+      "withPhoto": 56,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],

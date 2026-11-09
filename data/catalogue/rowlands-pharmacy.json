@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-09T07:39:43.443Z",
-  "seenAt": "2026-11-09T07:39:43.443Z",
+  "updatedAt": "2026-11-09T11:48:19.839Z",
+  "seenAt": "2026-11-09T11:48:19.839Z",
   "source": "live",
   "listings": [
     {
@@ -612,7 +612,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Dark Blue Eau de Toilette 75ml. Key Features. ##features##. Distinctive amber spicy fragrance for men.. Fresh opening with lime, grapefruit and ginger notes.. Aromatic heart featuring sage and cypress accords.. Warm base of patchouli, suede and benzoin.. Ideal for evenings and cooler weather.. Presented in the iconic cocktail shaker-inspired bottle.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Hugo Boss Dark Blue Eau de Toilette is a bold and energetic men's fragrance that combines vibrant citrus notes with warm spices and rich woody accords. Fresh lime and ginger create an invigorating opening, while sage and cypress add aromatic depth. A smooth base of patchouli, suede and resins delivers a confident masculine finish that is ideal for evening wear and special occasions.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. Alcohol Denat., Aqua/Water, Parfum/Fragrance, Limonene, Linalool, Citronellol, Coumarin, Citral, Geraniol, Eugenol.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

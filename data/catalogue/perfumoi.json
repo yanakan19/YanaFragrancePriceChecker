@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-09T07:39:36.017Z",
-  "seenAt": "2026-11-09T07:39:36.017Z",
+  "updatedAt": "2026-11-09T11:48:24.988Z",
+  "seenAt": "2026-11-09T11:48:24.988Z",
   "source": "live",
   "listings": [
     {
@@ -1371,7 +1371,7 @@
       "priceGbp": 23.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Cacharel Eden Eau De Parfum Spray is a floral fragrance created for customers who enjoy a soft and elegant scent. It opens with a fresh, inviting first impression, develops into a beautifully balanced floral heart, and settles into a smooth, lasting base. Suitable for everyday wear, this scent feels refined and feminine.. Why customers choose it Well-suited for spring and summer seasons. A great option for gifting or daily wear. Designed for customers who prefer floral and fresh scents.",
       "productType": "Eau de Parfum",

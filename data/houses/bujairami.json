@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-09T07:42:58.908Z",
-  "seenAt": "2026-11-09T07:42:58.908Z",
+  "updatedAt": "2026-11-09T11:51:45.915Z",
+  "seenAt": "2026-11-09T11:51:45.915Z",
   "source": "live",
   "listings": [
     {
@@ -430,7 +430,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A captivating fragrance opening with sweet salted caramel, juicy passion fruit, and sparkling bergamot. The heart blends exotic hibiscus with powdery orris and smoky frankincense, while sandalwood, earthy cypriol, and creamy vanilla create a warm, rich, and indulgent finish.. Fragrance Notes . Top: Salted Caramel, Passion Fruit, Bergamot. Heart: Hibiscus, Orris, Frankincense. Base: Sandalwood, Cypriol, Vanilla. Profile: Sweet • Fruity • Woody • Smoky • Warm.",
       "productType": null,
@@ -1782,7 +1782,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Top: Orange, Green Lemon, Mint, Black Currant. Heart: Apricot, Basil, Aqueous Accord, May Rose. Base: Dates, Fig, Moss, Ambergris.",
       "productType": null,

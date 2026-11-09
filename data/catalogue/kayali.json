@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-09T07:39:36.017Z",
-  "seenAt": "2026-11-09T07:39:36.017Z",
+  "updatedAt": "2026-11-09T11:48:24.988Z",
+  "seenAt": "2026-11-09T11:48:24.988Z",
   "source": "live",
   "listings": [
     {
@@ -4131,7 +4131,7 @@
       "priceGbp": 3,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Feel like the diamond that you are with our warm floral masterpiece, Fleur Majesty Rose Royale | 31. Timeless, romantic and sensual, this gem is a glorious symphony of juicy pear, sweet peach, enchanting rose, pink peony, violet wood and purple musk. Perfect for any season, wear alone or layer with your favorite fragrance to create your own unique mood..",
       "productType": "Fragrances",

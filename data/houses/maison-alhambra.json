@@ -1,7 +1,7 @@
 {
   "retailerId": "maison-alhambra",
-  "updatedAt": "2026-11-09T07:44:37.812Z",
-  "seenAt": "2026-11-09T07:44:37.812Z",
+  "updatedAt": "2026-11-09T11:53:41.552Z",
+  "seenAt": "2026-11-09T11:53:41.552Z",
   "source": "live",
   "listings": [
     {
@@ -1289,32 +1289,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "maison-alhambra-loudh",
-      "url": "https://maisonalhambra.co/product/maison-alhambra-loudh/",
-      "rawTitle": "Maison Alhambra L'Oudh (Oud Ispahan Inspired)",
-      "rawBrand": "Maison Alhambra",
-      "ean": null,
-      "imageUrl": "https://maisonalhambra.co/wp-content/uploads/2026/10/Loudh-1.jpg",
-      "description": "Maison Alhambra L'Oudh Eau de Parfum, 100 ml, a rose-saffron-oud scent inspired by Dior Oud Ispahan. Notes, when to wear it and where to buy.",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 34.49,
-        "currency": "USD"
-      },
-      "retailerId": "maison-alhambra",
-      "firstSeenAt": "2026-10-23T19:32:00.131Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
       "retailerSku": "maison-alhambra-avant",
       "url": "https://maisonalhambra.co/product/maison-alhambra-avant/",
       "rawTitle": "Maison Alhambra Avant (Creed Aventus Inspired)",
@@ -1464,6 +1438,33 @@
       },
       "retailerId": "maison-alhambra",
       "firstSeenAt": "2026-10-07T22:13:20.631Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "maison-alhambra-loudh",
+      "url": "https://maisonalhambra.co/product/maison-alhambra-loudh/",
+      "rawTitle": "Maison Alhambra L'Oudh (Oud Ispahan Inspired)",
+      "rawBrand": "Maison Alhambra",
+      "ean": null,
+      "imageUrl": "https://maisonalhambra.co/wp-content/uploads/2026/10/Loudh-1.jpg",
+      "description": "Maison Alhambra L'Oudh Eau de Parfum, 100 ml, a rose-saffron-oud scent inspired by Dior Oud Ispahan. Notes, when to wear it and where to buy.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 34.49,
+        "currency": "USD"
+      },
+      "retailerId": "maison-alhambra",
+      "firstSeenAt": "2026-10-23T19:32:00.131Z",
+      "lastSeenAt": "2026-11-09T07:44:37.812Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
