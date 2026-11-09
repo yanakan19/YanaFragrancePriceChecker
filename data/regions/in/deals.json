@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-11-08T00:36:47.204Z",
+ "builtAt": "2026-11-09T00:43:10.411Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 15273,
- "offersWithCorroboratedReference": 3042,
+ "listingsWithReference": 15288,
+ "offersWithCorroboratedReference": 3043,
  "deals": [
   {
    "fragranceId": "fridaycharm-memo-paris-irish-oud-edp-u-75ml",
@@ -3958,16 +3958,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-memo-paris-marfa-edp-75ml",
-   "price": 17900,
-   "delivered": true,
-   "wasPrice": 27000,
-   "percentOff": 33,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-mykonos-aphrodite-extrait-de-parfum-u-50ml",
    "price": 2000,
    "delivered": false,
@@ -6038,16 +6028,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-al-haramain-detour-noir-3",
-   "price": 2990,
-   "delivered": true,
-   "wasPrice": 3950,
-   "percentOff": 24,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-arabiyat-prestige-mahd-al-dhahab",
    "price": 3790,
    "delivered": true,
@@ -6888,6 +6868,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-al-ezz-oud-hersh-lahab",
+   "price": 5718.9,
+   "delivered": true,
+   "wasPrice": 7150,
+   "percentOff": 20,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-armaf-club-de-nuit-intense-man-edp",
    "price": 6000,
    "delivered": true,
@@ -7368,16 +7358,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-al-ezz-oud-hersh-lahab",
-   "price": 5250,
-   "delivered": true,
-   "wasPrice": 6450,
-   "percentOff": 18,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-alhambra-bright-peach",
    "price": 2050,
    "delivered": true,
@@ -7404,6 +7384,16 @@
    "wasPrice": 4399,
    "percentOff": 18,
    "retailerId": "scentopia",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-guerlain-lhomme-ideal-edp",
+   "price": 9950,
+   "delivered": true,
+   "wasPrice": 12250,
+   "percentOff": 18,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -7934,16 +7924,6 @@
    "wasPrice": 5250,
    "percentOff": 15,
    "retailerId": "scentopia",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-guerlain-lhomme-ideal-edp",
-   "price": 10300,
-   "delivered": true,
-   "wasPrice": 12250,
-   "percentOff": 15,
-   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -9273,6 +9253,16 @@
    "delivered": true,
    "wasPrice": 8099,
    "percentOff": 8,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-armaf-scentasy-noir-de-peche",
+   "price": 3250,
+   "delivered": true,
+   "wasPrice": 3500,
+   "percentOff": 7,
    "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null

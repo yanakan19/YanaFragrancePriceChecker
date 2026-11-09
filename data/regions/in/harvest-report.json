@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-11-07T23:41:28.483Z",
-  "minutes": 55.3,
+  "ranAt": "2026-11-08T23:47:49.739Z",
+  "minutes": 55.33,
   "dryRun": false,
   "shopsWired": 21,
   "shopsEnabled": 18,
-  "shopsPriced": 18,
-  "listingsKept": 23672,
+  "shopsPriced": 17,
+  "listingsKept": 22250,
   "shops": [
     {
       "id": "nykaa",
@@ -15,12 +15,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1227,
-      "priced": 1227,
-      "kept": 1208,
-      "withBarcode": 194,
-      "pagesFetched": 1272,
-      "seconds": 3302,
+      "listingsRead": 1217,
+      "priced": 1217,
+      "kept": 1197,
+      "withBarcode": 207,
+      "pagesFetched": 1263,
+      "seconds": 3300,
       "currency": "JSON-LD offers named: INR",
       "errors": [
         "https://www.nykaa.com/azha-perfumes-eternal-nights-eau-de-parfum/p/22163370: HTTP 404",
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
         "https://www.nykaa.com/ulric-de-varens-flash-eau-de-toilette-natural-spray-for-men/p/9329009: HTTP 404",
         "https://www.nykaa.com/victoria-s-secret-bare-eau-de-parfum-travel-spray/p/16691987: HTTP 404",
-        "sitemap: 3115 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
+        "sitemap: 3139 product address(es) found, first read https://www.nykaa.com/colour-me-homme-volt-eau-de-parfum/p/5202735"
       ]
     },
     {
@@ -66,7 +66,7 @@
       "kept": 6684,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 77,
+      "seconds": 80,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -76,9 +76,9 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7701,
-      "priced": 7701,
-      "kept": 6454,
+      "listingsRead": 7716,
+      "priced": 7716,
+      "kept": 6471,
       "withBarcode": 0,
       "pagesFetched": 31,
       "seconds": 62,
@@ -96,7 +96,7 @@
       "kept": 1905,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 18,
+      "seconds": 20,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -106,11 +106,11 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1079,
-      "priced": 1079,
-      "kept": 1027,
+      "listingsRead": 1103,
+      "priced": 1103,
+      "kept": 1051,
       "withBarcode": 0,
-      "pagesFetched": 1080,
+      "pagesFetched": 1104,
       "seconds": 3300,
       "currency": "og:price tags named: INR",
       "errors": [
@@ -131,7 +131,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -146,7 +146,7 @@
       "kept": 353,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 13,
+      "seconds": 14,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -161,7 +161,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -176,7 +176,7 @@
       "kept": 27,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -191,7 +191,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -206,7 +206,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 9,
+      "seconds": 10,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -255,7 +255,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 7,
-      "seconds": 11,
+      "seconds": 12,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -270,7 +270,7 @@
       "kept": 162,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 12,
+      "seconds": 13,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -279,15 +279,18 @@
       "name": "Maison des Parfums",
       "route": "shopify",
       "singleBrand": false,
-      "status": "priced",
-      "listingsRead": 1729,
-      "priced": 1715,
-      "kept": 1452,
+      "status": "refused",
+      "listingsRead": 0,
+      "priced": 0,
+      "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 9,
-      "seconds": 19,
-      "currency": "the storefront publishes INR at rate 1, settles in INR",
-      "errors": []
+      "pagesFetched": 0,
+      "seconds": 20,
+      "currency": "",
+      "errors": [
+        "robots.txt https://mdpindia.com/robots.txt: 0 TypeError: fetch failed (Error: getaddrinfo EAI_AGAIN mdpindia.com)",
+        "robots.txt https://www.mdpindia.com/robots.txt: 0 TypeError: fetch failed (Error: getaddrinfo EAI_AGAIN www.mdpindia.com)"
+      ]
     },
     {
       "id": "scentira",
@@ -300,7 +303,7 @@
       "kept": 2473,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 20,
+      "seconds": 23,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -346,7 +349,7 @@
       "kept": 503,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 12,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     }
