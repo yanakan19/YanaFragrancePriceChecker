@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-09T15:39:50.997Z",
-  "seenAt": "2026-11-09T15:39:50.997Z",
+  "updatedAt": "2026-11-09T19:12:04.547Z",
+  "seenAt": "2026-11-09T19:12:04.547Z",
   "source": "live",
   "listings": [
     {
@@ -1578,7 +1578,7 @@
       "priceGbp": 48.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Clinique Aromatics Elixir Parfum Spray is a floral fragrance created for customers who enjoy a soft, elegant scent. It opens with a fresh impression, develops into a balanced floral heart, and settles into a smooth, aromatic lasting base. Suitable for everyday wear, this scent feels confident and timeless.. Why customers choose it . Well-suited for everyday use and special occasions. A great option for gifting or daily wear. Designed for customers who prefer floral and aromatic scents.",
       "productType": "Elixir Parfum",

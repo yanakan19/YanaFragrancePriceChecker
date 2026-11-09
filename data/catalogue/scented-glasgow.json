@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-09T15:39:50.997Z",
-  "seenAt": "2026-11-09T15:39:50.997Z",
+  "updatedAt": "2026-11-09T19:12:04.547Z",
+  "seenAt": "2026-11-09T19:12:04.547Z",
   "source": "live",
   "listings": [
     {
@@ -1555,7 +1555,7 @@
       "priceGbp": 105,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "An olfactive reconstruction of 17th century Viceregal Mexico: the mineral notes of terra cotta tile floors and stucco walls, the wooden beams and gilded altars give way to a heart of of spiced cacao. In the background, the incense from the church mixes with the kitchen spices, creating an evocative Baroque concoction between heaven and earth. Notes include: Cocoa absolute, Mexican vanilla, cinnamon, and a smoked chili infusion. . . November 1695, Mexico City. Deep inside the halls of the Royal Convent of Jesus Maria, a group of reverent nuns prepares a Baroque recipe of spiced Cocoa. The brew is infused with an assortment of chilies that tempt rapture, and the air is rich with the scent of exotic spices. After centuries of safe-keeping within this closed world, their secrets are finally revealed to the senses.. Developed with Rodrigo Flores-Roux and Yann Vasnier. . . Top Notes. Sesame seed. Cinnamon bark. Oregano . . . Heart Notes. Clove buds. Cumin. Huele-de-noche (night-blooming jasmine). Smoked chili infusion (ancho, guajillo and chipotle). . . Base Notes. Mexican vanilla bean. Cocoa bean absolute. Chypre accord. .",
       "productType": "Perfume",

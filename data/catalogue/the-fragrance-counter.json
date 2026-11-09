@@ -1,7 +1,7 @@
 {
   "retailerId": "the-fragrance-counter",
-  "updatedAt": "2026-11-09T03:45:29.140Z",
-  "seenAt": "2026-11-09T03:45:29.140Z",
+  "updatedAt": "2026-11-09T19:11:58.540Z",
+  "seenAt": "2026-11-09T19:11:58.540Z",
   "source": "live",
   "listings": [
     {
@@ -489,7 +489,7 @@
       "priceGbp": 43.2,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-11-09T00:00:00.000Z",
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "the-fragrance-counter",
