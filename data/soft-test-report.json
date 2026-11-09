@@ -17,7 +17,7 @@
       "check": "missing-sets-and-excluded-kinds",
       "file": "tests/unnamedSets.test.ts",
       "title": "holds the sets that were missing, and none of the vial sets or home fragrance sets",
-      "message": "/Gift Bag|Gift Wrap|Gift Card/i: expected [ …(7) ] to deeply equal []"
+      "message": "expected false to be true // Object.is equality"
     }
   ]
 }
