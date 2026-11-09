@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-09T11:48:24.988Z",
-  "seenAt": "2026-11-09T11:48:24.988Z",
+  "updatedAt": "2026-11-09T15:39:50.997Z",
+  "seenAt": "2026-11-09T15:39:50.997Z",
   "source": "live",
   "listings": [
     {
@@ -3694,7 +3694,7 @@
       "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Reality: Polished Wood, Tangled Herbs, Violets, Dusty Pages. Materiality: Neroli, Rosemary, Patchouli Coeur, Vetiver Haiti.",
       "productType": "Perfume",
@@ -4315,7 +4315,7 @@
       "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Reality: Petals, Citrus, Gold, Santal. Materiality: Jasmine Sambac Absolute, Orange Flower, Cardamom, Sandalwood.",
       "productType": "Perfume",

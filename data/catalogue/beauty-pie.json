@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-09T11:48:24.988Z",
-  "seenAt": "2026-11-09T11:48:24.988Z",
+  "updatedAt": "2026-11-09T15:39:50.997Z",
+  "seenAt": "2026-11-09T15:39:50.997Z",
   "source": "live",
   "listings": [
     {
@@ -246,7 +246,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
-      "description": "A total treat of a body wash. Fresh, floral & seriously deluxe. Inspired by the fresh, elegant scent of (Borrowed From) The Wild Eau de Parfum, a scent inspired by an English country garden after rainfall, from Holly Willoughby’s Wylde Moon brand. This elegant & refreshing body wash is infused with the dried flowering cones of Hops. Floral but never sweet, feminine yet still modern, it smells incredible and leaves skin cleansed, uplifted, softened and beautifully fragranced..",
+      "description": "A total treat of a body wash. Fresh, floral & seriously deluxe. . Inspired by the fresh, elegant scent of (Borrowed From) The Wild Eau de Parfum, a scent inspired by an English country garden after rainfall, from Holly Willoughby’s Wylde Moon brand. Floral but never sweet, feminine yet still modern, it smells incredible and leaves skin cleansed, uplifted, softened and beautifully fragranced. . .",
       "productType": "Bodycare",
       "nativePrice": null,
       "retailerId": "beauty-pie",
@@ -7075,7 +7075,7 @@
       "priceGbp": 25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Imported from Germany’s best brow pencil supplier. With a pro-shaping, triangular-tipped angled nib pencil at one end and a brush-through spoolie blending wand on the other, this fabulously foolproof brow creator delivers perfect defining, filling and shaping for natural-looking tomboy brows. Refillable. Vegan. Cruelty-free..",
       "productType": "Makeup",

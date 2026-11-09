@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-09T11:55:12.683Z",
-  "seenAt": "2026-11-09T11:55:12.683Z",
+  "updatedAt": "2026-11-09T15:47:35.393Z",
+  "seenAt": "2026-11-09T15:47:35.393Z",
   "source": "live",
   "listings": [
     {
@@ -2692,7 +2692,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Our first-ever scents for guys in one duo. Fresh & sun-drenched, Cheiroso Cologne Mist are inspired by the energy of Brazilian futebol . Cheiroso 10 is a fresh gourmand that smells like Brazilian pineapple & smooth cedarwood. An amber aromatic, Cheiroso 7 smells like salted macadamia nut & vanilla woods. Both are boosted with freshness tech to keep odor in check, so you can reset & refresh anytime, anywhere. .",
       "productType": "bundle-dg",
