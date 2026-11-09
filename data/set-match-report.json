@@ -6464,7 +6464,6 @@
      "scent": "lovely",
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
@@ -12404,6 +12403,7 @@
      "scent": "attitude",
      "signature": "1x100fragrance|1x150wash",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
