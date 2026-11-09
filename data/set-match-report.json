@@ -4809,6 +4809,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3616306129009",
+   "absorbed": [
+    "set-chloe-nomade-gift-set-75ml-edp-5ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616306129009",
+     "brand": "Chloé",
+     "name": "Nomade Gift Set 75ml EDP + 5ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3616306129009",
+     "scent": "nomade",
+     "signature": "1x100body|1x5fragrance|1x75fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-chloe-nomade-gift-set-75ml-edp-5ml-edp-100ml-body-lotion",
+     "brand": "Chloé",
+     "name": "Nomade Gift Set 75ml EDP + 5ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "nomade",
+     "signature": "1x100body|1x5fragrance|1x75fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3616306130746",
    "absorbed": [
     "set-davidoff-cool-water-woman-gift-set-30ml-edt-75ml-body-lotion"
@@ -4998,38 +5030,6 @@
      "signature": "1x15fragrance|1x50wash|1x90fragrance",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3660732069484",
-   "absorbed": [
-    "set-yves-saint-laurent-black-opium-gift-set-edp-spray-50ml-b-lotion-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3660732069484",
-     "brand": "Yves Saint Laurent",
-     "name": "Black Opium Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3660732069484",
-     "scent": "black opium",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-yves-saint-laurent-black-opium-gift-set-edp-spray-50ml-b-lotion-50ml",
-     "brand": "Yves Saint Laurent",
-     "name": "Black Opium Gift Set EDP Spray 50ml + B/Lotion 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "black opium",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
@@ -11368,37 +11368,6 @@
   },
   {
    "reasons": [
-    "price spread 1.64 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-chloe-nomade-gift-set-75ml-edp-5ml-edp-100ml-body-lotion",
-     "brand": "Chloé",
-     "name": "Nomade Gift Set 75ml EDP + 5ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "nomade",
-     "signature": "1x100body|1x5fragrance|1x75fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    },
-    {
-     "id": "set-ean-3616306129009",
-     "brand": "Chloé",
-     "name": "Nomade Gift Set 75ml EDP + 5ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306129009",
-     "scent": "nomade",
-     "signature": "1x100body|1x5fragrance|1x75fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.68 is over 1.5"
    ],
    "members": [
@@ -12455,7 +12424,7 @@
   },
   {
    "reasons": [
-    "price spread 1.93 is over 1.5"
+    "price spread 2.04 is over 1.5"
    ],
    "members": [
     {
@@ -14846,7 +14815,6 @@
      "signature": "1x10travel|1x50body|1x50fragrance",
      "shops": [
       "beautybase",
-      "perfume-click",
       "scentstore"
      ]
     },
