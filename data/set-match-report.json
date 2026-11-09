@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 348,
+ "folded": 347,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -2855,6 +2855,51 @@
    ]
   },
   {
+   "canonical": "set-ean-3423222048464",
+   "absorbed": [
+    "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
+    "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222048464",
+     "brand": "Zadig & Voltaire",
+     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3423222048464",
+     "scent": "is this",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
+     "brand": "Zadig & Voltaire",
+     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "is this",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml",
+     "brand": "Zadig & Voltaire",
+     "name": "This Is Her! Gift Set EDP 50ml + B/Lotion 50ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "is this",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3423222065881",
    "absorbed": [
     "set-dolce-gabbana-light-blue-gift-set-25ml-edt-spray-10ml-edt-spray"
@@ -3343,39 +3388,6 @@
      "signature": "1x100fragrance|1x75body",
      "shops": [
       "beaute-boulevard",
-      "mybeauty-boutique",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3430750039536",
-   "absorbed": [
-    "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750039536",
-     "brand": "Jeanne Arthes",
-     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": "3430750039536",
-     "scent": "js magnetic power",
-     "signature": "1x100fragrance|1x75body|1x75wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm",
-     "brand": "Jeanne Arthes",
-     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "js magnetic power",
-     "signature": "1x100fragrance|1x75body|1x75wash",
-     "shops": [
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -5259,38 +5271,6 @@
      "ean": null,
      "scent": "black opium",
      "signature": "1x10fragrance|1x90fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3660732649709",
-   "absorbed": [
-    "set-giorgio-armani-acqua-di-gio-gift-set-100ml-edt-75ml-deodorant-stick"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3660732649709",
-     "brand": "Giorgio Armani",
-     "name": "Acqua Di Gio Gift Set 100ml EDT + 75ml Deodorant Stick",
-     "concentration": "Eau de Toilette",
-     "ean": "3660732649709",
-     "scent": "acqua di gio",
-     "signature": "1x100fragrance|1x75deo",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-giorgio-armani-acqua-di-gio-gift-set-100ml-edt-75ml-deodorant-stick",
-     "brand": "Giorgio Armani",
-     "name": "Acqua Di Gio Gift Set 100ml EDT + 75ml Deodorant Stick",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "acqua di gio",
-     "signature": "1x100fragrance|1x75deo",
      "shops": [
       "p-eleven"
      ]
@@ -10463,38 +10443,6 @@
    ]
   },
   {
-   "canonical": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
-   "absorbed": [
-    "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
-     "brand": "Zadig & Voltaire",
-     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml",
-     "brand": "Zadig & Voltaire",
-     "name": "This Is Her! Gift Set EDP 50ml + B/Lotion 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-50ml-edp-50ml-body-lotion",
    "absorbed": [
     "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-edp-50ml-b-lotion-50ml"
@@ -14661,6 +14609,38 @@
   },
   {
    "reasons": [
+    "price spread 1.72 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750039536",
+     "brand": "Jeanne Arthes",
+     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "3430750039536",
+     "scent": "js magnetic power",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm",
+     "brand": "Jeanne Arthes",
+     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "js magnetic power",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.59 is over 1.5"
    ],
    "members": [
@@ -15403,7 +15383,7 @@
   {
    "reasons": [
     "two different barcodes: 3616305278319, 3616305447685",
-    "price spread 1.60 is over 1.5"
+    "price spread 1.53 is over 1.5"
    ],
    "members": [
     {
