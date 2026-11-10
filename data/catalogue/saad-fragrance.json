@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-10T11:21:00.255Z",
-  "seenAt": "2026-11-10T11:21:00.255Z",
+  "updatedAt": "2026-11-10T15:10:34.018Z",
+  "seenAt": "2026-11-10T15:10:34.018Z",
   "source": "live",
   "listings": [
     {
@@ -16,7 +16,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
-      "description": null,
+      "description": "Club de Nuit Woman by Armaf is a floral fruity Eau de Parfum with a bright, inviting blend of citrus and peach. Orange, bergamot, grapefruit and peach open the fragrance, followed by a floral heart of rose, jasmine, geranium and litchi. Patchouli, musk, vanilla and vetiver bring a warm, smooth finish. Presented in a 105ml bottle, it’s a versatile scent for women.",
       "productType": "Eau De Parfum",
       "nativePrice": null,
       "retailerId": "saad-fragrance",
@@ -290,7 +290,7 @@
       "priceGbp": 30.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rayhaan Terra 100ml Eau De Parfum combines a complex blend of 40+ aromatic compounds. Its top notes offer citrus and spice for freshness, middle notes provide herbal and floral depth, while the base notes deliver a rich, long-lasting woody and resinous finish, enhancing scent longevity and complexity. .",
       "productType": null,

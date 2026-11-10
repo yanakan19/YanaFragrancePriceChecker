@@ -1,7 +1,7 @@
 {
   "retailerId": "zimaya",
-  "updatedAt": "2026-11-10T11:20:41.224Z",
-  "seenAt": "2026-11-10T11:20:41.224Z",
+  "updatedAt": "2026-11-10T15:09:51.306Z",
+  "seenAt": "2026-11-10T15:09:51.306Z",
   "source": "live",
   "listings": [
     {
@@ -244,7 +244,7 @@
       "priceGbp": 30,
       "wasPriceGbp": 40,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Discover the allure of “Reserved Oud,” a unisex fragrance with a hint of Oud, blending sophistication with oriental richness. . TOP NOTE Agarwood, wild Lavender MID NOTE Vanilla, musk, powdery BASE NOTE Amber, sweet, aromatic . .",
       "productType": "Perfume",
@@ -267,7 +267,7 @@
       "priceGbp": 27,
       "wasPriceGbp": 30,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Al Kaser - A leathery oriental fragrance inspired by the nobility of the Arabian stallion and the royal green fields of the playground. This exhilarating fragrance is a symphony of lavender and bergamot top notes, with middle notes of agarwood and cedarwood and rich undertones of leather, amber, and musk. . TOP NOTE Saffron - Lavender - Bergamot - Artemisia MID NOTE Agarwood (Oud) - Geranium - Lily-of-the-Valley - Cedar - Cypress BASE NOTE Leather -Amber - Musk . .",
       "productType": "Perfume",
@@ -1279,7 +1279,7 @@
       "priceGbp": 26.25,
       "wasPriceGbp": 35,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A bold and sophisticated scent that is perfect for a modern gentleman—fearless, charismatic, and sophisticated. A zesty burst of orange opens the scent, deepened by the luxurious leather and warm amber. The woody notes add depth in the dry-down, creating an irresistible allure. It exudes confidence and elegance, making it an ideal companion for both daytime adventures and evening escapades.. TOP NOTE . Bergamot – Orange MID NOTE Orange Blossom – Iris – Chestnut BASE NOTE Leather – Woody- Amber . .",
       "productType": "Perfume",

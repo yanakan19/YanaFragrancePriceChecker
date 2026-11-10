@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-11-10T11:27:11.538Z",
-  "seenAt": "2026-11-10T11:27:11.538Z",
+  "updatedAt": "2026-11-10T15:17:46.234Z",
+  "seenAt": "2026-11-10T15:17:46.234Z",
   "source": "live",
   "listings": [
     {
@@ -2012,7 +2012,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Built around its amber vanilla character, Nawal Bronzite reveals a fresh, elegant and refined signature designed to leave a lasting impression..",
       "productType": null,
@@ -2039,7 +2039,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Built around its spicy woody character, Nawal Alexandrite reveals a vibrant, elegant and refined signature designed to leave a lasting impression..",
       "productType": null,
@@ -2066,7 +2066,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Built around its fruity floral musk character, Nawal Tanzanite reveals a fresh, vibrant and elegant signature designed to leave a lasting impression..",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-10T11:27:14.597Z",
-  "seenAt": "2026-11-10T11:27:14.597Z",
+  "updatedAt": "2026-11-10T15:17:51.075Z",
+  "seenAt": "2026-11-10T15:17:51.075Z",
   "source": "live",
   "listings": [
     {
@@ -118,7 +118,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "The rush of crossing the finish line. Heart-pumping thrill of the win. Celebration erupts in the street. . . Inspired by rising Brazilian race car driver Aurelia Nobels, this limited-edition signature scent feels like the exhilarating moment after the win. Lively & celebratory notes of Passionfruit Pulp, Red Poppy, & Fresh Coconut come together to capture the unstoppable confidence of blazing your own trail. .",
       "productType": "Fragrance",
