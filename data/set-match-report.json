@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 357,
+ "folded": 354,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -606,39 +606,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0679602148962",
-   "absorbed": [
-    "set-police-potion-power-2-piece-gift-set-eau-de-parfum-30ml-shower-gel-100ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0679602148962",
-     "brand": "Police",
-     "name": "Potion Power Gift Set 30ml EDP + 100ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "0679602148962",
-     "scent": "potion power",
-     "signature": "1x100wash|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-police-potion-power-2-piece-gift-set-eau-de-parfum-30ml-shower-gel-100ml",
-     "brand": "Police",
-     "name": "Potion Power 2 Piece Gift Set: Eau De Parfum 30ml - Shower Gel 100ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "potion power",
-     "signature": "1x100wash|1x30fragrance",
-     "shops": [
-      "mybeauty-boutique",
-      "the-beauty-store-uk"
      ]
     }
    ]
@@ -3485,39 +3452,6 @@
      "signature": "1x100fragrance|1x75body",
      "shops": [
       "beaute-boulevard",
-      "mybeauty-boutique",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3430750039536",
-   "absorbed": [
-    "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750039536",
-     "brand": "Jeanne Arthes",
-     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": "3430750039536",
-     "scent": "js magnetic power",
-     "signature": "1x100fragrance|1x75body|1x75wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm",
-     "brand": "Jeanne Arthes",
-     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "js magnetic power",
-     "signature": "1x100fragrance|1x75body|1x75wash",
-     "shops": [
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -7761,38 +7695,6 @@
      "ean": null,
      "scent": "blanche florale la land man no rose selection tulipe",
      "signature": "3x12fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-7340032905656",
-   "absorbed": [
-    "set-byredo-les-miniatures-gift-set-8ml-rose-of-no-man-s-land-edp-8ml-bal-d-afrique-edp-8ml-blanche-edp-8ml-mojave-ghost-edp-8ml-gypsy-water-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-7340032905656",
-     "brand": "Byredo",
-     "name": "Les Miniatures Gift Set 8ml Rose of No Man's Land EDP + 8ml Bal d'Afrique EDP + 8ml Blanche EDP + 8ml Mojave Ghost EDP + 8ml Gypsy Water EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "7340032905656",
-     "scent": "afrique bal blanche d ghost gypsy land les man mojave no rose water",
-     "signature": "1x8travel|4x8fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-byredo-les-miniatures-gift-set-8ml-rose-of-no-man-s-land-edp-8ml-bal-d-afrique-edp-8ml-blanche-edp-8ml-mojave-ghost-edp-8ml-gypsy-water-edp",
-     "brand": "Byredo",
-     "name": "Les Miniatures Gift Set 8ml Rose of No Man's Land EDP + 8ml Bal d'Afrique EDP + 8ml Blanche EDP + 8ml Mojave Ghost EDP + 8ml Gypsy Water EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "afrique bal blanche d ghost gypsy land les man mojave no rose water",
-     "signature": "1x8travel|4x8fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -14917,7 +14819,39 @@
   },
   {
    "reasons": [
-    "price spread 1.59 is over 1.5"
+    "price spread 1.72 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750039536",
+     "brand": "Jeanne Arthes",
+     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "3430750039536",
+     "scent": "js magnetic power",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-js-magnetic-power-gift-set-100ml-edt-75ml-shower-gel-75ml-aftershave-balm",
+     "brand": "Jeanne Arthes",
+     "name": "Js Magnetic Power Gift Set 100ml EDT + 75ml Shower Gel + 75ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "js magnetic power",
+     "signature": "1x100fragrance|1x75body|1x75wash",
+     "shops": [
+      "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.70 is over 1.5"
    ],
    "members": [
     {
