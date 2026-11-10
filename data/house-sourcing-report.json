@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-10T07:17:14.531Z",
+  "checkedAt": "2026-11-10T11:27:20.298Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -163,9 +163,9 @@
       "origin": "https://surrati.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 92,
+      "listings": 97,
       "pricedInGbp": 0,
-      "withPhoto": 91,
+      "withPhoto": 96,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

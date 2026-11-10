@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-10T07:10:44.403Z",
-  "seenAt": "2026-11-10T07:10:44.403Z",
+  "updatedAt": "2026-11-10T11:21:00.255Z",
+  "seenAt": "2026-11-10T11:21:00.255Z",
   "source": "live",
   "listings": [
     {
@@ -1302,7 +1302,7 @@
       "priceGbp": 36.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Paco Rabanne Pure XS For Her is a warm and rich fragrance created for customers who enjoy a deeper, longer-lasting scent. It opens with a bold first impression, develops into a polished heart, and settles into a smooth, seductive base. Suitable for evening and special occasions, this fragrance offers an elegant and confident aura.. Why customers choose it . Well-suited for cooler weather and dressier occasions. A great option for evening wear and special moments. Designed for customers who prefer warm and expressive scents.",
       "productType": "Eau de Parfum",

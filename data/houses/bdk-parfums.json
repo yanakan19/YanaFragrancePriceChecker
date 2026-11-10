@@ -1,7 +1,7 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-11-10T07:17:07.588Z",
-  "seenAt": "2026-11-10T07:17:07.588Z",
+  "updatedAt": "2026-11-10T11:27:13.101Z",
+  "seenAt": "2026-11-10T11:27:13.101Z",
   "source": "live",
   "listings": [
     {
@@ -1730,7 +1730,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Extrait de Parfum.",
       "productType": "eau de parfum",

@@ -1,7 +1,7 @@
 {
   "retailerId": "pairfum-london",
-  "updatedAt": "2026-11-10T07:12:05.017Z",
-  "seenAt": "2026-11-10T07:12:05.017Z",
+  "updatedAt": "2026-11-10T11:22:14.760Z",
+  "seenAt": "2026-11-10T11:22:14.760Z",
   "source": "live",
   "listings": [
     {
@@ -8150,6 +8150,28 @@
       "variantId": null
     },
     {
+      "retailerSku": "5050515310090",
+      "url": "https://www.pairfum.com/product/home-fragrance-library-room-perfume-experience-box/",
+      "rawTitle": "Home Fragrance Library | Room Perfume Experience Box",
+      "rawBrand": "Pairfum",
+      "ean": null,
+      "imageUrl": null,
+      "description": "Experience Room Perfume in a completely different way and discover which Home Fragrances are ideal for your home: try them at home and without the perfume cloud of the candle &amp; diffuser isle that blocks &amp; taints your nose, in your own time, without any rush or pressure, see how long they last in the air, and which ones best compliment you &amp; your home? Rediscover the magic of room perfume and fall in love: A collection of 12 x Home Fragrances, exquisitely presented as a gift and treat. Each bottle contains approx 100 x sprays, enough to spray each perfume several times per day into the air for 1 x week. Natural &amp; Handmade | Essential Oils | Vegan | Cruelty-free | Eco-Friendly Enjoy the luxury of discovering all facettes and layers of each perfume fully. Box Content: 24 ml = 12 x 2 ml bottles ( 0.85 fl oz = 12 x 0.07 fl oz ) = a quarter of the full-sized room fragrance bottle 50 x smelling strips to easily sample each perfume 100% Happiness Guarantee:We understand that shopping online for a new perfume is different, which is why we offer our 100% Happiness Guarantee.",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "retailerId": "pairfum-london",
+      "firstSeenAt": "2026-11-10T11:22:14.760Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
       "retailerSku": "15050515605",
       "url": "https://www.pairfum.com/product/wholesale-carton-reed-diffuser-refill/",
       "rawTitle": "Wholesale Carton - Reed Diffuser Refill",
@@ -10879,6 +10901,7 @@
       "rating": null,
       "retailerId": "pairfum-london",
       "firstSeenAt": "2026-11-09T19:13:21.168Z",
+      "lastSeenAt": "2026-11-10T07:12:05.017Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,

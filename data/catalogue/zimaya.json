@@ -1,7 +1,7 @@
 {
   "retailerId": "zimaya",
-  "updatedAt": "2026-11-10T07:10:50.613Z",
-  "seenAt": "2026-11-10T07:10:50.613Z",
+  "updatedAt": "2026-11-10T11:20:41.224Z",
+  "seenAt": "2026-11-10T11:20:41.224Z",
   "source": "live",
   "listings": [
     {
@@ -267,7 +267,7 @@
       "priceGbp": 27,
       "wasPriceGbp": 30,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Al Kaser - A leathery oriental fragrance inspired by the nobility of the Arabian stallion and the royal green fields of the playground. This exhilarating fragrance is a symphony of lavender and bergamot top notes, with middle notes of agarwood and cedarwood and rich undertones of leather, amber, and musk. . TOP NOTE Saffron - Lavender - Bergamot - Artemisia MID NOTE Agarwood (Oud) - Geranium - Lily-of-the-Valley - Cedar - Cypress BASE NOTE Leather -Amber - Musk . .",
       "productType": "Perfume",
