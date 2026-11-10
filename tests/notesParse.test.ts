@@ -446,3 +446,16 @@ describe('parseNotes: tiers written compactly, without the word "notes" after ea
     expect(parseNotes('Top notes: Bergamot. Middle notes: Rose. Base notes: Musk.')).toEqual({ top: ['Bergamot'], middle: ['Rose'], base: ['Musk'] });
   });
 });
+
+describe('a shop that writes its labels without colons (Soghaat)', () => {
+  it('ends the last list at a bare "Fragrance Profile" heading', () => {
+    const got = parseNotes('Scent Composition . Top Notes Red Berries, Raspberry Heart Notes Rose Base Notes White Musk, Vanilla Fragrance Profile . Type Eau de Parfum Olfactory Direction Fruity, floral');
+    expect(got).toEqual({ top: ['Red Berries', 'Raspberry'], middle: ['Rose'], base: ['White Musk', 'Vanilla'] });
+  });
+
+  it('reads a placeholder tier as empty, and a pyramid of placeholders as no notes', () => {
+    expect(parseNotes('Top Notes Bergamot . Heart Notes Not specified . Base Notes N/A .')).toEqual({ top: ['Bergamot'], middle: [], base: [] });
+    expect(parseNotes('Scent Composition . Top Notes Not specified . Heart Notes Not specified . Base Notes Not specified . . Olfactory Direction Woody')).toBeNull();
+    expect(parseNotes('Top notes: None. Middle notes: Unknown. Base notes: Not specified.')).toBeNull();
+  });
+});

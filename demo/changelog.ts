@@ -46,6 +46,16 @@ export function homeHighlights(entry: ChangelogEntry): string[] {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.117.0',
+    date: '10 Nov 2026',
+    groups: [
+      {
+        heading: 'Fixes',
+        points: ['Cleaner scent notes on Soghaat perfumes'],
+      },
+    ],
+  },
+  {
     version: 'v3.116.0',
     date: '4 Nov 2026',
     groups: [

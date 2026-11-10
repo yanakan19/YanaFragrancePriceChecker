@@ -1,6 +1,6 @@
 {
  "note": "Written by npm run catalogue:demo. The catalogue modules are built from exactly these data inputs (git blob ids), with this clock, wherever they are read (scripts/catalogueBuild.ts); never edit by hand.",
- "builtAt": "2026-11-10T19:42:10.153Z",
+ "builtAt": "2026-11-10T21:27:00.609Z",
  "files": {
   "data/better-photos.json": "2b1d444a22c4a7ef5db164a8f1d146e2c5881c04",
   "data/catalogue/al-haramain.json": "4399436b03ea070379ce93f7df59cef7ae1c41e2",
@@ -103,7 +103,7 @@
   "data/id-aliases.json": "1cbf5e4a04c0bbde515309fe770fe8790ee02e8b",
   "data/image-box-verdicts.json": "f44aebb359143367931fa461990a53b0c86d3d29",
   "data/note-aliases.json": "7fc4b8f4ba71c29993580bd732815fe7a2d0b6b8",
-  "data/note-not-a-note.json": "aed2513264555cf20392c82d0aa5098b1cfcc715",
+  "data/note-not-a-note.json": "1aea87ea989e063c380cb00796ff5f3305a93294",
   "data/product-slugs.json": "07e943424e88972cf5b0004a97e08a2ea473b272"
  }
 }

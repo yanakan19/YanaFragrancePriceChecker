@@ -280,6 +280,19 @@ function parseLabelledNotes(descriptionRaw: string): ParsedNotes | null {
     'ideal',
     'linger',
     'lingers',
+    // A shop's placeholder for a tier it has no notes for ("Top Notes Not
+    // specified", Soghaat, 150 products): no note, so the tier stays empty.
+    'not specified',
+    'not available',
+    'not applicable',
+    'not listed',
+    'not stated',
+    'unspecified',
+    'unknown',
+    'none',
+    'n/a',
+    'tbc',
+    'tba',
   ]);
 
   /**
@@ -516,9 +529,15 @@ function parseLabelledNotes(descriptionRaw: string): ParsedNotes | null {
   // Capitalised on purpose, and only after a lower case letter, so a word that
   // merely ends in one of these is never cut.
   const GLUED_FIELD_LABEL = /(?<=[a-z])(?:Fragrance\s+(?:Type|Family|Profile|Character)|Why\s+You|Launched\s*:)/;
+  // A shop that writes its labels without colons (Soghaat: "Base Notes White
+  // Musk, Vanilla Fragrance Profile . Type Eau de Parfum") ends the last list
+  // with this heading and no colon, so it rode in as "Vanilla Fragrance Profile"
+  // (64 products). The words are a heading wherever they follow a space; no
+  // note is called "Fragrance Profile".
+  const BARE_PROFILE_HEADING = /\sfragrance\s+profile\b/i;
   const cutAtFieldLabel = (s: string): string => {
     const at = Math.min(
-      ...[s.search(FIELD_LABEL), s.search(GLUED_FIELD_LABEL)].map((i) => (i === -1 ? s.length : i)),
+      ...[s.search(FIELD_LABEL), s.search(GLUED_FIELD_LABEL), s.search(BARE_PROFILE_HEADING)].map((i) => (i === -1 ? s.length : i)),
     );
     return s.slice(0, at);
   };
@@ -551,9 +570,12 @@ function parseLabelledNotes(descriptionRaw: string): ParsedNotes | null {
    * real list: that occurrence still wins, unchanged. Checked against
    * Emirates Oud's Hawas Elixir listing, which has exactly this shape.
    */
-  const extractSection = (label: string, connector: string, cutFor: 'heading' | 'any'): string[] => {
+  const extractSection = (label: string, connector: string, cutFor: 'heading' | 'any', bareEnd = false): string[] => {
+    // A shop that writes its labels with no colon (Soghaat: "Top Notes Red Berries Heart Notes Rose") ends a
+    // section at the next label all the same; only the last pass below asks for that.
+    const end = bareEnd ? '' : '\\s*:';
     const re = new RegExp(
-      `${label}\\s*${connector}\\s*([\\s\\S]*?)(?=(?:top|head|middle|heart|base|bottom)\\s+notes?\\s*:|$)`,
+      `${label}\\s*${connector}\\s*([\\s\\S]*?)(?=(?:top|head|middle|heart|base|bottom)\\s+notes?${end}|$)`,
       'gi',
     );
     let m: RegExpExecArray | null;
@@ -647,7 +669,7 @@ function parseLabelledNotes(descriptionRaw: string): ParsedNotes | null {
     if (strict.length > 0) return strict;
     const cut = extractSection(label, ':', 'any');
     if (cut.length > 0) return cut;
-    return extractSection(label, '(?::|\\b(?:are|is|include[s]?|of)\\b)?', 'any');
+    return extractSection(label, '(?::|\\b(?:are|is|include[s]?|of)\\b)?', 'any', true);
   };
 
   const top = section('(?:top|head)\\s+notes?');
