@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-10T15:10:34.018Z",
-  "seenAt": "2026-11-10T15:10:34.018Z",
+  "updatedAt": "2026-11-10T18:43:44.504Z",
+  "seenAt": "2026-11-10T18:43:44.504Z",
   "source": "live",
   "listings": [
     {
@@ -80,7 +80,7 @@
       "rawBrand": "Armaf",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0820/7997/3699/files/Club-de-Nuit-Timeless-Perfume-100ml-EDP-Armaf-283560335_jpg.webp?v=1794233494",
-      "priceGbp": 43.99,
+      "priceGbp": 41.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
       "inStock": true,

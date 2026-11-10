@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-11-10T15:09:51.306Z",
-  "seenAt": "2026-11-10T15:09:51.306Z",
+  "updatedAt": "2026-11-10T18:43:59.440Z",
+  "seenAt": "2026-11-10T18:43:59.440Z",
   "source": "live",
   "listings": [
     {
@@ -1394,7 +1394,7 @@
       "priceGbp": 36,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Amber Empire is a luxurious oriental-amber fragrance that radiates warmth, richness, and sensual sophistication. The top opens with a smooth blend of oriental accords, cashmere wood, vanilla wood, and a hint of liquorous sweetness. The heart reveals elegant cedarwood, golden amber, and cane sugar, creating a luminous depth. The base of musk, tonka beans, labdanum, and sandalwood leaves a creamy, long-lasting trail of refined opulence. .",
       "productType": "Storable Product",

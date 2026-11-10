@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-10T15:09:51.306Z",
-  "seenAt": "2026-11-10T15:09:51.306Z",
+  "updatedAt": "2026-11-10T18:43:59.440Z",
+  "seenAt": "2026-11-10T18:43:59.440Z",
   "source": "live",
   "listings": [
     {
@@ -382,7 +382,7 @@
       "priceGbp": 7.99,
       "wasPriceGbp": 26,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Eternity Aqua for Men Eau de Toilette 20ml. Key Features. ##features##. Fresh aquatic fragrance for men.. Crisp cucumber, citrus and lotus opening.. Aromatic heart with lavender and cedar.. Smooth base of sandalwood, patchouli and musk.. Compact 20ml travel size.. Ideal for spring, summer and everyday wear.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Calvin Klein Eternity Aqua for Men Eau de Toilette is a clean and refreshing fragrance inspired by the power of water. Combining aquatic freshness with aromatic herbs and warm woods, this versatile scent offers a modern interpretation of masculinity that is perfect for everyday wear and travel.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists and neck.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. Flammable liquid and vapour; avoid contact with eyes and flames; external use only.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -1187,7 +1187,7 @@
       "priceGbp": 7.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Vera Wang Embrace French Lavender & Tuberose 30ml Eau De Toilette Spray. Key Features. ##features##. Romantic floral fragrance combining soothing French lavender with lush, captivating tuberose for a soft, feminine scent. Fresh opening notes of calming lavender and neroli for an instantly relaxing aromatic start. Elegant heart notes featuring tuberose blended with coconut and iris, creating a warm, creamy floral core. Long lasting base of sandalwood, vanilla, and cotton musk, delivering a smooth, comforting finish throughout the day. Floral fragrance family offering a soft, romantic, calming character ideal for daily wear and evening occasions. Perfect 30ml size — travel friendly, handbag ready, and ideal for gifting or everyday use. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Discover effortless elegance with Vera Wang Embrace French Lavender & Tuberose Eau De Toilette 30ml, a beautifully soft floral fragrance designed for women who adore calming, romantic scents. This enchanting perfume opens with soothing French lavender and refreshing neroli, creating a gentle aromatic introduction that instantly relaxes the senses. At the heart of the fragrance, a captivating blend of tuberose, coconut, and iris unfolds, offering a creamy, feminine floral bouquet that feels both modern and comforting. These notes work together to create a warm, sensual floral profile perfect for everyday wear or special moments. As the scent settles, it reveals a beautifully soft base of sandalwood, vanilla, and cotton musk, leaving behind a smooth, lingering trail that enhances your natural elegance throughout the day. This floral herbal blend is crafted for women who appreciate serenity, sophistication, and timeless beauty in their fragrance wardrobe. Packaged in a chic, minimalist 30ml Eau de Toilette bottle, Vera Wang Embrace French Lavender & Tuberose is the perfect everyday signature scent — ideal as a thoughtful gift or a treat for yourself. Its versatile floral notes make it suitable for both casual daytime wear and romantic evening occasions.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-10T15:10:34.018Z",
-  "seenAt": "2026-11-10T15:10:34.018Z",
+  "updatedAt": "2026-11-10T18:43:44.504Z",
+  "seenAt": "2026-11-10T18:43:44.504Z",
   "source": "live",
   "listings": [
     {
@@ -1690,8 +1690,8 @@
       "rawBrand": "Beauty Pie",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/YOUTHBOMB_SCALP_SERUM_PDP_PACKSHOT_2025_WEB.jpg?v=1783341823",
-      "priceGbp": 32.4,
-      "wasPriceGbp": 40,
+      "priceGbp": 40,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -11781,7 +11781,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "81321",
+      "retailerSku": "190019",
       "url": "https://beautypie.com/products/collagen-lip-oil",
       "rawTitle": "Wondergloss Collagen Lip Oil + Nude Nectar (Warm Light Brown Nude)",
       "rawBrand": "Beauty Pie",
@@ -11796,11 +11796,11 @@
       "productType": "Makeup",
       "nativePrice": null,
       "retailerId": "beauty-pie",
-      "firstSeenAt": "2026-10-03T06:48:32.122Z",
+      "firstSeenAt": "2026-11-10T18:43:44.504Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -12466,6 +12466,30 @@
       "firstSeenAt": "2026-10-03T06:48:32.122Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "81321",
+      "url": "https://beautypie.com/products/collagen-lip-oil",
+      "rawTitle": "Wondergloss Collagen Lip Oil + Nude Nectar (Warm Light Brown Nude)",
+      "rawBrand": "Beauty Pie",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/V2_WonderglossCollagenLipOil_NudeNector__190019_PDP_Packshot_1x1_2025_Web.jpg?v=1783337175",
+      "priceGbp": 25,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "shopify-products-json",
+      "description": "Imported from Italy, this supercharged lip oil gives a sheer kiss of colour, with a shiny, balmy, hydrating finish. Not-at-all-sticky, it’s infused with Collagen AC Micro-Vectors, antioxidant Cherry and Hibiscus oils & a hint of shimmer. In just one swipe, lips look visibly plumped, moisturised and irresistibly dewy.. Clean and cruelty free (of course)..",
+      "productType": "Makeup",
+      "nativePrice": null,
+      "retailerId": "beauty-pie",
+      "firstSeenAt": "2026-10-03T06:48:32.122Z",
+      "lastSeenAt": "2026-11-10T15:10:34.018Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-10T18:43:44.504Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

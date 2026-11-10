@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-10T15:17:53.690Z",
-  "seenAt": "2026-11-10T15:17:53.690Z",
+  "updatedAt": "2026-11-10T18:52:12.230Z",
+  "seenAt": "2026-11-10T18:52:12.230Z",
   "source": "live",
   "listings": [
     {
@@ -11,7 +11,7 @@
       "rawBrand": "The Body Shop",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/BUNDLE_MINIS_Vegan.jpg?v=1794319858",
-      "priceGbp": 34.32,
+      "priceGbp": 34,
       "wasPriceGbp": 44,
       "promoEndsAt": null,
       "inStock": true,
