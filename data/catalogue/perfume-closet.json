@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-11-09T19:11:58.540Z",
-  "seenAt": "2026-11-09T19:11:58.540Z",
+  "updatedAt": "2026-11-09T23:13:50.348Z",
+  "seenAt": "2026-11-09T23:13:50.348Z",
   "source": "live",
   "listings": [
     {
@@ -6592,7 +6592,7 @@
       "priceGbp": 50,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Top Note: Lemon . Heart Notes: Jasmin, Almonds . Base Note: Oakmoss, Ambergris, Musk . An intense interpretation of the Majesty of Love.. True Love - Majestic Love.. A love so big that it fills your whole world.. A love so magical, that to someone you can mean the world. . .",
       "productType": null,
