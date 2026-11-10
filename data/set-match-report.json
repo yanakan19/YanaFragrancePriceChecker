@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 354,
+ "folded": 352,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -990,38 +990,6 @@
      "signature": "1x75fragrance|1x8fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0849017005963",
-   "absorbed": [
-    "set-mustang-ford-mustang-gift-set-100ml-edt-100ml-aftershave-balm-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017005963",
-     "brand": "Mustang",
-     "name": "Ford Mustang Gift Set 100ml EDT + 100ml Aftershave Balm + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "0849017005963",
-     "scent": "ford mustang",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-mustang-ford-mustang-gift-set-100ml-edt-100ml-aftershave-balm-100ml-shower-gel",
-     "brand": "Mustang",
-     "name": "Ford Mustang Gift Set 100ml EDT + 100ml Aftershave Balm + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "ford mustang",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "p-eleven"
      ]
     }
    ]
@@ -9436,13 +9404,12 @@
     {
      "id": "set-ean-8411061092545",
      "brand": "Carolina Herrera",
-     "name": "Bad Boy Gift Set 100ml EDT + 10ml EDT + 100ml Deodorant Spray",
+     "name": "Bad Boy Men's Gift Set (100ml EDT + 100ml Deodorant Spray + 10ml EDT)",
      "concentration": "Eau de Toilette",
      "ean": "8411061092545",
      "scent": "bad boy",
      "signature": "1x100deo|1x100fragrance|1x10fragrance",
      "shops": [
-      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -10168,38 +10135,6 @@
      "signature": "1x10fragrance|1x200fragrance",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8436581946246",
-   "absorbed": [
-    "set-reebok-cool-your-body-women-gift-set-100ml-edt-150ml-body-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8436581946246",
-     "brand": "Reebok",
-     "name": "Cool Your Body Women Gift Set 100ml EDT + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "8436581946246",
-     "scent": "body cool your",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-reebok-cool-your-body-women-gift-set-100ml-edt-150ml-body-spray",
-     "brand": "Reebok",
-     "name": "Cool Your Body Women Gift Set 100ml EDT + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "body cool your",
-     "signature": "1x100fragrance|1x150body",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -16882,6 +16817,37 @@
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "move spirit your",
+     "signature": "1x100fragrance|1x150body",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.62 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8436581946246",
+     "brand": "Reebok",
+     "name": "Cool Your Body Women Gift Set 100ml EDT + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "8436581946246",
+     "scent": "body cool your",
+     "signature": "1x100fragrance|1x150body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-reebok-cool-your-body-women-gift-set-100ml-edt-150ml-body-spray",
+     "brand": "Reebok",
+     "name": "Cool Your Body Women Gift Set 100ml EDT + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "body cool your",
      "signature": "1x100fragrance|1x150body",
      "shops": [
       "mybeauty-boutique"
