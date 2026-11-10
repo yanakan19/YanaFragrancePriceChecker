@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-10T03:21:53.911Z",
-  "seenAt": "2026-11-10T03:21:53.911Z",
+  "updatedAt": "2026-11-10T07:10:44.403Z",
+  "seenAt": "2026-11-10T07:10:44.403Z",
   "source": "live",
   "listings": [
     {
@@ -37,7 +37,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "For tobacco lovers, this collection is designed to captivate your senses with every whiff! Nine unique fragrances inspired by the finest tobacco from around the world, carefully curated by IBRAQ (Ibrahim Al Qurashi) in an elegant box that matches your refined taste.. The collection includes: . • Mexican Tobacco. • Jamaican Tobacco. • Cuban Tobacco. • Dominican Tobacco. • Greek Tobacco. • Spanish Tobacco. • Arabian Tobacco. • French Tobacco. • Brazilian Tobacco. 9 × 1 0 ml of excellence in your hands! .",
       "productType": "Arabic Perfumes",
