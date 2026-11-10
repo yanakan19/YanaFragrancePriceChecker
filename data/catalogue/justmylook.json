@@ -1,7 +1,7 @@
 {
   "retailerId": "justmylook",
-  "updatedAt": "2026-11-10T18:43:44.504Z",
-  "seenAt": "2026-11-10T18:43:44.504Z",
+  "updatedAt": "2026-11-10T22:44:31.213Z",
+  "seenAt": "2026-11-10T22:44:31.213Z",
   "source": "live",
   "listings": [
     {
@@ -494,7 +494,7 @@
       "sectionId": "sitemap",
       "rating": {
         "value": 4.7,
-        "count": 138
+        "count": 139
       },
       "retailerId": "justmylook",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
@@ -10888,7 +10888,7 @@
       "priceGbp": 16.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -26612,7 +26612,7 @@
       "priceGbp": 12.79,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -29315,7 +29315,7 @@
       "priceGbp": 53.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",

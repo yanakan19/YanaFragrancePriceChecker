@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-10T18:46:47.394Z",
-  "seenAt": "2026-11-10T18:46:47.394Z",
+  "updatedAt": "2026-11-10T22:46:09.009Z",
+  "seenAt": "2026-11-10T22:46:09.009Z",
   "source": "live",
   "listings": [
     {
@@ -533,32 +533,6 @@
       "nativeWasPrice": 799,
       "retailerId": "assaf",
       "firstSeenAt": "2026-10-28T14:41:38.229Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "PKG-WLPG-BKPG-PRPG",
-      "url": "https://assaf.ae/products/prerpacked-pegasus-package",
-      "rawTitle": "PEGASUS COLLECTION PACK",
-      "rawBrand": "Assaf",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/996d8ae1-3220-4cae-88a4-a576f18c1f4b-1000x1000-ofj1GFbuXN3FyQ7V7JGkH8UmN4J49c9bBIxYz4SY.jpg?v=1766583332",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": ". . . . A gift that is like a painting drawn by creative fingers, to be more than just a gift... it is a promise of a scent that captivates the senses. . . . . Pegasus Wild - 100 ml . Like a whirlwind of elegance unleashed without restraint, Pegasus Wild carries within it the essence of absolute freedom, where power blends with mystery in a captivating combination that knows no bounds. . Ingredients: Italian bergamot, pink pepper, roses, jasmine, orange blossom, amber, sandalwood, patchouli, vanilla . . Pegasus Incense - 100 ml . Like a wing that takes you soaring to worlds of luxury and mystery, where legend meets fragrance in an endless dance. Pegasus Incense is not just a perfume, but a poem written with the scent of luxurious incense. . Ingredients: Saffron, Cardamom, Cinnamon, Roses, Sandalwood, Oud, Amber, Musk, Leather . . Pegasus Porrino - 100 ml . Like a cloud of purity embracing the horizon, Pegasus Purino carries within it a hidden charm that combines authenticity and modernity, where strength meets luxury in harmony that tells a story of prestige and attraction. . Ingredients: Mandarin, orange, peach, strawberry, jasmine, amber, patchouli, sandalwood . .",
-      "productType": "unisex",
-      "nativePrice": {
-        "amount": 999,
-        "currency": "AED"
-      },
-      "retailerId": "assaf",
-      "firstSeenAt": "2026-10-25T15:41:16.223Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -5521,6 +5495,33 @@
       "delistedAt": null,
       "relistedAt": "2026-10-24T14:21:19.119Z",
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "PKG-WLPG-BKPG-PRPG",
+      "url": "https://assaf.ae/products/prerpacked-pegasus-package",
+      "rawTitle": "PEGASUS COLLECTION PACK",
+      "rawBrand": "Assaf",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/996d8ae1-3220-4cae-88a4-a576f18c1f4b-1000x1000-ofj1GFbuXN3FyQ7V7JGkH8UmN4J49c9bBIxYz4SY.jpg?v=1766583332",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": ". . . . A gift that is like a painting drawn by creative fingers, to be more than just a gift... it is a promise of a scent that captivates the senses. . . . . Pegasus Wild - 100 ml . Like a whirlwind of elegance unleashed without restraint, Pegasus Wild carries within it the essence of absolute freedom, where power blends with mystery in a captivating combination that knows no bounds. . Ingredients: Italian bergamot, pink pepper, roses, jasmine, orange blossom, amber, sandalwood, patchouli, vanilla . . Pegasus Incense - 100 ml . Like a wing that takes you soaring to worlds of luxury and mystery, where legend meets fragrance in an endless dance. Pegasus Incense is not just a perfume, but a poem written with the scent of luxurious incense. . Ingredients: Saffron, Cardamom, Cinnamon, Roses, Sandalwood, Oud, Amber, Musk, Leather . . Pegasus Porrino - 100 ml . Like a cloud of purity embracing the horizon, Pegasus Purino carries within it a hidden charm that combines authenticity and modernity, where strength meets luxury in harmony that tells a story of prestige and attraction. . Ingredients: Mandarin, orange, peach, strawberry, jasmine, amber, patchouli, sandalwood . .",
+      "productType": "unisex",
+      "nativePrice": {
+        "amount": 999,
+        "currency": "AED"
+      },
+      "retailerId": "assaf",
+      "firstSeenAt": "2026-10-25T15:41:16.223Z",
+      "lastSeenAt": "2026-11-10T18:46:47.394Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-10T22:46:09.009Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {

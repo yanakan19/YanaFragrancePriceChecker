@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-10T18:43:44.504Z",
-  "seenAt": "2026-11-10T18:43:44.504Z",
+  "updatedAt": "2026-11-10T22:44:31.213Z",
+  "seenAt": "2026-11-10T22:44:31.213Z",
   "source": "live",
   "listings": [
     {
@@ -3901,7 +3901,7 @@
       "priceGbp": 110,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Discover the distinctive character of Kilian Paris Midnight Espresso Eau De Parfum, a sophisticated unisex fragrance with an expressive and refined presence. Presented in a generous 75ml size, it offers a luxurious addition to an everyday or evening fragrance collection..",
       "productType": "Unisex Fragrance",
@@ -12158,7 +12158,7 @@
       "priceGbp": 94.5,
       "wasPriceGbp": 126,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the feminine character of Marc Jacobs Just Perfect Eau De Parfum, a polished fragrance with an expressive and contemporary presence. Designed to bring a distinctive finishing touch to the everyday beauty ritual, it makes an elegant addition to a fragrance collection..",
       "productType": "Women's Fragrances",
@@ -15194,7 +15194,7 @@
       "priceGbp": 59.5,
       "wasPriceGbp": 85,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Wanted Forever Elixir Parfum 50ml by Azzaro is a unisex fragrance that combines warm, spicy, and fresh notes to create a distinctive and memorable scent. Its long-lasting formula ensures you stay surrounded by a balanced aroma suitable for both day and evening wear. This parfum is perfect for anyone looking for a versatile and captivating fragrance..",
       "productType": "Unisex Fragrance",

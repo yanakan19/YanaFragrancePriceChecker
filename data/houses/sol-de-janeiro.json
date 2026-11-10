@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-10T18:52:09.710Z",
-  "seenAt": "2026-11-10T18:52:09.710Z",
+  "updatedAt": "2026-11-10T22:51:41.821Z",
+  "seenAt": "2026-11-10T22:51:41.821Z",
   "source": "live",
   "listings": [
     {
@@ -14280,32 +14280,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "MR080800",
-      "url": "https://soldejaneiro.com/products/trashie-take-back-bag",
-      "rawTitle": "Trashie Take Back Bag™",
-      "rawBrand": "Sol de Janeiro",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_MERCH_Trashie_Bag_OVERHEAD_RGB_1452X1452_jpg.jpg?v=1788867519",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "We’ve partnered with Trashie , a company that shares our commitment to the environ men t , to giv e Sol Babes a new way to be sustainable . . Simply fill your Trashie Take Back Bag™ with unwanted clothing, textiles, or cosmetic bags to keep them out of landfills and sent for proper recycling, upcycling, or reuse. . How It Works: Once you receive your Trashie Take Back Bag™, fill it with up to 15 lbs of unwanted clothing, textiles, or cosmetic bags (even items that are worn or damaged). Next, scan the QR code that is on the bag, select either a shipping label or QR code to return the bag, and follow instructions for drop off. Trashie will do the hard work of making sure your donations are properly recycled, upcycled, or reused, keeping them out of landfills. . . Final Sale . .",
-      "productType": null,
-      "nativePrice": {
-        "amount": 20,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-08-05T18:12:07.600Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "BN004400",
       "url": "https://soldejaneiro.com/products/jelly-perfume-balm-trio",
       "rawTitle": "Jelly Perfume Balm Quad",
@@ -18281,6 +18255,33 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "MR080800",
+      "url": "https://soldejaneiro.com/products/trashie-take-back-bag",
+      "rawTitle": "Trashie Take Back Bag™",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_MERCH_Trashie_Bag_OVERHEAD_RGB_1452X1452_jpg.jpg?v=1788867519",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "We’ve partnered with Trashie , a company that shares our commitment to the environ men t , to giv e Sol Babes a new way to be sustainable . . Simply fill your Trashie Take Back Bag™ with unwanted clothing, textiles, or cosmetic bags to keep them out of landfills and sent for proper recycling, upcycling, or reuse. . How It Works: Once you receive your Trashie Take Back Bag™, fill it with up to 15 lbs of unwanted clothing, textiles, or cosmetic bags (even items that are worn or damaged). Next, scan the QR code that is on the bag, select either a shipping label or QR code to return the bag, and follow instructions for drop off. Trashie will do the hard work of making sure your donations are properly recycled, upcycled, or reused, keeping them out of landfills. . . Final Sale . .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 20,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-08-05T18:12:07.600Z",
+      "lastSeenAt": "2026-11-10T18:52:09.710Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-10T22:51:41.821Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
