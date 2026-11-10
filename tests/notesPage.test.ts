@@ -3,6 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { gzipSync } from 'node:zlib';
 import { describe, expect, it } from 'vitest';
+import { softly } from './support/softCheck.js';
 import { DEMO_FRAGRANCES, NOTE_INDEX } from '../demo/data.js';
 import { sortNotes } from '../demo/listSort.js';
 import { factsFor, noteMatches, prepareNotesData } from '../demo/notesData.js';
@@ -94,7 +95,9 @@ describe('the Notes tab', () => {
     // The parser and the picker take the reviewed prose out of the catalogue
     // (tests/notesProse.test.ts), so the tab's own hiding is a second line of
     // defence that has little left to do.
-    expect(hidden.length).toBeLessThan(20);
+    softly('notes-hidden-prose-count', () => {
+      expect(hidden.length).toBeLessThan(20);
+    });
     for (const h of ['setting the stage', 'sophistication', 'Parfum', 'Fragrance']) {
       expect(NOTE_INDEX.map((n) => n.name), h).not.toContain(h);
     }

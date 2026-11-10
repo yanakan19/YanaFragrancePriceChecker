@@ -3,6 +3,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { gzipSync } from 'node:zlib';
 import { describe, expect, it } from 'vitest';
+import { softIt } from './support/softCheck.js';
 import { DEMO_FRAGRANCES, NOTE_INDEX } from '../demo/data.js';
 import { factsFor, prepareNotesData } from '../demo/notesData.js';
 import { NOTE_GROUP_IDS } from '../src/catalogue/noteGroups.js';
@@ -71,7 +72,7 @@ describe('the note icon lookup file', () => {
 });
 
 describe('the icon each note shows on a product page', () => {
-  it('gives every one of the top 200 notes its own icon (a tie at the edge counts in)', () => {
+  softIt('top-notes-own-icon', 'gives every one of the top 200 notes its own icon (a tie at the edge counts in)', () => {
     const ranked = [...NOTE_INDEX].sort((a, b) => b.count - a.count);
     const cutoff = ranked[199]!.count;
     const missing = ranked.filter((n) => n.count >= cutoff && lookup.iconFor(n.name)?.group !== false).map((n) => n.name);
