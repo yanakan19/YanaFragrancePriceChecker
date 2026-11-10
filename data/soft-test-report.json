@@ -14,6 +14,12 @@
       "message": "expected 71 to be less than 20"
     },
     {
+      "check": "are-a-few-hundred-with-the-owner",
+      "file": "tests/perfumeOil.test.ts",
+      "title": "are a few hundred, with the owner's fifteen Nicchia attars among them",
+      "message": "expected 12 to be greater than or equal to 15"
+    },
+    {
       "check": "pipe-outside-allowlist",
       "file": "tests/productNameNoise.test.ts",
       "title": "has no \"|\" in a name outside the verified allowlist",
