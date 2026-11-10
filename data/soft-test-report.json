@@ -2,18 +2,6 @@
   "limit": 4,
   "findings": [
     {
-      "check": "top-notes-own-icon",
-      "file": "tests/noteIconLookup.test.ts",
-      "title": "gives every one of the top 200 notes its own icon (a tie at the edge counts in)",
-      "message": "expected [ 'Not specified' ] to deeply equal []"
-    },
-    {
-      "check": "notes-hidden-prose-count",
-      "file": "tests/notesPage.test.ts",
-      "title": "the Notes tab > never shows prose as a tile",
-      "message": "expected 71 to be less than 20"
-    },
-    {
       "check": "are-a-few-hundred-with-the-owner",
       "file": "tests/perfumeOil.test.ts",
       "title": "are a few hundred, with the owner's fifteen Nicchia attars among them",
