@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 355,
+ "folded": 357,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1342,6 +1342,38 @@
      "signature": "1x100body|1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0855560005602",
+   "absorbed": [
+    "set-usher-ur-gift-set-100ml-edt-100ml-aftershave-soother-100ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0855560005602",
+     "brand": "Usher",
+     "name": "UR Gift Set 100ml EDT + 100ml Aftershave Soother + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "0855560005602",
+     "scent": "soother ur",
+     "signature": "1x100fragrance|1x100fragrance|1x100wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-usher-ur-gift-set-100ml-edt-100ml-aftershave-soother-100ml-shower-gel",
+     "brand": "Usher",
+     "name": "UR Gift Set 100ml EDT + 100ml Aftershave Soother + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "soother ur",
+     "signature": "1x100fragrance|1x100fragrance|1x100wash",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -6526,6 +6558,38 @@
      "ean": null,
      "scent": "discovery molecule",
      "signature": "6x8.5fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5060412679114",
+   "absorbed": [
+    "set-ted-baker-floralicious-discovery-gift-set-10ml-polly-edt-10ml-isla-edt-10ml-kasia-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060412679114",
+     "brand": "Ted Baker",
+     "name": "Floralicious Discovery Gift Set 10ml Polly EDT + 10ml Isla EDT + 10ml Kasia EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "5060412679114",
+     "scent": "discovery floralicious isla kasia polly",
+     "signature": "3x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ted-baker-floralicious-discovery-gift-set-10ml-polly-edt-10ml-isla-edt-10ml-kasia-edt",
+     "brand": "Ted Baker",
+     "name": "Floralicious Discovery Gift Set 10ml Polly EDT + 10ml Isla EDT + 10ml Kasia EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "discovery floralicious isla kasia polly",
+     "signature": "3x10fragrance",
      "shops": [
       "p-eleven"
      ]
