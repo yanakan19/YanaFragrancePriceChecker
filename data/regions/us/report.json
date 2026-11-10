@@ -1,41 +1,41 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-11-09T18:49:00.677Z",
+  "builtAt": "2026-11-10T16:49:23.936Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 28,
   "shopsEnabled": 25,
   "shopsPriced": 24,
-  "crawlMinutes": 57.06,
-  "harvestRanAt": "2026-11-09T17:51:56.199Z",
-  "listingsPriced": 82989,
-  "listingsKept": 43419,
+  "crawlMinutes": 57.04,
+  "harvestRanAt": "2026-11-10T15:52:20.579Z",
+  "listingsPriced": 83189,
+  "listingsKept": 43634,
   "staleAfterDays": 7,
-  "products": 30680,
-  "productsWithTwoOrMoreShops": 9160,
-  "shareWithTwoOrMoreShops": 0.299,
-  "productsWithTwoOrMoreIndependentShops": 5719,
+  "products": 30686,
+  "productsWithTwoOrMoreShops": 9159,
+  "shareWithTwoOrMoreShops": 0.298,
+  "productsWithTwoOrMoreIndependentShops": 5718,
   "shareWithTwoOrMoreIndependentShops": 0.186,
-  "productsWithThreeOrMoreShops": 5231,
+  "productsWithThreeOrMoreShops": 5233,
   "medianPriceGap": 0.286,
   "listingBarcodeShare": 0.173,
-  "productsMatchingUkByBarcode": 2644,
+  "productsMatchingUkByBarcode": 2650,
   "shops": [
     {
       "id": "aedes",
-      "products": 709,
+      "products": 712,
       "shared": 209
     },
     {
       "id": "beauty-encounter",
       "products": 5113,
-      "shared": 1932
+      "shared": 1933
     },
     {
       "id": "beautyhabit",
-      "products": 856,
-      "shared": 262
+      "products": 850,
+      "shared": 259
     },
     {
       "id": "bluemercury",
@@ -44,8 +44,8 @@
     },
     {
       "id": "dillards",
-      "products": 2030,
-      "shared": 832
+      "products": 2028,
+      "shared": 831
     },
     {
       "id": "ds-and-durga",
@@ -59,23 +59,23 @@
     },
     {
       "id": "fragrance-market",
-      "products": 4666,
-      "shared": 4303
+      "products": 4667,
+      "shared": 4304
     },
     {
       "id": "fragrance-outlet",
-      "products": 4538,
-      "shared": 4289
+      "products": 4539,
+      "shared": 4290
     },
     {
       "id": "indigo-perfumery",
-      "products": 543,
-      "shared": 149
+      "products": 541,
+      "shared": 146
     },
     {
       "id": "la-belle-perfumes",
-      "products": 4869,
-      "shared": 2174
+      "products": 4873,
+      "shared": 2173
     },
     {
       "id": "luckyscent",
@@ -90,12 +90,12 @@
     {
       "id": "microperfumes",
       "products": 508,
-      "shared": 397
+      "shared": 396
     },
     {
       "id": "ministry-of-scent",
-      "products": 1632,
-      "shared": 630
+      "products": 1631,
+      "shared": 631
     },
     {
       "id": "parfums-raffy",
@@ -104,8 +104,8 @@
     },
     {
       "id": "perfumania",
-      "products": 4301,
-      "shared": 4132
+      "products": 4302,
+      "shared": 4133
     },
     {
       "id": "perfumes-america",
@@ -119,17 +119,17 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 923,
+      "products": 922,
       "shared": 727
     },
     {
       "id": "triple-traders",
-      "products": 4556,
-      "shared": 1012
+      "products": 4561,
+      "shared": 1015
     },
     {
       "id": "twisted-lily",
-      "products": 185,
+      "products": 188,
       "shared": 107
     },
     {
@@ -138,14 +138,14 @@
       "shared": 578
     }
   ],
-  "productsShown": 30562,
-  "productsWithUkPhoto": 6578,
-  "productsWithUkPhotoByBarcode": 2016,
-  "productsWithUkPhotoByName": 4562,
-  "listingsWithReference": 23789,
-  "offersWithCorroboratedReference": 12966,
-  "deals": 2250,
-  "shareWithUkPhoto": 0.215,
+  "productsShown": 30568,
+  "productsWithUkPhoto": 6589,
+  "productsWithUkPhotoByBarcode": 2022,
+  "productsWithUkPhotoByName": 4567,
+  "listingsWithReference": 23796,
+  "offersWithCorroboratedReference": 12970,
+  "deals": 2262,
+  "shareWithUkPhoto": 0.216,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
