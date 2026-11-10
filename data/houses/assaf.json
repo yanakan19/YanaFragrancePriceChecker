@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-09T23:15:15.671Z",
-  "seenAt": "2026-11-09T23:15:15.671Z",
+  "updatedAt": "2026-11-10T03:19:01.059Z",
+  "seenAt": "2026-11-10T03:19:01.059Z",
   "source": "live",
   "listings": [
     {
@@ -924,7 +924,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": null,
       "productType": null,
@@ -4862,7 +4862,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Order your Flower Powder Bloom as you can try any of our powders for Seven days with Assaf’s special guarantee, which allows you to return the package if you do not like it, regardless of the quantity used, if necessary, and get your money back. . . A touch of softness and freshness with you wherever you go. . . With Flower Powder Bloom, Asaf takes an essential skincare step into a convenient, on-the-go size. . It contains an attractive aromatic scent to give you a feeling of freshness and confidence. . Its formula of 90%* natural ingredients is preserved in a wavy package that resembles desert sand! The package design is unique, comfortable, elegant and fits perfectly in the palm of the hand. . . Flower Powder Bloom can be conveniently carried in any bag and is easy to use! . . Composition: . Top notes: Cinnamon . Middle notes: jasmine, cherry, ylang-ylang . Main ingredients: Mimosa, Violet, Musk .",
       "productType": "women",
