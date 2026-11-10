@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-09T11:32:17.917Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-10T11:23:35.123Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -585,7 +585,6 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "alharamain|manegebundleperfumegiftsetforwomen|unstated": ["","https://alharamainperfumes.co.uk/products/manege-edp-gift-set-bundle"],
   "alharamain|manegerougeforwomen|edp": ["","https://alharamainperfumes.co.uk/products/manege-rouge-edp-spray-75ml"],
   "alharamain|manegerouge|edp": ["","https://alharamainperfumes.co.uk/products/manege-rouge-edp-spray-75ml"],
-  "alharamain|maryam": ["","https://alharamainperfumes.co.uk/products/maryam-spray-100ml"],
   "alharamain|maryamforwomen|edp": ["","https://alharamainperfumes.co.uk/products/maryam-spray-100ml"],
   "alharamain|maryam|edp": ["","https://alharamainperfumes.co.uk/products/maryam-spray-100ml"],
   "alharamain|mataralhubformen|oil": ["","https://alharamainperfumes.co.uk/products/matar-al-hub-12ml"],
@@ -6447,6 +6446,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "parfumsdemarly|oajan": ["","https://parfums-de-marly.com/products/oajan"],
   "parfumsdemarly|oajan|edp": ["","https://parfums-de-marly.com/products/oajan"],
   "parfumsdemarly|oriana": ["","https://parfums-de-marly.com/products/oriana"],
+  "parfumsdemarly|orianaunisex": ["","https://parfums-de-marly.com/products/oriana"],
+  "parfumsdemarly|orianaunisex|edp": ["","https://parfums-de-marly.com/products/oriana"],
   "parfumsdemarly|oriana|edp": ["","https://parfums-de-marly.com/products/oriana"],
   "parfumsdemarly|palatine": ["","https://parfums-de-marly.com/products/palatine"],
   "parfumsdemarly|palatine|edp": ["","https://parfums-de-marly.com/products/palatine"],
@@ -6731,6 +6732,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "pascalmorabito|extrarose|edp": ["","https://parfumspascalmorabito.com/products/extra-rose"],
   "pascalmorabito|goldeditionoud": ["","https://parfumspascalmorabito.com/products/gold-edition-oud"],
   "pascalmorabito|goldeditionoud|edp": ["","https://parfumspascalmorabito.com/products/gold-edition-oud"],
+  "pascalmorabito|lovissima": ["","https://parfumspascalmorabito.com/products/lovissima"],
+  "pascalmorabito|lovissima|edp": ["","https://parfumspascalmorabito.com/products/lovissima"],
   "pascalmorabito|nightscent": ["","https://parfumspascalmorabito.com/products/night-scent"],
   "pascalmorabito|nightscent|edp": ["","https://parfumspascalmorabito.com/products/night-scent"],
   "pascalmorabito|noir": ["","https://parfumspascalmorabito.com/products/noir"],
@@ -8332,6 +8335,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "zimaya|siadaregal": ["","https://uk.zimayaperfumes.com/products/siada-regal"],
   "zimaya|siadaregal|edp": ["","https://uk.zimayaperfumes.com/products/siada-regal"],
   "zimaya|stallion|edp": ["","https://uk.zimayaperfumes.com/products/stallion-100ml"],
+  "zimaya|stallion|unstated": ["","https://uk.zimayaperfumes.com/products/stallion-100ml"],
   "zimaya|tiramisucaramel|edp": ["","https://uk.zimayaperfumes.com/products/tiramisu-caramel-edp-100ml"],
   "zimaya|tiramisucoco|edp": ["","https://uk.zimayaperfumes.com/products/tiramisu-coco-edp-100ml"],
   "zimaya|treasure|unstated": ["","https://uk.zimayaperfumes.com/products/treasure-100ml"],
