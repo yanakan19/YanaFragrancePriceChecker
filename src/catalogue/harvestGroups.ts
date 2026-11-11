@@ -52,6 +52,7 @@ export const HARVEST_GROUP_PLAN: Readonly<Record<string, readonly [group: number
   allbeauty: [1, 118],
   'amazon-uk': [0, 0],
   armaf: [0, 5],
+  aromique: [0, 60],
   asda: [0, 0],
   avon: [0, 11],
   'beaute-boulevard': [0, 34],

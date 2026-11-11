@@ -183,8 +183,8 @@ describe('retailer registry', () => {
     // enabled count goes up by one.
     //
     // 2026-11-04: 88 becomes 89. Soghaat, enabled, so the enabled count goes up by one again.
-    // 2026-11-11: 89 becomes 90. Beevora, enabled.
-    expect(RETAILERS).toHaveLength(90);
+    // 2026-11-11: 89 becomes 90 and 90 becomes 91. Beevora and Aromique, enabled.
+    expect(RETAILERS).toHaveLength(91);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -353,7 +353,9 @@ describe('retailer registry', () => {
       // no rate below it (standardRateNotPublished, its policy page quoted).
       // beevora joined 2026-11-11 on a Shopify route proved from its own /products.json: free UK delivery over £50 on its
       // home page banner; its policy sits under /policies/ (disallowed), so no rate below it is known.
+      // aromique joined the same day on the same footing as beevora (banner over £50, policy page disallowed).
       expect(unstated.map((r) => r.id).sort()).toEqual([
+        'aromique',
         'beevora',
         'niche-beauty-uk',
         'opulensi',

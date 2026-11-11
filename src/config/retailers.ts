@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 90 retailers, 66 of them `enabled: true`. Every one of them is a legitimate
+ * 91 retailers, 67 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -11812,6 +11812,62 @@ export const RETAILERS: readonly Retailer[] = [
       searchUrlTemplate: 'https://beevora.co.uk/search?q={q}',
       sections: [
         { id: 'all', label: 'All products', urlTemplate: 'https://beevora.co.uk/collections/all?page={page}', tier: 'mideast' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
+  },
+  {
+    id: 'aromique',
+    name: 'Aromique',
+    domain: 'aromique.co.uk',
+    homepage: 'https://aromique.co.uk',
+    tiers: ['mideast', 'designer'],
+    // Added 2026-11-11 (docs/RETAILER-CANDIDATES-2026-10-08.md, held back on 8 Oct for lack of delivery terms). A
+    // Birmingham fragrance shop (Reef, Rasasi, Afnan, Marque Collection and other Arabian and budget houses). Read as
+    // PriceSniffsBot only, robots.txt first, on 2026-11-11.
+    //
+    // robots.txt (https://aromique.co.uk/robots.txt, HTTP 200) is Shopify's stock file: /policies/ is disallowed (so the
+    // shipping policy page is NOT read), /products.json and product pages are not. No crawl delay for the bot.
+    // /meta.json: currency GBP, country GB, Birmingham. /products.json is about 1,400 products over 6 pages (250 a
+    // page); titles carry the strength and size ("Hawas Ice Freeze Eau de Parfum 100ml Rasasi"), the vendor is the house.
+    // Most products have no product type, so no type rule is set: the catalogue's own sized fragrance test decides.
+    //
+    // DELIVERY. Only the allowed home page is read: its banner says "FREE UK DELIVERY ON ORDERS OVER £50". No rate below
+    // that is published on an allowed page, so none is invented (`standardRateNotPublished`).
+    //
+    // Affiliate: none found. Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 50,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-11-11',
+      confidence: 'unverified',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://aromique.co.uk/',
+        quote: 'FREE UK DELIVERY ON ORDERS OVER £50',
+        readAt: '2026-11-11',
+      },
+      notes:
+        'Read off the shop\'s home page banner on 2026-11-11. The shipping policy is under /policies/, which its ' +
+        'robots.txt disallows, so it was not read: no rate below £50 and no delivery window is stated on an allowed page. ' +
+        'The 3 to 5 day window is a placeholder, not a reading; to be settled from the shop\'s own basket by the owner.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://aromique.co.uk/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://aromique.co.uk/collections/all?page={page}', tier: 'mideast' },
       ],
       firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
     },
