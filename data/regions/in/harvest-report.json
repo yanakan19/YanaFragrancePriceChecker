@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-11-10T02:47:57.325Z",
-  "minutes": 55.33,
+  "ranAt": "2026-11-11T00:43:36.054Z",
+  "minutes": 55.34,
   "dryRun": false,
   "shopsWired": 21,
   "shopsEnabled": 18,
   "shopsPriced": 18,
-  "listingsKept": 23705,
+  "listingsKept": 23756,
   "shops": [
     {
       "id": "nykaa",
@@ -15,11 +15,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1248,
-      "priced": 1248,
-      "kept": 1226,
-      "withBarcode": 213,
-      "pagesFetched": 1294,
+      "listingsRead": 1254,
+      "priced": 1254,
+      "kept": 1234,
+      "withBarcode": 240,
+      "pagesFetched": 1300,
       "seconds": 3301,
       "currency": "JSON-LD offers named: INR",
       "errors": [
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
         "https://www.nykaa.com/ulric-de-varens-flash-eau-de-toilette-natural-spray-for-men/p/9329009: HTTP 404",
         "https://www.nykaa.com/victoria-s-secret-bare-eau-de-parfum-travel-spray/p/16691987: HTTP 404",
-        "sitemap: 3133 product address(es) found, first read https://www.nykaa.com/colour-me-homme-volt-eau-de-parfum/p/5202735"
+        "sitemap: 3092 product address(es) found, first read https://www.nykaa.com/colour-me-homme-volt-eau-de-parfum/p/5202735"
       ]
     },
     {
@@ -66,7 +66,7 @@
       "kept": 6684,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 81,
+      "seconds": 82,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -106,18 +106,18 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1077,
-      "priced": 1077,
-      "kept": 1025,
+      "listingsRead": 1120,
+      "priced": 1120,
+      "kept": 1068,
       "withBarcode": 0,
-      "pagesFetched": 1078,
+      "pagesFetched": 1121,
       "seconds": 3301,
       "currency": "og:price tags named: INR",
       "errors": [
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
-        "sitemap: 2346 product address(es)"
+        "sitemap: 2347 product address(es)"
       ]
     },
     {
@@ -141,12 +141,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 1356,
-      "priced": 1284,
+      "listingsRead": 1350,
+      "priced": 1278,
       "kept": 353,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 14,
+      "seconds": 13,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -161,7 +161,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -206,7 +206,7 @@
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 10,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -221,7 +221,7 @@
       "kept": 2,
       "withBarcode": 0,
       "pagesFetched": 12,
-      "seconds": 35,
+      "seconds": 36,
       "currency": "JSON-LD offers named: INR",
       "errors": [],
       "diagnostics": [
@@ -300,7 +300,7 @@
       "kept": 2473,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 23,
+      "seconds": 24,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -331,7 +331,7 @@
       "kept": 1232,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 16,
+      "seconds": 15,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -341,12 +341,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1207,
+      "listingsRead": 1244,
       "priced": 527,
       "kept": 503,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 12,
+      "seconds": 11,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     }
