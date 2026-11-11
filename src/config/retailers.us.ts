@@ -913,4 +913,36 @@ export const US_RETAILERS: readonly RegionRetailer[] = [
     taxNote: US_TAX_NOTE,
     checked: '2026-11-04: robots.txt 200 (Shopify stock file; /products.json not disallowed); /products.json 200 (about 6,600 products, 250 a page, vendor is the house); /meta.json currency USD, country US, Bensenville IL. Titles carry the size twice ("100ml/3.4oz") and many are marked TESTER, which the catalogue leaves out.',
   },
+  {
+    id: 'perfumes4all',
+    name: 'Perfumes4All',
+    region: 'US',
+    currency: 'USD',
+    domain: 'perfumes4all.com',
+    homepage: 'https://perfumes4all.com/',
+    tiers: ['designer', 'niche'],
+    enabled: true,
+    // Owner decision 2026-10-09 (D24): the shop's own photo, hot-linked, never copied. Delete this line to switch it off.
+    imageBasis: 'hotlink-unlicensed',
+    route: { kind: 'shopify' },
+    minRequestGapMs: 2000,
+    // 25,001 products, so a full walk is 100 pages of 250 (Shopify's page cap). A cap on the time a run may spend on
+    // this shop keeps the US crawl inside its budget; the walk is marked incomplete when it stops on time.
+    pageBudget: { minutes: 5, newPages: 250 },
+    delivery: {
+      standard: 0,
+      freeOver: null,
+      estimatedDays: null,
+      verifiedAt: '2026-11-11',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://perfumes4all.com/policies/shipping-policy',
+        quote: 'Free shipping on all U.S. orders',
+        readAt: '2026-11-11',
+      },
+      notes: 'The policy page states free shipping on all U.S. orders and 1 to 2 business days of processing; no transit window is stated.',
+    },
+    taxNote: US_TAX_NOTE,
+    checked: '2026-11-11: robots.txt 200 (Shopify stock file; /products.json not disallowed); /products.json 200 (25,001 products, 250 a page, product types Women Perfume, Men Cologne, Unisex Fragrance; vendor is the house; title carries "3.4 oz Eau De Parfum Spray"); /meta.json currency USD, country US. Read as PriceSniffsBot only.',
+  },
 ];
