@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-11T06:37:57.694Z",
-  "seenAt": "2026-11-11T06:37:57.694Z",
+  "updatedAt": "2026-11-11T11:24:16.568Z",
+  "seenAt": "2026-11-11T11:24:16.568Z",
   "source": "live",
   "listings": [
     {
@@ -16,7 +16,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Four iconic bestsellers for a little everyday self-care and indulgence..",
+      "description": "Singles Day Treat - save £10, offer only available today . Four iconic bestsellers for a little everyday self-care and indulgence..",
       "productType": "Bath and Body gifts",
       "nativePrice": null,
       "retailerId": "the-body-shop",
@@ -175,7 +175,7 @@
       "priceGbp": 18,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Exclusive to our amazing Love Your Body™ Club community, limited to one per customer. The ultimate beauty bag, filled with beloved favourites to cleanse, nourish, pamper and glow. Limited stock available..",
       "productType": "Bath and Body gifts",

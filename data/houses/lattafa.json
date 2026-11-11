@@ -1,25 +1,26 @@
 {
   "retailerId": "lattafa",
-  "updatedAt": "2026-11-02T10:18:52.475Z",
-  "seenAt": "2026-11-02T10:18:52.475Z",
+  "updatedAt": "2026-11-11T11:19:10.426Z",
+  "seenAt": "2026-11-11T11:19:10.426Z",
   "source": "live",
   "listings": [
     {
-      "retailerSku": "31LA3229",
-      "url": "https://lattafa.com/product/asad-polar/",
-      "rawTitle": "Asad Polar",
+      "retailerSku": "32LA0252",
+      "url": "https://lattafa.com/product/badee-al-oud-deo-200-ml/",
+      "rawTitle": "Badee Al Oud Deo- 200 ML",
       "rawBrand": null,
       "ean": null,
-      "imageUrl": "https://lattafa.com/wp-content/uploads/2026/10/1-scaled.jpg",
-      "description": "Top: Blackcurrant, Mandarin, Artemisia, Violet leaves, Nutmeg Heart: White Lavender, Cashmeran, Frozen Pineapple Base: Fir Balsam, Dry Amber, Cedarwood",
+      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/05/Badee-Al-Oud.png",
+      "description": null,
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": true,
+      "inStock": false,
+      "availability": "preOrder",
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 155,
+        "amount": 23,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -74,7 +75,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 81,
+        "amount": 76,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -129,7 +130,7 @@
         "count": 9
       },
       "nativePrice": {
-        "amount": 80,
+        "amount": 64,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -155,7 +156,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 60,
+        "amount": 48,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -233,7 +234,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 70,
+        "amount": 56,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -392,7 +393,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 195,
+        "amount": 117,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -496,7 +497,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 195,
+        "amount": 117,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -522,7 +523,7 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 287,
+        "amount": 172,
         "currency": "AED"
       },
       "retailerId": "lattafa",
@@ -586,32 +587,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "31LA3040",
-      "url": "https://lattafa.com/product/ameer-al-arab-imperium/",
-      "rawTitle": "Ameer Al Arab Imperium",
-      "rawBrand": null,
-      "ean": null,
-      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/07/Gemini_Generated_Image_bb9108bb9108bb91.png",
-      "description": "Top: Bergamot, Sage, Ginger Heart: Geranium, Casherman, Apple Base: Amber, Musk, Sandalwood",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 77,
-        "currency": "AED"
-      },
-      "retailerId": "lattafa",
-      "firstSeenAt": "2026-11-02T06:13:53.548Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
       "retailerSku": "31LF0232",
       "url": "https://lattafa.com/product/kasoof-black/",
       "rawTitle": "Kasoof- Black",
@@ -638,34 +613,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "32LA0252",
-      "url": "https://lattafa.com/product/badee-al-oud-deo-200-ml/",
-      "rawTitle": "Badee Al Oud Deo- 200 ML",
-      "rawBrand": null,
-      "ean": null,
-      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/05/Badee-Al-Oud.png",
-      "description": null,
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-12-31T00:00:00.000Z",
-      "inStock": false,
-      "availability": "preOrder",
-      "sectionId": "house-direct",
-      "rating": null,
-      "nativePrice": {
-        "amount": 23,
-        "currency": "AED"
-      },
-      "retailerId": "lattafa",
-      "firstSeenAt": "2026-11-02T06:13:53.548Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
       "retailerSku": "31LF0038",
       "url": "https://lattafa.com/product/majd-al-sultan/",
       "rawTitle": "Majd Al Sultan",
@@ -680,12 +627,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 65,
+        "amount": 49,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -710,12 +656,11 @@
         "count": 1
       },
       "nativePrice": {
-        "amount": 77,
+        "amount": 58,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -737,12 +682,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 75,
+        "amount": 68,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -767,12 +711,11 @@
         "count": 1
       },
       "nativePrice": {
-        "amount": 75,
+        "amount": 72,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -794,12 +737,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 60,
+        "amount": 45,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -821,12 +763,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 90,
+        "amount": 68,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-11-02T06:13:53.548Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -848,12 +789,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 55,
+        "amount": 41,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -875,12 +815,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 60,
+        "amount": 45,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -902,12 +841,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 50,
+        "amount": 40,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -929,12 +867,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 50,
+        "amount": 30,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -956,12 +893,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 50,
+        "amount": 30,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -983,12 +919,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 50,
+        "amount": 30,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1013,12 +948,11 @@
         "count": 1
       },
       "nativePrice": {
-        "amount": 300,
+        "amount": 180,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1045,7 +979,6 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1067,12 +1000,11 @@
       "sectionId": "house-direct",
       "rating": null,
       "nativePrice": {
-        "amount": 300,
+        "amount": 180,
         "currency": "AED"
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1099,7 +1031,6 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T06:13:53.548Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -1126,11 +1057,64 @@
       },
       "retailerId": "lattafa",
       "firstSeenAt": "2026-08-07T00:38:56.793Z",
-      "lastSeenAt": "2026-11-02T02:16:52.040Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "31LA3229",
+      "url": "https://lattafa.com/product/asad-polar/",
+      "rawTitle": "Asad Polar",
+      "rawBrand": null,
+      "ean": null,
+      "imageUrl": "https://lattafa.com/wp-content/uploads/2026/10/1-scaled.jpg",
+      "description": "Top: Blackcurrant, Mandarin, Artemisia, Violet leaves, Nutmeg Heart: White Lavender, Cashmeran, Frozen Pineapple Base: Fir Balsam, Dry Amber, Cedarwood",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 155,
+        "currency": "AED"
+      },
+      "retailerId": "lattafa",
+      "firstSeenAt": "2026-11-02T06:13:53.548Z",
+      "lastSeenAt": "2026-11-02T10:18:52.475Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "31LA3040",
+      "url": "https://lattafa.com/product/ameer-al-arab-imperium/",
+      "rawTitle": "Ameer Al Arab Imperium",
+      "rawBrand": null,
+      "ean": null,
+      "imageUrl": "https://lattafa.com/wp-content/uploads/2024/07/Gemini_Generated_Image_bb9108bb9108bb91.png",
+      "description": "Top: Bergamot, Sage, Ginger Heart: Geranium, Casherman, Apple Base: Amber, Musk, Sandalwood",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "nativePrice": {
+        "amount": 77,
+        "currency": "AED"
+      },
+      "retailerId": "lattafa",
+      "firstSeenAt": "2026-11-02T06:13:53.548Z",
+      "lastSeenAt": "2026-11-02T10:18:52.475Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {

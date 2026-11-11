@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-11T06:31:29.110Z",
-  "seenAt": "2026-11-11T06:31:29.110Z",
+  "updatedAt": "2026-11-11T11:13:56.761Z",
+  "seenAt": "2026-11-11T11:13:56.761Z",
   "source": "live",
   "listings": [
     {
@@ -9881,7 +9881,7 @@
       "priceGbp": 107.25,
       "wasPriceGbp": 143,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover a captivating new expression of La Vie Est Belle with Elixir Cherry Eau de Parfum. Defined by its distinctive cherry-inspired character, this feminine fragrance offers a rich and alluring scent experience in a generous 100ml bottle..",
       "productType": "Women's Fragrances",
@@ -12917,7 +12917,7 @@
       "priceGbp": 288,
       "wasPriceGbp": 320,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "0",
       "productType": "Men's Fragrances",
