@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-11T15:59:18.523Z",
-  "seenAt": "2026-11-11T15:59:18.523Z",
+  "updatedAt": "2026-11-11T20:09:43.841Z",
+  "seenAt": "2026-11-11T20:09:43.841Z",
   "source": "live",
   "listings": [
     {
@@ -134932,7 +134932,7 @@
       "priceGbp": 9.95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Give your little one's skin a boost of hydration during bath time with the Mustela Nourishing Cleansing Gel with Cold Cream for Dry Skin, which can be used from birth.. Clinically proven to gently cleanse the skin of babies and children, Mustela's nourishing cleansing gel is infused with 95% natural origin ingredients to remove impurities and combat dryness.. Making the bathing process stress-free and soothing, the foaming gel features a gentle, tear-free formula. The hair and body wash also works to protect the skin's natural barrier and maintain the hydration level of the epidermis, thanks to the inclusion of Mustela's Avocado Perseose®.. Mustela are devoted to moisturising your infant's dry skin, so this cleanser also features ceramides and cold cream which instantly nourish and maintain the skin's natural protective barrier. Finally, this soap-free formula includes mild surfactants to gently cleanse your child from head to toe, while preventing the scalp and skin from drying out.. The finishing touch? Mustela's rich and creamy gel glides over the skin, fragrancing your little one with a unique and pleasant aroma.. Why We Love It . This cleansing gel works in a number of ways, by cleansing your little one, moisturising dry skin and protecting the skin's general well-being. Mustela showcases their extensive knowledge by creating a caring cleanser which won't cause further damage or irritation to your child's dry skin - and as the best-selling skincare brand for children in Europe, you can rely on Mustela to nourish and protect your little one.. How To Use It . Pour the cleansing gel into your hands. Gently clean your child's scalp and body before rinsing off with lukewarm water.. Works Well With . Little ones with dry skin need that extra bit of nourishment, so explore Mustela's wide range of nourishing skincare products for children with dry skin to find an effective post-cleansing moisturiser.. Values . High skin and eye tolerance, hypoallergenic and dermatologically-tested.. Soap-free, paraben-free, phthalate-free, phenoxyethanol-free..",
       "productType": "Skincare",
@@ -170444,7 +170444,7 @@
       "priceGbp": 31,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "In perfect harmony with the style of Versace Couture.. Versace Woman is an elegantly seductive fragrance for the woman with a modern sense of beauty.. A modern light floral, fruity and woody fragrance.. Top Notes: Jasmine, Wild Rose, Frangipani Leaves and Bergamot.. Heart Notes: Lotus, Plum, Raspberry and Lebanese Blue Cedar.. Base Notes: Musk, Ambergris and Inoki Wood..",
       "productType": "Fragrance",

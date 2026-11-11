@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-11T15:59:18.523Z",
-  "seenAt": "2026-11-11T15:59:18.523Z",
+  "updatedAt": "2026-11-11T20:09:43.841Z",
+  "seenAt": "2026-11-11T20:09:43.841Z",
   "source": "live",
   "listings": [
     {
@@ -83,7 +83,7 @@
       "priceGbp": 20,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "UNCOVERED - the new naked perfume from Clive Christian. Capturing the tranquillity of transparency. Reveal your true self, with nothing to hide. Luxury which doesn't shout. It seduces. It lingers. It leaves nothing hidden.. A luminous floral musk with a 40% perfume concentration and a complexity of 164 ingredients. Fresh aldehyde, eucalyptus, baies rose and bergamot open the perfume. Immortelle absolute, orris, a salty accord and ylang oil form the heart. White musk, sandalwood, moss and amber rest in the base.. Housed in sculpted glass, with no barriers, the bottle mirrors you: exposed, powerful, fragile but unbreakable. Its box, a frozen block of ice, dares you to reach inside, to melt the cold and find what's hidden beneath..",
       "productType": "Fragrance",
@@ -26326,7 +26326,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Andy Tauer's gorgeous development and expansion of his classic and iconic L'Air Du Désert Marocain. Au Coeur du Désert is an extrait version of Andy's enormously prized signature fragrance with its well-loved notes of cistus rock rose, Moroccan jasmine, coriander, cumin and citrus. The intoxicating scents of the North African night: the mineralic cold of the desert sands and the lush flowers of the city gardens and oases.. . Top Notes: Petit Grain, Coriander, Citrus Heart Notes: Cistus Rock Rose, Moroccan Jasmine, Cumin Base Notes: Ambergris, Patchouli, Ambrein .",
       "productType": "Fragrance",

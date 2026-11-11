@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-11T15:59:18.523Z",
-  "seenAt": "2026-11-11T15:59:18.523Z",
+  "updatedAt": "2026-11-11T20:09:43.841Z",
+  "seenAt": "2026-11-11T20:09:43.841Z",
   "source": "live",
   "listings": [
     {
@@ -957,7 +957,7 @@
       "priceGbp": 27.54,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Dolce & Gabbana Light Blue EDT Spray 25ml. Key Features. ##features##. Fresh fruity-floral fragrance. Light, refreshing everyday scent. Travel-friendly 25ml size. Popular designer fragrance. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Fresh, vibrant and effortlessly feminine, Dolce & Gabbana Light Blue is an iconic fragrance inspired by the Mediterranean lifestyle. This eau de toilette delivers a crisp, citrus-floral scent perfect for everyday wear. Top notes include apple and Sicilian cedar, complemented by jasmine and white rose, with a warm base of musk and amber.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists and neck.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. Flammable liquid and vapour; avoid contact with eyes and flames; external use only.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

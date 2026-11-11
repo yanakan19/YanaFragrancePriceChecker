@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-11T15:56:33.175Z",
+  "checkedAt": "2026-11-11T20:16:56.496Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -127,12 +127,11 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "robots.txt unreachable at https://ae.ahmedalmaghribi.com and https://www.ae.ahmedalmaghribi.com — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "the UAE storefront (ae.) is what this points at; the brand also runs separate om./us. regional subdomains and no UK one was found — worth checking for a uk. subdomain before assuming there is none",
-        "no listings retrieved from the storefront on this run"
+        "the UAE storefront (ae.) is what this points at; the brand also runs separate om./us. regional subdomains and no UK one was found — worth checking for a uk. subdomain before assuming there is none"
       ]
     },
     {
@@ -533,9 +532,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 194,
-      "pricedInGbp": 194,
-      "withPhoto": 193,
+      "listings": 178,
+      "pricedInGbp": 178,
+      "withPhoto": 177,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

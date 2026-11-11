@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-11T15:59:17.661Z",
-  "seenAt": "2026-11-11T15:59:17.661Z",
+  "updatedAt": "2026-11-11T20:09:49.260Z",
+  "seenAt": "2026-11-11T20:09:49.260Z",
   "source": "live",
   "listings": [
     {
@@ -1969,7 +1969,7 @@
       "priceGbp": 115,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Summer sweat, erotic notes. Sense of heat and sun. Dried weeds, dunes. Deer musk reimagined. Facets of salt and chalk. Matte, waxen finish. Cumin – Helichrysum. Ylang-Ylang – Incense – Costus.",
       "productType": "Perfume",

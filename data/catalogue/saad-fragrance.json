@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-11T15:59:17.661Z",
-  "seenAt": "2026-11-11T15:59:17.661Z",
+  "updatedAt": "2026-11-11T20:09:49.260Z",
+  "seenAt": "2026-11-11T20:09:49.260Z",
   "source": "live",
   "listings": [
     {
@@ -172,8 +172,8 @@
       "rawBrand": "French avenue",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0820/7997/3699/files/IMG_6570.png?v=1793788673",
-      "priceGbp": 29.99,
-      "wasPriceGbp": 34.99,
+      "priceGbp": 34.99,
+      "wasPriceGbp": 39.99,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
