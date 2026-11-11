@@ -1,66 +1,66 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-11-10T13:52:02.295Z",
+  "builtAt": "2026-11-11T13:06:05.598Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 20,
   "shopsEnabled": 11,
   "shopsPriced": 11,
-  "crawlMinutes": 8.94,
-  "harvestRanAt": "2026-11-10T13:43:05.117Z",
-  "listingsPriced": 48793,
-  "listingsKept": 38363,
+  "crawlMinutes": 11.79,
+  "harvestRanAt": "2026-11-11T12:54:17.572Z",
+  "listingsPriced": 48843,
+  "listingsKept": 38412,
   "staleAfterDays": 7,
-  "products": 27793,
-  "productsWithTwoOrMoreShops": 6523,
+  "products": 27818,
+  "productsWithTwoOrMoreShops": 6529,
   "shareWithTwoOrMoreShops": 0.235,
-  "productsWithTwoOrMoreIndependentShops": 6523,
+  "productsWithTwoOrMoreIndependentShops": 6529,
   "shareWithTwoOrMoreIndependentShops": 0.235,
-  "productsWithThreeOrMoreShops": 2379,
-  "medianPriceGap": 0.232,
-  "listingBarcodeShare": 0.248,
+  "productsWithThreeOrMoreShops": 2384,
+  "medianPriceGap": 0.233,
+  "listingBarcodeShare": 0.247,
   "productsMatchingUkByBarcode": 2695,
   "shops": [
     {
       "id": "discount-fragrances-ca",
-      "products": 955,
-      "shared": 726
+      "products": 967,
+      "shared": 737
     },
     {
       "id": "fragrance-canada",
-      "products": 5912,
-      "shared": 3521
+      "products": 5925,
+      "shared": 3532
     },
     {
       "id": "fragrance-online-co",
-      "products": 818,
-      "shared": 505
+      "products": 822,
+      "shared": 507
     },
     {
       "id": "h-parfums",
-      "products": 738,
+      "products": 736,
       "shared": 119
     },
     {
       "id": "maximum-fragrance",
-      "products": 9587,
-      "shared": 4511
+      "products": 9588,
+      "shared": 4512
     },
     {
       "id": "my-royal-musk",
-      "products": 1499,
-      "shared": 503
+      "products": 1506,
+      "shared": 504
     },
     {
       "id": "niche-essence",
-      "products": 1246,
+      "products": 1245,
       "shared": 417
     },
     {
       "id": "parfum-exquis",
-      "products": 3015,
-      "shared": 364
+      "products": 3030,
+      "shared": 366
     },
     {
       "id": "perfume-factory-ca",
@@ -75,17 +75,17 @@
     {
       "id": "perfumeonline-ca",
       "products": 13421,
-      "shared": 5416
+      "shared": 5418
     }
   ],
-  "productsShown": 27793,
-  "productsWithUkPhoto": 6131,
-  "productsWithUkPhotoByBarcode": 1620,
+  "productsShown": 27818,
+  "productsWithUkPhoto": 6130,
+  "productsWithUkPhotoByBarcode": 1619,
   "productsWithUkPhotoByName": 4511,
-  "listingsWithReference": 12395,
-  "offersWithCorroboratedReference": 3727,
-  "deals": 1194,
-  "shareWithUkPhoto": 0.221,
+  "listingsWithReference": 12419,
+  "offersWithCorroboratedReference": 3743,
+  "deals": 1200,
+  "shareWithUkPhoto": 0.22,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
