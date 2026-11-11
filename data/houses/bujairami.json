@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-11T02:46:45.452Z",
-  "seenAt": "2026-11-11T02:46:45.452Z",
+  "updatedAt": "2026-11-11T06:34:48.085Z",
+  "seenAt": "2026-11-11T06:34:48.085Z",
   "source": "live",
   "listings": [
     {
@@ -1024,13 +1024,13 @@
       "rawTitle": "Vibration Inspired By Vibrato Sospiro Perfumes - Extrait",
       "rawBrand": "Bujairami Perfumes UAE",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/VIBRATION.webp?v=1787125356",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/Vibration_1.png?v=1794376149",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
-      "description": "Top notes are Grapefruit, Bergamot, Jasmine and Magnolia;. Middle notes are Ginger, Herbal Notes and Powdery Notes;. Base notes are Musk, Cedar, Amber, Patchouli and Orris Root..",
+      "description": "A fresh and sophisticated fragrance opening with sparkling grapefruit, bergamot, jasmine, and magnolia. The heart blends spicy ginger with aromatic herbal and powdery notes, while musk, cedar, amber, patchouli, and orris root create a warm, smooth, and elegant finish.. Fragrance Notes . Top: Grapefruit, Bergamot, Jasmine, Magnolia. Heart: Ginger, Herbal Notes, Powdery Notes. Base: Musk, Cedar, Amber, Patchouli, Orris Root. Profile: Citrus • Floral • Aromatic • Powdery • Woody • Musky.",
       "productType": null,
       "nativePrice": {
         "amount": 170,
@@ -1784,7 +1784,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Top: Orange, Green Lemon, Mint, Black Currant. Heart: Apricot, Basil, Aqueous Accord, May Rose. Base: Dates, Fig, Moss, Ambergris.",
+      "description": "A vibrant and refreshing fragrance opening with juicy orange, zesty green lemon, cool mint, and black currant. The heart blends sweet apricot, aromatic basil, fresh aquatic accords, and delicate May rose, while dates, fig, moss, and ambergris create a warm, rich, and distinctive finish.. Fragrance Notes . Top: Orange, Green Lemon, Mint, Black Currant. Heart: Apricot, Basil, Aqueous Accord, May Rose. Base: Dates, Fig, Moss, Ambergris. Profile: Fresh • Fruity • Citrus • Aquatic • Green • Woody.",
       "productType": null,
       "nativePrice": {
         "amount": 170,
@@ -2460,7 +2460,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Top notes are Pink Pepper, Bergamot and Mandarin; . Middle notes are Clary Sage and Blackcurrant; . Base notes are Vetiver and Tonka Bean. .",
+      "description": "A fresh and aromatic fragrance opening with sparkling bergamot, juicy mandarin, and spicy pink pepper. The heart blends herbal clary sage with fruity blackcurrant, while vetiver and tonka bean create a smooth, warm, and refined finish.. Fragrance Notes . Top: Pink Pepper, Bergamot, Mandarin. Heart: Clary Sage, Blackcurrant. Base: Vetiver, Tonka Bean. Profile: Fresh • Citrus • Aromatic • Fruity • Woody • Warm.",
       "productType": null,
       "nativePrice": {
         "amount": 150,

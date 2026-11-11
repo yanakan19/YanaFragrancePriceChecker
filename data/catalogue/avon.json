@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-11T02:41:57.988Z",
-  "seenAt": "2026-11-11T02:41:57.988Z",
+  "updatedAt": "2026-11-11T06:31:08.999Z",
+  "seenAt": "2026-11-11T06:31:08.999Z",
   "source": "live",
   "listings": [
     {
@@ -3602,7 +3602,7 @@
       "priceGbp": 12,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Give dry, damaged hair the care it deserves with the Absolute Nourishment Gift Set.. Featuring our bestselling Advance Techniques Absolute Nourishment Treatment Serum and Argan Mask, this indulgent duo helps restore softness, shine and manageability while a blend of conditioning oils deeply nourish from root to tip.. Beautifully presented in a ready-to-gift box, it's the perfect treat for healthy-looking hair.. Set includes. Treatment Serum 30 ml. Argan Mask 375 ml. What does it do?. Helps transform dry, damaged hair from the first use.. Smooths frizz and flyaways for smoother-looking hair.. Leaves hair feeling softer, stronger and easier to manage.. Lightweight hair serum won't leave hair feeling greasy.. Delivers salon-inspired results at home.. Comes in a decorative, ready-to-gift box.. . Apply the serum evenly through towel-dried hair and style as usual.. Use the mask on wet hair, leave for 5 minutes, then rinse thoroughly..",
       "productType": "TOILETRIES",

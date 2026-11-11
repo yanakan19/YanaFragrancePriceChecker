@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-11T02:41:59.382Z",
-  "seenAt": "2026-11-11T02:41:59.382Z",
+  "updatedAt": "2026-11-11T06:31:29.110Z",
+  "seenAt": "2026-11-11T06:31:29.110Z",
   "source": "live",
   "listings": [
     {
@@ -2843,7 +2843,7 @@
       "priceGbp": 104,
       "wasPriceGbp": 130,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Escentric 02 Eau de Toilette from Escentric Molecules is a contemporary unisex fragrance celebrating the distinctive character of Ambroxan. Combining warm, mineral and musky qualities with a fresh, sophisticated composition, this 100ml fragrance offers a modern approach to perfumery. An elegant addition to your everyday fragrance collection..",
       "productType": "Unisex Fragrance",

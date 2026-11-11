@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-11T02:41:59.382Z",
-  "seenAt": "2026-11-11T02:41:59.382Z",
+  "updatedAt": "2026-11-11T06:31:29.110Z",
+  "seenAt": "2026-11-11T06:31:29.110Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 108,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Comforting, nostalgic, and joyful, our Yum Vanilla Cupcake | 108 Eau de Parfum is a celebration of life's sweetest moments! It opens with a burst of bright lemon sugar and rainbow sprinkles tossed in like confetti, sinking into a decadent heart of white caramel, toasted coconut flakes, and warm sweet milk. It then settles into a rich vanilla frosting base, turning little joys into lasting memories worth treasuring forever. . . This edit includes: . Yum Vanilla Cupcake | 108 50ml. Yum Vanilla Cupcake | 108 10ml. Yum Vanilla Cupcake | 108 Perfume Holder Charm . .",
       "productType": null,
@@ -2291,7 +2291,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Create a beautiful, intense and long-lasting scentscape with Oudgasm Vanilla Oud | 36 Perfumed Oud Wood. Also known as “bakhoor”, these perfumed oud wood chips produce an enticingly rich fragrance that balances the sublime beauty and comfort of our hero note vanilla, the warmth and spice of saffron, the sweetness of praline and the magic of oud..",
       "productType": "Home Fragrance",
