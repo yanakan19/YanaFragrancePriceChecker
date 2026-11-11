@@ -217,10 +217,11 @@ describe('in the built catalogue', () => {
 
   softIt('missing-sets-and-excluded-kinds', 'holds the sets that were missing, and none of the vial sets or home fragrance sets', () => {
     expect(has(/Versace Pour Femme Miniature Fragrance Gift Set/i)).toBe(true);
-    expect(has(/Lattafa Maahir Gift Set/i)).toBe(true);
+    expect(has(/Lattafa Maahir\b.*\bSet/i)).toBe(true);
     expect(has(/Blue Wish Set 1/i)).toBe(true);
     expect(has(/Clive Christian Crown Collection Discovery Set/i) || has(/Crown Collection Discovery Set/i)).toBe(true);
-    for (const re of [/Sample Inspiration/i, /Scent Library Fragrance Gift Set/i, /White Company/i, /Gift Bag|Gift Wrap|Gift Card/i]) {
+    // A duo sold "with Gift Bag" is a real set; only a bag, wrap or card on its own is not.
+    for (const re of [/Sample Inspiration/i, /Scent Library Fragrance Gift Set/i, /White Company/i, /^(?!.*\b(?:with|and|plus)\b).*(?:Gift Bag|Gift Wrap|Gift Card)/i]) {
       expect(sets.filter((p) => re.test(p.giftSet!.title)).map((p) => p.giftSet!.title), String(re)).toEqual([]);
     }
   });
