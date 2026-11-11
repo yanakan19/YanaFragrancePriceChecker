@@ -518,6 +518,29 @@ export function parseBingResults(html: string): SearchResult[] {
   return out;
 }
 
+/** The name of the environment variable (a GitHub secret in the workflow) that holds a Brave Search API key. */
+export const BRAVE_KEY_ENV = 'BRAVE_SEARCH_API_KEY';
+
+/** The key from the environment, or null when it is missing or blank: with no key nothing here asks Brave. */
+export function braveKey(env: Record<string, string | undefined>): string | null {
+  const key = env[BRAVE_KEY_ENV]?.trim();
+  return key ? key : null;
+}
+
+/** The organic results of a Brave Search API answer (`web.results`), in rank order; anything malformed is skipped. */
+export function parseBraveResults(json: unknown): SearchResult[] {
+  const results = (json as { web?: { results?: unknown } } | null)?.web?.results;
+  if (!Array.isArray(results)) return [];
+  const out: SearchResult[] = [];
+  for (const r of results) {
+    const url = (r as { url?: unknown })?.url;
+    const title = (r as { title?: unknown })?.title;
+    if (typeof url !== 'string' || !/^https?:\/\//i.test(url)) continue;
+    out.push({ url, title: typeof title === 'string' ? decodeEntities(title.replace(/<[^>]+>/g, '')).trim() : '' });
+  }
+  return out;
+}
+
 /** True when Bing answered with a challenge or an error page instead of results. */
 export function looksBlocked(html: string): boolean {
   return /captcha|unusual traffic|are you a robot|verify you are a human/i.test(html) && !/b_algo/.test(html);

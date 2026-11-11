@@ -58,6 +58,9 @@ jobs:
       # ends early rather than failing.
       - name: Resolve links
         timeout-minutes: 40
+        env:
+          # Optional. With no such secret the value is empty and the script asks Bing's results page as before.
+          BRAVE_SEARCH_API_KEY: ${{ secrets.BRAVE_SEARCH_API_KEY }}
         run: npm run links:resolve -- --minutes ${{ inputs.minutes || '30' }}
 
       # The crawl pushes to this branch most hours, so this run's three files

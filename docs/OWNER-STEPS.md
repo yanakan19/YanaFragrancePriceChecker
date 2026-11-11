@@ -1088,6 +1088,22 @@ does not answer 200. When all is well it sends nothing.
    defaults to a dry run (prints, sends nothing); untick it to send one now.
 4. Optional: a repository variable `DIGEST_TO` changes the address.
 
+### 7h. Fragrantica links: a search API key (5 minutes; 11 November 2026)
+
+The daily link resolver (`Fragrance links daily`, `npm run links:resolve`) finds each perfume's Fragrantica page through
+a search engine. Bing's results page often turns the bot away, so the run ends early. If the repository has a Brave Search
+API key, the resolver asks Brave's API instead (same slow single stream, same checks of what comes back). With no key
+nothing changes: it asks Bing as before. The secret name is exactly `BRAVE_SEARCH_API_KEY`.
+
+1. Create a Brave Search API key: sign up at the Brave Search API site (api-dashboard.search.brave.com), pick a plan
+   (the free one is enough to start; check its monthly query limit and whether it needs a card), and create a key
+   under **API Keys**.
+2. In GitHub open the repository, **Settings** → **Secrets and variables** → **Actions** → **New repository secret**.
+3. Name it `BRAVE_SEARCH_API_KEY`, paste the key as the value, and save. Never paste the key in a chat or a file.
+4. Open **Actions** → **Fragrance links daily** → **Run workflow**. The log line "Resolve links" shows the queries made;
+   a line "brave answered 401" means the key was not accepted, "brave answered 429" means the plan's limit is reached
+   (the run backs off and ends, nothing breaks). Remove the secret any time to go back to Bing.
+
 ### 7e. GitHub settings only you can change (10 minutes; audit of 12 October 2026)
 
 Found by `docs/SITE-AUDIT-2026-10-12.md`, section 5. None of these stops

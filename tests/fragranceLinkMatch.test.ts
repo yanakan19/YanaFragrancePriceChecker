@@ -14,7 +14,9 @@ import {
   marketRank,
   matchFragranticaUrl,
   matchOfficialUrl,
+  braveKey,
   parseBingResults,
+  parseBraveResults,
   parseFragranticaUrl,
   parseSitemap,
   unwrapBingLink,
@@ -345,5 +347,33 @@ describe('parseSitemap', () => {
     const xml =
       '<sitemapindex><sitemap><loc><![CDATA[https://a.com/sitemap_products_1.xml?from=1&amp;to=2]]></loc></sitemap></sitemapindex>';
     expect(parseSitemap(xml)).toEqual({ kind: 'index', locs: ['https://a.com/sitemap_products_1.xml?from=1&to=2'] });
+  });
+});
+
+describe('the Brave Search key', () => {
+  it('is read from BRAVE_SEARCH_API_KEY and is absent when missing or blank', () => {
+    expect(braveKey({})).toBeNull();
+    expect(braveKey({ BRAVE_SEARCH_API_KEY: '   ' })).toBeNull();
+    expect(braveKey({ BRAVE_SEARCH_API_KEY: ' abc ' })).toBe('abc');
+  });
+
+  it('reads web results in order and skips anything malformed', () => {
+    const answer = {
+      web: {
+        results: [
+          { url: 'https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html', title: 'Sauvage <strong>Dior</strong> &amp; more' },
+          { url: 42, title: 'no' },
+          { title: 'no url' },
+          { url: 'javascript:alert(1)', title: 'no' },
+          { url: 'https://dior.com/x' },
+        ],
+      },
+    };
+    expect(parseBraveResults(answer)).toEqual([
+      { url: 'https://www.fragrantica.com/perfume/Dior/Sauvage-31861.html', title: 'Sauvage Dior & more' },
+      { url: 'https://dior.com/x', title: '' },
+    ]);
+    expect(parseBraveResults(null)).toEqual([]);
+    expect(parseBraveResults({ web: {} })).toEqual([]);
   });
 });

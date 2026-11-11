@@ -106,7 +106,9 @@ import {
   isOfficialHost,
   looksBlocked,
   matchOfficialUrl,
+  braveKey,
   parseBingResults,
+  parseBraveResults,
   parseFragranticaUrl,
   parseSitemap,
   type UrlMatch,
@@ -642,7 +644,49 @@ async function bingMayBeAsked(): Promise<boolean> {
   return bingAllowed;
 }
 
+/**
+ * Brave Search's own API, used instead of Bing's results page only when the repository has a key
+ * (the `BRAVE_SEARCH_API_KEY` secret, docs/OWNER-STEPS.md 7h). No key: this is never called and nothing
+ * changes. It is an API a customer is invited to call with their own key, so no robots.txt applies; the
+ * same slow single stream and back off as Bing, and a refusal (401, 403, 429 after the back off) ends the run.
+ */
+async function braveSearch(q: string, key: string): Promise<{ url: string; title: string }[] | null> {
+  const wait = lastQueryAt + OPTS.sleepMs + Math.random() * 600 - Date.now();
+  if (wait > 0) await sleep(Math.min(wait, Math.max(0, remainingMs())));
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (timeUp()) return null;
+    lastQueryAt = Date.now();
+    queries++;
+    const r = await get(`https://api.search.brave.com/res/v1/web/search?count=20&q=${encodeURIComponent(q)}`, {
+      'user-agent': BOT_UA,
+      accept: 'application/json',
+      'x-subscription-token': key,
+    });
+    if (r.status === 200) {
+      try {
+        consecutiveFailures = 0;
+        return parseBraveResults(JSON.parse(r.body));
+      } catch {
+        /* not JSON: treated as a refusal below */
+      }
+    }
+    consecutiveFailures++;
+    if (r.status === 401 || r.status === 403) {
+      console.log(`  brave answered ${r.status}: the key is not accepted; not asked again`);
+      consecutiveFailures = 5;
+      return null;
+    }
+    const backoff = 30_000 * 2 ** attempt;
+    console.log(`  brave answered ${r.status || 'nothing'}; waiting ${backoff / 1000}s`);
+    if (consecutiveFailures >= 5 || backoff > remainingMs()) return null;
+    await sleep(backoff);
+  }
+  return null;
+}
+
 async function bing(q: string): Promise<{ url: string; title: string }[] | null> {
+  const key = braveKey(process.env);
+  if (key) return braveSearch(q, key);
   if (!(await bingMayBeAsked())) return null;
   const wait = lastQueryAt + OPTS.sleepMs + Math.random() * 600 - Date.now();
   if (wait > 0) await sleep(Math.min(wait, Math.max(0, remainingMs())));
