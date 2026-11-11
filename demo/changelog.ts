@@ -46,6 +46,16 @@ export function homeHighlights(entry: ChangelogEntry): string[] {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.118.0',
+    date: '11 Nov 2026',
+    groups: [
+      {
+        heading: 'New',
+        points: ['Three new shops in the UK and the US'],
+      },
+    ],
+  },
+  {
     version: 'v3.117.0',
     date: '10 Nov 2026',
     groups: [
