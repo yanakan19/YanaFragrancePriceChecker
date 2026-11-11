@@ -219,3 +219,19 @@ men's bottle. Their registry entries carry `cologneWordIsNotAStrength: true`
 title states another strength (EDT, EDP, Parfum), which wins. The name loses the word too, so the bottle meets the
 other shops' listing of the same name. A future shop is flagged the same way. Rule test:
 `tests/regionColognePlaceholder.test.ts`.
+
+## Re-attempt on the unresolved UK families (11 Nov 2026)
+
+Result: no family resolved, `src/catalogue/strengthReviewed.ts` and `HOUSE_STRENGTH_EVIDENCE` unchanged. Only official brand
+or house shops were read, as PriceSniffsBot after robots.txt, 2 s apart, no search engine. Without a brand statement or two
+independent sources a strength is not guessed.
+
+- Bujairami Miss Vanilla, Rayhaan Valhalla, Maison Asrar X Cal Cologne III Thriller: the product pages (`/products/<handle>.json`
+  of bujairami.ae, rayhaanperfumes.com, maisonasrar.com, all allowed) name no strength anywhere (title, type, tags, variant,
+  description). Stay unresolved.
+- Riiffs Zenith and Freeze (riiffs.com) and Mancera (manceraparfums.com): `/products.json` answers no catalogue (not JSON or a
+  redirect), so nothing could be read. Arabian Oud Kalemat and Resala (arabianoud.com): the `products.json` holds no
+  `products` list. Khadlaj has no shop at khadlaj.com (404). Stay unresolved.
+- Thameen (robots.txt disallows the bot) and Ex Nihilo (same): not read, as before.
+- The rest of the list above ("For the owner") needs a person to read the brand's page or a basket; the brand pages found
+  earlier already say the strength is not stated.
