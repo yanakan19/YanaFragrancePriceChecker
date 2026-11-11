@@ -1,7 +1,7 @@
 {
   "retailerId": "the-fragrance-counter",
-  "updatedAt": "2026-11-11T02:41:57.988Z",
-  "seenAt": "2026-11-11T02:41:57.988Z",
+  "updatedAt": "2026-11-11T15:59:18.523Z",
+  "seenAt": "2026-11-11T15:59:18.523Z",
   "source": "live",
   "listings": [
     {
@@ -2603,7 +2603,7 @@
       "sectionId": "sitemap",
       "rating": {
         "value": 5,
-        "count": 16
+        "count": 17
       },
       "retailerId": "the-fragrance-counter",
       "firstSeenAt": "2026-10-05T05:22:11.047Z",

@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-11-11T11:13:56.761Z",
-  "seenAt": "2026-11-11T11:13:56.761Z",
+  "updatedAt": "2026-11-11T15:59:17.661Z",
+  "seenAt": "2026-11-11T15:59:17.661Z",
   "source": "live",
   "listings": [
     {
@@ -3901,7 +3901,7 @@
       "priceGbp": 90,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Fragrance Notes Top : Orange, Lemon, Grapefruit, Bergamot, Citron Middle : Floral Notes Base : Herbal Notes . . Fragrance House . . Giovanni Maria Farina created the world’s first Eau de Cologne, Farina Originale in 1709. An Italian perfumer, Giovanni wrote to his brother upon creating his signature scent that, “I have found a fragrance that reminds me of an Italian spring morning, of mountain daffodils and orange blossoms after the rain”. Giovanni named the fragrance ‘Eau de Cologne’, in celebration of his new hometown, and the celebratory quality of the fragrance is readily apparent. With an opening bouquet of fresh citruses underscored by faintly woody green notes in the base, 'Originale' is a cologne fragrance of extraordinary depth. Elegant and sophisticated, Farina Originale is a true classic and has been worn by Queen Victoria, Napoleon, Honoré de Balzac, Ludwig van Beethoven, Mozart, Johann Wolfgang von Goethe, Mark Twain, Oscar Wilde, Marlene Dietrich, and Indira Gandhi to name but a few! .",
       "productType": "Perfume",

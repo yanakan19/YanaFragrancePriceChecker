@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-11T11:16:42.906Z",
-  "seenAt": "2026-11-11T11:16:42.906Z",
+  "updatedAt": "2026-11-11T15:50:59.593Z",
+  "seenAt": "2026-11-11T15:50:59.593Z",
   "source": "live",
   "listings": [
     {
@@ -73,7 +73,7 @@
       "description": null,
       "productType": null,
       "nativePrice": {
-        "amount": 509,
+        "amount": 259,
         "currency": "AED"
       },
       "nativeWasPrice": 899,

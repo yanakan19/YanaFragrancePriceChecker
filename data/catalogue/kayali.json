@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-11T11:13:56.761Z",
-  "seenAt": "2026-11-11T11:13:56.761Z",
+  "updatedAt": "2026-11-11T15:59:17.661Z",
+  "seenAt": "2026-11-11T15:59:17.661Z",
   "source": "live",
   "listings": [
     {
@@ -244,7 +244,7 @@
       "priceGbp": 42,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Flirty and sweet, this loveable duo stars Yum Boujee Marshmallow | 81 Eau de Parfum with a matching Cashmere Kiss Lip Balm, layered in fluffy pink marshmallow, juicy strawberry, whipped vanilla, and a touch of coconut bliss. . . THIS SET CONTAINS: . · 0.34 oz / 10 ml Yum Boujee Marshmallow | 81 Eau de Parfum . · 0.53 oz / 15 g Yum Boujee Marshmallow | 81 Cashmere Kiss Lip Balm .",
       "productType": "Sets",

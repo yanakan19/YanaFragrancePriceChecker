@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-11T11:13:53.802Z",
-  "seenAt": "2026-11-11T11:13:53.802Z",
+  "updatedAt": "2026-11-11T15:59:18.523Z",
+  "seenAt": "2026-11-11T15:59:18.523Z",
   "source": "live",
   "listings": [
     {
@@ -3395,7 +3395,7 @@
       "priceGbp": 75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Saffron, red gold on skin, trailing fire spun in silk, flares like a comet in slow motion.. It's not perfume. It's a presence, a spell in a bottle, softly dangerous, strangely celestial.. Every turn of the head feels choreographed by desire. It doesn't shout, it smoulders.. Wear it when you want the world to lean in just a little closer..",
       "productType": "Fragrance",
