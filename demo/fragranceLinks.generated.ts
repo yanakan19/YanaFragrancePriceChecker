@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-10T11:23:35.123Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-11T11:16:32.975Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -2474,6 +2474,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "caron|poivreimperial|edp": ["","https://www.parfumscaron.com/products/poivre-imperial"],
   "caron|poivresacre": ["","https://www.parfumscaron.com/products/poivre-sacre"],
   "caron|poivresacre|edp": ["","https://www.parfumscaron.com/products/poivre-sacre"],
+  "caron|pourunhommedecaronlesoir": ["","https://www.parfumscaron.com/products/pour-un-homme-de-caron-le-soir"],
+  "caron|pourunhommedecaronlesoir|edp": ["","https://www.parfumscaron.com/products/pour-un-homme-de-caron-le-soir"],
   "caron|pourunhommedecaron|parfum": ["","https://www.parfumscaron.com/products/pour-un-homme-de-caron-parfum"],
   "caron|santalprecieux": ["","https://www.parfumscaron.com/products/santal-precieux"],
   "caron|santalprecieux|edp": ["","https://www.parfumscaron.com/products/santal-precieux"],
@@ -3204,6 +3206,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "emir|lueurdespoirmemoriesofsummer|edp": ["","https://pariscorner.ae/product/lueur-despoir-memories-of-summer-100ml/"],
   "emir|lueurdespoirserenegrove": ["","https://pariscorner.ae/product/lueur-despoir-serene-grove-100ml/"],
   "emir|lueurdespoirserenegrove|edp": ["","https://pariscorner.ae/product/lueur-despoir-serene-grove-100ml/"],
+  "escentricmolecules|citruseditgiftset|unstated": ["","https://escentric.com/products/citrus-gift-set"],
   "escentricmolecules|coreedit10mlgiftset10ml|unstated": ["","https://escentric.com/products/core-edit-10ml-gift-set"],
   "escentricmolecules|discoverygiftset|unstated": ["","https://escentric.com/products/discovery-gift-set"],
   "escentricmolecules|discoverysetbuilder85mlcreateyourown|unstated": ["","https://escentric.com/products/discovery-set-builder"],
@@ -3253,13 +3256,17 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "escentricmolecules|escentric85mldiscoveryset85ml|unstated": ["","https://escentric.com/products/escentric-8-5ml-discovery-set"],
   "escentricmolecules|escentric85mldiscoveryset|unstated": ["","https://www.escentric.com/products/escentric-8-5ml-discovery-set"],
   "escentricmolecules|escentricmolecule01giftset|unstated": ["","https://escentric.com/products/escentric-molecule-01-gift-set"],
+  "escentricmolecules|floraleditgiftset|unstated": ["","https://escentric.com/products/floral-gift-set"],
+  "escentricmolecules|fresheditgiftset|unstated": ["","https://escentric.com/products/fresh-gift-set"],
   "escentricmolecules|m85mldiscoveryset85ml|unstated": ["","https://escentric.com/products/molecule-plus-discovery-set"],
   "escentricmolecules|mblackteaatomiserset3x85ml1xatomiser|unstated": ["","https://escentric.com/products/m-black-tea-atom-iser-set"],
+  "escentricmolecules|mdaygiftset|unstated": ["","https://escentric.com/products/m-day-gift-set"],
   "escentricmolecules|mgiftset|unstated": ["","https://escentric.com/products/molecule-plus-gift-set"],
   "escentricmolecules|mgingeratomiserset3x85ml1xatomiser|unstated": ["","https://escentric.com/products/m-ginger-atom-iser-set"],
   "escentricmolecules|mguaiacwoodatomiserset3x85ml1xatomiser|unstated": ["","https://escentric.com/products/m-guaiac-wood-atom-iser-set"],
   "escentricmolecules|mirisatomiserset3x85ml1xatomiser|unstated": ["","https://escentric.com/products/m-iris-atom-iser-set"],
   "escentricmolecules|mmandarinatomiserset3x85ml1xatomiser|unstated": ["","https://escentric.com/products/m-mandarin-atom-iser-set"],
+  "escentricmolecules|mnightgiftset|unstated": ["","https://escentric.com/products/m-minis-8-5mls-set-2"],
   "escentricmolecules|molecule01atomisergiftset|unstated": ["","https://escentric.com/products/m01-atomiser-gift-set"],
   "escentricmolecules|molecule01atomiserset3x85ml1xatomiser|unstated": ["","https://escentric.com/products/molecule-01-atom-iser-set"],
   "escentricmolecules|molecule01blackteaunisex": ["","https://www.escentric.com/products/molecule-01-black-tea"],
@@ -3333,6 +3340,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "escentricmolecules|mpatchouliatomiserset3x85ml1xatomiser|unstated": ["","https://escentric.com/products/m-patchouli-atom-iser-set"],
   "escentricmolecules|mpatchouligiftset|unstated": ["","https://escentric.com/products/m-patchouli-atomiser-gift-set"],
   "escentricmolecules|one|edc": ["","https://www.escentric.com/products/cologne-one"],
+  "escentricmolecules|the01travelgiftset|unstated": ["","https://escentric.com/products/the-01-travel-gift-set"],
+  "escentricmolecules|woodyeditgiftset|unstated": ["","https://escentric.com/products/woody-gift-set"],
   "escentricmolecule|escentric01": ["","https://www.escentric.com/products/escentric-01-30ml"],
   "escentricmolecule|escentric01|edt": ["","https://www.escentric.com/products/escentric-01-30ml"],
   "essentialparfums|ambrelatte|edp": ["","https://www.essentialparfums.com/en/products/ambre-latte-eau-de-parfum-spray-10-ml"],
@@ -4517,6 +4526,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "jeanpaulgaultier|gaultierdivineeaudeparfum100mlbodylotion75mltravelspraygiftset|edp": ["","https://www.jeanpaulgaultier.com/uk/en/p/range-gaultier-divine/gaultier-divine-100-ml-body-lotion-75-ml-and-travel-spray-gift-set-000000000065247285"],
   "jeanpaulgaultier|gaultierdivineeaudeparfum50mlbodylotion75mleaudeparfum10ml": ["","https://www.jeanpaulgaultier.com/uk/en/p/range-gaultier-divine/gaultier-divine-body-lotion-000000000065192694"],
   "jeanpaulgaultier|gaultierdivineeaudeparfum50mlbodylotion75mleaudeparfum10ml|edp": ["","https://www.jeanpaulgaultier.com/uk/en/p/range-gaultier-divine/gaultier-divine-body-lotion-000000000065192694"],
+  "jeanpaulgaultier|gaultierdivineeaudeparfum50mlbodylotion75mltravelspraygiftset": ["","https://www.jeanpaulgaultier.com/uk/en/p/range-gaultier-divine/gaultier-divine-100-ml-body-lotion-75-ml-and-travel-spray-gift-set-000000000065247285"],
+  "jeanpaulgaultier|gaultierdivineeaudeparfum50mlbodylotion75mltravelspraygiftset|edp": ["","https://www.jeanpaulgaultier.com/uk/en/p/range-gaultier-divine/gaultier-divine-100-ml-body-lotion-75-ml-and-travel-spray-gift-set-000000000065247285"],
   "jeanpaulgaultier|gaultierdivineelixir|parfum": ["","https://www.jeanpaulgaultier.com/uk/en/p/range-gaultier-divine/gaultier-divine-elixir-parfum-000000000065216982"],
   "jeanpaulgaultier|gaultierdivine|edp": ["","https://www.jeanpaulgaultier.com/uk/en/p/range-gaultier-divine/gaultier-divine-eau-de-parfum-000000000065188916"],
   "jeanpaulgaultier|jpgclassique|edt": ["","https://www.jeanpaulgaultier.com/uk/en/p/range-classique/classique-eau-de-toilette-000000000065119957"],
@@ -4895,6 +4906,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "korres|blackpepper|edt": ["","https://uk.korres.com/products/eau-de-toilette-black-pepper-50ml"],
   "korres|blacksugar|edt": ["","https://uk.korres.com/products/eau-de-toilette-black-sugar-50ml"],
   "korres|bluesage|edt": ["","https://uk.korres.com/products/eau-de-toilette-blue-sage-50ml"],
+  "korres|cashmerekumquat|edp": ["","https://uk.korres.com/products/cashmere-kumquat-eau-de-parfum-50ml"],
   "korres|cashmerekumquat|edt": ["","https://uk.korres.com/products/eau-de-toilette-cashmere-kumquat-50ml"],
   "korres|korresblackpepper|edt": ["","https://uk.korres.com/products/eau-de-toilette-black-pepper-50ml"],
   "korres|korresblacksugar|edt": ["","https://uk.korres.com/products/eau-de-toilette-black-sugar-50ml"],
@@ -8140,6 +8152,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "xerjoff|hommeanniversary|parfum": ["","https://www.xerjoff.com/en-uk/products/homme-anniversary-parfum"],
   "xerjoff|ilm|parfum": ["","https://www.xerjoff.com/en-uk/products/ilm-parfum"],
   "xerjoff|irisss|parfum": ["","https://www.xerjoff.com/en-uk/products/irisss-parfum"],
+  "xerjoff|ivoryrouteunisex|edp": ["","https://www.xerjoff.com/en-uk/products/ivory-route-eau-de-parfum"],
   "xerjoff|ivoryroute|edp": ["","https://www.xerjoff.com/en-uk/products/ivory-route-eau-de-parfum"],
   "xerjoff|kbridgeclub|edp": ["","https://www.xerjoff.com/en-uk/products/k-bridge-club-eau-de-parfum"],
   "xerjoff|kemi|parfum": ["","https://www.xerjoff.com/en-uk/products/kemi-parfum"],
