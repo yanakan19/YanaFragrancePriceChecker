@@ -1,51 +1,51 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-11-10T16:49:23.936Z",
+  "builtAt": "2026-11-11T16:38:02.037Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
-  "shopsWired": 28,
-  "shopsEnabled": 25,
-  "shopsPriced": 24,
-  "crawlMinutes": 57.04,
-  "harvestRanAt": "2026-11-10T15:52:20.579Z",
-  "listingsPriced": 83189,
-  "listingsKept": 43634,
+  "shopsWired": 29,
+  "shopsEnabled": 26,
+  "shopsPriced": 25,
+  "crawlMinutes": 57.16,
+  "harvestRanAt": "2026-11-11T15:40:51.987Z",
+  "listingsPriced": 108101,
+  "listingsKept": 60738,
   "staleAfterDays": 7,
-  "products": 30686,
-  "productsWithTwoOrMoreShops": 9159,
-  "shareWithTwoOrMoreShops": 0.298,
-  "productsWithTwoOrMoreIndependentShops": 5718,
-  "shareWithTwoOrMoreIndependentShops": 0.186,
-  "productsWithThreeOrMoreShops": 5233,
-  "medianPriceGap": 0.286,
-  "listingBarcodeShare": 0.173,
-  "productsMatchingUkByBarcode": 2650,
+  "products": 41107,
+  "productsWithTwoOrMoreShops": 10821,
+  "shareWithTwoOrMoreShops": 0.263,
+  "productsWithTwoOrMoreIndependentShops": 7889,
+  "shareWithTwoOrMoreIndependentShops": 0.192,
+  "productsWithThreeOrMoreShops": 6298,
+  "medianPriceGap": 0.41,
+  "listingBarcodeShare": 0.128,
+  "productsMatchingUkByBarcode": 2645,
   "shops": [
     {
       "id": "aedes",
       "products": 712,
-      "shared": 209
+      "shared": 215
     },
     {
       "id": "beauty-encounter",
       "products": 5113,
-      "shared": 1933
+      "shared": 2131
     },
     {
       "id": "beautyhabit",
       "products": 850,
-      "shared": 259
+      "shared": 266
     },
     {
       "id": "bluemercury",
       "products": 647,
-      "shared": 380
+      "shared": 389
     },
     {
       "id": "dillards",
       "products": 2028,
-      "shared": 831
+      "shared": 873
     },
     {
       "id": "ds-and-durga",
@@ -59,13 +59,13 @@
     },
     {
       "id": "fragrance-market",
-      "products": 4667,
-      "shared": 4304
+      "products": 4671,
+      "shared": 4327
     },
     {
       "id": "fragrance-outlet",
-      "products": 4539,
-      "shared": 4290
+      "products": 4544,
+      "shared": 4303
     },
     {
       "id": "indigo-perfumery",
@@ -75,12 +75,12 @@
     {
       "id": "la-belle-perfumes",
       "products": 4873,
-      "shared": 2173
+      "shared": 2471
     },
     {
       "id": "luckyscent",
       "products": 3864,
-      "shared": 791
+      "shared": 795
     },
     {
       "id": "maison-louis-marie",
@@ -89,28 +89,33 @@
     },
     {
       "id": "microperfumes",
-      "products": 508,
-      "shared": 396
+      "products": 506,
+      "shared": 413
     },
     {
       "id": "ministry-of-scent",
       "products": 1631,
-      "shared": 631
+      "shared": 640
     },
     {
       "id": "parfums-raffy",
       "products": 307,
-      "shared": 85
+      "shared": 93
     },
     {
       "id": "perfumania",
-      "products": 4302,
-      "shared": 4133
+      "products": 4306,
+      "shared": 4149
     },
     {
       "id": "perfumes-america",
-      "products": 5414,
-      "shared": 3004
+      "products": 5419,
+      "shared": 3783
+    },
+    {
+      "id": "perfumes4all",
+      "products": 14922,
+      "shared": 4504
     },
     {
       "id": "sol-de-janeiro",
@@ -119,33 +124,33 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 922,
+      "products": 918,
       "shared": 727
     },
     {
       "id": "triple-traders",
-      "products": 4561,
-      "shared": 1015
+      "products": 4565,
+      "shared": 1229
     },
     {
       "id": "twisted-lily",
-      "products": 188,
-      "shared": 107
+      "products": 189,
+      "shared": 108
     },
     {
       "id": "ulta",
       "products": 1542,
-      "shared": 578
+      "shared": 610
     }
   ],
-  "productsShown": 30568,
-  "productsWithUkPhoto": 6589,
-  "productsWithUkPhotoByBarcode": 2022,
-  "productsWithUkPhotoByName": 4567,
-  "listingsWithReference": 23796,
-  "offersWithCorroboratedReference": 12970,
-  "deals": 2262,
-  "shareWithUkPhoto": 0.216,
+  "productsShown": 40996,
+  "productsWithUkPhoto": 6998,
+  "productsWithUkPhotoByBarcode": 2019,
+  "productsWithUkPhotoByName": 4979,
+  "listingsWithReference": 35222,
+  "offersWithCorroboratedReference": 15198,
+  "deals": 2865,
+  "shareWithUkPhoto": 0.171,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
