@@ -60,6 +60,7 @@ export const HARVEST_GROUP_PLAN: Readonly<Record<string, readonly [group: number
   'beauty-pie': [1, 61],
   'beauty-the-shop-uk': [0, 0],
   beautybase: [0, 127],
+  beevora: [1, 60],
   'bellavita-luxury': [0, 83],
   'bloom-perfumery': [0, 1295],
   boots: [0, 0],

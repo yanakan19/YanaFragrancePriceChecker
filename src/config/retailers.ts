@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 89 retailers, 65 of them `enabled: true`. Every one of them is a legitimate
+ * 90 retailers, 66 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -11752,6 +11752,66 @@ export const RETAILERS: readonly Retailer[] = [
       searchUrlTemplate: 'https://soghaat.co.uk/search?q={q}',
       sections: [
         { id: 'all', label: 'All products', urlTemplate: 'https://soghaat.co.uk/collections/all?page={page}', tier: 'mideast' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence obtained, never copied or
+      // rehosted. Unset this the moment they object or block hot-linking.
+      // Owner decision 2026-10-05: photos shown by linking to the shop's own image, as for the first four shops.
+      imageBasis: 'hotlink-unlicensed',
+    },
+  },
+  {
+    id: 'beevora',
+    name: 'Beevora',
+    domain: 'beevora.co.uk',
+    homepage: 'https://beevora.co.uk',
+    tiers: ['mideast'],
+    // Added 2026-11-11 (docs/RETAILER-CANDIDATES-2026-10-08.md, held back on 8 Oct for lack of delivery terms). A
+    // Birmingham shop for Arabian and independent houses (Lattafa, Maison Asrar, French Avenue, Riiffs, Atralia,
+    // Assaf). Read as PriceSniffsBot only, robots.txt first, on 2026-11-11.
+    //
+    // robots.txt (https://beevora.co.uk/robots.txt, HTTP 200) is Shopify's stock file: /policies/ is disallowed (so the
+    // shipping policy page is NOT read), /products.json and product pages are not. No crawl delay for the bot.
+    // /meta.json: currency GBP, country GB, Birmingham. /products.json is about 1,900 products over 8 pages (250 a
+    // page), mostly single variant, 100ml and similar sizes in the title, vendor is the house.
+    //
+    // WHAT IS KEPT. By product type: "Perfume" and "Gift Set". Left out: "Air Freshener" and "Home Fragrance".
+    //
+    // DELIVERY. Only the allowed home page is read: its banner says "FREE UK DELIVERY OVER £50". No rate below that is
+    // published on an allowed page, so none is invented (`standardRateNotPublished`).
+    //
+    // Affiliate: none found. Not applied to.
+    enabled: true,
+    adapter: 'unknown',
+    shopifyStorefront: true,
+    shopifyVariantRule: {
+      productTypes: ['Perfume', 'Gift Set'],
+    },
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 50,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-11-11',
+      confidence: 'unverified',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://beevora.co.uk/',
+        quote: 'FREE UK DELIVERY OVER £50',
+        readAt: '2026-11-11',
+      },
+      notes:
+        'Read off the shop\'s home page banner on 2026-11-11. The shipping policy is under /policies/, which its ' +
+        'robots.txt disallows, so it was not read: no rate below £50 and no delivery window is stated on an allowed page. ' +
+        'The 3 to 5 day window is a placeholder, not a reading; to be settled from the shop\'s own basket by the owner.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://beevora.co.uk/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All products', urlTemplate: 'https://beevora.co.uk/collections/all?page={page}', tier: 'mideast' },
       ],
       firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
     },

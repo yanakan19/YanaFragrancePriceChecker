@@ -183,7 +183,8 @@ describe('retailer registry', () => {
     // enabled count goes up by one.
     //
     // 2026-11-04: 88 becomes 89. Soghaat, enabled, so the enabled count goes up by one again.
-    expect(RETAILERS).toHaveLength(89);
+    // 2026-11-11: 89 becomes 90. Beevora, enabled.
+    expect(RETAILERS).toHaveLength(90);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
@@ -350,7 +351,10 @@ describe('retailer registry', () => {
       // robots.txt disallows, so nothing was read and its entry says so.
       // soghaat joined 2026-11-04 on a Shopify route proved from its own /products.json: free UK delivery over £40 and
       // no rate below it (standardRateNotPublished, its policy page quoted).
+      // beevora joined 2026-11-11 on a Shopify route proved from its own /products.json: free UK delivery over £50 on its
+      // home page banner; its policy sits under /policies/ (disallowed), so no rate below it is known.
       expect(unstated.map((r) => r.id).sort()).toEqual([
+        'beevora',
         'niche-beauty-uk',
         'opulensi',
         'perfume-closet',
