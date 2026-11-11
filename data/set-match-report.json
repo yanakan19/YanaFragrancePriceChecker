@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 356,
+ "folded": 355,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -4463,38 +4463,6 @@
      "ean": null,
      "scent": "guilty homme pour",
      "signature": "1x50fragrance|1x50wash",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616304966750",
-   "absorbed": [
-    "set-calvin-klein-men-s-mini-gift-set-2-x-10ml-ck-one-edt-10ml-eternity-edt-10ml-defy-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616304966750",
-     "brand": "Calvin Klein",
-     "name": "Men's Mini Gift Set 2 x 10ml CK One EDT + 10ml Eternity EDT + 10ml Defy EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3616304966750",
-     "scent": "ck defy eternity one",
-     "signature": "2x10fragrance|2x10travel",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-calvin-klein-men-s-mini-gift-set-2-x-10ml-ck-one-edt-10ml-eternity-edt-10ml-defy-edt",
-     "brand": "Calvin Klein",
-     "name": "Men's Mini Gift Set 2 x 10ml CK One EDT + 10ml Eternity EDT + 10ml Defy EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "ck defy eternity one",
-     "signature": "2x10fragrance|2x10travel",
      "shops": [
       "p-eleven"
      ]
@@ -15915,7 +15883,7 @@
   },
   {
    "reasons": [
-    "price spread 1.64 is over 1.5"
+    "price spread 1.82 is over 1.5"
    ],
    "members": [
     {
