@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-10T22:51:44.331Z",
-  "seenAt": "2026-11-10T22:51:44.331Z",
+  "updatedAt": "2026-11-11T02:49:46.540Z",
+  "seenAt": "2026-11-11T02:49:46.540Z",
   "source": "live",
   "listings": [
     {
@@ -2521,7 +2521,7 @@
       "priceGbp": 34,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A night time cream, to moisturise, revitalise and nourish the skin whilst you sleep..",
       "productType": "Night Care",
@@ -5649,7 +5649,7 @@
       "priceGbp": 11,
       "wasPriceGbp": 20,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Our White Musk® L’Eau Eau de Toilette has fresh, light and fruity notes that leave you feeling unafraid to express yourself. Made with cruelty-free musk..",
       "productType": "Eau De Toilette",

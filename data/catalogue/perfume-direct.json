@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-10T22:44:31.213Z",
-  "seenAt": "2026-11-10T22:44:31.213Z",
+  "updatedAt": "2026-11-11T02:41:59.382Z",
+  "seenAt": "2026-11-11T02:41:59.382Z",
   "source": "live",
   "listings": [
     {
@@ -35007,7 +35007,7 @@
       "priceGbp": 26.99,
       "wasPriceGbp": 48,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Escape to paradise with Escada Nectar de Costa Rica Eau de Toilette, a vibrant women's fragrance inspired by the lush tropics. Bursting with juicy pineapple, exotic flowers, and warm woods, this scent captures the essence of a sun-drenched Costa Rican getaway. Light, uplifting, and irresistibly fruity, it’s the perfect summer companion - ideal for beach days, holidays, or simply bringing a little sunshine into your everyday routine. . . Fragrance Type: . Fruity, Tropical . . Fragrance Notes: . Top Notes: Mango, Pineapple . Middle Notes: Orange Blossom, Jasmine . Base Notes: Musk, Cedar . . Launched: . 2024 .",
       "productType": "Women's Perfume",

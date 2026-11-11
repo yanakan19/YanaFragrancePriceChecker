@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-10T22:44:31.213Z",
-  "seenAt": "2026-11-10T22:44:31.213Z",
+  "updatedAt": "2026-11-11T02:41:59.382Z",
+  "seenAt": "2026-11-11T02:41:59.382Z",
   "source": "live",
   "listings": [
     {
@@ -1762,7 +1762,7 @@
       "priceGbp": 41.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Tsuki by Escalo is an extrait de parfum featuring a complex composition of spicy saffron and pink pepper, balanced by sweet praline and geranium. The fragrance concludes with a deep, long-lasting base of oud, leather, akigalawood, and amber, providing rich olfactory depth and longevity. .",
       "productType": null,

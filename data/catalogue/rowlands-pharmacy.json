@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-10T22:44:30.780Z",
-  "seenAt": "2026-11-10T22:44:30.780Z",
+  "updatedAt": "2026-11-11T02:41:57.988Z",
+  "seenAt": "2026-11-11T02:41:57.988Z",
   "source": "live",
   "listings": [
     {
@@ -241,7 +241,7 @@
       "rawBrand": "DKNY",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0862/4914/4654/files/DKNYBeDeliciousBlossomEaudeParfum100ml.jpg?v=1790767874",
-      "priceGbp": 29.99,
+      "priceGbp": 20,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -701,7 +701,7 @@
       "rawBrand": "Ted Baker",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0862/4914/4654/files/TedBakerAmeliaEaudeToilette30ml.jpg?v=1760527339",
-      "priceGbp": 8,
+      "priceGbp": 10,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -1047,7 +1047,7 @@
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0862/4914/4654/files/CalvinKleinWomen_sMiniatureFragranceGiftSet4x15ml.jpg?v=1778763024",
       "priceGbp": 24,
-      "wasPriceGbp": 48,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "shopify-products-json",

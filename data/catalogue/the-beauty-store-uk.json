@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-10T22:44:30.780Z",
-  "seenAt": "2026-11-10T22:44:30.780Z",
+  "updatedAt": "2026-11-11T02:41:57.988Z",
+  "seenAt": "2026-11-11T02:41:57.988Z",
   "source": "live",
   "listings": [
     {
@@ -11606,7 +11606,7 @@
       "priceGbp": 11.85,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "American Crew is committed to offering men a great new experience and provide them with innovative ways to create new styles. .",
       "productType": "Hair Paste",
@@ -23934,7 +23934,7 @@
       "priceGbp": 37.6,
       "wasPriceGbp": 69,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Clinique Glowing Skin on the Go Set. Clinique Glowing Skin on the Go Set is a simple skincare trio for hydrated, fresh-looking skin anywhere. It suits all skin types, including sensitive skin. This set combines three everyday essentials to support moisture and comfort. It is ideal for travel, gym bags, or quick routines. You get a full-size Moisture Surge 100H Hydrator, plus two handy minis for eyes and face mist.\n. The textures feel light, cooling, and fast-absorbing on the skin. Moisture Surge 100H uses aloe bio-ferment and hyaluronic acid to help skin hold moisture for longer. The All About Eyes Serum refreshes tired eyes with a cooling rollerball. The face spray gives a quick boost of hydration anytime. Skin feels smoother, looks plumper, and appears more radiant with regular use.\n. Hydration boost: gel-cream formula helps lock in moisture for up to 100 hours. Eye care: cooling serum helps reduce puffiness and refresh tired eyes. On-the-go refresh: face spray hydrates and revives skin throughout the day. Suitable for all skin types, including dry and sensitive skin. Explore more in our Skincare range or pair with essentials from Makeup for a complete routine.\n. Contents: Moisture Surge 100H Auto-Replenishing Hydrator 75ml All About Eyes Serum 15ml Moisture Surge Face Spray 30ml\n.",
       "productType": "Gift Set",

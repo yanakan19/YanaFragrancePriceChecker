@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-10T22:44:30.780Z",
-  "seenAt": "2026-11-10T22:44:30.780Z",
+  "updatedAt": "2026-11-11T02:41:57.988Z",
+  "seenAt": "2026-11-11T02:41:57.988Z",
   "source": "live",
   "listings": [
     {
@@ -158734,8 +158734,8 @@
       "rawBrand": "Mugler",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/mugler_alien_eau_de_parfum_-_refill_100ml.png?v=1729190557",
-      "priceGbp": 84,
-      "wasPriceGbp": 112,
+      "priceGbp": 112,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
