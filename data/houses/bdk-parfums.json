@@ -1,7 +1,7 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-11-12T09:29:21.435Z",
-  "seenAt": "2026-11-12T09:29:21.435Z",
+  "updatedAt": "2026-11-12T13:50:52.141Z",
+  "seenAt": "2026-11-12T13:50:52.141Z",
   "source": "live",
   "listings": [
     {
@@ -19,7 +19,7 @@
       "description": "Une sélection de quatre extraits de parfum, composée par la Maison. Gris Charnel, Pas ce soir, Rouge Smoking et Velvet Tonka : quatre signatures aux sillages profonds et addictifs, à découvrir..",
       "productType": "Product Bundle",
       "nativePrice": {
-        "amount": 75,
+        "amount": 28,
         "currency": "EUR"
       },
       "retailerId": "bdk-parfums",

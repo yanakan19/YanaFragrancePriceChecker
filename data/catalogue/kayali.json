@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-12T09:22:41.506Z",
-  "seenAt": "2026-11-12T09:22:41.506Z",
+  "updatedAt": "2026-11-12T13:44:35.253Z",
+  "seenAt": "2026-11-12T13:44:35.253Z",
   "source": "live",
   "listings": [
     {
@@ -175,7 +175,7 @@
       "priceGbp": 3,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Comforting, nostalgic, and joyful, our Yum Vanilla Cupcake | 108 Eau de Parfum is a celebration of life's sweetest moments! It opens with a burst of bright lemon sugar and rainbow sprinkles tossed in like confetti, sinking into a decadent heart of white caramel, toasted coconut flakes, and warm sweet milk. It then settles into a rich vanilla frosting base, turning little joys into lasting memories worth treasuring forever. .",
       "productType": "Fragrances",

@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-12T09:22:41.506Z",
-  "seenAt": "2026-11-12T09:22:41.506Z",
+  "updatedAt": "2026-11-12T13:44:35.253Z",
+  "seenAt": "2026-11-12T13:44:35.253Z",
   "source": "live",
   "listings": [
     {
@@ -5051,7 +5051,7 @@
       "priceGbp": 35.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Jean Paul Gaultier Le Male Eau de Toilette Spray is a warm fragrance created for customers who enjoy a rich, expressive scent. It opens with spicy and citrus notes, develops into herbal and woody accords, and settles into a bold yet polished base. Suitable for evening and cooler weather, this scent feels confident and layered.. Why customers choose it . Well-suited for evening and cooler seasons. A great option for formal occasions and daily wear. Designed for customers who prefer spicy, woody, and herbal scents.",
       "productType": "Eau de Toilette",
@@ -9927,7 +9927,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Marc Jacobs Daisy Eau de Toilette is a floral fragrance created for customers who enjoy a soft, elegant scent. It opens with a fresh and inviting first impression, develops into a graceful floral heart, and settles into a smooth lasting base. Suitable for everyday wear, this fragrance is a strong choice for anyone looking for a scent that feels confident and playful.. Why customers choose it . Well-suited for spring and everyday use. A great option for gifting or daily wear. Designed for customers who prefer floral scents.",
       "productType": "Eau de Toilette",
@@ -10525,7 +10525,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Obsession for Men Eau De Toilette Spray is a warm oriental fragrance created for customers who enjoy a bold and lasting scent. It opens with aromatic notes of lavender and mandarin, develops into spicy accords of clove and nutmeg, and settles into a smooth amber base. Suitable for evenings and dressier occasions, this fragrance exudes a confident and timeless warmth.. Why customers choose it Well-suited for cooler weather and evening wear. A great option for special occasions and dressier settings. Designed for customers who prefer warm, oriental scents.",
       "productType": "Eau de Toilette",

@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-11-12T09:24:15.312Z",
-  "seenAt": "2026-11-12T09:24:15.312Z",
+  "updatedAt": "2026-11-12T13:45:46.217Z",
+  "seenAt": "2026-11-12T13:45:46.217Z",
   "source": "live",
   "listings": [
     {
@@ -1197,7 +1197,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Oud Malino 100 ML offers a rich and exotic oud fragrance with a deep and captivating aroma. .",
       "productType": "Unisex Attar",

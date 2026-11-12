@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-12T09:22:39.302Z",
-  "seenAt": "2026-11-12T09:22:39.302Z",
+  "updatedAt": "2026-11-12T13:44:20.369Z",
+  "seenAt": "2026-11-12T13:44:20.369Z",
   "source": "live",
   "listings": [
     {
@@ -37,7 +37,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Paco Rabanne 1 Million Eau de Toilette 50ml. Key Features. ##features##. Bestselling men's fragrance from Paco Rabanne.. Fresh opening of grapefruit, mint and blood orange.. Spicy heart with cinnamon and rose accords.. Rich leather, amber and patchouli base.. Iconic gold bar bottle design.. Bold and charismatic fragrance for confident men.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Paco Rabanne 1 Million Eau de Toilette is a bold and luxurious fragrance that has become a modern classic. Fresh citrus notes meet warm spices and rich leather accords, creating a powerful scent that projects confidence and sophistication. Ideal for evenings, special occasions and everyday wear.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -612,7 +612,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Dark Blue Eau de Toilette 75ml. Key Features. ##features##. Distinctive amber spicy fragrance for men.. Fresh opening with lime, grapefruit and ginger notes.. Aromatic heart featuring sage and cypress accords.. Warm base of patchouli, suede and benzoin.. Ideal for evenings and cooler weather.. Presented in the iconic cocktail shaker-inspired bottle.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Hugo Boss Dark Blue Eau de Toilette is a bold and energetic men's fragrance that combines vibrant citrus notes with warm spices and rich woody accords. Fresh lime and ginger create an invigorating opening, while sage and cypress add aromatic depth. A smooth base of patchouli, suede and resins delivers a confident masculine finish that is ideal for evening wear and special occasions.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. Alcohol Denat., Aqua/Water, Parfum/Fragrance, Limonene, Linalool, Citronellol, Coumarin, Citral, Geraniol, Eugenol.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

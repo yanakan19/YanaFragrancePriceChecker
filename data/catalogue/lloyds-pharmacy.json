@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-12T09:22:41.506Z",
-  "seenAt": "2026-11-12T09:22:41.506Z",
+  "updatedAt": "2026-11-12T13:44:35.253Z",
+  "seenAt": "2026-11-12T13:44:35.253Z",
   "source": "live",
   "listings": [
     {
@@ -5462,8 +5462,8 @@
       "rawBrand": "Calvin Klein",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Calvin-Klein-Obsession-EDP-Spray-100ml-63957308408076.jpg?v=1781258191",
-      "priceGbp": 80,
-      "wasPriceGbp": null,
+      "priceGbp": 19.99,
+      "wasPriceGbp": 80,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
