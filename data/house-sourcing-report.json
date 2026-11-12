@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-11T20:16:56.496Z",
+  "checkedAt": "2026-11-12T00:50:58.827Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -127,11 +127,12 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "robots.txt unreachable at https://ae.ahmedalmaghribi.com and https://www.ae.ahmedalmaghribi.com — holding off rather than guessing we are welcome"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "the UAE storefront (ae.) is what this points at; the brand also runs separate om./us. regional subdomains and no UK one was found — worth checking for a uk. subdomain before assuming there is none"
+        "the UAE storefront (ae.) is what this points at; the brand also runs separate om./us. regional subdomains and no UK one was found — worth checking for a uk. subdomain before assuming there is none",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {

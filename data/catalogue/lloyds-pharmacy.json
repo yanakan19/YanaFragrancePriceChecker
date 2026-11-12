@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-11T20:09:49.260Z",
-  "seenAt": "2026-11-11T20:09:49.260Z",
+  "updatedAt": "2026-11-12T00:44:27.680Z",
+  "seenAt": "2026-11-12T00:44:27.680Z",
   "source": "live",
   "listings": [
     {
@@ -6891,7 +6891,7 @@
       "priceGbp": 92,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Designer fragrance from renowned beauty brand Clinique. 100ml Eau de Parfum spray. Rich, warm, Aromatics Elixir scent. ##end-features##. Product description. Revolutionise your scent with the Clinique Aromatics Elixir EDP Spray 100ml. This potent fragrance captivates the senses and defines your individuality. . This opulent fragrance from Clinique wraps the skin in luxurious, invigorating notes. It comes encased in a captivating bottle that beautifies any dressing table. The blend of refreshing Aromatics Elixir scent delivers a heady aroma that lights up any room.. Delight your senses with this aromatic and enduring Eau De Parfum spray.. Features of Clinique Aromatics Elixir EDP Spray 100ml. Invoking scent that lasts all day. Can be worn for any occasion. Suitable for all skin types. Supplied in a sophisticated and charismatic glass bottle. ##accordion-start##. Specifications. Product type: Eau de Parfum spray. ##accordion-item-end##. Suitable for. Individuals who appreciate classic, long-lasting fragrances. ##accordion-item-end##. Warnings and cautions. Avoid spraying directly into eyes. Keep out of reach of children. Discontinue use if rash or irritation occurs. Store in a cool, dry place away from direct sunlight. ##accordion-item-end##. How to use. Apply to pulse points such as wrists, behind the ears, and the base of the neck. Allow the fragrance to dry naturally without rubbing - this will help the fragrance last longer. ##accordion-item-end##. Ingredients. All info on package/leaflet.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",

@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-11T20:09:49.260Z",
-  "seenAt": "2026-11-11T20:09:49.260Z",
+  "updatedAt": "2026-11-12T00:44:27.680Z",
+  "seenAt": "2026-11-12T00:44:27.680Z",
   "source": "live",
   "listings": [
     {
@@ -957,7 +957,7 @@
       "priceGbp": 121.5,
       "wasPriceGbp": 162,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "While we’re so excited for the launch of our new refillable bottles to provide you with a more sustainable way of enjoying La Vie Est Belle over and over again, we must continue selling through any existing non-refillable stock to reduce the impact of environmental waste. During this transitional period, please understand that you may receive either a non-refillable or new refillable version of this product..",
       "productType": "Women's Fragrances",
@@ -5922,8 +5922,8 @@
       "rawBrand": "Caudalie",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0857/0706/3630/files/A865786_000_001.jpg?v=1777039566",
-      "priceGbp": 24.65,
-      "wasPriceGbp": 29,
+      "priceGbp": 29,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

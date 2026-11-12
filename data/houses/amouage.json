@@ -1,7 +1,7 @@
 {
   "retailerId": "amouage",
-  "updatedAt": "2026-11-11T20:16:51.304Z",
-  "seenAt": "2026-11-11T20:16:51.304Z",
+  "updatedAt": "2026-11-12T00:50:52.277Z",
+  "seenAt": "2026-11-12T00:50:52.277Z",
   "source": "live",
   "listings": [
     {
@@ -144,7 +144,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Refreshing and indulgent, the deeply cleansing formulation of the Love Delight Woman Bath & Shower Gel creates a delightfully rich foam leaving the skin soft and supple. The addition of Frankincense oil from Oman brings out the sparkling Ginger and Rose Water notes of Love Delight Woman Eau de Parfum, leaving a haunting trace of fragrance on the body. . Size: 360ml. About the fragrance:. The interplay of delicate florals and irresistible treats, radiance, and insouciance. Love Delight is an invitation to savour every moment of indulgence.. Discover The Full Collection .",
       "productType": "BODY",
@@ -300,7 +300,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Refreshing and indulgent, the deeply cleansing formulation of the Purpose Bath & Shower Gel creates a delightfully rich foam leaving the skin soft and supple.. The addition of Frankincense oil from Oman brings out the lucid Pimento Berry notes of Purpose Eau de Parfum, leaving a haunting trace of fragrance on the body.. . Size: 360ml. . About the Purpose fragrance :. . A vertical totem of mineral woods and stellar sparks of spice, Purpose is a shamanic awakening, the scent of feeling at peace, of finding your roots, of being complete.. . Discover The Full Collection .",
       "productType": "BODY",

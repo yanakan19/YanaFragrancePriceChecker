@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-11T20:09:43.841Z",
-  "seenAt": "2026-11-11T20:09:43.841Z",
+  "updatedAt": "2026-11-12T00:44:35.254Z",
+  "seenAt": "2026-11-12T00:44:35.254Z",
   "source": "live",
   "listings": [
     {
@@ -9973,7 +9973,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Limited-edition Absolu Aventus, a fragrance beloved by perfume connoisseurs and luxury tastemakers alike, makes its eagerly anticipated return to The House of Creed. Taking its name from “absolvere”, the Latin for “to set free”, this one of-a-kind masterpiece is a striking re-imagination of revered original Aventus Eau de Parfum, incorporating the vivifying energy of grapefruit and pineapple with smoky Haitian vetiver in a dazzling exploration of freshness. A rare olfactive gem, Absolu Aventus promises a sensory experience that is beyond compare. .",
       "productType": "Fragrance",
@@ -13515,7 +13515,7 @@
       "priceGbp": 175,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "An elegant, ambrosial, floral perfume scored in effervescent citrus tonalities honours the eminent orange tree, cherished by Europe's royal courts throughout the epochs.. Orangers en Fleurs is a celebration of the orange blossom, blending the bloom with the gorgeous creamy white florals of tuberose and jasmine, voluptuous rose, ylang-ylang, and a warming drydown of nutmeg, cedar and musk.. Top Notes: Orange blossom, Rose absolute, Egyptian jasmine absolute. Heart Notes: Patchouli, Sandalwood, Benzoin, Tahitian vanilla, Amber, Musk. Base Notes: Cedarwood, Musk. .",
       "productType": "Fragrance",
@@ -23957,7 +23957,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A delicious, exotic and refreshing cocktail of limes from the Antilles, coconut, ginger, sugar cane, white rum and jasmine. A wave of glass-green tropical splendour.. The enticing scent of paradise all year around, Virgin Island Water Eau de Parfum is a fresh and warm fragrance that emulates the exotic sea breeze and clear blue water of the dazzling Caribbean Islands. This refreshing fruity perfume opens with tantalising notes of bergamot, crisp Mexican lime and tangy tropical fruits. Capturing the charm of an invigorating summer cocktail, a heart of exotic white florals and jasmine mingle with rich and milky coconut layers that step into a lasting base of tonka bean and white musk that conjure up an irresistible warmth and serenity - perfect for those high sunshine tropical adventures.. Top Notes: Bergamot, Jamaican Lime, Sicilian Mandarin Heart Notes: Hibiscus, Ylang-Ylang, Indian Jasmine Base Notes: Tonkin musk, Tropical Woods, Coconut .",
       "productType": "Fragrance",

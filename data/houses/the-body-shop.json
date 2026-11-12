@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-11T20:16:54.761Z",
-  "seenAt": "2026-11-11T20:16:54.761Z",
+  "updatedAt": "2026-11-12T00:50:56.271Z",
+  "seenAt": "2026-11-12T00:50:56.271Z",
   "source": "live",
   "listings": [
     {
@@ -2360,7 +2360,7 @@
       "priceGbp": 7,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Warm ginger, soft spices and golden-brown sugar create a scent that feels like home; nostalgic, sweet and full of togetherness, like freshly baked gingerbread. Slather on the festive joy with Gingerbread Body Butter. .",
       "productType": "Body Butters",

@@ -1,9 +1,35 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-11T20:16:53.611Z",
-  "seenAt": "2026-11-11T20:16:53.611Z",
+  "updatedAt": "2026-11-12T00:50:54.604Z",
+  "seenAt": "2026-11-12T00:50:54.604Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "SJ99034400",
+      "url": "https://soldejaneiro.com/products/glowmotions-glow-body-oil-carnaval-queen",
+      "rawTitle": "Glowmotions Glow Oil Carnaval Queen | Limited Edition",
+      "rawBrand": "Skin-softening Glow Oil with Brazilian-style Shimmer",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ25_DTC_Glowmotions_CarnavalQueen_PpageRender_1600x1600-1.webp?v=1747156472",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Beam like a Carnaval Queen in our limited -edition , shimmering rose gold oil . This transfer-resistant , lightweight body oil soften s skin with moisturizing cupuaçu butter and a nourishing blend of coconut, açai, and sunflower oils , while wrapping you in our iconic Cheirosa 62 ™ scent. .",
+      "productType": "Body Cream",
+      "nativePrice": {
+        "amount": 36,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-12T00:50:54.604Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "BN004801",
       "url": "https://soldejaneiro.com/products/limited-edition-sol-tote-perfume-mist-collection",
@@ -1177,33 +1203,7 @@
     {
       "retailerSku": "BN002300",
       "url": "https://soldejaneiro.com/products/glow-blend-duo",
-      "rawTitle": "Glow & Blend Duo Rio Sunset",
-      "rawBrand": "Sol de Janeiro",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_Glow_Blend_Duo_Rio_Sunset_BUNDLE_OVERHEAD_RGB_1452X1452_9cb87286-a969-4ed8-9439-3aabc88c9f47.jpg?v=1788868299",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Two steps to an airbrushed glow with the Glowmotions Body Oil & Brush Duo . S m ooth your favorite Glowmotions Body Oil over your skin with the blending body brush ’s soft bristles that move seamlessly over your contours for a n effortless application. .",
-      "productType": "bundle",
-      "nativePrice": {
-        "amount": 52,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-08-21T17:35:07.423Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "BN002400",
-      "url": "https://soldejaneiro.com/products/glow-blend-duo",
-      "rawTitle": "Glow & Blend Duo Copacabana Bronze",
+      "rawTitle": "Glow & Blend Duo",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_Glow_Blend_Duo_Rio_Sunset_BUNDLE_OVERHEAD_RGB_1452X1452_9cb87286-a969-4ed8-9439-3aabc88c9f47.jpg?v=1788868299",
@@ -18128,7 +18128,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "SJ99210202",
+      "retailerSku": "SJ99063500",
       "url": "https://soldejaneiro.com/products/brazilian-bum-bum-cream",
       "rawTitle": "Brazilian Bum Bum® Cream 75ml",
       "rawBrand": "Sol de Janeiro",
@@ -18146,11 +18146,11 @@
         "currency": "USD"
       },
       "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-08-05T18:12:07.600Z",
+      "firstSeenAt": "2026-11-12T00:50:54.604Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -18203,6 +18203,60 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "BN002400",
+      "url": "https://soldejaneiro.com/products/glow-blend-duo",
+      "rawTitle": "Glow & Blend Duo Copacabana Bronze",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_Glow_Blend_Duo_Rio_Sunset_BUNDLE_OVERHEAD_RGB_1452X1452_9cb87286-a969-4ed8-9439-3aabc88c9f47.jpg?v=1788868299",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Two steps to an airbrushed glow with the Glowmotions Body Oil & Brush Duo . S m ooth your favorite Glowmotions Body Oil over your skin with the blending body brush ’s soft bristles that move seamlessly over your contours for a n effortless application. .",
+      "productType": "bundle",
+      "nativePrice": {
+        "amount": 52,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-08-21T17:35:07.423Z",
+      "lastSeenAt": "2026-11-11T20:16:53.611Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-12T00:50:54.604Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "SJ99210202",
+      "url": "https://soldejaneiro.com/products/brazilian-bum-bum-cream",
+      "rawTitle": "Brazilian Bum Bum® Cream 75ml",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_BB_BC_240ML_OVERHEAD_RGB_1452X1452_cb5b3d96-578a-4163-8c34-8c815fc465eb.jpg?v=1788873312",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Brazilian Bum Bum ® Cream is our iconic, visibly firming body cream designed to tighten, smooth, address the look of cellulite, and leave skin glowing––thanks to powerhouse ingredients like caffeine-rich guarana extract, cupuaçu butter, and plant squalane. . . The fast-absorbing formula soaks right in to hydrate skin, while also replenishing and locking in moisture. Plus, it’s scented with our best-selling Cheirosa 62™ fragrance which features irresistible & sunny notes of salted caramel and pistachio. Bring on the compliments. . . .bbc-callout { display: flex; flex-direction: row; align-items: center; } .left-side { transform: rotate(331deg); } .right-side { transform: rotate(139deg); } .accent { width: auto; height: 20px; } .sold-bbc { padding: 10px 0px; margin: 0; } .bbc-tooltip { position: relative; display: inline-block; vertical-align: center; margin-left: 2px; } .bbc-tooltip .bbc-tooltip-text { visibility: hidden; width: 150px; color: #4e4f4f; text-align: center; border-radius: 6px; padding: 5px; background-color: #fff; box-shadow: 0px 0px 5px #000; /* Position the tooltip */ position: absolute; top:25px; right: 20px; z-index: 1; } .bbc-tooltip:hover .bbc-tooltip-text { visibility: visible; }",
+      "productType": "Body Cream",
+      "nativePrice": {
+        "amount": 24,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-08-05T18:12:07.600Z",
+      "lastSeenAt": "2026-11-11T20:16:53.611Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-12T00:50:54.604Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
