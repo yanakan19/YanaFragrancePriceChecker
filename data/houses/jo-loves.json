@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-12T18:16:44.752Z",
-  "seenAt": "2026-11-12T18:16:44.752Z",
+  "updatedAt": "2026-11-12T22:46:50.539Z",
+  "seenAt": "2026-11-12T22:46:50.539Z",
   "source": "live",
   "listings": [
     {
@@ -1946,7 +1946,7 @@
       "priceGbp": 90,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Discover Red Truffle 21, a captivating fragrance celebrating 21 years of Jo's unwavering passion and tenacity in the industry she adores. Embrace the gutsy power of truffle, blended harmoniously with the earthy notes of fig and the tangy skin of red currant, creating a scent that lingers and manipulates the senses, just like truffle transforms culinary delights. Indulge in this rare and potent fragrance that embodies strength, resilience, and an enduring presence.",
       "productType": "Fragrance",
@@ -3027,7 +3027,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Experience a touch of luxury on your vacation with the Jo Loves A Pomelo Travel Collection. Presented in an exclusive Jo Loves TSA and airline approved clear travel bag, this collection includes A Shampoo, A Conditioner, A Bath & Shower Gel and A Body Lotion in 75ml in our Pomelo scent. Indulge in the bestselling Pomelo scent, inspired by memories of summer holidays, white sandy beaches, fresh linen sheets, and sparkling iced water. This mouth-watering blend of Grapefruit-infused Citrus is sharp, refreshing, and instantly energising.",
       "productType": null,

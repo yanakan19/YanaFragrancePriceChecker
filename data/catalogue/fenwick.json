@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-12T18:10:01.053Z",
-  "seenAt": "2026-11-12T18:10:01.053Z",
+  "updatedAt": "2026-11-12T22:40:26.168Z",
+  "seenAt": "2026-11-12T22:40:26.168Z",
   "source": "live",
   "listings": [
     {
@@ -2912,7 +2912,7 @@
       "priceGbp": 22.4,
       "wasPriceGbp": 32,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Delicious like baking on a lazy Sunday. Nibble something yummy just out of the oven. A touch of Cinnamon, rich Vanilla, and creamy Chestnuts. An indulgent scent to wear alone or layer.Notes:Baked apple and Vanilla bean.Style/Mood:Rich. Grounding. Irresistible..",
       "productType": "Women's Fragrances",
