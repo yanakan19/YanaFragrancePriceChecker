@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-12T00:44:35.254Z",
-  "seenAt": "2026-11-12T00:44:35.254Z",
+  "updatedAt": "2026-11-12T05:09:38.748Z",
+  "seenAt": "2026-11-12T05:09:38.748Z",
   "source": "live",
   "listings": [
     {
@@ -4430,7 +4430,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Featuring Kingdom Scotland’s collection of evocative and modern perfumes, the beautifully packaged Travel Gift Set contains four 7.5ml Eau de Parfums for an exceptional olfactory experience. Inside this timeless gift set you’ll discover Kingdom Scotland’s signature scents: Albaura, Portal, Metamorphic and Kingdom Botanica. . The Set Contents:. Albaura, 7.5ml. Portal, 7.5ml. Metamorphic, 7.5ml. Kingdom Botanica, 7.5ml.",
       "productType": null,
