@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-12T13:50:57.133Z",
+  "checkedAt": "2026-11-12T18:16:45.210Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -75,9 +75,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 210,
+      "listings": 211,
       "pricedInGbp": 0,
-      "withPhoto": 209,
+      "withPhoto": 210,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -479,9 +479,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 700,
+      "listings": 701,
       "pricedInGbp": 0,
-      "withPhoto": 700,
+      "withPhoto": 701,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

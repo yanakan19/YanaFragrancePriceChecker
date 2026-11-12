@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-12T13:44:35.253Z",
-  "seenAt": "2026-11-12T13:44:35.253Z",
+  "updatedAt": "2026-11-12T18:10:01.053Z",
+  "seenAt": "2026-11-12T18:10:01.053Z",
   "source": "live",
   "listings": [
     {
@@ -908,7 +908,7 @@
       "rawBrand": "Beauty Pie®",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/Better_Than_An_Advent_Calendar_84841_PDP_1x1_ECOM_2026_WEB_01-1.jpg?v=1791805550",
-      "priceGbp": 359,
+      "priceGbp": 1331,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -1184,7 +1184,7 @@
       "rawBrand": "Beauty Pie®",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/Better_Than_An_Advent_Calender_84735_PDP_1x1_ECOM_2026_WEB_01.jpg?v=1788878731",
-      "priceGbp": 249,
+      "priceGbp": 1028,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -4200,7 +4200,7 @@
       "priceGbp": 95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A concentrated serum like this, with 7% advanced pro collagen Matrixyl (R) peptides- would normally retail for about £100. But that’s not what you pay shopping warehouse-direct at Beauty Pie. “Shockingly Good.” “Witchcraft.” “A Face Lift In A Bottle.” That’s how people talk about our powerful anti-aging Flash Face Lift Intense Serum Superdrops . Formulated with two Matrixyl™ peptides plus Argireline®, this concentrated serum helps visibly lift and firm while reducing the appearance of fine lines, deep wrinkles and expression lines. It also supports cell longevity for a complexion that appears smoother, fresher and more youthful. .",
       "productType": "Skincare",

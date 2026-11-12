@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-12T13:44:35.253Z",
-  "seenAt": "2026-11-12T13:44:35.253Z",
+  "updatedAt": "2026-11-12T18:10:01.053Z",
+  "seenAt": "2026-11-12T18:10:01.053Z",
   "source": "live",
   "listings": [
     {
@@ -8662,7 +8662,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Estée Lauder Youth-Dew Eau de Parfum is a warm fragrance created for customers who enjoy a sophisticated scent. It opens with a subtle blend of spices and fall fruits, develops into a floral heart, and settles into a smooth woodsy-amber base. Suitable for evening wear and cooler seasons, this fragrance is a strong choice for anyone looking for a classic and enduring scent.. Why customers choose it . Well-suited for autumn and winter seasons. A great option for evening wear and special occasions. Designed for customers who prefer warm and oriental scents.",
       "productType": "Eau de Parfum",

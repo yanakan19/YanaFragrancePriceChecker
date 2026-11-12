@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-12T13:44:35.253Z",
-  "seenAt": "2026-11-12T13:44:35.253Z",
+  "updatedAt": "2026-11-12T18:10:01.053Z",
+  "seenAt": "2026-11-12T18:10:01.053Z",
   "source": "live",
   "listings": [
     {
@@ -1762,7 +1762,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The calm of sunset mixed with the heat of the day, a scent that shifts you from daytime bustle to evening serenity. . It opens with refreshing citrus, builds to a spicy floral heart note, and settles into a deep leathery-woody base.. A captivating evening fragrance, perfect for dinner or special nights.. 100 ml. Fragrance Notes: . Top Notes: Mandarin, grapefruit, mint. Heart Notes: Cinnamon, spices, rose. Base Notes: Leather, amber, woods, patchouli. . .",
       "productType": "Arabic Perfumes",
