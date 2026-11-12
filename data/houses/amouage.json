@@ -1,7 +1,7 @@
 {
   "retailerId": "amouage",
-  "updatedAt": "2026-11-12T05:16:16.235Z",
-  "seenAt": "2026-11-12T05:16:16.235Z",
+  "updatedAt": "2026-11-12T09:29:20.408Z",
+  "seenAt": "2026-11-12T09:29:20.408Z",
   "source": "live",
   "listings": [
     {
@@ -1138,32 +1138,6 @@
       "productType": "SET",
       "nativePrice": {
         "amount": 60,
-        "currency": "USD"
-      },
-      "retailerId": "amouage",
-      "firstSeenAt": "2026-08-05T18:12:05.174Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "41038",
-      "url": "https://amouage.com/products/boundless",
-      "rawTitle": "Boundless 100ml",
-      "rawBrand": "vendor-unknown",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/BOUNDLESS_347e00b7-1800-471e-9fab-155b28770a34.jpg?v=1759908846",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "house-direct",
-      "description": "Boundless is a burst of joy, a fleeting euphoria, translating the vertical tension that empowers those who want to enclose in their hands the immensity of the world. This ardent and vivacious energy echoes that of sunlight bouncing off the dewy leaves of the jungle, flickering in rays through a flower-studded canopy and grazing rainbow-barked trees before vanishing amongst gnarled and misty-kissed boughs. . . 25% oil concentration, 8 weeks ageing: 5 weeks maceration, 3 weeks maturation.",
-      "productType": "EDP",
-      "nativePrice": {
-        "amount": 395,
         "currency": "USD"
       },
       "retailerId": "amouage",
@@ -2860,6 +2834,33 @@
       "firstSeenAt": "2026-08-05T18:12:05.174Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "41038",
+      "url": "https://amouage.com/products/boundless",
+      "rawTitle": "Boundless 100ml",
+      "rawBrand": "vendor-unknown",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/BOUNDLESS_347e00b7-1800-471e-9fab-155b28770a34.jpg?v=1759908846",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "description": "Boundless is a burst of joy, a fleeting euphoria, translating the vertical tension that empowers those who want to enclose in their hands the immensity of the world. This ardent and vivacious energy echoes that of sunlight bouncing off the dewy leaves of the jungle, flickering in rays through a flower-studded canopy and grazing rainbow-barked trees before vanishing amongst gnarled and misty-kissed boughs. . . 25% oil concentration, 8 weeks ageing: 5 weeks maceration, 3 weeks maturation.",
+      "productType": "EDP",
+      "nativePrice": {
+        "amount": 395,
+        "currency": "USD"
+      },
+      "retailerId": "amouage",
+      "firstSeenAt": "2026-08-05T18:12:05.174Z",
+      "lastSeenAt": "2026-11-12T05:16:16.235Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-12T09:29:20.408Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

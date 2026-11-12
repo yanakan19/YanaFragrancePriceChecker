@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-12T05:16:20.848Z",
-  "seenAt": "2026-11-12T05:16:20.848Z",
+  "updatedAt": "2026-11-12T09:29:25.113Z",
+  "seenAt": "2026-11-12T09:29:25.113Z",
   "source": "live",
   "listings": [
     {
@@ -175,7 +175,7 @@
       "priceGbp": 18,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Exclusive to our amazing Love Your Body™ Club community, limited to one per customer. The ultimate beauty bag, filled with beloved favourites to cleanse, nourish, pamper and glow. Limited stock available..",
       "productType": "Bath and Body gifts",

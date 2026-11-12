@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-12T05:09:38.748Z",
-  "seenAt": "2026-11-12T05:09:38.748Z",
+  "updatedAt": "2026-11-12T09:22:39.302Z",
+  "seenAt": "2026-11-12T09:22:39.302Z",
   "source": "live",
   "listings": [
     {
@@ -980,7 +980,7 @@
       "priceGbp": 22.5,
       "wasPriceGbp": 25,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Obsession For Women EDP Spray 100ml. Key Features. ##features##. Classic oriental fragrance. Strong, long-lasting Eau de Parfum. Suitable for evening wear. Signature Calvin Klein scent. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Indulge in the iconic Calvin Klein Obsession For Women Eau de Parfum, a timeless and sensual fragrance with rich oriental notes. Designed for confident women, this classic scent offers depth, warmth, and lasting elegance.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists and neck.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. Flammable liquid and vapour; avoid contact with eyes and flames; external use only.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
