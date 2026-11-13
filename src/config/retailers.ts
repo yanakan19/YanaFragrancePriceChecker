@@ -8823,13 +8823,13 @@ export const RETAILERS: readonly Retailer[] = [
       // stored as of 2026-10-01. No pricing effect while standardGbp is null.
       freeOverGbp: 25,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-11-12',
+      verifiedAt: '2026-11-13',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://www.spacenk.com/uk/shipping',
         quote: 'FREE UK STANDARD DELIVERY on all orders over £25',
-        readAt: '2026-11-12',
+        readAt: '2026-11-13',
       },
       notes:
         'The £25 threshold is the shop\'s own banner, quoted in source; no rate below it is ' +
@@ -11851,13 +11851,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-11-12',
+      verifiedAt: '2026-11-13',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://aromique.co.uk/policies/refund-policy',
         quote: 'FREE UK DELIVERY ON ORDERS OVER £50',
-        readAt: '2026-11-12',
+        readAt: '2026-11-13',
       },
       notes:
         'Read off the shop\'s home page banner on 2026-11-11. The shipping policy is under /policies/, which its ' +
