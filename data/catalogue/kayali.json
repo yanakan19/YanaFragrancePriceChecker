@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-13T07:39:57.728Z",
-  "seenAt": "2026-11-13T07:39:57.728Z",
+  "updatedAt": "2026-11-13T12:05:19.334Z",
+  "seenAt": "2026-11-13T12:05:19.334Z",
   "source": "live",
   "listings": [
     {
@@ -290,7 +290,7 @@
       "priceGbp": 79,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": "Sets",

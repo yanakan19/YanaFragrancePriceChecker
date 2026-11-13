@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-13T07:39:57.728Z",
-  "seenAt": "2026-11-13T07:39:57.728Z",
+  "updatedAt": "2026-11-13T12:05:19.334Z",
+  "seenAt": "2026-11-13T12:05:19.334Z",
   "source": "live",
   "listings": [
     {
@@ -7972,7 +7972,7 @@
       "priceGbp": 136.5,
       "wasPriceGbp": 195,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Matin De Jade Parfum 75ml by Infiniment Coty Parfums offers a refreshing blend of citrus and floral notes. This elegant fragrance combines bright, zesty citrus with delicate floral scents, creating a vibrant and uplifting aroma. Perfect for everyday wear, it refreshes the senses and leaves a subtle, sophisticated trail. Packaged in a sleek 75ml bottle, it’s ideal for those seeking a balanced and invigorating perfume experience..",
       "productType": "Unisex Fragrance",
@@ -15608,7 +15608,7 @@
       "priceGbp": 64,
       "wasPriceGbp": 80,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Joyphoria Eau De Parfum 50ml by Charlotte Tilbury is a floral fragrance designed for women. This elegant scent combines fresh and vibrant floral notes, creating a joyful and uplifting aroma perfect for everyday wear. The 50ml bottle offers a convenient size to enjoy this luxurious perfume wherever you go..",
       "productType": "Women's Fragrances",
@@ -26142,7 +26142,7 @@
       "priceGbp": 144.5,
       "wasPriceGbp": 170,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "California Rêverie features the sun-drenched essence of Jasmine. A fresh and sparkling departure of Mandarin and Neroli on a sumptuous floral heart: Indian Sambac Jasmine and Frangipani. The drydown is sensual and voluptuous, evoking a ray of sunshine that soothes and warms the skin..",
       "productType": "Women's Fragrances",

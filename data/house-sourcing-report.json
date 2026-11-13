@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-13T07:46:39.142Z",
+  "checkedAt": "2026-11-13T12:12:20.955Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -107,9 +107,9 @@
       "origin": "https://maisonasrar.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 130,
+      "listings": 132,
       "pricedInGbp": 0,
-      "withPhoto": 130,
+      "withPhoto": 132,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -533,9 +533,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 178,
-      "pricedInGbp": 178,
-      "withPhoto": 177,
+      "listings": 171,
+      "pricedInGbp": 171,
+      "withPhoto": 170,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-13T07:41:22.559Z",
-  "seenAt": "2026-11-13T07:41:22.559Z",
+  "updatedAt": "2026-11-13T12:07:11.230Z",
+  "seenAt": "2026-11-13T12:07:11.230Z",
   "source": "live",
   "listings": [
     {
@@ -1066,7 +1066,7 @@
       "description": ". . Stand by - 150 ML . For Moments That Call for a Stronger Presence... . There are moments when an ordinary presence is simply not enough. The atmosphere shifts, the pace intensifies, and the smallest details become more noticeable. What remains is the kind of presence that knows how to stand its ground and leave a lasting impression. . Stand by is a bold, distinctive fragrance with a confident character, made for those moments when you want something with greater presence. With its striking personality and unconventional style, it leaves its mark without losing balance or elegance. . . . . Controlled Heat . Stand by carries a warm, energetic atmosphere and makes its presence felt without compromising elegance. Its character is created for those who prefer fragrances with a distinctive identity, offering something different from conventional choices in both look and feel. . The experience is completed by a bottle design inspired by a fire extinguisher , presented inside a box that resembles an emergency case, making the design part of the fragrance story rather than simply its packaging. . . Why Stand by? . • A distinctive concept and design that are easy to recognize and remember. . • A bold character that gives the fragrance a clear identity. . • A complete experience combining fragrance, design, and presentation. . • A distinctive choice for anyone looking for something beyond the traditional fragrance format. . . Notes: . Bergamot, pear, hazelnut, pepper . Rose, orange blossom, lavender . Patchouli, orcanox, vetyver . . .",
       "productType": null,
       "nativePrice": {
-        "amount": 185,
+        "amount": 175,
         "currency": "AED"
       },
       "retailerId": "assaf",
@@ -4517,7 +4517,7 @@
       "description": "Order your own Tobacco Jam perfume and you can try it for seven days with Asaf's special guarantee, which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary, and get your money back.. . Tobacco Jam… . Not like any tobacco perfume you've ever heard of! . . Sources of inspiration and naming . This fragrance was created to be the impossible combination in tobacco fragrances, the biggest inspiration in creating this fragrance was…. To make the best tobacco perfume in the world!. . The composition . A formula that defies the impossible, and puts you confidently in front of the spotlight. The fragrance opens with refreshing notes of bergamot and lavender, and the heart of the fragrance is dominated by amber and patchouli, until the secret of luxury appears in the base of the fragrance with vanilla and tobacco!. . Size: 100 ml. Fragrance type: Unisex. . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists)..",
       "productType": "unisex",
       "nativePrice": {
-        "amount": 135,
+        "amount": 155,
         "currency": "AED"
       },
       "nativeWasPrice": 249,
@@ -5588,7 +5588,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": ".",
       "productType": "unisex",

@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-13T07:39:55.352Z",
-  "seenAt": "2026-11-13T07:39:55.352Z",
+  "updatedAt": "2026-11-13T12:05:19.508Z",
+  "seenAt": "2026-11-13T12:05:19.508Z",
   "source": "live",
   "listings": [
     {
@@ -5419,7 +5419,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Qimma, meaning “Summit” , is a tribute to the UAE’s leadership on the global stage — where dreams became reality and legacy became influence.. Elegant woody notes, velvety florals, and warm musks create a scent of strength and refinement — a modern olfactory signature of excellence..",
       "productType": "Fragrance",
@@ -15769,7 +15769,7 @@
       "priceGbp": 205,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Working the ingredient to express its full potential and meeting the challenge of composing two different eaux de parfum with the same notes: juniper berries, nutmeg, coriander, musks, ambery woods and vanilla. The Gentle Fluidity duo was born of the perfumer’s imagination to offer two distinct olfactory silhouettes, for her or for him. . In Gentle fluidity Silver, nutmeg and ambery woods are dominant and release a vibrant, comfortable trail. As for juniper berry essence, it leads to an ascending, ultra-fresh, aromatic note, similar to a “gin frappé” effect, balanced by the dry, slightly balmy, spicy notes of nutmeg. The base notes reveal ambery wood facets ranging from sweet and enveloping to powerful and dry.. Top Notes: Nutmeg, Coriander Heart Notes: Juniper berry, Amber Base Notes: Vanilla, Musks, Precious Woods .",
       "productType": "Fragrance",

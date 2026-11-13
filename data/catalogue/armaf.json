@@ -1,7 +1,7 @@
 {
   "retailerId": "armaf",
-  "updatedAt": "2026-11-13T07:39:55.352Z",
-  "seenAt": "2026-11-13T07:39:55.352Z",
+  "updatedAt": "2026-11-13T12:05:19.508Z",
+  "seenAt": "2026-11-13T12:05:19.508Z",
   "source": "live",
   "listings": [
     {
@@ -7141,8 +7141,8 @@
       "rawBrand": "Armaf - Club De Nuit",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/Product_0a2ba777-3445-4b53-b034-dc8ff4da1f22.png?v=1774973020",
-      "priceGbp": 140,
-      "wasPriceGbp": null,
+      "priceGbp": 79.99,
+      "wasPriceGbp": 110,
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "shopify-products-json",
