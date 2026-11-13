@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-13T12:12:20.955Z",
+  "checkedAt": "2026-11-13T16:51:14.232Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -244,9 +244,9 @@
       "origin": "https://bujairami.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 117,
+      "listings": 120,
       "pricedInGbp": 0,
-      "withPhoto": 117,
+      "withPhoto": 120,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -533,9 +533,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 171,
-      "pricedInGbp": 171,
-      "withPhoto": 170,
+      "listings": 170,
+      "pricedInGbp": 170,
+      "withPhoto": 169,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
