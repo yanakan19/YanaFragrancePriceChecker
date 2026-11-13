@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-12T22:40:26.168Z",
-  "seenAt": "2026-11-12T22:40:26.168Z",
+  "updatedAt": "2026-11-13T03:14:00.275Z",
+  "seenAt": "2026-11-13T03:14:00.275Z",
   "source": "live",
   "listings": [
     {
@@ -35180,7 +35180,7 @@
       "priceGbp": 26.99,
       "wasPriceGbp": 48,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Escape to paradise with Escada Nectar de Costa Rica Eau de Toilette, a vibrant women's fragrance inspired by the lush tropics. Bursting with juicy pineapple, exotic flowers, and warm woods, this scent captures the essence of a sun-drenched Costa Rican getaway. Light, uplifting, and irresistibly fruity, it’s the perfect summer companion - ideal for beach days, holidays, or simply bringing a little sunshine into your everyday routine. . . Fragrance Type: . Fruity, Tropical . . Fragrance Notes: . Top Notes: Mango, Pineapple . Middle Notes: Orange Blossom, Jasmine . Base Notes: Musk, Cedar . . Launched: . 2024 .",
       "productType": "Women's Perfume",
@@ -94565,7 +94565,7 @@
       "priceGbp": 42.99,
       "wasPriceGbp": 66,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Be the #ManOfToday with Boss Bottled. Confident, contemporary, a symbol of masculinity, inspiring men to show the world who they are through their actions. The elegant, woody accords of the classic fragrance reflect a complex structure that is as versatile and rich in contrasts as the man who wears it.. Hour by hour, the scent unfolds and takes on a different quality that inspires and stays with the BOSS man throughout his day. . . Fragrance Type: . Woody. . Fragrance Notes: - Top notes: Apple, Citrus fruits. - Middle notes: Geranium, Cinnamon, Cloves. - Base notes: Sandalwood, Vetiver, Cedarwood, Olivewood, Amber, Musk. . Launched: . 1998.",
       "productType": "Men's Aftershave",
