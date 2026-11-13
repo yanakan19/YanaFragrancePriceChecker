@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-13T16:44:35.973Z",
-  "seenAt": "2026-11-13T16:44:35.973Z",
+  "updatedAt": "2026-11-13T21:08:51.693Z",
+  "seenAt": "2026-11-13T21:08:51.693Z",
   "source": "live",
   "listings": [
     {
@@ -10,7 +10,7 @@
       "rawTitle": "Dolly Parton Dolly Scent from Above EDT Spray 30ml Pack of 3",
       "rawBrand": "Dolly Parton",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0054/6996/2304/files/adolly_ad8d53cc-b901-4c31-984d-a1cf94206f10.jpg?v=1779379277",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0054/6996/2304/files/51617.png?v=1794591154",
       "priceGbp": 21.99,
       "wasPriceGbp": 84,
       "promoEndsAt": null,
@@ -15930,7 +15930,7 @@
       "priceGbp": 4.99,
       "wasPriceGbp": 18,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "KVD XO Vinyl Lip Cream Lip Gloss 2.7ml - Hollyhock 70.",
       "productType": "Lip Gloss",
@@ -43185,7 +43185,7 @@
       "priceGbp": 75.13,
       "wasPriceGbp": 140,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Jean Paul Gaultier La Belle Flower Edition Eau de Parfum Spray 100ml.",
       "productType": "Eau de Parfum",

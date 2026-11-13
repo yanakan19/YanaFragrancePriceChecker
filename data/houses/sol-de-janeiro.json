@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-13T16:51:09.212Z",
-  "seenAt": "2026-11-13T16:51:09.212Z",
+  "updatedAt": "2026-11-13T21:15:43.775Z",
+  "seenAt": "2026-11-13T21:15:43.775Z",
   "source": "live",
   "listings": [
     {
@@ -14150,7 +14150,7 @@
       "variantId": null
     },
     {
-      "retailerSku": "SJ99060500",
+      "retailerSku": "SJ99117300",
       "url": "https://soldejaneiro.com/products/body-badalada-moisture-melting-lotion",
       "rawTitle": "Body Badalada™ Moisture Melting Lotion 400ml",
       "rawBrand": "Sol de Janeiro",
@@ -14168,11 +14168,11 @@
         "currency": "USD"
       },
       "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-08-05T18:12:07.600Z",
+      "firstSeenAt": "2026-11-13T21:15:43.775Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -18203,6 +18203,33 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "SJ99060500",
+      "url": "https://soldejaneiro.com/products/body-badalada-moisture-melting-lotion",
+      "rawTitle": "Body Badalada™ Moisture Melting Lotion 400ml",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_BADALADA_39_400ML_OVERHEAD_RGB_1452X1452_8ec21d50-f8ea-4b28-bd23-e8f8b024ace7.jpg?v=1788859932",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Body Badalada ™ Skin Moisture Melting Lotion is a moisturizing body lotion designed to deliver 24-hour weightless, soothing hydration. Cocooned with nourishing coconut milk, a skin barrier-supporting pro-ceramide, and moisture-locking Brazilian buriti oil, our daily body moisturizer feels like a creamy veil that leaves your skin touchably soft. This transforming milk-to-butter body lotion for dry skin effortlessly sinks in and i s scented with our beachy & indulgent Cheirosa 39 fragrance. Get ready to glide into what’s next . You know you wanna badalada with this nourishing body lot ion . .",
+      "productType": "Body Lotion",
+      "nativePrice": {
+        "amount": 28,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-08-05T18:12:07.600Z",
+      "lastSeenAt": "2026-11-13T16:51:09.212Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-13T21:15:43.775Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {

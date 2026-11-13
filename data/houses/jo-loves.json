@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-13T16:51:13.491Z",
-  "seenAt": "2026-11-13T16:51:13.491Z",
+  "updatedAt": "2026-11-13T21:15:46.325Z",
+  "seenAt": "2026-11-13T21:15:46.325Z",
   "source": "live",
   "listings": [
     {
@@ -1095,7 +1095,7 @@
       "priceGbp": 90,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Embrace the captivating essence of Pomelo, Jo Loves' debut fragrance, where the sparkling waters and sun-kissed shores of Parrot Cay Island intertwine, igniting a newfound creative awakening. Inhale the invigorating notes of rose, pomelo, vetiver, clove, patchouli, and suede, transporting you to a \"London Beach Home\" oasis.",
       "productType": "Fragrance",
@@ -1187,7 +1187,7 @@
       "priceGbp": 48,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Wrap skin in the essence of 1920s glamour with Amber, Lime & Bergamot, inspired by the prestigious Concours d’Elegance at The Hurlingham Club in London. Zesty citrus, soft spice and warm, woody notes melt into a featherlight lotion that hydrates the skin and leaves a luminous trail of vintage decadence and modern elegance. .",
       "productType": null,
@@ -3165,7 +3165,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Enjoy the fresh, green scent of ripe Figs alongside delicately sweet Cassis and the warmth of amber with this Fig Trees Diffuser Refill, inspired by Jo's family holidays in Italy. Simply dip the reeds into the fragrance oil, turn them around, and keep rotating every few days for maximum fragrance effect, allowing you to instantly transport yourself to the Mediterranean and the memory of wonderful family holidays in Tuscany, with the smell of fresh fig, warm bread, coffee, and happy sunshine days.",
       "productType": null,

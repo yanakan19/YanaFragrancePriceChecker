@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-13T16:44:27.019Z",
-  "seenAt": "2026-11-13T16:44:27.019Z",
+  "updatedAt": "2026-11-13T21:08:53.128Z",
+  "seenAt": "2026-11-13T21:08:53.128Z",
   "source": "live",
   "listings": [
     {
@@ -2383,7 +2383,7 @@
       "priceGbp": 47.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Narciso Rodriguez Musc Noir Rose Eau de Parfum is an eau de parfum created for customers who enjoy a soft, fruity musky scent. It opens with a juicy plum impression, develops into a delicate floral heart, and settles into a warm, creamy base. Suitable for everyday wear or evening occasions, this fragrance is a strong choice for anyone looking for a scent that feels sensual and elegant. . Why customers choose it ● Well-suited for autumn and spring ● A great option for daily wear or evening wear ● Designed for customers who prefer fruity musky scents.",
       "productType": "Eau de Parfum",

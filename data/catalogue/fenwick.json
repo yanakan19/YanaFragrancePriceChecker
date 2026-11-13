@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-13T16:44:27.019Z",
-  "seenAt": "2026-11-13T16:44:27.019Z",
+  "updatedAt": "2026-11-13T21:08:53.128Z",
+  "seenAt": "2026-11-13T21:08:53.128Z",
   "source": "live",
   "listings": [
     {
@@ -1302,7 +1302,7 @@
       "priceGbp": 98,
       "wasPriceGbp": 140,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Love is precious. Cherish your mother with an iconic fragrance that radiates love from a heart of Damascus Rose. Love is a treasure..",
       "productType": "Women's Fragrances",
@@ -6477,7 +6477,7 @@
       "priceGbp": 148.75,
       "wasPriceGbp": 175,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A lightweight oil with a citrussy freshness that gives way to a floral heart of jasmine notes, set against a backdrop of white musk notes. Smooth and sensual in texture, it envelops the body and hair in a delicate scent that combines harmoniously with each of the LES EXCLUSIFS DE CHANEL fragrances. The bottle has been redesigned and now features a flow reducer, offering easier application and a unique multisensory experience. .",
       "productType": "Women's Fragrances",

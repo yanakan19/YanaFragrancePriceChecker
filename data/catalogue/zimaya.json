@@ -1,7 +1,7 @@
 {
   "retailerId": "zimaya",
-  "updatedAt": "2026-11-13T16:44:35.973Z",
-  "seenAt": "2026-11-13T16:44:35.973Z",
+  "updatedAt": "2026-11-13T21:08:51.693Z",
+  "seenAt": "2026-11-13T21:08:51.693Z",
   "source": "live",
   "listings": [
     {
@@ -1049,7 +1049,7 @@
       "priceGbp": 40,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Charismatic and enticing, this fragrance adds magic and magnificence to your scent ritual. A sophisticated blend of precious leather and rare agarwood with hints of smoky tones rounded with flavorful spices which is pushed out by the fresh outburst of florals, mint, exotic patchouli and musk. Modern and timeless, it ensures the wearer a lasting freshness, with an elegant and intense fragrance.. TOP NOTE Saffron - Lavender - Mint - Agarwood. MID NOTE Pink Pepper - Cedar - Jasmine - Geranium. BASE NOTE Patchouli - Leather - Incense - Melon - Sandalwood - Musk.",
       "productType": "Perfume",
