@@ -1,7 +1,7 @@
 {
   "retailerId": "beaute-boulevard",
-  "updatedAt": "2026-11-13T03:14:00.497Z",
-  "seenAt": "2026-11-13T03:14:00.497Z",
+  "updatedAt": "2026-11-13T07:39:55.352Z",
+  "seenAt": "2026-11-13T07:39:55.352Z",
   "source": "live",
   "listings": [
     {
@@ -3671,7 +3671,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 58,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Hugo Boss Hugo Man Extreme Eau De Parfum 75ml Spray is a sophisticated and refined fragrance from the esteemed German fashion house. Characterised by its bold, energetic personality, this scent is perfect for men who exude confidence and charisma.. This modern fragrance boasts a blend of intense woody notes, rich amber and seductive oriental spices, creating a captivating aroma that is both sophisticated and alluring. With its complex yet harmonious composition, Hugo Man Extreme is suited to individuals who demand a scent that reflects their dynamic personality and style.. Whether you're heading out for a night on the town or want a fragrance that makes a lasting impression, Hugo Boss Hugo Man Extreme Eau De Parfum is sure to make a statement. Discover the essence of a confident, modern man and explore the world of Hugo Boss at Beaute Boulevard..",
       "productType": "Cosmetics",
@@ -36446,7 +36446,7 @@
       "priceGbp": 75.99,
       "wasPriceGbp": 110,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Issey Miyake L'Eau d'Issey Eau de Toilette is a masterful symphony of nature and elegance, crafted for the modern soul who embraces purity and grace. This radiant fragrance opens with a fresh, aquatic breath of lotus and cyclamen, evoking the gentle caress of morning dew on petals. At its heart, delicate peony and freesia unfold, weaving a floral tapestry that feels both soft and invigorating.. As the scent evolves, warm notes of cedarwood and musk emerge, grounding the composition with a sensual, earthy embrace. L'Eau d'Issey embodies a spirit of serene confidence and timeless femininity — a luminous aura that captivates and enchants without overpowering.. Encased in its minimalist, sculptural bottle, this 100ml spray is a celebration of simplicity and sophistication, perfect for women who seek a fragrance that is as pure and refreshing as a tranquil stream, yet profoundly unforgettable.. ```",
       "productType": "Cosmetics",
@@ -38010,7 +38010,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 68,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Escada Magnetism Eau de Parfum 50ml Spray from the esteemed German fashion house Escada is a captivating scent that embodies the essence of femininity and allure.. Characterised by its seductive blend of bergamot, rose, and patchouli notes, Magnetism is a fragrance that exudes confidence and sensuality. Suited to the modern woman who isn't afraid to make a statement, this scent is perfect for those who want to leave a lasting impression. With its rich, sophisticated aroma, Escada Magnetism is ideal for evening wear and special occasions.. As a brand renowned for its glamorous and sophisticated fragrances, Escada has established itself as a leader in the world of luxury perfumery. With a legacy of creating scents that evoke emotion and inspire the senses, Escada continues to push the boundaries of fragrance design. Discover Escada at Beaute Boulevard..",
       "productType": "Cosmetics",
