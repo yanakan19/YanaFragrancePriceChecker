@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-14T06:14:50.505Z",
-  "seenAt": "2026-11-14T06:14:50.505Z",
+  "updatedAt": "2026-11-14T10:40:40.231Z",
+  "seenAt": "2026-11-14T10:40:40.231Z",
   "source": "live",
   "listings": [
     {
@@ -441,7 +441,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": ".",
       "productType": null,

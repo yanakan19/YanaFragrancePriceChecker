@@ -1,7 +1,7 @@
 {
   "retailerId": "gulf-orchid",
-  "updatedAt": "2026-11-14T06:14:51.811Z",
-  "seenAt": "2026-11-14T06:14:51.811Z",
+  "updatedAt": "2026-11-14T10:40:41.834Z",
+  "seenAt": "2026-11-14T10:40:41.834Z",
   "source": "live",
   "listings": [
     {
@@ -46,9 +46,10 @@
       "description": "Three Gourmand Journeys. One Beautiful Set. . Explore three irresistible gourmand fragrances: Milky Way, Vanilla Voyage, and Coffee Blend, each in a 25ml miniature. Beautifully presented in an elegant opening gift box, this collection is perfect for gifting, travelling, or discovering your favourite scent. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 34.71,
+        "amount": 31.24,
         "currency": "AED"
       },
+      "nativeWasPrice": 34.71,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-11-12T18:11:28.837Z",
       "status": "active",
@@ -261,9 +262,10 @@
       "description": "Three Gourmand Favourites. One Beautiful Collection. . Experience three of our most loved gourmand fragrances in a new 15 ml size. The Voyage Trio Set brings together Milky Way , Vanilla Voyage , and Coffee Blend , offering a delightful blend of creamy, sweet, and rich comforting notes.. Your favourite scents, now ready to travel with you. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 23.61,
+        "amount": 22.42,
         "currency": "AED"
       },
+      "nativeWasPrice": 23.61,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-11-12T09:24:11.084Z",
       "status": "active",
