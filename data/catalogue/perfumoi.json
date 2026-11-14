@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-13T21:08:53.128Z",
-  "seenAt": "2026-11-13T21:08:53.128Z",
+  "updatedAt": "2026-11-14T01:39:31.218Z",
+  "seenAt": "2026-11-14T01:39:31.218Z",
   "source": "live",
   "listings": [
     {
@@ -3967,7 +3967,7 @@
       "rawBrand": "Givenchy",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0937/0035/8473/files/5113Vg6ErZL._AC_SL1280.png?v=1780075595",
-      "priceGbp": 59.99,
+      "priceGbp": 52.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -3990,7 +3990,7 @@
       "rawBrand": "Givenchy",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0937/0035/8473/files/5113Vg6ErZL._AC_SL1280.png?v=1780075595",
-      "priceGbp": 52.99,
+      "priceGbp": 49.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

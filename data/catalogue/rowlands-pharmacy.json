@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-13T21:08:51.693Z",
-  "seenAt": "2026-11-13T21:08:51.693Z",
+  "updatedAt": "2026-11-14T01:39:28.731Z",
+  "seenAt": "2026-11-14T01:39:28.731Z",
   "source": "live",
   "listings": [
     {
@@ -773,7 +773,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Orange Woman Eau de Toilette 30ml. Key Features. ##features##. Fragrance Family: Fruity-Floral . . Top Notes: Crisp Apple . . Heart Notes: Orange Blossom, White Florals . . Base Notes: Vanilla, Sandalwood, Olive Wood . . Ideal For: Everyday wear, gifting. . ##end-features##. Product Details. A cheerful, fruity-floral fragrance that embodies confidence and warmth. Opens with crisp apple, followed by delicate orange blossom and white florals, finishing with creamy vanilla and sandalwood for a sensual, comforting base..",
       "productType": "Fragrance",

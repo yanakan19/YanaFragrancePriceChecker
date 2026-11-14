@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-13T21:08:53.128Z",
-  "seenAt": "2026-11-13T21:08:53.128Z",
+  "updatedAt": "2026-11-14T01:39:31.218Z",
+  "seenAt": "2026-11-14T01:39:31.218Z",
   "source": "live",
   "listings": [
     {
@@ -13216,7 +13216,7 @@
       "priceGbp": 288,
       "wasPriceGbp": 320,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "0",
       "productType": "Men's Fragrances",
