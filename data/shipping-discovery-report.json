@@ -1,27 +1,15 @@
 {
-  "checkedAt": "2026-11-13T16:12:35.693Z",
-  "startedAt": "2026-11-13T16:09:00.041Z",
+  "checkedAt": "2026-11-14T05:42:20.237Z",
+  "startedAt": "2026-11-14T05:38:22.465Z",
   "complete": true,
   "endedReason": "swept-batch",
-  "wrote": 2,
+  "wrote": 0,
   "eligible": 24,
   "heldForLaterRuns": [
-    "perfume-closet",
-    "sainte-cellier",
-    "soghaat",
-    "carethy",
-    "cosmetify",
-    "the-range",
-    "amazon-uk",
-    "niche-beauty-uk",
-    "perfume-shopping",
-    "asda",
     "harrods",
     "house-of-fraser",
     "next",
-    "ocado"
-  ],
-  "planned": [
+    "ocado",
     "sainsburys",
     "savers",
     "sephora-uk",
@@ -33,164 +21,443 @@
     "aromique",
     "beevora"
   ],
+  "planned": [
+    "perfume-closet",
+    "sainte-cellier",
+    "soghaat",
+    "carethy",
+    "cosmetify",
+    "the-range",
+    "amazon-uk",
+    "niche-beauty-uk",
+    "perfume-shopping",
+    "asda"
+  ],
   "notReached": [],
   "outcomes": [
     {
-      "retailerId": "sainsburys",
-      "name": "Sainsbury's",
-      "homepage": "https://www.sainsburys.co.uk",
+      "retailerId": "perfume-closet",
+      "name": "The Perfume Closet",
+      "homepage": "https://theperfumecloset.co.uk",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
-        "steps": [
-          "https://www.sainsburys.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.sainsburys.co.uk/: HTTP 403",
-        "https://www.sainsburys.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/delivery: HTTP 403",
-        "https://www.sainsburys.co.uk/shipping-policy: HTTP 403",
-        "https://www.sainsburys.co.uk/delivery: HTTP 403",
-        "https://www.sainsburys.co.uk/shipping: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/faq: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/help: HTTP 403",
-        "https://www.sainsburys.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/terms-of-service: HTTP 403"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "savers",
-      "name": "Savers",
-      "homepage": "https://www.savers.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
-        "steps": [
-          "https://www.savers.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.savers.co.uk/: HTTP 403",
-        "https://www.savers.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.savers.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping: HTTP 403",
-        "https://www.savers.co.uk/pages/delivery: HTTP 403",
-        "https://www.savers.co.uk/shipping-policy: HTTP 403",
-        "https://www.savers.co.uk/delivery: HTTP 403",
-        "https://www.savers.co.uk/shipping: HTTP 403",
-        "https://www.savers.co.uk/pages/faq: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.savers.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.savers.co.uk/pages/help: HTTP 403",
-        "https://www.savers.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.savers.co.uk/pages/terms-of-service: HTTP 403"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "sephora-uk",
-      "name": "Sephora UK",
-      "homepage": "https://www.sephora.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
-        "steps": [
-          "https://www.sephora.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.sephora.co.uk/: HTTP 403",
-        "https://www.sephora.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.sephora.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping: HTTP 403",
-        "https://www.sephora.co.uk/pages/delivery: HTTP 403",
-        "https://www.sephora.co.uk/shipping-policy: HTTP 403",
-        "https://www.sephora.co.uk/delivery: HTTP 403",
-        "https://www.sephora.co.uk/shipping: HTTP 403",
-        "https://www.sephora.co.uk/pages/faq: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.sephora.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.sephora.co.uk/pages/help: HTTP 403",
-        "https://www.sephora.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.sephora.co.uk/pages/terms-of-service: HTTP 403"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "space-nk",
-      "name": "Space NK",
-      "homepage": "https://www.spacenk.com/uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 25,
       "currentConfidence": "confirmed",
       "enabled": true,
-      "pagesTried": 17,
-      "linksFound": [],
+      "pagesTried": 18,
+      "linksFound": [
+        {
+          "url": "https://theperfumecloset.co.uk/pages/delivery-and-returns",
+          "linkText": "Delivery and Returns"
+        }
+      ],
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://theperfumecloset.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "sainte-cellier",
+      "name": "Sainte Cellier",
+      "homepage": "https://saintecellier.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 2,
+      "linksFound": [
+        {
+          "url": "https://saintecellier.com/en-us/policies/shipping-policy",
+          "linkText": "Shipping"
+        }
+      ],
       "findings": [
         {
-          "url": "https://www.spacenk.com/uk/shipping",
+          "url": "https://saintecellier.com/en-us/policies/shipping-policy",
           "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 25,
+          "foundBy": "link",
+          "standardGbp": 100,
+          "freeOverGbp": null,
           "caveats": [],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "standard-cost",
+              "amountGbp": 100,
+              "sentence": "Shipping policy Orders of £100+ in FULL SIZE, FULL PRICE, NON-DISCOUNTED perfumes include 3 complimentary samples.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 100,
+              "sentence": "United Kingdom ~ Full-size perfume orders over £100 receive complimentary UK shipping.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 500,
+              "sentence": "Orders over £500 receive complimentary Special Delivery.",
+              "isUpgradeTier": true
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "patch": {
+        "retailerId": "sainte-cellier",
+        "action": "propose-rate",
+        "detail": "page states £100.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Shipping policy Orders of £100+ in FULL SIZE, FULL PRICE, NON-DISCOUNTED perfumes include 3 complimentary samples.\" (https://saintecellier.com/en-us/policies/shipping-policy)",
+        "write": null
+      },
+      "verdict": "PROPOSE-RATE: page states £100.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Shipping policy Orders of £100+ in FULL SIZE, FULL PRICE, NON-DISCOUNTED perfumes include 3 complimentary samples.\" (https://saintecellier.com/en-us/policies/shipping-policy)"
+    },
+    {
+      "retailerId": "soghaat",
+      "name": "Soghaat",
+      "homepage": "https://soghaat.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 40,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 18,
+      "linksFound": [
+        {
+          "url": "https://soghaat.co.uk/pages/shipping-delivery",
+          "linkText": "Shipping & Delivery"
+        },
+        {
+          "url": "https://soghaat.co.uk/policies/shipping-policy",
+          "linkText": "shipping"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://soghaat.co.uk/pages/shipping-delivery",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": 40,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
           "standardRateNotStated": true,
           "evidence": [
             {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "You’ve unlocked Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Spend more for Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
               "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "FREE UK STANDARD DELIVERY on all orders over £25",
+              "amountGbp": 40,
+              "sentence": "Free UK Shipping ~ Available for UK orders over £40, excluding ZamZam Water.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 40,
+              "sentence": "Free UK Shipping Available for UK orders over £40, excluding ZamZam Water.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Shipping Shipping Type Not Applicable",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://soghaat.co.uk/policies/shipping-policy",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": 40,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "You’ve unlocked Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Spend more for Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 40,
+              "sentence": "Free UK Shipping: Available for UK orders over £40, excluding ZamZam Water.",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://soghaat.co.uk/policies/refund-policy",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "You’ve unlocked Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Spend more for Free UK Delivery",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [
+        "https://soghaat.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "patch": null,
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "carethy",
+      "name": "Carethy",
+      "homepage": "https://www.carethy.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 18,
+      "linksFound": [
+        {
+          "url": "https://www.carethy.co.uk/shipping-and-returns",
+          "linkText": "Shipping policy"
+        }
+      ],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.carethy.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "patch": null,
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "cosmetify",
+      "name": "Cosmetify",
+      "homepage": "https://www.cosmetify.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.cosmetify.com/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "patch": null,
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "the-range",
+      "name": "The Range",
+      "homepage": "https://www.therange.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.therange.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.therange.co.uk/: HTTP 403",
+        "https://www.therange.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.therange.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping: HTTP 403",
+        "https://www.therange.co.uk/pages/delivery: HTTP 403",
+        "https://www.therange.co.uk/shipping-policy: HTTP 403",
+        "https://www.therange.co.uk/delivery: HTTP 403",
+        "https://www.therange.co.uk/shipping: HTTP 403",
+        "https://www.therange.co.uk/pages/faq: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping-returns: HTTP 403",
+        "https://www.therange.co.uk/pages/delivery-returns: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping-info: HTTP 403",
+        "https://www.therange.co.uk/pages/help: HTTP 403",
+        "https://www.therange.co.uk/policies/refund-policy: HTTP 403",
+        "https://www.therange.co.uk/pages/terms-of-service: HTTP 403"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "amazon-uk",
+      "name": "Amazon UK",
+      "homepage": "https://www.amazon.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 20,
+      "linksFound": [
+        {
+          "url": "https://www.amazon.co.uk/auto-deliveries?ref_=nav_AccountFlyout_sns",
+          "linkText": "Your Subscribe & Save"
+        },
+        {
+          "url": "https://www.amazon.co.uk/auto-deliveries/landing?ref_=nav_cs_sns",
+          "linkText": "Subscribe & Save"
+        },
+        {
+          "url": "https://www.amazon.co.uk/b/?_encoding=UTF8&amp;node=18982412031&amp;pd_rd_w=NRaEB&amp;content-id=amzn1.sym.ac64f078-e3ea-423d-ad5c-06a7f1e0b9af&amp;pf_rd_p=ac64f078-e3ea-423d-ad5c-06a7f1e0b9af&amp;pf_rd_r=SF0ZNFQ3XZG2Z6WZZR8M&amp;pd_rd_wg=tKLAZ&amp;pd_rd_r=c6217c1e-33fe-455e-85c2-d2d7c41902c0&amp;ref_=pd_hp_d_r_atf_unk",
+          "linkText": "Free delivery on your first order Try us, no delivery fee New customers only. T&Cs apply."
+        }
+      ],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.amazon.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.amazon.co.uk/auto-deliveries?ref_=nav_AccountFlyout_sns: HTTP 503",
+        "https://www.amazon.co.uk/b/?_encoding=UTF8&amp;node=18982412031&amp;pd_rd_w=NRaEB&amp;content-id=amzn1.sym.ac64f078-e3ea-423d-ad5c-06a7f1e0b9af&amp;pf_rd_p=ac64f078-e3ea-423d-ad5c-06a7f1e0b9af&amp;pf_rd_r=SF0ZNFQ3XZG2Z6WZZR8M&amp;pd_rd_wg=tKLAZ&amp;pd_rd_r=c6217c1e-33fe-455e-85c2-d2d7c41902c0&amp;ref_=pd_hp_d_r_atf_unk: HTTP 503",
+        "https://www.amazon.co.uk/delivery: HTTP 503",
+        "https://www.amazon.co.uk/shipping: HTTP 503",
+        "https://www.amazon.co.uk/pages/help: HTTP 503",
+        "https://www.amazon.co.uk/pages/terms-of-service: HTTP 503"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "niche-beauty-uk",
+      "name": "Niche Beauty UK",
+      "homepage": "https://www.niche-beauty.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 75,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 20,
+      "linksFound": [
+        {
+          "url": "https://www.niche-beauty.com/en-us/info/versandkosten",
+          "linkText": "FREE SHIPPING from $ 200.00*"
+        },
+        {
+          "url": "https://www.niche-beauty.com/en-us/info/service-und-sicherheit",
+          "linkText": "Service & safety Fast delivery Free returns Buyer protection Privacy protection Money back guarantee for 14 days Safe payment with SSL"
+        },
+        {
+          "url": "https://www.niche-beauty.com/en-us/brands/lolavie-1275%20?origin=head_teaser",
+          "linkText": "Loved & Approved Discover LolaVie Jennifer Aniston’s vegan haircare brand delivers award-winning formulas for shiny, healthy-looking hair. Shop now"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://www.niche-beauty.com/en-us/info/service-und-sicherheit",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free shipping to US on all orders above $ 200.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "FREE SHIPPING",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.niche-beauty.com/en-us/brands/lolavie-1275%20?origin=head_teaser",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free shipping to US on all orders above $ 200.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "FREE SHIPPING",
               "isUpgradeTier": false
             }
           ]
@@ -204,66 +471,61 @@
         "rates": [],
         "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
         "steps": [
-          "https://www.spacenk.com/uk/products.json?limit=250"
+          "https://www.niche-beauty.com/products.json?limit=250"
         ]
       },
       "errors": [],
-      "patch": {
-        "retailerId": "space-nk",
-        "action": "confirm-absence",
-        "detail": "page states delivery terms and publishes no standard rate (https://www.spacenk.com/uk/shipping)",
-        "write": {
-          "confidence": "confirmed",
-          "verifiedAt": "2026-11-13",
-          "source": {
-            "url": "https://www.spacenk.com/uk/shipping",
-            "quote": "FREE UK STANDARD DELIVERY on all orders over £25",
-            "readAt": "2026-11-13"
-          },
-          "standardRateNotPublished": true
-        }
-      },
-      "verdict": "NO RATE PUBLISHED: page states delivery terms and publishes no standard rate (https://www.spacenk.com/uk/shipping)"
+      "patch": null,
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
-      "retailerId": "notino-uk",
-      "name": "Notino UK",
-      "homepage": "https://www.notino.co.uk",
-      "currentStandardGbp": 2.99,
-      "currentFreeOverGbp": null,
+      "retailerId": "perfume-shopping",
+      "name": "Perfume Shopping",
+      "homepage": "https://www.perfumeshopping.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
       "currentConfidence": "unverified",
-      "enabled": true,
+      "enabled": false,
       "pagesTried": 17,
       "linksFound": [],
       "findings": [],
-      "quote": null,
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.perfumeshopping.com/products.json?limit=250"
+        ]
+      },
       "errors": [
-        "https://www.notino.co.uk/: HTTP 403",
-        "https://www.notino.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.notino.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping: HTTP 403",
-        "https://www.notino.co.uk/pages/delivery: HTTP 403",
-        "https://www.notino.co.uk/shipping-policy: HTTP 403",
-        "https://www.notino.co.uk/delivery: HTTP 403",
-        "https://www.notino.co.uk/shipping: HTTP 403",
-        "https://www.notino.co.uk/pages/faq: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.notino.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.notino.co.uk/pages/help: HTTP 403",
-        "https://www.notino.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.notino.co.uk/pages/terms-of-service: HTTP 403",
-        "https://www.notino.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+        "https://www.perfumeshopping.com/: HTTP 403",
+        "https://www.perfumeshopping.com/policies/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping-details: HTTP 403",
+        "https://www.perfumeshopping.com/pages/delivery-information: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping: HTTP 403",
+        "https://www.perfumeshopping.com/pages/delivery: HTTP 403",
+        "https://www.perfumeshopping.com/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/delivery: HTTP 403",
+        "https://www.perfumeshopping.com/shipping: HTTP 403",
+        "https://www.perfumeshopping.com/pages/faq: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping-returns: HTTP 403",
+        "https://www.perfumeshopping.com/pages/delivery-returns: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping-info: HTTP 403",
+        "https://www.perfumeshopping.com/pages/help: HTTP 403",
+        "https://www.perfumeshopping.com/policies/refund-policy: HTTP 403",
+        "https://www.perfumeshopping.com/pages/terms-of-service: HTTP 403"
       ],
       "patch": null,
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
     {
-      "retailerId": "tesco",
-      "name": "Tesco",
-      "homepage": "https://www.tesco.com",
+      "retailerId": "asda",
+      "name": "Asda",
+      "homepage": "https://groceries.asda.com",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "currentConfidence": "unverified",
@@ -279,274 +541,30 @@
         "rates": [],
         "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
         "steps": [
-          "https://www.tesco.com/products.json?limit=250"
+          "https://groceries.asda.com/products.json?limit=250"
         ]
       },
       "errors": [
-        "https://www.tesco.com/: HTTP 403",
-        "https://www.tesco.com/policies/shipping-policy: HTTP 403",
-        "https://www.tesco.com/pages/shipping-policy: HTTP 403",
-        "https://www.tesco.com/pages/shipping-details: HTTP 403",
-        "https://www.tesco.com/pages/delivery-information: HTTP 403",
-        "https://www.tesco.com/pages/shipping: HTTP 403",
-        "https://www.tesco.com/pages/delivery: HTTP 403",
-        "https://www.tesco.com/shipping-policy: HTTP 403",
-        "https://www.tesco.com/delivery: HTTP 403",
-        "https://www.tesco.com/shipping: HTTP 403",
-        "https://www.tesco.com/pages/faq: HTTP 403",
-        "https://www.tesco.com/pages/shipping-returns: HTTP 403",
-        "https://www.tesco.com/pages/delivery-returns: HTTP 403",
-        "https://www.tesco.com/pages/shipping-info: HTTP 403",
-        "https://www.tesco.com/pages/help: HTTP 403",
-        "https://www.tesco.com/policies/refund-policy: HTTP 403",
-        "https://www.tesco.com/pages/terms-of-service: HTTP 403"
+        "https://groceries.asda.com/: HTTP 403",
+        "https://groceries.asda.com/policies/shipping-policy: HTTP 403",
+        "https://groceries.asda.com/pages/shipping-policy: HTTP 403",
+        "https://groceries.asda.com/pages/shipping-details: HTTP 403",
+        "https://groceries.asda.com/pages/delivery-information: HTTP 403",
+        "https://groceries.asda.com/pages/shipping: HTTP 403",
+        "https://groceries.asda.com/pages/delivery: HTTP 403",
+        "https://groceries.asda.com/shipping-policy: HTTP 403",
+        "https://groceries.asda.com/delivery: HTTP 403",
+        "https://groceries.asda.com/shipping: HTTP 403",
+        "https://groceries.asda.com/pages/faq: HTTP 403",
+        "https://groceries.asda.com/pages/shipping-returns: HTTP 403",
+        "https://groceries.asda.com/pages/delivery-returns: HTTP 403",
+        "https://groceries.asda.com/pages/shipping-info: HTTP 403",
+        "https://groceries.asda.com/pages/help: HTTP 403",
+        "https://groceries.asda.com/policies/refund-policy: HTTP 403",
+        "https://groceries.asda.com/pages/terms-of-service: HTTP 403"
       ],
       "patch": null,
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "beauty-the-shop-uk",
-      "name": "Beauty The Shop UK",
-      "homepage": "https://www.beautytheshop.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
-        "steps": [
-          "https://www.beautytheshop.com/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.beautytheshop.com/: HTTP 403",
-        "https://www.beautytheshop.com/policies/shipping-policy: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping-policy: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping-details: HTTP 403",
-        "https://www.beautytheshop.com/pages/delivery-information: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping: HTTP 403",
-        "https://www.beautytheshop.com/pages/delivery: HTTP 403",
-        "https://www.beautytheshop.com/shipping-policy: HTTP 403",
-        "https://www.beautytheshop.com/delivery: HTTP 403",
-        "https://www.beautytheshop.com/shipping: HTTP 403",
-        "https://www.beautytheshop.com/pages/faq: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping-returns: HTTP 403",
-        "https://www.beautytheshop.com/pages/delivery-returns: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping-info: HTTP 403",
-        "https://www.beautytheshop.com/pages/help: HTTP 403",
-        "https://www.beautytheshop.com/policies/refund-policy: HTTP 403",
-        "https://www.beautytheshop.com/pages/terms-of-service: HTTP 403"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "opulensi",
-      "name": "Opulensi",
-      "homepage": "https://www.opulensi.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 30,
-      "currentConfidence": "confirmed",
-      "enabled": true,
-      "pagesTried": 15,
-      "linksFound": [
-        {
-          "url": "https://www.opulensi.com/en-us/policies/shipping-policy",
-          "linkText": "shipping"
-        }
-      ],
-      "findings": [],
-      "quote": null,
-      "errors": [
-        "https://www.opulensi.com/en-us/policies/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.opulensi.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.opulensi.com/policies/refund-policy: disallowed by robots.txt — not fetched",
-        "https://www.opulensi.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "aromique",
-      "name": "Aromique",
-      "homepage": "https://aromique.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 50,
-      "currentConfidence": "confirmed",
-      "enabled": true,
-      "pagesTried": 17,
-      "linksFound": [
-        {
-          "url": "https://aromique.co.uk/policies/shipping-policy",
-          "linkText": "Shipping Policy"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://aromique.co.uk/policies/shipping-policy",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": null,
-          "freeOverGbp": 50,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE UK DELIVERY ON ORDERS OVER £50",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Free UK Delivery",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "We offer free UK delivery on orders of £50 or more , subject to the delivery service and eligibility shown at checkout.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "For orders that do not qualify for free delivery, applicable delivery charges will be calculated and displayed at checkout before payment.",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://aromique.co.uk/pages/faq",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 40,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0",
-            "page names 2 different free-delivery thresholds (£50.00, £40.00)"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE UK DELIVERY ON ORDERS OVER £50",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Is UK delivery free?",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 40,
-              "sentence": "We offer free UK delivery on orders of £40 or more , subject to the applicable delivery terms.",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://aromique.co.uk/policies/refund-policy",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 50,
-          "caveats": [],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE UK DELIVERY ON ORDERS OVER £50",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [
-        "https://aromique.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
-      ],
-      "patch": {
-        "retailerId": "aromique",
-        "action": "confirm-absence",
-        "detail": "page states delivery terms and publishes no standard rate (https://aromique.co.uk/policies/refund-policy)",
-        "write": {
-          "confidence": "confirmed",
-          "verifiedAt": "2026-11-13",
-          "source": {
-            "url": "https://aromique.co.uk/policies/refund-policy",
-            "quote": "FREE UK DELIVERY ON ORDERS OVER £50",
-            "readAt": "2026-11-13"
-          },
-          "standardRateNotPublished": true
-        }
-      },
-      "verdict": "NO RATE PUBLISHED: page states delivery terms and publishes no standard rate (https://aromique.co.uk/policies/refund-policy)"
-    },
-    {
-      "retailerId": "beevora",
-      "name": "Beevora",
-      "homepage": "https://beevora.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 50,
-      "currentConfidence": "unverified",
-      "enabled": true,
-      "pagesTried": 2,
-      "linksFound": [
-        {
-          "url": "https://beevora.co.uk/policies/shipping-policy",
-          "linkText": "Shipping Policy"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://beevora.co.uk/policies/shipping-policy",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 50,
-          "freeOverGbp": null,
-          "caveats": [],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "standard-cost",
-              "amountGbp": 0,
-              "sentence": "Standard Shipping - Tracking Included ~ Orders £0.00–£49.99",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 50,
-              "sentence": "Standard Shipping - Tracking Included ~ Orders £50.00 and up",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [],
-      "patch": {
-        "retailerId": "beevora",
-        "action": "propose-rate",
-        "detail": "page states £50.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Standard Shipping - Tracking Included ~ Orders £0.00–£49.99\" (https://beevora.co.uk/policies/shipping-policy)",
-        "write": null
-      },
-      "verdict": "PROPOSE-RATE: page states £50.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Standard Shipping - Tracking Included ~ Orders £0.00–£49.99\" (https://beevora.co.uk/policies/shipping-policy)"
     }
   ]
 }
