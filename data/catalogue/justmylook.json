@@ -1,7 +1,7 @@
 {
   "retailerId": "justmylook",
-  "updatedAt": "2026-11-14T15:04:30.188Z",
-  "seenAt": "2026-11-14T15:04:30.188Z",
+  "updatedAt": "2026-11-14T19:43:30.334Z",
+  "seenAt": "2026-11-14T19:43:30.334Z",
   "source": "live",
   "listings": [
     {
@@ -494,7 +494,7 @@
       "sectionId": "sitemap",
       "rating": {
         "value": 4.72,
-        "count": 148
+        "count": 149
       },
       "retailerId": "justmylook",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
@@ -594,7 +594,7 @@
       "sectionId": "sitemap",
       "rating": {
         "value": 4.88,
-        "count": 91
+        "count": 92
       },
       "retailerId": "justmylook",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
@@ -24370,7 +24370,7 @@
       "priceGbp": 73.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -30322,7 +30322,7 @@
       "priceGbp": 83.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -30938,7 +30938,7 @@
       "priceGbp": 86.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -35383,7 +35383,7 @@
       "priceGbp": 37.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -37529,7 +37529,7 @@
       "priceGbp": 42.95,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": {
         "value": 4.9647,
@@ -41393,7 +41393,7 @@
       "priceGbp": 63.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",

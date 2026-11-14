@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-14T15:04:30.188Z",
-  "seenAt": "2026-11-14T15:04:30.188Z",
+  "updatedAt": "2026-11-14T19:43:30.334Z",
+  "seenAt": "2026-11-14T19:43:30.334Z",
   "source": "live",
   "listings": [
     {
@@ -4407,7 +4407,7 @@
       "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Reality: Lettuce, Pepper, Clay, Crushed Concrete, Chalk. Materiality: Elemi Resin, Copaiba Balsam, Tonka Bean Absolute, Musk.",
       "productType": "Perfume",
