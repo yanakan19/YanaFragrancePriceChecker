@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-14T10:39:09.503Z",
-  "seenAt": "2026-11-14T10:39:09.503Z",
+  "updatedAt": "2026-11-14T15:04:30.188Z",
+  "seenAt": "2026-11-14T15:04:30.188Z",
   "source": "live",
   "listings": [
     {
@@ -10525,7 +10525,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Obsession for Men Eau De Toilette Spray is a warm oriental fragrance created for customers who enjoy a bold and lasting scent. It opens with aromatic notes of lavender and mandarin, develops into spicy accords of clove and nutmeg, and settles into a smooth amber base. Suitable for evenings and dressier occasions, this fragrance exudes a confident and timeless warmth.. Why customers choose it Well-suited for cooler weather and evening wear. A great option for special occasions and dressier settings. Designed for customers who prefer warm, oriental scents.",
       "productType": "Eau de Toilette",
@@ -10663,7 +10663,7 @@
       "priceGbp": 25.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Contradiction For Women Eau de Parfum is a warm fragrance designed for those who appreciate deep and expressive scents. It opens with a distinctive first impression of pure pepper and rose, developing into a balanced heart with satin wood and settling into a smooth sandalwood base. Suitable for evening wear and cooler weather, this scent feels confident and sophisticated.. Why customers choose it . Well-suited for cooler weather and dressier occasions. A great option for evening wear. Designed for customers who prefer warm, woody, and spicy scents.",
       "productType": "Eau de Parfum",

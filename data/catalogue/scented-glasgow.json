@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-14T10:39:09.503Z",
-  "seenAt": "2026-11-14T10:39:09.503Z",
+  "updatedAt": "2026-11-14T15:04:30.188Z",
+  "seenAt": "2026-11-14T15:04:30.188Z",
   "source": "live",
   "listings": [
     {
@@ -1026,7 +1026,7 @@
       "priceGbp": 85,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Fragrance Notes YELLOW PEACH BIGARADE CHANTILLY CREAM JASMINE LACTONE HONEYDEW MELON BENZOIN SOFT FLESH. . Memories this Fragrance May Conjure Cinemax After Dark, Sumptuous body care products from the 1990s, Waking up next to the one that got away.",
       "productType": "Perfume",
@@ -3740,7 +3740,7 @@
       "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Reality: Honey, Eucalyptus, Leather, Velvet, Amber, Beeswax. Materiality: Nutmeg, Benzoin Resinoid, Labdanum Absolute, Birch Tar, Musk.",
       "productType": "Perfume",
@@ -7558,7 +7558,7 @@
       "priceGbp": 149,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Blackcurrant, Violet, Ripe fig accord, Davana, Osmanthus, Orris, Patchouli, Milk, Vanilla.",
       "productType": "Perfume",

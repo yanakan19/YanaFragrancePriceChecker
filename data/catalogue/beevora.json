@@ -1,7 +1,7 @@
 {
   "retailerId": "beevora",
-  "updatedAt": "2026-11-14T10:39:09.503Z",
-  "seenAt": "2026-11-14T10:39:09.503Z",
+  "updatedAt": "2026-11-14T15:04:30.188Z",
+  "seenAt": "2026-11-14T15:04:30.188Z",
   "source": "live",
   "listings": [
     {
@@ -42561,7 +42561,7 @@
       "rawBrand": "Asdaaf",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1000/6170/8620/files/raneen-perfume-100ml-edp-asdaaf.png?v=1770817080",
-      "priceGbp": 20.99,
+      "priceGbp": 19.99,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
       "inStock": true,

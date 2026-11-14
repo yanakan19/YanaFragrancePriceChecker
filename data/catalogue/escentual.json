@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-14T10:39:26.238Z",
-  "seenAt": "2026-11-14T10:39:26.238Z",
+  "updatedAt": "2026-11-14T15:04:33.901Z",
+  "seenAt": "2026-11-14T15:04:33.901Z",
   "source": "live",
   "listings": [
     {
@@ -31570,7 +31570,7 @@
       "priceGbp": 81,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The first amber perfume in history created by Jacques Guerlain, Shalimar celebrates its 100th anniversary. To mark this exceptional event, the Maison is revealing Shalimar L’Essence, a new intense variation which concentrates Shalimar’s distinctive codes: its quintessence. A homage to the timeless modernity, daring and seduction of Guerlain’s most famous scent for women.. More than a perfume, Shalimar L’Essence is a declaration of love. One made by Delphine Jelk, Guerlain Director of Perfume Creation and Perfumer, to the Maison’s heritage icon, and specifically to its most emblematic note, the cornerstone of its scent: vanilla. Delphine Jelk has added the precious Madagascan vanilla tincture stemming from Guerlain's ancestral know-how to the ethylvanillin found in Jacques Guerlain’s original formula, giving Shalimar a new intensity without detracting from its signature. Discreet and subtle bergamot illuminates the floral heart, which blends rose absolute with the powdery elegance of iris. Little by little, Shalimar’s amber note unfolds, deeper than ever. Used in abundance, vanilla infuses it with new facets – smooth and woody with a hint of leather.. Guerlain has reinterpreted the logo of its iconic bottle for Shalimar L’Essence. A nod to Art Deco, the artistic movement contemporary to Shalimar. Assembled in a bold graphic logo, the letters are crafted in a golden shade reminiscent of the perfume itself. Firmly anchored in its history yet unmistakably contemporary, the Shalimar L’Essence bottle forms a bridge between the eternal Shalimar and its future iteration.. How to Use Spray Shalimar L'Essence Eau de Parfum on the pulse points: neck, chest and wrist..",
       "productType": "Fragrance",
@@ -31590,8 +31590,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GUERLAINShalimarL_EssenceEaudeParfumIntenseSpray30ml.png?v=1761662730",
-      "priceGbp": 75.33,
-      "wasPriceGbp": 113,
+      "priceGbp": 113,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
