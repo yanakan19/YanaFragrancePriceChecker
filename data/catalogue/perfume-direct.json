@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-14T01:39:31.218Z",
-  "seenAt": "2026-11-14T01:39:31.218Z",
+  "updatedAt": "2026-11-14T06:13:29.230Z",
+  "seenAt": "2026-11-14T06:13:29.230Z",
   "source": "live",
   "listings": [
     {
@@ -3669,7 +3669,7 @@
       "priceGbp": 22.49,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Unleash powerful new possibilities with the Pokémon Mega Evolution: Ascended Heroes Elite Booster Pack (1). Each pack contains a selection of exciting Pokemon TCG cards, giving collectors the chance to discover powerful Pokemon, impressive artwork and sought-after additions for their collection. Perfect for opening, collecting or strengthening your deck, this single booster delivers the excitement of the Ascended Heroes expansion and makes a great treat for Pokémon fans and Trainers alike..",
       "productType": "Pokemon",
@@ -86602,7 +86602,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 58,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Lacoste Booster by Lacoste Fragrances is a Citrus Aromatic fragrance for men. An invigorating and fresh fragrance of grapefruit, mint, camphorous eucalyptus, spices and herbs, green galbanum, and a woody, grassy dry down. Perfect for Summer days, to cool down and give you a boost of happiness and joy. The quintessential gym fragrance for the City man. Incredibly refreshing and energising. Fragrance Type: Citrus, Aromatic Fragrance Notes: - Top notes: Grapefruit - Middle notes: Mint - Base notes: White Musk Launched: 2022 .",
       "productType": "Men's Aftershave",

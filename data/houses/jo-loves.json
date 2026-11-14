@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-14T01:45:55.478Z",
-  "seenAt": "2026-11-14T01:45:55.478Z",
+  "updatedAt": "2026-11-14T06:20:07.116Z",
+  "seenAt": "2026-11-14T06:20:07.116Z",
   "source": "live",
   "listings": [
     {
@@ -30,7 +30,7 @@
     {
       "retailerSku": "JLEDTL209",
       "url": "https://www.joloves.com/products/shards-of-cedar-red-thyme-a-fragrance-100ml",
-      "rawTitle": "Shards of Cedar & Red Thyme, A Fragrance (100ml)",
+      "rawTitle": "Shards of Cedar & Red Thyme A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/JL_20200316_LIFE__SCRT_EDT_PDP_MAIN.jpg?v=1718110975",
@@ -421,7 +421,7 @@
     {
       "retailerSku": "JLEDTL676",
       "url": "https://www.joloves.com/products/nutmeg-incense-a-fragrance-100ml",
-      "rawTitle": "Nutmeg & Incense, A Fragrance (100ml)",
+      "rawTitle": "Nutmeg & Incense A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/N_I_100ml_scent_notes.png?v=1788436793",
@@ -1433,7 +1433,7 @@
     {
       "retailerSku": "JLEDTS517",
       "url": "https://www.joloves.com/products/rose-petal-25-edt-50ml-2",
-      "rawTitle": "Rose Petal 25, A Fragrance (50ml)",
+      "rawTitle": "Rose Petal 25 A Fragrance (50ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/JL_2024_PDP_RP25_FP_2000px2500px_4x5_1.jpg?v=1717684192",
@@ -1502,7 +1502,7 @@
     {
       "retailerSku": "JLEDTL517",
       "url": "https://www.joloves.com/products/rose-petal-25-a-fragrance-100ml",
-      "rawTitle": "Rose Petal 25, A Fragance (100ml)",
+      "rawTitle": "Rose Petal 25 A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/100ml_main.png?v=1737133164",
@@ -1732,7 +1732,7 @@
     {
       "retailerSku": "JLEDTS508",
       "url": "https://www.joloves.com/products/white-rose-lemon-leaves-edt-50ml",
-      "rawTitle": "White Rose & Lemon Leaves, A Fragrance (50ml)",
+      "rawTitle": "White Rose & Lemon Leaves A Fragrance (50ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/0034_JL_2024_PDP_WRLL_EDT_2000px2500px_4x5_1_787506d3-55f6-4218-96cb-8ccc5bdc10a2.jpg?v=1749471854",
@@ -1755,7 +1755,7 @@
     {
       "retailerSku": "JLEDTL208",
       "url": "https://www.joloves.com/products/white-rose-lemon-leaves-a-fragrance-100ml",
-      "rawTitle": "White Rose & Lemon Leaves, A Fragrance (100ml)",
+      "rawTitle": "White Rose & Lemon Leaves A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/jl_20200316_life__wrll_edt_pdp_main_1.jpg?v=1717950818",
@@ -1778,7 +1778,7 @@
     {
       "retailerSku": "JLEDTL016",
       "url": "https://www.joloves.com/products/smoked-plum-leather-a-fragrance-100ml",
-      "rawTitle": "Smoked Plum & Leather, A Fragrance (100ml)",
+      "rawTitle": "Smoked Plum & Leather A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/JL_20220111_LIFE__SPL_EDT_PDP_MAIN_4631b576-1bf3-4f0a-988d-6be5b3509ae8.jpg?v=1718103998",
@@ -1824,7 +1824,7 @@
     {
       "retailerSku": "JLEDTS204",
       "url": "https://www.joloves.com/products/pink-vetiver-edt-50ml",
-      "rawTitle": "Pink Vetiver, A Fragrance (50ml)",
+      "rawTitle": "Pink Vetiver A Fragrance (50ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/JL_20200316_LIFE__PV_EDT_PDP_MAIN.jpg?v=1749470553",
@@ -1893,7 +1893,7 @@
     {
       "retailerSku": "JLEDTL202",
       "url": "https://www.joloves.com/products/mango-thai-lime-a-fragrance-100ml",
-      "rawTitle": "Mango Thai Lime, A Fragrance (100ml)",
+      "rawTitle": "Mango Thai Lime A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/MTL100ml.png?v=1740474718",
@@ -1916,7 +1916,7 @@
     {
       "retailerSku": "JLEDTS202",
       "url": "https://www.joloves.com/products/mango-thai-lime-edt-50ml",
-      "rawTitle": "Mango Thai Lime, A Fragrance (50ml)",
+      "rawTitle": "Mango Thai Lime A Fragrance (50ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/JL_20190627_LIFE_EDT_MTL_50ML_2_fcbdbbad-f8e0-4ccc-aea9-6a1937c09d2d.jpg?v=1749466637",
@@ -1985,7 +1985,7 @@
     {
       "retailerSku": "JLEDTL203",
       "url": "https://www.joloves.com/products/green-orange-coriander-a-fragrance-100ml",
-      "rawTitle": "Green Orange & Coriander A Fragrance (100ml)",
+      "rawTitle": "Green Orange & Coriander a Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/JL_20200316_LIFE__GOC_EDT_PDP_SUB_a4da11ef-6876-4315-801b-d097f8e1db11.jpg?v=1718114182",
@@ -2008,7 +2008,7 @@
     {
       "retailerSku": "JLEDTL518D",
       "url": "https://www.joloves.com/products/cobalt-patchouli-cedar-a-fragrance-100ml",
-      "rawTitle": "Cobalt Patchouli & Cedar, A Fragance (100ml)",
+      "rawTitle": "Cobalt Patchouli & Cedar A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/0004_JL_2024_CP_C_EDT_2000X2500_4X5_841ca724-eab2-4876-9f4a-781a59b4b38e.jpg?v=1718195897",
@@ -2054,7 +2054,7 @@
     {
       "retailerSku": "JLEDTS525",
       "url": "https://www.joloves.com/products/black-cashmeran-tonka-edt-50ml",
-      "rawTitle": "Black Cashmeran & Tonka, A Fragrance (50ml)",
+      "rawTitle": "Black Cashmeran & Tonka A Fragrance (50ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/MAIN.jpg?v=1760975877",
@@ -2077,7 +2077,7 @@
     {
       "retailerSku": "JLEDTL525",
       "url": "https://www.joloves.com/products/black-cashmeran-tonka-a-fragrance-100ml",
-      "rawTitle": "Black Cashmeran & Tonka, A Fragrance (100ml)",
+      "rawTitle": "Black Cashmeran & Tonka A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/MAIN_e7721529-c60c-4d14-b30c-acaa9e4fe373.jpg?v=1724762108",
@@ -2100,7 +2100,7 @@
     {
       "retailerSku": "JLEDTL523",
       "url": "https://www.joloves.com/products/amber-lime-bergamot-a-fragrance-100ml",
-      "rawTitle": "Amber, Lime & Bergamot, A Fragrance (100ml)",
+      "rawTitle": "Amber, Lime & Bergamot A Fragrance (100ml)",
       "rawBrand": "Jo Loves",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/JL_20220609_PORTRAIT_4_EXT_3c6a0987-5006-48c7-a772-f80962b5c4c2.jpg?v=1742215610",

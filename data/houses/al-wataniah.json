@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-11-14T01:45:50.568Z",
-  "seenAt": "2026-11-14T01:45:50.568Z",
+  "updatedAt": "2026-11-14T06:19:59.862Z",
+  "seenAt": "2026-11-14T06:19:59.862Z",
   "source": "live",
   "listings": [
     {
@@ -2120,7 +2120,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "An expression of depth and quiet allure. Incense and Leather reveal a dark intensity, softened by Patchouli and Myrrh. Cedarwood and Davana leave a warm, sensual trail of timeless elegance..",
       "productType": null,
@@ -3227,7 +3227,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Built around its floral woody leather character, Kayaan Classic reveals a fresh, elegant and refined signature designed to leave a lasting impression..",
       "productType": null,
