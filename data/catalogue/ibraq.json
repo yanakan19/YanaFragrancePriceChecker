@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-15T13:39:59.800Z",
-  "seenAt": "2026-11-15T13:39:59.800Z",
+  "updatedAt": "2026-11-15T18:11:05.827Z",
+  "seenAt": "2026-11-15T18:11:05.827Z",
   "source": "live",
   "listings": [
     {
@@ -543,7 +543,7 @@
       "priceGbp": 99.99,
       "wasPriceGbp": 119.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A radiant selection from the Diamond Collection, gathered in one elegant box. . Each scent reflects a different facet of brilliance and character. Refined, luminous, and crafted for moments that deserve presence. A timeless expression of IBRAQ’s signature elegance. . Mega-Mini Diamond Collection (20 ml): . Black Carbon Diamond . Emerald Soul Diamond . Grey Pearl Diamond . White Regent Diamond . Purple Heart Diamond . Nude Coral Diamond . Pink Sakura Diamond . Cullinan Iris Diamond . Black Intense Diamond . Blue Aqua Diamond .",
       "productType": "Arabic Perfumes",
