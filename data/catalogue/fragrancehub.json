@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-15T09:15:34.615Z",
-  "seenAt": "2026-11-15T09:15:34.615Z",
+  "updatedAt": "2026-11-15T13:39:59.800Z",
+  "seenAt": "2026-11-15T13:39:59.800Z",
   "source": "live",
   "listings": [
     {
@@ -6776,7 +6776,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Lynked Freedom is a bold creation that embodies modern masculinity with effortless elegance. Fresh energy meets refined depth, blending crisp brightness with warm sensuality for a fragrance that feels both timeless and daring. Inspired by the spirit of confidence and self-expression, it’s crafted for the man who leads with authenticity and leaves a lasting impression.. PERFUME NOTES. Top Notes: Bergamot, Grapefruit, Sage. Middle Notes: Lavender, Cardamom, Juniper Berry. Base Notes: Vetiver, Oriental, Caramel.",
       "productType": null,
@@ -13745,7 +13745,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": 37.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "9am Dive is more than just a perfume; it’s an olfactory experience that captures the essence of a vibrant morning. With its 100ml size, it ensures long-lasting enjoyment of this exquisite scent, and its Eau De Parfum formulation promises a fragrance experience that accompanies you throughout the day.. NOTES . TOP NOTES: LEMON, PINK PEPPER, MINT, BLACKCURRANT . MIDDLE NOTES : APPLE, INCENSE, CEDAR . BASE NOTES: PATCHOULI, JASMINE, SANDALWOOD. .",
       "productType": null,

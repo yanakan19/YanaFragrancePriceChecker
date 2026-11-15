@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-15T09:15:34.615Z",
-  "seenAt": "2026-11-15T09:15:34.615Z",
+  "updatedAt": "2026-11-15T13:39:59.800Z",
+  "seenAt": "2026-11-15T13:39:59.800Z",
   "source": "live",
   "listings": [
     {
@@ -9881,7 +9881,7 @@
       "priceGbp": 49,
       "wasPriceGbp": 70,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the bold and distinctive character of Re-Charge Black Pepper Eau De Parfum. Rich, warm and confidently aromatic, this sophisticated fragrance delivers an invigorating scent with an enduring depth, presented in a convenient 30ml size for a luxurious addition to any fragrance collection..",
       "productType": "Women's Fragrances",

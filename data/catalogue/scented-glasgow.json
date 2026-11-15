@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-15T09:15:34.615Z",
-  "seenAt": "2026-11-15T09:15:34.615Z",
+  "updatedAt": "2026-11-15T13:39:59.800Z",
+  "seenAt": "2026-11-15T13:39:59.800Z",
   "source": "live",
   "listings": [
     {
@@ -7604,7 +7604,7 @@
       "priceGbp": 96,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Ash, Salt, Chamomile, Angelica, Elemi, Sichuan Pepper, Galbanum . Elm, Calamus, Atlas Cedar, Orris, Copal Resin, Driftwood, Seamoss, Ambergris, Papyrus, Vetiver, Woodruff..",
       "productType": "Perfume",
