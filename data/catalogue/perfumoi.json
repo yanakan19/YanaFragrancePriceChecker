@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-15T18:11:05.827Z",
-  "seenAt": "2026-11-15T18:11:05.827Z",
+  "updatedAt": "2026-11-15T22:43:26.523Z",
+  "seenAt": "2026-11-15T22:43:26.523Z",
   "source": "live",
   "listings": [
     {
@@ -4959,7 +4959,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Dolce & Gabbana The One Eau De Parfum Spray is a warm fragrance created for customers who enjoy a sophisticated scent. It opens with sparkling notes of bergamot and mandarin, develops into a balanced heart of madonna lily, and settles into a smooth lasting base of vanilla, plum, and amber. Suitable for evening and cooler weather, this fragrance is a strong choice for anyone looking for a warm and elegant scent.. Why customers choose it . Well-suited for evening wear and cooler seasons. A great option for dressier occasions and special events. Designed for customers who prefer warm and oriental scents.",
       "productType": "Eau de Parfum",

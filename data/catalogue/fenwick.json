@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-15T18:11:05.827Z",
-  "seenAt": "2026-11-15T18:11:05.827Z",
+  "updatedAt": "2026-11-15T22:43:26.523Z",
+  "seenAt": "2026-11-15T22:43:26.523Z",
   "source": "live",
   "listings": [
     {
@@ -911,7 +911,7 @@
       "priceGbp": 105,
       "wasPriceGbp": 140,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover La Nuit Trésor, a sultry, smouldering perfume for women with notes of fresh raspberry, frankincense, and vanilla, with a bewitching heart of Black Rose essence. This new fragrance is Lancôme’s first ‘Gourmand Floral Ambery’ perfume, a scent of passionate love - as showcased in the new advert featuring the Penelope Cruz..",
       "productType": "Women's Fragrances",
@@ -17379,7 +17379,7 @@
       "priceGbp": 124.8,
       "wasPriceGbp": 156,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Acqua di Parma’s Colonia Intensa pairs citrus top notes with deep leather and cedarwood. A confident fragrance with long-lasting warmth..",
       "productType": "Unisex Fragrance",
