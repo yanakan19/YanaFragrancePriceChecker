@@ -1,24 +1,24 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-11-14T15:33:34.684Z",
+  "builtAt": "2026-11-15T15:59:54.321Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 29,
   "shopsEnabled": 26,
   "shopsPriced": 25,
-  "crawlMinutes": 57.05,
-  "harvestRanAt": "2026-11-14T14:36:30.568Z",
-  "listingsPriced": 108435,
-  "listingsKept": 61057,
+  "crawlMinutes": 57.02,
+  "harvestRanAt": "2026-11-15T15:02:52.386Z",
+  "listingsPriced": 108314,
+  "listingsKept": 60965,
   "staleAfterDays": 7,
-  "products": 40014,
-  "productsWithTwoOrMoreShops": 10624,
-  "shareWithTwoOrMoreShops": 0.266,
-  "productsWithTwoOrMoreIndependentShops": 7636,
+  "products": 40055,
+  "productsWithTwoOrMoreShops": 10633,
+  "shareWithTwoOrMoreShops": 0.265,
+  "productsWithTwoOrMoreIndependentShops": 7645,
   "shareWithTwoOrMoreIndependentShops": 0.191,
-  "productsWithThreeOrMoreShops": 6136,
-  "medianPriceGap": 0.408,
+  "productsWithThreeOrMoreShops": 6142,
+  "medianPriceGap": 0.409,
   "listingBarcodeShare": 0.13,
   "productsMatchingUkByBarcode": 2641,
   "shops": [
@@ -30,7 +30,7 @@
     {
       "id": "beauty-encounter",
       "products": 5113,
-      "shared": 2120
+      "shared": 2123
     },
     {
       "id": "beautyhabit",
@@ -69,13 +69,13 @@
     },
     {
       "id": "la-belle-perfumes",
-      "products": 4876,
-      "shared": 2468
+      "products": 4883,
+      "shared": 2476
     },
     {
       "id": "luckyscent",
-      "products": 3834,
-      "shared": 776
+      "products": 3827,
+      "shared": 775
     },
     {
       "id": "maison-louis-marie",
@@ -104,13 +104,13 @@
     },
     {
       "id": "perfumes-america",
-      "products": 5462,
-      "shared": 3788
+      "products": 5464,
+      "shared": 3794
     },
     {
       "id": "perfumes4all",
-      "products": 15048,
-      "shared": 4515
+      "products": 15108,
+      "shared": 4529
     },
     {
       "id": "sol-de-janeiro",
@@ -138,14 +138,14 @@
       "shared": 578
     }
   ],
-  "productsShown": 39903,
-  "productsWithUkPhoto": 6684,
-  "productsWithUkPhotoByBarcode": 2015,
+  "productsShown": 39944,
+  "productsWithUkPhoto": 6685,
+  "productsWithUkPhotoByBarcode": 2016,
   "productsWithUkPhotoByName": 4669,
-  "listingsWithReference": 35393,
-  "offersWithCorroboratedReference": 15170,
-  "deals": 2844,
-  "shareWithUkPhoto": 0.168,
+  "listingsWithReference": 35474,
+  "offersWithCorroboratedReference": 15185,
+  "deals": 2849,
+  "shareWithUkPhoto": 0.167,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
