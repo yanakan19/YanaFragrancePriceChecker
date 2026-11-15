@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-15T04:39:32.029Z",
-  "seenAt": "2026-11-15T04:39:32.029Z",
+  "updatedAt": "2026-11-15T09:15:51.826Z",
+  "seenAt": "2026-11-15T09:15:51.826Z",
   "source": "live",
   "listings": [
     {
@@ -91114,8 +91114,8 @@
       "rawBrand": "GIVENCHY",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/givenchy_irresistible_rose_velvet_eau_de_parfu_spay_35ml.png?v=1729190189",
-      "priceGbp": 60,
-      "wasPriceGbp": 100,
+      "priceGbp": 100,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
