@@ -3453,12 +3453,12 @@ export const RETAILERS: readonly Retailer[] = [
       // Re-read 2026-10-01: the table row now reads "Standard Delivery / £3.50
       // / free on orders over £30" and the footer states the same rule in one
       // sentence, quoted below. Same two figures.
-      verifiedAt: '2026-10-01',
+      verifiedAt: '2026-11-15',
       confidence: 'confirmed',
       source: {
         url: 'https://www.escentual.com/pages/delivery-information',
-        quote: 'Free UK delivery on orders over £30 (from £3.50 under £30)',
-        readAt: '2026-10-01',
+        quote: 'Standard Delivery ~ £3.50 / free on orders over £30 ~ 3-5 working days*',
+        readAt: '2026-11-15',
       },
       notes:
         'A paid annual "Delivery Pass" (£9.95) gives free next-day delivery on orders over ' +
