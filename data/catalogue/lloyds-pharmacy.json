@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-14T19:43:30.334Z",
-  "seenAt": "2026-11-14T19:43:30.334Z",
+  "updatedAt": "2026-11-15T00:09:37.502Z",
+  "seenAt": "2026-11-15T00:09:37.502Z",
   "source": "live",
   "listings": [
     {
@@ -5212,7 +5212,7 @@
       "priceGbp": 12.49,
       "wasPriceGbp": 44,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Feminine and fresh fragrance. Light yet lasting scent. 50ml volume. ##end-features##. Product description. Davidoff Cool Water for Women EDT 50ml is a timeless, sensual fragrance that's elegant and fresh. Its unique combination of floral and aquatic notes makes it perfect for day or evening wear. . This eau de toilette captures the essence of water in an original and sweetly delicate manner. Its soft composition evokes both the coolness and the clarity of water, making it a must-have accessory for the modern woman.. With every spray, give yourself the boost of freshness and confidence you need to take on the day.. Features of Davidoff Cool Water for Women EDT 50ml. Timeless and elegant fragrance. Combination of floral and aquatic notes. Suitable for day and evening wear. Delightfully refreshing and revitalising. ##accordion-start##. Specifications. Volume: 50ml. ##accordion-item-end##. Suitable for. Women of all ages. ##accordion-item-end##. Warnings and cautions. Avoid contact with eyes. Flammable - keep away from open flames. Store in a cool, dry place away from direct sunlight. Discontinue use if any reaction occurs. ##accordion-item-end##. How to use. Spray onto clean, dry skin, ideally right after a shower.. Focus on pulse points such as your chest, neck, and wrists.. ##accordion-item-end##. Ingredients. Please refer to the packaging for a full list of ingredients.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",

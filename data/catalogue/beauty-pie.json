@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-14T19:43:30.334Z",
-  "seenAt": "2026-11-14T19:43:30.334Z",
+  "updatedAt": "2026-11-15T00:09:37.502Z",
+  "seenAt": "2026-11-15T00:09:37.502Z",
   "source": "live",
   "listings": [
     {
@@ -9214,7 +9214,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Is cream blush better than powder? These are. Gorgeous little pans of rub-on colour pop - perfect for adding life back into your cheeks. With a super blendable pillowy matte texture that melts into your skin, cushioning oils and a super-natural finish, you’ll want them in every makeup bag. Deluxe. Italian..",
       "productType": "Makeup",

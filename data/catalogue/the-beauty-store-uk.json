@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-14T19:43:35.305Z",
-  "seenAt": "2026-11-14T19:43:35.305Z",
+  "updatedAt": "2026-11-15T00:09:45.744Z",
+  "seenAt": "2026-11-15T00:09:45.744Z",
   "source": "live",
   "listings": [
     {
@@ -24325,7 +24325,7 @@
       "priceGbp": 3.76,
       "wasPriceGbp": 8.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Eylure Eco Lash and Stash False Eyelashes in style Lash’d Up boast an angled design that frames the eyes beautifully. These eyelashes are handmade with super wispy lash strands of various lengths. Those lash hairs have been gently layered together, to create an untamed and fluttery appearance.. Vegan friendly . Faux mink style. Includes recyclable storage case. Each pack contains one pair of Eylure Eco Lash and Stash False Eyelashes in style Lash'd Up , along with a 100% recyclable and reusable lash case to keep your lashes in tip top condition between wears. False lash glue is sold separately.",
       "productType": "Eye Lashes",

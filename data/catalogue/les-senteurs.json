@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-14T19:43:35.305Z",
-  "seenAt": "2026-11-14T19:43:35.305Z",
+  "updatedAt": "2026-11-15T00:09:45.744Z",
+  "seenAt": "2026-11-15T00:09:45.744Z",
   "source": "live",
   "listings": [
     {
@@ -56,7 +56,7 @@
       "rawTitle": "Olverum Restore & Revive Collection Gift Set (60ml + 30ml + 50ml)",
       "rawBrand": "Olverum",
       "ean": null,
-      "imageUrl": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2213/5535/files/olverum-festive-2_c0412fee-de77-4c62-b636-e77859f7ae21.png?v=1794689384",
       "priceGbp": 49.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,

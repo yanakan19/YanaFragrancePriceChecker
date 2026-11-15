@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-14T19:43:30.334Z",
-  "seenAt": "2026-11-14T19:43:30.334Z",
+  "updatedAt": "2026-11-15T00:09:37.502Z",
+  "seenAt": "2026-11-15T00:09:37.502Z",
   "source": "live",
   "listings": [
     {
@@ -704,7 +704,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": 64.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "RAVENNA opens with a bright composition of lemon, bergamot and orange, softened by the juicy warmth of pineapple and mango. The first impression is fresh, radiant and polished, with a golden citrus-fruity texture that feels clean yet naturally vibrant on the skin.. As the fragrance develops, Tunisian neroli brings a refined floral clarity, while ginger and cinnamon add a subtle spicy warmth without overwhelming the composition. In the base, black tea, guaiac wood and ambroxan create a smooth, grounded trail with elegant depth, balancing freshness with a soft woody character.. RAVENNA is a versatile perfume with a luminous personality, suited for those who prefer refined freshness, discreet sophistication and a clean, modern projection.. Top Lemon, Bergamot, Orange, Pineapple, Mango. Heart Ginger, Cinnamon, Tunisian Neroli. Base Black Tea, Guaiac Wood, Rosemary, Ambroxan.",
       "productType": null,
