@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-15T22:43:26.523Z",
-  "seenAt": "2026-11-15T22:43:26.523Z",
+  "updatedAt": "2026-11-16T03:10:14.252Z",
+  "seenAt": "2026-11-16T03:10:14.252Z",
   "source": "live",
   "listings": [
     {
@@ -658,7 +658,7 @@
       "priceGbp": 41.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Espanio by Escalo 50ml Extrait de Parfum combines amber (warmth), musk (sensual smoothness), and patchouli (earthy depth) to create a balanced, long-lasting scent. This refined blend offers a rich yet elegant aromatic profile suitable for both modern and classic preferences. .",
       "productType": null,
