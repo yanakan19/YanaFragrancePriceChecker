@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-16T12:10:45.377Z",
-  "seenAt": "2026-11-16T12:10:45.377Z",
+  "updatedAt": "2026-11-16T16:33:13.747Z",
+  "seenAt": "2026-11-16T16:33:13.747Z",
   "source": "live",
   "listings": [
     {
@@ -106,7 +106,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Infused with the inviting aroma of freshly roasted chestnuts, this Home Candle envelops your space in a comforting embrace. The rich, nutty scent is beautifully balanced with notes of sweet, candied vanilla, creating a luscious sweetness that warms the soul. Earthy sandalwood adds depth, grounding the fragrance with its smooth, woody undertones.",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-16T12:03:51.270Z",
-  "seenAt": "2026-11-16T12:03:51.270Z",
+  "updatedAt": "2026-11-16T16:24:51.594Z",
+  "seenAt": "2026-11-16T16:24:51.594Z",
   "source": "live",
   "listings": [
     {
@@ -1371,7 +1371,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Premium Brazilian Tobacco Perfume . This Brazilian Tobacco perfume by IBRAQ (Ibrahim Al Qurashi) sparkles with citrusy tones of bergamot and soft lavender, dancing together like the sun and moon in a clear sky. Luxurious Brazilian Tobacco fuses with deep woody notes and mysterious patchouli, creating a harmony that captivates the heart. It is a scent that tells a story of elegance and attraction. . Notes: . Top notes: bergamot , lavender, pink peppercorn, chilli. . Heart notes: brazilian tobacco, oud wood, cherry, cedarwood. . Base notes: leather, patchouli, vetiver. . . .",
       "productType": "Arabic Perfumes",

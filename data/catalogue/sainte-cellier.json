@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-11-16T12:03:57.668Z",
-  "seenAt": "2026-11-16T12:03:57.668Z",
+  "updatedAt": "2026-11-16T16:24:11.043Z",
+  "seenAt": "2026-11-16T16:24:11.043Z",
   "source": "live",
   "listings": [
     {
@@ -589,7 +589,7 @@
       "priceGbp": 140,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Eau de Parfum. Teen is a memory you can smell. Another summer weekend spent patrolling your local mall with a $20 bill and unlimited possibility.. Perfumer Marissa Zappas has composed a fragrance that captures the unselfconscious joy of discovering scent for the first time: the fruity body spray trailing behind you on the way to math class, the sweet cloud of something cheap and glorious that made you feel invincible.. Blood orange and bergamot open bright and careless. Ripe passion fruit, rose, fresh cut grass and violet leaf build a heart that is simultaneously lush and innocent. Vanilla bean, tonka and cashmere musk close it out with the kind of warmth that feels like being young and not yet knowing that youth ends.. Composition: . Blood Orange, Bergamot. Ripe Passion Fruit, Rose, Fresh Cut Grass, Violet Leaf. Vanilla Bean, Tonka, Cashmere Musk. Perfumer: Marissa Zappas, 2025. inci list: Alcohol Denat., Fragrance (Parfum), Water (Aqua), Citral, Citronellol, Cyclopentadecanolide, Dimethylcyclohex-3-ene-1-Carbaldehyde (Mixed Isomers), Geraniol, Rose Ketones, Cis-3-Hexenyl Methyl Carbonate, P-Isopropylbenzyl Alcohol .",
       "productType": "EAU DE PARFUM",
@@ -4062,7 +4062,7 @@
       "priceGbp": 70,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Eau de Parfum. . Diaphanous Rose, Candied Violet, Plush Amber & Satin Slipper Musk. . Composition: . Turkish Rose Water, Candied Violet. Bulgarian Rose, Crème Anglaise. Sheer Musk, Honeyed Wood, Velvet Amber. Perfumer: Odette Fontaine, 2024.",
       "productType": "EAU DE PARFUM",

@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-11-16T12:03:51.270Z",
-  "seenAt": "2026-11-16T12:03:51.270Z",
+  "updatedAt": "2026-11-16T16:24:51.594Z",
+  "seenAt": "2026-11-16T16:24:51.594Z",
   "source": "live",
   "listings": [
     {
@@ -5258,7 +5258,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "This perfume evokes a childhood memory that is connected to the popular and delicious condensed milk. It is fairylike, suggesting a transparent veil, merging smoothly with skin, like a fleeting memory that you can just hold on to with your fingertips, a delightful and airy fragrance, capturing the essence of a precious moment. . Fragrance Notes Top: Milk Middle: Coconut Base: Caramel. Fragrance House Maison Chabaud celebrates the enchanting landscapes of the South Of France. The adventure began in Montpellier in 2002, when the Chabaud family developed a collection of bewitching scents inspired by Mediterranean gardens. Maison Chabaud has continued to develop, successfully forging an intimate connection between history and the natural world, all the while seeking to embody da Vinci's famous maxim: 'Simplicity is the ultimate sophistication'..",
       "productType": "Perfume",

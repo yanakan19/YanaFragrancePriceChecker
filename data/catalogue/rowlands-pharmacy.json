@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-16T12:03:57.668Z",
-  "seenAt": "2026-11-16T12:03:57.668Z",
+  "updatedAt": "2026-11-16T16:24:11.043Z",
+  "seenAt": "2026-11-16T16:24:11.043Z",
   "source": "live",
   "listings": [
     {
@@ -267,7 +267,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Chloé Love Story Eau de Parfum 30ml. Key Features. ##features##. Romantic floral fragrance for women.. Features neroli, orange blossom and stephanotis.. Delicate floral scent with soft musky undertones.. Elegant fragrance inspired by modern romance.. Suitable for daytime and evening wear.. Travel-friendly 30ml bottle.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Chloé Love Story Eau de Parfum is a graceful floral fragrance inspired by romance and femininity. Fresh neroli notes lead into a heart of orange blossom and stephanotis, while a soft musky base provides warmth and depth. Elegant and effortlessly wearable, it is perfect for everyday sophistication.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-16T12:03:51.270Z",
-  "seenAt": "2026-11-16T12:03:51.270Z",
+  "updatedAt": "2026-11-16T16:24:51.594Z",
+  "seenAt": "2026-11-16T16:24:51.594Z",
   "source": "live",
   "listings": [
     {
@@ -3763,7 +3763,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rayhaan Wolf Eau de Parfum . A bold, magnetic fragrance for the modern man who moves with quiet confidence and unmistakable presence. . Wolf opens with a sharp burst of ginger, electric and warming, setting an immediate tone of energy and intent. The spice crackles on the skin, hinting at the depth that follows. . At its heart, rich woody notes unfurl with masculine assurance — grounded, refined, and quietly commanding. This is the soul of the fragrance: timeless, sophisticated, and entirely self-assured. . The composition settles into a sensual base of Bourbon vanilla, creamy and indulgent without ever turning sweet. It lingers close to the skin, leaving a warm, lasting trail that draws people in. . Wolf is for the man who leads the pack — composed, intentional, and impossible to ignore. . Top: Ginger Heart: Woody Notes Base: Bourbon Vanilla.",
       "productType": null,
