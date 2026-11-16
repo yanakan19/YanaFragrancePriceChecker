@@ -30,7 +30,7 @@
  * the run, reported in the harvest log already, not something this code
  * failed to do. Its old prices are still hidden after HIDE_OFFER_AFTER_DAYS.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { HarvestReport } from '../src/catalogue/harvestReport.js';
@@ -61,6 +61,23 @@ if (!report.freshness) {
 }
 
 const failing: string[] = [];
+// A feed shop's listings only get younger when the Awin sync finishes
+// (data/feed-sync-marker.txt holds the epoch of the last one that did). When
+// the sync has not finished for FEED_SYNC_LAG_HOURS the shop is not failing
+// anything the crawl did: it is a stuck sync, which the periodic stage already
+// reports. Warned about and listed by the weekly health, not a red run
+// (docs/PIPELINE-FAILURE-MODES.md row 68). A crawled shop is judged as before.
+const FEED_SYNC_LAG_HOURS = 12;
+let feedSyncAgeHours: number | null = null;
+try {
+  const markerPath = resolve(root, 'data/feed-sync-marker.txt');
+  const last = existsSync(markerPath) ? Number(readFileSync(markerPath, 'utf8').trim()) : NaN;
+  const at = Date.parse(report.startedAt);
+  if (Number.isFinite(last) && last > 0 && Number.isFinite(at)) feedSyncAgeHours = (at / 1000 - last) / 3600;
+} catch {
+  feedSyncAgeHours = null;
+}
+const feedSyncLagging = feedSyncAgeHours !== null && feedSyncAgeHours > FEED_SYNC_LAG_HOURS;
 console.log(`Freshness of shown listings, harvest started ${report.startedAt}`);
 console.log(`  ${'shop'.padEnd(24)} ${'shown'.padStart(6)} ${'>24h'.padStart(6)} ${'>48h'.padStart(6)}  answered  oldest shown`);
 for (const [id, f] of Object.entries(report.freshness).sort(([a], [b]) => a.localeCompare(b))) {
@@ -88,6 +105,11 @@ for (const [id, f] of Object.entries(report.freshness).sort(([a], [b]) => a.loca
       `::warning::${id}: ${f.over48h} of ${f.shown} shown listings last confirmed more than 48 hours ago, over the limit ${hardLimit} ` +
         `but ${f.stuckRuns ? `not improving for ${f.stuckRuns} harvest(s) of ${f.timeBudget ? FRESHNESS_STUCK_RUNS_ON_BUDGET : FRESHNESS_STUCK_RUNS}` : 'improving or new'}` +
         `${f.timeBudget ? ' and its read stopped on its time budget (the slow shop valve gives it longer)' : ''}.`,
+    );
+  } else if (judged && f.over48h > hardLimit && f.source === 'feed' && feedSyncLagging) {
+    console.log(
+      `::warning::${id}: ${f.over48h} of ${f.shown} shown listings last confirmed more than 48 hours ago, over the limit ${hardLimit}, ` +
+        `but its feed did not sync this run (last finished sync ${feedSyncAgeHours!.toFixed(0)} hours before this harvest): the Awin sync is the thing to fix, and the weekly health lists the shop.`,
     );
   } else if (judged && f.over48h > hardLimit) {
     failing.push(`${id} (${f.over48h} of ${f.shown} shown listings over 48h, limit ${hardLimit}, not improving for ${f.stuckRuns ?? 0} harvests${f.source === 'feed' ? ', feed' : ''})`);

@@ -846,6 +846,11 @@ jobs:
         timeout-minutes: 30
         env:
           AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
+          # The rebuild after a sync replays the price history; a full replay
+          # took 40+ minutes on 16 Nov 2026 and ate this step's 30 (the feeds
+          # themselves take 10 seconds). It stops at this budget and
+          # checkpoints (scripts/build-price-history.ts).
+          PRICE_HISTORY_BUDGET_MIN: '9'
           # The storefront re-price below skips shops removed in the developer
           # dashboard (scripts/siteBuild.ts).
           SITE_OVERRIDES_FETCH: '1'
@@ -1698,6 +1703,12 @@ jobs:
         if: ${{ inputs.harvest || inputs.deals_refresh || env.SCHEDULED == 'true' }}
         continue-on-error: true
         timeout-minutes: 25
+        env:
+          # A history replay that cannot finish (a rules change forces a full
+          # one: 40+ minutes on 16 Nov 2026) stops here and checkpoints, so
+          # this step ends inside its 25 minutes and commits; the next run
+          # carries on from the checkpoint.
+          PRICE_HISTORY_BUDGET_MIN: '12'
         run: |
           # `npm run rebuild` is catalogue:demo, deals:build,
           # catalogue:history and demo, in that order (package.json), the same
@@ -1996,6 +2007,8 @@ jobs:
       - name: Rebuild the app from the new snapshots
         if: ${{ inputs.crawl && !inputs.dry_run }}
         timeout-minutes: 25
+        env:
+          PRICE_HISTORY_BUDGET_MIN: '12'
         run: npm run rebuild
 
       - name: Commit what changed

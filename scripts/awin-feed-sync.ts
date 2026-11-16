@@ -61,6 +61,8 @@ if (feedRetailers.length === 0) {
 type SyncState = Record<string, { lastImported: string }>;
 const state: SyncState = existsSync(statePath) ? JSON.parse(readFileSync(statePath, 'utf8')) : {};
 
+const FEED_SYNC_BUDGET_MS = 12 * 60_000;
+const startedAt = Date.now();
 const http = createHttp();
 const now = new Date().toISOString();
 const headers = { 'user-agent': BOT_USER_AGENT };
@@ -107,15 +109,33 @@ for (const retailer of feedRetailers) {
     continue;
   }
 
+  // A dead or slow feed is skipped with a warning and keeps its last good
+  // snapshot (nothing is written for it): the rest still sync, inside budget.
+  if (Date.now() - startedAt > FEED_SYNC_BUDGET_MS) {
+    console.log(`::warning::${retailer.name}: skipped, the feed sync passed its ${FEED_SYNC_BUDGET_MS / 60000} minute budget; it keeps its last good data.`);
+    continue;
+  }
   console.log(`  ${retailer.name.padEnd(20)} downloading`);
-  const feedRes = await http(row.url, headers);
+  const feedRes = await Promise.race([
+    http(row.url, headers).catch((err: unknown) => ({ ok: false as const, status: 0, body: '', error: String(err).slice(0, 120) })),
+    new Promise<{ ok: false; status: number; body: string; error: string }>((res) =>
+      setTimeout(() => res({ ok: false, status: 0, body: '', error: 'no answer in 4 minutes' }), 4 * 60_000).unref(),
+    ),
+  ]);
   if (!feedRes.ok) {
+    console.log(`::warning::${retailer.name}: feed not fetched, keeping its last good data.`);
     console.log(`  ${retailer.name.padEnd(20)} feed download failed: HTTP ${feedRes.status}${feedRes.error ? ` ${feedRes.error}` : ''}`);
     continue;
   }
 
   console.log(`  ${retailer.name.padEnd(20)} ingesting ${(feedRes.body.length / 1e6).toFixed(1)} MB`);
-  const outcome = ingestAwinFeedCsv(store, retailer, feedRes.body, now);
+  let outcome: ReturnType<typeof ingestAwinFeedCsv>;
+  try {
+    outcome = ingestAwinFeedCsv(store, retailer, feedRes.body, now);
+  } catch (err) {
+    console.log(`::warning::${retailer.name}: feed could not be ingested (${String(err).slice(0, 120)}), keeping its last good data.`);
+    continue;
+  }
   if (!outcome.written) {
     console.log(`  ${retailer.name.padEnd(20)} feed downloaded but ${outcome.reason}`);
     continue;

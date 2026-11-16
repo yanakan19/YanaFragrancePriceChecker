@@ -119,9 +119,10 @@ import {
   CHECKPOINT_PATH,
   OUTPUT_PATH,
   commitsTouchingCatalogue,
+  emptyCache,
   emptyState,
   render,
-  replay,
+  replayCommitCached,
   resumeFrom,
   rulesFingerprint,
   toCheckpoint,
@@ -150,22 +151,41 @@ if (decision.resume) {
   console.log(`Full replay of ${commits.length} commits touching data/catalogue (${decision.reason}).`);
 }
 
+// PRICE_HISTORY_BUDGET_MIN (set by the workflows): a replay that has not
+// finished by then stops between commits, writes what it has as the
+// checkpoint and the history file (both exact for the commits folded in) and
+// exits 0, so the next run resumes there. Without it a full replay
+// (any change to the rules or the enabled shops forces one, 916 commits took
+// over 40 minutes on 16 Nov 2026) outran its step, was cut before anything
+// was committed, and so started from nothing again on every run.
+const budgetMin = Number(process.env.PRICE_HISTORY_BUDGET_MIN ?? '');
+const stopAt = Number.isFinite(budgetMin) && budgetMin > 0 ? Date.now() + budgetMin * 60_000 : undefined;
 const outcomes = { cached: 0, fallback: 0 };
-replay(
-  root,
-  commits.slice(from),
-  state,
-  (done, total, fragrances) => {
-    console.log(`  ${from + done}/${commits.length} commits replayed, ${fragrances} fragrances with history so far`);
-  },
-  outcomes,
-);
+const folded = { count: 0 };
+// The loop lives here, not in priceHistoryReplay.ts: that module is part of
+// the rules fingerprint, and editing it would force the very full replay this
+// budget exists to survive.
+const cache = emptyCache();
+const toReplay = commits.slice(from);
+for (const [i, commit] of toReplay.entries()) {
+  if (stopAt !== undefined && Date.now() >= stopAt) break;
+  outcomes[replayCommitCached(root, state, commit, cache)]++;
+  folded.count = i + 1;
+  if ((i + 1) % 10 === 0 || i === toReplay.length - 1) {
+    console.log(`  ${from + i + 1}/${commits.length} commits replayed, ${state.history.size} fragrances with history so far`);
+  }
+}
+const stoppedEarly = from + folded.count < commits.length;
+if (stoppedEarly) {
+  console.log(`::warning::Price history replay stopped at ${from + folded.count} of ${commits.length} commits (budget ${budgetMin} min). Checkpoint written there; the next run resumes.`);
+}
+const replayedCommits = stoppedEarly ? commits.slice(0, from + folded.count) : commits;
 // See priceHistoryReplay.ts's "without re-reading what did not change": a
 // fallback is a commit where one retailer's listings sat in two files, read
 // in full the original way. Printed so a slow replay says which path it took.
 console.log(`  ${outcomes.cached} commits read only their changed files, ${outcomes.fallback} read in full`);
 
-const rendered = render(state, commits);
+const rendered = render(state, replayedCommits);
 console.log(`\n${rendered.fragrancesWithHistory} fragrances have at least one recorded price`);
 console.log(`${rendered.charted} of those have at least one real point and are included below (every series is shipped, so every product page can draw its graph)`);
 const gaps = rendered.gapCounts;
@@ -188,11 +208,13 @@ console.log(`\n${OUTPUT_PATH} written (${(generatedBody.length / 1024).toFixed(0
 // Rewritten only once it is well behind (checkpointRewriteReason): every
 // rewrite is a commit of a 14 MB file, and an older resume point gives the
 // same output.
-const rewriteBecause = checkpointRewriteReason(decision.resume ? decision.commitsReplayed : null, commits);
+const rewriteBecause = stoppedEarly
+  ? 'stopped on the time budget, resumes from here'
+  : checkpointRewriteReason(decision.resume ? decision.commitsReplayed : null, commits);
 if (rewriteBecause === null) {
   const behind = decision.resume ? commits.length - decision.commitsReplayed : 0;
   console.log(`${CHECKPOINT_PATH} left as it is (${behind} commit(s) behind; rewritten at ${CHECKPOINT_MAX_COMMITS_BEHIND} commits or ${CHECKPOINT_MAX_HOURS_BEHIND} hours)`);
 } else {
-  const checkpointBytes = writeCheckpointFile(root, toCheckpoint(state, rules, commits), commits.at(-1)?.at, generatedBody);
-  console.log(`${CHECKPOINT_PATH} written (${(checkpointBytes / 1024).toFixed(0)} kB) at commit ${commits.at(-1)?.sha.slice(0, 8)}: ${rewriteBecause}`);
+  const checkpointBytes = writeCheckpointFile(root, toCheckpoint(state, rules, replayedCommits), replayedCommits.at(-1)?.at, generatedBody);
+  console.log(`${CHECKPOINT_PATH} written (${(checkpointBytes / 1024).toFixed(0)} kB) at commit ${replayedCommits.at(-1)?.sha.slice(0, 8)}: ${rewriteBecause}`);
 }
