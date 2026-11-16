@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-16T07:43:58.087Z",
-  "seenAt": "2026-11-16T07:43:58.087Z",
+  "updatedAt": "2026-11-16T12:10:43.801Z",
+  "seenAt": "2026-11-16T12:10:43.801Z",
   "source": "live",
   "listings": [
     {
@@ -6983,7 +6983,7 @@
       "priceGbp": 3,
       "wasPriceGbp": 18,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Pick up our moisturising skin tint, the perfect replacement for foundation on those days where you don’t want to wear makeup, but you fancy a little something on the skin. .",
       "productType": "Foundations & Concealers",

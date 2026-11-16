@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-16T07:39:09.394Z",
-  "seenAt": "2026-11-16T07:39:09.394Z",
+  "updatedAt": "2026-11-16T12:03:51.270Z",
+  "seenAt": "2026-11-16T12:03:51.270Z",
   "source": "live",
   "listings": [
     {
@@ -60,7 +60,7 @@
       "priceGbp": 46,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Kenzo Flower Eau de Parfum is a floral fragrance created for customers who enjoy a soft and elegant scent. It opens with a fresh floral heart, develops into a balanced amber floral composition, and settles into a warm, smooth base. Suitable for everyday wear or special occasions, this fragrance offers a graceful and refined aroma.. Why customers choose it . Well-suited for everyday use and special occasions. A great option for gifting or daily wear. Designed for customers who prefer floral and amber scents.",
       "productType": "Eau de Parfum",
