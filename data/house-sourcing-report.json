@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-16T16:33:14.316Z",
+  "checkedAt": "2026-11-16T20:17:12.672Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,12 +59,10 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 433,
+      "listings": 566,
       "pricedInGbp": 0,
-      "withPhoto": 420,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "withPhoto": 547,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -353,11 +351,12 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "robots.txt unreachable at https://www.alrehab.com and https://alrehab.com — holding off rather than guessing we are welcome"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "trading since 1975 out of Jeddah. Four separate domains present themselves as official (alrehab.com, al-rehab.com, alrehaboriental.com, alrehabstore.com) — this points at the first, unconfirmed"
+        "trading since 1975 out of Jeddah. Four separate domains present themselves as official (alrehab.com, al-rehab.com, alrehaboriental.com, alrehabstore.com) — this points at the first, unconfirmed",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {

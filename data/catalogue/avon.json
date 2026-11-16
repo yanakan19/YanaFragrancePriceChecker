@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-16T16:24:11.043Z",
-  "seenAt": "2026-11-16T16:24:11.043Z",
+  "updatedAt": "2026-11-16T20:09:55.369Z",
+  "seenAt": "2026-11-16T20:09:55.369Z",
   "source": "live",
   "listings": [
     {
@@ -773,7 +773,7 @@
       "priceGbp": 1.6,
       "wasPriceGbp": 4,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know:. Want tropical-scented feet and sumptuously soft soles that are summer-ready in a flash? Look no further than our Footworks Coconut & Lime Moisturising Foot Lotion. This coconut oil and lemon extract-infused miracle lotion will leave feet looking and feeling soft and moisturised, with a refreshingly fruity scent.. It’s cooling, non-greasy and super lightweight so you can always put your best foot forward.. 75ml. Why you’ll love it: • Leaves skin looking and feeling soft, moisturised and refreshed. • Has a fun tropical scent. • Cooling, non-greasy formula makes it a pleasure to put on.. What’s in: Soft, hydrated and refreshed feet. What’s out: Dry, dull and cracked soles.. How to use it: Use as ‘Step 2’ of the 3-step foot treatment. Massage onto clean, dry feet after exfoliating, and then follow with foot spray to lock-in hydration and freshness all day..",
       "productType": "BODY",
@@ -31179,7 +31179,7 @@
       "priceGbp": 4.5,
       "wasPriceGbp": 5.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . It’s your rules so express your sensuality your way with the fruity and floral fragrance in the Imari Queen Body Lotion. Feel confident in your sensuality with juicy blackberry, bold royal rose accord and daring anise musk essence.. Product specification: . • Top note: blackberry. • Middle note: royal rose accord. • Base note: anise musk essence. • 125ml.. How to wear me: . Give yourself beautifully scented and super-soft skin with the floral and fruity fragranced body lotion. Love the scent? Treat yourself to the full-size perfume..",
       "productType": "FRAGRANCE",

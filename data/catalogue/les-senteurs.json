@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-16T16:24:11.043Z",
-  "seenAt": "2026-11-16T16:24:11.043Z",
+  "updatedAt": "2026-11-16T20:09:55.369Z",
+  "seenAt": "2026-11-16T20:09:55.369Z",
   "source": "live",
   "listings": [
     {
@@ -16666,7 +16666,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "To warm up passengers on transatlantic flights, Joseph Sheridan, owner of an Irish café, created a hot and invigorating drink in the 1930s: Irish coffee.. The fragrance recalls that moment when the traveller finds stimulating comfort. The freshness of bergamot and cardamom gives way to a powerful sensation, between bitterness and sweetness, transcribed by notes of coffee, tonka, iris and jasmine. A sweet and ardent sip.. Top Notes: Bergamot, Cardamom Heart Notes: Iris, Tonka bean, Coffee Base Note: White musk .",
       "productType": "Fragrance",
