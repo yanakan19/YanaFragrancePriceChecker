@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 353,
+ "folded": 356,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -608,6 +608,38 @@
      "ean": null,
      "scent": "24 7 be delicious",
      "signature": "2x7fragrance|2x7travel",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0085805260613",
+   "absorbed": [
+    "set-elizabeth-arden-sunflowers-gift-set-100ml-edt-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085805260613",
+     "brand": "Elizabeth Arden",
+     "name": "Sunflowers Gift Set 100ml EDT + 100ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": "0085805260613",
+     "scent": "sunflowers",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-elizabeth-arden-sunflowers-gift-set-100ml-edt-100ml-body-lotion",
+     "brand": "Elizabeth Arden",
+     "name": "Sunflowers Gift Set 100ml EDT + 100ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "sunflowers",
+     "signature": "1x100body|1x100fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -2507,6 +2539,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3349668656073",
+   "absorbed": [
+    "set-paco-rabanne-1-million-gift-set-100ml-edt-150ml-deo-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668656073",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne 1 Million Gift Set 100ml EDT + 150ml Deo Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668656073",
+     "scent": "1 million paco rabanne",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-paco-rabanne-1-million-gift-set-100ml-edt-150ml-deo-spray",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne 1 Million Gift Set 100ml EDT + 150ml Deo Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "1 million paco rabanne",
+     "signature": "1x100fragrance|1x150deo",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3349668656219",
    "absorbed": [
     "set-rabanne-fame-eau-de-parfum-fragrance-gift-set"
@@ -2817,7 +2881,8 @@
      "scent": "man",
      "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
      "shops": [
-      "perfume-click"
+      "perfume-click",
+      "perfume-direct"
      ]
     },
     {
@@ -3761,6 +3826,7 @@
      "signature": "1x50wash|1x75fragrance",
      "shops": [
       "perfume-click",
+      "perfume-direct",
       "scentsational"
      ]
     },
@@ -8704,6 +8770,7 @@
   {
    "canonical": "set-ean-8057971187416",
    "absorbed": [
+    "set-dolce-gabbana-q-eau-de-parfum-women-s-gift-set-50ml-5ml",
     "set-dolce-gabbana-q-gift-set-50ml-edp-5ml-edp"
    ],
    "members": [
@@ -8717,6 +8784,18 @@
      "signature": "1x50fragrance|1x5fragrance",
      "shops": [
       "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dolce-gabbana-q-eau-de-parfum-women-s-gift-set-50ml-5ml",
+     "brand": "Dolce & Gabbana",
+     "name": "Q Eau de Parfum Women's Gift Set (50ml + 5ml)",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "q",
+     "signature": "1x50fragrance|1x5fragrance",
+     "shops": [
+      "perfume-direct"
      ]
     },
     {
@@ -8855,38 +8934,6 @@
      "ean": null,
      "scent": "afrique bal d ghost gypsy iconique la mojave selection water",
      "signature": "3x12fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8410225601197",
-   "absorbed": [
-    "set-jean-paul-gaultier-scandal-gift-set-50ml-edp-75ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8410225601197",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Eau de Parfum 50 ml & Body Lotion 75 ml Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8410225601197",
-     "scent": "scandal",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "allbeauty"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-scandal-gift-set-50ml-edp-75ml-body-lotion",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Gift Set 50ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "scandal",
-     "signature": "1x50fragrance|1x75body",
      "shops": [
       "p-eleven"
      ]
@@ -9750,7 +9797,8 @@
      "scent": "classique",
      "signature": "1x50fragrance|1x6fragrance|1x75body",
      "shops": [
-      "perfume-click"
+      "perfume-click",
+      "perfume-direct"
      ]
     },
     {
@@ -10369,6 +10417,38 @@
      "signature": "4x25fragrance",
      "shops": [
       "debenhams"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-maison-francis-kurkdjian-gentle-fluidity-gold-eau-de-parfum-travel-refills-3-x-11ml",
+   "absorbed": [
+    "set-maison-francis-kurkdjian-gentle-fluidity-gold-eau-de-parfum-travel-refills-3x11ml"
+   ],
+   "members": [
+    {
+     "id": "set-maison-francis-kurkdjian-gentle-fluidity-gold-eau-de-parfum-travel-refills-3-x-11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Gentle Fluidity Gold Eau de Parfum Travel Refills, 3 x 11ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "fluidity gentle gold refills travel",
+     "signature": "3x11fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-maison-francis-kurkdjian-gentle-fluidity-gold-eau-de-parfum-travel-refills-3x11ml",
+     "brand": "Maison Francis Kurkdjian",
+     "name": "Gentle Fluidity Gold Eau de Parfum Travel Refills 3x11ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "fluidity gentle gold refills travel",
+     "signature": "3x11fragrance",
+     "shops": [
+      "cult-beauty-global"
      ]
     }
    ]
@@ -14101,6 +14181,66 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3423222118488, 3423222119706",
+    "price spread 1.93 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222118488",
+     "brand": "Issey Miyake",
+     "name": "Le Sel D'Issey Eau de Toilette Men's Aftershave Gift Set (50ml + 50ml Shower Gel)",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222118488",
+     "scent": "d issey le sel",
+     "signature": "1x50fragrance|1x50wash",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3423222119706",
+     "brand": "Issey Miyake",
+     "name": "Le Sel D'Issey 50ml Eau de Toilette Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222119706",
+     "scent": "d issey le sel",
+     "signature": "1x50fragrance|1x50wash",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk",
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-le-sel-d-issey-eau-de-toilette-50ml-fragrance-gift-set",
+     "brand": "Issey Miyake",
+     "name": "Le Sel d'Issey Eau de Toilette 50ml Fragrance Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d issey le sel",
+     "signature": "1x50fragrance|1x50wash",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-le-sel-d-issey-gift-set-50ml-edt-spray-50ml-shower-gel",
+     "brand": "Issey Miyake",
+     "name": "Le Sel D'Issey Gift Set - 50ml EDT Spray + 50ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d issey le sel",
+     "signature": "1x50fragrance|1x50wash",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3423222118495, 3423222119720",
     "a shop lists more than one: paco-perfumerias-uk, perfume-direct"
@@ -14187,53 +14327,6 @@
      "signature": "1x50wash|1x75fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.93 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222119706",
-     "brand": "Issey Miyake",
-     "name": "Le Sel D'Issey 50ml Eau de Toilette Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3423222119706",
-     "scent": "d issey le sel",
-     "signature": "1x50fragrance|1x50wash",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk",
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-le-sel-d-issey-eau-de-toilette-50ml-fragrance-gift-set",
-     "brand": "Issey Miyake",
-     "name": "Le Sel d'Issey Eau de Toilette 50ml Fragrance Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d issey le sel",
-     "signature": "1x50fragrance|1x50wash",
-     "shops": [
-      "john-lewis"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-le-sel-d-issey-gift-set-50ml-edt-spray-50ml-shower-gel",
-     "brand": "Issey Miyake",
-     "name": "Le Sel D'Issey Gift Set - 50ml EDT Spray + 50ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d issey le sel",
-     "signature": "1x50fragrance|1x50wash",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique",
-      "p-eleven"
      ]
     }
    ]
@@ -15853,63 +15946,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 8410225601364, 8435415081269, 8435415092630",
-    "price spread 1.55 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8410225601364",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Pour Homme Eau de Toilette 50 ml & Shower Gel 75 ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "8410225601364",
-     "scent": "homme pour scandal",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "allbeauty"
-     ]
-    },
-    {
-     "id": "set-ean-8435415081269",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Pour Homme Gift Set 50ml EDT + 75ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415081269",
-     "scent": "homme pour scandal",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-8435415092630",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Pour Homme Eau De Toilette 50ml & Shower Gel 75ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415092630",
-     "scent": "homme pour scandal",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "beautybase"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-scandal-pour-homme-gift-set-50ml-edt-75ml-shower-gel",
-     "brand": "Jean Paul Gaultier",
-     "name": "Scandal Pour Homme Gift Set 50ml EDT + 75ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "homme pour scandal",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "beaute-boulevard",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 8411061028438, 8411061046241",
     "a shop lists more than one: paco-perfumerias-uk"
    ],
@@ -16111,6 +16147,51 @@
      "ean": null,
      "scent": "le male",
      "signature": "1x125fragrance|1x20fragrance",
+     "shops": [
+      "beaute-boulevard",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 8435415081269, 8435415092630",
+    "price spread 1.55 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415081269",
+     "brand": "Jean Paul Gaultier",
+     "name": "Scandal Pour Homme Gift Set 50ml EDT + 75ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415081269",
+     "scent": "homme pour scandal",
+     "signature": "1x50fragrance|1x75wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ean-8435415092630",
+     "brand": "Jean Paul Gaultier",
+     "name": "Scandal Pour Homme Eau De Toilette 50ml & Shower Gel 75ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415092630",
+     "scent": "homme pour scandal",
+     "signature": "1x50fragrance|1x75wash",
+     "shops": [
+      "beautybase"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-scandal-pour-homme-gift-set-50ml-edt-75ml-shower-gel",
+     "brand": "Jean Paul Gaultier",
+     "name": "Scandal Pour Homme Gift Set 50ml EDT + 75ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "homme pour scandal",
+     "signature": "1x50fragrance|1x75wash",
      "shops": [
       "beaute-boulevard",
       "p-eleven"
