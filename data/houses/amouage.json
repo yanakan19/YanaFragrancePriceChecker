@@ -1,7 +1,7 @@
 {
   "retailerId": "amouage",
-  "updatedAt": "2026-11-16T03:16:43.275Z",
-  "seenAt": "2026-11-16T03:16:43.275Z",
+  "updatedAt": "2026-11-16T07:43:53.614Z",
+  "seenAt": "2026-11-16T07:43:53.614Z",
   "source": "live",
   "listings": [
     {
@@ -1602,7 +1602,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "The Amouage Essences . An olfactory expression of the value of time. Crafted through a revolutionary process: a double-infusion with sandalwood and artisanal oakwood barrels. . Each fragrance is highly concentrated, containing 30% pure perfume oils, and underwent a meticulous six-month aging process, including a double infusion with sandalwood chips and oakwood barrels, resulting in a deep, layered scent experience. Housed in a new bottle – the first new design introduced by Amouage in 15 years – the Essences represent a pinnacle of olfactory artisanship. . Outlands by Cécile Zarokian. The edge of imagination. Uncharted mysteries . A dance with the unknown . . Outlands is an invitation to journey into the beyond . The opening note of the composition is unexpectedly light-hearted: a n invigorating array of bright citruses, emphasised by zesty lemon. However, as the voyage continues, the landscape becomes more remote and more extraordinary. A rich, multi-faceted patchouli – projecting heat, humidity and verdancy in equal measure – compels the intrepid traveller to move deeper into the cryptic landscape. Finally, an amber accord – reverberating with the potency of balsams and resins – entices a progression to the ultimate encounter, where we find ourselves reflected and remade. . As indescribable as it is familiar, Outlands makes use of extraordinary contrasts between light and shade to capture the ever-shifting inevitability of the future. . .",
+      "description": "The Amouage Essences . An olfactory expression of the value of time. Crafted through a revolutionary process: a double-infusion with sandalwood and artisanal oakwood barrels. . Outlands is an invitation to journey into the beyond . The opening note of the composition is unexpectedly light-hearted: a n invigorating array of bright citruses, emphasised by zesty lemon. However, as the voyage continues, the landscape becomes more remote and more extraordinary. A rich, multi-faceted patchouli – projecting heat, humidity and verdancy in equal measure – compels the intrepid traveller to move deeper into the cryptic landscape. Finally, an amber accord – reverberating with the potency of balsams and resins – entices a progression to the ultimate encounter, where we find ourselves reflected and remade. . As indescribable as it is familiar, Outlands makes use of extraordinary contrasts between light and shade to capture the ever-shifting inevitability of the future. . .",
       "productType": "ESSENCE",
       "nativePrice": {
         "amount": 475,
@@ -1796,6 +1796,32 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "41102",
+      "url": "https://amouage.com/products/love-tuberose",
+      "rawTitle": "Love Tuberose 100ml",
+      "rawBrand": "The House of Amouage",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/Love_Tuberose_100ml_np.jpg?v=1759217170",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Tropical blossom, sun-drenched skin and sugary rays of sunlight, Love Tuberose is an ode to falling in love with oneself. . 20% oil concentration, 6 weeks ageing: 3 weeks maceration, 3 weeks maturation.. . . .",
+      "productType": "EDP",
+      "nativePrice": {
+        "amount": 395,
+        "currency": "USD"
+      },
+      "retailerId": "amouage",
+      "firstSeenAt": "2026-11-16T07:43:53.614Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {

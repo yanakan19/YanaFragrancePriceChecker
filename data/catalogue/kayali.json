@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-16T03:10:14.252Z",
-  "seenAt": "2026-11-16T03:10:14.252Z",
+  "updatedAt": "2026-11-16T07:39:09.394Z",
+  "seenAt": "2026-11-16T07:39:09.394Z",
   "source": "live",
   "listings": [
     {
@@ -3326,7 +3326,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Sweet Diamond Pink Pepper | 25 is an electric, floral, woody creation. Like a sudden impulse, this warm rosy elixir will spice up your mood or add a special twist to any fragrance combination. With its luxurious, modern metallic finish the unique bottle epitomizes the vibrant and flirtatious juice inside.. The spicy yet sweet scent of Sweet Diamond Pink Pepper | 25 combines the spiciness of pink pepper and saffron with sweet Bulgarian Rose and Royal Lily florals for a perfect balance. Deepened with Sandalwood and Golden Amber and intriguingly heightened with sparkling bergamot, this scent is perfect for those who expect a little more from the unexpected..",
       "productType": "Fragrances",

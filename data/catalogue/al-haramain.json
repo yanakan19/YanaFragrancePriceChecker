@@ -1,7 +1,7 @@
 {
   "retailerId": "al-haramain",
-  "updatedAt": "2026-11-16T03:10:18.903Z",
-  "seenAt": "2026-11-16T03:10:18.903Z",
+  "updatedAt": "2026-11-16T07:39:45.613Z",
+  "seenAt": "2026-11-16T07:39:45.613Z",
   "source": "live",
   "listings": [
     {
@@ -474,7 +474,7 @@
       "priceGbp": 85,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "DEHNAL AL OUDH CAMBODI 100ML.",
       "productType": "LOOSE OILS",

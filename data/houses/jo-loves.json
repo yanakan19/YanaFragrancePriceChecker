@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-16T03:16:48.048Z",
-  "seenAt": "2026-11-16T03:16:48.048Z",
+  "updatedAt": "2026-11-16T07:43:59.031Z",
+  "seenAt": "2026-11-16T07:43:59.031Z",
   "source": "live",
   "listings": [
     {
@@ -152,7 +152,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Warm and atmospheric, Nutmeg & Incense blends the comforting spice of nutmeg with the smoky elegance of incense. A rich, festive fragrance designed to bring warmth and quiet sophistication to the home.",
       "productType": null,
