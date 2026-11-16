@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 356,
+ "folded": 355,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -8770,7 +8770,6 @@
   {
    "canonical": "set-ean-8057971187416",
    "absorbed": [
-    "set-dolce-gabbana-q-eau-de-parfum-women-s-gift-set-50ml-5ml",
     "set-dolce-gabbana-q-gift-set-50ml-edp-5ml-edp"
    ],
    "members": [
@@ -8784,18 +8783,6 @@
      "signature": "1x50fragrance|1x5fragrance",
      "shops": [
       "perfume-click"
-     ]
-    },
-    {
-     "id": "set-dolce-gabbana-q-eau-de-parfum-women-s-gift-set-50ml-5ml",
-     "brand": "Dolce & Gabbana",
-     "name": "Q Eau de Parfum Women's Gift Set (50ml + 5ml)",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "q",
-     "signature": "1x50fragrance|1x5fragrance",
-     "shops": [
-      "perfume-direct"
      ]
     },
     {
