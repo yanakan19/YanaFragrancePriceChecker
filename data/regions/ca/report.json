@@ -1,26 +1,26 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-11-15T13:03:29.149Z",
+  "builtAt": "2026-11-16T14:02:44.226Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 20,
   "shopsEnabled": 11,
   "shopsPriced": 11,
-  "crawlMinutes": 7.77,
-  "harvestRanAt": "2026-11-15T12:55:42.649Z",
-  "listingsPriced": 49008,
-  "listingsKept": 38560,
+  "crawlMinutes": 6.93,
+  "harvestRanAt": "2026-11-16T13:55:47.608Z",
+  "listingsPriced": 49005,
+  "listingsKept": 38557,
   "staleAfterDays": 7,
-  "products": 27884,
-  "productsWithTwoOrMoreShops": 6549,
+  "products": 27877,
+  "productsWithTwoOrMoreShops": 6555,
   "shareWithTwoOrMoreShops": 0.235,
-  "productsWithTwoOrMoreIndependentShops": 6549,
+  "productsWithTwoOrMoreIndependentShops": 6555,
   "shareWithTwoOrMoreIndependentShops": 0.235,
-  "productsWithThreeOrMoreShops": 2407,
+  "productsWithThreeOrMoreShops": 2406,
   "medianPriceGap": 0.234,
   "listingBarcodeShare": 0.247,
-  "productsMatchingUkByBarcode": 2701,
+  "productsMatchingUkByBarcode": 2700,
   "shops": [
     {
       "id": "discount-fragrances-ca",
@@ -34,28 +34,28 @@
     },
     {
       "id": "fragrance-online-co",
-      "products": 848,
-      "shared": 514
+      "products": 851,
+      "shared": 515
     },
     {
       "id": "h-parfums",
-      "products": 739,
+      "products": 735,
       "shared": 119
     },
     {
       "id": "maximum-fragrance",
       "products": 9610,
-      "shared": 4517
+      "shared": 4519
     },
     {
       "id": "my-royal-musk",
       "products": 1509,
-      "shared": 509
+      "shared": 513
     },
     {
       "id": "niche-essence",
-      "products": 1260,
-      "shared": 427
+      "products": 1258,
+      "shared": 425
     },
     {
       "id": "parfum-exquis",
@@ -75,16 +75,16 @@
     {
       "id": "perfumeonline-ca",
       "products": 13436,
-      "shared": 5432
+      "shared": 5437
     }
   ],
-  "productsShown": 27884,
-  "productsWithUkPhoto": 6139,
+  "productsShown": 27877,
+  "productsWithUkPhoto": 6140,
   "productsWithUkPhotoByBarcode": 1624,
-  "productsWithUkPhotoByName": 4515,
-  "listingsWithReference": 12495,
+  "productsWithUkPhotoByName": 4516,
+  "listingsWithReference": 12497,
   "offersWithCorroboratedReference": 3799,
-  "deals": 1197,
+  "deals": 1190,
   "shareWithUkPhoto": 0.22,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
