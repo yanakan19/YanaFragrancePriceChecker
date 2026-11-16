@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-11-15T00:00:29.627Z",
+  "ranAt": "2026-11-16T00:01:51.155Z",
   "minutes": 55.31,
   "dryRun": false,
   "shopsWired": 21,
   "shopsEnabled": 18,
   "shopsPriced": 18,
-  "listingsKept": 23827,
+  "listingsKept": 23681,
   "shops": [
     {
       "id": "nykaa",
@@ -15,11 +15,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1325,
-      "priced": 1325,
-      "kept": 1307,
-      "withBarcode": 300,
-      "pagesFetched": 1369,
+      "listingsRead": 1232,
+      "priced": 1232,
+      "kept": 1215,
+      "withBarcode": 194,
+      "pagesFetched": 1276,
       "seconds": 3300,
       "currency": "JSON-LD offers named: INR",
       "errors": [
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
         "https://www.nykaa.com/ulric-de-varens-flash-eau-de-toilette-natural-spray-for-men/p/9329009: HTTP 404",
         "https://www.nykaa.com/victoria-s-secret-bare-eau-de-parfum-travel-spray/p/16691987: HTTP 404",
-        "sitemap: 3077 product address(es) found, first read https://www.nykaa.com/colour-me-homme-volt-eau-de-parfum/p/5202735"
+        "sitemap: 3053 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -66,7 +66,7 @@
       "kept": 6685,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 74,
+      "seconds": 72,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -81,7 +81,7 @@
       "kept": 6472,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 61,
+      "seconds": 60,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -106,17 +106,25 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1089,
-      "priced": 1089,
-      "kept": 1036,
+      "listingsRead": 1033,
+      "priced": 1033,
+      "kept": 982,
       "withBarcode": 0,
-      "pagesFetched": 1090,
-      "seconds": 3300,
+      "pagesFetched": 1038,
+      "seconds": 3301,
       "currency": "og:price tags named: INR",
       "errors": [
+        "https://www.aarfragrances.com/product/xlnc-diva-edition-glaze-fleurique-metallic-rose-20mlx3: HTTP 0",
+        "https://www.aarfragrances.com/product/christian-dior-la-privee-official-discovery-set-2mlx8: HTTP 0",
+        "https://www.aarfragrances.com/product/lattafa-ejaazi-intensive-silver: HTTP 0",
+        "https://www.aarfragrances.com/product/maison-alhambra-florenza: HTTP 0",
         "stopped early: exceeded this shop's time budget"
       ],
       "diagnostics": [
+        "https://www.aarfragrances.com/product/xlnc-diva-edition-glaze-fleurique-metallic-rose-20mlx3: HTTP 0 (TypeError: fetch failed (ConnectTimeoutError: Connect Timeout Error (attempted address: www.aarfragrances))",
+        "https://www.aarfragrances.com/product/christian-dior-la-privee-official-discovery-set-2mlx8: HTTP 0 (TypeError: fetch failed (ConnectTimeoutError: Connect Timeout Error (attempted address: www.aarfragrances))",
+        "https://www.aarfragrances.com/product/lattafa-ejaazi-intensive-silver: HTTP 0 (AbortError: This operation was aborted)",
+        "https://www.aarfragrances.com/product/maison-alhambra-florenza: HTTP 0 (TypeError: fetch failed (ConnectTimeoutError: Connect Timeout Error (attempted address: www.aarfragrances))",
         "sitemap: 2353 product address(es)"
       ]
     },
@@ -146,7 +154,7 @@
       "kept": 379,
       "withBarcode": 0,
       "pagesFetched": 8,
-      "seconds": 13,
+      "seconds": 12,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -161,7 +169,7 @@
       "kept": 104,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -191,7 +199,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -300,7 +308,7 @@
       "kept": 2473,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 20,
+      "seconds": 21,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -331,7 +339,7 @@
       "kept": 1234,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 15,
+      "seconds": 14,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -346,7 +354,7 @@
       "kept": 503,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 11,
+      "seconds": 10,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     }

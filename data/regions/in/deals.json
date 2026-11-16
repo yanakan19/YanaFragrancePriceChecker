@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-11-15T00:55:48.844Z",
+ "builtAt": "2026-11-16T00:57:10.253Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
  "listingsWithReference": 15330,
- "offersWithCorroboratedReference": 3050,
+ "offersWithCorroboratedReference": 3047,
  "deals": [
   {
    "fragranceId": "aar-fragrances-ibraheem-al-qurashi-blue-oud",
@@ -789,11 +789,11 @@
   },
   {
    "fragranceId": "aar-fragrances-swiss-arabian-enigma-of-taif",
-   "price": 5250,
-   "delivered": false,
+   "price": 5333.9,
+   "delivered": true,
    "wasPrice": 9900,
    "percentOff": 46,
-   "retailerId": "scentira",
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -3759,11 +3759,11 @@
   },
   {
    "fragranceId": "aar-fragrances-khadlaj-ria-3",
-   "price": 3272.5,
+   "price": 2990,
    "delivered": true,
-   "wasPrice": 5060,
+   "wasPrice": 4600,
    "percentOff": 35,
-   "retailerId": "perfume-palace",
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -4678,16 +4678,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-armaf-club-de-nuit-oud-edp-u-105ml",
-   "price": 7117,
-   "delivered": true,
-   "wasPrice": 10780,
-   "percentOff": 33,
-   "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-byredo-sunday-cologne-edp-u-100ml",
    "price": 19789,
    "delivered": true,
@@ -5354,16 +5344,6 @@
    "wasPrice": 5500,
    "percentOff": 30,
    "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-jimmy-choo-man-ice",
-   "price": 5390,
-   "delivered": false,
-   "wasPrice": 7700,
-   "percentOff": 30,
-   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -7292,16 +7272,6 @@
    "price": 4618.9,
    "delivered": true,
    "wasPrice": 6072,
-   "percentOff": 23,
-   "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-ahmed-al-maghribi-ghaf",
-   "price": 3793.9,
-   "delivered": true,
-   "wasPrice": 4950,
    "percentOff": 23,
    "retailerId": "perfume-palace",
    "kind": "retailer",
