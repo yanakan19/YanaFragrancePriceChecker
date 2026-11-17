@@ -1,13 +1,13 @@
 {
   "region": "US",
   "currency": "USD",
-  "ranAt": "2026-11-16T17:31:57.803Z",
-  "minutes": 57.07,
+  "ranAt": "2026-11-17T17:07:58.955Z",
+  "minutes": 57.18,
   "dryRun": false,
   "shopsWired": 29,
   "shopsEnabled": 26,
   "shopsPriced": 25,
-  "listingsKept": 61097,
+  "listingsKept": 60948,
   "shops": [
     {
       "id": "perfumania",
@@ -20,7 +20,7 @@
       "kept": 4405,
       "withBarcode": 0,
       "pagesFetched": 21,
-      "seconds": 35,
+      "seconds": 37,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -46,12 +46,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2529,
-      "priced": 2529,
-      "kept": 2510,
-      "withBarcode": 1041,
-      "pagesFetched": 1284,
-      "seconds": 2101,
+      "listingsRead": 2211,
+      "priced": 2211,
+      "kept": 2193,
+      "withBarcode": 827,
+      "pagesFetched": 1106,
+      "seconds": 2102,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://www.luckyscent.com/products/black-dragon-by-byron-parfums: HTTP 404",
@@ -67,7 +67,7 @@
         "https://www.luckyscent.com/products/akatsuki-by-tada-parfumeur: HTTP 404",
         "https://www.luckyscent.com/products/aoud-extraordinaire-by-roja-parfums: HTTP 404",
         "https://www.luckyscent.com/products/no02-le-long-fond-eau-de-parfum-by-maison-louis-marie: HTTP 404",
-        "sitemap: 3499 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
+        "sitemap: 3490 product address(es) found, first read https://www.luckyscent.com/products/black-dragon-by-byron-parfums"
       ]
     },
     {
@@ -76,12 +76,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 2074,
-      "priced": 2074,
+      "listingsRead": 2076,
+      "priced": 2076,
       "kept": 712,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 14,
+      "seconds": 18,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -96,7 +96,7 @@
       "kept": 166,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 14,
+      "seconds": 15,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -111,7 +111,7 @@
       "kept": 541,
       "withBarcode": 0,
       "pagesFetched": 6,
-      "seconds": 10,
+      "seconds": 11,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -126,7 +126,7 @@
       "kept": 649,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 44,
+      "seconds": 49,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -136,12 +136,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 6727,
-      "priced": 6727,
+      "listingsRead": 6766,
+      "priced": 6766,
       "kept": 853,
       "withBarcode": 0,
       "pagesFetched": 28,
-      "seconds": 54,
+      "seconds": 59,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -151,12 +151,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 108,
-      "priced": 108,
+      "listingsRead": 109,
+      "priced": 109,
       "kept": 12,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -171,7 +171,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -181,12 +181,12 @@
       "route": "shopify",
       "singleBrand": true,
       "status": "priced",
-      "listingsRead": 125,
-      "priced": 125,
+      "listingsRead": 127,
+      "priced": 127,
       "kept": 42,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 7,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -201,7 +201,7 @@
       "kept": 43,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -216,7 +216,7 @@
       "kept": 0,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 5,
+      "seconds": 6,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -246,7 +246,7 @@
       "kept": 5142,
       "withBarcode": 4529,
       "pagesFetched": 26,
-      "seconds": 44,
+      "seconds": 46,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -276,7 +276,7 @@
       "kept": 4775,
       "withBarcode": 0,
       "pagesFetched": 22,
-      "seconds": 37,
+      "seconds": 38,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -286,12 +286,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1763,
-      "priced": 512,
-      "kept": 512,
+      "listingsRead": 1762,
+      "priced": 511,
+      "kept": 511,
       "withBarcode": 0,
       "pagesFetched": 11,
-      "seconds": 17,
+      "seconds": 18,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -306,7 +306,7 @@
       "kept": 307,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 15,
+      "seconds": 17,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -316,8 +316,8 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 3182,
-      "priced": 3093,
+      "listingsRead": 3181,
+      "priced": 3092,
       "kept": 1635,
       "withBarcode": 0,
       "pagesFetched": 9,
@@ -336,7 +336,7 @@
       "kept": 4908,
       "withBarcode": 0,
       "pagesFetched": 26,
-      "seconds": 43,
+      "seconds": 48,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -346,12 +346,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1812,
-      "priced": 843,
-      "kept": 816,
-      "withBarcode": 786,
-      "pagesFetched": 863,
-      "seconds": 3303,
+      "listingsRead": 2077,
+      "priced": 898,
+      "kept": 871,
+      "withBarcode": 866,
+      "pagesFetched": 917,
+      "seconds": 3300,
       "currency": "JSON-LD offers named: USD, none",
       "errors": [
         "https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093: HTTP 404",
@@ -367,7 +367,7 @@
         "https://www.ulta.com/p/kimono-yui-eau-de-toilette-mkt77002726?sku=77004845: HTTP 404",
         "https://www.ulta.com/p/kimono-kihin-eau-de-toilette-mkt77002727?sku=77004846: HTTP 404",
         "https://www.ulta.com/p/kimono-urara-eau-de-toilette-mkt77002728?sku=77004847: HTTP 404",
-        "sitemap: 3008 product address(es) found, first read https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093"
+        "sitemap: 3006 product address(es) found, first read https://www.ulta.com/p/n5-leau-eau-de-toilette-spray-pimprod2015925?sku=2309093"
       ]
     },
     {
@@ -376,12 +376,12 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 583,
-      "priced": 583,
-      "kept": 583,
-      "withBarcode": 517,
-      "pagesFetched": 873,
-      "seconds": 1502,
+      "listingsRead": 576,
+      "priced": 576,
+      "kept": 576,
+      "withBarcode": 527,
+      "pagesFetched": 867,
+      "seconds": 1500,
       "currency": "JSON-LD offers named: USD",
       "errors": [
         "https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/: HTTP 404",
@@ -397,7 +397,7 @@
         "https://theperfumespot.com/sweet-like-candy-by-ariana-grande-3-4-oz-eau-de-parfum-spray-for-women-outlet2/: HTTP 404",
         "https://theperfumespot.com/versace-bright-crystal-absolu-by-versace-3-oz-eau-de-parfum-spray-for-women-unboxed-outlet/: HTTP 404",
         "https://theperfumespot.com/baccarat-rouge-540-by-maison-francis-kurkdjian-2-4-oz-extrait-de-parfum-spray-for-unisex-outlet/: HTTP 404",
-        "sitemap: 7602 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
+        "sitemap: 7581 product address(es) found, first read https://theperfumespot.com/good-girl-midnight-by-carolina-herrera-2-7-oz-eau-de-parfum-spray-for-women-outlet/"
       ]
     },
     {
@@ -410,7 +410,7 @@
       "priced": 0,
       "kept": 0,
       "withBarcode": 0,
-      "pagesFetched": 1163,
+      "pagesFetched": 1166,
       "seconds": 2401,
       "currency": "JSON-LD offers named: nothing read",
       "errors": [
@@ -463,7 +463,7 @@
       "kept": 5492,
       "withBarcode": 0,
       "pagesFetched": 36,
-      "seconds": 78,
+      "seconds": 82,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -478,7 +478,7 @@
       "kept": 4596,
       "withBarcode": 0,
       "pagesFetched": 30,
-      "seconds": 73,
+      "seconds": 79,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     },
@@ -490,10 +490,10 @@
       "status": "priced",
       "listingsRead": 24947,
       "priced": 24947,
-      "kept": 17398,
+      "kept": 17519,
       "withBarcode": 0,
       "pagesFetched": 102,
-      "seconds": 226,
+      "seconds": 238,
       "currency": "the storefront publishes USD at rate 1, settles in USD",
       "errors": []
     }
