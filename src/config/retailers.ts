@@ -7190,12 +7190,12 @@ export const RETAILERS: readonly Retailer[] = [
       // and "Orders over £50 : FREE": "Tracked Delivery (1 - 3 days)"
       // (perfume-click.co.uk/Delivery-Information/, read 2026-10-03).
       estimatedDays: [1, 3],
-      verifiedAt: '2026-10-03',
+      verifiedAt: '2026-11-17',
       confidence: 'confirmed',
       source: {
         url: 'https://www.perfume-click.co.uk/Delivery-Information/',
         quote: 'Standard Delivery (Collection also available) ~ £2.95',
-        readAt: '2026-10-01',
+        readAt: '2026-11-17',
       },
       notes:
         'Awin programme accepted — advertiser 6561 reads membershipStatus "active" in the ' +
