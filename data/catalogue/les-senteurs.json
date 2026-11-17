@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-17T04:09:17.740Z",
-  "seenAt": "2026-11-17T04:09:17.740Z",
+  "updatedAt": "2026-11-17T08:13:31.908Z",
+  "seenAt": "2026-11-17T08:13:31.908Z",
   "source": "live",
   "listings": [
     {
@@ -21059,7 +21059,7 @@
       "priceGbp": 265,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Probably the most romantic perfume in the collection. The late Edmond Roudnitska designed this for his wife, Therese, in the 1960’s. It was originally for her sole use, and later considered too daring and unusual for the world stage. Now Frederic Malle offers it to you at Les Senteurs. The top notes contain melon, mandarin, jasmine and pepper, floating on a heart of plum blossoms, rose and nutmeg above a profound base of leather, vetiver and cedar. A rare and haunting chypre fragrance.. Top Notes: Mandarin, Melon, Jasmine, Pepper Heart Notes: Rose, Plum blossom, Nutmeg Base Notes: Cedar, Vetiver, Leather .",
       "productType": "Fragrance",

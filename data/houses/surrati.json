@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-11-17T04:08:56.053Z",
-  "seenAt": "2026-11-17T04:08:56.053Z",
+  "updatedAt": "2026-11-17T08:14:49.740Z",
+  "seenAt": "2026-11-17T08:14:49.740Z",
   "source": "live",
   "listings": [
     {
@@ -303,7 +303,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Rosso Omber. . . . . This blend of woody scents exudes elegance and strength, making it perfect for men and women. Indulge in the luxurious aroma of honey and oud, lasting all day with just a few sprays..",
       "productType": "Unisex Perfume",

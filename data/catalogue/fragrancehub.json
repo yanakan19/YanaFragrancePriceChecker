@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-17T04:09:19.722Z",
-  "seenAt": "2026-11-17T04:09:19.722Z",
+  "updatedAt": "2026-11-17T08:13:23.173Z",
+  "seenAt": "2026-11-17T08:13:23.173Z",
   "source": "live",
   "listings": [
     {
@@ -9697,7 +9697,7 @@
       "priceGbp": 32.99,
       "wasPriceGbp": 41.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Afnan Rare Reef is a vibrant aromatic fruity fragrance designed for both women and men, capturing the refreshing spirit of ocean breezes and sunlit coastal escapes. It opens with a zesty splash of citron, lemon, and orange, lifted by cooling mint and the subtle spice of coriander, while juicy black currant adds a tangy twist. The heart unfolds with a unique blend of sun-ripened apricot, herbaceous basil, delicate May rose, and earthy carrot seed, creating a naturally radiant aura. As the scent evolves, a warm and mellow base of creamy fig, sweet dates, and musky ambrette lingers on the skin, evoking the tranquil beauty of hidden coral shores. Rare Reef is a modern olfactory journey — refreshing, luminous, and effortlessly sophisticated.. Top Notes: Citron, Orange, Mint, Lemon, Black Currant and Coriander.. Middle Notes: Apricot, Basil, May Rose and Carrot Seeds. Base Notes: Fig, Dates and Ambrette.. . .",
       "productType": null,
