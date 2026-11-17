@@ -3276,12 +3276,12 @@ export const RETAILERS: readonly Retailer[] = [
       // Was [2, 4], a placeholder from before the page was read. The quoted
       // sentence itself says 2–5 working days.
       estimatedDays: [2, 5],
-      verifiedAt: '2026-10-03',
+      verifiedAt: '2026-11-17',
       confidence: 'confirmed',
       source: {
         url: 'https://mybeauty.boutique/policies/shipping-policy',
         quote: 'Standard Delivery (0–10kg): £3.99 / 2–5 working days',
-        readAt: '2026-10-01',
+        readAt: '2026-11-17',
       },
       notes:
         'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
@@ -4525,12 +4525,12 @@ export const RETAILERS: readonly Retailer[] = [
       // Was [2, 4], against the quoted sentence's own "3–5 working days".
       // Re-read 2026-10-03, unchanged.
       estimatedDays: [3, 5],
-      verifiedAt: '2026-10-03',
+      verifiedAt: '2026-11-17',
       confidence: 'confirmed',
       source: {
         url: 'https://oudarabian.co.uk/pages/shipping-policy',
         quote: 'Standard Delivery (3–5 Working Days): £3.99 Our standard delivery option ensures your order arrives within 3–5 working days .',
-        readAt: '2026-10-01',
+        readAt: '2026-11-17',
       },
       notes:
         'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
