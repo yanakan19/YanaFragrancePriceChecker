@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-17T08:13:23.173Z",
-  "seenAt": "2026-11-17T08:13:23.173Z",
+  "updatedAt": "2026-11-17T12:15:32.905Z",
+  "seenAt": "2026-11-17T12:15:32.905Z",
   "source": "live",
   "listings": [
     {
@@ -12388,7 +12388,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Royal Embassy by Miguel Mara is a captivating fragrance for men that combines the invigorating essence of citrus with the richness of woody and ambery notes. This luxurious scent exudes sophistication and confidence, leaving a lasting impression wherever you go. . Notes: . Top Notes: Nutmeg, Cinnamon, Cardamom, Grapefruit . Middle Notes: Lavender . Base Notes: Liquorice, Sandalwood, Amber, Patchouli, Haitian Vetiver .",
       "productType": null,

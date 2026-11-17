@@ -1,9 +1,35 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-11-17T08:19:36.550Z",
-  "seenAt": "2026-11-17T08:19:36.550Z",
+  "updatedAt": "2026-11-17T12:21:12.949Z",
+  "seenAt": "2026-11-17T12:21:12.949Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "BDKDECC8X2_BEST",
+      "url": "https://bdkparfums.com/products/coffret-exploration-bestsellers",
+      "rawTitle": "Coffret Exploration Signatures",
+      "rawBrand": "BDK Parfums",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/2ml4-52copie.jpg?v=1794504500",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Huit fragrances pour explorer les créations emblématiques de la Maison, chacune avec son propre caractère, son récit et son sillage singulier : Impadia, Gris Charnel, Rouge Smoking, Pas ce Soir, Velvet Tonka, Vanille Leather, Tubéreuse Impériale et Crème de Cuir.. Trouvez la fragrance qui vous ressemble..",
+      "productType": null,
+      "nativePrice": {
+        "amount": 38,
+        "currency": "EUR"
+      },
+      "retailerId": "bdk-parfums",
+      "firstSeenAt": "2026-11-17T12:21:12.949Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "15450282033531-100ML",
       "url": "https://bdkparfums.com/products/le-rituel-impadia",
@@ -163,7 +189,7 @@
     {
       "retailerSku": "BDKASSORT4x2_1",
       "url": "https://bdkparfums.com/products/coffret-extrait",
-      "rawTitle": "Coffret Initiation Extraits de Parfum",
+      "rawTitle": "Coffret Initiation Extraits",
       "rawBrand": "BDK Parfums",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/etuis_noms_beige.jpg?v=1793896112",

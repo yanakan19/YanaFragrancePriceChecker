@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-17T08:19:41.014Z",
+  "checkedAt": "2026-11-17T12:21:19.032Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -76,9 +76,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 205,
+      "listings": 206,
       "pricedInGbp": 0,
-      "withPhoto": 205,
+      "withPhoto": 206,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -464,9 +464,9 @@
       "origin": "https://bdkparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "EUR",
-      "listings": 135,
+      "listings": 136,
       "pricedInGbp": 0,
-      "withPhoto": 135,
+      "withPhoto": 136,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

@@ -1,9 +1,36 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-17T08:14:46.326Z",
-  "seenAt": "2026-11-17T08:14:46.326Z",
+  "updatedAt": "2026-11-17T12:16:17.685Z",
+  "seenAt": "2026-11-17T12:16:17.685Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "WLD-200-00200",
+      "url": "https://assaf.ae/products/wild-colt-200-ml",
+      "rawTitle": "WILD COLT 200 ML - Best Seller",
+      "rawBrand": "Assaf",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/image_2026-05-07_155413197.png?v=1778158456",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "description": "Welcome back again . Order your Wild Colt perfume and you can try it for Seven days with Asaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used if necessary , and get the amount refunded to you. . . A perfume made to steal the spotlight from those around you , it comes in a very large 200ml bottle. . . Sources of inspiration and naming . Wild Colt is a fragrance for the confident. Its composition reveals a unique and radiant personality, a spirit that chooses to prove itself. The name of the fragrance is inspired by wildness, as it makes others feel your presence even if you never speak.. . The composition . Its components are expertly woven and have a pure and intense character. Wilde denotes boldness and self-confidence. . Ingredients mixed to create a unique, distinctive scent, most notably:. \"Veterindian , Oud, Frankincense, Davana, Leather.\". . Size: 200ml. Fragrance type: Unisex. the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the fragrance directly onto the warmer areas of the skin (neck and wrists). .",
+      "productType": "unisex",
+      "nativePrice": {
+        "amount": 109,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 275,
+      "retailerId": "assaf",
+      "firstSeenAt": "2026-08-05T11:07:47.821Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-11-17T12:16:17.685Z",
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
     {
       "retailerSku": "RSKX-125-SF-00096",
       "url": "https://assaf.ae/products/risk-x",
@@ -8528,34 +8555,6 @@
       "sectionId": "house-direct",
       "description": "Order your own MISS SAKURA perfume , as you can try it for Seven days with Assaf’s special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used, if necessary , and get your money back. . . The only perfume that can translate your feelings . . Sources of inspiration and naming . This perfume was created for an urgent desire to restore the magic of women's lives and to make them see the bright colors of love. It is a perfume that captivates the senses and leaves an irresistible effect.. . The composition . In the most beautiful days of spring, I found the cute cherry blossom. Despite its small size, it releases a beautiful fragrance and leaves an unforgettable impression. At the end of the fragrance comes the scent of musk and jasmine in a 200 ml bottle. The two components that merge and produce a soft and calm scent.. . Size: 200 ml. Fragrance type: Women. . Warranty and the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the perfume directly onto the warmer areas of the skin (neck and wrists)..",
       "productType": "women",
-      "nativePrice": {
-        "amount": 109,
-        "currency": "AED"
-      },
-      "nativeWasPrice": 275,
-      "retailerId": "assaf",
-      "firstSeenAt": "2026-08-05T11:07:47.821Z",
-      "lastSeenAt": "2026-10-22T09:06:33.001Z",
-      "status": "delisted",
-      "delistedAt": "2026-10-22T12:50:09.702Z",
-      "relistedAt": "2026-10-08T22:57:53.826Z",
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "WLD-200-00200",
-      "url": "https://assaf.ae/products/wild-colt-200-ml",
-      "rawTitle": "WILD COLT 200 ML - Best Seller",
-      "rawBrand": "Assaf",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/8081/9111/files/image_2026-05-07_155413197.png?v=1778158456",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "house-direct",
-      "description": "Welcome back again . Order your Wild Colt perfume and you can try it for Seven days with Asaf's special guarantee , which allows you to return the bottle if you do not like it, regardless of the quantity used if necessary , and get the amount refunded to you. . . A perfume made to steal the spotlight from those around you , it comes in a very large 200ml bottle. . . Sources of inspiration and naming . Wild Colt is a fragrance for the confident. Its composition reveals a unique and radiant personality, a spirit that chooses to prove itself. The name of the fragrance is inspired by wildness, as it makes others feel your presence even if you never speak.. . The composition . Its components are expertly woven and have a pure and intense character. Wilde denotes boldness and self-confidence. . Ingredients mixed to create a unique, distinctive scent, most notably:. \"Veterindian , Oud, Frankincense, Davana, Leather.\". . Size: 200ml. Fragrance type: Unisex. the art of applying perfume: . For a more lasting and intense fragrance and to fully enjoy the rich notes of the fragrance, it is best to spray the fragrance directly onto the warmer areas of the skin (neck and wrists). .",
-      "productType": "unisex",
       "nativePrice": {
         "amount": 109,
         "currency": "AED"

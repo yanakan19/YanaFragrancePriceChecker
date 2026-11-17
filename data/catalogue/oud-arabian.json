@@ -1,34 +1,9 @@
 {
   "retailerId": "oud-arabian",
-  "updatedAt": "2026-11-17T08:13:23.173Z",
-  "seenAt": "2026-11-17T08:13:23.173Z",
+  "updatedAt": "2026-11-17T12:15:32.905Z",
+  "seenAt": "2026-11-17T12:15:32.905Z",
   "source": "live",
   "listings": [
-    {
-      "retailerSku": "56642474410326",
-      "url": "https://oudarabian.co.uk/products/rayhaan-x-noel-thomas-palawan-100ml-eau-de-parfum",
-      "rawTitle": "Rayhaan x Noel Thomas Palawan 100ml Eau De Parfum",
-      "rawBrand": "Oud Arabian",
-      "ean": "11472429777238",
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/IMG_4283.webp?v=1794826170&width=1200",
-      "description": "Rayhaan x Noel Thomas Palawan 100ml Eau De ParfumDiscover the Essence of Palawan with Rayhaan x Noel Thomas Palawan.Escape to a world of tropical elegance with Rayhaan x Noel Thomas Palawan Eau De Parfum, an exclusive fragrance collaboration combining Rayhaan’s expertise in perfumery with the creative vision of Noel Thomas.Inspired by the breathtaking beauty of Palawan, this captivating fragrance embodies adventure, sophistication and effortless luxury. Designed for fragrance enthusiasts seeking something distinctive, Palawan offers a memorable scent experience suitable for both everyday wear and special occasions.Whether you’re expanding your fragrance collection or searching for the perfect gift, Rayhaan Palawan 100ml EDP is a stylish addition to any perfume wardrobe.Why Choose Rayhaan x Noel Thomas Palawan?✨ Exclusive Collaboration – A unique fragrance created in collaboration with Noel Thomas.🌴 Tropical Inspiration – Inspired by the beauty and allure of Palawan.💎 Eau De Parfum Concentration – Crafted for a rich and enjoyable fragrance experience.🎁 Perfect Gift Idea – An excellent choice for fragrance lovers and collectors.🌟 Versatile Fragrance – Suitable for everyday wear, evenings and special occasions.Product Details* Brand: Rayhaan* Fragrance: Palawan* Collaboration: Noel Thomas* Size: 100ml* Concentration: Eau De Parfum (EDP)* Product Type: Perfume* Condition: Brand NewBuy Rayhaan Palawan 100ml in the UKDiscover Rayhaan x Noel Thomas Palawan Eau De Parfum 100ml at Oud Arabian, your destination for authentic Arabian and Middle Eastern fragrances in the UK.Explore this exciting collaboration and add a touch of tropical-inspired luxury to your fragrance collection.Shop Rayhaan Palawan 100ml online at Oud Arabian today.",
-      "priceGbp": 0,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-11-17T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "sitemap",
-      "rating": {
-        "value": 0,
-        "count": 0
-      },
-      "retailerId": "oud-arabian",
-      "firstSeenAt": "2026-11-16T16:24:51.594Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
     {
       "retailerSku": "50520168005974",
       "url": "https://oudarabian.co.uk/products/rayhaan-tiger-cal-cologne",
@@ -562,7 +537,7 @@
       "ean": "9959931543894",
       "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/3797C66A-816A-4E61-AA8E-5D5A2C47B04F.webp?v=1763121819&width=990",
       "description": "Rayhaan Aquatica Perfume 100ml EDP is a vibrant unisex fragrance crafted for lovers of fresh, exotic and uplifting scents. Inspired by the sun-kissed breeze of a tropical island, it combines sparkling citrus, creamy coconut and warm florals to create a scent that instantly transports you to an oceanfront paradise. Designed for fragrance enthusiasts across the UK, Rayhaan Aquatica is the perfect mood-enhancer for bright spring mornings and warm summer days. The fragrance opens with a refreshing wave of bergamot, lime, mandarin and velvety coconut milk. This blend feels both zesty and smooth, wrapping you in a creamy, tropical freshness that sets an inviting, sunlit tone. As the scent develops, the heart blooms into a radiant mix of jasmine, gardenia and hibiscus, enriched by the subtly sweet whisper of sugar cane. These notes create an airy, luminous floral centre—soft, breezy and irresistibly comforting. The fragrance settles into a warm, long-lasting base of patchouli, musk, rum and tonka bean, adding depth and sensuality without losing its fresh, oceanic charm. The result is a beautifully balanced aquatic citrus-floral scent that lingers for 6–8 hours, wrapping you in tropical serenity all day long. Specifications Suitable for: Men and womenBrand: RayhaanScent Type: Aquatic Citrus Floral Eau de ParfumSize: 100 mlLongevity: 6–8 hoursSeason: Spring &amp;amp; SummerFeatures: Fresh, tropical, long-lasting Fragrance Notes Top Notes: Bergamot, Coconut Milk, Lime, MandarinMiddle Notes: Sugar Cane, Jasmine, Gardenia, HibiscusBase Notes: Patchouli, Musk, Tonka Bean, Rum Rayhaan Aquatica—your daily escape to an island of freshness, warmth and pure tropical bliss.",
-      "priceGbp": 28.99,
+      "priceGbp": 17.99,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-11-17T00:00:00.000Z",
       "inStock": true,
@@ -765,7 +740,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-11-17T00:00:00.000Z",
-      "inStock": false,
+      "inStock": true,
       "sectionId": "sitemap",
       "rating": {
         "value": 4,
@@ -3290,7 +3265,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-10-02T00:00:00.000Z",
-      "inStock": false,
+      "inStock": true,
       "sectionId": "sitemap",
       "rating": {
         "value": 0,
@@ -3365,7 +3340,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-10-02T00:00:00.000Z",
-      "inStock": false,
+      "inStock": true,
       "sectionId": "sitemap",
       "rating": {
         "value": 0,
@@ -4612,9 +4587,9 @@
       "ean": "11304515076438",
       "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/7BEB9C3F-5A7B-4955-B0BB-763C0F03B359.webp?v=1790350102&width=720",
       "description": "Rayhaan Vantage Eau de Parfum 100mlBold. Mysterious. Sophisticated. Rayhaan Vantage Eau de Parfum is a captivating amber aromatic spicy fragrance for men and women, created for those who want a scent with presence. Warm spices, smoky resins and rich woods come together to create an elegant fragrance that feels confident, refined and effortlessly sophisticated. The fragrance opens with an energising blend of cardamom, bergamot and pink pepper, delivering a fresh yet spicy introduction. As it develops, frankincense and myrrh bring a deep, resinous warmth, balanced by the aromatic freshness of juniper berries. Finally, cedarwood and patchouli form a smooth, woody base that gives Vantage its distinctive depth and lasting character. Particularly suited to autumn and winter, Rayhaan Vantage is an excellent choice for evening wear, date nights, formal occasions and special events. Fragrance Notes Top Notes: Cardamom, Bergamot &amp;amp; Pink PepperHeart Notes: Frankincense, Myrrh &amp;amp; Juniper BerriesBase Notes: Cedarwood &amp;amp; Patchouli Why You’ll Love It 🌶️ Amber Aromatic Spicy – warm, spicy and deeply sophisticated🌙 Perfect for Evenings – ideal for dates, dinners and formal occasions🍂 Cool-Weather Favourite – shines during autumn and winter 🪵 Rich Resinous Dry-Down – frankincense, myrrh, cedarwood and patchouli create lasting depth⚡ Impressive Performance – approximately 7–8 hours of longevity with moderate projection 👥 Unisex Fragrance – designed to be worn confidently by both men and women Product Details Brand: RayhaanFragrance: VantageConcentration: Eau de Parfum (EDP)Size: 100mlFragrance Family: Amber • Aromatic • SpicyLongevity: Approximately 7–8 hours*Projection: ModerateBest Seasons: Autumn &amp;amp; WinterBest For: Evening Wear • Dates • Formal Occasions • Special EventsBold, warm, mysterious and sophisticated.If you’re looking for a fragrance that combines spicy freshness, smoky incense and rich woods. Rayhaan Vantage delivers a distinctive scent profile with the depth and presence to make an impression.",
-      "priceGbp": 34.99,
+      "priceGbp": 29.99,
       "wasPriceGbp": null,
-      "promoEndsAt": "2027-10-02T00:00:00.000Z",
+      "promoEndsAt": null,
       "inStock": true,
       "sectionId": "sitemap",
       "rating": {
@@ -4652,6 +4627,32 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "56642474410326",
+      "url": "https://oudarabian.co.uk/products/rayhaan-x-noel-thomas-palawan-100ml-eau-de-parfum",
+      "rawTitle": "Rayhaan x Noel Thomas Palawan 100ml Eau De Parfum",
+      "rawBrand": "Oud Arabian",
+      "ean": "11472429777238",
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/IMG_4283.webp?v=1794826170&width=1200",
+      "description": "Rayhaan x Noel Thomas Palawan 100ml Eau De ParfumDiscover the Essence of Palawan with Rayhaan x Noel Thomas Palawan.Escape to a world of tropical elegance with Rayhaan x Noel Thomas Palawan Eau De Parfum, an exclusive fragrance collaboration combining Rayhaan’s expertise in perfumery with the creative vision of Noel Thomas.Inspired by the breathtaking beauty of Palawan, this captivating fragrance embodies adventure, sophistication and effortless luxury. Designed for fragrance enthusiasts seeking something distinctive, Palawan offers a memorable scent experience suitable for both everyday wear and special occasions.Whether you’re expanding your fragrance collection or searching for the perfect gift, Rayhaan Palawan 100ml EDP is a stylish addition to any perfume wardrobe.Why Choose Rayhaan x Noel Thomas Palawan?✨ Exclusive Collaboration – A unique fragrance created in collaboration with Noel Thomas.🌴 Tropical Inspiration – Inspired by the beauty and allure of Palawan.💎 Eau De Parfum Concentration – Crafted for a rich and enjoyable fragrance experience.🎁 Perfect Gift Idea – An excellent choice for fragrance lovers and collectors.🌟 Versatile Fragrance – Suitable for everyday wear, evenings and special occasions.Product Details* Brand: Rayhaan* Fragrance: Palawan* Collaboration: Noel Thomas* Size: 100ml* Concentration: Eau De Parfum (EDP)* Product Type: Perfume* Condition: Brand NewBuy Rayhaan Palawan 100ml in the UKDiscover Rayhaan x Noel Thomas Palawan Eau De Parfum 100ml at Oud Arabian, your destination for authentic Arabian and Middle Eastern fragrances in the UK.Explore this exciting collaboration and add a touch of tropical-inspired luxury to your fragrance collection.Shop Rayhaan Palawan 100ml online at Oud Arabian today.",
+      "priceGbp": 0,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-11-17T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "sitemap",
+      "rating": {
+        "value": 0,
+        "count": 0
+      },
+      "retailerId": "oud-arabian",
+      "firstSeenAt": "2026-11-16T16:24:51.594Z",
+      "lastSeenAt": "2026-11-17T08:13:23.173Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
