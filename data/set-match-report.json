@@ -3170,6 +3170,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3423222092900",
+   "absorbed": [
+    "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222092900",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set 125ml EDT + 50ml Shower Gel + 50ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222092900",
+     "scent": "d eau homme issey l pour",
+     "signature": "1x125fragrance|1x50body|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set EDT 125ml + S/Gel 50ml + A/Balm 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau homme issey l pour",
+     "signature": "1x125fragrance|1x50body|1x50wash",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3423222092924",
    "absorbed": [
     "set-issey-miyake-a-drop-d-issey-gift-set-50ml-edp-50ml-hand-cream"
@@ -3872,38 +3904,6 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3614273888547",
-   "absorbed": [
-    "set-giorgio-armani-code-gift-set-15ml-code-edt-15ml-code-edp-15ml-code-parfum"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614273888547",
-     "brand": "Giorgio Armani",
-     "name": "Code Gift Set 15ml Code EDT + 15ml Code EDP + 15ml Code Parfum",
-     "concentration": "Eau de Parfum",
-     "ean": "3614273888547",
-     "scent": "code",
-     "signature": "1x15fragrance|1x15fragrance|1x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-giorgio-armani-code-gift-set-15ml-code-edt-15ml-code-edp-15ml-code-parfum",
-     "brand": "Giorgio Armani",
-     "name": "Code Gift Set 15ml Code EDT + 15ml Code EDP + 15ml Code Parfum",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "code",
-     "signature": "1x15fragrance|1x15fragrance|1x15fragrance",
-     "shops": [
-      "p-eleven"
      ]
     }
    ]
@@ -6562,6 +6562,38 @@
    ]
   },
   {
+   "canonical": "set-ean-5060426158438",
+   "absorbed": [
+    "set-sarah-jessica-parker-lovely-gift-set-10ml-lovely-sheer-edp-10ml-born-lovely-edp-10ml-lovely-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060426158438",
+     "brand": "Sarah Jessica Parker",
+     "name": "Lovely Gift Set 10ml Lovely Sheer EDP + 10ml Born Lovely EDP + 10ml Lovely EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "5060426158438",
+     "scent": "born lovely sheer",
+     "signature": "3x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-sarah-jessica-parker-lovely-gift-set-10ml-lovely-sheer-edp-10ml-born-lovely-edp-10ml-lovely-edp",
+     "brand": "Sarah Jessica Parker",
+     "name": "Lovely Gift Set 10ml Lovely Sheer EDP + 10ml Born Lovely EDP + 10ml Lovely EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "born lovely sheer",
+     "signature": "3x10fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-5060426158728",
    "absorbed": [
     "set-sarah-jessica-parker-lovely-gift-set-100ml-edp-15ml-edp"
@@ -7974,38 +8006,6 @@
      "ean": null,
      "scent": "eros",
      "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003831999",
-   "absorbed": [
-    "set-missoni-2015-gift-set-50ml-edt-50ml-body-lotion-50ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003831999",
-     "brand": "Missoni",
-     "name": "(2015) Gift Set 50ml EDT + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003831999",
-     "scent": "2015",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-missoni-2015-gift-set-50ml-edt-50ml-body-lotion-50ml-shower-gel",
-     "brand": "Missoni",
-     "name": "(2015) Gift Set 50ml EDT + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "2015",
-     "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -11886,37 +11886,6 @@
   },
   {
    "reasons": [
-    "price spread 1.82 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-dsquared-icon-pour-homme-gift-set-100ml-edp-100ml-shower-gel-100ml-aftershave-balm",
-     "brand": "Dsquared2",
-     "name": "Dsquared² Icon Pour Homme Gift Set 100ml Edp + 100ml Shower Gel + 100ml Aftershave Balm",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "dsquared homme icon pour",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
-     "id": "set-ean-8011003900206",
-     "brand": "Dsquared2",
-     "name": "DSquared² Icon Pour Homme Gift Set 100ml EDP + 100ml Shower Gel + 100ml Aftershave Balm",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003900206",
-     "scent": "dsquared homme icon pour",
-     "signature": "1x100body|1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "strengths differ: Eau de Parfum, Extrait de Parfum"
    ],
    "members": [
@@ -15780,22 +15749,9 @@
   },
   {
    "reasons": [
-    "two different barcodes: 8011003900121, 8011003919253",
     "price spread 1.56 is over 1.5"
    ],
    "members": [
-    {
-     "id": "set-ean-8011003900121",
-     "brand": "Moschino",
-     "name": "Toy 2 Gift Set 50ml EDP + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003900121",
-     "scent": "2 toy",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
     {
      "id": "set-ean-8011003919253",
      "brand": "Moschino",
