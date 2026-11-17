@@ -1,34 +1,9 @@
 {
   "retailerId": "oud-arabian",
-  "updatedAt": "2026-11-17T16:13:04.554Z",
-  "seenAt": "2026-11-17T16:13:04.554Z",
+  "updatedAt": "2026-11-17T20:10:27.887Z",
+  "seenAt": "2026-11-17T20:10:27.887Z",
   "source": "live",
   "listings": [
-    {
-      "retailerSku": "56642474410326",
-      "url": "https://oudarabian.co.uk/products/rayhaan-x-noel-thomas-palawan-100ml-eau-de-parfum",
-      "rawTitle": "Rayhaan x Noel Thomas Palawan 100ml Eau De Parfum",
-      "rawBrand": "Oud Arabian",
-      "ean": "11472429777238",
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/IMG_4283.webp?v=1794826170&width=1200",
-      "description": "Rayhaan x Noel Thomas Palawan 100ml Eau De ParfumDiscover the Essence of Palawan with Rayhaan x Noel Thomas Palawan.Escape to a world of tropical elegance with Rayhaan x Noel Thomas Palawan Eau De Parfum, an exclusive fragrance collaboration combining Rayhaan’s expertise in perfumery with the creative vision of Noel Thomas.Inspired by the breathtaking beauty of Palawan, this captivating fragrance embodies adventure, sophistication and effortless luxury. Designed for fragrance enthusiasts seeking something distinctive, Palawan offers a memorable scent experience suitable for both everyday wear and special occasions.Whether you’re expanding your fragrance collection or searching for the perfect gift, Rayhaan Palawan 100ml EDP is a stylish addition to any perfume wardrobe.Why Choose Rayhaan x Noel Thomas Palawan?✨ Exclusive Collaboration – A unique fragrance created in collaboration with Noel Thomas.🌴 Tropical Inspiration – Inspired by the beauty and allure of Palawan.💎 Eau De Parfum Concentration – Crafted for a rich and enjoyable fragrance experience.🎁 Perfect Gift Idea – An excellent choice for fragrance lovers and collectors.🌟 Versatile Fragrance – Suitable for everyday wear, evenings and special occasions.Product Details* Brand: Rayhaan* Fragrance: Palawan* Collaboration: Noel Thomas* Size: 100ml* Concentration: Eau De Parfum (EDP)* Product Type: Perfume* Condition: Brand NewBuy Rayhaan Palawan 100ml in the UKDiscover Rayhaan x Noel Thomas Palawan Eau De Parfum 100ml at Oud Arabian, your destination for authentic Arabian and Middle Eastern fragrances in the UK.Explore this exciting collaboration and add a touch of tropical-inspired luxury to your fragrance collection.Shop Rayhaan Palawan 100ml online at Oud Arabian today.",
-      "priceGbp": 0,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-11-17T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "sitemap",
-      "rating": {
-        "value": 0,
-        "count": 0
-      },
-      "retailerId": "oud-arabian",
-      "firstSeenAt": "2026-11-16T16:24:51.594Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
     {
       "retailerSku": "50520168005974",
       "url": "https://oudarabian.co.uk/products/rayhaan-tiger-cal-cologne",
@@ -4652,6 +4627,32 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "56642474410326",
+      "url": "https://oudarabian.co.uk/products/rayhaan-x-noel-thomas-palawan-100ml-eau-de-parfum",
+      "rawTitle": "Rayhaan x Noel Thomas Palawan 100ml Eau De Parfum",
+      "rawBrand": "Oud Arabian",
+      "ean": "11472429777238",
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/IMG_4283.webp?v=1794826170&width=1200",
+      "description": "Rayhaan x Noel Thomas Palawan 100ml Eau De ParfumDiscover the Essence of Palawan with Rayhaan x Noel Thomas Palawan.Escape to a world of tropical elegance with Rayhaan x Noel Thomas Palawan Eau De Parfum, an exclusive fragrance collaboration combining Rayhaan’s expertise in perfumery with the creative vision of Noel Thomas.Inspired by the breathtaking beauty of Palawan, this captivating fragrance embodies adventure, sophistication and effortless luxury. Designed for fragrance enthusiasts seeking something distinctive, Palawan offers a memorable scent experience suitable for both everyday wear and special occasions.Whether you’re expanding your fragrance collection or searching for the perfect gift, Rayhaan Palawan 100ml EDP is a stylish addition to any perfume wardrobe.Why Choose Rayhaan x Noel Thomas Palawan?✨ Exclusive Collaboration – A unique fragrance created in collaboration with Noel Thomas.🌴 Tropical Inspiration – Inspired by the beauty and allure of Palawan.💎 Eau De Parfum Concentration – Crafted for a rich and enjoyable fragrance experience.🎁 Perfect Gift Idea – An excellent choice for fragrance lovers and collectors.🌟 Versatile Fragrance – Suitable for everyday wear, evenings and special occasions.Product Details* Brand: Rayhaan* Fragrance: Palawan* Collaboration: Noel Thomas* Size: 100ml* Concentration: Eau De Parfum (EDP)* Product Type: Perfume* Condition: Brand NewBuy Rayhaan Palawan 100ml in the UKDiscover Rayhaan x Noel Thomas Palawan Eau De Parfum 100ml at Oud Arabian, your destination for authentic Arabian and Middle Eastern fragrances in the UK.Explore this exciting collaboration and add a touch of tropical-inspired luxury to your fragrance collection.Shop Rayhaan Palawan 100ml online at Oud Arabian today.",
+      "priceGbp": 0,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-11-17T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "sitemap",
+      "rating": {
+        "value": 0,
+        "count": 0
+      },
+      "retailerId": "oud-arabian",
+      "firstSeenAt": "2026-11-16T16:24:51.594Z",
+      "lastSeenAt": "2026-11-17T16:13:04.554Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {

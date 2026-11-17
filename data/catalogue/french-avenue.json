@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-11-17T16:13:41.025Z",
-  "seenAt": "2026-11-17T16:13:41.025Z",
+  "updatedAt": "2026-11-17T20:10:23.280Z",
+  "seenAt": "2026-11-17T20:10:23.280Z",
   "source": "live",
   "listings": [
     {
@@ -3093,7 +3093,7 @@
       "rawBrand": "French Avenue UK",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0665/3919/2408/files/Spectre_Ghost_EDP_80ml_d4e15f23-34aa-4bc6-9e7b-dadd173c2019.jpg?v=1792837631",
-      "priceGbp": 30,
+      "priceGbp": 35,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

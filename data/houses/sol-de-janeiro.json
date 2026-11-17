@@ -1,9 +1,35 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-17T16:21:05.155Z",
-  "seenAt": "2026-11-17T16:21:05.155Z",
+  "updatedAt": "2026-11-17T20:18:07.701Z",
+  "seenAt": "2026-11-17T20:18:07.701Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "SJ07010500",
+      "url": "https://soldejaneiro.com/products/sol-passport-bom-dia-bright™-body-cream-25ml",
+      "rawTitle": "Sol Passport - Bom Dia Bright™ Body Cream (25ml)",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/Bom_Dia_25mL.jpg?v=1794945925",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": null,
+      "productType": "Passport Reward",
+      "nativePrice": {
+        "amount": 12,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-17T20:18:07.701Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "SJ99034400",
       "url": "https://soldejaneiro.com/products/glowmotions-glow-body-oil-carnaval-queen",

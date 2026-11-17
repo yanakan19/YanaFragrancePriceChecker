@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-17T16:13:04.554Z",
-  "seenAt": "2026-11-17T16:13:04.554Z",
+  "updatedAt": "2026-11-17T20:10:27.887Z",
+  "seenAt": "2026-11-17T20:10:27.887Z",
   "source": "live",
   "listings": [
     {
@@ -865,7 +865,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "It suits all moments and revives the heat of summer, sprinkled with scents of musk and amber for an immediate feeling of cleanliness and freshness, and the scent of deer musk overflows in its heart, mixed with luxurious lily, and sexy musk spins its magic towards a base of tonka bean and roses to immerse those who smell it with the aesthetic feeling. Mix it with your favorite perfume after showering for a long-lasting and enchanting scent.. Notes: . Top notes: Musk, Amber, Birch Flower. Heart notes: Suede, Lily. Base notes: Rose, Tonka Bean. . .",
       "productType": "Arabic Perfumes",

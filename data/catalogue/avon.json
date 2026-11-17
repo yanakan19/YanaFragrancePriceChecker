@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-17T16:13:41.025Z",
-  "seenAt": "2026-11-17T16:13:41.025Z",
+  "updatedAt": "2026-11-17T20:10:23.280Z",
+  "seenAt": "2026-11-17T20:10:23.280Z",
   "source": "live",
   "listings": [
     {
@@ -773,7 +773,7 @@
       "priceGbp": 1.6,
       "wasPriceGbp": 4,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know:. Want tropical-scented feet and sumptuously soft soles that are summer-ready in a flash? Look no further than our Footworks Coconut & Lime Moisturising Foot Lotion. This coconut oil and lemon extract-infused miracle lotion will leave feet looking and feeling soft and moisturised, with a refreshingly fruity scent.. It’s cooling, non-greasy and super lightweight so you can always put your best foot forward.. 75ml. Why you’ll love it: • Leaves skin looking and feeling soft, moisturised and refreshed. • Has a fun tropical scent. • Cooling, non-greasy formula makes it a pleasure to put on.. What’s in: Soft, hydrated and refreshed feet. What’s out: Dry, dull and cracked soles.. How to use it: Use as ‘Step 2’ of the 3-step foot treatment. Massage onto clean, dry feet after exfoliating, and then follow with foot spray to lock-in hydration and freshness all day..",
       "productType": "BODY",
@@ -819,7 +819,7 @@
       "priceGbp": 1.5,
       "wasPriceGbp": 3.25,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Our bigger shower cream bottles give you up to 72* washes, so your body wash lasts even longer! Try our Senses Sweet & Joyful Shower Cream: Freesia & Pomegranate for a truly blissful shower experience. Infused with natural extracts, this creamy body wash will leave behind a beautiful, joyous scent that'll keep you smiling all day long. Designed to create a thicker foam than ever before, it'll leave your skin feeling soft and moisturised after 1 use.**. Product specification: . • Shower cream infused with the scent of freesia and pomegranate. • Enriched with natural extracts. • Recyclable bottle (but please remove the pump first!). • Part of the Senses Sweet & Joyful collection. • Size: 720ml, also available in 250ml and 500ml.. How to use me: . Work into a lather and massage into your skin before rinsing away.. *Based on 720ml bottle when used as directed. **Based on a consumer study with 100 participants..",
       "productType": "TOILETRIES",
@@ -20461,7 +20461,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: Keep it matte with SK!N Mattify Foam Cleanser + Toner - your daily go-to for no shine (no-nonsense!) oil control.. Easy to choose - made with vitamin E and cucumber extract, it's the non-drying, non-stripping must-have for oil-free skin that's soft, smooth and refreshed.. Easy to use - this mattifying 2-in-1 refreshes like a face wash and refines like a face toner.. The one for lifting dirt and oil and deeply cleansing pores to leave skin looking and feeling smoother, softer and dramatically matte.. And it's clinically tested and cruelty-free.. 150 ml. Why you’ll love it: • It's formulated with a skin-loving pH. • It leaves skin beautifully cleansed and looking matte all day. • It's expert skincare, made easy.. What’s in: Feeling confident and in control of oily skin.. What’s out: Tackling shine and clogged pores with skin-stripping products.. How to use it: Cleanse and tone: Pump a good amount onto your palm, spread over your face and gently massage into your skin. Rinse thoroughly with water and pat dry. It’s not for use in the shower, and remember to replace the cap after use. Follow with hydration: Lock in that matte-fresh feeling with SK!N Mattify Serum + Cream - a serum and moisturiser multitasker for shine-free control and hydrated skin. Protect with SPF: Finish off with your fave SPF to protect. Why not take a look at our SK!N products with built-in SPF for the perfect match?.",
       "productType": "FACE",
