@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-16T20:10:42.216Z",
-  "seenAt": "2026-11-16T20:10:42.216Z",
+  "updatedAt": "2026-11-17T00:23:15.006Z",
+  "seenAt": "2026-11-17T00:23:15.006Z",
   "source": "live",
   "listings": [
     {
@@ -244,7 +244,7 @@
       "priceGbp": 89,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Sweet, sexy, and totally irresistible, this limited-edition set is serving luxe vanilla energy! Enjoy best-selling Vanilla | 28 Eau de Parfum in both 50 ml and 10 ml deluxe mini sizes, as well as a chic Mini Perfume Holder Charm so your signature scent never leaves your side. . . THIS SET CONTAINS: . · 1.7 oz / 50 ml Vanilla | 28 Eau de Parfum . · 0.34 oz / 10 ml Vanilla | 28 Eau de Parfum . · Vanilla | 28 Mini Perfume Holder Charm .",
       "productType": "Sets",

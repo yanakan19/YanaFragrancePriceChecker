@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-16T20:09:55.369Z",
-  "seenAt": "2026-11-16T20:09:55.369Z",
+  "updatedAt": "2026-11-17T00:23:36.763Z",
+  "seenAt": "2026-11-17T00:23:36.763Z",
   "source": "live",
   "listings": [
     {
@@ -14159,7 +14159,7 @@
       "priceGbp": 1.75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: Relive those sensational holiday memories every time you step into the shower, with our exciting new summer-scented Long Time No Sea Shower Gel. Think fresh marine fragrance blended with summer notes and natural extracts. Feel cleansed and invigorated by natural extracts and mood-boosting citrus scents. Experience that eye-closing moment of stepping into the sea like you did on the very first day – 25 times from a single bottle!* *Based on using an average of 10ml per wash. 250ml Why you’ll love it: Wave after wave of mood-boosting escapism with every shower. PH neutral and dermatologically tested. Lathers up beautifully to leave skin looking and feeling healthy and hydrated.",
       "productType": "TOILETRIES",

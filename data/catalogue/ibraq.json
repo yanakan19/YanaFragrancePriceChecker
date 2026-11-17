@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-16T20:10:42.216Z",
-  "seenAt": "2026-11-16T20:10:42.216Z",
+  "updatedAt": "2026-11-17T00:23:15.006Z",
+  "seenAt": "2026-11-17T00:23:15.006Z",
   "source": "live",
   "listings": [
     {
@@ -819,7 +819,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Step away from the ordinary and feel special with this amazing blend of red cranberry and refreshing raspberry in one fragrance. A refreshing and powerful blend of vanilla and iris blossoms with soft musk and refreshing fruity notes to create an unforgettable impression with every moment.. Notes: . Top Notes: Raspberry, Iris flowers. Heart Notes: Vanilla, Red berries. Base Notes: Musk, Fruity Note. .",
       "productType": "Arabic Perfumes",
