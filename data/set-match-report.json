@@ -8683,6 +8683,7 @@
      "signature": "1x100fragrance|1x50wash|1x?deo",
      "shops": [
       "beautybase",
+      "fragrance-click",
       "perfume-click",
       "perfume-direct"
      ]
