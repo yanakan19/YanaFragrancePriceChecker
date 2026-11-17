@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 354,
+ "folded": 355,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1071,7 +1071,8 @@
      "scent": "crystalline omnia",
      "signature": "1x100fragrance|1x15fragrance|1x40body",
      "shops": [
-      "perfume-click"
+      "perfume-click",
+      "perfume-direct"
      ]
     },
     {
@@ -4132,6 +4133,39 @@
      "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3614275003092",
+   "absorbed": [
+    "set-yves-saint-laurent-y-100ml-10ml-edp-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614275003092",
+     "brand": "Yves Saint Laurent",
+     "name": "Y Eau de Parfum 100ml +10ml Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3614275003092",
+     "scent": "y",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "allbeauty",
+      "paco-perfumerias-uk"
+     ]
+    },
+    {
+     "id": "set-yves-saint-laurent-y-100ml-10ml-edp-gift-set",
+     "brand": "Yves Saint Laurent",
+     "name": "Y 100ml + 10ml EDP GIFT SET",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "y",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-closet"
      ]
     }
    ]
@@ -10930,7 +10964,8 @@
   },
   {
    "reasons": [
-    "two different barcodes: 783320407260, 783320423437, 783320426919"
+    "two different barcodes: 783320407260, 783320423437, 783320426919",
+    "a shop lists more than one: perfume-direct"
    ],
    "members": [
     {
@@ -10978,7 +11013,8 @@
      "scent": "black in man",
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
-      "perfume-click"
+      "perfume-click",
+      "perfume-direct"
      ]
     },
     {
@@ -14573,39 +14609,6 @@
   },
   {
    "reasons": [
-    "strengths differ: Eau de Toilette, Parfum",
-    "two different barcodes: 3614275040820, 3614275040912",
-    "a shop lists more than one: beautybase"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614275040820",
-     "brand": "Giorgio Armani",
-     "name": "Stronger With You Eau De Toilette 100ml & 15ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3614275040820",
-     "scent": "stronger you",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "beautybase"
-     ]
-    },
-    {
-     "id": "set-ean-3614275040912",
-     "brand": "Giorgio Armani",
-     "name": "Stronger With You Parfum 100ml & 15ml Gift Set",
-     "concentration": "Parfum",
-     "ean": "3614275040912",
-     "scent": "stronger you",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "beautybase"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3616301781707, 3616302686438",
     "a shop lists more than one: paco-perfumerias-uk"
    ],
@@ -16496,6 +16499,70 @@
      "signature": "1x30fragrance|3p",
      "shops": [
       "marks-and-spencer"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Extrait de Parfum",
+    "a shop lists more than one: john-lewis"
+   ],
+   "members": [
+    {
+     "id": "set-ex-nihilo-blue-talisman-eau-de-parfum-travel-fragrance-gift-set-5-x-7-5ml",
+     "brand": "Ex Nihilo",
+     "name": "Blue Talisman Eau de Parfum Travel Fragrance Gift Set, 5 x 7.5ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blue talisman travel",
+     "signature": "5x7.5fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-ex-nihilo-blue-talisman-extrait-de-parfum-travel-fragrance-gift-set-5-x-7-5ml",
+     "brand": "Ex Nihilo",
+     "name": "Blue Talisman Extrait de Parfum Travel Fragrance Gift Set, 5 x 7.5ml",
+     "concentration": "Extrait de Parfum",
+     "ean": null,
+     "scent": "blue talisman travel",
+     "signature": "5x7.5fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Extrait de Parfum",
+    "a shop lists more than one: john-lewis"
+   ],
+   "members": [
+    {
+     "id": "set-ex-nihilo-fleur-narcotique-eau-de-parfum-travel-fragrance-gift-set-5-x-7-5ml",
+     "brand": "Ex Nihilo",
+     "name": "Fleur Narcotique Eau de Parfum Travel Fragrance Gift Set, 5 x 7.5ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "fleur narcotique travel",
+     "signature": "5x7.5fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    },
+    {
+     "id": "set-ex-nihilo-fleur-narcotique-extrait-de-parfum-travel-fragrance-gift-set-5-x-7-5ml",
+     "brand": "Ex Nihilo",
+     "name": "Fleur Narcotique Extrait de Parfum Travel Fragrance Gift Set, 5 x 7.5ml",
+     "concentration": "Extrait de Parfum",
+     "ean": null,
+     "scent": "fleur narcotique travel",
+     "signature": "5x7.5fragrance",
+     "shops": [
+      "john-lewis"
      ]
     }
    ]
