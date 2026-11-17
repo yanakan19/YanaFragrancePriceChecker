@@ -1,21 +1,21 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-11-16T00:57:10.253Z",
+  "builtAt": "2026-11-17T03:54:35.756Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 21,
   "shopsEnabled": 18,
   "shopsPriced": 18,
-  "crawlMinutes": 55.31,
-  "harvestRanAt": "2026-11-16T00:01:51.155Z",
-  "listingsPriced": 34953,
-  "listingsKept": 23681,
+  "crawlMinutes": 55.32,
+  "harvestRanAt": "2026-11-17T02:59:16.141Z",
+  "listingsPriced": 35018,
+  "listingsKept": 23724,
   "staleAfterDays": 7,
-  "products": 19879,
-  "productsWithTwoOrMoreShops": 3751,
+  "products": 19907,
+  "productsWithTwoOrMoreShops": 3757,
   "shareWithTwoOrMoreShops": 0.189,
-  "productsWithTwoOrMoreIndependentShops": 3751,
+  "productsWithTwoOrMoreIndependentShops": 3757,
   "shareWithTwoOrMoreIndependentShops": 0.189,
   "productsWithThreeOrMoreShops": 1324,
   "medianPriceGap": 0.222,
@@ -24,7 +24,7 @@
   "shops": [
     {
       "id": "aar-fragrances",
-      "products": 2299,
+      "products": 2298,
       "shared": 1544
     },
     {
@@ -34,42 +34,42 @@
     },
     {
       "id": "bellavita-india",
-      "products": 131,
+      "products": 132,
       "shared": 7
     },
     {
       "id": "fridaycharm",
       "products": 6419,
-      "shared": 2148
+      "shared": 2149
     },
     {
       "id": "maison-des-parfums-in",
       "products": 1452,
-      "shared": 534
+      "shared": 536
     },
     {
       "id": "naso-profumi",
-      "products": 27,
+      "products": 26,
       "shared": 0
     },
     {
       "id": "nykaa",
-      "products": 2306,
-      "shared": 400
+      "products": 2317,
+      "shared": 403
     },
     {
       "id": "perfume-network",
       "products": 1898,
-      "shared": 860
+      "shared": 862
     },
     {
       "id": "perfume-palace",
-      "products": 6630,
-      "shared": 2365
+      "products": 6638,
+      "shared": 2369
     },
     {
       "id": "scentido",
-      "products": 162,
+      "products": 178,
       "shared": 29
     },
     {
@@ -98,14 +98,14 @@
       "shared": 5
     }
   ],
-  "productsShown": 19276,
-  "productsWithUkPhoto": 2841,
-  "productsWithUkPhotoByBarcode": 128,
-  "productsWithUkPhotoByName": 2713,
-  "listingsWithReference": 15330,
-  "offersWithCorroboratedReference": 3047,
-  "deals": 1110,
-  "shareWithUkPhoto": 0.147,
+  "productsShown": 19304,
+  "productsWithUkPhoto": 2935,
+  "productsWithUkPhotoByBarcode": 125,
+  "productsWithUkPhotoByName": 2810,
+  "listingsWithReference": 15338,
+  "offersWithCorroboratedReference": 3046,
+  "deals": 1111,
+  "shareWithUkPhoto": 0.152,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
