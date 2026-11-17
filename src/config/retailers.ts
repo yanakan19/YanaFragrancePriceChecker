@@ -9532,12 +9532,12 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 2.99,
       freeOverGbp: 50,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-10-03',
+      verifiedAt: '2026-11-17',
       confidence: 'confirmed',
       source: {
         url: 'https://www.perfumedirect.com/pages/delivery-options',
         quote: 'Standard Delivery - £2.99 (2-4 business days)',
-        readAt: '2026-10-03',
+        readAt: '2026-11-17',
       },
       notes:
         'Same page: "Orders over £50 will qualify for Free Shipping". The shipping policy page ' +
