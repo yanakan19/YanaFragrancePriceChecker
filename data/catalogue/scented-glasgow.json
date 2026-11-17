@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-17T12:15:32.905Z",
-  "seenAt": "2026-11-17T12:15:32.905Z",
+  "updatedAt": "2026-11-17T16:13:04.554Z",
+  "seenAt": "2026-11-17T16:13:04.554Z",
   "source": "live",
   "listings": [
     {
@@ -6362,7 +6362,7 @@
       "priceGbp": 195,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Fresh – Ambery, Ambre gris tincture ‘Grand Cru’ 10%, Hydrocarboresin extract (cistus derivative) 0,7%.",
       "productType": "Perfume",

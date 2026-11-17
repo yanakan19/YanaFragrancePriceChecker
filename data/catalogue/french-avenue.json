@@ -1,7 +1,7 @@
 {
   "retailerId": "french-avenue",
-  "updatedAt": "2026-11-17T12:15:14.783Z",
-  "seenAt": "2026-11-17T12:15:14.783Z",
+  "updatedAt": "2026-11-17T16:13:41.025Z",
+  "seenAt": "2026-11-17T16:13:41.025Z",
   "source": "live",
   "listings": [
     {
@@ -1854,7 +1854,7 @@
       "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Fierte is a bold, spicy scent with lively black and pink pepper, softened by a rich fusion of olibanum and saffron. It finishes with smooth bourbon vanilla, suede, and cedar, creating a refined, elegant aroma. .",
       "productType": "Storable Product",

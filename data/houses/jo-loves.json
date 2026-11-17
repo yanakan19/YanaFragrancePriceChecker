@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-17T12:21:18.615Z",
-  "seenAt": "2026-11-17T12:21:18.615Z",
+  "updatedAt": "2026-11-17T16:21:08.740Z",
+  "seenAt": "2026-11-17T16:21:08.740Z",
   "source": "live",
   "listings": [
     {
@@ -543,7 +543,7 @@
       "priceGbp": 375,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Worth over £800. Celebrate the countdown to Christmas with the Jo Loves Advent Calendar, inspired by the magic of A Jo Loves Winter Wonderland. Designed as a festive Ferris wheel, each drawer reveals a curated selection of Jo Loves favourites alongside exclusive and new creations. A joyful journey of fragrance discovery, capturing the wonder and elegance of the season.",
       "productType": null,
