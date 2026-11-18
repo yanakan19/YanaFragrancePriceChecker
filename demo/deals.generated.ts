@@ -28,9 +28,29 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-11-18T07:44:35.783Z";
+export const DEALS_GENERATED_AT = "2026-11-18T08:56:51.703Z";
 
 export const DEALS_RAW: RawDeal[] = [
+  {
+    "fragranceId": "ean-8435415011310",
+    "price": 51.95,
+    "delivered": true,
+    "wasPrice": 86,
+    "percentOff": 39,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415011341",
+    "price": 72.95,
+    "delivered": true,
+    "wasPrice": 118,
+    "percentOff": 38,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
   {
     "fragranceId": "ean-3605521515346",
     "price": 44.95,
@@ -58,26 +78,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 80,
     "percentOff": 64,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415011310",
-    "price": 51.95,
-    "delivered": true,
-    "wasPrice": 86,
-    "percentOff": 39,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415011341",
-    "price": 72.95,
-    "delivered": true,
-    "wasPrice": 118,
-    "percentOff": 38,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -118,6 +118,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 96,
     "percentOff": 63,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415012669",
+    "price": 63.95,
+    "delivered": true,
+    "wasPrice": 98,
+    "percentOff": 34,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -182,12 +192,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415012669",
-    "price": 63.95,
+    "fragranceId": "ean-3386460129879",
+    "price": 54.77,
     "delivered": true,
-    "wasPrice": 98,
-    "percentOff": 34,
-    "retailerId": "fragrance-click",
+    "wasPrice": 99,
+    "percentOff": 44,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -218,6 +228,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 73,
     "percentOff": 53,
     "retailerId": "lloyds-pharmacy",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668594412",
+    "price": 71.95,
+    "delivered": true,
+    "wasPrice": 128,
+    "percentOff": 43,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -282,12 +302,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460129879",
-    "price": 54.77,
+    "fragranceId": "ean-3346130009603",
+    "price": 69.49,
     "delivered": true,
-    "wasPrice": 99,
-    "percentOff": 44,
-    "retailerId": "scent-warehouse",
+    "wasPrice": 96.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-z347431",
+    "price": 65.95,
+    "delivered": true,
+    "wasPrice": 106,
+    "percentOff": 37,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -342,12 +372,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668594412",
-    "price": 71.95,
+    "fragranceId": "ean-3349668612611",
+    "price": 36.49,
     "delivered": true,
-    "wasPrice": 128,
-    "percentOff": 43,
+    "wasPrice": 61,
+    "percentOff": 40,
+    "retailerId": "lloyds-pharmacy",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668508587",
+    "price": 63.95,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 41,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668679263",
+    "price": 37.55,
+    "delivered": true,
+    "wasPrice": 63,
+    "percentOff": 40,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -402,22 +452,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411061056776",
+    "price": 59.8,
+    "delivered": true,
+    "wasPrice": 76,
+    "percentOff": 21,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8057971182053",
     "price": 36.56,
     "delivered": true,
     "wasPrice": 66,
     "percentOff": 44,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-085805557331",
-    "price": 25.98,
-    "delivered": true,
-    "wasPrice": 46.99,
-    "percentOff": 44,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -438,16 +488,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 93,
     "percentOff": 51,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3346130009603",
-    "price": 69.49,
-    "delivered": true,
-    "wasPrice": 96.99,
-    "percentOff": 28,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -477,6 +517,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 72,
     "percentOff": 47,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460048125",
+    "price": 26.95,
+    "delivered": true,
+    "wasPrice": 57,
+    "percentOff": 52,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -602,32 +652,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668612611",
-    "price": 36.49,
+    "fragranceId": "ean-3349668612604",
+    "price": 49.8,
     "delivered": true,
-    "wasPrice": 61,
-    "percentOff": 40,
+    "wasPrice": 86,
+    "percentOff": 42,
     "retailerId": "lloyds-pharmacy",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3349668508587",
-    "price": 63.95,
-    "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 41,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3349668679263",
-    "price": 37.55,
-    "delivered": true,
-    "wasPrice": 63,
-    "percentOff": 40,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -712,6 +742,36 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411061056752",
+    "price": 84.95,
+    "delivered": true,
+    "wasPrice": 139,
+    "percentOff": 38,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061041659",
+    "price": 52.9,
+    "delivered": true,
+    "wasPrice": 76,
+    "percentOff": 30,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061043875",
+    "price": 75.99,
+    "delivered": true,
+    "wasPrice": 109,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614223111565",
     "price": 44.95,
     "delivered": true,
@@ -742,11 +802,51 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-085805557331",
+    "price": 25.98,
+    "delivered": true,
+    "wasPrice": 46.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-737052352060",
     "price": 35.95,
     "delivered": true,
     "wasPrice": 86,
     "percentOff": 58,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415017206",
+    "price": 62.95,
+    "delivered": true,
+    "wasPrice": 101,
+    "percentOff": 37,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415076937",
+    "price": 68.85,
+    "delivered": true,
+    "wasPrice": 89,
+    "percentOff": 22,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415076944",
+    "price": 77.95,
+    "delivered": true,
+    "wasPrice": 118,
+    "percentOff": 33,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -762,11 +862,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460048125",
-    "price": 26.95,
+    "fragranceId": "ean-3386460119269",
+    "price": 42.95,
     "delivered": true,
-    "wasPrice": 57,
-    "percentOff": 52,
+    "wasPrice": 68,
+    "percentOff": 36,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -842,6 +942,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3607342221208",
+    "price": 65,
+    "delivered": true,
+    "wasPrice": 104,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3386460135832",
     "price": 18.95,
     "delivered": true,
@@ -902,12 +1012,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668612604",
-    "price": 49.8,
+    "fragranceId": "ean-3349668612635",
+    "price": 61.95,
     "delivered": true,
-    "wasPrice": 86,
-    "percentOff": 42,
-    "retailerId": "lloyds-pharmacy",
+    "wasPrice": 84,
+    "percentOff": 26,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -1012,26 +1122,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061056776",
-    "price": 59.8,
-    "delivered": true,
-    "wasPrice": 76,
-    "percentOff": 21,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061056752",
-    "price": 84.95,
-    "delivered": true,
-    "wasPrice": 139,
-    "percentOff": 38,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8411061083673",
     "price": 59.73,
     "delivered": true,
@@ -1048,26 +1138,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 98,
     "percentOff": 33,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061041659",
-    "price": 52.9,
-    "delivered": true,
-    "wasPrice": 76,
-    "percentOff": 30,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061043875",
-    "price": 81.35,
-    "delivered": true,
-    "wasPrice": 109,
-    "percentOff": 25,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -1142,6 +1212,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-763511009824",
+    "price": 50.48,
+    "delivered": true,
+    "wasPrice": 80.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8057971183739",
     "price": 53.95,
     "delivered": true,
@@ -1158,6 +1238,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 68,
     "percentOff": 47,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640233340189",
+    "price": 45.15,
+    "delivered": true,
+    "wasPrice": 63,
+    "percentOff": 28,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640233340196",
+    "price": 54.85,
+    "delivered": true,
+    "wasPrice": 91,
+    "percentOff": 39,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -1192,6 +1292,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "French Avenue"
   },
   {
+    "fragranceId": "ean-6290360378053",
+    "price": 27.99,
+    "delivered": false,
+    "wasPrice": 36,
+    "percentOff": 22,
+    "retailerId": "beevora",
+    "kind": "house",
+    "houseName": "French Avenue"
+  },
+  {
     "fragranceId": "ean-3614272907652",
     "price": 53.99,
     "delivered": true,
@@ -1222,6 +1332,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3274872424982",
+    "price": 41.95,
+    "delivered": true,
+    "wasPrice": 59,
+    "percentOff": 28,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8005610481043",
     "price": 52.95,
     "delivered": true,
@@ -1242,16 +1362,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616301623311",
-    "price": 26.6,
-    "delivered": true,
-    "wasPrice": 75,
-    "percentOff": 64,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3423474867158",
     "price": 20.7,
     "delivered": true,
@@ -1262,42 +1372,42 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415017206",
-    "price": 62.95,
+    "fragranceId": "ean-8435415076821",
+    "price": 62.85,
     "delivered": true,
-    "wasPrice": 101,
-    "percentOff": 37,
-    "retailerId": "fragrance-click",
+    "wasPrice": 103,
+    "percentOff": 38,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415076937",
-    "price": 68.85,
+    "fragranceId": "ean-8435415017190",
+    "price": 59.85,
     "delivered": true,
-    "wasPrice": 89,
-    "percentOff": 22,
+    "wasPrice": 75,
+    "percentOff": 20,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415076944",
-    "price": 77.95,
+    "fragranceId": "ean-8435415030908",
+    "price": 53.16,
     "delivered": true,
-    "wasPrice": 118,
-    "percentOff": 33,
-    "retailerId": "fragrance-click",
+    "wasPrice": 99,
+    "percentOff": 46,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460119269",
-    "price": 42.95,
+    "fragranceId": "ean-3386460129886",
+    "price": 54.99,
     "delivered": true,
-    "wasPrice": 68,
+    "wasPrice": 86.9,
     "percentOff": 36,
-    "retailerId": "fragrance-click",
+    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -1308,16 +1418,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 60,
     "percentOff": 30,
     "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "p-eleven-z347431",
-    "price": 65.95,
-    "delivered": true,
-    "wasPrice": 106,
-    "percentOff": 37,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -1392,12 +1492,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3147758034905",
-    "price": 34.95,
-    "delivered": true,
-    "wasPrice": 67,
-    "percentOff": 47,
-    "retailerId": "fragrance-click",
+    "fragranceId": "ean-6290360598666",
+    "price": 18.99,
+    "delivered": false,
+    "wasPrice": 24.99,
+    "percentOff": 24,
+    "retailerId": "aromique",
     "kind": "retailer",
     "houseName": null
   },
@@ -1432,11 +1532,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3607342221208",
-    "price": 65,
+    "fragranceId": "ean-3607349764289",
+    "price": 36.6,
     "delivered": true,
-    "wasPrice": 104,
-    "percentOff": 37,
+    "wasPrice": 77,
+    "percentOff": 52,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -1562,12 +1662,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668612635",
-    "price": 61.95,
+    "fragranceId": "ean-3349668568093",
+    "price": 63.15,
     "delivered": true,
-    "wasPrice": 84,
-    "percentOff": 26,
-    "retailerId": "fragrance-click",
+    "wasPrice": 93,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -1577,6 +1677,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 98,
     "percentOff": 37,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-888066000055",
+    "price": 58.95,
+    "delivered": true,
+    "wasPrice": 78,
+    "percentOff": 24,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-888066000079",
+    "price": 105.95,
+    "delivered": true,
+    "wasPrice": 150,
+    "percentOff": 29,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -1608,6 +1728,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 102,
     "percentOff": 43,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614270659652",
+    "price": 50.45,
+    "delivered": true,
+    "wasPrice": 77,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -1658,6 +1788,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 257,
     "percentOff": 63,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290171070580",
+    "price": 29.95,
+    "delivered": false,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "aromique",
     "kind": "retailer",
     "houseName": null
   },
@@ -1732,6 +1872,36 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411061099728",
+    "price": 65.12,
+    "delivered": true,
+    "wasPrice": 99,
+    "percentOff": 34,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061056769",
+    "price": 80.3,
+    "delivered": true,
+    "wasPrice": 109,
+    "percentOff": 26,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061083666",
+    "price": 69.6,
+    "delivered": true,
+    "wasPrice": 115,
+    "percentOff": 39,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614223111404",
     "price": 38.28,
     "delivered": true,
@@ -1768,16 +1938,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 79,
     "percentOff": 71,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-763511009824",
-    "price": 50.48,
-    "delivered": true,
-    "wasPrice": 80.99,
-    "percentOff": 37,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -1832,26 +1992,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-7640233340189",
-    "price": 45.15,
-    "delivered": true,
-    "wasPrice": 63,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640233340196",
-    "price": 54.85,
-    "delivered": true,
-    "wasPrice": 91,
-    "percentOff": 39,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-7640233340219",
     "price": 37.25,
     "delivered": true,
@@ -1892,14 +2032,24 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290360378053",
-    "price": 27.99,
-    "delivered": false,
-    "wasPrice": 36,
-    "percentOff": 22,
-    "retailerId": "beevora",
-    "kind": "house",
-    "houseName": "French Avenue"
+    "fragranceId": "ean-3614273636582",
+    "price": 54.99,
+    "delivered": true,
+    "wasPrice": 77,
+    "percentOff": 28,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614273636513",
+    "price": 67.25,
+    "delivered": true,
+    "wasPrice": 115,
+    "percentOff": 41,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
   },
   {
     "fragranceId": "ean-3614272907690",
@@ -1922,22 +2072,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872424982",
-    "price": 41.95,
-    "delivered": true,
-    "wasPrice": 59,
-    "percentOff": 28,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3274872441033",
     "price": 54.95,
     "delivered": true,
     "wasPrice": 82,
     "percentOff": 32,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872441057",
+    "price": 55.95,
+    "delivered": true,
+    "wasPrice": 101,
+    "percentOff": 44,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872448773",
+    "price": 58.65,
+    "delivered": true,
+    "wasPrice": 83,
+    "percentOff": 29,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2002,6 +2162,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3346130009610",
+    "price": 51.65,
+    "delivered": true,
+    "wasPrice": 77,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-737052189765",
     "price": 57.95,
     "delivered": true,
@@ -2028,6 +2198,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 114,
     "percentOff": 62,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616301623311",
+    "price": 26.6,
+    "delivered": true,
+    "wasPrice": 75,
+    "percentOff": 64,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2062,42 +2242,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415076821",
-    "price": 62.85,
+    "fragranceId": "ean-8435415017244",
+    "price": 80.09,
     "delivered": true,
-    "wasPrice": 103,
-    "percentOff": 38,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415017190",
-    "price": 59.85,
-    "delivered": true,
-    "wasPrice": 75,
-    "percentOff": 20,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415030908",
-    "price": 53.16,
-    "delivered": true,
-    "wasPrice": 99,
-    "percentOff": 46,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460129886",
-    "price": 54.99,
-    "delivered": true,
-    "wasPrice": 86.9,
+    "wasPrice": 127,
     "percentOff": 36,
-    "retailerId": "perfume-direct",
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415012638",
+    "price": 54.53,
+    "delivered": true,
+    "wasPrice": 74,
+    "percentOff": 26,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415030885",
+    "price": 66.8,
+    "delivered": true,
+    "wasPrice": 100,
+    "percentOff": 33,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2152,6 +2322,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-737052949215",
+    "price": 45.11,
+    "delivered": true,
+    "wasPrice": 50,
+    "percentOff": 9,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614272629370",
     "price": 54.95,
     "delivered": true,
@@ -2172,11 +2352,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290360598666",
-    "price": 18.99,
+    "fragranceId": "ean-3147758034905",
+    "price": 34.95,
+    "delivered": true,
+    "wasPrice": 67,
+    "percentOff": 47,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6291108737194",
+    "price": 26.99,
     "delivered": false,
-    "wasPrice": 24.99,
-    "percentOff": 24,
+    "wasPrice": 29.99,
+    "percentOff": 10,
     "retailerId": "aromique",
     "kind": "retailer",
     "houseName": null
@@ -2188,16 +2378,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 29.99,
     "percentOff": 16,
     "retailerId": "aromique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3607349764289",
-    "price": 36.6,
-    "delivered": true,
-    "wasPrice": 77,
-    "percentOff": 52,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2222,6 +2402,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614274085501",
+    "price": 45.95,
+    "delivered": true,
+    "wasPrice": 97,
+    "percentOff": 52,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614274076745",
+    "price": 64.95,
+    "delivered": true,
+    "wasPrice": 130,
+    "percentOff": 50,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3423222121273",
     "price": 46.95,
     "delivered": true,
@@ -2242,12 +2442,52 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3423473053958",
+    "price": 54.95,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 42,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3423470890020",
+    "price": 59.95,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 45,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8435137727087",
     "price": 73.95,
     "delivered": true,
     "wasPrice": 105,
     "percentOff": 29,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614273768825",
+    "price": 70.5,
+    "delivered": true,
+    "wasPrice": 80,
+    "percentOff": 11,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614273768832",
+    "price": 92.12,
+    "delivered": true,
+    "wasPrice": 100,
+    "percentOff": 7,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -2302,12 +2542,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668568093",
-    "price": 63.15,
+    "fragranceId": "ean-3349668601073",
+    "price": 63.05,
     "delivered": true,
-    "wasPrice": 93,
-    "percentOff": 32,
-    "retailerId": "perfume-click",
+    "wasPrice": 79,
+    "percentOff": 20,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -2322,12 +2562,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3349668545667",
+    "price": 38.95,
+    "delivered": true,
+    "wasPrice": 86,
+    "percentOff": 54,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3349666010518",
     "price": 44.85,
     "delivered": true,
     "wasPrice": 99,
     "percentOff": 54,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3605972910264",
+    "price": 40.98,
+    "delivered": true,
+    "wasPrice": 72,
+    "percentOff": 43,
+    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -2342,21 +2602,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066000055",
-    "price": 58.95,
+    "fragranceId": "ean-888066000062",
+    "price": 76.95,
     "delivered": true,
-    "wasPrice": 78,
-    "percentOff": 24,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-888066000079",
-    "price": 105.95,
-    "delivered": true,
-    "wasPrice": 150,
-    "percentOff": 29,
+    "wasPrice": 108,
+    "percentOff": 28,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -2367,6 +2617,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 140,
     "percentOff": 42,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614273790840",
+    "price": 95.95,
+    "delivered": true,
+    "wasPrice": 155,
+    "percentOff": 38,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -2398,16 +2658,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 125,
     "percentOff": 62,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614270659652",
-    "price": 50.45,
-    "delivered": true,
-    "wasPrice": 77,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2468,16 +2718,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 201,
     "percentOff": 59,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6290171070580",
-    "price": 29.95,
-    "delivered": false,
-    "wasPrice": 39.99,
-    "percentOff": 25,
-    "retailerId": "aromique",
     "kind": "retailer",
     "houseName": null
   },
@@ -2582,31 +2822,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061099728",
-    "price": 65.12,
+    "fragranceId": "ean-8411061926093",
+    "price": 49.35,
     "delivered": true,
-    "wasPrice": 99,
-    "percentOff": 34,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061056769",
-    "price": 80.3,
-    "delivered": true,
-    "wasPrice": 109,
-    "percentOff": 26,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061083666",
-    "price": 69.6,
-    "delivered": true,
-    "wasPrice": 115,
-    "percentOff": 39,
+    "wasPrice": 79,
+    "percentOff": 37,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -2698,6 +2918,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 74,
     "percentOff": 66,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3423473020639",
+    "price": 55.95,
+    "delivered": true,
+    "wasPrice": 116,
+    "percentOff": 51,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8057971180431",
+    "price": 37.95,
+    "delivered": true,
+    "wasPrice": 63,
+    "percentOff": 39,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2842,22 +3082,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872441057",
-    "price": 55.95,
+    "fragranceId": "ean-3274872467965",
+    "price": 59.95,
     "delivered": true,
-    "wasPrice": 101,
-    "percentOff": 44,
+    "wasPrice": 109,
+    "percentOff": 45,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274872448773",
-    "price": 58.65,
-    "delivered": true,
-    "wasPrice": 83,
-    "percentOff": 29,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2872,6 +3102,36 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3274872372139",
+    "price": 49.99,
+    "delivered": true,
+    "wasPrice": 72,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872495586",
+    "price": 44.95,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 52,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616302022465",
+    "price": 38.95,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 59,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-737052339207",
     "price": 36.99,
     "delivered": true,
@@ -2882,22 +3142,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-737052339047",
+    "price": 47.95,
+    "delivered": true,
+    "wasPrice": 79,
+    "percentOff": 39,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3346470137813",
     "price": 48.95,
     "delivered": true,
     "wasPrice": 113,
     "percentOff": 56,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3346130009610",
-    "price": 51.65,
-    "delivered": true,
-    "wasPrice": 77,
-    "percentOff": 32,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -2962,12 +3222,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423470486018",
-    "price": 32.2,
+    "fragranceId": "ean-737052031415",
+    "price": 21.9,
     "delivered": true,
-    "wasPrice": 84,
-    "percentOff": 61,
-    "retailerId": "perfume-click",
+    "wasPrice": 50,
+    "percentOff": 56,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415076814",
+    "price": 58.99,
+    "delivered": true,
+    "wasPrice": 75,
+    "percentOff": 21,
+    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -2978,26 +3248,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 139,
     "percentOff": 35,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415017244",
-    "price": 80.09,
-    "delivered": true,
-    "wasPrice": 127,
-    "percentOff": 36,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415012638",
-    "price": 54.53,
-    "delivered": true,
-    "wasPrice": 74,
-    "percentOff": 26,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -3017,16 +3267,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 116,
     "percentOff": 30,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415030885",
-    "price": 66.8,
-    "delivered": true,
-    "wasPrice": 100,
-    "percentOff": 33,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -3052,6 +3292,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3386460129893",
+    "price": 37.9,
+    "delivered": true,
+    "wasPrice": 53,
+    "percentOff": 28,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3414206000059",
     "price": 25.7,
     "delivered": true,
@@ -3062,32 +3312,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-737052949215",
-    "price": 45.11,
+    "fragranceId": "ean-3770000002775",
+    "price": 62.49,
     "delivered": true,
-    "wasPrice": 50,
-    "percentOff": 9,
-    "retailerId": "the-beauty-store-uk",
+    "wasPrice": 110.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460149457",
-    "price": 21.95,
+    "fragranceId": "ean-3386460149174",
+    "price": 33.55,
     "delivered": true,
-    "wasPrice": 50,
-    "percentOff": 56,
-    "retailerId": "fragrance-click",
+    "wasPrice": 51,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-6291108737194",
-    "price": 26.99,
-    "delivered": false,
-    "wasPrice": 29.99,
-    "percentOff": 10,
-    "retailerId": "aromique",
+    "fragranceId": "ean-6291107458328",
+    "price": 22.01,
+    "delivered": true,
+    "wasPrice": 42,
+    "percentOff": 47,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -3098,6 +3348,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 24.99,
     "percentOff": 20,
     "retailerId": "aromique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3607342221161",
+    "price": 44.95,
+    "delivered": true,
+    "wasPrice": 65,
+    "percentOff": 30,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -3202,26 +3462,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614274085501",
-    "price": 45.95,
-    "delivered": true,
-    "wasPrice": 97,
-    "percentOff": 52,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614274076745",
-    "price": 64.95,
-    "delivered": true,
-    "wasPrice": 130,
-    "percentOff": 50,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3423222080945",
     "price": 32.7,
     "delivered": true,
@@ -3242,16 +3482,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423473053958",
-    "price": 54.95,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 42,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3423222055639",
     "price": 49.95,
     "delivered": true,
@@ -3262,12 +3492,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423470890020",
-    "price": 59.95,
+    "fragranceId": "ean-3423478925557",
+    "price": 31.25,
     "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 45,
-    "retailerId": "the-beauty-store-uk",
+    "wasPrice": 54,
+    "percentOff": 42,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -3278,26 +3508,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 77,
     "percentOff": 23,
     "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614273768825",
-    "price": 70.5,
-    "delivered": true,
-    "wasPrice": 80,
-    "percentOff": 11,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614273768832",
-    "price": 92.12,
-    "delivered": true,
-    "wasPrice": 100,
-    "percentOff": 7,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -3362,12 +3572,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668601073",
-    "price": 63.05,
+    "fragranceId": "ean-3349668600304",
+    "price": 68.25,
     "delivered": true,
-    "wasPrice": 79,
-    "percentOff": 20,
-    "retailerId": "the-beauty-store-uk",
+    "wasPrice": 109,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -3378,6 +3588,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 107,
     "percentOff": 53,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668627530",
+    "price": 69.95,
+    "delivered": true,
+    "wasPrice": 104,
+    "percentOff": 32,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668589678",
+    "price": 72.95,
+    "delivered": true,
+    "wasPrice": 106,
+    "percentOff": 31,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -3402,22 +3632,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668545667",
-    "price": 38.95,
+    "fragranceId": "ean-3349668614592",
+    "price": 64.95,
     "delivered": true,
-    "wasPrice": 86,
-    "percentOff": 54,
+    "wasPrice": 108,
+    "percentOff": 39,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3605972910264",
-    "price": 40.98,
+    "fragranceId": "ean-3605972910240",
+    "price": 46.45,
     "delivered": true,
-    "wasPrice": 72,
-    "percentOff": 43,
-    "retailerId": "perfume-direct",
+    "wasPrice": 89,
+    "percentOff": 47,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -3442,6 +3672,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3360377009363",
+    "price": 36.99,
+    "delivered": true,
+    "wasPrice": 54,
+    "percentOff": 31,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3605971512612",
     "price": 43.45,
     "delivered": true,
@@ -3452,12 +3692,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066000062",
-    "price": 76.95,
+    "fragranceId": "ean-888066112734",
+    "price": 91,
     "delivered": true,
-    "wasPrice": 108,
-    "percentOff": 28,
-    "retailerId": "fragrance-click",
+    "wasPrice": 135,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -3492,22 +3732,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273790840",
-    "price": 95.95,
-    "delivered": true,
-    "wasPrice": 155,
-    "percentOff": 38,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3614272732087",
     "price": 59.95,
     "delivered": true,
     "wasPrice": 102,
     "percentOff": 41,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003890798",
+    "price": 40.4,
+    "delivered": true,
+    "wasPrice": 83,
+    "percentOff": 51,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -3682,6 +3922,36 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-608940583753",
+    "price": 39.83,
+    "delivered": true,
+    "wasPrice": 56,
+    "percentOff": 28,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-608940583777",
+    "price": 29.69,
+    "delivered": true,
+    "wasPrice": 39,
+    "percentOff": 23,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-608940585818",
+    "price": 52.9,
+    "delivered": true,
+    "wasPrice": 72,
+    "percentOff": 26,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614227693876",
     "price": 59,
     "delivered": true,
@@ -3697,6 +3967,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 138,
     "percentOff": 44,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-783320411946",
+    "price": 64.95,
+    "delivered": true,
+    "wasPrice": 111,
+    "percentOff": 41,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-783320414794",
+    "price": 67.95,
+    "delivered": true,
+    "wasPrice": 126,
+    "percentOff": 46,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -3742,12 +4032,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061926093",
-    "price": 49.35,
+    "fragranceId": "ean-8411061777183",
+    "price": 59.1,
     "delivered": true,
-    "wasPrice": 79,
-    "percentOff": 37,
+    "wasPrice": 65.5,
+    "percentOff": 9,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061083659",
+    "price": 84.95,
+    "delivered": true,
+    "wasPrice": 145,
+    "percentOff": 41,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -3762,11 +4062,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614229396997",
+    "price": 61.16,
+    "delivered": true,
+    "wasPrice": 115,
+    "percentOff": 46,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-020714080310",
     "price": 24.65,
     "delivered": true,
     "wasPrice": 70,
     "percentOff": 64,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460086332",
+    "price": 29.9,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 33,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -3872,26 +4192,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423473020639",
-    "price": 55.95,
-    "delivered": true,
-    "wasPrice": 116,
-    "percentOff": 51,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8057971180431",
-    "price": 37.95,
-    "delivered": true,
-    "wasPrice": 63,
-    "percentOff": 39,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8057971180424",
     "price": 44.95,
     "delivered": true,
@@ -3982,6 +4282,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-7640233340172",
+    "price": 39.1,
+    "delivered": true,
+    "wasPrice": 46,
+    "percentOff": 15,
+    "retailerId": "escentual",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-7640233340028",
     "price": 59.5,
     "delivered": true,
@@ -3998,6 +4308,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 95,
     "percentOff": 49,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3423473016953",
+    "price": 25.29,
+    "delivered": true,
+    "wasPrice": 49,
+    "percentOff": 48,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640233340110",
+    "price": 45.5,
+    "delivered": true,
+    "wasPrice": 66,
+    "percentOff": 31,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -4058,6 +4388,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 130,
     "percentOff": 31,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614273844666",
+    "price": 60.95,
+    "delivered": true,
+    "wasPrice": 115,
+    "percentOff": 47,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -4132,41 +4472,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872467965",
-    "price": 59.95,
-    "delivered": true,
-    "wasPrice": 109,
-    "percentOff": 45,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274872372139",
-    "price": 50.45,
-    "delivered": true,
-    "wasPrice": 72,
-    "percentOff": 29,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3274872509184",
     "price": 78.95,
     "delivered": true,
     "wasPrice": 118,
     "percentOff": 33,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274872495586",
-    "price": 44.95,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 52,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -4192,32 +4502,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616302022465",
-    "price": 38.95,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 59,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3616302968589",
     "price": 48.85,
     "delivered": true,
     "wasPrice": 74,
     "percentOff": 33,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-737052339047",
-    "price": 47.95,
-    "delivered": true,
-    "wasPrice": 79,
-    "percentOff": 39,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -4242,6 +4532,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3346130013457",
+    "price": 109.99,
+    "delivered": true,
+    "wasPrice": 158,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614228220903",
     "price": 40.64,
     "delivered": true,
@@ -4257,16 +4557,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 65,
     "percentOff": 60,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-737052031415",
-    "price": 21.9,
-    "delivered": true,
-    "wasPrice": 50,
-    "percentOff": 56,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -4292,6 +4582,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3423470486018",
+    "price": 32.2,
+    "delivered": true,
+    "wasPrice": 84,
+    "percentOff": 61,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3423474867059",
     "price": 18.9,
     "delivered": true,
@@ -4312,12 +4612,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415076814",
-    "price": 58.99,
+    "fragranceId": "ean-8435415011280",
+    "price": 52.9,
     "delivered": true,
-    "wasPrice": 75,
-    "percentOff": 21,
-    "retailerId": "perfume-direct",
+    "wasPrice": 64,
+    "percentOff": 17,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -4342,21 +4642,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460097321",
-    "price": 46.45,
+    "fragranceId": "ean-8435415102711",
+    "price": 56.25,
     "delivered": true,
-    "wasPrice": 94,
-    "percentOff": 50,
+    "wasPrice": 81,
+    "percentOff": 30,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460129893",
-    "price": 37.9,
+    "fragranceId": "ean-3386460097321",
+    "price": 46.45,
     "delivered": true,
-    "wasPrice": 53,
-    "percentOff": 28,
+    "wasPrice": 94,
+    "percentOff": 50,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -4402,6 +4702,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3386460067508",
+    "price": 51.25,
+    "delivered": true,
+    "wasPrice": 78,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3386460137560",
     "price": 29.55,
     "delivered": true,
@@ -4412,12 +4722,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3770000002775",
-    "price": 62.49,
+    "fragranceId": "ean-3386460127066",
+    "price": 40.64,
     "delivered": true,
-    "wasPrice": 110.99,
-    "percentOff": 43,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 83,
+    "percentOff": 51,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -4442,22 +4752,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460149174",
-    "price": 33.55,
-    "delivered": true,
-    "wasPrice": 51,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3386460149266",
     "price": 28.25,
     "delivered": true,
     "wasPrice": 59,
     "percentOff": 52,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460149457",
+    "price": 21.95,
+    "delivered": true,
+    "wasPrice": 50,
+    "percentOff": 56,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -4488,16 +4798,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 44,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6291107458328",
-    "price": 22.01,
-    "delivered": true,
-    "wasPrice": 42,
-    "percentOff": 47,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -4538,26 +4838,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 98.99,
     "percentOff": 55,
     "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3607342221161",
-    "price": 44.95,
-    "delivered": true,
-    "wasPrice": 65,
-    "percentOff": 30,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3616301776000",
-    "price": 33.45,
-    "delivered": true,
-    "wasPrice": 65,
-    "percentOff": 48,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -4662,6 +4942,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614273606417",
+    "price": 28.95,
+    "delivered": true,
+    "wasPrice": 39,
+    "percentOff": 25,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614274085525",
+    "price": 39.45,
+    "delivered": true,
+    "wasPrice": 67,
+    "percentOff": 41,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614274292237",
     "price": 67.95,
     "delivered": true,
@@ -4672,21 +4972,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-j0881",
+    "price": 36.23,
+    "delivered": true,
+    "wasPrice": 51.75,
+    "percentOff": 29,
+    "retailerId": "lloyds-pharmacy",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3423222108281",
+    "price": 49.95,
+    "delivered": true,
+    "wasPrice": 134,
+    "percentOff": 62,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3423478504158",
     "price": 68.85,
     "delivered": true,
     "wasPrice": 100,
     "percentOff": 31,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3423478925557",
-    "price": 31.25,
-    "delivered": true,
-    "wasPrice": 54,
-    "percentOff": 42,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -4732,32 +5042,42 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668600304",
-    "price": 68.25,
+    "fragranceId": "ean-3349668600298",
+    "price": 110.95,
     "delivered": true,
-    "wasPrice": 109,
-    "percentOff": 37,
+    "wasPrice": 126,
+    "percentOff": 11,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668614646",
+    "price": 39.75,
+    "delivered": true,
+    "wasPrice": 72,
+    "percentOff": 44,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668627530",
-    "price": 69.95,
+    "fragranceId": "ean-3349668614660",
+    "price": 75.85,
     "delivered": true,
-    "wasPrice": 104,
-    "percentOff": 32,
-    "retailerId": "fragrance-click",
+    "wasPrice": 138,
+    "percentOff": 45,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668589678",
-    "price": 72.95,
+    "fragranceId": "ean-3349668617166",
+    "price": 60.75,
     "delivered": true,
-    "wasPrice": 106,
+    "wasPrice": 89,
     "percentOff": 31,
-    "retailerId": "fragrance-click",
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -4792,16 +5112,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668614592",
-    "price": 64.95,
-    "delivered": true,
-    "wasPrice": 108,
-    "percentOff": 39,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3349668630035",
     "price": 65.95,
     "delivered": true,
@@ -4818,16 +5128,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 95,
     "percentOff": 60,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3605972910240",
-    "price": 46.45,
-    "delivered": true,
-    "wasPrice": 89,
-    "percentOff": 47,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -4852,21 +5152,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5060426150005",
-    "price": 23.45,
+    "fragranceId": "ean-810023679950",
+    "price": 30.75,
     "delivered": true,
-    "wasPrice": 55,
-    "percentOff": 57,
+    "wasPrice": 40,
+    "percentOff": 23,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066112734",
-    "price": 91,
+    "fragranceId": "ean-5060426150005",
+    "price": 23.45,
     "delivered": true,
-    "wasPrice": 135,
-    "percentOff": 32,
+    "wasPrice": 55,
+    "percentOff": 57,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -4988,16 +5288,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 96,
     "percentOff": 39,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003890798",
-    "price": 40.4,
-    "delivered": true,
-    "wasPrice": 83,
-    "percentOff": 51,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -5162,6 +5452,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "ean-3614273667418",
+    "price": 19.55,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 56,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614273638852",
     "price": 53.95,
     "delivered": true,
@@ -5182,26 +5482,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-608940583753",
-    "price": 39.83,
-    "delivered": true,
-    "wasPrice": 56,
-    "percentOff": 28,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-608940583777",
-    "price": 29.69,
-    "delivered": true,
-    "wasPrice": 39,
-    "percentOff": 23,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-719346228992",
     "price": 19.48,
     "delivered": true,
@@ -5217,16 +5497,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 114,
     "percentOff": 38,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-783320411946",
-    "price": 64.95,
-    "delivered": true,
-    "wasPrice": 111,
-    "percentOff": 41,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -5262,11 +5532,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-783320414794",
-    "price": 67.95,
+    "fragranceId": "ean-783320461019",
+    "price": 42.7,
     "delivered": true,
-    "wasPrice": 126,
-    "percentOff": 46,
+    "wasPrice": 81,
+    "percentOff": 47,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-783320461002",
+    "price": 73.95,
+    "delivered": true,
+    "wasPrice": 101,
+    "percentOff": 26,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -5372,21 +5652,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061777183",
-    "price": 59.1,
+    "fragranceId": "ean-8411061099780",
+    "price": 69.95,
     "delivered": true,
-    "wasPrice": 65.5,
-    "percentOff": 9,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061083659",
-    "price": 84.95,
-    "delivered": true,
-    "wasPrice": 145,
-    "percentOff": 41,
+    "wasPrice": 101,
+    "percentOff": 30,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -5412,6 +5682,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-t606248",
+    "price": 86.99,
+    "delivered": true,
+    "wasPrice": 136,
+    "percentOff": 36,
+    "retailerId": "lloyds-pharmacy",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8411061106228",
     "price": 78.95,
     "delivered": true,
@@ -5422,12 +5702,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3616305186119",
+    "price": 66.45,
+    "delivered": true,
+    "wasPrice": 119,
+    "percentOff": 44,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3414202011769",
     "price": 17.25,
     "delivered": true,
     "wasPrice": 49,
     "percentOff": 64,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0085715950024",
+    "price": 22.66,
+    "delivered": true,
+    "wasPrice": 47,
+    "percentOff": 51,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -5512,16 +5812,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-7640233340172",
-    "price": 39.1,
-    "delivered": true,
-    "wasPrice": 46,
-    "percentOff": 15,
-    "retailerId": "escentual",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-7640233341070",
     "price": 52.9,
     "delivered": true,
@@ -5532,21 +5822,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423473016953",
-    "price": 25.29,
+    "fragranceId": "ean-7640233340240",
+    "price": 37.5,
     "delivered": true,
-    "wasPrice": 49,
-    "percentOff": 48,
-    "retailerId": "scent-warehouse",
+    "wasPrice": 68,
+    "percentOff": 44,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-7640233340110",
-    "price": 45.5,
+    "fragranceId": "ean-7640233340103",
+    "price": 31.35,
     "delivered": true,
-    "wasPrice": 66,
-    "percentOff": 31,
+    "wasPrice": 44,
+    "percentOff": 28,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640233340127",
+    "price": 58.6,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 38,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -5632,12 +5932,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273844666",
-    "price": 60.95,
+    "fragranceId": "ean-3614273837828",
+    "price": 107.25,
     "delivered": true,
-    "wasPrice": 115,
-    "percentOff": 47,
-    "retailerId": "fragrance-click",
+    "wasPrice": 120,
+    "percentOff": 10,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -5678,6 +5978,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 131,
     "percentOff": 57,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872425002",
+    "price": 50.98,
+    "delivered": true,
+    "wasPrice": 89.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872467958",
+    "price": 53.1,
+    "delivered": true,
+    "wasPrice": 85,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -5752,6 +6072,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3616302022489",
+    "price": 72.99,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616303470869",
     "price": 33.95,
     "delivered": true,
@@ -5762,12 +6092,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3346470134911",
+    "price": 65.1,
+    "delivered": true,
+    "wasPrice": 113,
+    "percentOff": 42,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3346470149274",
     "price": 40.45,
     "delivered": true,
     "wasPrice": 123,
     "percentOff": 67,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3346470113558",
+    "price": 79.95,
+    "delivered": true,
+    "wasPrice": 128,
+    "percentOff": 37,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -5797,16 +6147,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 97,
     "percentOff": 42,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3346130013457",
-    "price": 111.4,
-    "delivered": true,
-    "wasPrice": 158,
-    "percentOff": 29,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -5912,16 +6252,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423470486025",
-    "price": 21.95,
-    "delivered": true,
-    "wasPrice": 52,
-    "percentOff": 57,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3423222106324",
     "price": 50.95,
     "delivered": true,
@@ -5938,16 +6268,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 79.2,
     "percentOff": 48,
     "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415011280",
-    "price": 52.9,
-    "delivered": true,
-    "wasPrice": 64,
-    "percentOff": 17,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -5992,6 +6312,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8435415017213",
+    "price": 76.15,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 19,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8435415113984",
     "price": 47.95,
     "delivered": true,
@@ -6032,12 +6362,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415102711",
-    "price": 56.25,
+    "fragranceId": "ean-8435415055963",
+    "price": 76.95,
     "delivered": true,
-    "wasPrice": 81,
-    "percentOff": 30,
-    "retailerId": "perfume-click",
+    "wasPrice": 116,
+    "percentOff": 33,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -6048,6 +6378,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 109,
     "percentOff": 29,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460103701",
+    "price": 26.7,
+    "delivered": true,
+    "wasPrice": 46,
+    "percentOff": 41,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -6082,6 +6422,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-l27497",
+    "price": 55.98,
+    "delivered": true,
+    "wasPrice": 73.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3386460129831",
     "price": 32.98,
     "delivered": true,
@@ -6092,11 +6442,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460067508",
-    "price": 51.25,
+    "fragranceId": "ean-3386460072625",
+    "price": 30.45,
     "delivered": true,
-    "wasPrice": 78,
-    "percentOff": 34,
+    "wasPrice": 42,
+    "percentOff": 27,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -6108,16 +6458,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 52,
     "percentOff": 50,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460127066",
-    "price": 40.64,
-    "delivered": true,
-    "wasPrice": 83,
-    "percentOff": 51,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -6202,12 +6542,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3147758034912",
-    "price": 74.15,
+    "fragranceId": "ean-3614274104370",
+    "price": 77.95,
     "delivered": true,
-    "wasPrice": 97,
-    "percentOff": 23,
-    "retailerId": "perfume-click",
+    "wasPrice": 140,
+    "percentOff": 44,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -6258,6 +6598,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 29.99,
     "percentOff": 33,
     "retailerId": "soghaat",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3607349764326",
+    "price": 26.75,
+    "delivered": true,
+    "wasPrice": 54,
+    "percentOff": 50,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616301776000",
+    "price": 33.45,
+    "delivered": true,
+    "wasPrice": 65,
+    "percentOff": 48,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -6372,46 +6732,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273606417",
-    "price": 28.95,
-    "delivered": true,
-    "wasPrice": 39,
-    "percentOff": 25,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "beauty-flash-htg1601694",
-    "price": 36.23,
-    "delivered": true,
-    "wasPrice": 51.75,
-    "percentOff": 29,
-    "retailerId": "lloyds-pharmacy",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614274085525",
-    "price": 39.45,
-    "delivered": true,
-    "wasPrice": 67,
-    "percentOff": 41,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3423222108281",
-    "price": 49.95,
-    "delivered": true,
-    "wasPrice": 134,
-    "percentOff": 62,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3423222107611",
     "price": 43.1,
     "delivered": true,
@@ -6442,16 +6762,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668600298",
-    "price": 110.95,
-    "delivered": true,
-    "wasPrice": 126,
-    "percentOff": 11,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3349668555062",
     "price": 49.95,
     "delivered": true,
@@ -6462,31 +6772,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668614646",
-    "price": 39.75,
-    "delivered": true,
-    "wasPrice": 72,
-    "percentOff": 44,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3349668614653",
     "price": 63.5,
     "delivered": true,
     "wasPrice": 108,
     "percentOff": 41,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3349668614660",
-    "price": 75.85,
-    "delivered": true,
-    "wasPrice": 138,
-    "percentOff": 45,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -6512,6 +6802,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3349668627547",
+    "price": 94.95,
+    "delivered": true,
+    "wasPrice": 143,
+    "percentOff": 33,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3349668614516",
     "price": 64.05,
     "delivered": true,
@@ -6522,11 +6822,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668617166",
-    "price": 60.75,
+    "fragranceId": "ean-3349668588749",
+    "price": 58.99,
     "delivered": true,
-    "wasPrice": 89,
-    "percentOff": 31,
+    "wasPrice": 79,
+    "percentOff": 25,
+    "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668617173",
+    "price": 78.9,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 28,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -6672,11 +6982,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8011003825745",
+    "price": 59.76,
+    "delivered": true,
+    "wasPrice": 87,
+    "percentOff": 31,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8011003861224",
     "price": 69.99,
     "delivered": true,
     "wasPrice": 100,
     "percentOff": 30,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003890804",
+    "price": 64.41,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 38,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -6688,6 +7018,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 78,
     "percentOff": 53,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614273622622",
+    "price": 59.55,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 45,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -6728,6 +7068,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 87,
     "percentOff": 12,
     "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290171074199",
+    "price": 20.99,
+    "delivered": false,
+    "wasPrice": 40,
+    "percentOff": 47,
+    "retailerId": "soghaat",
+    "kind": "house",
+    "houseName": "Zimaya"
+  },
+  {
+    "fragranceId": "ean-085715166012",
+    "price": 31,
+    "delivered": true,
+    "wasPrice": 78,
+    "percentOff": 60,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -6872,16 +7232,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273667418",
-    "price": 19.55,
-    "delivered": true,
-    "wasPrice": 45,
-    "percentOff": 56,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3351500009848",
     "price": 52.95,
     "delivered": true,
@@ -6892,12 +7242,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-608940585818",
-    "price": 52.9,
+    "fragranceId": "ean-608940583760",
+    "price": 39.21,
     "delivered": true,
-    "wasPrice": 72,
-    "percentOff": 26,
-    "retailerId": "perfume-click",
+    "wasPrice": 45,
+    "percentOff": 12,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -6977,26 +7327,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 95,
     "percentOff": 29,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-783320461019",
-    "price": 42.7,
-    "delivered": true,
-    "wasPrice": 81,
-    "percentOff": 47,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-783320461002",
-    "price": 73.95,
-    "delivered": true,
-    "wasPrice": 101,
-    "percentOff": 26,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -7102,32 +7432,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411061043844",
+    "price": 55,
+    "delivered": true,
+    "wasPrice": 93,
+    "percentOff": 40,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8411061083765",
     "price": 61.38,
     "delivered": true,
     "wasPrice": 86,
     "percentOff": 28,
     "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061099780",
-    "price": 69.95,
-    "delivered": true,
-    "wasPrice": 101,
-    "percentOff": 30,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "beauty-bay-cahe0001f",
-    "price": 86.99,
-    "delivered": true,
-    "wasPrice": 136,
-    "percentOff": 36,
-    "retailerId": "lloyds-pharmacy",
     "kind": "retailer",
     "houseName": null
   },
@@ -7202,6 +7522,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3386460142182",
+    "price": 36.7,
+    "delivered": true,
+    "wasPrice": 54,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3508440505118",
     "price": 187,
     "delivered": true,
@@ -7262,12 +7592,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0085715950024",
-    "price": 22.66,
+    "fragranceId": "ean-763511009817",
+    "price": 38.9,
     "delivered": true,
-    "wasPrice": 47,
-    "percentOff": 51,
-    "retailerId": "scent-warehouse",
+    "wasPrice": 62,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -7342,6 +7672,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8057971181568",
+    "price": 48.95,
+    "delivered": true,
+    "wasPrice": 118,
+    "percentOff": 58,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8057971188673",
     "price": 44.45,
     "delivered": true,
@@ -7378,36 +7718,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 68,
     "percentOff": 44,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640233340240",
-    "price": 37.5,
-    "delivered": true,
-    "wasPrice": 68,
-    "percentOff": 44,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640233340103",
-    "price": 31.35,
-    "delivered": true,
-    "wasPrice": 44,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640233340127",
-    "price": 58.6,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 38,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -7582,26 +7892,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872425002",
-    "price": 50.98,
-    "delivered": true,
-    "wasPrice": 89.99,
-    "percentOff": 43,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274872467958",
-    "price": 53.1,
-    "delivered": true,
-    "wasPrice": 85,
-    "percentOff": 37,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3274872487383",
     "price": 37.5,
     "delivered": true,
@@ -7692,42 +7982,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616302022489",
-    "price": 74.8,
+    "fragranceId": "ean-3616305169259",
+    "price": 44.2,
+    "delivered": true,
+    "wasPrice": 68,
+    "percentOff": 35,
+    "retailerId": "lloyds-pharmacy",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614229382129",
+    "price": 58.95,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 43,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3346470113541",
+    "price": 75.1,
     "delivered": true,
     "wasPrice": 105,
     "percentOff": 28,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8005610328256",
-    "price": 74.95,
-    "delivered": true,
-    "wasPrice": 149,
-    "percentOff": 49,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3346470134911",
-    "price": 65.1,
-    "delivered": true,
-    "wasPrice": 113,
-    "percentOff": 42,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3346470113558",
-    "price": 79.95,
-    "delivered": true,
-    "wasPrice": 128,
-    "percentOff": 37,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -7822,6 +8102,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3423470486025",
+    "price": 21.95,
+    "delivered": true,
+    "wasPrice": 52,
+    "percentOff": 57,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3423222090722",
     "price": 30.23,
     "delivered": true,
@@ -7862,12 +8152,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415017213",
-    "price": 76.15,
+    "fragranceId": "ean-8435415017237",
+    "price": 51.95,
     "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 19,
-    "retailerId": "perfume-click",
+    "wasPrice": 65,
+    "percentOff": 20,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -7882,12 +8172,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415055963",
-    "price": 76.95,
+    "fragranceId": "ean-8435415050760",
+    "price": 89.85,
     "delivered": true,
-    "wasPrice": 116,
-    "percentOff": 33,
-    "retailerId": "fragrance-click",
+    "wasPrice": 126,
+    "percentOff": 28,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -7902,12 +8192,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460103701",
-    "price": 26.7,
+    "fragranceId": "ean-3386460103695",
+    "price": 36.59,
     "delivered": true,
-    "wasPrice": 46,
-    "percentOff": 41,
-    "retailerId": "perfume-click",
+    "wasPrice": 57,
+    "percentOff": 35,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -7922,32 +8212,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "escentual-jimmychooman030",
-    "price": 55.98,
-    "delivered": true,
-    "wasPrice": 73.99,
-    "percentOff": 24,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3386460073875",
     "price": 26.09,
     "delivered": true,
     "wasPrice": 57,
     "percentOff": 54,
     "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460072625",
-    "price": 30.45,
-    "delivered": true,
-    "wasPrice": 42,
-    "percentOff": 27,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -7968,6 +8238,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 93,
     "percentOff": 46,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460078870",
+    "price": 38.99,
+    "delivered": true,
+    "wasPrice": 57,
+    "percentOff": 31,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -8042,12 +8322,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614274104370",
-    "price": 77.95,
+    "fragranceId": "ean-3614274104448",
+    "price": 65.6,
     "delivered": true,
-    "wasPrice": 140,
-    "percentOff": 44,
-    "retailerId": "fragrance-click",
+    "wasPrice": 105,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3147758034912",
+    "price": 74.15,
+    "delivered": true,
+    "wasPrice": 97,
+    "percentOff": 23,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -8128,16 +8418,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 125,
     "percentOff": 26,
     "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3607349764326",
-    "price": 26.75,
-    "delivered": true,
-    "wasPrice": 54,
-    "percentOff": 50,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -8332,6 +8612,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3423473053859",
+    "price": 52.34,
+    "delivered": true,
+    "wasPrice": 96,
+    "percentOff": 45,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3423478840454",
     "price": 52.94,
     "delivered": true,
@@ -8402,31 +8692,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668627547",
-    "price": 94.95,
+    "fragranceId": "ean-3349668617159",
+    "price": 50.8,
     "delivered": true,
-    "wasPrice": 143,
-    "percentOff": 33,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3349668588749",
-    "price": 58.99,
-    "delivered": true,
-    "wasPrice": 79,
-    "percentOff": 25,
-    "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3349668617173",
-    "price": 78.9,
-    "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 28,
+    "wasPrice": 63,
+    "percentOff": 19,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -8512,16 +8782,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-810023679950",
-    "price": 30.75,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 23,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6295124042836",
     "price": 42.98,
     "delivered": true,
@@ -8538,6 +8798,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 64.99,
     "percentOff": 43,
     "retailerId": "soghaat",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-888066112727",
+    "price": 124.99,
+    "delivered": true,
+    "wasPrice": 180,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-888066124287",
+    "price": 158.49,
+    "delivered": true,
+    "wasPrice": 188,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -8607,6 +8887,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 73,
     "percentOff": 7,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614273790864",
+    "price": 67.05,
+    "delivered": true,
+    "wasPrice": 70,
+    "percentOff": 4,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -8682,11 +8972,71 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003825745",
-    "price": 59.76,
+    "fragranceId": "ean-8011003891467",
+    "price": 59.99,
     "delivered": true,
-    "wasPrice": 87,
-    "percentOff": 31,
+    "wasPrice": 121,
+    "percentOff": 50,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003818174",
+    "price": 54.08,
+    "delivered": true,
+    "wasPrice": 78,
+    "percentOff": 30,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003818112",
+    "price": 69.25,
+    "delivered": true,
+    "wasPrice": 113,
+    "percentOff": 38,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003891498",
+    "price": 80.15,
+    "delivered": true,
+    "wasPrice": 121,
+    "percentOff": 33,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003825738",
+    "price": 44.45,
+    "delivered": true,
+    "wasPrice": 74,
+    "percentOff": 39,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003876273",
+    "price": 54.55,
+    "delivered": true,
+    "wasPrice": 81,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003876280",
+    "price": 71.05,
+    "delivered": true,
+    "wasPrice": 113,
+    "percentOff": 37,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -8708,16 +9058,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 136,
     "percentOff": 42,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003890804",
-    "price": 64.41,
-    "delivered": true,
-    "wasPrice": 105,
-    "percentOff": 38,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -8748,6 +9088,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 145,
     "percentOff": 48,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8018365500037",
+    "price": 54,
+    "delivered": true,
+    "wasPrice": 91,
+    "percentOff": 40,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -8788,16 +9138,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 142,
     "percentOff": 45,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614273622622",
-    "price": 59.55,
-    "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 45,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -8858,26 +9198,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 105,
     "percentOff": 25,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6290171074199",
-    "price": 20.99,
-    "delivered": false,
-    "wasPrice": 40,
-    "percentOff": 47,
-    "retailerId": "soghaat",
-    "kind": "house",
-    "houseName": "Zimaya"
-  },
-  {
-    "fragranceId": "ean-085715166012",
-    "price": 31,
-    "delivered": true,
-    "wasPrice": 78,
-    "percentOff": 60,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -9132,16 +9452,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-608940583760",
-    "price": 39.21,
-    "delivered": true,
-    "wasPrice": 45,
-    "percentOff": 12,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3386460057059",
     "price": 25.55,
     "delivered": true,
@@ -9168,6 +9478,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 104,
     "percentOff": 26,
     "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616301838210",
+    "price": 43.95,
+    "delivered": true,
+    "wasPrice": 118,
+    "percentOff": 62,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -9232,6 +9552,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-v61116",
+    "price": 71.99,
+    "delivered": true,
+    "wasPrice": 98,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-088300162543",
+    "price": 49.99,
+    "delivered": true,
+    "wasPrice": 68,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-088300150458",
     "price": 24.75,
     "delivered": true,
@@ -9252,12 +9592,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061043844",
-    "price": 55,
+    "fragranceId": "ean-8411061088166",
+    "price": 62.99,
     "delivered": true,
-    "wasPrice": 93,
-    "percentOff": 40,
-    "retailerId": "perfume-click",
+    "wasPrice": 89.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -9322,26 +9662,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616305186119",
-    "price": 66.45,
-    "delivered": true,
-    "wasPrice": 119,
-    "percentOff": 44,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614229396997",
-    "price": 61.16,
-    "delivered": true,
-    "wasPrice": 115,
-    "percentOff": 46,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-7640177366160",
     "price": 22.98,
     "delivered": true,
@@ -9357,26 +9677,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 50,
     "percentOff": 57,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460086332",
-    "price": 29.9,
-    "delivered": true,
-    "wasPrice": 45,
-    "percentOff": 33,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460142182",
-    "price": 36.7,
-    "delivered": true,
-    "wasPrice": 54,
-    "percentOff": 32,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -9432,16 +9732,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-763511009817",
-    "price": 38.9,
-    "delivered": true,
-    "wasPrice": 62,
-    "percentOff": 37,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-085715950147",
     "price": 29.98,
     "delivered": true,
@@ -9467,6 +9757,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 140,
     "percentOff": 51,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-737052074610",
+    "price": 47.7,
+    "delivered": true,
+    "wasPrice": 80,
+    "percentOff": 40,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -9518,16 +9818,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 105.6,
     "percentOff": 42,
     "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8057971181568",
-    "price": 48.95,
-    "delivered": true,
-    "wasPrice": 118,
-    "percentOff": 58,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -9702,26 +9992,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273636513",
-    "price": 67.25,
-    "delivered": true,
-    "wasPrice": 115,
-    "percentOff": 41,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614273837828",
-    "price": 107.25,
-    "delivered": true,
-    "wasPrice": 120,
-    "percentOff": 10,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3360375010972",
     "price": 89.25,
     "delivered": true,
@@ -9802,6 +10072,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3274872448780",
+    "price": 79.99,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 27,
+    "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872462687",
+    "price": 115.45,
+    "delivered": true,
+    "wasPrice": 198,
+    "percentOff": 41,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3274872481688",
     "price": 59.35,
     "delivered": true,
@@ -9822,6 +10112,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3274870303166",
+    "price": 37.9,
+    "delivered": true,
+    "wasPrice": 91,
+    "percentOff": 58,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3274872469006",
     "price": 60,
     "delivered": true,
@@ -9838,6 +10138,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 104,
     "percentOff": 44,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872395497",
+    "price": 43.45,
+    "delivered": true,
+    "wasPrice": 48.5,
+    "percentOff": 10,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -9872,22 +10182,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616305169259",
-    "price": 44.2,
+    "fragranceId": "ean-8005610328256",
+    "price": 74.95,
     "delivered": true,
-    "wasPrice": 68,
-    "percentOff": 35,
-    "retailerId": "lloyds-pharmacy",
+    "wasPrice": 149,
+    "percentOff": 49,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614229382129",
-    "price": 58.95,
+    "fragranceId": "ean-3346470146846",
+    "price": 80.05,
     "delivered": true,
-    "wasPrice": 105,
-    "percentOff": 43,
-    "retailerId": "fragrance-click",
+    "wasPrice": 135,
+    "percentOff": 40,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3346470143104",
+    "price": 65.12,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 40,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -9922,21 +10242,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3346470113541",
-    "price": 75.1,
+    "fragranceId": "ean-3346130424109",
+    "price": 61.95,
     "delivered": true,
-    "wasPrice": 105,
+    "wasPrice": 87,
     "percentOff": 28,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-3346130424109",
-    "price": 61.95,
+    "fragranceId": "ean-085715000941",
+    "price": 18.9,
     "delivered": true,
-    "wasPrice": 87,
-    "percentOff": 28,
+    "wasPrice": 39,
+    "percentOff": 51,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -10032,6 +10352,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3701415900844",
+    "price": 209.8,
+    "delivered": true,
+    "wasPrice": 320,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3701415903432",
     "price": 190.1,
     "delivered": true,
@@ -10112,11 +10442,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415017237",
-    "price": 51.95,
+    "fragranceId": "ean-8435415091251",
+    "price": 82.95,
     "delivered": true,
-    "wasPrice": 65,
-    "percentOff": 20,
+    "wasPrice": 140,
+    "percentOff": 40,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415102537",
+    "price": 61.95,
+    "delivered": true,
+    "wasPrice": 130,
+    "percentOff": 52,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -10152,21 +10492,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415050760",
-    "price": 89.85,
-    "delivered": true,
-    "wasPrice": 126,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460103695",
-    "price": 36.59,
+    "fragranceId": "beaute-boulevard-b26562",
+    "price": 33.57,
     "delivered": true,
     "wasPrice": 57,
-    "percentOff": 35,
+    "percentOff": 41,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -10352,42 +10682,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273922975",
-    "price": 93.1,
-    "delivered": true,
-    "wasPrice": 130,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614274104448",
-    "price": 65.6,
-    "delivered": true,
-    "wasPrice": 105,
-    "percentOff": 37,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3147758155112",
     "price": 86.12,
     "delivered": true,
     "wasPrice": 122,
     "percentOff": 29,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3147758034929",
-    "price": 103,
-    "delivered": true,
-    "wasPrice": 140,
-    "percentOff": 26,
-    "retailerId": "fenwick",
     "kind": "retailer",
     "houseName": null
   },
@@ -10538,6 +10838,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 125,
     "percentOff": 35,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614229159073",
+    "price": 40.55,
+    "delivered": true,
+    "wasPrice": 56,
+    "percentOff": 27,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -10712,16 +11022,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423473053859",
-    "price": 52.34,
-    "delivered": true,
-    "wasPrice": 96,
-    "percentOff": 45,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3614273532990",
     "price": 16.95,
     "delivered": true,
@@ -10822,16 +11122,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668617159",
-    "price": 50.8,
-    "delivered": true,
-    "wasPrice": 63,
-    "percentOff": 19,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3349668614455",
     "price": 34.55,
     "delivered": true,
@@ -10882,6 +11172,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3605972455338",
+    "price": 25.98,
+    "delivered": true,
+    "wasPrice": 43.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-614514465059",
     "price": 28.98,
     "delivered": true,
@@ -10922,6 +11222,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-810023679943",
+    "price": 29.99,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6295124024832",
     "price": 29.99,
     "delivered": false,
@@ -10942,6 +11252,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614226969613",
+    "price": 54.95,
+    "delivered": true,
+    "wasPrice": 104,
+    "percentOff": 47,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614222401995",
     "price": 61.99,
     "delivered": true,
@@ -10952,22 +11272,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066112727",
-    "price": 130.6,
+    "fragranceId": "ean-888066149068",
+    "price": 94.95,
     "delivered": true,
-    "wasPrice": 180,
-    "percentOff": 27,
+    "wasPrice": 140,
+    "percentOff": 32,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-888066124287",
-    "price": 158.49,
-    "delivered": true,
-    "wasPrice": 188,
-    "percentOff": 15,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -10992,11 +11302,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273790864",
-    "price": 67.05,
+    "fragranceId": "ean-0888066117135",
+    "price": 124.55,
     "delivered": true,
-    "wasPrice": 70,
-    "percentOff": 4,
+    "wasPrice": 180,
+    "percentOff": 30,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0888066139724",
+    "price": 207.45,
+    "delivered": true,
+    "wasPrice": 290,
+    "percentOff": 28,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -11052,56 +11372,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003891467",
-    "price": 59.99,
-    "delivered": true,
-    "wasPrice": 121,
-    "percentOff": 50,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003818174",
-    "price": 54.08,
-    "delivered": true,
-    "wasPrice": 78,
-    "percentOff": 30,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003818112",
-    "price": 69.25,
-    "delivered": true,
-    "wasPrice": 113,
-    "percentOff": 38,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8018365071162",
-    "price": 57.99,
-    "delivered": true,
-    "wasPrice": 82.98,
-    "percentOff": 30,
-    "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003891498",
-    "price": 80.15,
-    "delivered": true,
-    "wasPrice": 121,
-    "percentOff": 33,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8018365071469",
     "price": 65.75,
     "delivered": true,
@@ -11112,32 +11382,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003825738",
-    "price": 46.72,
+    "fragranceId": "ean-8011003858545",
+    "price": 46.7,
     "delivered": true,
-    "wasPrice": 52,
-    "percentOff": 10,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003876273",
-    "price": 54.55,
-    "delivered": true,
-    "wasPrice": 81,
-    "percentOff": 32,
+    "wasPrice": 74,
+    "percentOff": 36,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003876280",
-    "price": 71.05,
+    "fragranceId": "ean-8011003858552",
+    "price": 65.99,
     "delivered": true,
-    "wasPrice": 113,
-    "percentOff": 37,
-    "retailerId": "the-beauty-store-uk",
+    "wasPrice": 95,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -11162,12 +11422,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8018365500037",
-    "price": 54,
+    "fragranceId": "ean-8011003823536",
+    "price": 72.76,
     "delivered": true,
-    "wasPrice": 91,
-    "percentOff": 40,
-    "retailerId": "perfume-click",
+    "wasPrice": 113,
+    "percentOff": 35,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -11492,6 +11752,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6295199807217",
+    "price": 22.5,
+    "delivered": false,
+    "wasPrice": 29.99,
+    "percentOff": 24,
+    "retailerId": "beevora",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6295199801550",
     "price": 28.05,
     "delivered": true,
@@ -11662,16 +11932,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616301838210",
-    "price": 43.95,
-    "delivered": true,
-    "wasPrice": 118,
-    "percentOff": 62,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-5045419039611",
     "price": 49.95,
     "delivered": true,
@@ -11712,6 +11972,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-783320403897",
+    "price": 54.95,
+    "delivered": true,
+    "wasPrice": 91,
+    "percentOff": 39,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-783320423369",
     "price": 77.95,
     "delivered": true,
@@ -11732,12 +12002,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3360374507206",
-    "price": 29.98,
+    "fragranceId": "ean-7340032862614",
+    "price": 103.99,
     "delivered": true,
-    "wasPrice": 53,
-    "percentOff": 43,
-    "retailerId": "perfume-direct",
+    "wasPrice": 150,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3360374507206",
+    "price": 30.05,
+    "delivered": true,
+    "wasPrice": 59,
+    "percentOff": 49,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -11802,12 +12082,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061088166",
-    "price": 62.99,
+    "fragranceId": "ean-8411061088197",
+    "price": 65.95,
     "delivered": true,
-    "wasPrice": 89.99,
-    "percentOff": 30,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 116,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -11892,6 +12172,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614228842785",
+    "price": 46.1,
+    "delivered": true,
+    "wasPrice": 103,
+    "percentOff": 55,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616305186102",
     "price": 68.38,
     "delivered": true,
@@ -11938,6 +12228,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 34,
     "percentOff": 15,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460142175",
+    "price": 52.99,
+    "delivered": true,
+    "wasPrice": 76,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -12022,11 +12322,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-737052074610",
-    "price": 47.7,
+    "fragranceId": "ean-3423473020752",
+    "price": 67.2,
     "delivered": true,
-    "wasPrice": 80,
-    "percentOff": 40,
+    "wasPrice": 105,
+    "percentOff": 36,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -12182,11 +12482,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3423473017059",
+    "price": 37.4,
+    "delivered": true,
+    "wasPrice": 70,
+    "percentOff": 46,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-7640233340721",
     "price": 37,
     "delivered": true,
     "wasPrice": 95,
     "percentOff": 61,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640233340073",
+    "price": 29.15,
+    "delivered": true,
+    "wasPrice": 49,
+    "percentOff": 40,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -12462,42 +12782,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872448780",
-    "price": 79.99,
-    "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 27,
-    "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274872462687",
-    "price": 115.45,
-    "delivered": true,
-    "wasPrice": 198,
-    "percentOff": 41,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274870303166",
-    "price": 37.9,
-    "delivered": true,
-    "wasPrice": 91,
-    "percentOff": 58,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3274872428768",
     "price": 56.35,
     "delivered": true,
     "wasPrice": 139,
     "percentOff": 59,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872419308",
+    "price": 48.87,
+    "delivered": true,
+    "wasPrice": 78,
+    "percentOff": 37,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -12572,16 +12872,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872395497",
-    "price": 43.45,
-    "delivered": true,
-    "wasPrice": 48.5,
-    "percentOff": 10,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3616302514281",
     "price": 52.55,
     "delivered": true,
@@ -12597,6 +12887,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 118,
     "percentOff": 52,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616305275769",
+    "price": 44.95,
+    "delivered": true,
+    "wasPrice": 74,
+    "percentOff": 39,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -12652,6 +12952,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3616301794646",
+    "price": 56.95,
+    "delivered": true,
+    "wasPrice": 96,
+    "percentOff": 40,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616301794615",
     "price": 61.99,
     "delivered": true,
@@ -12672,32 +12982,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3346470146846",
-    "price": 80.05,
-    "delivered": true,
-    "wasPrice": 135,
-    "percentOff": 40,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3346470144019",
     "price": 70.1,
     "delivered": true,
     "wasPrice": 124,
     "percentOff": 43,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3346470143104",
-    "price": 65.12,
-    "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 40,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -12882,16 +13172,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3701415900844",
-    "price": 209.8,
-    "delivered": true,
-    "wasPrice": 320,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3423222090715",
     "price": 27.1,
     "delivered": true,
@@ -12932,21 +13212,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8435415091251",
-    "price": 82.95,
+    "fragranceId": "ean-8435415076906",
+    "price": 103.95,
     "delivered": true,
-    "wasPrice": 140,
-    "percentOff": 40,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415102537",
-    "price": 61.95,
-    "delivered": true,
-    "wasPrice": 130,
-    "percentOff": 52,
+    "wasPrice": 145,
+    "percentOff": 28,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -13022,32 +13292,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "escentual-jimmychooman029",
-    "price": 33.57,
-    "delivered": true,
-    "wasPrice": 57,
-    "percentOff": 41,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3386460073868",
     "price": 38.95,
     "delivered": true,
     "wasPrice": 75,
     "percentOff": 48,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460078870",
-    "price": 48.65,
-    "delivered": true,
-    "wasPrice": 70,
-    "percentOff": 30,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -13172,6 +13422,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3274872457270",
+    "price": 46.45,
+    "delivered": true,
+    "wasPrice": 85,
+    "percentOff": 45,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6291107979311",
     "price": 18.99,
     "delivered": false,
@@ -13242,6 +13502,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614273922975",
+    "price": 93.1,
+    "delivered": true,
+    "wasPrice": 130,
+    "percentOff": 28,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614274103007",
     "price": 54,
     "delivered": true,
@@ -13268,6 +13538,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 80,
     "percentOff": 46,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3147758034929",
+    "price": 103,
+    "delivered": true,
+    "wasPrice": 140,
+    "percentOff": 26,
+    "retailerId": "fenwick",
     "kind": "retailer",
     "houseName": null
   },
@@ -13372,16 +13652,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6291107450605",
-    "price": 19.99,
-    "delivered": false,
-    "wasPrice": 24.99,
-    "percentOff": 20,
-    "retailerId": "soghaat",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6290360595771",
     "price": 31.99,
     "delivered": false,
@@ -13452,16 +13722,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614229159073",
-    "price": 40.55,
-    "delivered": true,
-    "wasPrice": 56,
-    "percentOff": 27,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3614227372290",
     "price": 36.17,
     "delivered": true,
@@ -13528,6 +13788,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 113,
     "percentOff": 54,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460141017",
+    "price": 51.75,
+    "delivered": true,
+    "wasPrice": 76,
+    "percentOff": 31,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -13608,6 +13878,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 130,
     "percentOff": 48,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3423478805958",
+    "price": 39.98,
+    "delivered": true,
+    "wasPrice": 65,
+    "percentOff": 38,
+    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -13792,6 +14072,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-t64275",
+    "price": 49.5,
+    "delivered": true,
+    "wasPrice": 66,
+    "percentOff": 25,
+    "retailerId": "lloyds-pharmacy",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-d906105",
+    "price": 91.99,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 3,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3349668641826",
     "price": 65,
     "delivered": true,
@@ -13817,6 +14117,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 135,
     "percentOff": 39,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668630349",
+    "price": 71.95,
+    "delivered": true,
+    "wasPrice": 113,
+    "percentOff": 36,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -13908,16 +14218,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 79,
     "percentOff": 35,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3605972455338",
-    "price": 25.98,
-    "delivered": true,
-    "wasPrice": 43.99,
-    "percentOff": 40,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -14032,11 +14332,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066149068",
-    "price": 94.95,
+    "fragranceId": "ean-5060523017669",
+    "price": 13.85,
     "delivered": true,
-    "wasPrice": 140,
-    "percentOff": 32,
+    "wasPrice": 20,
+    "percentOff": 30,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614229833812",
+    "price": 59.75,
+    "delivered": true,
+    "wasPrice": 119,
+    "percentOff": 49,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-888066149044",
+    "price": 70.25,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 26,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -14092,11 +14412,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0888066117135",
-    "price": 124.55,
+    "fragranceId": "ean-888066000161",
+    "price": 139.95,
     "delivered": true,
-    "wasPrice": 180,
-    "percentOff": 30,
+    "wasPrice": 164,
+    "percentOff": 14,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0888066107785",
+    "price": 194.6,
+    "delivered": true,
+    "wasPrice": 290,
+    "percentOff": 32,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -14108,16 +14438,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 244.2,
     "percentOff": 20,
     "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0888066139724",
-    "price": 207.45,
-    "delivered": true,
-    "wasPrice": 290,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -14192,21 +14512,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003858545",
-    "price": 46.7,
+    "fragranceId": "ean-8011003839100",
+    "price": 53.1,
     "delivered": true,
-    "wasPrice": 74,
-    "percentOff": 36,
+    "wasPrice": 87,
+    "percentOff": 38,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003858552",
-    "price": 67.2,
+    "fragranceId": "ean-8011003839117",
+    "price": 63.7,
     "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 29,
+    "wasPrice": 109,
+    "percentOff": 41,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -14232,16 +14552,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003823536",
-    "price": 72.76,
-    "delivered": true,
-    "wasPrice": 113,
-    "percentOff": 35,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8018365140103",
     "price": 34.75,
     "delivered": true,
@@ -14252,12 +14562,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8011003995967",
+    "price": 59.76,
+    "delivered": true,
+    "wasPrice": 91,
+    "percentOff": 34,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8011003804559",
-    "price": 50.8,
+    "price": 46.99,
     "delivered": true,
     "wasPrice": 55,
-    "percentOff": 7,
-    "retailerId": "perfume-click",
+    "percentOff": 14,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -14602,32 +14922,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
-    "fragranceId": "ean-6295199807217",
-    "price": 22.5,
-    "delivered": false,
-    "wasPrice": 29.99,
-    "percentOff": 24,
-    "retailerId": "beevora",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6085010041773",
-    "price": 22.98,
-    "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 23,
-    "retailerId": "justmylook",
-    "kind": "house",
-    "houseName": "Armaf"
-  },
-  {
     "fragranceId": "ean-3351500020409",
     "price": 37.95,
     "delivered": true,
     "wasPrice": 68,
     "percentOff": 44,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614274129267",
+    "price": 34.55,
+    "delivered": true,
+    "wasPrice": 65,
+    "percentOff": 46,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -14668,16 +14978,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 70,
     "percentOff": 69,
     "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640163970012",
-    "price": 21.85,
-    "delivered": true,
-    "wasPrice": 70,
-    "percentOff": 68,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -14842,16 +15142,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-783320403897",
-    "price": 54.95,
-    "delivered": true,
-    "wasPrice": 91,
-    "percentOff": 39,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-783320425479",
     "price": 73.75,
     "delivered": true,
@@ -14882,12 +15172,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-7340032862614",
-    "price": 108.72,
+    "fragranceId": "ean-7340032875461",
+    "price": 138.6,
     "delivered": true,
-    "wasPrice": 155,
-    "percentOff": 29,
-    "retailerId": "scent-warehouse",
+    "wasPrice": 225,
+    "percentOff": 38,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -14952,11 +15242,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061088197",
-    "price": 65.95,
+    "fragranceId": "ean-8411061120583",
+    "price": 52.9,
     "delivered": true,
-    "wasPrice": 116,
-    "percentOff": 43,
+    "wasPrice": 57,
+    "percentOff": 7,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -14998,6 +15288,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 114,
     "percentOff": 38,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061057193",
+    "price": 58.7,
+    "delivered": true,
+    "wasPrice": 80,
+    "percentOff": 26,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -15092,12 +15392,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614228842785",
-    "price": 46.1,
+    "fragranceId": "ean-3614228842839",
+    "price": 36.95,
     "delivered": true,
-    "wasPrice": 103,
-    "percentOff": 55,
-    "retailerId": "perfume-click",
+    "wasPrice": 71,
+    "percentOff": 47,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -15132,22 +15432,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460142175",
-    "price": 53.1,
-    "delivered": true,
-    "wasPrice": 76,
-    "percentOff": 30,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3508440004185",
     "price": 180.1,
     "delivered": true,
     "wasPrice": 265,
     "percentOff": 32,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5060524511142",
+    "price": 24.33,
+    "delivered": true,
+    "wasPrice": 47,
+    "percentOff": 48,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -15272,16 +15572,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423473020752",
-    "price": 67.2,
-    "delivered": true,
-    "wasPrice": 105,
-    "percentOff": 36,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3423222052423",
     "price": 37.45,
     "delivered": true,
@@ -15372,21 +15662,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423473017059",
-    "price": 37.4,
+    "fragranceId": "ean-3423473095750",
+    "price": 56.25,
     "delivered": true,
-    "wasPrice": 70,
-    "percentOff": 46,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640233340073",
-    "price": 29.15,
-    "delivered": true,
-    "wasPrice": 49,
-    "percentOff": 40,
+    "wasPrice": 84,
+    "percentOff": 33,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -15447,16 +15727,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 57,
     "percentOff": 56,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0085805574024",
-    "price": 22.95,
-    "delivered": true,
-    "wasPrice": 52,
-    "percentOff": 55,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -15565,8 +15835,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760168592003",
     "price": 91.99,
     "delivered": true,
-    "wasPrice": 130.99,
-    "percentOff": 29,
+    "wasPrice": 111.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -15702,16 +15972,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872419308",
-    "price": 48.87,
-    "delivered": true,
-    "wasPrice": 78,
-    "percentOff": 37,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3274872438835",
     "price": 50.95,
     "delivered": true,
@@ -15742,32 +16002,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616305275769",
-    "price": 44.95,
-    "delivered": true,
-    "wasPrice": 74,
-    "percentOff": 39,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3614227758063",
     "price": 54.7,
     "delivered": true,
     "wasPrice": 71,
     "percentOff": 22,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3616301794646",
-    "price": 56.95,
-    "delivered": true,
-    "wasPrice": 96,
-    "percentOff": 40,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -15912,6 +16152,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0085715261014",
+    "price": 18.9,
+    "delivered": true,
+    "wasPrice": 39,
+    "percentOff": 51,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616300896037",
     "price": 52.85,
     "delivered": true,
@@ -15938,6 +16188,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 75,
     "percentOff": 30,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616305040619",
+    "price": 57.99,
+    "delivered": true,
+    "wasPrice": 107,
+    "percentOff": 45,
+    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -16042,12 +16302,42 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8435415091190",
+    "price": 61.48,
+    "delivered": true,
+    "wasPrice": 79,
+    "percentOff": 22,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8435415091268",
+    "price": 87.99,
+    "delivered": true,
+    "wasPrice": 107.8,
+    "percentOff": 18,
+    "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8410225597797",
     "price": 82.25,
     "delivered": true,
     "wasPrice": 103,
     "percentOff": 20,
     "retailerId": "fenwick",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-08435415062190",
+    "price": 84.99,
+    "delivered": true,
+    "wasPrice": 116,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -16068,16 +16358,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 82,
     "percentOff": 5,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415076906",
-    "price": 103.95,
-    "delivered": true,
-    "wasPrice": 145,
-    "percentOff": 28,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -16147,6 +16427,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 48,
     "percentOff": 57,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3414201002683",
+    "price": 19.7,
+    "delivered": true,
+    "wasPrice": 32.5,
+    "percentOff": 39,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -16392,16 +16682,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872457270",
-    "price": 46.45,
-    "delivered": true,
-    "wasPrice": 85,
-    "percentOff": 45,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6291107978819",
     "price": 28.99,
     "delivered": false,
@@ -16442,11 +16722,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-810023672203",
+    "price": 11.95,
+    "delivered": true,
+    "wasPrice": 22,
+    "percentOff": 45,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-810023671664",
     "price": 14.43,
     "delivered": true,
     "wasPrice": 38,
     "percentOff": 62,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0810023673637",
+    "price": 11.09,
+    "delivered": true,
+    "wasPrice": 22,
+    "percentOff": 49,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -16468,6 +16768,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 79,
     "percentOff": 13,
     "retailerId": "fenwick",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460149433",
+    "price": 25.05,
+    "delivered": true,
+    "wasPrice": 39,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -16567,6 +16877,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 78,
     "percentOff": 23,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460010399",
+    "price": 33.1,
+    "delivered": true,
+    "wasPrice": 66,
+    "percentOff": 49,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -16697,6 +17017,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": false,
     "wasPrice": 49.99,
     "percentOff": 50,
+    "retailerId": "soghaat",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6291107450605",
+    "price": 19.99,
+    "delivered": false,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "soghaat",
     "kind": "retailer",
     "houseName": null
@@ -16862,11 +17192,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460141017",
-    "price": 51.75,
+    "fragranceId": "ean-3760260450386",
+    "price": 70.7,
     "delivered": true,
-    "wasPrice": 76,
-    "percentOff": 31,
+    "wasPrice": 119,
+    "percentOff": 40,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -16875,8 +17205,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260457118",
     "price": 67.99,
     "delivered": true,
-    "wasPrice": 96.99,
-    "percentOff": 29,
+    "wasPrice": 82.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -17022,16 +17352,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423478805958",
-    "price": 39.98,
-    "delivered": true,
-    "wasPrice": 65,
-    "percentOff": 38,
-    "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3423222121976",
     "price": 48.95,
     "delivered": true,
@@ -17058,6 +17378,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 44,
     "percentOff": 42,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3137370357476",
+    "price": 48.95,
+    "delivered": true,
+    "wasPrice": 85,
+    "percentOff": 42,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -17282,26 +17612,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "beauty-flash-htg1601635",
-    "price": 49.5,
-    "delivered": true,
-    "wasPrice": 66,
-    "percentOff": 25,
-    "retailerId": "lloyds-pharmacy",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "beauty-flash-htg2601009",
-    "price": 75.99,
-    "delivered": true,
-    "wasPrice": 141.99,
-    "percentOff": 46,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3349668662678",
     "price": 64.05,
     "delivered": true,
@@ -17342,11 +17652,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668630349",
-    "price": 71.95,
+    "fragranceId": "ean-3349668630356",
+    "price": 77.95,
     "delivered": true,
-    "wasPrice": 113,
-    "percentOff": 36,
+    "wasPrice": 140,
+    "percentOff": 44,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -17532,16 +17842,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-810023679943",
-    "price": 31.6,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 21,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8052464891306",
     "price": 38.95,
     "delivered": true,
@@ -17605,19 +17905,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6295124046926",
     "price": 51.99,
     "delivered": true,
-    "wasPrice": 75.99,
-    "percentOff": 31,
+    "wasPrice": 63.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-5060523017669",
-    "price": 13.85,
-    "delivered": true,
-    "wasPrice": 20,
-    "percentOff": 30,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -17642,12 +17932,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614229833812",
-    "price": 59.75,
+    "fragranceId": "ean-3614229833775",
+    "price": 67.25,
     "delivered": true,
-    "wasPrice": 119,
-    "percentOff": 49,
-    "retailerId": "the-beauty-store-uk",
+    "wasPrice": 109,
+    "percentOff": 38,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -17677,16 +17967,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 290,
     "percentOff": 21,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-888066149044",
-    "price": 70.25,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 26,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -17732,6 +18012,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-888066143134",
+    "price": 233.99,
+    "delivered": true,
+    "wasPrice": 336,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0888066152051",
     "price": 94.25,
     "delivered": true,
@@ -17762,21 +18052,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066000161",
-    "price": 139.95,
+    "fragranceId": "ean-888066008457",
+    "price": 194.95,
     "delivered": true,
-    "wasPrice": 164,
-    "percentOff": 14,
+    "wasPrice": 320,
+    "percentOff": 39,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-0888066107785",
-    "price": 194.6,
+    "fragranceId": "ean-888066050685",
+    "price": 103.85,
     "delivered": true,
-    "wasPrice": 290,
-    "percentOff": 32,
+    "wasPrice": 152,
+    "percentOff": 31,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -17922,21 +18212,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003839100",
-    "price": 53.1,
+    "fragranceId": "ean-8011003825721",
+    "price": 38.75,
     "delivered": true,
-    "wasPrice": 87,
-    "percentOff": 38,
+    "wasPrice": 59,
+    "percentOff": 34,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003839117",
-    "price": 63.7,
+    "fragranceId": "ean-8011003876266",
+    "price": 43.45,
     "delivered": true,
-    "wasPrice": 109,
-    "percentOff": 41,
+    "wasPrice": 56.5,
+    "percentOff": 23,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -17972,11 +18262,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003995967",
-    "price": 59.76,
+    "fragranceId": "ean-8011003995943",
+    "price": 33.98,
     "delivered": true,
-    "wasPrice": 91,
-    "percentOff": 34,
+    "wasPrice": 35.99,
+    "percentOff": 5,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003801619",
+    "price": 77.86,
+    "delivered": true,
+    "wasPrice": 117,
+    "percentOff": 33,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -18252,12 +18552,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-t524275",
+    "price": 24.75,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 45,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "aromique-10648326570323-default-title",
     "price": 27.99,
     "delivered": false,
     "wasPrice": 34.99,
     "percentOff": 20,
     "retailerId": "aromique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290171075141",
+    "price": 26.98,
+    "delivered": true,
+    "wasPrice": 48.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -18318,6 +18638,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 6.99,
     "percentOff": 35,
     "retailerId": "beevora",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3495080222102",
+    "price": 39.98,
+    "delivered": true,
+    "wasPrice": 71.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -18412,12 +18742,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "ean-6294015166132",
+    "price": 26.49,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 33,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6294015188622",
     "price": 21.6,
     "delivered": true,
     "wasPrice": 40,
     "percentOff": 46,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015109320",
+    "price": 22.99,
+    "delivered": false,
+    "wasPrice": 29.99,
+    "percentOff": 23,
+    "retailerId": "aromique",
     "kind": "retailer",
     "houseName": null
   },
@@ -18440,6 +18790,16 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
+  },
+  {
+    "fragranceId": "ean-6085010041773",
+    "price": 22.98,
+    "delivered": true,
+    "wasPrice": 29.99,
+    "percentOff": 23,
+    "retailerId": "justmylook",
+    "kind": "house",
+    "houseName": "Armaf"
   },
   {
     "fragranceId": "ean-6294015102260",
@@ -18492,16 +18852,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614274129267",
-    "price": 34.55,
-    "delivered": true,
-    "wasPrice": 65,
-    "percentOff": 46,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3614274258080",
     "price": 45.95,
     "delivered": true,
@@ -18527,6 +18877,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 79,
     "percentOff": 62,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640163970012",
+    "price": 21.85,
+    "delivered": true,
+    "wasPrice": 70,
+    "percentOff": 68,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -18772,16 +19132,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-7340032875461",
-    "price": 138.6,
-    "delivered": true,
-    "wasPrice": 225,
-    "percentOff": 38,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-7340032875324",
     "price": 183.6,
     "delivered": true,
@@ -18902,11 +19252,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061120583",
-    "price": 52.9,
+    "fragranceId": "ean-8411061711767",
+    "price": 73.3,
     "delivered": true,
-    "wasPrice": 57,
-    "percentOff": 7,
+    "wasPrice": 114,
+    "percentOff": 35,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -18922,11 +19272,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061057193",
-    "price": 58.7,
+    "fragranceId": "ean-8411061057209",
+    "price": 93.99,
     "delivered": true,
-    "wasPrice": 80,
-    "percentOff": 26,
+    "wasPrice": 135,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061065679",
+    "price": 146.85,
+    "delivered": true,
+    "wasPrice": 156,
+    "percentOff": 5,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -18938,16 +19298,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 148,
     "percentOff": 52,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614228842839",
-    "price": 36.95,
-    "delivered": true,
-    "wasPrice": 71,
-    "percentOff": 47,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -18995,8 +19345,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3442180004497",
     "price": 45.99,
     "delivered": true,
-    "wasPrice": 65.99,
-    "percentOff": 30,
+    "wasPrice": 55.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -19022,12 +19372,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5060524511142",
-    "price": 24.33,
+    "fragranceId": "ean-5060524511494",
+    "price": 30.35,
     "delivered": true,
     "wasPrice": 47,
-    "percentOff": 48,
-    "retailerId": "scent-warehouse",
+    "percentOff": 35,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -19272,6 +19622,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0085715801555",
+    "price": 31.5,
+    "delivered": true,
+    "wasPrice": 49,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0085715801814",
     "price": 23.45,
     "delivered": true,
@@ -19292,12 +19652,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423473095750",
-    "price": 56.25,
+    "fragranceId": "ean-3423473017158",
+    "price": 80.75,
     "delivered": true,
-    "wasPrice": 84,
-    "percentOff": 33,
-    "retailerId": "perfume-click",
+    "wasPrice": 95,
+    "percentOff": 15,
+    "retailerId": "escentual",
     "kind": "retailer",
     "houseName": null
   },
@@ -19352,12 +19712,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-085805557317",
-    "price": 17.18,
+    "fragranceId": "ean-0085805574024",
+    "price": 22.95,
     "delivered": true,
-    "wasPrice": 24.99,
-    "percentOff": 31,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 52,
+    "percentOff": 55,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -19592,26 +19952,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273636582",
-    "price": 58.99,
-    "delivered": true,
-    "wasPrice": 65,
-    "percentOff": 9,
-    "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "escentual-blackcode01",
-    "price": 62.48,
-    "delivered": true,
-    "wasPrice": 66.99,
-    "percentOff": 6,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3614274222135",
     "price": 44.35,
     "delivered": true,
@@ -19692,6 +20032,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3274872419315",
+    "price": 57.95,
+    "delivered": true,
+    "wasPrice": 97,
+    "percentOff": 40,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3274872479753",
     "price": 51.95,
     "delivered": true,
@@ -19712,12 +20062,62 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3274872459090",
+    "price": 90.95,
+    "delivered": true,
+    "wasPrice": 125,
+    "percentOff": 27,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0711367108680",
+    "price": 57.53,
+    "delivered": true,
+    "wasPrice": 126,
+    "percentOff": 54,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0711367108888",
+    "price": 85.41,
+    "delivered": true,
+    "wasPrice": 178,
+    "percentOff": 52,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616304249693",
     "price": 48.09,
     "delivered": true,
     "wasPrice": 75,
     "percentOff": 35,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614229382112",
+    "price": 52.99,
+    "delivered": true,
+    "wasPrice": 76,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614229382167",
+    "price": 69.95,
+    "delivered": true,
+    "wasPrice": 125,
+    "percentOff": 44,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -19763,11 +20163,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3346470147386",
-    "price": 43.62,
+    "price": 45,
     "delivered": true,
-    "wasPrice": 109,
-    "percentOff": 59,
-    "retailerId": "the-beauty-store-uk",
+    "wasPrice": 105,
+    "percentOff": 57,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -19942,16 +20342,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616305040619",
-    "price": 57.99,
-    "delivered": true,
-    "wasPrice": 107,
-    "percentOff": 45,
-    "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3616301623373",
     "price": 24.95,
     "delivered": true,
@@ -20042,6 +20432,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3701415901322",
+    "price": 164.35,
+    "delivered": true,
+    "wasPrice": 235,
+    "percentOff": 30,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3701415901452",
     "price": 242.25,
     "delivered": true,
@@ -20115,29 +20515,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5050456021932",
     "price": 52.99,
     "delivered": true,
-    "wasPrice": 75.99,
-    "percentOff": 30,
-    "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415091190",
-    "price": 61.48,
-    "delivered": true,
-    "wasPrice": 79,
-    "percentOff": 22,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8435415091268",
-    "price": 87.99,
-    "delivered": true,
-    "wasPrice": 107.8,
+    "wasPrice": 64.99,
     "percentOff": 18,
-    "retailerId": "perfume-direct",
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -20172,12 +20552,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-08435415062190",
-    "price": 94.49,
+    "fragranceId": "ean-08435415062213",
+    "price": 63.99,
     "delivered": true,
-    "wasPrice": 172.99,
-    "percentOff": 45,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 86,
+    "percentOff": 25,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-p44610",
+    "price": 39.61,
+    "delivered": true,
+    "wasPrice": 55,
+    "percentOff": 27,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3423470475852",
+    "price": 79.95,
+    "delivered": true,
+    "wasPrice": 129,
+    "percentOff": 38,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -20188,6 +20588,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 132,
     "percentOff": 23,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-p330610",
+    "price": 64.99,
+    "delivered": true,
+    "wasPrice": 67,
+    "percentOff": 3,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-z330810",
+    "price": 70.99,
+    "delivered": true,
+    "wasPrice": 96,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -20242,12 +20662,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3414201002683",
-    "price": 19.7,
+    "fragranceId": "ean-3386460103688",
+    "price": 42.55,
     "delivered": true,
-    "wasPrice": 32.5,
-    "percentOff": 39,
+    "wasPrice": 75,
+    "percentOff": 43,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460133340",
+    "price": 11.7,
+    "delivered": true,
+    "wasPrice": 12,
+    "percentOff": 2,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -20362,6 +20792,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-719346128070",
+    "price": 24.65,
+    "delivered": true,
+    "wasPrice": 83,
+    "percentOff": 70,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-719346257107",
     "price": 21.38,
     "delivered": true,
@@ -20435,8 +20875,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3274872477827",
     "price": 44.99,
     "delivered": true,
-    "wasPrice": 64.99,
-    "percentOff": 30,
+    "wasPrice": 54.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -20465,8 +20905,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3274872438071",
     "price": 39.99,
     "delivered": true,
-    "wasPrice": 56.99,
-    "percentOff": 29,
+    "wasPrice": 48.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -20572,26 +21012,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-810023672203",
-    "price": 11.95,
-    "delivered": true,
-    "wasPrice": 22,
-    "percentOff": 45,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0810023673637",
-    "price": 11.09,
-    "delivered": true,
-    "wasPrice": 22,
-    "percentOff": 49,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-5060784162108",
     "price": 34.75,
     "delivered": true,
@@ -20627,16 +21047,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 62,
     "percentOff": 46,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460149433",
-    "price": 25.05,
-    "delivered": true,
-    "wasPrice": 39,
-    "percentOff": 35,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -20758,16 +21168,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 46,
     "percentOff": 34,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460010399",
-    "price": 33.1,
-    "delivered": true,
-    "wasPrice": 66,
-    "percentOff": 49,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -20902,16 +21302,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6291108735572",
-    "price": 14.99,
-    "delivered": false,
-    "wasPrice": 19.99,
-    "percentOff": 25,
-    "retailerId": "beevora",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6291108737323",
     "price": 29.99,
     "delivered": false,
@@ -20948,6 +21338,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 76.99,
     "percentOff": 43,
     "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-v621948",
+    "price": 21.99,
+    "delivered": false,
+    "wasPrice": 34.99,
+    "percentOff": 37,
+    "retailerId": "opulensi",
     "kind": "retailer",
     "houseName": null
   },
@@ -21082,12 +21482,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-9911100199949",
+    "price": 18.76,
+    "delivered": true,
+    "wasPrice": 29.95,
+    "percentOff": 37,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6299800200237",
     "price": 21.33,
     "delivered": true,
     "wasPrice": 34.95,
     "percentOff": 38,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-2200003105094",
+    "price": 19.6,
+    "delivered": true,
+    "wasPrice": 34.95,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -21102,12 +21522,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6299800202354",
+    "price": 21.74,
+    "delivered": true,
+    "wasPrice": 32.95,
+    "percentOff": 34,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6299800202576",
     "price": 14.3,
     "delivered": true,
     "wasPrice": 49.95,
     "percentOff": 71,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6309800205221",
+    "price": 23.9,
+    "delivered": true,
+    "wasPrice": 37.95,
+    "percentOff": 37,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -21222,11 +21662,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3760260450386",
-    "price": 70.7,
+    "fragranceId": "ean-3760260450034",
+    "price": 67,
     "delivered": true,
-    "wasPrice": 119,
-    "percentOff": 40,
+    "wasPrice": 110,
+    "percentOff": 39,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -21352,6 +21792,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3439600040920",
+    "price": 50.45,
+    "delivered": true,
+    "wasPrice": 92,
+    "percentOff": 45,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "beaute-boulevard-v461817",
     "price": 33.21,
     "delivered": true,
@@ -21402,6 +21852,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-j3255",
+    "price": 109.17,
+    "delivered": true,
+    "wasPrice": 130,
+    "percentOff": 16,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3423222121600",
     "price": 34.7,
     "delivered": true,
@@ -21428,16 +21888,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 69,
     "percentOff": 48,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3137370357476",
-    "price": 48.95,
-    "delivered": true,
-    "wasPrice": 85,
-    "percentOff": 42,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -21592,6 +22042,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614273768818",
+    "price": 80.95,
+    "delivered": true,
+    "wasPrice": 130,
+    "percentOff": 37,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614274488029",
     "price": 89,
     "delivered": true,
@@ -21658,16 +22118,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 70,
     "percentOff": 15,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3349668630356",
-    "price": 77.95,
-    "delivered": true,
-    "wasPrice": 140,
-    "percentOff": 44,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -21872,6 +22322,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-810023677345",
+    "price": 28.75,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 28,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0810023679646",
+    "price": 24.65,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 38,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8056860210310",
     "price": 40.45,
     "delivered": true,
@@ -21972,31 +22442,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614226969613",
-    "price": 54.95,
-    "delivered": true,
-    "wasPrice": 104,
-    "percentOff": 47,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614229833775",
-    "price": 67.25,
-    "delivered": true,
-    "wasPrice": 109,
-    "percentOff": 38,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3614227728622",
     "price": 59.8,
     "delivered": true,
     "wasPrice": 95,
     "percentOff": 37,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0888066069618",
+    "price": 33.1,
+    "delivered": true,
+    "wasPrice": 42,
+    "percentOff": 21,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -22032,16 +22492,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066143134",
-    "price": 252.99,
-    "delivered": true,
-    "wasPrice": 319,
-    "percentOff": 20,
-    "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-888066124041",
     "price": 130.45,
     "delivered": true,
@@ -22072,22 +22522,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066008457",
-    "price": 194.95,
+    "fragranceId": "ean-888066023788",
+    "price": 96.9,
     "delivered": true,
-    "wasPrice": 320,
-    "percentOff": 39,
-    "retailerId": "fragrance-click",
+    "wasPrice": 152,
+    "percentOff": 36,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066050685",
-    "price": 103.85,
+    "fragranceId": "ean-888066024099",
+    "price": 191.95,
     "delivered": true,
-    "wasPrice": 152,
-    "percentOff": 31,
-    "retailerId": "perfume-click",
+    "wasPrice": 320,
+    "percentOff": 40,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -22132,16 +22582,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003825721",
-    "price": 38.75,
-    "delivered": true,
-    "wasPrice": 59,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8011003826490",
     "price": 85.15,
     "delivered": true,
@@ -22172,11 +22612,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003876266",
-    "price": 43.45,
+    "fragranceId": "ean-8011003858538",
+    "price": 45,
     "delivered": true,
-    "wasPrice": 56.5,
-    "percentOff": 23,
+    "wasPrice": 52.5,
+    "percentOff": 14,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -22192,6 +22632,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8018365500013",
+    "price": 31.71,
+    "delivered": true,
+    "wasPrice": 55,
+    "percentOff": 42,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8018365500020",
+    "price": 46.6,
+    "delivered": true,
+    "wasPrice": 74,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8011003811274",
     "price": 82,
     "delivered": true,
@@ -22202,20 +22662,10 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003995943",
-    "price": 33.98,
+    "fragranceId": "ean-8011003995950",
+    "price": 46.5,
     "delivered": true,
-    "wasPrice": 35.99,
-    "percentOff": 5,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003801619",
-    "price": 77.86,
-    "delivered": true,
-    "wasPrice": 117,
+    "wasPrice": 70,
     "percentOff": 33,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
@@ -22258,6 +22708,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 75,
     "percentOff": 72,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8054320902560",
+    "price": 95.85,
+    "delivered": true,
+    "wasPrice": 155,
+    "percentOff": 38,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -22402,16 +22862,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "beevora-15435889803596-default-title",
-    "price": 24.75,
-    "delivered": true,
-    "wasPrice": 45,
-    "percentOff": 45,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "beevora-15435890065740-default-title",
     "price": 22.5,
     "delivered": false,
@@ -22442,16 +22892,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290171075141",
-    "price": 26.98,
-    "delivered": true,
-    "wasPrice": 48.99,
-    "percentOff": 44,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6290171077558",
     "price": 28.98,
     "delivered": true,
@@ -22468,6 +22908,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 49.99,
     "percentOff": 10,
     "retailerId": "soghaat",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6290171002291",
+    "price": 35.25,
+    "delivered": true,
+    "wasPrice": 50,
+    "percentOff": 29,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -22515,9 +22965,19 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-4013670000900",
     "price": 31.99,
     "delivered": true,
-    "wasPrice": 44.99,
-    "percentOff": 28,
+    "wasPrice": 38.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6293708011124",
+    "price": 24.93,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -22572,12 +23032,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3495080222102",
-    "price": 39.98,
+    "fragranceId": "ean-3495080222034",
+    "price": 20.6,
     "delivered": true,
-    "wasPrice": 71.99,
-    "percentOff": 44,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 30.99,
+    "percentOff": 33,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -22632,6 +23092,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6290361912362",
+    "price": 36.3,
+    "delivered": true,
+    "wasPrice": 50,
+    "percentOff": 27,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-022548445563",
     "price": 36.2,
     "delivered": true,
@@ -22677,6 +23147,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 55,
     "percentOff": 5,
+    "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0812256022480",
+    "price": 39.98,
+    "delivered": true,
+    "wasPrice": 50,
+    "percentOff": 20,
     "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
@@ -22732,6 +23212,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "ean-6294015155624",
+    "price": 23.95,
+    "delivered": true,
+    "wasPrice": 29.99,
+    "percentOff": 20,
+    "retailerId": "perfume-click",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
     "fragranceId": "ean-6085010094823",
     "price": 19.4,
     "delivered": true,
@@ -22760,26 +23250,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "mybeauty-boutique",
     "kind": "house",
     "houseName": "Armaf"
-  },
-  {
-    "fragranceId": "ean-6294015166132",
-    "price": 26.49,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 33,
-    "retailerId": "emirates-oud",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015109320",
-    "price": 22.99,
-    "delivered": false,
-    "wasPrice": 29.99,
-    "percentOff": 23,
-    "retailerId": "aromique",
-    "kind": "retailer",
-    "houseName": null
   },
   {
     "fragranceId": "ean-6295199801567",
@@ -22812,6 +23282,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "ean-8011003867233",
+    "price": 94.98,
+    "delivered": true,
+    "wasPrice": 205,
+    "percentOff": 53,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3351500011469",
     "price": 38.95,
     "delivered": true,
@@ -22823,11 +23303,21 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3351500020416",
-    "price": 46.95,
+    "price": 56.25,
     "delivered": true,
-    "wasPrice": 92,
-    "percentOff": 48,
-    "retailerId": "fragrance-click",
+    "wasPrice": 66,
+    "percentOff": 14,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3614273962391",
+    "price": 27.15,
+    "delivered": true,
+    "wasPrice": 42,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -23032,12 +23522,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0783320411953",
+    "price": 52.9,
+    "delivered": true,
+    "wasPrice": 81,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-783320423949",
     "price": 69.46,
     "delivered": true,
     "wasPrice": 99,
     "percentOff": 29,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-783320413841",
+    "price": 68.99,
+    "delivered": true,
+    "wasPrice": 99,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -23092,6 +23602,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-783320409592",
+    "price": 53.95,
+    "delivered": true,
+    "wasPrice": 111,
+    "percentOff": 51,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8410225578062",
     "price": 131.75,
     "delivered": true,
@@ -23108,6 +23628,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 150,
     "percentOff": 13,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7340032876697",
+    "price": 152.99,
+    "delivered": true,
+    "wasPrice": 220,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -23262,6 +23792,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411061023655",
+    "price": 39.95,
+    "delivered": true,
+    "wasPrice": 90,
+    "percentOff": 55,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8411061088173",
     "price": 59.3,
     "delivered": true,
@@ -23282,42 +23822,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061711767",
-    "price": 73.3,
-    "delivered": true,
-    "wasPrice": 114,
-    "percentOff": 35,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8411061083482",
     "price": 70.95,
     "delivered": true,
     "wasPrice": 115,
     "percentOff": 38,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061057209",
-    "price": 94.4,
-    "delivered": true,
-    "wasPrice": 135,
-    "percentOff": 30,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061065679",
-    "price": 146.85,
-    "delivered": true,
-    "wasPrice": 156,
-    "percentOff": 5,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -23338,6 +23848,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 48,
     "percentOff": 73,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3432240506764",
+    "price": 59.95,
+    "delivered": true,
+    "wasPrice": 117,
+    "percentOff": 48,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -23495,8 +24015,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3508441001046",
     "price": 231.99,
     "delivered": true,
-    "wasPrice": 334.99,
-    "percentOff": 30,
+    "wasPrice": 281.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -23512,11 +24032,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5060524511494",
-    "price": 30.35,
+    "fragranceId": "ean-5060524511166",
+    "price": 20.05,
     "delivered": true,
-    "wasPrice": 47,
-    "percentOff": 35,
+    "wasPrice": 27,
+    "percentOff": 25,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5060524511159",
+    "price": 25.05,
+    "delivered": true,
+    "wasPrice": 37,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3357555040010",
+    "price": 13.3,
+    "delivered": true,
+    "wasPrice": 22,
+    "percentOff": 39,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -23538,6 +24078,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40.99,
     "percentOff": 53,
     "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3414202000626",
+    "price": 17.35,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 61,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -23635,8 +24185,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3700431425638",
     "price": 127.99,
     "delivered": true,
-    "wasPrice": 184.99,
-    "percentOff": 30,
+    "wasPrice": 155.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -23762,6 +24312,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3423222015961",
+    "price": 53.48,
+    "delivered": true,
+    "wasPrice": 78.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3423473020523",
     "price": 31.42,
     "delivered": true,
@@ -23852,16 +24412,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0085715801555",
-    "price": 31.5,
-    "delivered": true,
-    "wasPrice": 49,
-    "percentOff": 35,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8434853002270",
     "price": 25.05,
     "delivered": true,
@@ -23892,22 +24442,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-7640233340233",
+    "price": 32.98,
+    "delivered": true,
+    "wasPrice": 50.6,
+    "percentOff": 34,
+    "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-7640233340462",
     "price": 33.25,
     "delivered": true,
     "wasPrice": 49,
     "percentOff": 32,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3423473017158",
-    "price": 80.75,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 15,
-    "retailerId": "escentual",
     "kind": "retailer",
     "houseName": null
   },
@@ -23932,12 +24482,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0085805763749",
+    "price": 12.1,
+    "delivered": true,
+    "wasPrice": 22,
+    "percentOff": 45,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-085805063665",
     "price": 21.4,
     "delivered": true,
     "wasPrice": 52,
     "percentOff": 58,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-085805557317",
+    "price": 17.18,
+    "delivered": true,
+    "wasPrice": 24.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -23965,8 +24535,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8906096162009",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 25.99,
-    "percentOff": 30,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -24052,6 +24622,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Escentric Molecules"
   },
   {
+    "fragranceId": "ean-0887167800212",
+    "price": 69.26,
+    "delivered": true,
+    "wasPrice": 104,
+    "percentOff": 33,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-887167552821",
     "price": 55.4,
     "delivered": true,
@@ -24088,6 +24668,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 45,
     "percentOff": 74,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0886266501143",
+    "price": 51.07,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 53,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -24392,6 +24982,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-7640164031057",
+    "price": 59.31,
+    "delivered": true,
+    "wasPrice": 81,
+    "percentOff": 26,
+    "retailerId": "debenhams",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640164030814",
+    "price": 68.4,
+    "delivered": true,
+    "wasPrice": 104.96,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3274872399167",
     "price": 37.55,
     "delivered": true,
@@ -24412,32 +25022,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872419315",
-    "price": 57.95,
-    "delivered": true,
-    "wasPrice": 97,
-    "percentOff": 40,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3274872441972",
     "price": 45.75,
     "delivered": true,
     "wasPrice": 78,
     "percentOff": 41,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274872459090",
-    "price": 90.95,
-    "delivered": true,
-    "wasPrice": 125,
-    "percentOff": 27,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -24468,26 +25058,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 138,
     "percentOff": 28,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0711367108680",
-    "price": 57.53,
-    "delivered": true,
-    "wasPrice": 126,
-    "percentOff": 54,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0711367108888",
-    "price": 85.41,
-    "delivered": true,
-    "wasPrice": 178,
-    "percentOff": 52,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -24532,22 +25102,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3616301794653",
+    "price": 48.35,
+    "delivered": true,
+    "wasPrice": 74,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616304175916",
     "price": 85.15,
     "delivered": true,
     "wasPrice": 126,
     "percentOff": 32,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614229382112",
-    "price": 65.99,
-    "delivered": true,
-    "wasPrice": 83,
-    "percentOff": 20,
-    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -24628,6 +25198,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 137,
     "percentOff": 22,
     "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-085715002341",
+    "price": 21.9,
+    "delivered": true,
+    "wasPrice": 39,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -24872,6 +25452,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614229824742",
+    "price": 99.15,
+    "delivered": true,
+    "wasPrice": 139,
+    "percentOff": 28,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614228902113",
     "price": 29.6,
     "delivered": true,
@@ -24948,16 +25538,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 275,
     "percentOff": 15,
     "retailerId": "escentual",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3701415901322",
-    "price": 164.35,
-    "delivered": true,
-    "wasPrice": 235,
-    "percentOff": 30,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -25052,6 +25632,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3355991005846",
+    "price": 19.6,
+    "delivered": true,
+    "wasPrice": 35,
+    "percentOff": 44,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-7640171190518",
     "price": 16.68,
     "delivered": true,
@@ -25132,42 +25722,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "mybeauty-boutique-shopify-gb-8338234572937-44927090196617",
-    "price": 39.61,
-    "delivered": true,
-    "wasPrice": 55,
-    "percentOff": 27,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3423470475852",
-    "price": 79.95,
-    "delivered": true,
-    "wasPrice": 129,
-    "percentOff": 38,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8435415102353",
     "price": 94.95,
     "delivered": true,
     "wasPrice": 145,
     "percentOff": 34,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "escentual-jpgscandal003",
-    "price": 78.81,
-    "delivered": true,
-    "wasPrice": 92,
-    "percentOff": 14,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -25262,6 +25822,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-5050456080700",
+    "price": 19.45,
+    "delivered": true,
+    "wasPrice": 30,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-5050456000067",
     "price": 16.7,
     "delivered": true,
@@ -25277,6 +25847,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 49.99,
     "percentOff": 54,
+    "retailerId": "debenhams",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015182620",
+    "price": 15.7,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 60,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015182644",
+    "price": 22.98,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 42,
     "retailerId": "debenhams",
     "kind": "retailer",
     "houseName": null
@@ -25322,11 +25912,51 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6294015183061",
+    "price": 17.98,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 55,
+    "retailerId": "debenhams",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015182668",
+    "price": 15.7,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 60,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015182675",
+    "price": 22.98,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 42,
+    "retailerId": "debenhams",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6294015183023",
     "price": 17.98,
     "delivered": true,
     "wasPrice": 39.99,
     "percentOff": 55,
+    "retailerId": "debenhams",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015182682",
+    "price": 22.98,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 42,
     "retailerId": "debenhams",
     "kind": "retailer",
     "houseName": null
@@ -25338,26 +25968,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 39.99,
     "percentOff": 55,
     "retailerId": "debenhams",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460103688",
-    "price": 42.55,
-    "delivered": true,
-    "wasPrice": 75,
-    "percentOff": 43,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3386460133340",
-    "price": 11.7,
-    "delivered": true,
-    "wasPrice": 12,
-    "percentOff": 2,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -25395,8 +26005,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-2050000926242",
     "price": 12.99,
     "delivered": true,
-    "wasPrice": 18.99,
-    "percentOff": 31,
+    "wasPrice": 15.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -25428,16 +26038,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 25.5,
     "percentOff": 62,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-719346128070",
-    "price": 24.65,
-    "delivered": true,
-    "wasPrice": 83,
-    "percentOff": 70,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -25508,6 +26108,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 36,
     "percentOff": 16,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872430587",
+    "price": 48.95,
+    "delivered": true,
+    "wasPrice": 72,
+    "percentOff": 32,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -25742,6 +26352,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614229371482",
+    "price": 22.5,
+    "delivered": true,
+    "wasPrice": 37,
+    "percentOff": 39,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3386460172691",
     "price": 32.35,
     "delivered": true,
@@ -25787,6 +26407,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 129,
     "percentOff": 27,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-k34638",
+    "price": 63.18,
+    "delivered": true,
+    "wasPrice": 92,
+    "percentOff": 31,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -25972,6 +26602,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6291108735572",
+    "price": 14.99,
+    "delivered": false,
+    "wasPrice": 19.99,
+    "percentOff": 25,
+    "retailerId": "beevora",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6290360593159",
     "price": 38.98,
     "delivered": true,
@@ -26042,16 +26682,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "beevora-15435888492876-default-title",
-    "price": 21.99,
-    "delivered": false,
-    "wasPrice": 34.99,
-    "percentOff": 37,
-    "retailerId": "opulensi",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6291108738252",
     "price": 24.99,
     "delivered": false,
@@ -26065,8 +26695,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291108738689",
     "price": 25.99,
     "delivered": true,
-    "wasPrice": 36.99,
-    "percentOff": 29,
+    "wasPrice": 31.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -26282,16 +26912,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-9911100199949",
-    "price": 18.76,
-    "delivered": true,
-    "wasPrice": 29.95,
-    "percentOff": 37,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6299800201494",
     "price": 21.3,
     "delivered": true,
@@ -26325,8 +26945,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203184",
     "price": 28.99,
     "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 27,
+    "wasPrice": 35.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -26352,12 +26972,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-2200003105094",
-    "price": 19.6,
+    "fragranceId": "ean-6299800203702",
+    "price": 28.79,
     "delivered": true,
-    "wasPrice": 34.95,
-    "percentOff": 43,
-    "retailerId": "perfume-click",
+    "wasPrice": 44.95,
+    "percentOff": 35,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -26387,16 +27007,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 32.95,
     "percentOff": 35,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6299800202354",
-    "price": 21.74,
-    "delivered": true,
-    "wasPrice": 32.95,
-    "percentOff": 34,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -26438,16 +27048,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 32.95,
     "percentOff": 35,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6309800205221",
-    "price": 23.9,
-    "delivered": true,
-    "wasPrice": 37.95,
-    "percentOff": 37,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -26732,6 +27332,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-008080124852",
+    "price": 101.05,
+    "delivered": true,
+    "wasPrice": 149,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3386460126298",
     "price": 63.95,
     "delivered": true,
@@ -26755,8 +27365,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260455770",
     "price": 67.99,
     "delivered": true,
-    "wasPrice": 96.99,
-    "percentOff": 29,
+    "wasPrice": 82.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -26775,8 +27385,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260453509",
     "price": 72.99,
     "delivered": true,
-    "wasPrice": 104.99,
-    "percentOff": 30,
+    "wasPrice": 88.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -26842,26 +27452,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3439600040920",
-    "price": 50.45,
-    "delivered": true,
-    "wasPrice": 92,
-    "percentOff": 45,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "beauty-flash-mgl1601003",
-    "price": 109.17,
-    "delivered": true,
-    "wasPrice": 130,
-    "percentOff": 16,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "beaute-boulevard-l725449",
     "price": 46.24,
     "delivered": true,
@@ -26902,6 +27492,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-812256023999",
+    "price": 22.65,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3414204200949",
     "price": 25.76,
     "delivered": true,
@@ -26927,6 +27527,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 65,
     "percentOff": 38,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3137370359494",
+    "price": 51.95,
+    "delivered": true,
+    "wasPrice": 114,
+    "percentOff": 54,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -27115,8 +27725,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0652685350101",
     "price": 75.99,
     "delivered": true,
-    "wasPrice": 107.99,
-    "percentOff": 29,
+    "wasPrice": 92.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -27172,11 +27782,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0679602158114",
+    "price": 21.85,
+    "delivered": true,
+    "wasPrice": 49,
+    "percentOff": 55,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-679602156141",
     "price": 16.99,
     "delivered": true,
-    "wasPrice": 23.99,
-    "percentOff": 29,
+    "wasPrice": 20.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -27188,16 +27808,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 49,
     "percentOff": 74,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614273768818",
-    "price": 80.95,
-    "delivered": true,
-    "wasPrice": 130,
-    "percentOff": 37,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -27238,6 +27848,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 97,
     "percentOff": 34,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3349668536504",
+    "price": 48.95,
+    "delivered": true,
+    "wasPrice": 76,
+    "percentOff": 35,
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -27442,16 +28062,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-810023677345",
-    "price": 28.75,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-5060426157868",
     "price": 11.98,
     "delivered": true,
@@ -27477,6 +28087,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 24.99,
     "percentOff": 36,
+    "retailerId": "lloyds-pharmacy",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-z801814",
+    "price": 10.98,
+    "delivered": true,
+    "wasPrice": 14.99,
+    "percentOff": 26,
     "retailerId": "lloyds-pharmacy",
     "kind": "retailer",
     "houseName": null
@@ -27602,6 +28222,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-025929181036",
+    "price": 15.35,
+    "delivered": true,
+    "wasPrice": 24.95,
+    "percentOff": 38,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-5060523016242",
     "price": 16.9,
     "delivered": true,
@@ -27612,22 +28242,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8016741882517",
+    "price": 121.99,
+    "delivered": true,
+    "wasPrice": 175,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8016741072482",
     "price": 125.99,
     "delivered": true,
     "wasPrice": 210,
     "percentOff": 40,
     "retailerId": "debenhams",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0888066069618",
-    "price": 33.1,
-    "delivered": true,
-    "wasPrice": 42,
-    "percentOff": 21,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -27682,22 +28312,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066023788",
-    "price": 96.9,
+    "fragranceId": "ean-888066008433",
+    "price": 144.95,
     "delivered": true,
-    "wasPrice": 152,
+    "wasPrice": 230,
     "percentOff": 36,
-    "retailerId": "perfume-click",
+    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066024099",
-    "price": 191.95,
+    "fragranceId": "ean-888066024082",
+    "price": 159.99,
     "delivered": true,
-    "wasPrice": 320,
-    "percentOff": 40,
-    "retailerId": "fragrance-click",
+    "wasPrice": 230,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -27728,6 +28358,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 294,
     "percentOff": 25,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640496670184",
+    "price": 29.55,
+    "delivered": true,
+    "wasPrice": 42,
+    "percentOff": 29,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640496670177",
+    "price": 36.48,
+    "delivered": true,
+    "wasPrice": 58.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -27782,32 +28432,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003858538",
-    "price": 45,
+    "fragranceId": "ean-8011003891092",
+    "price": 95.44,
     "delivered": true,
-    "wasPrice": 52.5,
-    "percentOff": 14,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8018365500013",
-    "price": 31.71,
-    "delivered": true,
-    "wasPrice": 55,
-    "percentOff": 42,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8018365500020",
-    "price": 46.6,
-    "delivered": true,
-    "wasPrice": 74,
+    "wasPrice": 152,
     "percentOff": 37,
-    "retailerId": "perfume-click",
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -27822,21 +28452,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003995950",
-    "price": 46.5,
-    "delivered": true,
-    "wasPrice": 70,
-    "percentOff": 33,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8011003823079",
     "price": 41.05,
     "delivered": true,
     "wasPrice": 44,
     "percentOff": 6,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003823093",
+    "price": 56.55,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 46,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -27902,11 +28532,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8054320902560",
-    "price": 95.85,
+    "fragranceId": "ean-8054320902553",
+    "price": 158.85,
     "delivered": true,
-    "wasPrice": 155,
-    "percentOff": 38,
+    "wasPrice": 240,
+    "percentOff": 33,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -27925,7 +28555,17 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8033488156343",
     "price": 164.99,
     "delivered": true,
-    "wasPrice": 237.99,
+    "wasPrice": 199.99,
+    "percentOff": 17,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8054320902447",
+    "price": 236.99,
+    "delivered": true,
+    "wasPrice": 340,
     "percentOff": 30,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -27987,6 +28627,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 63,
     "percentOff": 61,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0085715169907",
+    "price": 23.6,
+    "delivered": true,
+    "wasPrice": 41,
+    "percentOff": 42,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -28192,16 +28842,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290171002291",
-    "price": 35.25,
-    "delivered": true,
-    "wasPrice": 50,
-    "percentOff": 29,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6290171072614",
     "price": 34.99,
     "delivered": false,
@@ -28252,6 +28892,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6290171072256",
+    "price": 21.1,
+    "delivered": true,
+    "wasPrice": 35,
+    "percentOff": 39,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6290360616117",
     "price": 29.99,
     "delivered": false,
@@ -28287,16 +28937,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 45,
     "percentOff": 52,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6293708011124",
-    "price": 24.93,
-    "delivered": true,
-    "wasPrice": 45,
-    "percentOff": 44,
     "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
@@ -28432,11 +29072,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3495080222034",
-    "price": 20.6,
+    "fragranceId": "ean-652685692058",
+    "price": 26.65,
     "delivered": true,
-    "wasPrice": 30.99,
-    "percentOff": 33,
+    "wasPrice": 39,
+    "percentOff": 31,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -28512,16 +29152,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290361912362",
-    "price": 36.3,
-    "delivered": true,
-    "wasPrice": 50,
-    "percentOff": 27,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-022548445549",
     "price": 49.55,
     "delivered": true,
@@ -28588,16 +29218,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 7.99,
     "percentOff": 37,
     "retailerId": "aromique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0812256022480",
-    "price": 39.98,
-    "delivered": true,
-    "wasPrice": 50,
-    "percentOff": 20,
-    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -28722,11 +29342,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
-    "fragranceId": "ean-6294015155624",
-    "price": 23.95,
+    "fragranceId": "ean-6294015166118",
+    "price": 20.75,
     "delivered": true,
     "wasPrice": 29.99,
-    "percentOff": 20,
+    "percentOff": 30,
     "retailerId": "perfume-click",
     "kind": "house",
     "houseName": "Armaf"
@@ -28862,6 +29482,36 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6294015109313",
+    "price": 26.49,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 33,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015163933",
+    "price": 38.75,
+    "delivered": true,
+    "wasPrice": 59.99,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-v301953",
+    "price": 26.49,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 33,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6294015189575",
     "price": 22.75,
     "delivered": true,
@@ -28882,6 +29532,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6294015149388",
+    "price": 27.5,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6294015188653",
     "price": 19.25,
     "delivered": true,
@@ -28892,11 +29552,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6294015160727",
+    "price": 20.2,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 49,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6294015116373",
     "price": 51.99,
     "delivered": true,
-    "wasPrice": 73.99,
-    "percentOff": 29,
+    "wasPrice": 63.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -28917,6 +29587,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 110,
     "percentOff": 44,
+    "retailerId": "perfume-click",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
+    "fragranceId": "ean-6294015188202",
+    "price": 26.6,
+    "delivered": true,
+    "wasPrice": 44.99,
+    "percentOff": 40,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6085010092058",
+    "price": 16.5,
+    "delivered": true,
+    "wasPrice": 24.99,
+    "percentOff": 33,
     "retailerId": "perfume-click",
     "kind": "house",
     "houseName": "Armaf"
@@ -28947,6 +29637,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 29.99,
     "percentOff": 12,
+    "retailerId": "perfume-click",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
+    "fragranceId": "ean-6294015161519",
+    "price": 20.1,
+    "delivered": true,
+    "wasPrice": 34.99,
+    "percentOff": 42,
     "retailerId": "perfume-click",
     "kind": "house",
     "houseName": "Armaf"
@@ -28992,16 +29692,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003867233",
-    "price": 94.98,
-    "delivered": true,
-    "wasPrice": 205,
-    "percentOff": 53,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-850051296309",
     "price": 24.99,
     "delivered": false,
@@ -29032,16 +29722,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614273962391",
-    "price": 27.15,
-    "delivered": true,
-    "wasPrice": 42,
-    "percentOff": 35,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-4011700905256",
     "price": 33.99,
     "delivered": true,
@@ -29065,8 +29745,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "beaute-boulevard-j520881",
     "price": 28.99,
     "delivered": true,
-    "wasPrice": 41.99,
-    "percentOff": 30,
+    "wasPrice": 35.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -29105,8 +29785,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0860004550327",
     "price": 40.99,
     "delivered": true,
-    "wasPrice": 58.99,
-    "percentOff": 30,
+    "wasPrice": 49.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -29145,19 +29825,19 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0850050062035",
     "price": 51.99,
     "delivered": true,
-    "wasPrice": 73.99,
-    "percentOff": 29,
+    "wasPrice": 63.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
   {
     "fragranceId": "ean-0850050062042",
-    "price": 58.98,
+    "price": 67.99,
     "delivered": true,
-    "wasPrice": 138.99,
-    "percentOff": 57,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 82.99,
+    "percentOff": 18,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -29312,11 +29992,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0783320411953",
-    "price": 52.9,
+    "fragranceId": "ean-0783320421532",
+    "price": 96.5,
     "delivered": true,
-    "wasPrice": 81,
-    "percentOff": 34,
+    "wasPrice": 139,
+    "percentOff": 30,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -29342,32 +30022,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-783320409592",
-    "price": 53.95,
-    "delivered": true,
-    "wasPrice": 111,
-    "percentOff": 51,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8410225567318",
     "price": 229.5,
     "delivered": true,
     "wasPrice": 270,
     "percentOff": 15,
     "retailerId": "fenwick",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7340032876697",
-    "price": 175.14,
-    "delivered": true,
-    "wasPrice": 220,
-    "percentOff": 20,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -29552,16 +30212,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061023655",
-    "price": 39.95,
-    "delivered": true,
-    "wasPrice": 90,
-    "percentOff": 55,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8411061896259",
     "price": 52.9,
     "delivered": true,
@@ -29577,6 +30227,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 110,
     "percentOff": 38,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061120620",
+    "price": 75.95,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 27,
+    "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061782347",
+    "price": 84.75,
+    "delivered": true,
+    "wasPrice": 90,
+    "percentOff": 5,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -29682,16 +30352,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3432240506764",
-    "price": 59.95,
-    "delivered": true,
-    "wasPrice": 117,
-    "percentOff": 48,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8033488150112",
     "price": 137.55,
     "delivered": true,
@@ -29772,6 +30432,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-n154217",
+    "price": 67.99,
+    "delivered": true,
+    "wasPrice": 98,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614229395686",
     "price": 48.15,
     "delivered": true,
@@ -29805,8 +30475,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640177366467",
     "price": 12.99,
     "delivered": true,
-    "wasPrice": 16.99,
-    "percentOff": 23,
+    "wasPrice": 15.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -29815,8 +30485,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640177366276",
     "price": 12.99,
     "delivered": true,
-    "wasPrice": 16.99,
-    "percentOff": 23,
+    "wasPrice": 15.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -29862,6 +30532,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-d376765",
+    "price": 5.89,
+    "delivered": true,
+    "wasPrice": 13.95,
+    "percentOff": 57,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3442180004428",
     "price": 34.98,
     "delivered": true,
@@ -29885,7 +30565,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3442180004442",
     "price": 30.99,
     "delivered": true,
-    "wasPrice": 41.86,
+    "wasPrice": 41.79,
     "percentOff": 25,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -29895,8 +30575,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3508445002636",
     "price": 702.99,
     "delivered": true,
-    "wasPrice": 1016.99,
-    "percentOff": 30,
+    "wasPrice": 852.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -29912,31 +30592,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5060524511166",
-    "price": 20.05,
+    "fragranceId": "beaute-boulevard-l325921",
+    "price": 24.11,
     "delivered": true,
-    "wasPrice": 27,
-    "percentOff": 25,
-    "retailerId": "perfume-click",
+    "wasPrice": 47,
+    "percentOff": 48,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-5060524511159",
-    "price": 25.05,
+    "fragranceId": "ean-5425039223667",
+    "price": 12.85,
     "delivered": true,
-    "wasPrice": 37,
-    "percentOff": 32,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3357555040010",
-    "price": 13.3,
-    "delivered": true,
-    "wasPrice": 22,
-    "percentOff": 39,
+    "wasPrice": 24,
+    "percentOff": 46,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -29957,16 +30627,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 35.5,
     "percentOff": 51,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3414202000626",
-    "price": 17.35,
-    "delivered": true,
-    "wasPrice": 45,
-    "percentOff": 61,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -30132,16 +30792,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423222015961",
-    "price": 53.48,
-    "delivered": true,
-    "wasPrice": 78.99,
-    "percentOff": 32,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8056669925699",
     "price": 70.55,
     "delivered": true,
@@ -30212,6 +30862,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8011003852727",
+    "price": 27.7,
+    "delivered": true,
+    "wasPrice": 44,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0085715801715",
     "price": 31.98,
     "delivered": true,
@@ -30258,16 +30918,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 56,
     "percentOff": 60,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640233340233",
-    "price": 32.98,
-    "delivered": true,
-    "wasPrice": 50.6,
-    "percentOff": 34,
-    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -30322,16 +30972,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0085805763749",
-    "price": 12.1,
-    "delivered": true,
-    "wasPrice": 22,
-    "percentOff": 45,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-085805069308",
     "price": 15.5,
     "delivered": true,
@@ -30347,6 +30987,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 30,
     "percentOff": 41,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8032529115851",
+    "price": 11.7,
+    "delivered": true,
+    "wasPrice": 22,
+    "percentOff": 46,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -30502,6 +31152,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3614229478693",
+    "price": 34.3,
+    "delivered": true,
+    "wasPrice": 52,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616303456313",
+    "price": 38.4,
+    "delivered": true,
+    "wasPrice": 57,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616303452414",
     "price": 21.8,
     "delivered": true,
@@ -30532,16 +31202,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Escentric Molecules"
   },
   {
-    "fragranceId": "ean-0887167800212",
-    "price": 69.26,
-    "delivered": true,
-    "wasPrice": 104,
-    "percentOff": 33,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-0887167466135",
     "price": 33.6,
     "delivered": true,
@@ -30567,6 +31227,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 140,
     "percentOff": 44,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3760168590016",
+    "price": 49.45,
+    "delivered": true,
+    "wasPrice": 70,
+    "percentOff": 29,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -30965,8 +31635,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0679602402125",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -31052,12 +31722,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-7640164031057",
-    "price": 59.31,
+    "fragranceId": "ean-7640164031040",
+    "price": 74.15,
     "delivered": true,
-    "wasPrice": 81,
-    "percentOff": 26,
-    "retailerId": "debenhams",
+    "wasPrice": 117.2,
+    "percentOff": 36,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -31092,6 +31762,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3274870002724",
+    "price": 30.2,
+    "delivered": true,
+    "wasPrice": 53,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3274872487376",
     "price": 48,
     "delivered": true,
@@ -31107,6 +31787,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 154,
     "percentOff": 47,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3274872419292",
+    "price": 36.7,
+    "delivered": true,
+    "wasPrice": 59,
+    "percentOff": 37,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -31192,26 +31882,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616301794653",
-    "price": 48.35,
-    "delivered": true,
-    "wasPrice": 74,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3614229382167",
-    "price": 69.95,
-    "delivered": true,
-    "wasPrice": 125,
-    "percentOff": 44,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3346470143227",
     "price": 74.7,
     "delivered": true,
@@ -31247,16 +31917,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 54.5,
     "percentOff": 62,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-085715002341",
-    "price": 21.9,
-    "delivered": true,
-    "wasPrice": 39,
-    "percentOff": 43,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -31562,16 +32222,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614229824742",
-    "price": 99.15,
-    "delivered": true,
-    "wasPrice": 139,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3616305040565",
     "price": 59.99,
     "delivered": true,
@@ -31785,8 +32435,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3355991005976",
     "price": 25.99,
     "delivered": true,
-    "wasPrice": 36.99,
-    "percentOff": 29,
+    "wasPrice": 31.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -31795,8 +32445,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3355991005297",
     "price": 34.99,
     "delivered": true,
-    "wasPrice": 48.99,
-    "percentOff": 28,
+    "wasPrice": 42.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -31815,19 +32465,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3355991004665",
     "price": 35.99,
     "delivered": true,
-    "wasPrice": 50.99,
-    "percentOff": 29,
+    "wasPrice": 43.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3355991005846",
-    "price": 19.6,
-    "delivered": true,
-    "wasPrice": 35,
-    "percentOff": 44,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -31835,8 +32475,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3355991004672",
     "price": 35.99,
     "delivered": true,
-    "wasPrice": 50.99,
-    "percentOff": 29,
+    "wasPrice": 43.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -31848,6 +32488,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 180,
     "percentOff": 74,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-l125982",
+    "price": 61.99,
+    "delivered": true,
+    "wasPrice": 83,
+    "percentOff": 25,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -31882,22 +32532,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-g036614",
+    "price": 76.99,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3700222270508",
     "price": 11.78,
     "delivered": true,
     "wasPrice": 31,
     "percentOff": 62,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-5050456080700",
-    "price": 19.45,
-    "delivered": true,
-    "wasPrice": 30,
-    "percentOff": 35,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -31918,26 +32568,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 10.99,
     "percentOff": 1,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015182620",
-    "price": 15.7,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 60,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015182644",
-    "price": 22.98,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 42,
-    "retailerId": "debenhams",
     "kind": "retailer",
     "houseName": null
   },
@@ -31982,16 +32612,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6294015183061",
-    "price": 17.98,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 55,
-    "retailerId": "debenhams",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6294015130201",
     "price": 10.8,
     "delivered": true,
@@ -32032,27 +32652,7 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6294015182668",
-    "price": 15.7,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 60,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015182675",
-    "price": 22.98,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 42,
-    "retailerId": "debenhams",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015182682",
+    "fragranceId": "ean-6294015182699",
     "price": 22.98,
     "delivered": true,
     "wasPrice": 39.99,
@@ -32088,6 +32688,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 11,
     "percentOff": 1,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015183054",
+    "price": 17.98,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 55,
+    "retailerId": "debenhams",
     "kind": "retailer",
     "houseName": null
   },
@@ -32212,12 +32822,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460145053",
-    "price": 32.98,
+    "fragranceId": "ean-3386460115551",
+    "price": 26.65,
     "delivered": true,
-    "wasPrice": 53.99,
-    "percentOff": 38,
-    "retailerId": "mybeauty-boutique",
+    "wasPrice": 45,
+    "percentOff": 40,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460145053",
+    "price": 26.46,
+    "delivered": true,
+    "wasPrice": 68,
+    "percentOff": 61,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -32278,16 +32898,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 78,
     "percentOff": 45,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274872430587",
-    "price": 48.95,
-    "delivered": true,
-    "wasPrice": 72,
-    "percentOff": 32,
-    "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -32412,21 +33022,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614229371482",
-    "price": 22.5,
-    "delivered": true,
-    "wasPrice": 37,
-    "percentOff": 39,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3616303429577",
     "price": 30.23,
     "delivered": true,
     "wasPrice": 74,
     "percentOff": 59,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640111502678",
+    "price": 138.87,
+    "delivered": true,
+    "wasPrice": 230,
+    "percentOff": 39,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -32448,16 +33058,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 79,
     "percentOff": 61,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "fenwick-fen-415999",
-    "price": 63.18,
-    "delivered": true,
-    "wasPrice": 92,
-    "percentOff": 31,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -32662,6 +33262,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6291108738108",
+    "price": 21.55,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 46,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6291108738245",
     "price": 28.98,
     "delivered": true,
@@ -32795,8 +33405,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291108523544",
     "price": 21.99,
     "delivered": true,
-    "wasPrice": 30.99,
-    "percentOff": 29,
+    "wasPrice": 26.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -32805,8 +33415,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291108521861",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -32875,8 +33485,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760307581066",
     "price": 113.99,
     "delivered": true,
-    "wasPrice": 163.99,
-    "percentOff": 30,
+    "wasPrice": 138.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -32885,8 +33495,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5060426155963",
     "price": 25.99,
     "delivered": true,
-    "wasPrice": 36.99,
-    "percentOff": 29,
+    "wasPrice": 31.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -32907,6 +33517,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 79,
     "percentOff": 62,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3760269841857",
+    "price": 30.05,
+    "delivered": true,
+    "wasPrice": 54,
+    "percentOff": 44,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -32938,6 +33558,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 39.95,
     "percentOff": 27,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6299800204334",
+    "price": 17.5,
+    "delivered": true,
+    "wasPrice": 34.95,
+    "percentOff": 49,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -33032,16 +33662,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6299800203702",
-    "price": 28.79,
-    "delivered": true,
-    "wasPrice": 44.95,
-    "percentOff": 35,
-    "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6299800204181",
     "price": 25.76,
     "delivered": true,
@@ -33065,8 +33685,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6309800205238",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33085,8 +33705,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203733",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33105,8 +33725,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6309800205245",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33485,8 +34105,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3595471024008",
     "price": 39.99,
     "delivered": true,
-    "wasPrice": 56.99,
-    "percentOff": 29,
+    "wasPrice": 48.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33602,11 +34222,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-008080124852",
-    "price": 101.05,
+    "fragranceId": "ean-0008080124814",
+    "price": 94.45,
     "delivered": true,
-    "wasPrice": 149,
+    "wasPrice": 140,
     "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5030805014921",
+    "price": 103.2,
+    "delivered": true,
+    "wasPrice": 140,
+    "percentOff": 26,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -33615,19 +34245,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260454261",
     "price": 72.99,
     "delivered": true,
-    "wasPrice": 104.99,
-    "percentOff": 30,
+    "wasPrice": 88.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3760260450034",
-    "price": 67,
-    "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 39,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -33635,8 +34255,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260452564",
     "price": 46.99,
     "delivered": true,
-    "wasPrice": 66.99,
-    "percentOff": 29,
+    "wasPrice": 56.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33645,8 +34265,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260452755",
     "price": 63.99,
     "delivered": true,
-    "wasPrice": 90.99,
-    "percentOff": 29,
+    "wasPrice": 77.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33655,8 +34275,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260451550",
     "price": 74.99,
     "delivered": true,
-    "wasPrice": 106.99,
-    "percentOff": 29,
+    "wasPrice": 90.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33675,8 +34295,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260453424",
     "price": 68.99,
     "delivered": true,
-    "wasPrice": 98.99,
-    "percentOff": 30,
+    "wasPrice": 83.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33705,8 +34325,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3605470400441",
     "price": 13.99,
     "delivered": true,
-    "wasPrice": 19.99,
-    "percentOff": 30,
+    "wasPrice": 16.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33738,6 +34358,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 62,
     "percentOff": 47,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003838387",
+    "price": 20.55,
+    "delivered": true,
+    "wasPrice": 36,
+    "percentOff": 42,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -33862,16 +34492,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-812256023999",
-    "price": 22.65,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 43,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-719346615921",
     "price": 26.98,
     "delivered": true,
@@ -33892,16 +34512,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3137370359494",
-    "price": 51.95,
-    "delivered": true,
-    "wasPrice": 114,
-    "percentOff": 54,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8681008055494",
     "price": 147.35,
     "delivered": true,
@@ -33915,8 +34525,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874137",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -33925,8 +34535,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0085715567239",
     "price": 21.99,
     "delivered": true,
-    "wasPrice": 30.99,
-    "percentOff": 29,
+    "wasPrice": 26.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -34172,6 +34782,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411114057194",
+    "price": 25.85,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3616302968282",
     "price": 23.59,
     "delivered": true,
@@ -34185,8 +34805,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0679602111225",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 25.99,
-    "percentOff": 30,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -34352,6 +34972,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0679602158121",
+    "price": 14.3,
+    "delivered": true,
+    "wasPrice": 25,
+    "percentOff": 42,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0679602159135",
     "price": 14.3,
     "delivered": true,
@@ -34362,21 +34992,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0679602158190",
+    "price": 16.83,
+    "delivered": true,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0679602159104",
     "price": 19.45,
     "delivered": true,
     "wasPrice": 30,
     "percentOff": 35,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0679602158114",
-    "price": 21.85,
-    "delivered": true,
-    "wasPrice": 49,
-    "percentOff": 55,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -34475,7 +35105,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0679602001571",
     "price": 24.99,
     "delivered": true,
-    "wasPrice": 35.05,
+    "wasPrice": 34.99,
     "percentOff": 28,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -34485,7 +35115,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0679602001618",
     "price": 44.99,
     "delivered": true,
-    "wasPrice": 62.09,
+    "wasPrice": 61.98,
     "percentOff": 27,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -34632,21 +35262,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3349668622269",
+    "price": 24.65,
+    "delivered": true,
+    "wasPrice": 26,
+    "percentOff": 5,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3349668515660",
     "price": 58.95,
     "delivered": true,
     "wasPrice": 95,
     "percentOff": 37,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3349668536504",
-    "price": 48.95,
-    "delivered": true,
-    "wasPrice": 76,
-    "percentOff": 35,
     "retailerId": "fragrance-click",
     "kind": "retailer",
     "houseName": null
@@ -34682,6 +35312,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3605972910288",
+    "price": 29.35,
+    "delivered": true,
+    "wasPrice": 50,
+    "percentOff": 41,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3360372012825",
     "price": 39.5,
     "delivered": true,
@@ -34705,8 +35345,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0614514253038",
     "price": 35.99,
     "delivered": true,
-    "wasPrice": 50.99,
-    "percentOff": 29,
+    "wasPrice": 43.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -34795,8 +35435,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0737052582078",
     "price": 11.99,
     "delivered": true,
-    "wasPrice": 15.99,
-    "percentOff": 25,
+    "wasPrice": 14.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -34808,6 +35448,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 20.5,
     "percentOff": 66,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5000386120359",
+    "price": 9.18,
+    "delivered": true,
+    "wasPrice": 10.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -34842,22 +35492,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3386460136754",
+    "price": 37.9,
+    "delivered": true,
+    "wasPrice": 75,
+    "percentOff": 49,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0810023677345",
     "price": 31.98,
     "delivered": true,
     "wasPrice": 39.99,
     "percentOff": 20,
     "retailerId": "perfume-direct",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0810023679646",
-    "price": 24.65,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 38,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -34875,8 +35525,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640111505495",
     "price": 15.99,
     "delivered": true,
-    "wasPrice": 21.99,
-    "percentOff": 27,
+    "wasPrice": 19.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -34902,21 +35552,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "justmylook-sjp0045",
-    "price": 10.98,
-    "delivered": true,
-    "wasPrice": 14.99,
-    "percentOff": 26,
-    "retailerId": "lloyds-pharmacy",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-0085715251794",
     "price": 24.99,
     "delivered": true,
-    "wasPrice": 35.99,
-    "percentOff": 30,
+    "wasPrice": 30.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -35022,22 +35662,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-025929181036",
-    "price": 15.35,
-    "delivered": true,
-    "wasPrice": 24.95,
-    "percentOff": 38,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-025929181234",
     "price": 15.35,
     "delivered": true,
     "wasPrice": 19.95,
     "percentOff": 23,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5060523017652",
+    "price": 21.05,
+    "delivered": true,
+    "wasPrice": 32,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -35078,6 +35718,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 280,
     "percentOff": 48,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-679602481335",
+    "price": 101.99,
+    "delivered": true,
+    "wasPrice": 139,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -35127,16 +35777,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 200,
     "percentOff": 19,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8016741882517",
-    "price": 131.3,
-    "delivered": true,
-    "wasPrice": 175,
-    "percentOff": 24,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -35212,26 +35852,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-888066008433",
-    "price": 144.95,
-    "delivered": true,
-    "wasPrice": 230,
-    "percentOff": 36,
-    "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-888066024082",
-    "price": 172.55,
-    "delivered": true,
-    "wasPrice": 230,
-    "percentOff": 24,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-888066004459",
     "price": 247.65,
     "delivered": true,
@@ -35302,26 +35922,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-7640496670184",
-    "price": 29.55,
-    "delivered": true,
-    "wasPrice": 42,
-    "percentOff": 29,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640496670177",
-    "price": 36.48,
-    "delivered": true,
-    "wasPrice": 58.99,
-    "percentOff": 38,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-022548024317",
     "price": 32.98,
     "delivered": true,
@@ -35345,7 +35945,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640496672010",
     "price": 28.99,
     "delivered": true,
-    "wasPrice": 40.06,
+    "wasPrice": 39.99,
     "percentOff": 27,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -35392,11 +35992,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8058045425625",
+    "price": 23.59,
+    "delivered": true,
+    "wasPrice": 47,
+    "percentOff": 49,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0860004550389",
     "price": 40.99,
     "delivered": true,
-    "wasPrice": 58.99,
-    "percentOff": 30,
+    "wasPrice": 49.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -35452,12 +36062,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003891092",
-    "price": 95.44,
+    "fragranceId": "ean-8011003891061",
+    "price": 88.99,
     "delivered": true,
-    "wasPrice": 152,
-    "percentOff": 37,
-    "retailerId": "the-beauty-store-uk",
+    "wasPrice": 151.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -35482,16 +36092,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003823093",
-    "price": 56.55,
-    "delivered": true,
-    "wasPrice": 105,
-    "percentOff": 46,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-03614273919982",
     "price": 70.99,
     "delivered": true,
@@ -35502,11 +36102,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8054320902553",
-    "price": 158.85,
+    "fragranceId": "ean-8033488155179",
+    "price": 170.7,
     "delivered": true,
-    "wasPrice": 240,
-    "percentOff": 33,
+    "wasPrice": 265,
+    "percentOff": 35,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -35522,22 +36122,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-c881649",
+    "price": 108.99,
+    "delivered": true,
+    "wasPrice": 155,
+    "percentOff": 29,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8033488151539",
     "price": 172.6,
     "delivered": true,
     "wasPrice": 199.13,
     "percentOff": 13,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8054320902447",
-    "price": 256.74,
-    "delivered": true,
-    "wasPrice": 340,
-    "percentOff": 24,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -35842,16 +36442,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0085715169907",
-    "price": 23.6,
-    "delivered": true,
-    "wasPrice": 41,
-    "percentOff": 42,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "beaute-boulevard-b36423",
     "price": 32.98,
     "delivered": true,
@@ -35992,16 +36582,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6290171072256",
-    "price": 21.1,
-    "delivered": true,
-    "wasPrice": 35,
-    "percentOff": 39,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6290360615219",
     "price": 29.99,
     "delivered": false,
@@ -36125,8 +36705,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-4013671002101",
     "price": 30.99,
     "delivered": true,
-    "wasPrice": 43.99,
-    "percentOff": 29,
+    "wasPrice": 37.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -36375,8 +36955,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0840881132014",
     "price": 15.99,
     "delivered": true,
-    "wasPrice": 21.99,
-    "percentOff": 27,
+    "wasPrice": 19.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -36385,9 +36965,19 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0840881132038",
     "price": 15.99,
     "delivered": true,
-    "wasPrice": 21.99,
-    "percentOff": 27,
+    "wasPrice": 19.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8427395650009",
+    "price": 25.05,
+    "delivered": true,
+    "wasPrice": 38,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -36642,6 +37232,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "ean-6085010041742",
+    "price": 21.95,
+    "delivered": true,
+    "wasPrice": 34.99,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
     "fragranceId": "ean-6294015171280",
     "price": 11.25,
     "delivered": true,
@@ -36682,14 +37282,24 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
-    "fragranceId": "ean-6294015166118",
-    "price": 20.75,
+    "fragranceId": "ean-6294015176117",
+    "price": 42.99,
     "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 30,
+    "wasPrice": 58,
+    "percentOff": 25,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-6294015176087",
+    "price": 39.2,
+    "delivered": true,
+    "wasPrice": 58,
+    "percentOff": 32,
     "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Armaf"
+    "kind": "retailer",
+    "houseName": null
   },
   {
     "fragranceId": "ean-6294015166224",
@@ -36697,6 +37307,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 29.99,
     "percentOff": 15,
+    "retailerId": "perfume-click",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
+    "fragranceId": "ean-6294015102253",
+    "price": 20.2,
+    "delivered": true,
+    "wasPrice": 29.99,
+    "percentOff": 32,
     "retailerId": "perfume-click",
     "kind": "house",
     "houseName": "Armaf"
@@ -36742,6 +37362,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6294015168129",
+    "price": 32,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 19,
+    "retailerId": "perfume-click",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
+    "fragranceId": "ean-6294015166149",
+    "price": 28.8,
+    "delivered": true,
+    "wasPrice": 39.99,
+    "percentOff": 27,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6295199809532",
     "price": 22.5,
     "delivered": false,
@@ -36782,41 +37422,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6294015109313",
-    "price": 26.49,
+    "fragranceId": "ean-6294015189568",
+    "price": 18.2,
     "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 33,
-    "retailerId": "emirates-oud",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015163933",
-    "price": 38.75,
-    "delivered": true,
-    "wasPrice": 59.99,
-    "percentOff": 35,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "emirates-oud-15442713182557-default-title",
-    "price": 26.49,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 33,
-    "retailerId": "emirates-oud",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015149388",
-    "price": 27.5,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 31,
+    "wasPrice": 29.99,
+    "percentOff": 39,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -36847,16 +37457,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 39.99,
     "percentOff": 42,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015160727",
-    "price": 20.2,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 49,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -36902,26 +37502,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
-    "fragranceId": "ean-6294015188202",
-    "price": 26.6,
-    "delivered": true,
-    "wasPrice": 44.99,
-    "percentOff": 40,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6085010092058",
-    "price": 16.5,
-    "delivered": true,
-    "wasPrice": 24.99,
-    "percentOff": 33,
-    "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Armaf"
-  },
-  {
     "fragranceId": "ean-6294015101386",
     "price": 20.1,
     "delivered": true,
@@ -36962,6 +37542,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "armaf-arf32105663",
+    "price": 22.48,
+    "delivered": true,
+    "wasPrice": 29.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique",
+    "kind": "house",
+    "houseName": "Armaf"
+  },
+  {
     "fragranceId": "ean-6294015182880",
     "price": 34.65,
     "delivered": true,
@@ -36982,14 +37572,14 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
-    "fragranceId": "ean-6294015161519",
-    "price": 20.1,
+    "fragranceId": "ean-6294015161526",
+    "price": 21.45,
     "delivered": true,
-    "wasPrice": 34.99,
-    "percentOff": 42,
+    "wasPrice": 35.95,
+    "percentOff": 40,
     "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Armaf"
+    "kind": "retailer",
+    "houseName": null
   },
   {
     "fragranceId": "ean-6290360599465",
@@ -37077,6 +37667,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 225,
     "percentOff": 56,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003866496",
+    "price": 76.05,
+    "delivered": true,
+    "wasPrice": 125,
+    "percentOff": 39,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -37172,6 +37772,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-5056528420634",
+    "price": 41.9,
+    "delivered": true,
+    "wasPrice": 56,
+    "percentOff": 25,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0850038675134",
     "price": 20.2,
     "delivered": true,
@@ -37195,8 +37805,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0860004550372",
     "price": 40.99,
     "delivered": true,
-    "wasPrice": 58.99,
-    "percentOff": 30,
+    "wasPrice": 49.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -37205,9 +37815,19 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0860004550334",
     "price": 40.99,
     "delivered": true,
-    "wasPrice": 58.99,
-    "percentOff": 30,
+    "wasPrice": 49.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-7640163971286",
+    "price": 22.2,
+    "delivered": true,
+    "wasPrice": 43,
+    "percentOff": 48,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -37215,9 +37835,39 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0850050062332",
     "price": 59.99,
     "delivered": true,
-    "wasPrice": 84.99,
-    "percentOff": 29,
+    "wasPrice": 72.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0850050062110",
+    "price": 60,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 42,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0850050062219",
+    "price": 61.3,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 41,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0888874002401",
+    "price": 160.3,
+    "delivered": true,
+    "wasPrice": 245,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -37265,9 +37915,19 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3386460114356",
     "price": 10.99,
     "delivered": true,
-    "wasPrice": 15.99,
-    "percentOff": 31,
+    "wasPrice": 13.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0737052904177",
+    "price": 10.05,
+    "delivered": true,
+    "wasPrice": 21,
+    "percentOff": 52,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -37492,6 +38152,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0783320419683",
+    "price": 151.15,
+    "delivered": true,
+    "wasPrice": 212,
+    "percentOff": 28,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-783320425042",
     "price": 102.75,
     "delivered": true,
@@ -37502,12 +38172,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0783320423949",
+    "price": 69.99,
+    "delivered": true,
+    "wasPrice": 99,
+    "percentOff": 29,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-783320420566",
     "price": 68.95,
     "delivered": true,
     "wasPrice": 119,
     "percentOff": 42,
     "retailerId": "fragrance-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0783320409585",
+    "price": 39.92,
+    "delivered": true,
+    "wasPrice": 78,
+    "percentOff": 48,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -37598,16 +38288,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 75,
     "percentOff": 51,
     "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0088300105380",
-    "price": 22.98,
-    "delivered": true,
-    "wasPrice": 44,
-    "percentOff": 47,
-    "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
   },
@@ -37705,8 +38385,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017016488",
     "price": 18.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 29,
+    "wasPrice": 23.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -37732,6 +38412,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-p7238",
+    "price": 56.48,
+    "delivered": true,
+    "wasPrice": 70.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8411061853115",
     "price": 33.75,
     "delivered": true,
@@ -37752,12 +38442,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061120620",
-    "price": 75.95,
+    "fragranceId": "ean-8411061123911",
+    "price": 56.5,
     "delivered": true,
-    "wasPrice": 105,
-    "percentOff": 27,
-    "retailerId": "fragrance-click",
+    "wasPrice": 86,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061711774",
+    "price": 37.48,
+    "delivered": true,
+    "wasPrice": 60.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -37772,11 +38472,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061782347",
-    "price": 84.75,
+    "fragranceId": "ean-8411061035832",
+    "price": 16.75,
     "delivered": true,
-    "wasPrice": 90,
-    "percentOff": 5,
+    "wasPrice": 23,
+    "percentOff": 27,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -37802,11 +38502,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411061057377",
+    "price": 20.7,
+    "delivered": true,
+    "wasPrice": 28,
+    "percentOff": 26,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8411061067925",
     "price": 62.35,
     "delivered": true,
     "wasPrice": 73,
     "percentOff": 14,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061083871",
+    "price": 26.15,
+    "delivered": true,
+    "wasPrice": 32,
+    "percentOff": 18,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -37847,6 +38567,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 140,
     "percentOff": 27,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3387956003123",
+    "price": 52.9,
+    "delivered": true,
+    "wasPrice": 85,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3387952601125",
+    "price": 206.95,
+    "delivered": true,
+    "wasPrice": 306,
+    "percentOff": 32,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -37992,16 +38732,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "escentual-chloelovestory003",
-    "price": 69.99,
-    "delivered": true,
-    "wasPrice": 77.99,
-    "percentOff": 10,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3616302968206",
     "price": 25.4,
     "delivered": true,
@@ -38115,19 +38845,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3331434010035",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 24.99,
-    "percentOff": 28,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "mybeauty-boutique-shopify-gb-8338196988041-44927033671817",
-    "price": 5.89,
-    "delivered": true,
-    "wasPrice": 13.95,
-    "percentOff": 57,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -38138,6 +38858,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 62.99,
     "percentOff": 38,
     "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0849017013975",
+    "price": 16.25,
+    "delivered": true,
+    "wasPrice": 28,
+    "percentOff": 41,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -38188,16 +38918,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 973.99,
     "percentOff": 46,
     "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "mybeauty-boutique-shopify-gb-8338197610633-44927034359945",
-    "price": 24.11,
-    "delivered": true,
-    "wasPrice": 47,
-    "percentOff": 48,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -38412,16 +39132,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8011003852727",
-    "price": 27.7,
-    "delivered": true,
-    "wasPrice": 44,
-    "percentOff": 37,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8011003845699",
     "price": 33.25,
     "delivered": true,
@@ -38502,6 +39212,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0085715807588",
+    "price": 52.9,
+    "delivered": true,
+    "wasPrice": 77,
+    "percentOff": 31,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0085715807625",
     "price": 52.9,
     "delivered": true,
@@ -38517,6 +39237,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 30,
     "percentOff": 49,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0849017011216",
+    "price": 16.25,
+    "delivered": true,
+    "wasPrice": 28,
+    "percentOff": 41,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -38645,8 +39375,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017015498",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -38655,19 +39385,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017016716",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8032529115851",
-    "price": 11.7,
-    "delivered": true,
-    "wasPrice": 22,
-    "percentOff": 46,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -38732,26 +39452,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3614229478693",
-    "price": 34.3,
-    "delivered": true,
-    "wasPrice": 52,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3616303456313",
-    "price": 38.4,
-    "delivered": true,
-    "wasPrice": 57,
-    "percentOff": 32,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "fenwick-f-01822377",
     "price": 108,
     "delivered": true,
@@ -38788,16 +39488,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 125,
     "percentOff": 20,
     "retailerId": "fenwick",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3760168590016",
-    "price": 49.45,
-    "delivered": true,
-    "wasPrice": 70,
-    "percentOff": 29,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -38868,16 +39558,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 109.99,
     "percentOff": 43,
     "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0886266501143",
-    "price": 51.07,
-    "delivered": true,
-    "wasPrice": 110,
-    "percentOff": 53,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -39385,8 +40065,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3516641842321",
     "price": 20.99,
     "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 30,
+    "wasPrice": 25.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -39405,8 +40085,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3516642370311",
     "price": 21.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 31,
+    "wasPrice": 26.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -39752,6 +40432,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0851035000042",
+    "price": 13.7,
+    "delivered": true,
+    "wasPrice": 25,
+    "percentOff": 45,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "beaute-boulevard-t294",
     "price": 23.1,
     "delivered": true,
@@ -39782,42 +40472,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-7640164031040",
-    "price": 74.15,
-    "delivered": true,
-    "wasPrice": 117.2,
-    "percentOff": 36,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640164030814",
-    "price": 68.4,
-    "delivered": true,
-    "wasPrice": 104.96,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-7640164030012",
     "price": 46.4,
     "delivered": true,
     "wasPrice": 78,
     "percentOff": 40,
     "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3274870002724",
-    "price": 30.2,
-    "delivered": true,
-    "wasPrice": 53,
-    "percentOff": 43,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -39862,16 +40522,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3274872419292",
-    "price": 36.7,
-    "delivered": true,
-    "wasPrice": 59,
-    "percentOff": 37,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3274872438811",
     "price": 31.98,
     "delivered": true,
@@ -39902,6 +40552,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-y595596",
+    "price": 13.18,
+    "delivered": true,
+    "wasPrice": 21.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "beaute-boulevard-n2297",
     "price": 13.68,
     "delivered": true,
@@ -39925,8 +40585,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8052204136858",
     "price": 231.99,
     "delivered": true,
-    "wasPrice": 334.99,
-    "percentOff": 30,
+    "wasPrice": 281.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -40047,6 +40707,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 109,
     "percentOff": 55,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0085715322210",
+    "price": 25.05,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 44,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -40195,8 +40865,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6290362160564",
     "price": 15.99,
     "delivered": true,
-    "wasPrice": 21.99,
-    "percentOff": 27,
+    "wasPrice": 19.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -40235,8 +40905,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017014200",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -40277,6 +40947,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 140,
     "percentOff": 43,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3346130438267",
+    "price": 27.25,
+    "delivered": true,
+    "wasPrice": 32,
+    "percentOff": 14,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3346130009702",
+    "price": 45.2,
+    "delivered": true,
+    "wasPrice": 68,
+    "percentOff": 33,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -40325,9 +41015,19 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0085715270030",
     "price": 16.99,
     "delivered": true,
-    "wasPrice": 23.99,
-    "percentOff": 29,
+    "wasPrice": 20.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0085715268112",
+    "price": 16.4,
+    "delivered": true,
+    "wasPrice": 39,
+    "percentOff": 57,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -40552,6 +41252,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-5022479500510",
+    "price": 14.3,
+    "delivered": true,
+    "wasPrice": 25,
+    "percentOff": 42,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-7640111493723",
     "price": 16.85,
     "delivered": true,
@@ -40592,16 +41302,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "escentual-lemale26",
-    "price": 87.49,
-    "delivered": true,
-    "wasPrice": 152.99,
-    "percentOff": 42,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3700222271000",
     "price": 17.95,
     "delivered": true,
@@ -40615,8 +41315,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3430750211451",
     "price": 16.99,
     "delivered": true,
-    "wasPrice": 23.99,
-    "percentOff": 29,
+    "wasPrice": 20.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -40625,8 +41325,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3430750528641",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -40702,32 +41402,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6294015182699",
-    "price": 22.98,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 42,
-    "retailerId": "debenhams",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015183054",
-    "price": 17.98,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 55,
-    "retailerId": "debenhams",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "escentual-jimmychooblossom012",
     "price": 31.71,
     "delivered": true,
     "wasPrice": 45,
     "percentOff": 29,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460103749",
+    "price": 9.8,
+    "delivered": true,
+    "wasPrice": 12,
+    "percentOff": 18,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -40992,6 +41682,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-f146351",
+    "price": 46.99,
+    "delivered": true,
+    "wasPrice": 55,
+    "percentOff": 14,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "beaute-boulevard-b246429",
     "price": 28.88,
     "delivered": true,
@@ -41205,8 +41905,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8051013370705",
     "price": 26.99,
     "delivered": true,
-    "wasPrice": 37.99,
-    "percentOff": 28,
+    "wasPrice": 32.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41215,8 +41915,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8051013370682",
     "price": 26.99,
     "delivered": true,
-    "wasPrice": 37.99,
-    "percentOff": 28,
+    "wasPrice": 32.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41225,8 +41925,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8051013370668",
     "price": 26.99,
     "delivered": true,
-    "wasPrice": 37.99,
-    "percentOff": 28,
+    "wasPrice": 32.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41235,8 +41935,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8051013370675",
     "price": 32.99,
     "delivered": true,
-    "wasPrice": 47.99,
-    "percentOff": 31,
+    "wasPrice": 39.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41245,8 +41945,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8002135133266",
     "price": 28.99,
     "delivered": true,
-    "wasPrice": 41.99,
-    "percentOff": 30,
+    "wasPrice": 35.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41297,6 +41997,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 45,
     "percentOff": 44,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616302931637",
+    "price": 28.3,
+    "delivered": true,
+    "wasPrice": 47,
+    "percentOff": 39,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -41365,8 +42075,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640171196466",
     "price": 71.99,
     "delivered": true,
-    "wasPrice": 103.99,
-    "percentOff": 30,
+    "wasPrice": 87.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41375,19 +42085,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640171191478",
     "price": 69.99,
     "delivered": true,
-    "wasPrice": 100.99,
-    "percentOff": 30,
+    "wasPrice": 84.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640111502678",
-    "price": 138.87,
-    "delivered": true,
-    "wasPrice": 230,
-    "percentOff": 39,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -41395,8 +42095,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640171198194",
     "price": 16.99,
     "delivered": true,
-    "wasPrice": 23.99,
-    "percentOff": 29,
+    "wasPrice": 20.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41407,6 +42107,36 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 72,
     "percentOff": 46,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5055116606603",
+    "price": 19.4,
+    "delivered": true,
+    "wasPrice": 30,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5055116606368",
+    "price": 18.6,
+    "delivered": true,
+    "wasPrice": 30,
+    "percentOff": 38,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5055116606597",
+    "price": 17.75,
+    "delivered": true,
+    "wasPrice": 30,
+    "percentOff": 40,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -41662,16 +42392,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6291108738108",
-    "price": 21.55,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 46,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-6290360591988",
     "price": 34.99,
     "delivered": false,
@@ -41825,7 +42545,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291107456065",
     "price": 21.99,
     "delivered": true,
-    "wasPrice": 30.04,
+    "wasPrice": 29.99,
     "percentOff": 26,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -41915,8 +42635,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017016570",
     "price": 21.99,
     "delivered": true,
-    "wasPrice": 30.99,
-    "percentOff": 29,
+    "wasPrice": 26.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41925,8 +42645,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017016587",
     "price": 21.99,
     "delivered": true,
-    "wasPrice": 30.99,
-    "percentOff": 29,
+    "wasPrice": 26.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41938,16 +42658,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 45,
     "percentOff": 49,
     "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3760269841857",
-    "price": 30.05,
-    "delivered": true,
-    "wasPrice": 54,
-    "percentOff": 44,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -41975,8 +42685,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205256",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41985,8 +42695,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204969",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -41995,19 +42705,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203788",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6299800204334",
-    "price": 17.5,
-    "delivered": true,
-    "wasPrice": 34.95,
-    "percentOff": 49,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -42025,8 +42725,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204723",
     "price": 18.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 29,
+    "wasPrice": 23.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42035,8 +42735,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203825",
     "price": 20.99,
     "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 30,
+    "wasPrice": 25.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42045,8 +42745,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205263",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42055,8 +42755,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205270",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42065,8 +42765,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205294",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42085,8 +42785,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204778",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42095,8 +42795,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800200794",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42105,8 +42805,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800200800",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42115,8 +42815,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800202613",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42125,8 +42825,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800202606",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42135,8 +42835,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800202071",
     "price": 20.99,
     "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 30,
+    "wasPrice": 25.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42145,8 +42845,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800202293",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42155,8 +42855,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205348",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42165,8 +42865,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203955",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42185,8 +42885,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203801",
     "price": 20.99,
     "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 30,
+    "wasPrice": 25.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42195,8 +42895,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205393",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42205,8 +42905,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204785",
     "price": 30.99,
     "delivered": true,
-    "wasPrice": 43.99,
-    "percentOff": 29,
+    "wasPrice": 37.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42215,8 +42915,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205362",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42225,8 +42925,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205355",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42235,8 +42935,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203757",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42245,8 +42945,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204273",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42255,8 +42955,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204297",
     "price": 18.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 29,
+    "wasPrice": 23.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42265,8 +42965,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204303",
     "price": 18.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 29,
+    "wasPrice": 23.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42275,8 +42975,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204280",
     "price": 20.99,
     "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 30,
+    "wasPrice": 25.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42285,8 +42985,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204266",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42295,8 +42995,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204259",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42315,8 +43015,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204884",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42802,11 +43502,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3760265192113",
+    "price": 65.7,
+    "delivered": true,
+    "wasPrice": 96,
+    "percentOff": 31,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3760265193639",
+    "price": 83.55,
+    "delivered": true,
+    "wasPrice": 125,
+    "percentOff": 33,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0849017017324",
     "price": 18.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 29,
+    "wasPrice": 23.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42935,8 +43655,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3595471061201",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 24.99,
-    "percentOff": 28,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42945,7 +43665,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3595471111029",
     "price": 50.99,
     "delivered": true,
-    "wasPrice": 70.1,
+    "wasPrice": 69.98,
     "percentOff": 27,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -42975,8 +43695,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3595471071156",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 25,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -42995,8 +43715,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3616300891896",
     "price": 12.99,
     "delivered": true,
-    "wasPrice": 18.99,
-    "percentOff": 31,
+    "wasPrice": 15.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43152,6 +43872,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-008080125507",
+    "price": 67.4,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 29,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "cult-beauty-global-17828073",
     "price": 54,
     "delivered": true,
@@ -43192,16 +43922,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0008080124814",
-    "price": 94.45,
-    "delivered": true,
-    "wasPrice": 140,
-    "percentOff": 32,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "cult-beauty-global-17828074",
     "price": 54,
     "delivered": true,
@@ -43212,12 +43932,32 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-008080153470",
+    "price": 70.99,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 25,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "cult-beauty-global-17828077",
     "price": 54,
     "delivered": true,
     "wasPrice": 70,
     "percentOff": 22,
     "retailerId": "fenwick",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "allbeauty-13639310",
+    "price": 61.6,
+    "delivered": true,
+    "wasPrice": 95,
+    "percentOff": 35,
+    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -43242,16 +43982,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5030805014921",
-    "price": 103.2,
-    "delivered": true,
-    "wasPrice": 140,
-    "percentOff": 26,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3760260451307",
     "price": 56.55,
     "delivered": true,
@@ -43265,8 +43995,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260450072",
     "price": 52.99,
     "delivered": true,
-    "wasPrice": 76.99,
-    "percentOff": 31,
+    "wasPrice": 64.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43315,8 +44045,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760260453547",
     "price": 46.99,
     "delivered": true,
-    "wasPrice": 66.99,
-    "percentOff": 29,
+    "wasPrice": 56.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43347,16 +44077,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 45,
     "percentOff": 37,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003838387",
-    "price": 20.55,
-    "delivered": true,
-    "wasPrice": 36,
-    "percentOff": 42,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -43415,8 +44135,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017012732",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 24.99,
-    "percentOff": 28,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43445,8 +44165,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5425017730538",
     "price": 13.99,
     "delivered": true,
-    "wasPrice": 19.99,
-    "percentOff": 30,
+    "wasPrice": 16.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43455,8 +44175,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5425039220130",
     "price": 14.99,
     "delivered": true,
-    "wasPrice": 20.99,
-    "percentOff": 28,
+    "wasPrice": 18.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43465,8 +44185,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5425039221175",
     "price": 14.99,
     "delivered": true,
-    "wasPrice": 20.99,
-    "percentOff": 28,
+    "wasPrice": 18.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43475,9 +44195,29 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5425017730774",
     "price": 14.99,
     "delivered": true,
-    "wasPrice": 20.99,
-    "percentOff": 28,
+    "wasPrice": 18.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-812256023944",
+    "price": 25.7,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3581000018679",
+    "price": 95.15,
+    "delivered": true,
+    "wasPrice": 157.48,
+    "percentOff": 39,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -43502,6 +44242,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3137370358916",
+    "price": 41.36,
+    "delivered": true,
+    "wasPrice": 69,
+    "percentOff": 40,
+    "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8681008055425",
+    "price": 88.2,
+    "delivered": true,
+    "wasPrice": 152.72,
+    "percentOff": 42,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8002135081956",
     "price": 39.65,
     "delivered": true,
@@ -43515,8 +44275,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874069",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43525,8 +44285,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874991",
     "price": 24.99,
     "delivered": true,
-    "wasPrice": 35.99,
-    "percentOff": 30,
+    "wasPrice": 30.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43535,8 +44295,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874311",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43545,8 +44305,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874328",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43555,8 +44315,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874410",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43565,8 +44325,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874403",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43575,8 +44335,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874083",
     "price": 31.99,
     "delivered": true,
-    "wasPrice": 44.99,
-    "percentOff": 28,
+    "wasPrice": 38.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -43802,22 +44562,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-5056245019876",
+    "price": 136.2,
+    "delivered": true,
+    "wasPrice": 215,
+    "percentOff": 36,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8436581942538",
     "price": 23.48,
     "delivered": true,
     "wasPrice": 48.99,
     "percentOff": 52,
     "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411114057194",
-    "price": 25.85,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 35,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -43985,29 +44745,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0679602591010",
     "price": 18.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 29,
+    "wasPrice": 23.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0679602158121",
-    "price": 14.3,
-    "delivered": true,
-    "wasPrice": 25,
-    "percentOff": 42,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0679602158190",
-    "price": 16.83,
-    "delivered": true,
-    "wasPrice": 30,
-    "percentOff": 43,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -44025,7 +44765,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0679602001595",
     "price": 34.99,
     "delivered": true,
-    "wasPrice": 48.07,
+    "wasPrice": 47.98,
     "percentOff": 27,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -44062,6 +44802,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-g843851",
+    "price": 73.99,
+    "delivered": true,
+    "wasPrice": 105,
+    "percentOff": 29,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3349666005330",
     "price": 48.95,
     "delivered": true,
@@ -44092,22 +44842,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3349668622269",
-    "price": 24.65,
-    "delivered": true,
-    "wasPrice": 26,
-    "percentOff": 5,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3349668680993",
     "price": 44.45,
     "delivered": true,
     "wasPrice": 79,
     "percentOff": 43,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-v903594",
+    "price": 78.99,
+    "delivered": true,
+    "wasPrice": 113,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -44172,22 +44922,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-i48644",
+    "price": 34.95,
+    "delivered": true,
+    "wasPrice": 57,
+    "percentOff": 38,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3605972342621",
     "price": 25.95,
     "delivered": true,
     "wasPrice": 80,
     "percentOff": 67,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3605972910288",
-    "price": 29.35,
-    "delivered": true,
-    "wasPrice": 50,
-    "percentOff": 41,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -44245,8 +44995,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0614514253069",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -44265,8 +45015,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6298044138627",
     "price": 26.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 30,
+    "wasPrice": 32.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -44412,16 +45162,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5000386120359",
-    "price": 9.18,
-    "delivered": true,
-    "wasPrice": 10.99,
-    "percentOff": 16,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-0309973112018",
     "price": 15.5,
     "delivered": true,
@@ -44532,22 +45272,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460136754",
-    "price": 37.9,
-    "delivered": true,
-    "wasPrice": 75,
-    "percentOff": 49,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3701436925468",
     "price": 31.5,
     "delivered": true,
     "wasPrice": 42,
     "percentOff": 25,
     "retailerId": "escentual",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3701436907969",
+    "price": 28.25,
+    "delivered": true,
+    "wasPrice": 41.24,
+    "percentOff": 31,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -44642,6 +45382,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-3760040114255",
+    "price": 11.95,
+    "delivered": true,
+    "wasPrice": 24,
+    "percentOff": 50,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3760040114279",
     "price": 21.85,
     "delivered": true,
@@ -44715,8 +45465,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640111505563",
     "price": 15.99,
     "delivered": true,
-    "wasPrice": 21.99,
-    "percentOff": 27,
+    "wasPrice": 19.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -44872,10 +45622,10 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5060523017652",
-    "price": 21.05,
+    "fragranceId": "ean-0025929180732",
+    "price": 16.25,
     "delivered": true,
-    "wasPrice": 32,
+    "wasPrice": 24.95,
     "percentOff": 34,
     "retailerId": "perfume-click",
     "kind": "retailer",
@@ -44917,16 +45667,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 190,
     "percentOff": 54,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-679602481335",
-    "price": 102.2,
-    "delivered": true,
-    "wasPrice": 139,
-    "percentOff": 26,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -45015,8 +45755,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8016741032721",
     "price": 158.99,
     "delivered": true,
-    "wasPrice": 229.99,
-    "percentOff": 30,
+    "wasPrice": 192.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -45048,6 +45788,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 206.8,
     "percentOff": 23,
     "retailerId": "perfume-direct",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0888066115308",
+    "price": 155,
+    "delivered": true,
+    "wasPrice": 220,
+    "percentOff": 29,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -45102,6 +45852,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0888066130523",
+    "price": 146.65,
+    "delivered": true,
+    "wasPrice": 220,
+    "percentOff": 33,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0888066089302",
     "price": 133.2,
     "delivered": true,
@@ -45142,12 +45902,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8058045425625",
-    "price": 23.59,
+    "fragranceId": "ean-0195106001607",
+    "price": 58.77,
     "delivered": true,
-    "wasPrice": 47,
-    "percentOff": 49,
+    "wasPrice": 95,
+    "percentOff": 38,
     "retailerId": "scent-warehouse",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0850016678010",
+    "price": 40.5,
+    "delivered": true,
+    "wasPrice": 85,
+    "percentOff": 52,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -45155,8 +45925,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3326240036423",
     "price": 14.99,
     "delivered": true,
-    "wasPrice": 20.99,
-    "percentOff": 28,
+    "wasPrice": 18.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -45165,8 +45935,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0860004550341",
     "price": 38.99,
     "delivered": true,
-    "wasPrice": 54.99,
-    "percentOff": 29,
+    "wasPrice": 47.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -45195,8 +45965,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8016741052590",
     "price": 109.99,
     "delivered": true,
-    "wasPrice": 158.99,
-    "percentOff": 30,
+    "wasPrice": 133.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -45205,8 +45975,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8016741812637",
     "price": 120.99,
     "delivered": true,
-    "wasPrice": 173.99,
-    "percentOff": 30,
+    "wasPrice": 146.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -45228,16 +45998,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 79,
     "percentOff": 36,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003891061",
-    "price": 88.99,
-    "delivered": true,
-    "wasPrice": 151.99,
-    "percentOff": 41,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -45352,6 +46112,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8033488155483",
+    "price": 331,
+    "delivered": true,
+    "wasPrice": 535,
+    "percentOff": 38,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8033488155469",
+    "price": 342.5,
+    "delivered": true,
+    "wasPrice": 504.15,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8033488155070",
     "price": 175.24,
     "delivered": true,
@@ -45382,16 +46162,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8033488155179",
-    "price": 170.7,
-    "delivered": true,
-    "wasPrice": 265,
-    "percentOff": 35,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8054320900276",
     "price": 111.7,
     "delivered": true,
@@ -45412,21 +46182,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "justmylook-xerj0004",
-    "price": 122.49,
-    "delivered": true,
-    "wasPrice": 229.99,
-    "percentOff": 46,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8033488157449",
     "price": 345.99,
     "delivered": true,
-    "wasPrice": 500.99,
-    "percentOff": 30,
+    "wasPrice": 419.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -45478,6 +46238,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 240,
     "percentOff": 14,
     "retailerId": "debenhams",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8054320900214",
+    "price": 134.7,
+    "delivered": true,
+    "wasPrice": 215,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -45687,6 +46457,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 21,
     "percentOff": 19,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0085715000750",
+    "price": 31.8,
+    "delivered": true,
+    "wasPrice": 59,
+    "percentOff": 46,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -46122,16 +46902,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-652685692058",
-    "price": 26.65,
-    "delivered": true,
-    "wasPrice": 39,
-    "percentOff": 31,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-652685692102",
     "price": 36.35,
     "delivered": true,
@@ -46215,19 +46985,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0840881132021",
     "price": 15.99,
     "delivered": true,
-    "wasPrice": 21.99,
-    "percentOff": 27,
+    "wasPrice": 19.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8427395650009",
-    "price": 25.05,
-    "delivered": true,
-    "wasPrice": 38,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -46252,6 +47012,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411061081006",
+    "price": 17.5,
+    "delivered": true,
+    "wasPrice": 38,
+    "percentOff": 53,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "beaute-boulevard-g937628",
     "price": 36.99,
     "delivered": true,
@@ -46267,6 +47037,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 50,
     "percentOff": 63,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8411061085295",
+    "price": 23.45,
+    "delivered": true,
+    "wasPrice": 27,
+    "percentOff": 13,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -46465,8 +47245,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6085010041933",
     "price": 60.99,
     "delivered": true,
-    "wasPrice": 87.99,
-    "percentOff": 30,
+    "wasPrice": 73.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -46602,16 +47382,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6085010041742",
-    "price": 21.95,
-    "delivered": true,
-    "wasPrice": 34.99,
-    "percentOff": 37,
-    "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Armaf"
-  },
-  {
     "fragranceId": "ean-6294015188165",
     "price": 30.1,
     "delivered": true,
@@ -46692,6 +47462,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
+    "fragranceId": "beaute-boulevard-n3065213",
+    "price": 80.99,
+    "delivered": true,
+    "wasPrice": 110,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6294015196429",
     "price": 34.7,
     "delivered": true,
@@ -46712,22 +47492,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Armaf"
   },
   {
-    "fragranceId": "ean-6294015176117",
-    "price": 43.45,
+    "fragranceId": "ean-6294015181845",
+    "price": 42.99,
     "delivered": true,
     "wasPrice": 58,
     "percentOff": 25,
-    "retailerId": "perfume-click",
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-6294015176087",
-    "price": 39.2,
+    "fragranceId": "ean-6294015176100",
+    "price": 42.99,
     "delivered": true,
     "wasPrice": 58,
-    "percentOff": 32,
-    "retailerId": "perfume-click",
+    "percentOff": 25,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -46772,16 +47552,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6294015102253",
-    "price": 20.2,
-    "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 32,
-    "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Armaf"
-  },
-  {
     "fragranceId": "ean-6294015180350",
     "price": 94.15,
     "delivered": true,
@@ -46822,14 +47592,14 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6294015168129",
-    "price": 32,
+    "fragranceId": "beaute-boulevard-q894448",
+    "price": 24.99,
     "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 19,
-    "retailerId": "perfume-click",
-    "kind": "house",
-    "houseName": "Armaf"
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
   },
   {
     "fragranceId": "ean-6294015168143",
@@ -46847,16 +47617,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 41,
     "percentOff": 11,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015166149",
-    "price": 28.8,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 27,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -46887,16 +47647,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 29.99,
     "percentOff": 24,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-6294015189568",
-    "price": 18.2,
-    "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 39,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -47022,16 +47772,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "armaf-arf32105663",
-    "price": 22.48,
-    "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 25,
-    "retailerId": "mybeauty-boutique",
-    "kind": "house",
-    "houseName": "Armaf"
-  },
-  {
     "fragranceId": "ean-6294015114164",
     "price": 20.6,
     "delivered": true,
@@ -47042,20 +47782,10 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6294015161526",
-    "price": 21.45,
-    "delivered": true,
-    "wasPrice": 35.95,
-    "percentOff": 40,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "beaute-boulevard-n1066214",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 24.78,
+    "wasPrice": 24.74,
     "percentOff": 3,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -47068,16 +47798,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 59.99,
     "percentOff": 16,
     "retailerId": "aromique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8011003866496",
-    "price": 76.05,
-    "delivered": true,
-    "wasPrice": 125,
-    "percentOff": 39,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -47182,16 +47902,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5056528420634",
-    "price": 41.9,
-    "delivered": true,
-    "wasPrice": 56,
-    "percentOff": 25,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8433982011276",
     "price": 15.3,
     "delivered": true,
@@ -47205,8 +47915,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8433982020629",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -47217,16 +47927,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 15,
     "percentOff": 25,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-7640163971286",
-    "price": 22.2,
-    "delivered": true,
-    "wasPrice": 43,
-    "percentOff": 48,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -47247,26 +47947,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 130,
     "percentOff": 73,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0850050062110",
-    "price": 60,
-    "delivered": true,
-    "wasPrice": 105,
-    "percentOff": 42,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0850050062219",
-    "price": 61.3,
-    "delivered": true,
-    "wasPrice": 105,
-    "percentOff": 41,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -47297,16 +47977,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 145,
     "percentOff": 49,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0888874002401",
-    "price": 160.3,
-    "delivered": true,
-    "wasPrice": 245,
-    "percentOff": 34,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -47368,16 +48038,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 25.49,
     "percentOff": 50,
     "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0737052904177",
-    "price": 10.05,
-    "delivered": true,
-    "wasPrice": 21,
-    "percentOff": 52,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -47752,16 +48412,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0783320419683",
-    "price": 151.15,
-    "delivered": true,
-    "wasPrice": 212,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-783320881589",
     "price": 92.95,
     "delivered": true,
@@ -47778,36 +48428,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 174,
     "percentOff": 15,
     "retailerId": "fenwick",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0783320423949",
-    "price": 72.1,
-    "delivered": true,
-    "wasPrice": 99,
-    "percentOff": 27,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0783320421532",
-    "price": 96.5,
-    "delivered": true,
-    "wasPrice": 139,
-    "percentOff": 30,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0783320409585",
-    "price": 39.92,
-    "delivered": true,
-    "wasPrice": 78,
-    "percentOff": 48,
-    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -48012,22 +48632,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8411061974759",
+    "price": 44.95,
+    "delivered": true,
+    "wasPrice": 71,
+    "percentOff": 36,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8411061972656",
     "price": 53.55,
     "delivered": true,
     "wasPrice": 80,
     "percentOff": 33,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "escentual-10000907",
-    "price": 56.48,
-    "delivered": true,
-    "wasPrice": 70.99,
-    "percentOff": 20,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -48062,21 +48682,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061711774",
-    "price": 37.48,
+    "fragranceId": "beaute-boulevard-s238125",
+    "price": 92.55,
     "delivered": true,
-    "wasPrice": 60.99,
-    "percentOff": 38,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061035832",
-    "price": 16.75,
-    "delivered": true,
-    "wasPrice": 23,
-    "percentOff": 27,
+    "wasPrice": 99,
+    "percentOff": 6,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -48092,21 +48702,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-j41729",
+    "price": 89.99,
+    "delivered": true,
+    "wasPrice": 130,
+    "percentOff": 30,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8411061106310",
     "price": 99.55,
     "delivered": true,
     "wasPrice": 143,
     "percentOff": 30,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8411061057377",
-    "price": 20.7,
-    "delivered": true,
-    "wasPrice": 28,
-    "percentOff": 26,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -48152,26 +48762,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-8411061083871",
-    "price": 26.15,
-    "delivered": true,
-    "wasPrice": 32,
-    "percentOff": 18,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3387956003123",
-    "price": 52.9,
-    "delivered": true,
-    "wasPrice": 85,
-    "percentOff": 37,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3387957110134",
     "price": 75.5,
     "delivered": true,
@@ -48192,11 +48782,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3387952601125",
-    "price": 206.95,
+    "fragranceId": "ean-3387956203202",
+    "price": 114.55,
     "delivered": true,
-    "wasPrice": 306,
-    "percentOff": 32,
+    "wasPrice": 159,
+    "percentOff": 27,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3387951102104",
+    "price": 116.9,
+    "delivered": true,
+    "wasPrice": 189,
+    "percentOff": 38,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -48405,8 +49005,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640177366368",
     "price": 12.99,
     "delivered": true,
-    "wasPrice": 16.99,
-    "percentOff": 23,
+    "wasPrice": 15.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -48592,16 +49192,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0849017013975",
-    "price": 16.25,
-    "delivered": true,
-    "wasPrice": 28,
-    "percentOff": 41,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "cult-beauty-global-18028455",
     "price": 187,
     "delivered": true,
@@ -48627,6 +49217,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 14.8,
     "percentOff": 24,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5425039222165",
+    "price": 11.15,
+    "delivered": true,
+    "wasPrice": 20,
+    "percentOff": 44,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-p7225",
+    "price": 16.25,
+    "delivered": true,
+    "wasPrice": 24.95,
+    "percentOff": 34,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -48675,8 +49285,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "beaute-boulevard-z577422",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 25.99,
-    "percentOff": 30,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -48715,8 +49325,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3551440592046",
     "price": 40.99,
     "delivered": true,
-    "wasPrice": 58.99,
-    "percentOff": 30,
+    "wasPrice": 49.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -48735,8 +49345,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3551440592022",
     "price": 41.99,
     "delivered": true,
-    "wasPrice": 59.99,
-    "percentOff": 30,
+    "wasPrice": 50.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -48848,6 +49458,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 97,
     "percentOff": 42,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-q2504",
+    "price": 55.98,
+    "delivered": true,
+    "wasPrice": 116.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -48982,6 +49602,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-j9081",
+    "price": 28.3,
+    "delivered": true,
+    "wasPrice": 50,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0085715801128",
     "price": 37.9,
     "delivered": true,
@@ -49002,16 +49632,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0085715807588",
-    "price": 52.9,
-    "delivered": true,
-    "wasPrice": 77,
-    "percentOff": 31,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-5060933120096",
     "price": 122.05,
     "delivered": true,
@@ -49022,11 +49642,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0849017011216",
-    "price": 16.25,
+    "fragranceId": "ean-5060933120041",
+    "price": 128.99,
     "delivered": true,
-    "wasPrice": 28,
-    "percentOff": 41,
+    "wasPrice": 175,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5060933120348",
+    "price": 122.05,
+    "delivered": true,
+    "wasPrice": 175,
+    "percentOff": 30,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5060933120140",
+    "price": 122.05,
+    "delivered": true,
+    "wasPrice": 175,
+    "percentOff": 30,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -49095,8 +49735,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017015481",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -49105,8 +49745,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017014606",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -49212,16 +49852,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "beaute-boulevard-t104275",
-    "price": 26.98,
-    "delivered": true,
-    "wasPrice": 59.99,
-    "percentOff": 55,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-0737052565033",
     "price": 23.45,
     "delivered": true,
@@ -49298,6 +49928,26 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 85,
     "percentOff": 18,
     "retailerId": "debenhams",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3760168590498",
+    "price": 47.6,
+    "delivered": true,
+    "wasPrice": 70,
+    "percentOff": 32,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8026247609310",
+    "price": 115.55,
+    "delivered": true,
+    "wasPrice": 160,
+    "percentOff": 27,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -50415,8 +51065,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3516641926328",
     "price": 20.99,
     "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 30,
+    "wasPrice": 25.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -50612,6 +51262,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-d6125",
+    "price": 30.7,
+    "delivered": true,
+    "wasPrice": 44,
+    "percentOff": 30,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011530992316",
+    "price": 34.75,
+    "delivered": true,
+    "wasPrice": 52,
+    "percentOff": 33,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614273662376",
     "price": 26.98,
     "delivered": true,
@@ -50712,6 +51382,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "escentual-emporioyou023",
+    "price": 65.49,
+    "delivered": true,
+    "wasPrice": 120.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3614272225695",
     "price": 59.1,
     "delivered": true,
@@ -50728,6 +51408,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 62,
     "percentOff": 48,
     "retailerId": "lloyds-pharmacy",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-z437",
+    "price": 50.48,
+    "delivered": true,
+    "wasPrice": 82.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -50802,16 +51492,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0851035000042",
-    "price": 13.7,
-    "delivered": true,
-    "wasPrice": 25,
-    "percentOff": 45,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-7640164031354",
     "price": 84.51,
     "delivered": true,
@@ -50878,16 +51558,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 109,
     "percentOff": 53,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "mybeauty-boutique-shopify-gb-8416690077833-45147055521929",
-    "price": 13.18,
-    "delivered": true,
-    "wasPrice": 21.99,
-    "percentOff": 40,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -51012,11 +51682,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0085715322210",
-    "price": 25.05,
+    "fragranceId": "ean-0085715322111",
+    "price": 30.35,
     "delivered": true,
     "wasPrice": 45,
-    "percentOff": 44,
+    "percentOff": 32,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -51155,8 +51825,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6290362162872",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 24.99,
-    "percentOff": 28,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -51247,26 +51917,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 138,
     "percentOff": 44,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3346130438267",
-    "price": 27.25,
-    "delivered": true,
-    "wasPrice": 32,
-    "percentOff": 14,
-    "retailerId": "the-beauty-store-uk",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3346130009702",
-    "price": 45.2,
-    "delivered": true,
-    "wasPrice": 68,
-    "percentOff": 33,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -51432,6 +52082,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Ibrahim Al Qurashi"
   },
   {
+    "fragranceId": "ean-8002135146389",
+    "price": 16.25,
+    "delivered": true,
+    "wasPrice": 40,
+    "percentOff": 59,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-0849017006533",
     "price": 17.68,
     "delivered": true,
@@ -51492,6 +52152,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-f042651",
+    "price": 19.99,
+    "delivered": true,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "beaute-boulevard-b576411",
     "price": 33.48,
     "delivered": true,
@@ -51542,16 +52212,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5022479500510",
-    "price": 14.3,
-    "delivered": true,
-    "wasPrice": 25,
-    "percentOff": 42,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3562700361005",
     "price": 19.1,
     "delivered": true,
@@ -51585,8 +52245,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "beaute-boulevard-n767549",
     "price": 47.99,
     "delivered": true,
-    "wasPrice": 67.99,
-    "percentOff": 29,
+    "wasPrice": 58.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -51602,21 +52262,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3423474776757",
-    "price": 55.68,
+    "fragranceId": "beaute-boulevard-d9116107",
+    "price": 91.68,
     "delivered": true,
-    "wasPrice": 74,
-    "percentOff": 24,
+    "wasPrice": 153,
+    "percentOff": 40,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "justmylook-jpg0062",
-    "price": 76.35,
+    "fragranceId": "ean-3423474776757",
+    "price": 55.68,
     "delivered": true,
-    "wasPrice": 111,
-    "percentOff": 31,
+    "wasPrice": 74,
+    "percentOff": 24,
     "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
@@ -51812,16 +52472,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460103749",
-    "price": 9.8,
-    "delivered": true,
-    "wasPrice": 12,
-    "percentOff": 18,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3386460142038",
     "price": 13.5,
     "delivered": true,
@@ -51895,8 +52545,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0719346245487",
     "price": 31.99,
     "delivered": true,
-    "wasPrice": 44.99,
-    "percentOff": 28,
+    "wasPrice": 38.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -51952,6 +52602,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-n5660210",
+    "price": 23.98,
+    "delivered": true,
+    "wasPrice": 35.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3386460160308",
     "price": 16.99,
     "delivered": true,
@@ -51968,6 +52628,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 34,
     "percentOff": 26,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-b576348",
+    "price": 24.99,
+    "delivered": true,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -52012,22 +52682,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460115551",
-    "price": 26.65,
-    "delivered": true,
-    "wasPrice": 45,
-    "percentOff": 40,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3386460136334",
     "price": 25.18,
     "delivered": true,
     "wasPrice": 77,
     "percentOff": 67,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-s963183",
+    "price": 15.78,
+    "delivered": true,
+    "wasPrice": 23.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -52098,16 +52768,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 61,
     "percentOff": 43,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "mybeauty-boutique-shopify-gb-8416705085577-45147076034697",
-    "price": 45.48,
-    "delivered": true,
-    "wasPrice": 73.99,
-    "percentOff": 38,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -52415,8 +53075,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8051013370736",
     "price": 32.99,
     "delivered": true,
-    "wasPrice": 47.99,
-    "percentOff": 31,
+    "wasPrice": 39.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -52452,12 +53112,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3616302931637",
-    "price": 28.3,
+    "fragranceId": "ean-0737052944678",
+    "price": 28.65,
     "delivered": true,
-    "wasPrice": 47,
-    "percentOff": 39,
+    "wasPrice": 44,
+    "percentOff": 34,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-b007284",
+    "price": 27.99,
+    "delivered": true,
+    "wasPrice": 36,
+    "percentOff": 22,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -52515,8 +53185,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0810876037310",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 24.99,
-    "percentOff": 28,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -52552,31 +53222,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5055116606603",
+    "fragranceId": "ean-5055116606375",
     "price": 19.4,
     "delivered": true,
     "wasPrice": 30,
     "percentOff": 35,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-5055116606368",
-    "price": 18.6,
-    "delivered": true,
-    "wasPrice": 30,
-    "percentOff": 38,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-5055116606597",
-    "price": 17.75,
-    "delivered": true,
-    "wasPrice": 30,
-    "percentOff": 40,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -52657,6 +53307,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 44,
     "percentOff": 52,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3386460010412",
+    "price": 17,
+    "delivered": true,
+    "wasPrice": 29.5,
+    "percentOff": 42,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -52745,8 +53405,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6290360593104",
     "price": 35.99,
     "delivered": true,
-    "wasPrice": 50.99,
-    "percentOff": 29,
+    "wasPrice": 43.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -52755,7 +53415,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6290360593043",
     "price": 35.99,
     "delivered": true,
-    "wasPrice": 47.76,
+    "wasPrice": 47.67,
     "percentOff": 24,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -52995,9 +53655,19 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291108523551",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3701139907730",
+    "price": 22.95,
+    "delivered": true,
+    "wasPrice": 37,
+    "percentOff": 37,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -53125,8 +53795,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204389",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53135,8 +53805,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204396",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53145,8 +53815,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204372",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53155,8 +53825,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204402",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53165,8 +53835,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800204365",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53175,8 +53845,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203092",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53205,8 +53875,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800200367",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53225,8 +53895,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800203177",
     "price": 29.99,
     "delivered": true,
-    "wasPrice": 42.99,
-    "percentOff": 30,
+    "wasPrice": 36.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53255,8 +53925,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6299800205386",
     "price": 24.99,
     "delivered": true,
-    "wasPrice": 35.99,
-    "percentOff": 30,
+    "wasPrice": 30.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53275,8 +53945,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-9911100200003",
     "price": 27.99,
     "delivered": true,
-    "wasPrice": 38.99,
-    "percentOff": 28,
+    "wasPrice": 33.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -53962,16 +54632,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3760265192113",
-    "price": 65.7,
-    "delivered": true,
-    "wasPrice": 96,
-    "percentOff": 31,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3760265192076",
     "price": 75.8,
     "delivered": true,
@@ -54035,8 +54695,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760265190379",
     "price": 60.99,
     "delivered": true,
-    "wasPrice": 87.99,
-    "percentOff": 30,
+    "wasPrice": 73.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54062,21 +54722,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3760265193639",
-    "price": 83.55,
-    "delivered": true,
-    "wasPrice": 125,
-    "percentOff": 33,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-8427395013637",
     "price": 18.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 29,
+    "wasPrice": 23.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54095,7 +54745,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8058045433453",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 32.04,
+    "wasPrice": 31.99,
     "percentOff": 25,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -54105,8 +54755,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8411061191606",
     "price": 24.99,
     "delivered": true,
-    "wasPrice": 35.99,
-    "percentOff": 30,
+    "wasPrice": 30.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54135,8 +54785,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0810876037662",
     "price": 14.99,
     "delivered": true,
-    "wasPrice": 19.99,
-    "percentOff": 25,
+    "wasPrice": 18.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54212,11 +54862,31 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-4011700745371",
+    "price": 22.1,
+    "delivered": true,
+    "wasPrice": 39,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-4011700749294",
     "price": 24.85,
     "delivered": true,
     "wasPrice": 35,
     "percentOff": 29,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-4011700757381",
+    "price": 17.5,
+    "delivered": true,
+    "wasPrice": 29.5,
+    "percentOff": 40,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -54247,6 +54917,36 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 19.97,
     "percentOff": 26,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5038633043953",
+    "price": 11.35,
+    "delivered": true,
+    "wasPrice": 19.95,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5038633043939",
+    "price": 11.35,
+    "delivered": true,
+    "wasPrice": 19.95,
+    "percentOff": 43,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5038633043946",
+    "price": 11.35,
+    "delivered": true,
+    "wasPrice": 19.95,
+    "percentOff": 43,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -54315,8 +55015,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3614228222198",
     "price": 14.99,
     "delivered": true,
-    "wasPrice": 20.99,
-    "percentOff": 28,
+    "wasPrice": 18.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54462,16 +55162,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-008080125507",
-    "price": 67.4,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 29,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-008080125347",
     "price": 72.35,
     "delivered": true,
@@ -54488,26 +55178,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 95,
     "percentOff": 22,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-008080153470",
-    "price": 73.2,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 22,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "allbeauty-13639310",
-    "price": 61.6,
-    "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 35,
-    "retailerId": "the-beauty-store-uk",
     "kind": "retailer",
     "houseName": null
   },
@@ -54535,8 +55205,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3386460148986",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 25.99,
-    "percentOff": 30,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54642,6 +55312,26 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8011003838394",
+    "price": 31.8,
+    "delivered": true,
+    "wasPrice": 35.5,
+    "percentOff": 10,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8011003838400",
+    "price": 46.6,
+    "delivered": true,
+    "wasPrice": 52,
+    "percentOff": 10,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8011003100033",
     "price": 34.53,
     "delivered": true,
@@ -54695,8 +55385,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0849017011094",
     "price": 18.99,
     "delivered": true,
-    "wasPrice": 26.99,
-    "percentOff": 29,
+    "wasPrice": 23.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54735,8 +55425,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5425039223636",
     "price": 15.99,
     "delivered": true,
-    "wasPrice": 21.99,
-    "percentOff": 27,
+    "wasPrice": 19.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54745,19 +55435,9 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5425039222752",
     "price": 14.99,
     "delivered": true,
-    "wasPrice": 20.99,
-    "percentOff": 28,
+    "wasPrice": 18.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-812256023944",
-    "price": 25.7,
-    "delivered": true,
-    "wasPrice": 40,
-    "percentOff": 35,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -54792,22 +55472,22 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3581000018679",
-    "price": 95.15,
-    "delivered": true,
-    "wasPrice": 157.48,
-    "percentOff": 39,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3581000018303",
     "price": 95.15,
     "delivered": true,
     "wasPrice": 177.64,
     "percentOff": 46,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3616303425999",
+    "price": 39.56,
+    "delivered": true,
+    "wasPrice": 78,
+    "percentOff": 49,
+    "retailerId": "scent-warehouse",
     "kind": "retailer",
     "houseName": null
   },
@@ -54838,6 +55518,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 102,
     "percentOff": 46,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3137370321521",
+    "price": 40.99,
+    "delivered": true,
+    "wasPrice": 60,
+    "percentOff": 31,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -54922,12 +55612,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3137370358916",
-    "price": 41.36,
+    "fragranceId": "ean-3137370352914",
+    "price": 35.45,
     "delivered": true,
-    "wasPrice": 69,
-    "percentOff": 40,
-    "retailerId": "scent-warehouse",
+    "wasPrice": 66,
+    "percentOff": 46,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -54938,16 +55628,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 85,
     "percentOff": 40,
     "retailerId": "fragrance-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8681008055425",
-    "price": 88.2,
-    "delivered": true,
-    "wasPrice": 152.72,
-    "percentOff": 42,
-    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -54985,8 +55665,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873826",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -54995,8 +55675,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874427",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55005,8 +55685,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874458",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55015,8 +55695,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874434",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55025,8 +55705,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874120",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55035,8 +55715,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874472",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55045,8 +55725,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874052",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55055,8 +55735,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874373",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55065,8 +55745,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873833",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55075,8 +55755,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874397",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55085,8 +55765,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874465",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55095,8 +55775,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874076",
     "price": 19.99,
     "delivered": true,
-    "wasPrice": 27.99,
-    "percentOff": 28,
+    "wasPrice": 24.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55105,8 +55785,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873840",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55115,8 +55795,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "beaute-boulevard-d2386113",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55125,8 +55805,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873796",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55135,8 +55815,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873802",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55145,8 +55825,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874151",
     "price": 22.99,
     "delivered": true,
-    "wasPrice": 31.99,
-    "percentOff": 28,
+    "wasPrice": 27.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55155,8 +55835,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874380",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55165,8 +55845,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873857",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55175,8 +55855,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873864",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55185,8 +55865,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873871",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55195,8 +55875,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873888",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55205,8 +55885,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873895",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55215,8 +55895,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105874366",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55225,8 +55905,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873819",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55235,8 +55915,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873710",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55245,8 +55925,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873727",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55255,8 +55935,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873741",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55265,8 +55945,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873765",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55275,8 +55955,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873772",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55285,8 +55965,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6291105873789",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 33.99,
-    "percentOff": 29,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55475,8 +56155,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-6290025488363",
     "price": 32.99,
     "delivered": true,
-    "wasPrice": 47.99,
-    "percentOff": 31,
+    "wasPrice": 39.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -55572,11 +56252,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5056245019876",
-    "price": 136.2,
+    "fragranceId": "ean-8436581947038",
+    "price": 10.9,
     "delivered": true,
-    "wasPrice": 215,
-    "percentOff": 36,
+    "wasPrice": 21,
+    "percentOff": 48,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8436581947182",
+    "price": 24.15,
+    "delivered": true,
+    "wasPrice": 39,
+    "percentOff": 38,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -55607,6 +56297,26 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 42.95,
     "percentOff": 70,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8436581945140",
+    "price": 32.99,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 26,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-8436581940282",
+    "price": 17.25,
+    "delivered": true,
+    "wasPrice": 29.95,
+    "percentOff": 42,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -55792,16 +56502,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "escentual-pr-onemillion035",
-    "price": 79.49,
-    "delivered": true,
-    "wasPrice": 101.99,
-    "percentOff": 22,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3349666007983",
     "price": 45.5,
     "delivered": true,
@@ -55842,21 +56542,21 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "beaute-boulevard-v201933",
+    "price": 57.54,
+    "delivered": true,
+    "wasPrice": 76,
+    "percentOff": 24,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-3349668597277",
     "price": 22.4,
     "delivered": true,
     "wasPrice": 25,
     "percentOff": 10,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "mybeauty-boutique-shopify-gb-8416748699785-45147131117705",
-    "price": 34.95,
-    "delivered": true,
-    "wasPrice": 57,
-    "percentOff": 38,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -56035,8 +56735,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8436581945898",
     "price": 14.99,
     "delivered": true,
-    "wasPrice": 20.99,
-    "percentOff": 28,
+    "wasPrice": 18.99,
+    "percentOff": 21,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -56092,6 +56792,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-0679602951616",
+    "price": 16.7,
+    "delivered": true,
+    "wasPrice": 28,
+    "percentOff": 40,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-5000386024596",
     "price": 7.9,
     "delivered": true,
@@ -56105,8 +56815,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0309979845507",
     "price": 21.99,
     "delivered": true,
-    "wasPrice": 30.99,
-    "percentOff": 29,
+    "wasPrice": 26.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -56342,16 +57052,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3701436907969",
-    "price": 28.25,
-    "delivered": true,
-    "wasPrice": 41.24,
-    "percentOff": 31,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "escentual-extravieille05",
     "price": 19.25,
     "delivered": true,
@@ -56405,7 +57105,7 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3701436916626",
     "price": 28.99,
     "delivered": true,
-    "wasPrice": 39.96,
+    "wasPrice": 39.89,
     "percentOff": 27,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
@@ -56492,12 +57192,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3760040114255",
-    "price": 11.95,
+    "fragranceId": "ean-3331430890730",
+    "price": 29.99,
     "delivered": true,
-    "wasPrice": 24,
-    "percentOff": 50,
-    "retailerId": "perfume-click",
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -56523,11 +57223,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8052464890323",
-    "price": 29.05,
+    "price": 30.99,
     "delivered": true,
-    "wasPrice": 69,
-    "percentOff": 57,
-    "retailerId": "the-beauty-store-uk",
+    "wasPrice": 37.99,
+    "percentOff": 18,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -56695,8 +57395,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5055193549435",
     "price": 23.99,
     "delivered": true,
-    "wasPrice": 32.99,
-    "percentOff": 27,
+    "wasPrice": 29.99,
+    "percentOff": 20,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -57132,12 +57832,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0025929180732",
-    "price": 16.25,
+    "fragranceId": "ean-0025929180008",
+    "price": 16.99,
     "delivered": true,
-    "wasPrice": 24.95,
-    "percentOff": 34,
-    "retailerId": "perfume-click",
+    "wasPrice": 20.99,
+    "percentOff": 19,
+    "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
@@ -57185,8 +57885,28 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-5060412678209",
     "price": 32.99,
     "delivered": true,
-    "wasPrice": 47.99,
-    "percentOff": 31,
+    "wasPrice": 39.99,
+    "percentOff": 17,
+    "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-f251051",
+    "price": 13.85,
+    "delivered": true,
+    "wasPrice": 20,
+    "percentOff": 30,
+    "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5060412678216",
+    "price": 16.99,
+    "delivered": true,
+    "wasPrice": 20.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -57265,8 +57985,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3760294350553",
     "price": 34.99,
     "delivered": true,
-    "wasPrice": 48.99,
-    "percentOff": 28,
+    "wasPrice": 42.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -57435,8 +58155,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8016741812422",
     "price": 73.99,
     "delivered": true,
-    "wasPrice": 106.99,
-    "percentOff": 30,
+    "wasPrice": 89.99,
+    "percentOff": 17,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -57445,9 +58165,19 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8016741192432",
     "price": 71.99,
     "delivered": true,
-    "wasPrice": 103.99,
-    "percentOff": 30,
+    "wasPrice": 87.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-0888066159661",
+    "price": 120.9,
+    "delivered": true,
+    "wasPrice": 200,
+    "percentOff": 39,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -57477,16 +58207,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 37,
     "percentOff": 16,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0888066115308",
-    "price": 155,
-    "delivered": true,
-    "wasPrice": 220,
-    "percentOff": 29,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -57537,16 +58257,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 252,
     "percentOff": 35,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-0888066130523",
-    "price": 146.65,
-    "delivered": true,
-    "wasPrice": 220,
-    "percentOff": 33,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -57615,8 +58325,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-7640496671976",
     "price": 35.99,
     "delivered": true,
-    "wasPrice": 50.99,
-    "percentOff": 29,
+    "wasPrice": 43.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -57662,12 +58372,12 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0195106001607",
-    "price": 58.77,
+    "fragranceId": "ean-8011530994846",
+    "price": 25.98,
     "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 38,
-    "retailerId": "scent-warehouse",
+    "wasPrice": 46.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -57702,21 +58412,11 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-0850016678010",
-    "price": 40.5,
-    "delivered": true,
-    "wasPrice": 85,
-    "percentOff": 52,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3326240002473",
     "price": 16.99,
     "delivered": true,
-    "wasPrice": 24.99,
-    "percentOff": 32,
+    "wasPrice": 20.99,
+    "percentOff": 19,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -57755,8 +58455,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0850043459019",
     "price": 42.99,
     "delivered": true,
-    "wasPrice": 60.99,
-    "percentOff": 29,
+    "wasPrice": 52.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -57775,8 +58475,8 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-8016741282508",
     "price": 84.99,
     "delivered": true,
-    "wasPrice": 121.99,
-    "percentOff": 30,
+    "wasPrice": 103.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
@@ -57835,28 +58535,18 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-0810023674368",
     "price": 17.99,
     "delivered": true,
-    "wasPrice": 25.99,
-    "percentOff": 30,
+    "wasPrice": 21.99,
+    "percentOff": 18,
     "retailerId": "beaute-boulevard",
     "kind": "retailer",
     "houseName": null
   },
   {
-    "fragranceId": "ean-8033488155483",
-    "price": 331,
-    "delivered": true,
-    "wasPrice": 535,
-    "percentOff": 38,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8033488155469",
-    "price": 342.5,
+    "fragranceId": "ean-8033488155445",
+    "price": 327.1,
     "delivered": true,
     "wasPrice": 504.15,
-    "percentOff": 32,
+    "percentOff": 35,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
@@ -57912,6 +58602,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-8033488153434",
+    "price": 131.7,
+    "delivered": true,
+    "wasPrice": 230,
+    "percentOff": 42,
+    "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-8033488155223",
     "price": 125.15,
     "delivered": true,
@@ -57948,6 +58648,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 155,
     "percentOff": 25,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "beaute-boulevard-l925034",
+    "price": 138.99,
+    "delivered": true,
+    "wasPrice": 260.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -58007,16 +58717,6 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 205,
     "percentOff": 2,
-    "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-8054320900214",
-    "price": 134.7,
-    "delivered": true,
-    "wasPrice": 215,
-    "percentOff": 37,
     "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
