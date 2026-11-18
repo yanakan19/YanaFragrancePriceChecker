@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-18T07:47:52.428Z",
-  "seenAt": "2026-11-18T07:47:52.428Z",
+  "updatedAt": "2026-11-18T11:44:44.623Z",
+  "seenAt": "2026-11-18T11:44:44.623Z",
   "source": "live",
   "listings": [
     {
@@ -26004,7 +26004,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A wave of icy water is transposed here into a fragrance, enlivened by a citrusy wind. A souvenir of the master perfumer's trip to India, where the atmosphere is regularly refreshed with ginger-scented water, this citrusy composition with spicy notes reinvents the eau de cologne genre.. The composition borrows the rhizomes' vivid and intense notes, which mingle with the bergamot, neroli and petit grain accords with slightly floral nuances. At the heart of the fragrance, the SFE ginger extract obtained by CO2 extraction, which keeps intact the purity of its facets. An accord of fig leaf and cypress essence extends the ginger's freshness. A sober and audacious creation, as a dive into the ice water.. Top Notes: Calabrian bergamot, SFE ginger extract, Tunisian neroli, Petitgrain Heart Notes: Fig leaf, Cypress Base Notes: White woods .",
       "productType": "Fragrance",

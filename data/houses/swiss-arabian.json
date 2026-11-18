@@ -1,7 +1,7 @@
 {
   "retailerId": "swiss-arabian",
-  "updatedAt": "2026-11-18T07:50:59.499Z",
-  "seenAt": "2026-11-18T07:50:59.499Z",
+  "updatedAt": "2026-11-18T11:49:53.521Z",
+  "seenAt": "2026-11-18T11:49:53.521Z",
   "source": "live",
   "listings": [
     {
@@ -2214,32 +2214,6 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "JFBL001401",
-      "url": "https://swissarabian.com/products/jannet-el-firdaus-bl",
-      "rawTitle": "JANNET EL FIRDAUS (BL)",
-      "rawBrand": "Swiss Arabian Global",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Jannet-El-Firdaus-Black-Bottle.png?v=1753430492",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Jannatul Firdaus - Beautiful scent, really attractive at first sniff. Very clean, green, fresh and soapy smell with decent longevity of 4-5 hours on skin. As the name suggests jannatul firdaus( heaven's garden), it really feels special every time you wear..",
-      "productType": null,
-      "nativePrice": {
-        "amount": 17,
-        "currency": "USD"
-      },
-      "retailerId": "swiss-arabian",
-      "firstSeenAt": "2026-10-28T11:21:28.704Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
@@ -6838,6 +6812,33 @@
       "firstSeenAt": "2026-10-01T20:12:07.475Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "JFBL001401",
+      "url": "https://swissarabian.com/products/jannet-el-firdaus-bl",
+      "rawTitle": "JANNET EL FIRDAUS (BL)",
+      "rawBrand": "Swiss Arabian Global",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Jannet-El-Firdaus-Black-Bottle.png?v=1753430492",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Jannatul Firdaus - Beautiful scent, really attractive at first sniff. Very clean, green, fresh and soapy smell with decent longevity of 4-5 hours on skin. As the name suggests jannatul firdaus( heaven's garden), it really feels special every time you wear..",
+      "productType": null,
+      "nativePrice": {
+        "amount": 17,
+        "currency": "USD"
+      },
+      "retailerId": "swiss-arabian",
+      "firstSeenAt": "2026-10-28T11:21:28.704Z",
+      "lastSeenAt": "2026-11-18T07:50:59.499Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-18T11:49:53.521Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
