@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-18T15:54:39.038Z",
-  "seenAt": "2026-11-18T15:54:39.038Z",
+  "updatedAt": "2026-11-18T19:47:56.400Z",
+  "seenAt": "2026-11-18T19:47:56.400Z",
   "source": "live",
   "listings": [
     {
@@ -7236,7 +7236,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Ariana Grande Ari Eau de Parfum is a floral fragrance created for customers who enjoy a soft, elegant scent. It opens with a distinctive first impression of bright pink grapefruit, develops into a balanced heart of orchid and rose, and settles into a smooth lasting base of warm vanilla. Suitable for everyday wear, this fragrance is a strong choice for anyone looking for a scent that feels feminine and refined.. Why customers choose it . Well-suited for everyday use and special occasions. A great option for gifting or daily wear. Designed for customers who prefer soft floral and gourmand scents.",
       "productType": "Eau de Parfum",

@@ -1,7 +1,7 @@
 {
   "retailerId": "justmylook",
-  "updatedAt": "2026-11-18T15:54:39.038Z",
-  "seenAt": "2026-11-18T15:54:39.038Z",
+  "updatedAt": "2026-11-18T19:47:56.400Z",
+  "seenAt": "2026-11-18T19:47:56.400Z",
   "source": "live",
   "listings": [
     {
@@ -43,8 +43,8 @@
       "inStock": true,
       "sectionId": "sitemap",
       "rating": {
-        "value": 4.81,
-        "count": 104
+        "value": 4.78,
+        "count": 106
       },
       "retailerId": "justmylook",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
@@ -343,8 +343,8 @@
       "inStock": true,
       "sectionId": "sitemap",
       "rating": {
-        "value": 4.92,
-        "count": 26
+        "value": 4.93,
+        "count": 27
       },
       "retailerId": "justmylook",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
@@ -469,7 +469,7 @@
       "sectionId": "sitemap",
       "rating": {
         "value": 4.73,
-        "count": 157
+        "count": 158
       },
       "retailerId": "justmylook",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
@@ -38306,7 +38306,7 @@
       "priceGbp": 118.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -38438,7 +38438,7 @@
       "priceGbp": 40.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -41872,7 +41872,7 @@
       "priceGbp": 43.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "justmylook",
@@ -45471,8 +45471,8 @@
       "retailerId": "justmylook",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "lastSeenAt": "2026-11-18T07:47:38.602Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-18T19:47:56.400Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null
@@ -45494,8 +45494,8 @@
       "retailerId": "justmylook",
       "firstSeenAt": "2026-08-05T21:05:40.988Z",
       "lastSeenAt": "2026-11-18T07:47:38.602Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-18T19:47:56.400Z",
       "relistedAt": "2026-10-30T11:08:59.446Z",
       "eligibleForNewBadge": true,
       "variantId": null

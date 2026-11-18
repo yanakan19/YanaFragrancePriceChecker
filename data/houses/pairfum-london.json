@@ -1,7 +1,7 @@
 {
   "retailerId": "pairfum-london",
-  "updatedAt": "2026-11-18T15:46:49.761Z",
-  "seenAt": "2026-11-18T15:46:49.761Z",
+  "updatedAt": "2026-11-18T19:40:32.855Z",
+  "seenAt": "2026-11-18T19:40:32.855Z",
   "source": "live",
   "listings": [
     {
@@ -6421,8 +6421,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
-      "availability": "preOrder",
+      "inStock": true,
       "sectionId": "house-direct",
       "rating": null,
       "retailerId": "pairfum-london",

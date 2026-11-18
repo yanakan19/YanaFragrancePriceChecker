@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-18T15:54:39.038Z",
-  "seenAt": "2026-11-18T15:54:39.038Z",
+  "updatedAt": "2026-11-18T19:47:56.400Z",
+  "seenAt": "2026-11-18T19:47:56.400Z",
   "source": "live",
   "listings": [
     {
@@ -4775,7 +4775,7 @@
       "priceGbp": 130,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A generous 100ml Cologne with a distinctive Vanilla Scotch fragrance character. Combining the inviting warmth of vanilla with a sophisticated spirit-inspired identity, this limited seasonal scent offers a rich and enveloping addition to a fragrance collection..",
       "productType": "Unisex Fragrance",
