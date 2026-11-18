@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-11-17T03:54:35.756Z",
+ "builtAt": "2026-11-18T03:24:44.596Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 15338,
- "offersWithCorroboratedReference": 3046,
+ "listingsWithReference": 15340,
+ "offersWithCorroboratedReference": 3047,
  "deals": [
   {
    "fragranceId": "aar-fragrances-ibraheem-al-qurashi-blue-oud",
@@ -264,16 +264,6 @@
    "wasPrice": 6500,
    "percentOff": 50,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-lattafa-her-confession",
-   "price": 3249,
-   "delivered": false,
-   "wasPrice": 6500,
-   "percentOff": 50,
-   "retailerId": "all-arabic",
    "kind": "retailer",
    "houseName": null
   },
@@ -828,6 +818,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fridaycharm-rue-broca-theoreme-matrix-edp-m-90ml",
+   "price": 2172.5,
+   "delivered": true,
+   "wasPrice": 4068.9,
+   "percentOff": 46,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-versace-bright-crystal-parfum-w-90ml",
    "price": 8490,
    "delivered": true,
@@ -932,6 +932,16 @@
    "price": 2418.9,
    "delivered": true,
    "wasPrice": 4400,
+   "percentOff": 45,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-khadlaj-panache-angel-dust",
+   "price": 3298.9,
+   "delivered": true,
+   "wasPrice": 6050,
    "percentOff": 45,
    "retailerId": "perfume-palace",
    "kind": "retailer",
@@ -1128,16 +1138,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "all-arabic-aaplass126",
-   "price": 2599,
-   "delivered": false,
-   "wasPrice": 4800,
-   "percentOff": 45,
-   "retailerId": "all-arabic",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-3355991004689",
    "price": 2752.2,
    "delivered": true,
@@ -1228,16 +1228,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-ahmed-al-maghribi-oud-lavender",
-   "price": 3599,
-   "delivered": false,
-   "wasPrice": 6500,
-   "percentOff": 44,
-   "retailerId": "all-arabic",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-clinique-happy-for-men",
    "price": 5250,
    "delivered": true,
@@ -1254,6 +1244,16 @@
    "wasPrice": 4500,
    "percentOff": 44,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-lattafa-badee-al-oud-sublime",
+   "price": 2748.9,
+   "delivered": true,
+   "wasPrice": 4950,
+   "percentOff": 44,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -1648,16 +1648,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-lattafa-badee-al-oud-sublime",
-   "price": 2599,
-   "delivered": false,
-   "wasPrice": 4500,
-   "percentOff": 42,
-   "retailerId": "all-arabic",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-lattafa-musamam-white-intense",
    "price": 3750,
    "delivered": true,
@@ -1944,16 +1934,6 @@
    "wasPrice": 5000,
    "percentOff": 40,
    "retailerId": "scentopia",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-ahmed-al-maghribi-oud-roses",
-   "price": 4288.9,
-   "delivered": true,
-   "wasPrice": 7150,
-   "percentOff": 40,
-   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -2598,6 +2578,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-ahmed-al-maghribi-oud-roses",
+   "price": 5250,
+   "delivered": true,
+   "wasPrice": 8500,
+   "percentOff": 38,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-arabiyat-bahiya-ruby",
    "price": 3099,
    "delivered": true,
@@ -2978,16 +2968,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-rue-broca-theoreme-matrix-edp-m-90ml",
-   "price": 1990,
-   "delivered": true,
-   "wasPrice": 3250,
-   "percentOff": 38,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "perfume-palace-appearmusk",
    "price": 1839,
    "delivered": false,
@@ -3134,6 +3114,16 @@
    "wasPrice": 4000,
    "percentOff": 37,
    "retailerId": "scentopia",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-lattafa-her-confession",
+   "price": 3990,
+   "delivered": true,
+   "wasPrice": 6350,
+   "percentOff": 37,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -3338,16 +3328,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-khadlaj-panache-angel-dust",
-   "price": 3490,
-   "delivered": true,
-   "wasPrice": 5500,
-   "percentOff": 36,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-lattafa-emeer",
    "price": 3799,
    "delivered": true,
@@ -3444,16 +3424,6 @@
    "wasPrice": 7590,
    "percentOff": 36,
    "retailerId": "scentopia",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "all-arabic-aaaa0028",
-   "price": 3199,
-   "delivered": false,
-   "wasPrice": 5000,
-   "percentOff": 36,
-   "retailerId": "all-arabic",
    "kind": "retailer",
    "houseName": null
   },
@@ -4304,6 +4274,16 @@
    "wasPrice": 5489,
    "percentOff": 34,
    "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "all-arabic-aaaa0028",
+   "price": 3299,
+   "delivered": true,
+   "wasPrice": 5000,
+   "percentOff": 34,
+   "retailerId": "scentopia",
    "kind": "retailer",
    "houseName": null
   },
@@ -6368,16 +6348,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-carolina-herrera-212-sexy-men",
-   "price": 6037.9,
-   "delivered": true,
-   "wasPrice": 8250,
-   "percentOff": 26,
-   "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-dumont-nitro-blue",
    "price": 2549,
    "delivered": false,
@@ -6534,16 +6504,6 @@
    "wasPrice": 22500,
    "percentOff": 26,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-mykonos-bonfire-vanilla-extrait-de-parfum-u-50ml",
-   "price": 2418.9,
-   "delivered": true,
-   "wasPrice": 3300,
-   "percentOff": 26,
-   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -6778,6 +6738,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "all-arabic-aapfalb010",
+   "price": 3299,
+   "delivered": false,
+   "wasPrice": 4399,
+   "percentOff": 25,
+   "retailerId": "perfume-network",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3355991002319",
    "price": 3712.5,
    "delivered": true,
@@ -6844,6 +6814,16 @@
    "wasPrice": 7150,
    "percentOff": 25,
    "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-mykonos-california-signature-extrait-de-parfum-u-50ml",
+   "price": 2250,
+   "delivered": true,
+   "wasPrice": 3000,
+   "percentOff": 25,
+   "retailerId": "fridaycharm",
    "kind": "retailer",
    "houseName": null
   },
@@ -7489,16 +7469,6 @@
   },
   {
    "fragranceId": "fridaycharm-mykonos-california-blue-extrait-de-parfum-u-50ml",
-   "price": 2299,
-   "delivered": true,
-   "wasPrice": 3000,
-   "percentOff": 23,
-   "retailerId": "scentopia",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-mykonos-california-signature-extrait-de-parfum-u-50ml",
    "price": 2299,
    "delivered": true,
    "wasPrice": 3000,
@@ -8642,16 +8612,6 @@
    "price": 9950,
    "delivered": true,
    "wasPrice": 12250,
-   "percentOff": 18,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-kenzo-homme-edt",
-   "price": 7950,
-   "delivered": true,
-   "wasPrice": 9800,
    "percentOff": 18,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -10892,6 +10852,16 @@
    "price": 2990,
    "delivered": true,
    "wasPrice": 3150,
+   "percentOff": 5,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-carolina-herrera-212-sexy-men",
+   "price": 7100,
+   "delivered": true,
+   "wasPrice": 7500,
    "percentOff": 5,
    "retailerId": "fridaycharm",
    "kind": "retailer",

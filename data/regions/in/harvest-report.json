@@ -1,13 +1,13 @@
 {
   "region": "IN",
   "currency": "INR",
-  "ranAt": "2026-11-17T02:59:16.141Z",
-  "minutes": 55.32,
+  "ranAt": "2026-11-18T02:29:26.113Z",
+  "minutes": 55.3,
   "dryRun": false,
   "shopsWired": 21,
   "shopsEnabled": 18,
   "shopsPriced": 18,
-  "listingsKept": 23724,
+  "listingsKept": 23689,
   "shops": [
     {
       "id": "nykaa",
@@ -15,11 +15,11 @@
       "route": "sitemap",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1217,
-      "priced": 1217,
-      "kept": 1201,
-      "withBarcode": 190,
-      "pagesFetched": 1255,
+      "listingsRead": 1187,
+      "priced": 1187,
+      "kept": 1170,
+      "withBarcode": 159,
+      "pagesFetched": 1226,
       "seconds": 3302,
       "currency": "JSON-LD offers named: INR",
       "errors": [
@@ -36,7 +36,7 @@
         "https://www.nykaa.com/giorgio-armani-si-eau-de-parfum-gift-set/p/17695472: HTTP 404",
         "https://www.nykaa.com/ulric-de-varens-flash-eau-de-toilette-natural-spray-for-men/p/9329009: HTTP 404",
         "https://www.nykaa.com/victoria-s-secret-bare-eau-de-parfum-travel-spray/p/16691987: HTTP 404",
-        "sitemap: 3088 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
+        "sitemap: 3123 product address(es) found, first read https://www.nykaa.com/yves-saint-laurent-libre-eau-de-parfum/p/709516"
       ]
     },
     {
@@ -61,12 +61,12 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 7986,
-      "priced": 7986,
-      "kept": 6693,
+      "listingsRead": 7987,
+      "priced": 7987,
+      "kept": 6694,
       "withBarcode": 0,
       "pagesFetched": 35,
-      "seconds": 75,
+      "seconds": 74,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -81,7 +81,7 @@
       "kept": 6472,
       "withBarcode": 0,
       "pagesFetched": 31,
-      "seconds": 62,
+      "seconds": 61,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -96,7 +96,7 @@
       "kept": 1905,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 18,
+      "seconds": 17,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -106,11 +106,11 @@
       "route": "og-price",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1068,
-      "priced": 1068,
-      "kept": 1015,
+      "listingsRead": 1063,
+      "priced": 1063,
+      "kept": 1010,
       "withBarcode": 0,
-      "pagesFetched": 1069,
+      "pagesFetched": 1064,
       "seconds": 3301,
       "currency": "og:price tags named: INR",
       "errors": [
@@ -176,7 +176,7 @@
       "kept": 26,
       "withBarcode": 0,
       "pagesFetched": 4,
-      "seconds": 6,
+      "seconds": 5,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -202,7 +202,7 @@
       "singleBrand": true,
       "status": "priced",
       "listingsRead": 683,
-      "priced": 642,
+      "priced": 643,
       "kept": 86,
       "withBarcode": 0,
       "pagesFetched": 6,
@@ -285,7 +285,7 @@
       "kept": 1452,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 20,
+      "seconds": 19,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -300,7 +300,7 @@
       "kept": 2473,
       "withBarcode": 0,
       "pagesFetched": 10,
-      "seconds": 20,
+      "seconds": 22,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -331,7 +331,7 @@
       "kept": 1234,
       "withBarcode": 0,
       "pagesFetched": 9,
-      "seconds": 15,
+      "seconds": 14,
       "currency": "the storefront publishes INR at rate 1, settles in INR",
       "errors": []
     },
@@ -341,7 +341,7 @@
       "route": "shopify",
       "singleBrand": false,
       "status": "priced",
-      "listingsRead": 1236,
+      "listingsRead": 1224,
       "priced": 527,
       "kept": 503,
       "withBarcode": 0,
