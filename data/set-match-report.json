@@ -14303,7 +14303,7 @@
   {
    "reasons": [
     "two different barcodes: 3423222118488, 3423222119706",
-    "price spread 1.93 is over 1.5"
+    "price spread 1.83 is over 1.5"
    ],
    "members": [
     {
@@ -15210,7 +15210,8 @@
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
-      "mybeauty-boutique"
+      "mybeauty-boutique",
+      "p-eleven"
      ]
     }
    ]
