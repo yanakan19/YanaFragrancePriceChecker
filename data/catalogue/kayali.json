@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-18T11:44:43.055Z",
-  "seenAt": "2026-11-18T11:44:43.055Z",
+  "updatedAt": "2026-11-18T15:54:39.038Z",
+  "seenAt": "2026-11-18T15:54:39.038Z",
   "source": "live",
   "listings": [
     {
@@ -3050,7 +3050,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Bright. Addictive, Sugary. Escape to a beautiful, sun-drenched and lemon-filled Italian island with Capri in a Bottle Lemon Sugar | 14! This delectable juice opens with bright notes of lemon to complement the sweetness of vanilla and sugar, giving way to the freshness of lemon blossom, freesia and raspberry that sits at the heart. The warm and sensual duo of praline and benzoin make this fragrance even more addictive and intense..",
       "productType": "Fragrances",

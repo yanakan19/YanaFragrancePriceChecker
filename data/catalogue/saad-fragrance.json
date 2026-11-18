@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-18T11:44:43.055Z",
-  "seenAt": "2026-11-18T11:44:43.055Z",
+  "updatedAt": "2026-11-18T15:54:39.038Z",
+  "seenAt": "2026-11-18T15:54:39.038Z",
   "source": "live",
   "listings": [
     {
@@ -213,7 +213,7 @@
     },
     {
       "retailerSku": "15481334399299-Default Title",
-      "url": "https://saadfragrance.com/products/armaf-club-de-nuit-timeless-perfume-105ml-edp",
+      "url": "https://saadfragrance.com/products/armaf-club-de-nuit-timeless",
       "rawTitle": "Armaf Club De Nuit Timeless Perfume 105ml EDP",
       "rawBrand": "Armaf",
       "ean": null,
@@ -2380,8 +2380,8 @@
       "rawBrand": "saad fragrance",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0820/7997/3699/files/FullSizeRender_5c035d70-6bd6-49bf-96fb-e1a78daa59b4.jpg?v=1764518219",
-      "priceGbp": 19.99,
-      "wasPriceGbp": 29.99,
+      "priceGbp": 30.99,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

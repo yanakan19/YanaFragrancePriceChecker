@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-11-18T11:46:25.307Z",
-  "seenAt": "2026-11-18T11:46:25.307Z",
+  "updatedAt": "2026-11-18T15:46:55.770Z",
+  "seenAt": "2026-11-18T15:46:55.770Z",
   "source": "live",
   "listings": [
     {
@@ -66,7 +66,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Surrati Black Oud (العود الأسود), Extrait de Aoud, 150 ml.. Dive into the depths of elegance. A mesmerizing fragrance featuring woody white florals, a romantic rose heart, and a sweet, fresh spicy base, elevated by rich fruity oud..",
       "productType": "Unisex Perfume",
@@ -303,7 +303,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Rosso Omber. . . . . This blend of woody scents exudes elegance and strength, making it perfect for men and women. Indulge in the luxurious aroma of honey and oud, lasting all day with just a few sprays..",
       "productType": "Unisex Perfume",

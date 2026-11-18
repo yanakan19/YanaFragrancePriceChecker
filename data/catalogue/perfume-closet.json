@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-closet",
-  "updatedAt": "2026-11-18T11:44:44.623Z",
-  "seenAt": "2026-11-18T11:44:44.623Z",
+  "updatedAt": "2026-11-18T15:45:12.654Z",
+  "seenAt": "2026-11-18T15:45:12.654Z",
   "source": "live",
   "listings": [
     {
@@ -33,7 +33,7 @@
       "rawTitle": "Luminous Bundle - Buy 3 sale items + 1 EXTRA FREE",
       "rawBrand": "The Perfume Closet",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0954/9119/5220/files/Perfumecloset-32-scaled.jpg?v=1774351065",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0954/9119/5220/files/BlackFridayPerfumeOffer_1.png?v=1794936920",
       "priceGbp": 94.97,
       "wasPriceGbp": 205,
       "promoEndsAt": null,
@@ -908,7 +908,7 @@
       "rawBrand": "The Perfume Closet",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0954/9119/5220/files/reef33travelsize.png?v=1786390568",
-      "priceGbp": 15,
+      "priceGbp": 14.99,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
       "inStock": true,

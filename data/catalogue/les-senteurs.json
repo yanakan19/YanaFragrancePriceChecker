@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-18T11:44:44.623Z",
-  "seenAt": "2026-11-18T11:44:44.623Z",
+  "updatedAt": "2026-11-18T15:45:12.654Z",
+  "seenAt": "2026-11-18T15:45:12.654Z",
   "source": "live",
   "listings": [
     {
@@ -28166,7 +28166,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The olfactory gateway to the grandeur of Scotland’s ancient forests. Fresh, invigorating and glorious. The Portal to our Caledonian heritage. A cascade of gloriously green top notes draws the delighted nose into a heart of floral accords to evoke a summer woodland floor. The rich dark base is a blend of vetiver and Scots pine.. Top Notes: Herbaceous Botanicals, Bergamot Heart Notes: Verdant Flora Base Notes: Vetiver, Scots Pine .",
       "productType": "Fragrance",

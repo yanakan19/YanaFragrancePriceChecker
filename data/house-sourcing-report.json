@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-18T11:51:22.510Z",
+  "checkedAt": "2026-11-18T15:52:04.988Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -479,9 +479,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 708,
+      "listings": 711,
       "pricedInGbp": 0,
-      "withPhoto": 708,
+      "withPhoto": 709,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -533,9 +533,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 170,
-      "pricedInGbp": 170,
-      "withPhoto": 169,
+      "listings": 172,
+      "pricedInGbp": 172,
+      "withPhoto": 171,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
