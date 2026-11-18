@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-17T23:58:11.447Z",
-  "seenAt": "2026-11-17T23:58:11.447Z",
+  "updatedAt": "2026-11-18T03:42:02.907Z",
+  "seenAt": "2026-11-18T03:42:02.907Z",
   "source": "live",
   "listings": [
     {
@@ -4795,7 +4795,7 @@
       "rawBrand": "Sarah Jessica Parker",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/Sarah-Jessica-Parker-Born-Lovely-EDP-Spray-30ml-63968031506700.jpg?v=1781181823",
-      "priceGbp": 10,
+      "priceGbp": 11.99,
       "wasPriceGbp": 19.99,
       "promoEndsAt": null,
       "inStock": true,
