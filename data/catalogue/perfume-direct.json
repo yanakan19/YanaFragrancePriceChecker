@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-18T03:42:02.907Z",
-  "seenAt": "2026-11-18T03:42:02.907Z",
+  "updatedAt": "2026-11-18T07:47:38.602Z",
+  "seenAt": "2026-11-18T07:47:38.602Z",
   "source": "live",
   "listings": [
     {
@@ -95563,7 +95563,7 @@
       "priceGbp": 26.99,
       "wasPriceGbp": 53,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Anais Anais by Cacharel is a fruity-floral fragrance for women. Inspired by the lily, a flower that shows purity. It is a fresh yet distinctive fragrance. A timeless classic. . . Fragrance Type: . Fruity, Floral. . Fragrance Notes: . - Top notes: Honeysuckle, Bergamot, Blackcurrant, White Lily.. - Middle notes: Moroccan Jasmine, Honeysuckle, Ylang-Ylang. - Base notes: Leather, Sandalwood, Amber, Patchouli. . Launched: . 1978.",
       "productType": "Women's Perfume",

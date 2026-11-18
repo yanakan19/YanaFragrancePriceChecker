@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-18T03:42:02.907Z",
-  "seenAt": "2026-11-18T03:42:02.907Z",
+  "updatedAt": "2026-11-18T07:47:38.602Z",
+  "seenAt": "2026-11-18T07:47:38.602Z",
   "source": "live",
   "listings": [
     {
@@ -1049,7 +1049,7 @@
       "priceGbp": 89,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Black Tea, Juniper Berry, Nettle, Grapefruit, Beardtongue, Osmanthus Absolute, Ginger, Bracken, Larch.. . Birchwood, Sugar Kelp, Guaiacwood, Vetiver, Oakwood, Benzoin, Labdanum Absolute, Peat..",
       "productType": "Perfume",

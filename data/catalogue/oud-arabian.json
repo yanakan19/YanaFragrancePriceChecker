@@ -1,7 +1,7 @@
 {
   "retailerId": "oud-arabian",
-  "updatedAt": "2026-11-18T03:42:02.907Z",
-  "seenAt": "2026-11-18T03:42:02.907Z",
+  "updatedAt": "2026-11-18T07:47:38.602Z",
+  "seenAt": "2026-11-18T07:47:38.602Z",
   "source": "live",
   "listings": [
     {
@@ -87,31 +87,6 @@
       "ean": "9648195535190",
       "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/ayaan2.webp?v=1749039578&width=2000",
       "description": "Ayaan is a radiant celebration of vitality and warmth—an aromatic tapestry woven with sunlit freshness, lush fruits, and soft florals. It opens with a zesty explosion of citron, lemon, and orange, uplifted by the cool clarity of mint and a hint of blackcurrant tartness. A touch of coriander adds an herbal brightness, creating an invigorating top that feels both energetic and refined. At the heart, Ayaan reveals an unexpected softness. The succulent sweetness of apricot blends seamlessly with the fresh, green nuance of basil, while may rose lends a delicate floral elegance. Carrot seed introduces an earthy warmth, adding a unique, skin-like subtlety to the heart of the fragrance. As it settles, the scent turns inward, rich and intimate. Fig and dates bring a mellow, honeyed depth, evoking sun-drenched orchards and golden afternoons. Ambrette finishes the composition with a musky, slightly powdery smoothness that lingers close to the skin. Top Notes: Citron, mint, orange, lemon, blackcurrant and corianderMiddle Notes: Apricot, basil, may rose and carrot seedsBase Notes: Fig, dates and ambrette",
-      "priceGbp": 59.99,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-11-18T00:00:00.000Z",
-      "inStock": false,
-      "sectionId": "sitemap",
-      "rating": {
-        "value": 0,
-        "count": 0
-      },
-      "retailerId": "oud-arabian",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "50549280178518",
-      "url": "https://oudarabian.co.uk/products/essential-perfume-azlaan",
-      "rawTitle": "Essential Perfume Azlaan",
-      "rawBrand": "Oud Arabian",
-      "ean": "9648210182486",
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/azlaan.webp?v=1749039969&width=2000",
-      "description": "Azlaan is a bold olfactory statement—an aromatic journey where tradition meets modern sensuality. This fragrance opens with a radiant burst of Citron, Calabrian bergamot, and Sicilian orange, offering a crisp and invigorating citrus prelude that awakens the senses. At its heart, Azlaan reveals a spicy, luminous warmth. The elegance of Tunisian neroli merges with the electric zing of Nigerian ginger, while Ceylon cinnamon adds a smooth, spicy sophistication that grounds the composition in confident allure. As the scent settles, a rich and introspective base unfolds. Smoky nuances of Chinese black tea mingle with the warm depth of guaiac wood, while ambroxan lends a clean, modern sensuality. The resinous glow of olibanum (frankincense) adds an ancient, meditative touch, creating a lasting impression that is both powerful and serene. Top Notes: Citron, Calabrian bergamot and Sicilian orangeMiddle Notes: Tunisian neroli, nigerian ginger and Ceylon cinnamonBase Notes: Chinese black tea, ambroxan, guaiac wood and olibanum",
       "priceGbp": 59.99,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-11-18T00:00:00.000Z",
@@ -1041,6 +1016,31 @@
       "wasPriceGbp": null,
       "promoEndsAt": "2027-11-18T00:00:00.000Z",
       "inStock": true,
+      "sectionId": "sitemap",
+      "rating": {
+        "value": 0,
+        "count": 0
+      },
+      "retailerId": "oud-arabian",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "50549280178518",
+      "url": "https://oudarabian.co.uk/products/essential-perfume-azlaan",
+      "rawTitle": "Essential Perfume Azlaan",
+      "rawBrand": "Oud Arabian",
+      "ean": "9648210182486",
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/azlaan.webp?v=1749039969&width=2000",
+      "description": "Azlaan is a bold olfactory statement—an aromatic journey where tradition meets modern sensuality. This fragrance opens with a radiant burst of Citron, Calabrian bergamot, and Sicilian orange, offering a crisp and invigorating citrus prelude that awakens the senses. At its heart, Azlaan reveals a spicy, luminous warmth. The elegance of Tunisian neroli merges with the electric zing of Nigerian ginger, while Ceylon cinnamon adds a smooth, spicy sophistication that grounds the composition in confident allure. As the scent settles, a rich and introspective base unfolds. Smoky nuances of Chinese black tea mingle with the warm depth of guaiac wood, while ambroxan lends a clean, modern sensuality. The resinous glow of olibanum (frankincense) adds an ancient, meditative touch, creating a lasting impression that is both powerful and serene. Top Notes: Citron, Calabrian bergamot and Sicilian orangeMiddle Notes: Tunisian neroli, nigerian ginger and Ceylon cinnamonBase Notes: Chinese black tea, ambroxan, guaiac wood and olibanum",
+      "priceGbp": 59.99,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-11-18T00:00:00.000Z",
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": {
         "value": 0,
