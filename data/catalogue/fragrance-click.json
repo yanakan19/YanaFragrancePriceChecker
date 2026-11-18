@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-11-18T15:39:41.864Z",
-  "seenAt": "2026-11-18T15:39:41.864Z",
+  "updatedAt": "2026-11-18T23:51:42.739Z",
+  "seenAt": "2026-11-18T23:51:42.739Z",
   "source": "live",
   "listings": [
     {
@@ -12853,28 +12853,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "3349668542826",
-      "url": "https://www.awin1.com/pclick.php?p=44089042240&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/paco-rabanne-1-million-100ml-eau-de-toilette-set.html",
-      "rawTitle": "Paco Rabanne 1 Million 100ml Eau de Toilette Set",
-      "rawBrand": "Paco Rabanne",
-      "ean": "3349668542826",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1148.jpg",
-      "priceGbp": 70.95,
-      "wasPriceGbp": 96,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "awin-feed",
-      "description": "This 100ml eau de toilette from Paco leans into elegant territory while keeping things floral. It's one of those fragrances that finds the sweet spot between wearable and distinctive.Expect Bergamot, Citrus leading off, with Jasmine, Rose following as the heart notes take over. The foundation of Vanilla, Musk provides that lasting element that carries through the wear.The 100ml size works well if this becomes part of your regular rotation. This eau de toilette has decent longevity, so you're not reapplying constantly throughout the day.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": "2026-11-17T00:11:46.593Z",
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "3349668509669",
       "url": "https://www.awin1.com/pclick.php?p=46119126351&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/paco-rabanne-1-million-200ml-eau-de-toilette.html",
@@ -20264,6 +20242,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3349668542826",
+      "url": "https://www.awin1.com/pclick.php?p=44089042240&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/paco-rabanne-1-million-100ml-eau-de-toilette-set.html",
+      "rawTitle": "Paco Rabanne 1 Million 100ml Eau de Toilette Set",
+      "rawBrand": "Paco Rabanne",
+      "ean": "3349668542826",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1148.jpg",
+      "priceGbp": 70.95,
+      "wasPriceGbp": 96,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "awin-feed",
+      "description": "This 100ml eau de toilette from Paco leans into elegant territory while keeping things floral. It's one of those fragrances that finds the sweet spot between wearable and distinctive.Expect Bergamot, Citrus leading off, with Jasmine, Rose following as the heart notes take over. The foundation of Vanilla, Musk provides that lasting element that carries through the wear.The 100ml size works well if this becomes part of your regular rotation. This eau de toilette has decent longevity, so you're not reapplying constantly throughout the day.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-11-18T15:39:41.864Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-18T23:51:42.739Z",
+      "relistedAt": "2026-11-17T00:11:46.593Z",
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
