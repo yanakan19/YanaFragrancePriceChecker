@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 373,
+ "folded": 381,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1634,6 +1634,38 @@
    ]
   },
   {
+   "canonical": "set-ean-0850050174691",
+   "absorbed": [
+    "set-michael-kors-pour-homme-gift-set-50ml-edp-50ml-shower-gel-50ml-aftershave-balm"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0850050174691",
+     "brand": "Michael Kors",
+     "name": "Pour Homme Gift Set 50ml EDP + 50ml Shower Gel + 50ml Aftershave Balm",
+     "concentration": "Eau de Parfum",
+     "ean": "0850050174691",
+     "scent": "homme pour",
+     "signature": "1x50body|1x50fragrance|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-michael-kors-pour-homme-gift-set-50ml-edp-50ml-shower-gel-50ml-aftershave-balm",
+     "brand": "Michael Kors",
+     "name": "Pour Homme Gift Set 50ml EDP + 50ml Shower Gel + 50ml Aftershave Balm",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "homme pour",
+     "signature": "1x50body|1x50fragrance|1x50wash",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0855560005602",
    "absorbed": [
     "set-usher-ur-gift-set-100ml-edt-100ml-aftershave-soother-100ml-shower-gel"
@@ -3092,6 +3124,70 @@
    ]
   },
   {
+   "canonical": "set-ean-3386460146968",
+   "absorbed": [
+    "set-coach-love-gift-set-50ml-edp-7-5ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460146968",
+     "brand": "Coach",
+     "name": "Love Gift Set 50ml EDP + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460146968",
+     "scent": "love",
+     "signature": "1x50fragrance|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-coach-love-gift-set-50ml-edp-7-5ml-edp",
+     "brand": "Coach",
+     "name": "Love Gift Set 50ml EDP + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "love",
+     "signature": "1x50fragrance|1x7.5fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3386460148351",
+   "absorbed": [
+    "set-kate-spade-cherie-gift-set-100ml-edp-7-5ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460148351",
+     "brand": "Kate Spade",
+     "name": "Chérie Gift Set 100ml EDP + 7.5ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460148351",
+     "scent": "cherie",
+     "signature": "1x100body|1x100fragrance|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-kate-spade-cherie-gift-set-100ml-edp-7-5ml-edp-100ml-body-lotion",
+     "brand": "Kate Spade",
+     "name": "Chérie Gift Set 100ml Edp + 7.5ml Edp + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "cherie",
+     "signature": "1x100body|1x100fragrance|1x7.5fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3386460148443",
    "absorbed": [
     "set-jimmy-choo-man-aqua-gift-set-50ml-edt-100ml-shower-gel"
@@ -3156,6 +3252,38 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3386460157643",
+   "absorbed": [
+    "set-jimmy-choo-miniature-gift-set-4-5ml-jimmy-choo-edp-4-5ml-i-want-choo-edp-4-5ml-i-want-choo-forever-edp-4-5ml-i-want-choo-le-parfum-4-5ml-fever-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460157643",
+     "brand": "Jimmy Choo",
+     "name": "Miniature Gift Set 4.5ml Jimmy Choo EDP + 4.5ml I Want Choo EDP + 4.5ml I want Choo Forever EDP + 4.5ml I want Choo Le Parfum + 4.5ml Fever EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460157643",
+     "scent": "choo fever forever i jimmy le want",
+     "signature": "1x4.5fragrance|1x4.5fragrance|3x4.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jimmy-choo-miniature-gift-set-4-5ml-jimmy-choo-edp-4-5ml-i-want-choo-edp-4-5ml-i-want-choo-forever-edp-4-5ml-i-want-choo-le-parfum-4-5ml-fever-edp",
+     "brand": "Jimmy Choo",
+     "name": "Miniature Gift Set 4.5ml Jimmy Choo EDP + 4.5ml I Want Choo EDP + 4.5ml I want Choo Forever EDP + 4.5ml I want Choo Le Parfum + 4.5ml Fever EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "choo fever forever i jimmy le want",
+     "signature": "1x4.5fragrance|1x4.5fragrance|3x4.5fragrance",
+     "shops": [
       "p-eleven"
      ]
     }
@@ -3645,6 +3773,40 @@
      "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3423222119720",
+   "absorbed": [
+    "set-issey-miyake-le-sel-d-issey-eau-de-parfum-gift-set-100ml-edp-spray-50ml-shower-gel-10ml-edp-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222119720",
+     "brand": "Issey Miyake",
+     "name": "Le Sel D'Issey Eau de Parfum 100ml Spray Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3423222119720",
+     "scent": "d issey le sel",
+     "signature": "1x100fragrance|1x10fragrance|1x50wash",
+     "shops": [
+      "paco-perfumerias-uk",
+      "perfume-click",
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-le-sel-d-issey-eau-de-parfum-gift-set-100ml-edp-spray-50ml-shower-gel-10ml-edp-spray",
+     "brand": "Issey Miyake",
+     "name": "Le Sel D'Issey Eau de Parfum Gift Set - 100ml EDP Spray + 50ml Shower Gel + 10ml EDP Spray",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "d issey le sel",
+     "signature": "1x100fragrance|1x10fragrance|1x50wash",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -4579,7 +4741,8 @@
   {
    "canonical": "set-ean-3616303784898",
    "absorbed": [
-    "set-gucci-guilty-pour-homme-2-piece-gift-set-eau-de-parfum-90ml-eau-de-parfum-15ml"
+    "set-gucci-guilty-pour-homme-2-piece-gift-set-eau-de-parfum-90ml-eau-de-parfum-15ml",
+    "set-gucci-guilty-pour-homme-gift-set-90ml-edp-15ml-edp"
    ],
    "members": [
     {
@@ -4604,6 +4767,18 @@
      "signature": "1x15fragrance|1x90fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-gucci-guilty-pour-homme-gift-set-90ml-edp-15ml-edp",
+     "brand": "Gucci",
+     "name": "Guilty Pour Homme Gift Set 90ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "guilty homme pour",
+     "signature": "1x15fragrance|1x90fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -8438,6 +8613,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003850952",
+   "absorbed": [
+    "set-dsquared2-wood-for-her-gift-set-30ml-edt-50ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003850952",
+     "brand": "Dsquared2",
+     "name": "Wood For Her Gift Set 30ml EDT + 50ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": "8011003850952",
+     "scent": "wood",
+     "signature": "1x30fragrance|1x50body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dsquared2-wood-for-her-gift-set-30ml-edt-50ml-body-lotion",
+     "brand": "Dsquared2",
+     "name": "Wood For Her Gift Set 30ml EDT + 50ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "wood",
+     "signature": "1x30fragrance|1x50body",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003860791",
    "absorbed": [
     "set-dsquared-red-wood-gift-set-30ml-edt-50ml-body-lotion"
@@ -9185,6 +9392,38 @@
      "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "intense k",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8054754403527",
+   "absorbed": [
+    "set-dolce-gabbana-devotion-pour-homme-gift-set-100ml-edp-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8054754403527",
+     "brand": "Dolce & Gabbana",
+     "name": "Devotion Pour Homme Gift Set 100ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8054754403527",
+     "scent": "devotion homme pour",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dolce-gabbana-devotion-pour-homme-gift-set-100ml-edp-10ml-edp",
+     "brand": "Dolce & Gabbana",
+     "name": "Devotion Pour Homme Gift Set 100ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "devotion homme pour",
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "p-eleven"
@@ -14454,50 +14693,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3386460148269, 3386460148351"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460148269",
-     "brand": "Kate Spade",
-     "name": "Cherie Women's Perfume Gift Set (100ml EDP + 100ml Body Lotion + 7.5ml EDP)",
-     "concentration": "Eau de Parfum",
-     "ean": "3386460148269",
-     "scent": "cherie",
-     "signature": "1x100body|1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "perfume-direct",
-      "scentsational"
-     ]
-    },
-    {
-     "id": "set-ean-3386460148351",
-     "brand": "Kate Spade",
-     "name": "Chérie Gift Set 100ml EDP + 7.5ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3386460148351",
-     "scent": "cherie",
-     "signature": "1x100body|1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-kate-spade-cherie-gift-set-100ml-edp-7-5ml-edp-100ml-body-lotion",
-     "brand": "Kate Spade",
-     "name": "Chérie Gift Set 100ml Edp + 7.5ml Edp + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "cherie",
-     "signature": "1x100body|1x100fragrance|1x7.5fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "strengths differ: Eau de Toilette, Parfum"
    ],
    "members": [
@@ -15055,6 +15250,18 @@
       "beautybase",
       "scentstore"
      ]
+    },
+    {
+     "id": "set-giorgio-armani-acqua-di-gio-gift-set-50ml-edt-75ml-shower-gel",
+     "brand": "Giorgio Armani",
+     "name": "Acqua Di Gio Gift Set 50ml EDT + 75ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "acqua di gio",
+     "signature": "1x50fragrance|1x75wash",
+     "shops": [
+      "p-eleven"
+     ]
     }
    ]
   },
@@ -15375,7 +15582,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3616304957598, 3616305265166",
-    "a shop lists more than one: mybeauty-boutique, perfume-click"
+    "a shop lists more than one: mybeauty-boutique, p-eleven, perfume-click"
    ],
    "members": [
     {
@@ -15425,7 +15632,8 @@
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x?deo",
      "shops": [
-      "mybeauty-boutique"
+      "mybeauty-boutique",
+      "p-eleven"
      ]
     }
    ]
