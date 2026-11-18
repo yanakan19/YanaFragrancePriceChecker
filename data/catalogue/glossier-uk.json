@@ -1,7 +1,7 @@
 {
   "retailerId": "glossier-uk",
-  "updatedAt": "2026-11-17T20:10:23.280Z",
-  "seenAt": "2026-11-17T20:10:23.280Z",
+  "updatedAt": "2026-11-17T23:59:44.815Z",
+  "seenAt": "2026-11-17T23:59:44.815Z",
   "source": "live",
   "listings": [
     {
@@ -11,7 +11,7 @@
       "rawBrand": "Glossier",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0564/1653/4575/files/glossier-holiday-1029-26-all-of-you-pdp-carousel-1.png?v=1793399111",
-      "priceGbp": 125,
+      "priceGbp": 116,
       "wasPriceGbp": 167,
       "promoEndsAt": null,
       "inStock": true,
@@ -172,7 +172,7 @@
       "rawBrand": "Glossier",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0564/1653/4575/files/glossier-cremedeyou-you-edp-carousel-01.png?v=1747753051",
-      "priceGbp": 83,
+      "priceGbp": 80,
       "wasPriceGbp": 115,
       "promoEndsAt": null,
       "inStock": true,

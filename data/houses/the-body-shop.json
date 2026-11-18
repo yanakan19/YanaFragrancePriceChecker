@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-17T20:18:11.362Z",
-  "seenAt": "2026-11-17T20:18:11.362Z",
+  "updatedAt": "2026-11-17T23:58:05.143Z",
+  "seenAt": "2026-11-17T23:58:05.143Z",
   "source": "live",
   "listings": [
     {
@@ -8889,7 +8889,7 @@
       "rawBrand": "The Body Shop",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/edit2_1098092_BLACK_MUSK_NIGHT_BLOOM_EAU_DE_TOILETTE_60ml_BRNZ_INECOPS080.jpg?v=1759845269",
-      "priceGbp": 24.5,
+      "priceGbp": 21,
       "wasPriceGbp": 30,
       "promoEndsAt": null,
       "inStock": true,
