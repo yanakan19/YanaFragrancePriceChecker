@@ -1,26 +1,26 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-11-17T14:59:48.165Z",
+  "builtAt": "2026-11-18T14:40:15.575Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 20,
   "shopsEnabled": 11,
   "shopsPriced": 11,
-  "crawlMinutes": 12.12,
-  "harvestRanAt": "2026-11-17T14:47:40.434Z",
-  "listingsPriced": 49018,
-  "listingsKept": 38570,
+  "crawlMinutes": 11.58,
+  "harvestRanAt": "2026-11-18T14:28:40.226Z",
+  "listingsPriced": 49046,
+  "listingsKept": 38592,
   "staleAfterDays": 7,
-  "products": 27889,
-  "productsWithTwoOrMoreShops": 6556,
+  "products": 27912,
+  "productsWithTwoOrMoreShops": 6555,
   "shareWithTwoOrMoreShops": 0.235,
-  "productsWithTwoOrMoreIndependentShops": 6556,
+  "productsWithTwoOrMoreIndependentShops": 6555,
   "shareWithTwoOrMoreIndependentShops": 0.235,
   "productsWithThreeOrMoreShops": 2406,
   "medianPriceGap": 0.235,
   "listingBarcodeShare": 0.247,
-  "productsMatchingUkByBarcode": 2709,
+  "productsMatchingUkByBarcode": 2710,
   "shops": [
     {
       "id": "discount-fragrances-ca",
@@ -35,17 +35,17 @@
     {
       "id": "fragrance-online-co",
       "products": 851,
-      "shared": 515
+      "shared": 514
     },
     {
       "id": "h-parfums",
-      "products": 735,
+      "products": 751,
       "shared": 119
     },
     {
       "id": "maximum-fragrance",
-      "products": 9616,
-      "shared": 4520
+      "products": 9618,
+      "shared": 4519
     },
     {
       "id": "my-royal-musk",
@@ -54,17 +54,17 @@
     },
     {
       "id": "niche-essence",
-      "products": 1258,
+      "products": 1257,
       "shared": 425
     },
     {
       "id": "parfum-exquis",
-      "products": 3037,
+      "products": 3043,
       "shared": 369
     },
     {
       "id": "perfume-factory-ca",
-      "products": 676,
+      "products": 677,
       "shared": 516
     },
     {
@@ -74,17 +74,17 @@
     },
     {
       "id": "perfumeonline-ca",
-      "products": 13436,
+      "products": 13434,
       "shared": 5438
     }
   ],
-  "productsShown": 27889,
-  "productsWithUkPhoto": 6210,
-  "productsWithUkPhotoByBarcode": 1622,
-  "productsWithUkPhotoByName": 4588,
-  "listingsWithReference": 12496,
-  "offersWithCorroboratedReference": 3798,
-  "deals": 1185,
+  "productsShown": 27912,
+  "productsWithUkPhoto": 6221,
+  "productsWithUkPhotoByBarcode": 1626,
+  "productsWithUkPhotoByName": 4595,
+  "listingsWithReference": 12497,
+  "offersWithCorroboratedReference": 3797,
+  "deals": 1179,
   "shareWithUkPhoto": 0.223,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
