@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 354,
+ "folded": 361,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1058,6 +1058,38 @@
    ]
   },
   {
+   "canonical": "set-ean-0719346296861",
+   "absorbed": [
+    "set-halston-z-14-gift-set-125ml-edc-100ml-aftershave-balm-100ml-body-wash"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0719346296861",
+     "brand": "Halston",
+     "name": "Z-14 Gift Set 125ml EDC + 100ml Aftershave Balm + 100ml Body Wash",
+     "concentration": "Eau de Cologne",
+     "ean": "0719346296861",
+     "scent": "14 z",
+     "signature": "1x100body|1x100wash|1x125fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-halston-z-14-gift-set-125ml-edc-100ml-aftershave-balm-100ml-body-wash",
+     "brand": "Halston",
+     "name": "Z-14 Gift Set 125ml Edc + 100ml Aftershave Balm + 100ml Body Wash",
+     "concentration": "Eau de Cologne",
+     "ean": null,
+     "scent": "14 z",
+     "signature": "1x100body|1x100wash|1x125fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0730870260234",
    "absorbed": [
     "set-dolce-gabbana-dolce-rosa-excelsa-gift-set-75ml-edp-2-x-7-4ml"
@@ -1328,6 +1360,102 @@
      "shops": [
       "mybeauty-boutique",
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0849017013869",
+   "absorbed": [
+    "set-ellen-tracy-sensational-gift-set-100ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0849017013869",
+     "brand": "Ellen Tracy",
+     "name": "Sensational Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0849017013869",
+     "scent": "sensational",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ellen-tracy-sensational-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Ellen Tracy",
+     "name": "Sensational Gift Set 100ml Edp + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "sensational",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0849017013883",
+   "absorbed": [
+    "set-ellen-tracy-sparkling-gift-set-100ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0849017013883",
+     "brand": "Ellen Tracy",
+     "name": "Sparkling Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0849017013883",
+     "scent": "sparkling",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ellen-tracy-sparkling-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Ellen Tracy",
+     "name": "Sparkling Gift Set 100ml Edp + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "sparkling",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0849017015429",
+   "absorbed": [
+    "set-ellen-tracy-dream-florals-pink-daisy-gift-set-100ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0849017015429",
+     "brand": "Ellen Tracy",
+     "name": "Dream Florals Pink Daisy Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0849017015429",
+     "scent": "daisy dream florals pink",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ellen-tracy-dream-florals-pink-daisy-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Ellen Tracy",
+     "name": "Dream Florals Pink Daisy Gift Set 100ml Edp + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "daisy dream florals pink",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
@@ -3742,6 +3870,39 @@
      "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3432240505866",
+   "absorbed": [
+    "set-cartier-rivieres-de-cartier-discovery-set-100ml-insouciance-edt-10ml-allegresse-edt-10ml-luxuriance-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3432240505866",
+     "brand": "Cartier",
+     "name": "Rivières de Cartier Discovery Set 100ml Insouciance EDT + 10ml Allégresse EDT + 10ml Luxuriance EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3432240505866",
+     "scent": "allegresse cartier de discovery insouciance luxuriance rivieres",
+     "signature": "1x100fragrance|2x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-cartier-rivieres-de-cartier-discovery-set-100ml-insouciance-edt-10ml-allegresse-edt-10ml-luxuriance-edt",
+     "brand": "Cartier",
+     "name": "Rivières de Cartier Discovery Set 100ml Insouciance EDT + 10ml Allégresse EDT + 10ml Luxuriance EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "allegresse cartier de discovery insouciance luxuriance rivieres",
+     "signature": "1x100fragrance|2x10fragrance",
+     "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -8460,6 +8621,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003917129",
    "absorbed": [
     "set-versace-miniatures-for-him-gift-set-5ml-eros-edt-5ml-eros-flame-edt-5ml-eau-fraiche-edt-5ml-pour-homme-edt-5ml-eros-energy-edt"
@@ -9950,6 +10143,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8436581949124",
+   "absorbed": [
+    "set-pepe-jeans-eau-de-parfum-discovery-set-pepe-jeans-for-her-edp-50ml-spray-pepe-jeans-celebrate-for-her-edp-50ml-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8436581949124",
+     "brand": "Pepe Jeans",
+     "name": "Eau De Parfum Discovery Set - Pepe Jeans For Her EDP 50ml Spray + Pepe Jeans Celebrate For Her EDP 50ml Spray",
+     "concentration": "Eau de Parfum",
+     "ean": "8436581949124",
+     "scent": "celebrate discovery jeans pepe",
+     "signature": "2x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-pepe-jeans-eau-de-parfum-discovery-set-pepe-jeans-for-her-edp-50ml-spray-pepe-jeans-celebrate-for-her-edp-50ml-spray",
+     "brand": "Pepe Jeans",
+     "name": "Eau De Parfum Discovery Set - Pepe Jeans For Her Edp 50ml Spray + Pepe Jeans Celebrate For Her Edp 50ml Spray",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "celebrate discovery jeans pepe",
+     "signature": "2x50fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8436581949131",
    "absorbed": [
     "set-pepe-jeans-discovery-set-pepe-jeans-life-is-now-for-him-edt-50ml-spray-pepe-jeans-celebrate-for-him-edp-50ml-spray"
@@ -11291,7 +11516,7 @@
   },
   {
    "reasons": [
-    "price spread 2.58 is over 1.5"
+    "price spread 2.27 is over 1.5"
    ],
    "members": [
     {
@@ -11403,38 +11628,6 @@
      "signature": "1x10fragrance|1x80fragrance",
      "shops": [
       "perfume-direct"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.55 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-cartier-rivieres-de-cartier-discovery-set-100ml-insouciance-edt-10ml-allegresse-edt-10ml-luxuriance-edt",
-     "brand": "Cartier",
-     "name": "Rivières de Cartier Discovery Set 100ml Insouciance EDT + 10ml Allégresse EDT + 10ml Luxuriance EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "allegresse cartier de discovery insouciance luxuriance rivieres",
-     "signature": "1x100fragrance|2x10fragrance",
-     "shops": [
-      "beaute-boulevard",
-      "p-eleven"
-     ]
-    },
-    {
-     "id": "set-ean-3432240505866",
-     "brand": "Cartier",
-     "name": "Rivières de Cartier Discovery Set 100ml Insouciance EDT + 10ml Allégresse EDT + 10ml Luxuriance EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3432240505866",
-     "scent": "allegresse cartier de discovery insouciance luxuriance rivieres",
-     "signature": "1x100fragrance|2x10fragrance",
-     "shops": [
-      "perfume-click"
      ]
     }
    ]
@@ -11760,7 +11953,7 @@
   },
   {
    "reasons": [
-    "price spread 1.73 is over 1.5"
+    "price spread 1.50 is over 1.5"
    ],
    "members": [
     {
@@ -11791,7 +11984,7 @@
   },
   {
    "reasons": [
-    "price spread 1.78 is over 1.5"
+    "price spread 1.57 is over 1.5"
    ],
    "members": [
     {
@@ -12245,7 +12438,7 @@
   },
   {
    "reasons": [
-    "price spread 1.98 is over 1.5"
+    "price spread 1.70 is over 1.5"
    ],
    "members": [
     {
@@ -12280,37 +12473,6 @@
      "ean": null,
      "scent": "amber gold",
      "signature": "1x100fragrance|1x125body",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.53 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0719346296861",
-     "brand": "Halston",
-     "name": "Z-14 Gift Set 125ml EDC + 100ml Aftershave Balm + 100ml Body Wash",
-     "concentration": "Eau de Cologne",
-     "ean": "0719346296861",
-     "scent": "14 z",
-     "signature": "1x100body|1x100wash|1x125fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-halston-z-14-gift-set-125ml-edc-100ml-aftershave-balm-100ml-body-wash",
-     "brand": "Halston",
-     "name": "Z-14 Gift Set 125ml Edc + 100ml Aftershave Balm + 100ml Body Wash",
-     "concentration": "Eau de Cologne",
-     "ean": null,
-     "scent": "14 z",
-     "signature": "1x100body|1x100wash|1x125fragrance",
      "shops": [
       "beaute-boulevard"
      ]
@@ -12513,7 +12675,7 @@
   },
   {
    "reasons": [
-    "price spread 1.80 is over 1.5"
+    "price spread 1.57 is over 1.5"
    ],
    "members": [
     {
@@ -12556,7 +12718,7 @@
   },
   {
    "reasons": [
-    "price spread 2.15 is over 1.5"
+    "price spread 1.89 is over 1.5"
    ],
    "members": [
     {
@@ -12662,7 +12824,7 @@
   },
   {
    "reasons": [
-    "price spread 1.88 is over 1.5"
+    "price spread 1.50 is over 1.5"
    ],
    "members": [
     {
@@ -12693,69 +12855,7 @@
   },
   {
    "reasons": [
-    "price spread 1.66 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017013869",
-     "brand": "Ellen Tracy",
-     "name": "Sensational Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0849017013869",
-     "scent": "sensational",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ellen-tracy-sensational-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Ellen Tracy",
-     "name": "Sensational Gift Set 100ml Edp + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "sensational",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.66 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017013883",
-     "brand": "Ellen Tracy",
-     "name": "Sparkling Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0849017013883",
-     "scent": "sparkling",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ellen-tracy-sparkling-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Ellen Tracy",
-     "name": "Sparkling Gift Set 100ml Edp + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "sparkling",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 2.05 is over 1.5"
+    "price spread 1.82 is over 1.5"
    ],
    "members": [
     {
@@ -12786,38 +12886,7 @@
   },
   {
    "reasons": [
-    "price spread 1.66 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017015429",
-     "brand": "Ellen Tracy",
-     "name": "Dream Florals Pink Daisy Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0849017015429",
-     "scent": "daisy dream florals pink",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ellen-tracy-dream-florals-pink-daisy-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Ellen Tracy",
-     "name": "Dream Florals Pink Daisy Gift Set 100ml Edp + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "daisy dream florals pink",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.73 is over 1.5"
+    "price spread 1.50 is over 1.5"
    ],
    "members": [
     {
@@ -12848,7 +12917,7 @@
   },
   {
    "reasons": [
-    "price spread 2.05 is over 1.5"
+    "price spread 1.82 is over 1.5"
    ],
    "members": [
     {
@@ -12879,7 +12948,7 @@
   },
   {
    "reasons": [
-    "price spread 1.78 is over 1.5"
+    "price spread 1.57 is over 1.5"
    ],
    "members": [
     {
@@ -12965,7 +13034,7 @@
   },
   {
    "reasons": [
-    "price spread 1.84 is over 1.5"
+    "price spread 1.76 is over 1.5"
    ],
    "members": [
     {
@@ -14019,8 +14088,7 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3386460148269, 3386460148351",
-    "price spread 1.58 is over 1.5"
+    "two different barcodes: 3386460148269, 3386460148351"
    ],
    "members": [
     {
@@ -15548,7 +15616,7 @@
   },
   {
    "reasons": [
-    "price spread 1.74 is over 1.5"
+    "price spread 1.53 is over 1.5"
    ],
    "members": [
     {
@@ -15649,6 +15717,38 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 66667150, 66667151",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-66667150",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667150",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-66667151",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667151",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
      ]
     }
    ]
@@ -15817,7 +15917,7 @@
   },
   {
    "reasons": [
-    "price spread 1.90 is over 1.5"
+    "price spread 1.67 is over 1.5"
    ],
    "members": [
     {
@@ -16370,37 +16470,6 @@
      "signature": "1x100fragrance|1x150body",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.59 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8436581949124",
-     "brand": "Pepe Jeans",
-     "name": "Eau De Parfum Discovery Set - Pepe Jeans For Her EDP 50ml Spray + Pepe Jeans Celebrate For Her EDP 50ml Spray",
-     "concentration": "Eau de Parfum",
-     "ean": "8436581949124",
-     "scent": "celebrate discovery jeans pepe",
-     "signature": "2x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-pepe-jeans-eau-de-parfum-discovery-set-pepe-jeans-for-her-edp-50ml-spray-pepe-jeans-celebrate-for-her-edp-50ml-spray",
-     "brand": "Pepe Jeans",
-     "name": "Eau De Parfum Discovery Set - Pepe Jeans For Her Edp 50ml Spray + Pepe Jeans Celebrate For Her Edp 50ml Spray",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "celebrate discovery jeans pepe",
-     "signature": "2x50fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
