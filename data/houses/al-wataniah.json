@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-11-19T04:16:55.729Z",
-  "seenAt": "2026-11-19T04:16:55.729Z",
+  "updatedAt": "2026-11-19T08:24:17.148Z",
+  "seenAt": "2026-11-19T08:24:17.148Z",
   "source": "live",
   "listings": [
     {
@@ -1661,7 +1661,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Marwa Air Freshener is designed to elevate your living space with its enchanting blend of fruits, flowers, and soft musk. Perfect for any room in your home, it gently neutralizes unwanted odors while filling your surroundings with a luxurious and welcoming fragrance. Enjoy lasting freshness and refined elegance as Marwa transforms your everyday spaces into a beautifully scented haven..",
       "productType": null,
@@ -3281,7 +3281,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Built around its citrus floral character, Lazuli reveals a fresh, elegant and sensual signature designed to leave a lasting impression..",
       "productType": null,

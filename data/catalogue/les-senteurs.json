@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-19T04:10:07.834Z",
-  "seenAt": "2026-11-19T04:10:07.834Z",
+  "updatedAt": "2026-11-19T08:25:00.599Z",
+  "seenAt": "2026-11-19T08:25:00.599Z",
   "source": "live",
   "listings": [
     {
@@ -1187,7 +1187,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "\"For a long time I felt that geranium deserved its own perfume. I wanted the material to breathe: leaf, flower, herb and powder all present at the same time. . The breakthrough came when I trusted a classical triangle again: green herbs, tonka, and a vanilla warmth. With brightness above, and warmth underneath, geranium suddenly had the space it needed to open and become rounder, whilst keeping its vivid floral-green character. . I let it remain geranium.\" . - Andy Tauer. Fresh, bright and aromatic in the opening, warmer in the heart, and polished with the refined Tauer signature in the dry down, GERANIUM Absolue is a unisex, green-aromatic floral that has freshness with structure, and elegance with character.. Top Notes: Bergamot, Lemon, Coriander, Rosemary, Lavender. Heart Notes: Bourbon Geranium, Green Leaf Facets, Rosy Floral Facets, Soft Powder . Base Notes: Tonka Warmth, Vanilla, Cistus Labdanum, Oakmoss, Soft Woods, Musk .",
       "productType": "Fragrance",
