@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-18T19:38:50.767Z",
-  "seenAt": "2026-11-18T19:38:50.767Z",
+  "updatedAt": "2026-11-18T23:57:26.110Z",
+  "seenAt": "2026-11-18T23:57:26.110Z",
   "source": "live",
   "listings": [
     {
@@ -290,7 +290,7 @@
       "priceGbp": 11.5,
       "wasPriceGbp": 28,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: Looks like your giftee made it onto your ‘nice list’ this year if you’re putting our Far Away 50 ml Eau de Parfum & Wallet Gift Set under their tree.. This fragrance gift set features an oriental floral perfume for women with 190* jasmine petals, radiant freesia and and comforting Madagascan vanilla; and a two-toned, zip-around wallet for women with integrated RFID technology to help protect your bank cards.. No one can accuse your gift game of being mediocre. Even Santa’s getting comfy and taking notes!. Eau de Parfum 50ml Faye Wallet. Scent type: An exotic fusion of oriental floral notes.. Key notes: Top notes: Peaches, Freesia. Middle notes: Jasmine, Osmanthus, Orange Flower. Bottom notes: Madagascan Vanilla, Sandalwood, Amber.. Why you’ll love it: This set is perfect for the fragrance lovers and fashionistas on your list who love to make an ordinary day feel extra special. Our best and most-wanted women’s perfume lasts all day**; while the mini purse in neutral tones is both pretty and practical. This set comes in a gorgeous box, making gifting for you a little easier.. *Based on 1.05oz volume. Calculations based on average industry harvest of jasmine **Tested to last up to 8hrs. How to use it: Gift it as is: This gift comes in a beautiful box so you don’t need any wrapping paper. Just slip it under a loved one’s Christmas tree and make their day.. Make it your own: Accessories make the perfect gift so why not add one of our bags or jewellery pieces to your present?. Treat yourself: After bathing or showering, spritz the perfume on your neck and wrists; then slip the wallet into your bag and shop till you drop..",
       "productType": "FRAGRANCE",
@@ -1670,7 +1670,7 @@
       "priceGbp": 3.5,
       "wasPriceGbp": 8,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Breathe deeply and refocus your mind with our Time For Focus Candle. Blended with basil, black pepper, and rosemary aromatherapy essential oils, it's perfect for filling your home with fragrance. Pair with the matching diffuser for an extra special treat for you or a loved one. Product specification: • 160g. • Made with plant-based wax. • Blended with essential oils to help improve concentration. • Decorative Ombré design. • Part of the Time For Focus collection. How to use me: Trim the wicks to between 1/8 and 1/4 inches long each time for a cleaner, brighter burn. Always let the top layer of wax melt all the way across to avoid your candle tunnelling and wasting wax. Place your candle on a flat surface and enjoy safely! Additional info: Burns for up to 30 hours.",
       "productType": "HOME DECOR",
@@ -1808,7 +1808,7 @@
       "priceGbp": 2.4,
       "wasPriceGbp": 6,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Aloe vera and jojoba oil-infused body hair removal cream for sensitive skin. Clinically tested formula helps leave skin feeling softer and smoother. Comes with easy removal spatula for less mess. For sensitive skin. 100ml",
       "productType": "BODY",

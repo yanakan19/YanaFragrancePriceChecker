@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-18T19:47:56.400Z",
-  "seenAt": "2026-11-18T19:47:56.400Z",
+  "updatedAt": "2026-11-19T00:04:34.129Z",
+  "seenAt": "2026-11-19T00:04:34.129Z",
   "source": "live",
   "listings": [
     {
@@ -7808,7 +7808,7 @@
       "rawBrand": "French Avenue",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/www.imperian.co.uk_2_b1354d31-1052-4956-b97a-169dfdd064dd.png?v=1759485916",
-      "priceGbp": 31.5,
+      "priceGbp": 34.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
       "inStock": true,

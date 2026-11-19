@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-18T19:47:56.400Z",
-  "seenAt": "2026-11-18T19:47:56.400Z",
+  "updatedAt": "2026-11-19T00:04:34.129Z",
+  "seenAt": "2026-11-19T00:04:34.129Z",
   "source": "live",
   "listings": [
     {
@@ -6385,7 +6385,7 @@
       "priceGbp": 22.5,
       "wasPriceGbp": 30,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Does all this talk about contouring leave you flustered? Relax. Our sheer, sun-kissed formula is so easy to apply and blend, it’s like sculpting for dummies. The cushioned tip ensures foolproof application, while the perfect contouring tint has a light, seamless finish. Just sweep it up along the hollows of the cheeks, across the jawline, over temples and down the sides of the nose to visibly define features and add instant warmth to the skin..",
       "productType": "Makeup",

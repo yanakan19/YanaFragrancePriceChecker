@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-18T19:47:56.400Z",
-  "seenAt": "2026-11-18T19:47:56.400Z",
+  "updatedAt": "2026-11-19T00:04:34.129Z",
+  "seenAt": "2026-11-19T00:04:34.129Z",
   "source": "live",
   "listings": [
     {
@@ -3694,7 +3694,7 @@
       "priceGbp": 12.9,
       "wasPriceGbp": 39,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Premium Quality Perfume. Attractive and Long-lasting Fragrance. Great for All Occasions. ##end-features##. Product description. Versace Red Jeans EDT Spray: Expressive, Luxurious, and Unforgettable . Step into the world of luxury scents with the Versace Red Jeans EDT Spray. This exquisite perfume has been meticulously crafted to provide a unique and memorable fragrance. It is perfect for all occasions - whether you are stepping into a meeting or going out for a romantic dinner.. . Features of Versace Red Jeans EDT Spray 75ml. Exotic and rich fragrance. Long-lasting scent. Packaged in a stylish and elegant bottle. Perfect for personal use or as a beautiful gift. ##accordion-start##. Specifications. Capacity: 75ml. ##accordion-item-end##. Suitable for. Both daily use and special occasions. ##accordion-item-end##. Warnings and cautions. For external use only. Avoid contact with eyes. Do not apply to broken or inflamed skin. Keep out of reach of children. ##accordion-item-end##. How to use. Apply on pulse points like wrists, necklines, inside of elbows, and collar bone.. Keep the spray nozzle 10-15 cm away from the body. Apply sparingly.. ##accordion-item-end##. Ingredients. Wheat germ oil, Alcohol denat, Aqua/Water, Parfum/Fragrance.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -4890,7 +4890,7 @@
       "priceGbp": 99.99,
       "wasPriceGbp": 135,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. Brand: Prada. Product Type: Eau de Parfum. Volume: 90ml. ##end-features##. Product description. Prada Paradoxe EDP 90ml is an invigorating fragrance designed to appeal to both classic and modern sensibilities. This captivating scent combines woody and floral notes wrapped up in a sleek and elegant bottle. . With its luxurious composition, it's the ideal choice for those wanting to make a statement without saying a word. It's perfect for both everyday use and special occasions.. Experience a sensory adventure with Prada Paradoxe EDP 90ml, a distinctive scent by Prada. A favourite amongst aroma connoisseurs worldwide.. Features of Prada Paradoxe EDP 90ml. High-quality ingredients for a long-lasting scent.. Suave combination of floral and woody notes.. Comes in 90ml sleek, modern bottle.. Suitable and appealing for all gender.. ##accordion-start##. Specifications. Brand: Prada. Volume: 90ml. Type: Eau de Parfum. ##accordion-item-end##. Suitable for. 18 years and over. ##accordion-item-end##. Warnings and cautions. Avoid spraying in eyes. Do not apply to irritated or sensitive skin. Keep out of the reach of children. Flammable: Do not spray on a flame or any incandescent material. ##accordion-item-end##. How to use. Spray on pulse points, such as wrists and behind ears.. Reapply as needed throughout the day.. ##accordion-item-end##. Ingredients. Parfum (Fragrance), Alcohol Denat, Aqua (Water), and other Ingredients.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",

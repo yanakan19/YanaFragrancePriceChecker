@@ -1,7 +1,7 @@
 {
   "retailerId": "aromique",
-  "updatedAt": "2026-11-18T19:38:50.767Z",
-  "seenAt": "2026-11-18T19:38:50.767Z",
+  "updatedAt": "2026-11-18T23:57:26.110Z",
+  "seenAt": "2026-11-18T23:57:26.110Z",
   "source": "live",
   "listings": [
     {
@@ -11948,7 +11948,7 @@
       "rawBrand": "Fragrance World",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1004/5508/8467/files/Proud-Of-You-Absolute-Perfume-100ml-EDP-Fragrance-World-163216096.webp?v=1781725911",
-      "priceGbp": 17.99,
+      "priceGbp": 14.99,
       "wasPriceGbp": 20,
       "promoEndsAt": null,
       "inStock": true,

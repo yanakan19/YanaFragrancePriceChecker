@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-18T19:45:44.968Z",
+  "checkedAt": "2026-11-19T00:04:15.736Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,9 +59,9 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "CAD",
-      "listings": 548,
+      "listings": 530,
       "pricedInGbp": 0,
-      "withPhoto": 528,
+      "withPhoto": 509,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -480,9 +480,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 711,
+      "listings": 712,
       "pricedInGbp": 0,
-      "withPhoto": 709,
+      "withPhoto": 710,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

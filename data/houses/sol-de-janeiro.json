@@ -1,9 +1,35 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-18T19:45:42.212Z",
-  "seenAt": "2026-11-18T19:45:42.212Z",
+  "updatedAt": "2026-11-19T00:04:13.144Z",
+  "seenAt": "2026-11-19T00:04:13.144Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "SJ99912100",
+      "url": "https://soldejaneiro.com/products/sol-passport-cheirosa-anywhere",
+      "rawTitle": "Sol Passport - Cheirosa Anywhere",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/CheirosaAnywhere_V1_R.jpg?v=1795036036",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": null,
+      "productType": "Passport Reward-dg",
+      "nativePrice": {
+        "amount": 49,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-19T00:04:13.144Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "15462960562278-Default Title",
       "url": "https://soldejaneiro.com/products/pouch-bbc-25ml-62-30ml-mist-bundle",
