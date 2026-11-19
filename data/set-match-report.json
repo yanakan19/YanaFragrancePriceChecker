@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 395,
+ "folded": 393,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -640,7 +640,6 @@
      "scent": "be blossom delicious fresh",
      "signature": "1x100fragrance|1x125body|1x?other",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -3454,13 +3453,12 @@
     {
      "id": "set-jimmy-choo-i-want-choo-gift-set-60ml-edp-100ml-body-lotion",
      "brand": "Jimmy Choo",
-     "name": "I Want Choo Gift Set 60ml Edp + 100ml Body Lotion",
+     "name": "I Want Choo Gift Set 60ml EDP + 100ml Body Lotion",
      "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "choo i want",
      "signature": "1x100body|1x60fragrance",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -3746,12 +3744,13 @@
     {
      "id": "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-50ml-body-lotion-10ml-purse-spray",
      "brand": "Issey Miyake",
-     "name": "L'eau d'Issey Gift Set 100ml EDT + 50ml Body Lotion + 10ml Purse Spray",
+     "name": "L'eau D'issey Gift Set 100ml Edt + 50ml Body Lotion + 10ml Purse Spray",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "d eau issey l",
      "signature": "1x100fragrance|1x10travel|1x50body",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -4529,39 +4528,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3605972972446",
-   "absorbed": [
-    "set-ralph-lauren-ralph-s-club-gift-set-10ml-ralph-s-club-eau-de-toilette-10ml-ralph-s-club-parfum-10ml-ralph-s-club-eau-de-parfum"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3605972972446",
-     "brand": "Ralph Lauren",
-     "name": "Ralph's Club Gift Set 10ml Ralph's Club Eau de Toilette + 10ml Ralph's Club Parfum + 10ml Ralph's Club Eau de Parfum",
-     "concentration": "Eau de Toilette",
-     "ean": "3605972972446",
-     "scent": "club ralph",
-     "signature": "1x10fragrance|1x10fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click",
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ralph-lauren-ralph-s-club-gift-set-10ml-ralph-s-club-eau-de-toilette-10ml-ralph-s-club-parfum-10ml-ralph-s-club-eau-de-parfum",
-     "brand": "Ralph Lauren",
-     "name": "Ralph's Club Gift Set 10ml Ralph's Club Eau de Toilette + 10ml Ralph's Club Parfum + 10ml Ralph's Club Eau de Parfum",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "club ralph",
-     "signature": "1x10fragrance|1x10fragrance|1x10fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3614273670012",
    "absorbed": [
     "set-cacharel-yes-i-am-delicious-gift-set-50ml-edp-10ml-edp"
@@ -5288,7 +5254,6 @@
      "scent": "bloom",
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
@@ -5485,7 +5450,6 @@
      "scent": "boss scent",
      "signature": "1x100wash|1x50fragrance",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -8833,12 +8797,13 @@
     {
      "id": "set-versace-gift-set-30ml-yellow-diamond-edt-30ml-bright-crystal-edt",
      "brand": "Versace",
-     "name": "Gift Set 30ml Yellow Diamond EDT + 30ml Bright Crystal EDT",
+     "name": "Gift Set 30ml Yellow Diamond EDT - 30ml Bright Crystal EDT",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "bright crystal diamond yellow",
      "signature": "2x30fragrance",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -9458,7 +9423,6 @@
      "scent": "blue dylan homme pour",
      "signature": "1x50?|1x50body|1x50fragrance|1x?wash",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
@@ -9946,7 +9910,6 @@
      "scent": "q",
      "signature": "1x50fragrance|1x5fragrance",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -10489,8 +10452,7 @@
   {
    "canonical": "set-ean-8411061101957",
    "absorbed": [
-    "set-carolina-herrera-bad-boy-2-piece-gift-set-eau-de-toilette-100ml-body-wash-100ml",
-    "set-carolina-herrera-bad-boy-gift-set-100ml-edt-100ml-shower-gel"
+    "set-carolina-herrera-bad-boy-2-piece-gift-set-eau-de-toilette-100ml-body-wash-100ml"
    ],
    "members": [
     {
@@ -10515,18 +10477,6 @@
      "signature": "1x100fragrance|1x100wash",
      "shops": [
       "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-bad-boy-gift-set-100ml-edt-100ml-shower-gel",
-     "brand": "Carolina Herrera",
-     "name": "Bad Boy Gift Set 100ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bad boy",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -10670,7 +10620,6 @@
      "scent": "bad boy cobalt",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -10960,13 +10909,12 @@
     {
      "id": "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-6ml-edt",
      "brand": "Jean Paul Gaultier",
-     "name": "Classique Gift Set 50ml Edt + 75ml Body Lotion + 6ml Edt",
+     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "classique",
      "signature": "1x50fragrance|1x6fragrance|1x75body",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
@@ -14422,7 +14370,8 @@
      "scent": "invictus paco rabanne",
      "signature": "1x100fragrance|1x10?|1x150deo",
      "shops": [
-      "fragrance-click"
+      "fragrance-click",
+      "justmylook"
      ]
     }
    ]
@@ -15984,7 +15933,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3616304957598, 3616305265166",
-    "a shop lists more than one: mybeauty-boutique, p-eleven, perfume-click"
+    "a shop lists more than one: beaute-boulevard, mybeauty-boutique, p-eleven, perfume-click"
    ],
    "members": [
     {
@@ -16034,6 +15983,7 @@
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x?deo",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -16236,7 +16186,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3616305443588, 3616306127869, 3616306127906",
-    "a shop lists more than one: beaute-boulevard, mybeauty-boutique, perfume-click"
+    "a shop lists more than one: mybeauty-boutique, perfume-click"
    ],
    "members": [
     {
@@ -16278,13 +16228,12 @@
     {
      "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
      "brand": "Hugo Boss",
-     "name": "Boss Bottled Eau De Parfum Gift Set 100ml Edp + 100ml Shower Gel + 10ml Edp",
+     "name": "Boss Bottled Eau de Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
      "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
