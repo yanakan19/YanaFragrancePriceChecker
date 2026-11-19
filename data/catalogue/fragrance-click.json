@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-11-19T08:12:59.626Z",
-  "seenAt": "2026-11-19T08:12:59.626Z",
+  "updatedAt": "2026-11-19T16:08:51.202Z",
+  "seenAt": "2026-11-19T16:08:51.202Z",
   "source": "live",
   "listings": [
     {
@@ -12083,28 +12083,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "3137370180760",
-      "url": "https://www.awin1.com/pclick.php?p=46119126349&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/nina-ricci-nina-80ml-eau-de-toilette.html",
-      "rawTitle": "Nina Ricci Nina 80ml Eau de Toilette",
-      "rawBrand": "Nina Ricci",
-      "ean": "3137370180760",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370180760.jpg",
-      "priceGbp": 48.95,
-      "wasPriceGbp": 85,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "Nina Ricci Nina sits comfortably in the elegant category without trying too hard. This eau de toilette from Nina keeps things floral and approachable.You'll catch Bergamot, Citrus straight away before Jasmine, Rose emerge in the heart. It finishes with Vanilla, Musk, which is where the fragrance really finds its character and sticks around.The eau de toilette concentration strikes a good balance between strength and subtlety. At 80ml, you're getting solid value, particularly if this fragrance clicks with your personal style.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-09-28T00:55:44.556Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": "2026-11-02T22:43:05.197Z",
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
       "retailerSku": "3137370361336",
       "url": "https://www.awin1.com/pclick.php?p=44089042208&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/nina-ricci-nina-illusion-80ml-eau-de-parfum.html",
@@ -20197,6 +20175,29 @@
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3137370180760",
+      "url": "https://www.awin1.com/pclick.php?p=46119126349&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/nina-ricci-nina-80ml-eau-de-toilette.html",
+      "rawTitle": "Nina Ricci Nina 80ml Eau de Toilette",
+      "rawBrand": "Nina Ricci",
+      "ean": "3137370180760",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370180760.jpg",
+      "priceGbp": 48.95,
+      "wasPriceGbp": 85,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "Nina Ricci Nina sits comfortably in the elegant category without trying too hard. This eau de toilette from Nina keeps things floral and approachable.You'll catch Bergamot, Citrus straight away before Jasmine, Rose emerge in the heart. It finishes with Vanilla, Musk, which is where the fragrance really finds its character and sticks around.The eau de toilette concentration strikes a good balance between strength and subtlety. At 80ml, you're getting solid value, particularly if this fragrance clicks with your personal style.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-09-28T00:55:44.556Z",
+      "lastSeenAt": "2026-11-19T08:12:59.626Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-19T16:08:51.202Z",
+      "relistedAt": "2026-11-02T22:43:05.197Z",
       "eligibleForNewBadge": true,
       "variantId": null
     },
