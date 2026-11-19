@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 393,
+ "folded": 391,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -3354,38 +3354,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3386460157643",
-   "absorbed": [
-    "set-jimmy-choo-miniature-gift-set-4-5ml-jimmy-choo-edp-4-5ml-i-want-choo-edp-4-5ml-i-want-choo-forever-edp-4-5ml-i-want-choo-le-parfum-4-5ml-fever-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460157643",
-     "brand": "Jimmy Choo",
-     "name": "Miniature Gift Set 4.5ml Jimmy Choo EDP + 4.5ml I Want Choo EDP + 4.5ml I want Choo Forever EDP + 4.5ml I want Choo Le Parfum + 4.5ml Fever EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3386460157643",
-     "scent": "choo fever forever i jimmy le want",
-     "signature": "1x4.5fragrance|1x4.5fragrance|3x4.5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jimmy-choo-miniature-gift-set-4-5ml-jimmy-choo-edp-4-5ml-i-want-choo-edp-4-5ml-i-want-choo-forever-edp-4-5ml-i-want-choo-le-parfum-4-5ml-fever-edp",
-     "brand": "Jimmy Choo",
-     "name": "Miniature Gift Set 4.5ml Jimmy Choo EDP + 4.5ml I Want Choo EDP + 4.5ml I want Choo Forever EDP + 4.5ml I want Choo Le Parfum + 4.5ml Fever EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "choo fever forever i jimmy le want",
-     "signature": "1x4.5fragrance|1x4.5fragrance|3x4.5fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3386460158411",
    "absorbed": [
     "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt"
@@ -4903,39 +4871,6 @@
      "scent": "obsession",
      "signature": "1x125fragrance|1x75body|1x?deo",
      "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616303455378",
-   "absorbed": [
-    "set-calvin-klein-women-miniature-gift-set-15ml-eternity-edp-15ml-ck-one-edt-2-x-15ml-obsession-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616303455378",
-     "brand": "Calvin Klein",
-     "name": "Women Miniature Gift Set 15ml Eternity EDP + 15ml CK One EDT + 2 x 15ml Obsession EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3616303455378",
-     "scent": "ck eternity obsession one",
-     "signature": "1x15fragrance|1x15fragrance|2x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-calvin-klein-women-miniature-gift-set-15ml-eternity-edp-15ml-ck-one-edt-2-x-15ml-obsession-edp",
-     "brand": "Calvin Klein",
-     "name": "Women Miniature Gift Set 15ml Eternity EDP + 15ml CK One EDT + 2 x 15ml Obsession EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "ck eternity obsession one",
-     "signature": "1x15fragrance|1x15fragrance|2x15fragrance",
-     "shops": [
-      "mybeauty-boutique",
       "p-eleven"
      ]
     }
