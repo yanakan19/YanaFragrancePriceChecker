@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 391,
+ "folded": 392,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1424,6 +1424,38 @@
      "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "sparkling",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0849017013890",
+   "absorbed": [
+    "set-ellen-tracy-courageous-gift-set-100ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0849017013890",
+     "brand": "Ellen Tracy",
+     "name": "Courageous Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0849017013890",
+     "scent": "courageous",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ellen-tracy-courageous-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Ellen Tracy",
+     "name": "Courageous Gift Set 100ml Edp + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "courageous",
      "signature": "1x100body|1x100fragrance",
      "shops": [
       "beaute-boulevard"
@@ -13739,37 +13771,6 @@
   },
   {
    "reasons": [
-    "price spread 1.82 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017013890",
-     "brand": "Ellen Tracy",
-     "name": "Courageous Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0849017013890",
-     "scent": "courageous",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ellen-tracy-courageous-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Ellen Tracy",
-     "name": "Courageous Gift Set 100ml Edp + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "courageous",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.50 is over 1.5"
    ],
    "members": [
@@ -14811,7 +14812,7 @@
   },
   {
    "reasons": [
-    "price spread 1.90 is over 1.5"
+    "price spread 1.87 is over 1.5"
    ],
    "members": [
     {
@@ -15382,7 +15383,7 @@
   },
   {
    "reasons": [
-    "price spread 1.59 is over 1.5"
+    "price spread 1.70 is over 1.5"
    ],
    "members": [
     {
