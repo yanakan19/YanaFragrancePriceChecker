@@ -14346,38 +14346,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3349668608096, 3349668656608"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3349668608096",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Invictus Eau De Toilette 100ml Spray + 150ml Deo + 10ml Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668608096",
-     "scent": "invictus paco rabanne",
-     "signature": "1x100fragrance|1x10?|1x150deo",
-     "shops": [
-      "paco-perfumerias-uk"
-     ]
-    },
-    {
-     "id": "set-ean-3349668656608",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Invictus 100ml Eau De Toilette + 150ml Deo + 10ml Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668656608",
-     "scent": "invictus paco rabanne",
-     "signature": "1x100fragrance|1x10?|1x150deo",
-     "shops": [
-      "fragrance-click",
-      "justmylook"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3349668608416, 3349668628278",
     "a shop lists more than one: perfume-direct"
    ],

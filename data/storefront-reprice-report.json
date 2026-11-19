@@ -1,5 +1,5 @@
 {
-  "repricedAt": "2026-11-18T23:52:48.798Z",
+  "repricedAt": "2026-11-19T08:14:01.058Z",
   "dryRun": false,
   "outcomes": [
     {
@@ -10,12 +10,12 @@
       "storefrontCurrency": "GBP",
       "active": 8896,
       "keyed": 8894,
-      "agreed": 2782,
-      "corrected": 6112,
-      "wasOverstated": 6101,
-      "wasUnderstated": 11,
-      "overstatementRemovedGbp": 204755.75,
-      "cleared": 2
+      "agreed": 8894,
+      "corrected": 0,
+      "wasOverstated": 0,
+      "wasUnderstated": 0,
+      "overstatementRemovedGbp": 0,
+      "cleared": 0
     }
   ]
 }
