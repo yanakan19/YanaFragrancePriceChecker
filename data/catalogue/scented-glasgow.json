@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-19T12:32:25.289Z",
-  "seenAt": "2026-11-19T12:32:25.289Z",
+  "updatedAt": "2026-11-19T16:21:41.435Z",
+  "seenAt": "2026-11-19T16:21:41.435Z",
   "source": "live",
   "listings": [
     {
@@ -1072,7 +1072,7 @@
       "priceGbp": 89,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Blackcurrant Absolute, Tayberry, Willowherb, Sloe, Wild Mint, Rose Absolute, Logan Berry, Buckler Fern, Violet Leaf Absolute. . . Artemesia, Raspberry leaf, Orris Butter, Himalayan Balsam, Cereal. .",
       "productType": "Perfume",

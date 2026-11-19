@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-19T12:31:46.789Z",
-  "seenAt": "2026-11-19T12:31:46.789Z",
+  "updatedAt": "2026-11-19T16:16:11.812Z",
+  "seenAt": "2026-11-19T16:16:11.812Z",
   "source": "live",
   "listings": [
     {
@@ -244,7 +244,7 @@
       "priceGbp": 14.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Davidoff Cool Water Eau de Toilette 75ml. Key Features. ##features##. Iconic men's fragrance inspired by freshness and the ocean.. Aromatic aquatic scent with mint, lavender and sandalwood notes.. Clean, masculine fragrance suitable for everyday wear.. Refreshing scent profile ideal for work, leisure and special occasions.. Long-standing bestselling Davidoff fragrance.. 75ml bottle offers excellent everyday value.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Experience the timeless freshness of Davidoff Cool Water Eau de Toilette. This iconic men's fragrance combines invigorating mint, lavender and marine-inspired notes with a masculine base of sandalwood, cedarwood and musk. Fresh, clean and effortlessly wearable, Cool Water remains a classic choice for men seeking a crisp everyday fragrance that never goes out of style.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. . ##accordion-item-end##. ##accordion-item-start##. Patient Information Leaflet. ##leaflet##. ##accordion-item-end##. ##accordion-item-start##. Age Restricted Product. Purchasing this product online is only suitable for those aged 18 years and over. If you are under 18 years of age and wish to purchase this product, please visit your local Rowlands Pharmacy and speak with a pharmacist in store.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -520,7 +520,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Bottled Aftershave 100ml. Key Features. ##features##. Classic men's aftershave from Hugo Boss.. Inspired by the iconic Boss Bottled fragrance.. Helps leave skin refreshed after shaving.. Features apple, cinnamon and woody notes.. Sophisticated masculine scent profile.. 100ml bottle ideal for daily use.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Hugo Boss Boss Bottled Aftershave provides a refreshing post-shave experience while leaving skin scented with the unmistakable Boss Bottled fragrance. Featuring fresh apple accords, warm spices and elegant woody notes, it is the perfect finishing touch to a modern grooming routine.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -842,7 +842,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Orange Woman Eau de Toilette 30ml. Key Features. ##features##. Fragrance Family: Fruity-Floral . . Top Notes: Crisp Apple . . Heart Notes: Orange Blossom, White Florals . . Base Notes: Vanilla, Sandalwood, Olive Wood . . Ideal For: Everyday wear, gifting. . ##end-features##. Product Details. A cheerful, fruity-floral fragrance that embodies confidence and warmth. Opens with crisp apple, followed by delicate orange blossom and white florals, finishing with creamy vanilla and sandalwood for a sensual, comforting base..",
       "productType": "Fragrance",
