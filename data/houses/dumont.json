@@ -1,7 +1,7 @@
 {
   "retailerId": "dumont",
-  "updatedAt": "2026-11-19T08:23:00.631Z",
-  "seenAt": "2026-11-19T08:23:00.631Z",
+  "updatedAt": "2026-11-19T12:26:43.776Z",
+  "seenAt": "2026-11-19T12:26:43.776Z",
   "source": "live",
   "listings": [
     {
@@ -2102,7 +2102,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Infused with a lush bouquet of sweet fruit including passion fruit and pears. This warmth softness and sweetness with floral scents shape calmness, a peaceful serenity. Fragrance Notes: . Top Notes: FRUITY, PASSION FRUIT, NECTARINE PEACH, PEAR. Heart Notes: FLORAL, LILY OF THE VALLEY, YALNG YLANG, GARDENIA. Base Notes: WOODY, AMBER, SANDALWOOD, AMBERGRIS, VANILLA, OAKMOSS.",
       "productType": "Perfume",

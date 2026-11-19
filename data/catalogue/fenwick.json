@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-19T08:22:56.815Z",
-  "seenAt": "2026-11-19T08:22:56.815Z",
+  "updatedAt": "2026-11-19T12:32:25.289Z",
+  "seenAt": "2026-11-19T12:32:25.289Z",
   "source": "live",
   "listings": [
     {
@@ -1808,7 +1808,7 @@
       "priceGbp": 98,
       "wasPriceGbp": 140,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Love is precious. Cherish your mother with an iconic fragrance that radiates love from a heart of Damascus Rose. Love is a treasure..",
       "productType": "Women's Fragrances",
@@ -15493,7 +15493,7 @@
       "priceGbp": 84,
       "wasPriceGbp": 105,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Florabloom Forte Eau de Parfum 75ml by Guerlain blends rich floral notes with a sophisticated depth, creating a long-lasting, radiant signature scent..",
       "productType": "Women's Fragrances",

@@ -1,7 +1,7 @@
 {
   "retailerId": "al-wataniah",
-  "updatedAt": "2026-11-19T08:24:17.148Z",
-  "seenAt": "2026-11-19T08:24:17.148Z",
+  "updatedAt": "2026-11-19T12:28:04.653Z",
+  "seenAt": "2026-11-19T12:28:04.653Z",
   "source": "live",
   "listings": [
     {
@@ -2336,7 +2336,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Arya Peony Rose EDP blends rich nutty notes with exquisite florals and a deeply sensual amber-vanilla dry-down..",
       "productType": null,
@@ -2363,7 +2363,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Arya EDP opens with a vibrant burst of crisp fruits, unfolding into a lush floral heart and a warm, earthy base. Its essence reflects transformation — like a diamond forged under pressure, crowned with luminous strength, elegance, and inner brilliance..",
       "productType": null,
