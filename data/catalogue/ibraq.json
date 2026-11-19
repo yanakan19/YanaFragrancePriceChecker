@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-19T16:21:41.435Z",
-  "seenAt": "2026-11-19T16:21:41.435Z",
+  "updatedAt": "2026-11-19T20:11:16.137Z",
+  "seenAt": "2026-11-19T20:11:16.137Z",
   "source": "live",
   "listings": [
     {
@@ -520,7 +520,7 @@
       "priceGbp": 69.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A collection inspired by the colors of the sea and the clarity of the sky. . Blending heritage and modernity in captivating fragrance compositions that touch memories.. Each note reflects a balance between freshness and strength, leaving an unforgettable impression.. Blue Diamond Box v.2 (75 mL):. · Sapphire Leather. · Aqua Blue Diamond. · Black Diamond Incense.",
       "productType": "Arabic Perfumes",

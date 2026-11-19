@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-19T16:21:41.435Z",
-  "seenAt": "2026-11-19T16:21:41.435Z",
+  "updatedAt": "2026-11-19T20:11:16.137Z",
+  "seenAt": "2026-11-19T20:11:16.137Z",
   "source": "live",
   "listings": [
     {
@@ -6569,7 +6569,7 @@
       "priceGbp": 33.6,
       "wasPriceGbp": 42,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Pure Platinum Parfum 40ml by Coach is a modern fragrance that balances aromatic freshness with warm woody depth. Crisp top notes evolve into a smooth, confident composition designed for everyday wear. A contemporary scent designed to bring effortless refinement to a well-curated fragrance collection..",
       "productType": "Men's Fragrances",
@@ -15493,7 +15493,7 @@
       "priceGbp": 84,
       "wasPriceGbp": 105,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Florabloom Forte Eau de Parfum 75ml by Guerlain blends rich floral notes with a sophisticated depth, creating a long-lasting, radiant signature scent..",
       "productType": "Women's Fragrances",
@@ -19541,7 +19541,7 @@
       "priceGbp": 72,
       "wasPriceGbp": 90,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Vanilla Sex Eau de Parfum by Tom Ford amplifies sensuality with a bold, modern vanilla signature. A concentrated size that keeps the fragrance wardrobe effortlessly elevated..",
       "productType": "Women's Fragrances",

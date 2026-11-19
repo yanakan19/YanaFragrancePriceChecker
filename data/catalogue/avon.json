@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-19T16:16:11.812Z",
-  "seenAt": "2026-11-19T16:16:11.812Z",
+  "updatedAt": "2026-11-19T20:12:42.077Z",
+  "seenAt": "2026-11-19T20:12:42.077Z",
   "source": "live",
   "listings": [
     {
@@ -497,7 +497,7 @@
       "priceGbp": 2.8,
       "wasPriceGbp": 7.25,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know:. Pamper your skin and relax at bedtime with our gorgeously rich and creamy Lavender Body Butter.. Part of our 'I Lavender You' collection, it contains lavender extracts and makes a perfect Mother's Day gift or addition to your own nighttime self-care routine.. 200ml. Why you’ll love it:. • It gives your skin an ultra-moisturising boost.. • The soothing Lavender scent inspires relaxation.. • It's a perfect addition to your nighttime self-care routine.. What’s in:. Perfecting your nighttime routine to set you up for bedtime bliss.. What’s out:. Not taking time for self-care.. How to use it:. Run a relaxing bath Swirl 1-2 capfuls of our Lavender Bubble Bath into running water and soak the day away.. Nourish & hydrate Massage hydrating Lavender Body Oil all over your body for soft and beautifully-scented skin.. Go all out For an ultra-moisturising boost, generously smooth Lavender Body Butter wherever needed..",
       "productType": "BODY",
@@ -12894,7 +12894,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: . In need of some serious me-time, a mood shift or a dose of R&R? Roll on over (gotta love a good pun!) because we’ve got just the thing. Meet our Relax Pulse Point Roller.. This aromatherapy scented roller is filled with eucalyptus, peppermint and cedarwood essential oils to help soothe your senses and give you a bit of peace amid the chaos.. Just roll it over your pulse points and reeeelax!. Why you’ll love it: . • Uses aromatherapy to help bring about a sense of relaxation. • Has a soothing citrus, aromatic and woody scent you can’t help but love. • Perfect for using before bed to help calm you down after a long day.. How to use it: . Wash the day away Take a warm bubble bath, throw in some of our bath salts and unwind.. Bring on the roller Use the roller on pulse points like your neck and wrists to help relax you even more.. Take it with Pop it in your bag or stow it in your desk drawer… you never know when something (or someone) may come up to steal your peace!.",
       "productType": "ENTERTAINMENT & LEISURE",
@@ -19449,7 +19449,7 @@
       "priceGbp": 19,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: . Dare to feel and seize the moment with Attraction Instinct, a bold and captivating fragrance, filled with red-hot aphrodisiac ingredients, designed to ignite desire. . . This intoxicating scent blends primal energy with refined elegance, creating an irresistible aura that lingers long after you’ve left the room. . . 50 ml . . Scent type: An ambery floral fragrance filled with red-hot aphrodisiac ingredients: strawberries, red orchids and salty vanilla. . . Key notes: . Top Notes: Strawberry, Jasmine, Pear . Middle Notes: Red Orchid, Patchouli Oil, Impulse Molecules . Bottom Notes: Salty Vanilla, Akigalawood™, Cistus Absolute . . . Why you’ll love it: . •Long-lasting — proven to last up to 8 hours* . •Perfect for evening allure or confident daytime statements . •Housed in a sleek, modern bottle that mirrors its name . •73% confirm its quality is excellent** . . How to use it: . Seize the moment: Spray when the mood strikes, when your instincts dare you to feel attraction. . Make your Attraction scent last longer: Use the matching Body Lotion to heighten your scent or take with Purse Spray with you on-the-go. . . . . *Based on a consumer study with 30 participants. . **Based on a blind test study in RO with 120 female and male respondents each. . .",
       "productType": "FRAGRANCE",
