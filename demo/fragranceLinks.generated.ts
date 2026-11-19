@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-18T11:47:39.201Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-19T11:43:26.957Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -210,6 +210,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|chillspectrum|edp": ["","https://ahmedalmaghribi.uk/products/chill-spectrum-edp-100ml"],
   "ahmedalmaghribi|cinder": ["","https://ahmedalmaghribi.uk/products/cinder"],
   "ahmedalmaghribi|cinder|edp": ["","https://ahmedalmaghribi.uk/products/cinder"],
+  "ahmedalmaghribi|cinder|extrait": ["","https://ahmedalmaghribi.uk/products/cinder"],
   "ahmedalmaghribi|cocoblend": ["","https://ahmedalmaghribi.uk/products/coco-blend"],
   "ahmedalmaghribi|cocoblend|edp": ["","https://ahmedalmaghribi.uk/products/coco-blend"],
   "ahmedalmaghribi|couturenoir": ["","https://ahmedalmaghribi.uk/products/couture-noir-100ml"],
@@ -222,6 +223,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|frostice": ["","https://ahmedalmaghribi.uk/products/frost-ice"],
   "ahmedalmaghribi|frostice|edp": ["","https://ahmedalmaghribi.uk/products/frost-ice"],
   "ahmedalmaghribi|ghafperfume|edp": ["","https://ahmedalmaghribi.uk/products/ghaf-edp-100ml"],
+  "ahmedalmaghribi|ghaf|edp": ["","https://ahmedalmaghribi.uk/products/ghaf-edp-100ml"],
   "ahmedalmaghribi|greenpearl": ["","https://ahmedalmaghribi.uk/products/green-pearl"],
   "ahmedalmaghribi|greenpearl|edp": ["","https://ahmedalmaghribi.uk/products/green-pearl"],
   "ahmedalmaghribi|hayana": ["","https://ahmedalmaghribi.uk/products/hayana-100ml"],
@@ -244,6 +246,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|laathani": ["","https://ahmedalmaghribi.uk/products/laathani"],
   "ahmedalmaghribi|laathani|edp": ["","https://ahmedalmaghribi.uk/products/laathani"],
   "ahmedalmaghribi|laathani|extrait": ["","https://ahmedalmaghribi.uk/products/laathani"],
+  "ahmedalmaghribi|larosee": ["","https://ahmedalmaghribi.uk/products/la-rosee"],
+  "ahmedalmaghribi|larosee|extrait": ["","https://ahmedalmaghribi.uk/products/la-rosee"],
   "ahmedalmaghribi|leather": ["","https://ahmedalmaghribi.uk/products/leather-perfume"],
   "ahmedalmaghribi|leather|edp": ["","https://ahmedalmaghribi.uk/products/leather-perfume"],
   "ahmedalmaghribi|lushnoir": ["","https://ahmedalmaghribi.uk/products/lush-noir-75ml"],
@@ -268,7 +272,11 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|muskleather|edp": ["","https://ahmedalmaghribi.uk/products/musk-leather-edp-100ml"],
   "ahmedalmaghribi|muskroses": ["","https://ahmedalmaghribi.uk/products/musk-roses"],
   "ahmedalmaghribi|muskroses|edp": ["","https://ahmedalmaghribi.uk/products/musk-roses"],
+  "ahmedalmaghribi|muzn": ["","https://ahmedalmaghribi.uk/products/muzn"],
+  "ahmedalmaghribi|muzn|edp": ["","https://ahmedalmaghribi.uk/products/muzn"],
   "ahmedalmaghribi|niswah|edp": ["","https://ahmedalmaghribi.uk/products/niswah-edp-75ml"],
+  "ahmedalmaghribi|oclock": ["","https://ahmedalmaghribi.uk/products/oclock"],
+  "ahmedalmaghribi|oclock|extrait": ["","https://ahmedalmaghribi.uk/products/oclock"],
   "ahmedalmaghribi|opalinewave|edp": ["","https://ahmedalmaghribi.uk/products/opaline-wave-edp-100ml"],
   "ahmedalmaghribi|oudandroses": ["","https://ahmedalmaghribi.uk/products/oud-roses"],
   "ahmedalmaghribi|oudandroses|extrait": ["","https://ahmedalmaghribi.uk/products/oud-roses"],
@@ -287,6 +295,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|oudroses|edp": ["","https://ahmedalmaghribi.uk/products/oud-roses"],
   "ahmedalmaghribi|oudroses|extrait": ["","https://ahmedalmaghribi.uk/products/oud-roses"],
   "ahmedalmaghribi|peachypeach": ["","https://ahmedalmaghribi.uk/products/peachy-peach"],
+  "ahmedalmaghribi|peachypeach|disputed": ["","https://ahmedalmaghribi.uk/products/peachy-peach"],
   "ahmedalmaghribi|peachypeach|edp": ["","https://ahmedalmaghribi.uk/products/peachy-peach"],
   "ahmedalmaghribi|prometheus": ["","https://ahmedalmaghribi.uk/products/prometheus"],
   "ahmedalmaghribi|prometheus|edp": ["","https://ahmedalmaghribi.uk/products/prometheus"],
@@ -1484,6 +1493,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "armaf|odysseyseriesgourmanddiscoveryset3x30ml|unstated": ["","https://armaf.uk/products/odyssey-gourmand-discovery-set-3-x-30ml"],
   "armaf|odysseyseriesmandarinskydiscoveryset3x30ml|unstated": ["","https://armaf.uk/products/odyssey-mandarin-sky-discovery-set-3-x-30ml"],
   "armaf|odysseyseriesminiwhitediscoveryset4x12ml|unstated": ["","https://armaf.uk/products/odyssey-mini-white-discovery-set-4x-12ml"],
+  "armaf|odysseyseriesnexus|edp": ["","https://armaf.uk/products/odyssey-nexus-eau-de-parfum-100ml"],
   "armaf|odysseysodapop|edp": ["","https://armaf.uk/products/odyssey-soda-pop-eau-de-parfum-100ml"],
   "armaf|odysseyspectrarainbowunisexfragrance|edp": ["","https://armaf.uk/products/odyssey-spectra-rainbow-eau-de-parfum-100ml"],
   "armaf|odysseyspectrarainbow|edp": ["","https://armaf.uk/products/odyssey-spectra-rainbow-eau-de-parfum-100ml"],
@@ -1510,6 +1520,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "armaf|sapphireniche|edp": ["","https://armaf.uk/products/sapphire-niche-eau-de-parfum-90ml"],
   "armaf|scentasyacaiiibowl|edp": ["","https://armaf.uk/products/scentasy-acaiii-bowl-eau-de-parfum-100ml"],
   "armaf|scentasymatchamagix|edp": ["","https://armaf.uk/products/scentasy-matcha-magix-eau-de-parfum-100ml"],
+  "armaf|scentasymonsoon|edp": ["","https://armaf.uk/products/scentasy-monsoon-eau-de-parfum-100ml"],
   "armaf|scentasynoirdepeche|edp": ["","https://armaf.uk/products/scentasy-noir-de-peche-eau-de-parfum-100ml"],
   "armaf|shadesblue|edt": ["","https://armaf.uk/products/shades-blue-eau-de-toilette-100ml"],
   "armaf|shadeswood|edt": ["","https://armaf.uk/products/shades-wood-blue-eau-de-toilette-100ml"],
@@ -2553,8 +2564,10 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "cartier|declaration|parfum": ["","https://www.cartier.com/en-gb/fragrances/fragrances/declaration"],
   "cartier|declaration|unstated": ["","https://www.cartier.com/en-gb/fragrances/fragrances/declaration"],
   "cartier|lapanthere": ["","https://www.cartier.com/en-gb/fragrances/fragrances/la-panthere"],
+  "cartier|lapanthereparfum": ["","https://www.cartier.com/en-gb/fragrances/fragrances/la-panthere"],
   "cartier|lapanthereparfum100mlspraygiftset": ["","https://www.cartier.com/en-hk/fragrances/fragrances/la-panthere/la-panthere-gift-set-CRFS100041"],
   "cartier|lapanthereparfum100mlspraygiftset|parfum": ["","https://www.cartier.com/en-hk/fragrances/fragrances/la-panthere/la-panthere-gift-set-CRFS100041"],
+  "cartier|lapanthereparfum|edp": ["","https://www.cartier.com/en-gb/fragrances/fragrances/la-panthere"],
   "cartier|lapanthere|disputed": ["","https://www.cartier.com/en-gb/fragrances/fragrances/la-panthere"],
   "cartier|lapanthere|edp": ["","https://www.cartier.com/en-gb/fragrances/high-perfumery/les-bases-a-parfumer-cartier/la-panthere-CRFN015004"],
   "cartier|lapanthere|edt": ["","https://www.cartier.com/en-gb/fragrances/high-perfumery/les-bases-a-parfumer-cartier/la-panthere-CRFN015004"],
