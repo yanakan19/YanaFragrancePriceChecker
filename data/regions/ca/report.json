@@ -1,18 +1,18 @@
 {
   "region": "CA",
   "currency": "CAD",
-  "builtAt": "2026-11-18T14:40:15.575Z",
+  "builtAt": "2026-11-19T14:50:36.751Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /ca/ pages are built from these files at deploy time.",
   "shopsWired": 20,
   "shopsEnabled": 11,
   "shopsPriced": 11,
-  "crawlMinutes": 11.58,
-  "harvestRanAt": "2026-11-18T14:28:40.226Z",
-  "listingsPriced": 49046,
-  "listingsKept": 38592,
+  "crawlMinutes": 11.04,
+  "harvestRanAt": "2026-11-19T14:39:33.471Z",
+  "listingsPriced": 49048,
+  "listingsKept": 38594,
   "staleAfterDays": 7,
-  "products": 27912,
+  "products": 27911,
   "productsWithTwoOrMoreShops": 6555,
   "shareWithTwoOrMoreShops": 0.235,
   "productsWithTwoOrMoreIndependentShops": 6555,
@@ -20,16 +20,16 @@
   "productsWithThreeOrMoreShops": 2406,
   "medianPriceGap": 0.235,
   "listingBarcodeShare": 0.247,
-  "productsMatchingUkByBarcode": 2710,
+  "productsMatchingUkByBarcode": 2716,
   "shops": [
     {
       "id": "discount-fragrances-ca",
-      "products": 1004,
-      "shared": 770
+      "products": 1009,
+      "shared": 775
     },
     {
       "id": "fragrance-canada",
-      "products": 5951,
+      "products": 5952,
       "shared": 3557
     },
     {
@@ -39,28 +39,28 @@
     },
     {
       "id": "h-parfums",
-      "products": 751,
-      "shared": 119
+      "products": 744,
+      "shared": 117
     },
     {
       "id": "maximum-fragrance",
       "products": 9618,
-      "shared": 4519
+      "shared": 4520
     },
     {
       "id": "my-royal-musk",
-      "products": 1509,
-      "shared": 513
+      "products": 1514,
+      "shared": 514
     },
     {
       "id": "niche-essence",
-      "products": 1257,
-      "shared": 425
+      "products": 1254,
+      "shared": 423
     },
     {
       "id": "parfum-exquis",
       "products": 3043,
-      "shared": 369
+      "shared": 368
     },
     {
       "id": "perfume-factory-ca",
@@ -74,17 +74,17 @@
     },
     {
       "id": "perfumeonline-ca",
-      "products": 13434,
-      "shared": 5438
+      "products": 13435,
+      "shared": 5439
     }
   ],
-  "productsShown": 27912,
-  "productsWithUkPhoto": 6221,
-  "productsWithUkPhotoByBarcode": 1626,
-  "productsWithUkPhotoByName": 4595,
-  "listingsWithReference": 12497,
-  "offersWithCorroboratedReference": 3797,
-  "deals": 1179,
+  "productsShown": 27911,
+  "productsWithUkPhoto": 6226,
+  "productsWithUkPhotoByBarcode": 1630,
+  "productsWithUkPhotoByName": 4596,
+  "listingsWithReference": 12502,
+  "offersWithCorroboratedReference": 3800,
+  "deals": 1174,
   "shareWithUkPhoto": 0.223,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
