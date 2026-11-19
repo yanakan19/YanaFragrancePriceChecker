@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 386,
+ "folded": 395,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -2291,6 +2291,39 @@
    ]
   },
   {
+   "canonical": "set-ean-3346130027942",
+   "absorbed": [
+    "set-hermes-barenia-pleine-fleur-gift-set-100ml-edp-spray-15ml-edp-spray-25g-perfumed-soap"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3346130027942",
+     "brand": "Hermès",
+     "name": "Hermes Barenia Pleine Fleur 100ml Eau de Parfum Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3346130027942",
+     "scent": "barenia fleur hermes pleine",
+     "signature": "1x100fragrance|1x15fragrance|1x?body",
+     "shops": [
+      "fragrance-click",
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-hermes-barenia-pleine-fleur-gift-set-100ml-edp-spray-15ml-edp-spray-25g-perfumed-soap",
+     "brand": "Hermès",
+     "name": "Hermes Barenia Pleine Fleur Gift Set 100ml EDP Spray + 15ml EDP Spray + 25g Perfumed Soap",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "barenia fleur hermes pleine",
+     "signature": "1x100fragrance|1x15fragrance|1x?body",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3346130413110",
    "absorbed": [
     "set-hermes-h24-2-piece-gift-set-eau-de-toilette-100ml-eau-de-toilette-12-5ml"
@@ -3091,6 +3124,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3386460089364",
+   "absorbed": [
+    "set-mont-blanc-legend-gift-set-100ml-edt-75g-deodorant-stick"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460089364",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Legend Gift Set 100ml EDT + 75g Deodorant Stick",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460089364",
+     "scent": "blanc legend mont",
+     "signature": "1x100fragrance|1x?deo",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-mont-blanc-legend-gift-set-100ml-edt-75g-deodorant-stick",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Legend Gift Set 100ml EDT + 75g Deodorant Stick",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "blanc legend mont",
+     "signature": "1x100fragrance|1x?deo",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3386460127813",
    "absorbed": [
     "set-moncler-miniature-perfume-gift-set-pour-homme-edp-7-5ml-pour-femme-edp-7-5ml"
@@ -3794,6 +3859,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3423222118709",
+   "absorbed": [
+    "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-25ml-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222118709",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Gift Set 100ml EDT + 25ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222118709",
+     "scent": "d eau issey l",
+     "signature": "1x100fragrance|1x25fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-25ml-edt",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Gift Set 100ml EDT + 25ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau issey l",
+     "signature": "1x100fragrance|1x25fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3423222119645",
    "absorbed": [
     "set-issey-miyake-l-eau-d-issey-gift-set-50ml-edt-50ml-body-lotion-50ml-shower-cream",
@@ -4295,6 +4392,38 @@
      "ean": null,
      "scent": "air c de eau empreinte fille l la liesse peau seconde slogan",
      "signature": "6x5fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3495080740590",
+   "absorbed": [
+    "set-alyssa-ashley-musk-gift-set-50ml-edt-100ml-perfumed-deodorant-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3495080740590",
+     "brand": "Alyssa Ashley",
+     "name": "Musk Gift Set 50ml EDT + 100ml Perfumed Deodorant Spray",
+     "concentration": "Eau de Toilette",
+     "ean": "3495080740590",
+     "scent": "musk",
+     "signature": "1x100deo|1x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-alyssa-ashley-musk-gift-set-50ml-edt-100ml-perfumed-deodorant-spray",
+     "brand": "Alyssa Ashley",
+     "name": "Musk Gift Set 50ml EDT + 100ml Perfumed Deodorant Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "musk",
+     "signature": "1x100deo|1x50fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -6076,6 +6205,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3700573894026",
+   "absorbed": [
+    "set-montana-parfum-de-peau-gift-set-100ml-edt-150ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3700573894026",
+     "brand": "Montana",
+     "name": "Parfum de Peau Gift Set 100ml EDT + 150ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": "3700573894026",
+     "scent": "de peau",
+     "signature": "1x100fragrance|1x150body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-montana-parfum-de-peau-gift-set-100ml-edt-150ml-body-lotion",
+     "brand": "Montana",
+     "name": "Parfum de Peau Gift Set 100ml EDT + 150ml Body Lotion",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "de peau",
+     "signature": "1x100fragrance|1x150body",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3701392053250",
    "absorbed": [
     "set-sophie-la-giraffe-2-piece-gift-set-eau-de-toilette-50ml-giraffe-plush-toy"
@@ -7262,6 +7423,38 @@
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5060523017867",
+   "absorbed": [
+    "set-ted-baker-original-skinwear-gift-set-200ml-edt-2-pairs-of-socks"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060523017867",
+     "brand": "Ted Baker",
+     "name": "Original Skinwear Gift Set 200ml EDT + 2 Pairs Of Socks",
+     "concentration": "Eau de Toilette",
+     "ean": "5060523017867",
+     "scent": "2 original pairs skinwear",
+     "signature": "1x200fragrance|1x?other",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ted-baker-original-skinwear-gift-set-200ml-edt-2-pairs-of-socks",
+     "brand": "Ted Baker",
+     "name": "Original Skinwear Gift Set 200ml EDT + 2 Pairs Of Socks",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "2 original pairs skinwear",
+     "signature": "1x200fragrance|1x?other",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -8620,6 +8813,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003808298",
+   "absorbed": [
+    "set-versace-gift-set-30ml-yellow-diamond-edt-30ml-bright-crystal-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003808298",
+     "brand": "Versace",
+     "name": "Gift Set 30ml Yellow Diamond EDT + 30ml Bright Crystal EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "8011003808298",
+     "scent": "bright crystal diamond yellow",
+     "signature": "2x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-gift-set-30ml-yellow-diamond-edt-30ml-bright-crystal-edt",
+     "brand": "Versace",
+     "name": "Gift Set 30ml Yellow Diamond EDT + 30ml Bright Crystal EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bright crystal diamond yellow",
+     "signature": "2x30fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003809318",
    "absorbed": [
     "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
@@ -8872,6 +9097,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003877287",
+   "absorbed": [
+    "set-dsquared-original-wood-gift-set-100ml-edp-30ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003877287",
+     "brand": "Dsquared2",
+     "name": "DSquared² Original Wood Gift Set 100ml EDP + 30ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003877287",
+     "scent": "dsquared original wood",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dsquared-original-wood-gift-set-100ml-edp-30ml-edp",
+     "brand": "Dsquared2",
+     "name": "DSquared² Original Wood Gift Set 100ml EDP + 30ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "dsquared original wood",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003899807",
    "absorbed": [
     "set-versace-bright-crystal-gift-set-90ml-edt-100ml-body-lotion-100ml-shower-gel-5ml-edt"
@@ -9111,6 +9368,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003900213",
+   "absorbed": [
+    "set-dsquared2-icon-pour-femme-gift-set-100ml-edp-50ml-shower-gel-50ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003900213",
+     "brand": "Dsquared2",
+     "name": "Icon Pour Femme Gift Set 100ml EDP + 50ml Shower Gel + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003900213",
+     "scent": "femme icon pour",
+     "signature": "1x100fragrance|1x50body|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dsquared2-icon-pour-femme-gift-set-100ml-edp-50ml-shower-gel-50ml-body-lotion",
+     "brand": "Dsquared2",
+     "name": "Icon Pour Femme Gift Set 100ml EDP + 50ml Shower Gel + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "femme icon pour",
+     "signature": "1x100fragrance|1x50body|1x50wash",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003902750",
    "absorbed": [
     "set-versace-bright-crystal-3-piece-gift-set-eau-de-toilette-50ml-shower-gel-50ml-body-lotion-50ml"
@@ -9203,38 +9492,6 @@
      "signature": "1x100fragrance|1x10fragrance|1x?other",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003907106",
-   "absorbed": [
-    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003907106",
-     "brand": "Versace",
-     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
-     "concentration": "Parfum",
-     "ean": "8011003907106",
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
-     "brand": "Versace",
-     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
-     "concentration": "Parfum",
-     "ean": null,
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -9623,6 +9880,40 @@
      "signature": "1x100body|1x125fragrance",
      "shops": [
       "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8057971185481",
+   "absorbed": [
+    "set-dolce-gabbana-q-gift-set-100ml-edp-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8057971185481",
+     "brand": "Dolce & Gabbana",
+     "name": "Q 100ml Eau de Parfum + 10ml Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8057971185481",
+     "scent": "q",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk",
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dolce-gabbana-q-gift-set-100ml-edp-10ml-edp",
+     "brand": "Dolce & Gabbana",
+     "name": "Q Gift Set 100ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "q",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
       "p-eleven"
      ]
     }
@@ -16446,6 +16737,38 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 66667150, 66667151",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-66667150",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667150",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-66667151",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667151",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
      ]
     }
    ]
