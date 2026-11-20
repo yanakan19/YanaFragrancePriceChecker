@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-19T23:58:43.942Z",
-  "seenAt": "2026-11-19T23:58:43.942Z",
+  "updatedAt": "2026-11-20T03:40:10.490Z",
+  "seenAt": "2026-11-20T03:40:10.490Z",
   "source": "live",
   "listings": [
     {
@@ -13561,7 +13561,7 @@
       "priceGbp": 29.95,
       "wasPriceGbp": 48.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The fragrance opens with a burst of zesty bergamot, spicy pink peppercorn, and juicy blackcurrant, leading into a heart of delicate peony, sweet caramel, and rich oud wood. In the end, the notes of juicy raspberry, earthy patchouli, and dry amber create a warm and comforting aura that lingers on the skin.. NOTES . TOP NOTES: GRAPEFRUIT, PLUM . MIDDLE NOTES: ORCHID, HELIOTROPE . BASE NOTES: VANILLA, AMBER, OUD, TONKA BEANS .",
       "productType": null,

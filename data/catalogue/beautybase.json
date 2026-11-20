@@ -1,7 +1,7 @@
 {
   "retailerId": "beautybase",
-  "updatedAt": "2026-11-19T23:55:30.535Z",
-  "seenAt": "2026-11-19T23:55:30.535Z",
+  "updatedAt": "2026-11-20T03:40:05.272Z",
+  "seenAt": "2026-11-20T03:40:05.272Z",
   "source": "live",
   "listings": [
     {
@@ -2831,7 +2831,7 @@
       "priceGbp": 29,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "beautybase",
@@ -69827,8 +69827,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-05T22:56:46.276Z",
       "lastSeenAt": "2026-11-19T12:31:46.789Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-20T03:40:05.272Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -69850,8 +69850,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-10T19:59:39.471Z",
       "lastSeenAt": "2026-11-19T12:31:46.789Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-20T03:40:05.272Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -69873,8 +69873,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-08T04:54:59.541Z",
       "lastSeenAt": "2026-11-19T12:31:46.789Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-20T03:40:05.272Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -69896,8 +69896,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-07T22:32:57.561Z",
       "lastSeenAt": "2026-11-19T12:31:46.789Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-20T03:40:05.272Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -69919,8 +69919,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-07T22:32:57.561Z",
       "lastSeenAt": "2026-11-19T12:31:46.789Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-20T03:40:05.272Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -69942,8 +69942,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "lastSeenAt": "2026-11-19T12:31:46.789Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-20T03:40:05.272Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
@@ -69965,8 +69965,8 @@
       "retailerId": "beautybase",
       "firstSeenAt": "2026-08-07T19:51:59.683Z",
       "lastSeenAt": "2026-11-19T12:31:46.789Z",
-      "status": "active",
-      "delistedAt": null,
+      "status": "delisted",
+      "delistedAt": "2026-11-20T03:40:05.272Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null

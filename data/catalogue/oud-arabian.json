@@ -1,34 +1,9 @@
 {
   "retailerId": "oud-arabian",
-  "updatedAt": "2026-11-19T23:58:43.942Z",
-  "seenAt": "2026-11-19T23:58:43.942Z",
+  "updatedAt": "2026-11-20T03:40:10.490Z",
+  "seenAt": "2026-11-20T03:40:10.490Z",
   "source": "live",
   "listings": [
-    {
-      "retailerSku": "56706708341078",
-      "url": "https://oudarabian.co.uk/products/lattafa-falsafat-100ml-eau-de-parfum",
-      "rawTitle": "Lattafa Falsafat 100ml Eau De Parfum",
-      "rawBrand": "Oud Arabian",
-      "ean": "11488390873430",
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/IMG_4379.webp?v=1795107737&width=1100",
-      "description": "Lattafa Falsafat Eau de ParfumDiscover Falsafat by Lattafa – A Fragrance of Elegance, Mystery and SophisticationExperience the captivating world of Arabian perfumery with Falsafat by Lattafa, a sophisticated fragrance designed for those who appreciate luxury, individuality and timeless elegance.Crafted with Lattafa’s signature approach to Middle Eastern perfumery, Falsafat offers an alluring scent experience that makes a statement without compromising on refinement.Whether you’re searching for a distinctive everyday fragrance or something special for an evening occasion, Falsafat is a luxurious addition to any perfume collection.Why Choose Lattafa Falsafat?✨ Premium Arabian Fragrance – Experience the craftsmanship and elegance of Middle Eastern perfumery.✨ Sophisticated Scent Profile – A captivating fragrance designed to leave a memorable impression.✨ Versatile Wear – Ideal for everyday elegance, evenings and special occasions.✨ Perfect Gift – A luxurious choice for fragrance enthusiasts and collectors.✨ Authentic Lattafa Perfume – Shop with confidence at Oud Arabian, your trusted UK fragrance retailer.Product Specifications* Brand: Lattafa Perfumes* Fragrance Name: Falsafat* Fragrance Type: Eau de Parfum* Fragrance Family: Arabian Perfumery* Occasion: Everyday Wear, Evening &amp;amp; Special Occasions* Country of Origin: United Arab EmiratesShop Lattafa Falsafat at Oud ArabianDiscover the elegance of Lattafa Falsafat at Oud Arabian. Explore our extensive collection of authentic Arabic perfumes, featuring some of the most sought-after fragrance houses from the Middle East.100% Authentic Fragrances | Trusted UK Retailer | Premium Arabian Perfumes",
-      "priceGbp": 36.99,
-      "wasPriceGbp": null,
-      "promoEndsAt": "2027-11-20T00:00:00.000Z",
-      "inStock": true,
-      "sectionId": "sitemap",
-      "rating": {
-        "value": 0,
-        "count": 0
-      },
-      "retailerId": "oud-arabian",
-      "firstSeenAt": "2026-11-19T23:58:43.942Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
     {
       "retailerSku": "50520168005974",
       "url": "https://oudarabian.co.uk/products/rayhaan-tiger-cal-cologne",
@@ -1064,7 +1039,7 @@
       "description": "Top Notes: Vanilla Lavender and Cacao GingerMiddle Notes: Vanilla CaviarBase Notes: Vanilla Absolute",
       "priceGbp": 39.99,
       "wasPriceGbp": null,
-      "promoEndsAt": "2027-11-19T00:00:00.000Z",
+      "promoEndsAt": "2027-11-20T00:00:00.000Z",
       "inStock": true,
       "sectionId": "sitemap",
       "rating": {
@@ -1077,6 +1052,31 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "56706708341078",
+      "url": "https://oudarabian.co.uk/products/lattafa-falsafat-100ml-eau-de-parfum",
+      "rawTitle": "Lattafa Falsafat 100ml Eau De Parfum",
+      "rawBrand": "Oud Arabian",
+      "ean": "11488390873430",
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/IMG_4379.webp?v=1795107737&width=1100",
+      "description": "Lattafa Falsafat Eau de ParfumDiscover Falsafat by Lattafa – A Fragrance of Elegance, Mystery and SophisticationExperience the captivating world of Arabian perfumery with Falsafat by Lattafa, a sophisticated fragrance designed for those who appreciate luxury, individuality and timeless elegance.Crafted with Lattafa’s signature approach to Middle Eastern perfumery, Falsafat offers an alluring scent experience that makes a statement without compromising on refinement.Whether you’re searching for a distinctive everyday fragrance or something special for an evening occasion, Falsafat is a luxurious addition to any perfume collection.Why Choose Lattafa Falsafat?✨ Premium Arabian Fragrance – Experience the craftsmanship and elegance of Middle Eastern perfumery.✨ Sophisticated Scent Profile – A captivating fragrance designed to leave a memorable impression.✨ Versatile Wear – Ideal for everyday elegance, evenings and special occasions.✨ Perfect Gift – A luxurious choice for fragrance enthusiasts and collectors.✨ Authentic Lattafa Perfume – Shop with confidence at Oud Arabian, your trusted UK fragrance retailer.Product Specifications* Brand: Lattafa Perfumes* Fragrance Name: Falsafat* Fragrance Type: Eau de Parfum* Fragrance Family: Arabian Perfumery* Occasion: Everyday Wear, Evening &amp;amp; Special Occasions* Country of Origin: United Arab EmiratesShop Lattafa Falsafat at Oud ArabianDiscover the elegance of Lattafa Falsafat at Oud Arabian. Explore our extensive collection of authentic Arabic perfumes, featuring some of the most sought-after fragrance houses from the Middle East.100% Authentic Fragrances | Trusted UK Retailer | Premium Arabian Perfumes",
+      "priceGbp": 36.99,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-11-20T00:00:00.000Z",
+      "inStock": true,
+      "sectionId": "sitemap",
+      "rating": {
+        "value": 0,
+        "count": 0
+      },
+      "retailerId": "oud-arabian",
+      "firstSeenAt": "2026-11-19T23:58:43.942Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
