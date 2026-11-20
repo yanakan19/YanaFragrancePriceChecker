@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-20T15:45:12.985Z",
-  "seenAt": "2026-11-20T15:45:12.985Z",
+  "updatedAt": "2026-11-20T19:41:11.080Z",
+  "seenAt": "2026-11-20T19:41:11.080Z",
   "source": "live",
   "listings": [
     {
@@ -497,7 +497,7 @@
       "priceGbp": 69.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The luxurious shades of gray come together in a blend of elegance and tranquility. . The collection includes White Regent with its refined purity, Emerald with its captivating warmth, and Gray with its enchanting mystery. A complete experience that embodies serenity of the senses and offers a presence of refined grace that never fades with time.. Grey Box 2 (75 mL):. · White Regent. · Emerald Soul. · Nude Coral.",
       "productType": "Arabic Perfumes",
