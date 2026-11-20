@@ -1,7 +1,7 @@
 {
   "retailerId": "emirates-oud",
-  "updatedAt": "2026-11-20T11:44:22.108Z",
-  "seenAt": "2026-11-20T11:44:22.108Z",
+  "updatedAt": "2026-11-20T15:45:12.985Z",
+  "seenAt": "2026-11-20T15:45:12.985Z",
   "source": "live",
   "listings": [
     {
@@ -3416,8 +3416,8 @@
       "rawBrand": "Lattafa",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khamrah-Mira-Perfume-100ml-EDP-Lattafa-204596883.jpg?v=1791192902",
-      "priceGbp": 39.99,
-      "wasPriceGbp": null,
+      "priceGbp": 35.99,
+      "wasPriceGbp": 40,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -16644,7 +16644,7 @@
       "priceGbp": 3.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Musamam Black Intense by Lattafa is a 2ml Eau de Parfum sample that exudes a dark and architectural elegance. This fragrance is a masterclass in the woody aromatic genre offering a sophisticated and shaded profile that radiates a wealthy and high end energy. It is the premier choice for the enthusiast in the UK seeking to test a premium Arabic perfume that balances herbal sage with a unique maple wood base making it a majestic selection for those who want a mysterious and grounding aura. . Specifications . Suitable for: Unisex . Brand: Lattafa . Fragrance Type: Perfume Samples . Size: 2ml Sample . Specialty: Premium Arabic Perfume . Fragrance Notes: . Top Notes: Lavender, Nutmeg, Bergamot, Sage . Middle Notes: Geranium, Rosyfolia, Mahonial, Cedarwood . Base Notes: Maple Wood, Patchouli, Tonka Bean, Cocoapulse, Ambrofix . Seasons Drift Perfume Sample 2ml EDP by Riiffs can also complete your perfume trial. .",
       "productType": "Perfume Sample",
@@ -35156,7 +35156,7 @@
       "rawBrand": "Afnan",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Supremacy-Collector_s-Edition-100ml-EDP-Afnan-169454657.jpg?v=1771338847",
-      "priceGbp": 47.99,
+      "priceGbp": 49.99,
       "wasPriceGbp": 55,
       "promoEndsAt": null,
       "inStock": false,

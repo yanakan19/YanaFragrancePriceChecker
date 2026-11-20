@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-20T11:51:17.149Z",
+  "checkedAt": "2026-11-20T15:51:17.102Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -516,9 +516,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 391,
-      "pricedInGbp": 391,
-      "withPhoto": 391,
+      "listings": 371,
+      "pricedInGbp": 371,
+      "withPhoto": 371,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

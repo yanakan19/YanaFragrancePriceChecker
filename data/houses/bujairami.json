@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-20T11:48:05.982Z",
-  "seenAt": "2026-11-20T11:48:05.982Z",
+  "updatedAt": "2026-11-20T15:48:14.762Z",
+  "seenAt": "2026-11-20T15:48:14.762Z",
   "source": "live",
   "listings": [
     {
@@ -482,7 +482,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A captivating floral-woody fragrance opening with soft ambrette and spicy pink pepper. The heart blooms with elegant rose, jasmine, and magnolia, while oud, earthy cypriol, and warm benzoin create a rich, smooth, and resinous finish.. Fragrance Notes . Top: Ambrette, Pink Pepper. Heart: Rose, Jasmine, Magnolia. Base: Oud, Cypriol, Benzoin. Profile: Floral • Woody • Spicy • Musky • Resinous • Warm.",
       "productType": null,
@@ -872,7 +872,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A rich and smoky fragrance opening with the warm, woody nuances of cashmeran and the refined aroma of black tea. The heart blends supple leather with deep tobacco leaves, while birch and oakmoss create an earthy, smoky, and sophisticated finish.. Fragrance Notes . Top: Cashmeran, Black Tea. Heart: Leather, Tobacco Leaves. Base: Birch Tree, Oakmoss. Profile: Woody • Smoky • Leathery • Earthy • Aromatic.",
       "productType": null,
