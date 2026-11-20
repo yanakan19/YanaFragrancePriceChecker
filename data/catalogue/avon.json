@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-20T03:40:05.272Z",
-  "seenAt": "2026-11-20T03:40:05.272Z",
+  "updatedAt": "2026-11-20T07:43:03.166Z",
+  "seenAt": "2026-11-20T07:43:03.166Z",
   "source": "live",
   "listings": [
     {
@@ -45807,7 +45807,7 @@
       "priceGbp": 2.25,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Start your day with our dreamy Coconut Hydrating Body Wash. This gentle formula is less drying than soap, and will moisturise and condition your skin every day. Pair with the Coconut Hydrating Body Lotion for the ultimate hydrating daily regime! Product specification: • Body wash formulated with coconut and vitamin E. • Recyclable packaging. • Dermatologically tested. • Part of the Avon Care Coconut collection. • Size: 400ml. How to use me: Work into a lather and massage into your skin before rinsing away..",
       "productType": "TOILETRIES",

@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-20T03:46:45.958Z",
+  "checkedAt": "2026-11-20T07:48:52.020Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -298,7 +298,8 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://fragranceworld.ae/wp-sitemap.xml: HTTP 0 TypeError: fetch failed (SocketError: other side closed)"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -479,9 +480,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 711,
+      "listings": 707,
       "pricedInGbp": 0,
-      "withPhoto": 709,
+      "withPhoto": 705,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-20T03:40:10.490Z",
-  "seenAt": "2026-11-20T03:40:10.490Z",
+  "updatedAt": "2026-11-20T07:42:09.269Z",
+  "seenAt": "2026-11-20T07:42:09.269Z",
   "source": "live",
   "listings": [
     {
@@ -10594,7 +10594,7 @@
       "priceGbp": 51.75,
       "wasPriceGbp": 69,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Rabanne 1 Million Black Eau de Parfum is a bold men's fragrance that introduces a darker, more intense expression of the iconic 1 Million attitude. Created for a confident and captivating fragrance experience, its Eau de Parfum concentration leaves a distinctive impression from day into night. Presented in a 50ml size..",
       "productType": "Men's Fragrances",
