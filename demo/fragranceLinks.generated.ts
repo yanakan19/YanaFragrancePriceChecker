@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-19T11:43:26.957Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-20T11:45:42.298Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -4234,6 +4234,10 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "gulforchid|gulforchidbaklavabite|edp": ["","https://shop-gulforchid.com/products/baklava-bite"],
   "gulforchid|gulforchidcandybite": ["","https://shop-gulforchid.com/products/candy-bite"],
   "gulforchid|gulforchidcandybite|edp": ["","https://shop-gulforchid.com/products/candy-bite"],
+  "gulforchid|gulforchidcaramelt": ["","https://shop-gulforchid.com/products/caramelt"],
+  "gulforchid|gulforchidcaramelt|edp": ["","https://shop-gulforchid.com/products/caramelt"],
+  "gulforchid|gulforchidchocozy": ["","https://shop-gulforchid.com/products/chocozy"],
+  "gulforchid|gulforchidchocozy|edp": ["","https://shop-gulforchid.com/products/chocozy"],
   "gulforchid|gulforchidcookiebite": ["","https://shop-gulforchid.com/products/cookie-bite"],
   "gulforchid|gulforchidcookiebite|edp": ["","https://shop-gulforchid.com/products/cookie-bite"],
   "gulforchid|gulforchidcremecaramel|edp": ["","https://shop-gulforchid.com/products/creme_caramel_eau_de_parfum"],
@@ -4247,9 +4251,13 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "gulforchid|gulforchidnaughtyvanilla|edp": ["","https://shop-gulforchid.com/products/naughty-vanilla"],
   "gulforchid|gulforchidroyalrose": ["","https://shop-gulforchid.com/products/royal-rose"],
   "gulforchid|gulforchidroyalrose|edp": ["","https://shop-gulforchid.com/products/royal-rose"],
+  "gulforchid|gulforchidstrawbae": ["","https://shop-gulforchid.com/products/strawbae"],
+  "gulforchid|gulforchidstrawbae|edp": ["","https://shop-gulforchid.com/products/strawbae"],
   "gulforchid|gulforchidsweetheaven": ["","https://shop-gulforchid.com/products/sweet-heaven-20ml"],
   "gulforchid|gulforchidsweetheaven|edp": ["","https://shop-gulforchid.com/products/sweet-heaven-20ml"],
   "gulforchid|gulforchidvanillaonthebeach|edp": ["","https://shop-gulforchid.com/products/vanilla_on_the_beach_eau_de_parfum"],
+  "gulforchid|gulforchidvanillecream": ["","https://shop-gulforchid.com/products/vanille-cream"],
+  "gulforchid|gulforchidvanillecream|edp": ["","https://shop-gulforchid.com/products/vanille-cream"],
   "gulforchid|heavenlylychee|edp": ["","https://shop-gulforchid.com/products/heavenly_lychee_eau_de_parfum"],
   "gulforchid|highness|edp": ["","https://shop-gulforchid.com/products/highness_eau_de_parfum"],
   "gulforchid|highness|unstated": ["","https://shop-gulforchid.com/products/highness_eau_de_parfum"],
@@ -4284,6 +4292,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "gulforchid|perfection|unstated": ["","https://shop-gulforchid.com/products/perfection_eau_de_parfum"],
   "gulforchid|pinkmarshmallow": ["","https://shop-gulforchid.com/products/pink-marshmallow"],
   "gulforchid|pinkmarshmallow|edp": ["","https://shop-gulforchid.com/products/pink-marshmallow"],
+  "gulforchid|pistacia": ["","https://shop-gulforchid.com/products/pistacia"],
+  "gulforchid|pistacia|edp": ["","https://shop-gulforchid.com/products/pistacia"],
   "gulforchid|rarerose|edp": ["","https://shop-gulforchid.com/products/rare_rose_eau_de_parfum"],
   "gulforchid|ricemilk": ["","https://shop-gulforchid.com/products/rice-milk"],
   "gulforchid|ricemilk|edp": ["","https://shop-gulforchid.com/products/rice-milk"],
@@ -7443,8 +7453,10 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rayhaan|pacificauraperfume|edp": ["","https://rayhaanperfumes.com/products/pacific-aura"],
   "rayhaan|pacificaura|edp": ["","https://rayhaanperfumes.com/products/pacific-aura"],
   "rayhaan|pacific|edp": ["","https://rayhaanperfumes.com/products/pacific"],
+  "rayhaan|palawan": ["","https://rayhaanperfumes.com/products/palawan"],
   "rayhaan|palawanperfume": ["","https://rayhaanperfumes.com/products/palawan"],
   "rayhaan|palawanperfume|edp": ["","https://rayhaanperfumes.com/products/palawan"],
+  "rayhaan|palawan|edp": ["","https://rayhaanperfumes.com/products/palawan"],
   "rayhaan|prettyinpink": ["","https://rayhaanperfumes.com/products/pretty-in-pink"],
   "rayhaan|prettyinpink|edp": ["","https://rayhaanperfumes.com/products/pretty-in-pink"],
   "rayhaan|rayhaanelixir": ["","https://rayhaanperfumes.com/products/elixir"],
@@ -8007,6 +8019,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "thameen|noorolaintaifunisex|extrait": ["","https://thameenfragrance.com/products/noorolain-taif-10ml-extrait-de-parfum"],
   "thameen|noorolaintaif|extrait": ["","https://thameenfragrance.com/products/noorolain-taif-10ml-extrait-de-parfum"],
   "thameen|opaline|extrait": ["","https://thameenfragrance.com/products/opaline-50ml-extrait-de-parfum"],
+  "thameen|patialaunisex|extrait": ["","https://thameenfragrance.com/products/patiala-50ml-extrait-de-parfum"],
   "thameen|peacockthroneunisex|extrait": ["","https://thameenfragrance.com/products/peacock-throne-10ml-extrait-de-parfum"],
   "thameen|peacockthrone|extrait": ["","https://thameenfragrance.com/products/peacock-throne-10ml-extrait-de-parfum"],
   "thameen|peregrinaunisex|extrait": ["","https://thameenfragrance.com/products/peregrina-50ml-extrait-de-parfum"],
