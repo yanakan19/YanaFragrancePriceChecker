@@ -1,31 +1,31 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-11-19T02:50:42.935Z",
+  "builtAt": "2026-11-20T02:43:51.631Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 21,
   "shopsEnabled": 18,
   "shopsPriced": 18,
-  "crawlMinutes": 55.31,
-  "harvestRanAt": "2026-11-19T01:55:23.506Z",
-  "listingsPriced": 34991,
-  "listingsKept": 23696,
+  "crawlMinutes": 55.33,
+  "harvestRanAt": "2026-11-20T01:48:31.572Z",
+  "listingsPriced": 35078,
+  "listingsKept": 23756,
   "staleAfterDays": 7,
-  "products": 19903,
-  "productsWithTwoOrMoreShops": 3763,
+  "products": 19937,
+  "productsWithTwoOrMoreShops": 3764,
   "shareWithTwoOrMoreShops": 0.189,
-  "productsWithTwoOrMoreIndependentShops": 3763,
+  "productsWithTwoOrMoreIndependentShops": 3764,
   "shareWithTwoOrMoreIndependentShops": 0.189,
-  "productsWithThreeOrMoreShops": 1324,
+  "productsWithThreeOrMoreShops": 1326,
   "medianPriceGap": 0.222,
   "listingBarcodeShare": 0.012,
-  "productsMatchingUkByBarcode": 146,
+  "productsMatchingUkByBarcode": 145,
   "shops": [
     {
       "id": "aar-fragrances",
       "products": 2298,
-      "shared": 1545
+      "shared": 1547
     },
     {
       "id": "all-arabic",
@@ -39,8 +39,8 @@
     },
     {
       "id": "fridaycharm",
-      "products": 6419,
-      "shared": 2157
+      "products": 6413,
+      "shared": 2159
     },
     {
       "id": "maison-des-parfums-in",
@@ -54,18 +54,18 @@
     },
     {
       "id": "nykaa",
-      "products": 2318,
-      "shared": 399
+      "products": 2314,
+      "shared": 396
     },
     {
       "id": "perfume-network",
       "products": 1898,
-      "shared": 860
+      "shared": 858
     },
     {
       "id": "perfume-palace",
-      "products": 6639,
-      "shared": 2369
+      "products": 6687,
+      "shared": 2379
     },
     {
       "id": "scentido",
@@ -75,12 +75,12 @@
     {
       "id": "scentira",
       "products": 2472,
-      "shared": 817
+      "shared": 812
     },
     {
       "id": "scentopia",
       "products": 1232,
-      "shared": 514
+      "shared": 515
     },
     {
       "id": "the-man-company",
@@ -98,13 +98,13 @@
       "shared": 5
     }
   ],
-  "productsShown": 19300,
+  "productsShown": 19358,
   "productsWithUkPhoto": 2959,
-  "productsWithUkPhotoByBarcode": 126,
-  "productsWithUkPhotoByName": 2833,
-  "listingsWithReference": 15340,
-  "offersWithCorroboratedReference": 3047,
-  "deals": 1109,
+  "productsWithUkPhotoByBarcode": 125,
+  "productsWithUkPhotoByName": 2834,
+  "listingsWithReference": 15378,
+  "offersWithCorroboratedReference": 3052,
+  "deals": 1108,
   "shareWithUkPhoto": 0.153,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
