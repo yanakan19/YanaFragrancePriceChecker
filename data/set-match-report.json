@@ -640,6 +640,7 @@
      "scent": "be blossom delicious fresh",
      "signature": "1x100fragrance|1x125body|1x?other",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -1078,13 +1079,12 @@
     {
      "id": "set-police-to-be-camouflage-gift-set-75ml-edt-100ml-shower-gel",
      "brand": "Police",
-     "name": "To Be Camouflage Gift Set 75ml Edt + 100ml Shower Gel",
+     "name": "To Be Camouflage Gift Set 75ml EDT + 100ml Shower Gel",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "be camouflage to",
      "signature": "1x100wash|1x75fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     }
@@ -1555,7 +1555,6 @@
      "scent": "gorgeous",
      "signature": "1x100body|1x100fragrance|1x100wash|1x5fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -2337,6 +2336,7 @@
      "signature": "1x100fragrance|1x15fragrance|1x?body",
      "shops": [
       "fragrance-click",
+      "paco-perfumerias-uk",
       "perfume-click"
      ]
     },
@@ -3684,6 +3684,38 @@
      "shops": [
       "beaute-boulevard",
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3423222092900",
+   "absorbed": [
+    "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222092900",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set 125ml EDT + 50ml Shower Gel + 50ml Aftershave Balm",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222092900",
+     "scent": "d eau homme issey l pour",
+     "signature": "1x125fragrance|1x50body|1x50wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml",
+     "brand": "Issey Miyake",
+     "name": "L'Eau d'Issey Pour Homme Gift Set EDT 125ml + S/Gel 50ml + A/Balm 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "d eau homme issey l pour",
+     "signature": "1x125fragrance|1x50body|1x50wash",
+     "shops": [
+      "the-beauty-store-uk"
      ]
     }
    ]
@@ -5868,7 +5900,6 @@
      "scent": "flowerbomb",
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -7886,6 +7917,7 @@
      "scent": "britologne collection discovery",
      "signature": "3x10fragrance",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -9435,38 +9467,6 @@
      "signature": "1x100fragrance|1x10fragrance|1x?other",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003907106",
-   "absorbed": [
-    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003907106",
-     "brand": "Versace",
-     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
-     "concentration": "Parfum",
-     "ean": "8011003907106",
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
-     "brand": "Versace",
-     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
-     "concentration": "Parfum",
-     "ean": null,
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -14360,7 +14360,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3349668613380, 3349668643134",
-    "a shop lists more than one: beaute-boulevard, perfume-click"
+    "a shop lists more than one: perfume-click"
    ],
    "members": [
     {
@@ -14404,18 +14404,6 @@
      "brand": "Rabanne",
      "name": "Paco Rabanne Phantom Gift Set 100ml EDT + 10ml EDT 100ml EDT",
      "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "paco phantom rabanne",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-phantom-parfum-gift-set-100ml-edp-10ml-edp",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Phantom Parfum Gift Set 100ml Edp + 10ml Edp",
-     "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "paco phantom rabanne",
      "signature": "1x100fragrance|1x10fragrance",
@@ -15114,49 +15102,6 @@
      "shops": [
       "mybeauty-boutique",
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.84 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222092900",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Pour Homme Gift Set 125ml EDT + 50ml Shower Gel + 50ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": "3423222092900",
-     "scent": "d eau homme issey l pour",
-     "signature": "1x125fragrance|1x50body|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-125ml-edt-50ml-shower-gel-50ml-aftershave-balm",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Pour Homme Gift Set 125ml EDT + 50ml Shower Gel + 50ml Aftershave Balm",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d eau homme issey l pour",
-     "signature": "1x125fragrance|1x50body|1x50wash",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-l-eau-d-issey-pour-homme-gift-set-edt-125ml-s-gel-50ml-a-balm-50ml",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Pour Homme Gift Set EDT 125ml + S/Gel 50ml + A/Balm 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d eau homme issey l pour",
-     "signature": "1x125fragrance|1x50body|1x50wash",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
@@ -16170,7 +16115,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3616305443588, 3616306127869, 3616306127906",
-    "a shop lists more than one: mybeauty-boutique, perfume-click"
+    "a shop lists more than one: beaute-boulevard, mybeauty-boutique, perfume-click"
    ],
    "members": [
     {
@@ -16212,12 +16157,13 @@
     {
      "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
      "brand": "Hugo Boss",
-     "name": "Boss Bottled Eau de Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
+     "name": "Boss Bottled Eau De Parfum Gift Set 100ml Edp + 100ml Shower Gel + 10ml Edp",
      "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -16670,38 +16616,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 66667150, 66667151",
-    "a shop lists more than one: parfumdreams-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-66667150",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667150",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-66667151",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667151",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
      ]
     }
    ]
