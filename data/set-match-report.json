@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 395,
+ "folded": 394,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -9504,38 +9504,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003907106",
-   "absorbed": [
-    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003907106",
-     "brand": "Versace",
-     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
-     "concentration": "Parfum",
-     "ean": "8011003907106",
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
-     "brand": "Versace",
-     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
-     "concentration": "Parfum",
-     "ean": null,
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8011003917129",
    "absorbed": [
     "set-versace-miniatures-for-him-gift-set-5ml-eros-edt-5ml-eros-flame-edt-5ml-eau-fraiche-edt-5ml-pour-homme-edt-5ml-eros-energy-edt"
@@ -12769,7 +12737,7 @@
   },
   {
    "reasons": [
-    "price spread 1.68 is over 1.5"
+    "price spread 1.52 is over 1.5"
    ],
    "members": [
     {
@@ -12902,6 +12870,37 @@
      "signature": "1x125fragrance|1x35fragrance",
      "shops": [
       "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "strengths differ: Eau de Parfum, Extrait de Parfum"
+   ],
+   "members": [
+    {
+     "id": "set-discovery-set-edp-3x6ml-fragrance-discovery-set-18-ml",
+     "brand": "Matière Première",
+     "name": "DISCOVERY SET EDP 3X6ML Fragrance Discovery Set 18 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "3x6fragrance",
+     "shops": [
+      "niche-beauty-uk"
+     ]
+    },
+    {
+     "id": "set-extrait-de-parfum-discovery-set-3-x-6ml",
+     "brand": "Matière Première",
+     "name": "Extrait de Parfum Discovery Set 3 x 6ml",
+     "concentration": "Extrait de Parfum",
+     "ean": null,
+     "scent": "discovery",
+     "signature": "3x6fragrance",
+     "shops": [
+      "fenwick"
      ]
     }
    ]
@@ -14627,8 +14626,7 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3349668628551, 3349668642861, 3349668667079",
-    "price spread 1.55 is over 1.5"
+    "two different barcodes: 3349668628551, 3349668642861, 3349668667079"
    ],
    "members": [
     {
@@ -16649,6 +16647,38 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 66667150, 66667151",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-66667150",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667150",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-66667151",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667151",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
      ]
     }
    ]
