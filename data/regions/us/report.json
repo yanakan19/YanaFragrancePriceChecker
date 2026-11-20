@@ -1,24 +1,24 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-11-19T17:48:51.046Z",
+  "builtAt": "2026-11-20T17:24:06.899Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 29,
   "shopsEnabled": 26,
   "shopsPriced": 25,
-  "crawlMinutes": 57.05,
-  "harvestRanAt": "2026-11-19T16:51:47.161Z",
-  "listingsPriced": 108497,
-  "listingsKept": 61379,
+  "crawlMinutes": 56.99,
+  "harvestRanAt": "2026-11-20T16:27:06.997Z",
+  "listingsPriced": 108362,
+  "listingsKept": 61239,
   "staleAfterDays": 7,
-  "products": 40065,
-  "productsWithTwoOrMoreShops": 10676,
-  "shareWithTwoOrMoreShops": 0.266,
-  "productsWithTwoOrMoreIndependentShops": 7683,
+  "products": 40047,
+  "productsWithTwoOrMoreShops": 10679,
+  "shareWithTwoOrMoreShops": 0.267,
+  "productsWithTwoOrMoreIndependentShops": 7687,
   "shareWithTwoOrMoreIndependentShops": 0.192,
-  "productsWithThreeOrMoreShops": 6171,
-  "medianPriceGap": 0.408,
+  "productsWithThreeOrMoreShops": 6173,
+  "medianPriceGap": 0.414,
   "listingBarcodeShare": 0.13,
   "productsMatchingUkByBarcode": 2665,
   "shops": [
@@ -30,17 +30,17 @@
     {
       "id": "beauty-encounter",
       "products": 5113,
-      "shared": 2128
+      "shared": 2130
     },
     {
       "id": "beautyhabit",
       "products": 852,
-      "shared": 261
+      "shared": 260
     },
     {
       "id": "bluemercury",
-      "products": 646,
-      "shared": 335
+      "products": 647,
+      "shared": 336
     },
     {
       "id": "ds-and-durga",
@@ -70,12 +70,12 @@
     {
       "id": "la-belle-perfumes",
       "products": 4883,
-      "shared": 2488
+      "shared": 2490
     },
     {
       "id": "luckyscent",
-      "products": 3809,
-      "shared": 769
+      "products": 3801,
+      "shared": 767
     },
     {
       "id": "maison-louis-marie",
@@ -104,13 +104,13 @@
     },
     {
       "id": "perfumes-america",
-      "products": 5479,
-      "shared": 3812
+      "products": 5483,
+      "shared": 3813
     },
     {
       "id": "perfumes4all",
-      "products": 15221,
-      "shared": 4637
+      "products": 15212,
+      "shared": 4641
     },
     {
       "id": "sol-de-janeiro",
@@ -119,13 +119,13 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 870,
-      "shared": 728
+      "products": 868,
+      "shared": 729
     },
     {
       "id": "triple-traders",
-      "products": 4602,
-      "shared": 1251
+      "products": 4610,
+      "shared": 1258
     },
     {
       "id": "twisted-lily",
@@ -138,13 +138,13 @@
       "shared": 578
     }
   ],
-  "productsShown": 39955,
-  "productsWithUkPhoto": 6822,
-  "productsWithUkPhotoByBarcode": 2035,
-  "productsWithUkPhotoByName": 4787,
-  "listingsWithReference": 35852,
-  "offersWithCorroboratedReference": 15217,
-  "deals": 2508,
+  "productsShown": 39937,
+  "productsWithUkPhoto": 6817,
+  "productsWithUkPhotoByBarcode": 2033,
+  "productsWithUkPhotoByName": 4784,
+  "listingsWithReference": 35866,
+  "offersWithCorroboratedReference": 15269,
+  "deals": 2779,
   "shareWithUkPhoto": 0.171,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
