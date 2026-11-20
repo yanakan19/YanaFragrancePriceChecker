@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 393,
+ "folded": 394,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -3247,6 +3247,38 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3386460139373",
+   "absorbed": [
+    "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-30ml-edp-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460139373",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 30ml EDP Spray",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460139373",
+     "scent": "blanc explorer mont platinum",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-30ml-edp-spray",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 30ml EDP Spray",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanc explorer mont platinum",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -11855,37 +11887,6 @@
   },
   {
    "reasons": [
-    "price spread 2.00 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-abercrombie-fitch-first-instinct-blue-for-her-gift-set-100ml-edp-15ml-edp-200ml-body-lotion",
-     "brand": "Abercrombie & Fitch",
-     "name": "First Instinct Blue for Her Gift Set 100ml EDP + 15ml EDP + 200ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blue first instinct",
-     "signature": "1x100fragrance|1x15fragrance|1x200body",
-     "shops": [
-      "p-eleven"
-     ]
-    },
-    {
-     "id": "set-ean-0085715167323",
-     "brand": "Abercrombie & Fitch",
-     "name": "First Instinct Blue for Her Gift Set 100ml EDP + 15ml EDP + 200ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0085715167323",
-     "scent": "blue first instinct",
-     "signature": "1x100fragrance|1x15fragrance|1x200body",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.04 is over 1.5"
    ],
    "members": [
@@ -13569,38 +13570,6 @@
      "ean": null,
      "scent": "fire",
      "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "beaute-boulevard",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.53 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0810103654372",
-     "brand": "Head",
-     "name": "Women Gift Set: Bliss EDT 50ml - EliteEDT 50ml - Spark EDT 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0810103654372",
-     "scent": "bliss eliteedt spark",
-     "signature": "3x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-head-women-gift-set-bliss-edt-50ml-eliteedt-50ml-spark-edt-50ml",
-     "brand": "Head",
-     "name": "Women Gift Set: Bliss EDT 50ml - EliteEDT 50ml - Spark EDT 50ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bliss eliteedt spark",
-     "signature": "3x50fragrance",
      "shops": [
       "beaute-boulevard",
       "p-eleven"
@@ -16774,50 +16743,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 8011003900121, 8011003919253",
-    "price spread 1.56 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003900121",
-     "brand": "Moschino",
-     "name": "Toy 2 Gift Set 50ml EDP + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003900121",
-     "scent": "2 toy",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-8011003919253",
-     "brand": "Moschino",
-     "name": "Toy 2 Eau De Parfum 50ml & Shower Gel 50ml & Body Lotion 50ml Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003919253",
-     "scent": "2 toy",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "beautybase"
-     ]
-    },
-    {
-     "id": "set-moschino-toy-2-gift-set-50ml-edp-50ml-body-lotion-50ml-shower-gel",
-     "brand": "Moschino",
-     "name": "Toy 2 Gift Set 50ml EDP + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "2 toy",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.63 is over 1.5"
    ],
    "members": [
@@ -16841,6 +16766,37 @@
      "ean": null,
      "scent": "diamond yellow",
      "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.56 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003919253",
+     "brand": "Moschino",
+     "name": "Toy 2 Eau De Parfum 50ml & Shower Gel 50ml & Body Lotion 50ml Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003919253",
+     "scent": "2 toy",
+     "signature": "1x50body|1x50fragrance|1x50wash",
+     "shops": [
+      "beautybase"
+     ]
+    },
+    {
+     "id": "set-moschino-toy-2-gift-set-50ml-edp-50ml-body-lotion-50ml-shower-gel",
+     "brand": "Moschino",
+     "name": "Toy 2 Gift Set 50ml EDP + 50ml Body Lotion + 50ml Shower Gel",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "2 toy",
+     "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "mybeauty-boutique"
      ]
