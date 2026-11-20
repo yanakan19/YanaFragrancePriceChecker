@@ -14124,6 +14124,38 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3349668554157, 3349668642496",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668554157",
+     "brand": "Rabanne",
+     "name": "1 Million Gift Set Eau de Toilette Spray 50 ml + Shower Gel 100 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668554157",
+     "scent": "1 million stk",
+     "signature": "1x100wash|1x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3349668642496",
+     "brand": "Rabanne",
+     "name": "1 Million Eau de Toilette Spray Eau de Toilette Spray 50 ml + Shower Gel 100 ml / 1 Stk.",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668642496",
+     "scent": "1 million stk",
+     "signature": "1x100wash|1x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3349668571819, 3349668626861, 3349668628681"
    ],
    "members": [
@@ -16616,6 +16648,38 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 66667150, 66667151",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-66667150",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667150",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-66667151",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667151",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
      ]
     }
    ]
