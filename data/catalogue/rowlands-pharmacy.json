@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-20T07:43:03.166Z",
-  "seenAt": "2026-11-20T07:43:03.166Z",
+  "updatedAt": "2026-11-20T11:44:17.959Z",
+  "seenAt": "2026-11-20T11:44:17.959Z",
   "source": "live",
   "listings": [
     {
@@ -83,7 +83,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "##features##. Modern woody aromatic Eau de Toilette from Calvin Klein.. Opens with absinthe, jackfruit, star anise and juniper berry.. Features a distinctive heart of suede, tobacco leaf, coffee and buchu.. Warm base combines oak, patchouli, cedarwood and ironwood.. Versatile fragrance suitable for daytime, casual evenings and everyday wear.. Generous 100ml spray bottle for regular use.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Express confidence and individuality with Calvin Klein CK Free for Men Eau de Toilette 100ml, a modern woody aromatic fragrance created for an adventurous lifestyle.. The fragrance opens with an unconventional combination of absinthe, jackfruit, star anise and juniper berry. A warm heart of suede, tobacco leaf, coffee and South African buchu adds depth before settling into a masculine base of oak, patchouli, cedarwood and ironwood.. Fresh yet grounded, CK Free is suitable for work, weekends and casual evenings. The 100ml spray format makes it a practical signature fragrance for regular wear.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as the wrists, neck and behind the ears.. Apply from approximately 15 to 20cm away.. Allow the fragrance to dry naturally.. Do not rub the wrists together after application.. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only.. Flammable until dry.. Keep away from heat, sparks, open flames and other ignition sources.. Do not spray onto the face or towards the eyes.. Avoid applying to broken or irritated skin.. Keep out of reach of children.. Store in a cool, dry place away from direct sunlight.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. ALCOHOL DENAT, PROPYLENE GLYCOL, PARFUM/FRAGRANCE, AQUA/WATER/EAU, BUTYL METHOXYDIBENZOYLMETHANE, LIMONENE, LINALOOL, CITRAL, ALCOHOL, HYDROXYCITRONELLAL, TRIS(TETRAMETHYLHYDROXYPIPERIDINOL) CITRATE, CITRONELLOL, GERANIOL, EXT. D&C VIOLET NO. 2 (CI 60730), FD&C BLUE NO. 1 (CI 42090), FD&C YELLOW NO. 5 (CI 19140). ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -520,7 +520,7 @@
       "priceGbp": 30,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Bottled Aftershave 100ml. Key Features. ##features##. Classic men's aftershave from Hugo Boss.. Inspired by the iconic Boss Bottled fragrance.. Helps leave skin refreshed after shaving.. Features apple, cinnamon and woody notes.. Sophisticated masculine scent profile.. 100ml bottle ideal for daily use.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Hugo Boss Boss Bottled Aftershave provides a refreshing post-shave experience while leaving skin scented with the unmistakable Boss Bottled fragrance. Featuring fresh apple accords, warm spices and elegant woody notes, it is the perfect finishing touch to a modern grooming routine.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",

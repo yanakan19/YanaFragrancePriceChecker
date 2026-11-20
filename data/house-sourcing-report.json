@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-20T07:48:52.020Z",
+  "checkedAt": "2026-11-20T11:51:17.149Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -298,8 +298,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "https://fragranceworld.ae/wp-sitemap.xml: HTTP 0 TypeError: fetch failed (SocketError: other side closed)"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

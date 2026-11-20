@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-20T07:42:09.269Z",
-  "seenAt": "2026-11-20T07:42:09.269Z",
+  "updatedAt": "2026-11-20T11:44:22.108Z",
+  "seenAt": "2026-11-20T11:44:22.108Z",
   "source": "live",
   "listings": [
     {
@@ -11,7 +11,7 @@
       "rawBrand": "Beauty Pie®",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/81802_SCULPTMODE_PDP_ECOM_PACKSHOT_1X1_01.jpg?v=1795104083",
-      "priceGbp": 200,
+      "priceGbp": 220,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -34,7 +34,7 @@
       "rawBrand": "Beauty Pie®",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/84841_SCULPTMODE__FLASH_FACE_LIFT_PDP_ECOM_PACKSHOT_1X1_01.jpg?v=1795104076",
-      "priceGbp": 295,
+      "priceGbp": 315,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -79,7 +79,7 @@
       "rawTitle": "Total Beauty Icons",
       "rawBrand": "Beauty Pie®",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/85909_TOTAL_BEAUTY_ICONS_PDP_ECOM_PACKSHOT_1X1_01_UK.jpg?v=1795002331",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0732/6475/8967/files/85909_TOTAL_BEAUTY_ICONS_PDP_ECOM_PACKSHOT_1X1_05_UK.jpg?v=1795002329",
       "priceGbp": 562,
       "wasPriceGbp": null,
       "promoEndsAt": null,
