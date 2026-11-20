@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-19T20:11:16.137Z",
-  "seenAt": "2026-11-19T20:11:16.137Z",
+  "updatedAt": "2026-11-19T23:58:43.942Z",
+  "seenAt": "2026-11-19T23:58:43.942Z",
   "source": "live",
   "listings": [
     {
@@ -6270,7 +6270,7 @@
       "priceGbp": 52,
       "wasPriceGbp": 83,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Product features. ##features##. A luxurious and oriental floral fragrance. First launched in 1993 by Jean Paul Gaultier. Presented in a stunning, feminine bottle. ##end-features##. Product description. A classic scent by a world-renowned designer, Jean Paul Gaultier's Classique EDT 50ml is a timeless perfume that exudes sophistication and elegance. . This iconic fragrance combines notes of fresh roses, tender orchids and sensual amber to create a deeply feminine and enduring scent. It can be worn throughout the day for a subtle hint of allure, or applied more liberally for evening wear. Beyond its gorgeous scent, the Classique EDT takes pride of place on your dressing table with its exquisite bottle design.. Features of Jean Paul Gaultier Classique EDT 50ml. Floral and Oriental scent. 50ml Eau de Toilette. Sophisticated bottle design. Made by Jean Paul Gaultier. ##accordion-start##. Specifications. Volume: 50ml. ##accordion-item-end##. Suitable for. Women. ##accordion-item-end##. Warnings and cautions. Keep out of reach of children. Avoid contact with eyes. Only use as directed. Keep away from heat and flame. ##accordion-item-end##. How to use. Spray the Jean Paul Gaultier Classique EDT onto your pulse points, including the wrists and neck.. Allow the fragrance to dry naturally without rubbing.. ##accordion-item-end##. Ingredients. Please see the product packaging for a full list of ingredients.. ##accordion-item-end##. ##delivery-accordion##. ##accordion-end##.",
       "productType": "Fragrance",

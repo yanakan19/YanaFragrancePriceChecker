@@ -1,7 +1,7 @@
 {
   "retailerId": "pairfum-london",
-  "updatedAt": "2026-11-19T20:12:49.713Z",
-  "seenAt": "2026-11-19T20:12:49.713Z",
+  "updatedAt": "2026-11-19T23:57:15.912Z",
+  "seenAt": "2026-11-19T23:57:15.912Z",
   "source": "live",
   "listings": [
     {
@@ -11844,6 +11844,28 @@
       "variantId": null
     },
     {
+      "retailerSku": "5050515313565",
+      "url": "https://www.pairfum.com/product/travel-size-30ml-ginger-elemi-vetiver-eau-de-parfum-intense/",
+      "rawTitle": "Travel Size (30ml): Ginger, Elemi & Vetiver - Eau de Parfum Intense",
+      "rawBrand": "Pairfum",
+      "ean": null,
+      "imageUrl": null,
+      "description": "A surprising fusion of spices and freshness, it opens with notes of Bergamot, Grapefruit and a touch of Lavender, combined with Ginger, Elemi, Nutmeg &amp; Cinnamon. The heart is Geranium, Rose, Freesia, Gardenia, Jasmine and Orange Blossom, with fruity hints of Coconut and Raspberry. A base of Vetiver, Guaiacwood, Cedar, Amber, Cashmere Musks, Vanilla &amp; Moss supports this note. Profile: Olfactive Family: Aromatic Gender: Unisex Batch: Limited Edition Content: 30 ml / 1 fl. oz Type: Eau de Parfum Intense Long-Lasting: all day Natural &amp; Sustainable: Natural Essential Oils Vegan Eco-Friendly Cruelty-free Handmade in our Artisan Studios Risk Free Trial:We understand that shopping online for a new perfume is different, which is why we offer our 100% Happiness Guarantee: Full Refund: Should you not love your perfume, then we are happy to take the product back for a full refund. No quibbles from us. Free Shipping: This product qualifies for free shipping (UK).",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "rating": null,
+      "retailerId": "pairfum-london",
+      "firstSeenAt": "2026-11-19T23:57:15.912Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
       "retailerSku": "5050515313510",
       "url": "https://www.pairfum.com/product/travel-size-30ml-pink-rose-sensuous-musk-eau-de-parfum-intense/",
       "rawTitle": "Travel Size (30ml): Pink Rose & Sensuous Musk - Eau de Parfum Intense",
@@ -11859,6 +11881,7 @@
       "rating": null,
       "retailerId": "pairfum-london",
       "firstSeenAt": "2026-11-18T23:58:59.739Z",
+      "lastSeenAt": "2026-11-19T20:12:49.713Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,

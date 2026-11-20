@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-19T20:11:16.137Z",
-  "seenAt": "2026-11-19T20:11:16.137Z",
+  "updatedAt": "2026-11-19T23:58:43.942Z",
+  "seenAt": "2026-11-19T23:58:43.942Z",
   "source": "live",
   "listings": [
     {
@@ -7512,7 +7512,7 @@
       "priceGbp": 33,
       "wasPriceGbp": 44,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Iconic, energizing treatment fragrance that combines the aroma and skincare benefits of concentrated plant extracts to hydrate, revitalise, and perfume skin. Formulated with aromatic essential oils of citrus fruit, Patchouli, Bitter Orange, Rosemary, and White Thyme .",
       "productType": "Women's Fragrances",
