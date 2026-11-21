@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-20T19:41:11.080Z",
-  "seenAt": "2026-11-20T19:41:11.080Z",
+  "updatedAt": "2026-11-20T23:48:04.584Z",
+  "seenAt": "2026-11-20T23:48:04.584Z",
   "source": "live",
   "listings": [
     {
@@ -11077,7 +11077,7 @@
       "priceGbp": 35.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Diesel Sound of the Brave is a warm fragrance created for customers who enjoy a confident scent. It opens with a distinctive first impression, develops into a balanced heart, and settles into a smooth lasting base. Suitable for evening wear and cooler seasons, this fragrance is a strong choice for anyone looking for a scent that feels modern and bold.. Why customers choose it Well-suited for evening and cooler weather. A great option for special occasion wear. Designed for customers who prefer warm and expressive scents.",
       "productType": "Eau de Toilette",

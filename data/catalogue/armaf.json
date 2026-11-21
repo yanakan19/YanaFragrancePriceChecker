@@ -1,7 +1,7 @@
 {
   "retailerId": "armaf",
-  "updatedAt": "2026-11-20T19:40:25.871Z",
-  "seenAt": "2026-11-20T19:40:25.871Z",
+  "updatedAt": "2026-11-20T23:48:29.857Z",
+  "seenAt": "2026-11-20T23:48:29.857Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Step into the spotlight with Miss Armaf Catwalk Eau de Parfum , a vibrant and sophisticated fragrance crafted for the modern woman. Opening with a sparkling burst of juicy mandarin and fresh citrus, this scent unfolds into a lush, romantic heart of velvety peach, delicate jasmine, and lily. As it settles on the skin, a warm, sensual trail of creamy vanilla, soft musk, and ambroxan leaves an unforgettable, lasting impression. . Housed in an exquisite bottle adorned with charming floral and butterfly accents, Miss Armaf Catwalk is as captivating on your vanity as it is to wear. Effortlessly versatile, it transitions seamlessly from bright daytime elegance to glamorous evening wear. . Fragrance Notes: . Top Notes: Mandarin Orange, Sweet Orange, Fresh Citruses . Heart Notes: Peach, Jasmine, Lily . Base Notes: Vanilla, Musk, Ambroxan .",
       "productType": null,

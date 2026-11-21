@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-20T19:41:11.080Z",
-  "seenAt": "2026-11-20T19:41:11.080Z",
+  "updatedAt": "2026-11-20T23:48:04.584Z",
+  "seenAt": "2026-11-20T23:48:04.584Z",
   "source": "live",
   "listings": [
     {
@@ -7811,7 +7811,7 @@
       "priceGbp": 95.9,
       "wasPriceGbp": 137,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience a curated journey with the I Am Day Discovery Set by Infiniment Coty Parfums. This collection features five distinct 10ml fragrances, each crafted to evoke different moods and moments throughout your day. Perfect for exploring new scents or taking your favourites on the go, this set lets you find the perfect match for every occasion with ease and elegance..",
       "productType": "Unisex Fragrance",
@@ -9559,7 +9559,7 @@
       "priceGbp": 65.8,
       "wasPriceGbp": 94,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A modern interpretation of vetiver, this eau de parfum blends fresh citrus, aromatic florals and warm woods to create a clean, earthy fragrance with lasting depth. A sophisticated scent designed for everyday wear..",
       "productType": "Women's Fragrances",
