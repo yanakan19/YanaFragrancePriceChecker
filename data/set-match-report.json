@@ -1,39 +1,7 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 394,
+ "folded": 386,
  "groups": [
-  {
-   "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
-   "absorbed": [
-    "set-125th-bloom-eau-de-parfum-3x10ml"
-   ],
-   "members": [
-    {
-     "id": "set-125th-bloom-eau-de-parfum-3x10-ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "125th & Bloom Eau de Parfum 3x10 ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "125th bloom",
-     "signature": "3x10fragrance",
-     "shops": [
-      "nicchia-luxury-uk"
-     ]
-    },
-    {
-     "id": "set-125th-bloom-eau-de-parfum-3x10ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "125th & Bloom Eau de Parfum 3x10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "125th bloom",
-     "signature": "3x10fragrance",
-     "shops": [
-      "liberty-london"
-     ]
-    }
-   ]
-  },
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
    "absorbed": [
@@ -62,38 +30,6 @@
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-back-to-the-roots-eau-de-parfum-3x10-ml",
-   "absorbed": [
-    "set-back-to-the-roots-eau-de-parfum-3x10ml"
-   ],
-   "members": [
-    {
-     "id": "set-back-to-the-roots-eau-de-parfum-3x10-ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Back to the Roots Eau de Parfum 3x10 ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "back roots to",
-     "signature": "3x10fragrance",
-     "shops": [
-      "nicchia-luxury-uk"
-     ]
-    },
-    {
-     "id": "set-back-to-the-roots-eau-de-parfum-3x10ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Back to the Roots Eau de Parfum 3x10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "back roots to",
-     "signature": "3x10fragrance",
-     "shops": [
-      "liberty-london"
      ]
     }
    ]
@@ -128,38 +64,6 @@
      "signature": "1x30fragrance|1x50wash",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-dear-polly-eau-de-parfum-3-x-10ml",
-   "absorbed": [
-    "set-dear-polly-eau-de-parfum-3x10-ml"
-   ],
-   "members": [
-    {
-     "id": "set-dear-polly-eau-de-parfum-3-x-10ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Dear Polly Eau de Parfum 3 x 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "dear polly",
-     "signature": "3x10fragrance",
-     "shops": [
-      "liberty-london"
-     ]
-    },
-    {
-     "id": "set-dear-polly-eau-de-parfum-3x10-ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Dear Polly Eau de Parfum 3x10 ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "dear polly",
-     "signature": "3x10fragrance",
-     "shops": [
-      "nicchia-luxury-uk"
      ]
     }
    ]
@@ -540,7 +444,6 @@
      "scent": "be blossom delicious fresh",
      "signature": "2x30fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -9280,38 +9183,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003899999",
-   "absorbed": [
-    "set-versace-pour-homme-dylan-blue-gift-set-edt-100ml-s-gel-150ml-edt-5ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003899999",
-     "brand": "Versace",
-     "name": "Pour Homme Dylan Blue Gift Set 100ml EDT + 150ml Shower Gel + 5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003899999",
-     "scent": "blue dylan homme pour",
-     "signature": "1x100fragrance|1x150wash|1x5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-pour-homme-dylan-blue-gift-set-edt-100ml-s-gel-150ml-edt-5ml",
-     "brand": "Versace",
-     "name": "Pour Homme Dylan Blue Gift Set EDT 100ml + S/Gel 150ml + EDT 5ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "blue dylan homme pour",
-     "signature": "1x100fragrance|1x150wash|1x5fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8011003900107",
    "absorbed": [
     "set-versace-versense-gift-set-30ml-edt-50ml-body-lotion"
@@ -11572,38 +11443,6 @@
    ]
   },
   {
-   "canonical": "set-mango-skin-eau-de-parfum-3x10-ml",
-   "absorbed": [
-    "set-mango-skin-eau-de-parfum-3x10ml"
-   ],
-   "members": [
-    {
-     "id": "set-mango-skin-eau-de-parfum-3x10-ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Mango Skin Eau de Parfum 3x10 ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "mango skin",
-     "signature": "3x10fragrance",
-     "shops": [
-      "nicchia-luxury-uk"
-     ]
-    },
-    {
-     "id": "set-mango-skin-eau-de-parfum-3x10ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Mango Skin Eau de Parfum 3x10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "mango skin",
-     "signature": "3x10fragrance",
-     "shops": [
-      "liberty-london"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-marc-jacobs-perfect-eau-de-parfum-50ml-fragrance-gift-set",
    "absorbed": [
     "set-marc-jacobs-perfect-gift-set-50ml-edp-10ml-edp"
@@ -11631,38 +11470,6 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-morning-chess-eau-de-parfum-3-x-10ml",
-   "absorbed": [
-    "set-morning-chess-eau-de-parfum-3x10-ml"
-   ],
-   "members": [
-    {
-     "id": "set-morning-chess-eau-de-parfum-3-x-10ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Morning Chess Eau de Parfum 3 x 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "chess morning",
-     "signature": "3x10fragrance",
-     "shops": [
-      "liberty-london"
-     ]
-    },
-    {
-     "id": "set-morning-chess-eau-de-parfum-3x10-ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Morning Chess Eau de Parfum 3x10 ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "chess morning",
-     "signature": "3x10fragrance",
-     "shops": [
-      "nicchia-luxury-uk"
      ]
     }
    ]
@@ -11727,70 +11534,6 @@
      "signature": "3p",
      "shops": [
       "aromique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-poets-of-berlin-eau-de-parfum-3-x-10ml",
-   "absorbed": [
-    "set-poets-of-berlin-eau-de-parfum-3x10-ml"
-   ],
-   "members": [
-    {
-     "id": "set-poets-of-berlin-eau-de-parfum-3-x-10ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Poets of Berlin Eau de Parfum 3 x 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "berlin poets",
-     "signature": "3x10fragrance",
-     "shops": [
-      "liberty-london"
-     ]
-    },
-    {
-     "id": "set-poets-of-berlin-eau-de-parfum-3x10-ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Poets Of Berlin Eau de Parfum 3x10 ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "berlin poets",
-     "signature": "3x10fragrance",
-     "shops": [
-      "nicchia-luxury-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-sparkling-jo-eau-de-parfum-3-x-10ml",
-   "absorbed": [
-    "set-sparkling-jo-eau-de-parfum-3x10-ml"
-   ],
-   "members": [
-    {
-     "id": "set-sparkling-jo-eau-de-parfum-3-x-10ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Sparkling Jo Eau de Parfum 3 x 10ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "jo sparkling",
-     "signature": "3x10fragrance",
-     "shops": [
-      "liberty-london"
-     ]
-    },
-    {
-     "id": "set-sparkling-jo-eau-de-parfum-3x10-ml",
-     "brand": "Vilhelm Parfumerie",
-     "name": "Sparkling Jo Eau de Parfum 3x10 ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "jo sparkling",
-     "signature": "3x10fragrance",
-     "shops": [
-      "nicchia-luxury-uk"
      ]
     }
    ]
@@ -14124,38 +13867,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3349668554157, 3349668642496",
-    "a shop lists more than one: parfumdreams-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3349668554157",
-     "brand": "Rabanne",
-     "name": "1 Million Gift Set Eau de Toilette Spray 50 ml + Shower Gel 100 ml / 1 Stk.",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668554157",
-     "scent": "1 million stk",
-     "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-3349668642496",
-     "brand": "Rabanne",
-     "name": "1 Million Eau de Toilette Spray Eau de Toilette Spray 50 ml + Shower Gel 100 ml / 1 Stk.",
-     "concentration": "Eau de Toilette",
-     "ean": "3349668642496",
-     "scent": "1 million stk",
-     "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3349668571819, 3349668626861, 3349668628681"
    ],
    "members": [
@@ -14294,6 +14005,18 @@
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
       "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-paco-rabanne-lady-million-gift-set-80ml-edp-20ml-edp-80ml-edp",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Lady Million Gift Set 80ml EDP + 20ml EDP 80ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "lady million paco rabanne",
+     "signature": "1x20fragrance|1x80fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
@@ -16146,7 +15869,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3616305443588, 3616306127869, 3616306127906",
-    "a shop lists more than one: beaute-boulevard, mybeauty-boutique, perfume-click"
+    "a shop lists more than one: mybeauty-boutique, perfume-click"
    ],
    "members": [
     {
@@ -16201,13 +15924,12 @@
     {
      "id": "set-hugo-boss-boss-bottled-gift-set-100ml-edt-100ml-shower-gel-10ml-edt",
      "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 100ml EDT - 100ml Shower Gel - 10ml EDT",
+     "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 10ml EDT",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -16767,6 +16489,49 @@
      "signature": "1x100body|1x50fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.54 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003899999",
+     "brand": "Versace",
+     "name": "Pour Homme Dylan Blue Gift Set 100ml EDT + 150ml Shower Gel + 5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "8011003899999",
+     "scent": "blue dylan homme pour",
+     "signature": "1x100fragrance|1x150wash|1x5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-pour-homme-dylan-blue-gift-set-100ml-edt-150ml-shower-gel-5ml-edt",
+     "brand": "Versace",
+     "name": "Pour Homme Dylan Blue Gift Set 100ml EDT + 150ml Shower Gel + 5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "blue dylan homme pour",
+     "signature": "1x100fragrance|1x150wash|1x5fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    },
+    {
+     "id": "set-versace-pour-homme-dylan-blue-gift-set-edt-100ml-s-gel-150ml-edt-5ml",
+     "brand": "Versace",
+     "name": "Pour Homme Dylan Blue Gift Set EDT 100ml + S/Gel 150ml + EDT 5ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "blue dylan homme pour",
+     "signature": "1x100fragrance|1x150wash|1x5fragrance",
+     "shops": [
+      "the-beauty-store-uk"
      ]
     }
    ]
