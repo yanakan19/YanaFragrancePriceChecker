@@ -1,7 +1,7 @@
 {
   "retailerId": "armaf",
-  "updatedAt": "2026-11-21T15:14:25.062Z",
-  "seenAt": "2026-11-21T15:14:25.062Z",
+  "updatedAt": "2026-11-21T19:09:52.293Z",
+  "seenAt": "2026-11-21T19:09:52.293Z",
   "source": "live",
   "listings": [
     {
@@ -3372,7 +3372,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Top Notes: Rose, Saffron Middle Notes: Oud Base Notes: Frankincense, Sandalwood.",
       "productType": null,

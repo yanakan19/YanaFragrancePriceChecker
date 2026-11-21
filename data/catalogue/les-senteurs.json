@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-21T15:14:25.062Z",
-  "seenAt": "2026-11-21T15:14:25.062Z",
+  "updatedAt": "2026-11-21T19:09:52.293Z",
+  "seenAt": "2026-11-21T19:09:52.293Z",
   "source": "live",
   "listings": [
     {
@@ -2935,7 +2935,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "La Route d’Emeraude Extrait is a deeper and more concentrated interpretation of the original fragrance. By intensifying its floral and ambery notes, the Extrait version offers a richer and more enduring experience.. First, the fragrance begins with an inviting blend of Bergamot, Rose Oil, and a touch of Cinnamon, which adds warmth and a soft spiciness to the opening. Then, as the scent evolves, the heart reveals a luminous bouquet of Jasmine Sambac, Orange Flower, Tuberose, and the creamy richness of Ylang-Ylang. Jasmine Sambac, with its floral, voluptuous, and slightly animalistic aroma, brings sensual depth and femininity to the composition, enveloping it in velvety richness. Tuberose, on the other hand, offers its creamy, opulent, and intoxicating signature, amplifying the fragrance’s sensual allure. This floral bouquet creates a multifaceted heart, where delicate refinement meets bold intensity, capturing the very essence of femininity in its most captivating form.. At last, in the base, Amber, Benzoin, Vanilla, and Musk provide a smooth and velvety foundation. These notes create a soft, lingering warmth that unfolds gradually, enhancing the fragrance’s depth and character.. While the structure remains consistent with the Eau de Parfum, the higher concentration of the Extrait allows the floral heart to take on a more vivid and opulent quality. The result is a fragrance that feels intimate yet powerful, with a lasting presence that deepens over time..",
       "productType": "Fragrance",
@@ -21542,7 +21542,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Dryad is a fragrance of imagination and wonder: a miracle of the trees and the woodlands. Sharp top accords of cedrat and thyme lead into fragrant harmonies of iris, lavender and deer tongue (a lily) melded with the heady floral tones of jonquil and narcissus. The gorgeous deep dark base is a rich composition of clary sage, costus, galbanum, iconic oakmoss, vetiver and benzoin.. Top Notes: Narcissus, Cedar, Thyme Heart Notes: Iris, Lavender, Deer's Tongue, Jonquil Base Notes: Sage, Galbanum, Oakmoss, Vetiver, Benzoin .",
       "productType": "Fragrance",

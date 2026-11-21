@@ -1,7 +1,7 @@
 {
   "retailerId": "aromique",
-  "updatedAt": "2026-11-21T15:14:25.062Z",
-  "seenAt": "2026-11-21T15:14:25.062Z",
+  "updatedAt": "2026-11-21T19:09:52.293Z",
+  "seenAt": "2026-11-21T19:09:52.293Z",
   "source": "live",
   "listings": [
     {
@@ -1345,7 +1345,7 @@
       "rawBrand": "Arabiyat Prestige",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1004/5508/8467/files/MAHD_AL_DAHAB_EXTRAIT_PERFUME_TRADING.png?v=1789292110",
-      "priceGbp": 43.99,
+      "priceGbp": 42.99,
       "wasPriceGbp": 55,
       "promoEndsAt": null,
       "inStock": true,
