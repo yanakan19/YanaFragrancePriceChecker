@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-11-21T04:33:01.644Z";
+export const DEALS_GENERATED_AT = "2026-11-21T07:10:44.705Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -10958,16 +10958,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 87,
     "percentOff": 44,
     "retailerId": "perfume-click",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "beauty-flash-mgl1601015",
-    "price": 49.98,
-    "delivered": true,
-    "wasPrice": 66.99,
-    "percentOff": 25,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
@@ -51482,16 +51472,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-6291106484434",
-    "price": 24.98,
-    "delivered": true,
-    "wasPrice": 39.99,
-    "percentOff": 37,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "beevora-15435854315852-default-title",
     "price": 24.99,
     "delivered": false,
@@ -51692,16 +51672,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-5027246182166",
-    "price": 27.98,
-    "delivered": true,
-    "wasPrice": 29.99,
-    "percentOff": 6,
-    "retailerId": "mybeauty-boutique",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3614273636469",
     "price": 26.15,
     "delivered": true,
@@ -51738,16 +51708,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 110,
     "percentOff": 15,
     "retailerId": "escentual",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "escentual-emporioyou036",
-    "price": 64.49,
-    "delivered": true,
-    "wasPrice": 127.99,
-    "percentOff": 49,
-    "retailerId": "mybeauty-boutique",
     "kind": "retailer",
     "houseName": null
   },
