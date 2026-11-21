@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-20T11:45:42.298Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-21T11:03:17.295Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -222,6 +222,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|exotic|edp": ["","https://ahmedalmaghribi.uk/products/exotic"],
   "ahmedalmaghribi|frostice": ["","https://ahmedalmaghribi.uk/products/frost-ice"],
   "ahmedalmaghribi|frostice|edp": ["","https://ahmedalmaghribi.uk/products/frost-ice"],
+  "ahmedalmaghribi|frostice|extrait": ["","https://ahmedalmaghribi.uk/products/frost-ice"],
   "ahmedalmaghribi|ghafperfume|edp": ["","https://ahmedalmaghribi.uk/products/ghaf-edp-100ml"],
   "ahmedalmaghribi|ghaf|edp": ["","https://ahmedalmaghribi.uk/products/ghaf-edp-100ml"],
   "ahmedalmaghribi|greenpearl": ["","https://ahmedalmaghribi.uk/products/green-pearl"],
@@ -317,6 +318,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|xtasy|edp": ["","https://ahmedalmaghribi.uk/products/xtasy"],
   "ahmedalmaghribi|zeleny": ["","https://ahmedalmaghribi.uk/products/zeleny-100ml"],
   "ahmedalmaghribi|zeleny|edp": ["","https://ahmedalmaghribi.uk/products/zeleny-100ml"],
+  "ahmedalmaghribi|zumar": ["","https://ahmedalmaghribi.uk/products/zumar"],
+  "ahmedalmaghribi|zumar|extrait": ["","https://ahmedalmaghribi.uk/products/zumar"],
   "alexandrej|altessemysore|edp": ["","https://www.alexandre-j.com/products/altesse-mysore-eau-de-parfum-100-ml"],
   "alexandrej|blackbeetle|edp": ["","https://www.alexandre-j.com/products/black-beetle-eau-de-parfum-100-ml"],
   "alexandrej|blackmuscsii|edp": ["","https://www.alexandre-j.com/products/black-muscs-ii-eau-de-parfum-100-ml"],
@@ -1459,6 +1462,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "armaf|luna|edp": ["","https://armaf.uk/products/luna-eau-de-parfum-100ml"],
   "armaf|magicaloudforeter|edp": ["","https://armaf.uk/products/magical-oud-for-eter-eau-de-parfum-100ml"],
   "armaf|missarmafattitude|edp": ["","https://armaf.uk/products/miss-attitude-eau-de-parfum-100ml"],
+  "armaf|missarmafcatwalk|edp": ["","https://armaf.uk/products/miss-armaf-catwalk-eau-de-parfum-100ml"],
   "armaf|missarmafchic|edp": ["","https://armaf.uk/products/miss-chic-eau-de-parfum-100ml"],
   "armaf|missarmafdazzling|edp": ["","https://armaf.uk/products/miss-dazzling-eau-de-parfum-100ml"],
   "armaf|missarmafgrandeur|edp": ["","https://armaf.uk/products/miss-grandeur-eau-de-parfum-100ml-copy"],
@@ -6341,6 +6345,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ministryofoud|maestrossymphony|edp": ["","https://pariscorner.ae/product/ministry-of-oud-maestros-symphony-100ml/"],
   "ministryofoud|romancereverie": ["","https://pariscorner.ae/product/ministry-of-oud-romance-reverie-100ml/"],
   "ministryofoud|romancereverie|edp": ["","https://pariscorner.ae/product/ministry-of-oud-romance-reverie-100ml/"],
+  "montale|omahataloveunisex": ["","https://www.montaleparfums.com/en/omahata-love"],
+  "montale|omahataloveunisex|edp": ["","https://www.montaleparfums.com/en/omahata-love"],
   "montblanc|explorerplatinum": ["Montblanc/Explorer-Platinum-81392",""],
   "montblanc|explorerplatinum|edp": ["Montblanc/Explorer-Platinum-81392","https://www.montblanc.com/en-us/montblanc-explorer-platinum-eau-de-parfum-100ml-MB131294.html"],
   "montblanc|legend": ["Montblanc/Legend-11784","https://www.montblanc.com/en-us/montblanc-legend-100-ml-MB127070.html"],
@@ -7986,6 +7992,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "swissarabian|soulofbali|extrait": ["","https://swissarabian.com/products/soul-of-bali"],
   "swissarabian|spiritofvalencia": ["","https://swissarabian.com/products/spirit-of-valencia"],
   "swissarabian|spiritofvalencia|extrait": ["","https://swissarabian.com/products/spirit-of-valencia"],
+  "swissarabian|swissarabianessenceofcasablancacpounisex": ["","https://swissarabian.com/products/essence-of-casablanca-cpo"],
+  "swissarabian|swissarabianessenceofcasablancacpounisex|oil": ["","https://swissarabian.com/products/essence-of-casablanca-cpo"],
   "swissarabian|swissarabiansehralsheila": ["","https://swissarabian.com/products/sehr-al-sheila"],
   "swissarabian|swissarabiansehralsheila|edp": ["","https://swissarabian.com/products/sehr-al-sheila"],
   "swissarabian|swissarabianshaghafamberinfusion": ["","https://swissarabian.com/products/shaghaf-amber-infusion"],
