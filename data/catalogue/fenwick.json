@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-21T11:15:34.578Z",
-  "seenAt": "2026-11-21T11:15:34.578Z",
+  "updatedAt": "2026-11-21T15:13:49.699Z",
+  "seenAt": "2026-11-21T15:13:49.699Z",
   "source": "live",
   "listings": [
     {
@@ -18667,7 +18667,7 @@
       "priceGbp": 66.5,
       "wasPriceGbp": 95,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hydra Figue Eau de Parfum 50ml by Miller Harris offers a distinctive woody fragrance enriched with fresh fig leaf notes. This elegant scent combines natural warmth and green freshness, creating a balanced and inviting aroma perfect for everyday wear. The 50ml bottle is ideal for those seeking a sophisticated yet subtle perfume that captures the essence of nature..",
       "productType": "Women's Fragrances",
@@ -25061,7 +25061,7 @@
       "priceGbp": 60,
       "wasPriceGbp": 80,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "1 Million Night Elixir Parfum Elixir by Rabanne delivers an intensified interpretation of the signature 1 Million fragrance. Designed with rich warm notes and a deeper sensual profile, this men’s parfum elixir creates a bold evening scent with lasting impact. A statement addition to luxury fragrance collections..",
       "productType": "Men's Fragrances",

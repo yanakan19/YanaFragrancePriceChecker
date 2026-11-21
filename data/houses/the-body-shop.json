@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-21T11:22:27.150Z",
-  "seenAt": "2026-11-21T11:22:27.150Z",
+  "updatedAt": "2026-11-21T15:20:19.649Z",
+  "seenAt": "2026-11-21T15:20:19.649Z",
   "source": "live",
   "listings": [
     {
@@ -1164,7 +1164,7 @@
       "priceGbp": 9,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Pop your favourite products into our Cosmetic Bag. It’s an instant way to make their gift look extra special. .",
       "productType": "Gifts",

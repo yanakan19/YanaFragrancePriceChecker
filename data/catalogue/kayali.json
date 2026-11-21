@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-21T11:15:34.578Z",
-  "seenAt": "2026-11-21T11:15:34.578Z",
+  "updatedAt": "2026-11-21T15:13:49.699Z",
+  "seenAt": "2026-11-21T15:13:49.699Z",
   "source": "live",
   "listings": [
     {
@@ -3602,7 +3602,7 @@
       "priceGbp": 119,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Oudgasm Rose Oud | 16 Eau de Parfum Intense is a timeless tribute to the most romantic bloom of all, the rose. Drenched in opulence, this sensual fragrance opens with a flirtatious sparkle of pear before revealing a heart of radiant, rebellious Rose Damascena. At the base, oud smolders in mystery, leaving an unforgettable scent trail..",
       "productType": "Fragrances",

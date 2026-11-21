@@ -1,7 +1,7 @@
 {
   "retailerId": "beevora",
-  "updatedAt": "2026-11-21T11:15:34.578Z",
-  "seenAt": "2026-11-21T11:15:34.578Z",
+  "updatedAt": "2026-11-21T15:13:49.699Z",
+  "seenAt": "2026-11-21T15:13:49.699Z",
   "source": "live",
   "listings": [
     {
@@ -6356,7 +6356,7 @@
       "retailerSku": "15435888034124-Default Title",
       "url": "https://beevora.co.uk/products/apex-perfume",
       "rawTitle": "Apex Perfume 100ml EDP By Fragrance World",
-      "rawBrand": "French Avenue",
+      "rawBrand": "Fragrance World",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1000/6170/8620/files/apex-perfume.jpg?v=1791120624",
       "priceGbp": 29.99,
@@ -30736,7 +30736,7 @@
       "retailerSku": "15720018116940-Default Title",
       "url": "https://beevora.co.uk/products/creative-art-perfume-100ml-edp-lattafa-pride",
       "rawTitle": "Creative Art Perfume 100ml EDP Lattafa Pride",
-      "rawBrand": "French Avenue",
+      "rawBrand": "Lattafa Pride",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1000/6170/8620/files/Lattafa-Pride-Creative-Art-Perfume-Bottle-and-Box.png?v=1778317392",
       "priceGbp": 34.99,
@@ -33703,7 +33703,7 @@
       "retailerSku": "15719977910604-Default Title",
       "url": "https://beevora.co.uk/products/nebula-iii-perfume-100ml-edp-maison-alhambra",
       "rawTitle": "Nebula III Perfume 100ml EDP Maison Alhambra",
-      "rawBrand": "French Avenue",
+      "rawBrand": "Maison Alhambra",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1000/6170/8620/files/Maison-Alhambra-Nebula-III-perfume.png?v=1778318699",
       "priceGbp": 17.99,

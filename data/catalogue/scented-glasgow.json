@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-21T11:15:34.578Z",
-  "seenAt": "2026-11-21T11:15:34.578Z",
+  "updatedAt": "2026-11-21T15:13:49.699Z",
+  "seenAt": "2026-11-21T15:13:49.699Z",
   "source": "live",
   "listings": [
     {
@@ -5626,7 +5626,7 @@
       "priceGbp": 250,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Created by Émilie Bouge, Midnight Omen is a richly layered woody amber fragrance that evokes the pull of the unknown. Enigmatic and bold, it hints at omens—good or bad—and keeps the wearer guessing. Seduction, danger, intrigue: each note whispers a secret.. A powerful composition, Midnight Omen opens with bright mandarin, unfolds into a heart of iris and violet, and settles on a base of suede-like leather and rare Nepalese sandalwood.. . . Iris, Mandarin, Peonies, Saffron, Leather, Sandalwood, Violet, Cashmeran, Moss, Musks, Patchouli. . An Ode to Opulence.. The night comes alive - bold, enigmatic, cloaked in red. It captivates with mystery and draws in striking silhouettes in search of luxury, refinement and sensation.. Drawing on its expertise in haute parfumerie, Trudon unveils Nuit Rouge, a highly concentrated signature collection. Comprising three exquisite fragrances, 45°, Midnight Omen and Mystique. Nuit Rouge showcases opulent and intense creations..",
       "productType": "Perfume",
