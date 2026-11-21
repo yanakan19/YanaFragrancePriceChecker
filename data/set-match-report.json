@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 386,
+ "folded": 387,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -9375,6 +9375,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003907106",
+   "absorbed": [
+    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003907106",
+     "brand": "Versace",
+     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
+     "concentration": "Parfum",
+     "ean": "8011003907106",
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
+     "brand": "Versace",
+     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "eros najim",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003917129",
    "absorbed": [
     "set-versace-miniatures-for-him-gift-set-5ml-eros-edt-5ml-eros-flame-edt-5ml-eau-fraiche-edt-5ml-pour-homme-edt-5ml-eros-energy-edt"
@@ -14661,49 +14693,6 @@
   },
   {
    "reasons": [
-    "price spread 2.14 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460133647",
-     "brand": "Rochas",
-     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3386460133647",
-     "scent": "girl",
-     "signature": "1x100wash|1x60fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-rochas-girl-2-piece-gift-set-eau-de-toilette-60ml-shower-gel-100ml",
-     "brand": "Rochas",
-     "name": "Girl 2 Piece Gift Set: Eau de Toilette 60ml - Shower Gel 100ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "girl",
-     "signature": "1x100wash|1x60fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-rochas-girl-gift-set-60ml-edt-100ml-shower-gel",
-     "brand": "Rochas",
-     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "girl",
-     "signature": "1x100wash|1x60fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.31 is over 1.5"
    ],
    "members": [
@@ -16375,38 +16364,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 66667150, 66667151",
-    "a shop lists more than one: parfumdreams-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-66667150",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667150",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-66667151",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667151",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.12 is over 1.5"
    ],
    "members": [
@@ -17806,6 +17763,37 @@
      "signature": "5x5fragrance",
      "shops": [
       "john-lewis"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-rochas-girl-2-piece-gift-set-eau-de-toilette-60ml-shower-gel-100ml",
+     "brand": "Rochas",
+     "name": "Girl 2 Piece Gift Set: Eau de Toilette 60ml - Shower Gel 100ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "girl",
+     "signature": "1x100wash|1x60fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-rochas-girl-gift-set-60ml-edt-100ml-shower-gel",
+     "brand": "Rochas",
+     "name": "Girl Gift Set 60ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "girl",
+     "signature": "1x100wash|1x60fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
