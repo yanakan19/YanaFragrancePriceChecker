@@ -2,10 +2,10 @@
  "region": "US",
  "currency": "USD",
  "referencePriceName": "MSRP",
- "builtAt": "2026-11-20T17:24:06.899Z",
+ "builtAt": "2026-11-21T16:38:49.578Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
- "listingsWithReference": 35866,
- "offersWithCorroboratedReference": 15269,
+ "listingsWithReference": 35911,
+ "offersWithCorroboratedReference": 15249,
  "deals": [
   {
    "fragranceId": "fragrance-market-1000011493",
@@ -298,6 +298,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3454960020917",
+   "price": 40.7,
+   "delivered": true,
+   "wasPrice": 176,
+   "percentOff": 76,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3607342166875",
    "price": 21.9,
    "delivered": false,
@@ -428,16 +438,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "beauty-encounter-m10211",
-   "price": 28.9,
-   "delivered": false,
-   "wasPrice": 116,
-   "percentOff": 75,
-   "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "beauty-encounter-w11144",
    "price": 26.9,
    "delivered": false,
@@ -562,6 +562,16 @@
    "price": 16.95,
    "delivered": false,
    "wasPrice": 68,
+   "percentOff": 75,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000013316",
+   "price": 34.95,
+   "delivered": false,
+   "wasPrice": 140,
    "percentOff": 75,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -738,6 +748,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3386460102926",
+   "price": 31.9,
+   "delivered": false,
+   "wasPrice": 125,
+   "percentOff": 74,
+   "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3386463711996",
    "price": 36.95,
    "delivered": false,
@@ -802,6 +822,16 @@
    "price": 17.92,
    "delivered": false,
    "wasPrice": 69,
+   "percentOff": 74,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-111147257",
+   "price": 8.99,
+   "delivered": false,
+   "wasPrice": 35,
    "percentOff": 74,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -944,6 +974,16 @@
    "wasPrice": 109,
    "percentOff": 73,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-7611160127662",
+   "price": 26.4,
+   "delivered": true,
+   "wasPrice": 99,
+   "percentOff": 73,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -1878,6 +1918,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3414202461045",
+   "price": 33.9,
+   "delivered": false,
+   "wasPrice": 116,
+   "percentOff": 70,
+   "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3607349764241",
    "price": 41.9,
    "delivered": false,
@@ -2032,6 +2082,16 @@
    "price": 10.95,
    "delivered": false,
    "wasPrice": 37,
+   "percentOff": 70,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000010114",
+   "price": 34.8,
+   "delivered": false,
+   "wasPrice": 117,
    "percentOff": 70,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -2303,16 +2363,6 @@
    "delivered": false,
    "wasPrice": 72,
    "percentOff": 70,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "beauty-encounter-w10961",
-   "price": 42,
-   "delivered": false,
-   "wasPrice": 138,
-   "percentOff": 69,
    "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
@@ -2814,16 +2864,6 @@
    "wasPrice": 113,
    "percentOff": 68,
    "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-0608940565711",
-   "price": 27,
-   "delivered": false,
-   "wasPrice": 85,
-   "percentOff": 68,
-   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -3598,6 +3638,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3386461515619",
+   "price": 36.76,
+   "delivered": true,
+   "wasPrice": 110,
+   "percentOff": 66,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3607341795724",
    "price": 21,
    "delivered": false,
@@ -3954,6 +4004,16 @@
    "wasPrice": 75,
    "percentOff": 66,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-jagcm34sm",
+   "price": 26.69,
+   "delivered": true,
+   "wasPrice": 79,
+   "percentOff": 66,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -4558,6 +4618,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "beauty-encounter-w10961",
+   "price": 48.85,
+   "delivered": false,
+   "wasPrice": 138,
+   "percentOff": 64,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "bluemercury-2071488142",
    "price": 37.95,
    "delivered": false,
@@ -4604,6 +4674,16 @@
    "wasPrice": 65,
    "percentOff": 64,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3360372009436",
+   "price": 22.84,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 64,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -4998,12 +5078,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-beni34sm",
+   "price": 35.3,
+   "delivered": true,
+   "wasPrice": 99,
+   "percentOff": 64,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-bosb34smparf",
    "price": 64,
    "delivered": false,
    "wasPrice": 180,
    "percentOff": 64,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-burw34sm",
+   "price": 37.95,
+   "delivered": true,
+   "wasPrice": 107.5,
+   "percentOff": 64,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -5114,6 +5214,16 @@
    "wasPrice": 69,
    "percentOff": 63,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0098691036491",
+   "price": 44.95,
+   "delivered": true,
+   "wasPrice": 122,
+   "percentOff": 63,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -5344,6 +5454,16 @@
    "wasPrice": 27.5,
    "percentOff": 63,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000005768",
+   "price": 34,
+   "delivered": false,
+   "wasPrice": 92,
+   "percentOff": 63,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -5588,26 +5708,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-boss30sm",
-   "price": 28,
-   "delivered": false,
-   "wasPrice": 76,
-   "percentOff": 63,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "la-belle-perfumes-hap34sw",
-   "price": 39,
-   "delivered": false,
-   "wasPrice": 108,
-   "percentOff": 63,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "la-belle-perfumes-humh242sm",
    "price": 19,
    "delivered": false,
@@ -5620,6 +5720,16 @@
   {
    "fragranceId": "la-belle-perfumes-vinci34sw",
    "price": 35.5,
+   "delivered": true,
+   "wasPrice": 98,
+   "percentOff": 63,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-vincii34sw",
+   "price": 36.2,
    "delivered": true,
    "wasPrice": 98,
    "percentOff": 63,
@@ -5678,16 +5788,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0098691036491",
-   "price": 45.9,
-   "delivered": false,
-   "wasPrice": 122,
-   "percentOff": 62,
-   "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-0608940551097",
    "price": 31.9,
    "delivered": false,
@@ -5728,6 +5828,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0608940565711",
+   "price": 33.95,
+   "delivered": true,
+   "wasPrice": 90,
+   "percentOff": 62,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3386460028394",
    "price": 31.9,
    "delivered": false,
@@ -5742,6 +5852,16 @@
    "price": 36.95,
    "delivered": true,
    "wasPrice": 98,
+   "percentOff": 62,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3386460118125",
+   "price": 44.95,
+   "delivered": true,
+   "wasPrice": 120,
    "percentOff": 62,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -6008,16 +6128,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-202214155",
-   "price": 42.4,
-   "delivered": false,
-   "wasPrice": 112,
-   "percentOff": 62,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-212157259",
    "price": 19.99,
    "delivered": false,
@@ -6088,6 +6198,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "beauty-encounter-w10025",
+   "price": 27.95,
+   "delivered": true,
+   "wasPrice": 73,
+   "percentOff": 61,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0098691008719",
    "price": 17.9,
    "delivered": false,
@@ -6102,16 +6222,6 @@
    "price": 34.9,
    "delivered": false,
    "wasPrice": 90,
-   "percentOff": 61,
-   "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-0688575179415",
-   "price": 28.9,
-   "delivered": false,
-   "wasPrice": 75,
    "percentOff": 61,
    "retailerId": "beauty-encounter",
    "kind": "retailer",
@@ -6638,16 +6748,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "beauty-encounter-w10140",
-   "price": 44.9,
-   "delivered": false,
-   "wasPrice": 115,
-   "percentOff": 60,
-   "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "beauty-encounter-w10832",
    "price": 26.95,
    "delivered": true,
@@ -6684,6 +6784,16 @@
    "wasPrice": 25,
    "percentOff": 60,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0085805506261",
+   "price": 25.96,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 60,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -6888,10 +6998,30 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-7640111492108",
+   "price": 25.78,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 60,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-7640111493723",
    "price": 21.95,
    "delivered": true,
    "wasPrice": 55,
+   "percentOff": 60,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-7640111494027",
+   "price": 25.87,
+   "delivered": true,
+   "wasPrice": 65,
    "percentOff": 60,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -7228,16 +7358,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0783320416101",
-   "price": 64,
-   "delivered": false,
-   "wasPrice": 157,
-   "percentOff": 59,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-3346470114814",
    "price": 63,
    "delivered": false,
@@ -7308,6 +7428,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-7640111497547",
+   "price": 43.81,
+   "delivered": true,
+   "wasPrice": 109,
+   "percentOff": 59,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-7640496670160",
    "price": 27.9,
    "delivered": false,
@@ -7368,12 +7498,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000001367",
-   "price": 49,
-   "delivered": false,
-   "wasPrice": 121,
+   "fragranceId": "fragrance-market-1000001305",
+   "price": 18.09,
+   "delivered": true,
+   "wasPrice": 45,
    "percentOff": 59,
-   "retailerId": "microperfumes",
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000001306",
+   "price": 18.09,
+   "delivered": true,
+   "wasPrice": 45,
+   "percentOff": 59,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -8188,6 +8328,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-hotw37sm",
+   "price": 29.84,
+   "delivered": true,
+   "wasPrice": 71.5,
+   "percentOff": 58,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-incch34sw",
    "price": 36.95,
    "delivered": true,
@@ -8198,12 +8348,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-ligb34smedp",
-   "price": 67,
-   "delivered": false,
-   "wasPrice": 160,
+   "fragranceId": "la-belle-perfumes-kencbb34sm",
+   "price": 37.78,
+   "delivered": true,
+   "wasPrice": 90,
    "percentOff": 58,
-   "retailerId": "la-belle-perfumes",
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -8298,12 +8448,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0840797116221",
+   "price": 26.29,
+   "delivered": true,
+   "wasPrice": 62,
+   "percentOff": 57,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3349668600304",
    "price": 85,
    "delivered": false,
    "wasPrice": 198,
    "percentOff": 57,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3377230121018",
+   "price": 25.47,
+   "delivered": true,
+   "wasPrice": 60,
+   "percentOff": 57,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -8344,6 +8514,16 @@
    "wasPrice": 80,
    "percentOff": 57,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-7640111494133",
+   "price": 29.02,
+   "delivered": true,
+   "wasPrice": 69,
+   "percentOff": 57,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -8434,6 +8614,16 @@
    "wasPrice": 128,
    "percentOff": 57,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000004239",
+   "price": 48.95,
+   "delivered": true,
+   "wasPrice": 116,
+   "percentOff": 57,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -8828,6 +9018,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "beauty-encounter-shi34w",
+   "price": 33.68,
+   "delivered": true,
+   "wasPrice": 78,
+   "percentOff": 56,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0608940520703",
    "price": 24,
    "delivered": false,
@@ -8928,6 +9128,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3614223162963",
+   "price": 33.29,
+   "delivered": true,
+   "wasPrice": 77,
+   "percentOff": 56,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614223519613",
    "price": 43,
    "delivered": false,
@@ -8964,6 +9174,16 @@
    "wasPrice": 150,
    "percentOff": 56,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3760265190485",
+   "price": 82,
+   "delivered": true,
+   "wasPrice": 190,
+   "percentOff": 56,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -9022,6 +9242,16 @@
    "price": 64.9,
    "delivered": false,
    "wasPrice": 150,
+   "percentOff": 56,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000001367",
+   "price": 54.9,
+   "delivered": false,
+   "wasPrice": 126,
    "percentOff": 56,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -9228,16 +9458,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-202735058",
-   "price": 49.95,
-   "delivered": false,
-   "wasPrice": 116,
-   "percentOff": 56,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-212468259",
    "price": 49.7,
    "delivered": false,
@@ -9338,12 +9558,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0840797116368",
+   "price": 34.8,
+   "delivered": true,
+   "wasPrice": 78,
+   "percentOff": 55,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0844061000551",
    "price": 26.9,
    "delivered": false,
    "wasPrice": 60,
    "percentOff": 55,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0873824001108",
+   "price": 51.13,
+   "delivered": true,
+   "wasPrice": 115,
+   "percentOff": 55,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -9392,16 +9632,6 @@
    "price": 39.9,
    "delivered": false,
    "wasPrice": 89,
-   "percentOff": 55,
-   "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3377230121018",
-   "price": 27.99,
-   "delivered": false,
-   "wasPrice": 63,
    "percentOff": 55,
    "retailerId": "beauty-encounter",
    "kind": "retailer",
@@ -9948,12 +10178,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-202214155",
+   "price": 42,
+   "delivered": false,
+   "wasPrice": 94,
+   "percentOff": 55,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-202733155",
    "price": 43.8,
    "delivered": false,
    "wasPrice": 99,
    "percentOff": 55,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-banrs34sm",
+   "price": 27.79,
+   "delivered": true,
+   "wasPrice": 62,
+   "percentOff": 55,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -10068,6 +10318,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0719346646550",
+   "price": 52.71,
+   "delivered": true,
+   "wasPrice": 115,
+   "percentOff": 54,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0888874001152",
    "price": 205,
    "delivered": true,
@@ -10094,6 +10354,16 @@
    "wasPrice": 140,
    "percentOff": 54,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3360377016132",
+   "price": 29.9,
+   "delivered": false,
+   "wasPrice": 66,
+   "percentOff": 54,
+   "retailerId": "beauty-encounter",
    "kind": "retailer",
    "houseName": null
   },
@@ -10148,12 +10418,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-8011003864089",
-   "price": 43.9,
-   "delivered": false,
-   "wasPrice": 96,
+   "fragranceId": "ean-7640111492955",
+   "price": 25.04,
+   "delivered": true,
+   "wasPrice": 55,
    "percentOff": 54,
-   "retailerId": "beauty-encounter",
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -10232,16 +10502,6 @@
    "price": 74.9,
    "delivered": true,
    "wasPrice": 165,
-   "percentOff": 54,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000004239",
-   "price": 52.9,
-   "delivered": false,
-   "wasPrice": 116,
    "percentOff": 54,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -10488,6 +10748,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-jimcb34s-w",
+   "price": 45.95,
+   "delivered": true,
+   "wasPrice": 100,
+   "percentOff": 54,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-julhaga34sw",
    "price": 66,
    "delivered": false,
@@ -10514,6 +10784,16 @@
    "wasPrice": 120,
    "percentOff": 54,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-touldp30w",
+   "price": 36.12,
+   "delivered": true,
+   "wasPrice": 79,
+   "percentOff": 54,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -10604,6 +10884,16 @@
    "wasPrice": 70,
    "percentOff": 53,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3386460071727",
+   "price": 53.34,
+   "delivered": true,
+   "wasPrice": 115,
+   "percentOff": 53,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -11018,6 +11308,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-googm27sw",
+   "price": 136.33,
+   "delivered": true,
+   "wasPrice": 294,
+   "percentOff": 53,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-manhk40su",
    "price": 83,
    "delivered": false,
@@ -11048,22 +11348,22 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0022548420003",
+   "price": 46.71,
+   "delivered": true,
+   "wasPrice": 98,
+   "percentOff": 52,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0719346140201",
    "price": 22.9,
    "delivered": false,
    "wasPrice": 48,
    "percentOff": 52,
    "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-0737052672021",
-   "price": 67.4,
-   "delivered": true,
-   "wasPrice": 143,
-   "percentOff": 52,
-   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -11108,6 +11408,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3386460109369",
+   "price": 46.95,
+   "delivered": true,
+   "wasPrice": 98,
+   "percentOff": 52,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3605972910240",
    "price": 54.9,
    "delivered": true,
@@ -11122,6 +11432,16 @@
    "price": 31.95,
    "delivered": true,
    "wasPrice": 67,
+   "percentOff": 52,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3614228220897",
+   "price": 62.37,
+   "delivered": true,
+   "wasPrice": 130,
    "percentOff": 52,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -11448,16 +11768,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-hawd34sw",
-   "price": 44.95,
-   "delivered": true,
-   "wasPrice": 95,
-   "percentOff": 52,
-   "retailerId": "perfumes4all",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "la-belle-perfumes-jimc34sm",
    "price": 53.95,
    "delivered": true,
@@ -11494,6 +11804,16 @@
    "wasPrice": 58,
    "percentOff": 51,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0098691037603",
+   "price": 25.95,
+   "delivered": true,
+   "wasPrice": 54,
+   "percentOff": 51,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -11682,6 +12002,16 @@
    "price": 55.9,
    "delivered": false,
    "wasPrice": 115,
+   "percentOff": 51,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000001904",
+   "price": 64.95,
+   "delivered": false,
+   "wasPrice": 134,
    "percentOff": 51,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -11948,6 +12278,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-beb34sw",
+   "price": 31.3,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 51,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-blum34su",
    "price": 92,
    "delivered": false,
@@ -12164,6 +12504,16 @@
    "wasPrice": 112,
    "percentOff": 50,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3760064740072",
+   "price": 45,
+   "delivered": true,
+   "wasPrice": 90,
+   "percentOff": 50,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -12508,6 +12858,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-1000014195",
+   "price": 77,
+   "delivered": true,
+   "wasPrice": 155,
+   "percentOff": 50,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000014226",
    "price": 73.95,
    "delivered": true,
@@ -12768,6 +13128,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0737052079080",
+   "price": 58.16,
+   "delivered": true,
+   "wasPrice": 115,
+   "percentOff": 49,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0737052483214",
    "price": 43.6,
    "delivered": true,
@@ -12784,6 +13154,16 @@
    "wasPrice": 94,
    "percentOff": 49,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0840797119406",
+   "price": 30.56,
+   "delivered": true,
+   "wasPrice": 60,
+   "percentOff": 49,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -12864,16 +13244,6 @@
    "wasPrice": 85,
    "percentOff": 49,
    "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-7640111492955",
-   "price": 27.9,
-   "delivered": true,
-   "wasPrice": 55,
-   "percentOff": 49,
-   "retailerId": "parfums-raffy",
    "kind": "retailer",
    "houseName": null
   },
@@ -12994,16 +13364,6 @@
    "wasPrice": 104,
    "percentOff": 49,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000005768",
-   "price": 42.2,
-   "delivered": true,
-   "wasPrice": 84,
-   "percentOff": 49,
-   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -13548,16 +13908,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014372",
-   "price": 89,
-   "delivered": true,
-   "wasPrice": 172,
-   "percentOff": 48,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014374",
    "price": 118,
    "delivered": true,
@@ -13748,12 +14098,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-guesr34sm",
+   "price": 33.68,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 48,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "microperfumes-mp-9341-080",
    "price": 36,
    "delivered": false,
    "wasPrice": 70,
    "percentOff": 48,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "beauty-encounter-000341086329",
+   "price": 38,
+   "delivered": true,
+   "wasPrice": 73,
+   "percentOff": 47,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -13818,6 +14188,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3386460066181",
+   "price": 36.95,
+   "delivered": true,
+   "wasPrice": 70,
+   "percentOff": 47,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3386460129893",
    "price": 43.8,
    "delivered": false,
@@ -13858,16 +14238,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3614227758162",
-   "price": 94.9,
-   "delivered": true,
-   "wasPrice": 181,
-   "percentOff": 47,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-3614229382129",
    "price": 86.9,
    "delivered": true,
@@ -13904,16 +14274,6 @@
    "wasPrice": 430,
    "percentOff": 47,
    "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3760064740072",
-   "price": 46.9,
-   "delivered": false,
-   "wasPrice": 90,
-   "percentOff": 47,
-   "retailerId": "beauty-encounter",
    "kind": "retailer",
    "houseName": null
   },
@@ -14228,6 +14588,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-boss30sm",
+   "price": 39.89,
+   "delivered": true,
+   "wasPrice": 76,
+   "percentOff": 47,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-chec34sw",
    "price": 41.95,
    "delivered": true,
@@ -14252,6 +14622,26 @@
    "price": 69.95,
    "delivered": true,
    "wasPrice": 132,
+   "percentOff": 47,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-loll34sw",
+   "price": 65.3,
+   "delivered": true,
+   "wasPrice": 125,
+   "percentOff": 47,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-subbf34sm",
+   "price": 40.7,
+   "delivered": true,
+   "wasPrice": 77,
    "percentOff": 47,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -14368,6 +14758,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3614273474641",
+   "price": 36.2,
+   "delivered": true,
+   "wasPrice": 68,
+   "percentOff": 46,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614273955546",
    "price": 66.95,
    "delivered": true,
@@ -14462,6 +14862,16 @@
    "price": 36.8,
    "delivered": false,
    "wasPrice": 69,
+   "percentOff": 46,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8018365140103",
+   "price": 33.9,
+   "delivered": false,
+   "wasPrice": 63,
    "percentOff": 46,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -14688,16 +15098,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-101925254",
-   "price": 55.4,
-   "delivered": false,
-   "wasPrice": 103,
-   "percentOff": 46,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-111861157",
    "price": 74.9,
    "delivered": true,
@@ -14768,6 +15168,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-bilee34sw",
+   "price": 59.95,
+   "delivered": true,
+   "wasPrice": 112,
+   "percentOff": 46,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-col34sm",
+   "price": 20.32,
+   "delivered": true,
+   "wasPrice": 38,
+   "percentOff": 46,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-hug67sm",
    "price": 48,
    "delivered": false,
@@ -14802,6 +15222,16 @@
    "price": 43.95,
    "delivered": true,
    "wasPrice": 80,
+   "percentOff": 45,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "beauty-encounter-mambo34w",
+   "price": 25.7,
+   "delivered": true,
+   "wasPrice": 47.5,
    "percentOff": 45,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -14858,6 +15288,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0840797116283",
+   "price": 30.25,
+   "delivered": true,
+   "wasPrice": 55,
+   "percentOff": 45,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3274872368026",
    "price": 74.9,
    "delivered": true,
@@ -14888,6 +15328,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3386460136549",
+   "price": 70.2,
+   "delivered": true,
+   "wasPrice": 128,
+   "percentOff": 45,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3605972697028",
    "price": 57.5,
    "delivered": false,
@@ -14904,16 +15354,6 @@
    "wasPrice": 70,
    "percentOff": 45,
    "retailerId": "perfumes4all",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3614228220897",
-   "price": 69.9,
-   "delivered": true,
-   "wasPrice": 129,
-   "percentOff": 45,
-   "retailerId": "beauty-encounter",
    "kind": "retailer",
    "houseName": null
   },
@@ -15178,6 +15618,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-azzwgt27sw",
+   "price": 43.6,
+   "delivered": true,
+   "wasPrice": 80,
+   "percentOff": 45,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-cig34sm",
+   "price": 27.38,
+   "delivered": true,
+   "wasPrice": 50,
+   "percentOff": 45,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-fans34sw",
    "price": 32.95,
    "delivered": true,
@@ -15194,16 +15654,6 @@
    "wasPrice": 60,
    "percentOff": 45,
    "retailerId": "perfumes4all",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "beauty-encounter-shi34w",
-   "price": 37.94,
-   "delivered": true,
-   "wasPrice": 68,
-   "percentOff": 44,
-   "retailerId": "parfums-raffy",
    "kind": "retailer",
    "houseName": null
   },
@@ -15258,6 +15708,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0783320416101",
+   "price": 59.22,
+   "delivered": true,
+   "wasPrice": 107,
+   "percentOff": 44,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3274870303364",
    "price": 74,
    "delivered": true,
@@ -15304,6 +15764,16 @@
    "wasPrice": 170,
    "percentOff": 44,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3386460025485",
+   "price": 57.38,
+   "delivered": true,
+   "wasPrice": 103,
+   "percentOff": 44,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -15392,6 +15862,16 @@
    "price": 65.95,
    "delivered": true,
    "wasPrice": 118.75,
+   "percentOff": 44,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8011003864089",
+   "price": 55.08,
+   "delivered": true,
+   "wasPrice": 99,
    "percentOff": 44,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -15688,6 +16168,36 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-blus27sw",
+   "price": 24.95,
+   "delivered": true,
+   "wasPrice": 45,
+   "percentOff": 44,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-goof30sw",
+   "price": 100,
+   "delivered": true,
+   "wasPrice": 180,
+   "percentOff": 44,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-hals34swo",
+   "price": 27.8,
+   "delivered": true,
+   "wasPrice": 50,
+   "percentOff": 44,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-ladmr27sw",
    "price": 73,
    "delivered": false,
@@ -15698,12 +16208,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-pha34sm",
+   "price": 75.95,
+   "delivered": true,
+   "wasPrice": 137,
+   "percentOff": 44,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0046447076147",
    "price": 19.9,
    "delivered": false,
    "wasPrice": 35,
    "percentOff": 43,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0608940533369",
+   "price": 36.95,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 43,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -15724,6 +16254,16 @@
    "wasPrice": 39,
    "percentOff": 43,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0719346552875",
+   "price": 32.88,
+   "delivered": true,
+   "wasPrice": 57.75,
+   "percentOff": 43,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -15794,16 +16334,6 @@
    "wasPrice": 89,
    "percentOff": 43,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3432240506597",
-   "price": 106,
-   "delivered": false,
-   "wasPrice": 189,
-   "percentOff": 43,
-   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -16088,12 +16618,52 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-212629157",
+   "price": 37.3,
+   "delivered": true,
+   "wasPrice": 65.88,
+   "percentOff": 43,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-bebl34sw",
+   "price": 31.3,
+   "delivered": true,
+   "wasPrice": 55,
+   "percentOff": 43,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-gueu34sm",
+   "price": 38.17,
+   "delivered": true,
+   "wasPrice": 68,
+   "percentOff": 43,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-hawa34sm",
    "price": 45,
    "delivered": false,
    "wasPrice": 80,
    "percentOff": 43,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-kencbl34sm",
+   "price": 49.2,
+   "delivered": true,
+   "wasPrice": 87.5,
+   "percentOff": 43,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -16144,6 +16714,16 @@
    "wasPrice": 126,
    "percentOff": 42,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3360372055402",
+   "price": 46.4,
+   "delivered": true,
+   "wasPrice": 80,
+   "percentOff": 42,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -16208,6 +16788,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-8005610521220",
+   "price": 38,
+   "delivered": true,
+   "wasPrice": 66,
+   "percentOff": 42,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-8011003876280",
    "price": 74.9,
    "delivered": true,
@@ -16224,6 +16814,16 @@
    "wasPrice": 69,
    "percentOff": 42,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8411061545904",
+   "price": 72.75,
+   "delivered": true,
+   "wasPrice": 127,
+   "percentOff": 42,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -16428,20 +17028,20 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-hawv34sw",
-   "price": 46,
-   "delivered": false,
-   "wasPrice": 80,
-   "percentOff": 42,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "la-belle-perfumes-kinos34sm",
    "price": 25.95,
    "delivered": true,
    "wasPrice": 45,
+   "percentOff": 42,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-monal34sw",
+   "price": 104.2,
+   "delivered": true,
+   "wasPrice": 180,
    "percentOff": 42,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -16484,6 +17084,16 @@
    "wasPrice": 150,
    "percentOff": 42,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "beauty-encounter-w10072",
+   "price": 37.95,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 41,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -16788,6 +17398,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-202550155",
+   "price": 38.17,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 41,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-212224157",
    "price": 78.8,
    "delivered": true,
@@ -16814,6 +17434,26 @@
    "wasPrice": 470,
    "percentOff": 41,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-devdg17sw",
+   "price": 56.95,
+   "delivered": true,
+   "wasPrice": 97,
+   "percentOff": 41,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0085715806017",
+   "price": 59,
+   "delivered": true,
+   "wasPrice": 99,
+   "percentOff": 40,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -16908,6 +17548,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3432240506764",
+   "price": 80.95,
+   "delivered": true,
+   "wasPrice": 137,
+   "percentOff": 40,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614227413399",
    "price": 83.9,
    "delivered": true,
@@ -16974,6 +17624,16 @@
    "wasPrice": 30,
    "percentOff": 40,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8054754405095",
+   "price": 80.15,
+   "delivered": true,
+   "wasPrice": 134,
+   "percentOff": 40,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -17298,12 +17958,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-jagvs34sm",
+   "price": 26.69,
+   "delivered": true,
+   "wasPrice": 45,
+   "percentOff": 40,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-marmbl25sw",
    "price": 44.9,
    "delivered": true,
    "wasPrice": 75,
    "percentOff": 40,
    "retailerId": "parfums-raffy",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-awkqkp17ps",
+   "price": 29.02,
+   "delivered": true,
+   "wasPrice": 49,
+   "percentOff": 40,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -17342,16 +18022,6 @@
    "price": 60.95,
    "delivered": true,
    "wasPrice": 100,
-   "percentOff": 39,
-   "retailerId": "perfumes4all",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3386460073868",
-   "price": 70.95,
-   "delivered": true,
-   "wasPrice": 118,
    "percentOff": 39,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -17408,16 +18078,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3701415901438",
-   "price": 225,
-   "delivered": false,
-   "wasPrice": 370,
-   "percentOff": 39,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-5060399679374",
    "price": 295,
    "delivered": true,
@@ -17434,6 +18094,16 @@
    "wasPrice": 89,
    "percentOff": 39,
    "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-6294015151084",
+   "price": 60.01,
+   "delivered": true,
+   "wasPrice": 99,
+   "percentOff": 39,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -17638,16 +18308,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-trur34sw",
-   "price": 48,
-   "delivered": false,
-   "wasPrice": 79,
-   "percentOff": 39,
-   "retailerId": "la-belle-perfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "beauty-encounter-360red34w",
    "price": 39.95,
    "delivered": true,
@@ -17668,6 +18328,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0031655502069",
+   "price": 25.95,
+   "delivered": true,
+   "wasPrice": 42,
+   "percentOff": 38,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0783381025915",
    "price": 45.9,
    "delivered": false,
@@ -17678,12 +18348,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0888066023948",
+   "price": 126.6,
+   "delivered": true,
+   "wasPrice": 206,
+   "percentOff": 38,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0888066117692",
    "price": 184,
    "delivered": true,
    "wasPrice": 300,
    "percentOff": 38,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0890766522508",
+   "price": 180,
+   "delivered": true,
+   "wasPrice": 295,
+   "percentOff": 38,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -17798,6 +18488,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-8011003839308",
+   "price": 59,
+   "delivered": true,
+   "wasPrice": 96,
+   "percentOff": 38,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-8436550505061",
    "price": 39.9,
    "delivered": false,
@@ -17872,16 +18572,6 @@
    "price": 89.8,
    "delivered": true,
    "wasPrice": 145,
-   "percentOff": 38,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000013870",
-   "price": 114,
-   "delivered": true,
-   "wasPrice": 186,
    "percentOff": 38,
    "retailerId": "fragrance-market",
    "kind": "retailer",
@@ -18038,6 +18728,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-hawp34sw",
+   "price": 42.14,
+   "delivered": true,
+   "wasPrice": 68,
+   "percentOff": 38,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-lagc34sm",
+   "price": 32,
+   "delivered": true,
+   "wasPrice": 52,
+   "percentOff": 38,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "perfumes-america-ammbex1s",
    "price": 36.95,
    "delivered": true,
@@ -18054,6 +18764,16 @@
    "wasPrice": 24,
    "percentOff": 37,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0309979103850",
+   "price": 20.95,
+   "delivered": true,
+   "wasPrice": 33.5,
+   "percentOff": 37,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -18144,6 +18864,16 @@
    "wasPrice": 182,
    "percentOff": 37,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3614274024753",
+   "price": 85,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 37,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -18368,6 +19098,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-1000015109",
+   "price": 22,
+   "delivered": false,
+   "wasPrice": 35,
+   "percentOff": 37,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000015110",
    "price": 24.95,
    "delivered": false,
@@ -18438,12 +19178,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-pha34sm",
-   "price": 77,
-   "delivered": false,
-   "wasPrice": 123,
+   "fragranceId": "perfumes-america-ambrit1s",
+   "price": 43.24,
+   "delivered": true,
+   "wasPrice": 69,
    "percentOff": 37,
-   "retailerId": "la-belle-perfumes",
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -18528,6 +19268,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3614274024807",
+   "price": 101.5,
+   "delivered": true,
+   "wasPrice": 159,
+   "percentOff": 36,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614274185294",
    "price": 109.9,
    "delivered": true,
@@ -18598,6 +19348,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-8426017066846",
+   "price": 116.86,
+   "delivered": true,
+   "wasPrice": 185,
+   "percentOff": 36,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000009449",
    "price": 23.95,
    "delivered": false,
@@ -18624,6 +19384,16 @@
    "wasPrice": 30,
    "percentOff": 36,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000011293",
+   "price": 41.95,
+   "delivered": true,
+   "wasPrice": 66,
+   "percentOff": 36,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -18708,6 +19478,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-1000015362",
+   "price": 34.95,
+   "delivered": false,
+   "wasPrice": 55,
+   "percentOff": 36,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000015514",
    "price": 31.99,
    "delivered": false,
@@ -18748,12 +19528,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0022548006719",
+   "price": 54.8,
+   "delivered": true,
+   "wasPrice": 85.5,
+   "percentOff": 35,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0783320423369",
    "price": 96.9,
    "delivered": true,
    "wasPrice": 150,
    "percentOff": 35,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0819029010002",
+   "price": 49.2,
+   "delivered": true,
+   "wasPrice": 76,
+   "percentOff": 35,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -18848,6 +19648,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-7640233341711",
+   "price": 64.15,
+   "delivered": true,
+   "wasPrice": 99,
+   "percentOff": 35,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-8435137727087",
    "price": 103.95,
    "delivered": true,
@@ -18864,6 +19674,16 @@
    "wasPrice": 125,
    "percentOff": 35,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8435415091275",
+   "price": 115.95,
+   "delivered": true,
+   "wasPrice": 180,
+   "percentOff": 35,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -19028,6 +19848,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-spibnv30sm",
+   "price": 93.95,
+   "delivered": true,
+   "wasPrice": 145,
+   "percentOff": 35,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "beauty-encounter-m10011",
    "price": 64.95,
    "delivered": false,
@@ -19052,6 +19882,16 @@
    "price": 35.95,
    "delivered": true,
    "wasPrice": 55,
+   "percentOff": 34,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0719346020473",
+   "price": 24.39,
+   "delivered": true,
+   "wasPrice": 37.5,
    "percentOff": 34,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -19278,32 +20118,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-212738253",
-   "price": 64.95,
-   "delivered": false,
-   "wasPrice": 99,
-   "percentOff": 34,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-212907054",
    "price": 63.8,
    "delivered": false,
    "wasPrice": 97,
    "percentOff": 34,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "la-belle-perfumes-miag34sw",
-   "price": 37.94,
-   "delivered": true,
-   "wasPrice": 58,
-   "percentOff": 34,
-   "retailerId": "parfums-raffy",
    "kind": "retailer",
    "houseName": null
   },
@@ -19388,16 +20208,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3386460119252",
-   "price": 80.95,
-   "delivered": true,
-   "wasPrice": 121,
-   "percentOff": 33,
-   "retailerId": "perfumes4all",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "ean-3508440505033",
    "price": 238,
    "delivered": true,
@@ -19464,6 +20274,16 @@
    "wasPrice": 96,
    "percentOff": 33,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8411061711767",
+   "price": 86,
+   "delivered": true,
+   "wasPrice": 130,
+   "percentOff": 33,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -19738,6 +20558,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-1000014534",
+   "price": 48,
+   "delivered": false,
+   "wasPrice": 72,
+   "percentOff": 33,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000014550",
    "price": 126,
    "delivered": true,
@@ -19878,6 +20708,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "perfumes-america-amspdum34s",
+   "price": 23.2,
+   "delivered": true,
+   "wasPrice": 35,
+   "percentOff": 33,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "perfumes-america-awp36017s",
    "price": 33.4,
    "delivered": true,
@@ -19918,6 +20758,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0844061012417",
+   "price": 43.6,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 32,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3349668644049",
+   "price": 101.88,
+   "delivered": true,
+   "wasPrice": 151,
+   "percentOff": 32,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3355992004282",
    "price": 33.95,
    "delivered": true,
@@ -19934,6 +20794,16 @@
    "wasPrice": 460,
    "percentOff": 32,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3605521172525",
+   "price": 94,
+   "delivered": false,
+   "wasPrice": 140,
+   "percentOff": 32,
+   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -19968,12 +20838,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3614272648401",
+   "price": 74,
+   "delivered": true,
+   "wasPrice": 110,
+   "percentOff": 32,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614273953849",
    "price": 104,
    "delivered": true,
    "wasPrice": 155,
    "percentOff": 32,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3760327810016",
+   "price": 65.95,
+   "delivered": true,
+   "wasPrice": 97,
+   "percentOff": 32,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -20248,7 +21138,7 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-afnap34su",
+   "fragranceId": "la-belle-perfumes-afnrp34su",
    "price": 54,
    "delivered": false,
    "wasPrice": 80,
@@ -20258,12 +21148,32 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-afnrp34su",
-   "price": 54,
-   "delivered": false,
-   "wasPrice": 80,
+   "fragranceId": "la-belle-perfumes-merbu40smedp",
+   "price": 43.95,
+   "delivered": true,
+   "wasPrice": 65,
    "percentOff": 32,
-   "retailerId": "la-belle-perfumes",
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-miag34sw",
+   "price": 28.95,
+   "delivered": true,
+   "wasPrice": 43,
+   "percentOff": 32,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-odyms34sm",
+   "price": 35.95,
+   "delivered": true,
+   "wasPrice": 53,
+   "percentOff": 32,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -20538,16 +21448,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014943",
-   "price": 95,
-   "delivered": true,
-   "wasPrice": 138,
-   "percentOff": 31,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000015018",
    "price": 30,
    "delivered": false,
@@ -20628,6 +21528,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-212738253",
+   "price": 61,
+   "delivered": false,
+   "wasPrice": 89,
+   "percentOff": 31,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-outlet-1000015458",
    "price": 74.99,
    "delivered": true,
@@ -20642,6 +21552,26 @@
    "price": 18.95,
    "delivered": true,
    "wasPrice": 27.5,
+   "percentOff": 31,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-misd34edtw",
+   "price": 154.31,
+   "delivered": true,
+   "wasPrice": 225,
+   "percentOff": 31,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-tout34sw",
+   "price": 56.2,
+   "delivered": true,
+   "wasPrice": 82,
    "percentOff": 31,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -20674,6 +21604,16 @@
    "wasPrice": 342,
    "percentOff": 30,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0020714999346",
+   "price": 86,
+   "delivered": true,
+   "wasPrice": 124,
+   "percentOff": 30,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -20714,6 +21654,16 @@
    "wasPrice": 165,
    "percentOff": 30,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3349668588732",
+   "price": 93.95,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 30,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -20929,11 +21879,11 @@
   },
   {
    "fragranceId": "fragrance-market-1000014110",
-   "price": 76,
+   "price": 87.8,
    "delivered": true,
-   "wasPrice": 109,
+   "wasPrice": 126,
    "percentOff": 30,
-   "retailerId": "microperfumes",
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -21028,12 +21978,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-chi34sm",
-   "price": 52,
-   "delivered": false,
-   "wasPrice": 75,
+   "fragranceId": "la-belle-perfumes-hawv34sw",
+   "price": 52.71,
+   "delivered": true,
+   "wasPrice": 76,
    "percentOff": 30,
-   "retailerId": "la-belle-perfumes",
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-merbmi34s",
+   "price": 50.6,
+   "delivered": true,
+   "wasPrice": 73,
+   "percentOff": 30,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -21064,6 +22024,16 @@
    "wasPrice": 38,
    "percentOff": 29,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3346132004903",
+   "price": 91.6,
+   "delivered": true,
+   "wasPrice": 130,
+   "percentOff": 29,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -21134,6 +22104,16 @@
    "wasPrice": 81,
    "percentOff": 29,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000006536",
+   "price": 32.95,
+   "delivered": true,
+   "wasPrice": 47,
+   "percentOff": 29,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -21278,6 +22258,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-1000015286",
+   "price": 21.95,
+   "delivered": false,
+   "wasPrice": 31,
+   "percentOff": 29,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-101741367",
    "price": 95.45,
    "delivered": true,
@@ -21318,6 +22308,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-coas34sw",
+   "price": 70.2,
+   "delivered": true,
+   "wasPrice": 99,
+   "percentOff": 29,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-flef34sw",
    "price": 38.95,
    "delivered": true,
@@ -21334,6 +22334,16 @@
    "wasPrice": 45,
    "percentOff": 29,
    "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-monrm34sw",
+   "price": 119.6,
+   "delivered": true,
+   "wasPrice": 170,
+   "percentOff": 29,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -21468,12 +22478,22 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3614272761537",
-   "price": 104,
+   "fragranceId": "ean-3614227758162",
+   "price": 86.95,
    "delivered": true,
-   "wasPrice": 145,
+   "wasPrice": 122,
    "percentOff": 28,
-   "retailerId": "fragrance-market",
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3614272761537",
+   "price": 97,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 28,
+   "retailerId": "microperfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -21798,6 +22818,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-1000014713",
+   "price": 43.15,
+   "delivered": true,
+   "wasPrice": 60,
+   "percentOff": 28,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000014897",
    "price": 19.95,
    "delivered": false,
@@ -21888,12 +22918,62 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-ralc34smedp",
+   "price": 91.6,
+   "delivered": true,
+   "wasPrice": 129,
+   "percentOff": 28,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-veri27sw",
+   "price": 71.99,
+   "delivered": true,
+   "wasPrice": 101,
+   "percentOff": 28,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "parfums-raffy-wf10559",
    "price": 99,
    "delivered": true,
    "wasPrice": 138,
    "percentOff": 28,
    "retailerId": "parfums-raffy",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-amdgdev34ps",
+   "price": 48.96,
+   "delivered": true,
+   "wasPrice": 68,
+   "percentOff": 28,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-aulatsher34ps",
+   "price": 30.73,
+   "delivered": true,
+   "wasPrice": 43,
+   "percentOff": 28,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-awld1s",
+   "price": 32,
+   "delivered": true,
+   "wasPrice": 45,
+   "percentOff": 28,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -21912,16 +22992,6 @@
    "price": 109.9,
    "delivered": true,
    "wasPrice": 152,
-   "percentOff": 27,
-   "retailerId": "beauty-encounter",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-0783381025298",
-   "price": 69.9,
-   "delivered": true,
-   "wasPrice": 96,
    "percentOff": 27,
    "retailerId": "beauty-encounter",
    "kind": "retailer",
@@ -21978,6 +23048,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3360373016334",
+   "price": 32.07,
+   "delivered": true,
+   "wasPrice": 44.5,
+   "percentOff": 27,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3432240505897",
+   "price": 153.2,
+   "delivered": true,
+   "wasPrice": 210,
+   "percentOff": 27,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3508441001114",
    "price": 372,
    "delivered": false,
@@ -21988,12 +23078,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3614272648401",
-   "price": 79.95,
+   "fragranceId": "ean-3595471061096",
+   "price": 50.95,
    "delivered": true,
-   "wasPrice": 110,
+   "wasPrice": 70,
    "percentOff": 27,
-   "retailerId": "fragrance-market",
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -22014,6 +23104,16 @@
    "wasPrice": 155,
    "percentOff": 27,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3700578505002",
+   "price": 291.58,
+   "delivered": true,
+   "wasPrice": 400,
+   "percentOff": 27,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -22094,6 +23194,16 @@
    "wasPrice": 65,
    "percentOff": 27,
    "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fragrance-market-1000006810",
+   "price": 110,
+   "delivered": true,
+   "wasPrice": 152,
+   "percentOff": 27,
+   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -22208,6 +23318,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-1000015352",
+   "price": 40,
+   "delivered": false,
+   "wasPrice": 55,
+   "percentOff": 27,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000015381",
    "price": 113,
    "delivered": true,
@@ -22288,10 +23408,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-0819029010002",
-   "price": 55.9,
+   "fragranceId": "ean-0690251006564",
+   "price": 69.9,
    "delivered": true,
-   "wasPrice": 76,
+   "wasPrice": 95,
    "percentOff": 26,
    "retailerId": "beauty-encounter",
    "kind": "retailer",
@@ -22344,16 +23464,6 @@
    "wasPrice": 192,
    "percentOff": 26,
    "retailerId": "perfumes4all",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000001904",
-   "price": 98.95,
-   "delivered": true,
-   "wasPrice": 134,
-   "percentOff": 26,
-   "retailerId": "perfumania",
    "kind": "retailer",
    "houseName": null
   },
@@ -22538,16 +23648,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-202550155",
-   "price": 76.95,
-   "delivered": true,
-   "wasPrice": 105,
-   "percentOff": 26,
-   "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-212224153",
    "price": 55,
    "delivered": false,
@@ -22584,6 +23684,16 @@
    "wasPrice": 160,
    "percentOff": 26,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "beauty-encounter-w11450",
+   "price": 20.89,
+   "delivered": true,
+   "wasPrice": 28,
+   "percentOff": 25,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -22638,6 +23748,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3423478515956",
+   "price": 122.68,
+   "delivered": true,
+   "wasPrice": 165,
+   "percentOff": 25,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-7611160127655",
    "price": 20.95,
    "delivered": true,
@@ -22668,6 +23788,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-8435415032278",
+   "price": 91.95,
+   "delivered": true,
+   "wasPrice": 123,
+   "percentOff": 25,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000000735",
    "price": 68.95,
    "delivered": true,
@@ -22684,16 +23814,6 @@
    "wasPrice": 60,
    "percentOff": 25,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000001957",
-   "price": 42.95,
-   "delivered": true,
-   "wasPrice": 58,
-   "percentOff": 25,
-   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -22808,12 +23928,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-101925254",
+   "price": 54,
+   "delivered": false,
+   "wasPrice": 72,
+   "percentOff": 25,
+   "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-202735258",
    "price": 86.95,
    "delivered": true,
    "wasPrice": 116,
    "percentOff": 25,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-allom30sw",
+   "price": 65.69,
+   "delivered": true,
+   "wasPrice": 88,
+   "percentOff": 25,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -22858,6 +23998,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-inv17sm",
+   "price": 65.95,
+   "delivered": true,
+   "wasPrice": 88,
+   "percentOff": 25,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-irrnv27sw",
+   "price": 76.22,
+   "delivered": true,
+   "wasPrice": 102,
+   "percentOff": 25,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-swelc34sw",
    "price": 44,
    "delivered": false,
@@ -22894,6 +24054,46 @@
    "wasPrice": 110,
    "percentOff": 24,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0067724271123",
+   "price": 24.95,
+   "delivered": true,
+   "wasPrice": 33,
+   "percentOff": 24,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0608940522509",
+   "price": 38.1,
+   "delivered": true,
+   "wasPrice": 50.5,
+   "percentOff": 24,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3346470143159",
+   "price": 157.96,
+   "delivered": true,
+   "wasPrice": 208,
+   "percentOff": 24,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3349668614523",
+   "price": 109.95,
+   "delivered": true,
+   "wasPrice": 146,
+   "percentOff": 24,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -23098,11 +24298,51 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-111859057",
+   "price": 58.9,
+   "delivered": true,
+   "wasPrice": 78,
+   "percentOff": 24,
+   "retailerId": "perfumania",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-ladm27sw",
+   "price": 82.95,
+   "delivered": true,
+   "wasPrice": 110,
+   "percentOff": 24,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-merbi40sm",
    "price": 63.95,
    "delivered": true,
    "wasPrice": 85,
    "percentOff": 24,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-awsae34s",
+   "price": 55.16,
+   "delivered": true,
+   "wasPrice": 73,
+   "percentOff": 24,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0022548386231",
+   "price": 86,
+   "delivered": true,
+   "wasPrice": 112,
+   "percentOff": 23,
    "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
@@ -23132,6 +24372,16 @@
    "price": 169.95,
    "delivered": true,
    "wasPrice": 221,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3147758034905",
+   "price": 68.55,
+   "delivered": true,
+   "wasPrice": 90,
    "percentOff": 23,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -23178,6 +24428,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3614272284340",
+   "price": 91.6,
+   "delivered": true,
+   "wasPrice": 119,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614273069557",
    "price": 142,
    "delivered": true,
@@ -23192,26 +24452,6 @@
    "price": 106.95,
    "delivered": true,
    "wasPrice": 140,
-   "percentOff": 23,
-   "retailerId": "perfumes4all",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3614274024807",
-   "price": 103.95,
-   "delivered": true,
-   "wasPrice": 136,
-   "percentOff": 23,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3614274305401",
-   "price": 118.95,
-   "delivered": true,
-   "wasPrice": 155,
    "percentOff": 23,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -23262,6 +24502,16 @@
    "price": 25.95,
    "delivered": true,
    "wasPrice": 34,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8011003895762",
+   "price": 198,
+   "delivered": true,
+   "wasPrice": 258,
    "percentOff": 23,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -23488,6 +24738,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-anig34sm",
+   "price": 44.3,
+   "delivered": true,
+   "wasPrice": 58,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-azz34sm",
    "price": 73.95,
    "delivered": true,
@@ -23502,6 +24762,46 @@
    "price": 113.95,
    "delivered": true,
    "wasPrice": 149,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-beblu34sw",
+   "price": 31.3,
+   "delivered": true,
+   "wasPrice": 41,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-bhak67sm",
+   "price": 104.2,
+   "delivered": true,
+   "wasPrice": 137,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-crec25sw",
+   "price": 422,
+   "delivered": true,
+   "wasPrice": 549,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-davbch34sm",
+   "price": 25.3,
+   "delivered": true,
+   "wasPrice": 33,
    "percentOff": 23,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -23548,6 +24848,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-kilmih17s",
+   "price": 324,
+   "delivered": true,
+   "wasPrice": 422,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-monbs30sw",
    "price": 104.95,
    "delivered": true,
@@ -23568,10 +24878,40 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-perers34sm",
+   "price": 49.2,
+   "delivered": true,
+   "wasPrice": 64,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-sau34edtsm",
+   "price": 135.21,
+   "delivered": true,
+   "wasPrice": 176,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-sauefp34m",
    "price": 154.95,
    "delivered": true,
    "wasPrice": 202,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-sigro34sw",
+   "price": 78.22,
+   "delivered": true,
+   "wasPrice": 102,
    "percentOff": 23,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -23598,11 +24938,61 @@
    "houseName": null
   },
   {
+   "fragranceId": "perfumes-america-awafmd34ps",
+   "price": 28.49,
+   "delivered": true,
+   "wasPrice": 37,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-awcoacl17ps",
+   "price": 73,
+   "delivered": true,
+   "wasPrice": 95,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-awfesnh34ps",
+   "price": 29.02,
+   "delivered": true,
+   "wasPrice": 38,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-awjujhag34ps",
+   "price": 126.25,
+   "delivered": true,
+   "wasPrice": 166,
+   "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "perfumes-america-awoscal34s",
    "price": 35.95,
    "delivered": true,
    "wasPrice": 47,
    "percentOff": 23,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "beauty-encounter-w10031",
+   "price": 106.37,
+   "delivered": true,
+   "wasPrice": 138,
+   "percentOff": 22,
    "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
@@ -23638,6 +25028,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0688575179415",
+   "price": 57.9,
+   "delivered": true,
+   "wasPrice": 75,
+   "percentOff": 22,
+   "retailerId": "parfums-raffy",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0690251028405",
    "price": 69.9,
    "delivered": true,
@@ -23668,10 +25068,70 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0888066023955",
+   "price": 202.98,
+   "delivered": true,
+   "wasPrice": 263,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0895670002528",
+   "price": 78.6,
+   "delivered": true,
+   "wasPrice": 102,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3147758155112",
+   "price": 126.74,
+   "delivered": true,
+   "wasPrice": 164,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3346470304826",
    "price": 82.95,
    "delivered": true,
    "wasPrice": 107,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3348901500821",
+   "price": 119.85,
+   "delivered": true,
+   "wasPrice": 155,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3432240506597",
+   "price": 175.6,
+   "delivered": true,
+   "wasPrice": 228,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3605972454652",
+   "price": 49.76,
+   "delivered": true,
+   "wasPrice": 64,
    "percentOff": 22,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -23694,6 +25154,16 @@
    "wasPrice": 110,
    "percentOff": 22,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-6295124049910",
+   "price": 90.2,
+   "delivered": true,
+   "wasPrice": 117,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -23758,16 +25228,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fragrance-market-1000014534",
-   "price": 55.99,
-   "delivered": false,
-   "wasPrice": 72,
-   "percentOff": 22,
-   "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fragrance-market-1000014716",
    "price": 84.99,
    "delivered": true,
@@ -23798,6 +25258,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-afnap34su",
+   "price": 42.89,
+   "delivered": true,
+   "wasPrice": 55,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-delre25sw",
    "price": 319.5,
    "delivered": false,
@@ -23808,10 +25278,30 @@
    "houseName": null
   },
   {
-   "fragranceId": "la-belle-perfumes-hals34swo",
-   "price": 27.8,
+   "fragranceId": "la-belle-perfumes-guesd25sw",
+   "price": 33.29,
    "delivered": true,
-   "wasPrice": 36,
+   "wasPrice": 43,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-hugre25sm",
+   "price": 47.8,
+   "delivered": true,
+   "wasPrice": 62,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-may34sw",
+   "price": 34.8,
+   "delivered": true,
+   "wasPrice": 45,
    "percentOff": 22,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -23828,12 +25318,42 @@
    "houseName": null
   },
   {
+   "fragranceId": "perfumes-america-awjhgvb17s",
+   "price": 90.2,
+   "delivered": true,
+   "wasPrice": 117,
+   "percentOff": 22,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "beauty-encounter-w10402",
+   "price": 28.95,
+   "delivered": true,
+   "wasPrice": 37,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "bluemercury-119751469",
    "price": 399,
    "delivered": false,
    "wasPrice": 510,
    "percentOff": 21,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0079639326379",
+   "price": 30.6,
+   "delivered": true,
+   "wasPrice": 39,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -23858,6 +25378,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0796050121207",
+   "price": 40.7,
+   "delivered": true,
+   "wasPrice": 52,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0888066007795",
    "price": 183.95,
    "delivered": true,
@@ -23872,6 +25402,16 @@
    "price": 83.95,
    "delivered": true,
    "wasPrice": 107,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3414200064064",
+   "price": 33.95,
+   "delivered": true,
+   "wasPrice": 43,
    "percentOff": 21,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -23952,6 +25492,26 @@
    "price": 32.95,
    "delivered": true,
    "wasPrice": 42,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8011003845125",
+   "price": 44.95,
+   "delivered": true,
+   "wasPrice": 57,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8411061071601",
+   "price": 56.2,
+   "delivered": true,
+   "wasPrice": 72,
    "percentOff": 21,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24078,6 +25638,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-111951251",
+   "price": 29.95,
+   "delivered": true,
+   "wasPrice": 38,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-212054157",
    "price": 77.95,
    "delivered": true,
@@ -24108,10 +25678,50 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-fanl34sw",
+   "price": 36.95,
+   "delivered": true,
+   "wasPrice": 47,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-guelmbv34sw",
+   "price": 40.7,
+   "delivered": true,
+   "wasPrice": 52,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-ligb34sw",
    "price": 48.95,
    "delivered": true,
    "wasPrice": 62,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-orna34m",
+   "price": 28.95,
+   "delivered": true,
+   "wasPrice": 37,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-ornpf34sw",
+   "price": 28.95,
+   "delivered": true,
+   "wasPrice": 37,
    "percentOff": 21,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24128,10 +25738,70 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-trur34sw",
+   "price": 29.95,
+   "delivered": true,
+   "wasPrice": 38,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-uomm42sm",
+   "price": 36.95,
+   "delivered": true,
+   "wasPrice": 47,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-xerr34sm",
    "price": 60.95,
    "delivered": true,
    "wasPrice": 78,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-ammbsel34s",
+   "price": 44.95,
+   "delivered": true,
+   "wasPrice": 57,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-auharaop2ps",
+   "price": 48.95,
+   "delivered": true,
+   "wasPrice": 62,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-aulatsak34s",
+   "price": 33.95,
+   "delivered": true,
+   "wasPrice": 43,
+   "percentOff": 21,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "perfumes-america-awunpinp34ps",
+   "price": 26.69,
+   "delivered": true,
+   "wasPrice": 34,
    "percentOff": 21,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24208,10 +25878,40 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0783381025298",
+   "price": 56.95,
+   "delivered": true,
+   "wasPrice": 72,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0887167095878",
    "price": 55.95,
    "delivered": true,
    "wasPrice": 70,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3274872399020",
+   "price": 84.95,
+   "delivered": true,
+   "wasPrice": 107,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3349668528677",
+   "price": 76.95,
+   "delivered": true,
+   "wasPrice": 97,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24244,6 +25944,26 @@
    "wasPrice": 144,
    "percentOff": 20,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3386460066136",
+   "price": 38.95,
+   "delivered": true,
+   "wasPrice": 49,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3386460102995",
+   "price": 43.95,
+   "delivered": true,
+   "wasPrice": 55,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -24298,10 +26018,30 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3614229833812",
+   "price": 119.6,
+   "delivered": true,
+   "wasPrice": 150,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614272639638",
    "price": 66.95,
    "delivered": true,
    "wasPrice": 84,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3614273321891",
+   "price": 117.95,
+   "delivered": true,
+   "wasPrice": 148,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24322,6 +26062,26 @@
    "price": 82.95,
    "delivered": true,
    "wasPrice": 104,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3614273776127",
+   "price": 142.95,
+   "delivered": true,
+   "wasPrice": 179,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3614273955560",
+   "price": 51.95,
+   "delivered": true,
+   "wasPrice": 65,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24362,6 +26122,16 @@
    "price": 58.95,
    "delivered": true,
    "wasPrice": 74,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3616304175893",
+   "price": 138.95,
+   "delivered": true,
+   "wasPrice": 174,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24438,6 +26208,46 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-6085010044712",
+   "price": 37.95,
+   "delivered": true,
+   "wasPrice": 48,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-6290171002291",
+   "price": 34.09,
+   "delivered": true,
+   "wasPrice": 43,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-6294015131024",
+   "price": 55.95,
+   "delivered": true,
+   "wasPrice": 70,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-6294015164169",
+   "price": 43.95,
+   "delivered": true,
+   "wasPrice": 55,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-6295199800959",
    "price": 38.95,
    "delivered": true,
@@ -24459,9 +26269,9 @@
   },
   {
    "fragranceId": "ean-8011003823536",
-   "price": 76.95,
+   "price": 72.95,
    "delivered": true,
-   "wasPrice": 97,
+   "wasPrice": 92,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24472,6 +26282,16 @@
    "price": 90.95,
    "delivered": true,
    "wasPrice": 114,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8018365071261",
+   "price": 55.95,
+   "delivered": true,
+   "wasPrice": 70,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24494,6 +26314,26 @@
    "wasPrice": 119,
    "percentOff": 20,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8411061311707",
+   "price": 42.95,
+   "delivered": true,
+   "wasPrice": 54,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-8435137759781",
+   "price": 87.95,
+   "delivered": true,
+   "wasPrice": 110,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -24554,16 +26394,6 @@
    "wasPrice": 69,
    "percentOff": 20,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000006536",
-   "price": 43.6,
-   "delivered": true,
-   "wasPrice": 55,
-   "percentOff": 20,
-   "retailerId": "perfumania",
    "kind": "retailer",
    "houseName": null
   },
@@ -24748,6 +26578,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "fragrance-market-1000015537",
+   "price": 59.95,
+   "delivered": true,
+   "wasPrice": 75,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-101383157",
    "price": 119,
    "delivered": true,
@@ -24828,10 +26668,30 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-bhag34sw",
+   "price": 60.95,
+   "delivered": true,
+   "wasPrice": 77,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-burhedpi34sw",
    "price": 97.95,
    "delivered": true,
    "wasPrice": 123,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-carh34sw",
+   "price": 83.2,
+   "delivered": true,
+   "wasPrice": 104,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24852,6 +26712,16 @@
    "price": 47.1,
    "delivered": true,
    "wasPrice": 59,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-crirf34sm",
+   "price": 37.95,
+   "delivered": true,
+   "wasPrice": 48,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -24888,6 +26758,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-lig25sw",
+   "price": 94.95,
+   "delivered": true,
+   "wasPrice": 119,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-monva34sw",
    "price": 73.95,
    "delivered": true,
@@ -24918,6 +26798,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-nombc25sw",
+   "price": 76.95,
+   "delivered": true,
+   "wasPrice": 97,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-omna34sw",
    "price": 78.95,
    "delivered": true,
@@ -24932,6 +26822,26 @@
    "price": 111.95,
    "delivered": true,
    "wasPrice": 140,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-soufb34sw",
+   "price": 39.95,
+   "delivered": true,
+   "wasPrice": 50,
+   "percentOff": 20,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-suptr30sw",
+   "price": 41.95,
+   "delivered": true,
+   "wasPrice": 53,
    "percentOff": 20,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -25018,6 +26928,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3137370207054",
+   "price": 56.59,
+   "delivered": true,
+   "wasPrice": 70,
+   "percentOff": 19,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3346132400019",
    "price": 111.3,
    "delivered": true,
@@ -25064,16 +26984,6 @@
    "wasPrice": 136,
    "percentOff": 19,
    "retailerId": "fragrance-market",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3700578502681",
-   "price": 369,
-   "delivered": false,
-   "wasPrice": 460,
-   "percentOff": 19,
-   "retailerId": "la-belle-perfumes",
    "kind": "retailer",
    "houseName": null
   },
@@ -25258,6 +27168,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0027131043287",
+   "price": 39.89,
+   "delivered": true,
+   "wasPrice": 49,
+   "percentOff": 18,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0888066015509",
    "price": 159,
    "delivered": false,
@@ -25284,6 +27204,16 @@
    "wasPrice": 65,
    "percentOff": 18,
    "retailerId": "parfums-raffy",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3508441104648",
+   "price": 389.8,
+   "delivered": true,
+   "wasPrice": 480,
+   "percentOff": 18,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -25708,6 +27638,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3360372012825",
+   "price": 91.6,
+   "delivered": true,
+   "wasPrice": 110,
+   "percentOff": 16,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3614272761452",
    "price": 91.95,
    "delivered": true,
@@ -26058,6 +27998,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-kiljhag34sw",
+   "price": 116.8,
+   "delivered": true,
+   "wasPrice": 140,
+   "percentOff": 16,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "perfumes-america-bxgior17s1",
    "price": 97.95,
    "delivered": true,
@@ -26214,6 +28164,16 @@
    "wasPrice": 72,
    "percentOff": 15,
    "retailerId": "microperfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-acqdg34smedp",
+   "price": 122.85,
+   "delivered": true,
+   "wasPrice": 145,
+   "percentOff": 15,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -26418,12 +28378,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-terdh67smedt",
+   "price": 161.6,
+   "delivered": true,
+   "wasPrice": 190,
+   "percentOff": 14,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3348901708937",
    "price": 132,
    "delivered": true,
    "wasPrice": 153,
    "percentOff": 13,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3392865221179",
+   "price": 42.2,
+   "delivered": true,
+   "wasPrice": 49,
+   "percentOff": 13,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -26588,6 +28568,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-loes42sm",
+   "price": 144.8,
+   "delivered": true,
+   "wasPrice": 168,
+   "percentOff": 13,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-maifka24sw",
    "price": 237,
    "delivered": false,
@@ -26608,10 +28598,30 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3346130012689",
+   "price": 136.4,
+   "delivered": true,
+   "wasPrice": 155,
+   "percentOff": 12,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3349668627530",
    "price": 85.95,
    "delivered": true,
    "wasPrice": 98,
+   "percentOff": 12,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3386460095495",
+   "price": 78.6,
+   "delivered": true,
+   "wasPrice": 90,
    "percentOff": 12,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -26628,22 +28638,22 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3700578524003",
+   "price": 359,
+   "delivered": true,
+   "wasPrice": 410,
+   "percentOff": 12,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fragrance-market-1000013198",
    "price": 36.9,
    "delivered": true,
    "wasPrice": 42,
    "percentOff": 12,
    "retailerId": "perfumania",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fragrance-market-1000014459",
-   "price": 158,
-   "delivered": true,
-   "wasPrice": 180,
-   "percentOff": 12,
-   "retailerId": "fragrance-market",
    "kind": "retailer",
    "houseName": null
   },
@@ -26804,6 +28814,16 @@
    "wasPrice": 240,
    "percentOff": 11,
    "retailerId": "la-belle-perfumes",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-nin27sw",
+   "price": 61.8,
+   "delivered": true,
+   "wasPrice": 70,
+   "percentOff": 11,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -27038,6 +29058,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3700578504555",
+   "price": 371.6,
+   "delivered": true,
+   "wasPrice": 410,
+   "percentOff": 9,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-6297001571262",
    "price": 36.99,
    "delivered": false,
@@ -27148,10 +29178,30 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3348901250153",
+   "price": 104.95,
+   "delivered": true,
+   "wasPrice": 115,
+   "percentOff": 8,
+   "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-3701415902565",
    "price": 286.95,
    "delivered": true,
    "wasPrice": 311.95,
+   "percentOff": 8,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-7640233340066",
+   "price": 105.63,
+   "delivered": true,
+   "wasPrice": 115,
    "percentOff": 8,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -27228,6 +29278,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-safa25sw",
+   "price": 375.8,
+   "delivered": true,
+   "wasPrice": 410,
+   "percentOff": 8,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "perfumes-america-bxjimm1s",
    "price": 44.95,
    "delivered": true,
@@ -27258,22 +29318,22 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-3423222056070",
+   "price": 91.6,
+   "delivered": true,
+   "wasPrice": 99,
+   "percentOff": 7,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-7340032810790",
    "price": 217,
    "delivered": true,
    "wasPrice": 235,
    "percentOff": 7,
    "retailerId": "microperfumes",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-8435137759781",
-   "price": 124,
-   "delivered": true,
-   "wasPrice": 134,
-   "percentOff": 7,
-   "retailerId": "beauty-encounter",
    "kind": "retailer",
    "houseName": null
   },
@@ -27314,6 +29374,26 @@
    "wasPrice": 140,
    "percentOff": 7,
    "retailerId": "fragrance-market",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-disf34sk",
+   "price": 23.2,
+   "delivered": true,
+   "wasPrice": 25,
+   "percentOff": 7,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-maifkpah24sm",
+   "price": 387,
+   "delivered": true,
+   "wasPrice": 420,
+   "percentOff": 7,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -27478,12 +29558,12 @@
    "houseName": null
   },
   {
-   "fragranceId": "ean-3614273955560",
-   "price": 58.9,
+   "fragranceId": "ean-8011003997022",
+   "price": 74.95,
    "delivered": true,
-   "wasPrice": 62,
+   "wasPrice": 79,
    "percentOff": 5,
-   "retailerId": "perfumania",
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -27558,6 +29638,26 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-julhagr34sw",
+   "price": 128,
+   "delivered": true,
+   "wasPrice": 135,
+   "percentOff": 5,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "la-belle-perfumes-lay25sw",
+   "price": 52.87,
+   "delivered": true,
+   "wasPrice": 56,
+   "percentOff": 5,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0085805534400",
    "price": 37.53,
    "delivered": false,
@@ -27568,12 +29668,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "ean-0778628210087",
+   "price": 86,
+   "delivered": true,
+   "wasPrice": 90,
+   "percentOff": 4,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "ean-0887167095922",
    "price": 71.9,
    "delivered": true,
    "wasPrice": 75,
    "percentOff": 4,
    "retailerId": "beauty-encounter",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3147758034912",
+   "price": 126.6,
+   "delivered": true,
+   "wasPrice": 132,
+   "percentOff": 4,
+   "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
   },
@@ -27642,6 +29762,16 @@
    "price": 32.95,
    "delivered": true,
    "wasPrice": 34,
+   "percentOff": 3,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-0810876034760",
+   "price": 24.25,
+   "delivered": true,
+   "wasPrice": 25,
    "percentOff": 3,
    "retailerId": "perfumes4all",
    "kind": "retailer",
@@ -27788,11 +29918,31 @@
    "houseName": null
   },
   {
+   "fragranceId": "la-belle-perfumes-chi34sm",
+   "price": 63.31,
+   "delivered": true,
+   "wasPrice": 65,
+   "percentOff": 2,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "la-belle-perfumes-hunj34sm",
    "price": 36.95,
    "delivered": true,
    "wasPrice": 38,
    "percentOff": 2,
+   "retailerId": "perfumes4all",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3274872447561",
+   "price": 118.2,
+   "delivered": true,
+   "wasPrice": 120,
+   "percentOff": 1,
    "retailerId": "perfumes4all",
    "kind": "retailer",
    "houseName": null
