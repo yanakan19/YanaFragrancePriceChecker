@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-21T07:14:23.509Z",
-  "seenAt": "2026-11-21T07:14:23.509Z",
+  "updatedAt": "2026-11-21T11:15:34.578Z",
+  "seenAt": "2026-11-21T11:15:34.578Z",
   "source": "live",
   "listings": [
     {
@@ -3234,7 +3234,7 @@
       "priceGbp": 39.2,
       "wasPriceGbp": 56,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Clinique Happy. A hint of citrus. A wealth of flowers. A mix of emotions. A chic, modern, multi-layered floral fragrance with sparking Ruby Red Grapefruit, Boysenberry Bush Flower, and Hawaiian Wedding Flower. Fresh, bright, soft and sensual. These exotic notes have never been used before in a fragrance..",
       "productType": "Women's Fragrances",
@@ -5511,7 +5511,7 @@
       "priceGbp": 89.6,
       "wasPriceGbp": 112,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Luna Rossa Carbon Eau de Parfum 100ml by Prada blends mineral freshness with deep woody notes. Designed for a modern, masculine scent profile. Leaves a clean, confident trail with depth..",
       "productType": "Men's Fragrances",
@@ -12710,7 +12710,7 @@
       "priceGbp": 161.5,
       "wasPriceGbp": 190,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the distinctive character of Maison Crivelli Lys Solaberg Eau De Parfum. Refined and expressive, this unisex fragrance brings contemporary sophistication and an elegant sense of depth to the skin..",
       "productType": "Unisex Fragrance",

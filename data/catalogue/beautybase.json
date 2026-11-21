@@ -1,7 +1,7 @@
 {
   "retailerId": "beautybase",
-  "updatedAt": "2026-11-21T07:15:10.011Z",
-  "seenAt": "2026-11-21T07:15:10.011Z",
+  "updatedAt": "2026-11-21T11:15:32.322Z",
+  "seenAt": "2026-11-21T11:15:32.322Z",
   "source": "live",
   "listings": [
     {
@@ -38471,7 +38471,7 @@
       "priceGbp": 85,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "beautybase",
@@ -45093,7 +45093,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "beautybase",

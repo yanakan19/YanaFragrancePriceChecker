@@ -1,7 +1,7 @@
 {
   "retailerId": "zimaya",
-  "updatedAt": "2026-11-21T07:15:10.011Z",
-  "seenAt": "2026-11-21T07:15:10.011Z",
+  "updatedAt": "2026-11-21T11:15:32.322Z",
+  "seenAt": "2026-11-21T11:15:32.322Z",
   "source": "live",
   "listings": [
     {
@@ -37,7 +37,7 @@
       "priceGbp": 31.5,
       "wasPriceGbp": 35,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Kibria Glory is a graceful and modern fragrance that celebrates femininity with effortless charm. Soft yet captivating, it blends luminous elegance with a warm, sensual finish, creating a scent that feels both sophisticated and inviting. Perfect for everyday wear or special occasions, it leaves a lasting impression of confidence and refinement. TOP NOTES Blackcurrant – Pear Blossom – Musk MID NOTES Peony – Orange Blossom BASE NOTES Vanilla – Amberwood .",
       "productType": "Perfume",
