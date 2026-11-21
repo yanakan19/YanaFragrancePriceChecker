@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 386,
+ "folded": 384,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -379,38 +379,6 @@
      "ean": null,
      "scent": "wave",
      "signature": "1x15fragrance|1x50fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0085715676641",
-   "absorbed": [
-    "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085715676641",
-     "brand": "Fcuk",
-     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0085715676641",
-     "scent": "s",
-     "signature": "4x18travel",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml",
-     "brand": "Fcuk",
-     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "s",
-     "signature": "4x18travel",
      "shops": [
       "p-eleven"
      ]
@@ -2882,34 +2850,33 @@
    ]
   },
   {
-   "canonical": "set-ean-3349668656486",
+   "canonical": "set-ean-3349668666720",
    "absorbed": [
-    "set-paco-rabanne-million-gold-for-her-parfum-gift-set-50ml-edp-10ml-edp"
+    "set-paco-rabanne-1-million-gift-set-100ml-edt-10ml-edt"
    ],
    "members": [
     {
-     "id": "set-ean-3349668656486",
+     "id": "set-ean-3349668666720",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Million Gold For Her Parfum Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3349668656486",
-     "scent": "gold million paco rabanne",
-     "signature": "1x10fragrance|1x50fragrance",
+     "name": "Paco Rabanne 1 Million Gift Set 100ml EDT + 10ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3349668666720",
+     "scent": "1 million paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance",
      "shops": [
-      "perfume-click",
-      "scentsational"
+      "perfume-click"
      ]
     },
     {
-     "id": "set-paco-rabanne-million-gold-for-her-parfum-gift-set-50ml-edp-10ml-edp",
+     "id": "set-paco-rabanne-1-million-gift-set-100ml-edt-10ml-edt",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Million Gold For Her Parfum Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
+     "name": "Paco Rabanne 1 Million Gift Set 100ml EDT + 10ml EDT",
+     "concentration": "Eau de Toilette",
      "ean": null,
-     "scent": "gold million paco rabanne",
-     "signature": "1x10fragrance|1x50fragrance",
+     "scent": "1 million paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance",
      "shops": [
-      "p-eleven"
+      "beaute-boulevard"
      ]
     }
    ]
@@ -3825,38 +3792,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3423222118709",
-   "absorbed": [
-    "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-25ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222118709",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Gift Set 100ml EDT + 25ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3423222118709",
-     "scent": "d eau issey l",
-     "signature": "1x100fragrance|1x25fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-25ml-edt",
-     "brand": "Issey Miyake",
-     "name": "L'Eau d'Issey Gift Set 100ml EDT + 25ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "d eau issey l",
-     "signature": "1x100fragrance|1x25fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3423222119645",
    "absorbed": [
     "set-issey-miyake-l-eau-d-issey-gift-set-50ml-edt-50ml-body-lotion-50ml-shower-cream",
@@ -4238,39 +4173,6 @@
      "ean": null,
      "scent": "club private",
      "signature": "1x100fragrance|1x150wash",
-     "shops": [
-      "mybeauty-boutique",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3430750901215",
-   "absorbed": [
-    "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3430750901215",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3430750901215",
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
-     "brand": "Jeanne Arthes",
-     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanches cassandra roses",
-     "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique",
       "p-eleven"
@@ -4826,6 +4728,38 @@
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "perfume-closet"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3614275037813",
+   "absorbed": [
+    "set-giorgio-armani-my-way-gift-set-30ml-edp-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614275037813",
+     "brand": "Giorgio Armani",
+     "name": "My Way Gift Set 30ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3614275037813",
+     "scent": "my way",
+     "signature": "1x10fragrance|1x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-giorgio-armani-my-way-gift-set-30ml-edp-10ml-edp",
+     "brand": "Giorgio Armani",
+     "name": "My Way Gift Set 30ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "my way",
+     "signature": "1x10fragrance|1x30fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -9407,6 +9341,39 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003919147",
+   "absorbed": [
+    "set-versace-eros-gift-set-100ml-edp-10ml-edp-toiletry-bag"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003919147",
+     "brand": "Versace",
+     "name": "Eros Gift Set 100ml EDP + 10ml EDP + Toiletry Bag",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003919147",
+     "scent": "eros",
+     "signature": "1x100fragrance|1x10fragrance|1x?other",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-eros-gift-set-100ml-edp-10ml-edp-toiletry-bag",
+     "brand": "Versace",
+     "name": "Eros Gift Set 100ml EDP - 10ml EDP - Toiletry Bag",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "eros",
+     "signature": "1x100fragrance|1x10fragrance|1x?other",
+     "shops": [
+      "beaute-boulevard",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003994427",
    "absorbed": [
     "set-versace-bright-crystal-gift-set-50ml-edt-100ml-body-lotion",
@@ -9447,39 +9414,6 @@
      "signature": "1x100body|1x50fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8028713572937",
-   "absorbed": [
-    "set-acqua-di-parma-blu-mediterraneo-discovery-set-12ml-arancia-di-capri-edt-12ml-fico-di-amalfi-edt-12ml-mirto-di-panarea-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8028713572937",
-     "brand": "Acqua di Parma",
-     "name": "Blu Mediterraneo Discovery Set 12ml Arancia di Capri EDT + 12ml Fico di Amalfi EDT + 12ml Mirto di Panarea EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "8028713572937",
-     "scent": "amalfi arancia blu capri di discovery fico mediterraneo mirto panarea",
-     "signature": "3x12fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-acqua-di-parma-blu-mediterraneo-discovery-set-12ml-arancia-di-capri-edt-12ml-fico-di-amalfi-edt-12ml-mirto-di-panarea-edt",
-     "brand": "Acqua di Parma",
-     "name": "Blu Mediterraneo Discovery Set 12ml Arancia di Capri EDT + 12ml Fico di Amalfi EDT + 12ml Mirto di Panarea EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "amalfi arancia blu capri di discovery fico mediterraneo mirto panarea",
-     "signature": "3x12fragrance",
-     "shops": [
-      "mybeauty-boutique",
-      "p-eleven"
      ]
     }
    ]
@@ -9592,38 +9526,6 @@
      "signature": "1x100body|1x100fragrance|1x?other",
      "shops": [
       "beaute-boulevard",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8052464896318",
-   "absorbed": [
-    "set-salvatore-ferragamo-ferragamo-intense-leather-gift-set-100ml-edp-100ml-shower-gel-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8052464896318",
-     "brand": "Salvatore Ferragamo",
-     "name": "Ferragamo Intense Leather Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8052464896318",
-     "scent": "ferragamo intense leather",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-salvatore-ferragamo-ferragamo-intense-leather-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
-     "brand": "Salvatore Ferragamo",
-     "name": "Ferragamo Intense Leather Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "ferragamo intense leather",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
       "p-eleven"
      ]
     }
@@ -10589,7 +10491,8 @@
      "scent": "girl good",
      "signature": "3x7fragrance",
      "shops": [
-      "beautybase"
+      "beautybase",
+      "perfume-click"
      ]
     },
     {
@@ -10764,6 +10667,39 @@
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8435415092494",
+   "absorbed": [
+    "set-jean-paul-gaultier-divine-gift-set-50ml-edp-75ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415092494",
+     "brand": "Jean Paul Gaultier",
+     "name": "Divine Eau De Parfum 50ml & Body Lotion 75ml Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "8435415092494",
+     "scent": "divine",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "beautybase",
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-divine-gift-set-50ml-edp-75ml-body-lotion",
+     "brand": "Jean Paul Gaultier",
+     "name": "Divine Gift Set 50ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "divine",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -11622,6 +11558,37 @@
      "ean": "0085715166685",
      "scent": "fierce",
      "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 2.00 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-abercrombie-fitch-first-instinct-blue-for-her-gift-set-100ml-edp-15ml-edp-200ml-body-lotion",
+     "brand": "Abercrombie & Fitch",
+     "name": "First Instinct Blue for Her Gift Set 100ml EDP + 15ml EDP + 200ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blue first instinct",
+     "signature": "1x100fragrance|1x15fragrance|1x200body",
+     "shops": [
+      "p-eleven"
+     ]
+    },
+    {
+     "id": "set-ean-0085715167323",
+     "brand": "Abercrombie & Fitch",
+     "name": "First Instinct Blue for Her Gift Set 100ml EDP + 15ml EDP + 200ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0085715167323",
+     "scent": "blue first instinct",
+     "signature": "1x100fragrance|1x15fragrance|1x200body",
      "shops": [
       "perfume-click"
      ]
@@ -13028,6 +12995,37 @@
   },
   {
    "reasons": [
+    "price spread 1.63 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715676641",
+     "brand": "Fcuk",
+     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0085715676641",
+     "scent": "s",
+     "signature": "4x18travel",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml",
+     "brand": "Fcuk",
+     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "s",
+     "signature": "4x18travel",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 85715676726, 85715676733",
     "a shop lists more than one: p-eleven, perfume-click"
    ],
@@ -13346,6 +13344,37 @@
      "signature": "1x100fragrance|1x200deo",
      "shops": [
       "beaute-boulevard",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.53 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0810103654372",
+     "brand": "Head",
+     "name": "Women Gift Set: Bliss EDT 50ml - EliteEDT 50ml - Spark EDT 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0810103654372",
+     "scent": "bliss eliteedt spark",
+     "signature": "3x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-head-women-gift-set-bliss-edt-50ml-eliteedt-50ml-spark-edt-50ml",
+     "brand": "Head",
+     "name": "Women Gift Set: Bliss EDT 50ml - EliteEDT 50ml - Spark EDT 50ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss eliteedt spark",
+     "signature": "3x50fragrance",
+     "shops": [
       "p-eleven"
      ]
     }
@@ -13998,12 +14027,13 @@
     {
      "id": "set-ean-3349668628728",
      "brand": "Rabanne",
-     "name": "Paco Rabanne Lady Million Women's Perfume Gift Set (80ml EDP + 20ml EDP)",
+     "name": "Paco Rabanne Lady Million Gift Set 80ml EDP + 20ml EDP",
      "concentration": "Eau de Parfum",
      "ean": "3349668628728",
      "scent": "lady million paco rabanne",
      "signature": "1x20fragrance|1x80fragrance",
      "shops": [
+      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -15071,7 +15101,7 @@
   },
   {
    "reasons": [
-    "price spread 1.70 is over 1.5"
+    "price spread 1.59 is over 1.5"
    ],
    "members": [
     {
@@ -15125,6 +15155,38 @@
      "ean": null,
      "scent": "club night",
      "signature": "1x100fragrance|1x150wash",
+     "shops": [
+      "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 1.51 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3430750901215",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3430750901215",
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-jeanne-arthes-cassandra-roses-blanches-gift-set-100ml-edp-100ml-body-lotion",
+     "brand": "Jeanne Arthes",
+     "name": "Cassandra Roses Blanches Gift Set 100ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanches cassandra roses",
+     "signature": "1x100body|1x100fragrance",
      "shops": [
       "mybeauty-boutique",
       "p-eleven"
@@ -15774,6 +15836,37 @@
      "signature": "1x100fragrance|1x75body",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 3616305255198, 3616307080910"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616305255198",
+     "brand": "Burberry",
+     "name": "Goddess Women's Gift Set (50ml EDP + 75ml Body Lotion)",
+     "concentration": "Eau de Parfum",
+     "ean": "3616305255198",
+     "scent": "goddess",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3616307080910",
+     "brand": "Burberry",
+     "name": "Goddess Gift Set 50ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3616307080910",
+     "scent": "goddess",
+     "signature": "1x50fragrance|1x75body",
+     "shops": [
+      "perfume-click"
      ]
     }
    ]
@@ -16495,40 +16588,22 @@
   },
   {
    "reasons": [
-    "price spread 1.63 is over 1.5"
+    "two different barcodes: 8011003900121, 8011003919253",
+    "price spread 1.56 is over 1.5"
    ],
    "members": [
     {
-     "id": "set-ean-8011003906819",
-     "brand": "Versace",
-     "name": "Yellow Diamond Gift Set 90ml EDT + 100ml Body Lotion + 100ml Shower Gel + 5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003906819",
-     "scent": "diamond yellow",
-     "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
+     "id": "set-ean-8011003900121",
+     "brand": "Moschino",
+     "name": "Toy 2 Gift Set 50ml EDP + 50ml Body Lotion + 50ml Shower Gel",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003900121",
+     "scent": "2 toy",
+     "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "perfume-click"
      ]
     },
-    {
-     "id": "set-versace-yellow-diamond-4-piece-gift-set-eau-de-toilette-90ml-shower-gel-100ml-body-lotion-100ml-eau-de-toilette-5ml",
-     "brand": "Versace",
-     "name": "Yellow Diamond 4 Piece Gift Set: Eau De Toilette 90ml - Shower Gel 100ml - Body Lotion 100ml - Eau De Toilette 5ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "diamond yellow",
-     "signature": "1x100body|1x100wash|1x5fragrance|1x90fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.56 is over 1.5"
-   ],
-   "members": [
     {
      "id": "set-ean-8011003919253",
      "brand": "Moschino",
@@ -16914,52 +16989,6 @@
      "signature": "1x50fragrance|1x75wash",
      "shops": [
       "beaute-boulevard",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 8435415092494, 8435415103152"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415092494",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine Eau De Parfum 50ml & Body Lotion 75ml Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415092494",
-     "scent": "divine",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "beautybase",
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-8435415103152",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine 50ml Eau de Parfum Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415103152",
-     "scent": "divine",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk",
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-divine-gift-set-50ml-edp-75ml-body-lotion",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine Gift Set 50ml EDP + 75ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "divine",
-     "signature": "1x50fragrance|1x75body",
-     "shops": [
       "p-eleven"
      ]
     }
