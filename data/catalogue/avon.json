@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-21T19:09:52.293Z",
-  "seenAt": "2026-11-21T19:09:52.293Z",
+  "updatedAt": "2026-11-21T22:37:43.460Z",
+  "seenAt": "2026-11-21T22:37:43.460Z",
   "source": "live",
   "listings": [
     {
@@ -1509,7 +1509,7 @@
       "priceGbp": 5,
       "wasPriceGbp": 12,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: . Flame-free fragrance is in and our Tortoiseshell Look Aroma Diffuser Cover will help bring a bit of nature’s artistry into your home space.. The perfect accessory for our Aroma Diffuser, this mottled print cover will help switch up the way you scent and illuminate your home.. Give your go-to reed diffuser a rest (for now)… because oil diffusers are defs something to obsess over!. Why you’ll love it: . • This diffuser cover fits perfectly on our Aroma Diffuser. • The stunning tortoiseshell design comes to life when the colour-changing LED lights are activated. • It has a modern aesthetic and helps bring a tranquil ambience to your favourite spaces.. How to use it: . Invest in our Aroma Diffuser Get your hands on our Aroma Diffuser. Fill up the reservoir with water, add 2-3 drops of your favourite fragrance oils for diffusers, and pick a light setting.. Slip on the cover Slip the cover onto the diffuser and watch it scent and light up your space.. Spread the love Home fragrance is a welcome gift so gift our diffuser and this cover to a fellow home décor lover..",
       "productType": "HOME DECOR",
@@ -37803,7 +37803,7 @@
       "priceGbp": 3,
       "wasPriceGbp": 5.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: The sky’s the limit with the fougère, aqua and woody aftershave of Full Speed Quantum Hair & Body Wash. Take off into the unknown with a blast of energising bergamot, fresh geranium and rich cedarwood. Product specification: • Top note: bergamot. • Middle note: geranium. • Base note: cedarwood. • 250ml. How to wear me: Start the day with the adrenaline-filled fougère, aqua and woody scented hair and body wash in the shower. Pair with the matching fragrance for limitless day ahead.",
       "productType": "FRAGRANCE",

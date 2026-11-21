@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-21T19:09:59.263Z",
-  "seenAt": "2026-11-21T19:09:59.263Z",
+  "updatedAt": "2026-11-21T22:37:17.643Z",
+  "seenAt": "2026-11-21T22:37:17.643Z",
   "source": "live",
   "listings": [
     {
@@ -10962,7 +10962,7 @@
       "priceGbp": 23.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Dark Blue Eau de Toilette is a fresh fragrance created for customers who enjoy a light and wearable scent. It opens with a distinctive first impression of Indian lime and ginger, develops into a balanced heart of cypress and sage, and settles into a smooth lasting base of patchouli and suede. Suitable for daytime and warmer seasons, this fragrance is a strong choice for anyone looking for a scent that feels modern and confident.. Why customers choose it Well-suited for spring and summer wear. A great option for daily wear and work settings. Designed for customers who prefer fresh and woody scents.",
       "productType": "Eau de Toilette",

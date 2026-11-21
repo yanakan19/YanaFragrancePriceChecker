@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-21T19:09:59.263Z",
-  "seenAt": "2026-11-21T19:09:59.263Z",
+  "updatedAt": "2026-11-21T22:37:17.643Z",
+  "seenAt": "2026-11-21T22:37:17.643Z",
   "source": "live",
   "listings": [
     {
@@ -3073,7 +3073,7 @@
       "priceGbp": 65.8,
       "wasPriceGbp": 94,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Why conform when you can be your daring, brilliant self? Clinique's much-loved Aromatics Elixir is for those who like to stand out from the crowd, and want a head-turning scent to match. This famed concoction combines 700 ingredients to create a scent topped by delicate floral notes, including bergamot and rose. This combines with rich, incense-like undertones of oak moss and patchouli, all rounded off by a moss-green end note..",
       "productType": "Women's Fragrances",
@@ -17862,7 +17862,7 @@
       "priceGbp": 88.8,
       "wasPriceGbp": 111,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A compact bottle of Colonia Intensa - intense, woody, and refined. A perfect expression of modern Italian masculinity..",
       "productType": "Unisex Fragrance",
@@ -21427,7 +21427,7 @@
       "priceGbp": 60.8,
       "wasPriceGbp": 76,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Y Iced Cologne Eau de Toilette by YSL delivers an invigorating blend of freshness and subtle depth. Crisp aromatic notes create a clean, cooling effect with modern appeal. A versatile fragrance that brings energy and confidence to daily wear..",
       "productType": "Men's Fragrances",
