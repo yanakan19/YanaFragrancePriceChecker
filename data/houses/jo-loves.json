@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-21T03:45:45.726Z",
-  "seenAt": "2026-11-21T03:45:45.726Z",
+  "updatedAt": "2026-11-21T07:21:01.719Z",
+  "seenAt": "2026-11-21T07:21:01.719Z",
   "source": "live",
   "listings": [
     {
@@ -1118,7 +1118,7 @@
       "priceGbp": 90,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Embrace the captivating essence of Pomelo, Jo Loves' debut fragrance, where the sparkling waters and sun-kissed shores of Parrot Cay Island intertwine, igniting a newfound creative awakening. Inhale the invigorating notes of rose, pomelo, vetiver, clove, patchouli, and suede, transporting you to a \"London Beach Home\" oasis.",
       "productType": "Fragrance",

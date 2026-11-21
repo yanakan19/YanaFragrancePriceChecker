@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-21T03:39:32.844Z",
-  "seenAt": "2026-11-21T03:39:32.844Z",
+  "updatedAt": "2026-11-21T07:15:10.011Z",
+  "seenAt": "2026-11-21T07:15:10.011Z",
   "source": "live",
   "listings": [
     {
@@ -5718,7 +5718,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Teti, goddess of the sea and nymph of the waters, maiden of everlasting beauty. She plays amongst the foaming waves and enchants all who come to quench their thirst at the fresh water springs. Her hair is adorned with never-seen flowers bringing a fresh and sparkling aroma, while she sings in the morning sun surrounded by the resplendent nature, rich with fruits of all colours. . . Top notes: Floral-fruity notes, peach, blackcurrant, raspberry, blackberry and soft citrus and green nuances Heart notes: Magnolia, lily of the valley, white flowers and currants Base notes: Peach, jasmine, mimosa, orange blossoms .",
       "productType": "Fragrance",

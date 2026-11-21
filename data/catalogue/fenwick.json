@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-21T03:39:10.454Z",
-  "seenAt": "2026-11-21T03:39:10.454Z",
+  "updatedAt": "2026-11-21T07:14:23.509Z",
+  "seenAt": "2026-11-21T07:14:23.509Z",
   "source": "live",
   "listings": [
     {
@@ -25452,7 +25452,7 @@
       "priceGbp": 152,
       "wasPriceGbp": 190,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Constellation Diamond Extrait De Parfum by Thameen is a luxurious fragrance crafted with exceptional attention to detail. Rich and long-lasting, it delivers a sophisticated scent experience..",
       "productType": "Women's Fragrances",
