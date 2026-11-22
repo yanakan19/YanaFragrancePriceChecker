@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-22T02:46:18.479Z",
-  "seenAt": "2026-11-22T02:46:18.479Z",
+  "updatedAt": "2026-11-22T06:53:35.445Z",
+  "seenAt": "2026-11-22T06:53:35.445Z",
   "source": "live",
   "listings": [
     {
@@ -253,9 +253,10 @@
       "description": null,
       "productType": null,
       "nativePrice": {
-        "amount": 10,
+        "amount": 8,
         "currency": "USD"
       },
+      "nativeWasPrice": 10,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-11-06T16:56:51.318Z",
       "status": "active",
@@ -279,9 +280,10 @@
       "description": null,
       "productType": null,
       "nativePrice": {
-        "amount": 5,
+        "amount": 4,
         "currency": "USD"
       },
+      "nativeWasPrice": 5,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-11-06T16:56:51.318Z",
       "status": "active",
@@ -565,9 +567,10 @@
       "description": "Wear your wishes with our inspiration for the holiday season. . . Experience the magic for yourself with bracelets that celebrate Brazilian wish ribbons. Tie one on and wish big. When the bracelet falls off, your wish is on its way. . . Dimensions: 3.35x6.07x0.09 Material: Polyester . .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 8,
+        "amount": 6,
         "currency": "USD"
       },
+      "nativeWasPrice": 8,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-15T17:48:09.254Z",
       "status": "active",
@@ -591,9 +594,10 @@
       "description": "Wear your wishes with our inspiration for the holiday season. . . Experience the magic for yourself with bracelets that celebrate Brazilian wish ribbons. Tie one on and wish big. When the bracelet falls off, your wish is on its way. . . Dimensions: 3.35x6.07x0.09 Material: Polyester . .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 8,
+        "amount": 6,
         "currency": "USD"
       },
+      "nativeWasPrice": 8,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-15T17:48:09.254Z",
       "status": "active",
@@ -617,9 +621,10 @@
       "description": "Wear your wishes with our inspiration for the holiday season. . . Experience the magic for yourself with bracelets that celebrate Brazilian wish ribbons. Tie one on and wish big. When the bracelet falls off, your wish is on its way. . . Dimensions: 3.35x6.07x0.09 Material: Polyester . .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 8,
+        "amount": 6,
         "currency": "USD"
       },
+      "nativeWasPrice": 8,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-15T17:48:09.254Z",
       "status": "active",
@@ -747,9 +752,10 @@
       "description": "Live your best cheirosa life. Our limited-edition set includes two fagrance duos—each featuring a perfume mist and solid perfume—in our irresistible Cheirosa 62™ and Cheirosa 68 scents. Layer your Jelly Perfume Balm and perfume mist for an extra delicious scent that lasts. .",
       "productType": "Holiday Set-dg",
       "nativePrice": {
-        "amount": 49,
+        "amount": 34,
         "currency": "USD"
       },
+      "nativeWasPrice": 49,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-21T22:08:15.023Z",
       "status": "active",
@@ -773,9 +779,10 @@
       "description": "Cheirosa means to smell incredibly delicious. It’s also an invitation to live your most delicious life. Spritz your fave, try something new, or layer for nonstop compliments. . Our limited-edition, ready-to-gift set features five best-selling perfume mists: irresistible & sunny Cheirosa 62™, flirty & confident Cheirosa 91, blissful & comforting Cheirosa 59, sultry & delicate Cheirosa 40, and sparkling & juicy Cheirosa 48. .",
       "productType": "Holiday Set-dg",
       "nativePrice": {
-        "amount": 39,
+        "amount": 27,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-12T07:02:47.785Z",
       "status": "active",
@@ -799,9 +806,10 @@
       "description": "The main-event gift has arrived. Our collector's set features five perfume mists, one perfume balm, four body creams, a body lotion oil, and a body oil–all in a mix of sizes ready for your at home rituals and holiday travels. .",
       "productType": "Holiday Set-dg",
       "nativePrice": {
-        "amount": 239,
+        "amount": 167,
         "currency": "USD"
       },
+      "nativeWasPrice": 239,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-11T19:48:56.731Z",
       "status": "active",
@@ -825,9 +833,10 @@
       "description": "Cheirosa means to smell incredibly delicious. It’s also an invitation to live your most delicious life. Spritz your fave, try something new, or layer for nonstop compliments. . . Our legendary Cheirosa perfume mist wardrobe features 9 full-sized options, from delicate florals to cozy woods and indulgent gourmands—perfect for gifting, colllecting, and obsessing over. .",
       "productType": "Holiday Set-dg",
       "nativePrice": {
-        "amount": 150,
+        "amount": 105,
         "currency": "USD"
       },
+      "nativeWasPrice": 150,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-12T07:02:47.785Z",
       "status": "active",
@@ -851,9 +860,10 @@
       "description": "Cheirosa means to smell incredibly delicious. It’s also an invitation to live your most delicious life. Spritz your fave, try something new, or layer for nonstop compliments. . . Our limited-edition, ready-to-gift set features three best-selling perfume mists: irresistible & sunny Cheirosa 62™, flirty & confident Cheirosa 91, and blissful & comforting Cheirosa 59. .",
       "productType": "Holiday Set-dg",
       "nativePrice": {
-        "amount": 28,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 28,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-12T07:02:47.785Z",
       "status": "active",
@@ -877,9 +887,10 @@
       "description": "Smooth and bright Solidays start with a radiant skin ritual—perfect for gifting and getting. Our limited-edition set features a Dry Body Brush to gently exfoliate, Bom Dia Bright™ Body Wash to cleanse and clarify, and Bom Dia Bright™ Body Cream to visibly smooth and brighten. Finish with Cheirosa 40 Perfume Mist for a sultry floral scent. .",
       "productType": "Holiday Set-dg",
       "nativePrice": {
-        "amount": 49,
+        "amount": 34,
         "currency": "USD"
       },
+      "nativeWasPrice": 49,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-12T07:02:47.785Z",
       "status": "active",
@@ -903,9 +914,10 @@
       "description": "The 4-step, visibly firming ritual skin craves—perfect for gifting and getting. Our limited-edition set brings together our Bum Bum Body Firmeza Oil and Body Firmeza Massage Tool to help visibly firm and depuff skin, our Brazilian Bum Bum® Cream to visibly tighten, and our Cheirosa 62™ Perfume Mist for an irresistible and sunny scent. .",
       "productType": "Holiday Set-dg",
       "nativePrice": {
-        "amount": 49,
+        "amount": 34,
         "currency": "USD"
       },
+      "nativeWasPrice": 49,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-12T07:02:47.785Z",
       "status": "active",
@@ -929,9 +941,10 @@
       "description": "In Portuguese, cheirosa means to smell incredibly delicious. . . Swipe. Stack. Go. Meet Cheirosa 48 Jelly Perfume Balm, your new pocket-size fragrance sidekick. This alcohol-free, twist-up stick glides on smoothly with a translucent, non-sticky feel and leaves behind a concentrated sparkling & juicy scent that lasts all day, up to 10 hours.* Twist it up just a little, then swipe on. Keep it in your bag to touch up after the gym or before dinner—anytime and anywhere. Stay cheirosa with notes of guava nectar, sunlit orchid, and pink musk. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-12T07:02:47.785Z",
       "status": "active",
@@ -1371,9 +1384,10 @@
       "description": "Effortlessly blend for the ultimate glow. This limited-edition blending brush with ultra-soft bristles moves seamlessly over the contours of your body to apply and buff Glowmotions Body Oil for an airbrushed finish. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 22,
+        "amount": 17,
         "currency": "USD"
       },
+      "nativeWasPrice": 22,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-21T17:35:07.423Z",
       "status": "active",
@@ -2671,9 +2685,10 @@
       "description": "Made to fit your Jelly Perfume Balm, t h is special-edition keychain clips onto your bag, keys, or phone chain for a delicious scent boost anytime. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-17T19:17:07.779Z",
       "status": "active",
@@ -2697,9 +2712,10 @@
       "description": "Made to fit your Jelly Perfume Balm, t h is special-edition keychain clips onto your bag, keys, or phone chain for a delicious scent boost anytime. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -2723,9 +2739,10 @@
       "description": "Made to fit your Jelly Perfume Balm, t h is special-edition keychain clips onto your bag, keys, or phone chain for a delicious scent boost anytime. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -2749,9 +2766,10 @@
       "description": "Made to fit your Jelly Perfume Balm, t h is special-edition keychain clips onto your bag, keys, or phone chain for a delicious scent boost anytime. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -2775,9 +2793,10 @@
       "description": "Make your beach day even better with our limited-edition , oversized, 100% cotton beach towel. With fringe detail and soft cotton in an extra-large size, it's perfect for days when you want to catch rays, chase waves and lay with friends.. Complete the moment with Body Badalada™ Lotion for all-day hydration in our iconic Cheirosa 62™ scent.. Size: 35\"W x 60\"L. Premium 100% cotton - 550gsm weight. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 48,
+        "amount": 36,
         "currency": "USD"
       },
+      "nativeWasPrice": 48,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -2879,9 +2898,10 @@
       "description": "Cheiroso 7 Cologne Mist is an amber aromatic scent for guys. Sun-drenched & adventurous, this men’s cologne mist goes all out with wild lavender, salted macadamia nut, vanilla woods, and vetiver fragrance notes. Plus, it's boosted with freshness tech to keep odor in check. Th e futebol - inspired fragrance draws from the 7 jersey––the star who lights it up with speed and flair. Vibing with the energy . Shared rhythm. The game is on with our cologne mist for men. . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -2905,9 +2925,10 @@
       "description": "Cheiroso 10 Cologne Mist is an aromatic gourmand fragrance for guys. Fresh & energized, this men’s cologne mist taps in with Brazilian pineapple, smooth cedarwood, and crushed cardamom fragrance notes. Plus, it's boosted with freshness tech to keep odor in check. Sand flying around you. An adrenaline rush. Unscripted rhythm. This f utebol -inspired fragrance draws from the 10 jersey––the visionary playmaker who defines the game. . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -10705,9 +10726,10 @@
       "description": "Milky & fruity, Leite Néctar Perfume Mist blends juicy peach, coconut milk, and sweet cream to satisfy your craving. This fruity gourmand perfume mist is inspired by Brazilian pavê de pêssego , a peach dessert with layers of biscuits ( think: ladyfingers). This coconut milk and peach perfume mist is your midday spritz me up. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -10731,9 +10753,10 @@
       "description": "Milky & rich, Leite Café Perfume Mist serves up latte accord, while coconut milk notes and lychee sorbet blend into frothy deliciousness. This milky, creamy gourmand fragrance is inspired by the classic Brazilian cafezinho — a tiny, hot, sweetened coffee known for its bold flavor and often enjoyed with milk ( café com leite in Portuguese). A cozy perfume mist that feels like your first sip. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -11460,9 +11483,10 @@
       "description": "Milky Leave-In Conditioner is our newly improved leave-in conditioner spray designed to smooth frizz and seal split ends.. This leave in conditioner for soft hair has advanced Sol Seal Technology™, which infuses ionically charged micro droplets to damaged hair to help seal strands and prevent breakage with cupuaçu butter, Brazil nut oil, and açaí oil.. Color-safe and lightweight, Milky Leave-In Conditioner nourishes while providing up to 450°F (230°C) heat protection, letting your hair be the mane attraction.. Get ready for irresistibly soft, head-turning hair in the fruity floral pink dragonfruit & Brazilian jasmine scent of Cheirosa 68. Ready to lock in?.",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 30,
+        "amount": 23,
         "currency": "USD"
       },
+      "nativeWasPrice": 30,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -11486,9 +11510,10 @@
       "description": "Milky Leave-In Conditioner is our newly improved leave-in conditioner spray designed to smooth frizz and seal split ends.. This leave in conditioner for soft hair has advanced Sol Seal Technology™, which infuses ionically charged micro droplets to damaged hair to help seal strands and prevent breakage with cupuaçu butter, Brazil nut oil, and açaí oil.. Color-safe and lightweight, Milky Leave-In Conditioner nourishes while providing up to 450°F (230°C) heat protection, letting your hair be the mane attraction.. Get ready for irresistibly soft, head-turning hair in the fruity floral pink dragonfruit & Brazilian jasmine scent of Cheirosa 68. Ready to lock in?.",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -11512,9 +11537,10 @@
       "description": "Milky Leave-In Conditioner is our newly improved hydrating leave in conditioner spray designed to smooth frizz and seal split ends.. This leave in conditioner for frizzy hair has advanced Sol Seal Technology™, which infuses ionically charged micro droplets to damaged hair to help seal strands and prevent breakage with cupuaçu butter, Brazil nut oil, and açaí oil. . Color-safe and lightweight, this leave in conditioner for split ends nourishes while providing up to 450°F (230°C) heat protection, letting your hair be the mane attraction.. Get ready for irresistibly soft, head-turning hair in the woody gourmand sheer sandalwood & vanilla orchid fragrance of Cheirosa 59. Ready to lock in?.",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 30,
+        "amount": 23,
         "currency": "USD"
       },
+      "nativeWasPrice": 30,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -11538,9 +11564,10 @@
       "description": "Milky Leave-In Conditioner is our newly improved hydrating leave in conditioner spray designed to smooth frizz and seal split ends.. This leave in conditioner for frizzy hair has advanced Sol Seal Technology™, which infuses ionically charged micro droplets to damaged hair to help seal strands and prevent breakage with cupuaçu butter, Brazil nut oil, and açaí oil. . Color-safe and lightweight, this leave in conditioner for split ends nourishes while providing up to 450°F (230°C) heat protection, letting your hair be the mane attraction.. Get ready for irresistibly soft, head-turning hair in the woody gourmand sheer sandalwood & vanilla orchid fragrance of Cheirosa 59. Ready to lock in?.",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14242,9 +14269,10 @@
       "description": "Glow from every angle with our limited-edition high-shimmer body oil duo. The nourishing formula hydrates, softens, and comes in two finishes for different effects. Plus, it’s scented with our irresistible & sunny Cheirosa 62™ fragrance and perfectly sized to take on the go..",
       "productType": "Gift Set",
       "nativePrice": {
-        "amount": 32,
+        "amount": 24,
         "currency": "USD"
       },
+      "nativeWasPrice": 32,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14268,9 +14296,10 @@
       "description": "Limited Edition Body Badalada ™ Daily Glow Lotion is a shimmer body lotion designed to deliver 24-hour weightless hydration for nourished, healthy-looking skin. This skin illuminating moisturizer gives a light-catching sheen that turns up your body care routine. Enriched with a hydrating 7 hyaluronic acid blend and moisture-boosting Brazilian sugarcane, our lightweight body lotion leaves your skin instantly touchable, glowy and ready to show off. And with our irresistible & sunny Cheirosa 62™ fragrance? It’s a body lotion for glowing skin that gives you unstoppable confidence. You know you wanna badalada with this silky body moisturizer made for shimmering hydration. .",
       "productType": "Body Lotion",
       "nativePrice": {
-        "amount": 28,
+        "amount": 21,
         "currency": "USD"
       },
+      "nativeWasPrice": 28,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14294,9 +14323,10 @@
       "description": "Body Badalada ™ Skin Refresh Water Lotion is an ultra-light water-gel body lotion designed to deliver 24-hour weightless, refreshing hydration. Bursting with moisturizing multi-glycerin, antioxidant-rich guava leaf essence, and skin-quenching star fruit extract, this non-greasy body moisturizer feels like an invigorating rush of water, sinking in quickly so you can slip right into whatever’s next. In our sparkling & juicy Cheirosa 48 fragrance , this lightweight body lotion leaves you with deliciously scented, healthy-looking skin . You know you wanna badalada with a weightless, refreshing body lotion . .",
       "productType": "Body Lotion",
       "nativePrice": {
-        "amount": 28,
+        "amount": 21,
         "currency": "USD"
       },
+      "nativeWasPrice": 28,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14320,9 +14350,10 @@
       "description": "Body Badalada ™ Skin Refresh Water Lotion is an ultra-light water-gel body lotion designed to deliver 24-hour weightless, refreshing hydration. Bursting with moisturizing multi-glycerin, antioxidant-rich guava leaf essence, and skin-quenching star fruit extract, this non-greasy body moisturizer feels like an invigorating rush of water, sinking in quickly so you can slip right into whatever’s next. In our sparkling & juicy Cheirosa 48 fragrance , this lightweight body lotion leaves you with deliciously scented, healthy-looking skin . You know you wanna badalada with a weightless, refreshing body lotion . .",
       "productType": "Body Lotion",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14346,9 +14377,10 @@
       "description": "Body Badalada ™ Skin Moisture Melting Lotion is a moisturizing body lotion designed to deliver 24-hour weightless, soothing hydration. Cocooned with nourishing coconut milk, a skin barrier-supporting pro-ceramide, and moisture-locking Brazilian buriti oil, our daily body moisturizer feels like a creamy veil that leaves your skin touchably soft. This transforming milk-to-butter body lotion for dry skin effortlessly sinks in and i s scented with our beachy & indulgent Cheirosa 39 fragrance. Get ready to glide into what’s next . You know you wanna badalada with this nourishing body lot ion . .",
       "productType": "Body Lotion",
       "nativePrice": {
-        "amount": 28,
+        "amount": 21,
         "currency": "USD"
       },
+      "nativeWasPrice": 28,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-11-13T21:15:43.775Z",
       "status": "active",
@@ -14372,9 +14404,10 @@
       "description": "Body Badalada ™ Skin Moisture Melting Lotion is a moisturizing body lotion designed to deliver 24-hour weightless, soothing hydration. Cocooned with nourishing coconut milk, a skin barrier-supporting pro-ceramide, and moisture-locking Brazilian buriti oil, our daily body moisturizer feels like a creamy veil that leaves your skin touchably soft. This transforming milk-to-butter body lotion for dry skin effortlessly sinks in and i s scented with our beachy & indulgent Cheirosa 39 fragrance. Get ready to glide into what’s next . You know you wanna badalada with this nourishing body lot ion . .",
       "productType": "Body Lotion",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14398,9 +14431,10 @@
       "description": "How To Claim Your Gift . . Log in to Sol Passpor t and scroll down on your account page to get your gift . Add your free perfume mist of your choice to your cart * . A dd the other products you’ re eye ing (Go all out. It’s you r birthday!) . Apply the following code at checkout: [CODE HERE] . * Free 30ml perfume mist with a purchase for Sol One-Way, Sol Round-Trip, and Sol Upgrade members who have entered their birthday in their profile. Customers who are in the Sol Now Boarding tier are not eligible for a birthday gift. Must be subscribed to Sol de Janeiro emails to receive promo code. One free birthday gift per member per year. Cannot be combined with any other promo codes/offers/discounts, including loyalty point redemption or subscription purchases. Offer valid subject to availability. Offer not valid on previous purchases. Not valid for cash or credit. Offer subject to change at any time and without notice. Sol de Janeiro has the right to cancel any orders due to unauthorized use of our website or violation of our Terms of Use. Offer valid 30 days from birthday, while supplies last. . . .",
       "productType": "birthday gift",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -14424,9 +14458,10 @@
       "description": "How To Claim Your Gift . . Log in to Sol Passpor t and scroll down on your account page to get your gift . Add your free perfume mist of your choice to your cart * . A dd the other products you’ re eye ing (Go all out. It’s you r birthday!) . Apply the following code at checkout: [CODE HERE] . * Free 30ml perfume mist with a purchase for Sol One-Way, Sol Round-Trip, and Sol Upgrade members who have entered their birthday in their profile. Customers who are in the Sol Now Boarding tier are not eligible for a birthday gift. Must be subscribed to Sol de Janeiro emails to receive promo code. One free birthday gift per member per year. Cannot be combined with any other promo codes/offers/discounts, including loyalty point redemption or subscription purchases. Offer valid subject to availability. Offer not valid on previous purchases. Not valid for cash or credit. Offer subject to change at any time and without notice. Sol de Janeiro has the right to cancel any orders due to unauthorized use of our website or violation of our Terms of Use. Offer valid 30 days from birthday, while supplies last. . . .",
       "productType": "birthday gift",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-17T00:14:27.173Z",
       "status": "active",
@@ -14476,9 +14511,10 @@
       "description": "Swipe. Stack. Go. Meet Cheirosa 62™ Jelly Perfume Balm, your new pocket-size fragrance sidekick. This alcohol-free, twist-up stick glides on smoothly with a translucent, non-sticky feel and leaves behind a concentrated irresistible & sunny scent that lasts all day, up to 10 hours.* Twist it up just a little, then swipe on. Keep it in your bag to touch up after the gym or before dinner—anytime and anywhere. Stay cheirosa with notes of pistachio, salted caramel, and vanilla. . . Size: 4g .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14502,9 +14538,10 @@
       "description": "Swipe. Stack. Go. Meet Cheirosa 68 Jelly Perfume Balm, your new pocket-size fragrance sidekick. This alcohol-free, twist-up stick glides on smoothly with a translucent, non-sticky feel and leaves behind a concentrated vibrant & lush scent that lasts all day, up to 10 hours.* Twist it up just a little, then swipe on. Keep it in your bag to touch up after the gym or before dinner—anytime and anywhere. Stay cheirosa with notes of Brazilian jasmine, pink dragonfruit, and ocean air. . . Size: 4g .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14528,9 +14565,10 @@
       "description": "Swipe. Stack. Go. Meet Cheirosa 40 Jelly Perfume Balm, your new pocket-size fragrance sidekick. This alcohol-free, twist-up stick glides on smoothly with a translucent, non-sticky feel and leaves behind a concentrated sultry & delicate scent that lasts all day, up to 10 hours.* Twist it up just a little, then swipe on. Keep it in your bag to touch up after the gym or before dinner—anytime and anywhere. Stay cheirosa with notes of Black Amber plum, jasmine blooms, and vanilla woods. . . Size: 4g .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14554,9 +14592,10 @@
       "description": "Cute, cool and effortlessly charmosa—just like you are. Our new 100% cotton poplin boxers are your go-to for laid-back comfort—chic enough to wear out, comfy enough to lounge in at home. Pair them with our Rosa Cozy Crewneck Sweatshirt and Rosa Charmosa™ Dewy Cream to feel dewy, luminous & unstoppable. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 38,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 38,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14580,9 +14619,10 @@
       "description": "Cute, cool and effortlessly charmosa—just like you are. Our new 100% cotton poplin boxers are your go-to for laid-back comfort—chic enough to wear out, comfy enough to lounge in at home. Pair them with our Rosa Cozy Crewneck Sweatshirt and Rosa Charmosa™ Dewy Cream to feel dewy, luminous & unstoppable. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 38,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 38,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14606,9 +14646,10 @@
       "description": "Cute, cool and effortlessly charmosa—just like you are. Our new 100% cotton poplin boxers are your go-to for laid-back comfort—chic enough to wear out, comfy enough to lounge in at home. Pair them with our Rosa Cozy Crewneck Sweatshirt and Rosa Charmosa™ Dewy Cream to feel dewy, luminous & unstoppable. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 38,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 38,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14632,9 +14673,10 @@
       "description": "Cute, cool and effortlessly charmosa—just like you are. Our new 100% cotton poplin boxers are your go-to for laid-back comfort—chic enough to wear out, comfy enough to lounge in at home. Pair them with our Rosa Cozy Crewneck Sweatshirt and Rosa Charmosa™ Dewy Cream to feel dewy, luminous & unstoppable. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 38,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 38,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14658,9 +14700,10 @@
       "description": "Cute, cool and effortlessly charmosa—just like you are. Our new 100% cotton poplin boxers are your go-to for laid-back comfort—chic enough to wear out, comfy enough to lounge in at home. Pair them with our Rosa Cozy Crewneck Sweatshirt and Rosa Charmosa™ Dewy Cream to feel dewy, luminous & unstoppable. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 38,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 38,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14710,9 +14753,10 @@
       "description": "Rosa Charmosa™ Dewy Cream is a water whipped body cream that delivers 48-hour hydration and instant skin luminosity . Its fast-absorbing formula is powered by Crystal Peptide, Brazilian yacón essence, and rosewater for moisture barrier support and deeply replenished skin. . This lightweight body moisturizer has a water-whipped texture that melts in effortlessly for a non-greasy, radiant skin look . Infused with Cheirosa 91’s flirty floral fragrance notes , the scent pulses with Rio pink rose, passionfruit , and honey caramel. . .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 48,
+        "amount": 36,
         "currency": "USD"
       },
+      "nativeWasPrice": 48,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14736,9 +14780,10 @@
       "description": "Rosa Charmosa™ Dewy Cream is a water whipped body cream that delivers 48-hour hydration and instant skin luminosity . Its fast-absorbing formula is powered by Crystal Peptide, Brazilian yacón essence, and rosewater for moisture barrier support and deeply replenished skin. . This lightweight body moisturizer has a water-whipped texture that melts in effortlessly for a non-greasy, radiant skin look . Infused with Cheirosa 91’s flirty floral fragrance notes , the scent pulses with Rio pink rose, passionfruit , and honey caramel. . .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 24,
+        "amount": 18,
         "currency": "USD"
       },
+      "nativeWasPrice": 24,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14762,9 +14807,10 @@
       "description": "In Portuguese, cheirosa means to smell incredibly delicious. . . Pop anthems pulse through your headphones. City flowers bloom at your feet. Turning heads with every step. . . Cheirosa 91 ignites the electric energy of 1991 pop remixes, a transformative year that sparked a remix revolution in Brazilian music. Juicy & floral, this upbeat fragrance feels the pulse of a new rhythm with fresh-picked notes of passionfruit, honey caramel, and the bold essence of a Rio pink rose, expertly captured by Scent Imprint Technology. It’s time to vibe to a new rose. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14788,9 +14834,10 @@
       "description": "In Portuguese, cheirosa means to smell incredibly delicious. . . Pop anthems pulse through your headphones. City flowers bloom at your feet. Turning heads with every step. . . Cheirosa 91 ignites the electric energy of 1991 pop remixes, a transformative year that sparked a remix revolution in Brazilian music. Juicy & floral, this upbeat fragrance feels the pulse of a new rhythm with fresh-picked notes of passionfruit, honey caramel, and the bold essence of a Rio pink rose, expertly captured by Scent Imprint Technology. It’s time to vibe to a new rose. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14814,9 +14861,10 @@
       "description": "In Portuguese, cheirosa means to smell incredibly delicious. . . Pop anthems pulse through your headphones. City flowers bloom at your feet. Turning heads with every step. . . Cheirosa 91 ignites the electric energy of 1991 pop remixes, a transformative year that sparked a remix revolution in Brazilian music. Juicy & floral, this upbeat fragrance feels the pulse of a new rhythm with fresh-picked notes of passionfruit, honey caramel, and the bold essence of a Rio pink rose, expertly captured by Scent Imprint Technology. It’s time to vibe to a new rose. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 34,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 34,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14866,9 +14914,10 @@
       "description": "Stay beach-ready at the drop of a hat with our new limited-edition large brim sun visor. Perfect for travel, the flexible material rolls to easily fit into your beach bag.",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 30,
+        "amount": 23,
         "currency": "USD"
       },
+      "nativeWasPrice": 30,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14918,9 +14967,10 @@
       "description": "You know you wanna get in on the Badalada with our limited-edition 100% cotton relaxed tee. This semi-cropped shirt in premium-weight material hits just at the waistband for a laid-back look.. Complete the moment with Body Badalada™ Lotion for all-day hydration in our iconic Cheirosa 62™ scent.. BADALADA (n.) The hottest thing.. Machine Wash Cold. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 35,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 35,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14944,9 +14994,10 @@
       "description": "You know you wanna get in on the Badalada with our limited-edition 100% cotton relaxed tee. This semi-cropped shirt in premium-weight material hits just at the waistband for a laid-back look.. Complete the moment with Body Badalada™ Lotion for all-day hydration in our iconic Cheirosa 62™ scent.. BADALADA (n.) The hottest thing.. Machine Wash Cold. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 35,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 35,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14970,9 +15021,10 @@
       "description": "You know you wanna get in on the Badalada with our limited-edition 100% cotton relaxed tee. This semi-cropped shirt in premium-weight material hits just at the waistband for a laid-back look.. Complete the moment with Body Badalada™ Lotion for all-day hydration in our iconic Cheirosa 62™ scent.. BADALADA (n.) The hottest thing.. Machine Wash Cold. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 35,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 35,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -14996,9 +15048,10 @@
       "description": "Stay ready for anything from day plans to iconic nights with our clear, limited-edition crossbody Badalada Bag.. . Made for festivals, stadiums, and all of life's iconic moments, this limited-edition bag keeps your essentials secure and makes event entry easy. Featuring a soft, adjustable clip-on strap so you can wear it around your waist or as a crossbody, and a zippered pocket to keep smaller items safe.. Complete the moment with Body Badalada™ Lotion for all-day hydration in our iconic Cheirosa 62™ scent.. BADALADA (n.) The hottest thing.. Bag dimensions: 7.5\"W x 2\"D x 5\"9H (sized to comply with most event bag policies). Adjustable strap: 45\" (fully extended). Care: Spot clean, do not wash, bleach, tumble dry, iron or dry clean. . .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 35,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 35,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -15022,9 +15075,10 @@
       "description": "You know you wanna get in on the Badalada with our limited-edition embroidered Badalada baseball cap.. . Made with lightweight cotton and featuring an adjustable strap, this hat protects from the sun while topping off any look.. Complete the moment with Body Badalada™ Lotion for all-day hydration in our iconic Cheirosa 62™ scent.. One size fits most: 57cm-60cm. Keep your hat clean with cold water and gentle soap. . .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 28,
+        "amount": 21,
         "currency": "USD"
       },
+      "nativeWasPrice": 28,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -15074,9 +15128,10 @@
       "description": "Coconuts straight from the tree. Hammock daydreams. Breeze in your hair.. . Cheirosa 39 Perfume Mist returns with even more coconut and vanilla than before—and it’s here for good. Inspired by 1939, when Brazilian performer Carmen Miranda made tropical style iconic, this scent captures that same playful spirit. Beachy & indulgent, it blends coconut cream and tropical orchid while toasted vanilla melts into warm praline. Find your paradise.. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -15100,9 +15155,10 @@
       "description": "Coconuts straight from the tree. Hammock daydreams. Breeze in your hair.. . Cheirosa 39 Perfume Mist returns with even more coconut and vanilla than before—and it’s here for good. Inspired by 1939, when Brazilian performer Carmen Miranda made tropical style iconic, this scent captures that same playful spirit. Beachy & indulgent, it blends coconut cream and tropical orchid while toasted vanilla melts into warm praline. Find your paradise.. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -15126,9 +15182,10 @@
       "description": "There's no holding back with 24-hour weightless hydration. This fast-absorbing, lightweight silky body lotion nourishes for seriously touchable, healthy-looking skin. Plus, it's scented with our irresistible & sunny Cheirosa 62™ fragrance. .",
       "productType": "Body Lotion",
       "nativePrice": {
-        "amount": 28,
+        "amount": 21,
         "currency": "USD"
       },
+      "nativeWasPrice": 28,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -15152,9 +15209,10 @@
       "description": "There's no holding back with 24-hour weightless hydration. This fast-absorbing, lightweight silky body lotion nourishes for seriously touchable, healthy-looking skin. Plus, it's scented with our irresistible & sunny Cheirosa 62™ fragrance. .",
       "productType": "Body Lotion",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -15230,9 +15288,10 @@
       "description": "Kiss dry lips tchau (goodbye). This nourishing vegan lip butter moisturizes and softens, leaving lips looking naturally plump with a dewy shine. .",
       "productType": "lip care",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -15906,9 +15965,10 @@
       "description": "This Sol de Janeiro exclusive dry body brush invigorates and helps remove dead skin cells for softer, brighter-looking skin. The ergonomic beechwood handle offers better control for effortless exfoliating. .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 20,
+        "amount": 15,
         "currency": "USD"
       },
+      "nativeWasPrice": 20,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -15958,9 +16018,10 @@
       "description": "Beija Flor™ Elasti -Body Oil is a nourishing body oil designed to improve skin elasticity and resilience for smoother, more supple-looking sk in. Infused with cacay oil (a retinol alternative), plant squalane, and amaranthus seed extract, this hydrating body oil sinks in without a greasy feel, leaving skin feeling silky-soft and with a supple skin texture . Plus, it’s scented with our Cheirosa 68 fragrance with enchanting notes of pink dragonfruit , Brazilian jasmine, and ocean air. .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 52,
+        "amount": 39,
         "currency": "USD"
       },
+      "nativeWasPrice": 52,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16036,9 +16097,10 @@
       "description": "Our aluminum-free, baking soda-free deodorant eliminates odor to keep you smelling amazing from sunrise to sunset. .",
       "productType": "Deodorant",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16062,9 +16124,10 @@
       "description": "Our aluminum-free, baking soda-free deodorant eliminates odor to keep you smelling amazing from sunrise to sunset. .",
       "productType": "Deodorant",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16088,9 +16151,10 @@
       "description": "Soak up every moment of your shower routine. This ultra-replenishing oil-to-foam body cleanser replenishes moisture while it gently cleanses for velvety, comforted skin. Plus, it's scented with our blissful & comforting Cheirosa 59 fragrance..",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16114,9 +16178,10 @@
       "description": "Soak up every moment of your shower routine. This ultra-replenishing oil-to-foam body cleanser replenishes moisture while it gently cleanses for velvety, comforted skin. Plus, it's scented with our blissful & comforting Cheirosa 59 fragrance..",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16140,9 +16205,10 @@
       "description": "Soak up every moment of your shower routine. This ultra-replenishing oil-to-foam body cleanser replenishes moisture while it gently cleanses for velvety, comforted skin. Plus, it's scented with our blissful & comforting Cheirosa 59 fragrance..",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 58,
+        "amount": 44,
         "currency": "USD"
       },
+      "nativeWasPrice": 58,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16166,9 +16232,10 @@
       "description": "Soak up every moment of your shower routine. This ultra-replenishing oil-to-foam body cleanser replenishes moisture while it gently cleanses for velvety, comforted skin. Plus, it's scented with our blissful & comforting Cheirosa 59 fragrance..",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 50,
+        "amount": 38,
         "currency": "USD"
       },
+      "nativeWasPrice": 50,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16192,9 +16259,10 @@
       "description": "Transform your routine two ways with our dual-sided towel. Cotton gently and quickly dries hair, while satin protects from damage and frizz. Pick a side, you r mane will love you for it. . . On wet hair : Cotton a bsorbs water to protect and rapidly dry hair. . . On dry hair : Satin prevents damage and frizz, while maintaining hairstyle overnight. . . . Designed to limit effects from heat and towel drying. . . . Generously sized to cover all hair lengths and types. . . Hand wash with cool water and gentle detergent. Hang dry. . Size: 25\" x 9.8\" . .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 35,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 35,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16244,9 +16312,10 @@
       "description": "A halo of disco lights. The magnetic energy of the crowd. Getting lost in the beat.​. . Cheirosa 76 Perfume Mist ignites the dazzling 1976 discotheque era of Brazil. Intoxicating and velvety, this hypnotic fragrance opens with a spark of black currant, while midnight jasmine and lush freesia dance with amber woods.. . The rhythm of Rio after hours. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16270,9 +16339,10 @@
       "description": "A halo of disco lights. The magnetic energy of the crowd. Getting lost in the beat.​. . Cheirosa 76 Perfume Mist ignites the dazzling 1976 discotheque era of Brazil. Intoxicating and velvety, this hypnotic fragrance opens with a spark of black currant, while midnight jasmine and lush freesia dance with amber woods.. . The rhythm of Rio after hours. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16296,9 +16366,10 @@
       "description": "A halo of disco lights. The magnetic energy of the crowd. Getting lost in the beat.​. . Cheirosa 76 Perfume Mist ignites the dazzling 1976 discotheque era of Brazil. Intoxicating and velvety, this hypnotic fragrance opens with a spark of black currant, while midnight jasmine and lush freesia dance with amber woods.. . The rhythm of Rio after hours. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 34,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 34,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16348,9 +16419,10 @@
       "description": "Water droplets glisten on skin. Poolside cocktails at your service. Living in your favorite bikini.​. . Cheirosa 48 Perfume Mist celebrates the liberating energy of 1948, when the bikini was first spotted in Brazil. Tropical and juicy, this succulent fragrance opens with a ripe twist of guava nectar, while sunlit orchid blooms under a dreamy vanilla and pink musk cloud. ​. . It's bikini season.. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16374,9 +16446,10 @@
       "description": "Water droplets glisten on skin. Poolside cocktails at your service. Living in your favorite bikini.​. . Cheirosa 48 Perfume Mist celebrates the liberating energy of 1948, when the bikini was first spotted in Brazil. Tropical and juicy, this succulent fragrance opens with a ripe twist of guava nectar, while sunlit orchid blooms under a dreamy vanilla and pink musk cloud. ​. . It's bikini season.. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16426,9 +16499,10 @@
       "description": "Meet at dusk. A heightened state of bliss. The sun sets in a violet haze.. . Cheirosa 59 Perfume Mist captures the essence of 1959, when singer João Gilberto released his first-credited bossa nova album, Chega de Saudade (aka No More Blues). Uplifting and delicious, this mood-boosting fragrance immerses your body and mind in the warmth of vanilla orchid and sugared violet, while sheer sandalwood mingles with whipped amber.. Not sure which scent fits your mood? Take our quiz to find your fragrance .. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16452,9 +16526,10 @@
       "description": "Meet at dusk. A heightened state of bliss. The sun sets in a violet haze.. . Cheirosa 59 Perfume Mist captures the essence of 1959, when singer João Gilberto released his first-credited bossa nova album, Chega de Saudade (aka No More Blues). Uplifting and delicious, this mood-boosting fragrance immerses your body and mind in the warmth of vanilla orchid and sugared violet, while sheer sandalwood mingles with whipped amber.. Not sure which scent fits your mood? Take our quiz to find your fragrance .. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16478,9 +16553,10 @@
       "description": "Meet at dusk. A heightened state of bliss. The sun sets in a violet haze.. . Cheirosa 59 Perfume Mist captures the essence of 1959, when singer João Gilberto released his first-credited bossa nova album, Chega de Saudade (aka No More Blues). Uplifting and delicious, this mood-boosting fragrance immerses your body and mind in the warmth of vanilla orchid and sugared violet, while sheer sandalwood mingles with whipped amber.. Not sure which scent fits your mood? Take our quiz to find your fragrance .. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 34,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 34,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16504,9 +16580,10 @@
       "description": "Delícia Drench™ Body Butter is an ultra-rich body butter that goes beyond the skin’s surface, penetrating deeply to lock in moisture for up to 48 hours and restore a compromised skin barrier . Nourishing your skin microbiome balance , this moisturizing body butter is powered by nutrient-dense bacuri butter, our Brazilian Soothing Complex, and prebiotic hibiscus. This soothing body moisturizer relieves extra-dry skin and has a velvety (never greasy) finish. Plus, it’s scented with our Cheirosa 59 fragrance that’s proven to boost your mood with delicious notes of vanilla orchid and sheer sandalwood. . .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 48,
+        "amount": 36,
         "currency": "USD"
       },
+      "nativeWasPrice": 48,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16530,9 +16607,10 @@
       "description": "Delícia Drench™ Body Butter is an ultra-rich body butter that goes beyond the skin’s surface, penetrating deeply to lock in moisture for up to 48 hours and restore a compromised skin barrier . Nourishing your skin microbiome balance , this moisturizing body butter is powered by nutrient-dense bacuri butter, our Brazilian Soothing Complex, and prebiotic hibiscus. This soothing body moisturizer relieves extra-dry skin and has a velvety (never greasy) finish. Plus, it’s scented with our Cheirosa 59 fragrance that’s proven to boost your mood with delicious notes of vanilla orchid and sheer sandalwood. . .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 24,
+        "amount": 18,
         "currency": "USD"
       },
+      "nativeWasPrice": 24,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16660,9 +16738,10 @@
       "description": "An aluminum-free, baking soda-free deodorant that actually works. Rio Deo eliminates odor, soothes skin, and helps fight ingrown hairs. Our 98% naturally derived formula is now available in the fruity floral scent of Cheirosa 68 with notes of Brazilian jasmine & pink dragonfruit.",
       "productType": "Deodorant",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16686,9 +16765,10 @@
       "description": "An aluminum-free, baking soda-free deodorant that actually works. Rio Deo eliminates odor, soothes skin, and helps fight ingrown hairs. Our 98% naturally derived formula is now available in the fruity floral scent of Cheirosa 68 with notes of Brazilian jasmine & pink dragonfruit.",
       "productType": "Deodorant",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -16738,9 +16818,10 @@
       "description": "Give your shower routine a boost. This ultra-rich, low-lather cream wash renews while it gently cleanses impurities for bouncy, supple skin. Plus, it's scented with our vibrant & lush Cheirosa 68 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -16764,9 +16845,10 @@
       "description": "Give your shower routine a boost. This ultra-rich, low-lather cream wash renews while it gently cleanses impurities for bouncy, supple skin. Plus, it's scented with our vibrant & lush Cheirosa 68 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -16790,9 +16872,10 @@
       "description": "Give your shower routine a boost. This ultra-rich, low-lather cream wash renews while it gently cleanses impurities for bouncy, supple skin. Plus, it's scented with our vibrant & lush Cheirosa 68 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 58,
+        "amount": 44,
         "currency": "USD"
       },
+      "nativeWasPrice": 58,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16816,9 +16899,10 @@
       "description": "Give your shower routine a boost. This ultra-rich, low-lather cream wash renews while it gently cleanses impurities for bouncy, supple skin. Plus, it's scented with our vibrant & lush Cheirosa 68 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 50,
+        "amount": 38,
         "currency": "USD"
       },
+      "nativeWasPrice": 50,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16868,9 +16952,10 @@
       "description": "Radiate a vacation glow with warm Copacabana Bronze or sh immer like the sun with the champagne glow of Rio Sunset. This transfer-resistant , lightweight body oil softens skin with moisturizing cupuaçu butter and a nourishing blend of coconut, açai, and sunflower oils, while wrapping you in our iconic Cheirosa 62 ™ scent. . *Colors sold separately .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 36,
+        "amount": 27,
         "currency": "USD"
       },
+      "nativeWasPrice": 36,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16894,9 +16979,10 @@
       "description": "Radiate a vacation glow with warm Copacabana Bronze or sh immer like the sun with the champagne glow of Rio Sunset. This transfer-resistant , lightweight body oil softens skin with moisturizing cupuaçu butter and a nourishing blend of coconut, açai, and sunflower oils, while wrapping you in our iconic Cheirosa 62 ™ scent. . *Colors sold separately .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 36,
+        "amount": 27,
         "currency": "USD"
       },
+      "nativeWasPrice": 36,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -16920,9 +17006,10 @@
       "description": "Our new + improved shampoo addresses the concerns for fine to medium hair: damage repair, dryness, frizz, split ends, and hair weighed down by heavy formulas. Sulfate-free and color-safe. .",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -16946,9 +17033,10 @@
       "description": "Our new + improved shampoo addresses the concerns for fine to medium hair: damage repair, dryness, frizz, split ends, and hair weighed down by heavy formulas. Sulfate-free and color-safe. .",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -16972,9 +17060,10 @@
       "description": "Our new + improved conditioner addresses the concerns for fine to medium hair: damage repair, dryness, frizz, split ends, and hair weighed down by heavy formulas. Sulfate-free and color-safe. .",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -16998,9 +17087,10 @@
       "description": "Our new + improved conditioner addresses the concerns for fine to medium hair: damage repair, dryness, frizz, split ends, and hair weighed down by heavy formulas. Sulfate-free and color-safe. .",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17050,9 +17140,10 @@
       "description": "Cheirosa 87 is a solar floral perfume mist that opens with a burst of leite de coco (coconut milk) while a canopy of solar tuberose and creamy vanilla lingers over warm sand. Sunkissed & carefree, this nostalgic summer fragrance evokes the sizzling Copacabana Beach culture of 1987, an era of high-energy parties, music, and art. Sea breeze at peak sun. Toes nestle in golden sand. Showing off your tan lines. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17076,9 +17167,10 @@
       "description": "Cheirosa 87 is a solar floral perfume mist that opens with a burst of leite de coco (coconut milk) while a canopy of solar tuberose and creamy vanilla lingers over warm sand. Sunkissed & carefree, this nostalgic summer fragrance evokes the sizzling Copacabana Beach culture of 1987, an era of high-energy parties, music, and art. Sea breeze at peak sun. Toes nestle in golden sand. Showing off your tan lines. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17128,9 +17220,10 @@
       "description": ".variant-custom-message { display:none!important; } #ltkpopupinline-bis-signup { display:block!important; } An at-home lymphatic drainage massage tool to help sculpt the body and reduce that bloated feeling. Made of FSC-certified beechwood, this tool allows you to experience the benefits of a Brazilian lymphatic drainage massage at home, using our Bum Bum Body Firmeza Oil. Sweep the tool over skin to support lymphatic drainage and the body’s natural detox process, and reduce signs of bloating",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 20,
+        "amount": 15,
         "currency": "USD"
       },
+      "nativeWasPrice": 20,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-10T11:31:01.438Z",
       "status": "active",
@@ -17154,9 +17247,10 @@
       "description": "In Brazil, we care about every inch of our skin. And our underarms are no exception. Our aluminum-free, baking soda-free deodorant eliminates odor to keep you smelling amazing from sunrise to sunset. It’s the Sol de Janeiro way. .",
       "productType": "Deodorant",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17180,9 +17274,10 @@
       "description": "In Brazil, we care about every inch of our skin. And our underarms are no exception. Our aluminum-free, baking soda-free deodorant eliminates odor to keep you smelling amazing from sunrise to sunset. It’s the Sol de Janeiro way. .",
       "productType": "Deodorant",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17206,9 +17301,10 @@
       "description": "Bum Bum Body Firmeza Oil is a visibly firming body oil that’s shown to improve the appearance of stretch marks and noticeably depuff. Powered by our Guaraná Caffeine+ Complex™, Brazilian acaí oil, and micro algae extract, this luscious formula absorbs almost instantly for skin that feels deeply nourished, never greasy. Plus, it’s scented with Cheirosa 62™, our iconic fragrance with notes of pistachio, salted caramel, and vanilla for that summer-all-year-round feeling. Consider it your daily skin-loving ritual, post-flight savior, or pre-beach essential. Because visibly toned skin should always be within reach. .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 52,
+        "amount": 39,
         "currency": "USD"
       },
+      "nativeWasPrice": 52,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17258,9 +17354,10 @@
       "description": "In Brazil, we care about every inch of our skin. And our underarms are no exception.. Our aluminum-free, baking soda-free deodorant eliminates odor to keep you smelling amazing from sunrise to sunset. It’s the Sol de Janeiro way. Rio Deo doesn’t mask odor with fragrance. It eliminates odor, then leaves you cheirosa (smelling incredible) with our iconic Cheirosa 62™ fragrance — the same as our iconic Brazilian Bum Bum Cream scent..",
       "productType": "Deodorant",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17284,9 +17381,10 @@
       "description": "In Brazil, we care about every inch of our skin. And our underarms are no exception.. Our aluminum-free, baking soda-free deodorant eliminates odor to keep you smelling amazing from sunrise to sunset. It’s the Sol de Janeiro way. Rio Deo doesn’t mask odor with fragrance. It eliminates odor, then leaves you cheirosa (smelling incredible) with our iconic Cheirosa 62™ fragrance — the same as our iconic Brazilian Bum Bum Cream scent..",
       "productType": "Deodorant",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17336,9 +17434,10 @@
       "description": "Say bom dia (good day) to your best, smoothest skin. This gently exfoliating body wash clarifies while it cleanses for smooth, visibly brighter skin. Plus, it's scented with our sultry & delicate Cheirosa 40 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17362,9 +17461,10 @@
       "description": "Say bom dia (good day) to your best, smoothest skin. This gently exfoliating body wash clarifies while it cleanses for smooth, visibly brighter skin. Plus, it's scented with our sultry & delicate Cheirosa 40 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17388,9 +17488,10 @@
       "description": "Say bom dia (good day) to your best, smoothest skin. This gently exfoliating body wash clarifies while it cleanses for smooth, visibly brighter skin. Plus, it's scented with our sultry & delicate Cheirosa 40 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 58,
+        "amount": 44,
         "currency": "USD"
       },
+      "nativeWasPrice": 58,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17414,9 +17515,10 @@
       "description": "Say bom dia (good day) to your best, smoothest skin. This gently exfoliating body wash clarifies while it cleanses for smooth, visibly brighter skin. Plus, it's scented with our sultry & delicate Cheirosa 40 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 50,
+        "amount": 38,
         "currency": "USD"
       },
+      "nativeWasPrice": 50,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17440,9 +17542,10 @@
       "description": "It's always a bom dia (good day) for smooth, clear-looking skin. This retexturizing body scrub clarifies, evens tone, and buffs away dryness and rough texture for your softest, most radiant skin. Plus, it's scented with our warm floral Cheirosa 40 fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 42,
+        "amount": 32,
         "currency": "USD"
       },
+      "nativeWasPrice": 42,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17492,9 +17595,10 @@
       "description": "Pairs perfectly with our entire hair care collection, especially our Triple Brazilian Butter™ Hair Repair Treatment and NEW Brazilian Joia™ Milky Leave-In Conditioner for effortless detangling. . This comb is equal parts strong and stylish— it glides through fine, delicate strands as well as thicker, coiled hair textures too. . And, thicker or textured hair types won’t have to stress about breaking any teeth during their next styling session either. . P.s. we only made a few, so snag yours before they sell out. . 6.5 inches X 2.5 inches .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17518,9 +17622,10 @@
       "description": "Milky Leave-In Conditioner is our newly improved leave-in conditioner spray designed to smooth frizz and seal split ends. . This leave in conditioner for soft hair has advanced Sol Seal Technology™, which infuses ionically charged micro droplets to damaged hair to help seal strands and prevent breakage with cupuaçu butter, Brazil nut oil, and açaí oil. . Color-safe and lightweight, Milky Leave-In Conditioner nourishes while providing up to 450°F (230°C) heat protection, letting your hair be the mane attraction. . Get ready for irresistibly soft, head-turning hair in the warm gourmand salted caramel scent of Cheirosa 62™. Ready to lock in? .",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 30,
+        "amount": 23,
         "currency": "USD"
       },
+      "nativeWasPrice": 30,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17544,9 +17649,10 @@
       "description": "Milky Leave-In Conditioner is our newly improved leave-in conditioner spray designed to smooth frizz and seal split ends. . This leave in conditioner for soft hair has advanced Sol Seal Technology™, which infuses ionically charged micro droplets to damaged hair to help seal strands and prevent breakage with cupuaçu butter, Brazil nut oil, and açaí oil. . Color-safe and lightweight, Milky Leave-In Conditioner nourishes while providing up to 450°F (230°C) heat protection, letting your hair be the mane attraction. . Get ready for irresistibly soft, head-turning hair in the warm gourmand salted caramel scent of Cheirosa 62™. Ready to lock in? .",
       "productType": "Hair",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17570,9 +17676,10 @@
       "description": "Sun beams through cascading palms. Hummingbirds kiss lush flora. Enchanted seaside wonder. . . Cheirosa 68 Perfume Mist is inspired by the colorful celebration of Brazil's Tropicália Movement in 1968, influencing an artistic expression of music and culture. Enchanting and in bloom, this vibrant fragrance opens with energizing pink dragon fruit, while Brazilian jasmine and sheer vanilla mingle with ocean air.. . Step into Rio's garden by the sea. . Not sure which scent fits your mood? Take our quiz to find your fragrance .. Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17596,9 +17703,10 @@
       "description": "Sun beams through cascading palms. Hummingbirds kiss lush flora. Enchanted seaside wonder. . . Cheirosa 68 Perfume Mist is inspired by the colorful celebration of Brazil's Tropicália Movement in 1968, influencing an artistic expression of music and culture. Enchanting and in bloom, this vibrant fragrance opens with energizing pink dragon fruit, while Brazilian jasmine and sheer vanilla mingle with ocean air.. . Step into Rio's garden by the sea. . Not sure which scent fits your mood? Take our quiz to find your fragrance .. Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17622,9 +17730,10 @@
       "description": "Beija Flor™ Elasti -Cream is a rich , indulgent body cream for skin elasticity that boost s collagen for smoothness and bounce. Featuring cacay oil (a natural retinol alternative), polypeptides and plant squalane, this plumping body cream supports skin's resilience while delivering 24-hour moisture for renewed skin and s ilky finish . Plus, it's scented in our Cheirosa 68 fragrance with vibrant notes of Brazilian jasmine and pink dragonfruit . Get plumped f or skin bounce and resilience . .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 48,
+        "amount": 36,
         "currency": "USD"
       },
+      "nativeWasPrice": 48,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17648,9 +17757,10 @@
       "description": "Beija Flor™ Elasti -Cream is a rich , indulgent body cream for skin elasticity that boost s collagen for smoothness and bounce. Featuring cacay oil (a natural retinol alternative), polypeptides and plant squalane, this plumping body cream supports skin's resilience while delivering 24-hour moisture for renewed skin and s ilky finish . Plus, it's scented in our Cheirosa 68 fragrance with vibrant notes of Brazilian jasmine and pink dragonfruit . Get plumped f or skin bounce and resilience . .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 36,
+        "amount": 27,
         "currency": "USD"
       },
+      "nativeWasPrice": 36,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17674,9 +17784,10 @@
       "description": "Beija Flor™ Elasti -Cream is a rich , indulgent body cream for skin elasticity that boost s collagen for smoothness and bounce. Featuring cacay oil (a natural retinol alternative), polypeptides and plant squalane, this plumping body cream supports skin's resilience while delivering 24-hour moisture for renewed skin and s ilky finish . Plus, it's scented in our Cheirosa 68 fragrance with vibrant notes of Brazilian jasmine and pink dragonfruit . Get plumped f or skin bounce and resilience . .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 24,
+        "amount": 18,
         "currency": "USD"
       },
+      "nativeWasPrice": 24,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17726,9 +17837,10 @@
       "description": "Our hand cream is now more moisturizing than ever to nourish even the driest hands – delivering everything from instant dry skin rescue to spa-like pampering, any time. .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 16,
+        "amount": 12,
         "currency": "USD"
       },
+      "nativeWasPrice": 16,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-05T17:22:21.413Z",
       "status": "active",
@@ -17752,9 +17864,10 @@
       "description": "Champagne flutes on the marble vanity. Silk draped on your skin. A glimmer of anticipation.. . Cheirosa 40 Perfume Mist invites the playful elegance of Rio's legendary Carnaval Ball, which debuted in 1840. Sultry and delicate, this alluring fragrance opens with rich Black Amber plum, while a veil of jasmine blooms and vanilla woods intertwine with warm musk.. . Revel in the allure. . . Not sure which scent fits your mood? Take our quiz to find your fragrance .. Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-16T21:07:41.522Z",
       "status": "active",
@@ -17778,9 +17891,10 @@
       "description": "Champagne flutes on the marble vanity. Silk draped on your skin. A glimmer of anticipation.. . Cheirosa 40 Perfume Mist invites the playful elegance of Rio's legendary Carnaval Ball, which debuted in 1840. Sultry and delicate, this alluring fragrance opens with rich Black Amber plum, while a veil of jasmine blooms and vanilla woods intertwine with warm musk.. . Revel in the allure. . . Not sure which scent fits your mood? Take our quiz to find your fragrance .. Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17804,9 +17918,10 @@
       "description": "Sun-drenched days, samba nights. Waves of pure joy. That unforgettable summer crush.. . Our cult classic Cheirosa 62™ Perfume Mist captures the Brazilian spirit of 1962, when we fell for the Girl from Ipanema. Irresistible and sunny, this iconic fragrance opens with creamy pistachio, while a hint of salted caramel unites with jasmine petals and vanilla.. Not sure which scent fits your mood? Take our quiz to find your fragrance .. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-29T20:47:47.608Z",
       "status": "active",
@@ -17830,9 +17945,10 @@
       "description": "Sun-drenched days, samba nights. Waves of pure joy. That unforgettable summer crush.. . Our cult classic Cheirosa 62™ Perfume Mist captures the Brazilian spirit of 1962, when we fell for the Girl from Ipanema. Irresistible and sunny, this iconic fragrance opens with creamy pistachio, while a hint of salted caramel unites with jasmine petals and vanilla.. Not sure which scent fits your mood? Take our quiz to find your fragrance .. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17856,9 +17972,10 @@
       "description": "Sun-drenched days, samba nights. Waves of pure joy. That unforgettable summer crush.. . Our cult classic Cheirosa 62™ Perfume Mist captures the Brazilian spirit of 1962, when we fell for the Girl from Ipanema. Irresistible and sunny, this iconic fragrance opens with creamy pistachio, while a hint of salted caramel unites with jasmine petals and vanilla.. Not sure which scent fits your mood? Take our quiz to find your fragrance .. . Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. . . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 34,
+        "amount": 26,
         "currency": "USD"
       },
+      "nativeWasPrice": 34,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-24T17:38:33.607Z",
       "status": "active",
@@ -17882,9 +17999,10 @@
       "description": "Bom Dia Bright™ Body Cream is a lightweight fruit AHA body cream designed to retexturize, visibly brighten, and deliver 24-hour hydration. Powered by fruit AHAs, vitamin C ester and willow bark, this body cream for bumpy skin exfoliates and clarifies, addressing roughness and strawberry skin for a radiant skin glow . Dark spots and uneven tone are visibly brightened, leaving a smoother skin texture and satin skin finish . Our Cheirosa 40 fragrance leaves behind sultry & delicate notes of Black Amber plum, jasmine blooms, and vanilla woods. .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 48,
+        "amount": 36,
         "currency": "USD"
       },
+      "nativeWasPrice": 48,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -17908,9 +18026,10 @@
       "description": "Bom Dia Bright™ Body Cream is a lightweight fruit AHA body cream designed to retexturize, visibly brighten, and deliver 24-hour hydration. Powered by fruit AHAs, vitamin C ester and willow bark, this body cream for bumpy skin exfoliates and clarifies, addressing roughness and strawberry skin for a radiant skin glow . Dark spots and uneven tone are visibly brightened, leaving a smoother skin texture and satin skin finish . Our Cheirosa 40 fragrance leaves behind sultry & delicate notes of Black Amber plum, jasmine blooms, and vanilla woods. .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 24,
+        "amount": 18,
         "currency": "USD"
       },
+      "nativeWasPrice": 24,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17960,9 +18079,10 @@
       "description": "Homemade doce de leite. Sugar-lined lips. The aroma draws you in.. . Cheirosa 71 Perfume Mist is inspired by Brazil’s love for desserts and the iconic Confeitaria Colombo bakery that swept Rio in 1971. Warm and cozy, this decadent fragrance wraps you up in the comfort of caramelized vanilla drizzled over toasted macadamia nut and rich tonka bean.. . Share the indulgence.. . Not sure which scent fits your mood? Take our quiz to find your fragrance .. Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 39,
+        "amount": 29,
         "currency": "USD"
       },
+      "nativeWasPrice": 39,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -17986,9 +18106,10 @@
       "description": "Homemade doce de leite. Sugar-lined lips. The aroma draws you in.. . Cheirosa 71 Perfume Mist is inspired by Brazil’s love for desserts and the iconic Confeitaria Colombo bakery that swept Rio in 1971. Warm and cozy, this decadent fragrance wraps you up in the comfort of caramelized vanilla drizzled over toasted macadamia nut and rich tonka bean.. . Share the indulgence.. . Not sure which scent fits your mood? Take our quiz to find your fragrance .. Due to shipping regulations, this item is not available to ship to select zip codes within Alaska and Hawaii.* Find the full list here. .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18012,9 +18133,10 @@
       "description": "Get the scoop! Our once limited edition Brazilian Bum Bum Surfboard Spatula is now available to catch every wave of Brazilian Bum Bum Cream. . Here by popular demand and designed to scoop every last drop of this delicious cult fave body treat. Essential and adorable. . .",
       "productType": "Merch",
       "nativePrice": {
-        "amount": 9,
+        "amount": 7,
         "currency": "USD"
       },
+      "nativeWasPrice": 9,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18038,9 +18160,10 @@
       "description": "Consider this your invite to your smoothest, summer-ready skin, all year round. Buff away dryness with this ultra-softening body scrub that deeply nourishes while it gently exfoliates for your softest, most touchable skin. Plus, it's scented with our irresistible & sunny Cheirosa 62™ fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 42,
+        "amount": 32,
         "currency": "USD"
       },
+      "nativeWasPrice": 42,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18064,9 +18187,10 @@
       "description": "Consider this your invite to your smoothest, summer-ready skin, all year round. Buff away dryness with this ultra-softening body scrub that deeply nourishes while it gently exfoliates for your softest, most touchable skin. Plus, it's scented with our irresistible & sunny Cheirosa 62™ fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 18,
+        "amount": 14,
         "currency": "USD"
       },
+      "nativeWasPrice": 18,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18090,9 +18214,10 @@
       "description": "Consider this your invite to your smoothest, summer-ready skin, all year round. Buff away dryness with this ultra-softening body scrub that deeply nourishes while it gently exfoliates for your softest, most touchable skin. Plus, it's scented with our irresistible & sunny Cheirosa 62™ fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 10,
+        "amount": 8,
         "currency": "USD"
       },
+      "nativeWasPrice": 10,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18116,9 +18241,10 @@
       "description": "The scent that started it all. Be immersed in the warmth of Rio sunshine all year round with this potent, concentrated version of our iconic warm gourmand Sol de Janeiro fragrance - now in a new formula that’s even longer-lasting . A cheerful and inviting summer crush of an Eau de Parfum with delicious, irresistible gourmand notes grounded with soft florals and creamy sandalwood. A scent that everyone falls in love with, and no one can resist..",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 80,
+        "amount": 60,
         "currency": "USD"
       },
+      "nativeWasPrice": 80,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18142,9 +18268,10 @@
       "description": "The scent that started it all. Be immersed in the warmth of Rio sunshine all year round with this potent, concentrated version of our iconic warm gourmand Sol de Janeiro fragrance - now in a new formula that’s even longer-lasting . A cheerful and inviting summer crush of an Eau de Parfum with delicious, irresistible gourmand notes grounded with soft florals and creamy sandalwood. A scent that everyone falls in love with, and no one can resist..",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 28,
+        "amount": 21,
         "currency": "USD"
       },
+      "nativeWasPrice": 28,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -18168,9 +18295,10 @@
       "description": "We see a fetish in your future. . Our easy, unique, dry foot care is your Brazilian secret to soft, smooth, samba-ready feet.. Here’s how it works: the Samba Foot Fetish Care Smoothing Board rids your dry feet of any roughness and callouses, while the easy-on, non-slip, no-mess Samba Foot Fetish Cream deeply hydrates and conditions.. The result? Flirty, fabulous feet that are totally fetish-worthy. .",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 27,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 27,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18194,9 +18322,10 @@
       "description": "Bring Brazilian sunshine to your shower routine. This nourishing body wash hydrates while it gently cleanses for your softest, most touchable skin. Plus, it's scented with our irresistible & sunny Cheirosa 62™ fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18220,9 +18349,10 @@
       "description": "Bring Brazilian sunshine to your shower routine. This nourishing body wash hydrates while it gently cleanses for your softest, most touchable skin. Plus, it's scented with our irresistible & sunny Cheirosa 62™ fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 58,
+        "amount": 44,
         "currency": "USD"
       },
+      "nativeWasPrice": 58,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-21T17:35:07.423Z",
       "status": "active",
@@ -18246,9 +18376,10 @@
       "description": "Bring Brazilian sunshine to your shower routine. This nourishing body wash hydrates while it gently cleanses for your softest, most touchable skin. Plus, it's scented with our irresistible & sunny Cheirosa 62™ fragrance. .",
       "productType": "Body Wash",
       "nativePrice": {
-        "amount": 50,
+        "amount": 38,
         "currency": "USD"
       },
+      "nativeWasPrice": 50,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18272,9 +18403,10 @@
       "description": "Brazilian Bum Bum ® Cream is our iconic, visibly firming body cream designed to tighten, smooth, address the look of cellulite, and leave skin glowing––thanks to powerhouse ingredients like caffeine-rich guarana extract, cupuaçu butter, and plant squalane. . . The fast-absorbing formula soaks right in to hydrate skin, while also replenishing and locking in moisture. Plus, it’s scented with our best-selling Cheirosa 62™ fragrance which features irresistible & sunny notes of salted caramel and pistachio. Bring on the compliments. . . .bbc-callout { display: flex; flex-direction: row; align-items: center; } .left-side { transform: rotate(331deg); } .right-side { transform: rotate(139deg); } .accent { width: auto; height: 20px; } .sold-bbc { padding: 10px 0px; margin: 0; } .bbc-tooltip { position: relative; display: inline-block; vertical-align: center; margin-left: 2px; } .bbc-tooltip .bbc-tooltip-text { visibility: hidden; width: 150px; color: #4e4f4f; text-align: center; border-radius: 6px; padding: 5px; background-color: #fff; box-shadow: 0px 0px 5px #000; /* Position the tooltip */ position: absolute; top:25px; right: 20px; z-index: 1; } .bbc-tooltip:hover .bbc-tooltip-text { visibility: visible; }",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 48,
+        "amount": 36,
         "currency": "USD"
       },
+      "nativeWasPrice": 48,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -18298,9 +18430,10 @@
       "description": "Brazilian Bum Bum ® Cream is our iconic, visibly firming body cream designed to tighten, smooth, address the look of cellulite, and leave skin glowing––thanks to powerhouse ingredients like caffeine-rich guarana extract, cupuaçu butter, and plant squalane. . . The fast-absorbing formula soaks right in to hydrate skin, while also replenishing and locking in moisture. Plus, it’s scented with our best-selling Cheirosa 62™ fragrance which features irresistible & sunny notes of salted caramel and pistachio. Bring on the compliments. . . .bbc-callout { display: flex; flex-direction: row; align-items: center; } .left-side { transform: rotate(331deg); } .right-side { transform: rotate(139deg); } .accent { width: auto; height: 20px; } .sold-bbc { padding: 10px 0px; margin: 0; } .bbc-tooltip { position: relative; display: inline-block; vertical-align: center; margin-left: 2px; } .bbc-tooltip .bbc-tooltip-text { visibility: hidden; width: 150px; color: #4e4f4f; text-align: center; border-radius: 6px; padding: 5px; background-color: #fff; box-shadow: 0px 0px 5px #000; /* Position the tooltip */ position: absolute; top:25px; right: 20px; z-index: 1; } .bbc-tooltip:hover .bbc-tooltip-text { visibility: visible; }",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 36,
+        "amount": 27,
         "currency": "USD"
       },
+      "nativeWasPrice": 36,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
@@ -18324,9 +18457,10 @@
       "description": "Brazilian Bum Bum ® Cream is our iconic, visibly firming body cream designed to tighten, smooth, address the look of cellulite, and leave skin glowing––thanks to powerhouse ingredients like caffeine-rich guarana extract, cupuaçu butter, and plant squalane. . . The fast-absorbing formula soaks right in to hydrate skin, while also replenishing and locking in moisture. Plus, it’s scented with our best-selling Cheirosa 62™ fragrance which features irresistible & sunny notes of salted caramel and pistachio. Bring on the compliments. . . .bbc-callout { display: flex; flex-direction: row; align-items: center; } .left-side { transform: rotate(331deg); } .right-side { transform: rotate(139deg); } .accent { width: auto; height: 20px; } .sold-bbc { padding: 10px 0px; margin: 0; } .bbc-tooltip { position: relative; display: inline-block; vertical-align: center; margin-left: 2px; } .bbc-tooltip .bbc-tooltip-text { visibility: hidden; width: 150px; color: #4e4f4f; text-align: center; border-radius: 6px; padding: 5px; background-color: #fff; box-shadow: 0px 0px 5px #000; /* Position the tooltip */ position: absolute; top:25px; right: 20px; z-index: 1; } .bbc-tooltip:hover .bbc-tooltip-text { visibility: visible; }",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 24,
+        "amount": 18,
         "currency": "USD"
       },
+      "nativeWasPrice": 24,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-11-12T00:50:54.604Z",
       "status": "active",
@@ -18350,9 +18484,10 @@
       "description": "Brazilian Bum Bum ® Cream is our iconic, visibly firming body cream designed to tighten, smooth, address the look of cellulite, and leave skin glowing––thanks to powerhouse ingredients like caffeine-rich guarana extract, cupuaçu butter, and plant squalane. . . The fast-absorbing formula soaks right in to hydrate skin, while also replenishing and locking in moisture. Plus, it’s scented with our best-selling Cheirosa 62™ fragrance which features irresistible & sunny notes of salted caramel and pistachio. Bring on the compliments. . . .bbc-callout { display: flex; flex-direction: row; align-items: center; } .left-side { transform: rotate(331deg); } .right-side { transform: rotate(139deg); } .accent { width: auto; height: 20px; } .sold-bbc { padding: 10px 0px; margin: 0; } .bbc-tooltip { position: relative; display: inline-block; vertical-align: center; margin-left: 2px; } .bbc-tooltip .bbc-tooltip-text { visibility: hidden; width: 150px; color: #4e4f4f; text-align: center; border-radius: 6px; padding: 5px; background-color: #fff; box-shadow: 0px 0px 5px #000; /* Position the tooltip */ position: absolute; top:25px; right: 20px; z-index: 1; } .bbc-tooltip:hover .bbc-tooltip-text { visibility: visible; }",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 12,
+        "amount": 9,
         "currency": "USD"
       },
+      "nativeWasPrice": 12,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",
@@ -18376,9 +18511,10 @@
       "description": "Brazilian Bum Bum ® Cream is our iconic, visibly firming body cream designed to tighten, smooth, address the look of cellulite, and leave skin glowing––thanks to powerhouse ingredients like caffeine-rich guarana extract, cupuaçu butter, and plant squalane. . . The fast-absorbing formula soaks right in to hydrate skin, while also replenishing and locking in moisture. Plus, it’s scented with our best-selling Cheirosa 62™ fragrance which features irresistible & sunny notes of salted caramel and pistachio. Bring on the compliments. . . .bbc-callout { display: flex; flex-direction: row; align-items: center; } .left-side { transform: rotate(331deg); } .right-side { transform: rotate(139deg); } .accent { width: auto; height: 20px; } .sold-bbc { padding: 10px 0px; margin: 0; } .bbc-tooltip { position: relative; display: inline-block; vertical-align: center; margin-left: 2px; } .bbc-tooltip .bbc-tooltip-text { visibility: hidden; width: 150px; color: #4e4f4f; text-align: center; border-radius: 6px; padding: 5px; background-color: #fff; box-shadow: 0px 0px 5px #000; /* Position the tooltip */ position: absolute; top:25px; right: 20px; z-index: 1; } .bbc-tooltip:hover .bbc-tooltip-text { visibility: visible; }",
       "productType": "Body Cream",
       "nativePrice": {
-        "amount": 44,
+        "amount": 33,
         "currency": "USD"
       },
+      "nativeWasPrice": 44,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
