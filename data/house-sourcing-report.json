@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-22T14:49:48.546Z",
+  "checkedAt": "2026-11-22T18:46:53.378Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -331,9 +331,9 @@
       "origin": "https://dumontparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 144,
+      "listings": 146,
       "pricedInGbp": 0,
-      "withPhoto": 144,
+      "withPhoto": 146,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

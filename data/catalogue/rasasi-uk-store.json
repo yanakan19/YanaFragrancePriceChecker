@@ -1,7 +1,7 @@
 {
   "retailerId": "rasasi-uk-store",
-  "updatedAt": "2026-11-22T14:43:33.616Z",
-  "seenAt": "2026-11-22T14:43:33.616Z",
+  "updatedAt": "2026-11-22T18:39:57.296Z",
+  "seenAt": "2026-11-22T18:39:57.296Z",
   "source": "live",
   "listings": [
     {
@@ -69,7 +69,7 @@
       "sectionId": "sitemap",
       "rating": {
         "value": 4.9,
-        "count": 271
+        "count": 272
       },
       "retailerId": "rasasi-uk-store",
       "firstSeenAt": "2026-10-08T06:03:30.337Z",

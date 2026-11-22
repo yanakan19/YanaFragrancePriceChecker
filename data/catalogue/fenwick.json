@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-22T14:44:02.725Z",
-  "seenAt": "2026-11-22T14:44:02.725Z",
+  "updatedAt": "2026-11-22T18:39:54.352Z",
+  "seenAt": "2026-11-22T18:39:54.352Z",
   "source": "live",
   "listings": [
     {
@@ -12503,7 +12503,7 @@
       "priceGbp": 161.5,
       "wasPriceGbp": 190,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the sophisticated character of Maison Crivelli Iris Malikhan Eau De Parfum. This refined unisex fragrance offers an expressive scent experience with elegant depth and a distinctive contemporary finish..",
       "productType": "Unisex Fragrance",
@@ -25935,7 +25935,7 @@
       "priceGbp": 29.6,
       "wasPriceGbp": 37,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the bold freshness of Lacoste L.12.12 Bleu Eau de Parfum, a modern men's fragrance inspired by the iconic Lacoste polo shirt. Opening with vibrant citrus notes, it develops into an aromatic heart before settling on a warm, woody base for a confident and long-lasting finish..",
       "productType": "Men's Fragrances",
