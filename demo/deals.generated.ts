@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-11-22T15:52:58.059Z";
+export const DEALS_GENERATED_AT = "2026-11-22T19:11:11.331Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -353,11 +353,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3349668612611",
-    "price": 36.49,
+    "price": 41.25,
     "delivered": true,
-    "wasPrice": 61,
-    "percentOff": 40,
-    "retailerId": "lloyds-pharmacy",
+    "wasPrice": 63,
+    "percentOff": 34,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -10753,11 +10753,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290360598796",
-    "price": 29.94,
+    "price": 33.98,
     "delivered": true,
-    "wasPrice": 34.99,
-    "percentOff": 14,
-    "retailerId": "fragrancehub",
+    "wasPrice": 40,
+    "percentOff": 15,
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
@@ -12103,10 +12103,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-088300162543",
-    "price": 38.98,
+    "price": 42.98,
     "delivered": true,
     "wasPrice": 70,
-    "percentOff": 44,
+    "percentOff": 38,
     "retailerId": "perfume-direct",
     "kind": "retailer",
     "houseName": null
@@ -26322,16 +26322,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
-    "fragranceId": "ean-3386460172745",
-    "price": 34.6,
-    "delivered": true,
-    "wasPrice": 37,
-    "percentOff": 6,
-    "retailerId": "fenwick",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
     "fragranceId": "ean-3616301799597",
     "price": 27.65,
     "delivered": true,
@@ -27108,16 +27098,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 39.99,
     "percentOff": 13,
     "retailerId": "beevora",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "ean-3770014898166",
-    "price": 161.5,
-    "delivered": true,
-    "wasPrice": 190,
-    "percentOff": 15,
-    "retailerId": "fenwick",
     "kind": "retailer",
     "houseName": null
   },
@@ -29008,6 +28988,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 30,
     "percentOff": 46,
     "retailerId": "the-beauty-store-uk",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-5055810030414",
+    "price": 38.98,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 13,
+    "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
   },
@@ -43992,6 +43982,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "escentual-millerharris304",
+    "price": 126,
+    "delivered": true,
+    "wasPrice": 180,
+    "percentOff": 30,
+    "retailerId": "fenwick",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-5051198680678",
     "price": 55.5,
     "delivered": true,
@@ -47317,6 +47317,16 @@ export const DEALS_RAW: RawDeal[] = [
     "delivered": true,
     "wasPrice": 25,
     "percentOff": 44,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "aromique-10648592875859-default-title",
+    "price": 14.98,
+    "delivered": true,
+    "wasPrice": 25,
+    "percentOff": 40,
     "retailerId": "emirates-oud",
     "kind": "retailer",
     "houseName": null
@@ -53742,6 +53752,16 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": null
   },
   {
+    "fragranceId": "ean-6290360592305",
+    "price": 38.98,
+    "delivered": true,
+    "wasPrice": 45,
+    "percentOff": 13,
+    "retailerId": "emirates-oud",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
     "fragranceId": "ean-6291108738306",
     "price": 24.99,
     "delivered": false,
@@ -55318,16 +55338,6 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 75,
     "percentOff": 43,
     "retailerId": "scent-warehouse",
-    "kind": "retailer",
-    "houseName": null
-  },
-  {
-    "fragranceId": "escentual-millerharris304",
-    "price": 126,
-    "delivered": true,
-    "wasPrice": 180,
-    "percentOff": 30,
-    "retailerId": "fenwick",
     "kind": "retailer",
     "houseName": null
   },
