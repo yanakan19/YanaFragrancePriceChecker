@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-11-21T22:30:43.307Z",
-  "seenAt": "2026-11-21T22:30:43.307Z",
+  "updatedAt": "2026-11-22T06:39:45.387Z",
+  "seenAt": "2026-11-22T06:39:45.387Z",
   "source": "live",
   "listings": [
     {
@@ -9154,28 +9154,6 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "3386460142038",
-      "url": "https://www.awin1.com/pclick.php?p=44089042077&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/jimmy-choo-i-want-choo-le-10ml-parfum.html",
-      "rawTitle": "Jimmy Choo I Want Choo Le 10ml Parfum",
-      "rawBrand": "Jimmy Choo",
-      "ean": "3386460142038",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/854.jpg",
-      "priceGbp": 13.5,
-      "wasPriceGbp": 22,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "Jimmy Choo I Want Choo Le has built a reputation as a elegant parfum that stands out in Jimmy's collection. An elegant fragrance that combines fresh floral notes with a warm, sophisticated base.The composition starts with Bergamot, Citrus up front, then settles into Jasmine, Rose as it warms on skin. The base of Vanilla, Musk anchors everything and gives it longevity worth noting.The parfum concentration strikes a good balance between strength and subtlety. At 10ml, you're getting solid value, particularly if this fragrance clicks with your personal style.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": "2026-11-09T19:07:22.115Z",
-      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
@@ -20198,6 +20176,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "3386460142038",
+      "url": "https://www.awin1.com/pclick.php?p=44089042077&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/jimmy-choo-i-want-choo-le-10ml-parfum.html",
+      "rawTitle": "Jimmy Choo I Want Choo Le 10ml Parfum",
+      "rawBrand": "Jimmy Choo",
+      "ean": "3386460142038",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/854.jpg",
+      "priceGbp": 13.5,
+      "wasPriceGbp": 22,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "Jimmy Choo I Want Choo Le has built a reputation as a elegant parfum that stands out in Jimmy's collection. An elegant fragrance that combines fresh floral notes with a warm, sophisticated base.The composition starts with Bergamot, Citrus up front, then settles into Jasmine, Rose as it warms on skin. The base of Vanilla, Musk anchors everything and gives it longevity worth noting.The parfum concentration strikes a good balance between strength and subtlety. At 10ml, you're getting solid value, particularly if this fragrance clicks with your personal style.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-11-21T22:30:43.307Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-22T06:39:45.387Z",
+      "relistedAt": "2026-11-09T19:07:22.115Z",
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
