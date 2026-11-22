@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-21T11:03:17.295Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-22T11:26:36.403Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -2048,6 +2048,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "billieeilish|yourturn|edp": ["Billie-Eilish/Your-Turn-102635","https://store.billieeilish.com/products/your-turn-eau-de-parfum"],
   "boadiceathevictorious|almas": ["","https://boadiceaperfume.com/products/almas"],
   "boadiceathevictorious|almas|edp": ["","https://boadiceaperfume.com/products/almas"],
+  "boadiceathevictorious|andraste": ["","https://boadiceaperfume.com/products/andraste"],
+  "boadiceathevictorious|andraste|edp": ["","https://boadiceaperfume.com/products/andraste"],
   "boadiceathevictorious|angelic": ["","https://boadiceaperfume.com/products/angelic"],
   "boadiceathevictorious|angelic|edp": ["","https://boadiceaperfume.com/products/angelic"],
   "boadiceathevictorious|aquasapphire": ["","https://boadiceaperfume.com/products/aqua-sapphire"],
@@ -4532,8 +4534,12 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "initioparfumsprives|sideeffectunisex|edp": ["","https://initioparfums.com/products/side-effect"],
   "initioparfumsprives|sideeffect|edp": ["","https://initioparfums.com/products/side-effect"],
   "initioparfumsprives|sugarblast": ["","https://initioparfums.com/products/sugar-blast"],
+  "initioparfumsprives|sugarblastunisex": ["","https://initioparfums.com/products/sugar-blast"],
+  "initioparfumsprives|sugarblastunisex|extrait": ["","https://initioparfums.com/products/sugar-blast"],
   "initioparfumsprives|sugarblast|edp": ["","https://initioparfums.com/products/sugar-blast"],
   "initioparfumsprives|wildrush": ["","https://initioparfums.com/products/wild-rush"],
+  "initioparfumsprives|wildrushunisex": ["","https://initioparfums.com/products/wild-rush"],
+  "initioparfumsprives|wildrushunisex|extrait": ["","https://initioparfums.com/products/wild-rush"],
   "initioparfumsprives|wildrush|edp": ["","https://initioparfums.com/products/wild-rush"],
   "initio|absoluteaphrodisiac": ["","https://initioparfums.com/products/absolute-aphrodisiac"],
   "initio|absoluteaphrodisiac|edp": ["","https://initioparfums.com/products/absolute-aphrodisiac"],
@@ -4794,6 +4800,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "kajal|dahababsolu|extrait": ["","https://kajalperfumes.com/en-gb/products/dahab-absolu"],
   "kajal|i|edp": ["","https://kajalperfumes.com/en-gb/products/kajal-i-edp-100ml"],
   "kajal|kolada|extrait": ["","https://kajalperfumes.com/en-gb/products/kajal-kolada-extrait-de-parfum-100ml"],
+  "kajal|v|edp": ["","https://kajalperfumes.com/en-gb/products/kajal-v-edp-100ml"],
   "kayali|boujeekittycaramelmilk22miniature|unstated": ["","https://uk.kayali.com/products/boujee-kitty-caramel-milk-22"],
   "kayali|boujeekittycaramelmilk22|edp": ["","https://uk.kayali.com/products/boujee-kitty-caramel-milk-22"],
   "kayali|boujeekittycaramelmilk22|unstated": ["","https://uk.kayali.com/products/boujee-kitty-caramel-milk-22"],
@@ -6540,6 +6547,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "parfumsdemarly|castleyunisex": ["","https://parfums-de-marly.com/products/castley"],
   "parfumsdemarly|castleyunisex|edp": ["","https://parfums-de-marly.com/products/castley"],
   "parfumsdemarly|castley|edp": ["","https://parfums-de-marly.com/products/castley"],
+  "parfumsdemarly|crecy": ["","https://parfums-de-marly.com/products/crecy"],
+  "parfumsdemarly|crecy|extrait": ["","https://parfums-de-marly.com/products/crecy"],
   "parfumsdemarly|delina": ["","https://parfums-de-marly.com/products/delina"],
   "parfumsdemarly|delinaexclusif": ["","https://parfums-de-marly.com/products/delina-exclusif"],
   "parfumsdemarly|delinaexclusiftravelseteaudeparfumunisex30ml": ["","https://parfums-de-marly.com/products/delina-exclusif-travel-set"],
@@ -6549,6 +6558,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "parfumsdemarly|delinaexclusif|parfum": ["","https://parfums-de-marly.com/products/delina-exclusif"],
   "parfumsdemarly|delinalarosee": ["","https://parfums-de-marly.com/products/delina-la-rosee"],
   "parfumsdemarly|delinalarosee|edp": ["","https://parfums-de-marly.com/products/delina-la-rosee"],
+  "parfumsdemarly|delina|disputed": ["","https://parfums-de-marly.com/products/delina"],
   "parfumsdemarly|delina|edp": ["","https://parfums-de-marly.com/products/delina"],
   "parfumsdemarly|eragon": ["","https://parfums-de-marly.com/products/eragon"],
   "parfumsdemarly|eragon|extrait": ["","https://parfums-de-marly.com/products/eragon"],
@@ -7004,6 +7014,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "penhaligons|thefavourite|edp": ["","https://www.penhaligons.com/uk/en/p/the-favourite-eau-de-parfum-10ml--000000000065194616"],
   "penhaligons|theinimitablewilliampenhaligon|edp": ["","https://www.penhaligons.com/uk/en/p/the-inimitable-william-penhaligon-eau-de-parfum-75ml--000000000065164054"],
   "penhaligons|thelegacyofpetraunisexfragrance|edp": ["","https://www.penhaligons.com/sa/en/p/the-legacy-of-petra-eau-de-parfum-100-ml--000000000065171022"],
+  "penhaligons|thelegacyofpetra|edp": ["","https://www.penhaligons.com/sa/en/p/the-legacy-of-petra-eau-de-parfum-100ml--000000000065171022"],
   "penhaligons|themanoeuvresofthebaroness|edp": ["","https://www.penhaligons.com/uk/en/p/the-manoeuvres-of-the-baroness-eau-de-parfum-75ml--000000000065228443"],
   "penhaligons|theomniscientmisterthompson|edp": ["","https://www.penhaligons.com/uk/en/p/the-omniscient-mister-thompson-eau-de-parfum-75ml--000000000065171067"],
   "penhaligons|theomniscientmrthompson|edp": ["","https://www.penhaligons.com/ww/en/p/the-omniscient-mr-thompson-eau-de-parfum-75-ml--000000000065171067"],
