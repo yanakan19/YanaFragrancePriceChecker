@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-21T22:37:43.460Z",
-  "seenAt": "2026-11-21T22:37:43.460Z",
+  "updatedAt": "2026-11-22T02:39:43.884Z",
+  "seenAt": "2026-11-22T02:39:43.884Z",
   "source": "live",
   "listings": [
     {
@@ -1946,7 +1946,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": 120,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Giorgio Armani I Will Eau de Parfum Refillable Spray 100ml Tester.",
       "productType": "Eau de Parfum",
@@ -18023,7 +18023,7 @@
       "priceGbp": 1.99,
       "wasPriceGbp": 3.95,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "W7 Brow Broadway Liquid Brow Shaper 1.6ml - Hazel. Enhance your brows effortlessly with the W7 Brow Broadway Liquid Brow Shaper 1.6ml - Hazel . This innovative brow gel is designed to shape, define, and fill your brows with a natural finish. Ideal for achieving that perfect arch, it glides on smoothly and dries quickly, ensuring long-lasting wear throughout the day.. The rich Hazel shade complements various hair colors, making it a versatile choice for all beauty enthusiasts. With a precision applicator, the W7 Brow Broadway Liquid Brow Shaper allows you to create fine lines for a hair-like effect or to build up for a bolder look. It's easy to remove, too, so you can switch up your style whenever you want.. Whether you're going for a subtle day look or a dramatic evening style, this brow shaper is your go-to product. Make the W7 Brow Broadway Liquid Brow Shaper 1.6ml - Hazel part of your beauty routine and enjoy beautifully defined brows every day!.",
       "productType": "Eyebrow Enhancers",

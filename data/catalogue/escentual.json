@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-21T22:37:43.460Z",
-  "seenAt": "2026-11-21T22:37:43.460Z",
+  "updatedAt": "2026-11-22T02:39:43.884Z",
+  "seenAt": "2026-11-22T02:39:43.884Z",
   "source": "live",
   "listings": [
     {
@@ -33341,7 +33341,7 @@
       "priceGbp": 27.5,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "An assortment of the beautiful Villa Sole collection. It is a collection inspired from the blossoming of flowers, fruits and citrus on a sunny terrace Italian villa overlooking the sea. . Gift Set Contains: . Nesti Dante Villa Sole Prickly Pear from Taormina Soap 150g . Nesti Dante Villa Sole Blue Freesia from Aeolian Islands Soap 150g . Nesti Dante Villa Sole Chinotto D'Amalfi Myrtle Leaved Orange Soap 150g . Nesti Dante Villa Sole Noble Red Grapes from Chianti Soap 150g . Nesti Dante Villa Sole Pineapple Flowers from Etna Volcano Soap 150g . Nesti Dante Villa Sole Sicilian Pistachio & Salted Caramel Soap 150g . How To Use . Work into wet hands then massage the soap bar to create a sumptuous lather. Massage all over your body, then rinse. Keep soap in a clean, dry place after use to preserve its longevity. . Values . Vegan and cruelty-free. Dermatologically tested. . Free from petrochemicals, synthetic surfactants, genetically modified ingredients, microplastics and polyethylene glycol (PEG). .",
       "productType": "Gift",
@@ -150204,7 +150204,7 @@
       "priceGbp": 13,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Soothe and cleanse your sensitive hair and scalp with the Bioderma Node Fluid Shampoo, a non-detergent wash for all hair types.. The first biological innovation created by Bioderma's founder, Jean Noel Thorel, this soothing fluid shampoo gently washes away any impurities without irritating an itchy, uncomfortable scalp.. Suitable for daily use, its non-foaming formula works to respect the hydrolipidic film of your hair and scalp, whilst restoring its physiological balance. Non-stripping, its comforting combination of surfactants together with the Non-Detergence concept are suitable to use as a complement to medicated shampoos, Brazilian blow dries and hair extensions.. Apply to wet hair, lather whilst gently massaging your scalp, then rinse and repeat..",
       "productType": "Hair",
@@ -152087,8 +152087,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/guerlain_eau_de_beaute_micellar_solution_-_pure_radiance_cleanser_200ml.png?v=1729191261",
-      "priceGbp": 34.67,
-      "wasPriceGbp": 52,
+      "priceGbp": 52,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
