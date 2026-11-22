@@ -69,6 +69,38 @@
    ]
   },
   {
+   "canonical": "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
+   "absorbed": [
+    "set-cristiano-ronaldo-cr7-fearless-gift-set-30ml-edt-150ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
+     "brand": "Cristiano Ronaldo",
+     "name": "Cr7 Fearless 2 Piece Gift Set: Eau de Toilette 30ml - Shower Gel 150ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 fearless",
+     "signature": "1x150wash|1x30fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-cristiano-ronaldo-cr7-fearless-gift-set-30ml-edt-150ml-shower-gel",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Fearless Gift Set 30ml EDT + 150ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 fearless",
+     "signature": "1x150wash|1x30fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-diamond-collection-eau-de-parfum-set-10-10ml-ibraq",
    "absorbed": [
     "set-ibraq-diamond-collection-set-of-10-x-10ml-perfume-edp"
@@ -4138,38 +4170,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3432240517609",
-   "absorbed": [
-    "set-cartier-declaration-gift-set-100ml-edt-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3432240517609",
-     "brand": "Cartier",
-     "name": "Declaration Gift Set 100ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3432240517609",
-     "scent": "declaration",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cartier-declaration-gift-set-100ml-edt-100ml-shower-gel",
-     "brand": "Cartier",
-     "name": "Declaration Gift Set 100ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "declaration",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3442180004749",
    "absorbed": [
     "set-courreges-mini-eau-de-parfum-gift-set-5ml-c-edp-5ml-l-eau-de-liesse-edp-5ml-slogan-edp-5ml-seconde-peau-edp-5ml-la-fille-de-l-air-edp-5ml-l-empreinte-edp"
@@ -7493,51 +7493,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5060524511401",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
-    "set-cristiano-ronaldo-cr7-fearless-gift-set-30ml-edt-150ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511401",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Fearless Gift Set 30ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511401",
-     "scent": "cr7 fearless",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-fearless-2-piece-gift-set-eau-de-toilette-30ml-shower-gel-150ml",
-     "brand": "Cristiano Ronaldo",
-     "name": "Cr7 Fearless 2 Piece Gift Set: Eau de Toilette 30ml - Shower Gel 150ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 fearless",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-fearless-gift-set-30ml-edt-150ml-shower-gel",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Fearless Gift Set 30ml EDT + 150ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 fearless",
-     "signature": "1x150wash|1x30fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5060524511562",
    "absorbed": [
     "set-cristiano-ronaldo-cr7-discover-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
@@ -9402,6 +9357,52 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8052086379480",
+   "absorbed": [
+    "set-salvatore-ferragamo-signorina-ribelle-gift-set-30ml-edp-50ml-body-lotion",
+    "set-salvatore-ferragamo-signorina-ribelle-gift-set-edp-spray-30ml-body-lotion-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8052086379480",
+     "brand": "Salvatore Ferragamo",
+     "name": "Signorina Ribelle Gift Set 30ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "8052086379480",
+     "scent": "ribelle signorina",
+     "signature": "1x30fragrance|1x50body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-salvatore-ferragamo-signorina-ribelle-gift-set-30ml-edp-50ml-body-lotion",
+     "brand": "Salvatore Ferragamo",
+     "name": "Signorina Ribelle Gift Set 30ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "ribelle signorina",
+     "signature": "1x30fragrance|1x50body",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-salvatore-ferragamo-signorina-ribelle-gift-set-edp-spray-30ml-body-lotion-50ml",
+     "brand": "Salvatore Ferragamo",
+     "name": "Signorina Ribelle Gift Set EDP Spray 30ml + Body Lotion 50ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "ribelle signorina",
+     "signature": "1x30fragrance|1x50body",
+     "shops": [
+      "the-beauty-store-uk"
      ]
     }
    ]
@@ -11530,7 +11531,7 @@
  "refused": [
   {
    "reasons": [
-    "price spread 1.66 is over 1.5"
+    "price spread 1.73 is over 1.5"
    ],
    "members": [
     {
@@ -11638,37 +11639,6 @@
      "concentration": "Eau de Parfum",
      "ean": "0085715167316",
      "scent": "blue first instinct",
-     "signature": "1x200body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 2.04 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-abercrombie-fitch-first-instinct-for-her-gift-set-50ml-edp-200ml-body-lotion",
-     "brand": "Abercrombie & Fitch",
-     "name": "First Instinct for Her Gift Set 50ml EDP + 200ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "first instinct",
-     "signature": "1x200body|1x50fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    },
-    {
-     "id": "set-ean-0085715165756",
-     "brand": "Abercrombie & Fitch",
-     "name": "First Instinct for Her Gift Set 50ml EDP + 200ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0085715165756",
-     "scent": "first instinct",
      "signature": "1x200body|1x50fragrance",
      "shops": [
       "perfume-click"
@@ -12774,7 +12744,8 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
-    "two different barcodes: 3423222066185, 8057971185498"
+    "two different barcodes: 3423222066185, 8057971185498",
+    "price spread 1.62 is over 1.5"
    ],
    "members": [
     {
@@ -14685,7 +14656,7 @@
   },
   {
    "reasons": [
-    "price spread 2.31 is over 1.5"
+    "price spread 2.39 is over 1.5"
    ],
    "members": [
     {
@@ -16588,50 +16559,6 @@
      "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.67 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8052086379480",
-     "brand": "Salvatore Ferragamo",
-     "name": "Signorina Ribelle Gift Set 30ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "8052086379480",
-     "scent": "ribelle signorina",
-     "signature": "1x30fragrance|1x50body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-salvatore-ferragamo-signorina-ribelle-gift-set-30ml-edp-50ml-body-lotion",
-     "brand": "Salvatore Ferragamo",
-     "name": "Signorina Ribelle Gift Set 30ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "ribelle signorina",
-     "signature": "1x30fragrance|1x50body",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-salvatore-ferragamo-signorina-ribelle-gift-set-edp-spray-30ml-body-lotion-50ml",
-     "brand": "Salvatore Ferragamo",
-     "name": "Signorina Ribelle Gift Set EDP Spray 30ml + Body Lotion 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "ribelle signorina",
-     "signature": "1x30fragrance|1x50body",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]

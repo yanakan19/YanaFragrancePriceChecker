@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-11-22T06:39:45.387Z",
-  "seenAt": "2026-11-22T06:39:45.387Z",
+  "updatedAt": "2026-11-22T14:38:33.618Z",
+  "seenAt": "2026-11-22T14:38:33.618Z",
   "source": "live",
   "listings": [
     {
@@ -17187,28 +17187,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "690251057016",
-      "url": "https://www.awin1.com/pclick.php?p=44716548422&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/jo-malone-english-oak-hazelnut-100ml-eau-de-cologne.html",
-      "rawTitle": "Jo Malone English Oak & Hazelnut 100ml Eau de Cologne",
-      "rawBrand": "Jo Malone",
-      "ean": "690251057016",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690251057016_0.jpg",
-      "priceGbp": 80.95,
-      "wasPriceGbp": 122,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "#html-body [data-pb-style=EUHGKS1]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}Warm woods, soft spice, and a smooth nutty finish make this cologne feel calm and confident. Jo Malone English Oak & Hazelnut opens with fresh green notes before settling into rich oak and roasted hazelnut, creating a scent that feels earthy without being heavy. It’s clean, modern, and easy to wear from day to night. Perfect for anyone who likes understated fragrances with a cozy, refined edge.",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "3614273459082",
       "url": "https://www.awin1.com/pclick.php?p=44691827435&a=3026001&m=124166",
       "merchantUrl": "https://www.fragranceclick.co.uk/valentino-voce-viva-intense-30ml-eau-de-parfum.html",
@@ -20176,6 +20154,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "690251057016",
+      "url": "https://www.awin1.com/pclick.php?p=44716548422&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/jo-malone-english-oak-hazelnut-100ml-eau-de-cologne.html",
+      "rawTitle": "Jo Malone English Oak & Hazelnut 100ml Eau de Cologne",
+      "rawBrand": "Jo Malone",
+      "ean": "690251057016",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690251057016_0.jpg",
+      "priceGbp": 80.95,
+      "wasPriceGbp": 122,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "#html-body [data-pb-style=EUHGKS1]{justify-content:flex-start;display:flex;flex-direction:column;background-position:left top;background-size:cover;background-repeat:no-repeat;background-attachment:scroll}Warm woods, soft spice, and a smooth nutty finish make this cologne feel calm and confident. Jo Malone English Oak & Hazelnut opens with fresh green notes before settling into rich oak and roasted hazelnut, creating a scent that feels earthy without being heavy. It’s clean, modern, and easy to wear from day to night. Perfect for anyone who likes understated fragrances with a cozy, refined edge.",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-11-22T06:39:45.387Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-22T14:38:33.618Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
