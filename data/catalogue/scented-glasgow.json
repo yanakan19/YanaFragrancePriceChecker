@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-22T10:42:28.257Z",
-  "seenAt": "2026-11-22T10:42:28.257Z",
+  "updatedAt": "2026-11-22T14:44:02.725Z",
+  "seenAt": "2026-11-22T14:44:02.725Z",
   "source": "live",
   "listings": [
     {
@@ -3740,7 +3740,7 @@
       "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Reality: Honey, Eucalyptus, Leather, Velvet, Amber, Beeswax. Materiality: Nutmeg, Benzoin Resinoid, Labdanum Absolute, Birch Tar, Musk.",
       "productType": "Perfume",
@@ -6316,7 +6316,7 @@
       "priceGbp": 195,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Orange blossom – Spicy, Oranger flower absolute Morocco 3% Petitgrain oil Morocco ‘Grand Cru’ 2,4% Royal Cinnamon oil Laos ‘Grand Cru’ 0,6%.",
       "productType": "Perfume",

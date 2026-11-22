@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-22T10:42:28.257Z",
-  "seenAt": "2026-11-22T10:42:28.257Z",
+  "updatedAt": "2026-11-22T14:44:02.725Z",
+  "seenAt": "2026-11-22T14:44:02.725Z",
   "source": "live",
   "listings": [
     {
@@ -152,7 +152,7 @@
       "priceGbp": 36.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rayhaan Vantage Eau de Parfum opens with the lively spice of pink pepper and cardamom, brightened by bergamot. Frankincense, myrrh and juniper berries shape a rich, aromatic heart, while cedarwood and patchouli create a warm, earthy finish. A distinctive fragrance for everyday wear and special occasions.",
       "productType": "Eau De Parfum",
