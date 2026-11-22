@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-22T06:53:37.718Z",
+  "checkedAt": "2026-11-22T10:49:07.702Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,9 +59,9 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "CNY",
-      "listings": 512,
+      "listings": 538,
       "pricedInGbp": 0,
-      "withPhoto": 490,
+      "withPhoto": 518,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -76,9 +76,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 205,
+      "listings": 206,
       "pricedInGbp": 0,
-      "withPhoto": 205,
+      "withPhoto": 206,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

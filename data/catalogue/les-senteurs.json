@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-22T06:46:57.052Z",
-  "seenAt": "2026-11-22T06:46:57.052Z",
+  "updatedAt": "2026-11-22T10:41:52.182Z",
+  "seenAt": "2026-11-22T10:41:52.182Z",
   "source": "live",
   "listings": [
     {
@@ -1302,7 +1302,7 @@
       "priceGbp": 140,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "For those who adore woody accords - addicts who would go so far as to not simply smell, but to lick, taste and eat those unique scents. Cedar Woodpecker is a unique intense blend of assorted cedarwood essences combined with precious iris to create a mood of perfect elegance and suave seduction.. Notes: Cedar, Iris.",
       "productType": "Fragrance",
@@ -7673,7 +7673,7 @@
       "priceGbp": 195,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "\"Before going to the Dusita boutique each morning, I love to indulge in a hot, milky beverage and a flaky, buttery croissant. Tonka Latte reflects that daily ritual of heart-warming cosiness and pure enjoyment. The fragrance ultimately celebrates finding happiness in life's small pleasures.\" - Pissara Umavijani .",
       "productType": "Fragrance",

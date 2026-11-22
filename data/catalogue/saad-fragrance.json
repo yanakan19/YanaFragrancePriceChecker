@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-22T06:47:25.768Z",
-  "seenAt": "2026-11-22T06:47:25.768Z",
+  "updatedAt": "2026-11-22T10:42:28.257Z",
+  "seenAt": "2026-11-22T10:42:28.257Z",
   "source": "live",
   "listings": [
     {
@@ -37,7 +37,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Blu Oud a striking fragrance that encapsulates the essence of deep sophistication and mystique. At the top, Bergamot, cypress and leather combine to create a bold and invigorating opening. The heart notes reveal incense, violet leaves and geranium, adding a mystical and floral depth to the composition. as the fragrance settles, the base notes of Patchoulli,musk, Agarwood and Guaic wood provide a captivating and rich foundation. .",
       "productType": null,
