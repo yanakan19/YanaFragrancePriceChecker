@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 383,
+ "folded": 381,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -62,6 +62,39 @@
      "ean": null,
      "scent": "magnetic woman",
      "signature": "1x30fragrance|1x50wash",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-cristiano-ronaldo-cr7-discover-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
+   "absorbed": [
+    "set-cristiano-ronaldo-cr7-discover-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml"
+   ],
+   "members": [
+    {
+     "id": "set-cristiano-ronaldo-cr7-discover-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Discover Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 discover",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "mybeauty-boutique",
+      "p-eleven"
+     ]
+    },
+    {
+     "id": "set-cristiano-ronaldo-cr7-discover-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
+     "brand": "Cristiano Ronaldo",
+     "name": "Cr7 Discover 3 Piece Gift Set: Eau de Toilette 100ml - Shower Gel 150ml - Body Spray 150ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 discover",
+     "signature": "1x100fragrance|1x150body|1x150wash",
      "shops": [
       "the-beauty-store-uk"
      ]
@@ -3283,39 +3316,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3386460158411",
-   "absorbed": [
-    "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460158411",
-     "brand": "Jimmy Choo",
-     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "3386460158411",
-     "scent": "man",
-     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
-     "shops": [
-      "perfume-click",
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
-     "brand": "Jimmy Choo",
-     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "man",
-     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
-     "shops": [
       "p-eleven"
      ]
     }
@@ -7493,52 +7493,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5060524511562",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-discover-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
-    "set-cristiano-ronaldo-cr7-discover-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511562",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Discover Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511562",
-     "scent": "cr7 discover",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-discover-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
-     "brand": "Cristiano Ronaldo",
-     "name": "Cr7 Discover 3 Piece Gift Set: Eau de Toilette 100ml - Shower Gel 150ml - Body Spray 150ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 discover",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-discover-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Discover Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 discover",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "mybeauty-boutique",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5060753160364",
    "absorbed": [
     "set-lambretta-intense-gift-set-100ml-edp-150ml-shower-gel-150ml-aftershave-lotion"
@@ -11554,37 +11508,6 @@
   },
   {
    "reasons": [
-    "price spread 2.00 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-abercrombie-fitch-first-instinct-blue-for-her-gift-set-100ml-edp-15ml-edp-200ml-body-lotion",
-     "brand": "Abercrombie & Fitch",
-     "name": "First Instinct Blue for Her Gift Set 100ml EDP + 15ml EDP + 200ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blue first instinct",
-     "signature": "1x100fragrance|1x15fragrance|1x200body",
-     "shops": [
-      "p-eleven"
-     ]
-    },
-    {
-     "id": "set-ean-0085715167323",
-     "brand": "Abercrombie & Fitch",
-     "name": "First Instinct Blue for Her Gift Set 100ml EDP + 15ml EDP + 200ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "0085715167323",
-     "scent": "blue first instinct",
-     "signature": "1x100fragrance|1x15fragrance|1x200body",
-     "shops": [
-      "perfume-click"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.04 is over 1.5"
    ],
    "members": [
@@ -12971,22 +12894,9 @@
   },
   {
    "reasons": [
-    "two different barcodes: 85715676726, 85715676733",
-    "a shop lists more than one: p-eleven, perfume-click"
+    "a shop lists more than one: p-eleven"
    ],
    "members": [
-    {
-     "id": "set-ean-0085715676726",
-     "brand": "Fcuk",
-     "name": "Gift Set FCUK Her Original Eau De Toilette 25ml Spray + FCUK Her Friction Eau De Toilette 25ml Spray + FCUK Her Connect Eau De Toilette 25ml Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "0085715676726",
-     "scent": "connect fcuk friction original",
-     "signature": "3x25fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
     {
      "id": "set-ean-0085715676733",
      "brand": "Fcuk",
@@ -14455,7 +14365,7 @@
   },
   {
    "reasons": [
-    "price spread 1.60 is over 1.5"
+    "price spread 1.65 is over 1.5"
    ],
    "members": [
     {
