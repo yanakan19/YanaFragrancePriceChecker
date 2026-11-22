@@ -28,7 +28,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-11-22T06:42:22.730Z";
+export const DEALS_GENERATED_AT = "2026-11-22T07:50:54.091Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -663,11 +663,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3365440787919",
-    "price": 72.99,
+    "price": 82,
     "delivered": true,
-    "wasPrice": 95,
-    "percentOff": 23,
-    "retailerId": "lloyds-pharmacy",
+    "wasPrice": 102,
+    "percentOff": 19,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -14743,11 +14743,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290171075622",
-    "price": 28.8,
+    "price": 23.98,
     "delivered": true,
     "wasPrice": 40,
-    "percentOff": 28,
-    "retailerId": "perfume-click",
+    "percentOff": 40,
+    "retailerId": "justmylook",
     "kind": "house",
     "houseName": "Zimaya"
   },
@@ -19063,11 +19063,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-783320416118",
-    "price": 41.22,
+    "price": 43.45,
     "delivered": true,
-    "wasPrice": 81,
-    "percentOff": 49,
-    "retailerId": "scent-warehouse",
+    "wasPrice": 67,
+    "percentOff": 35,
+    "retailerId": "perfume-click",
     "kind": "retailer",
     "houseName": null
   },
@@ -28623,11 +28623,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290171070283",
-    "price": 24.99,
-    "delivered": false,
+    "price": 19.98,
+    "delivered": true,
     "wasPrice": 35,
-    "percentOff": 28,
-    "retailerId": "soghaat",
+    "percentOff": 42,
+    "retailerId": "justmylook",
     "kind": "house",
     "houseName": "Zimaya"
   },
@@ -31242,16 +31242,6 @@ export const DEALS_RAW: RawDeal[] = [
     "houseName": "Escentric Molecules"
   },
   {
-    "fragranceId": "ean-5060103310685",
-    "price": 108,
-    "delivered": true,
-    "wasPrice": 135,
-    "percentOff": 20,
-    "retailerId": "john-lewis",
-    "kind": "house",
-    "houseName": "Escentric Molecules"
-  },
-  {
     "fragranceId": "ean-5060103310111",
     "price": 99.75,
     "delivered": true,
@@ -31583,11 +31573,11 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-6290360378206",
-    "price": 34.99,
-    "delivered": false,
+    "price": 30.95,
+    "delivered": true,
     "wasPrice": 40,
-    "percentOff": 12,
-    "retailerId": "beevora",
+    "percentOff": 22,
+    "retailerId": "justmylook",
     "kind": "house",
     "houseName": "French Avenue"
   },
@@ -40298,6 +40288,16 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 21.99,
     "percentOff": 11,
     "retailerId": "perfume-click",
+    "kind": "retailer",
+    "houseName": null
+  },
+  {
+    "fragranceId": "ean-3700135023758",
+    "price": 54.6,
+    "delivered": true,
+    "wasPrice": 62,
+    "percentOff": 11,
+    "retailerId": "fenwick",
     "kind": "retailer",
     "houseName": null
   },
