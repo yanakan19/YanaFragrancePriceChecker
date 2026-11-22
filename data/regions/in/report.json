@@ -1,31 +1,31 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-11-21T02:31:20.617Z",
+  "builtAt": "2026-11-22T01:20:10.181Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 21,
   "shopsEnabled": 18,
   "shopsPriced": 18,
-  "crawlMinutes": 55.31,
-  "harvestRanAt": "2026-11-21T01:36:01.250Z",
-  "listingsPriced": 35107,
-  "listingsKept": 23786,
+  "crawlMinutes": 55.33,
+  "harvestRanAt": "2026-11-22T00:24:49.582Z",
+  "listingsPriced": 35072,
+  "listingsKept": 23743,
   "staleAfterDays": 7,
-  "products": 19944,
-  "productsWithTwoOrMoreShops": 3767,
+  "products": 19945,
+  "productsWithTwoOrMoreShops": 3769,
   "shareWithTwoOrMoreShops": 0.189,
-  "productsWithTwoOrMoreIndependentShops": 3767,
+  "productsWithTwoOrMoreIndependentShops": 3769,
   "shareWithTwoOrMoreIndependentShops": 0.189,
   "productsWithThreeOrMoreShops": 1326,
   "medianPriceGap": 0.222,
   "listingBarcodeShare": 0.012,
-  "productsMatchingUkByBarcode": 145,
+  "productsMatchingUkByBarcode": 147,
   "shops": [
     {
       "id": "aar-fragrances",
-      "products": 2303,
-      "shared": 1548
+      "products": 2304,
+      "shared": 1549
     },
     {
       "id": "all-arabic",
@@ -39,13 +39,13 @@
     },
     {
       "id": "fridaycharm",
-      "products": 6413,
-      "shared": 2159
+      "products": 6412,
+      "shared": 2158
     },
     {
       "id": "maison-des-parfums-in",
       "products": 1452,
-      "shared": 540
+      "shared": 541
     },
     {
       "id": "naso-profumi",
@@ -54,8 +54,8 @@
     },
     {
       "id": "nykaa",
-      "products": 2319,
-      "shared": 399
+      "products": 2321,
+      "shared": 403
     },
     {
       "id": "perfume-network",
@@ -64,8 +64,8 @@
     },
     {
       "id": "perfume-palace",
-      "products": 6687,
-      "shared": 2379
+      "products": 6688,
+      "shared": 2380
     },
     {
       "id": "scentido",
@@ -75,11 +75,11 @@
     {
       "id": "scentira",
       "products": 2473,
-      "shared": 812
+      "shared": 813
     },
     {
       "id": "scentopia",
-      "products": 1232,
+      "products": 1235,
       "shared": 515
     },
     {
@@ -98,14 +98,14 @@
       "shared": 5
     }
   ],
-  "productsShown": 19365,
-  "productsWithUkPhoto": 2955,
-  "productsWithUkPhotoByBarcode": 125,
-  "productsWithUkPhotoByName": 2830,
-  "listingsWithReference": 15391,
+  "productsShown": 19366,
+  "productsWithUkPhoto": 2941,
+  "productsWithUkPhotoByBarcode": 127,
+  "productsWithUkPhotoByName": 2814,
+  "listingsWithReference": 15394,
   "offersWithCorroboratedReference": 3057,
   "deals": 1105,
-  "shareWithUkPhoto": 0.153,
+  "shareWithUkPhoto": 0.152,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
     "meetsBar": false,
