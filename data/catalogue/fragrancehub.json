@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-22T18:39:54.352Z",
-  "seenAt": "2026-11-22T18:39:54.352Z",
+  "updatedAt": "2026-11-22T22:01:58.208Z",
+  "seenAt": "2026-11-22T22:01:58.208Z",
   "source": "live",
   "listings": [
     {
@@ -3832,7 +3832,7 @@
       "priceGbp": 44.99,
       "wasPriceGbp": 54.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "When the world settles, what remains is the impression. “Blanc Ash” is the embodiment of quiet power and the effortless allure represented by Jeffrey Dean Morgan, designed for moments where your presence speaks on your behalf.. Fragrance Notes. Top Notes: Black Pepper, Saffron. Heart Notes: Vanilla, Dry Amber. Base Notes: Cedarwood, Patchouli, Sandalwood.",
       "productType": null,
@@ -9283,7 +9283,7 @@
       "priceGbp": 15.95,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Enter the epicenter of modern beauty with Opulent Dubai Perfume 100ml EDP Lattafa. Its a unisex fragrance that is as dynamic as the city it is named after. This Arabic eau de parfum combines fruity brightness, floral allure, and a rich, earthy base to create a scent that is both fresh and powerful.. The journey begins with a vibrant burst of juicy, radiant, and energetic notes of lemon, ginger, grapefruit, and mango. As it settles, soft violet and jasmine emerge, wrapped in a grounding touch of cedar wood for a perfectly balanced heart.. At the base, the scent deepens into a warm, sensual blend of ambergris, oakmoss, woody notes, and benzoin, leaving a luxurious and long-lasting mark that lingers beautifully.. Top Notes: Lemon, Ginger, Grapefruit, Mango Heart Notes: Jasmine, Violet, Cedarwood Base: Ambergris, Woody, Oakmoss, Benzoin.",
       "productType": null,
