@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-23T01:41:00.135Z",
-  "seenAt": "2026-11-23T01:41:00.135Z",
+  "updatedAt": "2026-11-23T05:45:55.831Z",
+  "seenAt": "2026-11-23T05:45:55.831Z",
   "source": "live",
   "listings": [
     {
@@ -24164,7 +24164,7 @@
       "priceGbp": 15.37,
       "wasPriceGbp": 38,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein Obsession. Discover the timeless allure of Calvin Klein Obsession , a captivating fragrance that embodies passion and sensuality. This exquisite perfume features a rich blend of notes, including bergamot, mandarin, and a heart of jasmine and orange blossom, making it a perfect choice for the modern individual who loves to make a statement.. The warm base notes of amber, vanilla, and musk ensure that Obsession Eau de Parfum lingers on your skin, creating an unforgettable impression. Ideal for evening wear or special occasions, this fragrance is designed for those who embrace their inner desires and exude confidence.. With its elegant packaging and powerful scent, Obsession is not just a fragrance, but an experience. Elevate your fragrance collection and indulge in this iconic scent that has captivated hearts since its launch..",
       "productType": "Eau de Parfum",

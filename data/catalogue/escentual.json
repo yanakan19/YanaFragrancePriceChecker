@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-23T01:41:00.135Z",
-  "seenAt": "2026-11-23T01:41:00.135Z",
+  "updatedAt": "2026-11-23T05:45:55.831Z",
+  "seenAt": "2026-11-23T05:45:55.831Z",
   "source": "live",
   "listings": [
     {
@@ -1417,7 +1417,7 @@
       "priceGbp": 12,
       "wasPriceGbp": 16,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Transform your daily cleansing routine with the Vichy Mineral 89 Hydrating Jelly Cleanser, a next-generation face wash designed to purify, cushion, and boost skin moisture right from step one.. Expertly formulated for sensitive, dry to normal skin types, this refreshing cleanser features an innovative jelly-to-foam texture that melts away daily makeup and impurities into a soft, rich lather.. At the heart of the formula are Moisture Acid Twins: surface-acting hyaluronic acid paired with polyglutamic acid, which penetrates up to 10 layers deep into the stratum corneum. The result is a thoroughly cleansed complexion that feels reinforced, visibly plump, and effortlessly dewy.. Why We Love It Instant Hydration: Clinically shown to deliver up to +24% more hydration right after the first use.*. Deep & Gentle Purification: Effortlessly melts away daily makeup, removes up to 98% of pollution particles and impurities, and clears up to 79% of UV filters** without stripping the skin barrier.. Dual-Action Moisture: Synergises surface-hydrating hyaluronic acid with deep-reaching polyglutamic acid to lock in plump-looking moisture.. Sensory Transformation: The cooling jelly texture works into a cushioned, luxurious foam for a comfortable, fresh-faced rinse.. *Consumer test (124 women) and instrumental test (24 women) after 1st use. **Instrumental test, 32 women, after a single application..",
       "productType": "Skincare",
@@ -1463,7 +1463,7 @@
       "priceGbp": 15.37,
       "wasPriceGbp": 20.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Soothe sensitive scalps and maintain a flake-free finish with the Vichy Dercos Anti-Dandruff Daily Rebalancing Fresh Shampoo. Specially formulated for sensitive scalp care, this gentle clarifying cleanser delivers immediate comfort to irritated skin while actively working to reinforce your scalp’s natural barrier.. Designed for daily maintenance, this formula is created to be alternated between treatments with the Dercos Anti-Dandruff DS Dermatological Shampoo. It uses an exfoliating blend of 2% Salicylic Acid and 4% Lactic Acid to instantly lift away flakes, offering proven efficacy from the very first use. Backed by microbiome science, each wash delivers 22 million postbiotic bacteria fractions** to boost scalp defences against visible dandruff while preserving its delicate moisture barrier. The fresh formula leaves hair feeling softer, shinier, and visibly revitalised.. Why We Love It Both beauty lovers and scalp care sufferers will appreciate how this dermatologist-recommended shampoo balances high-efficacy targeted care with a luxurious washing experience. Sensitive scalps often suffer from uncomfortable heat and itchiness; this formula addresses those issues head-on, with clinical studies showing a 31% reduction in scratching, a 43% reduction in heating, and a 27% reduction in sensitivity after just one application*.. It makes managing dandruff simple by acting as the ideal daily partner to heavier dermatological treatments. Instead of stripping the hair, it combines postbiotic barrier care with clarifying acids—leaving the scalp calm, comfortable, and balanced, while hair looks soft, shiny, and refreshed.. Instrumental tests *Clinical study, 46 subjects after 1 application. **In a 390ml bottle..",
       "productType": "Hair",
@@ -78950,7 +78950,7 @@
       "priceGbp": 38,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "\"YSL's given their iconic Rouge Pur Couture Lipstick a modern makeover that now contains even more skincare ingredients and a luxurious, refillable case!\" - Ceryn, Escentual Beauty Team.. . . Why You'll Love The YSL Rouge Pur Couture Lipstick: . Updated version of the iconic Rouge Pur Couture Lipstick.. Medium to full coverage and satin finish.. Rich colours in four families; reds, oranges, fuchasias, nudes.. Chic gold and black refillable lipstick case.. 80% skin-caring ingredients.. . Why It's Escentual: . The Rouge Pur Couture Lipstick was first released in 1978. Since then, it's become one of the most coveted luxury lipsticks. For 2023, Yves Saint Laurent has reinvited this icon; now, it contains even more skincare ingredients (tuberose and prickly pear flower extracts from YSL's ourika community gardens, as well as ceramides) and a luxurious, black and gold refillable case adorned with a statement YSL logo.. The satin finish lip colour delivers full, creamy coverage and highly pigmented colour in one easy stroke. Powered by care, the lipstick is enriched with an 80% skin-caring base to keep lips smooth and comfortable all day long. YSL Rouge Pur Couture is available in an array of shades in four colour families; reds, oranges, fuchsias, and nudes to suit all skin tones.. . The Best Way To Use It: . Apply directly to your lips from the lipstick bullet; start with your cupid's bow and upper lip, then the lower lip.. . The Sustainable Side: . The Rouge Pur Couture Lipstick comes in a refillable lipstick case to reduce plastic waste.. .",
       "productType": "Makeup",
