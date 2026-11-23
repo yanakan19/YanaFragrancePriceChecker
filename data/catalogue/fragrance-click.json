@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrance-click",
-  "updatedAt": "2026-11-22T21:55:08.210Z",
-  "seenAt": "2026-11-22T21:55:08.210Z",
+  "updatedAt": "2026-11-23T05:38:53.672Z",
+  "seenAt": "2026-11-23T05:38:53.672Z",
   "source": "live",
   "listings": [
     {
@@ -2993,28 +2993,6 @@
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "8411061083789",
-      "url": "https://www.awin1.com/pclick.php?p=44089041744&a=3026001&m=124166",
-      "merchantUrl": "https://www.fragranceclick.co.uk/carolina-herrera-bad-boy-cobalt-elixir-150ml-eau-de-parfum.html",
-      "rawTitle": "Carolina Herrera Bad Boy Cobalt Elixir 150ml Eau de Parfum",
-      "rawBrand": "Carolina Herrera",
-      "ean": "8411061083789",
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_1.jpg",
-      "priceGbp": 98.95,
-      "wasPriceGbp": 136,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "awin-feed",
-      "description": "Carolina Herrera Bad Boy Cobalt Elixir sits comfortably in the elegant category without trying too hard. This eau de parfum from Carolina keeps things floral and approachable.The opening burst of Bergamot, Citrus gives way to Jasmine, Rose fairly quickly. What lingers is the base combination of Vanilla, Musk, which is really where this fragrance lives most of the day.Performance-wise, expect moderate to good longevity depending on your skin chemistry. The 150ml format is a sweet spot between value and practicality, especially if you're planning to make this your signature.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
-      "retailerId": "fragrance-click",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": "2026-11-09T19:07:22.115Z",
       "eligibleForNewBadge": false,
       "variantId": null
     },
@@ -20132,6 +20110,29 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "8411061083789",
+      "url": "https://www.awin1.com/pclick.php?p=44089041744&a=3026001&m=124166",
+      "merchantUrl": "https://www.fragranceclick.co.uk/carolina-herrera-bad-boy-cobalt-elixir-150ml-eau-de-parfum.html",
+      "rawTitle": "Carolina Herrera Bad Boy Cobalt Elixir 150ml Eau de Parfum",
+      "rawBrand": "Carolina Herrera",
+      "ean": "8411061083789",
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_1.jpg",
+      "priceGbp": 98.95,
+      "wasPriceGbp": 136,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "awin-feed",
+      "description": "Carolina Herrera Bad Boy Cobalt Elixir sits comfortably in the elegant category without trying too hard. This eau de parfum from Carolina keeps things floral and approachable.The opening burst of Bergamot, Citrus gives way to Jasmine, Rose fairly quickly. What lingers is the base combination of Vanilla, Musk, which is really where this fragrance lives most of the day.Performance-wise, expect moderate to good longevity depending on your skin chemistry. The 150ml format is a sweet spot between value and practicality, especially if you're planning to make this your signature.Notes:Top: Bergamot, Citrus, Fresh floralsHeart: Jasmine, Rose, Floral bouquetBase: Vanilla, Musk, Woody notes",
+      "retailerId": "fragrance-click",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "lastSeenAt": "2026-11-22T21:55:08.210Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-23T05:38:53.672Z",
+      "relistedAt": "2026-11-09T19:07:22.115Z",
+      "eligibleForNewBadge": false,
       "variantId": null
     },
     {
