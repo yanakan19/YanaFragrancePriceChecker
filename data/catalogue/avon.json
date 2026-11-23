@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-23T05:45:55.831Z",
-  "seenAt": "2026-11-23T05:45:55.831Z",
+  "updatedAt": "2026-11-23T09:51:37.770Z",
+  "seenAt": "2026-11-23T09:51:37.770Z",
   "source": "live",
   "listings": [
     {
@@ -6566,8 +6566,8 @@
       "rawBrand": "Senses",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0327/1498/1421/files/9037509_01.jpg?v=1790345880",
-      "priceGbp": 4.5,
-      "wasPriceGbp": null,
+      "priceGbp": 3.5,
+      "wasPriceGbp": 4.5,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -31271,7 +31271,7 @@
       "priceGbp": 14,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Escape and to enrich your senses with the beauty of nature with the floral and aqua perfume of Perceive Dew Eau de Parfum. Discover the dawn of a new era with beautiful freesia, fresh marine mist and vivid golden amber.. Product specification: . • Top note: freesia. • Middle note: marine mist. • Base note: golden amber. • 50ml.. How to wear me: . Spritz the floral and aqua fragrance onto your pulse points and enjoy the peaceful scent throughout the day..",
       "productType": "FRAGRANCE",
@@ -44864,7 +44864,7 @@
       "priceGbp": 17,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Achieve absolute excellence with the woody and amber scents of Elite Gentleman Absolute Eau de Toilette. Discover pure sophistication with a fresh burst of Italian lemon, intensified with rich notes of jinkoh agarwood and luxurious amber. Product specification: • Top note: Italian lemon. • Middle note: jinkoh argarwood. • Base note: amber. • 50ml. How to use me : Always strive for more and stand out with a spritz of the refined woody and amber aftershave. Make the scent last even longer by pairing it with the matching hair and body wash or body spray..",
       "productType": "FRAGRANCE",

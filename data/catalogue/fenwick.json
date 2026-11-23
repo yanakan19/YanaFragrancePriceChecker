@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-23T05:46:03.215Z",
-  "seenAt": "2026-11-23T05:46:03.215Z",
+  "updatedAt": "2026-11-23T09:47:54.655Z",
+  "seenAt": "2026-11-23T09:47:54.655Z",
   "source": "live",
   "listings": [
     {
@@ -7328,7 +7328,7 @@
       "priceGbp": 96,
       "wasPriceGbp": 120,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Paradigme Eau de Parfum by PRADA is a sophisticated fragrance presented in a 100ml bottle. This scent combines warm amber with fresh geranium, offering a balanced blend of floral and resinous notes. Ideal for those seeking a modern yet timeless perfume, it delivers lasting elegance throughout the day..",
       "productType": "Women's Fragrances",
@@ -10502,7 +10502,7 @@
       "priceGbp": 49,
       "wasPriceGbp": 70,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the vibrant character of Fiery Pink Pepper Eau De Parfum. Bold and sophisticated, this distinctive fragrance combines an invigorating spiced quality with a warm, sensual depth, creating an expressive scent that lingers beautifully on the skin..",
       "productType": "Women's Fragrances",
@@ -20438,7 +20438,7 @@
       "priceGbp": 150.4,
       "wasPriceGbp": 188,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The Lost Cherry Eau de Parfum by Tom Ford layers black cherry and bitter almond with warm tonka and balsam. Lush, textured and irresistible, it captures a duality of sweetness and depth in signature Tom Ford style..",
       "productType": "Women's Fragrances",
