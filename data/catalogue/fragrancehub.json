@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-22T22:01:58.208Z",
-  "seenAt": "2026-11-22T22:01:58.208Z",
+  "updatedAt": "2026-11-23T01:40:32.485Z",
+  "seenAt": "2026-11-23T01:40:32.485Z",
   "source": "live",
   "listings": [
     {
@@ -1207,8 +1207,8 @@
       "rawBrand": "Arabiyat Prestige",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/83ad277a-a5eb-4563-9161-972644c31697.jpg?v=1789993409",
-      "priceGbp": 49.99,
-      "wasPriceGbp": 55.99,
+      "priceGbp": 55.99,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": false,
       "sectionId": "shopify-products-json",
@@ -9444,7 +9444,7 @@
       "priceGbp": 36.5,
       "wasPriceGbp": 55.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Top notes: Calabrian bergamot, Lemon and Sicilian Orange. Middle notes: Tunisian Neroli, Nigerian Ginger and Ceylon Cinnamon. Base notes: Chinese Black Tea, Olibanum, Ambroxan and Guaiac Wood.. A vibrant fusion of spice, citrus, and smoky elegance.. Marwa bursts open with a zesty medley of Calabrian bergamot, lemon, and Sicilian orange—a bright, sunlit introduction that captures Mediterranean freshness.. In the heart, exotic warmth unfolds through Tunisian neroli, fiery Nigerian ginger, and rich Ceylon cinnamon, weaving spice with floral nuance for a dynamic, uplifting core.. The base is bold and grounding, blending smoky Chinese black tea, sacred olibanum, modern ambroxan, and the depth of guaiac wood, creating a sophisticated trail that lingers with charisma and complexity.. Marwa is a fragrance of contrasts—fresh yet spicy, elegant yet daring. Crafted for those who seek vibrance with depth..",
       "productType": null,

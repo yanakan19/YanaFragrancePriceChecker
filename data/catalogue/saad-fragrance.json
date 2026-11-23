@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-22T22:01:58.208Z",
-  "seenAt": "2026-11-22T22:01:58.208Z",
+  "updatedAt": "2026-11-23T01:40:32.485Z",
+  "seenAt": "2026-11-23T01:40:32.485Z",
   "source": "live",
   "listings": [
     {
@@ -359,7 +359,7 @@
       "priceGbp": 25.99,
       "wasPriceGbp": 29.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Asad Elixir Perfume 100ml EDP by Lattafa combines citrus top notes of Pink Pepper, Saffron, and Grapefruit with a heart of Tobacco, Vanilla, and Cedar, balanced by a base of Light Amber, Frankincense, Patchouli, and Cashmeran, delivering a complex and enduring scent profile. .",
       "productType": null,
@@ -704,7 +704,7 @@
       "priceGbp": 36.99,
       "wasPriceGbp": 39.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Le bonheur black cavalier VI Eau de Parfum (100ml) combines fresh ginger and bergamot with herbal sage and violet, resting on a base of sandalwood, cedarwood, and patchouli. Crafted by perfumer Jordi Fernández, this composition offers a balanced, long-lasting scent profile. .",
       "productType": null,
