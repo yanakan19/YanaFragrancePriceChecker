@@ -1,7 +1,7 @@
 {
   "retailerId": "nasomatto",
-  "updatedAt": "2026-11-23T09:51:43.425Z",
-  "seenAt": "2026-11-23T09:51:43.425Z",
+  "updatedAt": "2026-11-23T13:53:16.936Z",
+  "seenAt": "2026-11-23T13:53:16.936Z",
   "source": "live",
   "listings": [
     {
@@ -131,6 +131,32 @@
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "NA0044",
+      "url": "https://nasomatto.com/products/fantomas",
+      "rawTitle": "FANTOMAS 30 ml / 1.0 fl oz Extrait de Parfum",
+      "rawBrand": "Nasomatto",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0733/6935/4506/files/Fantomas-ProductPage3-30ML.jpg?v=1739797830",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "This bottle of perfume is part of the project Nasomatto. The fragrance is an elusive hint towards the transgressive act that has been carried out with an ease of refined precision..",
+      "productType": null,
+      "nativePrice": {
+        "amount": 130,
+        "currency": "EUR"
+      },
+      "retailerId": "nasomatto",
+      "firstSeenAt": "2026-08-05T18:11:04.028Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-11-23T13:53:16.936Z",
       "eligibleForNewBadge": false,
       "variantId": null
     },
@@ -624,33 +650,6 @@
       "firstSeenAt": "2026-08-05T18:11:04.028Z",
       "status": "active",
       "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
-      "retailerSku": "NA0044",
-      "url": "https://nasomatto.com/products/fantomas",
-      "rawTitle": "FANTOMAS 30 ml / 1.0 fl oz Extrait de Parfum",
-      "rawBrand": "Nasomatto",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0733/6935/4506/files/Fantomas-ProductPage3-30ML.jpg?v=1739797830",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "This bottle of perfume is part of the project Nasomatto. The fragrance is an elusive hint towards the transgressive act that has been carried out with an ease of refined precision. .",
-      "productType": null,
-      "nativePrice": {
-        "amount": 130,
-        "currency": "EUR"
-      },
-      "retailerId": "nasomatto",
-      "firstSeenAt": "2026-08-05T18:11:04.028Z",
-      "lastSeenAt": "2026-10-08T10:36:49.207Z",
-      "status": "delisted",
-      "delistedAt": "2026-10-08T14:54:45.518Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

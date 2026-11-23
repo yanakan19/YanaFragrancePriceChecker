@@ -1,7 +1,7 @@
 {
   "retailerId": "bdk-parfums",
-  "updatedAt": "2026-11-23T09:52:59.452Z",
-  "seenAt": "2026-11-23T09:52:59.452Z",
+  "updatedAt": "2026-11-23T13:54:28.372Z",
+  "seenAt": "2026-11-23T13:54:28.372Z",
   "source": "live",
   "listings": [
     {
@@ -1903,32 +1903,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "NOEX100",
-      "url": "https://bdkparfums.com/products/nectar-oud",
-      "rawTitle": "Nectar Oud - Extrait de Parfum 100ML",
-      "rawBrand": "BDK Parfums",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/NECTAR_OUD_E.png?v=1751625824",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Extrait de Parfum.",
-      "productType": "eau de parfum",
-      "nativePrice": {
-        "amount": 315,
-        "currency": "EUR"
-      },
-      "retailerId": "bdk-parfums",
-      "firstSeenAt": "2026-08-05T18:12:06.629Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": false,
-      "variantId": null
-    },
-    {
       "retailerSku": "DECCE",
       "url": "https://bdkparfums.com/products/la-decouverte-extraits",
       "rawTitle": "La Découverte Extraits",
@@ -3536,6 +3510,33 @@
       "firstSeenAt": "2026-08-05T18:12:06.629Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "NOEX100",
+      "url": "https://bdkparfums.com/products/nectar-oud",
+      "rawTitle": "Nectar Oud - Extrait de Parfum 100ML",
+      "rawBrand": "BDK Parfums",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0727/5813/3020/files/NECTAR_OUD_E.png?v=1751625824",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Extrait de Parfum.",
+      "productType": "eau de parfum",
+      "nativePrice": {
+        "amount": 315,
+        "currency": "EUR"
+      },
+      "retailerId": "bdk-parfums",
+      "firstSeenAt": "2026-08-05T18:12:06.629Z",
+      "lastSeenAt": "2026-11-23T09:52:59.452Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-23T13:54:28.372Z",
       "relistedAt": null,
       "eligibleForNewBadge": false,
       "variantId": null

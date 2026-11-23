@@ -1,7 +1,7 @@
 {
   "retailerId": "assaf",
-  "updatedAt": "2026-11-23T09:47:47.735Z",
-  "seenAt": "2026-11-23T09:47:47.735Z",
+  "updatedAt": "2026-11-23T13:49:42.335Z",
+  "seenAt": "2026-11-23T13:49:42.335Z",
   "source": "live",
   "listings": [
     {
@@ -5373,7 +5373,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Alex – 100ml Alex is unlike any other fragrance — it doesn’t just stand out, it defines what it means to be different. A perfect blend of timeless classicism and modern elegance, Alex is made for distinguished individuals who seek uniqueness and command attention. More than just a fragrance, it’s magic in a bottle — a scent that reflects your personal taste and unique style. It’s truly one of a kind. Fragrance Composition Top Notes: Saffron, Lavender, Cinnamon, Apple Heart Notes: Rose, Cedarwood Base Notes: Oud, Musk, Sandalwood, Amber Size: 100ml For: Men.",
       "productType": "unisex",

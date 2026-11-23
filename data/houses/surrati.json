@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-11-23T09:47:52.279Z",
-  "seenAt": "2026-11-23T09:47:52.279Z",
+  "updatedAt": "2026-11-23T13:49:45.584Z",
+  "seenAt": "2026-11-23T13:49:45.584Z",
   "source": "live",
   "listings": [
     {
@@ -1353,7 +1353,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Niche Fragrance Musk Al Aroos 500 ml . Musk Al Aroos 500 ml is a delicate niche fragrance that exudes purity and grace. Its soft, musky notes make it a perfect choice for weddings or special events where elegance and sophistication are a must..",
       "productType": "Air Freshner",

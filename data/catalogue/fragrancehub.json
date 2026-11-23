@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-23T09:47:54.655Z",
-  "seenAt": "2026-11-23T09:47:54.655Z",
+  "updatedAt": "2026-11-23T13:48:18.327Z",
+  "seenAt": "2026-11-23T13:48:18.327Z",
   "source": "live",
   "listings": [
     {
@@ -1210,7 +1210,7 @@
       "priceGbp": 55.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Mahd Al Dhahab opens with a bright and warming blend of Bergamot, Spices and Lemon, delivering immediate citrus energy with a bold and aromatic spiced depth. The heart deepens into Amber, Patchouli and Oud, adding rich resinous warmth and a deeply oriental character that carries the composition with commanding authority. The base settles into Vanilla, Sandalwood and White Musk, leaving a smooth, creamy and beautifully enduring trail. . Top Notes: Bergamot, Spices and Lemon Heart Notes: Amber, Patchouli and Oud Base Notes: Vanilla, Sandalwood and White Musk .",
       "productType": null,

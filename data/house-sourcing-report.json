@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-23T09:53:05.618Z",
+  "checkedAt": "2026-11-23T13:54:34.027Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -381,9 +381,9 @@
       "origin": "https://nasomatto.com",
       "routeUsed": "shopify-products-json",
       "currency": "EUR",
-      "listings": 24,
+      "listings": 25,
       "pricedInGbp": 0,
-      "withPhoto": 24,
+      "withPhoto": 25,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -464,9 +464,9 @@
       "origin": "https://bdkparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "EUR",
-      "listings": 136,
+      "listings": 135,
       "pricedInGbp": 0,
-      "withPhoto": 136,
+      "withPhoto": 135,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

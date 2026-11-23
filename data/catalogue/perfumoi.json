@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-23T09:47:54.655Z",
-  "seenAt": "2026-11-23T09:47:54.655Z",
+  "updatedAt": "2026-11-23T13:48:18.327Z",
+  "seenAt": "2026-11-23T13:48:18.327Z",
   "source": "live",
   "listings": [
     {
@@ -543,7 +543,7 @@
       "priceGbp": 36.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Versace Crystal Noir Eau de Toilette is an eau de toilette created for customers who enjoy a warm, spicy floral scent. It opens with an aromatic spicy impression, develops into a creamy floral heart, and settles into a smooth woody base. Suitable for evening wear or special occasions, this fragrance is a great choice for anyone looking for a scent that feels elegant, warm, and distinctive. . Why customers choose it ● Well-suited for autumn and winter ● A great option for evening wear or gifting ● Designed for customers who prefer warm spicy and floral scents .",
       "productType": "Eau de Toilette",
@@ -11192,7 +11192,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Hugo Boss Boss Orange Woman Eau de Toilette is a warm fragrance created for customers who enjoy a rich, expressive scent. It opens with a distinctive first impression, develops into a balanced heart, and settles into a smooth lasting base. Suitable for evenings and cooler seasons, this fragrance is a strong choice for anyone looking for a scent that feels modern and confident.. Why customers choose it . Well-suited for evenings and cooler seasons. A great option for daily wear and special occasions. Designed for customers who prefer warm and expressive scents.",
       "productType": "Eau de Toilette",
