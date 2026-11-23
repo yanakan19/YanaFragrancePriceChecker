@@ -11521,13 +11521,12 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 6.75,
       freeOverGbp: 175,
       estimatedDays: [1, 2],
-      verifiedAt: '2026-10-09',
+      verifiedAt: '2026-11-23',
       confidence: 'confirmed',
       source: {
         url: 'https://www.roullierwhite.com/pages/delivery-returns',
-        quote:
-          'our shipping charges are: £6.75 for mainland UK deliveries 1-2 Working Days ... We offer free standard mainland UK delivery on orders over £175.',
-        readAt: '2026-10-09',
+        quote: '£6.75 for mainland UK deliveries 1-2 Working Days',
+        readAt: '2026-11-23',
       },
       notes:
         'Read off the shop\'s own Delivery & Returns page on 2026-10-09 (the apex address redirects to www). ' +
