@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-23T13:54:29.330Z",
-  "seenAt": "2026-11-23T13:54:29.330Z",
+  "updatedAt": "2026-11-23T17:53:53.748Z",
+  "seenAt": "2026-11-23T17:53:53.748Z",
   "source": "live",
   "listings": [
     {
@@ -253,7 +253,7 @@
       "description": null,
       "productType": null,
       "nativePrice": {
-        "amount": 8,
+        "amount": 7.5,
         "currency": "USD"
       },
       "nativeWasPrice": 10,
@@ -280,7 +280,7 @@
       "description": null,
       "productType": null,
       "nativePrice": {
-        "amount": 4,
+        "amount": 3.5,
         "currency": "USD"
       },
       "nativeWasPrice": 5,
@@ -743,7 +743,7 @@
       "rawTitle": "Cheirosa Anywhere",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_11_CHEIROSA_ANYWHERE_JELLY_PERFUME_BLAM___MIST_SET_US_OVERHEAD_RGB_1452x1452_d080953d-741c-4551-ab37-a9b92c59a03a.jpg?v=1793898793",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_11_CHEIROSA_ANYWHERE_OVERHEAD_RGB_1452x1452_77d8a91b-0b83-410c-840d-3f1e06257852.jpg?v=1795453812",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -770,7 +770,7 @@
       "rawTitle": "Spritz & Sol",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_09_SPRITZ___SOL_AMER_OVERHEAD_RGB_1452x1452_79d24978-316e-4441-a7f4-f6891df1e8d3.jpg?v=1793898673",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_09_SPRITZ___SOL_OVERHEAD_RGB_1452x1452_d75deb79-355f-45c2-a5a7-6ead5bc67876.jpg?v=1795453695",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -797,7 +797,7 @@
       "rawTitle": "Sol to the World",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_19_SOL_TO_THE_WORLD_US_OVERHEAD_RGB_1452x1452_5319843e-d7a7-426f-bfb6-ab978e151b76.jpg?v=1793898764",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_19_SOL_TO_THE_WORLD_OVERHEAD_RGB_1452x1452_d1dddb56-6740-4b40-8257-52a61d674f1b.jpg?v=1795453661",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -824,7 +824,7 @@
       "rawTitle": "Sol Many Options",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_18_SOL_MANY_OPTIONS_GLOBAL_OVERHEAD_RGB_1452x1452_89d2fe1e-c11f-4280-bd54-0402a57a6222.jpg?v=1793898612",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_18_SOL_MANY_OPTIONS_OVERHEAD_RGB_1452x1452_53246d4d-9e2c-4537-b494-a309f8715e2e.jpg?v=1795453632",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -851,7 +851,7 @@
       "rawTitle": "Sol & Cheer",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_09_SPRITZ___SOL_AMER_OVERHEAD_RGB_1452x1452-1_9ff59549-ed7a-4671-8a4b-c989c2477de7.jpg?v=1793898701",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_09_SOL___CHEER_OVERHEAD_RGB_1452x1452_2318e73f-c81e-4c53-a29b-d6b637fcea77.jpg?v=1795453722",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -878,7 +878,7 @@
       "rawTitle": "Smooth & Bright Solidays",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_13_SMOOTH-BRIGHT_SOLIDAYS_AMER_OVERHEAD_RGB_1452x1452_2423b16e-bbc7-453b-934f-46ff8fb31122.jpg?v=1793898736",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_13_SMOOTH-BRIGHT_SOLIDAYS_OVERHEAD_RGB_1452x1452_f4e5c91d-1ceb-4f19-96ad-479d94e291b2.jpg?v=1795453778",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -905,7 +905,7 @@
       "rawTitle": "Lifted Bum Bums & Spirits",
       "rawBrand": "Sol de Janeiro",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_12_LIFTED_BUM_BUM__SPIRITS_AMER_OVERHEAD_RGB_1452x1452_75beffb6-1cd3-4d7a-b4a7-fbe0cd6c3b2d.jpg?v=1793898824",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/H26_SET_12_LIFTED_BUM_BUM__SPIRITS_OVERHEAD_RGB_1452x1452_f7bb0b85-b63b-43b2-8898-47f720420195.jpg?v=1795453751",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
@@ -17331,6 +17331,7 @@
         "amount": 78,
         "currency": "USD"
       },
+      "nativeWasPrice": 100,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-08-05T18:12:07.600Z",
       "status": "active",

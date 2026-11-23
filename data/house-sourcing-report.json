@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-23T13:54:34.027Z",
+  "checkedAt": "2026-11-23T17:53:56.231Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -12,7 +12,7 @@
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://www.rasasi.com/products.json?limit=250&page=1: HTTP 500",
+        "https://www.rasasi.com/products.json?limit=250&page=1: HTTP 522",
         "https://www.rasasi.com/sitemap.xml: HTTP 500"
       ],
       "blockers": [
@@ -59,9 +59,9 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "CNY",
-      "listings": 538,
+      "listings": 518,
       "pricedInGbp": 0,
-      "withPhoto": 518,
+      "withPhoto": 498,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -517,9 +517,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 371,
-      "pricedInGbp": 371,
-      "withPhoto": 371,
+      "listings": 372,
+      "pricedInGbp": 372,
+      "withPhoto": 372,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

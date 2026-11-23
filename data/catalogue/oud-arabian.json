@@ -1,9 +1,34 @@
 {
   "retailerId": "oud-arabian",
-  "updatedAt": "2026-11-23T13:48:18.327Z",
-  "seenAt": "2026-11-23T13:48:18.327Z",
+  "updatedAt": "2026-11-23T17:47:29.068Z",
+  "seenAt": "2026-11-23T17:47:29.068Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "55212303515990",
+      "url": "https://oudarabian.co.uk/products/reef-19-edp-100ml-classic-perfume",
+      "rawTitle": "REEF 19 EDP 100ml",
+      "rawBrand": "Oud Arabian",
+      "ean": "11226059243862",
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/IMG-1755.webp?v=1788533940&width=2048",
+      "description": "REEF 19 — Where Luxury Reveals Its MysteryImagine a secret garden bathed in moonlight, where the rare pink Mercury flower blooms alongside the delicate beauty of jasmine. REEF 19 captures this enchanting vision in a bottle, crafted from carefully selected, exceptional ingredients.A fragrance of mystery, elegance, and irresistible sophistication—created for those who embrace the extraordinary.REEF 19. Unveil the mystery. Indulge in luxury.",
+      "priceGbp": 60,
+      "wasPriceGbp": null,
+      "promoEndsAt": "2027-11-23T00:00:00.000Z",
+      "inStock": false,
+      "sectionId": "sitemap",
+      "rating": {
+        "value": 0,
+        "count": 0
+      },
+      "retailerId": "oud-arabian",
+      "firstSeenAt": "2026-11-23T17:47:29.068Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "50520168005974",
       "url": "https://oudarabian.co.uk/products/rayhaan-tiger-cal-cologne",
@@ -1437,9 +1462,9 @@
       "ean": "10320190013782",
       "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/19B100C2-C532-4CC0-BE02-F554FCC8EF92.webp?v=1775759166&width=1000",
       "description": "Reef 33 Eau de Parfum – Where Fresh Meets MagneticReef 33 is more than a fragrance—it’s a presence. Inspired by the quiet power of the ocean and the pull of the unknown, it blends crisp freshness with a deep, addictive warmth that lingers long after you’ve left the room.It opens with a striking burst of citrus and sea air—clean, sharp, and energising. As it evolves, refined florals and aromatic woods rise through the heart, adding smooth complexity without losing that fresh edge. The dry down is where Reef 33 truly captivates: warm amber, soft musk, and sun-warmed driftwood wrap the skin in a subtle, magnetic trail.Fragrance Profile• Top: Bright Citrus, Marine Accord, Sea Salt• Heart: Jasmine, Aromatic Sage, Sheer Woods• Base: Amber, Skin Musk, DriftwoodWhy it stands out• A perfectly balanced fresh–woody scent with depth• Long-lasting Eau de Parfum concentration• Clean enough for day, rich enough for night• Leaves a smooth, memorable trail without overpoweringMinimal. Modern. Addictive.Reef 33 is designed for those who don’t chase attention—they naturally attract it.Wear it once. Be remembered.",
-      "priceGbp": 42.99,
+      "priceGbp": 39.99,
       "wasPriceGbp": null,
-      "promoEndsAt": "2027-10-03T00:00:00.000Z",
+      "promoEndsAt": null,
       "inStock": true,
       "sectionId": "sitemap",
       "rating": {

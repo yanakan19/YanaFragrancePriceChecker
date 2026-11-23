@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-23T13:48:18.327Z",
-  "seenAt": "2026-11-23T13:48:18.327Z",
+  "updatedAt": "2026-11-23T17:47:29.068Z",
+  "seenAt": "2026-11-23T17:47:29.068Z",
   "source": "live",
   "listings": [
     {
@@ -198,7 +198,7 @@
       "priceGbp": 125,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Spiced Medieval Vanilla. Strange spices and rich breads. Leather and warm bodies. Lead us not into temptation. . Cumin, Nutmeg, Saffron,. Molasses, Bran, Tonka Bean, Vanilla,. Cedar, Incense, Patchouli. . Paraphrase Perfume is an independent North American perfume house, blending, bottling & labelling perfumes by hand in Canada. . Scents for exploring yourself. Inspired by storytelling and of the contradictions of being human. .",
       "productType": "Perfume",
@@ -3740,7 +3740,7 @@
       "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Reality: Honey, Eucalyptus, Leather, Velvet, Amber, Beeswax. Materiality: Nutmeg, Benzoin Resinoid, Labdanum Absolute, Birch Tar, Musk.",
       "productType": "Perfume",
@@ -4407,7 +4407,7 @@
       "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Reality: Lettuce, Pepper, Clay, Crushed Concrete, Chalk. Materiality: Elemi Resin, Copaiba Balsam, Tonka Bean Absolute, Musk.",
       "productType": "Perfume",

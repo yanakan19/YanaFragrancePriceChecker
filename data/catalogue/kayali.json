@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-23T13:48:18.327Z",
-  "seenAt": "2026-11-23T13:48:18.327Z",
+  "updatedAt": "2026-11-23T17:47:29.068Z",
+  "seenAt": "2026-11-23T17:47:29.068Z",
   "source": "live",
   "listings": [
     {
@@ -3947,7 +3947,7 @@
       "priceGbp": 80,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "\"A divinely sensual, decadent, and enticing fragrance with an addictive allure. Seduction in a bottle, this bold, irresistible juice envelops amber resin and Madagascan vanilla mixed with black cherry, Honey de Provence and tobacco leaf to immediately pull you in. Touches of rose and citrus leaf create a soft yet tantalizing finish, leaving an incredibly long-lasting, hypnotic sillage behind you.\".",
       "productType": "Fragrances",
