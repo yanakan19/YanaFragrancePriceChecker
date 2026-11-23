@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-22T11:26:36.403Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-23T12:42:06.028Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -2557,6 +2557,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "caron|yatagan": ["","https://www.parfumscaron.com/products/yatagan"],
   "caron|yatagan|edt": ["","https://www.parfumscaron.com/products/yatagan"],
   "cartier|baiservole": ["","https://www.cartier.com/en-gb/fragrances/fragrances/baiser-vole"],
+  "cartier|baiservoleparfum": ["","https://www.cartier.com/en-gb/fragrances/fragrances/baiser-vole"],
+  "cartier|baiservoleparfum|edp": ["","https://www.cartier.com/en-gb/fragrances/fragrances/baiser-vole"],
   "cartier|baiservole|edp": ["","https://www.cartier.com/en-gb/fragrances/fragrances/baiser-vole"],
   "cartier|baiservole|parfum": ["","https://www.cartier.com/en-gb/fragrances/fragrances/baiser-vole"],
   "cartier|declaration": ["","https://www.cartier.com/en-gb/fragrances/fragrances/declaration"],
@@ -6822,6 +6824,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "pariscorner|qissagala|edp": ["","https://pariscorner.ae/product/qissa-gala-100ml/"],
   "pariscorner|qissapink": ["","https://pariscorner.ae/product/qissa-pink-100ml/"],
   "pariscorner|qissapink|edp": ["","https://pariscorner.ae/product/qissa-pink-100ml/"],
+  "pariscorner|rawqperfume": ["","https://pariscorner.ae/product/rawq-100ml/"],
+  "pariscorner|rawqperfume|edp": ["","https://pariscorner.ae/product/rawq-100ml/"],
   "pariscorner|rehamrosepetals": ["","https://pariscorner.ae/product/reham-rose-petals-100ml/"],
   "pariscorner|rehamrosepetals|edp": ["","https://pariscorner.ae/product/reham-rose-petals-100ml/"],
   "pariscorner|rehamvanillamood": ["","https://pariscorner.ae/product/reham-vanilla-mood-100ml/"],
@@ -6864,6 +6868,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "pariscorner|zahi|edp": ["","https://pariscorner.ae/product/zahi-85ml/"],
   "pariscorner|zahriamara": ["","https://pariscorner.ae/product/zahri-amara-100ml/"],
   "pariscorner|zahriamara|edp": ["","https://pariscorner.ae/product/zahri-amara-100ml/"],
+  "pariscorner|zariyaperfume": ["","https://pariscorner.ae/product/zariya-100ml/"],
+  "pariscorner|zariyaperfume|edp": ["","https://pariscorner.ae/product/zariya-100ml/"],
   "pariscorner|zodiac": ["","https://pariscorner.ae/product/zodiac-100ml/"],
   "pariscorner|zodiaclunaris": ["","https://pariscorner.ae/product/zodiac-lunaris-100ml/"],
   "pariscorner|zodiaclunaris|edp": ["","https://pariscorner.ae/product/zodiac-lunaris-100ml/"],
@@ -8519,6 +8525,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "zimaya|infradnoir|edp": ["","https://uk.zimayaperfumes.com/products/infrad-noir-100ml-edp"],
   "zimaya|isgreat|unstated": ["","https://uk.zimayaperfumes.com/products/oud-is-great-edp-100ml"],
   "zimaya|itqangold|edp": ["","https://uk.zimayaperfumes.com/products/itqan-gold-edp-100ml"],
+  "zimaya|itqangold|unstated": ["","https://uk.zimayaperfumes.com/products/itqan-gold-edp-100ml"],
   "zimaya|itqannoir|edp": ["","https://uk.zimayaperfumes.com/products/itqan-noir-edp-100ml"],
   "zimaya|itqannoir|unstated": ["","https://uk.zimayaperfumes.com/products/itqan-noir-edp-100ml"],
   "zimaya|khafayafemmepink|unstated": ["","https://uk.zimayaperfumes.com/products/khafaya-pink-100ml"],
