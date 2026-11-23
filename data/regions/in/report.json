@@ -1,23 +1,23 @@
 {
   "region": "IN",
   "currency": "INR",
-  "builtAt": "2026-11-22T01:20:10.181Z",
+  "builtAt": "2026-11-23T01:53:04.908Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /in/ pages are built from these files at deploy time.",
   "shopsWired": 21,
   "shopsEnabled": 18,
   "shopsPriced": 18,
-  "crawlMinutes": 55.33,
-  "harvestRanAt": "2026-11-22T00:24:49.582Z",
-  "listingsPriced": 35072,
-  "listingsKept": 23743,
+  "crawlMinutes": 55.31,
+  "harvestRanAt": "2026-11-23T00:57:45.469Z",
+  "listingsPriced": 35090,
+  "listingsKept": 23760,
   "staleAfterDays": 7,
-  "products": 19945,
+  "products": 19937,
   "productsWithTwoOrMoreShops": 3769,
   "shareWithTwoOrMoreShops": 0.189,
   "productsWithTwoOrMoreIndependentShops": 3769,
   "shareWithTwoOrMoreIndependentShops": 0.189,
-  "productsWithThreeOrMoreShops": 1326,
+  "productsWithThreeOrMoreShops": 1325,
   "medianPriceGap": 0.222,
   "listingBarcodeShare": 0.012,
   "productsMatchingUkByBarcode": 147,
@@ -45,7 +45,7 @@
     {
       "id": "maison-des-parfums-in",
       "products": 1452,
-      "shared": 541
+      "shared": 540
     },
     {
       "id": "naso-profumi",
@@ -54,8 +54,8 @@
     },
     {
       "id": "nykaa",
-      "products": 2321,
-      "shared": 403
+      "products": 2311,
+      "shared": 401
     },
     {
       "id": "perfume-network",
@@ -75,7 +75,7 @@
     {
       "id": "scentira",
       "products": 2473,
-      "shared": 813
+      "shared": 814
     },
     {
       "id": "scentopia",
@@ -98,13 +98,13 @@
       "shared": 5
     }
   ],
-  "productsShown": 19366,
-  "productsWithUkPhoto": 2941,
+  "productsShown": 19358,
+  "productsWithUkPhoto": 2935,
   "productsWithUkPhotoByBarcode": 127,
-  "productsWithUkPhotoByName": 2814,
+  "productsWithUkPhotoByName": 2808,
   "listingsWithReference": 15394,
   "offersWithCorroboratedReference": 3057,
-  "deals": 1105,
+  "deals": 1104,
   "shareWithUkPhoto": 0.152,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",

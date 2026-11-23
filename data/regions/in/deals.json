@@ -2,7 +2,7 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-11-22T01:20:10.181Z",
+ "builtAt": "2026-11-23T01:53:04.908Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
  "listingsWithReference": 15394,
  "offersWithCorroboratedReference": 3057,
@@ -1338,6 +1338,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-swiss-arabian-patchouli-01",
+   "price": 4999,
+   "delivered": true,
+   "wasPrice": 9000,
+   "percentOff": 44,
+   "retailerId": "scentopia",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "fridaycharm-amouroud-safran-rare-edp-100ml",
    "price": 10900,
    "delivered": true,
@@ -1564,16 +1574,6 @@
    "wasPrice": 3990,
    "percentOff": 43,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-afnan-rare-reef",
-   "price": 3150,
-   "delivered": false,
-   "wasPrice": 5500,
-   "percentOff": 42,
-   "retailerId": "all-arabic",
    "kind": "retailer",
    "houseName": null
   },
@@ -3428,16 +3428,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-swiss-arabian-patchouli-01",
-   "price": 4849,
-   "delivered": true,
-   "wasPrice": 7590,
-   "percentOff": 36,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-swiss-arabian-rose-01",
    "price": 4850,
    "delivered": true,
@@ -3544,6 +3534,16 @@
    "wasPrice": 4500,
    "percentOff": 36,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-rayhaan-vantage-edp-m-100ml",
+   "price": 2850,
+   "delivered": false,
+   "wasPrice": 4500,
+   "percentOff": 36,
+   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -4608,16 +4608,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-zimaya-sharaf-blend",
-   "price": 1999,
-   "delivered": false,
-   "wasPrice": 3000,
-   "percentOff": 33,
-   "retailerId": "scentira",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "all-arabic-aaaege0221",
    "price": 2999,
    "delivered": true,
@@ -5388,16 +5378,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-mykonos-glitch-3",
-   "price": 2250,
-   "delivered": true,
-   "wasPrice": 3250,
-   "percentOff": 30,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-paris-corner-emir-vibrant-orange-neroli",
    "price": 1923.9,
    "delivered": true,
@@ -5722,16 +5702,6 @@
    "price": 20500,
    "delivered": true,
    "wasPrice": 29000,
-   "percentOff": 29,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-rayhaan-vantage-edp-m-100ml",
-   "price": 2990,
-   "delivered": true,
-   "wasPrice": 4250,
    "percentOff": 29,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -6124,16 +6094,6 @@
    "wasPrice": 7740,
    "percentOff": 28,
    "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "fridaycharm-valentino-uomo-born-in-roma-intense-edp-intense-m-100ml",
-   "price": 7200,
-   "delivered": false,
-   "wasPrice": 10000,
-   "percentOff": 28,
-   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -6828,16 +6788,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-mykonos-california-signature-extrait-de-parfum-u-50ml",
-   "price": 2250,
-   "delivered": true,
-   "wasPrice": 3000,
-   "percentOff": 25,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "fridaycharm-nasomatto-blamage-edp-unisex-30ml",
    "price": 11700,
    "delivered": true,
@@ -7068,16 +7018,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-rayhaan-kiss",
-   "price": 2750,
-   "delivered": true,
-   "wasPrice": 3650,
-   "percentOff": 24,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-versace-bright-crystal-1-1-1-1-1",
    "price": 6708.9,
    "delivered": true,
@@ -7092,6 +7032,16 @@
    "price": 21500,
    "delivered": true,
    "wasPrice": 28600,
+   "percentOff": 24,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-zimaya-sharaf-blend",
+   "price": 2650,
+   "delivered": true,
+   "wasPrice": 3500,
    "percentOff": 24,
    "retailerId": "fridaycharm",
    "kind": "retailer",
@@ -7258,6 +7208,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-afnan-rare-reef",
+   "price": 3298.9,
+   "delivered": true,
+   "wasPrice": 4312,
+   "percentOff": 23,
+   "retailerId": "perfume-palace",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-afnan-supremacy-not-only-intense-1",
    "price": 4618.9,
    "delivered": true,
@@ -7342,6 +7302,16 @@
    "price": 2299,
    "delivered": true,
    "wasPrice": 2999,
+   "percentOff": 23,
+   "retailerId": "scentopia",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "aar-fragrances-mykonos-glitch-3",
+   "price": 2299,
+   "delivered": true,
+   "wasPrice": 3000,
    "percentOff": 23,
    "retailerId": "scentopia",
    "kind": "retailer",
@@ -7479,6 +7449,16 @@
   },
   {
    "fragranceId": "fridaycharm-mykonos-california-blue-extrait-de-parfum-u-50ml",
+   "price": 2299,
+   "delivered": true,
+   "wasPrice": 3000,
+   "percentOff": 23,
+   "retailerId": "scentopia",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-mykonos-california-signature-extrait-de-parfum-u-50ml",
    "price": 2299,
    "delivered": true,
    "wasPrice": 3000,
@@ -7964,6 +7944,16 @@
    "wasPrice": 31400,
    "percentOff": 21,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "fridaycharm-valentino-uomo-born-in-roma-intense-edp-intense-m-100ml",
+   "price": 8633.9,
+   "delivered": true,
+   "wasPrice": 11000,
+   "percentOff": 21,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -9458,10 +9448,10 @@
    "houseName": null
   },
   {
-   "fragranceId": "fridaycharm-houbigant-bergamask-edp-unisex-50ml",
-   "price": 15700,
+   "fragranceId": "fridaycharm-jpg-le-male-elixir-edp-m-75ml",
+   "price": 7260,
    "delivered": true,
-   "wasPrice": 18600,
+   "wasPrice": 8550,
    "percentOff": 15,
    "retailerId": "fridaycharm",
    "kind": "retailer",
