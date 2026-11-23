@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-23T17:47:29.068Z",
-  "seenAt": "2026-11-23T17:47:29.068Z",
+  "updatedAt": "2026-11-23T21:46:10.908Z",
+  "seenAt": "2026-11-23T21:46:10.908Z",
   "source": "live",
   "listings": [
     {
@@ -152,7 +152,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": 29.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Elixir opens with a beast mode burst of Mint and Bergamot for an immediate sensation of frosted citrus and aromatic calm provided by Lavender. The heart reveals a sophisticated core where golden Amber and Benzoin meet a tropical splash of Pineapple to create a warm and syrupy texture. The dry down reveals a majestic and creamy foundation of Tonka Bean and Vanilla. Anchored by Musk it leaves a persistent and addictive trail that stays vibrant on the skin for over 12 hours. . Top Notes: Mint, Lavender, and Bergamot Middle Notes: Amber, Benzoin, and Pineapple Base Notes: Vanilla, Tonka Bean, and Musk .",
       "productType": null,
@@ -1233,7 +1233,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Marwa opens with a bright, precisely sourced blend of Calabrian Bergamot, Lemon, and Sicilian Orange, delivering immediate citrus vibrancy with a clean, sophisticated freshness. The heart ignites with Nigerian Ginger, Ceylon Cinnamon, and Tunisian Neroli, adding bold, aromatic spice with a delicate floral lift. The base anchors Ambroxan, Chinese Black Tea, Olibanum, and Guaiac Wood, leaving a smooth, resinous, and deeply distinguished trail. . Top Notes: Calabrian Bergamot, Lemon and Sicilian Orange Heart Notes: Nigerian Ginger, Ceylon Cinnamon and Tunisian Neroli Base Notes: Ambroxan, Chinese Black Tea, Olibanum and Guaiac Wood.",
       "productType": null,
