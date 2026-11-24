@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-23T12:42:06.028Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-24T13:44:46.251Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -583,7 +583,6 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "alharamain|laventureirisforwomen|extrait": ["","https://alharamainperfumes.co.uk/products/haramain-l-aventure-iris-100ml-extrait-de-parfum"],
   "alharamain|laventureknightformen|edp": ["","https://alharamainperfumes.co.uk/products/l-aventure-knight-spray-100ml"],
   "alharamain|laventureknight|edp": ["","https://alharamainperfumes.co.uk/products/l-aventure-knight-spray-100ml"],
-  "alharamain|laventurerose": ["","https://alharamainperfumes.co.uk/products/laventure-rose-100ml-spray"],
   "alharamain|laventureroseforwomen|edp": ["","https://alharamainperfumes.co.uk/products/laventure-rose-100ml-spray"],
   "alharamain|laventurerose|edp": ["","https://alharamainperfumes.co.uk/products/laventure-rose-100ml-spray"],
   "alharamain|laventureunisexdiscoveryset6x10ml|unstated": ["","https://alharamainperfumes.co.uk/products/laventure-discovery-set-x6-10ml"],
@@ -6559,7 +6558,11 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "parfumsdemarly|delinaexclusif|edp": ["","https://parfums-de-marly.com/products/delina-exclusif"],
   "parfumsdemarly|delinaexclusif|parfum": ["","https://parfums-de-marly.com/products/delina-exclusif"],
   "parfumsdemarly|delinalarosee": ["","https://parfums-de-marly.com/products/delina-la-rosee"],
+  "parfumsdemarly|delinalaroseeunisex": ["","https://parfums-de-marly.com/products/delina-la-rosee"],
+  "parfumsdemarly|delinalaroseeunisex|edp": ["","https://parfums-de-marly.com/products/delina-la-rosee"],
   "parfumsdemarly|delinalarosee|edp": ["","https://parfums-de-marly.com/products/delina-la-rosee"],
+  "parfumsdemarly|delinatravelseteaudeparfumunisex30ml": ["","https://parfums-de-marly.com/products/delina-travel-set"],
+  "parfumsdemarly|delinatravelseteaudeparfumunisex30ml|edp": ["","https://parfums-de-marly.com/products/delina-travel-set"],
   "parfumsdemarly|delina|disputed": ["","https://parfums-de-marly.com/products/delina"],
   "parfumsdemarly|delina|edp": ["","https://parfums-de-marly.com/products/delina"],
   "parfumsdemarly|eragon": ["","https://parfums-de-marly.com/products/eragon"],
@@ -6584,6 +6587,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "parfumsdemarly|laytonexclusifunisex|edp": ["","https://parfums-de-marly.com/products/layton-exclusif"],
   "parfumsdemarly|laytonexclusif|edp": ["","https://parfums-de-marly.com/products/layton-exclusif"],
   "parfumsdemarly|laytonexclusif|parfum": ["","https://parfums-de-marly.com/products/layton-exclusif"],
+  "parfumsdemarly|laytontravelseteaudeparfumunisex30ml": ["","https://parfums-de-marly.com/products/layton-travel-set"],
+  "parfumsdemarly|laytontravelseteaudeparfumunisex30ml|edp": ["","https://parfums-de-marly.com/products/layton-travel-set"],
   "parfumsdemarly|layton|edp": ["","https://parfums-de-marly.com/products/layton"],
   "parfumsdemarly|meliora": ["","https://parfums-de-marly.com/products/meliora"],
   "parfumsdemarly|meliora|edp": ["","https://parfums-de-marly.com/products/meliora"],
