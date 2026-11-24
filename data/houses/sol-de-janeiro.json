@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-23T21:52:33.889Z",
-  "seenAt": "2026-11-23T21:52:33.889Z",
+  "updatedAt": "2026-11-24T01:49:42.251Z",
+  "seenAt": "2026-11-24T01:49:42.251Z",
   "source": "live",
   "listings": [
     {
@@ -19,9 +19,10 @@
       "description": "Size: 90ml . . You said 67. We said…sure, why not—and made a fragrance that actually makes sense. The mango sensation sold out in hours and now it's back in super limited quantities. . . Mango-first, fun-always. Limited Edition Cheirosa 67 is the layered fruity amber perfume mist you asked for (literally). The hand-drawn sunray says it all. Bright and playful, we've captured the easy, unexpected energy of 67 in a bottle. Inside? A juicy burst of mango juice, pear nectar, black currant, and vanilla crème with a warm, intoxicating finish of amber woods. Senseless? Yes. Delicious? Absolutely. . . Fun fact: To reduce waste and bring this mist to life fast, we repurposed unused Cheirosa 71 bottles just for this drop. Each bottle comes with a custom label applied by hand, so every single one is a little quirky, a little imperfect, and entirely one of a kind. . . .",
       "productType": "Fragrance",
       "nativePrice": {
-        "amount": 26,
+        "amount": 20,
         "currency": "USD"
       },
+      "nativeWasPrice": 26,
       "retailerId": "sol-de-janeiro",
       "firstSeenAt": "2026-09-16T17:58:55.242Z",
       "status": "active",
@@ -261,32 +262,6 @@
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "BN004801",
-      "url": "https://soldejaneiro.com/products/limited-edition-sol-tote-perfume-mist-collection",
-      "rawTitle": "Limited Edition Sol Tote & Perfume Mist Collection",
-      "rawBrand": "Sol de Janeiro",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_GWPPINKTOTE_OVERHEAD_1452X1452_1e3c83bb-e146-468f-b08b-71cbadd2b263.jpg?v=1790111233",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": false,
-      "sectionId": "house-direct",
-      "description": "Every. Single. Obsession. . . Spritz our entire 90ml perfume mist collection with this super limited-edition bundle, featuring an exclusive Sol de Janeiro tote. Only available for limited time & extremely limited stock : Bag the ultimate cheirosa haul before it’s gone for good. . .",
-      "productType": "bundle-dg",
-      "nativePrice": {
-        "amount": 199,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-09-28T02:01:53.277Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": "2026-11-09T19:19:23.985Z",
       "eligibleForNewBadge": true,
       "variantId": null
     },
@@ -18577,6 +18552,33 @@
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "BN004801",
+      "url": "https://soldejaneiro.com/products/limited-edition-sol-tote-perfume-mist-collection",
+      "rawTitle": "Limited Edition Sol Tote & Perfume Mist Collection",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_DTC_GWPPINKTOTE_OVERHEAD_1452X1452_1e3c83bb-e146-468f-b08b-71cbadd2b263.jpg?v=1790111233",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "description": "Every. Single. Obsession. . . Spritz our entire 90ml perfume mist collection with this super limited-edition bundle, featuring an exclusive Sol de Janeiro tote. Only available for limited time & extremely limited stock : Bag the ultimate cheirosa haul before it’s gone for good. . .",
+      "productType": "bundle-dg",
+      "nativePrice": {
+        "amount": 199,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-09-28T02:01:53.277Z",
+      "lastSeenAt": "2026-11-23T21:52:33.889Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-24T01:49:42.251Z",
+      "relistedAt": "2026-11-09T19:19:23.985Z",
       "eligibleForNewBadge": true,
       "variantId": null
     },

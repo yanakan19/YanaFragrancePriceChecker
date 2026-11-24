@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-23T21:46:10.908Z",
-  "seenAt": "2026-11-23T21:46:10.908Z",
+  "updatedAt": "2026-11-24T01:48:32.969Z",
+  "seenAt": "2026-11-24T01:48:32.969Z",
   "source": "live",
   "listings": [
     {
@@ -11359,7 +11359,7 @@
       "priceGbp": 17.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Keep your everyday essentials organised in style with the Radley Fleet Street Zip Around Wallet. Featuring Radley’s iconic dog print design, this practical purse offers multiple card slots, compartments for notes, and a secure zip-around closure. Crafted for both functionality and fashion, it’s the perfect accessory for everyday use. Compact yet spacious, it makes a great gift for Radley fans or anyone who loves stylish organisation on the go.. Dimensions: 15cm x 10cm x 2cm.",
       "productType": "Purse",
