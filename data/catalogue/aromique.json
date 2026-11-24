@@ -1,7 +1,7 @@
 {
   "retailerId": "aromique",
-  "updatedAt": "2026-11-24T05:48:28.937Z",
-  "seenAt": "2026-11-24T05:48:28.937Z",
+  "updatedAt": "2026-11-24T09:48:51.433Z",
+  "seenAt": "2026-11-24T09:48:51.433Z",
   "source": "live",
   "listings": [
     {
@@ -10292,7 +10292,7 @@
       "rawBrand": "Reef Perfumes",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1004/5508/8467/files/Reef-33-EDP-100ml-Reef-Perfumes-176061083_a36a1c24-ecdc-4a72-9026-705148323538.webp?v=1781726679",
-      "priceGbp": 54.99,
+      "priceGbp": 49.99,
       "wasPriceGbp": 74.99,
       "promoEndsAt": null,
       "inStock": true,

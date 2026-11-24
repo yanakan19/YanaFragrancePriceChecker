@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-24T05:45:24.273Z",
-  "seenAt": "2026-11-24T05:45:24.273Z",
+  "updatedAt": "2026-11-24T09:54:48.255Z",
+  "seenAt": "2026-11-24T09:54:48.255Z",
   "source": "live",
   "listings": [
     {
@@ -8531,8 +8531,9 @@
       "nativePrice": null,
       "retailerId": "the-body-shop",
       "firstSeenAt": "2026-08-11T08:11:43.358Z",
-      "status": "active",
-      "delistedAt": null,
+      "lastSeenAt": "2026-11-24T05:45:24.273Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-24T09:54:48.255Z",
       "relistedAt": "2026-11-23T13:54:32.784Z",
       "eligibleForNewBadge": false,
       "variantId": null
@@ -8554,8 +8555,9 @@
       "nativePrice": null,
       "retailerId": "the-body-shop",
       "firstSeenAt": "2026-08-11T08:11:43.358Z",
-      "status": "active",
-      "delistedAt": null,
+      "lastSeenAt": "2026-11-24T05:45:24.273Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-24T09:54:48.255Z",
       "relistedAt": "2026-11-23T17:53:55.104Z",
       "eligibleForNewBadge": false,
       "variantId": null
