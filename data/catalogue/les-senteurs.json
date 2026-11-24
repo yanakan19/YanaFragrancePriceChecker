@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-24T09:48:51.433Z",
-  "seenAt": "2026-11-24T09:48:51.433Z",
+  "updatedAt": "2026-11-24T13:40:57.794Z",
+  "seenAt": "2026-11-24T13:40:57.794Z",
   "source": "live",
   "listings": [
     {
@@ -12779,7 +12779,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Amidst Chapter 4's tranquil ambiance, whispers of incense caressed the air, bringing an aura of serenity and spiritual bliss to those in search of peace. Bakhoor Bliss encapsulates the essence of incense, invoking a sense of spiritual tranquillity and peaceful contemplation.. . Top Notes: White pepper. Heart Notes: Lily, Olibanum, Agarwood. Base Notes: Cashmere, Amberwood. .",
       "productType": "Fragrance",

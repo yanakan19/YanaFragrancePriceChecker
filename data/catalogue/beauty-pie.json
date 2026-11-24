@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-24T09:48:50.971Z",
-  "seenAt": "2026-11-24T09:48:50.971Z",
+  "updatedAt": "2026-11-24T13:40:18.352Z",
+  "seenAt": "2026-11-24T13:40:18.352Z",
   "source": "live",
   "listings": [
     {
@@ -2912,7 +2912,7 @@
       "priceGbp": 70,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Formulated for very dry, thick and coarse hair, this intensely revitalising haircare duo features our original Intensive Nourishing Shampoo (now with a new name and scent), and its perfect pairing: a new replenishing conditioner. The shampoo is packed with Avocado Oil (to nourish) and Sweet Almond Seed (to boost shine), while the conditioner has Hyaluronic Acid (to hydrate) and a Plant Keratin Blend (to strengthen)..",
       "productType": null,

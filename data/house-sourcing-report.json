@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-24T09:54:49.726Z",
+  "checkedAt": "2026-11-24T13:46:47.265Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -92,9 +92,9 @@
       "origin": "https://shop-gulforchid.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 251,
+      "listings": 260,
       "pricedInGbp": 0,
-      "withPhoto": 251,
+      "withPhoto": 260,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -517,9 +517,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 370,
-      "pricedInGbp": 370,
-      "withPhoto": 370,
+      "listings": 372,
+      "pricedInGbp": 372,
+      "withPhoto": 372,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -534,9 +534,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 170,
-      "pricedInGbp": 170,
-      "withPhoto": 169,
+      "listings": 169,
+      "pricedInGbp": 169,
+      "withPhoto": 168,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
