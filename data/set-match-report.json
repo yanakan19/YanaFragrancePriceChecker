@@ -3342,12 +3342,13 @@
     {
      "id": "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
      "brand": "Jimmy Choo",
-     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
+     "name": "Man Gift Set 100ml EDT - 100ml Shower Gel - 7.5ml EDT",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "man",
      "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -3711,13 +3712,12 @@
     {
      "id": "set-issey-miyake-l-eau-d-issey-gift-set-100ml-edt-50ml-body-lotion-10ml-purse-spray",
      "brand": "Issey Miyake",
-     "name": "L'eau D'issey Gift Set 100ml Edt + 50ml Body Lotion + 10ml Purse Spray",
+     "name": "L'eau d'Issey Gift Set 100ml EDT + 50ml Body Lotion + 10ml Purse Spray",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "d eau issey l",
      "signature": "1x100fragrance|1x10travel|1x50body",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -5011,6 +5011,7 @@
      "scent": "cool water",
      "signature": "1x125fragrance|1x75body|1x75wash",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -5356,6 +5357,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3616305448187",
+   "absorbed": [
+    "set-tiffany-co-love-for-him-gift-set-90ml-edt-100ml-shower-gel-5ml-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616305448187",
+     "brand": "Tiffany & Co",
+     "name": "Love for Him Gift Set 90ml EDT + 100ml Shower Gel + 5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3616305448187",
+     "scent": "love",
+     "signature": "1x100wash|1x5fragrance|1x90fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-tiffany-co-love-for-him-gift-set-90ml-edt-100ml-shower-gel-5ml-edt",
+     "brand": "Tiffany & Co",
+     "name": "Love For Him Gift Set 90ml Edt + 100ml Shower Gel + 5ml Edt",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "love",
+     "signature": "1x100wash|1x5fragrance|1x90fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3616305629166",
    "absorbed": [
     "set-burberry-hero-gift-set-100ml-edt-75ml-deodorant-stick"
@@ -5561,38 +5594,6 @@
      "signature": "1x100wash|1x15fragrance|1x200body|1x200fragrance",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616306969674",
-   "absorbed": [
-    "set-hugo-boss-boss-bottled-gift-set-100ml-edt-100ml-shower-gel-150ml-deodorant-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616306969674",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 150ml Deodorant Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "3616306969674",
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|1x100wash|1x150deo",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-bottled-gift-set-100ml-edt-100ml-shower-gel-150ml-deodorant-spray",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 150ml Deodorant Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|1x100wash|1x150deo",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -9002,6 +9003,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003899999",
+   "absorbed": [
+    "set-versace-pour-homme-dylan-blue-gift-set-edt-100ml-s-gel-150ml-edt-5ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003899999",
+     "brand": "Versace",
+     "name": "Pour Homme Dylan Blue Gift Set 100ml EDT + 150ml Shower Gel + 5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "8011003899999",
+     "scent": "blue dylan homme pour",
+     "signature": "1x100fragrance|1x150wash|1x5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-versace-pour-homme-dylan-blue-gift-set-edt-100ml-s-gel-150ml-edt-5ml",
+     "brand": "Versace",
+     "name": "Pour Homme Dylan Blue Gift Set EDT 100ml + S/Gel 150ml + EDT 5ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "blue dylan homme pour",
+     "signature": "1x100fragrance|1x150wash|1x5fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003900107",
    "absorbed": [
     "set-versace-versense-gift-set-30ml-edt-50ml-body-lotion"
@@ -9545,6 +9578,7 @@
      "shops": [
       "beautybase",
       "fragrance-click",
+      "paco-perfumerias-uk",
       "perfume-click",
       "perfume-direct"
      ]
@@ -10531,40 +10565,6 @@
      "signature": "1x10fragrance|1x200fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8435415092067",
-   "absorbed": [
-    "set-jean-paul-gaultier-divine-gift-set-100ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415092067",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine 100ml Eau de Parfum Travel Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8435415092067",
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "fragrance-click",
-      "paco-perfumerias-uk",
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-divine-gift-set-100ml-edp-10ml-edp",
-     "brand": "Jean Paul Gaultier",
-     "name": "Divine Gift Set 100ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "divine",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -12242,6 +12242,7 @@
      "scent": "girl good",
      "signature": "1x10fragrance|1x80fragrance",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -15817,7 +15818,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3616305443588, 3616306127869, 3616306127906",
-    "a shop lists more than one: beaute-boulevard, mybeauty-boutique, perfume-click"
+    "a shop lists more than one: mybeauty-boutique, perfume-click"
    ],
    "members": [
     {
@@ -15859,13 +15860,12 @@
     {
      "id": "set-hugo-boss-boss-bottled-eau-de-parfum-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
      "brand": "Hugo Boss",
-     "name": "Boss Bottled Eau De Parfum Gift Set 100ml Edp + 100ml Shower Gel + 10ml Edp",
+     "name": "Boss Bottled Eau de Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
      "concentration": "Eau de Parfum",
      "ean": null,
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -16406,49 +16406,6 @@
      "signature": "1x100body|1x50fragrance",
      "shops": [
       "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.54 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003899999",
-     "brand": "Versace",
-     "name": "Pour Homme Dylan Blue Gift Set 100ml EDT + 150ml Shower Gel + 5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003899999",
-     "scent": "blue dylan homme pour",
-     "signature": "1x100fragrance|1x150wash|1x5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-pour-homme-dylan-blue-gift-set-100ml-edt-150ml-shower-gel-5ml-edt",
-     "brand": "Versace",
-     "name": "Pour Homme Dylan Blue Gift Set 100ml EDT + 150ml Shower Gel + 5ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "blue dylan homme pour",
-     "signature": "1x100fragrance|1x150wash|1x5fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    },
-    {
-     "id": "set-versace-pour-homme-dylan-blue-gift-set-edt-100ml-s-gel-150ml-edt-5ml",
-     "brand": "Versace",
-     "name": "Pour Homme Dylan Blue Gift Set EDT 100ml + S/Gel 150ml + EDT 5ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "blue dylan homme pour",
-     "signature": "1x100fragrance|1x150wash|1x5fragrance",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
