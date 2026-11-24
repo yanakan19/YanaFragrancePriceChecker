@@ -1,26 +1,26 @@
 {
   "region": "US",
   "currency": "USD",
-  "builtAt": "2026-11-23T20:30:04.476Z",
+  "builtAt": "2026-11-24T20:06:04.316Z",
   "published": true,
   "note": "Public beta (docs/INTERNATIONAL-PLAN.md): the /us/ pages are built from these files at deploy time.",
   "shopsWired": 29,
   "shopsEnabled": 26,
   "shopsPriced": 25,
-  "crawlMinutes": 57.16,
-  "harvestRanAt": "2026-11-23T19:32:54.270Z",
-  "listingsPriced": 108024,
-  "listingsKept": 60969,
+  "crawlMinutes": 57.17,
+  "harvestRanAt": "2026-11-24T19:08:53.218Z",
+  "listingsPriced": 108112,
+  "listingsKept": 61029,
   "staleAfterDays": 7,
-  "products": 40055,
-  "productsWithTwoOrMoreShops": 10680,
+  "products": 40075,
+  "productsWithTwoOrMoreShops": 10688,
   "shareWithTwoOrMoreShops": 0.267,
-  "productsWithTwoOrMoreIndependentShops": 7687,
+  "productsWithTwoOrMoreIndependentShops": 7693,
   "shareWithTwoOrMoreIndependentShops": 0.192,
-  "productsWithThreeOrMoreShops": 6160,
-  "medianPriceGap": 0.424,
+  "productsWithThreeOrMoreShops": 6162,
+  "medianPriceGap": 0.421,
   "listingBarcodeShare": 0.129,
-  "productsMatchingUkByBarcode": 2664,
+  "productsMatchingUkByBarcode": 2666,
   "shops": [
     {
       "id": "aedes",
@@ -29,8 +29,8 @@
     },
     {
       "id": "beauty-encounter",
-      "products": 5112,
-      "shared": 2132
+      "products": 5113,
+      "shared": 2134
     },
     {
       "id": "beautyhabit",
@@ -60,7 +60,7 @@
     {
       "id": "fragrance-outlet",
       "products": 4545,
-      "shared": 4303
+      "shared": 4304
     },
     {
       "id": "indigo-perfumery",
@@ -70,12 +70,12 @@
     {
       "id": "la-belle-perfumes",
       "products": 4885,
-      "shared": 2490
+      "shared": 2492
     },
     {
       "id": "luckyscent",
-      "products": 3787,
-      "shared": 761
+      "products": 3785,
+      "shared": 763
     },
     {
       "id": "maison-louis-marie",
@@ -89,7 +89,7 @@
     },
     {
       "id": "ministry-of-scent",
-      "products": 1632,
+      "products": 1633,
       "shared": 626
     },
     {
@@ -99,18 +99,18 @@
     },
     {
       "id": "perfumania",
-      "products": 4307,
-      "shared": 4151
+      "products": 4308,
+      "shared": 4152
     },
     {
       "id": "perfumes-america",
-      "products": 5483,
-      "shared": 3813
+      "products": 5497,
+      "shared": 3819
     },
     {
       "id": "perfumes4all",
-      "products": 15235,
-      "shared": 4647
+      "products": 15252,
+      "shared": 4648
     },
     {
       "id": "sol-de-janeiro",
@@ -119,13 +119,13 @@
     },
     {
       "id": "the-perfume-spot",
-      "products": 860,
-      "shared": 729
+      "products": 857,
+      "shared": 730
     },
     {
       "id": "triple-traders",
-      "products": 4630,
-      "shared": 1271
+      "products": 4633,
+      "shared": 1272
     },
     {
       "id": "twisted-lily",
@@ -134,17 +134,17 @@
     },
     {
       "id": "ulta",
-      "products": 1538,
-      "shared": 576
+      "products": 1536,
+      "shared": 577
     }
   ],
-  "productsShown": 39945,
-  "productsWithUkPhoto": 6785,
-  "productsWithUkPhotoByBarcode": 2027,
-  "productsWithUkPhotoByName": 4758,
-  "listingsWithReference": 36009,
-  "offersWithCorroboratedReference": 15267,
-  "deals": 2921,
+  "productsShown": 39965,
+  "productsWithUkPhoto": 6792,
+  "productsWithUkPhotoByBarcode": 2029,
+  "productsWithUkPhotoByName": 4763,
+  "listingsWithReference": 36042,
+  "offersWithCorroboratedReference": 15261,
+  "deals": 2917,
   "shareWithUkPhoto": 0.17,
   "goNoGo": {
     "bar": "Proceed if at least a quarter of products have two or more shops (plan section 7).",
