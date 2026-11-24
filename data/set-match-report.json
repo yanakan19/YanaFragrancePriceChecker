@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 392,
+ "folded": 393,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -1853,6 +1853,38 @@
      "signature": "3x10fragrance",
      "shops": [
       "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0888066158695",
+   "absorbed": [
+    "set-tom-ford-ombre-leather-gift-set-100ml-edp-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0888066158695",
+     "brand": "Tom Ford",
+     "name": "Ombré Leather Gift Set 100ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "0888066158695",
+     "scent": "leather ombre",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-tom-ford-ombre-leather-gift-set-100ml-edp-10ml-edp",
+     "brand": "Tom Ford",
+     "name": "Ombré Leather Gift Set 100ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "leather ombre",
+     "signature": "1x100fragrance|1x10fragrance",
+     "shops": [
+      "p-eleven"
      ]
     }
    ]
@@ -16612,38 +16644,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 66667150, 66667151",
-    "a shop lists more than one: parfumdreams-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-66667150",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667150",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-66667151",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667151",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
      ]
     }
    ]
