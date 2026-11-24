@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-24T17:45:11.990Z",
-  "seenAt": "2026-11-24T17:45:11.990Z",
+  "updatedAt": "2026-11-24T21:24:18.286Z",
+  "seenAt": "2026-11-24T21:24:18.286Z",
   "source": "live",
   "listings": [
     {
@@ -313,7 +313,7 @@
       "priceGbp": 11.5,
       "wasPriceGbp": 28,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: Looks like your giftee made it onto your ‘nice list’ this year if you’re putting our Far Away 50 ml Eau de Parfum & Wallet Gift Set under their tree.. This fragrance gift set features an oriental floral perfume for women with 190* jasmine petals, radiant freesia and and comforting Madagascan vanilla; and a two-toned, zip-around wallet for women with integrated RFID technology to help protect your bank cards.. No one can accuse your gift game of being mediocre. Even Santa’s getting comfy and taking notes!. Eau de Parfum 50ml Faye Wallet. Scent type: An exotic fusion of oriental floral notes.. Key notes: Top notes: Peaches, Freesia. Middle notes: Jasmine, Osmanthus, Orange Flower. Bottom notes: Madagascan Vanilla, Sandalwood, Amber.. Why you’ll love it: This set is perfect for the fragrance lovers and fashionistas on your list who love to make an ordinary day feel extra special. Our best and most-wanted women’s perfume lasts all day**; while the mini purse in neutral tones is both pretty and practical. This set comes in a gorgeous box, making gifting for you a little easier.. *Based on 1.05oz volume. Calculations based on average industry harvest of jasmine **Tested to last up to 8hrs. How to use it: Gift it as is: This gift comes in a beautiful box so you don’t need any wrapping paper. Just slip it under a loved one’s Christmas tree and make their day.. Make it your own: Accessories make the perfect gift so why not add one of our bags or jewellery pieces to your present?. Treat yourself: After bathing or showering, spritz the perfume on your neck and wrists; then slip the wallet into your bag and shop till you drop..",
       "productType": "FRAGRANCE",
@@ -888,7 +888,7 @@
       "priceGbp": 1.8,
       "wasPriceGbp": 4.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Care and protect from head to toe with our Berry Fusion Multipurpose Cream, infused with blueberry and strawberry extracts and vitamin E, for 24-hour* moisturisation. This lightweight, non-greasy and non-sticky formula absorbs quickly, leaving your skin feeling smooth and soft. It’s suitable for face, hands and body and the whole family will love the fresh berry scent.. Product specification: . • Face, hand and body cream formulated with blueberry and strawberry extracts and vitamin E. • Suitable for normal to extra-dry skin. • Part of the Avon Care Berry Fusion collection. • Size: 400ml.. How to use me: . Apply to your hands, face and body when needed and reapply as often as necessary.. *Based on a consumer study (#07-693)..",
       "productType": "BODY",
@@ -1739,7 +1739,7 @@
       "priceGbp": 3.4,
       "wasPriceGbp": 8.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: Great for creating beautiful, bouncy volume this Large Barrel Hairbrush is made with Ceramic Technology, to retain heat for the perfect temperature to speed up styling. Product specification: • Helps create volume while blow drying. • Cruelty-free and vegan friendly. • Made from recycled content*.. How to use me: Use the brush at the root area and direct blow dryer downwards as you pull the brush through to the hair tip. *Excludes brush bristles..",
       "productType": "TOILETRIES",

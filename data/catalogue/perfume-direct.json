@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-24T17:45:12.843Z",
-  "seenAt": "2026-11-24T17:45:12.843Z",
+  "updatedAt": "2026-11-24T21:24:38.907Z",
+  "seenAt": "2026-11-24T21:24:38.907Z",
   "source": "live",
   "listings": [
     {
@@ -15,7 +15,7 @@
       "priceGbp": 194.99,
       "wasPriceGbp": 229.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Celebrate three decades of Pokémon with the Pokémon Trading Card Game: 30th Celebration Elite Trainer Box. This special anniversary edition brings together the excitement of collecting, trading and battling, making it a must-have for Pokémon enthusiasts. Discover exciting cards, expand your collection and enhance your gameplay with themed accessories. Presented in English, this commemorative Elite Trainer Box makes an excellent gift for dedicated collectors, competitive players and fans of all ages. .",
       "productType": "Pokemon",
@@ -18055,7 +18055,7 @@
       "priceGbp": 37.99,
       "wasPriceGbp": 67.1,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . Burberry Her Eau de Toilette is a vibrant and effortlessly feminine fragrance inspired by the spirit of modern London. Sparkling fruity notes blend beautifully with delicate florals and soft musky undertones, creating a light yet captivating scent. Fresh, elegant, and easy to wear, this perfume is perfect for everyday moments. It leaves a bright, uplifting trail that captures confidence, charm, and contemporary British style. . . Fragrance Type: . Fruity, Fresh . . Fragrance Notes: . Top Notes: Pear, Strawberry, Black Currant, Pink Pepper . Middle Notes: Peony, Rose, Lily-of-the-Valley, Honeysuckle . Base Notes: Musk, Cedar . . Launched: . 2022 .",
       "productType": "Women's Perfume",

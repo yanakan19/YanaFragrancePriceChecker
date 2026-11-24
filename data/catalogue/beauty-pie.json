@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-24T17:45:12.843Z",
-  "seenAt": "2026-11-24T17:45:12.843Z",
+  "updatedAt": "2026-11-24T21:24:38.907Z",
+  "seenAt": "2026-11-24T21:24:38.907Z",
   "source": "live",
   "listings": [
     {
@@ -12434,7 +12434,7 @@
       "priceGbp": 50,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The perfect subtle, glowing self-tan to help any skin tone go just a little bit deeper. Lightweight, quick-drying formula. Gentle, uplifting scent. With 2.5% vegan DHA for a naturally sun-kissed effect, plus Coconut Oil to nourish and antioxidant Vitamin E to help protect. Leaves skin silky-smooth..",
       "productType": "Bodycare",

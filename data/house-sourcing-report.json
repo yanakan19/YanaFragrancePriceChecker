@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-24T17:52:27.992Z",
+  "checkedAt": "2026-11-24T21:31:09.664Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "CNY",
-      "listings": 537,
+      "listings": 538,
       "pricedInGbp": 0,
       "withPhoto": 518,
       "errors": [],

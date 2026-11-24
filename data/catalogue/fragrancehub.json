@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-24T17:45:12.843Z",
-  "seenAt": "2026-11-24T17:45:12.843Z",
+  "updatedAt": "2026-11-24T21:24:38.907Z",
+  "seenAt": "2026-11-24T21:24:38.907Z",
   "source": "live",
   "listings": [
     {
@@ -152,7 +152,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": 29.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Elixir opens with a beast mode burst of Mint and Bergamot for an immediate sensation of frosted citrus and aromatic calm provided by Lavender. The heart reveals a sophisticated core where golden Amber and Benzoin meet a tropical splash of Pineapple to create a warm and syrupy texture. The dry down reveals a majestic and creamy foundation of Tonka Bean and Vanilla. Anchored by Musk it leaves a persistent and addictive trail that stays vibrant on the skin for over 12 hours. . Top Notes: Mint, Lavender, and Bergamot Middle Notes: Amber, Benzoin, and Pineapple Base Notes: Vanilla, Tonka Bean, and Musk .",
       "productType": null,
@@ -313,7 +313,7 @@
       "priceGbp": 55,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Pink pepper and saffron bring a warm, spiced opening, brightened by the tart richness of blackcurrant. Peony unfolds at the heart alongside raspberry, balancing soft petals with a juicy sweetness. Papyrus, black amber and patchouli deepen the dry-down, leaving a textured finish of dry woods, warmth and earthy depth. . Top Pink Pepper, Blackcurrant, Saffron. Heart Peony, Raspberry. Base Papyrus, Black Amber, Patchouli.",
       "productType": null,

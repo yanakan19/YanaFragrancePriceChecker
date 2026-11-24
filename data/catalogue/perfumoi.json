@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-24T17:45:12.843Z",
-  "seenAt": "2026-11-24T17:45:12.843Z",
+  "updatedAt": "2026-11-24T21:24:38.907Z",
+  "seenAt": "2026-11-24T21:24:38.907Z",
   "source": "live",
   "listings": [
     {
@@ -1460,7 +1460,7 @@
       "rawBrand": "Tom Ford",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0937/0035/8473/files/111452437.png?v=1790779142",
-      "priceGbp": 139.99,
+      "priceGbp": 128.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -3993,7 +3993,7 @@
       "priceGbp": 52.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Givenchy Organza Eau De Parfum Spray is a warm amber floral fragrance created for customers who enjoy a bold yet polished scent. It opens with a rich first impression, develops into a balanced heart, and settles into a smooth, lasting base. Suitable for evening and dressier occasions, this fragrance exudes timeless elegance.. Why customers choose it Well-suited for cooler weather and special occasions. A great option for evening wear. Designed for customers who prefer warm and floral scents.",
       "productType": "Eau de Parfum",
