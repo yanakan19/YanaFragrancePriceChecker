@@ -451,6 +451,38 @@
    ]
   },
   {
+   "canonical": "set-ean-0085715676641",
+   "absorbed": [
+    "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715676641",
+     "brand": "Fcuk",
+     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0085715676641",
+     "scent": "s",
+     "signature": "4x18travel",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml",
+     "brand": "Fcuk",
+     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "s",
+     "signature": "4x18travel",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0085715952172",
    "absorbed": [
     "set-dkny-be-delicious-gift-set-30ml-be-delicious-edp-30ml-fresh-blossom-edp"
@@ -5566,6 +5598,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3616306720718",
+   "absorbed": [
+    "set-tiffany-co-love-for-her-gift-set-75ml-edp-100ml-body-lotion-5ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616306720718",
+     "brand": "Tiffany & Co",
+     "name": "Love for Her Gift Set 75ml EDP + 100ml Body Lotion + 5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3616306720718",
+     "scent": "love",
+     "signature": "1x100body|1x5fragrance|1x75fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-tiffany-co-love-for-her-gift-set-75ml-edp-100ml-body-lotion-5ml-edp",
+     "brand": "Tiffany & Co",
+     "name": "Love for Her Gift Set 75ml EDP + 100ml Body Lotion + 5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "love",
+     "signature": "1x100body|1x5fragrance|1x75fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3616306728141",
    "absorbed": [
     "set-calvin-klein-ck-one-gift-set-200ml-edt-200ml-body-lotion-100ml-shower-gel-15ml-edt"
@@ -6222,38 +6286,6 @@
      "ean": null,
      "scent": "castley exclusif valaya",
      "signature": "1x5fragrance|1x5travel",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3760022735379",
-   "absorbed": [
-    "set-juliette-has-a-gun-not-a-perfume-gift-set-100ml-edp-7-5ml-edp-30ml-body-lotion"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3760022735379",
-     "brand": "Juliette Has a Gun",
-     "name": "Not a Perfume Gift Set 100ml EDP + 7.5ml EDP + 30ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3760022735379",
-     "scent": "not",
-     "signature": "1x100fragrance|1x30body|1x7.5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-juliette-has-a-gun-not-a-perfume-gift-set-100ml-edp-7-5ml-edp-30ml-body-lotion",
-     "brand": "Juliette Has a Gun",
-     "name": "Not a Perfume Gift Set 100ml EDP + 7.5ml EDP + 30ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "not",
-     "signature": "1x100fragrance|1x30body|1x7.5fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -10343,39 +10375,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8411061122617",
-   "absorbed": [
-    "set-carolina-herrera-bad-boy-cobalt-gift-set-100ml-edp-100ml-shower-gel-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8411061122617",
-     "brand": "Carolina Herrera",
-     "name": "Bad Boy Cobalt Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8411061122617",
-     "scent": "bad boy cobalt",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-bad-boy-cobalt-gift-set-100ml-edp-100ml-shower-gel-10ml-edp",
-     "brand": "Carolina Herrera",
-     "name": "Bad Boy Cobalt Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "bad boy cobalt",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "mybeauty-boutique",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8411061134498",
    "absorbed": [
     "set-carolina-herrera-good-girl-gift-set-50ml-edp-100ml-body-lotion"
@@ -12919,37 +12918,6 @@
      "ean": null,
      "scent": "alibi",
      "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.63 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085715676641",
-     "brand": "Fcuk",
-     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0085715676641",
-     "scent": "s",
-     "signature": "4x18travel",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml",
-     "brand": "Fcuk",
-     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "s",
-     "signature": "4x18travel",
      "shops": [
       "p-eleven"
      ]
