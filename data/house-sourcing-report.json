@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-24T13:46:47.265Z",
+  "checkedAt": "2026-11-24T17:52:27.992Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "CNY",
-      "listings": 538,
+      "listings": 537,
       "pricedInGbp": 0,
       "withPhoto": 518,
       "errors": [],
@@ -76,9 +76,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 206,
+      "listings": 211,
       "pricedInGbp": 0,
-      "withPhoto": 206,
+      "withPhoto": 211,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -480,9 +480,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 708,
+      "listings": 707,
       "pricedInGbp": 0,
-      "withPhoto": 706,
+      "withPhoto": 705,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -534,9 +534,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 169,
-      "pricedInGbp": 169,
-      "withPhoto": 168,
+      "listings": 168,
+      "pricedInGbp": 168,
+      "withPhoto": 167,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",

@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-24T13:46:45.248Z",
-  "seenAt": "2026-11-24T13:46:45.248Z",
+  "updatedAt": "2026-11-24T17:52:26.185Z",
+  "seenAt": "2026-11-24T17:52:26.185Z",
   "source": "live",
   "listings": [
     {
@@ -6153,7 +6153,7 @@
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1096282_BODYLOTIONLIFEIS250ML_FAFAFA.jpg?v=1750250960",
       "priceGbp": 8.5,
-      "wasPriceGbp": 15,
+      "wasPriceGbp": 17,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",

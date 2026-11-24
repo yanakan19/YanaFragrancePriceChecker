@@ -1,7 +1,7 @@
 {
   "retailerId": "the-fragrance-counter",
-  "updatedAt": "2026-11-24T05:48:28.937Z",
-  "seenAt": "2026-11-24T05:48:28.937Z",
+  "updatedAt": "2026-11-24T17:45:11.990Z",
+  "seenAt": "2026-11-24T17:45:11.990Z",
   "source": "live",
   "listings": [
     {
@@ -2828,10 +2828,10 @@
       "ean": "3614274114652",
       "imageUrl": "https://www.thefragrancecounter.co.uk/user/products/large/yvessaintlaurentmyslfleparfumbottle.jpg",
       "description": "Yves Saint Laurent MYSLF Le Parfum 60ml - Buy perfume & aftershave online. Authentic, fast UK delivery, great prices. Shop now.",
-      "priceGbp": 86.7,
+      "priceGbp": 84,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-11-24T00:00:00.000Z",
-      "inStock": false,
+      "inStock": true,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "the-fragrance-counter",
@@ -5259,7 +5259,7 @@
       "priceGbp": 33.53,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-11-24T00:00:00.000Z",
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "the-fragrance-counter",

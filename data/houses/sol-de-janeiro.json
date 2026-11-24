@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-24T13:46:43.419Z",
-  "seenAt": "2026-11-24T13:46:43.419Z",
+  "updatedAt": "2026-11-24T17:52:23.344Z",
+  "seenAt": "2026-11-24T17:52:23.344Z",
   "source": "live",
   "listings": [
     {
@@ -11660,32 +11660,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "MR066100",
-      "url": "https://soldejaneiro.com/products/free-cosmetic-bag",
-      "rawTitle": "Free Cosmetic Bag",
-      "rawBrand": "Sol de Janeiro",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/sol-de-janeiro-pouch-1600_1_1.png?v=1795460832",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "subscription gwp.",
-      "productType": "GWP",
-      "nativePrice": {
-        "amount": 15,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-11-12T18:16:41.285Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
       "retailerSku": "7685781586022-Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 62 - pistachio, salted caramel, vanilla",
       "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
       "rawTitle": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 62 - pistachio, salted caramel, vanilla",
@@ -18551,6 +18525,33 @@
       "firstSeenAt": "2026-10-01T20:12:33.185Z",
       "status": "active",
       "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
+    {
+      "retailerSku": "MR066100",
+      "url": "https://soldejaneiro.com/products/free-cosmetic-bag",
+      "rawTitle": "Free Cosmetic Bag",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/sol-de-janeiro-pouch-1600_1_1.png?v=1795460832",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "subscription gwp.",
+      "productType": "GWP",
+      "nativePrice": {
+        "amount": 15,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-12T18:16:41.285Z",
+      "lastSeenAt": "2026-11-24T13:46:43.419Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-24T17:52:23.344Z",
       "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null

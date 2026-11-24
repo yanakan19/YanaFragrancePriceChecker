@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-24T13:40:18.352Z",
-  "seenAt": "2026-11-24T13:40:18.352Z",
+  "updatedAt": "2026-11-24T17:45:12.843Z",
+  "seenAt": "2026-11-24T17:45:12.843Z",
   "source": "live",
   "listings": [
     {
@@ -520,7 +520,7 @@
       "priceGbp": 69.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A collection inspired by the colors of the sea and the clarity of the sky. . Blending heritage and modernity in captivating fragrance compositions that touch memories.. Each note reflects a balance between freshness and strength, leaving an unforgettable impression.. Blue Diamond Box v.2 (75 mL):. · Sapphire Leather. · Aqua Blue Diamond. · Black Diamond Incense.",
       "productType": "Arabic Perfumes",
@@ -1003,7 +1003,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": 69.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Delicate Pink Diamond Sakura Perfume . It is a description of all the beauty... and the inexhaustible brilliance over the years... like a precious jewel that catches the eye and steals the heart with love and kindness. A masterpiece presented by a company with an ancient name to captivate your senses and take you to the world of imagination. Delicate rose petals encapsulate the power of sandalwood. And between the bark and the flowers, there is a group of notes supported by a fresh introduction of orange blossom embracing lily that swings on a sedate and seductive base of musk and luxurious amber like a silky pink veil that wraps around you. Pink Diamond perfume invites you to join him on a journey through luxurious aromatic waves. . Notes: . Top Notes: Peony, Orange Blossom, Mandarin . Heart Notes: Rose, Lily, Cherry Blossom . Base Notes: Sandalwood, White Musk, Amber . . .",
       "productType": "Arabic Perfumes",

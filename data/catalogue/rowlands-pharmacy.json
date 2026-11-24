@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-24T13:40:57.794Z",
-  "seenAt": "2026-11-24T13:40:57.794Z",
+  "updatedAt": "2026-11-24T17:45:11.990Z",
+  "seenAt": "2026-11-24T17:45:11.990Z",
   "source": "live",
   "listings": [
     {
@@ -244,7 +244,7 @@
       "priceGbp": 14.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Davidoff Cool Water Eau de Toilette 75ml. Key Features. ##features##. Iconic men's fragrance inspired by freshness and the ocean.. Aromatic aquatic scent with mint, lavender and sandalwood notes.. Clean, masculine fragrance suitable for everyday wear.. Refreshing scent profile ideal for work, leisure and special occasions.. Long-standing bestselling Davidoff fragrance.. 75ml bottle offers excellent everyday value.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Experience the timeless freshness of Davidoff Cool Water Eau de Toilette. This iconic men's fragrance combines invigorating mint, lavender and marine-inspired notes with a masculine base of sandalwood, cedarwood and musk. Fresh, clean and effortlessly wearable, Cool Water remains a classic choice for men seeking a crisp everyday fragrance that never goes out of style.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. . ##accordion-item-end##. ##accordion-item-start##. Patient Information Leaflet. ##leaflet##. ##accordion-item-end##. ##accordion-item-start##. Age Restricted Product. Purchasing this product online is only suitable for those aged 18 years and over. If you are under 18 years of age and wish to purchase this product, please visit your local Rowlands Pharmacy and speak with a pharmacist in store.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -835,16 +835,16 @@
     {
       "retailerSku": "6870448",
       "url": "https://shop.rowlandspharmacy.co.uk/products/hugo-boss-boss-orange-eau-de-toilette-30ml",
-      "rawTitle": "Hugo Boss Boss Orange Woman Eau de Toilette 30ml",
+      "rawTitle": "Hugo Boss Boss Woman Eau de Toilette 30ml",
       "rawBrand": "Hugo Boss",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0862/4914/4654/files/HugoBossBossOrangeWomanEaudeToilette30ml.jpg?v=1763648619",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0862/4914/4654/files/Hugo_Boss_Boss_Woman_Eau_de_Toilette_30ml.jpg?v=1795530095",
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
-      "description": "Hugo Boss Boss Orange Woman Eau de Toilette 30ml. Key Features. ##features##. Fragrance Family: Fruity-Floral . . Top Notes: Crisp Apple . . Heart Notes: Orange Blossom, White Florals . . Base Notes: Vanilla, Sandalwood, Olive Wood . . Ideal For: Everyday wear, gifting. . ##end-features##. Product Details. A cheerful, fruity-floral fragrance that embodies confidence and warmth. Opens with crisp apple, followed by delicate orange blossom and white florals, finishing with creamy vanilla and sandalwood for a sensual, comforting base..",
+      "description": "##features##. Fresh Fruity Floral Fragrance – A vibrant, feminine scent combining crisp fruits, delicate florals and warm woody notes. . Bright Fruity Opening – Features crisp apple, bergamot and white peach for an uplifting first impression. . Floral & Spiced Heart – Orange blossom and plum are complemented by a touch of cinnamon. . Warm, Creamy Base – Vanilla, sandalwood and olivewood create a smooth, comforting finish. . Versatile Day-to-Evening Scent – Light and easy to wear for everyday occasions while offering enough warmth for evening wear.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. . a { text-decoration: none; color: #464feb;\n}\ntr th, tr td { border: 1px solid #e6e6e6;\n}\ntr th { background-color: #f5f5f5;\n} Express a carefree sense of confidence with Boss Woman Eau de Toilette 30ml, a bright ambery fragrance that combines uplifting fruit, elegant florals and warm woody notes. Previously known as Boss Orange Woman, this much-loved fragrance offers an effortlessly wearable scent for everyday occasions.. The fragrance opens with crisp apple, bergamot and white peach, creating a fresh and vibrant first impression. At the heart, delicate orange flower, plum and cinnamon add warmth before developing into a smooth base of creamy vanilla, sandalwood and olivewood.. Light enough for daytime yet warm enough for evenings, Boss Woman is a versatile choice for work, weekends and special occasions. The compact 30ml Eau de Toilette spray is also convenient for keeping in your handbag or taking with you when travelling.. . ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray lightly onto pulse points such as the wrists, neck and inner elbows. For best results, allow the fragrance to dry naturally rather than rubbing the skin after application.. Reapply as desired throughout the day.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Flammable. Keep away from flames, ignition sources and heat. Do not spray towards or into the eyes. Avoid applying to broken, damaged or irritated skin. Keep out of reach of children. Store in a cool, dry place away from direct sunlight.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
       "nativePrice": null,
       "retailerId": "rowlands-pharmacy",

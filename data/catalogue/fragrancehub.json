@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-24T13:40:18.352Z",
-  "seenAt": "2026-11-24T13:40:18.352Z",
+  "updatedAt": "2026-11-24T17:45:12.843Z",
+  "seenAt": "2026-11-24T17:45:12.843Z",
   "source": "live",
   "listings": [
     {
@@ -13558,7 +13558,7 @@
       "rawBrand": "My Store",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Khamrah-Perfume-100ml-EDP-Lattafa-153337882.jpg?v=1771793486",
-      "priceGbp": 24.5,
+      "priceGbp": 25.99,
       "wasPriceGbp": 45.99,
       "promoEndsAt": null,
       "inStock": true,
