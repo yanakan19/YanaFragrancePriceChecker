@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-24T01:43:09.957Z",
-  "seenAt": "2026-11-24T01:43:09.957Z",
+  "updatedAt": "2026-11-24T05:48:28.937Z",
+  "seenAt": "2026-11-24T05:48:28.937Z",
   "source": "live",
   "listings": [
     {
@@ -60803,7 +60803,7 @@
       "priceGbp": 180.54,
       "wasPriceGbp": 252,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Guerlain Orchidee Imperiale Gift Set Lotion 30ml + Face Cream 15ml + Concentrate 5ml + Eye Cream 7ml.",
       "productType": "Gift Set",
@@ -75661,7 +75661,7 @@
       "priceGbp": 15.37,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Olphactory Cedar Oud Reed Diffuser 250ml.",
       "productType": "Reed Diffusers",

@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-24T01:43:09.957Z",
-  "seenAt": "2026-11-24T01:43:09.957Z",
+  "updatedAt": "2026-11-24T05:48:28.937Z",
+  "seenAt": "2026-11-24T05:48:28.937Z",
   "source": "live",
   "listings": [
     {
@@ -8961,7 +8961,7 @@
       "priceGbp": 245,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Sol Salgado, the quintessence of sun-kissed skin and salt, a shimmering seduction in the magic of an endless summer..",
       "productType": "Fragrance",

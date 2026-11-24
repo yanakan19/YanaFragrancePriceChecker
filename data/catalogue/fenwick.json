@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-24T01:48:32.969Z",
-  "seenAt": "2026-11-24T01:48:32.969Z",
+  "updatedAt": "2026-11-24T05:47:44.521Z",
+  "seenAt": "2026-11-24T05:47:44.521Z",
   "source": "live",
   "listings": [
     {
@@ -11790,7 +11790,7 @@
       "priceGbp": 77.25,
       "wasPriceGbp": 103,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the captivating intensity of La Bomba Intensa Eau De Parfum Intensa. Juicy wild berries open the fragrance before revealing an exotic Venezuelan orchid heart, while rich red amber brings warmth and sensuality to the base. Presented in a refillable 50ml bottle for an elegant finishing touch..",
       "productType": "Women's Fragrances",
@@ -21266,7 +21266,7 @@
       "priceGbp": 56.25,
       "wasPriceGbp": 75,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Born in Roma Uomo Purple Melancholia Eau de Parfum by Valentino is a premium scent chosen for its bold character and refined balance. Formulated as an Eau de Parfum, it provides richness, longevity and a distinctive presence. The 50ml size delivers a considered fragrance option that brings depth, polish and modern elegance to any collection..",
       "productType": "Men's Fragrances",

@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-24T01:48:32.969Z",
-  "seenAt": "2026-11-24T01:48:32.969Z",
+  "updatedAt": "2026-11-24T05:47:44.521Z",
+  "seenAt": "2026-11-24T05:47:44.521Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 130,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Designed as an ode to everlasting love, Mona and Hassan created The Wedding Collection to wear on their special day. Aptly named after the silk gown Mona wore and the velvet suit Hassan wore on their wedding day. The Wedding Silk Santal | 36 and The Wedding Velvet Santal | 35 were inspired by and are bound by the strength of creamy Sandalwood. Also known as Santal, this hero note grounds each scent while also glorifying the unique blend of decadent ingredients found in each bottle. Timeless when worn alone yet amplified when layered together, these juices are made to be shared and celebrate love in all its forms..",
       "productType": "Sets",
@@ -152,7 +152,7 @@
       "priceGbp": 3,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Comforting, nostalgic, and joyful, our Yum Vanilla Cupcake | 108 Eau de Parfum is a celebration of life's sweetest moments! It opens with a burst of bright lemon sugar and rainbow sprinkles tossed in like confetti, sinking into a decadent heart of white caramel, toasted coconut flakes, and warm sweet milk. It then settles into a rich vanilla frosting base, turning little joys into lasting memories worth treasuring forever. .",
       "productType": "Fragrances",
