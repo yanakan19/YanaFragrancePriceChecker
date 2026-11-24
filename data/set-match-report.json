@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 383,
+ "folded": 392,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -648,6 +648,38 @@
    ]
   },
   {
+   "canonical": "set-ean-0085805255800",
+   "absorbed": [
+    "set-elizabeth-arden-fifth-avenue-gift-set-125ml-edp-100ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085805255800",
+     "brand": "Elizabeth Arden",
+     "name": "Fifth Avenue Gift Set 125ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "0085805255800",
+     "scent": "avenue fifth",
+     "signature": "1x100body|1x125fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-elizabeth-arden-fifth-avenue-gift-set-125ml-edp-100ml-body-lotion",
+     "brand": "Elizabeth Arden",
+     "name": "Fifth Avenue Gift Set 125ml EDP + 100ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "avenue fifth",
+     "signature": "1x100body|1x125fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0085805260613",
    "absorbed": [
     "set-elizabeth-arden-sunflowers-gift-set-100ml-edt-100ml-body-lotion"
@@ -676,6 +708,38 @@
      "shops": [
       "beaute-boulevard",
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0608940575802",
+   "absorbed": [
+    "set-vince-camuto-homme-gift-set-200ml-edt-15ml-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0608940575802",
+     "brand": "Vince Camuto",
+     "name": "Homme Gift Set 200ml EDT + 15ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "0608940575802",
+     "scent": "homme",
+     "signature": "1x15fragrance|1x200fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-vince-camuto-homme-gift-set-200ml-edt-15ml-edt",
+     "brand": "Vince Camuto",
+     "name": "Homme Gift Set 200ml EDT + 15ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "homme",
+     "signature": "1x15fragrance|1x200fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -3188,38 +3252,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3386460139373",
-   "absorbed": [
-    "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-30ml-edp-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3386460139373",
-     "brand": "Montblanc",
-     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 30ml EDP Spray",
-     "concentration": "Eau de Parfum",
-     "ean": "3386460139373",
-     "scent": "blanc explorer mont platinum",
-     "signature": "1x100fragrance|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-30ml-edp-spray",
-     "brand": "Montblanc",
-     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 30ml EDP Spray",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blanc explorer mont platinum",
-     "signature": "1x100fragrance|1x30fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3386460146968",
    "absorbed": [
     "set-coach-love-gift-set-50ml-edp-7-5ml-edp"
@@ -3245,6 +3277,38 @@
      "ean": null,
      "scent": "love",
      "signature": "1x50fragrance|1x7.5fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3386460148061",
+   "absorbed": [
+    "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-30ml-edp-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460148061",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 30ml EDP Spray",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460148061",
+     "scent": "blanc explorer mont platinum",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-mont-blanc-explorer-platinum-gift-set-100ml-edp-30ml-edp-spray",
+     "brand": "Montblanc",
+     "name": "Mont Blanc Explorer Platinum Gift Set 100ml EDP + 30ml EDP Spray",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "blanc explorer mont platinum",
+     "signature": "1x100fragrance|1x30fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -3459,6 +3523,70 @@
      "ean": null,
      "scent": "10 choo i le love want",
      "signature": "1x10fragrance|1x10fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3386460168571",
+   "absorbed": [
+    "set-karl-lagerfeld-karl-ikonik-absolu-pour-femme-gift-set-60ml-edp-7-5ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460168571",
+     "brand": "Karl Lagerfeld",
+     "name": "Karl Ikonik Absolu Pour Femme Gift Set 60ml EDP + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460168571",
+     "scent": "absolu femme ikonik karl pour",
+     "signature": "1x60fragrance|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-karl-lagerfeld-karl-ikonik-absolu-pour-femme-gift-set-60ml-edp-7-5ml-edp",
+     "brand": "Karl Lagerfeld",
+     "name": "Karl Ikonik Absolu Pour Femme Gift Set 60ml EDP + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "absolu femme ikonik karl pour",
+     "signature": "1x60fragrance|1x7.5fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3386460168588",
+   "absorbed": [
+    "set-karl-lagerfeld-karl-ikonik-absolu-pour-homme-gift-set-60ml-edp-7-5ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460168588",
+     "brand": "Karl Lagerfeld",
+     "name": "Karl Ikonik Absolu Pour Homme Gift Set 60ml EDP + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3386460168588",
+     "scent": "absolu homme ikonik karl pour",
+     "signature": "1x60fragrance|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-karl-lagerfeld-karl-ikonik-absolu-pour-homme-gift-set-60ml-edp-7-5ml-edp",
+     "brand": "Karl Lagerfeld",
+     "name": "Karl Ikonik Absolu Pour Homme Gift Set 60ml EDP + 7.5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "absolu homme ikonik karl pour",
+     "signature": "1x60fragrance|1x7.5fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -4268,6 +4396,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3432240517609",
+   "absorbed": [
+    "set-cartier-declaration-gift-set-100ml-edt-100ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3432240517609",
+     "brand": "Cartier",
+     "name": "Declaration Gift Set 100ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "3432240517609",
+     "scent": "declaration",
+     "signature": "1x100fragrance|1x100wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-cartier-declaration-gift-set-100ml-edt-100ml-shower-gel",
+     "brand": "Cartier",
+     "name": "Declaration Gift Set 100ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "declaration",
+     "signature": "1x100fragrance|1x100wash",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3442180004749",
    "absorbed": [
     "set-courreges-mini-eau-de-parfum-gift-set-5ml-c-edp-5ml-l-eau-de-liesse-edp-5ml-slogan-edp-5ml-seconde-peau-edp-5ml-la-fille-de-l-air-edp-5ml-l-empreinte-edp"
@@ -4593,38 +4753,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3614274341188",
-   "absorbed": [
-    "set-prada-paradoxe-gift-set-50ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614274341188",
-     "brand": "Prada",
-     "name": "Paradoxe Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3614274341188",
-     "scent": "paradoxe",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-prada-paradoxe-gift-set-50ml-edp-10ml-edp",
-     "brand": "Prada",
-     "name": "Paradoxe Gift Set 50ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "paradoxe",
-     "signature": "1x10fragrance|1x50fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3614274423921",
    "absorbed": [
     "set-lancome-la-vie-est-belle-gift-set-100ml-edp-50ml-body-lotion-10ml-edp"
@@ -4715,6 +4843,39 @@
      "ean": null,
      "scent": "belle est la vie",
      "signature": "1x30fragrance|1x50body",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3614274793345",
+   "absorbed": [
+    "set-prada-paradoxe-gift-set-50ml-edp-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614274793345",
+     "brand": "Prada",
+     "name": "Paradoxe Eau de Parfum Spray 50ml Gift Set",
+     "concentration": "Eau de Parfum",
+     "ean": "3614274793345",
+     "scent": "paradoxe",
+     "signature": "1x10fragrance|1x50fragrance",
+     "shops": [
+      "allbeauty",
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-prada-paradoxe-gift-set-50ml-edp-10ml-edp",
+     "brand": "Prada",
+     "name": "Paradoxe Gift Set 50ml EDP + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "paradoxe",
+     "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -6295,6 +6456,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3760022735379",
+   "absorbed": [
+    "set-juliette-has-a-gun-not-a-perfume-gift-set-100ml-edp-7-5ml-edp-30ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3760022735379",
+     "brand": "Juliette Has a Gun",
+     "name": "Not a Perfume Gift Set 100ml EDP + 7.5ml EDP + 30ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3760022735379",
+     "scent": "not",
+     "signature": "1x100fragrance|1x30body|1x7.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-juliette-has-a-gun-not-a-perfume-gift-set-100ml-edp-7-5ml-edp-30ml-body-lotion",
+     "brand": "Juliette Has a Gun",
+     "name": "Not a Perfume Gift Set 100ml EDP + 7.5ml EDP + 30ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "not",
+     "signature": "1x100fragrance|1x30body|1x7.5fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3760269840102",
    "absorbed": [
     "set-lolita-lempicka-green-lover-gift-set-7-5ml-eau-de-parfum-spray-body-lotion-50ml"
@@ -6995,6 +7188,38 @@
      "ean": null,
      "scent": "babe real",
      "signature": "1x220body|1x80fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-5060103311026",
+   "absorbed": [
+    "set-escentric-molecules-escentric-01-atom-iser-gift-set-3-x-8-5ml-edt-case"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060103311026",
+     "brand": "Escentric Molecules",
+     "name": "Escentric 01 ATOM.iser Gift Set 3 x 8.5ml EDT + Case",
+     "concentration": "Eau de Toilette",
+     "ean": "5060103311026",
+     "scent": "01 atom escentric iser",
+     "signature": "1x?other|3x8.5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-escentric-molecules-escentric-01-atom-iser-gift-set-3-x-8-5ml-edt-case",
+     "brand": "Escentric Molecules",
+     "name": "Escentric 01 ATOM.iser Gift Set 3 x 8.5ml EDT + Case",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "01 atom escentric iser",
+     "signature": "1x?other|3x8.5fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -9891,6 +10116,39 @@
    ]
   },
   {
+   "canonical": "set-ean-8410225599418",
+   "absorbed": [
+    "set-jean-paul-gaultier-le-male-elixir-parfum-gift-set-le-male-elixir-parfum-125ml-shower-gel-75ml-travel-size-10ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8410225599418",
+     "brand": "Jean Paul Gaultier",
+     "name": "Le Male Elixir Parfum Gift Set - Le Male Elixir Parfum 125ml + Shower Gel 75ml + Travel Size 10ml",
+     "concentration": "Parfum",
+     "ean": "8410225599418",
+     "scent": "elixir le male",
+     "signature": "1x10travel|1x125fragrance|1x75wash",
+     "shops": [
+      "perfume-click",
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-le-male-elixir-parfum-gift-set-le-male-elixir-parfum-125ml-shower-gel-75ml-travel-size-10ml",
+     "brand": "Jean Paul Gaultier",
+     "name": "Le Male Elixir Parfum Gift Set - Le Male Elixir Parfum 125ml + Shower Gel 75ml + Travel Size 10ml",
+     "concentration": "Parfum",
+     "ean": null,
+     "scent": "elixir le male",
+     "signature": "1x10travel|1x125fragrance|1x75wash",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8410225601203",
    "absorbed": [
     "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-christmas-edition"
@@ -10665,6 +10923,39 @@
      "shops": [
       "beaute-boulevard",
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8435415112925",
+   "absorbed": [
+    "set-jean-paul-gaultier-le-male-gift-set-75ml-edt-75ml-all-over-shower-gel-christmas-edition"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8435415112925",
+     "brand": "Jean Paul Gaultier",
+     "name": "Le Male Gift Set 75ml EDT + 75ml All Over Shower Gel (Christmas Edition)",
+     "concentration": "Eau de Toilette",
+     "ean": "8435415112925",
+     "scent": "all christmas edition le male over",
+     "signature": "1x75fragrance|1x75wash",
+     "shops": [
+      "perfume-click",
+      "perfumeuk"
+     ]
+    },
+    {
+     "id": "set-jean-paul-gaultier-le-male-gift-set-75ml-edt-75ml-all-over-shower-gel-christmas-edition",
+     "brand": "Jean Paul Gaultier",
+     "name": "Le Male Gift Set 75ml EDT + 75ml All Over Shower Gel (Christmas Edition)",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "all christmas edition le male over",
+     "signature": "1x75fragrance|1x75wash",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -13017,9 +13308,22 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
-    "a shop lists more than one: p-eleven"
+    "two different barcodes: 85805258757, 85805377519",
+    "a shop lists more than one: p-eleven, perfume-click"
    ],
    "members": [
+    {
+     "id": "set-ean-0085805258757",
+     "brand": "Elizabeth Arden",
+     "name": "Green Tea Gift Set 100ml EDP + 100ml Green Tea Honey Drops Body Cream",
+     "concentration": "Eau de Parfum",
+     "ean": "0085805258757",
+     "scent": "drops green honey tea",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
     {
      "id": "set-ean-0085805377519",
      "brand": "Elizabeth Arden",
@@ -14569,7 +14873,7 @@
   },
   {
    "reasons": [
-    "price spread 3.97 is over 1.5"
+    "price spread 4.04 is over 1.5"
    ],
    "members": [
     {
@@ -14772,7 +15076,7 @@
   {
    "reasons": [
     "two different barcodes: 3423222092528, 3423222110857",
-    "price spread 1.81 is over 1.5"
+    "price spread 1.79 is over 1.5"
    ],
    "members": [
     {
@@ -15034,7 +15338,7 @@
   },
   {
    "reasons": [
-    "price spread 1.70 is over 1.5"
+    "price spread 1.59 is over 1.5"
    ],
    "members": [
     {
@@ -15819,7 +16123,7 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
-    "two different barcodes: 3616305443588, 3616306127869, 3616306127906",
+    "two different barcodes: 3616305443588, 3616306127869",
     "a shop lists more than one: mybeauty-boutique, perfume-click"
    ],
    "members": [
@@ -15841,18 +16145,6 @@
      "name": "Boss Bottled Gift Set 100ml EDT + 100ml Shower Gel + 10ml EDT",
      "concentration": "Eau de Toilette",
      "ean": "3616306127869",
-     "scent": "boss bottled",
-     "signature": "1x100fragrance|1x100wash|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-3616306127906",
-     "brand": "Hugo Boss",
-     "name": "Boss Bottled Parfum Gift Set 100ml EDP + 100ml Shower Gel + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3616306127906",
      "scent": "boss bottled",
      "signature": "1x100fragrance|1x100wash|1x10fragrance",
      "shops": [
@@ -16081,7 +16373,7 @@
   },
   {
    "reasons": [
-    "price spread 1.56 is over 1.5"
+    "price spread 1.59 is over 1.5"
    ],
    "members": [
     {
