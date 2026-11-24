@@ -11723,8 +11723,7 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Extrait de Parfum",
-    "a shop lists more than one: cult-beauty-global",
-    "price spread 1.69 is over 1.5"
+    "a shop lists more than one: cult-beauty-global"
    ],
    "members": [
     {
@@ -14944,7 +14943,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3423222118495, 3423222119720",
-    "a shop lists more than one: paco-perfumerias-uk, perfume-direct"
+    "a shop lists more than one: perfume-direct"
    ],
    "members": [
     {
@@ -14957,20 +14956,18 @@
      "signature": "1x100fragrance|1x10?|1x50wash",
      "shops": [
       "fragrance-click",
-      "paco-perfumerias-uk",
       "perfume-direct"
      ]
     },
     {
      "id": "set-ean-3423222119720",
      "brand": "Issey Miyake",
-     "name": "Le Sel D'Issey Eau de Parfum 100ml Spray Gift Set",
+     "name": "Le Sel D'Issey Eau de Parfum Men's Aftershave Gift Set (100ml + 50ml Shower Gel + 10ml)",
      "concentration": "Eau de Parfum",
      "ean": "3423222119720",
      "scent": "d issey le sel",
      "signature": "1x100fragrance|1x10?|1x50wash",
      "shops": [
-      "paco-perfumerias-uk",
       "perfume-direct"
      ]
     }
