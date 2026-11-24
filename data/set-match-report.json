@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 381,
+ "folded": 382,
  "groups": [
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
@@ -3026,6 +3026,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3349668672417",
+   "absorbed": [
+    "set-paco-rabanne-million-gold-elixir-parfum-intense-gift-set-100ml-edp-10ml-edp-150ml-deodorant-spray"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3349668672417",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Million Gold Elixir Parfum Intense Gift Set 100ml EDP + 10ml EDP + 150ml Deodorant Spray",
+     "concentration": "Eau de Parfum",
+     "ean": "3349668672417",
+     "scent": "elixir gold intense million paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance|1x150deo",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-paco-rabanne-million-gold-elixir-parfum-intense-gift-set-100ml-edp-10ml-edp-150ml-deodorant-spray",
+     "brand": "Rabanne",
+     "name": "Paco Rabanne Million Gold Elixir Parfum Intense Gift Set 100ml EDP + 10ml EDP + 150ml Deodorant Spray",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "elixir gold intense million paco rabanne",
+     "signature": "1x100fragrance|1x10fragrance|1x150deo",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3386460089364",
    "absorbed": [
     "set-mont-blanc-legend-gift-set-100ml-edt-75g-deodorant-stick"
@@ -3283,6 +3315,39 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique",
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3386460158411",
+   "absorbed": [
+    "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3386460158411",
+     "brand": "Jimmy Choo",
+     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3386460158411",
+     "scent": "man",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
+      "perfume-click",
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-jimmy-choo-man-gift-set-100ml-edt-100ml-shower-gel-7-5ml-edt",
+     "brand": "Jimmy Choo",
+     "name": "Man Gift Set 100ml EDT + 100ml Shower Gel + 7.5ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "man",
+     "signature": "1x100fragrance|1x100wash|1x7.5fragrance",
+     "shops": [
       "p-eleven"
      ]
     }
@@ -8587,51 +8652,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003809318",
-   "absorbed": [
-    "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
-    "set-versace-eros-gift-set-2-x-30ml-edt-spray"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003809318",
-     "brand": "Versace",
-     "name": "Eros Gift Set 2 x 30ml EDT Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "8011003809318",
-     "scent": "eros",
-     "signature": "2x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
-     "brand": "Versace",
-     "name": "Eros Eau de Toilette Spray 2 x 30ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "eros",
-     "signature": "2x30fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-versace-eros-gift-set-2-x-30ml-edt-spray",
-     "brand": "Versace",
-     "name": "Eros Gift Set 2 x 30ml EDT Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "eros",
-     "signature": "2x30fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8011003822195",
    "absorbed": [
     "set-versace-bright-crystal-absolu-gift-set-2-x-30ml-edp",
@@ -11412,6 +11432,38 @@
      "signature": "3p",
      "shops": [
       "aromique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
+   "absorbed": [
+    "set-versace-eros-gift-set-2-x-30ml-edt-spray"
+   ],
+   "members": [
+    {
+     "id": "set-versace-eros-eau-de-toilette-spray-2-x-30ml",
+     "brand": "Versace",
+     "name": "Eros Eau de Toilette Spray 2 x 30ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "eros",
+     "signature": "2x30fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-versace-eros-gift-set-2-x-30ml-edt-spray",
+     "brand": "Versace",
+     "name": "Eros Gift Set 2 x 30ml EDT Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "eros",
+     "signature": "2x30fragrance",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
