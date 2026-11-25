@@ -1,7 +1,7 @@
 {
   "retailerId": "sainte-cellier",
-  "updatedAt": "2026-11-25T09:19:44.864Z",
-  "seenAt": "2026-11-25T09:19:44.864Z",
+  "updatedAt": "2026-11-25T13:10:46.035Z",
+  "seenAt": "2026-11-25T13:10:46.035Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Limited Edition Eau de Parfum. . Fée du Lilas is available by advance reservation only, with pre-orders closing on 30 June. Please reserve your bottle before then, as this limited edition will not be available for general sale. . Fée du Lilas is an especially personal work for perfumer Odette Fontaine.. The fragrance was created in memory of her sister, who was murdered in 2024. 30th June, the day of the fragrance's official release, would have been her birthday. Lilac was her favourite flower, and as a ballet dancer she loved performing the role of the Lilac Fairy in Sleeping Beauty. To Odette, she will always be her lilac fairy.. Rather than a photorealistic lilac perfume, Fée du Lilas is a gossamer-soft memory of lilacs blooming in their grandmother's garden. Delicate petals drift through notes of sugared mirabelle plum, meringue kisses, vanilla and sweet olibanum, creating a parfum that feels luminous, comforting and quietly nostalgic.. A portion of proceeds from every bottle sold will be donated to Brady United and their work to prevent gun violence.. . Composition: . Mirabelle Sugar, Lilac Petals. Baisers de Meringue, Tiaré Flower Milk. Vanilla, Blonde Cedar, Sweet Olibanum. Perfumer: Odette Fontaine, 2026.",
       "productType": "EAU DE PARFUM",
@@ -6155,7 +6155,7 @@
       "priceGbp": 275,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Eau de Parfum. . A slow-burning flame and an embrace, Vanille Havane ignites the senses with decadent intensity, blending green vanilla and Colombian cocoa over a supple base of suede and amber.. This fiercely sensual perfume opens with the smoky warmth of tobacco and a whisper of volcanic fire. Jasmine absolute unfurls with animalic allure, softened by the caramelised sweetness of burnt sugar. As the scent deepens, a rich, plummy cocoa accord rises, enveloping the skin in textured, indulgent layers.. Crafted with bold precision and unapologetic elegance, Vanille Havane is not just a vanilla fragrance. It’s desire made tangible, clinging to the skin like an insatiable lover.. . Composition: . Grand Cru Vanilla ‘Mauvais’ Comoros Infusion 9.1%. Grand Cru Egyptian Jasmine Egypt concrete ‘Distillat’ .2%. Grand Cru Colombian Cocoa Ultrasound Extraction 3.1%. Perfumer: Antoine Lie: 2020. . inci list: Alcohol Denat., Parfum, Water / Aqua, Alpha-Isomethyl Ionone, Benzyl Benzoate, Cinnamal, Coumarin, Limonene, Eugenol, Geraniol, Linalool, BHT, Ethylhexyl Methoxycinnamate, Butyl Methoxydibenzoylmethane (Avobenzone) .",
       "productType": "Perfume & Cologne",

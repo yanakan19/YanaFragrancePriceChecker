@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-25T09:19:26.760Z",
-  "seenAt": "2026-11-25T09:19:26.760Z",
+  "updatedAt": "2026-11-25T13:10:47.848Z",
+  "seenAt": "2026-11-25T13:10:47.848Z",
   "source": "live",
   "listings": [
     {
@@ -6316,7 +6316,7 @@
       "priceGbp": 195,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Orange blossom – Spicy, Oranger flower absolute Morocco 3% Petitgrain oil Morocco ‘Grand Cru’ 2,4% Royal Cinnamon oil Laos ‘Grand Cru’ 0,6%.",
       "productType": "Perfume",
@@ -6362,7 +6362,7 @@
       "priceGbp": 195,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Fresh – Ambery, Ambre gris tincture ‘Grand Cru’ 10%, Hydrocarboresin extract (cistus derivative) 0,7%.",
       "productType": "Perfume",
@@ -7006,7 +7006,7 @@
       "priceGbp": 180,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A embrace from which one would never want to part. . . Bare feet strike the red earth. They lift it up, forming a brown cloud that drifts with the winds. Gradually, the cloud lightens, until it suddenly evaporates upon contact with hard, cold asphalt. . . Towédé has left a magical land where spirits float between the trees, for a new land that disregards myths and the paranormal. A land that proudly proclaims its modernity and rationality. But Towédé is a force that nothing can sterilize. It is a fierce softness, a wild tenderness. . . Towédé is the meeting of two worlds. They coexist, encroach upon each other, intertwine, interweave, and interpret one another. Yet, balance is achieved without one disappearing in favor of the other, without one fully conceding to the other. . . Cinnamon, Ambergris, Sandalwood, Leather, Dark Chocolate, Cashmeran..",
       "productType": "Perfume",

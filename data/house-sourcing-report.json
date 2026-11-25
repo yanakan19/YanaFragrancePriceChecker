@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-25T09:25:53.592Z",
+  "checkedAt": "2026-11-25T13:17:38.945Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -431,9 +431,9 @@
       "origin": "https://www.alwataniah.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 123,
+      "listings": 125,
       "pricedInGbp": 0,
-      "withPhoto": 123,
+      "withPhoto": 125,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

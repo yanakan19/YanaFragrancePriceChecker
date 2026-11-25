@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-25T09:19:44.864Z",
-  "seenAt": "2026-11-25T09:19:44.864Z",
+  "updatedAt": "2026-11-25T13:10:46.035Z",
+  "seenAt": "2026-11-25T13:10:46.035Z",
   "source": "live",
   "listings": [
     {
@@ -19265,7 +19265,7 @@
       "priceGbp": 6,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Lucid Dream is an olfactory exploration of the semi meditative state in which a person is aware they are asleep but is able to control their surroundings, and an ode to the potential hidden in every one of us.. Juxtaposing rich, bright notes of pink pepper and davana with smoky, meditative florals and incense, Lucid Dream truly feels like another plane of existence, an ethereal journey into a world where we follow our wildest artistic impulses and break through the creative blocks that may impede our waking lives.. It's a vivid, yet ethereal, experience, simultaneously romantic and contemplative, with the outstanding ingredient quality and rich tonalities for which Ex Idolo is known. Will Lucid Dream make you a master of your own subconscious? While we can't guarantee it, with a scent this wonderfully evocative, you'll certainly be inspired to find out.. Top Notes: Effervescent Citrus, Pink Pepper, Davana Heart Notes: Smoky Osmanthus, Rose Base Notes: Incense, White Patchouli .",
       "productType": "Fragrance",
@@ -23106,7 +23106,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A free interpretation of oud wood, a rare and precious material, Oud Satin Mood by Maison Francis Kurkdjian reflects the creator’s desire to bring a shimmering facet to life. . Wrap yourself in the woody ambery scent to suspend time and lose yourself in the depth of the here and now. Transported by the finesse of the violet accord, the oud wood bows down to the essence and absolute of Damascena rose to then blend into the rich vanilla amber accord. Oud satin mood is made to be delicately worn on your skin like a rich fabric. . Top Note: Violet Heart Notes: Turkish rose, Bulgarian rose, Benzoin Base Notes: Amber, Vanilla, Oud .",
       "productType": "Fragrance",
@@ -23359,7 +23359,7 @@
       "priceGbp": 148,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Elizabeth Moore's realisation of the perfect rose scent: sensual, full-blown, spilling out fragrance on the warm evening air.. Rich in spicy Bulgarian rose and the lemon hints of rose centifolia Tobacco Rose uses a hay accord to provide tobacco accents blended with patchouli, galbanum, beeswax and oakmoss, with animalic hints of ambergris and sweet sinuous musks.. Top Notes: Bulgarian Rose, Rose de Mai Heart Notes: Oakmoss, Beeswax, Hay Base Notes: Ambergris, Patchouli, Musk, Galbanum .",
       "productType": "Fragrance",
