@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-24T21:24:18.286Z",
-  "seenAt": "2026-11-24T21:24:18.286Z",
+  "updatedAt": "2026-11-25T01:14:24.321Z",
+  "seenAt": "2026-11-25T01:14:24.321Z",
   "source": "live",
   "listings": [
     {
@@ -313,7 +313,7 @@
       "priceGbp": 15.92,
       "wasPriceGbp": 40,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Gucci Rouge a Levres Mat Lipstick 3.5g - Suzanne Sunset 220.",
       "productType": "Lipsticks",
@@ -40241,7 +40241,7 @@
       "priceGbp": 15.37,
       "wasPriceGbp": 26,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Elizabeth Arden White Tea 400ml Body Cream.",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "opulensi",
-  "updatedAt": "2026-11-24T21:24:38.907Z",
-  "seenAt": "2026-11-24T21:24:38.907Z",
+  "updatedAt": "2026-11-25T01:14:08.520Z",
+  "seenAt": "2026-11-25T01:14:08.520Z",
   "source": "live",
   "listings": [
     {
@@ -212,14 +212,14 @@
       "variantId": null
     },
     {
-      "retailerSku": "OP-BELTBLACK-SILVER",
+      "retailerSku": "RI-BELTBLACK-SILVER",
       "url": "https://opulensi.com/products/riseicon-men-s-full-grain-leather-black-ratchet-belt-brushed-silver-buckle",
       "rawTitle": "Riseicon Men’s Full-Grain Leather Black Ratchet Belt – Brushed Silver Buckle",
       "rawBrand": "Riseicon",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0725/8003/8975/files/LeatherLuxuryBlackFullgrainBelt.jpg?v=1795395655",
       "priceGbp": 28.99,
-      "wasPriceGbp": null,
+      "wasPriceGbp": 39.99,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -227,7 +227,7 @@
       "productType": "Belts",
       "nativePrice": null,
       "retailerId": "opulensi",
-      "firstSeenAt": "2026-11-18T11:44:43.055Z",
+      "firstSeenAt": "2026-11-25T01:14:08.520Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -15504,6 +15504,30 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "OP-BELTBLACK-SILVER",
+      "url": "https://opulensi.com/products/riseicon-men-s-full-grain-leather-black-ratchet-belt-brushed-silver-buckle",
+      "rawTitle": "Riseicon Men’s Full-Grain Leather Black Ratchet Belt – Brushed Silver Buckle",
+      "rawBrand": "Riseicon",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0725/8003/8975/files/LeatherLuxuryBlackFullgrainBelt.jpg?v=1795395655",
+      "priceGbp": 28.99,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "shopify-products-json",
+      "description": "A fit that feels personal. . Designed in the UK and crafted from 100% full-grain leather , the Riseicon Ratchet Belt brings a considered finish to everyday dressing. Rich black leather, natural grain and tonal stitching create an understated look that pairs effortlessly with tailored trousers, chinos or denim. . The gently curved, brushed-silver buckle features a stamped Riseicon emblem and discreet matching lettering. Its clean lines complement the leather, while polished hinge details add a subtle contrast. . One size, cut to your fit. Simply measure your waist, detach the buckle and trim the strap at the buckle end to your required length before reattaching. Trim a little at a time and check the fit before cutting further. . An integrated ratchet track allows small, precise adjustments without traditional punched holes. Slide the strap through to find your preferred fit, then use the release lever to loosen it with ease. . 100% full-grain leather with a natural grained finish . Designed in the UK . Curved brushed-silver buckle with stamped Riseicon branding . One-size, cut-to-measure strap for a personalised length . Adjustable ratchet fastening to fine-tune your fit . Tonal edge stitching for a clean, refined finish . . . . . . . . . . . . . . . . .",
+      "productType": "Belts",
+      "nativePrice": null,
+      "retailerId": "opulensi",
+      "firstSeenAt": "2026-11-18T11:44:43.055Z",
+      "lastSeenAt": "2026-11-24T21:24:38.907Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-25T01:14:08.520Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {
