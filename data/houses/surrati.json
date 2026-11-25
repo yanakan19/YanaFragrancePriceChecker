@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-11-25T13:12:33.158Z",
-  "seenAt": "2026-11-25T13:12:33.158Z",
+  "updatedAt": "2026-11-25T17:18:51.454Z",
+  "seenAt": "2026-11-25T17:18:51.454Z",
   "source": "live",
   "listings": [
     {
@@ -150,7 +150,7 @@
       "description": "Miss World Charisma provides a luxurious and elegant fragrance with a rich and floral aroma..",
       "productType": "Unisex Perfume",
       "nativePrice": {
-        "amount": 200,
+        "amount": 150,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -321,32 +321,6 @@
       "variantId": null
     },
     {
-      "retailerSku": "10806961996085-Default Title",
-      "url": "https://surrati.ae/products/i-a-enterprises-usa-llc",
-      "rawTitle": "Muhammed Affan Perfumes. ca",
-      "rawBrand": "Dubai",
-      "ean": null,
-      "imageUrl": null,
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": null,
-      "productType": null,
-      "nativePrice": {
-        "amount": 7590.03,
-        "currency": "AED"
-      },
-      "retailerId": "surrati",
-      "firstSeenAt": "2026-09-16T12:39:19.107Z",
-      "status": "active",
-      "delistedAt": null,
-      "relistedAt": null,
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
       "retailerSku": "101044298",
       "url": "https://surrati.ae/products/spray-amber-noir-100-ml",
       "rawTitle": "Spray Amber Noir 100 Ml",
@@ -413,7 +387,7 @@
       "description": "Discover the regal scent of Spray Ameer Al Oud. This 100 ml unisex spray features a rich blend of oud and floral notes, creating a sophisticated and long-lasting aroma. Perfect for special occasions.",
       "productType": "Unisex Perfume",
       "nativePrice": {
-        "amount": 60,
+        "amount": 59.85,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -1098,7 +1072,7 @@
       "description": "Spray Ward Taifi 75 Ml delivers a luxurious and rich floral fragrance with a deep and captivating aroma.",
       "productType": "Unisex Perfume",
       "nativePrice": {
-        "amount": 550,
+        "amount": 367.5,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -1514,7 +1488,7 @@
       "description": "Discover the regal and elegant scent of Spray Ward Al Malik for women. This 60 ml fragrance features a rich blend of rose and woody notes, creating a sophisticated and luxurious aroma. Ideal for special occasions, it exudes royalty.",
       "productType": "Women's Perfume",
       "nativePrice": {
-        "amount": 525,
+        "amount": 262.5,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -1566,7 +1540,7 @@
       "description": "Spray Overdose 100 Ml offers a luxurious and refreshing citrus fragrance. This unisex perfume is perfect for those who seek a vibrant and sophisticated scent that energizes the senses and enhances any occasion..",
       "productType": "Unisex Perfume",
       "nativePrice": {
-        "amount": 210,
+        "amount": 105,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -1969,7 +1943,7 @@
       "description": "Delight in the fresh and vibrant scent of Spray Ayan. This 100 ml unisex spray features a blend of citrus and floral notes, creating a lively and uplifting aroma. Perfect for daily wear.",
       "productType": "Unisex Perfume",
       "nativePrice": {
-        "amount": 200,
+        "amount": 136.5,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -2075,7 +2049,7 @@
       "description": "Niche Leather Spray offers a bold fragrance featuring the richness of leather combined with deep oud and spicy notes. Ideal for a powerful, sophisticated aroma.",
       "productType": "Men's Perfume",
       "nativePrice": {
-        "amount": 200,
+        "amount": 150,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -2155,7 +2129,7 @@
       "description": "Unveil the divine elegance of Spray Ayat for women. This 100 ml fragrance combines subtle floral and musky notes to create a sophisticated and timeless scent. Ideal for daily wear, it adds a touch of grace to any occasion.",
       "productType": "Women's Perfume",
       "nativePrice": {
-        "amount": 200,
+        "amount": 136.5,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -2289,7 +2263,7 @@
       "description": "Indulge in the romantic and delicate scent of Bakhoor Mamool Fakhir Rose, infused with the essence of blooming roses for an elegant and inviting atmosphere. .",
       "productType": "Bakhoor Chips",
       "nativePrice": {
-        "amount": 105,
+        "amount": 52.5,
         "currency": "AED"
       },
       "retailerId": "surrati",
@@ -2315,9 +2289,10 @@
       "description": "Enjoy the exotic and aromatic scent of Bakhoor Luban Al Oud, a perfect combination of oud and frankincense that enriches your space with a captivating aroma. .",
       "productType": "Bakhoor Chips",
       "nativePrice": {
-        "amount": 105,
+        "amount": 52.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 105,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2341,9 +2316,10 @@
       "description": "Discover the luxurious and refined scent of Bakhoor Kisr Al Oud Mudhab, a perfect blend of oud and precious spices that elevate your surroundings. .",
       "productType": "Bakhoor Chips",
       "nativePrice": {
-        "amount": 315,
+        "amount": 157.5,
         "currency": "AED"
       },
+      "nativeWasPrice": 300,
       "retailerId": "surrati",
       "firstSeenAt": "2026-08-05T11:07:58.528Z",
       "status": "active",
@@ -2561,6 +2537,33 @@
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "10806961996085-Default Title",
+      "url": "https://surrati.ae/products/i-a-enterprises-usa-llc",
+      "rawTitle": "Muhammed Affan Perfumes. ca",
+      "rawBrand": "Dubai",
+      "ean": null,
+      "imageUrl": null,
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": null,
+      "productType": null,
+      "nativePrice": {
+        "amount": 7590.03,
+        "currency": "AED"
+      },
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-09-16T12:39:19.107Z",
+      "lastSeenAt": "2026-11-25T13:12:33.158Z",
+      "status": "delisted",
+      "delistedAt": "2026-11-25T17:18:51.454Z",
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     },
     {

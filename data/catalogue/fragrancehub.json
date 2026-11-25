@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-25T13:10:47.848Z",
-  "seenAt": "2026-11-25T13:10:47.848Z",
+  "updatedAt": "2026-11-25T17:17:06.477Z",
+  "seenAt": "2026-11-25T17:17:06.477Z",
   "source": "live",
   "listings": [
     {
@@ -1693,7 +1693,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": 69.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Hersh 2 100ml Eau de Parfum by Al Ezz Oud is a unisex citrus aromatic Eau de Parfum with lemon, Calabrian bergamot, Sicilian orange, Nigerian ginger, Tunisian orange blossom, cinnamon, ambroxan, Chinese black tea, guaiac wood and frankincense. Hersh 2 by Al Ezz Oud feels bright, clean, spicy, woody and refined, giving Al Ezz Oud Hersh 2 a polished citrus aromatic identity with a clear, premium note profile.. Al Ezz Oud Hersh 2 is suited to fragrance lovers who want citrus aromatic, fresh spice, woody resin in a refined Arabian perfume style. Hersh 2 opens with lemon, calabrian bergamot, sicilian orange, develops into nigerian ginger, tunisian orange blossom, cinnamon, and settles into ambroxan, chinese black tea, guaiac wood, frankincense, making Hersh 2 a strong choice for daytime wear, office settings, warmer weather and fresh fragrance wardrobes.. Top Notes: Lemon, Calabrian Bergamot, Sicilian Orange Heart Notes: Nigerian Ginger, Tunisian Orange Blossom, Cinnamon Base Notes: Ambroxan, Chinese Black Tea, Guaiac Wood, Frankincense.",
       "productType": null,
@@ -6822,7 +6822,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "The scent opens with bright citrus, cool mint, and a frosty snow effect. It instantly feels refreshing which gives a lively start.. Then the heart brings together icy ginger, aromatic sage, and smooth tea. In this layer it adds a clean, balanced tone.. Finally, as it dries down, the base settles into soft peony, amber warmth, and clean cedar. The trail stays fresh and lightly floral. The base notes offer a relaxed unisex feel perfect for lovers of airy fruity floral perfumes.. Top Notes: Calabrian bergamot, Spearmint, Lemon zest, Grapefruit, Snow. Middle Notes: Ice, Ginger, Sage, Tea. Base Notes: Peony, Ambermax, Cedar.",
       "productType": null,

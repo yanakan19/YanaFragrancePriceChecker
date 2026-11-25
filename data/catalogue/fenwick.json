@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-25T13:10:47.848Z",
-  "seenAt": "2026-11-25T13:10:47.848Z",
+  "updatedAt": "2026-11-25T17:17:06.477Z",
+  "seenAt": "2026-11-25T17:17:06.477Z",
   "source": "live",
   "listings": [
     {
@@ -5258,7 +5258,7 @@
       "priceGbp": 92,
       "wasPriceGbp": 115,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover the distinctive character of Kilian Paris Midnight Espresso Eau De Parfum, a sophisticated unisex fragrance with an expressive and refined presence. Presented in a generous 75ml size, it offers a luxurious addition to an everyday or evening fragrance collection..",
       "productType": "Unisex Fragrance",
@@ -14849,7 +14849,7 @@
       "priceGbp": 187,
       "wasPriceGbp": 220,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Initio Lift Me Up Extrait de Parfum is an intense fragrance with a refined composition and exceptional longevity. Presented in a 50ml bottle, it delivers a captivating scent that lingers throughout the day..",
       "productType": "Unisex Fragrance",
@@ -27108,7 +27108,7 @@
       "priceGbp": 149.6,
       "wasPriceGbp": 176,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "THÉ NOIR 29 is an ode to the noble leaf and the craft that surrounds it. THÉ NOIR 29 combines depth and freshness, softness and strength through permanent oscillation between the light of bergamot, fig, and bay leaves and the depth of cedarwood, vetiver, and musk..",
       "productType": "Men's Fragrances",

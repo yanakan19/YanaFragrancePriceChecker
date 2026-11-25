@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-25T13:10:46.035Z",
-  "seenAt": "2026-11-25T13:10:46.035Z",
+  "updatedAt": "2026-11-25T17:18:36.401Z",
+  "seenAt": "2026-11-25T17:18:36.401Z",
   "source": "live",
   "listings": [
     {
@@ -3625,7 +3625,7 @@
       "priceGbp": 75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Saffron, red gold on skin, trailing fire spun in silk, flares like a comet in slow motion.. It's not perfume. It's a presence, a spell in a bottle, softly dangerous, strangely celestial.. Every turn of the head feels choreographed by desire. It doesn't shout, it smoulders.. Wear it when you want the world to lean in just a little closer..",
       "productType": "Fragrance",
@@ -24946,7 +24946,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Powder, blushes and balms are laid out on the dressing table, waiting to be applied on the skin before exceptional night out. In front of the mirror, a woman prepares herself, watched with discretion by a man. This man is the master perfumer Alberto Morillas, who draws inspiration from her gestures to create a pure concentrate of femininity. The most precious ingredients enhance the natural scent of the skin, like a hint of blush sublimating the pink of a cheek.. The delicate bouquet composing this fragrance includes orange blossom, iris and irone, a molecule naturally present in the rhizome that provides a powdery signature. Among the base notes, the enveloping and balmy accents of benzoin, vanilla and tonka bean. All the velvety texture of a woman's skin transposed into a scented trail, with roundness and softness.. Top Notes: Egyptian orange blossom absolute, Bergamot essence Heart Notes: Ambrox®, Florentine orris absolute, Irone® Base Notes: Benzoin absolute, Tahitian SFE vanilla absolute, Tonka bean absolute, Muscenone® .",
       "productType": "Fragrance",

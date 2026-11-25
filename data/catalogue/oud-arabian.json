@@ -1,7 +1,7 @@
 {
   "retailerId": "oud-arabian",
-  "updatedAt": "2026-11-25T13:10:47.848Z",
-  "seenAt": "2026-11-25T13:10:47.848Z",
+  "updatedAt": "2026-11-25T17:17:06.477Z",
+  "seenAt": "2026-11-25T17:17:06.477Z",
   "source": "live",
   "listings": [
     {
@@ -193,8 +193,8 @@
       "inStock": true,
       "sectionId": "sitemap",
       "rating": {
-        "value": 3,
-        "count": 2
+        "value": 3.33,
+        "count": 3
       },
       "retailerId": "oud-arabian",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
@@ -868,8 +868,8 @@
       "inStock": false,
       "sectionId": "sitemap",
       "rating": {
-        "value": 4.14,
-        "count": 7
+        "value": 4.25,
+        "count": 8
       },
       "retailerId": "oud-arabian",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
