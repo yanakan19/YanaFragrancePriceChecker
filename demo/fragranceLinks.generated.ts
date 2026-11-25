@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-24T13:44:46.251Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-25T12:57:59.007Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -244,6 +244,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|kaaf|disputed": ["Ahmed-Al-Maghribi/Kaaf-102460","https://ahmedalmaghribi.uk/products/kaaf"],
   "ahmedalmaghribi|kaaf|edp": ["Ahmed-Al-Maghribi/Kaaf-102460","https://ahmedalmaghribi.uk/products/kaaf"],
   "ahmedalmaghribi|kaaf|extrait": ["-","https://ahmedalmaghribi.uk/products/kaaf"],
+  "ahmedalmaghribi|kawkab": ["","https://ahmedalmaghribi.uk/products/kawkab"],
+  "ahmedalmaghribi|kawkab|extrait": ["","https://ahmedalmaghribi.uk/products/kawkab"],
   "ahmedalmaghribi|laathani": ["","https://ahmedalmaghribi.uk/products/laathani"],
   "ahmedalmaghribi|laathani|edp": ["","https://ahmedalmaghribi.uk/products/laathani"],
   "ahmedalmaghribi|laathani|extrait": ["","https://ahmedalmaghribi.uk/products/laathani"],
@@ -6026,6 +6028,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "maisoncrivelli|citrusbatikanga": ["","https://maisoncrivelli.com/en-gb/products/citrus-batikanga"],
   "maisoncrivelli|citrusbatikanga|edp": ["","https://maisoncrivelli.com/en-gb/products/citrus-batikanga"],
   "maisoncrivelli|cuirinfrarouge": ["","https://maisoncrivelli.com/en-gb/products/cuir-infrarouge"],
+  "maisoncrivelli|cuirinfrarougeunisex": ["","https://maisoncrivelli.com/en-gb/products/cuir-infrarouge"],
+  "maisoncrivelli|cuirinfrarougeunisex|edp": ["","https://maisoncrivelli.com/en-gb/products/cuir-infrarouge"],
   "maisoncrivelli|cuirinfrarouge|extrait": ["","https://maisoncrivelli.com/en-gb/products/cuir-infrarouge"],
   "maisoncrivelli|hibiscusmahajad": ["","https://maisoncrivelli.com/en-gb/products/hibiscus-mahajad"],
   "maisoncrivelli|hibiscusmahajadextraitunisex": ["","https://maisoncrivelli.com/en-gb/products/hibiscus-mahajad"],
@@ -6053,6 +6057,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "maisoncrivelli|rosesaltifolia": ["","https://maisoncrivelli.com/en-gb/products/rose-saltifolia"],
   "maisoncrivelli|rosesaltifolia|edp": ["","https://maisoncrivelli.com/en-gb/products/rose-saltifolia"],
   "maisoncrivelli|safransecret": ["","https://maisoncrivelli.com/en-gb/products/safran-secret"],
+  "maisoncrivelli|safransecretunisex": ["","https://maisoncrivelli.com/en-gb/products/safran-secret"],
+  "maisoncrivelli|safransecretunisex|edp": ["","https://maisoncrivelli.com/en-gb/products/safran-secret"],
   "maisoncrivelli|safransecret|extrait": ["","https://maisoncrivelli.com/en-gb/products/safran-secret"],
   "maisoncrivelli|santalvolcanique": ["","https://maisoncrivelli.com/en-gb/products/santal-volcanique"],
   "maisoncrivelli|santalvolcanique|edp": ["","https://maisoncrivelli.com/en-gb/products/santal-volcanique"],
@@ -6281,6 +6287,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "millerharris|danceamongstthelaceunisex|edp": ["","https://www.millerharris.com/products/dance-amongst-the-lace-eau-de-parfum"],
   "millerharris|etuinoir|edp": ["","https://www.millerharris.com/products/etui-noir-eau-de-parfum"],
   "millerharris|feuillesdetabac|edp": ["","https://www.millerharris.com/products/feuilles-de-tabac-eau-de-parfum"],
+  "millerharris|hydrafigueunisex|edp": ["","https://www.millerharris.com/products/hydra-figue-eau-de-parfum"],
   "millerharris|hydrafigue|edp": ["","https://www.millerharris.com/products/hydra-figue-eau-de-parfum"],
   "millerharris|lafeuilleunisex|edp": ["","https://www.millerharris.com/products/la-feuille-eau-de-parfum"],
   "millerharris|lafumeealexandrie|edp": ["","https://www.millerharris.com/products/la-fumee-alexandrie-eau-de-parfum"],
@@ -6300,6 +6307,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "millerharris|poirierdunsoir|edp": ["","https://www.millerharris.com/products/poirier-dun-soir-eau-de-parfum"],
   "millerharris|reveriedebergamoteunisex|edp": ["","https://www.millerharris.com/products/reverie-de-bergamote-eau-de-parfum"],
   "millerharris|reveriedebergamote|edp": ["","https://www.millerharris.com/products/reverie-de-bergamote-eau-de-parfum"],
+  "millerharris|rosesilenceunisex|edp": ["","https://www.millerharris.com/products/rose-silence-eau-de-parfum"],
   "millerharris|rosesilence|edp": ["","https://www.millerharris.com/products/rose-silence-eau-de-parfum"],
   "millerharris|scherzounisex|edp": ["","https://www.millerharris.com/products/scherzo-eau-de-parfum"],
   "millerharris|scherzounisex|extrait": ["","https://www.millerharris.com/products/scherzo-extrait"],
@@ -7259,6 +7267,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rabanne|ladymillion|edt": ["Rabanne/Lady-Million-Eau-de-Toilette-14917","https://www.rabanne.com/uk/en_GB/fragrance/p/lady-million--000000000065051781"],
   "rabanne|milliongold": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold--000000000065200312"],
   "rabanne|milliongoldforher": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold-for-her--000000000065200303"],
+  "rabanne|milliongoldforherpurediamonds": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold-for-her-pure-diamonds--000000000065242102"],
+  "rabanne|milliongoldforherpurediamonds|edp": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold-for-her-pure-diamonds--000000000065242102"],
   "rabanne|milliongoldforherpurejasmine": ["","https://www.rabanne.com/br/pt/fragrance/p/million-gold-for-her-pure-jasmine--000000000065224635"],
   "rabanne|milliongoldforherpurejasmine|edp": ["","https://www.rabanne.com/br/pt/fragrance/p/million-gold-for-her-pure-jasmine--000000000065224635"],
   "rabanne|milliongoldforher|disputed": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/million-gold-for-her--000000000065200303"],
@@ -7286,10 +7296,13 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "rabanne|olympea|edp": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/olympea--000000000065137847"],
   "rabanne|olympea|edt": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/olympea--000000000065187140"],
   "rabanne|olympea|parfum": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/olympea-parfum--000000000065199564"],
+  "rabanne|pacorabanneolympeaeaudeparfumgiftset50ml": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/olympea-80ml-giftset--000000000065215406"],
+  "rabanne|pacorabanneolympeaeaudeparfumgiftset50ml|edp": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/olympea-80ml-giftset--000000000065215406"],
   "rabanne|phantom": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/phantom--000000000065171497"],
   "rabanne|phantomelixir": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/phantom-elixir--000000000065215600"],
   "rabanne|phantomelixir|edp": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/phantom-elixir--000000000065215600"],
   "rabanne|phantomintense": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/phantom-intense--000000000065200225"],
+  "rabanne|phantomintense|disputed": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/phantom-intense--000000000065200225"],
   "rabanne|phantomintense|edp": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/phantom-intense--000000000065200225"],
   "rabanne|phantomparfum": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/phantom--000000000065171497"],
   "rabanne|phantomparfum50mldeodorant150ml10ml|parfum": ["","https://www.rabanne.com/uk/en_GB/fragrance/p/phantom-parfum-spray-deodorant-150ml--000000000065220482"],
@@ -7697,6 +7710,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "sabrinacarpenter|carameldream75mlgiftset75mledp10mledp|edp": ["","https://fragrancebysabrina.com/products/caramel-dream-30ml-gift-set"],
   "sabrinacarpenter|cherrybaby30mlgiftset30mledp10mledp": ["","https://fragrancebysabrina.com/products/cherry-baby-30ml-gift-set"],
   "sabrinacarpenter|cherrybaby30mlgiftset30mledp10mledp|edp": ["","https://fragrancebysabrina.com/products/cherry-baby-30ml-gift-set"],
+  "sabrinacarpenter|lemonpie75mlgiftset75mledp10mledp": ["","https://fragrancebysabrina.com/products/lemon-pie-75ml-gift-set"],
+  "sabrinacarpenter|lemonpie75mlgiftset75mledp10mledp|edp": ["","https://fragrancebysabrina.com/products/lemon-pie-75ml-gift-set"],
   "sabrinacarpenter|lemonpie|edp": ["","https://fragrancebysabrina.com/products/lemon-pie-edp"],
   "sabrinacarpenter|meespresso30mlgiftset30mledp10mledp": ["","https://fragrancebysabrina.com/products/me-espresso-30ml-gift-set"],
   "sabrinacarpenter|meespresso30mlgiftset30mledp10mledp|edp": ["","https://fragrancebysabrina.com/products/me-espresso-30ml-gift-set"],
