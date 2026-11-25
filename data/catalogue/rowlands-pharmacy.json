@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-25T17:18:36.401Z",
-  "seenAt": "2026-11-25T17:18:36.401Z",
+  "updatedAt": "2026-11-25T21:15:48.614Z",
+  "seenAt": "2026-11-25T21:15:48.614Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 17.09,
       "wasPriceGbp": 18.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Davidoff Adventure Eau de Toilette 100ml. Key Features. ##features##. Fresh woody spicy fragrance for men.. Inspired by adventure, exploration and the outdoors.. Features bergamot, lemon, black pepper and vetiver.. Masculine scent suitable for daily wear.. Balanced blend of citrus, spice and woods.. 100ml bottle ideal for regular use.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Davidoff Adventure Eau de Toilette is an energetic men's fragrance inspired by exploration and rugged landscapes. Bright citrus notes combine with black pepper and aromatic spices before settling into a warm, masculine base of cedarwood, vetiver and white musk. Fresh, versatile and easy to wear, it is an ideal everyday fragrance.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -812,7 +812,7 @@
     {
       "retailerSku": "6870448",
       "url": "https://shop.rowlandspharmacy.co.uk/products/hugo-boss-boss-orange-eau-de-toilette-30ml",
-      "rawTitle": "Hugo Boss Boss Orange Woman Eau de Toilette 30ml",
+      "rawTitle": "Hugo Boss Boss Woman Eau de Toilette 30ml",
       "rawBrand": "Hugo Boss",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0862/4914/4654/files/Hugo_Boss_Boss_Woman_Eau_de_Toilette_30ml.jpg?v=1795530095",

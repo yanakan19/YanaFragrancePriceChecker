@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-25T17:17:06.477Z",
-  "seenAt": "2026-11-25T17:17:06.477Z",
+  "updatedAt": "2026-11-25T21:15:50.225Z",
+  "seenAt": "2026-11-25T21:15:50.225Z",
   "source": "live",
   "listings": [
     {
@@ -13423,7 +13423,7 @@
       "priceGbp": 187,
       "wasPriceGbp": 220,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the bold character of Maison Crivelli Tobacco Carnaval Extrait De Parfum. This concentrated unisex fragrance offers a rich and expressive scent experience, combining contemporary sophistication with memorable depth..",
       "productType": "Unisex Fragrance",
@@ -18644,7 +18644,7 @@
       "priceGbp": 124.8,
       "wasPriceGbp": 156,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Colonia Essenza Eau de Cologne blends citrus freshness with amber and musk. A bold, elegant fragrance for those who value timeless style..",
       "productType": "Unisex Fragrance",
@@ -27085,7 +27085,7 @@
       "priceGbp": 149.6,
       "wasPriceGbp": 176,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Truth isBAIE 19 should have been called Water 19. Not that it smells like nothing (though nothing smells like it), but it has this crisp, wet, drenched effect that water gives to the earth after the rain And there’s a word for that, by the way: petrichor. It’s that magical feeling during heavy rain after a long dry spell, and it’s one of the most olfactive phenomena in nature..",
       "productType": "Men's Fragrances",

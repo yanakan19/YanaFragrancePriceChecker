@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-25T17:17:06.477Z",
-  "seenAt": "2026-11-25T17:17:06.477Z",
+  "updatedAt": "2026-11-25T21:15:50.225Z",
+  "seenAt": "2026-11-25T21:15:50.225Z",
   "source": "live",
   "listings": [
     {
@@ -1509,7 +1509,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover Balas Rose Perfume. In a luxurious royal hall, the scent of pure royal roses welcomes you from the first moment you step into the corridors of the place, and the scent of saffron begins to wrap around you like an embroidered royal gown, followed by puffs of refreshing and cool red fruits that cling to the fragrance, and as your eyes move exploring the place, the luxurious chamois walls extend their hands to welcome you To reveal to you what is inside the fragrant jasmine flowers. As soon as it takes a little while, strong notes of birch wood imbued with musk adorn the place, embracing you, leaving you with a feeling of strength and authority within a luxurious aristocratic atmosphere.. The fragrance of kings and the most precious perfume for a unique experience.. Notes . Top notes: Rose, Saffron, Raspberry. Heart notes: Suede, Jasmine and Vanilla. Base notes: Cedar wood, Musk and Birch wood. . .",
       "productType": "Arabic Perfumes",
@@ -1624,7 +1624,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A leather panel decorated with a birch wood frame, embracing strong notes of amber, vanilla and cherry, in the middle of which iris roses and a few carefully planted green herbs give a wonderful blend of refreshing notes, and on the edge of the panel are painted juniper bushes that fill the air with that fresh coniferous scent in an epic scene with Pink pepper is bold, ready to show up.. Fragrance Notes . Top notes: Citruses, Juniper Berries, Pink Pepper. Heart notes: Herbal, Ginger, Iris. Base notes: Birch wood, Tonka bean, Amber, Leather. . .",
       "productType": "Arabic Perfumes",

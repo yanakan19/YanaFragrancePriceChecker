@@ -1,9 +1,35 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-25T17:23:51.803Z",
-  "seenAt": "2026-11-25T17:23:51.803Z",
+  "updatedAt": "2026-11-25T21:22:43.586Z",
+  "seenAt": "2026-11-25T21:22:43.586Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "15557011800166-Default Title",
+      "url": "https://soldejaneiro.com/products/badalada-cheirosa-39-duo",
+      "rawTitle": "Badalada & Cheirosa 39 Duo",
+      "rawBrand": "Sol de Janeiro",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/01_SDJ_PPage_ChooseYourBodyBadaladaLotion_MistDuo_BUNDLE_OVERHEADRGB_1452X1452_33441d13-1fab-4e2f-93a0-9b8b33c1e644.jpg?v=1795554493",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": ". Body Badalada ™ Moisture-Melting Lotion (400ml) – Rich milk-to-butter body lotion locks in 24-hour soothing hydration with coconut milk, pro-ceramide, and Brazilian buriti oil. In the beachy gourmand scent of Cheirosa 39. . . . Cheirosa 39 Perfume Mist (240ml) – The gourmand fruity scent with notes of coconut cream, tropical orchid, and toasted vanilla. . .",
+      "productType": "bundle",
+      "nativePrice": {
+        "amount": 50,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-25T21:22:43.586Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "SJ99050700",
       "url": "https://soldejaneiro.com/products/cheirosa-67-perfume-mist",
@@ -18242,7 +18268,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "The scent that started it all. Be immersed in the warmth of Rio sunshine all year round with this potent, concentrated version of our iconic warm gourmand Sol de Janeiro fragrance - now in a new formula that’s even longer-lasting . A cheerful and inviting summer crush of an Eau de Parfum with delicious, irresistible gourmand notes grounded with soft florals and creamy sandalwood. A scent that everyone falls in love with, and no one can resist..",
       "productType": "Fragrance",
