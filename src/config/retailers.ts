@@ -11850,13 +11850,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-11-21',
+      verifiedAt: '2026-11-25',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://aromique.co.uk/policies/refund-policy',
         quote: 'FREE UK DELIVERY ON ORDERS OVER £50',
-        readAt: '2026-11-21',
+        readAt: '2026-11-25',
       },
       notes:
         'Read off the shop\'s home page banner on 2026-11-11. The shipping policy is under /policies/, which its ' +
