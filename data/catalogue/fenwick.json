@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-25T05:10:27.578Z",
-  "seenAt": "2026-11-25T05:10:27.578Z",
+  "updatedAt": "2026-11-25T09:19:26.760Z",
+  "seenAt": "2026-11-25T09:19:26.760Z",
   "source": "live",
   "listings": [
     {
@@ -18161,7 +18161,7 @@
       "priceGbp": 88.8,
       "wasPriceGbp": 111,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A compact bottle of Colonia Intensa - intense, woody, and refined. A perfect expression of modern Italian masculinity..",
       "productType": "Unisex Fragrance",
@@ -27016,7 +27016,7 @@
       "priceGbp": 176,
       "wasPriceGbp": 220,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Tuxedo Eau de Parfum is an elegant fragrance inspired by the timeless sophistication of Yves Saint Laurent tailoring. Rich, refined and long-lasting, it balances bold character with understated luxury..",
       "productType": "Women's Fragrances",

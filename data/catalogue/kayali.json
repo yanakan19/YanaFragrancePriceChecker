@@ -1,7 +1,7 @@
 {
   "retailerId": "kayali",
-  "updatedAt": "2026-11-25T05:10:27.578Z",
-  "seenAt": "2026-11-25T05:10:27.578Z",
+  "updatedAt": "2026-11-25T09:19:26.760Z",
+  "seenAt": "2026-11-25T09:19:26.760Z",
   "source": "live",
   "listings": [
     {
@@ -290,7 +290,7 @@
       "priceGbp": 79,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": null,
       "productType": "Sets",
@@ -4384,7 +4384,7 @@
       "priceGbp": 110,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Déjà vu White Flower | 57 is a seductive, yet warm and comforting scent that is steeped in nostalgia and reminiscent of that memory of falling in love yet also laying the foundations for new exciting memories to come; memories that you can revisit with every spritz.. Evoking the dreamy spirit of nostalgia, the warm and sultry scent is a fresh, bouquet of white florals. Déjà vu White Flower | 57 combines aromatic sandalwood and fruity notes of white nectarine and orange flower, creating a sensual scent that truly seduces the senses. The notes of jasmine, tuberose, patchouli and gardenia come together in a seductive and unique blend..",
       "productType": "Fragrances",

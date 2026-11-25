@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-25T05:17:25.309Z",
+  "checkedAt": "2026-11-25T09:25:53.592Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -245,9 +245,9 @@
       "origin": "https://bujairami.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 132,
+      "listings": 133,
       "pricedInGbp": 0,
-      "withPhoto": 132,
+      "withPhoto": 133,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

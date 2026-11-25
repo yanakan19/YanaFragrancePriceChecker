@@ -1,9 +1,35 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-25T05:13:57.885Z",
-  "seenAt": "2026-11-25T05:13:57.885Z",
+  "updatedAt": "2026-11-25T09:22:54.765Z",
+  "seenAt": "2026-11-25T09:22:54.765Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "11110651003191-Default Title",
+      "url": "https://bujairami.ae/products/senorita-inspired-by-coco-mademoiselle-crush-absolu-chanel",
+      "rawTitle": "Senorita Inspired By Coco Mademoiselle Crush Absolu Chanel",
+      "rawBrand": "Bujairami UAE",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/Pink_perfume_bottle_with_refined_crown_label.webp?v=1795595578",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "A vibrant and elegant fragrance opening with juicy lychee and sparkling grapefruit. The heart blooms with delicate rose and jasmine, while patchouli, warm amber, creamy vanilla, and earthy vetiver create a smooth, sensual, and sophisticated finish.. Fragrance Notes . Top: Lychee, Grapefruit. Heart: Rose, Jasmine. Base: Patchouli, Amber Accord, Vanilla, Vetiver. Profile: Fruity • Floral • Citrus • Sweet • Woody • Amber. . . .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 150,
+        "currency": "AED"
+      },
+      "retailerId": "bujairami",
+      "firstSeenAt": "2026-11-25T09:22:54.765Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11097302761783-Default Title",
       "url": "https://bujairami.ae/products/milky-lane-inspired-by-milk-orchid-commodity-extrait",
