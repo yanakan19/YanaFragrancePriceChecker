@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-26T05:18:46.698Z",
-  "seenAt": "2026-11-26T05:18:46.698Z",
+  "updatedAt": "2026-11-26T08:55:55.482Z",
+  "seenAt": "2026-11-26T08:55:55.482Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A limited-edition edit of five skincare favourites to nourish, hydrate and refresh. .",
       "productType": "Bath and Body gifts",
@@ -336,7 +336,7 @@
       "priceGbp": 18,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A limited-edition edit of five beauty favourites to nourish, scent and perfect your look..",
       "productType": "Bath and Body gifts",

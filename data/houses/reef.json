@@ -1,7 +1,7 @@
 {
   "retailerId": "reef",
-  "updatedAt": "2026-11-26T05:18:41.398Z",
-  "seenAt": "2026-11-26T05:18:41.398Z",
+  "updatedAt": "2026-11-26T08:55:50.914Z",
+  "seenAt": "2026-11-26T08:55:50.914Z",
   "source": "live",
   "listings": [
     {
@@ -370,12 +370,12 @@
     },
     {
       "retailerSku": "P1421671",
-      "url": "https://www.reef-parfum.com/nl/product/parfum-reef-33-white/",
-      "rawTitle": "33 White Reef Parfum | Unisexparfum met oriëntaalse, houtachtige en oud-tonen",
+      "url": "https://www.reef-parfum.com/en/product/reef-33-white-perfume/",
+      "rawTitle": "33 White Reef Perfume | Unisex oriental, woody, and oud fragrance",
       "rawBrand": null,
       "ean": "6287036282127",
       "imageUrl": "https://www.reef-parfum.com/wp-content/uploads/2026/06/parfum-reef-33-white.jpg",
-      "description": "33 White van Reef Parfum onthult een verfijnde compositie van bessen, saffraan en oud. Een krachtig en elegant unisexparfum met een uitgesproken geur.",
+      "description": "33 White by Reef Parfum unveils a sophisticated blend of berries, saffron, and oud. A powerful and elegant unisex fragrance with a bold sillage.",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
@@ -422,12 +422,12 @@
     },
     {
       "retailerSku": "6287036285753",
-      "url": "https://www.reef-parfum.com/nl/product/volcano-reef-parfum/",
-      "rawTitle": "Volcano Reef Parfum | Kruidig-houtachtig parfum voor mannen en vrouwen | 200 ml",
+      "url": "https://www.reef-parfum.com/en/product/volcano-reef-perfume/",
+      "rawTitle": "Volcano Reef Perfume | Woody-spicy unisex fragrance | 200 ml",
       "rawBrand": null,
       "ean": "6287036285753",
       "imageUrl": "https://www.reef-parfum.com/wp-content/uploads/2026/06/parfum-reef-volcano.jpg",
-      "description": "Volcano van Reef Parfum onthult een compositie van kardemom, leer, warme houttonen en tonkaboon. Een elegant en betoverend unisexparfum.",
+      "description": "Reef Parfum's Volcano reveals a blend of cardamom, leather, warm woods, and tonka bean. An elegant and magnetic unisex fragrance.",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-12-31T00:00:00.000Z",

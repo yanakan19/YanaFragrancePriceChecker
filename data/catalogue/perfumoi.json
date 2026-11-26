@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-26T05:10:37.430Z",
-  "seenAt": "2026-11-26T05:10:37.430Z",
+  "updatedAt": "2026-11-26T08:48:57.625Z",
+  "seenAt": "2026-11-26T08:48:57.625Z",
   "source": "live",
   "listings": [
     {
@@ -8179,7 +8179,7 @@
       "priceGbp": 19.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Davidoff Cool Water for Men Aftershave is a fresh fragrance created for customers who enjoy a clean and uplifting scent. It opens with a distinctive first impression, develops into a balanced heart, and settles into a smooth lasting base. Suitable for everyday use, this scent feels fresh and revitalizing.. Why customers choose it Well-suited for warmer seasons and daytime wear. A great option for daily grooming and work settings. Designed for customers who prefer fresh and aquatic scents.",
       "productType": "Aftershave Lotion",
