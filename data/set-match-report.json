@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 393,
+ "folded": 391,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -7250,39 +7250,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5060412679237",
-   "absorbed": [
-    "set-ted-baker-icons-gift-set-15ml-edt-woman-original-15ml-edt-woman-limited-edition-15ml-edt-w-for-her-15ml-edt-x20-for-her"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060412679237",
-     "brand": "Ted Baker",
-     "name": "Icons Gift Set 15ml EDT Woman Original + 15ml EDT Woman Limited Edition + 15ml EDT W For Her + 15ml EDT X20 For Her",
-     "concentration": "Eau de Toilette",
-     "ean": "5060412679237",
-     "scent": "edition icons limited original w woman x20",
-     "signature": "4x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ted-baker-icons-gift-set-15ml-edt-woman-original-15ml-edt-woman-limited-edition-15ml-edt-w-for-her-15ml-edt-x20-for-her",
-     "brand": "Ted Baker",
-     "name": "Icons Gift Set 15ml EDT Woman Original + 15ml EDT Woman Limited Edition + 15ml EDT W For Her + 15ml EDT X20 For Her",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "edition icons limited original w woman x20",
-     "signature": "4x15fragrance",
-     "shops": [
-      "beaute-boulevard",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5060426155062",
    "absorbed": [
     "set-sarah-jessica-parker-born-lovely-gift-set-10ml-edp-rollerball-mirror"
@@ -8649,12 +8616,13 @@
     {
      "id": "set-ean-7640372090518",
      "brand": "Britney Spears",
-     "name": "Fantasy Gift Set 50ml EDP + 236ml Body Mist",
+     "name": "Fantasy Eau De Parfum 50ml & Body Mist 236ml Gift Set",
      "concentration": "Eau de Parfum",
      "ean": "7640372090518",
      "scent": "fantasy",
      "signature": "1x236body|1x50fragrance",
      "shops": [
+      "beautybase",
       "perfume-click"
      ]
     },
@@ -9676,39 +9644,6 @@
      "signature": "1x100fragrance|1x10fragrance|1x5fragrance",
      "shops": [
       "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8054754403473",
-   "absorbed": [
-    "set-dolce-gabbana-k-intense-gift-set-edp-intense-100ml-spray-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8054754403473",
-     "brand": "Dolce & Gabbana",
-     "name": "K Intense Eau de Parfum 100ml Spray Gift Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8054754403473",
-     "scent": "intense k",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "paco-perfumerias-uk",
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-dolce-gabbana-k-intense-gift-set-edp-intense-100ml-spray-10ml-edp",
-     "brand": "Dolce & Gabbana",
-     "name": "K Intense Gift Set - EDP Intense 100ml Spray +10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "intense k",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "p-eleven"
      ]
     }
    ]
@@ -13572,6 +13507,38 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3616301102038, 3616304972669",
+    "a shop lists more than one: direct-cosmetics"
+   ],
+   "members": [
+    {
+     "id": "set-ean-03616301102038",
+     "brand": "Burberry",
+     "name": "Burberry Her Eau de Parfum Spray Vial 1.5ml x 12 Burberry",
+     "concentration": "Eau de Parfum",
+     "ean": "03616301102038",
+     "scent": "12 burberry vial x",
+     "signature": "12x1.5fragrance",
+     "shops": [
+      "direct-cosmetics"
+     ]
+    },
+    {
+     "id": "set-ean-03616304972669",
+     "brand": "Burberry",
+     "name": "Burberry Her Eau de Parfum Intense Vial 1.5ml x 12 Burberry",
+     "concentration": "Eau de Parfum",
+     "ean": "03616304972669",
+     "scent": "12 burberry vial x",
+     "signature": "12x1.5fragrance",
+     "shops": [
+      "direct-cosmetics"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 2.57 is over 1.5"
    ],
    "members": [
@@ -16730,6 +16697,50 @@
   },
   {
    "reasons": [
+    "a shop lists more than one: debenhams"
+   ],
+   "members": [
+    {
+     "id": "set-ean-5060412679237",
+     "brand": "Ted Baker",
+     "name": "Miniature Icons For Her Eau De Toilette 4 x 15ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "5060412679237",
+     "scent": "icons",
+     "signature": "4x15fragrance",
+     "shops": [
+      "beautybase",
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-icons-eau-de-toilette-splash-gift-set-for-her-4-x-15ml",
+     "brand": "Ted Baker",
+     "name": "Icons Eau de Toilette Splash Gift Set For Her 4 x 15ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "icons",
+     "signature": "4x15fragrance",
+     "shops": [
+      "debenhams"
+     ]
+    },
+    {
+     "id": "set-icons-eau-de-toilette-splash-gift-set-for-him-4-x-15ml",
+     "brand": "Ted Baker",
+     "name": "Icons Eau de Toilette Splash Gift Set For Him 4 x 15ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "icons",
+     "signature": "4x15fragrance",
+     "shops": [
+      "debenhams"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.64 is over 1.5"
    ],
    "members": [
@@ -17779,37 +17790,6 @@
      "signature": "1x150deo|1x50fragrance",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "a shop lists more than one: debenhams"
-   ],
-   "members": [
-    {
-     "id": "set-icons-eau-de-toilette-splash-gift-set-for-her-4-x-15ml",
-     "brand": "Ted Baker",
-     "name": "Icons Eau de Toilette Splash Gift Set For Her 4 x 15ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "icons",
-     "signature": "4x15fragrance",
-     "shops": [
-      "debenhams"
-     ]
-    },
-    {
-     "id": "set-icons-eau-de-toilette-splash-gift-set-for-him-4-x-15ml",
-     "brand": "Ted Baker",
-     "name": "Icons Eau de Toilette Splash Gift Set For Him 4 x 15ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "icons",
-     "signature": "4x15fragrance",
-     "shops": [
-      "debenhams"
      ]
     }
    ]
