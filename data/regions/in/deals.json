@@ -2,10 +2,10 @@
  "region": "IN",
  "currency": "INR",
  "referencePriceName": "MRP",
- "builtAt": "2026-11-25T04:30:50.515Z",
+ "builtAt": "2026-11-26T03:49:32.054Z",
  "rule": "The UK's deal rules (src/services/dealCandidates.ts) on each shop's own stated reference price (compare at, list price or MRP, as published, never converted), kept only where the other shops corroborate it (src/catalogue/wasPriceCredibility.ts), and not against the shop's own recorded prices (src/catalogue/regionDeals.ts).",
  "listingsWithReference": 15433,
- "offersWithCorroboratedReference": 3058,
+ "offersWithCorroboratedReference": 3057,
  "deals": [
   {
    "fragranceId": "aar-fragrances-ibraheem-al-qurashi-blue-oud",
@@ -758,16 +758,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "all-arabic-aaamm009",
-   "price": 4299,
-   "delivered": false,
-   "wasPrice": 8000,
-   "percentOff": 46,
-   "retailerId": "all-arabic",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "all-arabic-aapaoa005",
    "price": 2349,
    "delivered": false,
@@ -1124,16 +1114,6 @@
    "wasPrice": 5000,
    "percentOff": 45,
    "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-3355991004689",
-   "price": 2752.2,
-   "delivered": true,
-   "wasPrice": 5005,
-   "percentOff": 45,
-   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -2888,12 +2868,32 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-versace-eros-edp-200ml",
+   "price": 9490,
+   "delivered": true,
+   "wasPrice": 15400,
+   "percentOff": 38,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "aar-fragrances-versace-yellow-diamond",
    "price": 6490,
    "delivered": true,
    "wasPrice": 10500,
    "percentOff": 38,
    "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "all-arabic-aaamm009",
+   "price": 5443.9,
+   "delivered": true,
+   "wasPrice": 8800,
+   "percentOff": 38,
+   "retailerId": "perfume-palace",
    "kind": "retailer",
    "houseName": null
   },
@@ -3618,16 +3618,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-ahmed-al-maghribi-black-fume",
-   "price": 3250,
-   "delivered": true,
-   "wasPrice": 5000,
-   "percentOff": 35,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-ahmed-al-maghribi-opaline-wave",
    "price": 2899,
    "delivered": true,
@@ -4288,6 +4278,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "aar-fragrances-zimaya-sharaf-blend",
+   "price": 2299,
+   "delivered": false,
+   "wasPrice": 3500,
+   "percentOff": 34,
+   "retailerId": "all-arabic",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "all-arabic-aaaa0028",
    "price": 3299,
    "delivered": true,
@@ -4604,16 +4604,6 @@
    "wasPrice": 18535,
    "percentOff": 33,
    "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-zimaya-sharaf-blend",
-   "price": 1999,
-   "delivered": false,
-   "wasPrice": 3000,
-   "percentOff": 33,
-   "retailerId": "scentira",
    "kind": "retailer",
    "houseName": null
   },
@@ -6158,6 +6148,16 @@
    "houseName": null
   },
   {
+   "fragranceId": "all-arabic-aaar0029",
+   "price": 1299,
+   "delivered": false,
+   "wasPrice": 1800,
+   "percentOff": 27,
+   "retailerId": "scentopia",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
    "fragranceId": "all-arabic-aalhb009",
    "price": 2143.9,
    "delivered": true,
@@ -6652,16 +6652,6 @@
    "price": 1648.9,
    "delivered": true,
    "wasPrice": 2198.9,
-   "percentOff": 25,
-   "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "aar-fragrances-rayhaan-corium",
-   "price": 2473.9,
-   "delivered": true,
-   "wasPrice": 3300,
    "percentOff": 25,
    "retailerId": "perfume-palace",
    "kind": "retailer",
@@ -8198,16 +8188,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-versace-eros-edp-200ml",
-   "price": 12320,
-   "delivered": false,
-   "wasPrice": 15400,
-   "percentOff": 20,
-   "retailerId": "perfume-network",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-versace-eros-energy",
    "price": 12320,
    "delivered": false,
@@ -8234,16 +8214,6 @@
    "wasPrice": 1650,
    "percentOff": 20,
    "retailerId": "perfume-palace",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
-   "fragranceId": "ean-8011003801619",
-   "price": 10880,
-   "delivered": false,
-   "wasPrice": 13600,
-   "percentOff": 20,
-   "retailerId": "perfume-network",
    "kind": "retailer",
    "houseName": null
   },
@@ -8588,16 +8558,6 @@
    "houseName": null
   },
   {
-   "fragranceId": "aar-fragrances-guerlain-lhomme-ideal-edp",
-   "price": 9950,
-   "delivered": true,
-   "wasPrice": 12250,
-   "percentOff": 18,
-   "retailerId": "fridaycharm",
-   "kind": "retailer",
-   "houseName": null
-  },
-  {
    "fragranceId": "aar-fragrances-lattafa-adeeb",
    "price": 2450,
    "delivered": true,
@@ -8672,6 +8632,16 @@
    "price": 10900,
    "delivered": true,
    "wasPrice": 13400,
+   "percentOff": 18,
+   "retailerId": "fridaycharm",
+   "kind": "retailer",
+   "houseName": null
+  },
+  {
+   "fragranceId": "ean-3346470304345",
+   "price": 9950,
+   "delivered": true,
+   "wasPrice": 12250,
    "percentOff": 18,
    "retailerId": "fridaycharm",
    "kind": "retailer",
