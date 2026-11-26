@@ -1,21 +1,11 @@
 {
-  "checkedAt": "2026-11-25T21:13:07.347Z",
-  "startedAt": "2026-11-25T21:09:16.992Z",
+  "checkedAt": "2026-11-26T08:42:40.401Z",
+  "startedAt": "2026-11-26T08:39:43.717Z",
   "complete": true,
   "endedReason": "swept-batch",
-  "wrote": 1,
+  "wrote": 0,
   "eligible": 75,
   "heldForLaterRuns": [
-    "perfumoi",
-    "rasasi-uk-store",
-    "saad-fragrance",
-    "scentsational",
-    "beauty-flash",
-    "gorgeous-shop",
-    "perfume-closet",
-    "sainte-cellier",
-    "soghaat",
-    "carethy",
     "cosmetify",
     "the-range",
     "amazon-uk",
@@ -70,9 +60,7 @@
     "fragrance-click",
     "zimaya",
     "lookfantastic",
-    "john-lewis"
-  ],
-  "planned": [
+    "john-lewis",
     "bellavita-luxury",
     "scentstore",
     "beauty-the-shop-uk",
@@ -84,884 +72,104 @@
     "liberty-london",
     "perfumeuk"
   ],
+  "planned": [
+    "perfumoi",
+    "rasasi-uk-store",
+    "saad-fragrance",
+    "scentsational",
+    "beauty-flash",
+    "gorgeous-shop",
+    "perfume-closet",
+    "sainte-cellier",
+    "soghaat",
+    "carethy"
+  ],
   "notReached": [],
   "outcomes": [
     {
-      "retailerId": "bellavita-luxury",
-      "name": "BellaVita Luxury",
-      "homepage": "https://bellavitaluxury.uk",
-      "currentStandardGbp": 3.99,
-      "currentFreeOverGbp": 30,
+      "retailerId": "perfumoi",
+      "name": "Perfumoi",
+      "homepage": "https://perfumoi.co.uk",
+      "currentStandardGbp": 0,
+      "currentFreeOverGbp": 0,
       "currentConfidence": "confirmed",
       "enabled": true,
-      "pagesTried": 18,
+      "pagesTried": 17,
       "linksFound": [
         {
-          "url": "https://bellavitaluxury.uk/pages/shipping-policy-bellavita-luxury-united-kingdom",
-          "linkText": "Shipping Policy"
+          "url": "https://perfumoi.co.uk/policies/shipping-policy",
+          "linkText": "Shipping"
         }
       ],
       "findings": [
         {
-          "url": "https://bellavitaluxury.uk/pages/shipping-policy-bellavita-luxury-united-kingdom",
+          "url": "https://perfumoi.co.uk/policies/shipping-policy",
           "status": 200,
           "foundBy": "link",
           "standardGbp": null,
           "freeOverGbp": null,
           "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Free shipping on all orders over 30 GBP.",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://bellavitaluxury.uk/policies/shipping-policy",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": 3.99,
-          "freeOverGbp": 25,
-          "caveats": [
-            "page names 2 different free-delivery thresholds (£25.00, £30.00)"
-          ],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "🚚FREE Shipping Above £25",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Free shipping on all orders above £30, below that a delivery fee of £3.99 will be charged",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 3.99,
-              "sentence": "Free shipping on all orders above £30, below that a delivery fee of £3.99 will be charged",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://bellavitaluxury.uk/policies/refund-policy",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 25,
-          "caveats": [],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "🚚FREE Shipping Above £25",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [
-        "https://bellavitaluxury.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
-      ],
-      "patch": {
-        "retailerId": "bellavita-luxury",
-        "action": "disagrees",
-        "detail": "registry holds £3.99 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://bellavitaluxury.uk/policies/refund-policy)",
-        "write": null
-      },
-      "verdict": "DISAGREES: registry holds £3.99 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://bellavitaluxury.uk/policies/refund-policy)"
-    },
-    {
-      "retailerId": "scentstore",
-      "name": "ScentStore",
-      "homepage": "https://www.scentstore.com",
-      "currentStandardGbp": 2.95,
-      "currentFreeOverGbp": 30,
-      "currentConfidence": "confirmed",
-      "enabled": true,
-      "pagesTried": 13,
-      "linksFound": [
-        {
-          "url": "https://www.scentstore.com/about/delivery-returns/",
-          "linkText": "Delivery &#038; Returns"
-        },
-        {
-          "url": "https://www.scentstore.com/delivery-returns/",
-          "linkText": "Delivery & Returns"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://www.scentstore.com/about/delivery-returns/",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": null,
-          "freeOverGbp": 30,
-          "caveats": [
             "only named express/upgraded services carried a price — standard rate not stated",
             "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
           ],
           "standardRateNotStated": false,
           "evidence": [
             {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Free UK Delivery Over £30",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "£2.95 Free on Orders Over £30",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Standard UK delivery is FREE over £30.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 3.95,
-              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day) ~ Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Next-Day Delivery",
               "isUpgradeTier": true
             },
             {
               "kind": "free-unconditional",
               "amountGbp": 0,
-              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.scentstore.com/delivery-returns/",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": null,
-          "freeOverGbp": 30,
-          "caveats": [
-            "only named express/upgraded services carried a price — standard rate not stated",
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Free UK Delivery Over £30",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "£2.95 Free on Orders Over £30",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Standard UK delivery is FREE over £30.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 3.95,
-              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day) ~ Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
+              "sentence": "We currently offer free next-day shipping on all UK orders placed before 3:00 PM (UK time), Monday to Friday via Royal Mail.",
               "isUpgradeTier": true
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
-              "isUpgradeTier": false
             }
           ]
         },
         {
-          "url": "https://www.scentstore.com/pages/shipping",
+          "url": "https://perfumoi.co.uk/pages/faq",
           "status": 200,
           "foundBy": "path",
           "standardGbp": null,
-          "freeOverGbp": 30,
-          "caveats": [],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.scentstore.com/pages/delivery",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 30,
-          "caveats": [
-            "only named express/upgraded services carried a price — standard rate not stated",
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Free UK Delivery Over £30",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "£2.95 Free on Orders Over £30",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Standard UK delivery is FREE over £30.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 3.95,
-              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day) ~ Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.scentstore.com/delivery",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 30,
-          "caveats": [
-            "only named express/upgraded services carried a price — standard rate not stated",
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Free UK Delivery Over £30",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "£2.95 Free on Orders Over £30",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Standard UK delivery is FREE over £30.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 3.95,
-              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day) ~ Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.scentstore.com/pages/faq",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 30,
-          "caveats": [],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 30,
-              "sentence": "Enjoy Free Delivery When You Spend £30+",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
-        "steps": [
-          "https://www.scentstore.com/products.json?limit=250"
-        ]
-      },
-      "errors": [],
-      "patch": {
-        "retailerId": "scentstore",
-        "action": "disagrees",
-        "detail": "registry holds £2.95 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://www.scentstore.com/pages/shipping)",
-        "write": null
-      },
-      "verdict": "DISAGREES: registry holds £2.95 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://www.scentstore.com/pages/shipping)"
-    },
-    {
-      "retailerId": "beauty-the-shop-uk",
-      "name": "Beauty The Shop UK",
-      "homepage": "https://www.beautytheshop.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
-        "steps": [
-          "https://www.beautytheshop.com/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.beautytheshop.com/: HTTP 403",
-        "https://www.beautytheshop.com/policies/shipping-policy: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping-policy: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping-details: HTTP 403",
-        "https://www.beautytheshop.com/pages/delivery-information: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping: HTTP 403",
-        "https://www.beautytheshop.com/pages/delivery: HTTP 403",
-        "https://www.beautytheshop.com/shipping-policy: HTTP 403",
-        "https://www.beautytheshop.com/delivery: HTTP 403",
-        "https://www.beautytheshop.com/shipping: HTTP 403",
-        "https://www.beautytheshop.com/pages/faq: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping-returns: HTTP 403",
-        "https://www.beautytheshop.com/pages/delivery-returns: HTTP 403",
-        "https://www.beautytheshop.com/pages/shipping-info: HTTP 403",
-        "https://www.beautytheshop.com/pages/help: HTTP 403",
-        "https://www.beautytheshop.com/policies/refund-policy: HTTP 403",
-        "https://www.beautytheshop.com/pages/terms-of-service: HTTP 403"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "opulensi",
-      "name": "Opulensi",
-      "homepage": "https://www.opulensi.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 30,
-      "currentConfidence": "confirmed",
-      "enabled": true,
-      "pagesTried": 15,
-      "linksFound": [
-        {
-          "url": "https://www.opulensi.com/en-us/policies/shipping-policy",
-          "linkText": "shipping"
-        }
-      ],
-      "findings": [],
-      "quote": null,
-      "errors": [
-        "https://www.opulensi.com/en-us/policies/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.opulensi.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.opulensi.com/policies/refund-policy: disallowed by robots.txt — not fetched",
-        "https://www.opulensi.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "aromique",
-      "name": "Aromique",
-      "homepage": "https://aromique.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 50,
-      "currentConfidence": "confirmed",
-      "enabled": true,
-      "pagesTried": 17,
-      "linksFound": [
-        {
-          "url": "https://aromique.co.uk/policies/shipping-policy",
-          "linkText": "Shipping Policy"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://aromique.co.uk/policies/shipping-policy",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": null,
-          "freeOverGbp": 50,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE UK DELIVERY ON ORDERS OVER £50",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Free UK Delivery",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "We offer free UK delivery on orders of £50 or more , subject to the delivery service and eligibility shown at checkout.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "For orders that do not qualify for free delivery, applicable delivery charges will be calculated and displayed at checkout before payment.",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://aromique.co.uk/pages/faq",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 40,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0",
-            "page names 2 different free-delivery thresholds (£50.00, £40.00)"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE UK DELIVERY ON ORDERS OVER £50",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Is UK delivery free?",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 40,
-              "sentence": "We offer free UK delivery on orders of £40 or more , subject to the applicable delivery terms.",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://aromique.co.uk/policies/refund-policy",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 50,
-          "caveats": [],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE UK DELIVERY ON ORDERS OVER £50",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [
-        "https://aromique.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
-      ],
-      "patch": {
-        "retailerId": "aromique",
-        "action": "confirm-absence",
-        "detail": "page states delivery terms and publishes no standard rate (https://aromique.co.uk/policies/refund-policy)",
-        "write": {
-          "confidence": "confirmed",
-          "verifiedAt": "2026-11-25",
-          "source": {
-            "url": "https://aromique.co.uk/policies/refund-policy",
-            "quote": "FREE UK DELIVERY ON ORDERS OVER £50",
-            "readAt": "2026-11-25"
-          },
-          "standardRateNotPublished": true
-        }
-      },
-      "verdict": "NO RATE PUBLISHED: page states delivery terms and publishes no standard rate (https://aromique.co.uk/policies/refund-policy)"
-    },
-    {
-      "retailerId": "beevora",
-      "name": "Beevora",
-      "homepage": "https://beevora.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 50,
-      "currentConfidence": "unverified",
-      "enabled": true,
-      "pagesTried": 2,
-      "linksFound": [
-        {
-          "url": "https://beevora.co.uk/policies/shipping-policy",
-          "linkText": "Shipping Policy"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://beevora.co.uk/policies/shipping-policy",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 50,
           "freeOverGbp": null,
-          "caveats": [],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "standard-cost",
-              "amountGbp": 0,
-              "sentence": "Standard Shipping - Tracking Included ~ Orders £0.00–£49.99",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 50,
-              "sentence": "Standard Shipping - Tracking Included ~ Orders £50.00 and up",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [],
-      "patch": {
-        "retailerId": "beevora",
-        "action": "propose-rate",
-        "detail": "page states £50.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Standard Shipping - Tracking Included ~ Orders £0.00–£49.99\" (https://beevora.co.uk/policies/shipping-policy)",
-        "write": null
-      },
-      "verdict": "PROPOSE-RATE: page states £50.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Standard Shipping - Tracking Included ~ Orders £0.00–£49.99\" (https://beevora.co.uk/policies/shipping-policy)"
-    },
-    {
-      "retailerId": "direct-cosmetics",
-      "name": "Direct Cosmetics",
-      "homepage": "https://www.directcosmetics.com",
-      "currentStandardGbp": 2.95,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "confirmed",
-      "enabled": true,
-      "pagesTried": 2,
-      "linksFound": [
-        {
-          "url": "https://www.directcosmetics.com/delivery-returns-i5",
-          "linkText": "Delivery & Returns"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://www.directcosmetics.com/delivery-returns-i5",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 35,
-          "freeOverGbp": 40,
-          "caveats": [],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 40,
-              "sentence": "Fast & Free UK Delivery Over £40 Code: FREEDEL40",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 35,
-              "sentence": "If you would like us to re-send the item a delivery charge will applicable based on the service you request (orders over the value of £35 will have to be sent recorded delivery).",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [],
-      "patch": {
-        "retailerId": "direct-cosmetics",
-        "action": "disagrees",
-        "detail": "registry holds £2.95, page states £35.00 — one of them is wrong: \"If you would like us to re-send the item a delivery charge will applicable based on the service you request (orders over the value of £35 will have to be sent recorded delivery).\" (https://www.directcosmetics.com/delivery-returns-i5)",
-        "write": null
-      },
-      "verdict": "DISAGREES: registry holds £2.95, page states £35.00 — one of them is wrong: \"If you would like us to re-send the item a delivery charge will applicable based on the service you request (orders over the value of £35 will have to be sent recorded delivery).\" (https://www.directcosmetics.com/delivery-returns-i5)"
-    },
-    {
-      "retailerId": "fenwick",
-      "name": "Fenwick",
-      "homepage": "https://fenwick.co.uk",
-      "currentStandardGbp": 5,
-      "currentFreeOverGbp": 100,
-      "currentConfidence": "confirmed",
-      "enabled": true,
-      "pagesTried": 17,
-      "linksFound": [
-        {
-          "url": "https://fenwick.co.uk/pages/delivery",
-          "linkText": "Delivery"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://fenwick.co.uk/pages/delivery",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 5,
-          "freeOverGbp": 100,
           "caveats": [
-            "page names 2 different delivery charges (£5.00, £7.99) — confirm which is standard",
-            "page names 4 different free-delivery thresholds (£100.00, £1000.00, £500.00, £5000.00)"
+            "only named express/upgraded services carried a price — standard rate not stated",
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
           ],
           "standardRateNotStated": false,
           "evidence": [
             {
-              "kind": "free-threshold",
-              "amountGbp": 100,
-              "sentence": "Spend £100 for Free Standard UK Delivery",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 1000,
-              "sentence": "² When you spend over £1,000 on outdoor furniture.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 5,
-              "sentence": "Standard UK delivery — £5.00 or Free¹ ~ For most everyday items.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 8,
-              "sentence": "Next day delivery — £8.00 ~ Order by 6pm ~ Delivered the next working day, excluding weekends and bank holidays.",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 8,
-              "sentence": "Nominated day delivery — £8.00 ~ Order Monday to Friday ~ Choose a delivery date up to 7 days ahead, excluding weekends and bank holidays.",
-              "isUpgradeTier": false
-            },
-            {
               "kind": "free-unconditional",
               "amountGbp": 0,
-              "sentence": "Click & Collect — Free ~ Order any day ~ Orders are dispatched Monday to Friday and ready to collect in 3–5 working days.",
+              "sentence": "Free Next-Day Delivery",
               "isUpgradeTier": true
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 19.95,
-              "sentence": "Outdoor furniture delivery — £19.95 or Free² ~ Delivered in 7–10 working days, excluding weekends and bank holidays.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 1000,
-              "sentence": "² When you spend over £1,000 on outdoor furniture.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 29,
-              "sentence": "Barker & Stonehouse delivery — £29.00 ~ Delivered within 10 working days of coming into stock.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 6,
-              "sentence": "Heal’s small parcel delivery — £6.00 ~ Delivered within 1–3 working days of coming into stock.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 500,
-              "sentence": "³ When you spend over £500 on Heal’s.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 5000,
-              "sentence": "⁴ When you spend over £5,000 on Heal’s.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 29,
-              "sentence": "When purchasing large home furniture (including Barker & Stonehouse, Timothy Oulton, Pure Furniture and Ercol) please note that there is a fixed delivery charge of £29.00.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 7.99,
-              "sentence": "When purchasing Dar Lighting, please note that there is a fixed delivery charge of £7.99 for standard items.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 60,
-              "sentence": "For larger items requiring two-person assistance, there is a fixed delivery charge of £60.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 500,
-              "sentence": "Furniture delivery is £79 and FREE for basket totals over £5000.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 79,
-              "sentence": "Furniture delivery is £79 and FREE for basket totals over £5000.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 100,
-              "sentence": "For small non furniture items, Parcel delivery is £6 and FREE for basket totals over £100.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 6,
-              "sentence": "For small non furniture items, Parcel delivery is £6 and FREE for basket totals over £100.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 500,
-              "sentence": "Specialist delivery is £29 and FREE for basket totals over £500",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 29,
-              "sentence": "Specialist delivery is £29 and FREE for basket totals over £500",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 500,
-              "sentence": "Orders over £5000 are delivered free of charge.",
-              "isUpgradeTier": false
             }
           ]
         },
         {
-          "url": "https://fenwick.co.uk/policies/refund-policy",
+          "url": "https://perfumoi.co.uk/policies/refund-policy",
           "status": 200,
           "foundBy": "path",
           "standardGbp": null,
-          "freeOverGbp": 100,
-          "caveats": [],
+          "freeOverGbp": null,
+          "caveats": [
+            "only named express/upgraded services carried a price — standard rate not stated",
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
           "standardRateNotStated": true,
           "evidence": [
             {
-              "kind": "free-threshold",
-              "amountGbp": 100,
-              "sentence": "Spend £100 for Free Standard UK Delivery",
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Next-Day Delivery",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "As all orders are dispatched with free shipping, no original shipping cost is charged, and therefore none is refundable.",
               "isUpgradeTier": false
             }
           ]
@@ -969,64 +177,15 @@
       ],
       "quote": null,
       "errors": [
-        "https://fenwick.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
-      ],
-      "patch": {
-        "retailerId": "fenwick",
-        "action": "disagrees",
-        "detail": "registry holds £5.00 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://fenwick.co.uk/policies/refund-policy)",
-        "write": null
-      },
-      "verdict": "DISAGREES: registry holds £5.00 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://fenwick.co.uk/policies/refund-policy)"
-    },
-    {
-      "retailerId": "liberty-london",
-      "name": "Liberty London",
-      "homepage": "https://www.libertylondon.com",
-      "currentStandardGbp": 5.95,
-      "currentFreeOverGbp": 100,
-      "currentConfidence": "confirmed",
-      "enabled": true,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 410",
-        "steps": [
-          "https://www.libertylondon.com/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.libertylondon.com/: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/policies/shipping-policy: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/shipping-policy: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/shipping-details: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/delivery-information: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/shipping: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/delivery: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/shipping-policy: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/delivery: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/shipping: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/faq: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/shipping-returns: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/delivery-returns: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/shipping-info: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/help: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/policies/refund-policy: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)",
-        "https://www.libertylondon.com/pages/terms-of-service: HTTP 0 TypeError: fetch failed (HeadersOverflowError: Headers Overflow Error)"
+        "https://perfumoi.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
       ],
       "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
-      "retailerId": "perfumeuk",
-      "name": "PerfumeUK",
-      "homepage": "https://www.perfumeuk.co.uk",
+      "retailerId": "rasasi-uk-store",
+      "name": "Rasasi UK Store",
+      "homepage": "https://www.rasasistore.co.uk",
       "currentStandardGbp": 0,
       "currentFreeOverGbp": 0,
       "currentConfidence": "confirmed",
@@ -1034,17 +193,13 @@
       "pagesTried": 18,
       "linksFound": [
         {
-          "url": "https://www.perfumeuk.co.uk/shipping",
-          "linkText": "Shipping"
-        },
-        {
-          "url": "https://www.perfumeuk.co.uk/valentino-born-in-roma-uomo-extradose-parfum-100ml",
-          "linkText": "Perfect service and quick delivery!"
+          "url": "https://www.rasasistore.co.uk/shipping-returns",
+          "linkText": "Shipping & Returns"
         }
       ],
       "findings": [
         {
-          "url": "https://www.perfumeuk.co.uk/shipping",
+          "url": "https://www.rasasistore.co.uk/shipping-returns",
           "status": 200,
           "foundBy": "link",
           "standardGbp": null,
@@ -1053,80 +208,18 @@
             "only named express/upgraded services carried a price — standard rate not stated",
             "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
           ],
-          "standardRateNotStated": false,
+          "standardRateNotStated": true,
           "evidence": [
             {
               "kind": "free-unconditional",
               "amountGbp": 0,
-              "sentence": "Shipping - perfumeuk.co.uk FREE UK DELIVERY AVAILABLE",
+              "sentence": "FREE UK DELIVERY · ORDER BEFORE 11AM FOR SAME-DAY DISPATCH",
               "isUpgradeTier": false
             },
             {
               "kind": "free-unconditional",
               "amountGbp": 0,
-              "sentence": "FREE UK DELIVERY AVAILABLE",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Shipping and Delivery Schedule ~ FREE UK DELIVERY - Royal Mail Tracked 48 ~ We aim to dispatch your order within 1 working day.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 3,
-              "sentence": "Postage and packing is by Royal Mail Tracked 24 delivery and there is a £3 charge.",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 9,
-              "sentence": "Postage and packing is by Royal Mail Special Delivery Guaranteed by 1pm delivery and there is a £9 charge.",
-              "isUpgradeTier": true
-            }
-          ]
-        },
-        {
-          "url": "https://www.perfumeuk.co.uk/valentino-born-in-roma-uomo-extradose-parfum-100ml",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": null,
-          "freeOverGbp": null,
-          "caveats": [
-            "only named express/upgraded services carried a price — standard rate not stated",
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Valentino Born In Roma Uomo Extradose Parfum 100ml - perfumeuk.co.uk FREE UK DELIVERY AVAILABLE",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "FREE UK DELIVERY AVAILABLE",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Shipping and Delivery Schedule ~ FREE UK DELIVERY - Royal Mail Tracked 48 ~ We aim to dispatch your order within 1 working day.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 3,
-              "sentence": "Postage and packing is by Royal Mail Tracked 24 delivery and there is a £3 charge.",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 9,
-              "sentence": "Postage and packing is by Royal Mail Special Delivery Guaranteed by 1pm delivery and there is a £9 charge.",
+              "sentence": "Free next-day UK delivery (Royal Mail Tracked 24).",
               "isUpgradeTier": true
             }
           ]
@@ -1140,12 +233,685 @@
         "rates": [],
         "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
         "steps": [
-          "https://www.perfumeuk.co.uk/products.json?limit=250"
+          "https://www.rasasistore.co.uk/products.json?limit=250"
         ]
       },
       "errors": [],
       "patch": null,
       "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "saad-fragrance",
+      "name": "Saad Fragrance",
+      "homepage": "https://saadfragrance.com",
+      "currentStandardGbp": 0,
+      "currentFreeOverGbp": 0,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [
+        {
+          "url": "https://saadfragrance.com/policies/shipping-policy",
+          "linkText": "Shipping policy"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://saadfragrance.com/policies/shipping-policy",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Delivery Across the UK",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Delivery Across the UK",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Delivery Across the UK",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://saadfragrance.com/policies/refund-policy",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Delivery Across the UK",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Delivery Across the UK",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [
+        "https://saadfragrance.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "patch": null,
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "scentsational",
+      "name": "Scentsational",
+      "homepage": "https://www.scentsational.com",
+      "currentStandardGbp": 2.95,
+      "currentFreeOverGbp": 80,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 2,
+      "linksFound": [
+        {
+          "url": "https://www.scentsational.com/delivery-returns-i5",
+          "linkText": "Delivery & Returns"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://www.scentsational.com/delivery-returns-i5",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": 80,
+          "freeOverGbp": 80,
+          "caveats": [],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "standard-cost",
+              "amountGbp": 80,
+              "sentence": "Shipping Costs – Orders under £80 incur a standard delivery charge of £2.95 .",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 80,
+              "sentence": "Orders over £80 qualify for free standard delivery .",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 4.95,
+              "sentence": "Next Day Delivery – Available with DPD for guaranteed next working day delivery at £4.95 (Monday–Friday).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Saturday delivery is also available for £6.95 .",
+              "isUpgradeTier": true
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "patch": {
+        "retailerId": "scentsational",
+        "action": "disagrees",
+        "detail": "registry holds £2.95, page states £80.00 — one of them is wrong: \"Shipping Costs – Orders under £80 incur a standard delivery charge of £2.95 .\" (https://www.scentsational.com/delivery-returns-i5)",
+        "write": null
+      },
+      "verdict": "DISAGREES: registry holds £2.95, page states £80.00 — one of them is wrong: \"Shipping Costs – Orders under £80 incur a standard delivery charge of £2.95 .\" (https://www.scentsational.com/delivery-returns-i5)"
+    },
+    {
+      "retailerId": "beauty-flash",
+      "name": "Beauty Flash",
+      "homepage": "https://www.beautyflash.co.uk",
+      "currentStandardGbp": 2.95,
+      "currentFreeOverGbp": 25,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 2,
+      "linksFound": [
+        {
+          "url": "https://www.beautyflash.co.uk/uk-delivery-options",
+          "linkText": "Delivery & Returns"
+        },
+        {
+          "url": "https://www.beautyflash.co.uk/best-sellers",
+          "linkText": "Free Next Day Delivery Over £50"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://www.beautyflash.co.uk/uk-delivery-options",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": 25,
+          "freeOverGbp": 25,
+          "caveats": [],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "UK Delivery Options Free Next Day Delivery Over £50",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Free UK Express Delivery - Orders over £50 ~ Next Day ~ Free",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Free UK Saver Delivery - Orders over £25 ~ 2-4 Days ~ Free",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 15,
+              "sentence": "EVRi Click & Collect - Orders over £15 ~ 2-4 Days ~ Free",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 50,
+              "sentence": "UK Express Delivery - Orders under £50 ~ Next Day ~ £4.49",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 25,
+              "sentence": "UK Saver Delivery - Orders under £25 ~ 2-4 Days ~ £2.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE Next Day Delivery on Orders Over £50",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Spend over £50 and enjoy FREE Next Working Day Delivery on eligible UK orders.",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Spend over £50 to qualify for FREE Next Day Delivery.",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "You can choose Free UK Saver Delivery on qualifying orders over £25 at checkout.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE UK Saver Delivery on Orders Over £25 - 2-4 Days",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Simply spend over £25 with us and you will automatically qualify for our Free UK Saver Delivery option.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Spend over £25 to qualify for FREE Saver Delivery.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 15,
+              "sentence": "Free EVRi Click & Collect Delivery available for orders over £15 (£1.99 for orders under £15).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 1.99,
+              "sentence": "Free EVRi Click & Collect Delivery available for orders over £15 (£1.99 for orders under £15).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 50,
+              "sentence": "The co2 emissions of a ParcelShop Click & Collect delivery is over 200g less of a parcel delivered to your door UK Next Day for Orders Under £50 - £4.49",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 25,
+              "sentence": "UK Saver Delivery for Orders Under £25 - £2.95",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "patch": {
+        "retailerId": "beauty-flash",
+        "action": "disagrees",
+        "detail": "registry holds £2.95, page states £25.00 — one of them is wrong: \"UK Saver Delivery - Orders under £25 ~ 2-4 Days ~ £2.95\" (https://www.beautyflash.co.uk/uk-delivery-options)",
+        "write": null
+      },
+      "verdict": "DISAGREES: registry holds £2.95, page states £25.00 — one of them is wrong: \"UK Saver Delivery - Orders under £25 ~ 2-4 Days ~ £2.95\" (https://www.beautyflash.co.uk/uk-delivery-options)"
+    },
+    {
+      "retailerId": "gorgeous-shop",
+      "name": "Gorgeous Shop",
+      "homepage": "https://www.gorgeousshop.com",
+      "currentStandardGbp": 2.95,
+      "currentFreeOverGbp": 25,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 2,
+      "linksFound": [
+        {
+          "url": "https://www.gorgeousshop.com/uk-delivery-options",
+          "linkText": "Delivery & Returns"
+        },
+        {
+          "url": "https://www.gorgeousshop.com/best-sellers",
+          "linkText": "Free Next Day Delivery on Orders Over £25"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://www.gorgeousshop.com/uk-delivery-options",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": 25,
+          "freeOverGbp": 25,
+          "caveats": [],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "UK Delivery Options Free Next Day Delivery on Orders Over £25",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Free UK Express Delivery - Orders over £25 ~ Next Day ~ Free",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Free UK Saver Delivery - Orders over £25 ~ 2-4 Days ~ Free",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 15,
+              "sentence": "EVRi Click & Collect - Orders over £15 ~ 2-4 Days ~ Free",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 25,
+              "sentence": "UK Express Delivery - Orders under £25 ~ Next Day ~ £4.49",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 25,
+              "sentence": "UK Saver Delivery - Orders under £25 ~ 2-4 Days ~ £2.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE Next Day Delivery on Orders Over £25",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Spend over £25 and enjoy FREE Next Working Day Delivery on eligible UK orders.",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Spend over £25 to qualify for FREE Next Day Delivery.",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "You can choose Free UK Saver Delivery on qualifying orders over £25 at checkout.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE UK Saver Delivery on Orders Over £25 - 2-4 Days",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Simply spend over £25 with us and you will automatically qualify for our Free UK Saver Delivery option.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Spend over £25 to qualify for FREE Saver Delivery.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 15,
+              "sentence": "Free EVRi Click & Collect Delivery available for orders over £15 (£1.99 for orders under £15).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 1.99,
+              "sentence": "Free EVRi Click & Collect Delivery available for orders over £15 (£1.99 for orders under £15).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 25,
+              "sentence": "The co2 emissions of a ParcelShop Click & Collect delivery is over 200g less of a parcel delivered to your door UK Next Day for Orders Under £25 - £4.49",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 25,
+              "sentence": "UK Saver Delivery for Orders Under £25 - £2.95",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "patch": {
+        "retailerId": "gorgeous-shop",
+        "action": "disagrees",
+        "detail": "registry holds £2.95, page states £25.00 — one of them is wrong: \"UK Saver Delivery - Orders under £25 ~ 2-4 Days ~ £2.95\" (https://www.gorgeousshop.com/uk-delivery-options)",
+        "write": null
+      },
+      "verdict": "DISAGREES: registry holds £2.95, page states £25.00 — one of them is wrong: \"UK Saver Delivery - Orders under £25 ~ 2-4 Days ~ £2.95\" (https://www.gorgeousshop.com/uk-delivery-options)"
+    },
+    {
+      "retailerId": "perfume-closet",
+      "name": "The Perfume Closet",
+      "homepage": "https://theperfumecloset.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 18,
+      "linksFound": [
+        {
+          "url": "https://theperfumecloset.co.uk/pages/delivery-and-returns",
+          "linkText": "Delivery and Returns"
+        }
+      ],
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://theperfumecloset.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "sainte-cellier",
+      "name": "Sainte Cellier",
+      "homepage": "https://saintecellier.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 2,
+      "linksFound": [
+        {
+          "url": "https://saintecellier.com/en-us/policies/shipping-policy",
+          "linkText": "Shipping"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://saintecellier.com/en-us/policies/shipping-policy",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": 100,
+          "freeOverGbp": null,
+          "caveats": [],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "standard-cost",
+              "amountGbp": 100,
+              "sentence": "Shipping policy Orders of £100+ in FULL SIZE, FULL PRICE, NON-DISCOUNTED perfumes include 3 complimentary samples.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 100,
+              "sentence": "United Kingdom ~ Full-size perfume orders over £100 receive complimentary UK shipping.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 300,
+              "sentence": "Orders over £300 receive complimentary express delivery with Royal Mail Tracked 24.",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 1000,
+              "sentence": "Orders over £1,000 receive complimentary Special Delivery.",
+              "isUpgradeTier": true
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "patch": {
+        "retailerId": "sainte-cellier",
+        "action": "propose-rate",
+        "detail": "page states £100.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Shipping policy Orders of £100+ in FULL SIZE, FULL PRICE, NON-DISCOUNTED perfumes include 3 complimentary samples.\" (https://saintecellier.com/en-us/policies/shipping-policy)",
+        "write": null
+      },
+      "verdict": "PROPOSE-RATE: page states £100.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Shipping policy Orders of £100+ in FULL SIZE, FULL PRICE, NON-DISCOUNTED perfumes include 3 complimentary samples.\" (https://saintecellier.com/en-us/policies/shipping-policy)"
+    },
+    {
+      "retailerId": "soghaat",
+      "name": "Soghaat",
+      "homepage": "https://soghaat.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 40,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 18,
+      "linksFound": [
+        {
+          "url": "https://soghaat.co.uk/pages/shipping-delivery",
+          "linkText": "Shipping & Delivery"
+        },
+        {
+          "url": "https://soghaat.co.uk/policies/shipping-policy",
+          "linkText": "shipping"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://soghaat.co.uk/pages/shipping-delivery",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": 40,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "You’ve unlocked Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Spend more for Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 40,
+              "sentence": "Free UK Shipping ~ Available for UK orders over £40, excluding ZamZam Water.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 40,
+              "sentence": "Free UK Shipping Available for UK orders over £40, excluding ZamZam Water.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Shipping Shipping Type Not Applicable",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://soghaat.co.uk/policies/shipping-policy",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": 40,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "You’ve unlocked Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Spend more for Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 40,
+              "sentence": "Free UK Shipping: Available for UK orders over £40, excluding ZamZam Water.",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://soghaat.co.uk/policies/refund-policy",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "You’ve unlocked Free UK Delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Spend more for Free UK Delivery",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [
+        "https://soghaat.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "patch": null,
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "carethy",
+      "name": "Carethy",
+      "homepage": "https://www.carethy.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 18,
+      "linksFound": [
+        {
+          "url": "https://www.carethy.co.uk/shipping-and-returns",
+          "linkText": "Shipping policy"
+        }
+      ],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.carethy.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "patch": null,
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
     }
   ]
 }
