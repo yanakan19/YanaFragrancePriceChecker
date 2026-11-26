@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-26T12:40:54.800Z",
-  "seenAt": "2026-11-26T12:40:54.800Z",
+  "updatedAt": "2026-11-26T16:46:50.958Z",
+  "seenAt": "2026-11-26T16:46:50.958Z",
   "source": "live",
   "listings": [
     {
@@ -520,7 +520,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Versace Crystal Noir Eau de Parfum is an eau de parfum created for customers who enjoy a warm, spicy floral scent. It opens with an aromatic spicy impression, develops into a creamy floral heart, and settles into a smooth, warm base. Suitable for evening wear or special occasions, this fragrance is a great choice for anyone looking for a scent that feels elegant, feminine, and distinctive. . Why customers choose it ● Well-suited for autumn and winter ● A great option for evening wear or gifting ● Designed for customers who prefer warm spicy and floral scents .",
       "productType": "Eau de Parfum",

@@ -1,9 +1,35 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-26T12:45:37.377Z",
-  "seenAt": "2026-11-26T12:45:37.377Z",
+  "updatedAt": "2026-11-26T16:48:34.144Z",
+  "seenAt": "2026-11-26T16:48:34.144Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "11112908816695-Default Title",
+      "url": "https://bujairami.ae/products/gift-box-3x30ml-extrait-male",
+      "rawTitle": "Gift Box - 3x30ml Extrait - Male",
+      "rawBrand": "Bujairami UAE",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1005/1957/5863/files/8286aa0a-63f2-421f-bec9-f7425cbd7e63.png?v=1795700133",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Discover three Bujairami fragrances for women in one signature black-and-gold gift box. Tempted, Powder Affair and Dead Serious each come in a 30 mL faceted glass bottle, finished with a jewel-toned cap in purple, pink or red. . Choose a fragrance to suit your mood, or give the trio to someone who loves discovering a new scent. . What’s inside . Tempted – 30 mL Extrait de Parfum . Powder Affair – 30 mL Extrait de Parfum . Dead Serious – 30 mL Extrait de Parfum .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 240,
+        "currency": "AED"
+      },
+      "retailerId": "bujairami",
+      "firstSeenAt": "2026-11-26T16:48:34.144Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11110651003191-Default Title",
       "url": "https://bujairami.ae/products/senorita-inspired-by-coco-mademoiselle-crush-absolu-chanel",
