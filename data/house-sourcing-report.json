@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-26T01:20:27.136Z",
+  "checkedAt": "2026-11-26T05:18:48.122Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,10 +59,12 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "CNY",
-      "listings": 538,
+      "listings": 480,
       "pricedInGbp": 0,
-      "withPhoto": 518,
-      "errors": [],
+      "withPhoto": 464,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
@@ -414,11 +416,12 @@
       "origin": "https://www.reef-parfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 40,
+      "listings": 37,
       "pricedInGbp": 0,
-      "withPhoto": 40,
+      "withPhoto": 37,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.reef-parfum.com/products.json?limit=250&page=1: HTTP 503"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

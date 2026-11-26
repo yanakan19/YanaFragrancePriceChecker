@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-26T01:13:46.904Z",
-  "seenAt": "2026-11-26T01:13:46.904Z",
+  "updatedAt": "2026-11-26T05:10:37.430Z",
+  "seenAt": "2026-11-26T05:10:37.430Z",
   "source": "live",
   "listings": [
     {
@@ -5694,7 +5694,7 @@
       "priceGbp": 89.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "LEGO Star Wars 75461 Darth Vadar Large Minifigure.",
       "productType": "LEGO",
@@ -6270,7 +6270,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "LEGO Star Wars 75458 - Helmet AT-RT Pilot of the Remnant Empire .",
       "productType": "LEGO",
@@ -91537,7 +91537,7 @@
       "priceGbp": 32.99,
       "wasPriceGbp": 62.7,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Jimmy Choo L'Eau by Jimmy Choo is a floral fruity fragrance for women. A feminine and sensual fragrance that radiates sweetness and light. The woman who wears it is free from the chains of societal pressures and doesn't conform easily. The scent is floral with a hint of fruit and musk. It opens with notes of bergamot and hibiscus that lead to the heart of nectarine and peony, based on cedarwood and musk.. Fragrance Type: Floral, Fruity Fragrance Notes: - Top notes: Hibiscus, Bergamot - Middle notes: Peony, Nectarine - Base notes: Musk, Cedar. Launched: 2017.",
       "productType": "Women's Perfume",

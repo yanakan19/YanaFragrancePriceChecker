@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-26T01:13:46.904Z",
-  "seenAt": "2026-11-26T01:13:46.904Z",
+  "updatedAt": "2026-11-26T05:10:37.430Z",
+  "seenAt": "2026-11-26T05:10:37.430Z",
   "source": "live",
   "listings": [
     {
@@ -8432,7 +8432,7 @@
       "priceGbp": 136.5,
       "wasPriceGbp": 195,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Or De Moi Parfum 75ml by Infiniment Coty Parfums is a floral fragrance centered on the rich, elegant scent of tuberose. This perfume offers a timeless essence that blends softness and vibrancy, perfect for those who appreciate floral notes with depth. Presented in a 75ml bottle, it provides a lasting experience of refined femininity for everyday wear or special occasions..",
       "productType": "Unisex Fragrance",
