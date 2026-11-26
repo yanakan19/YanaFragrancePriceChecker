@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-26T16:46:50.958Z",
-  "seenAt": "2026-11-26T16:46:50.958Z",
+  "updatedAt": "2026-11-26T20:42:56.803Z",
+  "seenAt": "2026-11-26T20:42:56.803Z",
   "source": "live",
   "listings": [
     {
@@ -7673,7 +7673,7 @@
       "priceGbp": 148.75,
       "wasPriceGbp": 175,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A lightweight oil with a citrussy freshness that gives way to a floral heart of jasmine notes, set against a backdrop of white musk notes. Smooth and sensual in texture, it envelops the body and hair in a delicate scent that combines harmoniously with each of the LES EXCLUSIFS DE CHANEL fragrances. The bottle has been redesigned and now features a flow reducer, offering easier application and a unique multisensory experience. .",
       "productType": "Women's Fragrances",
@@ -9904,7 +9904,7 @@
       "priceGbp": 38.4,
       "wasPriceGbp": 48,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Kylie Jenner Mood Stones Cashmere Muse Eau de Parfum is a captivating women's fragrance with a soft and sophisticated character. Presented in a 50ml bottle for an elevated addition to your fragrance collection..",
       "productType": "Women's Fragrances",
@@ -24808,7 +24808,7 @@
       "priceGbp": 60,
       "wasPriceGbp": 75,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "The Angels’ Share Body Mist by Kilian Paris offers a lighter, all-over interpretation of the iconic fragrance. Softly scented with warm, indulgent notes, it refreshes the skin while adding subtle depth. A refined way to layer fragrance throughout the day..",
       "productType": "Women's Fragrances",

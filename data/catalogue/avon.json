@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-26T16:47:17.285Z",
-  "seenAt": "2026-11-26T16:47:17.285Z",
+  "updatedAt": "2026-11-26T20:43:09.436Z",
+  "seenAt": "2026-11-26T20:43:09.436Z",
   "source": "live",
   "listings": [
     {
@@ -888,7 +888,7 @@
       "priceGbp": 1.8,
       "wasPriceGbp": 4.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: . Care and protect from head to toe with our Berry Fusion Multipurpose Cream, infused with blueberry and strawberry extracts and vitamin E, for 24-hour* moisturisation. This lightweight, non-greasy and non-sticky formula absorbs quickly, leaving your skin feeling smooth and soft. It’s suitable for face, hands and body and the whole family will love the fresh berry scent.. Product specification: . • Face, hand and body cream formulated with blueberry and strawberry extracts and vitamin E. • Suitable for normal to extra-dry skin. • Part of the Avon Care Berry Fusion collection. • Size: 400ml.. How to use me: . Apply to your hands, face and body when needed and reapply as often as necessary.. *Based on a consumer study (#07-693)..",
       "productType": "BODY",
@@ -1417,7 +1417,7 @@
       "priceGbp": 7.5,
       "wasPriceGbp": 19,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "All you need to know: . Ever stopped to wonder what’s the driving force that gets us through all of life’s ups and downs? ?It’s love… and it’s worth celebrating… every day… and in every form.. Cue Celebrate Eau de Parfum - a sparkling and joyful white floral curation of signature neroli blossoms and exotic Tiare Tahiti flowers… the French Polynesian symbol of romance, harmony and peace.. When words fail to convey what your heart wants to say, let this perfume from the Today Tomorrow Always collection do the talking.. Just wrap it, gift it, and mark it ‘scent with love’.. 50ml. Scent type: A white floral scent that reminds you to celebrate love every day.. Key notes:. Top notes: Lemon Essence, Muguet, Neroli.. Middle notes: Tuberose NP, Tiare Tahiti NP, Orange Flower Petals.. Bottom notes: Benzoin, American Cedarwood, Ambrettolide.. Why you’ll love it: . • This limited edition floral fragrance helps you celebrate love every day.. • It’s created by Master Perfumer Olivier Cresp in honour of Today Tomorrow Always’ 20-year anniversary.. • It’s the perfect present for loved ones and will definitely get their hugs of appreciation and stamp of approval.. How to use it: . Spritz it on. Spritz it on your wrists and neck to diffuse the scent more quickly. Don’t rub it in, doing so will make it fade faster.. Gift it out. This perfume makes the perfect Christmas gift so slip it under the tree or inside a loved one’s festive stocking. It also makes a great birthday and anniversary pressie too.. Collect them all. Like this scent? Get the other perfumes in the Today Tomorrow Always collection to symbolise every stage of your love story..",
       "productType": "FRAGRANCE",

@@ -1,7 +1,7 @@
 {
   "retailerId": "beevora",
-  "updatedAt": "2026-11-26T16:46:50.958Z",
-  "seenAt": "2026-11-26T16:46:50.958Z",
+  "updatedAt": "2026-11-26T20:42:56.803Z",
+  "seenAt": "2026-11-26T20:42:56.803Z",
   "source": "live",
   "listings": [
     {
@@ -41069,7 +41069,7 @@
       "priceGbp": 24.99,
       "wasPriceGbp": 29.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Bayn Al Asrar is the epitome of sophistication, blending fruity, floral, and woody notes into a mesmerizing scent. It opens with a captivating mix of juicy pear, rich hazelnut, and the resinous warmth of olibanum, creating an alluring first impression.. Fragrance Notes: . Top Notes: Pear, Hazelnut, Olibanum . Heart Notes: Osmanthus, Rose, Saffron, Jasmine . Base Notes: Sandalwood, Vanilla, Akigalawood, Labdanum.",
       "productType": "Perfume",

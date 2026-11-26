@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-26T16:46:50.958Z",
-  "seenAt": "2026-11-26T16:46:50.958Z",
+  "updatedAt": "2026-11-26T20:42:56.803Z",
+  "seenAt": "2026-11-26T20:42:56.803Z",
   "source": "live",
   "listings": [
     {
@@ -1233,7 +1233,7 @@
       "priceGbp": 27.99,
       "wasPriceGbp": 34.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "9pm by Afnan is a Amber Vanilla fragrance for men. Top notes are Apple, Cinnamon, Wild Lavender and Bergamot; middle notes are Orange Blossom and Lily-of-the-Valley; base notes are Vanilla, Tonka Bean, Amber and Patchouli. .",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "les-senteurs",
-  "updatedAt": "2026-11-26T16:47:17.285Z",
-  "seenAt": "2026-11-26T16:47:17.285Z",
+  "updatedAt": "2026-11-26T20:43:09.436Z",
+  "seenAt": "2026-11-26T20:43:09.436Z",
   "source": "live",
   "listings": [
     {
@@ -20392,7 +20392,7 @@
       "priceGbp": 8,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "In Arabic this means “smelling the scents of the breeze”. A blissfully powdery iris scent with a citrus edge. Geranium, rose, ylang-ylang and jasmine give it a delicate, floral heart.. Part of Grossmith's Classic Collection. Using the original formulae and keeping natural materials wherever possible, irrespective of cost, Grossmith have ‘remastered’ three classic fragrances, Hasu-no-Hana (1888), Phul-Nana (1891) and Shem-el-Nessim (1906).. Top Notes: Bergamot, Neroli Heart Notes: Geranium, Jasmine, Rose, Ylang-Ylang, Orris Root Base Notes: Musk, Patchouli, Cedar, Sandalwood, Vanilla, Heliotrope .",
       "productType": "Fragrance",

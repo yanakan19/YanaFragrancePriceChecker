@@ -1,7 +1,7 @@
 {
   "retailerId": "oud-arabian",
-  "updatedAt": "2026-11-26T16:46:50.958Z",
-  "seenAt": "2026-11-26T16:46:50.958Z",
+  "updatedAt": "2026-11-26T20:42:56.803Z",
+  "seenAt": "2026-11-26T20:42:56.803Z",
   "source": "live",
   "listings": [
     {
@@ -4140,7 +4140,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-10-02T00:00:00.000Z",
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": {
         "value": 2.33,

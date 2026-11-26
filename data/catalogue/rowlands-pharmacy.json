@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-26T16:47:17.285Z",
-  "seenAt": "2026-11-26T16:47:17.285Z",
+  "updatedAt": "2026-11-26T20:43:09.436Z",
+  "seenAt": "2026-11-26T20:43:09.436Z",
   "source": "live",
   "listings": [
     {
@@ -106,7 +106,7 @@
       "priceGbp": 26.1,
       "wasPriceGbp": 29,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Boss Bottled Eau De Toilette 50ml. Key Features. ##features##. Fragrance Family: Woody Spicy . . Top Notes: Apple, Citrus Fruits . . Heart Notes: Geranium, Cinnamon, Clove . . Base Notes: Sandalwood, Cedar, Vetiver. . ##end-features##. Product Details. An iconic masculine fragrance blending fresh apple and citrus with a spicy heart of cinnamon and geranium, and a warm woody base of sandalwood, cedar, and vetiver..",
       "productType": "Fragrance",
