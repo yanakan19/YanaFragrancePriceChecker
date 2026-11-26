@@ -12752,12 +12752,13 @@
     {
      "id": "set-ean-8411061046081",
      "brand": "Carolina Herrera",
-     "name": "Good Girl Eau de Parfum 80ml Spray + 10ml Set",
+     "name": "Good Girl 80ml Eau de Parfum + 10ml Set",
      "concentration": "Eau de Parfum",
      "ean": "8411061046081",
      "scent": "girl good",
      "signature": "1x10fragrance|1x80fragrance",
      "shops": [
+      "fragrance-click",
       "paco-perfumerias-uk"
      ]
     },
