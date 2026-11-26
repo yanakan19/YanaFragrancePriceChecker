@@ -1,7 +1,39 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 390,
+ "folded": 397,
  "groups": [
+  {
+   "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
+   "absorbed": [
+    "set-125th-bloom-eau-de-parfum-3x10ml"
+   ],
+   "members": [
+    {
+     "id": "set-125th-bloom-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "125th & Bloom Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "125th bloom",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
+     ]
+    },
+    {
+     "id": "set-125th-bloom-eau-de-parfum-3x10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "125th & Bloom Eau de Parfum 3x10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "125th bloom",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    }
+   ]
+  },
   {
    "canonical": "set-abercrombie-and-fitch-fierce-gift-set-edc-100ml-edc-10ml",
    "absorbed": [
@@ -129,6 +161,38 @@
      "signature": "1x150wash|1x30fragrance",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-dear-polly-eau-de-parfum-3-x-10ml",
+   "absorbed": [
+    "set-dear-polly-eau-de-parfum-3x10-ml"
+   ],
+   "members": [
+    {
+     "id": "set-dear-polly-eau-de-parfum-3-x-10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Dear Polly Eau de Parfum 3 x 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "dear polly",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    },
+    {
+     "id": "set-dear-polly-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Dear Polly Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "dear polly",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
      ]
     }
    ]
@@ -3443,6 +3507,7 @@
      "scent": "man",
      "signature": "1x100fragrance|1x50fragrance",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -4141,6 +4206,7 @@
      "scent": "d eau issey l",
      "signature": "1x100fragrance|1x75body",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -6113,6 +6179,38 @@
      "signature": "4x7.5fragrance",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3660732675661",
+   "absorbed": [
+    "set-giorgio-armani-emporio-armani-stronger-with-you-intensely-gift-set-100ml-edp-15ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3660732675661",
+     "brand": "Giorgio Armani",
+     "name": "Emporio Armani Stronger With You Intensely Gift Set 100ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "3660732675661",
+     "scent": "armani emporio intensely stronger you",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-giorgio-armani-emporio-armani-stronger-with-you-intensely-gift-set-100ml-edp-15ml-edp",
+     "brand": "Giorgio Armani",
+     "name": "Emporio Armani Stronger With You Intensely Gift Set 100ml EDP + 15ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "armani emporio intensely stronger you",
+     "signature": "1x100fragrance|1x15fragrance",
+     "shops": [
+      "beaute-boulevard"
      ]
     }
    ]
@@ -11616,6 +11714,38 @@
    ]
   },
   {
+   "canonical": "set-mango-skin-eau-de-parfum-3x10-ml",
+   "absorbed": [
+    "set-mango-skin-eau-de-parfum-3x10ml"
+   ],
+   "members": [
+    {
+     "id": "set-mango-skin-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Mango Skin Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "mango skin",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
+     ]
+    },
+    {
+     "id": "set-mango-skin-eau-de-parfum-3x10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Mango Skin Eau de Parfum 3x10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "mango skin",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-marc-jacobs-perfect-eau-de-parfum-50ml-fragrance-gift-set",
    "absorbed": [
     "set-marc-jacobs-perfect-gift-set-50ml-edp-10ml-edp"
@@ -11643,6 +11773,38 @@
      "signature": "1x10fragrance|1x50fragrance",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-morning-chess-eau-de-parfum-3-x-10ml",
+   "absorbed": [
+    "set-morning-chess-eau-de-parfum-3x10-ml"
+   ],
+   "members": [
+    {
+     "id": "set-morning-chess-eau-de-parfum-3-x-10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Morning Chess Eau de Parfum 3 x 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "chess morning",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    },
+    {
+     "id": "set-morning-chess-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Morning Chess Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "chess morning",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
      ]
     }
    ]
@@ -11707,6 +11869,70 @@
      "signature": "3p",
      "shops": [
       "aromique"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-poets-of-berlin-eau-de-parfum-3-x-10ml",
+   "absorbed": [
+    "set-poets-of-berlin-eau-de-parfum-3x10-ml"
+   ],
+   "members": [
+    {
+     "id": "set-poets-of-berlin-eau-de-parfum-3-x-10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Poets of Berlin Eau de Parfum 3 x 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "berlin poets",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    },
+    {
+     "id": "set-poets-of-berlin-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Poets Of Berlin Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "berlin poets",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-sparkling-jo-eau-de-parfum-3-x-10ml",
+   "absorbed": [
+    "set-sparkling-jo-eau-de-parfum-3x10-ml"
+   ],
+   "members": [
+    {
+     "id": "set-sparkling-jo-eau-de-parfum-3-x-10ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Sparkling Jo Eau de Parfum 3 x 10ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "jo sparkling",
+     "signature": "3x10fragrance",
+     "shops": [
+      "liberty-london"
+     ]
+    },
+    {
+     "id": "set-sparkling-jo-eau-de-parfum-3x10-ml",
+     "brand": "Vilhelm Parfumerie",
+     "name": "Sparkling Jo Eau de Parfum 3x10 ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "jo sparkling",
+     "signature": "3x10fragrance",
+     "shops": [
+      "nicchia-luxury-uk"
      ]
     }
    ]
@@ -13297,7 +13523,6 @@
      "scent": "drops green honey tea",
      "signature": "1x100body|1x100fragrance",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     },
@@ -14370,7 +14595,7 @@
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
     "two different barcodes: 3349668613953, 3349668656288",
-    "a shop lists more than one: beaute-boulevard, perfume-click"
+    "a shop lists more than one: perfume-click"
    ],
    "members": [
     {
@@ -14406,7 +14631,6 @@
      "scent": "paco phantom rabanne",
      "signature": "1x100fragrance|1x150deo",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -14596,18 +14820,6 @@
      "signature": "1x100body|1x4fragrance|1x80fragrance",
      "shops": [
       "p-eleven"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-fame-gift-set-80ml-edp-100ml-body-lotion-4ml-edp-80ml-edp",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Fame Gift Set 80ml EDP + 100ml Body Lotion + 4ml EDP 80ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "fame paco rabanne",
-     "signature": "1x100body|1x4fragrance|1x80fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -16508,37 +16720,6 @@
   },
   {
    "reasons": [
-    "price spread 1.53 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060523019496",
-     "brand": "Ted Baker",
-     "name": "Skinwear Limited Edition Gift Set 100ml EDT + 15ml EDT + 150ml Body Wash",
-     "concentration": "Eau de Toilette",
-     "ean": "5060523019496",
-     "scent": "edition limited skinwear",
-     "signature": "1x100fragrance|1x150wash|1x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ted-baker-skinwear-limited-edition-gift-set-100ml-edt-15ml-edt-150ml-body-wash",
-     "brand": "Ted Baker",
-     "name": "Skinwear Limited Edition Gift Set 100ml Edt + 15ml Edt + 150ml Body Wash",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "edition limited skinwear",
-     "signature": "1x100fragrance|1x150wash|1x15fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.64 is over 1.5"
    ],
    "members": [
@@ -16609,38 +16790,6 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 66667150, 66667151",
-    "a shop lists more than one: parfumdreams-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-66667150",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667150",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-66667151",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667151",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
      ]
     }
    ]
