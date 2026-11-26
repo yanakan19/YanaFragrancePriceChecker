@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-25T12:57:59.007Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-26T12:35:26.228Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -997,6 +997,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "angelschlesser|femme|edt": ["","https://www.angelschlesserparfums.com/product/femme-eau-de-toilette/"],
   "angelschlesser|immensepeony": ["","https://www.angelschlesserparfums.com/product/immense-peony/"],
   "angelschlesser|immensepeony|edt": ["","https://www.angelschlesserparfums.com/product/immense-peony/"],
+  "angelschlesser|intimatewhiteflowers": ["","https://www.angelschlesserparfums.com/product/intimate-white-flowers/"],
+  "angelschlesser|intimatewhiteflowers|edt": ["","https://www.angelschlesserparfums.com/product/intimate-white-flowers/"],
   "angelschlesser|mysteriousamber": ["","https://www.angelschlesserparfums.com/product/mysterious-amber/"],
   "angelschlesser|mysteriousamber|edp": ["","https://www.angelschlesserparfums.com/product/mysterious-amber/"],
   "angelschlesser|splendidorangeblossom": ["","https://www.angelschlesserparfums.com/product/splendid-orange-blossom/"],
@@ -1812,8 +1814,9 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "azzaro|pourhommenighttime|edt": ["","https://www.azzaro.com/azzaro-pour-homme-night-time"],
   "azzaro|pourhomme|edt": ["","https://www.azzaro.com/azzaro-pour-homme"],
   "azzaro|sport|edt": ["Azzaro/Azzaro-Sport-Eau-de-Toilette-73011",""],
-  "azzaro|themostwanted": ["","https://www.azzaro.com/azzaro-the-most-wanted"],
+  "azzaro|themostwanted": ["Azzaro/The-Most-Wanted-66826","https://www.azzaro.com/azzaro-the-most-wanted"],
   "azzaro|themostwantedintense|edt": ["","https://www.azzaro.com/azzaro-the-most-wanted-eau-de-toilette-intense"],
+  "azzaro|themostwanted|edp": ["Azzaro/The-Most-Wanted-66826","https://www.azzaro.com/azzaro-the-most-wanted"],
   "azzaro|themostwanted|parfum": ["Azzaro/The-Most-Wanted-Parfum-73664","https://www.azzaro.com/azzaro-the-most-wanted"],
   "azzaro|wanted": ["","https://www.azzaro.com/azzaro-wanted"],
   "azzaro|wantedbynight": ["Azzaro/Wanted-by-Night-49144","https://www.azzaro.com/en/fragrances/azzaro-wanted-by-night/eau-de-parfum"],
@@ -6247,6 +6250,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "mercedesbenz|manprivate": ["","https://parfums.mercedes-benz.com/products/man-private"],
   "mercedesbenz|manprivate|edp": ["","https://parfums.mercedes-benz.com/products/man-private"],
   "mercedesbenz|man|edt": ["","https://parfums.mercedes-benz.com/products/man"],
+  "mercedesbenz|mercedesbenzformen": ["","https://parfums.mercedes-benz.com/products/for-men"],
+  "mercedesbenz|mercedesbenzformen|edt": ["","https://parfums.mercedes-benz.com/products/for-men"],
   "mercedesbenz|mercedesbenzman": ["","https://parfums.mercedes-benz.com/products/man"],
   "mercedesbenz|mercedesbenzmanintense": ["","https://parfums.mercedes-benz.com/products/man-intense"],
   "mercedesbenz|mercedesbenzmanintense|edt": ["","https://parfums.mercedes-benz.com/products/man-intense"],
@@ -6370,6 +6375,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "montblanc|legendspirit|edt": ["Montblanc/Legend-Spirit-33443","https://www.montblanc.com/en-us/legend-spirit-eau-de-toilette-100-ml-MB115364.html"],
   "montblanc|legend|edp": ["Montblanc/Legend-Eau-de-Parfum-62583","https://www.montblanc.com/en-us/montblanc-legend-100-ml-MB127070.html"],
   "montblanc|legend|edt": ["Montblanc/Legend-11784","https://www.montblanc.com/en-us/montblanc-legend-100-ml-MB127070.html"],
+  "montblanc|montblanclegend": ["Montblanc/Legend-11784",""],
+  "montblanc|montblanclegend|edt": ["Montblanc/Legend-11784",""],
   "moschino|funny": ["Moschino/Moschino-Funny-1215",""],
   "moschino|funny|edt": ["Moschino/Moschino-Funny-1215",""],
   "moschino|toy2": ["Moschino/Toy-2-51589",""],
@@ -6643,6 +6650,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "parisbleu|aviatorlady|edp": ["","https://parisbleu.com/products/aviator-lady"],
   "parisbleu|bleuazur": ["","https://parisbleu.com/products/bleu-azur"],
   "parisbleu|bleuazur|edp": ["","https://parisbleu.com/products/bleu-azur"],
+  "parisbleu|chairmanlegacy": ["","https://parisbleu.com/products/chairman-legacy"],
+  "parisbleu|chairmanlegacy|parfum": ["","https://parisbleu.com/products/chairman-legacy"],
   "parisbleu|chateaunoir": ["","https://parisbleu.com/products/chateau-noir"],
   "parisbleu|chateaunoir|edp": ["","https://parisbleu.com/products/chateau-noir"],
   "parisbleu|frenchclubforher": ["","https://parisbleu.com/products/french-club-for-her"],
@@ -7573,8 +7582,12 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "risala|bluebombextreme|edp": ["","https://risala.ae/products/blue-bomb-extreme-eau-de-parfum"],
   "risala|candelicious|edp": ["","https://risala.ae/products/candelicious-eau-de-parfum"],
   "risala|ehsasjoy": ["","https://risala.ae/products/ehsas-joy"],
+  "risala|ehsasjoyperfume": ["","https://risala.ae/products/ehsas-joy"],
+  "risala|ehsasjoyperfume|edp": ["","https://risala.ae/products/ehsas-joy"],
   "risala|ehsasjoy|edp": ["","https://risala.ae/products/ehsas-joy"],
   "risala|ehsaslove": ["","https://risala.ae/products/ehsas-love"],
+  "risala|ehsasloveperfume": ["","https://risala.ae/products/ehsas-love"],
+  "risala|ehsasloveperfume|edp": ["","https://risala.ae/products/ehsas-love"],
   "risala|ehsaslove|edp": ["","https://risala.ae/products/ehsas-love"],
   "risala|florican": ["","https://risala.ae/products/florican"],
   "risala|florican|edp": ["","https://risala.ae/products/florican"],
