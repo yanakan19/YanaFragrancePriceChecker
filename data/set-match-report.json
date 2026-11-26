@@ -16817,38 +16817,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 66667150, 66667151",
-    "a shop lists more than one: parfumdreams-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-66667150",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667150",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-66667151",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667151",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.12 is over 1.5"
    ],
    "members": [
@@ -17678,6 +17646,37 @@
   },
   {
    "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-head-bliss-gift-set-edt-100ml-fragrance-mist-240ml",
+     "brand": "Head",
+     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "p-eleven"
+     ]
+    },
+    {
+     "id": "set-head-bliss-gift-set-edt-spray-100ml-fragrance-mist-240ml",
+     "brand": "Head",
+     "name": "Bliss Gift Set EDT Spray 100ml + Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.93 is over 1.5"
    ],
    "members": [
@@ -17701,6 +17700,37 @@
      "ean": null,
      "scent": "attitude fire motion",
      "signature": "3x50fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-head-motion-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Motion 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-head-motion-gift-set-edt-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
      "shops": [
       "p-eleven"
      ]
