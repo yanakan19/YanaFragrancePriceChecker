@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-25T21:22:43.586Z",
-  "seenAt": "2026-11-25T21:22:43.586Z",
+  "updatedAt": "2026-11-26T01:20:24.029Z",
+  "seenAt": "2026-11-26T01:20:24.029Z",
   "source": "live",
   "listings": [
     {
@@ -15101,7 +15101,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "You know you wanna get in on the Badalada with our limited-edition embroidered Badalada baseball cap.. . Made with lightweight cotton and featuring an adjustable strap, this hat protects from the sun while topping off any look.. Complete the moment with Body Badalada™ Lotion for all-day hydration in our iconic Cheirosa 62™ scent.. One size fits most: 57cm-60cm. Keep your hat clean with cold water and gentle soap. . .",
       "productType": "Merch",
