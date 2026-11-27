@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 390,
+ "folded": 392,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -1098,6 +1098,39 @@
    ]
   },
   {
+   "canonical": "set-ean-0679602689212",
+   "absorbed": [
+    "set-monotheme-zagara-gift-set-100ml-edt-100ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0679602689212",
+     "brand": "Monotheme",
+     "name": "Zagara Gift Set 100ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "0679602689212",
+     "scent": "zagara",
+     "signature": "1x100fragrance|1x100wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-monotheme-zagara-gift-set-100ml-edt-100ml-shower-gel",
+     "brand": "Monotheme",
+     "name": "Zagara Gift Set 100ml EDT + 100ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "zagara",
+     "signature": "1x100fragrance|1x100wash",
+     "shops": [
+      "beaute-boulevard",
+      "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-0679602793643",
    "absorbed": [
     "set-police-to-be-camouflage-gift-set-75ml-edt-100ml-shower-gel"
@@ -2144,6 +2177,39 @@
      "signature": "1x100fragrance|1x12.5fragrance",
      "shops": [
       "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3274872464094",
+   "absorbed": [
+    "set-kenzo-flower-by-kenzo-l-absolue-gift-set-100ml-edp-10ml-edp-75ml-body-lotion"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3274872464094",
+     "brand": "Kenzo",
+     "name": "Flower by Kenzo L'Absolue Gift Set 100ml EDP + 10ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": "3274872464094",
+     "scent": "absolue by flower kenzo l",
+     "signature": "1x100fragrance|1x10fragrance|1x75body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-kenzo-flower-by-kenzo-l-absolue-gift-set-100ml-edp-10ml-edp-75ml-body-lotion",
+     "brand": "Kenzo",
+     "name": "Flower by Kenzo L'Absolue Gift Set 100ml EDP + 10ml EDP + 75ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "absolue by flower kenzo l",
+     "signature": "1x100fragrance|1x10fragrance|1x75body",
+     "shops": [
+      "mybeauty-boutique",
+      "p-eleven"
      ]
     }
    ]
@@ -5190,38 +5256,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3616304974465",
-   "absorbed": [
-    "set-chloe-miniature-women-s-perfume-gift-set-4-x-5ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616304974465",
-     "brand": "Chloé",
-     "name": "Chloe Miniatures Women's Perfume Gift Set 4 x 5ml",
-     "concentration": "Not stated",
-     "ean": "3616304974465",
-     "scent": "chloe",
-     "signature": "4x5fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-chloe-miniature-women-s-perfume-gift-set-4-x-5ml",
-     "brand": "Chloé",
-     "name": "Chloe Miniature Women's Perfume Gift Set 4 x 5ml",
-     "concentration": "Not stated",
-     "ean": null,
-     "scent": "chloe",
-     "signature": "4x5fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3616304974489",
    "absorbed": [
     "set-chloe-20ml-eau-de-parfum-chloe-nomade-20ml-eau-de-parfum-gift-set-for-her",
@@ -5917,6 +5951,7 @@
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
       "paco-perfumerias-uk",
+      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -6523,6 +6558,38 @@
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-4011700747771",
+   "absorbed": [
+    "set-maurer-wirtz-4711-acqua-colonia-lychee-white-mint-gift-set-50ml-edc-75ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-4011700747771",
+     "brand": "Mäurer & Wirtz",
+     "name": "4711 Acqua Colonia Lychee & White Mint Gift Set 50ml EDC + 75ml Shower Gel",
+     "concentration": "Eau de Cologne",
+     "ean": "4011700747771",
+     "scent": "4711 acqua colonia lychee mint white",
+     "signature": "1x50fragrance|1x75wash",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-maurer-wirtz-4711-acqua-colonia-lychee-white-mint-gift-set-50ml-edc-75ml-shower-gel",
+     "brand": "Mäurer & Wirtz",
+     "name": "4711 Acqua Colonia Lychee & White Mint Gift Set 50ml EDC + 75ml Shower Gel",
+     "concentration": "Eau de Cologne",
+     "ean": null,
+     "scent": "4711 acqua colonia lychee mint white",
+     "signature": "1x50fragrance|1x75wash",
+     "shops": [
+      "mybeauty-boutique"
      ]
     }
    ]
@@ -9140,6 +9207,38 @@
    ]
   },
   {
+   "canonical": "set-ean-8011003900152",
+   "absorbed": [
+    "set-moschino-toy-boy-gift-set-100ml-edp-100ml-bath-shower-gel-10ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003900152",
+     "brand": "Moschino",
+     "name": "Toy Boy Gift Set 100ml EDP + 100ml Bath & Shower Gel + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003900152",
+     "scent": "boy toy",
+     "signature": "1x10fragrance|1x?wash|2x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-moschino-toy-boy-gift-set-100ml-edp-100ml-bath-shower-gel-10ml-edp",
+     "brand": "Moschino",
+     "name": "Toy Boy Gift Set 100ml EDP + 100ml Bath & Shower Gel + 10ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "boy toy",
+     "signature": "1x10fragrance|1x?wash|2x100fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-8011003900169",
    "absorbed": [
     "set-moschino-toy-2-bubble-gum-gift-set-50ml-edt-50ml-body-lotion-50ml-shower-gel"
@@ -10278,64 +10377,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8411061101841",
-   "absorbed": [
-    "set-carolina-herrera-212-men-nyc-gift-set-edt-100ml-aftershave-balm-100ml",
-    "set-carolina-herrera-212-nyc-100ml-eau-de-toilette-gift-set-10ml-eau-de-toilette-100ml-body-lotion-for-her",
-    "set-carolina-herrera-212-nyc-men-gift-set-100ml-edt-100ml-aftershave-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8411061101841",
-     "brand": "Carolina Herrera",
-     "name": "212 NYC Men Gift Set 100ml EDT + 100ml Aftershave Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "8411061101841",
-     "scent": "212 nyc",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-212-men-nyc-gift-set-edt-100ml-aftershave-balm-100ml",
-     "brand": "Carolina Herrera",
-     "name": "212 Men NYC Gift Set EDT 100ml + Aftershave Balm 100ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "212 nyc",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-212-nyc-100ml-eau-de-toilette-gift-set-10ml-eau-de-toilette-100ml-body-lotion-for-her",
-     "brand": "Carolina Herrera",
-     "name": "212 NYC 100ml Eau de Toilette Gift Set 10ml Eau de Toilette, 100ml Body Lotion for Her",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "212 nyc",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "scent-warehouse"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-212-nyc-men-gift-set-100ml-edt-100ml-aftershave-gel",
-     "brand": "Carolina Herrera",
-     "name": "212 NYC Men Gift Set 100ml EDT + 100ml Aftershave Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "212 nyc",
-     "signature": "1x100body|1x100fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8411061101957",
    "absorbed": [
     "set-carolina-herrera-bad-boy-2-piece-gift-set-eau-de-toilette-100ml-body-wash-100ml"
@@ -10394,6 +10435,64 @@
      "ean": null,
      "scent": "bomba la",
      "signature": "1x10fragrance|1x80fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8411061122471",
+   "absorbed": [
+    "set-carolina-herrera-212-men-nyc-gift-set-edt-100ml-aftershave-balm-100ml",
+    "set-carolina-herrera-212-nyc-100ml-eau-de-toilette-gift-set-10ml-eau-de-toilette-100ml-body-lotion-for-her",
+    "set-carolina-herrera-212-nyc-men-gift-set-100ml-edt-100ml-aftershave-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8411061122471",
+     "brand": "Carolina Herrera",
+     "name": "212 NYC Men Gift Set 100ml EDT + 100ml Aftershave Gel",
+     "concentration": "Eau de Toilette",
+     "ean": "8411061122471",
+     "scent": "212 nyc",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-carolina-herrera-212-men-nyc-gift-set-edt-100ml-aftershave-balm-100ml",
+     "brand": "Carolina Herrera",
+     "name": "212 Men NYC Gift Set EDT 100ml + Aftershave Balm 100ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "212 nyc",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-carolina-herrera-212-nyc-100ml-eau-de-toilette-gift-set-10ml-eau-de-toilette-100ml-body-lotion-for-her",
+     "brand": "Carolina Herrera",
+     "name": "212 NYC 100ml Eau de Toilette Gift Set 10ml Eau de Toilette, 100ml Body Lotion for Her",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "212 nyc",
+     "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "scent-warehouse"
+     ]
+    },
+    {
+     "id": "set-carolina-herrera-212-nyc-men-gift-set-100ml-edt-100ml-aftershave-gel",
+     "brand": "Carolina Herrera",
+     "name": "212 NYC Men Gift Set 100ml EDT + 100ml Aftershave Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "212 nyc",
+     "signature": "1x100body|1x100fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -10800,39 +10899,6 @@
      "ean": null,
      "scent": "all christmas edition le male over",
      "signature": "1x75fragrance|1x75wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8435415112963",
-   "absorbed": [
-    "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-6ml-edt"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8435415112963",
-     "brand": "Jean Paul Gaultier",
-     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "8435415112963",
-     "scent": "classique",
-     "signature": "1x50fragrance|1x6fragrance|1x75body",
-     "shops": [
-      "perfume-click",
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-jean-paul-gaultier-classique-gift-set-50ml-edt-75ml-body-lotion-6ml-edt",
-     "brand": "Jean Paul Gaultier",
-     "name": "Classique Gift Set 50ml EDT + 75ml Body Lotion + 6ml EDT",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "classique",
-     "signature": "1x50fragrance|1x6fragrance|1x75body",
      "shops": [
       "mybeauty-boutique"
      ]
@@ -12711,6 +12777,50 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3616304974465, 3616305270559",
+    "a shop lists more than one: perfume-direct"
+   ],
+   "members": [
+    {
+     "id": "set-chloe-miniature-women-s-perfume-gift-set-4-x-5ml",
+     "brand": "Chloé",
+     "name": "Chloe Miniature Women's Perfume Gift Set 4 x 5ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "chloe",
+     "signature": "4x5fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-ean-3616304974465",
+     "brand": "Chloé",
+     "name": "Chloe Miniatures Women's Perfume Gift Set 4 x 5ml",
+     "concentration": "Not stated",
+     "ean": "3616304974465",
+     "scent": "chloe",
+     "signature": "4x5fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3616305270559",
+     "brand": "Chloé",
+     "name": "Chloe Miniatures Eau de Parfum Miniatures Gift Set (4 x 5ml)",
+     "concentration": "Eau de Parfum",
+     "ean": "3616305270559",
+     "scent": "chloe",
+     "signature": "4x5fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.52 is over 1.5"
    ],
    "members": [
@@ -13665,50 +13775,6 @@
    ],
    "members": [
     {
-     "id": "set-ean-0810103654273",
-     "brand": "Head",
-     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0810103654273",
-     "scent": "motion",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-head-motion-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
-     "brand": "Head",
-     "name": "Motion 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "motion",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-head-motion-gift-set-edt-100ml-deodorant-spray-200ml",
-     "brand": "Head",
-     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "motion",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "beaute-boulevard",
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 2.08 is over 1.5"
-   ],
-   "members": [
-    {
      "id": "set-ean-0810103654280",
      "brand": "Head",
      "name": "Fire Gift Set: EDT 100ml - Deodorant Spray 200ml",
@@ -13774,50 +13840,6 @@
      "signature": "3x50fragrance",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 2.08 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0810103654631",
-     "brand": "Head",
-     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0810103654631",
-     "scent": "bliss",
-     "signature": "1x100fragrance|1x240body",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-head-bliss-gift-set-edt-100ml-fragrance-mist-240ml",
-     "brand": "Head",
-     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bliss",
-     "signature": "1x100fragrance|1x240body",
-     "shops": [
-      "beaute-boulevard",
-      "p-eleven"
-     ]
-    },
-    {
-     "id": "set-head-bliss-gift-set-edt-spray-100ml-fragrance-mist-240ml",
-     "brand": "Head",
-     "name": "Bliss Gift Set EDT Spray 100ml + Fragrance Mist 240ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bliss",
-     "signature": "1x100fragrance|1x240body",
-     "shops": [
-      "the-beauty-store-uk"
      ]
     }
    ]
@@ -15023,7 +15045,7 @@
   },
   {
    "reasons": [
-    "price spread 1.87 is over 1.5"
+    "price spread 1.83 is over 1.5"
    ],
    "members": [
     {
@@ -15507,13 +15529,12 @@
     {
      "id": "set-ean-3423222118495",
      "brand": "Issey Miyake",
-     "name": "Le Sel D'Issey 100ml Eau de Toilette Set",
+     "name": "Le Sel D'Issey Eau de Toilette Men's Aftershave Gift Set (100ml + 50ml Shower Gel + 10ml)",
      "concentration": "Eau de Toilette",
      "ean": "3423222118495",
      "scent": "d issey le sel",
      "signature": "1x100fragrance|1x10?|1x50wash",
      "shops": [
-      "fragrance-click",
       "perfume-direct"
      ]
     },
@@ -15589,7 +15610,7 @@
   },
   {
    "reasons": [
-    "price spread 1.70 is over 1.5"
+    "price spread 1.59 is over 1.5"
    ],
    "members": [
     {
@@ -16604,37 +16625,6 @@
      "signature": "1x100fragrance|1x15fragrance",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.51 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-4011700747771",
-     "brand": "Mäurer & Wirtz",
-     "name": "4711 Acqua Colonia Lychee & White Mint Gift Set 50ml EDC + 75ml Shower Gel",
-     "concentration": "Eau de Cologne",
-     "ean": "4011700747771",
-     "scent": "4711 acqua colonia lychee mint white",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-maurer-wirtz-4711-acqua-colonia-lychee-white-mint-gift-set-50ml-edc-75ml-shower-gel",
-     "brand": "Mäurer & Wirtz",
-     "name": "4711 Acqua Colonia Lychee & White Mint Gift Set 50ml EDC + 75ml Shower Gel",
-     "concentration": "Eau de Cologne",
-     "ean": null,
-     "scent": "4711 acqua colonia lychee mint white",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "mybeauty-boutique"
      ]
     }
    ]
@@ -17666,6 +17656,38 @@
   },
   {
    "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-head-bliss-gift-set-edt-100ml-fragrance-mist-240ml",
+     "brand": "Head",
+     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "beaute-boulevard",
+      "p-eleven"
+     ]
+    },
+    {
+     "id": "set-head-bliss-gift-set-edt-spray-100ml-fragrance-mist-240ml",
+     "brand": "Head",
+     "name": "Bliss Gift Set EDT Spray 100ml + Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "price spread 1.93 is over 1.5"
    ],
    "members": [
@@ -17690,6 +17712,38 @@
      "scent": "attitude fire motion",
      "signature": "3x50fragrance",
      "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-head-motion-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Motion 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-head-motion-gift-set-edt-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
