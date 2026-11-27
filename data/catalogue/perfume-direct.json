@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-27T00:15:07.726Z",
-  "seenAt": "2026-11-27T00:15:07.726Z",
+  "updatedAt": "2026-11-27T04:09:53.754Z",
+  "seenAt": "2026-11-27T04:09:53.754Z",
   "source": "live",
   "listings": [
     {
@@ -18951,7 +18951,7 @@
       "priceGbp": 6.49,
       "wasPriceGbp": 6.8,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "About The Product: . The Ordinary Salicylic Acid 2% Anhydrous Solution is a lightweight, oil-based serum designed to target blemishes, congestion, and uneven texture. Its 2% salicylic acid gently exfoliates inside the pores, helping to prevent breakouts while improving overall skin clarity, without over-drying. . . Key Ingredients & Their Benefits: . - Salicylic Acid 2% - Exfoliates inside pores to reduce blemishes and congestion. . - Anhydrous Base (oil-based) - Minimises irritation and dryness while delivering active ingredients efficiently. . . Perfect For: . Individuals prone to breakouts, clogged pores, or uneven skin texture, especially for oily or combination skin types seeking gentle, targeted exfoliation. . . About The Ordinary: . The Ordinary is a globally loved skincare brand known for its transparency, efficacy, and affordability. Powered by clinical science and active ingredients, it cuts through the noise with formulas that work - no frills, no fluff. Whether you’re a skincare expert or just starting out, The Ordinary offers high-performance products that deliver real results without the luxury price tag. . . How to Use: . 1. Wash your face and pat dry. . 2. Apply a few drops onto a cotton pad or fingertips. . 3: Smooth over affected areas, avoiding eyes and lips. . 4. Let the serum fully absorb before adding other products. .",
       "productType": "Skin Care",
@@ -103534,7 +103534,7 @@
       "priceGbp": 45.99,
       "wasPriceGbp": 85.8,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Jimmy Choo's first fragrance for men, launched in 2014. Modern and fresh, with a woody aromatic fougère. MAN embodies originality, style, sophistication and confidence. The Jimmy Choo Man aftershave bottle is inspired by an old flask, finished with brushed matt silver, with embossed crocodile skin packaging. Fragrance Type: Sweet . Fragrance Notes: - Top notes: Lavender, Mandarin spray - Middle notes: Pink Pepper, Geranium mixed with Pineapple Leaf - Base notes: Patchouli, Suede, Amber Woods . Launched: 2014.",
       "productType": "Men's Aftershave",

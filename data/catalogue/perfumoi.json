@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-27T00:15:07.726Z",
-  "seenAt": "2026-11-27T00:15:07.726Z",
+  "updatedAt": "2026-11-27T04:09:53.754Z",
+  "seenAt": "2026-11-27T04:09:53.754Z",
   "source": "live",
   "listings": [
     {
@@ -9881,7 +9881,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Paco Rabanne Lady Million Eau de Parfum is a floral fragrance created for customers who enjoy a soft and elegant scent. It opens with fresh citrus and berry notes, develops into a balanced heart of fresh floral accords, and settles into a smooth lasting base with subtle incense undertones. Suitable for everyday and special occasions, this fragrance is a strong choice for anyone looking for a scent that feels refined and feminine.. Why customers choose it . Well-suited for everyday wear and special occasions. A great option for gifting or daily wear. Designed for customers who prefer floral and fresh scents.",
       "productType": "Eau de Parfum",

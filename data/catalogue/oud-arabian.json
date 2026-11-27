@@ -1,7 +1,7 @@
 {
   "retailerId": "oud-arabian",
-  "updatedAt": "2026-11-27T00:15:07.726Z",
-  "seenAt": "2026-11-27T00:15:07.726Z",
+  "updatedAt": "2026-11-27T04:09:53.754Z",
+  "seenAt": "2026-11-27T04:09:53.754Z",
   "source": "live",
   "listings": [
     {
@@ -843,8 +843,8 @@
       "inStock": true,
       "sectionId": "sitemap",
       "rating": {
-        "value": 0,
-        "count": 0
+        "value": 5,
+        "count": 1
       },
       "retailerId": "oud-arabian",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
