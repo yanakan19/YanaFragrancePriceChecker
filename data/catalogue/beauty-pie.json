@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-26T20:42:56.803Z",
-  "seenAt": "2026-11-26T20:42:56.803Z",
+  "updatedAt": "2026-11-27T00:15:07.726Z",
+  "seenAt": "2026-11-27T00:15:07.726Z",
   "source": "live",
   "listings": [
     {
@@ -2544,7 +2544,7 @@
       "priceGbp": 17.5,
       "wasPriceGbp": 35,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A rich, replenishing conditioner to restore nourishment and shine to parched, thick and coarse hair. With a Plant Keratin blend to strengthen, Hyaluronic Acid to hydrate, and SiloSoft to smooth, soften and add shine. Protects against damage from styling. Hair looks healthier and more youthful from the very first use. Cruelty-free. Vegan.. In a supersize 450ml jar. Pairs perfectly with the matching shampoo..",
       "productType": "Haircare",

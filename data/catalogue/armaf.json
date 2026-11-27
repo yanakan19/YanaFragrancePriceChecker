@@ -1,7 +1,7 @@
 {
   "retailerId": "armaf",
-  "updatedAt": "2026-11-26T20:43:09.436Z",
-  "seenAt": "2026-11-26T20:43:09.436Z",
+  "updatedAt": "2026-11-27T00:14:45.625Z",
+  "seenAt": "2026-11-27T00:14:45.625Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 32.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "Step into a world of effortless radiance with Odyssey Pink Pop the bold, energetic addition to Armaf’s iconic Odyssey Collection. Crafted for the modern woman who embraces confidence and charm, this luminous Fruity-Floral Eau de Parfum captures the essence of pure joy in a bottle. . From the very first spritz, Odyssey Pink Pop dazzles the senses with an effervescent medley of crisp mandarin, juicy peach, sweet strawberry, raspberry, pineapple, and fresh apple. As the sparkling opening settles, it unveils a lush, sun-warmed heart where velvety rose, jasmine, magnolia, and delicate orange blossom intertwine with creamy coconut and golden amber. The fragrance lingers on the skin with an irresistible, sensual trail of smooth Madagascar vanilla, warm sandalwood, and soft musk—leaving a lasting impression wherever the day or night takes you. . Fragrance Notes. Top Notes: Mandarin, Peach, Raspberry, Strawberry, Pineapple, Apple . . Heart Notes: Orange Blossom, Jasmine, Magnolia, Rose, Coconut, Amber . . Base Notes: Vanilla, Sandalwood, Musk, Amber . .",
       "productType": "Unisex",

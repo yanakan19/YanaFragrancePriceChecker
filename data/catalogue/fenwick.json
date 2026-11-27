@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-26T20:42:56.803Z",
-  "seenAt": "2026-11-26T20:42:56.803Z",
+  "updatedAt": "2026-11-27T00:15:07.726Z",
+  "seenAt": "2026-11-27T00:15:07.726Z",
   "source": "live",
   "listings": [
     {
@@ -12710,7 +12710,7 @@
       "priceGbp": 174.25,
       "wasPriceGbp": 205,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Discover Maison Crivelli Tubereuse Astrale Extrait De Parfum, a concentrated unisex fragrance with a bold and sophisticated character. Expressive and refined, it brings luxurious depth and contemporary elegance to the skin..",
       "productType": "Unisex Fragrance",

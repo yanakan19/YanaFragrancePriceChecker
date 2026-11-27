@@ -1,7 +1,7 @@
 {
   "retailerId": "bujairami",
-  "updatedAt": "2026-11-26T20:46:46.849Z",
-  "seenAt": "2026-11-26T20:46:46.849Z",
+  "updatedAt": "2026-11-27T00:16:32.137Z",
+  "seenAt": "2026-11-27T00:16:32.137Z",
   "source": "live",
   "listings": [
     {
@@ -612,7 +612,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A vibrant woody fragrance opening with sparkling grapefruit, fresh bergamot, and spicy ginger. The heart blends aromatic Akigalawood and cedarwood with juicy lychee, while amber woods, vetiver, tonka bean, and patchouli create a warm, smooth, and sophisticated finish.. Fragrance Notes . Top: Grapefruit, Bergamot, Ginger. Heart: Akigalawood, Cedarwood, Lychee. Base: Amber Woods, Vetiver, Tonka Bean, Patchouli. Profile: Citrus • Woody • Spicy • Fruity • Warm.",
       "productType": null,

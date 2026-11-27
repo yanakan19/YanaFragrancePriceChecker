@@ -1,7 +1,7 @@
 {
   "retailerId": "fragrancehub",
-  "updatedAt": "2026-11-26T20:42:56.803Z",
-  "seenAt": "2026-11-26T20:42:56.803Z",
+  "updatedAt": "2026-11-27T00:15:07.726Z",
+  "seenAt": "2026-11-27T00:15:07.726Z",
   "source": "live",
   "listings": [
     {
@@ -7259,7 +7259,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "This fragrance opens with a burst of Pink Pepper from Madagascar, sunlit Orange Flower, and creamy Coconut, setting a radiant tone. The heart is an irresistible blend of Indian Jasmine Sambac, Tuberose, and indulgent notes of Cappuccino and Caramel, bringing warmth and gourmand depth. In the dry-down, Vanilla Bourbon Absolute, Tonka Bean Absolute, Sandalwood, and Musk come together in a sensual embrace, leaving a smooth, lingering trail. Boldly feminine, this scent is a floral gourmand fantasy-creamy, spicy, sweet, and unforgettable.. Fragrance Family:. Floral, Gourmand, Musky. Top Note: . Pink, Pepper, Madagascar, Orange. Middle Note: . Jasmine, Sambac India, Cappuccino,Caramel, Tuberose. Base Note: . Vanilla Bourbon Absolute, Tonka Bean Absolute, Sandalwood, Musk.",
       "productType": null,
@@ -9280,7 +9280,7 @@
       "rawBrand": "swiss arabian",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/sacasablanca1.jpg?v=1753350626",
-      "priceGbp": 69.99,
+      "priceGbp": 59.99,
       "wasPriceGbp": 74.99,
       "promoEndsAt": null,
       "inStock": true,
@@ -10246,7 +10246,7 @@
       "rawBrand": "Lattafa",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0804/7365/3577/files/Khamrah-Dukhan-Perfume-Eau-De-Perfume-100ml-by-Lattafa-Perfumes.jpg?v=1745585610",
-      "priceGbp": 22.9,
+      "priceGbp": 24.5,
       "wasPriceGbp": 44.99,
       "promoEndsAt": null,
       "inStock": true,
