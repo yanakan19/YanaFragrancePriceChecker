@@ -1,7 +1,7 @@
 {
   "retailerId": "gulf-orchid",
-  "updatedAt": "2026-11-27T04:09:46.154Z",
-  "seenAt": "2026-11-27T04:09:46.154Z",
+  "updatedAt": "2026-11-27T08:14:05.778Z",
+  "seenAt": "2026-11-27T08:14:05.778Z",
   "source": "live",
   "listings": [
     {
@@ -201,7 +201,7 @@
       "description": "Discover the essence of distinction with the Icon Collection, an exclusive selection of captivating fragrances inspired by the landmarks, heritage, and extraordinary spirit of Dubai. Each scent tells its own story, celebrating the vision, ambition, and character behind the city’s most remarkable icons. From vibrant citrus and tropical fruits to warm spices, delicate florals, rich woods, sensual musk, and luxurious oriental accords, every fragrance reveals a unique expression of individuality and sophistication. Explore a collection where modern innovation meets timeless heritage, and discover the fragrance that captures your personality. Seven fragrances. Seven stories. One iconic collection. Icon Collection – Wear Your Legacy. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 15.28,
+        "amount": 15.27,
         "currency": "AED"
       },
       "retailerId": "gulf-orchid",
@@ -227,7 +227,7 @@
       "description": "Discover the essence of royalty with the Royal Collection, an exclusive selection of distinguished fragrances crafted to embody elegance, strength, and timeless sophistication. Each scent tells its own story, inspired by the grandeur of royal heritage and the confidence of those who lead. From refreshing citrus and delicate florals to rich woods, warm spices, sensual musk, and captivating oriental accords, every fragrance reveals a unique expression of character and refinement. Explore a world where tradition meets modern luxury, and find the fragrance that reflects your individuality. Nine fragrances. Nine expressions of royalty. One extraordinary collection. Royal Collection – Wear Your Majesty. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 15.28,
+        "amount": 15.27,
         "currency": "AED"
       },
       "retailerId": "gulf-orchid",
@@ -646,7 +646,7 @@
         "amount": 32.08,
         "currency": "AED"
       },
-      "nativeWasPrice": 45.83,
+      "nativeWasPrice": 45.82,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -939,7 +939,7 @@
       "description": "Belle - Beautiful, and aware of it. . Cherry and red fruits open glossy and ripe, with pear softening the edge. Rose and jasmine sambac absolute come up underneath, full and slightly heady, the part that makes people turn. Then it darkens: tonka, ambroxan and a trace of oakmoss give it the weight that stops it ever reading sweet.. Beauty with something underneath it. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 27.5,
+        "amount": 27.49,
         "currency": "AED"
       },
       "nativeWasPrice": 30.55,
@@ -966,7 +966,7 @@
       "description": "Amour - Warm, close, hard to leave. . Coconut, mango and passionfruit open it soft and tropical, sweet without the sugar. Jasmine and orange blossom bring the flowers through the middle, and sandalwood keeps them grounded. Cashmere, Peru balsam and vanilla finish it creamy and warm.. Worn close, and remembered by someone else. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 27.5,
+        "amount": 27.49,
         "currency": "AED"
       },
       "nativeWasPrice": 30.55,
@@ -993,7 +993,7 @@
       "description": "Chic - Effortless, and it shows. . Linden and broom open green and golden, with jasmine cutting clean through the middle of them. Orange blossom and heliotrope bring the powder, soft without turning sweet, while vetiver keeps it dry underneath. Ambergris, musk and cedar close it quietly, sitting right against the skin.. Nothing overdone. That is the whole point. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 27.5,
+        "amount": 27.49,
         "currency": "AED"
       },
       "nativeWasPrice": 30.55,
@@ -1047,10 +1047,10 @@
       "description": "The Signature Duo — the two everyone asks about. . . Two sides of the same house. Vanilla Voyage is warmth you can wear every day: sweet, buttery, creamy, the one that makes people stop and ask. Belgravia is the other half, cool and composed, white facades and quiet grandeur, elegance that never needed to prove itself.. One for closeness, one for presence. Together, a signature for any room you walk into.. Comes with our Musk Tahara Vanilla oil, free with every duo.. . Includes . Vanilla Voyage 100ml Eau de Parfum . Belgravia 100ml Eau de Parfum . Musk Tahara Vanilla oil — free gift. . Vanilla Voyage 100ml Eau de Parfum . Sweet, buttery vanilla with milk, honey and caramel warmth. . Belgravia 100ml Eau de Parfum . Family: Citrusy Woody Musk. Top Notes: Bergamot, Blackcurrant, Lemon. Heart Notes: Lily of the Valley, Freesia, Sandalwood, Caramel. Base Notes: Vetiver, Cedarwood, Moss, Musk.",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 91.1,
+        "amount": 91.09,
         "currency": "AED"
       },
-      "nativeWasPrice": 116.65,
+      "nativeWasPrice": 116.64,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-28T01:53:32.452Z",
       "status": "active",
@@ -1104,7 +1104,7 @@
         "amount": 10.69,
         "currency": "AED"
       },
-      "nativeWasPrice": 15.28,
+      "nativeWasPrice": 15.27,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
       "status": "active",
@@ -1131,7 +1131,7 @@
         "amount": 10.69,
         "currency": "AED"
       },
-      "nativeWasPrice": 15.28,
+      "nativeWasPrice": 15.27,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
       "status": "active",
@@ -1158,7 +1158,7 @@
         "amount": 10.69,
         "currency": "AED"
       },
-      "nativeWasPrice": 15.28,
+      "nativeWasPrice": 15.27,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
       "status": "active",
@@ -1185,7 +1185,7 @@
         "amount": 10.69,
         "currency": "AED"
       },
-      "nativeWasPrice": 15.28,
+      "nativeWasPrice": 15.27,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
       "status": "active",
@@ -1212,7 +1212,7 @@
         "amount": 10.69,
         "currency": "AED"
       },
-      "nativeWasPrice": 15.28,
+      "nativeWasPrice": 15.27,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
       "status": "active",
@@ -1236,7 +1236,7 @@
       "description": "Clean, comforting, and quietly addictive, Mysterious Tahara is all about the beauty of soft musk. Gentle yet memorable, it leaves behind a fresh, silky scent that feels pure, elegant, and effortlessly luxurious from morning until night.. Pure softness, made unforgettable.. Gift Set Includes:. 60ml Eau de Parfum. 12ml Perfume Oil. 250ml Body Mist.",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 40.72,
+        "amount": 40.71,
         "currency": "AED"
       },
       "nativeWasPrice": 51.1,
@@ -1263,7 +1263,7 @@
       "description": "As light as a cloud and as sweet as your favorite fairground treat, Cotton Candy is playful, comforting, and impossible to forget. Fluffy cotton candy melts into delicate florals before soft musk, creamy milk, and rich caramel leave behind a dreamy, powdery trail that feels irresistibly soft.. A little sweetness, carried in every breeze.. Gift Set Includes:. 60ml Eau de Parfum. 12ml Perfume Oil. 250ml Body Mist .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 40.72,
+        "amount": 40.71,
         "currency": "AED"
       },
       "nativeWasPrice": 51.1,
@@ -1290,7 +1290,7 @@
       "description": "Like golden vanilla wrapped in soft musk and delicate rose, Angel Musk is a fragrance that feels warm, luxurious, and effortlessly elegant. Sweet dry fruits and aromatic davana open with a gentle sparkle before unfolding into creamy sandalwood and velvety rose. The comforting blend of tonka bean, vanilla, and musk lingers beautifully on the skin, creating a scent that's both cozy and captivating.. A fragrance that surrounds you in pure elegance.. Gift Set Includes:. 60ml Eau de Parfum. 12ml Perfume Oil. 250ml Body Mist.",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 40.72,
+        "amount": 40.71,
         "currency": "AED"
       },
       "nativeWasPrice": 51.1,
@@ -1320,7 +1320,7 @@
         "amount": 10.69,
         "currency": "AED"
       },
-      "nativeWasPrice": 15.28,
+      "nativeWasPrice": 15.27,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-09-02T10:36:03.129Z",
       "status": "active",
@@ -1344,7 +1344,7 @@
       "description": "Like a drizzle of warm caramel over melting chocolate, Toffee is pure indulgence—rich, creamy, and irresistibly comforting. Fruity chocolate melts into smooth milk and caramel before soft musk, vanilla, and warm amber create a deliciously cozy finish you'll want to wear every day.. A fragrance so soft, it feels like a warm hug.. Gift Set Includes:. 60ml Eau de Parfum. 12ml Perfume Oil. 250ml Body Mist.",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 40.72,
+        "amount": 40.71,
         "currency": "AED"
       },
       "nativeWasPrice": 51.1,
@@ -1371,7 +1371,7 @@
       "description": "Rich, creamy, and delightfully comforting, Pistachio wraps the irresistible aroma of roasted pistachios and warm milk in soft musk and smooth vanilla. Creamy sandalwood and delicate rose add elegance, creating a fragrance that's both indulgent and sophisticated.. A creamy delight you'll never want to leave behind.. Gift Set Includes:. 60ml Eau de Parfum. 12ml Perfume Oil. 250ml Body Mist.",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 40.72,
+        "amount": 40.71,
         "currency": "AED"
       },
       "nativeWasPrice": 51.1,
@@ -1398,7 +1398,7 @@
       "description": "Like a tropical escape captured in a bottle, Piña Colada blends juicy pineapple, creamy coconut, and sparkling mandarin into a refreshing burst of sunshine. Soft florals bloom at the heart before smooth vanilla and sensual musk create a warm, lingering finish that feels like endless summer.. A tropical paradise with every spray.. Gift Set Includes:. 60ml Eau de Parfum. 12ml Perfume Oil. 250ml Body Mist.",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 40.72,
+        "amount": 40.71,
         "currency": "AED"
       },
       "nativeWasPrice": 51.1,
@@ -1533,7 +1533,7 @@
       "description": "There are neighbourhoods in London that carry a different weight. Belgravia is one of them — white facades, quiet grandeur, the kind of elegance that has never needed to prove itself.. Bergamot opens with effortless brightness, blackcurrant adding a whisper of depth. Freesia and lily of the valley move through the heart — delicate but never fragile, refined without effort. Vetiver and musk close with quiet authority, the signature of someone who was never trying to impress you.. . Belgravia — Royalty doesn't announce itself. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 51.94,
+        "amount": 51.93,
         "currency": "AED"
       },
       "nativeWasPrice": 61.1,
@@ -2203,7 +2203,7 @@
       "description": "Sunlit freedom — a vibrant escape from desert glow to ocean breeze. . DUBAI : MIAMI bursts open with juicy pear, plum, and sparkling bergamot, touched by bright lemon freshness. At the heart, soft rose and lily of the valley meet a playful caramel note, adding warmth without losing its airy charm. The dry down blends white musk and creamy vanilla into a smooth, luminous finish — youthful, radiant, and endlessly uplifting.. From golden sands to neon sunsets. This is DUBAI : MIAMI. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 51.94,
+        "amount": 51.93,
         "currency": "AED"
       },
       "nativeWasPrice": 61.1,
@@ -2230,7 +2230,7 @@
       "description": "Where Dubai’s bold energy meets Milan’s timeless elegance. . DUBAI : MILANO opens with a luminous burst of bergamot and tropical fruits, softened by a silky touch that feels refined yet modern. The heart introduces smooth leather wrapped in cypress and violet leaf, adding depth and sophistication inspired by Italian style. As it settles, vanilla, musk, and warm labdanum create a sensual trail — polished, confident, and effortlessly luxurious.. A journey in contrast. This is DUBAI : MILANO. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 51.94,
+        "amount": 51.93,
         "currency": "AED"
       },
       "nativeWasPrice": 61.1,
@@ -2257,7 +2257,7 @@
       "description": "Modern heritage — where Dubai’s vibrance meets London’s quiet sophistication. . DUBAI : LONDON opens with aromatic lavender and pink pepper, lifted by a crisp citrus edge that feels fresh yet confident. A refined heart of orris, apricot, and hazelnut adds texture and elegance, before settling into a woody base of cedar, vetiver, and soft musk. Smooth, structured, and effortlessly stylish — a scent that moves between tradition and modernity.. Classic, with a contemporary pulse. This is DUBAI : LONDON. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 51.94,
+        "amount": 51.93,
         "currency": "AED"
       },
       "nativeWasPrice": 61.1,
@@ -2392,7 +2392,7 @@
       "description": "Runway Girl is effortless style in motion. It begins with a fresh burst of red fruits, mandarin, and pear—bright, playful, and perfectly balanced. The heart turns soft and creamy, where jasmine and lavender blend smoothly, adding a refined calm beneath the sparkle. In the base, ambergris, sugar, and vanilla settle gently on the skin, leaving a warm, elegant sweetness that feels modern and confident. Chic, composed, and naturally captivating—this is the scent of someone who turns every step into a statement..",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 55.55,
+        "amount": 55.54,
         "currency": "AED"
       },
       "nativeWasPrice": 69.43,
@@ -2419,7 +2419,7 @@
       "description": "Smokey Eyes is soft mystery with a polished edge. It opens with a cool blend of bergamot, red berries, and apple—fresh yet subtly seductive. The heart reveals smooth white florals, where jasmine, tuberose, and magnolia bloom quietly, never overpowering. As it dries down, cedarwood and cashmeran wrap the skin in warmth, finished with a touch of sugary vanilla that lingers like a secret. Elegant, magnetic, and effortlessly bold—this fragrance doesn’t chase attention, it draws it in..",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 55.55,
+        "amount": 55.54,
         "currency": "AED"
       },
       "nativeWasPrice": 69.43,
@@ -2446,7 +2446,7 @@
       "description": "Red Carpet is confidence wrapped in elegance. It opens with a bold blend of blueberry, bergamot, and plum—bright, juicy, and instantly attention-grabbing. The heart unfolds into a refined floral glow where rose and magnolia meet warm ambery tones. As it settles, caramel melts into musk, cedarwood, and moss, leaving a rich, unforgettable trail that feels powerful yet polished. Bold, glamorous, and made to be seen—this is a fragrance that doesn’t wait for the spotlight, it creates it..",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 55.55,
+        "amount": 55.54,
         "currency": "AED"
       },
       "nativeWasPrice": 69.43,
@@ -2530,7 +2530,7 @@
         "amount": 69.64,
         "currency": "AED"
       },
-      "nativeWasPrice": 106.93,
+      "nativeWasPrice": 106.92,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2611,7 +2611,7 @@
         "amount": 94.98,
         "currency": "AED"
       },
-      "nativeWasPrice": 127.76,
+      "nativeWasPrice": 127.75,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2635,7 +2635,7 @@
       "description": "Step into full winter mode with the Masculine Winter bundle — three powerhouse scents in one epic deal . Featuring Faris Al Arab , Exotic Oud , and Throne Eclipse , this set delivers bold, long-lasting, and luxurious fragrances that hit different in the cold. . What is here with in this winter? . Faris Al Arab eau de parfum . Exotic Oud eau de parfum . Throne Eclipse eau de parfum . Why pick one when you can have all three? Perfect for cold days, cozy nights, nights out, or anytime you want to leave a lasting impression.. Three scents. One bundle. Maximum winter energy. Big vibes. Best value. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 98.46,
+        "amount": 98.45,
         "currency": "AED"
       },
       "nativeWasPrice": 141.64,
@@ -2662,7 +2662,7 @@
       "description": "Say hello to the Vanilla Dream bundle — three best-selling vanilla fragrances in one dreamy deal . Featuring Vanilla Voyage, Vanilla Aura, and Vanilla Addiction , this set is all about creamy, sweet, and long-lasting vanilla vibes that never fail. here is your addiction in this . Vanilla Voyage eau de parfum . Tahara Vanilla eau de parfum . Vanilla Addiction eau de parfum . Perfect for layering, everyday wear, or gifting to someone who loves sweet, comforting scents. Three fragrances, one bundle, endless vanilla dreams. . 3 scents. 1 bundle. Maximum vanilla vibes. Best value. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 76.31,
+        "amount": 76.3,
         "currency": "AED"
       },
       "nativeWasPrice": 112.48,
@@ -2716,7 +2716,7 @@
       "description": "Where warmth turns into radiance. Vanilla Aura glows with citrus brightness before melting into ribbons of caramel and molten chocolate, resting on a veil of amber, sandalwood, and vanilla. Each note moves like light over silk — serene, golden, unforgettable. A fragrance of quiet strength and luminous grace. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 31.11,
+        "amount": 31.1,
         "currency": "AED"
       },
       "nativeWasPrice": 38.88,
@@ -2878,10 +2878,10 @@
       "description": "Al Qasr Gold — the golden crown of richness and allure. Spiced citrus and kumquat unfold into apricot, lavender, and juniper, settling in a deep base of amber, caramel, and vanilla. A luxurious, radiant fragrance that glows with sweet strength. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 24.75,
+        "amount": 24.74,
         "currency": "AED"
       },
-      "nativeWasPrice": 27.5,
+      "nativeWasPrice": 27.49,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2905,10 +2905,10 @@
       "description": "Al Qasr Silver — a palace of clarity and modern power. Apple and bergamot sharpen into ginger, spearmint, and vetiver, resting on cedarwood and musk. A cool, confident fragrance that wears like liquid strength. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 24.75,
+        "amount": 24.74,
         "currency": "AED"
       },
-      "nativeWasPrice": 27.5,
+      "nativeWasPrice": 27.49,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -2935,7 +2935,7 @@
         "amount": 22,
         "currency": "AED"
       },
-      "nativeWasPrice": 27.5,
+      "nativeWasPrice": 27.49,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3043,7 +3043,7 @@
         "amount": 22,
         "currency": "AED"
       },
-      "nativeWasPrice": 27.5,
+      "nativeWasPrice": 27.49,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3097,7 +3097,7 @@
         "amount": 20,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3121,7 +3121,7 @@
       "description": "🍬 Tutti Fruity Collection – A candy shop of scents in one set. Four playful perfumes — creamy, fruity, and oh-so addictive. From strawberry marshmallow clouds to tropical banana splits, silky coconut caramel, and rich vanilla indulgence, each fragrance is a sweet escape in a spritz.. Collect them, gift them, or switch them up to match your mood — because life’s better with a little extra sweetness. 💕 . 1. MARSHMALLOW . Family: Gourmand . Top Notes: Strawberry, Raspberry, Lemon . Heart Notes: Ambroxan, Orange Blossom, Whipped Cream . Base Notes: Musk, Marshmallow, Vanilla . 2. NAUGHTY VANILLA . Family: Gourmand . Top Notes: Almond, Honey, Bergamot . Heart Notes: Orange Blossom, Pistachio, Ice Cream . Base Notes: Vanilla, Amber, Tonka Bean . 3. COCO BLANCO . Family: Gourmand . Top Notes: Buttery, Coconut, Caramel . Heart Notes: Tonka, Honey, Jasmine . Base Notes: Musk, Vanilla, Ambery . 4. BANANA SPLIT . Family: Fruity Gourmand . Top Notes: Banana, Peach, Orange, Pineapple . Heart Notes: Lily of the Valley, Jasmine, Milk . Base Notes: Musk, Vanilla, Sandalwood, Caramel .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 118.04,
+        "amount": 118.03,
         "currency": "AED"
       },
       "nativeWasPrice": 138.86,
@@ -3232,7 +3232,7 @@
         "amount": 77.76,
         "currency": "AED"
       },
-      "nativeWasPrice": 97.21,
+      "nativeWasPrice": 97.2,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3259,7 +3259,7 @@
         "amount": 77.76,
         "currency": "AED"
       },
-      "nativeWasPrice": 97.21,
+      "nativeWasPrice": 97.2,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -3418,7 +3418,7 @@
       "description": "The golden city, bottled. . El Dorado is where elegance meets mystery — red fruits glazed in smoky incense, brightened with a hint of fennel. At its heart, jasmine and peach bloom over a soft layer of musk and sandalwood. This is not just a scent — it’s the aura of a woman who wears gold not for shine, but for strength. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 60.41,
+        "amount": 60.4,
         "currency": "AED"
       },
       "nativeWasPrice": 80.54,
@@ -3445,7 +3445,7 @@
       "description": "Power, bottled. . Named after thunder, Raa’d strikes with an unforgettable blend of coffee blossoms, saffron, and nutmeg. The storm builds with iris and lily of the valley before grounding itself in amber, musk, and creamy vanilla. Bold, addictive, and unlike anything else — this is the scent of presence, not noise. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 60.41,
+        "amount": 60.4,
         "currency": "AED"
       },
       "nativeWasPrice": 80.54,
@@ -3472,7 +3472,7 @@
       "description": "Fresh meets finesse. . A whisper of bergamot, a bite of ginger, and the crisp sweetness of pear — Illusion opens like a breeze through a sunlit morning. Orange blossom and jasmine glide through soft woods, grounded by amber and skin-warmed vanilla. Weightless, radiant, and perfectly unisex — this is the scent of quiet power and effortless presence. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 60.41,
+        "amount": 60.4,
         "currency": "AED"
       },
       "nativeWasPrice": 80.54,
@@ -3661,7 +3661,7 @@
       "description": "Baked. Bitten. Bottle d. Cookie, Candy, Baklava, We flip the sweet script — now it’s yours to bite. The Bite Collection is now yours. . Include - . 1. Baklava Bite . Family: Gourmand . Top Notes: Pistachio, Honey . Heart Notes: Cake, Peach, Milk . Base Notes: Tonka, Vanilla, Sandalwood, Cedarwood, Caramel . 2. Candy Bite . Family: Gourmand . Top Notes: Vanilla, Pear, Marshmallow . Heart Notes: Caramel, Jasmine, Apricot, Candy . Base Notes: Sugar Accord, Tonka Beans, Sandalwood . 3.Cookie Bite . Family: Gourmand . Top Notes: Butter Cookie . Heart Notes: Musk, Vanilla . Base Notes: Vanilla, Caramel, Amber .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 88.53,
+        "amount": 88.52,
         "currency": "AED"
       },
       "nativeWasPrice": 104.15,
@@ -4150,7 +4150,7 @@
         "amount": 77.76,
         "currency": "AED"
       },
-      "nativeWasPrice": 97.21,
+      "nativeWasPrice": 97.2,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4255,10 +4255,10 @@
       "description": "Soft. Sweet. Addictive. . This Eid, discover musk like never before—elevated with creamy vanilla, spun sugar, and sun-soaked tropical notes. Musk Moments is a feel-good trio designed to uplift, enchant, and linger. Perfect for gifting or layering through the season. . ✔ Buy 2, Get 1 Free — no code needed . ✔ Exclusive for Eid . ✔ Limited quantities available . Olfactive Family: Musky · Fruity · Sweet.",
       "productType": null,
       "nativePrice": {
-        "amount": 90.96,
+        "amount": 90.95,
         "currency": "AED"
       },
-      "nativeWasPrice": 124.98,
+      "nativeWasPrice": 124.97,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4285,7 +4285,7 @@
         "amount": 150.39,
         "currency": "AED"
       },
-      "nativeWasPrice": 158.31,
+      "nativeWasPrice": 158.3,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -4417,7 +4417,7 @@
       "description": "\"Lara\" is a captivating perfume that embodies the essence of floral, fruity, and gourmand notes. Crafted for those who appreciate a blend of elegance and sensuality, Lara is the perfect fragrance to elevate any occasion. Perfect for those who seek an elegant and irresistible fragrance. .",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 27.5,
+        "amount": 27.49,
         "currency": "AED"
       },
       "nativeWasPrice": 30.55,
@@ -4471,7 +4471,7 @@
       "description": "The pursuit of excellence, bottled. Perfection is the embodiment of refined masculinity—sharp citrus notes of bergamot and lemon cut through the air, met by the sophisticated calm of rosemary and lavender. Grounded in moss, sandalwood, and cedarwood, this fragrance is an ode to timeless appeal and effortless charisma..",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 21.39,
+        "amount": 21.38,
         "currency": "AED"
       },
       "nativeWasPrice": 30.55,
@@ -4798,7 +4798,7 @@
         "amount": 15,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5419,7 +5419,7 @@
         "amount": 108.87,
         "currency": "AED"
       },
-      "nativeWasPrice": 155.53,
+      "nativeWasPrice": 155.52,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5524,7 +5524,7 @@
       "description": "A fragrance of distinction. Monarch blends the rich warmth of cardamom, peach, and cinnamon, unfolding into a creamy heart of jasmine and milk. The dry-down? A noble fusion of heliotrope, patchouli, and musk—smooth, sophisticated, and utterly majestic. Fit for those born to lead..",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 45.83,
+        "amount": 45.82,
         "currency": "AED"
       },
       "nativeWasPrice": 61.1,
@@ -5551,7 +5551,7 @@
       "description": "A fragrance that wears the crown. Imperial reigns with a bold citrus opening of lemon and mandarin, leading to a heart of spiced cumin and nutmeg—regal, untamed, unforgettable. Anchored by cedarwood and moss, it leaves a trail as commanding as its name. This is power, bottled..",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 45.83,
+        "amount": 45.82,
         "currency": "AED"
       },
       "nativeWasPrice": 61.1,
@@ -5689,7 +5689,7 @@
         "amount": 16.25,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5716,7 +5716,7 @@
         "amount": 16.25,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5743,7 +5743,7 @@
         "amount": 16.25,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -5770,7 +5770,7 @@
         "amount": 16.25,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6202,7 +6202,7 @@
         "amount": 15,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6229,7 +6229,7 @@
         "amount": 21.25,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6283,7 +6283,7 @@
         "amount": 15,
         "currency": "AED"
       },
-      "nativeWasPrice": 25,
+      "nativeWasPrice": 24.99,
       "retailerId": "gulf-orchid",
       "firstSeenAt": "2026-08-05T11:07:50.051Z",
       "status": "active",
@@ -6685,7 +6685,7 @@
       "description": "Crown is an opulent masterpiece fragrance befitting royalty. Step into a world of grandeur and nobility to crown you with an unparalleled aura of majesty. Crown opens with a unique blend Pink Pepper and Bergamot, an aristocratic dance of spices and citrus that exudes power and authority. As the heart unfolds, a blooming bouquet of exquisite Rose, Freesia, and Heliotrope cascades like a regal tapestry of floral enchantment, while the base notes of Vanilla, intoxicating Tonka, and rich Musk form a majestic coronation, leaving an everlasting impression of your imperial presence. The harmonious interplay of these sumptuous accords envelops you in a luxurious embrace, bestowing upon you an air of regal indulgence. “Crown” belongs to the Aromatic Green olfactory family, embracing your rightful place as a true monarch of style and elegance.",
       "productType": "Perfumes",
       "nativePrice": {
-        "amount": 60.41,
+        "amount": 60.4,
         "currency": "AED"
       },
       "nativeWasPrice": 80.54,

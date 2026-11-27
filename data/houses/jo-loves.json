@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-27T04:14:37.932Z",
-  "seenAt": "2026-11-27T04:14:37.932Z",
+  "updatedAt": "2026-11-27T08:19:06.481Z",
+  "seenAt": "2026-11-27T08:19:06.481Z",
   "source": "live",
   "listings": [
     {
@@ -175,7 +175,7 @@
       "priceGbp": 40,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "A festive gift set featuring our bestselling Christmas Trees fragrance, featuring 1 x 70g Christmas Trees Candle and 1 x 15ml Christmas Trees Lifestyle Fragrance, capturing the warm, woody scent of a magical Christmas tree.",
       "productType": null,
@@ -2521,7 +2521,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Elevate your senses with the captivating Mango Thai Lime Diffuser Refill, a fragrant journey inspired by Jo's travels and the art of cocktail making. Immerse yourself in the vibrant notes of mango, thyme, and black pepper, complemented by the refreshing scents of freesia and mint leaves, all grounded by the earthy tones of white thyme absolute and vetiver. To experience the full allure of this fragrance, dip the reeds into the oil and turn them, then rotate them every few days for a lasting, mesmerizing aroma that will transport you to the heart of Thailand.",
       "productType": null,

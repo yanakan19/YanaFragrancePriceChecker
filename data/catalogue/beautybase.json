@@ -1,7 +1,7 @@
 {
   "retailerId": "beautybase",
-  "updatedAt": "2026-11-27T04:09:55.422Z",
-  "seenAt": "2026-11-27T04:09:55.422Z",
+  "updatedAt": "2026-11-27T08:14:31.938Z",
+  "seenAt": "2026-11-27T08:14:31.938Z",
   "source": "live",
   "listings": [
     {
@@ -4921,7 +4921,7 @@
       "priceGbp": 19,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "beautybase",
@@ -25620,7 +25620,7 @@
       "ean": "3349668562671",
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1768219879-44666600.jpg?v=1772625078&width=1920",
       "description": "Around tempting hazelnut, a game of contrasting and offbeat sensations. Top Notes: crunchy addiction: hazelnut. Heart Notes: shot of tart fruit: plum green, grapefruit, bergamot. Base Notes: vibrant, sensual woods: white cedar, patchouli, amber wood, vanilla.",
-      "priceGbp": 69,
+      "priceGbp": 75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -47356,7 +47356,7 @@
       "ean": "3607349764289",
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739287436-44547900.jpg?v=1763391476&width=1920",
       "description": "Top Notes: Blackberries Heart Notes: Blue Wisteria, Jasmine Bouquets Base Notes: White Woods",
-      "priceGbp": 40,
+      "priceGbp": 45,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
