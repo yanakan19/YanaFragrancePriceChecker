@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-27T12:20:42.712Z",
-  "seenAt": "2026-11-27T12:20:42.712Z",
+  "updatedAt": "2026-11-27T16:15:45.025Z",
+  "seenAt": "2026-11-27T16:15:45.025Z",
   "source": "live",
   "listings": [
     {
@@ -315,7 +315,7 @@
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "house-direct",
-      "description": "Scent your home this Christmas with this Christmas at Home collection, featuring the new Nutmeg & Incense Diffuser, exclusive to the set, alongside the bestselling Christmas Trees Home Candle. A beautiful duo for creating a warm and inviting festive atmosphere.",
+      "description": "Scent your home this Christmas with this Christmas at Home collection, featuring the new Nutmeg & Incense Diffuser, exclusive to the set, alongside the bestselling Christmas Trees Home Candle. A beautiful duo for creating a warm and inviting festive atmosphere. Contents: Christmas Trees A Home Candle (185g), Nutmeg & Incense A Fragrance Diffuser Oil (200ml) and Jo Loves Diffuser Sphere.",
       "productType": null,
       "nativePrice": null,
       "retailerId": "jo-loves",
@@ -1394,7 +1394,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Refresh your space with our Amber Lime & Bergamot diffuser refill, inspired by the elegance of the Concours d’Elegance. Simply top up your existing diffuser to enjoy its warm, sophisticated scent for longer - sustainably and effortlessly.",
       "productType": null,
@@ -2176,7 +2176,7 @@
       "priceGbp": 55,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Indulge in the captivating aroma of our artisan Mango Thai Lime scented candle, hand-poured in England using high-quality ingredients and encased in a stunning hand-blown glass vessel. Savour the blend of succulent mango, zesty lime, aromatic thyme, freesia, and mint leaves, which dance together to create a truly mesmerizing scent experience. As the candle burns for approximately 37.5 hours, allow the warm base notes of white thyme absolute and vetiver to envelop you in a cosy ambience, transporting you to the vibrant streets of Thailand.",
       "productType": null,

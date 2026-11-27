@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-27T12:20:43.014Z",
+  "checkedAt": "2026-11-27T16:15:45.524Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -57,16 +57,17 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": "GBP",
-      "listings": 538,
+      "listings": 0,
       "pricedInGbp": 0,
-      "withPhoto": 518,
+      "withPhoto": 0,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -75,9 +76,9 @@
       "origin": "https://assaf.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 200,
+      "listings": 203,
       "pricedInGbp": 0,
-      "withPhoto": 200,
+      "withPhoto": 203,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -516,9 +517,9 @@
       "origin": "https://www.thebodyshop.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 372,
-      "pricedInGbp": 372,
-      "withPhoto": 372,
+      "listings": 374,
+      "pricedInGbp": 374,
+      "withPhoto": 374,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

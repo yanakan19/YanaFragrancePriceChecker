@@ -1,7 +1,7 @@
 {
   "retailerId": "glorious-beauty",
-  "updatedAt": "2026-11-27T12:14:37.966Z",
-  "seenAt": "2026-11-27T12:14:37.966Z",
+  "updatedAt": "2026-11-27T16:10:36.939Z",
+  "seenAt": "2026-11-27T16:10:36.939Z",
   "source": "live",
   "listings": [
     {
@@ -169,7 +169,7 @@
       "priceGbp": 50,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "glorious-beauty",
@@ -191,7 +191,7 @@
       "priceGbp": 50,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "glorious-beauty",
@@ -213,7 +213,7 @@
       "priceGbp": 38,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": null,
       "retailerId": "glorious-beauty",

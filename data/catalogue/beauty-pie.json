@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-27T12:14:04.332Z",
-  "seenAt": "2026-11-27T12:14:04.332Z",
+  "updatedAt": "2026-11-27T16:10:40.967Z",
+  "seenAt": "2026-11-27T16:10:40.967Z",
   "source": "live",
   "listings": [
     {
@@ -5511,7 +5511,7 @@
       "priceGbp": 40,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Call off the search. This radiant, glow-boosting SPF 40 is the smoothest, half-sunscreen-half-complexion-perfecting skin tint we’ve ever tried. Broad-spectrum with natural coverage, it’s a ‘tinted SPF with benefits’ and contains hydrating Hyaluronic Acid, antioxidant Vitamins C & E, Freshwater Microalgae to help firm, plus Polyphenols, Phospholipids and AHAs to help smooth, illuminate and protect. In 8 second-skin, ‘stretchable’ shades..",
       "productType": "Makeup",

@@ -1,7 +1,7 @@
 {
   "retailerId": "rasasi-uk-store",
-  "updatedAt": "2026-11-27T12:14:37.966Z",
-  "seenAt": "2026-11-27T12:14:37.966Z",
+  "updatedAt": "2026-11-27T16:10:36.939Z",
+  "seenAt": "2026-11-27T16:10:36.939Z",
   "source": "live",
   "listings": [
     {
@@ -425,7 +425,7 @@
       "priceGbp": 59.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "sitemap",
       "rating": {
         "value": 4.5,
@@ -467,9 +467,9 @@
       "rawTitle": "Hawas Fire & Ice Duo EDP 100ml",
       "rawBrand": "Rasasi",
       "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/1020/5170/9257/files/set-fireice-1.jpg?v=1785323630",
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1020/5170/9257/files/hawas-fire-ice-duo-2048.webp?v=1795791297",
       "description": "Elemental opposites come together in one versatile Hawas duo for men. Hawas Fire 100ml is bold and intense with a warm, sophisticated character — ideal for evening wear, special occasions and moments when you want to make a confident impression. Hawas Ice 100ml is cool and refreshing, designed for daytime wear, warm weather and men who prefer a crisp, energetic signature. Two distinctive profiles for different moods, seasons and occasions — and an excellent men's fragrance gift set.",
-      "priceGbp": 74,
+      "priceGbp": 59.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
