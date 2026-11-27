@@ -1098,39 +1098,6 @@
    ]
   },
   {
-   "canonical": "set-ean-0679602689212",
-   "absorbed": [
-    "set-monotheme-zagara-gift-set-100ml-edt-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0679602689212",
-     "brand": "Monotheme",
-     "name": "Zagara Gift Set 100ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "0679602689212",
-     "scent": "zagara",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-monotheme-zagara-gift-set-100ml-edt-100ml-shower-gel",
-     "brand": "Monotheme",
-     "name": "Zagara Gift Set 100ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "zagara",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-0679602793643",
    "absorbed": [
     "set-police-to-be-camouflage-gift-set-75ml-edt-100ml-shower-gel"
@@ -1496,6 +1463,38 @@
      "ean": null,
      "scent": "daisy dream florals pink",
      "signature": "1x100body|1x100fragrance",
+     "shops": [
+      "beaute-boulevard"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0849017016037",
+   "absorbed": [
+    "set-mustang-gift-set-50ml-black-edt-50ml-white-edt"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0849017016037",
+     "brand": "Mustang",
+     "name": "Gift Set 50ml Black EDT + 50ml White EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "0849017016037",
+     "scent": "black white",
+     "signature": "2x50fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-mustang-gift-set-50ml-black-edt-50ml-white-edt",
+     "brand": "Mustang",
+     "name": "Gift Set 50ml Black Edt + 50ml White Edt",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "black white",
+     "signature": "2x50fragrance",
      "shops": [
       "beaute-boulevard"
      ]
@@ -13954,37 +13953,6 @@
   },
   {
    "reasons": [
-    "price spread 1.82 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0849017016037",
-     "brand": "Mustang",
-     "name": "Gift Set 50ml Black EDT + 50ml White EDT",
-     "concentration": "Eau de Toilette",
-     "ean": "0849017016037",
-     "scent": "black white",
-     "signature": "2x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-mustang-gift-set-50ml-black-edt-50ml-white-edt",
-     "brand": "Mustang",
-     "name": "Gift Set 50ml Black Edt + 50ml White Edt",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "black white",
-     "signature": "2x50fragrance",
-     "shops": [
-      "beaute-boulevard"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.57 is over 1.5"
    ],
    "members": [
@@ -14746,7 +14714,7 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3349668628551, 3349668642861, 3349668667079"
+    "two different barcodes: 3349668628551, 3349668667079"
    ],
    "members": [
     {
@@ -14759,18 +14727,6 @@
      "signature": "1x100body|1x4fragrance|1x80fragrance",
      "shops": [
       "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3349668642861",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Fame Gift Set 80ml EDP + 100ml Body Lotion + 4ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3349668642861",
-     "scent": "fame paco rabanne",
-     "signature": "1x100body|1x4fragrance|1x80fragrance",
-     "shops": [
-      "perfume-click"
      ]
     },
     {
@@ -15196,38 +15152,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 3423222018245, 8054754400748"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222018245",
-     "brand": "Dolce & Gabbana",
-     "name": "The One 75ml Eau de Parfum 3 Piece Set",
-     "concentration": "Eau de Parfum",
-     "ean": "3423222018245",
-     "scent": "one",
-     "signature": "1x75fragrance|3p",
-     "shops": [
-      "fragrance-click"
-     ]
-    },
-    {
-     "id": "set-ean-8054754400748",
-     "brand": "Dolce & Gabbana",
-     "name": "The One Eau de Parfum 75ml Spray 3 Piece Set",
-     "concentration": "Eau de Parfum",
-     "ean": "8054754400748",
-     "scent": "one",
-     "signature": "1x75fragrance|3p",
-     "shops": [
-      "paco-perfumerias-uk",
-      "perfume-direct"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "two different barcodes: 3423222089337, 3423222118778",
     "price spread 1.52 is over 1.5"
    ],
@@ -15640,13 +15564,12 @@
     {
      "id": "set-ean-3614273624060",
      "brand": "Prada",
-     "name": "Luna Rossa Ocean 100ml Eau de Toilette + 10ml Set",
+     "name": "Luna Rossa Ocean Eau de Toilette 100ml Spray + 10ml Set",
      "concentration": "Eau de Toilette",
      "ean": "3614273624060",
      "scent": "luna ocean rossa",
      "signature": "1x100fragrance|1x10fragrance",
      "shops": [
-      "fragrance-click",
       "paco-perfumerias-uk"
      ]
     },
