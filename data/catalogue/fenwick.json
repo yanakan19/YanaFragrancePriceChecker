@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-27T08:14:26.268Z",
-  "seenAt": "2026-11-27T08:14:26.268Z",
+  "updatedAt": "2026-11-27T12:14:04.332Z",
+  "seenAt": "2026-11-27T12:14:04.332Z",
   "source": "live",
   "listings": [
     {
@@ -17655,7 +17655,7 @@
       "priceGbp": 28,
       "wasPriceGbp": 35,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Cosmic Kylie Jenner Eau De Parfum is a captivating fragrance with fresh top notes of star jasmine and blood orange. The heart features warm amber and red peony, while cedarwood and vanilla musk form a sweet base. The uniquely designed bottle fits comfortably in the hand, symbolizing love’s changing nature and encouraging self-love. .",
       "productType": "Women's Fragrances",
@@ -27499,7 +27499,7 @@
       "priceGbp": 80.75,
       "wasPriceGbp": 95,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "A floral fragrance in a round bottle. Unpredictable, in perpetual movement, CHANCE sweeps you into its whirlwind of happiness and fantasy. The \"TWIST AND SPRAY\" slips easily into your purse and is the ideal way to revive your fragrance throughout the day...",
       "productType": "Women's Fragrances",

@@ -1,7 +1,7 @@
 {
   "retailerId": "beevora",
-  "updatedAt": "2026-11-27T08:14:26.268Z",
-  "seenAt": "2026-11-27T08:14:26.268Z",
+  "updatedAt": "2026-11-27T12:14:04.332Z",
+  "seenAt": "2026-11-27T12:14:04.332Z",
   "source": "live",
   "listings": [
     {
@@ -6661,7 +6661,7 @@
       "priceGbp": 32.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "La Collection D’antiquites (Bike) 1910 100ml EDP by Lattafa Pride is a floral fruity gourmand fragrance for both men and women. . Perfume Notes: . Top Notes: Rose, Apple, Davana Middle Notes: Osmanthus, Cedarwood Base Notes: Tonka Bean, Vanilla, Patchouli .",
       "productType": "Perfume",

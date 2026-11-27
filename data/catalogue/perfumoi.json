@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-27T08:14:26.268Z",
-  "seenAt": "2026-11-27T08:14:26.268Z",
+  "updatedAt": "2026-11-27T12:14:04.332Z",
+  "seenAt": "2026-11-27T12:14:04.332Z",
   "source": "live",
   "listings": [
     {
@@ -1026,7 +1026,7 @@
       "priceGbp": 29.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Carolina Herrera Good Girl Body Cream is a scented body cream created for customers who enjoy a warm, sweet floral fragrance. It leaves a soft, creamy scent on the skin with floral and gourmand touches inspired by the Good Girl fragrance. Suitable for everyday body care, it is a great choice for anyone looking for a feminine, elegant product that complements their fragrance routine. . Why customers choose it ● Well-suited for everyday use and special occasions ● A great option for gifting or pairing with Good Girl fragrance ● Designed for customers who prefer sweet floral and gourmand scents .",
       "productType": "Body Cream",

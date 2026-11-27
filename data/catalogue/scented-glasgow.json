@@ -1,7 +1,7 @@
 {
   "retailerId": "scented-glasgow",
-  "updatedAt": "2026-11-27T08:14:26.268Z",
-  "seenAt": "2026-11-27T08:14:26.268Z",
+  "updatedAt": "2026-11-27T12:14:04.332Z",
+  "seenAt": "2026-11-27T12:14:04.332Z",
   "source": "live",
   "listings": [
     {
@@ -2130,7 +2130,7 @@
       "priceGbp": 75,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Key Notes: smooth black fur, mischievous eyes. Style: conceptual. Soft, milky, woody, sparkly, molecular.. Kitten fur and purrs.. A goth skin scent.. Your local witch’s molecule n. 1.. Eau de Parfum.",
       "productType": "Perfume",
