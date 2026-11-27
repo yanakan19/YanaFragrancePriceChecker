@@ -1,7 +1,7 @@
 {
   "retailerId": "beauty-pie",
-  "updatedAt": "2026-11-27T16:10:40.967Z",
-  "seenAt": "2026-11-27T16:10:40.967Z",
+  "updatedAt": "2026-11-27T20:19:26.841Z",
+  "seenAt": "2026-11-27T20:19:26.841Z",
   "source": "live",
   "listings": [
     {
@@ -4016,7 +4016,7 @@
       "priceGbp": 88,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Our tinted, radiance-boosting SPF 40 - in 8 second-skin shades that sheer out beautifully on the skin - is packed with skincare benefits: hydrating Hyaluronic Acid, antioxidant Vitamins C and E, and softening Argan Oil. Apply generously over moisturiser with our densely-bristled Buffing Brush for a soft-focus, seamless finish. The result: protected, luminous skin..",
       "productType": null,

@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-27T16:10:36.939Z",
-  "seenAt": "2026-11-27T16:10:36.939Z",
+  "updatedAt": "2026-11-27T20:19:17.786Z",
+  "seenAt": "2026-11-27T20:19:17.786Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 11.69,
       "wasPriceGbp": 12.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Calvin Klein CK Be Eau de Toilette 50ml. Key Features. ##features##. Iconic unisex fragrance from Calvin Klein.. Fresh woody scent designed for men and women.. Features bergamot, lavender, peach and sandalwood notes.. Clean, intimate and modern fragrance profile.. Suitable for everyday wear.. Compact 50ml bottle ideal for travel. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. Calvin Klein CK Be Eau de Toilette is a fresh and modern fragrance built around individuality and self-expression. Combining aromatic lavender, juicy peach and warm sandalwood, this versatile unisex scent offers a clean and understated fragrance that works effortlessly from day to night.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Do not rub into the skin. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-item-start##. Ingredients. Alcohol Denat., Aqua/Water, Parfum/Fragrance, Limonene, Linalool, Citronellol, Coumarin, Citral, Geraniol, Eugenol.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
@@ -83,7 +83,7 @@
       "priceGbp": 26.1,
       "wasPriceGbp": 29,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Boss Bottled Eau De Toilette 50ml. Key Features. ##features##. Fragrance Family: Woody Spicy . . Top Notes: Apple, Citrus Fruits . . Heart Notes: Geranium, Cinnamon, Clove . . Base Notes: Sandalwood, Cedar, Vetiver. . ##end-features##. Product Details. An iconic masculine fragrance blending fresh apple and citrus with a spicy heart of cinnamon and geranium, and a warm woody base of sandalwood, cedar, and vetiver..",
       "productType": "Fragrance",

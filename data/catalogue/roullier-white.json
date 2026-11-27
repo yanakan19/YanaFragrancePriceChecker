@@ -1,7 +1,7 @@
 {
   "retailerId": "roullier-white",
-  "updatedAt": "2026-11-27T16:10:40.967Z",
-  "seenAt": "2026-11-27T16:10:40.967Z",
+  "updatedAt": "2026-11-27T20:19:26.841Z",
+  "seenAt": "2026-11-27T20:19:26.841Z",
   "source": "live",
   "listings": [
     {
@@ -5097,7 +5097,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "'Bain di Midi' is a joyous affirmation of life with one of my favourite flowers, tiare, which is exotic, feminine and sensual. Some coconut at the top does conjure tropical beaches and this vacation is supported by vanilla and gardenia. A powerful, punchy, sophisticated floral for day into evening.. Fragrance Notes Top: bergamot, coconut & alive. Middle: tiare flower, ylang ylang, gardenia, beach & sun, Base: vanilla, musk & lightness.. Fragrance House This brand is a breath of fresh air and has achieved that rare thing - something completely unique and inventive in a crowded market. A young, fresh and hugely innovative range of idiosyncratic perfumes that embrace graphics and streamlined olfactory structure - this is very much the future of fragrance. .",
       "productType": "Perfume",

@@ -1,7 +1,7 @@
 {
   "retailerId": "lloyds-pharmacy",
-  "updatedAt": "2026-11-27T16:10:40.967Z",
-  "seenAt": "2026-11-27T16:10:40.967Z",
+  "updatedAt": "2026-11-27T20:19:26.841Z",
+  "seenAt": "2026-11-27T20:19:26.841Z",
   "source": "live",
   "listings": [
     {
@@ -172,8 +172,8 @@
       "rawBrand": "Burberry",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0257/1046/0991/files/2_96dc988f-ea04-489a-959e-633005ab49cb.png?v=1788533098",
-      "priceGbp": 150,
-      "wasPriceGbp": null,
+      "priceGbp": 75,
+      "wasPriceGbp": 150,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

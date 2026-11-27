@@ -1,7 +1,7 @@
 {
   "retailerId": "armaf",
-  "updatedAt": "2026-11-27T16:10:36.939Z",
-  "seenAt": "2026-11-27T16:10:36.939Z",
+  "updatedAt": "2026-11-27T20:19:17.786Z",
+  "seenAt": "2026-11-27T20:19:17.786Z",
   "source": "live",
   "listings": [
     {
@@ -127,7 +127,7 @@
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/bottle_side_c85ba5aa-2b09-4218-a000-93df066d8629.jpg?v=1793789668",
       "priceGbp": 42,
-      "wasPriceGbp": null,
+      "wasPriceGbp": 44.99,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",
@@ -5304,7 +5304,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "ODYSSEY MANDARIN SKY FOUR PIECE GIFT SET DESCRIPTION The definitive expression of aromatic luxury and gifting prestige, the ODYSSEY MANDARIN SKY Four Piece Gift Set masters the art of \"Complete Sensory Immersion.\" This curated collection is a study in high-contrast sophistication—where the electric, sun-drenched radiance of Mediterranean citrus meets the molten depth of dark caramel across a suite of performance-driven products. Designed for the visionary who demands a seamless signature from morning to night, this set ensures the Mandarin Sky aura is layered with noble intensity and lasting power.. COMPOSITION Each element in this set features the iconic Mandarin Sky olfactory architecture:. The Opening: A spectacular radiance of Mandarin Orange, Saffron, and Sage.. The Heart: A masterful indulgence of buttery Caramel, Tonka Bean, and Tagetes.. The Foundation: A profound, modern anchor of Ambroxan and earthy Vetiver.. THE GIFT SET EXPERIENCE This premium collection typically includes a versatile array of the Mandarin Sky universe, potentially featuring:. Eau de Parfum (100ml): The core of the collection for high-definition projection.. Perfumed Body Spray: For an atmospheric, all-over burst of citrus energy.. Refreshing Shower Gel: To begin the fragrance journey with a revitalizing citrus cleanse.. Travel Spray or After Shave Balm: To maintain the noble trail while on the move or to soothe the skin with the signature scent.. INSPIRATION The spirit of \"The Absolute Sovereign.\" This gift set is inspired by the infinite horizon of a golden sky, offering a total lifestyle experience rather than just a scent. It embodies the poise of an individual who values ritual and consistency in their grooming. It is a tribute to the \"Odyssey\" legacy—representing a spirit of adventure and the luxury of a fully-realized signature presence.. ART OF PERFUMING To maximize the £4m target potential, encourage the \"Layering Ritual.\" Begin with the Shower Gel to prime the skin, follow with the Body Spray for a foundational veil of scent, and finish with the Eau de Parfum on the pulse points for structural depth. This multi-stage application ensures the transition from electric mandarin to caramelized vetiver is more profound and enduring. This Four Piece Gift Set is the definitive choice for the individual who views their fragrance as a comprehensive statement of success and refined taste..",
       "productType": "Men",
@@ -6911,8 +6911,8 @@
       "rawBrand": "Armaf - Club De Nuit",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0955/2668/2951/files/521a40a2e686403c8d816f140bb07c6f.jpg?v=1769163218",
-      "priceGbp": 58.99,
-      "wasPriceGbp": null,
+      "priceGbp": 29.99,
+      "wasPriceGbp": 58.99,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-27T16:15:45.025Z",
-  "seenAt": "2026-11-27T16:15:45.025Z",
+  "updatedAt": "2026-11-27T20:25:33.443Z",
+  "seenAt": "2026-11-27T20:25:33.443Z",
   "source": "live",
   "listings": [
     {
@@ -1394,7 +1394,7 @@
       "priceGbp": 60,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Refresh your space with our Amber Lime & Bergamot diffuser refill, inspired by the elegance of the Concours d’Elegance. Simply top up your existing diffuser to enjoy its warm, sophisticated scent for longer - sustainably and effortlessly.",
       "productType": null,

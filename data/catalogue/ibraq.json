@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-27T16:10:40.967Z",
-  "seenAt": "2026-11-27T16:10:40.967Z",
+  "updatedAt": "2026-11-27T20:19:26.841Z",
+  "seenAt": "2026-11-27T20:19:26.841Z",
   "source": "live",
   "listings": [
     {
@@ -1279,7 +1279,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Between sensuality and softness, musk reveals a soft, delicate white embrace with a powdery touch, and smashes into pieces to reveal a flowering heart that beats again with spicy aromas of saffron, cinnamon and cloves, falling like a real embrace on your skin for an exceptional olfactory effect. . Notes . Top notes: Vanilla, Powdery . Middle notes: Saffron, Cinnamon . Base notes: Musk, Clove . . .",
       "productType": "Arabic Perfumes",

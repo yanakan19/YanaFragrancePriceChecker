@@ -1,7 +1,7 @@
 {
   "retailerId": "aromique",
-  "updatedAt": "2026-11-27T16:10:36.939Z",
-  "seenAt": "2026-11-27T16:10:36.939Z",
+  "updatedAt": "2026-11-27T20:19:17.786Z",
+  "seenAt": "2026-11-27T20:19:17.786Z",
   "source": "live",
   "listings": [
     {
@@ -8406,7 +8406,7 @@
       "rawBrand": "Laverne Perfumes",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1004/5508/8467/files/LavernePerfumes.webp?v=1781727463",
-      "priceGbp": 89.99,
+      "priceGbp": 99.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
@@ -8429,7 +8429,7 @@
       "rawBrand": "Laverne Perfumes",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/1004/5508/8467/files/LavernePerfumesset.webp?v=1781727451",
-      "priceGbp": 89.99,
+      "priceGbp": 99.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,

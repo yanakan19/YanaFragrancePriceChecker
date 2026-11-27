@@ -1,7 +1,7 @@
 {
   "retailerId": "reef",
-  "updatedAt": "2026-11-27T16:15:39.361Z",
-  "seenAt": "2026-11-27T16:15:39.361Z",
+  "updatedAt": "2026-11-27T20:25:27.540Z",
+  "seenAt": "2026-11-27T20:25:27.540Z",
   "source": "live",
   "listings": [
     {
@@ -448,12 +448,12 @@
     },
     {
       "retailerSku": "6287036280833",
-      "url": "https://www.reef-parfum.com/en/product/summer-tiffany-reef-perfume/",
-      "rawTitle": "Summer Tiffany Reef Perfumes | Unisex Floral-Fruity Fragrance",
+      "url": "https://www.reef-parfum.com/nl/product/summer-tiffany-reef-parfum/",
+      "rawTitle": "Summer Tiffany Reef Parfums | Bloemig-fruitig parfum voor mannen en vrouwen",
       "rawBrand": null,
       "ean": "6287036280833",
       "imageUrl": "https://www.reef-parfum.com/wp-content/uploads/2026/06/parfum-reef-summer-tiffany.jpg",
-      "description": "Discover Summer Tiffany by Reef Parfum, a floral-fruity fragrance for men and women with notes of mandarin, peach, and musk.",
+      "description": "Ontdek Summer Tiffany van Reef Parfum, een bloemig-fruitig parfum voor mannen en vrouwen met geurnoten van mandarijn, perzik en muskus.",
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": "2027-12-31T00:00:00.000Z",

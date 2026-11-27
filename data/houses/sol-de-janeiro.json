@@ -1,9 +1,35 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-27T16:15:42.315Z",
-  "seenAt": "2026-11-27T16:15:42.315Z",
+  "updatedAt": "2026-11-27T20:25:30.418Z",
+  "seenAt": "2026-11-27T20:25:30.418Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "SJ99034400",
+      "url": "https://soldejaneiro.com/products/glowmotions-glow-body-oil-carnaval-queen",
+      "rawTitle": "GlowMotions™ Glow Oil Carnaval Queen | Limited Edition Carnaval Queen",
+      "rawBrand": "Skin-softening Glow Oil with Brazilian-style Shimmer",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ25_DTC_Glowmotions_CarnavalQueen_PpageRender_1600x1600-1.webp?v=1747156472",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Beam like a Carnaval Queen in our limited -edition , shimmering rose gold oil . This transfer-resistant , lightweight body oil soften s skin with moisturizing cupuaçu butter and a nourishing blend of coconut, açai, and sunflower oils , while wrapping you in our iconic Cheirosa 62 ™ scent. .",
+      "productType": "Body Cream",
+      "nativePrice": {
+        "amount": 36,
+        "currency": "USD"
+      },
+      "retailerId": "sol-de-janeiro",
+      "firstSeenAt": "2026-11-12T00:50:54.604Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": "2026-11-27T20:25:30.418Z",
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "15557011800166-Default Title",
       "url": "https://soldejaneiro.com/products/badalada-cheirosa-39-duo",
@@ -18688,33 +18714,6 @@
       "status": "delisted",
       "delistedAt": "2026-11-20T07:48:48.400Z",
       "relistedAt": "2026-11-18T07:52:21.947Z",
-      "eligibleForNewBadge": true,
-      "variantId": null
-    },
-    {
-      "retailerSku": "SJ99034400",
-      "url": "https://soldejaneiro.com/products/glowmotions-glow-body-oil-carnaval-queen",
-      "rawTitle": "Glowmotions Glow Oil Carnaval Queen | Limited Edition",
-      "rawBrand": "Skin-softening Glow Oil with Brazilian-style Shimmer",
-      "ean": null,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ25_DTC_Glowmotions_CarnavalQueen_PpageRender_1600x1600-1.webp?v=1747156472",
-      "priceGbp": null,
-      "wasPriceGbp": null,
-      "promoEndsAt": null,
-      "inStock": true,
-      "sectionId": "house-direct",
-      "description": "Beam like a Carnaval Queen in our limited -edition , shimmering rose gold oil . This transfer-resistant , lightweight body oil soften s skin with moisturizing cupuaçu butter and a nourishing blend of coconut, açai, and sunflower oils , while wrapping you in our iconic Cheirosa 62 ™ scent. .",
-      "productType": "Body Cream",
-      "nativePrice": {
-        "amount": 36,
-        "currency": "USD"
-      },
-      "retailerId": "sol-de-janeiro",
-      "firstSeenAt": "2026-11-12T00:50:54.604Z",
-      "lastSeenAt": "2026-11-19T12:28:07.273Z",
-      "status": "delisted",
-      "delistedAt": "2026-11-19T16:23:29.979Z",
-      "relistedAt": null,
       "eligibleForNewBadge": true,
       "variantId": null
     },
