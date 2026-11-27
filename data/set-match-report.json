@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 391,
+ "folded": 389,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -449,6 +449,38 @@
      "ean": null,
      "scent": "wave",
      "signature": "1x15fragrance|1x50fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-0085715676641",
+   "absorbed": [
+    "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715676641",
+     "brand": "Fcuk",
+     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0085715676641",
+     "scent": "s",
+     "signature": "4x18travel",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml",
+     "brand": "Fcuk",
+     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "s",
+     "signature": "4x18travel",
      "shops": [
       "p-eleven"
      ]
@@ -3617,51 +3649,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3423222048464",
-   "absorbed": [
-    "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
-    "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3423222048464",
-     "brand": "Zadig & Voltaire",
-     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": "3423222048464",
-     "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
-     "brand": "Zadig & Voltaire",
-     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml",
-     "brand": "Zadig & Voltaire",
-     "name": "This Is Her! Gift Set EDP 50ml + B/Lotion 50ml",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "is this",
-     "signature": "1x50body|1x50fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3423222065881",
    "absorbed": [
     "set-dolce-gabbana-light-blue-gift-set-25ml-edt-spray-10ml-edt-spray"
@@ -4737,6 +4724,39 @@
      "ean": null,
      "scent": "belle est la lancome vie",
      "signature": "1x50body|1x50fragrance|1x50wash",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3614274692655",
+   "absorbed": [
+    "set-giorgio-armani-acqua-di-gio-gift-set-50ml-edt-75ml-shower-gel"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3614274692655",
+     "brand": "Giorgio Armani",
+     "name": "Acqua Di Gio Eau De Toilette 50ml & Shower Gel 75ml Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3614274692655",
+     "scent": "acqua di gio",
+     "signature": "1x50fragrance|1x75wash",
+     "shops": [
+      "beautybase",
+      "scentstore"
+     ]
+    },
+    {
+     "id": "set-giorgio-armani-acqua-di-gio-gift-set-50ml-edt-75ml-shower-gel",
+     "brand": "Giorgio Armani",
+     "name": "Acqua Di Gio Gift Set 50ml EDT + 75ml Shower Gel",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "acqua di gio",
+     "signature": "1x50fragrance|1x75wash",
      "shops": [
       "p-eleven"
      ]
@@ -8214,38 +8234,6 @@
    ]
   },
   {
-   "canonical": "set-ean-6295199802700",
-   "absorbed": [
-    "set-armaf-club-de-nuit-intense-gift-set-12ml-edp-12ml-parfum-oil-travel-case"
-   ],
-   "members": [
-    {
-     "id": "set-ean-6295199802700",
-     "brand": "Armaf",
-     "name": "Club De Nuit Intense Gift Set 12ml EDP + 12ml Parfum Oil + Travel Case",
-     "concentration": "Perfume Oil",
-     "ean": "6295199802700",
-     "scent": "club de intense nuit travel",
-     "signature": "1x12fragrance|1x12fragrance|1x?other",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-armaf-club-de-nuit-intense-gift-set-12ml-edp-12ml-parfum-oil-travel-case",
-     "brand": "Armaf",
-     "name": "Club De Nuit Intense Gift Set 12ml EDP + 12ml Parfum Oil + Travel Case",
-     "concentration": "Perfume Oil",
-     "ean": null,
-     "scent": "club de intense nuit travel",
-     "signature": "1x12fragrance|1x12fragrance|1x?other",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-6456874097129",
    "absorbed": [
     "set-lattafa-washwasha-2-piece-gift-set-eau-de-parfum-100ml-deodorant-spray-50ml"
@@ -8973,38 +8961,6 @@
      "ean": null,
      "scent": "dsquared original wood",
      "signature": "1x100fragrance|1x30fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003893348",
-   "absorbed": [
-    "set-versace-pour-femme-dylan-blue-gift-set-50ml-edp-50ml-body-lotion-50ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003893348",
-     "brand": "Versace",
-     "name": "Pour Femme Dylan Blue Gift Set 50ml EDP + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003893348",
-     "scent": "blue dylan femme pour",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-pour-femme-dylan-blue-gift-set-50ml-edp-50ml-body-lotion-50ml-shower-gel",
-     "brand": "Versace",
-     "name": "Pour Femme Dylan Blue Gift Set 50ml EDP + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "blue dylan femme pour",
-     "signature": "1x50body|1x50fragrance|1x50wash",
      "shops": [
       "p-eleven"
      ]
@@ -9777,38 +9733,6 @@
      "ean": null,
      "scent": "q",
      "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8057971187416",
-   "absorbed": [
-    "set-dolce-gabbana-q-gift-set-50ml-edp-5ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8057971187416",
-     "brand": "Dolce & Gabbana",
-     "name": "Q Gift Set 50ml EDP + 5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8057971187416",
-     "scent": "q",
-     "signature": "1x50fragrance|1x5fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-dolce-gabbana-q-gift-set-50ml-edp-5ml-edp",
-     "brand": "Dolce & Gabbana",
-     "name": "Q Gift Set 50ml EDP + 5ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "q",
-     "signature": "1x50fragrance|1x5fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -11814,6 +11738,38 @@
    ]
   },
   {
+   "canonical": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
+   "absorbed": [
+    "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml"
+   ],
+   "members": [
+    {
+     "id": "set-zadig-voltaire-this-is-her-gift-set-50ml-edp-50ml-body-lotion",
+     "brand": "Zadig & Voltaire",
+     "name": "This is Her Gift Set 50ml EDP + 50ml Body Lotion",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "is this",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-zadig-voltaire-this-is-her-gift-set-edp-50ml-b-lotion-50ml",
+     "brand": "Zadig & Voltaire",
+     "name": "This Is Her! Gift Set EDP 50ml + B/Lotion 50ml",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "is this",
+     "signature": "1x50body|1x50fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-50ml-edp-50ml-body-lotion",
    "absorbed": [
     "set-zadig-voltaire-this-is-her-vibes-of-freedom-gift-set-edp-50ml-b-lotion-50ml"
@@ -13170,6 +13126,37 @@
   },
   {
    "reasons": [
+    "price spread 1.67 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-dolce-gabbana-q-gift-set-50ml-edp-5ml-edp",
+     "brand": "Dolce & Gabbana",
+     "name": "Q Gift Set 50ml EDP + 5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "q",
+     "signature": "1x50fragrance|1x5fragrance",
+     "shops": [
+      "p-eleven"
+     ]
+    },
+    {
+     "id": "set-ean-8057971187416",
+     "brand": "Dolce & Gabbana",
+     "name": "Q Gift Set 50ml EDP + 5ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8057971187416",
+     "scent": "q",
+     "signature": "1x50fragrance|1x5fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "strengths differ: Eau de Parfum, Extrait de Parfum"
    ],
    "members": [
@@ -13322,37 +13309,6 @@
      "ean": null,
      "scent": "alibi",
      "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 1.63 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085715676641",
-     "brand": "Fcuk",
-     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0085715676641",
-     "scent": "s",
-     "signature": "4x18travel",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml",
-     "brand": "Fcuk",
-     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "s",
-     "signature": "4x18travel",
      "shops": [
       "p-eleven"
      ]
@@ -13648,6 +13604,49 @@
    ],
    "members": [
     {
+     "id": "set-ean-0810103654273",
+     "brand": "Head",
+     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0810103654273",
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-head-motion-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Motion 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    },
+    {
+     "id": "set-head-motion-gift-set-edt-100ml-deodorant-spray-200ml",
+     "brand": "Head",
+     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "motion",
+     "signature": "1x100fragrance|1x200deo",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
      "id": "set-ean-0810103654280",
      "brand": "Head",
      "name": "Fire Gift Set: EDT 100ml - Deodorant Spray 200ml",
@@ -13713,6 +13712,49 @@
      "signature": "3x50fragrance",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "price spread 2.08 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0810103654631",
+     "brand": "Head",
+     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0810103654631",
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-head-bliss-gift-set-edt-100ml-fragrance-mist-240ml",
+     "brand": "Head",
+     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "p-eleven"
+     ]
+    },
+    {
+     "id": "set-head-bliss-gift-set-edt-spray-100ml-fragrance-mist-240ml",
+     "brand": "Head",
+     "name": "Bliss Gift Set EDT Spray 100ml + Fragrance Mist 240ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "bliss",
+     "signature": "1x100fragrance|1x240body",
+     "shops": [
+      "the-beauty-store-uk"
      ]
     }
    ]
@@ -15330,6 +15372,40 @@
   },
   {
    "reasons": [
+    "two different barcodes: 3423222106584, 3423222134723",
+    "a shop lists more than one: paco-perfumerias-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3423222106584",
+     "brand": "Issey Miyake",
+     "name": "Le Sel D'Issey Eau de Toilette 100ml Spray 3 Pcs Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222106584",
+     "scent": "d issey le sel",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "paco-perfumerias-uk",
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-ean-3423222134723",
+     "brand": "Issey Miyake",
+     "name": "Le Sel D'Issey 100ml Eau de Toilette 3 Pcs Gift Set",
+     "concentration": "Eau de Toilette",
+     "ean": "3423222134723",
+     "scent": "d issey le sel",
+     "signature": "1x100fragrance|3p",
+     "shops": [
+      "fragrance-click",
+      "paco-perfumerias-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 3423222107925, 3423222121846"
    ],
    "members": [
@@ -15661,50 +15737,6 @@
      "signature": "1x100fragrance|1x50wash",
      "shops": [
       "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 3614274437140, 3614274692655"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614274437140",
-     "brand": "Giorgio Armani",
-     "name": "Acqua Di Gio Gift Set 50ml EDT + 75ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3614274437140",
-     "scent": "acqua di gio",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-ean-3614274692655",
-     "brand": "Giorgio Armani",
-     "name": "Acqua Di Gio Eau De Toilette 50ml & Shower Gel 75ml Gift Set",
-     "concentration": "Eau de Toilette",
-     "ean": "3614274692655",
-     "scent": "acqua di gio",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "beautybase",
-      "scentstore"
-     ]
-    },
-    {
-     "id": "set-giorgio-armani-acqua-di-gio-gift-set-50ml-edt-75ml-shower-gel",
-     "brand": "Giorgio Armani",
-     "name": "Acqua Di Gio Gift Set 50ml EDT + 75ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "acqua di gio",
-     "signature": "1x50fragrance|1x75wash",
-     "shops": [
-      "p-eleven"
      ]
     }
    ]
@@ -17646,37 +17678,6 @@
   },
   {
    "reasons": [
-    "price spread 2.08 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-head-bliss-gift-set-edt-100ml-fragrance-mist-240ml",
-     "brand": "Head",
-     "name": "Bliss Gift Set: EDT 100ml - Fragrance Mist 240ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bliss",
-     "signature": "1x100fragrance|1x240body",
-     "shops": [
-      "p-eleven"
-     ]
-    },
-    {
-     "id": "set-head-bliss-gift-set-edt-spray-100ml-fragrance-mist-240ml",
-     "brand": "Head",
-     "name": "Bliss Gift Set EDT Spray 100ml + Fragrance Mist 240ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bliss",
-     "signature": "1x100fragrance|1x240body",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 1.93 is over 1.5"
    ],
    "members": [
@@ -17700,37 +17701,6 @@
      "ean": null,
      "scent": "attitude fire motion",
      "signature": "3x50fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "price spread 2.08 is over 1.5"
-   ],
-   "members": [
-    {
-     "id": "set-head-motion-2-piece-gift-set-eau-de-toilette-100ml-deodorant-spray-200ml",
-     "brand": "Head",
-     "name": "Motion 2 Piece Gift Set: Eau de Toilette 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "motion",
-     "signature": "1x100fragrance|1x200deo",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-head-motion-gift-set-edt-100ml-deodorant-spray-200ml",
-     "brand": "Head",
-     "name": "Motion Gift Set - EDT 100ml - Deodorant Spray 200ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "motion",
-     "signature": "1x100fragrance|1x200deo",
      "shops": [
       "p-eleven"
      ]
