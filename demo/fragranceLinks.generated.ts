@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-26T12:35:26.228Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-27T12:21:34.358Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -282,6 +282,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "ahmedalmaghribi|oclock|extrait": ["","https://ahmedalmaghribi.uk/products/oclock"],
   "ahmedalmaghribi|opalinewave|edp": ["","https://ahmedalmaghribi.uk/products/opaline-wave-edp-100ml"],
   "ahmedalmaghribi|oudandroses": ["","https://ahmedalmaghribi.uk/products/oud-roses"],
+  "ahmedalmaghribi|oudandrosesauric": ["","https://ahmedalmaghribi.uk/products/oud-roses-auric"],
+  "ahmedalmaghribi|oudandrosesauric|edp": ["","https://ahmedalmaghribi.uk/products/oud-roses-auric"],
   "ahmedalmaghribi|oudandroses|extrait": ["","https://ahmedalmaghribi.uk/products/oud-roses"],
   "ahmedalmaghribi|oudclassic": ["","https://ahmedalmaghribi.uk/products/oud-classic-perfume"],
   "ahmedalmaghribi|oudclassic|edp": ["","https://ahmedalmaghribi.uk/products/oud-classic-perfume"],
@@ -1501,6 +1503,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "armaf|odysseyseriesmandarinskydiscoveryset3x30ml|unstated": ["","https://armaf.uk/products/odyssey-mandarin-sky-discovery-set-3-x-30ml"],
   "armaf|odysseyseriesminiwhitediscoveryset4x12ml|unstated": ["","https://armaf.uk/products/odyssey-mini-white-discovery-set-4x-12ml"],
   "armaf|odysseyseriesnexus|edp": ["","https://armaf.uk/products/odyssey-nexus-eau-de-parfum-100ml"],
+  "armaf|odysseyseriespinkpop|edp": ["","https://armaf.uk/products/odyssey-pink-pop-eau-de-parfum-100ml"],
   "armaf|odysseysodapop|edp": ["","https://armaf.uk/products/odyssey-soda-pop-eau-de-parfum-100ml"],
   "armaf|odysseyspectrarainbowunisexfragrance|edp": ["","https://armaf.uk/products/odyssey-spectra-rainbow-eau-de-parfum-100ml"],
   "armaf|odysseyspectrarainbow|edp": ["","https://armaf.uk/products/odyssey-spectra-rainbow-eau-de-parfum-100ml"],
@@ -5092,6 +5095,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "laperla|villasorrento|edp": ["","https://www.beautybylaperla.com/villa-sorrento-120ml-eau-de-parfum/"],
   "lartisanparfumeur|abyssae|edp": ["","https://www.artisanparfumeur.com/uk/en_GB/p/abyssae-15ml-eau-de-parfum-15ml--000000000065180070"],
   "lartisanparfumeur|afleurdepeche|edp": ["","https://www.artisanparfumeur.com/uk/en_GB/p/a-fleur-de-peche-15ml-eau-de-parfum-15ml--000000000065187085"],
+  "lartisanparfumeur|banabanana|edp": ["","https://www.artisanparfumeur.com/uk/en_GB/p/bana-banana-eau-de-parfum-100ml--000000000065173438"],
   "lartisanparfumeur|cuirgrenat|edp": ["","https://www.artisanparfumeur.com/uk/en_GB/p/cuir-grenat-15ml-15ml-eau-de-parfum-15ml--000000000065187538"],
   "lartisanparfumeur|fablesdorient|edp": ["","https://www.artisanparfumeur.com/uk/en_GB/p/fables-d-orient-15ml-eau-de-parfum-15ml--000000000065173668"],
   "lartisanparfumeur|histoiredorangersextreme|edp": ["","https://www.artisanparfumeur.com/uk/en_GB/p/histoire-d-orangers-extreme-eau-de-parfum-100-ml--000000000065217474"],
@@ -7576,6 +7580,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "riiffs|zenith|edp": ["","https://uk.riiffsperfumes.com/product/zenith/"],
   "riiffs|zenith|extrait": ["","https://uk.riiffsperfumes.com/product/zenith/"],
   "riiffs|zenith|unstated": ["","https://uk.riiffsperfumes.com/product/zenith/"],
+  "risala|adam|edp": ["","https://risala.ae/products/adam-eau-de-parfum"],
   "risala|amalia|edp": ["","https://risala.ae/products/amalia-eau-de-parfum"],
   "risala|ameera|edp": ["","https://risala.ae/products/ameera-eau-de-parfum"],
   "risala|ameer|edp": ["","https://risala.ae/products/ameer-eau-de-parfum"],
@@ -7589,10 +7594,13 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "risala|ehsasloveperfume": ["","https://risala.ae/products/ehsas-love"],
   "risala|ehsasloveperfume|edp": ["","https://risala.ae/products/ehsas-love"],
   "risala|ehsaslove|edp": ["","https://risala.ae/products/ehsas-love"],
+  "risala|emiralsaharaaperfume|edp": ["","https://risala.ae/products/emir-al-saharaa-eau-de-parfum"],
   "risala|florican": ["","https://risala.ae/products/florican"],
   "risala|florican|edp": ["","https://risala.ae/products/florican"],
   "risala|helios|edp": ["","https://risala.ae/products/helios-eau-de-parfum"],
+  "risala|jockey|edp": ["","https://risala.ae/products/jockey-eau-de-parfum"],
   "risala|kashmir|edp": ["","https://risala.ae/products/kashmir-eau-de-parfum"],
+  "risala|meydan|edp": ["","https://risala.ae/products/meydan-eau-de-parfum"],
   "risala|najmacapella|edp": ["","https://risala.ae/products/najma-capella-eau-de-parfum"],
   "risala|najmanova|edp": ["","https://risala.ae/products/najma-nova-eau-de-parfum"],
   "risala|oasisfloraloud": ["","https://risala.ae/products/oasis-floral-oud"],
@@ -8553,6 +8561,8 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "zimaya|impulseoudunisexperfume|edp": ["","https://uk.zimayaperfumes.com/products/impulse-oud-100ml"],
   "zimaya|impulseoudunisex|edp": ["","https://uk.zimayaperfumes.com/products/impulse-oud-100ml"],
   "zimaya|impulse|unstated": ["","https://uk.zimayaperfumes.com/products/impulse-oud-100ml"],
+  "zimaya|inekasluna": ["","https://uk.zimayaperfumes.com/products/inekas-luna"],
+  "zimaya|inekasluna|edp": ["","https://uk.zimayaperfumes.com/products/inekas-luna"],
   "zimaya|inekassolis": ["","https://uk.zimayaperfumes.com/products/inekas-solis"],
   "zimaya|inekassolis|edp": ["","https://uk.zimayaperfumes.com/products/inekas-solis"],
   "zimaya|infradnoir|edp": ["","https://uk.zimayaperfumes.com/products/infrad-noir-100ml-edp"],
