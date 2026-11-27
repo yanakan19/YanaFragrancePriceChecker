@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 390,
+ "folded": 388,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -3513,7 +3513,6 @@
      "scent": "man",
      "signature": "1x100fragrance|1x50fragrance",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -5492,7 +5491,6 @@
      "scent": "boss scent",
      "signature": "1x100wash|1x50fragrance",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -6140,38 +6138,6 @@
      "signature": "4x7.5fragrance",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3660732675661",
-   "absorbed": [
-    "set-giorgio-armani-emporio-armani-stronger-with-you-intensely-gift-set-100ml-edp-15ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3660732675661",
-     "brand": "Giorgio Armani",
-     "name": "Emporio Armani Stronger With You Intensely Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3660732675661",
-     "scent": "armani emporio intensely stronger you",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-giorgio-armani-emporio-armani-stronger-with-you-intensely-gift-set-100ml-edp-15ml-edp",
-     "brand": "Giorgio Armani",
-     "name": "Emporio Armani Stronger With You Intensely Gift Set 100ml EDP + 15ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "armani emporio intensely stronger you",
-     "signature": "1x100fragrance|1x15fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -9298,38 +9264,6 @@
      "signature": "1x30fragrance|1x50body",
      "shops": [
       "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-8011003907106",
-   "absorbed": [
-    "set-versace-eros-najim-parfum-100ml-fragrance-gift-set"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003907106",
-     "brand": "Versace",
-     "name": "Eros Najim Gift Set 100ml Parfum + 10ml Parfum",
-     "concentration": "Parfum",
-     "ean": "8011003907106",
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-versace-eros-najim-parfum-100ml-fragrance-gift-set",
-     "brand": "Versace",
-     "name": "Eros Najim Parfum 100ml Fragrance Gift Set",
-     "concentration": "Parfum",
-     "ean": null,
-     "scent": "eros najim",
-     "signature": "1x100fragrance|1x10fragrance",
-     "shops": [
-      "john-lewis"
      ]
     }
    ]
@@ -13170,6 +13104,7 @@
      "scent": "q",
      "signature": "1x50fragrance|1x5fragrance",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     },
@@ -13668,6 +13603,7 @@
      "scent": "motion",
      "signature": "1x100fragrance|1x200deo",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -13774,6 +13710,7 @@
      "scent": "bliss",
      "signature": "1x100fragrance|1x240body",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     },
@@ -15328,6 +15265,7 @@
      "scent": "d eau homme issey l pour",
      "signature": "1x75fragrance|1x?deo",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -16875,6 +16813,38 @@
      "shops": [
       "beaute-boulevard",
       "mybeauty-boutique"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
+    "two different barcodes: 66667150, 66667151",
+    "a shop lists more than one: parfumdreams-uk"
+   ],
+   "members": [
+    {
+     "id": "set-ean-66667150",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667150",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
+     ]
+    },
+    {
+     "id": "set-ean-66667151",
+     "brand": "Giorgio Armani",
+     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
+     "concentration": "Eau de Parfum",
+     "ean": "66667151",
+     "scent": "1 armani emporio stk you",
+     "signature": "1x30fragrance|2x50fragrance",
+     "shops": [
+      "parfumdreams-uk"
      ]
     }
    ]
