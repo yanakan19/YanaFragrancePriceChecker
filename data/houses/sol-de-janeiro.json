@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-28T11:49:12.527Z",
-  "seenAt": "2026-11-28T11:49:12.527Z",
+  "updatedAt": "2026-11-28T15:47:20.987Z",
+  "seenAt": "2026-11-28T15:47:20.987Z",
   "source": "live",
   "listings": [
     {
@@ -1516,10 +1516,10 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "house-direct",
       "description": "Two steps to an airbrushed glow with the Glowmotions Body Oil & Brush Duo . S m ooth your favorite Glowmotions Body Oil over your skin with the blending body brush ’s soft bristles that move seamlessly over your contours for a n effortless application. .",
-      "productType": "bundle",
+      "productType": "product-type-bundle",
       "nativePrice": {
         "amount": 56,
         "currency": "USD"
