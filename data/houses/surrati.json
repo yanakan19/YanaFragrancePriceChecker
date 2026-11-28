@@ -1,9 +1,36 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-11-28T07:43:46.093Z",
-  "seenAt": "2026-11-28T07:43:46.093Z",
+  "updatedAt": "2026-11-28T11:44:26.820Z",
+  "seenAt": "2026-11-28T11:44:26.820Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "15555187015989-Default Title",
+      "url": "https://surrati.ae/products/manhattan100ml",
+      "rawTitle": "Manhattan 100ML",
+      "rawBrand": "Surrati Perfumes",
+      "ean": null,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/Manhattan100Ml.jpg?v=1795863708",
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "description": "Make a confident statement with Manhattan by Surrati , a perfume house established in 1929 . Presented in a distinct 100 ml bottle finished in warm ochre with dark marbling, a central medallion detail, and a sculpted black cap , this fragrance brings bold character to your daily rotation or fragrance collection. .",
+      "productType": null,
+      "nativePrice": {
+        "amount": 89,
+        "currency": "AED"
+      },
+      "nativeWasPrice": 178,
+      "retailerId": "surrati",
+      "firstSeenAt": "2026-11-28T11:44:26.820Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "101044394",
       "url": "https://surrati.ae/products/rawda",

@@ -1,7 +1,7 @@
 {
   "retailerId": "fenwick",
-  "updatedAt": "2026-11-28T07:43:36.574Z",
-  "seenAt": "2026-11-28T07:43:36.574Z",
+  "updatedAt": "2026-11-28T11:44:36.729Z",
+  "seenAt": "2026-11-28T11:44:36.729Z",
   "source": "live",
   "listings": [
     {
@@ -17770,7 +17770,7 @@
       "priceGbp": 36,
       "wasPriceGbp": 45,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Cosmic 2.0 by Kylie Jenner is a floral fragrance inspired by sunrise. It combines fruity notes of pear and pink pepper with vanilla orchid and lavender, creating a sweet and spicy scent. Warm amber emerges as it settles, adding a captivating touch..",
       "productType": "Women's Fragrances",
@@ -26602,7 +26602,7 @@
       "priceGbp": 42.4,
       "wasPriceGbp": 53,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Experience the bold freshness of Lacoste L.12.12 Bleu Eau de Parfum, a modern men's fragrance inspired by the iconic Lacoste polo shirt. Opening with vibrant citrus notes, it develops into an aromatic heart before settling on a warm, woody base for a confident and long-lasting finish..",
       "productType": "Men's Fragrances",

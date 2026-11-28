@@ -1,7 +1,7 @@
 {
   "retailerId": "jo-loves",
-  "updatedAt": "2026-11-28T07:49:03.161Z",
-  "seenAt": "2026-11-28T07:49:03.161Z",
+  "updatedAt": "2026-11-28T11:49:15.704Z",
+  "seenAt": "2026-11-28T11:49:15.704Z",
   "source": "live",
   "listings": [
     {
@@ -2751,7 +2751,7 @@
       "priceGbp": 42,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Experience the enchanting Orange Butterflies with the Fragrance Paintbrush™, a unique gel formula that dries in seconds for a seamless scent application. Inspired by Jo’s travels to Grasse, this radiant fragrance blends delicate florals with a warm, sunlit glow. Designed for reusability, it includes a refill, ensuring your scent stays with you longer. Contents: Orange Butterflies A Fragrance Paintbrush™ (7ml), Orange Butterflies A Fragrance Paintbrush™ Refill (7ml)",
       "productType": "Fragrance",

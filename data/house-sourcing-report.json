@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-11-28T07:49:03.699Z",
+  "checkedAt": "2026-11-28T11:49:16.254Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,7 +58,7 @@
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
       "routeUsed": null,
-      "currency": "GBP",
+      "currency": "CNY",
       "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
@@ -67,6 +67,7 @@
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
         "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "prices are in CNY, not GBP — needs a UK price source before these are comparable",
         "no listings retrieved from the storefront on this run"
       ]
     },
@@ -108,9 +109,9 @@
       "origin": "https://maisonasrar.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 132,
+      "listings": 140,
       "pricedInGbp": 0,
-      "withPhoto": 132,
+      "withPhoto": 140,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -163,9 +164,9 @@
       "origin": "https://surrati.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 96,
+      "listings": 97,
       "pricedInGbp": 0,
-      "withPhoto": 96,
+      "withPhoto": 97,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",

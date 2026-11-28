@@ -1,7 +1,7 @@
 {
   "retailerId": "saad-fragrance",
-  "updatedAt": "2026-11-28T07:43:36.574Z",
-  "seenAt": "2026-11-28T07:43:36.574Z",
+  "updatedAt": "2026-11-28T11:44:36.729Z",
+  "seenAt": "2026-11-28T11:44:36.729Z",
   "source": "live",
   "listings": [
     {
@@ -1877,7 +1877,7 @@
       "priceGbp": 34.99,
       "wasPriceGbp": 49.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "An enchanting fusion of modern sweetness and ethereal elegance, CLUB DE NUIT MALEKA is a multifaceted Eau de Parfum designed for the woman who radiates a natural, captivating charm. Housed in a bottle that reflects its luminous character, Maleka represents a sophisticated balance between playful fruitiness and a deep, gourmand warmth, offering a signature that is both contemporary and timelessly feminine. Perfect for everyday wear or special occasions, this 105ml bottle delivers a lasting impression with its refined composition. Experience the allure of a fragrance that celebrates individuality and grace.",
       "productType": "Eau De Parfum",

@@ -1,7 +1,7 @@
 {
   "retailerId": "avon",
-  "updatedAt": "2026-11-28T07:43:56.926Z",
-  "seenAt": "2026-11-28T07:43:56.926Z",
+  "updatedAt": "2026-11-28T11:45:05.169Z",
+  "seenAt": "2026-11-28T11:45:05.169Z",
   "source": "live",
   "listings": [
     {
@@ -37619,7 +37619,7 @@
       "priceGbp": 3,
       "wasPriceGbp": 5.5,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About me: The sky’s the limit with the fougère, aqua and woody aftershave of Full Speed Quantum Hair & Body Wash. Take off into the unknown with a blast of energising bergamot, fresh geranium and rich cedarwood. Product specification: • Top note: bergamot. • Middle note: geranium. • Base note: cedarwood. • 250ml. How to wear me: Start the day with the adrenaline-filled fougère, aqua and woody scented hair and body wash in the shower. Pair with the matching fragrance for limitless day ahead.",
       "productType": "FRAGRANCE",

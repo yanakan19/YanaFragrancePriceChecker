@@ -1,7 +1,7 @@
 {
   "retailerId": "emirates-oud",
-  "updatedAt": "2026-11-28T07:43:36.574Z",
-  "seenAt": "2026-11-28T07:43:36.574Z",
+  "updatedAt": "2026-11-28T11:44:36.729Z",
+  "seenAt": "2026-11-28T11:44:36.729Z",
   "source": "live",
   "listings": [
     {
@@ -14,7 +14,7 @@
       "priceGbp": 39.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Top Notes: Rose, Agarwood, Oud Heart Notes: Patchouli, Musk Base Notes: Labdanum, Mandarin Orange.",
       "productType": "Perfume",

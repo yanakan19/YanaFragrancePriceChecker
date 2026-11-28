@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-28T07:43:56.926Z",
-  "seenAt": "2026-11-28T07:43:56.926Z",
+  "updatedAt": "2026-11-28T11:45:05.169Z",
+  "seenAt": "2026-11-28T11:45:05.169Z",
   "source": "live",
   "listings": [
     {
@@ -382,7 +382,7 @@
       "priceGbp": 22.49,
       "wasPriceGbp": 24.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "DKNY Be Delicious Eau de Parfum 50ml. Key Features. ##features##. Iconic DKNY women's fragrance.. Fresh apple-inspired floral fragrance.. Crisp, juicy and energising scent profile.. Suitable for daytime and year-round wear.. Signature apple-shaped bottle design.. Convenient 50ml size.. ##end-features##. ##accordion-start##. ##accordion-item-start##. Product Details. DKNY Be Delicious Eau de Parfum is a fresh and vibrant fragrance inspired by the energy of New York City. Featuring crisp apple notes blended with floral accords and warm woods, this modern scent offers an uplifting and refreshing fragrance experience that's perfect for everyday wear.. ##accordion-item-end##. ##accordion-item-start##. How To Use. Spray onto pulse points such as wrists, neck and behind the ears. Reapply as desired.. ##accordion-item-end##. ##accordion-item-start##. Safety Information. For external use only. Avoid contact with eyes. Keep away from heat, sparks and open flames. Do not spray onto irritated or broken skin. Keep out of reach of children.. ##accordion-item-end##. ##accordion-end##.",
       "productType": "Fragrance",
