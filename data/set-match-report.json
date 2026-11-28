@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 389,
+ "folded": 388,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -494,38 +494,6 @@
      "ean": null,
      "scent": "wave",
      "signature": "1x15fragrance|1x50fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0085715676641",
-   "absorbed": [
-    "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0085715676641",
-     "brand": "Fcuk",
-     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
-     "concentration": "Eau de Toilette",
-     "ean": "0085715676641",
-     "scent": "s",
-     "signature": "4x18travel",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml",
-     "brand": "Fcuk",
-     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "s",
-     "signature": "4x18travel",
      "shops": [
       "p-eleven"
      ]
@@ -13370,6 +13338,37 @@
   },
   {
    "reasons": [
+    "price spread 1.63 is over 1.5"
+   ],
+   "members": [
+    {
+     "id": "set-ean-0085715676641",
+     "brand": "Fcuk",
+     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
+     "concentration": "Eau de Toilette",
+     "ean": "0085715676641",
+     "scent": "s",
+     "signature": "4x18travel",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-fcuk-gift-set-eau-de-toilette-pocket-sprays-for-him-4x18ml",
+     "brand": "Fcuk",
+     "name": "Gift Set Eau De Toilette Pocket Sprays For Him 4x18ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "s",
+     "signature": "4x18travel",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "reasons": [
     "two different barcodes: 85715676726, 85715676733",
     "a shop lists more than one: p-eleven, perfume-click"
    ],
@@ -14914,7 +14913,7 @@
   },
   {
    "reasons": [
-    "price spread 1.83 is over 1.5"
+    "price spread 1.60 is over 1.5"
    ],
    "members": [
     {
@@ -15522,7 +15521,7 @@
   },
   {
    "reasons": [
-    "price spread 1.70 is over 1.5"
+    "price spread 1.59 is over 1.5"
    ],
    "members": [
     {
@@ -16859,22 +16858,9 @@
   },
   {
    "reasons": [
-    "two different barcodes: 8011003900121, 8011003919253",
     "price spread 1.56 is over 1.5"
    ],
    "members": [
-    {
-     "id": "set-ean-8011003900121",
-     "brand": "Moschino",
-     "name": "Toy 2 Gift Set 50ml EDP + 50ml Body Lotion + 50ml Shower Gel",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003900121",
-     "scent": "2 toy",
-     "signature": "1x50body|1x50fragrance|1x50wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
     {
      "id": "set-ean-8011003919253",
      "brand": "Moschino",
