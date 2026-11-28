@@ -1,6 +1,6 @@
 {
  "note": "Written by scripts/build-demo-catalogue.ts (src/catalogue/setMatch.ts). groups were folded into one set; refused were left apart for a person to look at.",
- "folded": 393,
+ "folded": 390,
  "groups": [
   {
    "canonical": "set-125th-bloom-eau-de-parfum-3x10-ml",
@@ -193,6 +193,51 @@
      "signature": "1x150wash|1x30fragrance",
      "shops": [
       "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-cristiano-ronaldo-cr7-fearless-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
+   "absorbed": [
+    "set-cristiano-ronaldo-cr7-fearless-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
+    "set-cristiano-ronaldo-cr7-fearless-gift-set-edt-100ml-s-gel-150ml-b-spray-150ml"
+   ],
+   "members": [
+    {
+     "id": "set-cristiano-ronaldo-cr7-fearless-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
+     "brand": "Cristiano Ronaldo",
+     "name": "Cr7 Fearless 3 Piece Gift Set: Eau de Toilette 100ml - Shower Gel 150ml - Body Spray 150ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 fearless",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "mybeauty-boutique"
+     ]
+    },
+    {
+     "id": "set-cristiano-ronaldo-cr7-fearless-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Fearless Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 fearless",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "p-eleven"
+     ]
+    },
+    {
+     "id": "set-cristiano-ronaldo-cr7-fearless-gift-set-edt-100ml-s-gel-150ml-b-spray-150ml",
+     "brand": "Cristiano Ronaldo",
+     "name": "CR7 Fearless Gift Set EDT 100ml + S/Gel 150ml + B/Spray 150ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "cr7 fearless",
+     "signature": "1x100fragrance|1x150body|1x150wash",
+     "shops": [
+      "the-beauty-store-uk"
      ]
     }
    ]
@@ -1125,38 +1170,6 @@
      "signature": "1x100fragrance|1x100wash",
      "shops": [
       "beaute-boulevard",
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-0679602793643",
-   "absorbed": [
-    "set-police-to-be-camouflage-gift-set-75ml-edt-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-0679602793643",
-     "brand": "Police",
-     "name": "To Be Camouflage Gift Set 75ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "0679602793643",
-     "scent": "be camouflage to",
-     "signature": "1x100wash|1x75fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-police-to-be-camouflage-gift-set-75ml-edt-100ml-shower-gel",
-     "brand": "Police",
-     "name": "To Be Camouflage Gift Set 75ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "be camouflage to",
-     "signature": "1x100wash|1x75fragrance",
-     "shops": [
       "mybeauty-boutique"
      ]
     }
@@ -4960,38 +4973,6 @@
    ]
   },
   {
-   "canonical": "set-ean-3614275037813",
-   "absorbed": [
-    "set-giorgio-armani-my-way-gift-set-30ml-edp-10ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3614275037813",
-     "brand": "Giorgio Armani",
-     "name": "My Way Gift Set 30ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "3614275037813",
-     "scent": "my way",
-     "signature": "1x10fragrance|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-giorgio-armani-my-way-gift-set-30ml-edp-10ml-edp",
-     "brand": "Giorgio Armani",
-     "name": "My Way Gift Set 30ml EDP + 10ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "my way",
-     "signature": "1x10fragrance|1x30fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-3616303455309",
    "absorbed": [
     "set-calvin-klein-obsession-for-men-3-piece-gift-set-eau-de-toilette-125ml-aftershave-balm-75ml-deodorant-stick-75g",
@@ -5289,6 +5270,38 @@
    ]
   },
   {
+   "canonical": "set-ean-3616304974465",
+   "absorbed": [
+    "set-chloe-miniature-women-s-perfume-gift-set-4-x-5ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3616304974465",
+     "brand": "Chloé",
+     "name": "Chloe Miniatures Women's Perfume Gift Set 4 x 5ml",
+     "concentration": "Not stated",
+     "ean": "3616304974465",
+     "scent": "chloe",
+     "signature": "4x5fragrance",
+     "shops": [
+      "perfume-direct"
+     ]
+    },
+    {
+     "id": "set-chloe-miniature-women-s-perfume-gift-set-4-x-5ml",
+     "brand": "Chloé",
+     "name": "Chloe Miniature Women's Perfume Gift Set 4 x 5ml",
+     "concentration": "Not stated",
+     "ean": null,
+     "scent": "chloe",
+     "signature": "4x5fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
    "canonical": "set-ean-3616304974489",
    "absorbed": [
     "set-chloe-20ml-eau-de-parfum-chloe-nomade-20ml-eau-de-parfum-gift-set-for-her",
@@ -5523,39 +5536,6 @@
      "ean": null,
      "scent": "euphoria",
      "signature": "1x100body|1x50fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
-   "canonical": "set-ean-3616305439529",
-   "absorbed": [
-    "set-hugo-boss-boss-the-scent-gift-set-50ml-edt-100ml-shower-gel"
-   ],
-   "members": [
-    {
-     "id": "set-ean-3616305439529",
-     "brand": "Hugo Boss",
-     "name": "Boss The Scent Gift Set 50ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "3616305439529",
-     "scent": "boss scent",
-     "signature": "1x100wash|1x50fragrance",
-     "shops": [
-      "perfume-click",
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-hugo-boss-boss-the-scent-gift-set-50ml-edt-100ml-shower-gel",
-     "brand": "Hugo Boss",
-     "name": "Boss The Scent Gift Set 50ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "boss scent",
-     "signature": "1x100wash|1x50fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -6105,6 +6085,38 @@
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "blue polo",
+     "signature": "1x125fragrance|1x15fragrance",
+     "shops": [
+      "the-beauty-store-uk"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-3660732601424",
+   "absorbed": [
+    "set-ralph-lauren-polo-red-gift-set-edt-125ml-edt-15ml"
+   ],
+   "members": [
+    {
+     "id": "set-ean-3660732601424",
+     "brand": "Ralph Lauren",
+     "name": "Polo Red Gift Set 125ml EDT + 15ml EDT",
+     "concentration": "Eau de Toilette",
+     "ean": "3660732601424",
+     "scent": "polo red",
+     "signature": "1x125fragrance|1x15fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-ralph-lauren-polo-red-gift-set-edt-125ml-edt-15ml",
+     "brand": "Ralph Lauren",
+     "name": "Polo Red Gift Set EDT 125ml + EDT 15ml",
+     "concentration": "Eau de Toilette",
+     "ean": null,
+     "scent": "polo red",
      "signature": "1x125fragrance|1x15fragrance",
      "shops": [
       "the-beauty-store-uk"
@@ -7705,64 +7717,6 @@
    ]
   },
   {
-   "canonical": "set-ean-5060524511395",
-   "absorbed": [
-    "set-cristiano-ronaldo-cr7-fearless-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
-    "set-cristiano-ronaldo-cr7-fearless-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
-    "set-cristiano-ronaldo-cr7-fearless-gift-set-edt-100ml-s-gel-150ml-b-spray-150ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-5060524511395",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Fearless Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": "5060524511395",
-     "scent": "cr7 fearless",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-fearless-3-piece-gift-set-eau-de-toilette-100ml-shower-gel-150ml-body-spray-150ml",
-     "brand": "Cristiano Ronaldo",
-     "name": "Cr7 Fearless 3 Piece Gift Set: Eau de Toilette 100ml - Shower Gel 150ml - Body Spray 150ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 fearless",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-fearless-gift-set-100ml-edt-150ml-shower-gel-150ml-body-spray",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Fearless Gift Set 100ml EDT + 150ml Shower Gel + 150ml Body Spray",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 fearless",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "p-eleven"
-     ]
-    },
-    {
-     "id": "set-cristiano-ronaldo-cr7-fearless-gift-set-edt-100ml-s-gel-150ml-b-spray-150ml",
-     "brand": "Cristiano Ronaldo",
-     "name": "CR7 Fearless Gift Set EDT 100ml + S/Gel 150ml + B/Spray 150ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "cr7 fearless",
-     "signature": "1x100fragrance|1x150body|1x150wash",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-5060753160364",
    "absorbed": [
     "set-lambretta-intense-gift-set-100ml-edp-150ml-shower-gel-150ml-aftershave-lotion"
@@ -9033,38 +8987,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8011003877287",
-   "absorbed": [
-    "set-dsquared-original-wood-gift-set-100ml-edp-30ml-edp"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8011003877287",
-     "brand": "Dsquared2",
-     "name": "DSquared² Original Wood Gift Set 100ml EDP + 30ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": "8011003877287",
-     "scent": "dsquared original wood",
-     "signature": "1x100fragrance|1x30fragrance",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-dsquared-original-wood-gift-set-100ml-edp-30ml-edp",
-     "brand": "Dsquared2",
-     "name": "DSquared² Original Wood Gift Set 100ml EDP + 30ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "dsquared original wood",
-     "signature": "1x100fragrance|1x30fragrance",
-     "shops": [
-      "p-eleven"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8011003899876",
    "absorbed": [
     "set-versace-eros-pour-femme-gift-set-100ml-edp-5ml-edp-100ml-body-lotion-100ml-shower-gel",
@@ -9522,6 +9444,38 @@
      "ean": null,
      "scent": "eros",
      "signature": "1x100fragrance|1x10fragrance|1x?other",
+     "shops": [
+      "p-eleven"
+     ]
+    }
+   ]
+  },
+  {
+   "canonical": "set-ean-8011003919406",
+   "absorbed": [
+    "set-dsquared-original-wood-gift-set-100ml-edp-30ml-edp"
+   ],
+   "members": [
+    {
+     "id": "set-ean-8011003919406",
+     "brand": "Dsquared2",
+     "name": "DSquared² Original Wood Gift Set 100ml EDP + 30ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": "8011003919406",
+     "scent": "dsquared original wood",
+     "signature": "1x100fragrance|1x30fragrance",
+     "shops": [
+      "perfume-click"
+     ]
+    },
+    {
+     "id": "set-dsquared-original-wood-gift-set-100ml-edp-30ml-edp",
+     "brand": "Dsquared2",
+     "name": "DSquared² Original Wood Gift Set 100ml EDP + 30ml EDP",
+     "concentration": "Eau de Parfum",
+     "ean": null,
+     "scent": "dsquared original wood",
+     "signature": "1x100fragrance|1x30fragrance",
      "shops": [
       "p-eleven"
      ]
@@ -10411,38 +10365,6 @@
    ]
   },
   {
-   "canonical": "set-ean-8411061101957",
-   "absorbed": [
-    "set-carolina-herrera-bad-boy-2-piece-gift-set-eau-de-toilette-100ml-body-wash-100ml"
-   ],
-   "members": [
-    {
-     "id": "set-ean-8411061101957",
-     "brand": "Carolina Herrera",
-     "name": "Bad Boy Gift Set 100ml EDT + 100ml Shower Gel",
-     "concentration": "Eau de Toilette",
-     "ean": "8411061101957",
-     "scent": "bad boy",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "perfume-click"
-     ]
-    },
-    {
-     "id": "set-carolina-herrera-bad-boy-2-piece-gift-set-eau-de-toilette-100ml-body-wash-100ml",
-     "brand": "Carolina Herrera",
-     "name": "Bad Boy 2 Piece Gift Set: Eau De Toilette 100ml - Body Wash 100ml",
-     "concentration": "Eau de Toilette",
-     "ean": null,
-     "scent": "bad boy",
-     "signature": "1x100fragrance|1x100wash",
-     "shops": [
-      "mybeauty-boutique"
-     ]
-    }
-   ]
-  },
-  {
    "canonical": "set-ean-8411061111321",
    "absorbed": [
     "set-carolina-herrera-la-bomba-gift-set-80ml-edp-10ml-edp"
@@ -10815,13 +10737,12 @@
     {
      "id": "set-ean-8435415092111",
      "brand": "Jean Paul Gaultier",
-     "name": "Classique Gift Set 100ml EDT + 20ml EDT",
+     "name": "Classique Eau de Toilette Women's Perfume Gift Set Spray (100ml) with 20ml EDT",
      "concentration": "Eau de Toilette",
      "ean": "8435415092111",
      "scent": "classique",
      "signature": "1x100fragrance|1x20fragrance",
      "shops": [
-      "perfume-click",
       "perfume-direct"
      ]
     },
@@ -12805,50 +12726,6 @@
      "signature": "3x20fragrance",
      "shops": [
       "john-lewis"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
-    "two different barcodes: 3616304974465, 3616305270559",
-    "a shop lists more than one: perfume-direct"
-   ],
-   "members": [
-    {
-     "id": "set-chloe-miniature-women-s-perfume-gift-set-4-x-5ml",
-     "brand": "Chloé",
-     "name": "Chloe Miniature Women's Perfume Gift Set 4 x 5ml",
-     "concentration": "Not stated",
-     "ean": null,
-     "scent": "chloe",
-     "signature": "4x5fragrance",
-     "shops": [
-      "the-beauty-store-uk"
-     ]
-    },
-    {
-     "id": "set-ean-3616304974465",
-     "brand": "Chloé",
-     "name": "Chloe Miniatures Women's Perfume Gift Set 4 x 5ml",
-     "concentration": "Not stated",
-     "ean": "3616304974465",
-     "scent": "chloe",
-     "signature": "4x5fragrance",
-     "shops": [
-      "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-ean-3616305270559",
-     "brand": "Chloé",
-     "name": "Chloe Miniatures Eau de Parfum Miniatures Gift Set (4 x 5ml)",
-     "concentration": "Eau de Parfum",
-     "ean": "3616305270559",
-     "scent": "chloe",
-     "signature": "4x5fragrance",
-     "shops": [
-      "perfume-direct"
      ]
     }
    ]
@@ -15677,7 +15554,7 @@
   },
   {
    "reasons": [
-    "price spread 1.59 is over 1.5"
+    "price spread 1.70 is over 1.5"
    ],
    "members": [
     {
