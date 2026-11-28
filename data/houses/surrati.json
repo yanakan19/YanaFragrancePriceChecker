@@ -1,7 +1,7 @@
 {
   "retailerId": "surrati",
-  "updatedAt": "2026-11-28T04:03:55.332Z",
-  "seenAt": "2026-11-28T04:03:55.332Z",
+  "updatedAt": "2026-11-28T07:43:46.093Z",
+  "seenAt": "2026-11-28T07:43:46.093Z",
   "source": "live",
   "listings": [
     {
@@ -66,7 +66,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Surrati Black Oud (العود الأسود), Extrait de Aoud, 150 ml.. Dive into the depths of elegance. A mesmerizing fragrance featuring woody white florals, a romantic rose heart, and a sweet, fresh spicy base, elevated by rich fruity oud..",
       "productType": "Unisex Perfume",
@@ -92,7 +92,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Surrati Hajar Al Aswad Eau De Parfum (140ml). Immerse yourself in timeless Arabian prestige. . Named after the revered Black Stone, Hajar Al Aswad by Surrati is a bold, deeply captivating fragrance that embodies power, luxury, and spiritual heritage . Encased in an opulent glossy black flacon finished with ornate antique-gold detailing and an engraved dome cap, it is crafted for those who command presence without uttering a word . .",
       "productType": "Men's Perfume",

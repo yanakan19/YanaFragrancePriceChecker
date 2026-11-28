@@ -1,7 +1,7 @@
 {
   "retailerId": "sol-de-janeiro",
-  "updatedAt": "2026-11-28T04:08:53.566Z",
-  "seenAt": "2026-11-28T04:08:53.566Z",
+  "updatedAt": "2026-11-28T07:49:01.128Z",
+  "seenAt": "2026-11-28T07:49:01.128Z",
   "source": "live",
   "listings": [
     {
@@ -354,7 +354,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": null,
       "productType": null,
@@ -961,7 +961,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Cheirosa means to smell incredibly delicious. It’s also an invitation to live your most delicious life. Spritz your fave, try something new, or layer for nonstop compliments. . . Our limited-edition, ready-to-gift set features three best-selling perfume mists: irresistible & sunny Cheirosa 62™, flirty & confident Cheirosa 91, and blissful & comforting Cheirosa 59. .",
       "productType": "Holiday Set-dg",
@@ -17917,7 +17917,7 @@
       "priceGbp": null,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Our hand cream is now more moisturizing than ever to nourish even the driest hands – delivering everything from instant dry skin rescue to spa-like pampering, any time. .",
       "productType": "Body Cream",
