@@ -1,7 +1,7 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-11-28T00:10:04.166Z",
-  "seenAt": "2026-11-28T00:10:04.166Z",
+  "updatedAt": "2026-11-28T04:03:52.501Z",
+  "seenAt": "2026-11-28T04:03:52.501Z",
   "source": "live",
   "listings": [
     {
@@ -20783,7 +20783,7 @@
       "priceGbp": 15.92,
       "wasPriceGbp": 19.9,
       "promoEndsAt": null,
-      "inStock": false,
+      "inStock": true,
       "sectionId": "shopify-products-json",
       "description": "A multi-purpose repairing balm that soothes, restores and protects baby's delicate skin. Ideal as an every day nappy change balm.. It acts as a barrier after each nappy change, to help care for baby's skin and protect it against the causes of nappy rash. Specifically formulated for use by the whole family (adults, children and babies) on a wide range of common skin irritations including: . Nappy rash. Cradle Cap. Eczema flare-ups. Dry or rough patches. Chapped and cracked skin. Minor injuries eg. scrapes and grazes. Insect bites. Soothes, restores and protects skin from infection . . . How to Use Apply after each nappy change to baby's clean, dry bottom after each nappy change. Can be applied to body, face and lips. Avoid the eye contour area.. If using on wounds, clean skin first and then apply a generous layer of Cicaplast. . Active Ingredients Containing 5% panthenol, Cicaplast immediately helps soothe irritated skin and accelerate the skin's natural repair process. At the same time, Cicaplast's antibacterial action helps protect broken skin from infection. When used on wounds, Cicaplast provides a healthy healing environment to help prevent long-term scarring.. Dermatologically Tested Cicaplast has been through rigorous dermatological testing to ensure it is suitable for use on even the most sensitive skin - including babies from one week old.. . .",
       "productType": "Skincare",
@@ -107145,8 +107145,8 @@
       "rawBrand": "GUERLAIN",
       "ean": null,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0853/1863/1748/files/GUERLAIN_Orchidee_Imperiale_The_Micro-Lift_Concentrate_Serum_30ml.png?v=1749725804",
-      "priceGbp": 200,
-      "wasPriceGbp": 440,
+      "priceGbp": 440,
+      "wasPriceGbp": null,
       "promoEndsAt": null,
       "inStock": true,
       "sectionId": "shopify-products-json",

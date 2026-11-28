@@ -1,7 +1,7 @@
 {
   "retailerId": "perfume-direct",
-  "updatedAt": "2026-11-28T00:10:06.305Z",
-  "seenAt": "2026-11-28T00:10:06.305Z",
+  "updatedAt": "2026-11-28T04:03:54.125Z",
+  "seenAt": "2026-11-28T04:03:54.125Z",
   "source": "live",
   "listings": [
     {
@@ -55780,7 +55780,7 @@
       "priceGbp": 21.99,
       "wasPriceGbp": 29.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "About The Product: Indulge in the festive spirit with the Yankee Candle Holiday Cheer Signature Large Jar Candle. This beautifully crafted candle infuses your home with the delightful aroma of seasonal spices, warm cinnamon, and sweet vanilla. Its long-lasting burn ensures hours of comforting fragrance, making it perfect for cosy winter evenings. Encased in a classic large jar, it adds a touch of elegance and warmth to any room, making it an ideal gift or self-treat.. Convenient and easy to use, the candle is made with premium-grade paraffin wax and the finest quality ingredients. The wick has 100% natural fibres, rigorously tested for the best burn possible. The vessel is a classic glass apothecary jar with a glass dome lid.. Fragrance Notes: Top notes: Cardamom, Liquorice, Pepper Middle notes: Orchid, Plum, Blackberry Wine Base notes: Amber, Vanilla Sugar, Tonka Bean. Burn Time: 60-90 Hours. Weight: 567g. Dimensions: 9.3cm x 15.7cm.",
       "productType": "Candle",

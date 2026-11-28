@@ -1,7 +1,7 @@
 {
   "retailerId": "ibraq",
-  "updatedAt": "2026-11-28T00:10:06.305Z",
-  "seenAt": "2026-11-28T00:10:06.305Z",
+  "updatedAt": "2026-11-28T04:03:54.125Z",
+  "seenAt": "2026-11-28T04:03:54.125Z",
   "source": "live",
   "listings": [
     {
@@ -1210,7 +1210,7 @@
       "priceGbp": 49.99,
       "wasPriceGbp": 59.99,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Rich Dark Lavender Perfume. In the midst of calm and refreshing lavender fields, you will find yourself surrounded by a luxurious bouquet of vanilla flowers wrapped in a piece of leather, while your senses will be flooded with the scent of iris flowers harmonious with many attractive ingredients to soothe your soul with an aromatic scent full of luxury.. Notes: . Top notes: Lavender, Musk. Heart notes: Vanilla and Leather. Base notes: Floral, Orris. . .",
       "productType": "Arabic Perfumes",

@@ -1,7 +1,7 @@
 {
   "retailerId": "the-beauty-store-uk",
-  "updatedAt": "2026-11-28T00:10:04.166Z",
-  "seenAt": "2026-11-28T00:10:04.166Z",
+  "updatedAt": "2026-11-28T04:03:52.501Z",
+  "seenAt": "2026-11-28T04:03:52.501Z",
   "source": "live",
   "listings": [
     {
@@ -4269,7 +4269,7 @@
       "priceGbp": 47.75,
       "wasPriceGbp": 100,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": ". Jean Paul Gaultier Le Male Le Parfum Eau de Parfum Spray 125ml Tester.",
       "productType": "Eau de Parfum",
@@ -49671,7 +49671,7 @@
       "priceGbp": 27.28,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Clinique Even Better Makeup Spf 15 Meringue Foundation 30ml.",
       "productType": "Foundation",
@@ -91577,7 +91577,7 @@
       "priceGbp": 4.65,
       "wasPriceGbp": 4.95,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Louis Cardin Illusion Deodorant Spray 200ml.",
       "productType": "Deodorant Spray",
