@@ -6,7 +6,7 @@
 //
 // Regenerate: npm run links:resolve
 
-export const FRAGRANCE_LINKS_AT = "2026-11-27T12:21:34.358Z";
+export const FRAGRANCE_LINKS_AT = "2026-11-28T11:46:02.490Z";
 
 export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "100bon|davanavanille": ["","https://www.100bon.com/products/davana-vanille-50ml"],
@@ -1691,6 +1691,7 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "atelierdesors|rougesaray": ["","https://atelierdesors.com/products/rouge-saray"],
   "atelierdesors|rougesaray|edp": ["","https://atelierdesors.com/products/rouge-saray"],
   "atelierdesors|villaprimerose": ["","https://atelierdesors.com/products/villa-primerose"],
+  "atelierdesors|villaprimerose|edp": ["","https://atelierdesors.com/products/villa-primerose"],
   "atelierdesors|villaprimerose|extrait": ["","https://atelierdesors.com/products/villa-primerose"],
   "atkinsons|24oldbondstreet": ["","https://www.atkinsons1799.com/products/24-old-bond-street"],
   "atkinsons|24oldbondstreettripleextract": ["","https://www.atkinsons1799.com/products/24-old-bond-streettriple-extract"],
@@ -3555,11 +3556,13 @@ export const FRAGRANCE_LINKS: Record<string, readonly [string, string]> = {
   "exnihilo|generations": ["","https://www.ex-nihilo-paris.com/products/generations"],
   "exnihilo|generations|edp": ["","https://www.ex-nihilo-paris.com/products/generations"],
   "exnihilo|goldimmortals|edp": ["","https://www.ex-nihilo-paris.com/products/gold-immortals-eau-de-parfum"],
+  "exnihilo|goldimmortals|extrait": ["","https://www.ex-nihilo-paris.com/products/gold-immortals-extrait-de-parfum"],
   "exnihilo|irisporcelana|edp": ["","https://www.ex-nihilo-paris.com/products/iris-porcelana-eau-de-parfum"],
   "exnihilo|loveshot|edp": ["","https://www.ex-nihilo-paris.com/products/love-shot-eau-de-parfum"],
   "exnihilo|lustinparadise|edp": ["","https://www.ex-nihilo-paris.com/products/lust-in-paradise-eau-de-parfum"],
   "exnihilo|lustinparadise|extrait": ["","https://www.ex-nihilo-paris.com/products/lust-in-paradise-extrait-de-parfum"],
   "exnihilo|midnightspecial|edp": ["","https://www.ex-nihilo-paris.com/products/midnight-special-eau-de-parfum"],
+  "exnihilo|muscinfini|edp": ["","https://www.ex-nihilo-paris.com/products/musc-infini-eau-de-parfum"],
   "exnihilo|mysweetestmorphine|edp": ["","https://www.ex-nihilo-paris.com/products/my-sweetest-morphine-eau-de-parfum"],
   "exnihilo|oudvendome|edp": ["","https://www.ex-nihilo-paris.com/products/oud-vendome-eau-de-parfum"],
   "exnihilo|outcastblue|edp": ["","https://www.ex-nihilo-paris.com/products/outcast-blue-eau-de-parfum"],
