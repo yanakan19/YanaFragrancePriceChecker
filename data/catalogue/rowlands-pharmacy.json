@@ -1,7 +1,7 @@
 {
   "retailerId": "rowlands-pharmacy",
-  "updatedAt": "2026-11-28T15:41:06.169Z",
-  "seenAt": "2026-11-28T15:41:06.169Z",
+  "updatedAt": "2026-11-28T19:50:08.091Z",
+  "seenAt": "2026-11-28T19:50:08.091Z",
   "source": "live",
   "listings": [
     {
@@ -934,7 +934,7 @@
       "priceGbp": 18,
       "wasPriceGbp": 20,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Clinique Happy Eau De Parfum 30ml. Product Features. ##features##. Bright Citrus Opening – Energizing top notes of ruby red grapefruit, mandarin, and bergamot. . Floral Heart – A delicate blend of Hawaiian wedding flower, freesia, and morning orchid. . Soft & Sensual Base – Warm undertones of mimosa and transparent wood accord for lasting elegance. . Light & Refreshing – A feel-good fragrance that’s perfect for everyday wear. . Portable 30ml Size – Ideal for travel or on-the-go freshness. . ##end-features##. Product Description. Experience the uplifting essence of Clinique Happy Eau De Parfum 30ml, a vibrant fragrance designed to spark joy and positivity. This citrus-floral blend combines fresh, fruity notes with delicate florals, creating a scent that feels light, refreshing, and effortlessly happy. Perfect for daily wear, this iconic perfume is a timeless choice for those who love a fragrance that radiates warmth and optimism..",
       "productType": "Fragrance",

@@ -1,7 +1,7 @@
 {
   "retailerId": "the-body-shop",
-  "updatedAt": "2026-11-28T15:47:23.206Z",
-  "seenAt": "2026-11-28T15:47:23.206Z",
+  "updatedAt": "2026-11-28T19:54:48.088Z",
+  "seenAt": "2026-11-28T19:54:48.088Z",
   "source": "live",
   "listings": [
     {
@@ -129,7 +129,7 @@
       "priceGbp": 15,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "house-direct",
       "description": "Treat yourself from top to toe with a bundle of hair-loving essentials and feel-good body care favourites. Limited stock available..",
       "productType": "Bath and Body gifts",

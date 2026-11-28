@@ -1,7 +1,7 @@
 {
   "retailerId": "perfumoi",
-  "updatedAt": "2026-11-28T15:41:09.378Z",
-  "seenAt": "2026-11-28T15:41:09.378Z",
+  "updatedAt": "2026-11-28T19:50:38.033Z",
+  "seenAt": "2026-11-28T19:50:38.033Z",
   "source": "live",
   "listings": [
     {
@@ -7696,7 +7696,7 @@
       "priceGbp": 26.99,
       "wasPriceGbp": null,
       "promoEndsAt": null,
-      "inStock": true,
+      "inStock": false,
       "sectionId": "shopify-products-json",
       "description": "Afnan 9pm Eau de Parfum is a warm fragrance created for customers who enjoy a modern scent. It opens with a fresh fruity-spiced first impression, develops into an aromatic heart, and settles into a smooth lasting base. Suitable for evening wear and cooler weather, this fragrance is a strong choice for anyone looking for a confident and stylish scent.. Why customers choose it . Well-suited for evenings and dressier occasions. A great option for evening wear and special events. Designed for customers who prefer fruity and spicy scents.",
       "productType": "Eau de Parfum",
