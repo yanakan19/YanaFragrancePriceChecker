@@ -2208,6 +2208,7 @@
      "scent": "absolue by flower kenzo l",
      "signature": "1x100fragrance|1x10fragrance|1x75body",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -2275,6 +2276,7 @@
      "scent": "gentleman society",
      "signature": "1x100fragrance|1x12.5fragrance",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     },
@@ -4231,7 +4233,6 @@
      "scent": "d eau issey l",
      "signature": "1x100fragrance|1x75body",
      "shops": [
-      "beaute-boulevard",
       "mybeauty-boutique",
       "p-eleven"
      ]
@@ -9265,6 +9266,7 @@
      "scent": "boy toy",
      "signature": "1x10fragrance|1x?wash|2x100fragrance",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -13198,7 +13200,8 @@
   {
    "reasons": [
     "strengths differ: Eau de Parfum, Eau de Toilette",
-    "two different barcodes: 3423222066185, 8057971185498"
+    "two different barcodes: 3423222066185, 8057971185498",
+    "a shop lists more than one: beaute-boulevard"
    ],
    "members": [
     {
@@ -13228,12 +13231,13 @@
     {
      "id": "set-dolce-gabbana-k-gift-set-100ml-edt-50ml-aftershave-balm-50ml-shower-gel",
      "brand": "Dolce & Gabbana",
-     "name": "K Gift Set 100ml EDT + 50ml Aftershave Balm + 50ml Shower Gel",
+     "name": "K Gift Set 100ml Edt + 50ml Aftershave Balm + 50ml Shower Gel",
      "concentration": "Eau de Toilette",
      "ean": null,
      "scent": "k",
      "signature": "1x100fragrance|1x50body|1x50wash",
      "shops": [
+      "beaute-boulevard",
       "mybeauty-boutique"
      ]
     },
@@ -13321,6 +13325,7 @@
      "scent": "one",
      "signature": "1x10fragrance|1x50body|1x75fragrance",
      "shops": [
+      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -13807,7 +13812,6 @@
      "scent": "fire",
      "signature": "1x100fragrance|1x200deo",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
@@ -14423,18 +14427,6 @@
      "shops": [
       "perfume-click",
       "perfume-direct"
-     ]
-    },
-    {
-     "id": "set-paco-rabanne-lady-million-gift-set-80ml-edp-20ml-edp-80ml-edp",
-     "brand": "Rabanne",
-     "name": "Paco Rabanne Lady Million Gift Set 80ml EDP + 20ml EDP 80ml EDP",
-     "concentration": "Eau de Parfum",
-     "ean": null,
-     "scent": "lady million paco rabanne",
-     "signature": "1x20fragrance|1x80fragrance",
-     "shops": [
-      "beaute-boulevard"
      ]
     }
    ]
@@ -16827,38 +16819,6 @@
   },
   {
    "reasons": [
-    "two different barcodes: 66667150, 66667151",
-    "a shop lists more than one: parfumdreams-uk"
-   ],
-   "members": [
-    {
-     "id": "set-ean-66667150",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667150",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    },
-    {
-     "id": "set-ean-66667151",
-     "brand": "Giorgio Armani",
-     "name": "Armani Emporio Armani You Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml Armani Emporio Armani You Eau de Parfum Spray 30.00 ml + Eau de Parfum Spray 50.00 ml / 1 Stk.",
-     "concentration": "Eau de Parfum",
-     "ean": "66667151",
-     "scent": "1 armani emporio stk you",
-     "signature": "1x30fragrance|2x50fragrance",
-     "shops": [
-      "parfumdreams-uk"
-     ]
-    }
-   ]
-  },
-  {
-   "reasons": [
     "price spread 2.12 is over 1.5"
    ],
    "members": [
@@ -17700,7 +17660,6 @@
      "scent": "bliss",
      "signature": "1x100fragrance|1x240body",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     },
@@ -17775,7 +17734,6 @@
      "scent": "motion",
      "signature": "1x100fragrance|1x200deo",
      "shops": [
-      "beaute-boulevard",
       "p-eleven"
      ]
     }
